@@ -16,10 +16,10 @@ import com.bytedance.sdk.openadsdk.core.video.renderview.b;
 public class SSRenderTextureView extends TextureView implements TextureView.SurfaceTextureListener, b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f28459a;
+    public a f29333a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b.a f28460b;
+    public b.a f29334b;
 
     public SSRenderTextureView(Context context) {
         this(context, null);
@@ -27,7 +27,7 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.b
     public void a(a aVar) {
-        this.f28459a = aVar;
+        this.f29333a = aVar;
         setSurfaceTextureListener(this);
     }
 
@@ -56,51 +56,51 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
     }
 
     @Override // android.view.TextureView, android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        a aVar = this.f28459a;
+    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
+        a aVar = this.f29333a;
         if (aVar != null) {
-            aVar.a(surfaceTexture, i, i2);
+            aVar.a(surfaceTexture, i2, i3);
         }
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        a aVar = this.f28459a;
+        a aVar = this.f29333a;
         return aVar != null && aVar.a(surfaceTexture);
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-        a aVar = this.f28459a;
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
+        a aVar = this.f29333a;
         if (aVar != null) {
-            aVar.b(surfaceTexture, i, i2);
+            aVar.b(surfaceTexture, i2, i3);
         }
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-        a aVar = this.f28459a;
+        a aVar = this.f29333a;
         if (aVar != null) {
             aVar.b(surfaceTexture);
         }
     }
 
     @Override // android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
-        b.a aVar = this.f28460b;
+    public void onWindowVisibilityChanged(int i2) {
+        super.onWindowVisibilityChanged(i2);
+        b.a aVar = this.f29334b;
         if (aVar != null) {
-            aVar.a(i);
+            aVar.a(i2);
         }
     }
 
     public void setWindowVisibilityChangedListener(b.a aVar) {
-        this.f28460b = aVar;
+        this.f29334b = aVar;
     }
 
     public SSRenderTextureView(Context context, AttributeSet attributeSet) {
@@ -108,10 +108,10 @@ public class SSRenderTextureView extends TextureView implements TextureView.Surf
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.b
-    public void a(int i, int i2) {
+    public void a(int i2, int i3) {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
-        layoutParams.height = i2;
-        layoutParams.width = i;
+        layoutParams.height = i3;
+        layoutParams.width = i2;
         setLayoutParams(layoutParams);
     }
 }

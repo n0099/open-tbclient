@@ -23,16 +23,16 @@ public class BIMSyncRtcInfo extends BIMRtcInfo {
         return this.mInviteId;
     }
 
-    public void setAnswerType(int i) {
-        this.mAnswerType = i;
+    public void setAnswerType(int i2) {
+        this.mAnswerType = i2;
     }
 
     public void setInitiatorUk(long j) {
         this.mInitiatorUk = j;
     }
 
-    public void setInviteId(int i) {
-        this.mInviteId = i;
+    public void setInviteId(int i2) {
+        this.mInviteId = i2;
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo

@@ -7,11 +7,11 @@ import org.apache.http.HttpResponseInterceptor;
 public interface HttpResponseInterceptorList {
     void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor);
 
-    void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i);
+    void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i2);
 
     void clearResponseInterceptors();
 
-    HttpResponseInterceptor getResponseInterceptor(int i);
+    HttpResponseInterceptor getResponseInterceptor(int i2);
 
     int getResponseInterceptorCount();
 

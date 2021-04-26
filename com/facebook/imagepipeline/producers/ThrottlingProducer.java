@@ -51,9 +51,9 @@ public class ThrottlingProducer<T> implements Producer<T> {
         }
 
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(T t, int i) {
-            getConsumer().onNewResult(t, i);
-            if (BaseConsumer.isLast(i)) {
+        public void onNewResultImpl(T t, int i2) {
+            getConsumer().onNewResult(t, i2);
+            if (BaseConsumer.isLast(i2)) {
                 onRequestFinished();
             }
         }
@@ -63,16 +63,16 @@ public class ThrottlingProducer<T> implements Producer<T> {
         }
     }
 
-    public ThrottlingProducer(int i, Executor executor, Producer<T> producer) {
-        this.mMaxSimultaneousRequests = i;
+    public ThrottlingProducer(int i2, Executor executor, Producer<T> producer) {
+        this.mMaxSimultaneousRequests = i2;
         this.mExecutor = (Executor) Preconditions.checkNotNull(executor);
         this.mInputProducer = (Producer) Preconditions.checkNotNull(producer);
     }
 
     public static /* synthetic */ int access$210(ThrottlingProducer throttlingProducer) {
-        int i = throttlingProducer.mNumCurrentRequests;
-        throttlingProducer.mNumCurrentRequests = i - 1;
-        return i;
+        int i2 = throttlingProducer.mNumCurrentRequests;
+        throttlingProducer.mNumCurrentRequests = i2 - 1;
+        return i2;
     }
 
     @Override // com.facebook.imagepipeline.producers.Producer

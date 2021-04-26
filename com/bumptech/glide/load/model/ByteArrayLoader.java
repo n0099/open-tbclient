@@ -119,7 +119,7 @@ public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<Data> buildLoadData(@NonNull byte[] bArr, int i, int i2, @NonNull Options options) {
+    public ModelLoader.LoadData<Data> buildLoadData(@NonNull byte[] bArr, int i2, int i3, @NonNull Options options) {
         return new ModelLoader.LoadData<>(new ObjectKey(bArr), new Fetcher(bArr, this.converter));
     }
 }

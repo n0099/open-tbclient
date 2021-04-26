@@ -52,10 +52,10 @@ public final class bx {
         return false;
     }
 
-    public static String a(String str, int i) {
+    public static String a(String str, int i2) {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        return str.length() > i ? str.substring(0, i) : str;
+        return str.length() > i2 ? str.substring(0, i2) : str;
     }
 }

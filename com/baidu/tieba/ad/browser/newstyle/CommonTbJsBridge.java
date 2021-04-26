@@ -10,12 +10,11 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tbadk.xiuba.JSResultData;
-import d.b.c.e.p.q;
-import d.b.j0.d3.l0.b;
-import d.b.j0.d3.l0.d.c;
+import d.a.c.e.p.q;
+import d.a.j0.d3.l0.b;
+import d.a.j0.d3.l0.d.c;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -38,7 +37,7 @@ public class CommonTbJsBridge implements b {
         return OrmObject.jsonStrWithObject(jSResultData);
     }
 
-    @Override // d.b.j0.d3.l0.b
+    @Override // d.a.j0.d3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if ("startLoginModule".equals(str2)) {
@@ -83,7 +82,7 @@ public class CommonTbJsBridge implements b {
         String zid = TbadkCoreApplication.getInst().getZid();
         sb.append("zid=");
         sb.append(zid);
-        sb.append(NetWork.SIGN_SUFFIX);
+        sb.append("tiebaclient!!!");
         String c2 = q.c(sb.toString());
         try {
             JSONObject jSONObject = new JSONObject();

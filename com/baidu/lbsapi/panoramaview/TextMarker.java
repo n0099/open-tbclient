@@ -6,74 +6,74 @@ import com.baidu.pano.platform.comapi.a.a;
 public class TextMarker extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6405a;
+    public String f6590a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6406b;
+    public int f6591b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6407c;
+    public int f6592c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6408d;
+    public int f6593d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6409e;
+    public int f6594e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6410f;
+    public int f6595f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6411g;
+    public int f6596g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f6412h;
+    public int f6597h;
 
-    public void setBgColor(int i) {
-        this.f6408d = i;
+    public void setBgColor(int i2) {
+        this.f6593d = i2;
     }
 
-    public void setFontColor(int i) {
-        this.f6407c = i;
+    public void setFontColor(int i2) {
+        this.f6592c = i2;
     }
 
-    public void setFontSize(int i) {
-        if (i < 0) {
-            i = 0;
+    public void setFontSize(int i2) {
+        if (i2 < 0) {
+            i2 = 0;
         }
-        this.f6406b = i;
+        this.f6591b = i2;
     }
 
-    public void setPadding(int i, int i2, int i3, int i4) {
-        this.f6409e = i;
-        this.f6410f = i2;
-        this.f6411g = i3;
-        this.f6412h = i4;
+    public void setPadding(int i2, int i3, int i4, int i5) {
+        this.f6594e = i2;
+        this.f6595f = i3;
+        this.f6596g = i4;
+        this.f6597h = i5;
     }
 
     public void setText(String str) {
-        this.f6405a = str;
+        this.f6590a = str;
     }
 
     @Override // com.baidu.pano.platform.comapi.a.a
     public Bundle toBundle(String str, Bundle bundle) {
         bundle.putInt("markerType", 1003);
-        String str2 = this.f6405a;
+        String str2 = this.f6590a;
         if (str2 == null) {
             str2 = "";
         }
         bundle.putString("text", str2);
-        int i = this.f6406b;
-        if (i == 0) {
-            i = 12;
+        int i2 = this.f6591b;
+        if (i2 == 0) {
+            i2 = 12;
         }
-        bundle.putInt("fontsize", i);
-        bundle.putInt("fontcolor", this.f6407c);
-        bundle.putInt("bgcolor", this.f6408d);
-        bundle.putInt("paddingleft", this.f6409e);
-        bundle.putInt("paddingtop", this.f6410f);
-        bundle.putInt("paddingright", this.f6411g);
-        bundle.putInt("paddingbottom", this.f6412h);
+        bundle.putInt("fontsize", i2);
+        bundle.putInt("fontcolor", this.f6592c);
+        bundle.putInt("bgcolor", this.f6593d);
+        bundle.putInt("paddingleft", this.f6594e);
+        bundle.putInt("paddingtop", this.f6595f);
+        bundle.putInt("paddingright", this.f6596g);
+        bundle.putInt("paddingbottom", this.f6597h);
         return super.toBundle(str, bundle);
     }
 }

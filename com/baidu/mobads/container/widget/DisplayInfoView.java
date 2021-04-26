@@ -63,8 +63,8 @@ public class DisplayInfoView extends LinearLayout {
             return this;
         }
 
-        public Builder addTextColor(int i) {
-            this.view.textColor = i;
+        public Builder addTextColor(int i2) {
+            this.view.textColor = i2;
             return this;
         }
 
@@ -114,9 +114,9 @@ public class DisplayInfoView extends LinearLayout {
     }
 
     private LinearLayout.LayoutParams getTextLayoutParams(double d2) {
-        int i = (int) (d2 * getResources().getDisplayMetrics().widthPixels);
+        int i2 = (int) (d2 * getResources().getDisplayMetrics().widthPixels);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.setMargins(i, 0, i, 0);
+        layoutParams.setMargins(i2, 0, i2, 0);
         layoutParams.gravity = 17;
         return layoutParams;
     }

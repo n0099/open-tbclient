@@ -18,21 +18,21 @@ import java.util.ArrayList;
 import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class GradientColorInflaterCompat {
     public static final int TILE_MODE_CLAMP = 0;
     public static final int TILE_MODE_MIRROR = 2;
     public static final int TILE_MODE_REPEAT = 1;
 
-    public static ColorStops checkColors(@Nullable ColorStops colorStops, @ColorInt int i, @ColorInt int i2, boolean z, @ColorInt int i3) {
+    public static ColorStops checkColors(@Nullable ColorStops colorStops, @ColorInt int i2, @ColorInt int i3, boolean z, @ColorInt int i4) {
         if (colorStops != null) {
             return colorStops;
         }
         if (z) {
-            return new ColorStops(i, i3, i2);
+            return new ColorStops(i2, i4, i3);
         }
-        return new ColorStops(i, i2);
+        return new ColorStops(i2, i3);
     }
 
     public static Shader createFromXml(@NonNull Resources resources, @NonNull XmlPullParser xmlPullParser, @Nullable Resources.Theme theme) throws XmlPullParserException, IOException {
@@ -83,7 +83,7 @@ public final class GradientColorInflaterCompat {
         throw new XmlPullParserException(xmlPullParser.getPositionDescription() + ": invalid gradient color tag " + name);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0089, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0084, code lost:
         throw new org.xmlpull.v1.XmlPullParserException(r9.getPositionDescription() + ": <item> tag requires a 'color' attribute and a 'offset' attribute!");
      */
     /*
@@ -118,9 +118,9 @@ public final class GradientColorInflaterCompat {
         return null;
     }
 
-    public static Shader.TileMode parseTileMode(int i) {
-        if (i != 1) {
-            if (i != 2) {
+    public static Shader.TileMode parseTileMode(int i2) {
+        if (i2 != 1) {
+            if (i2 != 2) {
                 return Shader.TileMode.CLAMP;
             }
             return Shader.TileMode.MIRROR;
@@ -137,19 +137,19 @@ public final class GradientColorInflaterCompat {
             int size = list.size();
             this.mColors = new int[size];
             this.mOffsets = new float[size];
-            for (int i = 0; i < size; i++) {
-                this.mColors[i] = list.get(i).intValue();
-                this.mOffsets[i] = list2.get(i).floatValue();
+            for (int i2 = 0; i2 < size; i2++) {
+                this.mColors[i2] = list.get(i2).intValue();
+                this.mOffsets[i2] = list2.get(i2).floatValue();
             }
         }
 
-        public ColorStops(@ColorInt int i, @ColorInt int i2) {
-            this.mColors = new int[]{i, i2};
+        public ColorStops(@ColorInt int i2, @ColorInt int i3) {
+            this.mColors = new int[]{i2, i3};
             this.mOffsets = new float[]{0.0f, 1.0f};
         }
 
-        public ColorStops(@ColorInt int i, @ColorInt int i2, @ColorInt int i3) {
-            this.mColors = new int[]{i, i2, i3};
+        public ColorStops(@ColorInt int i2, @ColorInt int i3, @ColorInt int i4) {
+            this.mColors = new int[]{i2, i3, i4};
             this.mOffsets = new float[]{0.0f, 0.5f, 1.0f};
         }
     }

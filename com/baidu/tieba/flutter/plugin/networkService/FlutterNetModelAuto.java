@@ -22,13 +22,13 @@ import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.flutter.plugin.networkService.NetworkServicePlugin;
-import d.b.c.c.g.a;
-import d.b.c.c.g.c;
-import d.b.c.e.m.e;
-import d.b.c.e.p.l;
-import d.b.i0.g0.b.g;
-import d.b.i0.g0.b.h;
-import d.b.i0.v0.b;
+import d.a.c.c.g.a;
+import d.a.c.c.g.c;
+import d.a.c.e.m.e;
+import d.a.c.e.p.l;
+import d.a.i0.g0.b.g;
+import d.a.i0.g0.b.h;
+import d.a.i0.v0.b;
 import java.util.HashMap;
 import java.util.Map;
 import protobuf.Error;
@@ -135,10 +135,10 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
         if (this.hadCheckListener) {
             return;
         }
-        int i = AnonymousClass11.$SwitchMap$com$baidu$tieba$flutter$plugin$networkService$FlutterNetModelAuto$NetModelType[this.type.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass11.$SwitchMap$com$baidu$tieba$flutter$plugin$networkService$FlutterNetModelAuto$NetModelType[this.type.ordinal()];
+        if (i2 == 1) {
             a aVar = new a(getHttpCmd(), getSocketCmd()) { // from class: com.baidu.tieba.flutter.plugin.networkService.FlutterNetModelAuto.5
-                @Override // d.b.c.c.g.a
+                @Override // d.a.c.c.g.a
                 public void onMessage(ResponsedMessage<?> responsedMessage) {
                     FlutterNetModelAuto.this.isLoading = false;
                     if (FlutterNetModelAuto.this.timeoutRunnable != null) {
@@ -170,7 +170,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
             aVar.getSocketMessageListener().setSelfListener(true);
             aVar.setTag(getUniqueId());
             MessageManager.getInstance().registerListener(aVar);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             c cVar = new c(getSocketCmd()) { // from class: com.baidu.tieba.flutter.plugin.networkService.FlutterNetModelAuto.7
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
@@ -201,7 +201,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
             };
             cVar.setTag(getUniqueId());
             MessageManager.getInstance().registerListener(cVar);
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             HttpMessageListener httpMessageListener = new HttpMessageListener(getHttpCmd(), true) { // from class: com.baidu.tieba.flutter.plugin.networkService.FlutterNetModelAuto.6
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
@@ -250,12 +250,12 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void notifyHttpCallback(int i, String str) {
+    public void notifyHttpCallback(int i2, String str) {
         if (this.httpCallback != null) {
             MvcHttpMessage<T, D> mvcHttpMessage = new MvcHttpMessage<>(this.data, getHttpCmd());
             MvcJsonHttpResponsedMessage mvcJsonHttpResponsedMessage = new MvcJsonHttpResponsedMessage(getHttpCmd());
             mvcJsonHttpResponsedMessage.setOrginalMessage(mvcHttpMessage);
-            mvcJsonHttpResponsedMessage.setError(i);
+            mvcJsonHttpResponsedMessage.setError(i2);
             mvcJsonHttpResponsedMessage.setErrorString(str);
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put(RetrieveTaskManager.KEY, getHttpCmd() + "");
@@ -264,7 +264,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void notifyNetCallback(int i, String str) {
+    public void notifyNetCallback(int i2, String str) {
         MvcNetMessage<T, D> mvcNetMessage = new MvcNetMessage<>(this.data, getHttpCmd(), getSocketCmd());
         if (this.socketCallback != null) {
             MvcSocketResponsedMessage mvcSocketResponsedMessage = new MvcSocketResponsedMessage(getSocketCmd()) { // from class: com.baidu.tieba.flutter.plugin.networkService.FlutterNetModelAuto.8
@@ -274,7 +274,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
                 }
             };
             mvcSocketResponsedMessage.setOrginalMessage(mvcNetMessage.getSocketMessage());
-            mvcSocketResponsedMessage.setError(i);
+            mvcSocketResponsedMessage.setError(i2);
             mvcSocketResponsedMessage.setErrorString(str);
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put(RetrieveTaskManager.KEY, getSocketCmd() + "");
@@ -287,7 +287,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
                 }
             };
             mvcHttpResponsedMessage.setOrginalMessage(mvcNetMessage.getHttpMessage());
-            mvcHttpResponsedMessage.setError(i);
+            mvcHttpResponsedMessage.setError(i2);
             mvcHttpResponsedMessage.setErrorString(str);
             HashMap<String, String> hashMap2 = new HashMap<>();
             hashMap2.put(RetrieveTaskManager.KEY, getHttpCmd() + "");
@@ -296,7 +296,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void notifySocketCallback(int i, String str) {
+    public void notifySocketCallback(int i2, String str) {
         MvcSocketMessage mvcSocketMessage = new MvcSocketMessage(this.data, getSocketCmd());
         MvcSocketResponsedMessage mvcSocketResponsedMessage = new MvcSocketResponsedMessage(getSocketCmd()) { // from class: com.baidu.tieba.flutter.plugin.networkService.FlutterNetModelAuto.10
             @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
@@ -305,7 +305,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
             }
         };
         mvcSocketResponsedMessage.setOrginalMessage(mvcSocketMessage);
-        mvcSocketResponsedMessage.setError(i);
+        mvcSocketResponsedMessage.setError(i2);
         mvcSocketResponsedMessage.setErrorString(str);
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put(RetrieveTaskManager.KEY, getSocketCmd() + "");
@@ -373,12 +373,12 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
             this.timeoutRunnable = new Runnable() { // from class: com.baidu.tieba.flutter.plugin.networkService.FlutterNetModelAuto.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    int i = AnonymousClass11.$SwitchMap$com$baidu$tieba$flutter$plugin$networkService$FlutterNetModelAuto$NetModelType[FlutterNetModelAuto.this.type.ordinal()];
-                    if (i == 1) {
+                    int i2 = AnonymousClass11.$SwitchMap$com$baidu$tieba$flutter$plugin$networkService$FlutterNetModelAuto$NetModelType[FlutterNetModelAuto.this.type.ordinal()];
+                    if (i2 == 1) {
                         FlutterNetModelAuto.this.notifyNetCallback(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
-                    } else if (i == 2) {
+                    } else if (i2 == 2) {
                         FlutterNetModelAuto.this.notifySocketCallback(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
-                    } else if (i != 3) {
+                    } else if (i2 != 3) {
                     } else {
                         FlutterNetModelAuto.this.notifyHttpCallback(-1, TbadkCoreApplication.getInst().getString(R.string.neterror));
                     }
@@ -404,12 +404,12 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
         if (this.socketCallback == null && this.httpCallback == null && TbadkCoreApplication.getInst().isDebugMode()) {
             throw new RuntimeException("NetModel must have callback");
         }
-        this.isNetOk = l.C();
+        this.isNetOk = l.D();
         if (this.timeout >= 10) {
             e.a().postDelayed(getTimeoutRunnable(), this.timeout * 1000);
         }
-        int i = AnonymousClass11.$SwitchMap$com$baidu$tieba$flutter$plugin$networkService$FlutterNetModelAuto$NetModelType[this.type.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass11.$SwitchMap$com$baidu$tieba$flutter$plugin$networkService$FlutterNetModelAuto$NetModelType[this.type.ordinal()];
+        if (i2 == 1) {
             if (!this.isNetOk) {
                 e.a().post(new Runnable() { // from class: com.baidu.tieba.flutter.plugin.networkService.FlutterNetModelAuto.2
                     @Override // java.lang.Runnable
@@ -427,15 +427,15 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
             mvcNetMessage.setNeedCache(isNeedCache());
             mvcNetMessage.setResponseDataClass(getResponseDataClass());
             mvcNetMessage.setTag(this.unique_id);
-            HashMap<String, String> p = this.data.p();
-            if (p != null) {
-                for (Map.Entry<String, String> entry : p.entrySet()) {
+            HashMap<String, String> q = this.data.q();
+            if (q != null) {
+                for (Map.Entry<String, String> entry : q.entrySet()) {
                     mvcNetMessage.getHttpMessage().addHeader(entry.getKey(), entry.getValue());
                 }
             }
             MessageManager.getInstance().sendMessage(mvcNetMessage);
             return true;
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             if (!this.isNetOk) {
                 e.a().post(new Runnable() { // from class: com.baidu.tieba.flutter.plugin.networkService.FlutterNetModelAuto.4
                     @Override // java.lang.Runnable
@@ -459,7 +459,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
                 MessageManager.getInstance().sendMessage(this.socketMsg);
             }
             return true;
-        } else if (i != 3) {
+        } else if (i2 != 3) {
             return false;
         } else {
             if (!this.isNetOk) {
@@ -476,15 +476,15 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
             checkListener();
             MvcHttpMessage mvcHttpMessage = new MvcHttpMessage(this.data, getHttpCmd());
             mvcHttpMessage.setResponseDataClass(getResponseDataClass());
-            HashMap<String, Object> k = this.data.k();
-            if (k != null) {
-                for (Map.Entry<String, Object> entry2 : k.entrySet()) {
+            HashMap<String, Object> o = this.data.o();
+            if (o != null) {
+                for (Map.Entry<String, Object> entry2 : o.entrySet()) {
                     mvcHttpMessage.addParam(entry2.getKey(), entry2.getValue());
                 }
             }
-            HashMap<String, String> p2 = this.data.p();
-            if (p2 != null) {
-                for (Map.Entry<String, String> entry3 : p2.entrySet()) {
+            HashMap<String, String> q2 = this.data.q();
+            if (q2 != null) {
+                for (Map.Entry<String, String> entry3 : q2.entrySet()) {
                     mvcHttpMessage.addHeader(entry3.getKey(), entry3.getValue());
                 }
             }
@@ -523,8 +523,8 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
         this.httpCallback = netModelHttpCallback;
     }
 
-    public void setHttpCmd(int i) {
-        this.mHttpCmd = i;
+    public void setHttpCmd(int i2) {
+        this.mHttpCmd = i2;
     }
 
     public void setHttpUrl(String str) {
@@ -559,8 +559,8 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
         this.socketCallback = netModelSocketCallback;
     }
 
-    public void setSocketCmd(int i) {
-        this.mSocketCmd = i;
+    public void setSocketCmd(int i2) {
+        this.mSocketCmd = i2;
     }
 
     public void setSocketRequestMsg(TbSocketMessage tbSocketMessage) {

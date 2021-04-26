@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.model.message.ShareReportHttpResponseMessage;
 import com.baidu.tieba.model.message.ShareReportNetMessage;
 import com.baidu.tieba.model.message.ShareReportSocketResponseMessage;
-import d.b.c.e.m.b;
-import d.b.j0.d3.d0.a;
+import d.a.c.e.m.b;
+import d.a.j0.d3.d0.a;
 /* loaded from: classes3.dex */
 public class ShareReportModel extends BdBaseModel {
     public ShareReportModel(TbPageContext tbPageContext) {
@@ -31,11 +31,11 @@ public class ShareReportModel extends BdBaseModel {
         a.c(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void t(String str, String str2, int i) {
+    public void t(String str, String str2, int i2) {
         ShareReportNetMessage shareReportNetMessage = new ShareReportNetMessage();
         shareReportNetMessage.setFid(b.f(str, 0L));
         shareReportNetMessage.setTid(b.f(str2, 0L));
-        shareReportNetMessage.setFrom(i);
+        shareReportNetMessage.setFrom(i2);
         sendMessage(shareReportNetMessage);
     }
 }

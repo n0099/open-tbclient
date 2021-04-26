@@ -19,16 +19,16 @@ import java.util.Properties;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Type[] f29689a = new Type[0];
+    public static final Type[] f30596a = new Type[0];
 
     /* loaded from: classes5.dex */
     public static final class a implements Serializable, GenericArrayType {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Type f29690a;
+        public final Type f30597a;
 
         public a(Type type) {
-            this.f29690a = b.d(type);
+            this.f30597a = b.d(type);
         }
 
         public boolean equals(Object obj) {
@@ -37,32 +37,32 @@ public final class b {
 
         @Override // java.lang.reflect.GenericArrayType
         public Type getGenericComponentType() {
-            return this.f29690a;
+            return this.f30597a;
         }
 
         public int hashCode() {
-            return this.f29690a.hashCode();
+            return this.f30597a.hashCode();
         }
 
         public String toString() {
-            return b.f(this.f29690a) + "[]";
+            return b.f(this.f30597a) + "[]";
         }
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.a.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0335b implements Serializable, ParameterizedType {
+    public static final class C0328b implements Serializable, ParameterizedType {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Type f29691a;
+        public final Type f30598a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Type f29692b;
+        public final Type f30599b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Type[] f29693c;
+        public final Type[] f30600c;
 
-        public C0335b(Type type, Type type2, Type... typeArr) {
+        public C0328b(Type type, Type type2, Type... typeArr) {
             if (type2 instanceof Class) {
                 Class cls = (Class) type2;
                 boolean z = true;
@@ -72,16 +72,16 @@ public final class b {
                 }
                 com.bytedance.sdk.openadsdk.preload.a.b.a.a(z);
             }
-            this.f29691a = type == null ? null : b.d(type);
-            this.f29692b = b.d(type2);
+            this.f30598a = type == null ? null : b.d(type);
+            this.f30599b = b.d(type2);
             Type[] typeArr2 = (Type[]) typeArr.clone();
-            this.f29693c = typeArr2;
+            this.f30600c = typeArr2;
             int length = typeArr2.length;
-            for (int i = 0; i < length; i++) {
-                com.bytedance.sdk.openadsdk.preload.a.b.a.a(this.f29693c[i]);
-                b.h(this.f29693c[i]);
-                Type[] typeArr3 = this.f29693c;
-                typeArr3[i] = b.d(typeArr3[i]);
+            for (int i2 = 0; i2 < length; i2++) {
+                com.bytedance.sdk.openadsdk.preload.a.b.a.a(this.f30600c[i2]);
+                b.h(this.f30600c[i2]);
+                Type[] typeArr3 = this.f30600c;
+                typeArr3[i2] = b.d(typeArr3[i2]);
             }
         }
 
@@ -91,35 +91,35 @@ public final class b {
 
         @Override // java.lang.reflect.ParameterizedType
         public Type[] getActualTypeArguments() {
-            return (Type[]) this.f29693c.clone();
+            return (Type[]) this.f30600c.clone();
         }
 
         @Override // java.lang.reflect.ParameterizedType
         public Type getOwnerType() {
-            return this.f29691a;
+            return this.f30598a;
         }
 
         @Override // java.lang.reflect.ParameterizedType
         public Type getRawType() {
-            return this.f29692b;
+            return this.f30599b;
         }
 
         public int hashCode() {
-            return (Arrays.hashCode(this.f29693c) ^ this.f29692b.hashCode()) ^ b.a((Object) this.f29691a);
+            return (Arrays.hashCode(this.f30600c) ^ this.f30599b.hashCode()) ^ b.a((Object) this.f30598a);
         }
 
         public String toString() {
-            int length = this.f29693c.length;
+            int length = this.f30600c.length;
             if (length == 0) {
-                return b.f(this.f29692b);
+                return b.f(this.f30599b);
             }
             StringBuilder sb = new StringBuilder((length + 1) * 30);
-            sb.append(b.f(this.f29692b));
+            sb.append(b.f(this.f30599b));
             sb.append("<");
-            sb.append(b.f(this.f29693c[0]));
-            for (int i = 1; i < length; i++) {
+            sb.append(b.f(this.f30600c[0]));
+            for (int i2 = 1; i2 < length; i2++) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                sb.append(b.f(this.f29693c[i]));
+                sb.append(b.f(this.f30600c[i2]));
             }
             sb.append(">");
             return sb.toString();
@@ -130,10 +130,10 @@ public final class b {
     public static final class c implements Serializable, WildcardType {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Type f29695a;
+        public final Type f30602a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Type f29696b;
+        public final Type f30603b;
 
         public c(Type[] typeArr, Type[] typeArr2) {
             com.bytedance.sdk.openadsdk.preload.a.b.a.a(typeArr2.length <= 1);
@@ -142,14 +142,14 @@ public final class b {
                 com.bytedance.sdk.openadsdk.preload.a.b.a.a(typeArr2[0]);
                 b.h(typeArr2[0]);
                 com.bytedance.sdk.openadsdk.preload.a.b.a.a(typeArr[0] == Object.class);
-                this.f29696b = b.d(typeArr2[0]);
-                this.f29695a = Object.class;
+                this.f30603b = b.d(typeArr2[0]);
+                this.f30602a = Object.class;
                 return;
             }
             com.bytedance.sdk.openadsdk.preload.a.b.a.a(typeArr[0]);
             b.h(typeArr[0]);
-            this.f29696b = null;
-            this.f29695a = b.d(typeArr[0]);
+            this.f30603b = null;
+            this.f30602a = b.d(typeArr[0]);
         }
 
         public boolean equals(Object obj) {
@@ -158,37 +158,37 @@ public final class b {
 
         @Override // java.lang.reflect.WildcardType
         public Type[] getLowerBounds() {
-            Type type = this.f29696b;
-            return type != null ? new Type[]{type} : b.f29689a;
+            Type type = this.f30603b;
+            return type != null ? new Type[]{type} : b.f30596a;
         }
 
         @Override // java.lang.reflect.WildcardType
         public Type[] getUpperBounds() {
-            return new Type[]{this.f29695a};
+            return new Type[]{this.f30602a};
         }
 
         public int hashCode() {
-            Type type = this.f29696b;
-            return (type != null ? type.hashCode() + 31 : 1) ^ (this.f29695a.hashCode() + 31);
+            Type type = this.f30603b;
+            return (type != null ? type.hashCode() + 31 : 1) ^ (this.f30602a.hashCode() + 31);
         }
 
         public String toString() {
-            if (this.f29696b != null) {
-                return "? super " + b.f(this.f29696b);
-            } else if (this.f29695a == Object.class) {
+            if (this.f30603b != null) {
+                return "? super " + b.f(this.f30603b);
+            } else if (this.f30602a == Object.class) {
                 return "?";
             } else {
-                return "? extends " + b.f(this.f29695a);
+                return "? extends " + b.f(this.f30602a);
             }
         }
     }
 
     public static ParameterizedType a(Type type, Type type2, Type... typeArr) {
-        return new C0335b(type, type2, typeArr);
+        return new C0328b(type, type2, typeArr);
     }
 
     public static WildcardType b(Type type) {
-        return new c(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, f29689a);
+        return new c(type instanceof WildcardType ? ((WildcardType) type).getUpperBounds() : new Type[]{type}, f30596a);
     }
 
     public static WildcardType c(Type type) {
@@ -201,7 +201,7 @@ public final class b {
             return cls.isArray() ? new a(d(cls.getComponentType())) : cls;
         } else if (type instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) type;
-            return new C0335b(parameterizedType.getOwnerType(), parameterizedType.getRawType(), parameterizedType.getActualTypeArguments());
+            return new C0328b(parameterizedType.getOwnerType(), parameterizedType.getRawType(), parameterizedType.getActualTypeArguments());
         } else if (type instanceof GenericArrayType) {
             return new a(((GenericArrayType) type).getGenericComponentType());
         } else {
@@ -323,12 +323,12 @@ public final class b {
         if (cls2.isInterface()) {
             Class<?>[] interfaces = cls.getInterfaces();
             int length = interfaces.length;
-            for (int i = 0; i < length; i++) {
-                if (interfaces[i] == cls2) {
-                    return cls.getGenericInterfaces()[i];
+            for (int i2 = 0; i2 < length; i2++) {
+                if (interfaces[i2] == cls2) {
+                    return cls.getGenericInterfaces()[i2];
                 }
-                if (cls2.isAssignableFrom(interfaces[i])) {
-                    return a(cls.getGenericInterfaces()[i], interfaces[i], cls2);
+                if (cls2.isAssignableFrom(interfaces[i2])) {
+                    return a(cls.getGenericInterfaces()[i2], interfaces[i2], cls2);
                 }
             }
         }
@@ -403,14 +403,14 @@ public final class b {
             boolean z = a5 != ownerType;
             Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
             int length = actualTypeArguments.length;
-            for (int i = 0; i < length; i++) {
-                Type a6 = a(type, cls, actualTypeArguments[i], collection);
-                if (a6 != actualTypeArguments[i]) {
+            for (int i2 = 0; i2 < length; i2++) {
+                Type a6 = a(type, cls, actualTypeArguments[i2], collection);
+                if (a6 != actualTypeArguments[i2]) {
                     if (!z) {
                         actualTypeArguments = (Type[]) actualTypeArguments.clone();
                         z = true;
                     }
-                    actualTypeArguments[i] = a6;
+                    actualTypeArguments[i2] = a6;
                 }
             }
             return z ? a(a5, parameterizedType.getRawType(), actualTypeArguments) : parameterizedType;
@@ -455,9 +455,9 @@ public final class b {
 
     public static int a(Object[] objArr, Object obj) {
         int length = objArr.length;
-        for (int i = 0; i < length; i++) {
-            if (obj.equals(objArr[i])) {
-                return i;
+        for (int i2 = 0; i2 < length; i2++) {
+            if (obj.equals(objArr[i2])) {
+                return i2;
             }
         }
         throw new NoSuchElementException();

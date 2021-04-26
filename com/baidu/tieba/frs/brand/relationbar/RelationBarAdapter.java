@@ -10,20 +10,20 @@ import tbclient.OriForumInfo;
 public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f15850a;
+    public Context f16035a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<OriForumInfo> f15851b;
+    public List<OriForumInfo> f16036b;
 
     public RelationBarAdapter(Context context) {
-        this.f15850a = context;
+        this.f16035a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: c */
-    public void onBindViewHolder(RelationBarHolder relationBarHolder, int i) {
-        OriForumInfo oriForumInfo = (OriForumInfo) ListUtils.getItem(this.f15851b, i);
+    public void onBindViewHolder(RelationBarHolder relationBarHolder, int i2) {
+        OriForumInfo oriForumInfo = (OriForumInfo) ListUtils.getItem(this.f16036b, i2);
         if (oriForumInfo == null) {
             return;
         }
@@ -35,19 +35,19 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: d */
-    public RelationBarHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new RelationBarHolder(new RelationBarCellView(this.f15850a));
+    public RelationBarHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
+        return new RelationBarHolder(new RelationBarCellView(this.f16035a));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return ListUtils.getCount(this.f15851b);
+        return ListUtils.getCount(this.f16036b);
     }
 
     public void setData(List<OriForumInfo> list) {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f15851b = list;
+        this.f16036b = list;
     }
 }

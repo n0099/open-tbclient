@@ -10,7 +10,7 @@ public final class EncodingUtils {
         throw new RuntimeException("Stub!");
     }
 
-    public static String getAsciiString(byte[] bArr, int i, int i2) {
+    public static String getAsciiString(byte[] bArr, int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 
@@ -18,7 +18,7 @@ public final class EncodingUtils {
         throw new RuntimeException("Stub!");
     }
 
-    public static String getString(byte[] bArr, int i, int i2, String str) {
+    public static String getString(byte[] bArr, int i2, int i3, String str) {
         throw new RuntimeException("Stub!");
     }
 

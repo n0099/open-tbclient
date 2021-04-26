@@ -24,8 +24,8 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public SwanAppDeleteInfo[] newArray(int i) {
-            return new SwanAppDeleteInfo[i];
+        public SwanAppDeleteInfo[] newArray(int i2) {
+            return new SwanAppDeleteInfo[i2];
         }
     }
 
@@ -37,8 +37,8 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
         return this.mPurgerScenes;
     }
 
-    public SwanAppDeleteInfo b(int i) {
-        this.mPurgerScenes = i;
+    public SwanAppDeleteInfo b(int i2) {
+        this.mPurgerScenes = i2;
         return this;
     }
 
@@ -52,7 +52,7 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.mAppId);
         parcel.writeInt(this.mCheckHisAndFavor);
         parcel.writeInt(this.mPurgerScenes);
@@ -64,10 +64,10 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
         this.mCheckHisAndFavor = 0;
     }
 
-    public SwanAppDeleteInfo(String str, int i) {
+    public SwanAppDeleteInfo(String str, int i2) {
         this.mPurgerScenes = 0;
         this.mAppId = str;
-        this.mCheckHisAndFavor = i;
+        this.mCheckHisAndFavor = i2;
     }
 
     public SwanAppDeleteInfo(Parcel parcel) {

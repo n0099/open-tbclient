@@ -23,10 +23,10 @@ public class GuildActivityConfig extends IntentConfig {
         return createNormalCfg(str, 1);
     }
 
-    public GuildActivityConfig createNormalCfg(String str, int i) {
+    public GuildActivityConfig createNormalCfg(String str, int i2) {
         Intent intent = getIntent();
         intent.putExtra(FROM_PAGE, str);
-        intent.putExtra(GUIDE_TYPE, i);
+        intent.putExtra(GUIDE_TYPE, i2);
         return this;
     }
 }

@@ -9,26 +9,26 @@ import org.json.JSONObject;
 public final class b extends com.sdk.base.framework.b.b<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ a f38918a;
+    public /* synthetic */ a f36503a;
 
     public b(a aVar) {
-        this.f38918a = aVar;
+        this.f36503a = aVar;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r4v0 java.lang.Object)] */
     @Override // com.sdk.base.framework.b.b
-    public final void a(int i, Object obj) {
-        a aVar = this.f38918a;
+    public final void a(int i2, Object obj) {
+        a aVar = this.f36503a;
         StringBuilder sb = new StringBuilder();
         sb.append(obj);
-        aVar.a(i, 302002, sb.toString());
-        Context context = this.f38918a.f38912a;
+        aVar.a(i2, 302002, sb.toString());
+        Context context = this.f36503a.f36496a;
         com.sdk.base.framework.f.g.a.a();
     }
 
     @Override // com.sdk.base.framework.b.b
     public final void a(l<String> lVar) {
-        int i;
+        int i2;
         String str;
         boolean z;
         String str2;
@@ -42,27 +42,27 @@ public final class b extends com.sdk.base.framework.b.b<String> {
                 String optString2 = jSONObject.optString("obj");
                 String optString3 = jSONObject.optString(IAdRequestParam.SEQ);
                 if (!c.a(optString).booleanValue() || !c.a(optString3).booleanValue() || !c.a(optString2).booleanValue()) {
-                    this.f38918a.a(optInt, optString, optInt2, optString2, optString3);
-                    Context context = this.f38918a.f38912a;
+                    this.f36503a.a(optInt, optString, optInt2, optString2, optString3);
+                    Context context = this.f36503a.f36496a;
                     com.sdk.base.framework.f.g.a.a();
                     return;
                 }
-                this.f38918a.a(1, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str2 = a.f38910d;
-                z2 = a.f38911e;
+                this.f36503a.a(1, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
+                str2 = a.f36494d;
+                z2 = a.f36495e;
                 c.b(str2, "返回数据为空", Boolean.valueOf(z2));
             } catch (Throwable th) {
                 th = th;
-                i = optInt;
+                i2 = optInt;
                 com.sdk.base.framework.f.f.a.c(th.toString());
-                this.f38918a.a(i, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str = a.f38910d;
-                z = a.f38911e;
+                this.f36503a.a(i2, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
+                str = a.f36494d;
+                z = a.f36495e;
                 c.b(str, "返回数据解析异常：" + th.toString(), Boolean.valueOf(z));
             }
         } catch (Throwable th2) {
             th = th2;
-            i = 1;
+            i2 = 1;
         }
     }
 }

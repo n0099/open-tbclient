@@ -16,7 +16,7 @@ public final class PermissionChecker {
     public static final int PERMISSION_GRANTED = 0;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface PermissionResult {
     }
@@ -32,8 +32,8 @@ public final class PermissionChecker {
         return checkPermission(context, str, Binder.getCallingPid(), Binder.getCallingUid(), str2);
     }
 
-    public static int checkPermission(@NonNull Context context, @NonNull String str, int i, int i2, @Nullable String str2) {
-        if (context.checkPermission(str, i, i2) == -1) {
+    public static int checkPermission(@NonNull Context context, @NonNull String str, int i2, int i3, @Nullable String str2) {
+        if (context.checkPermission(str, i2, i3) == -1) {
             return -1;
         }
         String permissionToOp = AppOpsManagerCompat.permissionToOp(str);
@@ -41,7 +41,7 @@ public final class PermissionChecker {
             return 0;
         }
         if (str2 == null) {
-            String[] packagesForUid = context.getPackageManager().getPackagesForUid(i2);
+            String[] packagesForUid = context.getPackageManager().getPackagesForUid(i3);
             if (packagesForUid == null || packagesForUid.length <= 0) {
                 return -1;
             }

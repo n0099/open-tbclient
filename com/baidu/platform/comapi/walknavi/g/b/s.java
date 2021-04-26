@@ -7,32 +7,32 @@ import com.baidu.platform.comapi.walknavi.g.b.c;
 public class s implements c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f9670a;
+    public final /* synthetic */ String f10030a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ c.d f9671b;
+    public final /* synthetic */ c.d f10031b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ c f9672c;
+    public final /* synthetic */ c f10032c;
 
     public s(c cVar, String str, c.d dVar) {
-        this.f9672c = cVar;
-        this.f9670a = str;
-        this.f9671b = dVar;
+        this.f10032c = cVar;
+        this.f10030a = str;
+        this.f10031b = dVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.b.c.b
     public void a(String str) {
         boolean z;
         Context context;
-        z = this.f9672c.R;
+        z = this.f10032c.R;
         if (z) {
-            this.f9672c.R = false;
-            context = this.f9672c.l;
+            this.f10032c.R = false;
+            context = this.f10032c.l;
             Toast.makeText(context, "模型更新成功，下次进入时即可生效", 0).show();
         } else if (com.baidu.platform.comapi.wnplatform.a.a().c()) {
-            this.f9672c.b(this.f9670a, str);
-            c.d dVar = this.f9671b;
+            this.f10032c.b(this.f10030a, str);
+            c.d dVar = this.f10031b;
             if (dVar != null) {
                 dVar.a();
             }
@@ -40,7 +40,7 @@ public class s implements c.b {
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.b.c.b
-    public void a(int i) {
-        this.f9671b.b();
+    public void a(int i2) {
+        this.f10031b.b();
     }
 }

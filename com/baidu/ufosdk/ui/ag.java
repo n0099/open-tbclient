@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public final class ag extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference f22748a;
+    public final WeakReference f23458a;
 
     public ag(FeedbackEditActivity feedbackEditActivity) {
-        this.f22748a = new WeakReference(feedbackEditActivity);
+        this.f23458a = new WeakReference(feedbackEditActivity);
     }
 
     @Override // android.os.Handler
@@ -31,7 +31,7 @@ public final class ag extends Handler {
         String str2;
         SharedPreferences.Editor editor;
         View view2;
-        int i;
+        int i2;
         SharedPreferences.Editor editor2;
         String str3;
         String str4;
@@ -49,7 +49,7 @@ public final class ag extends Handler {
         SharedPreferences.Editor editor6;
         String str10;
         super.handleMessage(message);
-        FeedbackEditActivity feedbackEditActivity = (FeedbackEditActivity) this.f22748a.get();
+        FeedbackEditActivity feedbackEditActivity = (FeedbackEditActivity) this.f23458a.get();
         feedbackEditActivity.a(true);
         com.baidu.ufosdk.f.c.a("msg.what = " + message.what);
         if (feedbackEditActivity == null) {
@@ -58,54 +58,54 @@ public final class ag extends Handler {
         if (message.what == 0) {
             com.baidu.ufosdk.f.c.a("--- msg.what = 0 ---");
         }
-        int i2 = message.what;
-        if (i2 == 12) {
+        int i3 = message.what;
+        if (i3 == 12) {
             feedbackEditActivity.v = false;
             FeedbackEditActivity.x(feedbackEditActivity);
             feedbackEditActivity.s = Boolean.FALSE;
             str6 = feedbackEditActivity.t;
             if (!TextUtils.isEmpty(str6)) {
-                str9 = feedbackEditActivity.f22688g;
+                str9 = feedbackEditActivity.f23392g;
                 if (TextUtils.isEmpty(str9)) {
-                    editor6 = feedbackEditActivity.f22683b;
+                    editor6 = feedbackEditActivity.f23387b;
                     str10 = feedbackEditActivity.t;
                     editor6.putString(str10, "");
                 }
             }
-            str7 = feedbackEditActivity.f22688g;
+            str7 = feedbackEditActivity.f23392g;
             if (!TextUtils.isEmpty(str7)) {
-                editor5 = feedbackEditActivity.f22683b;
-                str8 = feedbackEditActivity.f22688g;
+                editor5 = feedbackEditActivity.f23387b;
+                str8 = feedbackEditActivity.f23392g;
                 editor5.putString(str8, "");
             }
-            editor4 = feedbackEditActivity.f22683b;
+            editor4 = feedbackEditActivity.f23387b;
             editor4.commit();
             view4 = feedbackEditActivity.u;
             view4.setVisibility(8);
             feedbackEditActivity.finish();
-        } else if (i2 == 13) {
+        } else if (i3 == 13) {
             feedbackEditActivity.v = false;
             view3 = feedbackEditActivity.u;
             view3.setVisibility(8);
             button = feedbackEditActivity.V;
             button.setTextColor(com.baidu.ufosdk.b.v);
             Toast.makeText(feedbackEditActivity, com.baidu.ufosdk.f.s.a("63"), 1).show();
-        } else if (i2 != 14) {
-            if (i2 == 15) {
+        } else if (i3 != 14) {
+            if (i3 == 15) {
                 try {
                     editText = feedbackEditActivity.m;
                     editText2 = feedbackEditActivity.m;
                     ((InputMethodManager) editText.getContext().getSystemService("input_method")).showSoftInput(editText2, 0);
                 } catch (Exception unused) {
                 }
-            } else if (i2 == 16) {
+            } else if (i3 == 16) {
                 if (feedbackEditActivity.getCurrentFocus() == null || feedbackEditActivity.getCurrentFocus().getWindowToken() == null) {
                     return;
                 }
                 ((InputMethodManager) feedbackEditActivity.getSystemService("input_method")).hideSoftInputFromWindow(feedbackEditActivity.getCurrentFocus().getWindowToken(), 2);
-            } else if (i2 == 17) {
+            } else if (i3 == 17) {
                 feedbackEditActivity.b();
-            } else if (i2 == 18) {
+            } else if (i3 == 18) {
                 try {
                     JSONObject jSONObject = (JSONObject) message.obj;
                     feedbackEditActivity.Z = jSONObject.getString("title_context");
@@ -113,7 +113,7 @@ public final class ag extends Handler {
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-            } else if (i2 == 19) {
+            } else if (i3 == 19) {
                 Object obj = message.obj;
                 Toast.makeText(feedbackEditActivity, (obj == null || obj.toString().length() <= 0) ? com.baidu.ufosdk.f.s.a("63") : message.obj.toString(), 0).show();
                 feedbackEditActivity.v = false;
@@ -126,25 +126,25 @@ public final class ag extends Handler {
             feedbackEditActivity.s = Boolean.FALSE;
             str = feedbackEditActivity.t;
             if (!TextUtils.isEmpty(str)) {
-                str4 = feedbackEditActivity.f22688g;
+                str4 = feedbackEditActivity.f23392g;
                 if (TextUtils.isEmpty(str4)) {
-                    editor3 = feedbackEditActivity.f22683b;
+                    editor3 = feedbackEditActivity.f23387b;
                     str5 = feedbackEditActivity.t;
                     editor3.putString(str5, "");
                 }
             }
-            str2 = feedbackEditActivity.f22688g;
+            str2 = feedbackEditActivity.f23392g;
             if (!TextUtils.isEmpty(str2)) {
-                editor2 = feedbackEditActivity.f22683b;
-                str3 = feedbackEditActivity.f22688g;
+                editor2 = feedbackEditActivity.f23387b;
+                str3 = feedbackEditActivity.f23392g;
                 editor2.putString(str3, "");
             }
-            editor = feedbackEditActivity.f22683b;
+            editor = feedbackEditActivity.f23387b;
             editor.commit();
             view2 = feedbackEditActivity.u;
             view2.setVisibility(8);
-            i = feedbackEditActivity.X;
-            if (i == 1) {
+            i2 = feedbackEditActivity.X;
+            if (i2 == 1) {
                 Toast.makeText(feedbackEditActivity, com.baidu.ufosdk.f.s.a("44"), 0).show();
                 feedbackEditActivity.finish();
                 return;

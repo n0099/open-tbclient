@@ -74,7 +74,7 @@ public class RtcLogReport {
                 case 12:
                 case 14:
                 case 15:
-                    return g.f3909b;
+                    return g.f3962b;
                 case 13:
                     return "4G";
                 default:
@@ -85,9 +85,9 @@ public class RtcLogReport {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendGet(String str, int i) {
-        String str2 = i == 3 ? UPLOAD_SLI_PERFFIX : UPLOAD_PERFFIX;
-        if (i == 4) {
+    public void sendGet(String str, int i2) {
+        String str2 = i2 == 3 ? UPLOAD_SLI_PERFFIX : UPLOAD_PERFFIX;
+        if (i2 == 4) {
             str2 = UPLOAD_ERROR_PERFFIX;
         }
         String encodeToString = Base64.encodeToString((str2 + str).getBytes(), 2);
@@ -104,12 +104,12 @@ public class RtcLogReport {
         });
     }
 
-    public void report(final String str, final int i) {
+    public void report(final String str, final int i2) {
         synchronized (this) {
             this.executor.execute(new Runnable() { // from class: com.baidu.rtc.logreport.RtcLogReport.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    RtcLogReport.this.sendGet(str, i);
+                    RtcLogReport.this.sendGet(str, i2);
                 }
             });
         }

@@ -11,20 +11,20 @@ import androidx.annotation.Nullable;
 /* loaded from: classes.dex */
 public class Space extends View {
     @Deprecated
-    public Space(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public Space(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         if (getVisibility() == 0) {
             setVisibility(4);
         }
     }
 
-    public static int getDefaultSize2(int i, int i2) {
-        int mode = View.MeasureSpec.getMode(i2);
-        int size = View.MeasureSpec.getSize(i2);
+    public static int getDefaultSize2(int i2, int i3) {
+        int mode = View.MeasureSpec.getMode(i3);
+        int size = View.MeasureSpec.getSize(i3);
         if (mode != Integer.MIN_VALUE) {
-            return mode != 1073741824 ? i : size;
+            return mode != 1073741824 ? i2 : size;
         }
-        return Math.min(i, size);
+        return Math.min(i2, size);
     }
 
     @Override // android.view.View
@@ -35,8 +35,8 @@ public class Space extends View {
 
     @Override // android.view.View
     @Deprecated
-    public void onMeasure(int i, int i2) {
-        setMeasuredDimension(getDefaultSize2(getSuggestedMinimumWidth(), i), getDefaultSize2(getSuggestedMinimumHeight(), i2));
+    public void onMeasure(int i2, int i3) {
+        setMeasuredDimension(getDefaultSize2(getSuggestedMinimumWidth(), i2), getDefaultSize2(getSuggestedMinimumHeight(), i3));
     }
 
     @Deprecated

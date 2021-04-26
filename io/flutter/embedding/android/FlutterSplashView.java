@@ -50,8 +50,8 @@ public final class FlutterSplashView extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public SavedState[] newArray(int i) {
-                return new SavedState[i];
+            public SavedState[] newArray(int i2) {
+                return new SavedState[i2];
             }
         };
         public String previousCompletedSplashIsolate;
@@ -62,8 +62,8 @@ public final class FlutterSplashView extends FrameLayout {
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            super.writeToParcel(parcel, i);
+        public void writeToParcel(Parcel parcel, int i2) {
+            super.writeToParcel(parcel, i2);
             parcel.writeString(this.previousCompletedSplashIsolate);
             parcel.writeBundle(this.splashScreenState);
         }
@@ -176,8 +176,8 @@ public final class FlutterSplashView extends FrameLayout {
         this(context, attributeSet, 0);
     }
 
-    public FlutterSplashView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public FlutterSplashView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.flutterEngineAttachmentListener = new FlutterView.FlutterEngineAttachmentListener() { // from class: io.flutter.embedding.android.FlutterSplashView.1
             @Override // io.flutter.embedding.android.FlutterView.FlutterEngineAttachmentListener
             public void onFlutterEngineAttachedToFlutterView(@NonNull FlutterEngine flutterEngine) {

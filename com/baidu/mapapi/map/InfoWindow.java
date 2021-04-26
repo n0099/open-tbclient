@@ -6,41 +6,41 @@ import com.baidu.mapapi.model.LatLng;
 public class InfoWindow {
 
     /* renamed from: a  reason: collision with root package name */
-    public BitmapDescriptor f6917a;
+    public BitmapDescriptor f7159a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f6918b;
+    public View f7160b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f6919c;
+    public LatLng f7161c;
 
     /* renamed from: d  reason: collision with root package name */
-    public OnInfoWindowClickListener f6920d;
+    public OnInfoWindowClickListener f7162d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6921e;
+    public int f7163e;
 
     /* loaded from: classes2.dex */
     public interface OnInfoWindowClickListener {
         void onInfoWindowClick();
     }
 
-    public InfoWindow(View view, LatLng latLng, int i) {
+    public InfoWindow(View view, LatLng latLng, int i2) {
         if (view == null || latLng == null) {
             throw new IllegalArgumentException("view and position can not be null");
         }
-        this.f6918b = view;
-        this.f6919c = latLng;
-        this.f6921e = i;
+        this.f7160b = view;
+        this.f7161c = latLng;
+        this.f7163e = i2;
     }
 
-    public InfoWindow(BitmapDescriptor bitmapDescriptor, LatLng latLng, int i, OnInfoWindowClickListener onInfoWindowClickListener) {
+    public InfoWindow(BitmapDescriptor bitmapDescriptor, LatLng latLng, int i2, OnInfoWindowClickListener onInfoWindowClickListener) {
         if (bitmapDescriptor == null || latLng == null) {
             throw new IllegalArgumentException("bitmapDescriptor and position can not be null");
         }
-        this.f6917a = bitmapDescriptor;
-        this.f6919c = latLng;
-        this.f6920d = onInfoWindowClickListener;
-        this.f6921e = i;
+        this.f7159a = bitmapDescriptor;
+        this.f7161c = latLng;
+        this.f7162d = onInfoWindowClickListener;
+        this.f7163e = i2;
     }
 }

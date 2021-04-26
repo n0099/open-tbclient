@@ -17,23 +17,25 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.c.a.j;
-import d.b.j0.j3.h.e;
+import d.a.c.a.j;
+import d.a.j0.j3.h.e;
 /* loaded from: classes5.dex */
 public class MemberRecommendView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21261e;
+    public Context f21862e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21262f;
+    public View f21863f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f21263g;
+    public TbImageView f21864g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21264h;
-    public TextView i;
+    public TextView f21865h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f21866i;
     public e j;
     public int k;
 
@@ -46,11 +48,11 @@ public class MemberRecommendView extends FrameLayout {
         public void onClick(View view) {
             String str;
             TbPageContext tbPageContext;
-            int i = 9;
+            int i2 = 9;
             switch (MemberRecommendView.this.k) {
                 case 1:
                     TiebaStatic.log("c10261");
-                    i = 8;
+                    i2 = 8;
                     str = MemberPayStatistic.REFER_PAGE_DRESS_UP_CENTER;
                     break;
                 case 2:
@@ -66,7 +68,7 @@ public class MemberRecommendView extends FrameLayout {
                 case 4:
                 case 5:
                     TiebaStatic.log("c10278");
-                    i = 12;
+                    i2 = 12;
                     if (MemberRecommendView.this.k != 4) {
                         str = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND;
                         break;
@@ -77,7 +79,7 @@ public class MemberRecommendView extends FrameLayout {
                 case 6:
                 case 7:
                     TiebaStatic.log("c10762");
-                    i = 19;
+                    i2 = 19;
                     if (MemberRecommendView.this.k != 7) {
                         str = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
                         break;
@@ -86,19 +88,19 @@ public class MemberRecommendView extends FrameLayout {
                         break;
                     }
                 case 8:
-                    i = 22;
+                    i2 = 22;
                     TiebaStatic.log("c11613");
                     str = MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT;
                     break;
                 default:
-                    i = 0;
+                    i2 = 0;
                     str = "";
                     break;
             }
-            if (MemberRecommendView.this.j == null || (tbPageContext = (TbPageContext) j.a(MemberRecommendView.this.f21261e)) == null) {
+            if (MemberRecommendView.this.j == null || (tbPageContext = (TbPageContext) j.a(MemberRecommendView.this.f21862e)) == null) {
                 return;
             }
-            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
+            MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i2);
             memberPayActivityConfig.setReferPageClickZone(str, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
         }
@@ -106,13 +108,13 @@ public class MemberRecommendView extends FrameLayout {
 
     public MemberRecommendView(Context context) {
         super(context);
-        this.f21261e = context;
+        this.f21862e = context;
         f();
     }
 
     public void d() {
-        SkinManager.setBackgroundColor(this.f21262f, R.color.CAM_X0207);
-        SkinManager.setViewTextColor(this.f21264h, R.color.CAM_X0108);
+        SkinManager.setBackgroundColor(this.f21863f, R.color.CAM_X0207);
+        SkinManager.setViewTextColor(this.f21865h, R.color.CAM_X0108);
     }
 
     public void e(e eVar) {
@@ -120,51 +122,51 @@ public class MemberRecommendView extends FrameLayout {
             return;
         }
         this.j = eVar;
-        this.f21263g.W(eVar.b(), 10, false);
-        this.f21264h.setText(this.j.c());
+        this.f21864g.V(eVar.b(), 10, false);
+        this.f21865h.setText(this.j.c());
         if (StringUtils.isNull(this.j.a())) {
-            this.i.setVisibility(8);
+            this.f21866i.setVisibility(8);
             return;
         }
-        this.i.setVisibility(0);
-        this.i.setText(this.j.a());
+        this.f21866i.setVisibility(0);
+        this.f21866i.setText(this.j.a());
     }
 
     public final void f() {
-        View inflate = LayoutInflater.from(this.f21261e).inflate(R.layout.member_extend_view, this);
-        this.f21262f = inflate;
+        View inflate = LayoutInflater.from(this.f21862e).inflate(R.layout.member_extend_view, this);
+        this.f21863f = inflate;
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.vip_icon);
-        this.f21263g = tbImageView;
+        this.f21864g = tbImageView;
         tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
-        this.f21263g.setDefaultBgResource(R.drawable.transparent_bg);
-        this.f21263g.setAutoChangeStyle(true);
-        this.f21264h = (TextView) this.f21262f.findViewById(R.id.title_view);
-        TextView textView = (TextView) this.f21262f.findViewById(R.id.jump_button);
-        this.i = textView;
+        this.f21864g.setDefaultBgResource(R.drawable.transparent_bg);
+        this.f21864g.setAutoChangeStyle(true);
+        this.f21865h = (TextView) this.f21863f.findViewById(R.id.title_view);
+        TextView textView = (TextView) this.f21863f.findViewById(R.id.jump_button);
+        this.f21866i = textView;
         textView.setOnClickListener(new a());
     }
 
     public View getButton() {
-        return this.i;
+        return this.f21866i;
     }
 
     public int getFromType() {
         return this.k;
     }
 
-    public void setFromType(int i) {
-        this.k = i;
+    public void setFromType(int i2) {
+        this.k = i2;
     }
 
     public MemberRecommendView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21261e = context;
+        this.f21862e = context;
         f();
     }
 
-    public MemberRecommendView(Context context, AttributeSet attributeSet, int i) {
+    public MemberRecommendView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet);
-        this.f21261e = context;
+        this.f21862e = context;
         f();
     }
 }

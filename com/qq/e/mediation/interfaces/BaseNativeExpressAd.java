@@ -22,17 +22,17 @@ public abstract class BaseNativeExpressAd {
 
     public abstract int getECPM();
 
-    public abstract void loadAD(int i);
+    public abstract void loadAD(int i2);
 
-    public abstract void loadAD(int i, LoadAdParams loadAdParams);
+    public abstract void loadAD(int i2, LoadAdParams loadAdParams);
 
     public abstract void setAdListener(ADListener aDListener);
 
-    public abstract void setMaxVideoDuration(int i);
+    public abstract void setMaxVideoDuration(int i2);
 
-    public abstract void setMinVideoDuration(int i);
+    public abstract void setMinVideoDuration(int i2);
 
     public abstract void setVideoOption(VideoOption videoOption);
 
-    public abstract void setVideoPlayPolicy(int i);
+    public abstract void setVideoPlayPolicy(int i2);
 }

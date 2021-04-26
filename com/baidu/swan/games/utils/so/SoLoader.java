@@ -7,12 +7,12 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
-import d.b.h0.a.k;
-import d.b.h0.g.i0.f.a;
-import d.b.h0.g.i0.f.b;
-import d.b.h0.g.i0.f.e;
-import d.b.h0.g.i0.f.f;
-import d.b.h0.p.d;
+import d.a.h0.a.k;
+import d.a.h0.g.i0.f.a;
+import d.a.h0.g.i0.f.b;
+import d.a.h0.g.i0.f.e;
+import d.a.h0.g.i0.f.f;
+import d.a.h0.p.d;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -33,7 +33,7 @@ import java.util.zip.ZipFile;
 public final class SoLoader {
     public static final String TAG = "SoLoader";
     public StringBuilder sb = new StringBuilder();
-    public static final boolean DEBUG = k.f45772a;
+    public static final boolean DEBUG = k.f43101a;
     public static final Set<String> sLoadedLibraries = Collections.synchronizedSet(new HashSet());
     public static final List<File> soSources = new ArrayList();
 
@@ -43,9 +43,9 @@ public final class SoLoader {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new File(getNativeLibraryDir(context)));
         arrayList.add(new File(context.getFilesDir(), "lib"));
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (!soSources.contains(arrayList.get(i))) {
-                soSources.add(arrayList.get(i));
+        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+            if (!soSources.contains(arrayList.get(i2))) {
+                soSources.add(arrayList.get(i2));
             }
         }
     }
@@ -183,8 +183,8 @@ public final class SoLoader {
                 SoUtils.sendLog(this.sb.toString());
                 return false;
             }
-            for (int i = 0; i < SoUtils.uris.length; i++) {
-                if (executeRelease(apkZipFile, fullName, SoUtils.uris[i], new File(getReleaseSoFilePath(context), str)) && load(bVar, fullName, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
+            for (int i2 = 0; i2 < SoUtils.uris.length; i2++) {
+                if (executeRelease(apkZipFile, fullName, SoUtils.uris[i2], new File(getReleaseSoFilePath(context), str)) && load(bVar, fullName, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
                     return true;
                 }
             }

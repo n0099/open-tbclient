@@ -14,7 +14,7 @@ import com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment;
 public class EemCardListFragment extends CardListBaseFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    public k f26336a;
+    public k f27142a;
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment
     public void bindCardData(boolean z) {
@@ -47,15 +47,15 @@ public class EemCardListFragment extends CardListBaseFragment {
     }
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment
-    public void handleFailure(int i, int i2, String str) {
+    public void handleFailure(int i2, int i3, String str) {
         hideLoading();
-        super.handleFailure(i, i2, str);
+        super.handleFailure(i2, i3, str);
     }
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
         hideLoading();
-        super.handleResponse(i, obj, str);
+        super.handleResponse(i2, obj, str);
         Activity activity = this.mActivity;
         if (activity != null) {
             a.c(activity, CardListBaseFragment.KEY_HAS_EEM_CARD_LIST_LOADED + CardListCache.getInstance().getUserIdV2(), Boolean.TRUE);
@@ -69,12 +69,12 @@ public class EemCardListFragment extends CardListBaseFragment {
         if (!a.d(activity, CardListBaseFragment.KEY_HAS_EEM_CARD_LIST_LOADED + CardListCache.getInstance().getUserIdV2(), Boolean.FALSE)) {
             showLoading();
         }
-        if (this.f26336a == null) {
-            this.f26336a = (k) PayBeanFactory.getInstance().getBean((Context) getActivity(), 607, "EemCardListFragment");
+        if (this.f27142a == null) {
+            this.f27142a = (k) PayBeanFactory.getInstance().getBean((Context) getActivity(), 607, "EemCardListFragment");
         }
-        this.f26336a.setResponseCallback(this);
-        this.f26336a.a(SourceFlag.SDK);
-        this.f26336a.execBean();
+        this.f27142a.setResponseCallback(this);
+        this.f27142a.a(SourceFlag.SDK);
+        this.f27142a.execBean();
     }
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment, com.baidu.wallet.core.BaseFragment, androidx.fragment.app.Fragment

@@ -17,7 +17,7 @@ public class NetResponse {
     public String contentLength = "";
 
     public boolean isSuccessful() {
-        int i = this.responseCode;
-        return i >= 200 && i < 300;
+        int i2 = this.responseCode;
+        return i2 >= 200 && i2 < 300;
     }
 }

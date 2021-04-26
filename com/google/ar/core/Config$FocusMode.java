@@ -8,20 +8,20 @@ public enum Config$FocusMode {
     
     public final int nativeCode;
 
-    Config$FocusMode(int i) {
-        this.nativeCode = i;
+    Config$FocusMode(int i2) {
+        this.nativeCode = i2;
     }
 
-    public static Config$FocusMode forNumber(int i) {
+    public static Config$FocusMode forNumber(int i2) {
         Config$FocusMode[] values;
         for (Config$FocusMode config$FocusMode : values()) {
-            if (config$FocusMode.nativeCode == i) {
+            if (config$FocusMode.nativeCode == i2) {
                 return config$FocusMode;
             }
         }
         StringBuilder sb = new StringBuilder(56);
         sb.append("Unexpected value for native FocusMode, value=");
-        sb.append(i);
+        sb.append(i2);
         throw new FatalException(sb.toString());
     }
 }

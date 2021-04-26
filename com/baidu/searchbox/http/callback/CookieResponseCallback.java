@@ -7,10 +7,10 @@ public abstract class CookieResponseCallback<T> extends ResponseCallback<T> {
     public abstract void handleCookies(List<String> list) throws Exception;
 
     @Override // com.baidu.searchbox.http.callback.ResponseCallback
-    public T parseResponse(Response response, int i) throws Exception {
+    public T parseResponse(Response response, int i2) throws Exception {
         handleCookies(response.headers("Set-Cookie"));
-        return parseResponseAfterHandleCookie(response, i);
+        return parseResponseAfterHandleCookie(response, i2);
     }
 
-    public abstract T parseResponseAfterHandleCookie(Response response, int i) throws Exception;
+    public abstract T parseResponseAfterHandleCookie(Response response, int i2) throws Exception;
 }

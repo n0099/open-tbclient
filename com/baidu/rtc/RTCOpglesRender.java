@@ -12,7 +12,7 @@ public class RTCOpglesRender {
     public void destroyRender() {
     }
 
-    public void drawFrame(byte[] bArr, byte[] bArr2, byte[] bArr3, int i, int i2) {
+    public void drawFrame(byte[] bArr, byte[] bArr2, byte[] bArr3, int i2, int i3) {
     }
 
     public void pauseRender() {

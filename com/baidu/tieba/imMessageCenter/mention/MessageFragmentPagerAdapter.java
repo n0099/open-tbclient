@@ -11,41 +11,41 @@ import java.util.List;
 public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f18005a;
+    public List<a> f18347a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f18006b;
+    public int f18348b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f18007c;
+    public boolean f18349c;
 
     /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Fragment f18008a;
+        public Fragment f18350a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18009b;
+        public String f18351b;
     }
 
     public MessageFragmentPagerAdapter(FragmentManager fragmentManager, List<a> list) {
         super(fragmentManager);
-        this.f18006b = -1;
-        this.f18005a = new ArrayList();
+        this.f18348b = -1;
+        this.f18347a = new ArrayList();
         if (list == null || list.size() <= 0) {
             return;
         }
-        this.f18005a.addAll(list);
+        this.f18347a.addAll(list);
     }
 
-    public void c(boolean z) {
-        this.f18007c = z;
+    public void b(boolean z) {
+        this.f18349c = z;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        List<a> list = this.f18005a;
+        List<a> list = this.f18347a;
         if (list != null) {
             return list.size();
         }
@@ -53,43 +53,43 @@ public class MessageFragmentPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        List<a> list = this.f18005a;
-        if (list == null || i < 0 || i >= list.size() || this.f18005a.get(i) == null) {
+    public Fragment getItem(int i2) {
+        List<a> list = this.f18347a;
+        if (list == null || i2 < 0 || i2 >= list.size() || this.f18347a.get(i2) == null) {
             return null;
         }
-        return this.f18005a.get(i).f18008a;
+        return this.f18347a.get(i2).f18350a;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
-    public long getItemId(int i) {
-        List<a> list = this.f18005a;
-        if (list != null && i >= 0 && i < list.size() && this.f18005a.get(i) != null) {
-            return this.f18005a.get(i).hashCode();
+    public long getItemId(int i2) {
+        List<a> list = this.f18347a;
+        if (list != null && i2 >= 0 && i2 < list.size() && this.f18347a.get(i2) != null) {
+            return this.f18347a.get(i2).hashCode();
         }
-        return super.getItemId(i);
+        return super.getItemId(i2);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public CharSequence getPageTitle(int i) {
-        List<a> list = this.f18005a;
-        if (list == null || i < 0 || i >= list.size() || this.f18005a.get(i) == null) {
+    public CharSequence getPageTitle(int i2) {
+        List<a> list = this.f18347a;
+        if (list == null || i2 < 0 || i2 >= list.size() || this.f18347a.get(i2) == null) {
             return null;
         }
-        return this.f18005a.get(i).f18009b;
+        return this.f18347a.get(i2).f18351b;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter, androidx.viewpager.widget.PagerAdapter
-    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
-        int i2;
-        super.setPrimaryItem(viewGroup, i, obj);
-        if (!this.f18007c || (i2 = this.f18006b) == i) {
+    public void setPrimaryItem(ViewGroup viewGroup, int i2, Object obj) {
+        int i3;
+        super.setPrimaryItem(viewGroup, i2, obj);
+        if (!this.f18349c || (i3 = this.f18348b) == i2) {
             return;
         }
-        if (i2 != -1) {
-            ((BaseFragment) getItem(i2)).setPrimary(false);
+        if (i3 != -1) {
+            ((BaseFragment) getItem(i3)).setPrimary(false);
         }
-        this.f18006b = i;
+        this.f18348b = i2;
         if (obj instanceof BaseFragment) {
             ((BaseFragment) obj).setPrimary(true);
         }

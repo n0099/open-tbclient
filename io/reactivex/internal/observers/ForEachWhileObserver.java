@@ -1,38 +1,40 @@
 package io.reactivex.internal.observers;
 
-import f.b.o;
-import f.b.t.b;
-import f.b.w.a;
-import f.b.w.g;
-import f.b.w.i;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
+import io.reactivex.exceptions.Exceptions;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Predicate;
 import io.reactivex.internal.disposables.DisposableHelper;
+import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class ForEachWhileObserver<T> extends AtomicReference<b> implements o<T>, b {
+public final class ForEachWhileObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
     public static final long serialVersionUID = -4403180040475402120L;
     public boolean done;
-    public final a onComplete;
-    public final g<? super Throwable> onError;
-    public final i<? super T> onNext;
+    public final Action onComplete;
+    public final Consumer<? super Throwable> onError;
+    public final Predicate<? super T> onNext;
 
-    public ForEachWhileObserver(i<? super T> iVar, g<? super Throwable> gVar, a aVar) {
-        this.onNext = iVar;
-        this.onError = gVar;
-        this.onComplete = aVar;
+    public ForEachWhileObserver(Predicate<? super T> predicate, Consumer<? super Throwable> consumer, Action action) {
+        this.onNext = predicate;
+        this.onError = consumer;
+        this.onComplete = action;
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }
 
-    @Override // f.b.o
+    @Override // io.reactivex.Observer
     public void onComplete() {
         if (this.done) {
             return;
@@ -41,27 +43,27 @@ public final class ForEachWhileObserver<T> extends AtomicReference<b> implements
         try {
             this.onComplete.run();
         } catch (Throwable th) {
-            f.b.u.a.a(th);
-            f.b.a0.a.f(th);
+            Exceptions.throwIfFatal(th);
+            RxJavaPlugins.onError(th);
         }
     }
 
-    @Override // f.b.o
+    @Override // io.reactivex.Observer
     public void onError(Throwable th) {
         if (this.done) {
-            f.b.a0.a.f(th);
+            RxJavaPlugins.onError(th);
             return;
         }
         this.done = true;
         try {
             this.onError.accept(th);
         } catch (Throwable th2) {
-            f.b.u.a.a(th2);
-            f.b.a0.a.f(new CompositeException(th, th2));
+            Exceptions.throwIfFatal(th2);
+            RxJavaPlugins.onError(new CompositeException(th, th2));
         }
     }
 
-    @Override // f.b.o
+    @Override // io.reactivex.Observer
     public void onNext(T t) {
         if (this.done) {
             return;
@@ -73,14 +75,14 @@ public final class ForEachWhileObserver<T> extends AtomicReference<b> implements
             dispose();
             onComplete();
         } catch (Throwable th) {
-            f.b.u.a.a(th);
+            Exceptions.throwIfFatal(th);
             dispose();
             onError(th);
         }
     }
 
-    @Override // f.b.o
-    public void onSubscribe(b bVar) {
-        DisposableHelper.setOnce(this, bVar);
+    @Override // io.reactivex.Observer
+    public void onSubscribe(Disposable disposable) {
+        DisposableHelper.setOnce(this, disposable);
     }
 }

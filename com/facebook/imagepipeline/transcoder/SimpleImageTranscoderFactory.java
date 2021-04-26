@@ -5,8 +5,8 @@ import com.facebook.imageformat.ImageFormat;
 public class SimpleImageTranscoderFactory implements ImageTranscoderFactory {
     public final int mMaxBitmapSize;
 
-    public SimpleImageTranscoderFactory(int i) {
-        this.mMaxBitmapSize = i;
+    public SimpleImageTranscoderFactory(int i2) {
+        this.mMaxBitmapSize = i2;
     }
 
     @Override // com.facebook.imagepipeline.transcoder.ImageTranscoderFactory

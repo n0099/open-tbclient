@@ -9,23 +9,23 @@ import java.util.UUID;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f34434a = g();
+    public static String f33420a = f();
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f34435b = 0;
+    public static long f33421b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f34436c;
+    public static Context f33422c;
 
     public static String a() {
         com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateSessionId");
-        String g2 = g();
-        f34434a = g2;
-        return g2;
+        String f2 = f();
+        f33420a = f2;
+        return f2;
     }
 
     public static void a(Context context) {
-        f34436c = context;
+        f33422c = context;
     }
 
     @WorkerThread
@@ -48,7 +48,7 @@ public class m {
     }
 
     public static String b() {
-        return f34434a;
+        return f33420a;
     }
 
     @WorkerThread
@@ -63,8 +63,8 @@ public class m {
 
     @WorkerThread
     public static long c() {
-        long b2 = b(f34436c);
-        a(f34436c, 1 + b2);
+        long b2 = b(f33422c);
+        a(f33422c, 1 + b2);
         return b2;
     }
 
@@ -81,24 +81,17 @@ public class m {
     public static synchronized long d() {
         long c2;
         synchronized (m.class) {
-            c2 = c(f34436c);
-            b(f34436c, 1 + c2);
+            c2 = c(f33422c);
+            b(f33422c, 1 + c2);
         }
         return c2;
     }
 
     public static long e() {
-        com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateListId");
-        long currentTimeMillis = System.currentTimeMillis();
-        f34435b = currentTimeMillis;
-        return currentTimeMillis;
+        return f33421b;
     }
 
-    public static long f() {
-        return f34435b;
-    }
-
-    public static String g() {
+    public static String f() {
         return UUID.randomUUID().toString();
     }
 }

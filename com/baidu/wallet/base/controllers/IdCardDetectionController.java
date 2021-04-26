@@ -14,7 +14,7 @@ public class IdCardDetectionController {
 
     /* loaded from: classes5.dex */
     public interface IIdCardDetectionListener extends NoProguard {
-        void onDetectFailed(int i, String str);
+        void onDetectFailed(int i2, String str);
 
         void onDetectOK(Bundle bundle);
     }
@@ -23,17 +23,17 @@ public class IdCardDetectionController {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final IdCardDetectionController f23280a = new IdCardDetectionController();
+        public static final IdCardDetectionController f23997a = new IdCardDetectionController();
     }
 
     public static final IdCardDetectionController getInstance() {
-        return a.f23280a;
+        return a.f23997a;
     }
 
-    public void IdCardDeteFailed(int i, String str) {
+    public void IdCardDeteFailed(int i2, String str) {
         IIdCardDetectionListener iIdCardDetectionListener = this.mIdCardResultListener;
         if (iIdCardDetectionListener != null) {
-            iIdCardDetectionListener.onDetectFailed(i, str);
+            iIdCardDetectionListener.onDetectFailed(i2, str);
         }
         this.mIdCardResultListener = null;
     }
@@ -54,11 +54,11 @@ public class IdCardDetectionController {
         return this.mIdCardResultListener;
     }
 
-    public void startIdcarddetect(Context context, int i, IIdCardDetectionListener iIdCardDetectionListener, boolean z) {
+    public void startIdcarddetect(Context context, int i2, IIdCardDetectionListener iIdCardDetectionListener, boolean z) {
         this.mIdCardResultListener = iIdCardDetectionListener;
-        if (i != 5 && i != 6) {
+        if (i2 != 5 && i2 != 6) {
             Intent intent = new Intent(context, IdentityCardDetectionActivity.class);
-            intent.putExtra("step", i);
+            intent.putExtra("step", i2);
             intent.putExtra("show_album", z);
             if (!(context instanceof Activity)) {
                 intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
@@ -67,7 +67,7 @@ public class IdCardDetectionController {
             return;
         }
         Intent intent2 = new Intent(context, IdCardDetectionH5Activity.class);
-        intent2.putExtra("step", i);
+        intent2.putExtra("step", i2);
         if (!(context instanceof Activity)) {
             intent2.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }

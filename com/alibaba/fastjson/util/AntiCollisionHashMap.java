@@ -40,11 +40,11 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         public Entry<K, V> next;
         public V value;
 
-        public Entry(int i, K k, V v, Entry<K, V> entry) {
+        public Entry(int i2, K k, V v, Entry<K, V> entry) {
             this.value = v;
             this.next = entry;
             this.key = k;
-            this.hash = i;
+            this.hash = i2;
         }
 
         @Override // java.util.Map.Entry
@@ -160,12 +160,12 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
             if (AntiCollisionHashMap.this.size > 0) {
                 Entry<K, V>[] entryArr = AntiCollisionHashMap.this.table;
                 do {
-                    int i = this.index;
-                    if (i >= entryArr.length) {
+                    int i2 = this.index;
+                    if (i2 >= entryArr.length) {
                         return;
                     }
-                    this.index = i + 1;
-                    entry = entryArr[i];
+                    this.index = i2 + 1;
+                    entry = entryArr[i2];
                     this.next = entry;
                 } while (entry == null);
             }
@@ -186,12 +186,12 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
                     if (entry3 == null) {
                         Entry<K, V>[] entryArr = AntiCollisionHashMap.this.table;
                         do {
-                            int i = this.index;
-                            if (i >= entryArr.length) {
+                            int i2 = this.index;
+                            if (i2 >= entryArr.length) {
                                 break;
                             }
-                            this.index = i + 1;
-                            entry = entryArr[i];
+                            this.index = i2 + 1;
+                            entry = entryArr[i2];
                             this.next = entry;
                         } while (entry == null);
                     }
@@ -300,27 +300,27 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         }
     }
 
-    public AntiCollisionHashMap(int i, float f2) {
+    public AntiCollisionHashMap(int i2, float f2) {
         this.keySet = null;
         this.values = null;
         this.random = new Random().nextInt(99999);
         this.entrySet = null;
-        if (i >= 0) {
-            i = i > 1073741824 ? 1073741824 : i;
+        if (i2 >= 0) {
+            i2 = i2 > 1073741824 ? 1073741824 : i2;
             if (f2 > 0.0f && !Float.isNaN(f2)) {
-                int i2 = 1;
-                while (i2 < i) {
-                    i2 <<= 1;
+                int i3 = 1;
+                while (i3 < i2) {
+                    i3 <<= 1;
                 }
                 this.loadFactor = f2;
-                this.threshold = (int) (i2 * f2);
-                this.table = new Entry[i2];
+                this.threshold = (int) (i3 * f2);
+                this.table = new Entry[i3];
                 init();
                 return;
             }
             throw new IllegalArgumentException("Illegal load factor: " + f2);
         }
-        throw new IllegalArgumentException("Illegal initial capacity: " + i);
+        throw new IllegalArgumentException("Illegal initial capacity: " + i2);
     }
 
     private boolean containsNullValue() {
@@ -354,22 +354,22 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         return null;
     }
 
-    public static int hash(int i) {
-        int i2 = i * i;
-        int i3 = i2 ^ ((i2 >>> 20) ^ (i2 >>> 12));
-        return (i3 >>> 4) ^ ((i3 >>> 7) ^ i3);
+    public static int hash(int i2) {
+        int i3 = i2 * i2;
+        int i4 = i3 ^ ((i3 >>> 20) ^ (i3 >>> 12));
+        return (i4 >>> 4) ^ ((i4 >>> 7) ^ i4);
     }
 
     private int hashString(String str) {
-        int i = this.random * SEED;
-        for (int i2 = 0; i2 < str.length(); i2++) {
-            i = (i * KEY) ^ str.charAt(i2);
+        int i2 = this.random * SEED;
+        for (int i3 = 0; i3 < str.length(); i3++) {
+            i2 = (i2 * KEY) ^ str.charAt(i3);
         }
-        return ((i >> 1) ^ i) & M_MASK;
+        return ((i2 >> 1) ^ i2) & M_MASK;
     }
 
-    public static int indexFor(int i, int i2) {
-        return i & (i2 - 1);
+    public static int indexFor(int i2, int i3) {
+        return i2 & (i3 - 1);
     }
 
     private void putAllForCreate(Map<? extends K, ? extends V> map) {
@@ -418,7 +418,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         this.table = new Entry[objectInputStream.readInt()];
         init();
         int readInt = objectInputStream.readInt();
-        for (int i = 0; i < readInt; i++) {
+        for (int i2 = 0; i2 < readInt; i2++) {
             putForCreate(objectInputStream.readObject(), objectInputStream.readObject());
         }
     }
@@ -437,12 +437,12 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         }
     }
 
-    public void addEntry(int i, K k, V v, int i2) {
+    public void addEntry(int i2, K k, V v, int i3) {
         Entry<K, V>[] entryArr = this.table;
-        entryArr[i2] = new Entry<>(i, k, v, entryArr[i2]);
-        int i3 = this.size;
-        this.size = i3 + 1;
-        if (i3 >= this.threshold) {
+        entryArr[i3] = new Entry<>(i2, k, v, entryArr[i3]);
+        int i4 = this.size;
+        this.size = i4 + 1;
+        if (i4 >= this.threshold) {
             resize(this.table.length * 2);
         }
     }
@@ -451,8 +451,8 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
     public void clear() {
         this.modCount++;
         Entry<K, V>[] entryArr = this.table;
-        for (int i = 0; i < entryArr.length; i++) {
-            entryArr[i] = null;
+        for (int i2 = 0; i2 < entryArr.length; i2++) {
+            entryArr[i2] = null;
         }
         this.size = 0;
     }
@@ -495,9 +495,9 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         return false;
     }
 
-    public void createEntry(int i, K k, V v, int i2) {
+    public void createEntry(int i2, K k, V v, int i3) {
         Entry<K, V>[] entryArr = this.table;
-        entryArr[i2] = new Entry<>(i, k, v, entryArr[i2]);
+        entryArr[i3] = new Entry<>(i2, k, v, entryArr[i3]);
         this.size++;
     }
 
@@ -609,12 +609,12 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
             return;
         }
         if (size > this.threshold) {
-            int i = (int) ((size / this.loadFactor) + 1.0f);
-            if (i > 1073741824) {
-                i = 1073741824;
+            int i2 = (int) ((size / this.loadFactor) + 1.0f);
+            if (i2 > 1073741824) {
+                i2 = 1073741824;
             }
             int length = this.table.length;
-            while (length < i) {
+            while (length < i2) {
                 length <<= 1;
             }
             if (length > this.table.length) {
@@ -701,15 +701,15 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         return null;
     }
 
-    public void resize(int i) {
+    public void resize(int i2) {
         if (this.table.length == 1073741824) {
             this.threshold = Integer.MAX_VALUE;
             return;
         }
-        Entry<K, V>[] entryArr = new Entry[i];
+        Entry<K, V>[] entryArr = new Entry[i2];
         transfer(entryArr);
         this.table = entryArr;
-        this.threshold = (int) (i * this.loadFactor);
+        this.threshold = (int) (i2 * this.loadFactor);
     }
 
     @Override // java.util.AbstractMap, java.util.Map
@@ -720,10 +720,10 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
     public void transfer(Entry[] entryArr) {
         Entry<K, V>[] entryArr2 = this.table;
         int length = entryArr.length;
-        for (int i = 0; i < entryArr2.length; i++) {
-            Entry<K, V> entry = entryArr2[i];
+        for (int i2 = 0; i2 < entryArr2.length; i2++) {
+            Entry<K, V> entry = entryArr2[i2];
             if (entry != null) {
-                entryArr2[i] = null;
+                entryArr2[i2] = null;
                 while (true) {
                     Entry<K, V> entry2 = entry.next;
                     int indexFor = indexFor(entry.hash, length);
@@ -749,8 +749,8 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         return values;
     }
 
-    public AntiCollisionHashMap(int i) {
-        this(i, 0.75f);
+    public AntiCollisionHashMap(int i2) {
+        this(i2, 0.75f);
     }
 
     public AntiCollisionHashMap() {

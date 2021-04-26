@@ -11,17 +11,17 @@ import android.graphics.drawable.shapes.Shape;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class XfremodeRoundLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Shape f20504e;
+    public Shape f21048e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f20505f;
+    public Paint f21049f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f20506g;
+    public float[] f21050g;
 
     public XfremodeRoundLayout(Context context) {
         this(context, null);
@@ -30,23 +30,23 @@ public class XfremodeRoundLayout extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        Shape shape = this.f20504e;
+        Shape shape = this.f21048e;
         if (shape != null) {
-            shape.draw(canvas, this.f20505f);
+            shape.draw(canvas, this.f21049f);
         }
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
         if (z) {
-            if (this.f20504e == null) {
+            if (this.f21048e == null) {
                 RectF rectF = new RectF(getPaddingLeft(), getPaddingTop() > 0 ? getPaddingTop() : 1.0f, getPaddingRight() <= 0 ? 1.0f : getPaddingRight(), getPaddingBottom());
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
-                this.f20504e = new RoundRectShape(fArr, rectF, this.f20506g);
+                this.f21048e = new RoundRectShape(fArr, rectF, this.f21050g);
             }
-            this.f20504e.resize(getWidth(), getHeight());
+            this.f21048e.resize(getWidth(), getHeight());
         }
     }
 
@@ -54,22 +54,22 @@ public class XfremodeRoundLayout extends RelativeLayout {
         if (fArr == null || fArr.length != 8) {
             return;
         }
-        this.f20506g = Arrays.copyOf(fArr, fArr.length);
+        this.f21050g = Arrays.copyOf(fArr, fArr.length);
     }
 
     public XfremodeRoundLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public XfremodeRoundLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public XfremodeRoundLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         setLayerType(1, null);
         Paint paint = new Paint();
-        this.f20505f = paint;
+        this.f21049f = paint;
         paint.setAntiAlias(true);
-        this.f20505f.setColor(-7829368);
-        this.f20505f.setStyle(Paint.Style.FILL);
-        this.f20505f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f21049f.setColor(-7829368);
+        this.f21049f.setStyle(Paint.Style.FILL);
+        this.f21049f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
     }
 
     public void setRoundLayoutRadius(float f2) {

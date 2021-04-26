@@ -22,8 +22,8 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
         }
         int readInt = objectInputStream.readInt();
         this.mVibratePattern = new long[readInt];
-        for (int i = 0; i < readInt; i++) {
-            this.mVibratePattern[i] = objectInputStream.readLong();
+        for (int i2 = 0; i2 < readInt; i2++) {
+            this.mVibratePattern[i2] = objectInputStream.readLong();
         }
         this.mNotificationTitle = (String) objectInputStream.readObject();
         this.mNotificationText = (String) objectInputStream.readObject();
@@ -36,7 +36,7 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
         objectOutputStream.writeInt(this.mStatusbarIcon);
         objectOutputStream.writeInt(this.mNotificationFlags);
         objectOutputStream.writeInt(this.mNotificationDefaults);
-        int i = 0;
+        int i2 = 0;
         if (this.mNotificationsound != null) {
             objectOutputStream.writeBoolean(true);
             objectOutputStream.writeObject(this.mNotificationsound);
@@ -48,11 +48,11 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
             objectOutputStream.writeInt(jArr.length);
             while (true) {
                 long[] jArr2 = this.mVibratePattern;
-                if (i >= jArr2.length) {
+                if (i2 >= jArr2.length) {
                     break;
                 }
-                objectOutputStream.writeLong(jArr2[i]);
-                i++;
+                objectOutputStream.writeLong(jArr2[i2]);
+                i2++;
             }
         } else {
             objectOutputStream.writeInt(0);
@@ -67,11 +67,11 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
     @Override // com.baidu.android.pushservice.PushNotificationBuilder
     @SuppressLint({"NewApi"})
     public Notification construct(Context context) {
-        int i;
+        int i2;
         Notification.Builder builder = new Notification.Builder(context);
-        int i2 = this.mNotificationDefaults;
-        if (i2 != 0) {
-            builder.setDefaults(i2);
+        int i3 = this.mNotificationDefaults;
+        if (i3 != 0) {
+            builder.setDefaults(i3);
         }
         String str = this.mNotificationsound;
         if (str != null) {
@@ -81,24 +81,24 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
         if (jArr != null) {
             builder.setVibrate(jArr);
         }
-        int i3 = this.mStatusbarIcon;
-        if (i3 == 0) {
-            i3 = 0;
+        int i4 = this.mStatusbarIcon;
+        if (i4 == 0) {
+            i4 = 0;
             if (context.getPackageName().equals("com.baidu.searchbox") || context.getPackageName().equals(BdSailorPlatform.LITE_PACKAGE_NAME) || context.getPackageName().equals("com.baidu.push.qa")) {
                 try {
-                    i3 = context.getResources().getIdentifier(Build.VERSION.SDK_INT >= 21 ? "notification_icon_m" : "icon_statusbar", "drawable", context.getPackageName());
+                    i4 = context.getResources().getIdentifier(Build.VERSION.SDK_INT >= 21 ? "notification_icon_m" : "icon_statusbar", "drawable", context.getPackageName());
                 } catch (Throwable unused) {
                 }
             }
-            if (i3 == 0) {
-                i3 = context.getApplicationInfo().icon;
+            if (i4 == 0) {
+                i4 = context.getApplicationInfo().icon;
             }
         }
-        builder.setSmallIcon(i3);
+        builder.setSmallIcon(i4);
         builder.setContentTitle(this.mNotificationTitle);
         builder.setContentText(this.mNotificationText);
-        if (Build.VERSION.SDK_INT >= 21 && (i = this.mColor) != 0) {
-            builder.setColor(i);
+        if (Build.VERSION.SDK_INT >= 21 && (i2 = this.mColor) != 0) {
+            builder.setColor(i2);
         }
         if (m.p(context)) {
             if (TextUtils.isEmpty(this.mChannelId)) {
@@ -112,11 +112,11 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
         }
         Notification build = Build.VERSION.SDK_INT >= 16 ? builder.build() : builder.getNotification();
         if (build != null) {
-            int i4 = this.mNotificationFlags;
-            if (i4 == 0) {
-                i4 = build.flags | 16;
+            int i5 = this.mNotificationFlags;
+            if (i5 == 0) {
+                i5 = build.flags | 16;
             }
-            build.flags = i4;
+            build.flags = i5;
         }
         return build;
     }

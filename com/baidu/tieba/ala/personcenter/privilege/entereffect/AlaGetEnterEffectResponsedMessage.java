@@ -5,8 +5,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import d.b.c.j.e.n;
-import d.b.j0.t.j.g.d.d.a;
+import d.a.c.j.e.n;
+import d.a.j0.t.j.g.d.d.a;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
@@ -25,9 +25,9 @@ public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage 
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
-        super.decodeLogicInBackGround(i, jSONObject);
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
             return;
         }
@@ -52,16 +52,16 @@ public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage 
             return;
         }
         this.mEffectList.clear();
-        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
+        for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
             if (optJSONObject2 != null) {
                 a aVar = new a();
-                aVar.a(optJSONObject2);
+                aVar.c(optJSONObject2);
                 this.mEffectList.add(aVar);
                 JSONArray optJSONArray2 = optJSONObject2.optJSONArray("effect_list");
                 if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
+                    for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
+                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i4);
                         if (optJSONObject3 != null) {
                             AlaEnterEffectData alaEnterEffectData = new AlaEnterEffectData();
                             alaEnterEffectData.parserJson(optJSONObject3);

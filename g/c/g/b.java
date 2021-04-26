@@ -8,17 +8,17 @@ public interface b {
 
     boolean b(String str);
 
-    void c(Framedata framedata) throws InvalidDataException;
+    void c(Framedata framedata);
 
     String d();
 
     boolean e(String str);
 
-    void f(Framedata framedata);
+    void f(Framedata framedata) throws InvalidDataException;
 
-    void g(Framedata framedata) throws InvalidDataException;
+    String g();
 
-    String h();
+    void h(Framedata framedata) throws InvalidDataException;
 
     void reset();
 

@@ -6,18 +6,17 @@ import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.Utf8;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
-import com.kwai.video.player.KsMediaMeta;
 import g.a.a.a;
 import g.a.b.b.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AuthorBox extends AbstractFullBox {
     public static final String TYPE = "auth";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
     public String author;
     public String language;
 
@@ -33,7 +32,7 @@ public class AuthorBox extends AbstractFullBox {
         b bVar = new b("AuthorBox.java", AuthorBox.class);
         ajc$tjp_0 = bVar.g("method-execution", bVar.f("1", "getLanguage", "com.coremedia.iso.boxes.AuthorBox", "", "", "", "java.lang.String"), 51);
         ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "getAuthor", "com.coremedia.iso.boxes.AuthorBox", "", "", "", "java.lang.String"), 60);
-        ajc$tjp_2 = bVar.g("method-execution", bVar.f("1", "setLanguage", "com.coremedia.iso.boxes.AuthorBox", "java.lang.String", KsMediaMeta.KSM_KEY_LANGUAGE, "", "void"), 64);
+        ajc$tjp_2 = bVar.g("method-execution", bVar.f("1", "setLanguage", "com.coremedia.iso.boxes.AuthorBox", "java.lang.String", "language", "", "void"), 64);
         ajc$tjp_3 = bVar.g("method-execution", bVar.f("1", "setAuthor", "com.coremedia.iso.boxes.AuthorBox", "java.lang.String", NotificationCompat.CarExtender.KEY_AUTHOR, "", "void"), 68);
         ajc$tjp_4 = bVar.g("method-execution", bVar.f("1", "toString", "com.coremedia.iso.boxes.AuthorBox", "", "", "", "java.lang.String"), 92);
     }

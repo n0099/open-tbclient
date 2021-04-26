@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public final class NetUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f26547a = "NetUtils";
+    public static final String f27354a = "NetUtils";
 
     public static JSONObject getConnectedWifi(Context context) {
         WifiManager wifiManager;
@@ -50,7 +50,7 @@ public final class NetUtils {
                     jSONObject.put("wifi_conn", jSONObject2);
                 }
                 if (scanResults != null && scanResults.size() > 0) {
-                    int i = 0;
+                    int i2 = 0;
                     JSONArray jSONArray = new JSONArray();
                     for (ScanResult scanResult : scanResults) {
                         JSONObject jSONObject3 = new JSONObject();
@@ -58,8 +58,8 @@ public final class NetUtils {
                         jSONObject3.put("rssi", scanResult.level);
                         jSONObject3.put("ssid", scanResult.SSID);
                         jSONArray.put(jSONObject3);
-                        i++;
-                        if (i >= 10) {
+                        i2++;
+                        if (i2 >= 10) {
                             break;
                         }
                     }

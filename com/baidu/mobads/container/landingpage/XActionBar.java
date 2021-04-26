@@ -40,9 +40,9 @@ public class XActionBar extends RelativeLayout {
         public int frontColor;
         public Paint mArrowPaint;
 
-        public GoBackButtonView(Context context, int i) {
+        public GoBackButtonView(Context context, int i2) {
             super(context);
-            this.frontColor = i;
+            this.frontColor = i2;
         }
 
         private Paint getArrowPaint() {
@@ -79,13 +79,13 @@ public class XActionBar extends RelativeLayout {
         public int frontColor;
         public Paint pointPaint;
 
-        public ThreePointButtonView(Context context, int i) {
+        public ThreePointButtonView(Context context, int i2) {
             super(context);
-            this.frontColor = i;
+            this.frontColor = i2;
         }
 
-        private void drawPoint(Canvas canvas, int i) {
-            canvas.drawCircle(ScreenUtils.getPixel(getContext(), 26), ScreenUtils.getPixel(getContext(), i), (int) (ScreenUtils.getScreenDensity(getContext()) * 1.0f), getPointPaint());
+        private void drawPoint(Canvas canvas, int i2) {
+            canvas.drawCircle(ScreenUtils.getPixel(getContext(), 26), ScreenUtils.getPixel(getContext(), i2), (int) (ScreenUtils.getScreenDensity(getContext()) * 1.0f), getPointPaint());
         }
 
         private Paint getPointPaint() {
@@ -123,16 +123,16 @@ public class XActionBar extends RelativeLayout {
             this.paint.setColor(-5592406);
             this.paint.setStyle(Paint.Style.STROKE);
             this.paint.setStrokeWidth(ScreenUtils.getPixel(this.mContext, 1));
-            int i = this.mBarHeight;
-            canvas.drawLine(0.0f, i, this.mBarWidth, i, this.paint);
+            int i2 = this.mBarHeight;
+            canvas.drawLine(0.0f, i2, this.mBarWidth, i2, this.paint);
         }
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        this.mBarWidth = i3 - i;
-        this.mBarHeight = i4 - i2;
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
+        this.mBarWidth = i4 - i2;
+        this.mBarHeight = i5 - i3;
     }
 
     public void setOnButtonClickListener(OnButtonClickListener onButtonClickListener) {

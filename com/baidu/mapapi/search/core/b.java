@@ -14,7 +14,7 @@ public final class b implements Parcelable.Creator<CityInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public CityInfo[] newArray(int i) {
-        return new CityInfo[i];
+    public CityInfo[] newArray(int i2) {
+        return new CityInfo[i2];
     }
 }

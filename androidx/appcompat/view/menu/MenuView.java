@@ -2,7 +2,7 @@ package androidx.appcompat.view.menu;
 
 import android.graphics.drawable.Drawable;
 import androidx.annotation.RestrictTo;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public interface MenuView {
 
@@ -10,7 +10,7 @@ public interface MenuView {
     public interface ItemView {
         MenuItemImpl getItemData();
 
-        void initialize(MenuItemImpl menuItemImpl, int i);
+        void initialize(MenuItemImpl menuItemImpl, int i2);
 
         boolean prefersCondensedTitle();
 

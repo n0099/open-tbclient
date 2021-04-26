@@ -51,22 +51,22 @@ public class BoxSapiResult {
 
     public String getResultMsg() {
         SparseArray<String> sparseArray;
-        int i;
+        int i2;
         if (!TextUtils.isEmpty(this.resultMsg)) {
             return this.resultMsg;
         }
         if (this.msgMap.get(this.resultCode) != null) {
             sparseArray = this.msgMap;
-            i = this.resultCode;
+            i2 = this.resultCode;
         } else {
             sparseArray = this.msgMap;
-            i = -202;
+            i2 = -202;
         }
-        return sparseArray.get(i);
+        return sparseArray.get(i2);
     }
 
-    public void setResultCode(int i) {
-        this.resultCode = i;
+    public void setResultCode(int i2) {
+        this.resultCode = i2;
     }
 
     public void setResultMsg(String str) {

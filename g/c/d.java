@@ -15,11 +15,11 @@ public interface d {
 
     InetSocketAddress getRemoteSocketAddress(WebSocket webSocket);
 
-    void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z);
+    void onWebsocketClose(WebSocket webSocket, int i2, String str, boolean z);
 
-    void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str);
+    void onWebsocketCloseInitiated(WebSocket webSocket, int i2, String str);
 
-    void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z);
+    void onWebsocketClosing(WebSocket webSocket, int i2, String str, boolean z);
 
     void onWebsocketError(WebSocket webSocket, Exception exc);
 

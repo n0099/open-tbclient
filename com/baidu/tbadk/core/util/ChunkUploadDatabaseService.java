@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.util;
 import android.database.Cursor;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.c.a.k.b;
-import d.b.c.e.m.a;
-import d.b.i0.s.c.q;
+import d.a.c.a.k.b;
+import d.a.c.e.m.a;
+import d.a.i0.s.c.q;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class ChunkUploadDatabaseService {

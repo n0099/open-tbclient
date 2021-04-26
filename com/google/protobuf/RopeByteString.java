@@ -54,18 +54,18 @@ public class RopeByteString extends ByteString {
             }
         }
 
-        private int getDepthBinForLength(int i) {
-            int binarySearch = Arrays.binarySearch(RopeByteString.minLengthByDepth, i);
+        private int getDepthBinForLength(int i2) {
+            int binarySearch = Arrays.binarySearch(RopeByteString.minLengthByDepth, i2);
             return binarySearch < 0 ? (-(binarySearch + 1)) - 1 : binarySearch;
         }
 
         private void insert(ByteString byteString) {
             int depthBinForLength = getDepthBinForLength(byteString.size());
-            int i = RopeByteString.minLengthByDepth[depthBinForLength + 1];
-            if (!this.prefixesStack.isEmpty() && this.prefixesStack.peek().size() < i) {
-                int i2 = RopeByteString.minLengthByDepth[depthBinForLength];
+            int i2 = RopeByteString.minLengthByDepth[depthBinForLength + 1];
+            if (!this.prefixesStack.isEmpty() && this.prefixesStack.peek().size() < i2) {
+                int i3 = RopeByteString.minLengthByDepth[depthBinForLength];
                 ByteString pop = this.prefixesStack.pop();
-                while (!this.prefixesStack.isEmpty() && this.prefixesStack.peek().size() < i2) {
+                while (!this.prefixesStack.isEmpty() && this.prefixesStack.peek().size() < i3) {
                     pop = new RopeByteString(this.prefixesStack.pop(), pop);
                 }
                 RopeByteString ropeByteString = new RopeByteString(pop, byteString);
@@ -178,24 +178,24 @@ public class RopeByteString extends ByteString {
 
     static {
         ArrayList arrayList = new ArrayList();
-        int i = 1;
         int i2 = 1;
-        while (i > 0) {
-            arrayList.add(Integer.valueOf(i));
-            int i3 = i2 + i;
-            i2 = i;
-            i = i3;
+        int i3 = 1;
+        while (i2 > 0) {
+            arrayList.add(Integer.valueOf(i2));
+            int i4 = i3 + i2;
+            i3 = i2;
+            i2 = i4;
         }
         arrayList.add(Integer.MAX_VALUE);
         minLengthByDepth = new int[arrayList.size()];
-        int i4 = 0;
+        int i5 = 0;
         while (true) {
             int[] iArr = minLengthByDepth;
-            if (i4 >= iArr.length) {
+            if (i5 >= iArr.length) {
                 return;
             }
-            iArr[i4] = ((Integer) arrayList.get(i4)).intValue();
-            i4++;
+            iArr[i5] = ((Integer) arrayList.get(i5)).intValue();
+            i5++;
         }
     }
 
@@ -237,35 +237,35 @@ public class RopeByteString extends ByteString {
         LiteralByteString next = pieceIterator.next();
         PieceIterator pieceIterator2 = new PieceIterator(byteString);
         LiteralByteString next2 = pieceIterator2.next();
-        int i = 0;
         int i2 = 0;
         int i3 = 0;
+        int i4 = 0;
         while (true) {
-            int size = next.size() - i;
-            int size2 = next2.size() - i2;
+            int size = next.size() - i2;
+            int size2 = next2.size() - i3;
             int min = Math.min(size, size2);
-            if (!(i == 0 ? next.equalsRange(next2, i2, min) : next2.equalsRange(next, i, min))) {
+            if (!(i2 == 0 ? next.equalsRange(next2, i3, min) : next2.equalsRange(next, i2, min))) {
                 return false;
             }
-            i3 += min;
-            int i4 = this.totalLength;
-            if (i3 >= i4) {
-                if (i3 == i4) {
+            i4 += min;
+            int i5 = this.totalLength;
+            if (i4 >= i5) {
+                if (i4 == i5) {
                     return true;
                 }
                 throw new IllegalStateException();
             }
             if (min == size) {
                 next = pieceIterator.next();
-                i = 0;
-            } else {
-                i += min;
-            }
-            if (min == size2) {
-                next2 = pieceIterator2.next();
                 i2 = 0;
             } else {
                 i2 += min;
+            }
+            if (min == size2) {
+                next2 = pieceIterator2.next();
+                i3 = 0;
+            } else {
+                i3 += min;
             }
         }
     }
@@ -290,18 +290,18 @@ public class RopeByteString extends ByteString {
     }
 
     @Override // com.google.protobuf.ByteString
-    public byte byteAt(int i) {
-        if (i >= 0) {
-            if (i <= this.totalLength) {
-                int i2 = this.leftLength;
-                if (i < i2) {
-                    return this.left.byteAt(i);
+    public byte byteAt(int i2) {
+        if (i2 >= 0) {
+            if (i2 <= this.totalLength) {
+                int i3 = this.leftLength;
+                if (i2 < i3) {
+                    return this.left.byteAt(i2);
                 }
-                return this.right.byteAt(i - i2);
+                return this.right.byteAt(i2 - i3);
             }
-            throw new ArrayIndexOutOfBoundsException("Index > length: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.totalLength);
+            throw new ArrayIndexOutOfBoundsException("Index > length: " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.totalLength);
         }
-        throw new ArrayIndexOutOfBoundsException("Index < 0: " + i);
+        throw new ArrayIndexOutOfBoundsException("Index < 0: " + i2);
     }
 
     @Override // com.google.protobuf.ByteString
@@ -311,17 +311,17 @@ public class RopeByteString extends ByteString {
     }
 
     @Override // com.google.protobuf.ByteString
-    public void copyToInternal(byte[] bArr, int i, int i2, int i3) {
-        int i4 = i + i3;
-        int i5 = this.leftLength;
-        if (i4 <= i5) {
-            this.left.copyToInternal(bArr, i, i2, i3);
-        } else if (i >= i5) {
-            this.right.copyToInternal(bArr, i - i5, i2, i3);
+    public void copyToInternal(byte[] bArr, int i2, int i3, int i4) {
+        int i5 = i2 + i4;
+        int i6 = this.leftLength;
+        if (i5 <= i6) {
+            this.left.copyToInternal(bArr, i2, i3, i4);
+        } else if (i2 >= i6) {
+            this.right.copyToInternal(bArr, i2 - i6, i3, i4);
         } else {
-            int i6 = i5 - i;
-            this.left.copyToInternal(bArr, i, i2, i6);
-            this.right.copyToInternal(bArr, 0, i2 + i6, i3 - i6);
+            int i7 = i6 - i2;
+            this.left.copyToInternal(bArr, i2, i3, i7);
+            this.right.copyToInternal(bArr, 0, i3 + i7, i4 - i7);
         }
     }
 
@@ -354,16 +354,16 @@ public class RopeByteString extends ByteString {
 
     @Override // com.google.protobuf.ByteString
     public int hashCode() {
-        int i = this.hash;
-        if (i == 0) {
-            int i2 = this.totalLength;
-            i = partialHash(i2, 0, i2);
-            if (i == 0) {
-                i = 1;
+        int i2 = this.hash;
+        if (i2 == 0) {
+            int i3 = this.totalLength;
+            i2 = partialHash(i3, 0, i3);
+            if (i2 == 0) {
+                i2 = 1;
             }
-            this.hash = i;
+            this.hash = i2;
         }
-        return i;
+        return i2;
     }
 
     @Override // com.google.protobuf.ByteString
@@ -389,31 +389,31 @@ public class RopeByteString extends ByteString {
     }
 
     @Override // com.google.protobuf.ByteString
-    public int partialHash(int i, int i2, int i3) {
-        int i4 = i2 + i3;
-        int i5 = this.leftLength;
-        if (i4 <= i5) {
-            return this.left.partialHash(i, i2, i3);
+    public int partialHash(int i2, int i3, int i4) {
+        int i5 = i3 + i4;
+        int i6 = this.leftLength;
+        if (i5 <= i6) {
+            return this.left.partialHash(i2, i3, i4);
         }
-        if (i2 >= i5) {
-            return this.right.partialHash(i, i2 - i5, i3);
+        if (i3 >= i6) {
+            return this.right.partialHash(i2, i3 - i6, i4);
         }
-        int i6 = i5 - i2;
-        return this.right.partialHash(this.left.partialHash(i, i2, i6), 0, i3 - i6);
+        int i7 = i6 - i3;
+        return this.right.partialHash(this.left.partialHash(i2, i3, i7), 0, i4 - i7);
     }
 
     @Override // com.google.protobuf.ByteString
-    public int partialIsValidUtf8(int i, int i2, int i3) {
-        int i4 = i2 + i3;
-        int i5 = this.leftLength;
-        if (i4 <= i5) {
-            return this.left.partialIsValidUtf8(i, i2, i3);
+    public int partialIsValidUtf8(int i2, int i3, int i4) {
+        int i5 = i3 + i4;
+        int i6 = this.leftLength;
+        if (i5 <= i6) {
+            return this.left.partialIsValidUtf8(i2, i3, i4);
         }
-        if (i2 >= i5) {
-            return this.right.partialIsValidUtf8(i, i2 - i5, i3);
+        if (i3 >= i6) {
+            return this.right.partialIsValidUtf8(i2, i3 - i6, i4);
         }
-        int i6 = i5 - i2;
-        return this.right.partialIsValidUtf8(this.left.partialIsValidUtf8(i, i2, i6), 0, i3 - i6);
+        int i7 = i6 - i3;
+        return this.right.partialIsValidUtf8(this.left.partialIsValidUtf8(i2, i3, i7), 0, i4 - i7);
     }
 
     @Override // com.google.protobuf.ByteString
@@ -427,32 +427,32 @@ public class RopeByteString extends ByteString {
     }
 
     @Override // com.google.protobuf.ByteString
-    public ByteString substring(int i, int i2) {
-        if (i >= 0) {
-            int i3 = this.totalLength;
-            if (i2 > i3) {
-                throw new IndexOutOfBoundsException("End index: " + i2 + " > " + this.totalLength);
+    public ByteString substring(int i2, int i3) {
+        if (i2 >= 0) {
+            int i4 = this.totalLength;
+            if (i3 > i4) {
+                throw new IndexOutOfBoundsException("End index: " + i3 + " > " + this.totalLength);
             }
-            int i4 = i2 - i;
-            if (i4 < 0) {
-                throw new IndexOutOfBoundsException("Beginning index larger than ending index: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2);
-            } else if (i4 == 0) {
+            int i5 = i3 - i2;
+            if (i5 < 0) {
+                throw new IndexOutOfBoundsException("Beginning index larger than ending index: " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3);
+            } else if (i5 == 0) {
                 return ByteString.EMPTY;
             } else {
-                if (i4 == i3) {
+                if (i5 == i4) {
                     return this;
                 }
-                int i5 = this.leftLength;
-                if (i2 <= i5) {
-                    return this.left.substring(i, i2);
+                int i6 = this.leftLength;
+                if (i3 <= i6) {
+                    return this.left.substring(i2, i3);
                 }
-                if (i >= i5) {
-                    return this.right.substring(i - i5, i2 - i5);
+                if (i2 >= i6) {
+                    return this.right.substring(i2 - i6, i3 - i6);
                 }
-                return new RopeByteString(this.left.substring(i), this.right.substring(0, i2 - this.leftLength));
+                return new RopeByteString(this.left.substring(i2), this.right.substring(0, i3 - this.leftLength));
             }
         }
-        throw new IndexOutOfBoundsException("Beginning index: " + i + " < 0");
+        throw new IndexOutOfBoundsException("Beginning index: " + i2 + " < 0");
     }
 
     @Override // com.google.protobuf.ByteString
@@ -499,10 +499,10 @@ public class RopeByteString extends ByteString {
 
         private void advanceIfCurrentPieceFullyRead() {
             if (this.currentPiece != null) {
-                int i = this.currentPieceIndex;
-                int i2 = this.currentPieceSize;
-                if (i == i2) {
-                    this.currentPieceOffsetInRope += i2;
+                int i2 = this.currentPieceIndex;
+                int i3 = this.currentPieceSize;
+                if (i2 == i3) {
+                    this.currentPieceOffsetInRope += i3;
                     this.currentPieceIndex = 0;
                     if (this.pieceIterator.hasNext()) {
                         LiteralByteString next = this.pieceIterator.next();
@@ -526,26 +526,26 @@ public class RopeByteString extends ByteString {
             this.currentPieceOffsetInRope = 0;
         }
 
-        private int readSkipInternal(byte[] bArr, int i, int i2) {
-            int i3 = i2;
+        private int readSkipInternal(byte[] bArr, int i2, int i3) {
+            int i4 = i3;
             while (true) {
-                if (i3 <= 0) {
+                if (i4 <= 0) {
                     break;
                 }
                 advanceIfCurrentPieceFullyRead();
                 if (this.currentPiece != null) {
-                    int min = Math.min(this.currentPieceSize - this.currentPieceIndex, i3);
+                    int min = Math.min(this.currentPieceSize - this.currentPieceIndex, i4);
                     if (bArr != null) {
-                        this.currentPiece.copyTo(bArr, this.currentPieceIndex, i, min);
-                        i += min;
+                        this.currentPiece.copyTo(bArr, this.currentPieceIndex, i2, min);
+                        i2 += min;
                     }
                     this.currentPieceIndex += min;
-                    i3 -= min;
-                } else if (i3 == i2) {
+                    i4 -= min;
+                } else if (i4 == i3) {
                     return -1;
                 }
             }
-            return i2 - i3;
+            return i3 - i4;
         }
 
         @Override // java.io.InputStream
@@ -554,7 +554,7 @@ public class RopeByteString extends ByteString {
         }
 
         @Override // java.io.InputStream
-        public void mark(int i) {
+        public void mark(int i2) {
             this.mark = this.currentPieceOffsetInRope + this.currentPieceIndex;
         }
 
@@ -564,10 +564,10 @@ public class RopeByteString extends ByteString {
         }
 
         @Override // java.io.InputStream
-        public int read(byte[] bArr, int i, int i2) {
+        public int read(byte[] bArr, int i2, int i3) {
             if (bArr != null) {
-                if (i >= 0 && i2 >= 0 && i2 <= bArr.length - i) {
-                    return readSkipInternal(bArr, i, i2);
+                if (i2 >= 0 && i3 >= 0 && i3 <= bArr.length - i2) {
+                    return readSkipInternal(bArr, i2, i3);
                 }
                 throw new IndexOutOfBoundsException();
             }
@@ -598,9 +598,9 @@ public class RopeByteString extends ByteString {
             if (literalByteString == null) {
                 return -1;
             }
-            int i = this.currentPieceIndex;
-            this.currentPieceIndex = i + 1;
-            return literalByteString.byteAt(i) & 255;
+            int i2 = this.currentPieceIndex;
+            this.currentPieceIndex = i2 + 1;
+            return literalByteString.byteAt(i2) & 255;
         }
     }
 }

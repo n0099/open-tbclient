@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
-import d.b.j0.y1.g.e;
+import d.a.j0.y1.g.e;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -23,12 +23,12 @@ import java.util.List;
 public class UploadFaceGroupModel extends FaceBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f18947e = new a(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
+    public final HttpMessageListener f19393e = new a(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -95,9 +95,9 @@ public class UploadFaceGroupModel extends FaceBaseModel {
     public UploadFaceGroupModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f18947e.setTag(getUniqueId());
-        this.f18947e.setSelfListener(true);
-        registerListener(this.f18947e);
+        this.f19393e.setTag(getUniqueId());
+        this.f19393e.setSelfListener(true);
+        registerListener(this.f19393e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -107,7 +107,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f18947e);
+        MessageManager.getInstance().unRegisterListener(this.f19393e);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
         return true;
     }
@@ -125,14 +125,14 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         e.l().u(false, str);
     }
 
-    public void u(String str, List<FaceData> list, e.l lVar, int i) {
+    public void u(String str, List<FaceData> list, e.l lVar, int i2) {
         if (list != null && !list.isEmpty()) {
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                FaceData faceData = list.get(i2);
+            for (int i3 = 0; i3 < list.size(); i3++) {
+                FaceData faceData = list.get(i3);
                 if (faceData != null) {
                     sb.append(faceData.pid);
-                    if (i2 < list.size() - 1) {
+                    if (i3 < list.size() - 1) {
                         sb.append("_");
                     }
                 }
@@ -144,11 +144,11 @@ public class UploadFaceGroupModel extends FaceBaseModel {
             httpMessage.addParam("name", str);
             httpMessage.addParam(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, ((FaceData) arrayList.get(0)).pid);
             httpMessage.addParam("memes", sb.toString());
-            httpMessage.addParam("forum_id", i);
+            httpMessage.addParam("forum_id", i2);
             HashMap hashMap = new HashMap();
             hashMap.put("callback", lVar);
             hashMap.put("list", arrayList);
-            hashMap.put("autoInstall", Boolean.valueOf(i == 0));
+            hashMap.put("autoInstall", Boolean.valueOf(i2 == 0));
             httpMessage.setExtra(hashMap);
             sendMessage(httpMessage);
             return;

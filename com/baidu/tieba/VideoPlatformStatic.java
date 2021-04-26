@@ -18,28 +18,28 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.tencent.connect.common.Constants;
-import d.b.c.e.p.j;
-import d.b.j0.m3.e;
-import d.b.j0.t1.k;
-import d.b.j0.t1.l;
+import d.a.c.e.p.j;
+import d.a.j0.m3.e;
+import d.a.j0.t1.k;
+import d.a.j0.t1.l;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class VideoPlatformStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageListener f14141a = new a(2007015);
+    public static CustomMessageListener f14191a = new a(2007015);
 
     /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             e.h().o();
-            d.b.j0.m3.b.d().k();
+            d.a.j0.m3.b.d().k();
         }
     }
 
@@ -54,7 +54,7 @@ public class VideoPlatformStatic {
 
     static {
         f();
-        MessageManager.getInstance().registerListener(f14141a);
+        MessageManager.getInstance().registerListener(f14191a);
         e();
     }
 
@@ -62,10 +62,10 @@ public class VideoPlatformStatic {
         return TextUtils.equals(str, "1") ? "index" : TextUtils.equals(str, "2") ? "frs" : TextUtils.equals(str, "6") ? "pb" : TextUtils.equals(str, Constants.VIA_REPORT_TYPE_SET_AVATAR) ? "frs_bavideotab" : TextUtils.equals(str, "3") ? "floor5" : TextUtils.equals(str, "10") ? "floor10" : TextUtils.equals(str, Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE) ? "floor15" : TextUtils.equals(str, Constants.VIA_REPORT_TYPE_JOININ_GROUP) ? "auto_midpage" : str;
     }
 
-    public static int b(int i) {
-        if (i != -400) {
-            if (i != -200) {
-                return i != -100 ? 3 : 2;
+    public static int b(int i2) {
+        if (i2 != -400) {
+            if (i2 != -200) {
+                return i2 != -100 ? 3 : 2;
             }
             return 1;
         }
@@ -100,7 +100,7 @@ public class VideoPlatformStatic {
     }
 
     public static String d() {
-        return j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? g.f3909b : (j.v() || j.z()) ? "4G" : "NONE";
+        return j.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : j.t() ? "2G" : j.u() ? g.f3962b : (j.v() || j.z()) ? "4G" : "NONE";
     }
 
     public static void e() {
@@ -117,8 +117,8 @@ public class VideoPlatformStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static String g(int i) {
-        switch (i) {
+    public static String g(int i2) {
+        switch (i2) {
             case 101:
                 return TbadkCoreApplication.getInst().getString(R.string.post_error_compress_success);
             case 102:
@@ -134,7 +134,7 @@ public class VideoPlatformStatic {
             case 107:
                 return TbadkCoreApplication.getInst().getString(R.string.post_error_compress_filename_not_exists);
             default:
-                return TbadkCoreApplication.getInst().getString(R.string.error_not_record) + i;
+                return TbadkCoreApplication.getInst().getString(R.string.error_not_record) + i2;
         }
     }
 }

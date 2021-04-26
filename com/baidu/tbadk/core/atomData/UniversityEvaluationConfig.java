@@ -11,9 +11,9 @@ public class UniversityEvaluationConfig extends IntentConfig {
     public static final String ITEM_INFO = "item_info";
     public static final String ITEM_IS_SCHOOL = "item_is_school";
 
-    public UniversityEvaluationConfig(Context context, int i) {
+    public UniversityEvaluationConfig(Context context, int i2) {
         super(context);
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 

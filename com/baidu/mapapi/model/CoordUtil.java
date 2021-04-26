@@ -38,8 +38,8 @@ public class CoordUtil {
         return com.baidu.mapsdkplatform.comjni.tools.a.a(point, point2);
     }
 
-    public static int getMCDistanceByOneLatLngAndRadius(LatLng latLng, int i) {
-        return SDKInitializer.getCoordType() == CoordType.GCJ02 ? com.baidu.mapsdkplatform.comapi.util.b.a(CoordTrans.gcjToBaidu(latLng), i) : com.baidu.mapsdkplatform.comapi.util.b.a(latLng, i);
+    public static int getMCDistanceByOneLatLngAndRadius(LatLng latLng, int i2) {
+        return SDKInitializer.getCoordType() == CoordType.GCJ02 ? com.baidu.mapsdkplatform.comapi.util.b.a(CoordTrans.gcjToBaidu(latLng), i2) : com.baidu.mapsdkplatform.comapi.util.b.a(latLng, i2);
     }
 
     public static GeoPoint ll2mc(LatLng latLng) {

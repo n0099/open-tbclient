@@ -42,10 +42,10 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         }
     }
 
-    public c(boolean z, String str, int i) {
+    public c(boolean z, String str, int i2) {
         this.E = z;
         this.F = str;
-        this.H = i;
+        this.H = i2;
     }
 
     public static void a(long j) {
@@ -86,9 +86,9 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
     }
 
     @Override // com.baidu.searchbox.dns.d.c.a
-    public void c(int i) {
+    public void c(int i2) {
         if (DnsUtil.DEBUG) {
-            Log.d(DnsUtil.TAG, " server error: " + i);
+            Log.d(DnsUtil.TAG, " server error: " + i2);
         }
         this.O = true;
     }

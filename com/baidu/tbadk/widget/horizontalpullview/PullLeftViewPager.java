@@ -11,11 +11,11 @@ public class PullLeftViewPager extends BdBaseViewPager {
     }
 
     @Override // androidx.viewpager.widget.ViewPager
-    public boolean canScroll(View view, boolean z, int i, int i2, int i3) {
+    public boolean canScroll(View view, boolean z, int i2, int i3, int i4) {
         if (view != this && (view instanceof PullLeftRefreshLayout) && ((PullLeftRefreshLayout) view).h()) {
             return true;
         }
-        return super.canScroll(view, z, i, i2, i3);
+        return super.canScroll(view, z, i2, i3, i4);
     }
 
     public PullLeftViewPager(Context context, AttributeSet attributeSet) {

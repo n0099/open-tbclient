@@ -25,41 +25,43 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.j0.a3.j.d;
+import d.a.c.e.p.l;
+import d.a.j0.a3.j.d;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFirstDirActivity> {
     public static String l = "st_type";
 
     /* renamed from: e  reason: collision with root package name */
-    public ProgressBar f20941e;
+    public ProgressBar f21512e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.j0.a3.j.a f20942f;
+    public d.a.j0.a3.j.a f21513f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f20943g;
-    public ViewGroup i;
+    public b f21514g;
+
+    /* renamed from: i  reason: collision with root package name */
+    public ViewGroup f21516i;
     public NavigationBar k;
 
     /* renamed from: h  reason: collision with root package name */
-    public ListView f20944h = null;
+    public ListView f21515h = null;
     public String j = null;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements AdapterView.OnItemClickListener {
         public a() {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             d dVar;
-            ArrayList<d> d2 = BarFolderFirstDirActivity.this.f20942f.d();
-            if (d2 == null || i >= d2.size() || (dVar = d2.get(i)) == null) {
+            ArrayList<d> d2 = BarFolderFirstDirActivity.this.f21513f.d();
+            if (d2 == null || i2 >= d2.size() || (dVar = d2.get(i2)) == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(BarFolderFirstDirActivity.this.getPageContext().getPageActivity(), dVar.f53583b, dVar.f53582a, dVar.f53584c)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(BarFolderFirstDirActivity.this.getPageContext().getPageActivity(), dVar.f51319b, dVar.f51318a, dVar.f51320c)));
         }
     }
 
@@ -70,7 +72,7 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
     }
 
     public void h() {
-        this.f20944h.setOnItemClickListener(new a());
+        this.f21515h.setOnItemClickListener(new a());
     }
 
     public void i() {
@@ -78,22 +80,22 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
         this.k = navigationBar;
         navigationBar.setTitleText(getResources().getString(R.string.bar_first_dir_name));
         this.k.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f20944h = (ListView) findViewById(R.id.list);
-        this.f20942f = new d.b.j0.a3.j.a(getPageContext().getPageActivity(), new d.b.j0.a3.j.b(), true);
+        this.f21515h = (ListView) findViewById(R.id.list);
+        this.f21513f = new d.a.j0.a3.j.a(getPageContext().getPageActivity(), new d.a.j0.a3.j.b(), true);
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.g(getActivity(), R.dimen.ds76)));
-        this.f20944h.addHeaderView(textView);
-        this.f20944h.setAdapter((ListAdapter) this.f20942f);
-        this.f20941e = (ProgressBar) findViewById(R.id.progress);
+        this.f21515h.addHeaderView(textView);
+        this.f21515h.setAdapter((ListAdapter) this.f21513f);
+        this.f21512e = (ProgressBar) findViewById(R.id.progress);
         ViewGroup viewGroup = (ViewGroup) findViewById(R.id.body_container);
-        this.i = viewGroup;
+        this.f21516i = viewGroup;
         ViewHelper.prepareNewView(viewGroup);
     }
 
-    public void j(d.b.j0.a3.j.b bVar, boolean z) {
-        this.f20941e.setVisibility(8);
-        this.f20944h.setEnabled(true);
-        this.f20943g = null;
+    public void j(d.a.j0.a3.j.b bVar, boolean z) {
+        this.f21512e.setVisibility(8);
+        this.f21515h.setEnabled(true);
+        this.f21514g = null;
         if (z) {
             return;
         }
@@ -101,10 +103,10 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
             showToast(bVar.b());
             return;
         }
-        this.f20942f.e(bVar.h());
-        this.f20944h.setVisibility(4);
-        this.f20942f.notifyDataSetChanged();
-        this.f20944h.setVisibility(0);
+        this.f21513f.e(bVar.h());
+        this.f21515h.setVisibility(4);
+        this.f21513f.notifyDataSetChanged();
+        this.f21515h.setVisibility(0);
     }
 
     public void l(Bundle bundle) {
@@ -113,31 +115,31 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
         } else {
             this.j = getIntent().getStringExtra(l);
         }
-        this.f20941e.setVisibility(0);
-        this.f20944h.setEnabled(false);
-        b bVar = this.f20943g;
+        this.f21512e.setVisibility(0);
+        this.f21515h.setEnabled(false);
+        b bVar = this.f21514g;
         if (bVar != null) {
             bVar.cancel();
         }
         b bVar2 = new b(this, null);
-        this.f20943g = bVar2;
+        this.f21514g = bVar2;
         bVar2.setPriority(3);
-        this.f20943g.execute("");
+        this.f21514g.execute("");
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.k.onChangeSkinType(getPageContext(), i);
-        ListView listView = this.f20944h;
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.k.onChangeSkinType(getPageContext(), i2);
+        ListView listView = this.f21515h;
         if (listView != null) {
             listView.invalidateViews();
         }
-        ViewGroup viewGroup = this.i;
+        ViewGroup viewGroup = this.f21516i;
         if (viewGroup != null) {
-            ViewHelper.processSkin(viewGroup, i);
+            ViewHelper.processSkin(viewGroup, i2);
         }
-        SkinManager.setFrsPBBgColor(findViewById(R.id.root_view), i);
+        SkinManager.setFrsPBBgColor(findViewById(R.id.root_view), i2);
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
@@ -153,7 +155,7 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
         super.onDestroy();
-        b bVar = this.f20943g;
+        b bVar = this.f21514g;
         if (bVar != null) {
             bVar.cancel();
         }
@@ -163,17 +165,17 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onResume() {
         super.onResume();
-        this.f20942f.notifyDataSetChanged();
+        this.f21513f.notifyDataSetChanged();
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask<Object, d.b.j0.a3.j.b, d.b.j0.a3.j.b> {
+    /* loaded from: classes5.dex */
+    public class b extends BdAsyncTask<Object, d.a.j0.a3.j.b, d.a.j0.a3.j.b> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20946a;
+        public NetWork f21518a;
 
         public b() {
-            this.f20946a = null;
+            this.f21518a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -193,9 +195,9 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public d.b.j0.a3.j.b doInBackground(Object... objArr) {
-            d.b.j0.a3.j.b bVar = new d.b.j0.a3.j.b();
-            d.b.c.e.d.l<String> g2 = d.b.i0.r.r.a.f().g("tb.first_dir");
+        public d.a.j0.a3.j.b doInBackground(Object... objArr) {
+            d.a.j0.a3.j.b bVar = new d.a.j0.a3.j.b();
+            d.a.c.e.d.l<String> g2 = d.a.i0.r.r.a.f().g("tb.first_dir");
             String str = g2.get("first_dir_cache_key");
             boolean z = true;
             boolean z2 = false;
@@ -204,12 +206,12 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
                     bVar.e(str);
                     publishProgress(bVar);
                     z2 = z;
-                    this.f20946a = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/forumdir");
+                    this.f21518a = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/forumdir");
                     if (BarFolderFirstDirActivity.this.j != null) {
-                        this.f20946a.addPostData(BarFolderFirstDirActivity.l, BarFolderFirstDirActivity.this.j);
+                        this.f21518a.addPostData(BarFolderFirstDirActivity.l, BarFolderFirstDirActivity.this.j);
                     }
-                    String postNetData = this.f20946a.postNetData();
-                    if (!this.f20946a.getNetContext().getResponse().isRequestSuccess()) {
+                    String postNetData = this.f21518a.postNetData();
+                    if (!this.f21518a.getNetContext().getResponse().isRequestSuccess()) {
                         bVar.e(postNetData);
                         String trim = (postNetData + "").trim();
                         if (!trim.equals((str + "").trim())) {
@@ -218,18 +220,18 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
                             return null;
                         }
                     } else {
-                        bVar.g(this.f20946a.getErrorString());
+                        bVar.g(this.f21518a.getErrorString());
                     }
                     return bVar;
                 }
             }
             z = false;
             z2 = z;
-            this.f20946a = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/forumdir");
+            this.f21518a = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/forumdir");
             if (BarFolderFirstDirActivity.this.j != null) {
             }
-            String postNetData2 = this.f20946a.postNetData();
-            if (!this.f20946a.getNetContext().getResponse().isRequestSuccess()) {
+            String postNetData2 = this.f21518a.postNetData();
+            if (!this.f21518a.getNetContext().getResponse().isRequestSuccess()) {
             }
             return bVar;
         }
@@ -237,7 +239,7 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(d.b.j0.a3.j.b bVar) {
+        public void onPostExecute(d.a.j0.a3.j.b bVar) {
             if (bVar != null) {
                 BarFolderFirstDirActivity.this.j(bVar, false);
             }
@@ -246,10 +248,10 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            NetWork netWork = this.f20946a;
+            NetWork netWork = this.f21518a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
-                this.f20946a = null;
+                this.f21518a = null;
             }
             BarFolderFirstDirActivity.this.j(null, true);
         }
@@ -257,7 +259,7 @@ public class BarFolderFirstDirActivity extends ProxyAdkBaseActivity<BarFolderFir
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
-        public void onProgressUpdate(d.b.j0.a3.j.b... bVarArr) {
+        public void onProgressUpdate(d.a.j0.a3.j.b... bVarArr) {
             super.onProgressUpdate(bVarArr);
             BarFolderFirstDirActivity.this.j(bVarArr[0], false);
         }

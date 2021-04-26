@@ -15,49 +15,49 @@ public class PersonBarActivityConfig extends IntentConfig {
     public static final String LIKE_BARS_COUNT = "like_bars_count";
     public static final String REQUEST_CODE = "tb_request_code";
 
-    public PersonBarActivityConfig(Context context, String str, int i) {
-        super(context);
-        Intent intent = getIntent();
-        intent.putExtra("key_uid", str);
-        intent.putExtra("key_sex", i);
-    }
-
-    public PersonBarActivityConfig(Context context, int i, String str, int i2) {
+    public PersonBarActivityConfig(Context context, String str, int i2) {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("key_uid", str);
         intent.putExtra("key_sex", i2);
-        intent.putExtra(LIKE_BARS_COUNT, i);
     }
 
-    public PersonBarActivityConfig(Context context, String str, int i, int i2) {
+    public PersonBarActivityConfig(Context context, int i2, String str, int i3) {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("key_uid", str);
-        intent.putExtra("key_sex", i);
-        intent.putExtra("key_current_tab", i2);
+        intent.putExtra("key_sex", i3);
+        intent.putExtra(LIKE_BARS_COUNT, i2);
     }
 
-    public PersonBarActivityConfig(Context context, String str, int i, boolean z, int i2) {
+    public PersonBarActivityConfig(Context context, String str, int i2, int i3) {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("key_uid", str);
-        intent.putExtra("key_sex", i);
+        intent.putExtra("key_sex", i2);
+        intent.putExtra("key_current_tab", i3);
+    }
+
+    public PersonBarActivityConfig(Context context, String str, int i2, boolean z, int i3) {
+        super(context);
+        Intent intent = getIntent();
+        intent.putExtra("key_uid", str);
+        intent.putExtra("key_sex", i2);
         intent.putExtra(IS_CHOOSE_BAR_MODE, z);
-        intent.putExtra("tb_request_code", i2);
+        intent.putExtra("tb_request_code", i3);
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i2);
+        setRequestCode(i3);
     }
 
-    public PersonBarActivityConfig(Context context, String str, int i, boolean z, int i2, String str2) {
+    public PersonBarActivityConfig(Context context, String str, int i2, boolean z, int i3, String str2) {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("key_uid", str);
-        intent.putExtra("key_sex", i);
+        intent.putExtra("key_sex", i2);
         intent.putExtra(IS_CHOOSE_BAR_MODE, z);
-        intent.putExtra("tb_request_code", i2);
+        intent.putExtra("tb_request_code", i3);
         intent.putExtra(BAR_ID, str2);
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i2);
+        setRequestCode(i3);
     }
 }

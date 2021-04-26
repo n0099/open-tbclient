@@ -19,7 +19,7 @@ public final class WebViewFactory extends PlatformViewFactory {
     }
 
     @Override // io.flutter.plugin.platform.PlatformViewFactory
-    public PlatformView create(Context context, int i, Object obj) {
-        return new FlutterWebView(context, this.messenger, i, (Map) obj, this.containerView);
+    public PlatformView create(Context context, int i2, Object obj) {
+        return new FlutterWebView(context, this.messenger, i2, (Map) obj, this.containerView);
     }
 }

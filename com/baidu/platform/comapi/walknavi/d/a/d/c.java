@@ -6,10 +6,10 @@ import java.io.FileFilter;
 public class c implements FileFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f9535a;
+    public final /* synthetic */ b f9892a;
 
     public c(b bVar) {
-        this.f9535a = bVar;
+        this.f9892a = bVar;
     }
 
     @Override // java.io.FileFilter

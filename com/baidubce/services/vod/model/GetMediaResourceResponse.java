@@ -26,7 +26,7 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
             getMediaResourceResponse.setStatus(jSONObject.getString("status"));
             getMediaResourceResponse.setAttributes(Attributes.formatFromJson(jSONObject.getJSONObject("attributes")));
             getMediaResourceResponse.setMeta(MediaMeta.formatFromJson(jSONObject.getJSONObject("meta")));
-            if (getMediaResourceResponse.getStatus().equalsIgnoreCase(e.f1994a)) {
+            if (getMediaResourceResponse.getStatus().equalsIgnoreCase(e.f1950a)) {
                 getMediaResourceResponse.setError(VodError.formatFromJson(jSONObject.getJSONObject("error")));
             }
             getMediaResourceResponse.setPublishTime(jSONObject.optString("publishTime"));
@@ -35,8 +35,8 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
             JSONArray optJSONArray = jSONObject.optJSONArray("playableUrlList");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    arrayList.add(PlayableUrl.formatFromJson(optJSONArray.getJSONObject(i)));
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    arrayList.add(PlayableUrl.formatFromJson(optJSONArray.getJSONObject(i2)));
                 }
                 getMediaResourceResponse.setPlayableUrlList(arrayList);
             }
@@ -45,8 +45,8 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
                 return;
             }
             ArrayList arrayList2 = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                arrayList2.add(optJSONArray2.getString(i2));
+            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                arrayList2.add(optJSONArray2.getString(i3));
             }
             getMediaResourceResponse.setThumbnailList(arrayList2);
         } catch (Exception e2) {

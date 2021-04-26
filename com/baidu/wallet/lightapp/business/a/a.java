@@ -11,7 +11,7 @@ import java.util.List;
 public class a extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24798a;
+    public String f25562a;
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public void execBean() {
@@ -21,7 +21,7 @@ public class a extends BaseBean {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("cate[lbconfig]", this.f24798a));
+        arrayList.add(new RestNameValuePair("cate[lbconfig]", this.f25562a));
         return arrayList;
     }
 

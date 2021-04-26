@@ -62,8 +62,8 @@ public class RtcConstants {
         
         public final int value;
 
-        RoomEventType(int i) {
-            this.value = i;
+        RoomEventType(int i2) {
+            this.value = i2;
         }
 
         public int getValue() {

@@ -17,16 +17,16 @@ public class CustomFrameLayout extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (i3 == 0 && i4 == 0) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        if (i4 == 0 && i5 == 0) {
             return;
         }
-        super.onLayout(z, i, i2, i3, i4);
+        super.onLayout(z, i2, i3, i4, i5);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
     }
 
     @Override // android.view.View
@@ -35,15 +35,15 @@ public class CustomFrameLayout extends FrameLayout {
     }
 
     @Override // android.view.View
-    public void setVisibility(int i) {
-        super.setVisibility(i);
+    public void setVisibility(int i2) {
+        super.setVisibility(i2);
     }
 
     public CustomFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 
-    public CustomFrameLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public CustomFrameLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

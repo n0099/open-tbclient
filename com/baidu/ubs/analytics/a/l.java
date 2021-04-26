@@ -34,8 +34,8 @@ public final class l implements Serializable {
         return this.path;
     }
 
-    public final void setId(int i) {
-        this.id = i;
+    public final void setId(int i2) {
+        this.id = i2;
     }
 
     public final void setPath(String str) {

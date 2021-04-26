@@ -2,147 +2,140 @@ package com.kwad.sdk.reward.b.b.b;
 
 import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.kwad.sdk.R;
-import com.kwad.sdk.contentalliance.detail.video.f;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.reward.e;
-import com.kwad.sdk.utils.ao;
 /* loaded from: classes6.dex */
 public class c extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f36711b;
+    public TextView f34435b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f36712c;
+    public ViewGroup f34436c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f36713d;
+    public ImageView f34437d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdTemplate f36714e;
+    public TextView f34438e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdInfo f36715f;
+    public AdTemplate f34439f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f36716g;
+    public AdInfo f34440g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f36717h;
-    public Activity i;
-    public com.kwad.sdk.contentalliance.detail.video.e j = new f() { // from class: com.kwad.sdk.reward.b.b.b.c.1
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-        public void a() {
-            c.this.f36717h = true;
-        }
+    public long f34441h;
 
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f34442i;
+    public Activity j;
+    public boolean k = false;
+    public View l = null;
+    public com.kwad.sdk.contentalliance.detail.video.d m = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.reward.b.b.b.c.1
+        @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void a(long j, long j2) {
-            c.this.f36716g = j2;
-            long m = com.kwad.sdk.core.response.b.a.m(c.this.f36715f);
-            if (com.kwad.sdk.core.response.b.a.l(c.this.f36715f)) {
-                if (j2 < 5000) {
+            c.this.f34441h = j2;
+            long l = com.kwad.sdk.core.response.b.a.l(c.this.f34440g);
+            if (com.kwad.sdk.core.response.b.a.k(c.this.f34440g)) {
+                if (j2 < com.kwad.sdk.core.config.c.K()) {
                     return;
                 }
-            } else if (m <= 0 || j <= m || j2 <= m) {
+            } else if (l <= 0 || j <= l || j2 <= l) {
                 return;
             }
+            c.this.e();
+        }
+
+        @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
+        public void f() {
+            c.this.f34442i = true;
+        }
+    };
+    public com.kwad.sdk.reward.a.d n = new com.kwad.sdk.reward.a.d() { // from class: com.kwad.sdk.reward.b.b.b.c.2
+        @Override // com.kwad.sdk.reward.a.d
+        public void a(long j, long j2, int i2) {
+            c.this.k = true;
             c.this.e();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(float f2) {
-        if (this.f36711b.getVisibility() == 0) {
-            int a2 = ao.a(o(), 40.0f);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f36711b.getLayoutParams();
-            layoutParams.rightMargin = (int) (a2 * f2);
-            this.f36711b.setLayoutParams(layoutParams);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(float f2) {
-        if (this.f36712c.getVisibility() == 0) {
-            int a2 = ao.a(o(), 40.0f);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f36712c.getLayoutParams();
-            layoutParams.rightMargin = (int) (a2 * f2);
-            this.f36712c.setLayoutParams(layoutParams);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f36713d.getVisibility() == 0) {
+        if (this.l.getVisibility() == 0) {
             return;
         }
-        this.f36713d.setAlpha(0.0f);
-        this.f36713d.setVisibility(0);
+        this.l.setAlpha(0.0f);
+        this.l.setVisibility(0);
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-        ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.b.b.b.c.2
+        ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.b.b.b.c.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                c.this.f36713d.setAlpha(floatValue);
-                c.this.a(floatValue);
-                c.this.b(floatValue);
+                c.this.l.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         });
         ofFloat.start();
-        this.f36713d.setOnClickListener(this);
+        this.l.setOnClickListener(this);
     }
 
-    private void f() {
-        boolean a2 = com.kwad.sdk.core.config.c.a(this.f36715f);
-        if (com.kwad.sdk.core.response.b.a.l(this.f36715f)) {
-            g();
-        } else if (a2) {
-            h();
-        } else if (this.f36717h || this.f36716g >= com.kwad.sdk.core.response.b.a.m(this.f36715f)) {
-            com.kwad.sdk.core.report.b.a(this.f36714e, this.f36715f.adBaseInfo.skipSecond, (int) (this.f36716g / 1000));
-            q();
-            p();
+    private void m() {
+        boolean a2 = com.kwad.sdk.core.config.c.a(this.f34440g, l());
+        if (com.kwad.sdk.core.response.b.a.k(this.f34440g)) {
+            n();
+            return;
         }
+        if (!a2 || !((com.kwad.sdk.reward.d) this).f34594a.t) {
+            if (this.f34442i || this.f34441h >= com.kwad.sdk.core.response.b.a.l(this.f34440g)) {
+                com.kwad.sdk.core.report.b.a(this.f34439f, this.f34440g.adBaseInfo.skipSecond, (int) (this.f34441h / 1000));
+                q();
+                p();
+                return;
+            } else if (!this.k) {
+                return;
+            }
+        }
+        o();
     }
 
-    private void g() {
-        long b2 = com.kwad.sdk.core.response.b.a.b(this.f36715f) * 1000;
-        AdInfo adInfo = this.f36715f;
-        int i = adInfo.adBaseInfo.skipSecond;
+    private void n() {
+        long b2 = com.kwad.sdk.core.response.b.a.b(this.f34440g) * 1000;
+        AdInfo adInfo = this.f34440g;
+        int i2 = adInfo.adBaseInfo.skipSecond;
         String str = "观看完整视频即可获取奖励";
-        if (i > 0 && !com.kwad.sdk.core.response.b.a.l(adInfo) && b2 > i) {
-            str = "观看视频" + i + "s即可获取奖励";
+        if (i2 > 0 && !com.kwad.sdk.core.response.b.a.k(adInfo) && b2 > i2) {
+            str = "观看视频" + i2 + "s即可获取奖励";
         }
-        com.kwad.sdk.reward.e.a(this.i, str, new e.a() { // from class: com.kwad.sdk.reward.b.b.b.c.3
+        com.kwad.sdk.reward.e.a(this.j, str, new e.a() { // from class: com.kwad.sdk.reward.b.b.b.c.4
             @Override // com.kwad.sdk.reward.e.a
             public void a() {
-                ((com.kwad.sdk.reward.d) c.this).f36842a.i.f();
-                com.kwad.sdk.core.report.b.j(c.this.f36714e, ((com.kwad.sdk.reward.d) c.this).f36842a.f36604d);
+                ((com.kwad.sdk.reward.d) c.this).f34594a.f34324i.f();
+                com.kwad.sdk.core.report.b.j(c.this.f34439f, ((com.kwad.sdk.reward.d) c.this).f34594a.f34319d);
             }
 
             @Override // com.kwad.sdk.reward.e.a
             public void b() {
                 c.this.p();
-                com.kwad.sdk.core.report.b.a(c.this.f36714e, 5, (int) (c.this.f36716g / 1000));
+                com.kwad.sdk.core.report.b.a(c.this.f34439f, (int) (com.kwad.sdk.core.config.c.K() / 1000), (int) (c.this.f34441h / 1000));
             }
 
             @Override // com.kwad.sdk.reward.e.a
             public void c() {
-                ((com.kwad.sdk.reward.d) c.this).f36842a.i.e();
-                com.kwad.sdk.core.report.b.k(c.this.f36714e, ((com.kwad.sdk.reward.d) c.this).f36842a.f36604d);
+                ((com.kwad.sdk.reward.d) c.this).f34594a.f34324i.e();
+                com.kwad.sdk.core.report.b.k(c.this.f34439f, ((com.kwad.sdk.reward.d) c.this).f34594a.f34319d);
             }
         });
     }
 
-    private void h() {
-        Activity activity = ((com.kwad.sdk.reward.d) this).f36842a.f36607g;
+    private void o() {
+        Activity activity = ((com.kwad.sdk.reward.d) this).f34594a.f34322g;
         if (activity != null) {
             activity.finish();
         }
@@ -150,42 +143,65 @@ public class c extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p() {
-        ((com.kwad.sdk.reward.d) this).f36842a.i.g();
+        ((com.kwad.sdk.reward.d) this).f34594a.f34324i.g();
     }
 
     private void q() {
-        ((com.kwad.sdk.reward.d) this).f36842a.f36602b.e();
+        ((com.kwad.sdk.reward.d) this).f34594a.f34317b.e();
     }
 
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = ((com.kwad.sdk.reward.d) this).f36842a.f36606f;
-        this.f36714e = adTemplate;
-        this.f36715f = com.kwad.sdk.core.response.b.c.j(adTemplate);
-        com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.d) this).f36842a;
-        this.i = aVar.f36607g;
-        aVar.i.a(this.j);
+        AdTemplate adTemplate = ((com.kwad.sdk.reward.d) this).f34594a.f34321f;
+        this.f34439f = adTemplate;
+        this.f34440g = com.kwad.sdk.core.response.b.c.g(adTemplate);
+        com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.d) this).f34594a;
+        this.j = aVar.f34322g;
+        aVar.f34324i.a(this.m);
+        ((com.kwad.sdk.reward.d) this).f34594a.p.add(this.n);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public void b_() {
-        super.b_();
-        ((com.kwad.sdk.reward.d) this).f36842a.i.b(this.j);
+    public void b() {
+        ImageView imageView;
+        int i2;
+        View view;
+        super.b();
+        this.f34436c = (ViewGroup) a(R.id.ksad_reward_container_new);
+        this.f34435b = (TextView) a(R.id.ksad_detail_call_btn);
+        this.f34437d = (ImageView) a(R.id.ksad_detail_close_btn);
+        this.f34438e = (TextView) a(R.id.ksad_top_toolbar_close_tip);
+        if (TextUtils.isEmpty(com.kwad.sdk.core.config.c.N())) {
+            if (com.kwad.sdk.core.config.c.L() == 0) {
+                imageView = this.f34437d;
+                i2 = R.drawable.ksad_page_close;
+            } else {
+                imageView = this.f34437d;
+                i2 = R.drawable.ksad_video_skip_icon;
+            }
+            imageView.setImageResource(i2);
+            this.f34438e.setVisibility(8);
+            view = this.f34437d;
+        } else {
+            this.f34438e.setText(com.kwad.sdk.core.config.c.N());
+            this.f34437d.setVisibility(8);
+            view = this.f34438e;
+        }
+        this.l = view;
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f36712c = (ViewGroup) b(R.id.ksad_reward_container_new);
-        this.f36711b = (TextView) b(R.id.ksad_detail_call_btn);
-        this.f36713d = (ImageView) b(R.id.ksad_detail_close_btn);
+        ((com.kwad.sdk.reward.d) this).f34594a.f34324i.b(this.m);
+        ((com.kwad.sdk.reward.d) this).f34594a.p.remove(this.n);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f36713d) {
-            f();
+        if (view == this.l) {
+            m();
         }
     }
 }

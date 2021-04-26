@@ -29,42 +29,42 @@ public class NativeJpegTranscoder implements ImageTranscoder {
         NativeJpegTranscoderSoLoader.ensure();
     }
 
-    public NativeJpegTranscoder(boolean z, int i, boolean z2) {
+    public NativeJpegTranscoder(boolean z, int i2, boolean z2) {
         this.mResizingEnabled = z;
-        this.mMaxBitmapSize = i;
+        this.mMaxBitmapSize = i2;
         this.mUseDownsamplingRatio = z2;
     }
 
     @DoNotStrip
-    public static native void nativeTranscodeJpeg(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException;
+    public static native void nativeTranscodeJpeg(InputStream inputStream, OutputStream outputStream, int i2, int i3, int i4) throws IOException;
 
     @DoNotStrip
-    public static native void nativeTranscodeJpegWithExifOrientation(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException;
+    public static native void nativeTranscodeJpegWithExifOrientation(InputStream inputStream, OutputStream outputStream, int i2, int i3, int i4) throws IOException;
 
     @VisibleForTesting
-    public static void transcodeJpeg(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException {
+    public static void transcodeJpeg(InputStream inputStream, OutputStream outputStream, int i2, int i3, int i4) throws IOException {
         NativeJpegTranscoderSoLoader.ensure();
         boolean z = false;
-        Preconditions.checkArgument(i2 >= 1);
-        Preconditions.checkArgument(i2 <= 16);
-        Preconditions.checkArgument(i3 >= 0);
-        Preconditions.checkArgument(i3 <= 100);
-        Preconditions.checkArgument(JpegTranscoderUtils.isRotationAngleAllowed(i));
-        Preconditions.checkArgument((i2 == 8 && i == 0) ? true : true, "no transformation requested");
-        nativeTranscodeJpeg((InputStream) Preconditions.checkNotNull(inputStream), (OutputStream) Preconditions.checkNotNull(outputStream), i, i2, i3);
+        Preconditions.checkArgument(i3 >= 1);
+        Preconditions.checkArgument(i3 <= 16);
+        Preconditions.checkArgument(i4 >= 0);
+        Preconditions.checkArgument(i4 <= 100);
+        Preconditions.checkArgument(JpegTranscoderUtils.isRotationAngleAllowed(i2));
+        Preconditions.checkArgument((i3 == 8 && i2 == 0) ? true : true, "no transformation requested");
+        nativeTranscodeJpeg((InputStream) Preconditions.checkNotNull(inputStream), (OutputStream) Preconditions.checkNotNull(outputStream), i2, i3, i4);
     }
 
     @VisibleForTesting
-    public static void transcodeJpegWithExifOrientation(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3) throws IOException {
+    public static void transcodeJpegWithExifOrientation(InputStream inputStream, OutputStream outputStream, int i2, int i3, int i4) throws IOException {
         NativeJpegTranscoderSoLoader.ensure();
         boolean z = false;
-        Preconditions.checkArgument(i2 >= 1);
-        Preconditions.checkArgument(i2 <= 16);
-        Preconditions.checkArgument(i3 >= 0);
-        Preconditions.checkArgument(i3 <= 100);
-        Preconditions.checkArgument(JpegTranscoderUtils.isExifOrientationAllowed(i));
-        Preconditions.checkArgument((i2 == 8 && i == 1) ? true : true, "no transformation requested");
-        nativeTranscodeJpegWithExifOrientation((InputStream) Preconditions.checkNotNull(inputStream), (OutputStream) Preconditions.checkNotNull(outputStream), i, i2, i3);
+        Preconditions.checkArgument(i3 >= 1);
+        Preconditions.checkArgument(i3 <= 16);
+        Preconditions.checkArgument(i4 >= 0);
+        Preconditions.checkArgument(i4 <= 100);
+        Preconditions.checkArgument(JpegTranscoderUtils.isExifOrientationAllowed(i2));
+        Preconditions.checkArgument((i3 == 8 && i2 == 1) ? true : true, "no transformation requested");
+        nativeTranscodeJpegWithExifOrientation((InputStream) Preconditions.checkNotNull(inputStream), (OutputStream) Preconditions.checkNotNull(outputStream), i2, i3, i4);
     }
 
     @Override // com.facebook.imagepipeline.transcoder.ImageTranscoder

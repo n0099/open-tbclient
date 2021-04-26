@@ -11,48 +11,48 @@ import java.util.Map;
 public class f extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, RemoteCallbackList<IRewardAdInteractionListener>> f29512a = Collections.synchronizedMap(new HashMap());
+    public static Map<String, RemoteCallbackList<IRewardAdInteractionListener>> f30417a = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile f f29513b;
+    public static volatile f f30418b;
 
     public static f a() {
-        if (f29513b == null) {
+        if (f30418b == null) {
             synchronized (f.class) {
-                if (f29513b == null) {
-                    f29513b = new f();
+                if (f30418b == null) {
+                    f30418b = new f();
                 }
             }
         }
-        return f29513b;
+        return f30418b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
-    public void executeRewardVideoCallback(String str, String str2, boolean z, int i, String str3, int i2, String str4) throws RemoteException {
-        a(str, str2, z, i, str3, i2, str4);
+    public void executeRewardVideoCallback(String str, String str2, boolean z, int i2, String str3, int i3, String str4) throws RemoteException {
+        a(str, str2, z, i2, str3, i3, str4);
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
     public synchronized void registerRewardVideoListener(String str, IRewardAdInteractionListener iRewardAdInteractionListener) throws RemoteException {
         RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList = new RemoteCallbackList<>();
         remoteCallbackList.register(iRewardAdInteractionListener);
-        f29512a.put(str, remoteCallbackList);
+        f30417a.put(str, remoteCallbackList);
     }
 
-    private synchronized void a(String str, String str2, boolean z, int i, String str3, int i2, String str4) {
+    private synchronized void a(String str, String str2, boolean z, int i2, String str3, int i3, String str4) {
         RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList;
         try {
-            if (f29512a != null) {
+            if (f30417a != null) {
                 if ("recycleRes".equals(str2)) {
-                    remoteCallbackList = f29512a.remove(str);
+                    remoteCallbackList = f30417a.remove(str);
                 } else {
-                    remoteCallbackList = f29512a.get(str);
+                    remoteCallbackList = f30417a.get(str);
                 }
                 RemoteCallbackList<IRewardAdInteractionListener> remoteCallbackList2 = remoteCallbackList;
                 if (remoteCallbackList2 != null) {
                     int beginBroadcast = remoteCallbackList2.beginBroadcast();
-                    for (int i3 = 0; i3 < beginBroadcast; i3++) {
-                        IRewardAdInteractionListener broadcastItem = remoteCallbackList2.getBroadcastItem(i3);
+                    for (int i4 = 0; i4 < beginBroadcast; i4++) {
+                        IRewardAdInteractionListener broadcastItem = remoteCallbackList2.getBroadcastItem(i4);
                         if (broadcastItem != null) {
                             if ("onAdShow".equals(str2)) {
                                 broadcastItem.onAdShow();
@@ -65,7 +65,7 @@ public class f extends a {
                             } else if ("onAdVideoBarClick".equals(str2)) {
                                 broadcastItem.onAdVideoBarClick();
                             } else if ("onRewardVerify".equals(str2)) {
-                                broadcastItem.onRewardVerify(z, i, str3, i2, str4);
+                                broadcastItem.onRewardVerify(z, i2, str3, i3, str4);
                             } else if ("onSkippedVideo".equals(str2)) {
                                 broadcastItem.onSkippedVideo();
                             } else if ("recycleRes".equals(str2)) {

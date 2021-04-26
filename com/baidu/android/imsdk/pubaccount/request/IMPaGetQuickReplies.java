@@ -72,8 +72,8 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        transErrorCode(i2, bArr, th);
         IGetQuickReplyListener iGetQuickReplyListener = (IGetQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
         if (iGetQuickReplyListener != null) {
             iGetQuickReplyListener.onGetQuickReply(null, false);
@@ -86,25 +86,25 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str;
         JSONObject jSONObject;
-        int i2;
+        int i3;
         str = "";
         String str2 = new String(bArr);
-        int i3 = 1010;
+        int i4 = 1010;
         try {
             jSONObject = new JSONObject(str2);
-            i2 = jSONObject.getInt("error_code");
+            i3 = jSONObject.getInt("error_code");
             jSONObject.optString("error_msg", "");
         } catch (JSONException e2) {
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
         }
-        if (i2 == 0) {
+        if (i3 == 0) {
             str = jSONObject.has("response_params") ? jSONObject.getString("response_params") : "";
             String str3 = str;
             IGetQuickReplyListener iGetQuickReplyListener = (IGetQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
-            if (i3 == 0) {
+            if (i4 == 0) {
                 if (iGetQuickReplyListener != null) {
                     iGetQuickReplyListener.onGetQuickReply(null, false);
                     return;
@@ -131,10 +131,10 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
             }
             return;
         }
-        i3 = i2;
+        i4 = i3;
         String str32 = str;
         IGetQuickReplyListener iGetQuickReplyListener2 = (IGetQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
-        if (i3 == 0) {
+        if (i4 == 0) {
         }
     }
 

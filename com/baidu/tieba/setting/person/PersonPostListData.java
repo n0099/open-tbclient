@@ -10,13 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Abstract;
 import tbclient.PostInfoList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PersonPostListData extends OrmObject implements Serializable {
     public static final int MAX_IMAGE = 3;
     public List<PostList> post_list = new ArrayList();
     public int hide_post = 0;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Abs implements Serializable {
         public int type = 0;
         public String text = "";
@@ -33,7 +33,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class AnchorInfo implements Serializable {
         public String portrait = "";
         public String name = "";
@@ -72,13 +72,13 @@ public class PersonPostListData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Content implements Serializable {
         public Abs[] post_content = new Abs[0];
         public long create_time = 0;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LbsInfo implements Serializable {
         public String lat = "";
         public String lon = "";
@@ -95,7 +95,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Media implements Serializable {
         public int type = 0;
         public String small_pic = "";
@@ -118,7 +118,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class PostList extends AbstractImageProvider implements Serializable {
         public long forum_id = 0;
         public long thread_id = 0;
@@ -142,10 +142,10 @@ public class PersonPostListData extends OrmObject implements Serializable {
         @Override // com.baidu.tbadk.core.util.AbstractImageProvider, com.baidu.tbadk.core.util.ImageProvider
         public ArrayList<String> getImageUrl() {
             ArrayList<String> arrayList = new ArrayList<>();
-            int i = 0;
+            int i2 = 0;
             for (Media media : this.media) {
-                i++;
-                if (i > 3) {
+                i2++;
+                if (i2 > 3) {
                     break;
                 } else if (media.type == 3) {
                     arrayList.add(media.water_pic);
@@ -155,7 +155,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Quote implements Serializable {
         public long post_id = 0;
         public String user_name = "";

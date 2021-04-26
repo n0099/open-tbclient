@@ -12,23 +12,25 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
-import d.b.c.a.j;
-import d.b.j0.r1.c.b.d;
+import d.a.c.a.j;
+import d.a.j0.r1.c.b.d;
 /* loaded from: classes3.dex */
 public class CategoryView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18592e;
+    public Context f19008e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18593f;
+    public View f19009f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f18594g;
+    public TextView f19010g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18595h;
-    public ImageView i;
+    public TextView f19011h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public ImageView f19012i;
     public d j;
     public View.OnClickListener k;
 
@@ -50,38 +52,38 @@ public class CategoryView extends LinearLayout {
             } else if (a2 == 3) {
                 TiebaStatic.log("c10449");
             }
-            MemberCenterStatic.a((TbPageContext) j.a(CategoryView.this.f18592e), new String[]{CategoryView.this.j.c()});
+            MemberCenterStatic.a((TbPageContext) j.a(CategoryView.this.f19008e), new String[]{CategoryView.this.j.c()});
         }
     }
 
     public CategoryView(Context context) {
         super(context);
         this.k = new a();
-        this.f18592e = context;
+        this.f19008e = context;
         c();
     }
 
     public final void c() {
-        View inflate = LayoutInflater.from(this.f18592e).inflate(R.layout.index_category, this);
-        this.f18593f = inflate;
-        this.f18594g = (TextView) inflate.findViewById(R.id.class_name);
-        this.f18595h = (TextView) this.f18593f.findViewById(R.id.sprend_name);
-        this.i = (ImageView) this.f18593f.findViewById(R.id.spread_icon);
-        this.f18593f.setOnClickListener(this.k);
-        this.i.setOnClickListener(this.k);
+        View inflate = LayoutInflater.from(this.f19008e).inflate(R.layout.index_category, this);
+        this.f19009f = inflate;
+        this.f19010g = (TextView) inflate.findViewById(R.id.class_name);
+        this.f19011h = (TextView) this.f19009f.findViewById(R.id.sprend_name);
+        this.f19012i = (ImageView) this.f19009f.findViewById(R.id.spread_icon);
+        this.f19009f.setOnClickListener(this.k);
+        this.f19012i.setOnClickListener(this.k);
     }
 
     public CategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.k = new a();
-        this.f18592e = context;
+        this.f19008e = context;
         c();
     }
 
-    public CategoryView(Context context, AttributeSet attributeSet, int i) {
+    public CategoryView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet);
         this.k = new a();
-        this.f18592e = context;
+        this.f19008e = context;
         c();
     }
 }

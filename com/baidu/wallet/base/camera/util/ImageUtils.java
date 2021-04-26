@@ -31,18 +31,18 @@ public abstract class ImageUtils implements NoProguard {
     public static final int UNCONSTRAINED = -1;
 
     public static int calSampleSize(Context context, Uri uri) {
-        int i;
+        int i2;
         int[] screenSize;
         if (context != null && uri != null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
             ParcelFileDescriptor parcelFileDescriptor = null;
             try {
-                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7699a);
+                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7975a);
                 if (openFileDescriptor != null) {
                     try {
                         BitmapFactory.decodeFileDescriptor(openFileDescriptor.getFileDescriptor(), null, options);
-                        i = options.outWidth * options.outHeight;
+                        i2 = options.outWidth * options.outHeight;
                     } catch (Exception unused) {
                         parcelFileDescriptor = openFileDescriptor;
                         if (parcelFileDescriptor != null) {
@@ -66,7 +66,7 @@ public abstract class ImageUtils implements NoProguard {
                         throw th;
                     }
                 } else {
-                    i = 0;
+                    i2 = 0;
                 }
                 if (openFileDescriptor != null) {
                     try {
@@ -75,10 +75,10 @@ public abstract class ImageUtils implements NoProguard {
                         e4.printStackTrace();
                     }
                 }
-                if (i == 0 || (screenSize = getScreenSize(context)) == null) {
+                if (i2 == 0 || (screenSize = getScreenSize(context)) == null) {
                     return 1;
                 }
-                return (int) Math.ceil(Math.sqrt(i / (screenSize[0] * screenSize[1])));
+                return (int) Math.ceil(Math.sqrt(i2 / (screenSize[0] * screenSize[1])));
             } catch (Exception unused2) {
             } catch (Throwable th2) {
                 th = th2;
@@ -104,15 +104,15 @@ public abstract class ImageUtils implements NoProguard {
         return BitmapFactory.decodeFile(str, options);
     }
 
-    public static Bitmap getBitmapFromRGB888(byte[] bArr, int i, int i2) {
-        Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-        int i3 = i * i2;
-        int[] iArr = new int[i3];
-        for (int i4 = 0; i4 < i3; i4++) {
-            int i5 = i4 * 3;
-            iArr[i4] = Color.rgb(bArr[i5] & 255, bArr[i5 + 1] & 255, bArr[i5 + 2] & 255);
+    public static Bitmap getBitmapFromRGB888(byte[] bArr, int i2, int i3) {
+        Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+        int i4 = i2 * i3;
+        int[] iArr = new int[i4];
+        for (int i5 = 0; i5 < i4; i5++) {
+            int i6 = i5 * 3;
+            iArr[i5] = Color.rgb(bArr[i6] & 255, bArr[i6 + 1] & 255, bArr[i6 + 2] & 255);
         }
-        createBitmap.setPixels(iArr, 0, i, 0, 0, i, i2);
+        createBitmap.setPixels(iArr, 0, i2, 0, 0, i2, i3);
         return createBitmap;
     }
 
@@ -135,7 +135,7 @@ public abstract class ImageUtils implements NoProguard {
         try {
             try {
                 try {
-                    parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7699a);
+                    parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7975a);
                     if (parcelFileDescriptor != null) {
                         try {
                             bitmap = BitmapFactory.decodeFileDescriptor(parcelFileDescriptor.getFileDescriptor(), null, options);
@@ -186,22 +186,22 @@ public abstract class ImageUtils implements NoProguard {
         return null;
     }
 
-    public static Bitmap rotateAReversalBitmap(int i, Bitmap bitmap) {
+    public static Bitmap rotateAReversalBitmap(int i2, Bitmap bitmap) {
         if (bitmap == null) {
             return null;
         }
         Matrix matrix = new Matrix();
-        matrix.postRotate(i);
+        matrix.postRotate(i2);
         matrix.postScale(-1.0f, 1.0f);
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    public static Bitmap rotateBitmap(int i, Bitmap bitmap) {
+    public static Bitmap rotateBitmap(int i2, Bitmap bitmap) {
         if (bitmap == null) {
             return null;
         }
         Matrix matrix = new Matrix();
-        matrix.postRotate(i);
+        matrix.postRotate(i2);
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
@@ -255,12 +255,12 @@ public abstract class ImageUtils implements NoProguard {
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:21:0x0049 -> B:39:0x005d). Please submit an issue!!! */
-    public static String saveBitmapToCache(Context context, Bitmap bitmap, String str, int i) {
+    public static String saveBitmapToCache(Context context, Bitmap bitmap, String str, int i2) {
         String str2;
         File file;
         FileOutputStream fileOutputStream;
         str2 = "";
-        if (i < 0 || i > 100) {
+        if (i2 < 0 || i2 > 100) {
             return "";
         }
         FileOutputStream fileOutputStream2 = null;
@@ -282,7 +282,7 @@ public abstract class ImageUtils implements NoProguard {
             e2.printStackTrace();
         }
         try {
-            str2 = bitmap.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream) ? file.getAbsolutePath() : "";
+            str2 = bitmap.compress(Bitmap.CompressFormat.JPEG, i2, fileOutputStream) ? file.getAbsolutePath() : "";
             fileOutputStream.close();
         } catch (Throwable th2) {
             th = th2;

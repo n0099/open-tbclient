@@ -24,29 +24,29 @@ public class AdDownloadExtra implements Serializable {
     }
 
     public int getPercent() {
-        int i = this.mPercent;
-        int i2 = this.mDownloadFakePercent;
-        return i > i2 ? i : i2;
+        int i2 = this.mPercent;
+        int i3 = this.mDownloadFakePercent;
+        return i2 > i3 ? i2 : i3;
     }
 
     public DownloadStatus getStatus() {
         return this.mState;
     }
 
-    public void setDownloadFakePercent(int i) {
-        this.mDownloadFakePercent = i;
+    public void setDownloadFakePercent(int i2) {
+        this.mDownloadFakePercent = i2;
     }
 
     public void setDownloadPath(String str) {
         this.mDownloadFilePath = str;
     }
 
-    public void setPercent(int i) {
-        this.mPercent = i;
+    public void setPercent(int i2) {
+        this.mPercent = i2;
     }
 
-    public void setPercentAndStatus(int i, DownloadStatus downloadStatus) {
-        setPercent(i);
+    public void setPercentAndStatus(int i2, DownloadStatus downloadStatus) {
+        setPercent(i2);
         setStatus(downloadStatus);
     }
 

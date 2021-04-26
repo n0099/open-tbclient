@@ -11,29 +11,29 @@ import com.baidu.ufosdk.f.j;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Display f22609a;
+    public static Display f23312a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f22610b;
+    public static int f23313b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f22611c;
+    public static int f23314c;
 
     public static String a(Context context) {
-        if (f22610b == 0) {
-            if (f22609a == null) {
-                f22609a = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+        if (f23313b == 0) {
+            if (f23312a == null) {
+                f23312a = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
             }
             Point point = new Point();
             if (j.a() < 13) {
-                point.set(f22609a.getWidth(), f22609a.getHeight());
+                point.set(f23312a.getWidth(), f23312a.getHeight());
             } else {
-                f22609a.getSize(point);
+                f23312a.getSize(point);
             }
-            f22610b = point.x;
-            f22611c = point.y;
+            f23313b = point.x;
+            f23314c = point.y;
         }
-        int[] iArr = {f22610b, f22611c};
+        int[] iArr = {f23313b, f23314c};
         return iArr[0] + "x" + iArr[1];
     }
 }

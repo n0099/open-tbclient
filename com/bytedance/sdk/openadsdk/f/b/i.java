@@ -11,10 +11,10 @@ import org.json.JSONObject;
 public class i extends com.bytedance.sdk.openadsdk.f.a.d<JSONObject, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<x> f29090a;
+    public WeakReference<x> f29983a;
 
     public i(x xVar) {
-        this.f29090a = new WeakReference<>(xVar);
+        this.f29983a = new WeakReference<>(xVar);
     }
 
     public static void a(q qVar, final x xVar) {
@@ -35,7 +35,7 @@ public class i extends com.bytedance.sdk.openadsdk.f.a.d<JSONObject, JSONObject>
             sb.append(jSONObject != null ? jSONObject.toString() : "");
             u.b("ShowAppDetailOrPrivacyDialogMethod", sb.toString());
         }
-        WeakReference<x> weakReference = this.f29090a;
+        WeakReference<x> weakReference = this.f29983a;
         if (weakReference == null) {
             return;
         }

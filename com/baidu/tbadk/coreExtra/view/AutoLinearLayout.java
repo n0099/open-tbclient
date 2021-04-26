@@ -5,163 +5,165 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class AutoLinearLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f13395e;
+    public Context f13367e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13396f;
+    public int f13368f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13397g;
+    public int f13369g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13398h;
-    public int i;
+    public int f13370h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f13371i;
     public int j;
     public int k;
     public int l;
 
     public AutoLinearLayout(Context context) {
         super(context);
-        this.f13396f = 0;
-        this.f13397g = 0;
-        this.f13398h = 0;
+        this.f13368f = 0;
+        this.f13369g = 0;
+        this.f13370h = 0;
         this.j = 0;
         this.k = 0;
         this.l = 0;
-        this.f13395e = context;
+        this.f13367e = context;
         setOrientation(0);
-        this.f13397g = l.g(context, R.dimen.ds24);
-        this.f13398h = l.g(context, R.dimen.ds20);
+        this.f13369g = l.g(context, R.dimen.ds24);
+        this.f13370h = l.g(context, R.dimen.ds20);
         this.k = l.g(context, R.dimen.ds32);
-        this.i = l.k(this.f13395e) - (this.k * 2);
-        this.l = (int) this.f13395e.getResources().getDimension(R.dimen.ds60);
+        this.f13371i = l.k(this.f13367e) - (this.k * 2);
+        this.l = (int) this.f13367e.getResources().getDimension(R.dimen.ds60);
     }
 
     private int getCulumnsCount() {
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
         int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.l, 1073741824);
         int childCount = getChildCount();
-        int i = this.i;
-        int i2 = 0;
+        int i2 = this.f13371i;
         int i3 = 0;
-        for (int i4 = 0; i4 < childCount; i4++) {
-            View childAt = getChildAt(i4);
+        int i4 = 0;
+        for (int i5 = 0; i5 < childCount; i5++) {
+            View childAt = getChildAt(i5);
             if (childAt != null) {
                 childAt.measure(makeMeasureSpec, makeMeasureSpec2);
                 int measuredWidth = childAt.getMeasuredWidth();
-                if (i < measuredWidth) {
-                    i2++;
-                    if (i2 == 1) {
-                        this.j = i4;
+                if (i2 < measuredWidth) {
+                    i3++;
+                    if (i3 == 1) {
+                        this.j = i5;
                     }
-                    i3 = measuredWidth + this.f13398h + 0;
+                    i4 = measuredWidth + this.f13370h + 0;
                 } else {
-                    i3 += measuredWidth + this.f13398h;
+                    i4 += measuredWidth + this.f13370h;
                 }
-                i = this.i - i3;
+                i2 = this.f13371i - i4;
             }
         }
-        return i2 + 1;
+        return i3 + 1;
     }
 
-    public final void a(int i) {
-        int i2 = this.j;
-        if (i2 > i) {
+    public final void a(int i2) {
+        int i3 = this.j;
+        if (i3 > i2) {
             return;
         }
-        removeViews(i2, i - i2);
+        removeViews(i3, i2 - i3);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         int childCount = getChildCount();
-        int dimension = (int) this.f13395e.getResources().getDimension(R.dimen.ds24);
-        int i5 = 0;
+        int dimension = (int) this.f13367e.getResources().getDimension(R.dimen.ds24);
         int i6 = 0;
-        for (int i7 = 0; i7 < childCount; i7++) {
-            View childAt = getChildAt(i7);
+        int i7 = 0;
+        for (int i8 = 0; i8 < childCount; i8++) {
+            View childAt = getChildAt(i8);
             if (childAt != null) {
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
-                if (i5 != 0 && i6 < measuredWidth) {
-                    dimension += this.f13397g + measuredHeight;
-                    i5 = 0;
+                if (i6 != 0 && i7 < measuredWidth) {
+                    dimension += this.f13369g + measuredHeight;
+                    i6 = 0;
                 }
-                childAt.layout(i5, dimension, i5 + measuredWidth, measuredHeight + dimension);
-                int i8 = this.f13398h;
-                i6 = (((i3 - i) - i5) - measuredWidth) - i8;
-                i5 += measuredWidth + i8;
+                childAt.layout(i6, dimension, i6 + measuredWidth, measuredHeight + dimension);
+                int i9 = this.f13370h;
+                i7 = (((i4 - i2) - i6) - measuredWidth) - i9;
+                i6 += measuredWidth + i9;
             }
         }
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
         int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.l, 1073741824);
         int childCount = getChildCount();
         int culumnsCount = getCulumnsCount();
-        if (this.f13396f != 0 && this.j != 0) {
+        if (this.f13368f != 0 && this.j != 0) {
             a(childCount);
         }
-        if (this.f13396f != 0) {
-            for (int i3 = 0; i3 < this.j; i3++) {
-                View childAt = getChildAt(i3);
+        if (this.f13368f != 0) {
+            for (int i4 = 0; i4 < this.j; i4++) {
+                View childAt = getChildAt(i4);
                 if (childAt != null) {
                     childAt.measure(makeMeasureSpec, makeMeasureSpec2);
                 }
             }
             this.j = 0;
         } else {
-            for (int i4 = 0; i4 < childCount; i4++) {
-                View childAt2 = getChildAt(i4);
+            for (int i5 = 0; i5 < childCount; i5++) {
+                View childAt2 = getChildAt(i5);
                 if (childAt2 != null) {
                     childAt2.measure(makeMeasureSpec, makeMeasureSpec2);
                 }
             }
         }
-        if (this.f13396f != 0) {
-            setMeasuredDimension(LinearLayout.resolveSize(0, i), LinearLayout.resolveSize((this.l * this.f13396f) + this.f13397g, i2));
+        if (this.f13368f != 0) {
+            setMeasuredDimension(LinearLayout.resolveSize(0, i2), LinearLayout.resolveSize((this.l * this.f13368f) + this.f13369g, i3));
         } else {
-            setMeasuredDimension(LinearLayout.resolveSize(0, i), LinearLayout.resolveSize((this.l * culumnsCount) + (culumnsCount * this.f13397g), i2));
+            setMeasuredDimension(LinearLayout.resolveSize(0, i2), LinearLayout.resolveSize((this.l * culumnsCount) + (culumnsCount * this.f13369g), i3));
         }
     }
 
-    public void setCellHeight(int i) {
-        this.l = i;
+    public void setCellHeight(int i2) {
+        this.l = i2;
     }
 
-    public void setMarginRight(int i) {
-        this.f13398h = i;
+    public void setMarginRight(int i2) {
+        this.f13370h = i2;
     }
 
-    public void setParentWidth(int i) {
-        this.i = i;
+    public void setParentWidth(int i2) {
+        this.f13371i = i2;
     }
 
-    public void setShowColumns(int i) {
-        this.f13396f = i;
+    public void setShowColumns(int i2) {
+        this.f13368f = i2;
     }
 
     public AutoLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13396f = 0;
-        this.f13397g = 0;
-        this.f13398h = 0;
+        this.f13368f = 0;
+        this.f13369g = 0;
+        this.f13370h = 0;
         this.j = 0;
         this.k = 0;
         this.l = 0;
-        this.f13395e = context;
+        this.f13367e = context;
         setOrientation(0);
-        this.f13397g = l.g(context, R.dimen.ds24);
-        this.f13398h = l.g(context, R.dimen.ds20);
+        this.f13369g = l.g(context, R.dimen.ds24);
+        this.f13370h = l.g(context, R.dimen.ds20);
         this.k = l.g(context, R.dimen.ds32);
-        this.i = l.k(this.f13395e) - (this.k * 2);
-        this.l = (int) this.f13395e.getResources().getDimension(R.dimen.ds60);
+        this.f13371i = l.k(this.f13367e) - (this.k * 2);
+        this.l = (int) this.f13367e.getResources().getDimension(R.dimen.ds60);
     }
 }

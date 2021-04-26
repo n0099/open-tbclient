@@ -24,7 +24,7 @@ import com.idlefish.flutterboost.XFlutterView;
 import com.idlefish.flutterboost.XPlatformPlugin;
 import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
 import com.idlefish.flutterboost.interfaces.IOperateSyncer;
-import d.b.j0.i3.a;
+import d.a.j0.i3.a;
 import io.flutter.Log;
 import io.flutter.embedding.android.FlutterEngineConfigurator;
 import io.flutter.embedding.android.FlutterEngineProvider;
@@ -107,20 +107,20 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
             }
             Window window = this.host.getActivity().getWindow();
             WindowManager.LayoutParams attributes = window.getAttributes();
-            int i = attributes.preferredDisplayModeId;
+            int i2 = attributes.preferredDisplayModeId;
             Display.Mode[] supportedModes = windowManager.getDefaultDisplay().getSupportedModes();
-            int i2 = 0;
+            int i3 = 0;
             while (true) {
-                if (i2 >= supportedModes.length) {
+                if (i3 >= supportedModes.length) {
                     break;
-                } else if (supportedModes[i2].getRefreshRate() == refreshRate) {
-                    i = supportedModes[i2].getModeId();
+                } else if (supportedModes[i3].getRefreshRate() == refreshRate) {
+                    i2 = supportedModes[i3].getModeId();
                     break;
                 } else {
-                    i2++;
+                    i3++;
                 }
             }
-            attributes.preferredDisplayModeId = i;
+            attributes.preferredDisplayModeId = i2;
             window.setAttributes(attributes);
         } catch (Exception e2) {
             BdLog.e(e2);
@@ -186,12 +186,12 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         return this.flutterView;
     }
 
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
         if (FlutterCrabReportEnableSwitch.isOn()) {
             a aVar = a.getInstance();
             aVar.setFlutterPath("onActivityResult" + getContainerUrl());
         }
-        this.mSyncer.onActivityResult(i, i2, intent);
+        this.mSyncer.onActivityResult(i2, i3, intent);
         HashMap hashMap = new HashMap();
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra("_flutter_result_");
@@ -209,11 +209,11 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
                 BdLog.e(th);
             }
         }
-        this.mSyncer.onContainerResult(i, i2, hashMap);
+        this.mSyncer.onContainerResult(i2, i3, hashMap);
         ensureAlive();
         if (this.flutterEngine != null) {
-            Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onActivityResult() to FlutterEngine:\nrequestCode: " + i + "\nresultCode: " + i2 + "\ndata: " + intent);
-            this.flutterEngine.getActivityControlSurface().onActivityResult(i, i2, intent);
+            Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onActivityResult() to FlutterEngine:\nrequestCode: " + i2 + "\nresultCode: " + i3 + "\ndata: " + intent);
+            this.flutterEngine.getActivityControlSurface().onActivityResult(i2, i3, intent);
             return;
         }
         Log.w("FlutterActivityAndFragmentDelegate", "onActivityResult() invoked before NewFlutterFragment was attached to an Activity.");
@@ -302,8 +302,8 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
             xPlatformPlugin.detachActivity(getContextActivity());
             this.platformPlugin = null;
         }
-        int i = ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE;
-        if (i != 0 && i == this.host.hashCode()) {
+        int i2 = ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE;
+        if (i2 != 0 && i2 == this.host.hashCode()) {
             this.flutterEngine.getActivityControlSurface().detachFromActivityForConfigChanges();
         }
         Utils.fixInputMethodManagerLeak(this.host.getActivity());
@@ -351,12 +351,12 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         ensureAlive();
     }
 
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        this.mSyncer.onRequestPermissionsResult(i, strArr, iArr);
+    public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+        this.mSyncer.onRequestPermissionsResult(i2, strArr, iArr);
         ensureAlive();
         if (this.flutterEngine != null) {
-            Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onRequestPermissionsResult() to FlutterEngine:\nrequestCode: " + i + "\npermissions: " + Arrays.toString(strArr) + "\ngrantResults: " + Arrays.toString(iArr));
-            this.flutterEngine.getActivityControlSurface().onRequestPermissionsResult(i, strArr, iArr);
+            Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onRequestPermissionsResult() to FlutterEngine:\nrequestCode: " + i2 + "\npermissions: " + Arrays.toString(strArr) + "\ngrantResults: " + Arrays.toString(iArr));
+            this.flutterEngine.getActivityControlSurface().onRequestPermissionsResult(i2, strArr, iArr);
             return;
         }
         Log.w("FlutterActivityAndFragmentDelegate", "onRequestPermissionResult() invoked before NewFlutterFragment was attached to an Activity.");
@@ -372,8 +372,8 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         Log.v("FlutterActivityAndFragmentDelegate", "onResume()");
         ensureAlive();
         this.flutterEngine.getLifecycleChannel().appIsResumed();
-        int i = ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE;
-        if (i == 0 || i != this.host.hashCode()) {
+        int i2 = ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE;
+        if (i2 == 0 || i2 != this.host.hashCode()) {
             this.flutterEngine.getActivityControlSurface().detachFromActivityForConfigChanges();
             this.flutterEngine.getActivityControlSurface().attachToActivity(this.host.getActivity(), this.host.getLifecycle());
             ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = this.host.hashCode();
@@ -398,13 +398,13 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         ensureAlive();
     }
 
-    public void onTrimMemory(int i) {
-        this.mSyncer.onTrimMemory(i);
+    public void onTrimMemory(int i2) {
+        this.mSyncer.onTrimMemory(i2);
         ensureAlive();
         if (this.flutterEngine == null) {
             Log.w("FlutterActivityAndFragmentDelegate", "onTrimMemory() invoked before NewFlutterFragment was attached to an Activity.");
-        } else if (i == 10) {
-            Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onTrimMemory() to FlutterEngine. Level: " + i);
+        } else if (i2 == 10) {
+            Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onTrimMemory() to FlutterEngine. Level: " + i2);
             this.flutterEngine.getSystemChannel().sendMemoryPressureWarning();
         }
     }

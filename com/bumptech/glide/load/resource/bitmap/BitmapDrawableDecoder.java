@@ -21,8 +21,8 @@ public class BitmapDrawableDecoder<DataType> implements ResourceDecoder<DataType
     }
 
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource<BitmapDrawable> decode(@NonNull DataType datatype, int i, int i2, @NonNull Options options) throws IOException {
-        return LazyBitmapDrawableResource.obtain(this.resources, this.decoder.decode(datatype, i, i2, options));
+    public Resource<BitmapDrawable> decode(@NonNull DataType datatype, int i2, int i3, @NonNull Options options) throws IOException {
+        return LazyBitmapDrawableResource.obtain(this.resources, this.decoder.decode(datatype, i2, i3, options));
     }
 
     @Override // com.bumptech.glide.load.ResourceDecoder

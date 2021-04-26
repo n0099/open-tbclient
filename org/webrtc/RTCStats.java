@@ -30,11 +30,11 @@ public class RTCStats {
         }
         Object[] objArr = (Object[]) obj;
         sb.append('[');
-        for (int i = 0; i < objArr.length; i++) {
-            if (i != 0) {
+        for (int i2 = 0; i2 < objArr.length; i2++) {
+            if (i2 != 0) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
-            appendValue(sb, objArr[i]);
+            appendValue(sb, objArr[i2]);
         }
         sb.append(']');
     }

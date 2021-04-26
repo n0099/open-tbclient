@@ -9,12 +9,12 @@ public final class b {
         return context.getSharedPreferences(b(context), 0);
     }
 
-    public static void a(Context context, String str, int i) {
+    public static void a(Context context, String str, int i2) {
         if (context == null || TextUtils.isEmpty(str)) {
             return;
         }
         try {
-            a(context).edit().putInt(str, i).commit();
+            a(context).edit().putInt(str, i2).commit();
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -31,15 +31,15 @@ public final class b {
         }
     }
 
-    public static int b(Context context, String str, int i) {
+    public static int b(Context context, String str, int i2) {
         if (context != null && !TextUtils.isEmpty(str)) {
             try {
-                return a(context).getInt(str, i);
+                return a(context).getInt(str, i2);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
-        return i;
+        return i2;
     }
 
     public static String b(Context context) {

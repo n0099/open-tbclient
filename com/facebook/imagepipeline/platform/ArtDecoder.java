@@ -10,12 +10,12 @@ import javax.annotation.concurrent.ThreadSafe;
 @TargetApi(21)
 /* loaded from: classes6.dex */
 public class ArtDecoder extends DefaultDecoder {
-    public ArtDecoder(BitmapPool bitmapPool, int i, Pools.SynchronizedPool synchronizedPool) {
-        super(bitmapPool, i, synchronizedPool);
+    public ArtDecoder(BitmapPool bitmapPool, int i2, Pools.SynchronizedPool synchronizedPool) {
+        super(bitmapPool, i2, synchronizedPool);
     }
 
     @Override // com.facebook.imagepipeline.platform.DefaultDecoder
-    public int getBitmapSize(int i, int i2, BitmapFactory.Options options) {
-        return BitmapUtil.getSizeInByteForBitmap(i, i2, options.inPreferredConfig);
+    public int getBitmapSize(int i2, int i3, BitmapFactory.Options options) {
+        return BitmapUtil.getSizeInByteForBitmap(i2, i3, options.inPreferredConfig);
     }
 }

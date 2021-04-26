@@ -5,5 +5,5 @@ public abstract class d {
         return c.a();
     }
 
-    public abstract b a(int i);
+    public abstract b a(int i2);
 }

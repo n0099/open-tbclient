@@ -27,22 +27,22 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
     public long mEndMsgTime;
     public String mListenerKey;
 
-    public IMMediaFetchMsgHttpRequest(Context context, long j, long j2, long j3, int i, String str) {
+    public IMMediaFetchMsgHttpRequest(Context context, long j, long j2, long j3, int i2, String str) {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
         this.mContactor = j;
         this.mBeginMsgTime = j2;
         this.mEndMsgTime = j3;
-        this.mCount = i;
+        this.mCount = i2;
         this.mListenerKey = str;
     }
 
     /* JADX WARN: Type inference failed for: r7v1, types: [T, java.lang.Long] */
-    private void parserMsg(List<ChatMsg> list, JSONArray jSONArray, int i) {
+    private void parserMsg(List<ChatMsg> list, JSONArray jSONArray, int i2) {
         try {
             LogUtils.d(TAG, "BC> parserMsg=" + jSONArray);
-            JSONObject jSONObject = jSONArray.getJSONObject(i);
+            JSONObject jSONObject = jSONArray.getJSONObject(i2);
             long optLong = jSONObject.optLong("contacter_im_uk", -1L);
             String transBDUK = Utility.transBDUK(jSONObject.optString("from_pass_uk", ""));
             long optLong2 = jSONObject.optLong("from_im_uk", -1L);
@@ -122,9 +122,9 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        LogUtils.d(TAG, "BC> mListenerKey=" + this.mListenerKey + ", errorCode=" + i + ", resultContent=" + new String(bArr));
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        LogUtils.d(TAG, "BC> mListenerKey=" + this.mListenerKey + ", errorCode=" + i2 + ", resultContent=" + new String(bArr));
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         ChatMsgManagerImpl.getInstance(this.mContext).onMediaFetchChatMsgsResult(this.mListenerKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, false, null);
     }
 
@@ -133,53 +133,53 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
     /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         boolean z;
         String str;
-        int i2;
+        int i3;
         String str2 = new String(bArr);
-        LogUtils.d(TAG, "BC> mListenerKey=" + this.mListenerKey + ", errorCode=" + i + ", result=" + str2);
+        LogUtils.d(TAG, "BC> mListenerKey=" + this.mListenerKey + ", errorCode=" + i2 + ", result=" + str2);
         if (TextUtils.isEmpty(this.mListenerKey)) {
             return;
         }
         List<ChatMsg> arrayList = new ArrayList<>();
-        int i3 = 0;
+        int i4 = 0;
         try {
             JSONObject jSONObject = new JSONObject(str2);
             String str3 = "";
-            if (i == 200) {
-                i = jSONObject.optInt("error_code", -1);
+            if (i2 == 200) {
+                i2 = jSONObject.optInt("error_code", -1);
                 str3 = jSONObject.optString("error_msg", "");
-                int i4 = jSONObject.optInt("has_more", 0) != 1 ? 0 : 1;
-                if (i == 0) {
+                int i5 = jSONObject.optInt("has_more", 0) != 1 ? 0 : 1;
+                if (i2 == 0) {
                     try {
                         JSONArray optJSONArray = jSONObject.optJSONArray("msgs");
                         LogUtils.d(TAG, "BC> msgArrJson=" + optJSONArray);
                         if (optJSONArray != null && optJSONArray.length() > 0) {
-                            while (i3 < optJSONArray.length()) {
-                                parserMsg(arrayList, optJSONArray, i3);
-                                i3++;
+                            while (i4 < optJSONArray.length()) {
+                                parserMsg(arrayList, optJSONArray, i4);
+                                i4++;
                             }
                         }
                     } catch (Exception e2) {
                         e = e2;
-                        i3 = i4;
+                        i4 = i5;
                         e.printStackTrace();
                         str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                        z = i3;
-                        i2 = 1010;
-                        ChatMsgManagerImpl.getInstance(this.mContext).onMediaFetchChatMsgsResult(this.mListenerKey, i2, str, z, arrayList);
+                        z = i4;
+                        i3 = 1010;
+                        ChatMsgManagerImpl.getInstance(this.mContext).onMediaFetchChatMsgsResult(this.mListenerKey, i3, str, z, arrayList);
                     }
                 }
-                i3 = i4;
+                i4 = i5;
             }
-            i2 = i;
-            z = i3;
+            i3 = i2;
+            z = i4;
             str = str3;
         } catch (Exception e3) {
             e = e3;
         }
-        ChatMsgManagerImpl.getInstance(this.mContext).onMediaFetchChatMsgsResult(this.mListenerKey, i2, str, z, arrayList);
+        ChatMsgManagerImpl.getInstance(this.mContext).onMediaFetchChatMsgsResult(this.mListenerKey, i3, str, z, arrayList);
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -187,16 +187,16 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
         return super.shouldAbort();
     }
 
-    public IMMediaFetchMsgHttpRequest(Context context, long j, int i, long j2, String str, long j3, long j4, int i2, String str2) {
+    public IMMediaFetchMsgHttpRequest(Context context, long j, int i2, long j2, String str, long j3, long j4, int i3, String str2) {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
         this.mContactor = j;
         this.mBeginMsgTime = j3;
         this.mEndMsgTime = j4;
-        this.mCount = i2;
+        this.mCount = i3;
         this.mListenerKey = str2;
-        this.mContactorType = i;
+        this.mContactorType = i2;
         this.mContactorPauid = j2;
         this.mContactorThirdid = str;
     }

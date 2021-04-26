@@ -4,56 +4,55 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.contentalliance.detail.video.DetailVideoView;
 import com.kwad.sdk.contentalliance.detail.video.c;
-import com.kwad.sdk.contentalliance.detail.video.d;
-import com.kwad.sdk.contentalliance.detail.video.e;
+import com.kwad.sdk.core.response.b.c;
+import com.kwad.sdk.core.response.b.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.video.a.c;
-import com.kwad.sdk.core.view.g;
-import com.kwad.sdk.utils.b;
+import com.kwad.sdk.core.view.b;
 /* loaded from: classes6.dex */
 public class a {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f34979a;
+    public AdTemplate f33950a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f34980b;
+    public long f33951b;
 
     /* renamed from: c  reason: collision with root package name */
-    public g f34981c;
+    public b f33952c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.a f34982d;
+    public com.kwad.sdk.contentalliance.detail.video.a f33953d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f34983e;
+    public com.kwad.sdk.contentalliance.detail.video.b f33954e;
 
     /* renamed from: f  reason: collision with root package name */
-    public g.a f34984f = new g.a() { // from class: com.kwad.sdk.draw.c.a.2
-        @Override // com.kwad.sdk.core.view.g.a
+    public b.a f33955f = new b.a() { // from class: com.kwad.sdk.draw.c.a.2
+        @Override // com.kwad.sdk.core.view.b.a
         public void a(boolean z) {
             if (!z) {
                 a.this.d();
                 return;
             }
-            if (a.this.f34983e == null) {
+            if (a.this.f33954e == null) {
                 a aVar = a.this;
-                aVar.f34983e = new c(aVar.f34980b, System.currentTimeMillis());
-                a.this.f34982d.a(a.this.f34983e);
+                aVar.f33954e = new com.kwad.sdk.contentalliance.detail.video.b(aVar.f33951b, System.currentTimeMillis());
+                a.this.f33953d.a(a.this.f33954e);
             }
             a.this.c();
         }
     };
 
-    public a(@NonNull AdTemplate adTemplate, @NonNull g gVar, @NonNull DetailVideoView detailVideoView) {
+    public a(@NonNull AdTemplate adTemplate, @NonNull b bVar, @NonNull DetailVideoView detailVideoView) {
         adTemplate.mKsPlayerClickTimeParam = System.currentTimeMillis();
-        this.f34979a = adTemplate;
-        this.f34980b = com.kwad.sdk.core.response.b.a.k(com.kwad.sdk.core.response.b.c.j(adTemplate));
-        this.f34981c = gVar;
-        this.f34982d = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
+        this.f33950a = adTemplate;
+        this.f33951b = com.kwad.sdk.core.response.b.a.i(c.g(adTemplate));
+        this.f33952c = bVar;
+        this.f33953d = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
         f();
-        this.f34982d.a(new c.e() { // from class: com.kwad.sdk.draw.c.a.1
+        this.f33953d.a(new c.e() { // from class: com.kwad.sdk.draw.c.a.1
             @Override // com.kwad.sdk.core.video.a.c.e
             public void a(com.kwad.sdk.core.video.a.c cVar) {
                 a.this.a(System.currentTimeMillis());
@@ -63,63 +62,63 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j) {
-        if (this.f34981c.d()) {
-            this.f34982d.a(new com.kwad.sdk.contentalliance.detail.video.c(this.f34980b, j));
-            this.f34982d.f();
+        if (this.f33952c.d()) {
+            this.f33953d.a(new com.kwad.sdk.contentalliance.detail.video.b(this.f33951b, j));
+            this.f33953d.e();
         }
     }
 
     private void f() {
-        this.f34982d.a(new d.a().a(com.kwad.sdk.core.response.b.c.l(this.f34979a)).a(this.f34979a.mVideoPlayerStatus).a(com.kwad.sdk.contentalliance.detail.video.c.a(this.f34979a)).a());
-        this.f34982d.e();
+        this.f33953d.a(new c.a().a(com.kwad.sdk.core.response.b.c.i(this.f33950a)).b(d.b(com.kwad.sdk.core.response.b.c.h(this.f33950a))).a(this.f33950a.mVideoPlayerStatus).a(com.kwad.sdk.contentalliance.detail.video.b.a(this.f33950a)).a());
+        this.f33953d.d();
     }
 
     public void a() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.f34982d.a() == null) {
+        if (this.f33953d.a() == null) {
             f();
         }
         a(currentTimeMillis);
-        this.f34981c.a(this.f34984f);
+        this.f33952c.a(this.f33955f);
     }
 
     @MainThread
-    public void a(e eVar) {
-        if (eVar == null) {
+    public void a(com.kwad.sdk.contentalliance.detail.video.d dVar) {
+        if (dVar == null) {
             return;
         }
-        this.f34982d.a(eVar);
+        this.f33953d.a(dVar);
     }
 
     public void b() {
-        this.f34983e = null;
-        this.f34981c.b(this.f34984f);
-        this.f34982d.k();
+        this.f33954e = null;
+        this.f33952c.b(this.f33955f);
+        this.f33953d.h();
     }
 
     @MainThread
-    public void b(e eVar) {
-        if (eVar == null) {
+    public void b(com.kwad.sdk.contentalliance.detail.video.d dVar) {
+        if (dVar == null) {
             return;
         }
-        this.f34982d.b(eVar);
+        this.f33953d.b(dVar);
     }
 
     public void c() {
-        this.f34982d.h();
-        b.a().a(false);
+        this.f33953d.f();
+        com.kwad.sdk.utils.b.a().a(false);
     }
 
     public void d() {
-        this.f34982d.j();
+        this.f33953d.g();
     }
 
     @MainThread
     public void e() {
-        com.kwad.sdk.contentalliance.detail.video.a aVar = this.f34982d;
+        com.kwad.sdk.contentalliance.detail.video.a aVar = this.f33953d;
         if (aVar != null) {
-            aVar.p();
-            this.f34982d.k();
+            aVar.m();
+            this.f33953d.h();
         }
     }
 }

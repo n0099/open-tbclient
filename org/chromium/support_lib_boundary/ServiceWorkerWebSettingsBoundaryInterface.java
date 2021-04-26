@@ -15,5 +15,5 @@ public interface ServiceWorkerWebSettingsBoundaryInterface {
 
     void setBlockNetworkLoads(boolean z);
 
-    void setCacheMode(int i);
+    void setCacheMode(int i2);
 }

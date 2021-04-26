@@ -2,7 +2,7 @@ package com.baidu.tieba.barselect.model;
 
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.v.b.a;
+import d.a.j0.v.b.a;
 import tbclient.Error;
 import tbclient.Search.SearchResIdl;
 /* loaded from: classes4.dex */
@@ -15,7 +15,7 @@ public class CandidateSearchSocketResMsg extends TbSocketReponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         SearchResIdl searchResIdl = (SearchResIdl) new Wire(new Class[0]).parseFrom(bArr, SearchResIdl.class);
         if (searchResIdl == null || searchResIdl.data == null) {
             return;
@@ -32,7 +32,7 @@ public class CandidateSearchSocketResMsg extends TbSocketReponsedMessage {
             if (getOrginalMessage() == null || !(getOrginalMessage().getExtra() instanceof CandidateSearchReqMsg)) {
                 return;
             }
-            this.candidateData.f63326a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
+            this.candidateData.f61553a = ((CandidateSearchReqMsg) getOrginalMessage().getExtra()).fid;
         }
     }
 }

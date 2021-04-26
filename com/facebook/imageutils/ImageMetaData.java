@@ -10,8 +10,8 @@ public class ImageMetaData {
     @Nullable
     public final Pair<Integer, Integer> mDimensions;
 
-    public ImageMetaData(int i, int i2, @Nullable ColorSpace colorSpace) {
-        this.mDimensions = (i == -1 || i2 == -1) ? null : new Pair<>(Integer.valueOf(i), Integer.valueOf(i2));
+    public ImageMetaData(int i2, int i3, @Nullable ColorSpace colorSpace) {
+        this.mDimensions = (i2 == -1 || i3 == -1) ? null : new Pair<>(Integer.valueOf(i2), Integer.valueOf(i3));
         this.mColorSpace = colorSpace;
     }
 

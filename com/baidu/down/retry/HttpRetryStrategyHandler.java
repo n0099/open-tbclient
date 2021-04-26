@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class HttpRetryStrategyHandler {
     public static final boolean DEBUG = false;
     public static final String TAG = "HttpRetryStrategyHandler";
@@ -33,7 +33,7 @@ public class HttpRetryStrategyHandler {
     public ConcurrentHashMap<Integer, String> mDownDetail = new ConcurrentHashMap<>();
     public int mRetryType = 0;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface OnFetchDataResultListener {
         void onResult(boolean z);
     }
@@ -51,18 +51,18 @@ public class HttpRetryStrategyHandler {
     }
 
     @SuppressLint({"LongLogTag"})
-    public void appendDownDetail(int i, String str) {
-        if (this.mDownDetail.containsKey(Integer.valueOf(i))) {
+    public void appendDownDetail(int i2, String str) {
+        if (this.mDownDetail.containsKey(Integer.valueOf(i2))) {
             ConcurrentHashMap<Integer, String> concurrentHashMap = this.mDownDetail;
-            Integer valueOf = Integer.valueOf(i);
-            concurrentHashMap.put(valueOf, this.mDownDetail.get(Integer.valueOf(i)) + str);
+            Integer valueOf = Integer.valueOf(i2);
+            concurrentHashMap.put(valueOf, this.mDownDetail.get(Integer.valueOf(i2)) + str);
             return;
         }
-        this.mDownDetail.put(Integer.valueOf(i), str);
+        this.mDownDetail.put(Integer.valueOf(i2), str);
     }
 
-    public boolean continueRetryStrategy(int i) {
-        return !Utils.isEmpty(this.mRetryRequestInfoList) && i < this.mRetryRequestInfoList.size();
+    public boolean continueRetryStrategy(int i2) {
+        return !Utils.isEmpty(this.mRetryRequestInfoList) && i2 < this.mRetryRequestInfoList.size();
     }
 
     public ConcurrentHashMap<Integer, String> getDownDetail() {
@@ -107,8 +107,8 @@ public class HttpRetryStrategyHandler {
         return this.mRetryType;
     }
 
-    public boolean isAcquireRetryStrategy(boolean z, Exception exc, int i) {
-        return TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mHttpRetryStrategyEnable && ((z && this.mHostIsMatch && ((exc instanceof UnknownHostException) || (exc instanceof ConnectException) || (exc instanceof SocketException) || (exc instanceof SocketTimeoutException) || (exc instanceof ConnectTimeoutException) || (exc instanceof ProtocolException) || (exc instanceof RetryStrategyException))) || continueRetryStrategy(i));
+    public boolean isAcquireRetryStrategy(boolean z, Exception exc, int i2) {
+        return TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mHttpRetryStrategyEnable && ((z && this.mHostIsMatch && ((exc instanceof UnknownHostException) || (exc instanceof ConnectException) || (exc instanceof SocketException) || (exc instanceof SocketTimeoutException) || (exc instanceof ConnectTimeoutException) || (exc instanceof ProtocolException) || (exc instanceof RetryStrategyException))) || continueRetryStrategy(i2));
     }
 
     @SuppressLint({"LongLogTag"})
@@ -126,7 +126,7 @@ public class HttpRetryStrategyHandler {
             AbstractTask abstractTask = this.mtask;
             httpRetryStrategyDataParse.onFetchRetryDataRequest(abstractTask.mContext, abstractTask.mUri, new HttpRetryStrategyDataParse.OnFetchRetryDataRequestListener() { // from class: com.baidu.down.retry.HttpRetryStrategyHandler.1
                 @Override // com.baidu.down.retry.HttpRetryStrategyDataParse.OnFetchRetryDataRequestListener
-                public void afterRequest(boolean z, HttpDNSCacheInfo httpDNSCacheInfo, int i) {
+                public void afterRequest(boolean z, HttpDNSCacheInfo httpDNSCacheInfo, int i2) {
                     HttpRetryStrategyHandler.this.requestRetryStrategyData = false;
                     if (z) {
                         HttpRetryStrategyHandler.this.mHttpDNSCacheInfo = httpDNSCacheInfo;
@@ -139,11 +139,11 @@ public class HttpRetryStrategyHandler {
                     if (z) {
                         HttpRetryStrategyHandler.this.mRetryType = 1;
                     } else {
-                        HttpRetryStrategyHandler.this.mRetryType = i;
+                        HttpRetryStrategyHandler.this.mRetryType = i2;
                     }
                     synchronized (HttpRetryStrategyHandler.this.mOnFetchDataRequestListener) {
-                        for (int i2 = 0; i2 < HttpRetryStrategyHandler.this.mOnFetchDataRequestListener.size(); i2++) {
-                            ((OnFetchDataResultListener) HttpRetryStrategyHandler.this.mOnFetchDataRequestListener.get(i2)).onResult(z);
+                        for (int i3 = 0; i3 < HttpRetryStrategyHandler.this.mOnFetchDataRequestListener.size(); i3++) {
+                            ((OnFetchDataResultListener) HttpRetryStrategyHandler.this.mOnFetchDataRequestListener.get(i3)).onResult(z);
                         }
                         HttpRetryStrategyHandler.this.mOnFetchDataRequestListener.clear();
                     }
@@ -167,7 +167,7 @@ public class HttpRetryStrategyHandler {
         this.mRetryException = exc;
     }
 
-    public void setRetryType(int i) {
-        this.mRetryType = i;
+    public void setRetryType(int i2) {
+        this.mRetryType = i2;
     }
 }

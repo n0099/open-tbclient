@@ -27,7 +27,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f29101a;
+    public static volatile a f29994a;
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean o(c cVar) {
@@ -163,14 +163,14 @@ public class a {
     }
 
     public static a a() {
-        if (f29101a == null) {
+        if (f29994a == null) {
             synchronized (a.class) {
-                if (f29101a == null) {
-                    f29101a = new a();
+                if (f29994a == null) {
+                    f29994a = new a();
                 }
             }
         }
-        return f29101a;
+        return f29994a;
     }
 
     public void b() {
@@ -180,16 +180,16 @@ public class a {
         boolean isCanUseWifiState = i.d().e().isCanUseWifiState();
         boolean isCanUsePhoneState = i.d().e().isCanUsePhoneState();
         JSONObject jSONObject = new JSONObject();
-        int i = 1;
+        int i2 = 1;
         try {
             jSONObject.put("access_fine_location", isCanUseLocation ? 1 : 0);
             jSONObject.put("applist", alist ? 1 : 0);
             jSONObject.put("external_storage", isCanUseWriteExternal ? 1 : 0);
             jSONObject.put("wifi_state", isCanUseWifiState ? 1 : 0);
             if (!isCanUsePhoneState) {
-                i = 0;
+                i2 = 0;
             }
-            jSONObject.put("phone_state", i);
+            jSONObject.put("phone_state", i2);
         } catch (Throwable unused) {
         }
         p.i().a(c.b().a("sdk_permission").b(jSONObject.toString()), false);
@@ -212,11 +212,11 @@ public class a {
         p.i().a(c.b().a("click_playable_test_tool").b(jSONObject.toString()), false);
     }
 
-    public void a(String str, int i, String str2) {
+    public void a(String str, int i2, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("playable_url", str);
-            jSONObject.put("error_code", i);
+            jSONObject.put("error_code", i2);
             jSONObject.put("error_message", str2);
         } catch (Throwable unused) {
         }
@@ -250,8 +250,8 @@ public class a {
             com.bytedance.sdk.openadsdk.utils.c a2 = com.bytedance.sdk.openadsdk.utils.d.a(p.a());
             JSONObject jSONObject4 = new JSONObject();
             if (a2 != null) {
-                jSONObject4.put("longitude", a2.f30091b);
-                jSONObject4.put("latitude", a2.f30090a);
+                jSONObject4.put("longitude", a2.f31008b);
+                jSONObject4.put("latitude", a2.f31007a);
             }
             jSONObject3.put("location", jSONObject4);
             JSONArray jSONArray = new JSONArray();
@@ -287,13 +287,13 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(String str, int i) {
+    public boolean a(String str, int i2) {
         com.bytedance.sdk.openadsdk.core.d a2 = com.bytedance.sdk.openadsdk.core.d.a(p.a());
         boolean z = false;
         int b2 = a2.b(str, 0);
-        z = ((b2 & 2) == 0 || (b2 & 1) != i) ? true : true;
+        z = ((b2 & 2) == 0 || (b2 & 1) != i2) ? true : true;
         if (z) {
-            a2.a(str, i + 2);
+            a2.a(str, i2 + 2);
         }
         return z;
     }

@@ -6,46 +6,46 @@ public class bj {
     public static byte[] f153a;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f40671a = System.getProperty("line.separator");
+    public static final String f38187a = System.getProperty("line.separator");
 
     /* renamed from: a  reason: collision with other field name */
     public static char[] f154a = new char[64];
 
     static {
         char c2 = 'A';
-        int i = 0;
+        int i2 = 0;
         while (c2 <= 'Z') {
-            f154a[i] = c2;
+            f154a[i2] = c2;
             c2 = (char) (c2 + 1);
-            i++;
+            i2++;
         }
         char c3 = 'a';
         while (c3 <= 'z') {
-            f154a[i] = c3;
+            f154a[i2] = c3;
             c3 = (char) (c3 + 1);
-            i++;
+            i2++;
         }
         char c4 = '0';
         while (c4 <= '9') {
-            f154a[i] = c4;
+            f154a[i2] = c4;
             c4 = (char) (c4 + 1);
-            i++;
-        }
-        char[] cArr = f154a;
-        cArr[i] = '+';
-        cArr[i + 1] = '/';
-        f153a = new byte[128];
-        int i2 = 0;
-        while (true) {
-            byte[] bArr = f153a;
-            if (i2 >= bArr.length) {
-                break;
-            }
-            bArr[i2] = -1;
             i2++;
         }
-        for (int i3 = 0; i3 < 64; i3++) {
-            f153a[f154a[i3]] = (byte) i3;
+        char[] cArr = f154a;
+        cArr[i2] = '+';
+        cArr[i2 + 1] = '/';
+        f153a = new byte[128];
+        int i3 = 0;
+        while (true) {
+            byte[] bArr = f153a;
+            if (i3 >= bArr.length) {
+                break;
+            }
+            bArr[i3] = -1;
+            i3++;
+        }
+        for (int i4 = 0; i4 < 64; i4++) {
+            f153a[f154a[i4]] = (byte) i4;
         }
     }
 
@@ -54,7 +54,7 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m165a(String str) {
+    public static byte[] m168a(String str) {
         return a(str.toCharArray());
     }
 
@@ -62,36 +62,36 @@ public class bj {
         return a(cArr, 0, cArr.length);
     }
 
-    public static byte[] a(char[] cArr, int i, int i2) {
-        int i3;
-        char c2;
+    public static byte[] a(char[] cArr, int i2, int i3) {
         int i4;
+        char c2;
+        int i5;
         char c3;
-        if (i2 % 4 == 0) {
-            while (i2 > 0 && cArr[(i + i2) - 1] == '=') {
-                i2--;
+        if (i3 % 4 == 0) {
+            while (i3 > 0 && cArr[(i2 + i3) - 1] == '=') {
+                i3--;
             }
-            int i5 = (i2 * 3) / 4;
-            byte[] bArr = new byte[i5];
-            int i6 = i2 + i;
-            int i7 = 0;
-            while (i < i6) {
-                int i8 = i + 1;
-                char c4 = cArr[i];
-                int i9 = i8 + 1;
-                char c5 = cArr[i8];
-                if (i9 < i6) {
-                    i3 = i9 + 1;
-                    c2 = cArr[i9];
+            int i6 = (i3 * 3) / 4;
+            byte[] bArr = new byte[i6];
+            int i7 = i3 + i2;
+            int i8 = 0;
+            while (i2 < i7) {
+                int i9 = i2 + 1;
+                char c4 = cArr[i2];
+                int i10 = i9 + 1;
+                char c5 = cArr[i9];
+                if (i10 < i7) {
+                    i4 = i10 + 1;
+                    c2 = cArr[i10];
                 } else {
-                    i3 = i9;
+                    i4 = i10;
                     c2 = 'A';
                 }
-                if (i3 < i6) {
-                    i4 = i3 + 1;
-                    c3 = cArr[i3];
+                if (i4 < i7) {
+                    i5 = i4 + 1;
+                    c3 = cArr[i4];
                 } else {
-                    i4 = i3;
+                    i5 = i4;
                     c3 = 'A';
                 }
                 if (c4 > 127 || c5 > 127 || c2 > 127 || c3 > 127) {
@@ -105,22 +105,22 @@ public class bj {
                 if (b2 < 0 || b3 < 0 || b4 < 0 || b5 < 0) {
                     throw new IllegalArgumentException("Illegal character in Base64 encoded data.");
                 }
-                int i10 = (b2 << 2) | (b3 >>> 4);
-                int i11 = ((b3 & 15) << 4) | (b4 >>> 2);
-                int i12 = ((b4 & 3) << 6) | b5;
-                int i13 = i7 + 1;
-                bArr[i7] = (byte) i10;
-                if (i13 < i5) {
-                    bArr[i13] = (byte) i11;
-                    i13++;
+                int i11 = (b2 << 2) | (b3 >>> 4);
+                int i12 = ((b3 & 15) << 4) | (b4 >>> 2);
+                int i13 = ((b4 & 3) << 6) | b5;
+                int i14 = i8 + 1;
+                bArr[i8] = (byte) i11;
+                if (i14 < i6) {
+                    bArr[i14] = (byte) i12;
+                    i14++;
                 }
-                if (i13 < i5) {
-                    bArr[i13] = (byte) i12;
-                    i7 = i13 + 1;
+                if (i14 < i6) {
+                    bArr[i14] = (byte) i13;
+                    i8 = i14 + 1;
                 } else {
-                    i7 = i13;
+                    i8 = i14;
                 }
-                i = i4;
+                i2 = i5;
             }
             return bArr;
         }
@@ -131,53 +131,53 @@ public class bj {
         return a(bArr, 0, bArr.length);
     }
 
-    public static char[] a(byte[] bArr, int i, int i2) {
-        int i3;
+    public static char[] a(byte[] bArr, int i2, int i3) {
         int i4;
         int i5;
-        int i6 = ((i2 * 4) + 2) / 3;
-        char[] cArr = new char[((i2 + 2) / 3) * 4];
-        int i7 = i2 + i;
-        int i8 = 0;
-        while (i < i7) {
-            int i9 = i + 1;
-            int i10 = bArr[i] & 255;
-            if (i9 < i7) {
-                i3 = i9 + 1;
-                i4 = bArr[i9] & 255;
+        int i6;
+        int i7 = ((i3 * 4) + 2) / 3;
+        char[] cArr = new char[((i3 + 2) / 3) * 4];
+        int i8 = i3 + i2;
+        int i9 = 0;
+        while (i2 < i8) {
+            int i10 = i2 + 1;
+            int i11 = bArr[i2] & 255;
+            if (i10 < i8) {
+                i4 = i10 + 1;
+                i5 = bArr[i10] & 255;
             } else {
-                i3 = i9;
-                i4 = 0;
-            }
-            if (i3 < i7) {
-                i5 = bArr[i3] & 255;
-                i3++;
-            } else {
+                i4 = i10;
                 i5 = 0;
             }
-            int i11 = i10 >>> 2;
-            int i12 = ((i10 & 3) << 4) | (i4 >>> 4);
-            int i13 = ((i4 & 15) << 2) | (i5 >>> 6);
-            int i14 = i5 & 63;
-            int i15 = i8 + 1;
-            char[] cArr2 = f154a;
-            cArr[i8] = cArr2[i11];
-            int i16 = i15 + 1;
-            cArr[i15] = cArr2[i12];
-            char c2 = com.alipay.sdk.encrypt.a.f1922h;
-            cArr[i16] = i16 < i6 ? cArr2[i13] : com.alipay.sdk.encrypt.a.f1922h;
-            int i17 = i16 + 1;
-            if (i17 < i6) {
-                c2 = f154a[i14];
+            if (i4 < i8) {
+                i6 = bArr[i4] & 255;
+                i4++;
+            } else {
+                i6 = 0;
             }
-            cArr[i17] = c2;
-            i8 = i17 + 1;
-            i = i3;
+            int i12 = i11 >>> 2;
+            int i13 = ((i11 & 3) << 4) | (i5 >>> 4);
+            int i14 = ((i5 & 15) << 2) | (i6 >>> 6);
+            int i15 = i6 & 63;
+            int i16 = i9 + 1;
+            char[] cArr2 = f154a;
+            cArr[i9] = cArr2[i12];
+            int i17 = i16 + 1;
+            cArr[i16] = cArr2[i13];
+            char c2 = com.alipay.sdk.encrypt.a.f1873h;
+            cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f1873h;
+            int i18 = i17 + 1;
+            if (i18 < i7) {
+                c2 = f154a[i15];
+            }
+            cArr[i18] = c2;
+            i9 = i18 + 1;
+            i2 = i4;
         }
         return cArr;
     }
 
     public static String b(String str) {
-        return new String(m165a(str));
+        return new String(m168a(str));
     }
 }

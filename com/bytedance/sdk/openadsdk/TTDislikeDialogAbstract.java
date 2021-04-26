@@ -17,10 +17,10 @@ import com.bytedance.sdk.openadsdk.utils.b;
 public abstract class TTDislikeDialogAbstract extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f27011a;
+    public View f27831a;
 
     /* renamed from: b  reason: collision with root package name */
-    public l f27012b;
+    public l f27832b;
 
     public TTDislikeDialogAbstract(@NonNull Context context) {
         super(context);
@@ -28,20 +28,20 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
 
     private void b() {
         int[] personalizationPromptIds;
-        l lVar = this.f27012b;
-        if (lVar == null || this.f27011a == null || lVar.as() == null || (personalizationPromptIds = getPersonalizationPromptIds()) == null || personalizationPromptIds.length == 0) {
+        l lVar = this.f27832b;
+        if (lVar == null || this.f27831a == null || lVar.as() == null || (personalizationPromptIds = getPersonalizationPromptIds()) == null || personalizationPromptIds.length == 0) {
             return;
         }
-        for (int i : personalizationPromptIds) {
-            View findViewById = this.f27011a.findViewById(i);
+        for (int i2 : personalizationPromptIds) {
+            View findViewById = this.f27831a.findViewById(i2);
             if (findViewById != null) {
                 findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.TTDislikeDialogAbstract.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Intent intent = new Intent();
                         intent.setComponent(new ComponentName(TTDislikeDialogAbstract.this.getContext(), TTDislikeWebViewActivity.class));
-                        intent.putExtra("title", TTDislikeDialogAbstract.this.f27012b.as().getName());
-                        intent.putExtra("url", TTDislikeDialogAbstract.this.f27012b.as().getUrl());
+                        intent.putExtra("title", TTDislikeDialogAbstract.this.f27832b.as().getName());
+                        intent.putExtra("url", TTDislikeDialogAbstract.this.f27832b.as().getUrl());
                         b.a(TTDislikeDialogAbstract.this.getContext(), intent, null);
                     }
                 });
@@ -61,10 +61,10 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         View inflate = LayoutInflater.from(getContext()).inflate(getLayoutId(), (ViewGroup) null);
-        this.f27011a = inflate;
+        this.f27831a = inflate;
         if (inflate != null) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            View view = this.f27011a;
+            View view = this.f27831a;
             if (layoutParams == null) {
                 layoutParams = new ViewGroup.LayoutParams(-1, -1);
             }
@@ -77,26 +77,26 @@ public abstract class TTDislikeDialogAbstract extends Dialog {
     }
 
     public void setMaterialMeta(l lVar) {
-        this.f27012b = lVar;
+        this.f27832b = lVar;
         a();
         b();
     }
 
-    public TTDislikeDialogAbstract(@NonNull Context context, int i) {
-        super(context, i);
+    public TTDislikeDialogAbstract(@NonNull Context context, int i2) {
+        super(context, i2);
     }
 
     private void a() {
-        if (this.f27012b == null || this.f27011a == null) {
+        if (this.f27832b == null || this.f27831a == null) {
             return;
         }
         int[] tTDislikeListViewIds = getTTDislikeListViewIds();
         if (tTDislikeListViewIds != null && tTDislikeListViewIds.length > 0) {
-            for (int i : tTDislikeListViewIds) {
-                View findViewById = this.f27011a.findViewById(i);
+            for (int i2 : tTDislikeListViewIds) {
+                View findViewById = this.f27831a.findViewById(i2);
                 if (findViewById != null) {
                     if (findViewById instanceof TTDislikeListView) {
-                        ((TTDislikeListView) findViewById).setMaterialMeta(this.f27012b);
+                        ((TTDislikeListView) findViewById).setMaterialMeta(this.f27832b);
                     } else {
                         throw new IllegalArgumentException("getTTDislikeListViewIds找到的view类型异常，请检查");
                     }

@@ -26,8 +26,8 @@ public class BitmapPoolBackend extends LruBucketsPoolBackend<Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.memory.LruBucketsPoolBackend, com.facebook.imagepipeline.memory.PoolBackend
     @Nullable
-    public Bitmap get(int i) {
-        Bitmap bitmap = (Bitmap) super.get(i);
+    public Bitmap get(int i2) {
+        Bitmap bitmap = (Bitmap) super.get(i2);
         if (bitmap == null || !isReusable(bitmap)) {
             return null;
         }

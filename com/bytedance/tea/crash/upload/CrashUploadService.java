@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.bytedance.tea.crash.c;
-import d.c.d.b.c.a.a;
-import d.c.d.b.l;
-import d.c.d.b.n.e;
+import d.b.d.b.c.a.a;
+import d.b.d.b.l;
+import d.b.d.b.n.e;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,18 +53,18 @@ public class CrashUploadService extends IntentService {
         String stringExtra2 = intent.getStringExtra("crash_json_value");
         String stringExtra3 = intent.getStringExtra("crash_info_file_path");
         String stringExtra4 = intent.getStringExtra("crash_dump_file_path");
-        d.c.d.b.c.b.a().b(getApplication());
-        if (TextUtils.isEmpty(stringExtra2) || TextUtils.isEmpty(stringExtra) || d.c.d.b.c.b.a().d(stringExtra3) || !a(stringExtra, stringExtra2, stringExtra4, cVar).a()) {
+        d.b.d.b.c.b.a().b(getApplication());
+        if (TextUtils.isEmpty(stringExtra2) || TextUtils.isEmpty(stringExtra) || d.b.d.b.c.b.a().d(stringExtra3) || !a(stringExtra, stringExtra2, stringExtra4, cVar).a()) {
             return;
         }
         if (cVar == c.NATIVE) {
             if (l.e.g(new File(stringExtra3).getParentFile(), true)) {
                 return;
             }
-            d.c.d.b.c.b.a().c(a.a(stringExtra3));
+            d.b.d.b.c.b.a().c(a.a(stringExtra3));
         } else if (TextUtils.isEmpty(stringExtra3) || l.e.h(stringExtra3)) {
         } else {
-            d.c.d.b.c.b.a().c(a.a(stringExtra3));
+            d.b.d.b.c.b.a().c(a.a(stringExtra3));
         }
     }
 }

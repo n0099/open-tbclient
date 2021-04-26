@@ -68,32 +68,32 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
 
     @Nullable
     private MediaCodecInfo findCodecForType(VideoCodecType videoCodecType) {
-        int i = 0;
+        int i2 = 0;
         while (true) {
             MediaCodecInfo mediaCodecInfo = null;
-            if (i >= MediaCodecList.getCodecCount()) {
+            if (i2 >= MediaCodecList.getCodecCount()) {
                 return null;
             }
             try {
-                mediaCodecInfo = MediaCodecList.getCodecInfoAt(i);
+                mediaCodecInfo = MediaCodecList.getCodecInfoAt(i2);
             } catch (IllegalArgumentException e2) {
                 Logging.e(TAG, "Cannot retrieve encoder codec info", e2);
             }
             if (mediaCodecInfo != null && mediaCodecInfo.isEncoder() && isSupportedCodec(mediaCodecInfo, videoCodecType)) {
                 return mediaCodecInfo;
             }
-            i++;
+            i2++;
         }
     }
 
     private int getForcedKeyFrameIntervalMs(VideoCodecType videoCodecType, String str) {
         if (videoCodecType == VideoCodecType.VP8 && str.startsWith("OMX.qcom.")) {
-            int i = Build.VERSION.SDK_INT;
-            if (i != 21 && i != 22) {
-                if (i == 23) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 != 21 && i2 != 22) {
+                if (i2 == 23) {
                     return 20000;
                 }
-                if (i <= 23) {
+                if (i2 <= 23) {
                     return 0;
                 }
             }
@@ -103,11 +103,11 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     }
 
     private int getKeyFrameIntervalSec(VideoCodecType videoCodecType) {
-        int i = AnonymousClass1.$SwitchMap$org$webrtc$VideoCodecType[videoCodecType.ordinal()];
-        if (i == 1 || i == 2) {
+        int i2 = AnonymousClass1.$SwitchMap$org$webrtc$VideoCodecType[videoCodecType.ordinal()];
+        if (i2 == 1 || i2 == 2) {
             return 100;
         }
-        if (i == 3) {
+        if (i2 == 3) {
             return 20;
         }
         throw new IllegalArgumentException("Unsupported VideoCodecType " + videoCodecType);
@@ -118,10 +118,10 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     }
 
     private boolean isHardwareSupportedInCurrentSdk(MediaCodecInfo mediaCodecInfo, VideoCodecType videoCodecType) {
-        int i = AnonymousClass1.$SwitchMap$org$webrtc$VideoCodecType[videoCodecType.ordinal()];
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
+        int i2 = AnonymousClass1.$SwitchMap$org$webrtc$VideoCodecType[videoCodecType.ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 != 3) {
                     return false;
                 }
                 return isHardwareSupportedInCurrentSdkH264(mediaCodecInfo);
@@ -188,8 +188,8 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
         }
         ArrayList arrayList = new ArrayList();
         VideoCodecType[] videoCodecTypeArr = {VideoCodecType.VP8, VideoCodecType.VP9, VideoCodecType.H264};
-        for (int i = 0; i < 3; i++) {
-            VideoCodecType videoCodecType = videoCodecTypeArr[i];
+        for (int i2 = 0; i2 < 3; i2++) {
+            VideoCodecType videoCodecType = videoCodecTypeArr[i2];
             MediaCodecInfo findCodecForType = findCodecForType(videoCodecType);
             if (findCodecForType != null) {
                 String name = videoCodecType.name();

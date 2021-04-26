@@ -79,7 +79,7 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
         Log.d(TAG, "executeLocationQueryAddrList params: " + mapObject.toString());
         AddressRequestFactory.newLocationQueryAddrList(mapObject).submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.4
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i, String str2) {
+            public void onFailure(int i2, String str2) {
                 if (TextUtils.equals(str, MapLocationPoiPresenter.this.currentUniqueTag)) {
                     if (1 == MapLocationPoiPresenter.this.queryAddrListType) {
                         MapLocationPoiPresenter.this.hasNextPageByUserInput = false;
@@ -124,8 +124,8 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
         mapObject.putValue(SuggestAddrField.KEY_MAP_LNG, Double.valueOf(jSONObject.optDouble(SuggestAddrField.KEY_MAP_LNG)));
         AddressRequestFactory.newMapLoc2Region(mapObject).submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.6
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i, String str) {
-                MapLocationPoiPresenter.this.doFailure(1005, i, str);
+            public void onFailure(int i2, String str) {
+                MapLocationPoiPresenter.this.doFailure(1005, i2, str);
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
@@ -148,7 +148,7 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
         if (TextUtils.isEmpty(this.bdSTokenFromAddrEdit)) {
             getBdStokenFromServer(1004, new SyncActionCallBack() { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.3
                 @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                public void doNext(int i) {
+                public void doNext(int i2) {
                     MapLocationPoiPresenter mapLocationPoiPresenter = MapLocationPoiPresenter.this;
                     mapLocationPoiPresenter.executeLocationQueryAddrList(mapObject, mapLocationPoiPresenter.currentUniqueTag);
                 }
@@ -170,12 +170,12 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
         if (optJSONArray != null && optJSONArray.length() != 0) {
             int length = optJSONArray.length();
             this.hasNextPageByUserInput = length >= 20;
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
                     this.addrListByUserInput.add(optJSONObject);
                 } else {
-                    Log.d(TAG, "updateAddrListByUserInput item of address list is error, index=" + i);
+                    Log.d(TAG, "updateAddrListByUserInput item of address list is error, index=" + i2);
                 }
             }
         } else {
@@ -193,12 +193,12 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
         if (optJSONArray != null && optJSONArray.length() != 0) {
             int length = optJSONArray.length();
             this.hasNextPageByUserMapChoiceLoc = length >= 20;
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
                     this.addrListByUserMapChoice.add(optJSONObject);
                 } else {
-                    Log.d(TAG, "item of address list is error, index=" + i);
+                    Log.d(TAG, "item of address list is error, index=" + i2);
                 }
             }
         } else {
@@ -227,11 +227,11 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
         return this.addrListByUserMapChoice;
     }
 
-    public void getBdStokenFromServer(final int i, final SyncActionCallBack syncActionCallBack) {
+    public void getBdStokenFromServer(final int i2, final SyncActionCallBack syncActionCallBack) {
         AddressRequestFactory.newGetAddressListRequest().submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.1
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i2, String str) {
-                MapLocationPoiPresenter.this.doFailure(i, i2, str);
+            public void onFailure(int i3, String str) {
+                MapLocationPoiPresenter.this.doFailure(i2, i3, str);
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
@@ -240,7 +240,7 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
                 Log.d(MapLocationPoiPresenter.TAG, "bdSToken from address list request is " + MapLocationPoiPresenter.this.bdSTokenFromAddrEdit);
                 SyncActionCallBack syncActionCallBack2 = syncActionCallBack;
                 if (syncActionCallBack2 != null) {
-                    syncActionCallBack2.doNext(i);
+                    syncActionCallBack2.doNext(i2);
                 }
             }
         });
@@ -269,7 +269,7 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
         if (TextUtils.isEmpty(this.bdSTokenFromAddrEdit)) {
             getBdStokenFromServer(1005, new SyncActionCallBack() { // from class: com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter.5
                 @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                public void doNext(int i) {
+                public void doNext(int i2) {
                     MapLocationPoiPresenter.this.executeMapLocation2Region(jSONObject);
                 }
             });
@@ -322,9 +322,9 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
         } else {
             this.paramsMap.putValue("query", this.mapGeoAddrText);
         }
-        int i = z ? 0 : this.queryListPageNum + 1;
-        this.queryListPageNum = i;
-        this.paramsMap.putValue(SuggestAddrField.KEY_PAGE_NUM, Integer.valueOf(i));
+        int i2 = z ? 0 : this.queryListPageNum + 1;
+        this.queryListPageNum = i2;
+        this.paramsMap.putValue(SuggestAddrField.KEY_PAGE_NUM, Integer.valueOf(i2));
         locationQueryAddrList(this.paramsMap);
     }
 
@@ -356,8 +356,8 @@ public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements
         this.bdSTokenFromAddrEdit = str;
     }
 
-    public void setQueryAddrListType(int i) {
-        this.queryAddrListType = i;
+    public void setQueryAddrListType(int i2) {
+        this.queryAddrListType = i2;
     }
 
     public void setSelectedAddrId(String str) {

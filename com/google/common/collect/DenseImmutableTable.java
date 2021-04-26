@@ -2,8 +2,8 @@ package com.google.common.collect;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableTable;
-import d.h.c.c.c1;
-import d.h.c.c.y0;
+import d.g.c.c.c1;
+import d.g.c.c.y0;
 import java.lang.reflect.Array;
 import java.util.Map;
 /* loaded from: classes6.dex */
@@ -22,14 +22,14 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
     public final class Column extends ImmutableArrayMap<R, V> {
         public final int columnIndex;
 
-        public Column(int i) {
-            super(DenseImmutableTable.this.columnCounts[i]);
-            this.columnIndex = i;
+        public Column(int i2) {
+            super(DenseImmutableTable.this.columnCounts[i2]);
+            this.columnIndex = i2;
         }
 
         @Override // com.google.common.collect.DenseImmutableTable.ImmutableArrayMap
-        public V getValue(int i) {
-            return (V) DenseImmutableTable.this.values[i][this.columnIndex];
+        public V getValue(int i2) {
+            return (V) DenseImmutableTable.this.values[i2][this.columnIndex];
         }
 
         @Override // com.google.common.collect.ImmutableMap
@@ -61,8 +61,8 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.DenseImmutableTable.ImmutableArrayMap
-        public ImmutableMap<R, V> getValue(int i) {
-            return new Column(i);
+        public ImmutableMap<R, V> getValue(int i2) {
+            return new Column(i2);
         }
     }
 
@@ -74,29 +74,29 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         public class a extends AbstractIterator<Map.Entry<K, V>> {
 
             /* renamed from: g  reason: collision with root package name */
-            public int f30847g = -1;
+            public int f31804g = -1;
 
             /* renamed from: h  reason: collision with root package name */
-            public final int f30848h;
+            public final int f31805h;
 
             public a() {
-                this.f30848h = ImmutableArrayMap.this.keyToIndex().size();
+                this.f31805h = ImmutableArrayMap.this.keyToIndex().size();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.common.collect.AbstractIterator
             /* renamed from: d */
             public Map.Entry<K, V> a() {
-                int i = this.f30847g;
+                int i2 = this.f31804g;
                 while (true) {
-                    this.f30847g = i + 1;
-                    int i2 = this.f30847g;
-                    if (i2 < this.f30848h) {
-                        Object value = ImmutableArrayMap.this.getValue(i2);
+                    this.f31804g = i2 + 1;
+                    int i3 = this.f31804g;
+                    if (i3 < this.f31805h) {
+                        Object value = ImmutableArrayMap.this.getValue(i3);
                         if (value != null) {
-                            return Maps.j(ImmutableArrayMap.this.getKey(this.f30847g), value);
+                            return Maps.j(ImmutableArrayMap.this.getKey(this.f31804g), value);
                         }
-                        i = this.f30847g;
+                        i2 = this.f31804g;
                     } else {
                         return b();
                     }
@@ -104,8 +104,8 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
             }
         }
 
-        public ImmutableArrayMap(int i) {
-            this.size = i;
+        public ImmutableArrayMap(int i2) {
+            this.size = i2;
         }
 
         public final boolean a() {
@@ -131,11 +131,11 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
             return getValue(num.intValue());
         }
 
-        public K getKey(int i) {
-            return keyToIndex().keySet().asList().get(i);
+        public K getKey(int i2) {
+            return keyToIndex().keySet().asList().get(i2);
         }
 
-        public abstract V getValue(int i);
+        public abstract V getValue(int i2);
 
         public abstract ImmutableMap<K, Integer> keyToIndex();
 
@@ -149,14 +149,14 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
     public final class Row extends ImmutableArrayMap<C, V> {
         public final int rowIndex;
 
-        public Row(int i) {
-            super(DenseImmutableTable.this.rowCounts[i]);
-            this.rowIndex = i;
+        public Row(int i2) {
+            super(DenseImmutableTable.this.rowCounts[i2]);
+            this.rowIndex = i2;
         }
 
         @Override // com.google.common.collect.DenseImmutableTable.ImmutableArrayMap
-        public V getValue(int i) {
-            return (V) DenseImmutableTable.this.values[this.rowIndex][i];
+        public V getValue(int i2) {
+            return (V) DenseImmutableTable.this.values[this.rowIndex][i2];
         }
 
         @Override // com.google.common.collect.ImmutableMap
@@ -188,8 +188,8 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.DenseImmutableTable.ImmutableArrayMap
-        public ImmutableMap<C, V> getValue(int i) {
-            return new Row(i);
+        public ImmutableMap<C, V> getValue(int i2) {
+            return new Row(i2);
         }
     }
 
@@ -201,8 +201,8 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         this.columnCounts = new int[this.columnKeyToIndex.size()];
         int[] iArr = new int[immutableList.size()];
         int[] iArr2 = new int[immutableList.size()];
-        for (int i = 0; i < immutableList.size(); i++) {
-            y0.a<R, C, V> aVar = immutableList.get(i);
+        for (int i2 = 0; i2 < immutableList.size(); i2++) {
+            y0.a<R, C, V> aVar = immutableList.get(i2);
             R rowKey = aVar.getRowKey();
             C columnKey = aVar.getColumnKey();
             int intValue = this.rowKeyToIndex.get(rowKey).intValue();
@@ -213,8 +213,8 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
             iArr3[intValue] = iArr3[intValue] + 1;
             int[] iArr4 = this.columnCounts;
             iArr4[intValue2] = iArr4[intValue2] + 1;
-            iArr[i] = intValue;
-            iArr2[i] = intValue2;
+            iArr[i2] = intValue;
+            iArr2[i2] = intValue2;
         }
         this.cellRowIndices = iArr;
         this.cellColumnIndices = iArr2;
@@ -227,7 +227,7 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
         return ImmutableTable.SerializedForm.create(this, this.cellRowIndices, this.cellColumnIndices);
     }
 
-    @Override // com.google.common.collect.ImmutableTable, d.h.c.c.i, d.h.c.c.y0
+    @Override // com.google.common.collect.ImmutableTable, d.g.c.c.i, d.g.c.c.y0
     public V get(Object obj, Object obj2) {
         Integer num = this.rowKeyToIndex.get(obj);
         Integer num2 = this.columnKeyToIndex.get(obj2);
@@ -238,30 +238,30 @@ public final class DenseImmutableTable<R, C, V> extends RegularImmutableTable<R,
     }
 
     @Override // com.google.common.collect.RegularImmutableTable
-    public y0.a<R, C, V> getCell(int i) {
-        int i2 = this.cellRowIndices[i];
-        int i3 = this.cellColumnIndices[i];
-        return ImmutableTable.cellOf(rowKeySet().asList().get(i2), columnKeySet().asList().get(i3), this.values[i2][i3]);
+    public y0.a<R, C, V> getCell(int i2) {
+        int i3 = this.cellRowIndices[i2];
+        int i4 = this.cellColumnIndices[i2];
+        return ImmutableTable.cellOf(rowKeySet().asList().get(i3), columnKeySet().asList().get(i4), this.values[i3][i4]);
     }
 
     @Override // com.google.common.collect.RegularImmutableTable
-    public V getValue(int i) {
-        return this.values[this.cellRowIndices[i]][this.cellColumnIndices[i]];
+    public V getValue(int i2) {
+        return this.values[this.cellRowIndices[i2]][this.cellColumnIndices[i2]];
     }
 
-    @Override // com.google.common.collect.RegularImmutableTable, com.google.common.collect.ImmutableTable, d.h.c.c.y0
+    @Override // com.google.common.collect.RegularImmutableTable, com.google.common.collect.ImmutableTable, d.g.c.c.y0
     public int size() {
         return this.cellRowIndices.length;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableTable, d.h.c.c.y0
+    @Override // com.google.common.collect.ImmutableTable, d.g.c.c.y0
     public ImmutableMap<C, Map<R, V>> columnMap() {
         return ImmutableMap.copyOf((Map) this.columnMap);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableTable, d.h.c.c.y0
+    @Override // com.google.common.collect.ImmutableTable, d.g.c.c.y0
     public ImmutableMap<R, Map<C, V>> rowMap() {
         return ImmutableMap.copyOf((Map) this.rowMap);
     }

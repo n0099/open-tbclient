@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.httpNet;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.b.i0.n.a;
+import d.a.i0.n.a;
 import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes3.dex */
 public abstract class ICDNIPDirectConnect {
@@ -28,11 +28,11 @@ public abstract class ICDNIPDirectConnect {
 
     public abstract a getCDNImageTimeData();
 
-    public abstract String getCachedCdnIp(int i);
+    public abstract String getCachedCdnIp(int i2);
 
     public abstract boolean hasImageProblem();
 
-    public abstract HttpGet httpGetFactory(String str, int i, boolean z);
+    public abstract HttpGet httpGetFactory(String str, int i2, boolean z);
 
     public abstract HttpGet httpGetFactory(String str, String str2, String str3);
 
@@ -44,5 +44,5 @@ public abstract class ICDNIPDirectConnect {
 
     public abstract void setCDNImageTimeData(a aVar);
 
-    public abstract void setIpDisableTime(int i);
+    public abstract void setIpDisableTime(int i2);
 }

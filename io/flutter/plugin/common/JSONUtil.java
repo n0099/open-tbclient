@@ -20,8 +20,8 @@ public class JSONUtil {
         if (obj instanceof JSONArray) {
             ArrayList arrayList = new ArrayList();
             JSONArray jSONArray = (JSONArray) obj;
-            for (int i = 0; i < jSONArray.length(); i++) {
-                arrayList.add(unwrap(jSONArray.get(i)));
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                arrayList.add(unwrap(jSONArray.get(i2)));
             }
             return arrayList;
         }
@@ -54,8 +54,8 @@ public class JSONUtil {
         } else if (obj.getClass().isArray()) {
             JSONArray jSONArray2 = new JSONArray();
             int length = Array.getLength(obj);
-            for (int i = 0; i < length; i++) {
-                jSONArray2.put(wrap(Array.get(obj, i)));
+            for (int i2 = 0; i2 < length; i2++) {
+                jSONArray2.put(wrap(Array.get(obj, i2)));
             }
             return jSONArray2;
         } else if (obj instanceof Map) {

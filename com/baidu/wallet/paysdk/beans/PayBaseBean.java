@@ -15,18 +15,18 @@ import java.util.List;
 public abstract class PayBaseBean<T> extends BaseBean<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f25154a;
+    public long f25924a;
 
     public PayBaseBean(Context context) {
         super(context);
-        this.f25154a = 0L;
+        this.f25924a = 0L;
     }
 
-    private void a(int i) {
-        long currentTimeMillis = System.currentTimeMillis() - this.f25154a;
+    private void a(int i2) {
+        long currentTimeMillis = System.currentTimeMillis() - this.f25924a;
         try {
             String path = new URL(getUrl()).getPath();
-            List<String> collectData = StatHelper.collectData(path, i + "");
+            List<String> collectData = StatHelper.collectData(path, i2 + "");
             HashMap hashMap = new HashMap();
             hashMap.put("duration", Long.valueOf(currentTimeMillis));
             StatisticManager.onEventWithValues(PayStatServiceEvent.CALL_INTERFACE, collectData, hashMap);
@@ -37,7 +37,7 @@ public abstract class PayBaseBean<T> extends BaseBean<T> {
 
     @Override // com.baidu.apollon.beans.ApollonBean
     public <T, E> void execBean(Class<T> cls, Class<E> cls2) {
-        this.f25154a = System.currentTimeMillis();
+        this.f25924a = System.currentTimeMillis();
         super.execBean(cls, cls2);
     }
 
@@ -65,8 +65,8 @@ public abstract class PayBaseBean<T> extends BaseBean<T> {
         super.handleResponse(cls, cls2, restResponseEntity);
     }
 
-    public PayBaseBean(Context context, int i) {
-        super(context, i);
-        this.f25154a = 0L;
+    public PayBaseBean(Context context, int i2) {
+        super(context, i2);
+        this.f25924a = 0L;
     }
 }

@@ -12,13 +12,13 @@ public interface f extends IInterface {
 
         /* renamed from: com.bytedance.embedapplog.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0296a implements f {
+        public static class C0289a implements f {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f26850a;
+            public IBinder f27664a;
 
-            public C0296a(IBinder iBinder) {
-                this.f26850a = iBinder;
+            public C0289a(IBinder iBinder) {
+                this.f27664a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.f
@@ -27,7 +27,7 @@ public interface f extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                    this.f26850a.transact(1, obtain, obtain2, 0);
+                    this.f27664a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -38,7 +38,7 @@ public interface f extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f26850a;
+                return this.f27664a;
             }
 
             @Override // com.bytedance.embedapplog.f
@@ -47,7 +47,7 @@ public interface f extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                    this.f26850a.transact(2, obtain, obtain2, 0);
+                    this.f27664a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -62,7 +62,7 @@ public interface f extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                    this.f26850a.transact(3, obtain, obtain2, 0);
+                    this.f27664a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -77,7 +77,7 @@ public interface f extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                    this.f26850a.transact(4, obtain, obtain2, 0);
+                    this.f27664a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -92,7 +92,7 @@ public interface f extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                    this.f26850a.transact(5, obtain, obtain2, 0);
+                    this.f27664a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -107,7 +107,7 @@ public interface f extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bun.lib.MsaIdInterface");
-                    this.f26850a.transact(6, obtain, obtain2, 0);
+                    this.f27664a.transact(6, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -124,13 +124,13 @@ public interface f extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof f)) {
                 return (f) queryLocalInterface;
             }
-            return new C0296a(iBinder);
+            return new C0289a(iBinder);
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
-            if (i != 1598968902) {
-                switch (i) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) {
+            if (i2 != 1598968902) {
+                switch (i2) {
                     case 1:
                         parcel.enforceInterface("com.bun.lib.MsaIdInterface");
                         String a2 = a();
@@ -167,7 +167,7 @@ public interface f extends IInterface {
                         parcel2.writeNoException();
                         return true;
                     default:
-                        return super.onTransact(i, parcel, parcel2, i2);
+                        return super.onTransact(i2, parcel, parcel2, i3);
                 }
             }
             parcel2.writeString("com.bun.lib.MsaIdInterface");

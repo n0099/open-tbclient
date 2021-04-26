@@ -26,7 +26,7 @@ import org.json.JSONStringer;
 public final class JsonUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3995a = ApollonConstants.DEBUG & false;
+    public static final boolean f4050a = ApollonConstants.DEBUG & false;
 
     /* loaded from: classes.dex */
     public static class DataType {
@@ -116,12 +116,12 @@ public final class JsonUtils {
         public static JSONStringer serializeArray(JSONStringer jSONStringer, Object obj) {
             try {
                 jSONStringer.array();
-                for (int i = 0; i < Array.getLength(obj); i++) {
-                    serialize(jSONStringer, Array.get(obj, i));
+                for (int i2 = 0; i2 < Array.getLength(obj); i2++) {
+                    serialize(jSONStringer, Array.get(obj, i2));
                 }
                 jSONStringer.endArray();
             } catch (Exception e2) {
-                if (JsonUtils.f3995a) {
+                if (JsonUtils.f4050a) {
                     e2.printStackTrace();
                 }
             }
@@ -137,7 +137,7 @@ public final class JsonUtils {
                 }
                 jSONStringer.endArray();
             } catch (Exception e2) {
-                if (JsonUtils.f3995a) {
+                if (JsonUtils.f4050a) {
                     e2.printStackTrace();
                 }
             }
@@ -152,7 +152,7 @@ public final class JsonUtils {
                 }
                 jSONStringer.endObject();
             } catch (Exception e2) {
-                if (JsonUtils.f3995a) {
+                if (JsonUtils.f4050a) {
                     e2.printStackTrace();
                 }
             }
@@ -162,7 +162,7 @@ public final class JsonUtils {
             try {
                 jSONStringer.value((Object) null);
             } catch (JSONException e2) {
-                if (JsonUtils.f3995a) {
+                if (JsonUtils.f4050a) {
                     e2.printStackTrace();
                 }
             }
@@ -174,7 +174,7 @@ public final class JsonUtils {
                 serializeObject(jSONStringer, obj.getClass(), obj);
                 jSONStringer.endObject();
             } catch (Exception e2) {
-                if (JsonUtils.f3995a) {
+                if (JsonUtils.f4050a) {
                     e2.printStackTrace();
                 }
             }
@@ -184,7 +184,7 @@ public final class JsonUtils {
             try {
                 jSONStringer.value(obj);
             } catch (JSONException e2) {
-                if (JsonUtils.f3995a) {
+                if (JsonUtils.f4050a) {
                     e2.printStackTrace();
                 }
             }
@@ -238,11 +238,11 @@ public final class JsonUtils {
             int length = jSONArray.length();
             T[] tArr = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, length));
             boolean z = DataType.isArray(cls) || DataType.isCollection(cls);
-            for (int i = 0; i < length; i++) {
+            for (int i2 = 0; i2 < length; i2++) {
                 try {
-                    tArr[i] = deserializeJSONArray(jSONArray, i, cls, z);
+                    tArr[i2] = deserializeJSONArray(jSONArray, i2, cls, z);
                 } catch (JSONException e2) {
-                    if (JsonUtils.f3995a) {
+                    if (JsonUtils.f4050a) {
                         e2.printStackTrace();
                     }
                 }
@@ -263,11 +263,11 @@ public final class JsonUtils {
             }
             ?? r5 = (T) ((Collection) newInstance(cls));
             boolean z = DataType.isArray(cls2) || DataType.isCollection(cls2);
-            for (int i = 0; i < jSONArray.length(); i++) {
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 try {
-                    r5.add(deserializeJSONArray(jSONArray, i, cls2, z));
+                    r5.add(deserializeJSONArray(jSONArray, i2, cls2, z));
                 } catch (JSONException e2) {
-                    if (JsonUtils.f3995a) {
+                    if (JsonUtils.f4050a) {
                         e2.printStackTrace();
                     }
                 }
@@ -286,7 +286,7 @@ public final class JsonUtils {
             Object obj2 = null;
             try {
             } catch (Exception e2) {
-                if (JsonUtils.f3995a) {
+                if (JsonUtils.f4050a) {
                 }
             }
             if (DataType.isRaw(type)) {
@@ -294,7 +294,7 @@ public final class JsonUtils {
                     try {
                         obj2 = Integer.valueOf(jSONObject.getInt(name));
                     } catch (JSONException e3) {
-                        if (JsonUtils.f3995a) {
+                        if (JsonUtils.f4050a) {
                             e3.printStackTrace();
                         }
                     }
@@ -302,7 +302,7 @@ public final class JsonUtils {
                     try {
                         obj2 = Long.valueOf(jSONObject.getLong(name));
                     } catch (JSONException e4) {
-                        if (JsonUtils.f3995a) {
+                        if (JsonUtils.f4050a) {
                             e4.printStackTrace();
                         }
                     }
@@ -312,7 +312,7 @@ public final class JsonUtils {
                             try {
                                 obj2 = Boolean.valueOf(jSONObject.getBoolean(name));
                             } catch (JSONException e5) {
-                                if (JsonUtils.f3995a) {
+                                if (JsonUtils.f4050a) {
                                     e5.printStackTrace();
                                 }
                             }
@@ -323,12 +323,12 @@ public final class JsonUtils {
                     try {
                         obj2 = Double.valueOf(jSONObject.getDouble(name));
                     } catch (JSONException e6) {
-                        if (JsonUtils.f3995a) {
+                        if (JsonUtils.f4050a) {
                             e6.printStackTrace();
                         }
                     }
                 }
-                if (JsonUtils.f3995a) {
+                if (JsonUtils.f4050a) {
                     return;
                 }
                 e2.printStackTrace();
@@ -349,14 +349,14 @@ public final class JsonUtils {
             setFiedlValue(obj, field, obj2);
         }
 
-        public static <T> T deserializeJSONArray(JSONArray jSONArray, int i, Class<T> cls, boolean z) throws JSONException {
+        public static <T> T deserializeJSONArray(JSONArray jSONArray, int i2, Class<T> cls, boolean z) throws JSONException {
             if (z) {
-                return (T) deserialize(jSONArray.getJSONArray(i), cls);
+                return (T) deserialize(jSONArray.getJSONArray(i2), cls);
             }
-            if (jSONArray.get(i) instanceof JSONObject) {
-                return (T) deserialize(jSONArray.getJSONObject(i), cls);
+            if (jSONArray.get(i2) instanceof JSONObject) {
+                return (T) deserialize(jSONArray.getJSONObject(i2), cls);
             }
-            return (T) jSONArray.get(i);
+            return (T) jSONArray.get(i2);
         }
 
         public static Map<String, Object> deserializeMap(Map<String, Object> map, JSONObject jSONObject) {
@@ -371,7 +371,7 @@ public final class JsonUtils {
                 }
                 return map;
             } catch (JSONException e2) {
-                if (JsonUtils.f3995a) {
+                if (JsonUtils.f4050a) {
                     e2.printStackTrace();
                     return null;
                 }
@@ -429,7 +429,7 @@ public final class JsonUtils {
                     field.set(obj, obj2);
                 }
             } catch (Exception e2) {
-                if (JsonUtils.f3995a) {
+                if (JsonUtils.f4050a) {
                     e2.printStackTrace();
                 }
             }

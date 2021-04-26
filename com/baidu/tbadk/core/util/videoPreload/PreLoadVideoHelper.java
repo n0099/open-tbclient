@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.bumptech.glide.load.engine.GlideException;
-import d.b.c.j.e.o;
-import d.b.c.j.e.q;
+import d.a.c.j.e.o;
+import d.a.c.j.e.q;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PreLoadVideoHelper {
@@ -28,9 +28,9 @@ public class PreLoadVideoHelper {
             if (lastVisiblePosition < 0 || adapter.getCount() <= 0) {
                 return;
             }
-            for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= PreLoadVideoSwitchManager.getInstance().getMaxPreLoadNum(); i++) {
-                VideoPreLoadLog.log("video preload  i=  " + i);
-                Object item = adapter.getItem(i);
+            for (int i2 = z ? 0 : lastVisiblePosition; i2 < adapter.getCount() && i2 < lastVisiblePosition + 10 && arrayList.size() <= PreLoadVideoSwitchManager.getInstance().getMaxPreLoadNum(); i2++) {
+                VideoPreLoadLog.log("video preload  i=  " + i2);
+                Object item = adapter.getItem(i2);
                 if (item instanceof IVideoData) {
                     IVideoData iVideoData = (IVideoData) item;
                     if (!TextUtils.isEmpty(iVideoData.getVideoUrl())) {

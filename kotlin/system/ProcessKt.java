@@ -8,8 +8,8 @@ import kotlin.jvm.JvmName;
 /* loaded from: classes7.dex */
 public final class ProcessKt {
     @InlineOnly
-    public static final Void exitProcess(int i) {
-        System.exit(i);
+    public static final Void exitProcess(int i2) {
+        System.exit(i2);
         throw new RuntimeException("System.exit returned normally, while it was supposed to halt JVM.");
     }
 }

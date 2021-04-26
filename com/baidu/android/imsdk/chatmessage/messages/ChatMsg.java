@@ -109,22 +109,22 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return System.currentTimeMillis() + "" + mOpenCounter.incrementAndGet();
     }
 
-    public static byte[] long2bytes(long j, int i) {
-        byte[] bArr = new byte[i];
-        for (int i2 = i - 1; i2 >= 0; i2--) {
-            bArr[i2] = (byte) (255 & j);
+    public static byte[] long2bytes(long j, int i2) {
+        byte[] bArr = new byte[i2];
+        for (int i3 = i2 - 1; i3 >= 0; i3--) {
+            bArr[i3] = (byte) (255 & j);
             j >>= 8;
         }
         return bArr;
     }
 
-    private void notifyMsgStatus(int i) {
+    private void notifyMsgStatus(int i2) {
         ISendMessageStatusListener iSendMessageStatusListener;
         if (this.mListenerKey == null) {
             return;
         }
-        if ((i == 0 || i == 2) && (iSendMessageStatusListener = (ISendMessageStatusListener) ListenerManager.getInstance().removeListener(this.mListenerKey)) != null) {
-            iSendMessageStatusListener.onSendStatus(i, this);
+        if ((i2 == 0 || i2 == 2) && (iSendMessageStatusListener = (ISendMessageStatusListener) ListenerManager.getInstance().removeListener(this.mListenerKey)) != null) {
+            iSendMessageStatusListener.onSendStatus(i2, this);
         }
     }
 
@@ -460,8 +460,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     }
 
     public boolean isNotifyMessage() {
-        int i = this.mType;
-        return (i >= 1001 && i <= 1012) || this.mType == 2010;
+        int i2 = this.mType;
+        return (i2 >= 1001 && i2 <= 1012) || this.mType == 2010;
     }
 
     public boolean isReSend() {
@@ -570,7 +570,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return false;
     }
 
-    public void parseForwardmessage(int i) {
+    public void parseForwardmessage(int i2) {
         if (this.mjsonContent != null) {
             try {
                 JSONObject jSONObject = new JSONObject(this.mjsonContent);
@@ -619,12 +619,12 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.mCastids = list;
     }
 
-    public void setCategory(int i) {
-        this.mCategory = i;
+    public void setCategory(int i2) {
+        this.mCategory = i2;
     }
 
-    public void setChatType(int i) {
-        this.mChatType = i;
+    public void setChatType(int i2) {
+        this.mChatType = i2;
     }
 
     public void setContacter(long j) {
@@ -639,8 +639,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.mjsonContentExtra = str;
     }
 
-    public final void setDeviceFlag(int i) {
-        this.mDeviceFlag = i;
+    public final void setDeviceFlag(int i2) {
+        this.mDeviceFlag = i2;
     }
 
     public void setExpiresTime(long j) {
@@ -701,20 +701,20 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.mMsgKey = str;
     }
 
-    public void setMsgReaded(int i) {
-        this.mIsRead = i;
+    public void setMsgReaded(int i2) {
+        this.mIsRead = i2;
     }
 
     public void setMsgTime(long j) {
         this.mTime = j;
     }
 
-    public void setMsgType(int i) {
-        this.mType = i;
+    public void setMsgType(int i2) {
+        this.mType = i2;
     }
 
-    public void setNotifyCmd(int i) {
-        this.mNotifyCmd = i;
+    public void setNotifyCmd(int i2) {
+        this.mNotifyCmd = i2;
     }
 
     public void setPaid(long j) {
@@ -755,25 +755,25 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.mjsonStarExtra = str;
     }
 
-    public void setStatus(int i) {
-        this.mStatus = i;
-        notifyMsgStatus(i);
+    public void setStatus(int i2) {
+        this.mStatus = i2;
+        notifyMsgStatus(i2);
     }
 
-    public void setSubChatType(int i) {
-        this.mSubChatType = i;
+    public void setSubChatType(int i2) {
+        this.mSubChatType = i2;
     }
 
-    public void setTemplateType(int i) {
-        this.mTemplateType = i;
+    public void setTemplateType(int i2) {
+        this.mTemplateType = i2;
     }
 
     public void setTips(String str) {
         this.mTips = str;
     }
 
-    public void setTipsCode(int i) {
-        this.mTipsCode = i;
+    public void setTipsCode(int i2) {
+        this.mTipsCode = i2;
     }
 
     public void setTriggerReasonn(long j) {
@@ -785,8 +785,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     }
 
     public boolean shouldAbandonMsg(Context context) {
-        int i = this.mType;
-        if (i == 0 || i == 20) {
+        int i2 = this.mType;
+        if (i2 == 0 || i2 == 20) {
             String ext = getExt();
             if (!TextUtils.isEmpty(ext)) {
                 try {
@@ -829,7 +829,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeLong(this.mMsgId);
         parcel.writeLong(this.mTime);
         parcel.writeLong(this.mFromUser);

@@ -3,7 +3,7 @@ package com.tencent.mm.sdk.modelpay;
 import android.os.Bundle;
 import com.tencent.mm.sdk.b.a;
 import com.tencent.mm.sdk.modelbase.BaseReq;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PayReq extends BaseReq {
     public static final int EXTDATA_MAX_LENGTH = 1024;
     public static final String TAG = "MicroMsg.PaySdk.PayReq";
@@ -17,7 +17,7 @@ public class PayReq extends BaseReq {
     public String sign;
     public String timeStamp;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Options {
         public static final int INVALID_FLAGS = -1;
         public String callbackClassName;

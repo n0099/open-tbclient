@@ -73,15 +73,15 @@ public class LoadErrorCode {
             public int mEngineType;
             public int mErrorCode;
 
-            public ErrorItem(int i, int i2, String str) {
-                this(i, i2, str, 1);
+            public ErrorItem(int i2, int i3, String str) {
+                this(i2, i3, str, 1);
             }
 
-            public ErrorItem(int i, int i2, String str, int i3) {
-                this.mEngineType = i;
-                this.mErrorCode = i2;
+            public ErrorItem(int i2, int i3, String str, int i4) {
+                this.mEngineType = i2;
+                this.mErrorCode = i3;
                 this.mDetails = str;
-                this.mCount = i3;
+                this.mCount = i4;
             }
         }
 
@@ -162,8 +162,8 @@ public class LoadErrorCode {
             try {
                 JSONArray jSONArray = jSONObject.getJSONArray(KEY_T7_ERROR_LIST);
                 int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
+                for (int i2 = 0; i2 < length; i2++) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                     sErrorList.add(new ErrorItem(1, jSONObject2.getInt("error_code"), jSONObject2.getString(KEY_ERROR_REASON), jSONObject2.getInt(KEY_ERROR_CNT)));
                 }
                 z = true;
@@ -383,18 +383,18 @@ public class LoadErrorCode {
                 return null;
             }
             byte[] bytes = jSONObject.toString().getBytes();
-            for (int i = 0; i < bytes.length; i++) {
-                byte b2 = bytes[i];
+            for (int i2 = 0; i2 < bytes.length; i2++) {
+                byte b2 = bytes[i2];
                 if (b2 == 34) {
-                    bytes[i] = 47;
+                    bytes[i2] = 47;
                 } else if (b2 == 91) {
-                    bytes[i] = 60;
+                    bytes[i2] = 60;
                 } else if (b2 == 93) {
-                    bytes[i] = 62;
+                    bytes[i2] = 62;
                 } else if (b2 == 123) {
-                    bytes[i] = 40;
+                    bytes[i2] = 40;
                 } else if (b2 == 125) {
-                    bytes[i] = 41;
+                    bytes[i2] = 41;
                 }
             }
             return new String(bytes);
@@ -450,13 +450,13 @@ public class LoadErrorCode {
         }
     }
 
-    public LoadErrorCode(int i) {
-        this.mErrorCode = i;
+    public LoadErrorCode(int i2) {
+        this.mErrorCode = i2;
         this.mDetails = new StringBuilder();
     }
 
-    public LoadErrorCode(int i, String str) {
-        this.mErrorCode = i;
+    public LoadErrorCode(int i2, String str) {
+        this.mErrorCode = i2;
         this.mDetails = new StringBuilder(str);
     }
 
@@ -505,19 +505,19 @@ public class LoadErrorCode {
         return "none";
     }
 
-    public synchronized void set(int i) {
+    public synchronized void set(int i2) {
         if (this.mErrorCode == 0) {
-            this.mErrorCode = i;
+            this.mErrorCode = i2;
         }
     }
 
-    public synchronized void set(int i, String str) {
-        set(i);
+    public synchronized void set(int i2, String str) {
+        set(i2);
         trace(str);
     }
 
-    public synchronized void trace(int i) {
-        trace(String.valueOf(i));
+    public synchronized void trace(int i2) {
+        trace(String.valueOf(i2));
     }
 
     public synchronized void trace(String str) {

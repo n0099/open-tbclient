@@ -27,13 +27,13 @@ public final class BridgeInterceptor implements Interceptor {
     private String cookieHeader(List<Cookie> list) {
         StringBuilder sb = new StringBuilder();
         int size = list.size();
-        for (int i = 0; i < size; i++) {
-            if (i > 0) {
+        for (int i2 = 0; i2 < size; i2++) {
+            if (i2 > 0) {
                 sb.append("; ");
             }
-            Cookie cookie = list.get(i);
+            Cookie cookie = list.get(i2);
             sb.append(cookie.name());
-            sb.append(a.f1922h);
+            sb.append(a.f1873h);
             sb.append(cookie.value());
         }
         return sb.toString();

@@ -86,14 +86,14 @@ public class ByteUnitConverter {
     }
 
     public ByteUnitConverter(double d2, UNITS units) {
-        int i = AnonymousClass1.$SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS[units.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass1.$SwitchMap$com$baidu$android$util$io$ByteUnitConverter$UNITS[units.ordinal()];
+        if (i2 == 1) {
             convertByte(d2);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             convertKiloByte(d2);
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             convertMegaByte(d2);
-        } else if (i != 4) {
+        } else if (i2 != 4) {
         } else {
             convertGigaByte(d2);
         }

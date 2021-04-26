@@ -14,42 +14,42 @@ import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.views.RoundWebview;
 import com.baidu.sapi2.views.ViewUtility;
-import d.b.y.a.c;
-import d.b.y.a.f;
+import d.a.y.a.c;
+import d.a.y.a.f;
 /* loaded from: classes2.dex */
 public class HorizontalScreenLoginActivity extends LoginActivity {
-    public static int D;
+    public static int H;
 
     /* loaded from: classes2.dex */
     public static class AndroidBug5497Workaround {
 
         /* renamed from: a  reason: collision with root package name */
-        public final int f10564a;
+        public final int f10665a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f10565b;
+        public View f10666b;
 
         /* renamed from: c  reason: collision with root package name */
-        public WebView f10566c;
+        public WebView f10667c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f10567d;
+        public int f10668d;
 
         /* renamed from: e  reason: collision with root package name */
-        public FrameLayout.LayoutParams f10568e;
+        public FrameLayout.LayoutParams f10669e;
 
         public AndroidBug5497Workaround(Activity activity) {
             View childAt = ((FrameLayout) activity.findViewById(16908290)).getChildAt(0);
-            this.f10565b = childAt;
+            this.f10666b = childAt;
             childAt.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.sapi2.activity.HorizontalScreenLoginActivity.AndroidBug5497Workaround.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
                     AndroidBug5497Workaround.this.b();
                 }
             });
-            this.f10568e = (FrameLayout.LayoutParams) this.f10565b.getLayoutParams();
-            this.f10566c = a((ViewGroup) this.f10565b);
-            this.f10564a = activity.getWindowManager().getDefaultDisplay().getWidth();
+            this.f10669e = (FrameLayout.LayoutParams) this.f10666b.getLayoutParams();
+            this.f10667c = a((ViewGroup) this.f10666b);
+            this.f10665a = activity.getWindowManager().getDefaultDisplay().getWidth();
         }
 
         public static void assistActivity(Activity activity) {
@@ -61,8 +61,8 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
             if (viewGroup == null) {
                 return null;
             }
-            for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                View childAt = viewGroup.getChildAt(i);
+            for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
+                View childAt = viewGroup.getChildAt(i2);
                 if (childAt instanceof WebView) {
                     return (WebView) childAt;
                 }
@@ -76,23 +76,23 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
         /* JADX INFO: Access modifiers changed from: private */
         public void b() {
             int a2 = a();
-            if (a2 != this.f10567d) {
-                int i = this.f10564a;
-                int i2 = i - a2;
-                int i3 = i / 4;
-                if (i2 > i3) {
-                    this.f10568e.height = i - i2;
+            if (a2 != this.f10668d) {
+                int i2 = this.f10665a;
+                int i3 = i2 - a2;
+                int i4 = i2 / 4;
+                if (i3 > i4) {
+                    this.f10669e.height = i2 - i3;
                 } else {
-                    this.f10568e.height = i;
+                    this.f10669e.height = i2;
                 }
-                this.f10565b.requestLayout();
-                if (i2 > i3) {
-                    if (this.f10566c.getUrl() != null && (this.f10566c.getUrl().endsWith("/sms_login_new") || this.f10566c.getUrl().contains("sms_login") || this.f10566c.getUrl().contains("act=bind_mobile"))) {
+                this.f10666b.requestLayout();
+                if (i3 > i4) {
+                    if (this.f10667c.getUrl() != null && (this.f10667c.getUrl().endsWith("/sms_login_new") || this.f10667c.getUrl().contains("sms_login") || this.f10667c.getUrl().contains("act=bind_mobile"))) {
                         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() { // from class: com.baidu.sapi2.activity.HorizontalScreenLoginActivity.AndroidBug5497Workaround.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 try {
-                                    AndroidBug5497Workaround.this.f10566c.scrollTo(0, HorizontalScreenLoginActivity.D);
+                                    AndroidBug5497Workaround.this.f10667c.scrollTo(0, HorizontalScreenLoginActivity.H);
                                 } catch (Exception unused) {
                                 }
                             }
@@ -103,19 +103,19 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
                         @Override // java.lang.Runnable
                         public void run() {
                             try {
-                                AndroidBug5497Workaround.this.f10566c.scrollTo(0, 0);
+                                AndroidBug5497Workaround.this.f10667c.scrollTo(0, 0);
                             } catch (Exception unused) {
                             }
                         }
                     }, 200L);
                 }
-                this.f10567d = a2;
+                this.f10668d = a2;
             }
         }
 
         private int a() {
             Rect rect = new Rect();
-            this.f10565b.getWindowVisibleDisplayFrame(rect);
+            this.f10666b.getWindowVisibleDisplayFrame(rect);
             return rect.bottom - rect.top;
         }
     }
@@ -133,8 +133,8 @@ public class HorizontalScreenLoginActivity extends LoginActivity {
             ((LoginActivity) this).sapiWebView.setVerticalFadingEdgeEnabled(false);
             ((LoginActivity) this).sapiWebView.setFocusEdittextCoordinateYCallBack(new SapiJsCallBacks.FocusEdittextCoordinateYCallBack() { // from class: com.baidu.sapi2.activity.HorizontalScreenLoginActivity.1
                 @Override // com.baidu.sapi2.SapiJsCallBacks.FocusEdittextCoordinateYCallBack
-                public void onCallback(int i) {
-                    int unused = HorizontalScreenLoginActivity.D = (int) (i * HorizontalScreenLoginActivity.this.getResources().getDisplayMetrics().density);
+                public void onCallback(int i2) {
+                    int unused = HorizontalScreenLoginActivity.H = (int) (i2 * HorizontalScreenLoginActivity.this.getResources().getDisplayMetrics().density);
                 }
             });
             ((LoginActivity) this).sapiWebView.setOverScrollMode(2);

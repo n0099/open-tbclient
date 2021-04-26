@@ -10,16 +10,16 @@ import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.WebBindWidgetResult;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
-import d.b.y.a.f;
+import d.a.y.a.f;
 import java.util.Collections;
 /* loaded from: classes2.dex */
 public class BindWidgetActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     public static final String EXTRA_BIND_WIDGET_ACTION = "EXTRA_BIND_WIDGET_ACTION";
     public static final int REQUEST_CODE_LOGIN = 200001;
-    public BindWidgetAction p;
-    public String q;
-    public WebBindWidgetResult r = new WebBindWidgetResult() { // from class: com.baidu.sapi2.activity.BindWidgetActivity.1
+    public BindWidgetAction t;
+    public String u;
+    public WebBindWidgetResult v = new WebBindWidgetResult() { // from class: com.baidu.sapi2.activity.BindWidgetActivity.1
         @Override // com.baidu.sapi2.result.WebBindWidgetResult
         public void loginSuc() {
             super.loginSuc();
@@ -29,7 +29,7 @@ public class BindWidgetActivity extends BaseActivity {
 
     private void finishActivity() {
         if (CoreViewRouter.getInstance().getWebBindWidgetCallback() != null) {
-            CoreViewRouter.getInstance().getWebBindWidgetCallback().onFinish(this.r);
+            CoreViewRouter.getInstance().getWebBindWidgetCallback().onFinish(this.v);
         }
         finish();
         CoreViewRouter.getInstance().release();
@@ -46,9 +46,9 @@ public class BindWidgetActivity extends BaseActivity {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i == 200001 && i2 == -1) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i2 == 200001 && i3 == -1) {
             onClose();
         }
     }
@@ -62,8 +62,8 @@ public class BindWidgetActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
-        this.r.setResultCode(-301);
-        this.r.setResultMsg("您已取消操作");
+        this.v.setResultCode(-301);
+        this.v.setResultMsg("您已取消操作");
         finishActivity();
     }
 
@@ -72,16 +72,16 @@ public class BindWidgetActivity extends BaseActivity {
         super.onCreate(bundle);
         try {
             setContentView(f.layout_sapi_sdk_webview_with_title_bar);
-            this.p = (BindWidgetAction) getIntent().getSerializableExtra(EXTRA_BIND_WIDGET_ACTION);
+            this.t = (BindWidgetAction) getIntent().getSerializableExtra(EXTRA_BIND_WIDGET_ACTION);
             String stringExtra = getIntent().getStringExtra("EXTRA_BDUSS");
-            this.q = stringExtra;
-            if (this.p != null && !TextUtils.isEmpty(stringExtra)) {
+            this.u = stringExtra;
+            if (this.t != null && !TextUtils.isEmpty(stringExtra)) {
                 init();
                 setupViews();
                 return;
             }
-            this.r.setResultCode(-204);
-            this.r.setResultMsg("参数错误，请稍后再试");
+            this.v.setResultCode(-204);
+            this.v.setResultMsg("参数错误，请稍后再试");
             finishActivity();
         } catch (Throwable th) {
             reportWebviewError(th);
@@ -100,7 +100,7 @@ public class BindWidgetActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(this.p.getName());
+        setTitleText(this.t.getName());
         this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.BindWidgetActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {
@@ -118,9 +118,9 @@ public class BindWidgetActivity extends BaseActivity {
             public void onPhoneNumberExist(String str) {
                 SapiAccountManager.getInstance().getSapiConfiguration().presetPhoneNumber = str;
                 if (CoreViewRouter.getInstance().getWebBindWidgetDTO().handleLogin && CoreViewRouter.getInstance().getWebBindWidgetCallback() != null) {
-                    BindWidgetActivity.this.r.setResultCode(-10001);
-                    BindWidgetActivity.this.r.setResultMsg("请登录");
-                    CoreViewRouter.getInstance().getWebBindWidgetCallback().onFinish(BindWidgetActivity.this.r);
+                    BindWidgetActivity.this.v.setResultCode(-10001);
+                    BindWidgetActivity.this.v.setResultMsg("请登录");
+                    CoreViewRouter.getInstance().getWebBindWidgetCallback().onFinish(BindWidgetActivity.this.v);
                     return;
                 }
                 Intent intent = new Intent(BindWidgetActivity.this, LoginActivity.class);
@@ -129,7 +129,7 @@ public class BindWidgetActivity extends BaseActivity {
                 BindWidgetActivity.this.startActivityForResult(intent, BindWidgetActivity.REQUEST_CODE_LOGIN);
             }
         });
-        this.sapiWebView.loadBindWidget(this.p, this.q, null, true, Collections.singletonList(SapiWebView.EXTRA_BIND_WIDGET_CONFLICT_DETECT));
+        this.sapiWebView.loadBindWidget(this.t, this.u, null, true, Collections.singletonList(SapiWebView.EXTRA_BIND_WIDGET_CONFLICT_DETECT));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

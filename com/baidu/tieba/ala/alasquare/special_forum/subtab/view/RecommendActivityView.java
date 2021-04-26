@@ -14,56 +14,56 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerAutoScrollView;
 import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder;
-import d.b.c.a.j;
-import d.b.j0.t.d.f.c.c;
+import d.a.c.a.j;
+import d.a.j0.t.d.f.c.c;
 /* loaded from: classes4.dex */
-public class RecommendActivityView extends d.b.j0.x.b<c> {
+public class RecommendActivityView extends d.a.j0.x.b<c> {
     public TbPageContext m;
-    public AlaBannerAutoScrollView<d.b.j0.t.d.f.c.b> n;
-    public d.b.j0.t.d.h.a.a o;
+    public AlaBannerAutoScrollView<d.a.j0.t.d.f.c.b> n;
+    public d.a.j0.t.d.h.a.a o;
 
     /* loaded from: classes4.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public RecommendActivityView f14598a;
+        public RecommendActivityView f14671a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f14599b;
+        public View f14672b;
 
         public ViewHolder(RecommendActivityView recommendActivityView) {
-            super(recommendActivityView.m());
-            this.f14598a = recommendActivityView;
-            this.f14599b = recommendActivityView.m();
+            super(recommendActivityView.l());
+            this.f14671a = recommendActivityView;
+            this.f14672b = recommendActivityView.l();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class a implements d.b.j0.t.d.h.a.b {
+    public class a implements d.a.j0.t.d.h.a.b {
         public a() {
         }
 
-        @Override // d.b.j0.t.d.h.a.b
+        @Override // d.a.j0.t.d.h.a.b
         public void a(Object obj) {
-            if (obj == null || !(obj instanceof d.b.j0.t.d.f.c.b)) {
+            if (obj == null || !(obj instanceof d.a.j0.t.d.f.c.b)) {
                 return;
             }
-            d.b.j0.t.d.f.c.b bVar = (d.b.j0.t.d.f.c.b) obj;
-            if (!StringUtils.isNull(bVar.f62517e)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(RecommendActivityView.this.m.getPageActivity()), new String[]{bVar.f62517e}, true);
+            d.a.j0.t.d.f.c.b bVar = (d.a.j0.t.d.f.c.b) obj;
+            if (!StringUtils.isNull(bVar.f60705e)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(RecommendActivityView.this.m.getPageActivity()), new String[]{bVar.f60705e}, true);
             }
             TiebaStatic.log("c12902");
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements d.b.j0.t.d.h.a.a {
+    public class b implements d.a.j0.t.d.h.a.a {
 
         /* loaded from: classes4.dex */
-        public class a extends AlaBannerViewHolder<d.b.j0.t.d.f.c.b> {
+        public class a extends AlaBannerViewHolder<d.a.j0.t.d.f.c.b> {
 
             /* renamed from: a  reason: collision with root package name */
-            public TbImageView f14602a;
+            public TbImageView f14675a;
 
             public a(b bVar, View view) {
                 super(view);
@@ -72,30 +72,30 @@ public class RecommendActivityView extends d.b.j0.x.b<c> {
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             public void b(View view) {
                 TbImageView tbImageView = (TbImageView) view.findViewById(R.id.cover);
-                this.f14602a = tbImageView;
+                this.f14675a = tbImageView;
                 tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             }
 
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
-            public void c(int i) {
+            public void c(int i2) {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             /* renamed from: d */
-            public void a(int i, d.b.j0.t.d.f.c.b bVar) {
-                if (bVar == null || this.f14602a == null || StringUtils.isNull(bVar.f62518f)) {
+            public void a(int i2, d.a.j0.t.d.f.c.b bVar) {
+                if (bVar == null || this.f14675a == null || StringUtils.isNull(bVar.f60706f)) {
                     return;
                 }
-                this.f14602a.W(bVar.f62518f, 10, false);
+                this.f14675a.V(bVar.f60706f, 10, false);
             }
         }
 
         public b() {
         }
 
-        @Override // d.b.j0.t.d.h.a.a
-        public AlaBannerViewHolder a(ViewGroup viewGroup, int i) {
+        @Override // d.a.j0.t.d.h.a.a
+        public AlaBannerViewHolder a(ViewGroup viewGroup, int i2) {
             return new a(this, LayoutInflater.from(RecommendActivityView.this.m.getPageActivity()).inflate(R.layout.special_bar_recommend_activity, viewGroup, false));
         }
     }
@@ -104,25 +104,25 @@ public class RecommendActivityView extends d.b.j0.x.b<c> {
         super(tbPageContext, viewGroup);
         this.o = new b();
         this.m = tbPageContext;
-        AlaBannerAutoScrollView<d.b.j0.t.d.f.c.b> alaBannerAutoScrollView = (AlaBannerAutoScrollView) m().findViewById(R.id.banner_container);
+        AlaBannerAutoScrollView<d.a.j0.t.d.f.c.b> alaBannerAutoScrollView = (AlaBannerAutoScrollView) l().findViewById(R.id.banner_container);
         this.n = alaBannerAutoScrollView;
         alaBannerAutoScrollView.setViewHolderAdapter(this.o);
         this.n.setOnBannerClickListener(new a());
-        o(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        n(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.b.j0.x.b
-    public int h() {
+    @Override // d.a.j0.x.b
+    public int g() {
         return R.layout.special_bar_recommend_banner;
     }
 
-    @Override // d.b.j0.x.b
-    public View m() {
-        return super.m();
+    @Override // d.a.j0.x.b
+    public View l() {
+        return super.l();
     }
 
-    @Override // d.b.j0.x.b
-    public void o(TbPageContext<?> tbPageContext, int i) {
+    @Override // d.a.j0.x.b
+    public void n(TbPageContext<?> tbPageContext, int i2) {
         this.n.q(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -131,13 +131,13 @@ public class RecommendActivityView extends d.b.j0.x.b<c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.j0.x.b
-    /* renamed from: v */
-    public void n(c cVar) {
-        if (cVar == null || ListUtils.isEmpty(cVar.f62520e)) {
+    @Override // d.a.j0.x.b
+    /* renamed from: t */
+    public void m(c cVar) {
+        if (cVar == null || ListUtils.isEmpty(cVar.f60708e)) {
             return;
         }
-        this.n.n(cVar.f62520e, this.o);
+        this.n.n(cVar.f60708e, this.o);
         TiebaStatic.log("c12901");
     }
 }

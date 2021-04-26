@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.permission.PermissionRequestDialog;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.c.a.f;
-import d.b.c.a.j;
-import d.b.i0.r.s.a;
+import d.a.c.a.f;
+import d.a.c.a.j;
+import d.a.i0.r.s.a;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -190,7 +190,7 @@ public class PermissionJudgePolicy {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void startRequestPermissionForSystem(Activity activity, int i) {
+    public void startRequestPermissionForSystem(Activity activity, int i2) {
         if (ListUtils.isEmpty(this.requestPermissionList)) {
             return;
         }
@@ -198,10 +198,10 @@ public class PermissionJudgePolicy {
         if (iSystemPermissionDialogShowCallBack != null) {
             iSystemPermissionDialogShowCallBack.onShow();
         }
-        if (i == -1) {
+        if (i2 == -1) {
             startRequestPermissionInternal(activity);
         } else {
-            startRequestPermissionInternal(activity, i);
+            startRequestPermissionInternal(activity, i2);
         }
     }
 
@@ -232,7 +232,7 @@ public class PermissionJudgePolicy {
         aVar.setTitle(R.string.request_permission_default_title);
         aVar.setMessageId(getPermissionDescriptionId(str));
         aVar.setPositiveButton(R.string.isopen, new a.e() { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
-            @Override // d.b.i0.r.s.a.e
+            @Override // d.a.i0.r.s.a.e
             public void onClick(a aVar2) {
                 aVar2.dismiss();
                 Intent intent = new Intent();
@@ -245,7 +245,7 @@ public class PermissionJudgePolicy {
                 }
             }
         }).setNegativeButton(R.string.cancel, new a.e() { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
-            @Override // d.b.i0.r.s.a.e
+            @Override // d.a.i0.r.s.a.e
             public void onClick(a aVar2) {
                 aVar2.dismiss();
                 if (PermissionJudgePolicy.this.mDialogClickListener != null) {
@@ -290,28 +290,28 @@ public class PermissionJudgePolicy {
         return startRequestPermission(activity, -1);
     }
 
-    public boolean startRequestPermission(Activity activity, int i) {
-        return startRequestPermission(activity, i, EXTRA_DIALOG_REFUSE_POLICY.Reject_all, null);
+    public boolean startRequestPermission(Activity activity, int i2) {
+        return startRequestPermission(activity, i2, EXTRA_DIALOG_REFUSE_POLICY.Reject_all, null);
     }
 
-    public boolean startRequestPermission(Activity activity, int i, EXTRA_DIALOG_REFUSE_POLICY extra_dialog_refuse_policy, IExtraDialogCloseCallback iExtraDialogCloseCallback, ISystemPermissionDialogShowCallBack iSystemPermissionDialogShowCallBack) {
+    public boolean startRequestPermission(Activity activity, int i2, EXTRA_DIALOG_REFUSE_POLICY extra_dialog_refuse_policy, IExtraDialogCloseCallback iExtraDialogCloseCallback, ISystemPermissionDialogShowCallBack iSystemPermissionDialogShowCallBack) {
         this.mISystemPermissionDialogShowCallBack = iSystemPermissionDialogShowCallBack;
-        return startRequestPermission(activity, i, extra_dialog_refuse_policy, iExtraDialogCloseCallback);
+        return startRequestPermission(activity, i2, extra_dialog_refuse_policy, iExtraDialogCloseCallback);
     }
 
-    private void startRequestPermissionInternal(Activity activity, int i) {
+    private void startRequestPermissionInternal(Activity activity, int i2) {
         if (activity == null) {
             return;
         }
         try {
-            ActivityCompat.requestPermissions(activity, (String[]) this.requestPermissionList.toArray(new String[this.requestPermissionList.size()]), i);
+            ActivityCompat.requestPermissions(activity, (String[]) this.requestPermissionList.toArray(new String[this.requestPermissionList.size()]), i2);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
     }
 
-    public boolean startRequestPermission(Activity activity, int i, EXTRA_DIALOG_REFUSE_POLICY extra_dialog_refuse_policy, IExtraDialogCloseCallback iExtraDialogCloseCallback) {
-        this.mRequestCode = i;
+    public boolean startRequestPermission(Activity activity, int i2, EXTRA_DIALOG_REFUSE_POLICY extra_dialog_refuse_policy, IExtraDialogCloseCallback iExtraDialogCloseCallback) {
+        this.mRequestCode = i2;
         this.mExtraDialogRefusePolicy = extra_dialog_refuse_policy;
         this.mIExtraDialogCloseCallback = iExtraDialogCloseCallback;
         if (!ApiUtil.shouldCheckPermission()) {

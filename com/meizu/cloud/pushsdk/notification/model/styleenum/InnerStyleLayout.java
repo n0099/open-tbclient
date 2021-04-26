@@ -8,8 +8,8 @@ public enum InnerStyleLayout {
     
     public int code;
 
-    InnerStyleLayout(int i) {
-        this.code = i;
+    InnerStyleLayout(int i2) {
+        this.code = i2;
     }
 
     public int getCode() {

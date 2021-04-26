@@ -5,10 +5,10 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public class DredgeNormalExecutorCell extends BaseDredgeExecutorCell {
-    public DredgeNormalExecutorCell(int i) {
-        super(i);
-        this.maxThreadNum = i;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 100L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+    public DredgeNormalExecutorCell(int i2) {
+        super(i2);
+        this.maxThreadNum = i2;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i2, 100L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
         this.mExecutor = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(true);
     }

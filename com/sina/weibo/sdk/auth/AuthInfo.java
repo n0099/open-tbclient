@@ -20,8 +20,8 @@ public class AuthInfo implements Parcelable, Serializable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public AuthInfo[] newArray(int i) {
-            return new AuthInfo[i];
+        public AuthInfo[] newArray(int i2) {
+            return new AuthInfo[i2];
         }
     };
     public String mAppKey;
@@ -84,7 +84,7 @@ public class AuthInfo implements Parcelable, Serializable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.mAppKey);
         parcel.writeString(this.mRedirectUrl);
         parcel.writeString(this.mScope);

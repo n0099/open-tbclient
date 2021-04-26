@@ -20,14 +20,14 @@ public class WriteImageActivityConfig extends IntentConfig {
     public static final String THREADID = "threadid";
     public static boolean isActivityInStack = false;
 
-    public WriteImageActivityConfig(Context context, int i, int i2, Uri uri, String str, String str2, AntiData antiData, int i3, String str3, String str4, String str5, String str6) {
+    public WriteImageActivityConfig(Context context, int i2, int i3, Uri uri, String str, String str2, AntiData antiData, int i4, String str3, String str4, String str5, String str6) {
         super(context);
         setIntentAction(IntentAction.ActivityForResult);
-        getIntent().putExtra("request", i);
+        getIntent().putExtra("request", i2);
         getIntent().putExtra("from", str5);
         getIntent().putExtra("forumid", str);
         getIntent().putExtra("foruimname", str2);
-        getIntent().putExtra("display_size", i3);
+        getIntent().putExtra("display_size", i4);
         if (str3 != null) {
             getIntent().putExtra("finish_text", str3);
         }
@@ -38,17 +38,17 @@ public class WriteImageActivityConfig extends IntentConfig {
             getIntent().putExtra("file_name", str6);
         }
         getIntent().setData(uri);
-        setRequestCode(i2);
+        setRequestCode(i3);
     }
 
-    public WriteImageActivityConfig(Context context, int i, int i2, Uri uri, String str, String str2, AntiData antiData, int i3, String str3, String str4, String str5) {
+    public WriteImageActivityConfig(Context context, int i2, int i3, Uri uri, String str, String str2, AntiData antiData, int i4, String str3, String str4, String str5) {
         super(context);
         setIntentAction(IntentAction.ActivityForResult);
-        getIntent().putExtra("request", i);
+        getIntent().putExtra("request", i2);
         getIntent().putExtra("from", str5);
         getIntent().putExtra("forumid", str);
         getIntent().putExtra("foruimname", str2);
-        getIntent().putExtra("display_size", i3);
+        getIntent().putExtra("display_size", i4);
         if (str3 != null) {
             getIntent().putExtra("finish_text", str3);
         }
@@ -56,10 +56,10 @@ public class WriteImageActivityConfig extends IntentConfig {
             getIntent().putExtra("cancel_text", str4);
         }
         getIntent().setData(uri);
-        setRequestCode(i2);
+        setRequestCode(i3);
     }
 
-    public WriteImageActivityConfig(Context context, int i, int i2, Uri uri, String str, String str2, AntiData antiData) {
-        this(context, i, i2, uri, str, str2, antiData, 0, null, null, "frs");
+    public WriteImageActivityConfig(Context context, int i2, int i3, Uri uri, String str, String str2, AntiData antiData) {
+        this(context, i2, i3, uri, str, str2, antiData, 0, null, null, "frs");
     }
 }

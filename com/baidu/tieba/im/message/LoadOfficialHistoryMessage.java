@@ -7,7 +7,7 @@ public class LoadOfficialHistoryMessage extends LoadHistoryMessage {
         super(2001147, aVar);
     }
 
-    public LoadOfficialHistoryMessage(int i, LoadHistoryMessage.a aVar) {
-        super(i, aVar);
+    public LoadOfficialHistoryMessage(int i2, LoadHistoryMessage.a aVar) {
+        super(i2, aVar);
     }
 }

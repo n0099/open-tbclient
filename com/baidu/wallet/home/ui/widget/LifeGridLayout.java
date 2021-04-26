@@ -12,17 +12,17 @@ import java.util.List;
 public class LifeGridLayout extends BaseItemLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public GridLayout f24287a;
+    public GridLayout f25039a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HomeLayoutOneTipView f24288b;
+    public HomeLayoutOneTipView f25040b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f24289c;
+    public List<BaseItemView> f25041c;
 
     public LifeGridLayout(Context context) {
         super(context);
-        this.f24289c = new ArrayList();
+        this.f25041c = new ArrayList();
     }
 
     private void a(GridLayout gridLayout) {
@@ -31,16 +31,16 @@ public class LifeGridLayout extends BaseItemLayout {
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f24289c;
+        return this.f25041c;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_life_layout_finance"), this);
         GridLayout gridLayout = (GridLayout) findViewById(ResUtils.id(getContext(), "grid_layout"));
-        this.f24287a = gridLayout;
+        this.f25039a = gridLayout;
         gridLayout.setBackgroundColor(ResUtils.getColor(getContext(), "wallet_base_whiteColor"));
-        this.f24288b = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "tip_view"));
+        this.f25040b = (HomeLayoutOneTipView) findViewById(ResUtils.id(getContext(), "tip_view"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -52,23 +52,23 @@ public class LifeGridLayout extends BaseItemLayout {
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void refreshData() {
-        this.f24288b.setData(this.mConfigData, getWalletInterface());
+        this.f25040b.setData(this.mConfigData, getWalletInterface());
         HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
-        this.f24287a.setColumnCount(4);
-        this.f24287a.setHorizontalSpacing(0);
-        this.f24287a.setVerticalSpacing(0);
-        this.f24287a.setPadding(20, 20, 20, 30);
-        a(this.f24287a);
+        this.f25039a.setColumnCount(4);
+        this.f25039a.setHorizontalSpacing(0);
+        this.f25039a.setVerticalSpacing(0);
+        this.f25039a.setPadding(20, 20, 20, 30);
+        a(this.f25039a);
         for (HomeCfgResponse.DataItem dataItem : dataItemArr) {
             LifeItemViewForType3 lifeItemViewForType3 = new LifeItemViewForType3(getContext());
             lifeItemViewForType3.setData(dataItem, getWalletInterface());
-            this.f24287a.addView(lifeItemViewForType3);
-            this.f24289c.add(lifeItemViewForType3);
+            this.f25039a.addView(lifeItemViewForType3);
+            this.f25041c.add(lifeItemViewForType3);
         }
     }
 
     public LifeGridLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24289c = new ArrayList();
+        this.f25041c = new ArrayList();
     }
 }

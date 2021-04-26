@@ -6,5 +6,5 @@ import com.bumptech.glide.load.engine.Resource;
 /* loaded from: classes5.dex */
 public interface Transformation<T> extends Key {
     @NonNull
-    Resource<T> transform(@NonNull Context context, @NonNull Resource<T> resource, int i, int i2);
+    Resource<T> transform(@NonNull Context context, @NonNull Resource<T> resource, int i2, int i3);
 }

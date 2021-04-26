@@ -8,9 +8,9 @@ public final class ExpandedRow {
     public final int rowNumber;
     public final boolean wasReversed;
 
-    public ExpandedRow(List<ExpandedPair> list, int i, boolean z) {
+    public ExpandedRow(List<ExpandedPair> list, int i2, boolean z) {
         this.pairs = new ArrayList(list);
-        this.rowNumber = i;
+        this.rowNumber = i2;
         this.wasReversed = z;
     }
 

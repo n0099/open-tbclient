@@ -6,7 +6,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class UserDataBox extends AbstractContainerBox {
     public static final String TYPE = "udta";
 

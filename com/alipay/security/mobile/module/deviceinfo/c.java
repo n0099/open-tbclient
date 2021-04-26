@@ -8,10 +8,10 @@ import java.util.regex.Pattern;
 public class c implements FileFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f2098a;
+    public final /* synthetic */ b f2058a;
 
     public c(b bVar) {
-        this.f2098a = bVar;
+        this.f2058a = bVar;
     }
 
     @Override // java.io.FileFilter

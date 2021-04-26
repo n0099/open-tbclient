@@ -25,10 +25,10 @@ import java.util.List;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f4643a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f4751a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4644b = "";
+    public static String f4752b = "";
 
     public static Object a(Object obj, String str, Class[] clsArr, Object[] objArr) {
         Object obj2 = null;
@@ -66,8 +66,8 @@ public final class j {
         try {
             if (Build.VERSION.SDK_INT >= 24) {
                 intent.setFlags(RouterCallback.CODE_ERROR);
-                String str = f4644b;
-                if (TextUtils.isEmpty(f4644b)) {
+                String str = f4752b;
+                if (TextUtils.isEmpty(f4752b)) {
                     str = context.getPackageName() + ".fileprovider";
                 }
                 intent.setDataAndType(FileProvider.getUriForFile(context, str, file), "application/vnd.android.package-archive");
@@ -86,7 +86,7 @@ public final class j {
     }
 
     public static void a(String str) {
-        f4644b = str;
+        f4752b = str;
     }
 
     public static boolean a(Context context) {
@@ -155,8 +155,8 @@ public final class j {
         if (next == null) {
             return null;
         }
-        int i = recentTaskInfo.id;
-        if (i == -1 || next.id != i) {
+        int i2 = recentTaskInfo.id;
+        if (i2 == -1 || next.id != i2) {
             String packageName = recentTaskInfo.baseIntent.getComponent().getPackageName();
             if (next.baseActivity.getPackageName().equals(packageName)) {
                 while (it2.hasNext()) {

@@ -31,9 +31,9 @@ public class JSONTokener {
     private int nextCleanInternal() throws JSONException {
         while (this.pos < this.in.length()) {
             String str = this.in;
-            int i = this.pos;
-            this.pos = i + 1;
-            char charAt = str.charAt(i);
+            int i2 = this.pos;
+            this.pos = i2 + 1;
+            char charAt = str.charAt(i2);
             if (charAt != '\t' && charAt != '\n' && charAt != '\r' && charAt != ' ') {
                 if (charAt != '#') {
                     if (charAt != '/' || this.pos == this.in.length()) {
@@ -41,9 +41,9 @@ public class JSONTokener {
                     }
                     char charAt2 = this.in.charAt(this.pos);
                     if (charAt2 == '*') {
-                        int i2 = this.pos + 1;
-                        this.pos = i2;
-                        int indexOf = this.in.indexOf("*/", i2);
+                        int i3 = this.pos + 1;
+                        this.pos = i3;
+                        int indexOf = this.in.indexOf("*/", i3);
                         if (indexOf != -1) {
                             this.pos = indexOf + 2;
                         } else {
@@ -64,16 +64,16 @@ public class JSONTokener {
     }
 
     private String nextToInternal(String str) {
-        int i = this.pos;
+        int i2 = this.pos;
         while (this.pos < this.in.length()) {
             char charAt = this.in.charAt(this.pos);
             if (charAt != '\r' && charAt != '\n' && str.indexOf(charAt) == -1) {
                 this.pos++;
             } else {
-                return this.in.substring(i, this.pos);
+                return this.in.substring(i2, this.pos);
             }
         }
-        return this.in.substring(i);
+        return this.in.substring(i2);
     }
 
     private JSONArray readArray() throws JSONException {
@@ -108,9 +108,9 @@ public class JSONTokener {
 
     private char readEscapeCharacter() throws JSONException {
         String str = this.in;
-        int i = this.pos;
-        this.pos = i + 1;
-        char charAt = str.charAt(i);
+        int i2 = this.pos;
+        this.pos = i2 + 1;
+        char charAt = str.charAt(i2);
         if (charAt != 'b') {
             if (charAt != 'f') {
                 if (charAt != 'n') {
@@ -121,8 +121,8 @@ public class JSONTokener {
                             }
                             if (this.pos + 4 <= this.in.length()) {
                                 String str2 = this.in;
-                                int i2 = this.pos;
-                                String substring = str2.substring(i2, i2 + 4);
+                                int i3 = this.pos;
+                                String substring = str2.substring(i3, i3 + 4);
                                 this.pos += 4;
                                 return (char) Integer.parseInt(substring, 16);
                             }
@@ -141,7 +141,7 @@ public class JSONTokener {
 
     private Object readLiteral() throws JSONException {
         String substring;
-        int i;
+        int i2;
         String nextToInternal = nextToInternal("{}[]/\\:,=;# \t\f");
         if (nextToInternal.length() != 0) {
             if (StringUtil.NULL_STRING.equalsIgnoreCase(nextToInternal)) {
@@ -157,17 +157,17 @@ public class JSONTokener {
                 if (!nextToInternal.startsWith("0x") && !nextToInternal.startsWith("0X")) {
                     if (!nextToInternal.startsWith("0") || nextToInternal.length() <= 1) {
                         substring = nextToInternal;
-                        i = 10;
+                        i2 = 10;
                     } else {
                         substring = nextToInternal.substring(1);
-                        i = 8;
+                        i2 = 8;
                     }
                 } else {
                     substring = nextToInternal.substring(2);
-                    i = 16;
+                    i2 = 16;
                 }
                 try {
-                    long parseLong = Long.parseLong(substring, i);
+                    long parseLong = Long.parseLong(substring, i2);
                     if (parseLong <= 2147483647L && parseLong >= -2147483648L) {
                         return Integer.valueOf((int) parseLong);
                     }
@@ -232,9 +232,9 @@ public class JSONTokener {
     }
 
     public void back() {
-        int i = this.pos - 1;
-        this.pos = i;
-        if (i == -1) {
+        int i2 = this.pos - 1;
+        this.pos = i2;
+        if (i2 == -1) {
             this.pos = 0;
         }
     }
@@ -246,9 +246,9 @@ public class JSONTokener {
     public char next() {
         if (this.pos < this.in.length()) {
             String str = this.in;
-            int i = this.pos;
-            this.pos = i + 1;
-            return str.charAt(i);
+            int i2 = this.pos;
+            this.pos = i2 + 1;
+            return str.charAt(i2);
         }
         return (char) 0;
     }
@@ -262,27 +262,27 @@ public class JSONTokener {
     }
 
     public String nextString(char c2) throws JSONException {
-        int i = this.pos;
+        int i2 = this.pos;
         StringBuilder sb = null;
         while (this.pos < this.in.length()) {
             String str = this.in;
-            int i2 = this.pos;
-            this.pos = i2 + 1;
-            char charAt = str.charAt(i2);
+            int i3 = this.pos;
+            this.pos = i3 + 1;
+            char charAt = str.charAt(i3);
             if (charAt == c2) {
                 if (sb == null) {
-                    return this.in.substring(i, this.pos - 1);
+                    return this.in.substring(i2, this.pos - 1);
                 }
-                sb.append((CharSequence) this.in, i, this.pos - 1);
+                sb.append((CharSequence) this.in, i2, this.pos - 1);
                 return sb.toString();
             } else if (charAt == '\\') {
                 if (this.pos != this.in.length()) {
                     if (sb == null) {
                         sb = new StringBuilder();
                     }
-                    sb.append((CharSequence) this.in, i, this.pos - 1);
+                    sb.append((CharSequence) this.in, i2, this.pos - 1);
                     sb.append(readEscapeCharacter());
-                    i = this.pos;
+                    i2 = this.pos;
                 } else {
                     throw syntaxError("Unterminated escape sequence");
                 }
@@ -350,14 +350,14 @@ public class JSONTokener {
         return nextToInternal(String.valueOf(c2)).trim();
     }
 
-    public String next(int i) throws JSONException {
-        if (this.pos + i <= this.in.length()) {
+    public String next(int i2) throws JSONException {
+        if (this.pos + i2 <= this.in.length()) {
             String str = this.in;
-            int i2 = this.pos;
-            String substring = str.substring(i2, i2 + i);
-            this.pos += i;
+            int i3 = this.pos;
+            String substring = str.substring(i3, i3 + i2);
+            this.pos += i2;
             return substring;
         }
-        throw syntaxError(i + " is out of bounds");
+        throw syntaxError(i2 + " is out of bounds");
     }
 }

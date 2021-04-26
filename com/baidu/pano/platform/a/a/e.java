@@ -21,43 +21,43 @@ import java.util.Map;
 public class e implements com.baidu.pano.platform.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, a> f8883a;
+    public final Map<String, a> f9211a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8884b;
+    public long f9212b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final File f8885c;
+    public final File f9213c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f8886d;
+    public final int f9214d;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f8887a;
+        public long f9215a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8888b;
+        public String f9216b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8889c;
+        public String f9217c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f8890d;
+        public long f9218d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f8891e;
+        public long f9219e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f8892f;
+        public long f9220f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f8893g;
+        public long f9221g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Map<String, String> f8894h;
+        public Map<String, String> f9222h;
 
         public a() {
         }
@@ -65,55 +65,55 @@ public class e implements com.baidu.pano.platform.a.b {
         public static a a(InputStream inputStream) throws IOException {
             a aVar = new a();
             if (e.a(inputStream) == 538247942) {
-                aVar.f8888b = e.c(inputStream);
+                aVar.f9216b = e.c(inputStream);
                 String c2 = e.c(inputStream);
-                aVar.f8889c = c2;
+                aVar.f9217c = c2;
                 if (c2.equals("")) {
-                    aVar.f8889c = null;
+                    aVar.f9217c = null;
                 }
-                aVar.f8890d = e.b(inputStream);
-                aVar.f8891e = e.b(inputStream);
-                aVar.f8892f = e.b(inputStream);
-                aVar.f8893g = e.b(inputStream);
-                aVar.f8894h = e.d(inputStream);
+                aVar.f9218d = e.b(inputStream);
+                aVar.f9219e = e.b(inputStream);
+                aVar.f9220f = e.b(inputStream);
+                aVar.f9221g = e.b(inputStream);
+                aVar.f9222h = e.d(inputStream);
                 return aVar;
             }
             throw new IOException();
         }
 
         public a(String str, b.a aVar) {
-            this.f8888b = str;
-            this.f8887a = aVar.f8905a.length;
-            this.f8889c = aVar.f8906b;
-            this.f8890d = aVar.f8907c;
-            this.f8891e = aVar.f8908d;
-            this.f8892f = aVar.f8909e;
-            this.f8893g = aVar.f8910f;
-            this.f8894h = aVar.f8911g;
+            this.f9216b = str;
+            this.f9215a = aVar.f9233a.length;
+            this.f9217c = aVar.f9234b;
+            this.f9218d = aVar.f9235c;
+            this.f9219e = aVar.f9236d;
+            this.f9220f = aVar.f9237e;
+            this.f9221g = aVar.f9238f;
+            this.f9222h = aVar.f9239g;
         }
 
         public b.a a(byte[] bArr) {
             b.a aVar = new b.a();
-            aVar.f8905a = bArr;
-            aVar.f8906b = this.f8889c;
-            aVar.f8907c = this.f8890d;
-            aVar.f8908d = this.f8891e;
-            aVar.f8909e = this.f8892f;
-            aVar.f8910f = this.f8893g;
-            aVar.f8911g = this.f8894h;
+            aVar.f9233a = bArr;
+            aVar.f9234b = this.f9217c;
+            aVar.f9235c = this.f9218d;
+            aVar.f9236d = this.f9219e;
+            aVar.f9237e = this.f9220f;
+            aVar.f9238f = this.f9221g;
+            aVar.f9239g = this.f9222h;
             return aVar;
         }
 
         public boolean a(OutputStream outputStream) {
             try {
                 e.a(outputStream, 538247942);
-                e.a(outputStream, this.f8888b);
-                e.a(outputStream, this.f8889c == null ? "" : this.f8889c);
-                e.a(outputStream, this.f8890d);
-                e.a(outputStream, this.f8891e);
-                e.a(outputStream, this.f8892f);
-                e.a(outputStream, this.f8893g);
-                e.a(this.f8894h, outputStream);
+                e.a(outputStream, this.f9216b);
+                e.a(outputStream, this.f9217c == null ? "" : this.f9217c);
+                e.a(outputStream, this.f9218d);
+                e.a(outputStream, this.f9219e);
+                e.a(outputStream, this.f9220f);
+                e.a(outputStream, this.f9221g);
+                e.a(this.f9222h, outputStream);
                 outputStream.flush();
                 return true;
             } catch (IOException e2) {
@@ -127,37 +127,37 @@ public class e implements com.baidu.pano.platform.a.b {
     public static class b extends FilterInputStream {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f8895a;
+        public int f9223a;
 
         @Override // java.io.FilterInputStream, java.io.InputStream
         public int read() throws IOException {
             int read = super.read();
             if (read != -1) {
-                this.f8895a++;
+                this.f9223a++;
             }
             return read;
         }
 
         public b(InputStream inputStream) {
             super(inputStream);
-            this.f8895a = 0;
+            this.f9223a = 0;
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream
-        public int read(byte[] bArr, int i, int i2) throws IOException {
-            int read = super.read(bArr, i, i2);
+        public int read(byte[] bArr, int i2, int i3) throws IOException {
+            int read = super.read(bArr, i2, i3);
             if (read != -1) {
-                this.f8895a += read;
+                this.f9223a += read;
             }
             return read;
         }
     }
 
-    public e(File file, int i) {
-        this.f8883a = new LinkedHashMap(16, 0.75f, true);
-        this.f8884b = 0L;
-        this.f8885c = file;
-        this.f8886d = i;
+    public e(File file, int i2) {
+        this.f9211a = new LinkedHashMap(16, 0.75f, true);
+        this.f9212b = 0L;
+        this.f9213c = file;
+        this.f9214d = i2;
     }
 
     private String d(String str) {
@@ -167,10 +167,10 @@ public class e implements com.baidu.pano.platform.a.b {
     }
 
     private void e(String str) {
-        a aVar = this.f8883a.get(str);
+        a aVar = this.f9211a.get(str);
         if (aVar != null) {
-            this.f8884b -= aVar.f8887a;
-            this.f8883a.remove(str);
+            this.f9212b -= aVar.f9215a;
+            this.f9211a.remove(str);
         }
     }
 
@@ -181,7 +181,7 @@ public class e implements com.baidu.pano.platform.a.b {
     */
     public synchronized b.a a(String str) {
         b bVar;
-        a aVar = this.f8883a.get(str);
+        a aVar = this.f9211a.get(str);
         FilterInputStream filterInputStream = null;
         if (aVar == null) {
             return null;
@@ -215,7 +215,7 @@ public class e implements com.baidu.pano.platform.a.b {
         }
         try {
             a.a(bVar);
-            b.a a2 = aVar.a(a(bVar, (int) (c2.length() - bVar.f8895a)));
+            b.a a2 = aVar.a(a(bVar, (int) (c2.length() - bVar.f9223a)));
             try {
                 bVar.close();
                 return a2;
@@ -258,7 +258,7 @@ public class e implements com.baidu.pano.platform.a.b {
     }
 
     public File c(String str) {
-        return new File(this.f8885c, d(str));
+        return new File(this.f9213c, d(str));
     }
 
     public static String c(InputStream inputStream) throws IOException {
@@ -268,7 +268,7 @@ public class e implements com.baidu.pano.platform.a.b {
     public static Map<String, String> d(InputStream inputStream) throws IOException {
         int a2 = a(inputStream);
         Map<String, String> emptyMap = a2 == 0 ? Collections.emptyMap() : new HashMap<>(a2);
-        for (int i = 0; i < a2; i++) {
+        for (int i2 = 0; i2 < a2; i2++) {
             emptyMap.put(c(inputStream).intern(), c(inputStream).intern());
         }
         return emptyMap;
@@ -293,13 +293,13 @@ public class e implements com.baidu.pano.platform.a.b {
     @Override // com.baidu.pano.platform.a.b
     public synchronized void a() {
         BufferedInputStream bufferedInputStream;
-        if (!this.f8885c.exists()) {
-            if (!this.f8885c.mkdirs()) {
-                w.c("Unable to create cache dir %s", this.f8885c.getAbsolutePath());
+        if (!this.f9213c.exists()) {
+            if (!this.f9213c.mkdirs()) {
+                w.c("Unable to create cache dir %s", this.f9213c.getAbsolutePath());
             }
             return;
         }
-        File[] listFiles = this.f8885c.listFiles();
+        File[] listFiles = this.f9213c.listFiles();
         if (listFiles == null) {
             return;
         }
@@ -315,8 +315,8 @@ public class e implements com.baidu.pano.platform.a.b {
             }
             try {
                 a a2 = a.a(bufferedInputStream);
-                a2.f8887a = file.length();
-                a(a2.f8888b, a2);
+                a2.f9215a = file.length();
+                a(a2.f9216b, a2);
                 try {
                     bufferedInputStream.close();
                 } catch (IOException unused2) {
@@ -345,13 +345,13 @@ public class e implements com.baidu.pano.platform.a.b {
 
     @Override // com.baidu.pano.platform.a.b
     public synchronized void a(String str, b.a aVar) {
-        a(aVar.f8905a.length);
+        a(aVar.f9233a.length);
         File c2 = c(str);
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(c2);
             a aVar2 = new a(str, aVar);
             if (aVar2.a(fileOutputStream)) {
-                fileOutputStream.write(aVar.f8905a);
+                fileOutputStream.write(aVar.f9233a);
                 fileOutputStream.close();
                 a(str, aVar2);
             } else {
@@ -367,71 +367,71 @@ public class e implements com.baidu.pano.platform.a.b {
         }
     }
 
-    private void a(int i) {
+    private void a(int i2) {
         long j;
-        long j2 = i;
-        if (this.f8884b + j2 < this.f8886d) {
+        long j2 = i2;
+        if (this.f9212b + j2 < this.f9214d) {
             return;
         }
-        if (w.f8973b) {
+        if (w.f9303b) {
             w.a("Pruning old cache entries.", new Object[0]);
         }
-        long j3 = this.f8884b;
+        long j3 = this.f9212b;
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        Iterator<Map.Entry<String, a>> it = this.f8883a.entrySet().iterator();
-        int i2 = 0;
+        Iterator<Map.Entry<String, a>> it = this.f9211a.entrySet().iterator();
+        int i3 = 0;
         while (it.hasNext()) {
             a value = it.next().getValue();
-            if (c(value.f8888b).delete()) {
+            if (c(value.f9216b).delete()) {
                 j = j2;
-                this.f8884b -= value.f8887a;
+                this.f9212b -= value.f9215a;
             } else {
                 j = j2;
-                String str = value.f8888b;
+                String str = value.f9216b;
                 w.b("Could not delete cache entry for key=%s, filename=%s", str, d(str));
             }
             it.remove();
-            i2++;
-            if (((float) (this.f8884b + j)) < this.f8886d * 0.9f) {
+            i3++;
+            if (((float) (this.f9212b + j)) < this.f9214d * 0.9f) {
                 break;
             }
             j2 = j;
         }
-        if (w.f8973b) {
-            w.a("pruned %d files, %d bytes, %d ms", Integer.valueOf(i2), Long.valueOf(this.f8884b - j3), Long.valueOf(SystemClock.elapsedRealtime() - elapsedRealtime));
+        if (w.f9303b) {
+            w.a("pruned %d files, %d bytes, %d ms", Integer.valueOf(i3), Long.valueOf(this.f9212b - j3), Long.valueOf(SystemClock.elapsedRealtime() - elapsedRealtime));
         }
     }
 
     private void a(String str, a aVar) {
-        if (!this.f8883a.containsKey(str)) {
-            this.f8884b += aVar.f8887a;
+        if (!this.f9211a.containsKey(str)) {
+            this.f9212b += aVar.f9215a;
         } else {
-            this.f8884b += aVar.f8887a - this.f8883a.get(str).f8887a;
+            this.f9212b += aVar.f9215a - this.f9211a.get(str).f9215a;
         }
-        this.f8883a.put(str, aVar);
+        this.f9211a.put(str, aVar);
     }
 
-    public static byte[] a(InputStream inputStream, int i) throws IOException {
-        byte[] bArr = new byte[i];
-        int i2 = 0;
-        while (i2 < i) {
-            int read = inputStream.read(bArr, i2, i - i2);
+    public static byte[] a(InputStream inputStream, int i2) throws IOException {
+        byte[] bArr = new byte[i2];
+        int i3 = 0;
+        while (i3 < i2) {
+            int read = inputStream.read(bArr, i3, i2 - i3);
             if (read == -1) {
                 break;
             }
-            i2 += read;
+            i3 += read;
         }
-        if (i2 == i) {
+        if (i3 == i2) {
             return bArr;
         }
-        throw new IOException("Expected " + i + " bytes, read " + i2 + " bytes");
+        throw new IOException("Expected " + i2 + " bytes, read " + i3 + " bytes");
     }
 
-    public static void a(OutputStream outputStream, int i) throws IOException {
-        outputStream.write((i >> 0) & 255);
-        outputStream.write((i >> 8) & 255);
-        outputStream.write((i >> 16) & 255);
-        outputStream.write((i >> 24) & 255);
+    public static void a(OutputStream outputStream, int i2) throws IOException {
+        outputStream.write((i2 >> 0) & 255);
+        outputStream.write((i2 >> 8) & 255);
+        outputStream.write((i2 >> 16) & 255);
+        outputStream.write((i2 >> 24) & 255);
     }
 
     public static int a(InputStream inputStream) throws IOException {

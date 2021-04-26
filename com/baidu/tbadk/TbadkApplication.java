@@ -24,10 +24,10 @@ import com.baidu.tbadk.core.util.EmotionUtil;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.switchs.PluginClassChangeSwitch;
 import com.baidu.tieba.service.SignAlertReceiver;
-import d.b.c.e.m.c;
-import d.b.c.h.h.b;
-import d.b.c.h.j.g.d;
-import d.b.i0.m0.l;
+import d.a.c.e.m.c;
+import d.a.c.h.h.b;
+import d.a.c.h.j.g.d;
+import d.a.i0.m0.l;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Map;
@@ -187,7 +187,7 @@ public class TbadkApplication extends TbadkCoreApplication {
                 boolean z3 = Build.VERSION.SDK_INT < 28 ? isXiaomiPushSdkShouldOpen : false;
                 if (!this.isKeepLiveProcess) {
                     if (!this.mPluginIsInited) {
-                        PluginPackageManager.O().i0(d.b.i0.o0.c.n(), new d.b.i0.o0.d(), z3, null);
+                        PluginPackageManager.O().i0(d.a.i0.o0.c.n(), new d.a.i0.o0.d(), z3, null);
                     }
                     PluginSettings l = d.k().l();
                     if (l != null) {
@@ -263,9 +263,9 @@ public class TbadkApplication extends TbadkCoreApplication {
             return;
         }
         super.loadPatchs();
-        int k = d.b.i0.r.d0.b.j().k("plugin_patch_hook_failed_count", 0);
+        int k = d.a.i0.r.d0.b.j().k("plugin_patch_hook_failed_count", 0);
         PluginPackageManager.O().v0(k);
-        if (checkSyncPatchBlacklist() && d.b.c.h.g.d.l() && k == 0 && PluginPackageManager.O().n0()) {
+        if (checkSyncPatchBlacklist() && d.a.c.h.g.d.l() && k == 0 && PluginPackageManager.O().n0()) {
             long currentTimeMillis = System.currentTimeMillis();
             PluginPackageManager.O().k0();
             l.b().B(System.currentTimeMillis() - currentTimeMillis);
@@ -277,7 +277,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     }
 
     public void loginShareRemove() {
-        d.b.i0.r.d0.b.j().C("account_share");
+        d.a.i0.r.d0.b.j().C("account_share");
     }
 
     public void loginShareSave(String str) {
@@ -299,9 +299,9 @@ public class TbadkApplication extends TbadkCoreApplication {
         updateSignAlarm();
     }
 
-    public void setSignAlertTime(int i, int i2) {
-        TbadkSettings.getInst().saveInt("alert_sign_hours", i);
-        TbadkSettings.getInst().saveInt("alert_sign_mins", i2);
+    public void setSignAlertTime(int i2, int i3) {
+        TbadkSettings.getInst().saveInt("alert_sign_hours", i2);
+        TbadkSettings.getInst().saveInt("alert_sign_mins", i3);
         updateSignAlarm();
     }
 
@@ -315,14 +315,14 @@ public class TbadkApplication extends TbadkCoreApplication {
         if (isSignAlertOn()) {
             Calendar calendar = Calendar.getInstance();
             int signAlertHours = getSignAlertHours();
-            int i = calendar.get(11);
+            int i2 = calendar.get(11);
             int signAlertMins = getSignAlertMins();
-            int i2 = calendar.get(12);
+            int i3 = calendar.get(12);
             calendar.set(11, signAlertHours);
             calendar.set(12, signAlertMins);
             calendar.set(13, 0);
             calendar.set(14, 0);
-            if (i >= signAlertHours && (i != signAlertHours || i2 >= signAlertMins)) {
+            if (i2 >= signAlertHours && (i2 != signAlertHours || i3 >= signAlertMins)) {
                 calendar.set(6, calendar.get(6) + 1);
             }
             alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(getInst().getContext(), 0, createIntentForSignAlarm, 134217728));

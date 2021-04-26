@@ -7,7 +7,7 @@ public class Striped$PaddedSemaphore extends Semaphore {
     public long unused2;
     public long unused3;
 
-    public Striped$PaddedSemaphore(int i) {
-        super(i, false);
+    public Striped$PaddedSemaphore(int i2) {
+        super(i2, false);
     }
 }

@@ -67,16 +67,16 @@ public class GroupUpdateMessage implements Serializable {
         this.forumId = str;
     }
 
-    public void setGrade(int i) {
-        this.grade = i;
+    public void setGrade(int i2) {
+        this.grade = i2;
     }
 
     public void setGroupId(long j) {
         this.groupId = j;
     }
 
-    public void setGroupType(int i) {
-        this.groupType = i;
+    public void setGroupType(int i2) {
+        this.groupType = i2;
     }
 
     public void setLastMsgId(long j) {

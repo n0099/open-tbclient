@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.SpinnerAdapter;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.view.WindowCallbackWrapper;
@@ -52,7 +53,7 @@ public class ToolbarActionBar extends ActionBar {
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
+        public void onCloseMenu(@NonNull MenuBuilder menuBuilder, boolean z) {
             if (this.mClosingActionMenu) {
                 return;
             }
@@ -66,7 +67,7 @@ public class ToolbarActionBar extends ActionBar {
         }
 
         @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-        public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
+        public boolean onOpenSubMenu(@NonNull MenuBuilder menuBuilder) {
             Window.Callback callback = ToolbarActionBar.this.mWindowCallback;
             if (callback != null) {
                 callback.onMenuOpened(108, menuBuilder);
@@ -82,12 +83,12 @@ public class ToolbarActionBar extends ActionBar {
         }
 
         @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-        public boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
+        public boolean onMenuItemSelected(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
             return false;
         }
 
         @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-        public void onMenuModeChange(MenuBuilder menuBuilder) {
+        public void onMenuModeChange(@NonNull MenuBuilder menuBuilder) {
             ToolbarActionBar toolbarActionBar = ToolbarActionBar.this;
             if (toolbarActionBar.mWindowCallback != null) {
                 if (toolbarActionBar.mDecorToolbar.isOverflowMenuShowing()) {
@@ -106,16 +107,16 @@ public class ToolbarActionBar extends ActionBar {
         }
 
         @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public View onCreatePanelView(int i) {
-            if (i == 0) {
+        public View onCreatePanelView(int i2) {
+            if (i2 == 0) {
                 return new View(ToolbarActionBar.this.mDecorToolbar.getContext());
             }
-            return super.onCreatePanelView(i);
+            return super.onCreatePanelView(i2);
         }
 
         @Override // androidx.appcompat.view.WindowCallbackWrapper, android.view.Window.Callback
-        public boolean onPreparePanel(int i, View view, Menu menu) {
-            boolean onPreparePanel = super.onPreparePanel(i, view, menu);
+        public boolean onPreparePanel(int i2, View view, Menu menu) {
+            boolean onPreparePanel = super.onPreparePanel(i2, view, menu);
             if (onPreparePanel) {
                 ToolbarActionBar toolbarActionBar = ToolbarActionBar.this;
                 if (!toolbarActionBar.mToolbarMenuPrepared) {
@@ -175,8 +176,8 @@ public class ToolbarActionBar extends ActionBar {
         }
         this.mLastMenuVisibility = z;
         int size = this.mMenuVisibilityListeners.size();
-        for (int i = 0; i < size; i++) {
-            this.mMenuVisibilityListeners.get(i).onMenuVisibilityChanged(z);
+        for (int i2 = 0; i2 < size; i2++) {
+            this.mMenuVisibilityListeners.get(i2).onMenuVisibilityChanged(z);
         }
     }
 
@@ -226,7 +227,7 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public ActionBar.Tab getTabAt(int i) {
+    public ActionBar.Tab getTabAt(int i2) {
         throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
     }
 
@@ -287,11 +288,11 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
+    public boolean onKeyShortcut(int i2, KeyEvent keyEvent) {
         Menu menu = getMenu();
         if (menu != null) {
             menu.setQwertyMode(KeyCharacterMap.load(keyEvent != null ? keyEvent.getDeviceId() : -1).getKeyboardType() != 1);
-            return menu.performShortcut(i, keyEvent, 0);
+            return menu.performShortcut(i2, keyEvent, 0);
         }
         return false;
     }
@@ -343,7 +344,7 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void removeTabAt(int i) {
+    public void removeTabAt(int i2) {
         throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
     }
 
@@ -383,8 +384,8 @@ public class ToolbarActionBar extends ActionBar {
 
     @Override // androidx.appcompat.app.ActionBar
     @SuppressLint({"WrongConstant"})
-    public void setDisplayOptions(int i) {
-        setDisplayOptions(i, -1);
+    public void setDisplayOptions(int i2) {
+        setDisplayOptions(i2, -1);
     }
 
     @Override // androidx.appcompat.app.ActionBar
@@ -427,8 +428,8 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setIcon(int i) {
-        this.mDecorToolbar.setIcon(i);
+    public void setIcon(int i2) {
+        this.mDecorToolbar.setIcon(i2);
     }
 
     @Override // androidx.appcompat.app.ActionBar
@@ -437,23 +438,23 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setLogo(int i) {
-        this.mDecorToolbar.setLogo(i);
+    public void setLogo(int i2) {
+        this.mDecorToolbar.setLogo(i2);
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setNavigationMode(int i) {
-        if (i != 2) {
-            this.mDecorToolbar.setNavigationMode(i);
+    public void setNavigationMode(int i2) {
+        if (i2 != 2) {
+            this.mDecorToolbar.setNavigationMode(i2);
             return;
         }
         throw new IllegalArgumentException("Tabs not supported in this configuration");
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setSelectedNavigationItem(int i) {
+    public void setSelectedNavigationItem(int i2) {
         if (this.mDecorToolbar.getNavigationMode() == 1) {
-            this.mDecorToolbar.setDropdownSelectedPosition(i);
+            this.mDecorToolbar.setDropdownSelectedPosition(i2);
             return;
         }
         throw new IllegalStateException("setSelectedNavigationIndex not valid for current navigation mode");
@@ -505,18 +506,18 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setDisplayOptions(int i, int i2) {
-        this.mDecorToolbar.setDisplayOptions((i & i2) | ((~i2) & this.mDecorToolbar.getDisplayOptions()));
+    public void setDisplayOptions(int i2, int i3) {
+        this.mDecorToolbar.setDisplayOptions((i2 & i3) | ((~i3) & this.mDecorToolbar.getDisplayOptions()));
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setHomeActionContentDescription(int i) {
-        this.mDecorToolbar.setNavigationContentDescription(i);
+    public void setHomeActionContentDescription(int i2) {
+        this.mDecorToolbar.setNavigationContentDescription(i2);
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setHomeAsUpIndicator(int i) {
-        this.mDecorToolbar.setNavigationIcon(i);
+    public void setHomeAsUpIndicator(int i2) {
+        this.mDecorToolbar.setNavigationIcon(i2);
     }
 
     @Override // androidx.appcompat.app.ActionBar
@@ -530,29 +531,29 @@ public class ToolbarActionBar extends ActionBar {
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setSubtitle(int i) {
+    public void setSubtitle(int i2) {
         DecorToolbar decorToolbar = this.mDecorToolbar;
-        decorToolbar.setSubtitle(i != 0 ? decorToolbar.getContext().getText(i) : null);
+        decorToolbar.setSubtitle(i2 != 0 ? decorToolbar.getContext().getText(i2) : null);
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setTitle(int i) {
+    public void setTitle(int i2) {
         DecorToolbar decorToolbar = this.mDecorToolbar;
-        decorToolbar.setTitle(i != 0 ? decorToolbar.getContext().getText(i) : null);
+        decorToolbar.setTitle(i2 != 0 ? decorToolbar.getContext().getText(i2) : null);
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void addTab(ActionBar.Tab tab, int i) {
+    public void addTab(ActionBar.Tab tab, int i2) {
         throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void addTab(ActionBar.Tab tab, int i, boolean z) {
+    public void addTab(ActionBar.Tab tab, int i2, boolean z) {
         throw new UnsupportedOperationException("Tabs are not supported in toolbar action bars");
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setCustomView(int i) {
-        setCustomView(LayoutInflater.from(this.mDecorToolbar.getContext()).inflate(i, this.mDecorToolbar.getViewGroup(), false));
+    public void setCustomView(int i2) {
+        setCustomView(LayoutInflater.from(this.mDecorToolbar.getContext()).inflate(i2, this.mDecorToolbar.getViewGroup(), false));
     }
 }

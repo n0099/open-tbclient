@@ -1,76 +1,79 @@
 package h.o.a;
 
-import h.d;
+import h.g;
 import h.h;
-import java.util.NoSuchElementException;
 /* loaded from: classes7.dex */
 public final class z<T> implements h.d<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.a<T> f69001e;
+    public final h.d<T> f67852e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final h.g f67853f;
 
     /* loaded from: classes7.dex */
-    public static final class a<T> extends h.j<T> {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final h.i<? super T> f69002e;
+    public static final class a<T> extends h.i<T> implements h.n.a {
 
         /* renamed from: f  reason: collision with root package name */
-        public T f69003f;
+        public final h.i<? super T> f67854f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f69004g;
+        public final g.a f67855g;
 
-        public a(h.i<? super T> iVar) {
-            this.f69002e = iVar;
+        /* renamed from: h  reason: collision with root package name */
+        public T f67856h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public Throwable f67857i;
+
+        public a(h.i<? super T> iVar, g.a aVar) {
+            this.f67854f = iVar;
+            this.f67855g = aVar;
         }
 
-        @Override // h.e
-        public void onCompleted() {
-            int i = this.f69004g;
-            if (i == 0) {
-                this.f69002e.b(new NoSuchElementException());
-            } else if (i == 1) {
-                this.f69004g = 2;
-                T t = this.f69003f;
-                this.f69003f = null;
-                this.f69002e.c(t);
-            }
+        @Override // h.i
+        public void b(Throwable th) {
+            this.f67857i = th;
+            this.f67855g.b(this);
         }
 
-        @Override // h.e
-        public void onError(Throwable th) {
-            if (this.f69004g == 2) {
-                h.r.c.j(th);
-                return;
-            }
-            this.f69003f = null;
-            this.f69002e.b(th);
+        @Override // h.i
+        public void c(T t) {
+            this.f67856h = t;
+            this.f67855g.b(this);
         }
 
-        @Override // h.e
-        public void onNext(T t) {
-            int i = this.f69004g;
-            if (i == 0) {
-                this.f69004g = 1;
-                this.f69003f = t;
-            } else if (i == 1) {
-                this.f69004g = 2;
-                this.f69002e.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
+        @Override // h.n.a
+        public void call() {
+            try {
+                Throwable th = this.f67857i;
+                if (th != null) {
+                    this.f67857i = null;
+                    this.f67854f.b(th);
+                } else {
+                    T t = this.f67856h;
+                    this.f67856h = null;
+                    this.f67854f.c(t);
+                }
+            } finally {
+                this.f67855g.unsubscribe();
             }
         }
     }
 
-    public z(d.a<T> aVar) {
-        this.f69001e = aVar;
+    public z(h.d<T> dVar, h.g gVar) {
+        this.f67852e = dVar;
+        this.f67853f = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // h.n.b
     /* renamed from: a */
     public void call(h.i<? super T> iVar) {
-        a aVar = new a(iVar);
+        g.a createWorker = this.f67853f.createWorker();
+        a aVar = new a(iVar, createWorker);
+        iVar.a(createWorker);
         iVar.a(aVar);
-        this.f69001e.call(aVar);
+        this.f67852e.call(aVar);
     }
 }

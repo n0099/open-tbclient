@@ -41,12 +41,12 @@ public class LoaderManagerImpl extends LoaderManager {
         public LoaderObserver<D> mObserver;
         public Loader<D> mPriorLoader;
 
-        public LoaderInfo(int i, @Nullable Bundle bundle, @NonNull Loader<D> loader, @Nullable Loader<D> loader2) {
-            this.mId = i;
+        public LoaderInfo(int i2, @Nullable Bundle bundle, @NonNull Loader<D> loader, @Nullable Loader<D> loader2) {
+            this.mId = i2;
             this.mArgs = bundle;
             this.mLoader = loader;
             this.mPriorLoader = loader2;
-            loader.registerListener(i, this);
+            loader.registerListener(i2, this);
         }
 
         @MainThread
@@ -263,11 +263,11 @@ public class LoaderManagerImpl extends LoaderManager {
                 printWriter.print(str);
                 printWriter.println("Loaders:");
                 String str2 = str + "    ";
-                for (int i = 0; i < this.mLoaders.size(); i++) {
-                    LoaderInfo valueAt = this.mLoaders.valueAt(i);
+                for (int i2 = 0; i2 < this.mLoaders.size(); i2++) {
+                    LoaderInfo valueAt = this.mLoaders.valueAt(i2);
                     printWriter.print(str);
                     printWriter.print("  #");
-                    printWriter.print(this.mLoaders.keyAt(i));
+                    printWriter.print(this.mLoaders.keyAt(i2));
                     printWriter.print(": ");
                     printWriter.println(valueAt.toString());
                     valueAt.dump(str2, fileDescriptor, printWriter, strArr);
@@ -279,14 +279,14 @@ public class LoaderManagerImpl extends LoaderManager {
             this.mCreatingLoader = false;
         }
 
-        public <D> LoaderInfo<D> getLoader(int i) {
-            return this.mLoaders.get(i);
+        public <D> LoaderInfo<D> getLoader(int i2) {
+            return this.mLoaders.get(i2);
         }
 
         public boolean hasRunningLoaders() {
             int size = this.mLoaders.size();
-            for (int i = 0; i < size; i++) {
-                if (this.mLoaders.valueAt(i).isCallbackWaitingForData()) {
+            for (int i2 = 0; i2 < size; i2++) {
+                if (this.mLoaders.valueAt(i2).isCallbackWaitingForData()) {
                     return true;
                 }
             }
@@ -299,8 +299,8 @@ public class LoaderManagerImpl extends LoaderManager {
 
         public void markForRedelivery() {
             int size = this.mLoaders.size();
-            for (int i = 0; i < size; i++) {
-                this.mLoaders.valueAt(i).markForRedelivery();
+            for (int i2 = 0; i2 < size; i2++) {
+                this.mLoaders.valueAt(i2).markForRedelivery();
             }
         }
 
@@ -308,18 +308,18 @@ public class LoaderManagerImpl extends LoaderManager {
         public void onCleared() {
             super.onCleared();
             int size = this.mLoaders.size();
-            for (int i = 0; i < size; i++) {
-                this.mLoaders.valueAt(i).destroy(true);
+            for (int i2 = 0; i2 < size; i2++) {
+                this.mLoaders.valueAt(i2).destroy(true);
             }
             this.mLoaders.clear();
         }
 
-        public void putLoader(int i, @NonNull LoaderInfo loaderInfo) {
-            this.mLoaders.put(i, loaderInfo);
+        public void putLoader(int i2, @NonNull LoaderInfo loaderInfo) {
+            this.mLoaders.put(i2, loaderInfo);
         }
 
-        public void removeLoader(int i) {
-            this.mLoaders.remove(i);
+        public void removeLoader(int i2) {
+            this.mLoaders.remove(i2);
         }
 
         public void startCreatingLoader() {
@@ -334,19 +334,19 @@ public class LoaderManagerImpl extends LoaderManager {
 
     @NonNull
     @MainThread
-    private <D> Loader<D> createAndInstallLoader(int i, @Nullable Bundle bundle, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks, @Nullable Loader<D> loader) {
+    private <D> Loader<D> createAndInstallLoader(int i2, @Nullable Bundle bundle, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks, @Nullable Loader<D> loader) {
         try {
             this.mLoaderViewModel.startCreatingLoader();
-            Loader<D> onCreateLoader = loaderCallbacks.onCreateLoader(i, bundle);
+            Loader<D> onCreateLoader = loaderCallbacks.onCreateLoader(i2, bundle);
             if (onCreateLoader != null) {
                 if (onCreateLoader.getClass().isMemberClass() && !Modifier.isStatic(onCreateLoader.getClass().getModifiers())) {
                     throw new IllegalArgumentException("Object returned from onCreateLoader must not be a non-static inner member class: " + onCreateLoader);
                 }
-                LoaderInfo loaderInfo = new LoaderInfo(i, bundle, onCreateLoader, loader);
+                LoaderInfo loaderInfo = new LoaderInfo(i2, bundle, onCreateLoader, loader);
                 if (DEBUG) {
                     Log.v(TAG, "  Created new loader " + loaderInfo);
                 }
-                this.mLoaderViewModel.putLoader(i, loaderInfo);
+                this.mLoaderViewModel.putLoader(i2, loaderInfo);
                 this.mLoaderViewModel.finishCreatingLoader();
                 return loaderInfo.setCallback(this.mLifecycleOwner, loaderCallbacks);
             }
@@ -359,16 +359,16 @@ public class LoaderManagerImpl extends LoaderManager {
 
     @Override // androidx.loader.app.LoaderManager
     @MainThread
-    public void destroyLoader(int i) {
+    public void destroyLoader(int i2) {
         if (!this.mLoaderViewModel.isCreatingLoader()) {
             if (Looper.getMainLooper() == Looper.myLooper()) {
                 if (DEBUG) {
-                    Log.v(TAG, "destroyLoader in " + this + " of " + i);
+                    Log.v(TAG, "destroyLoader in " + this + " of " + i2);
                 }
-                LoaderInfo loader = this.mLoaderViewModel.getLoader(i);
+                LoaderInfo loader = this.mLoaderViewModel.getLoader(i2);
                 if (loader != null) {
                     loader.destroy(true);
-                    this.mLoaderViewModel.removeLoader(i);
+                    this.mLoaderViewModel.removeLoader(i2);
                     return;
                 }
                 return;
@@ -386,9 +386,9 @@ public class LoaderManagerImpl extends LoaderManager {
 
     @Override // androidx.loader.app.LoaderManager
     @Nullable
-    public <D> Loader<D> getLoader(int i) {
+    public <D> Loader<D> getLoader(int i2) {
         if (!this.mLoaderViewModel.isCreatingLoader()) {
-            LoaderInfo<D> loader = this.mLoaderViewModel.getLoader(i);
+            LoaderInfo<D> loader = this.mLoaderViewModel.getLoader(i2);
             if (loader != null) {
                 return loader.getLoader();
             }
@@ -405,15 +405,15 @@ public class LoaderManagerImpl extends LoaderManager {
     @Override // androidx.loader.app.LoaderManager
     @NonNull
     @MainThread
-    public <D> Loader<D> initLoader(int i, @Nullable Bundle bundle, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
+    public <D> Loader<D> initLoader(int i2, @Nullable Bundle bundle, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
         if (!this.mLoaderViewModel.isCreatingLoader()) {
             if (Looper.getMainLooper() == Looper.myLooper()) {
-                LoaderInfo<D> loader = this.mLoaderViewModel.getLoader(i);
+                LoaderInfo<D> loader = this.mLoaderViewModel.getLoader(i2);
                 if (DEBUG) {
                     Log.v(TAG, "initLoader in " + this + ": args=" + bundle);
                 }
                 if (loader == null) {
-                    return createAndInstallLoader(i, bundle, loaderCallbacks, null);
+                    return createAndInstallLoader(i2, bundle, loaderCallbacks, null);
                 }
                 if (DEBUG) {
                     Log.v(TAG, "  Re-using existing loader " + loader);
@@ -433,14 +433,14 @@ public class LoaderManagerImpl extends LoaderManager {
     @Override // androidx.loader.app.LoaderManager
     @NonNull
     @MainThread
-    public <D> Loader<D> restartLoader(int i, @Nullable Bundle bundle, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
+    public <D> Loader<D> restartLoader(int i2, @Nullable Bundle bundle, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
         if (!this.mLoaderViewModel.isCreatingLoader()) {
             if (Looper.getMainLooper() == Looper.myLooper()) {
                 if (DEBUG) {
                     Log.v(TAG, "restartLoader in " + this + ": args=" + bundle);
                 }
-                LoaderInfo<D> loader = this.mLoaderViewModel.getLoader(i);
-                return createAndInstallLoader(i, bundle, loaderCallbacks, loader != null ? loader.destroy(false) : null);
+                LoaderInfo<D> loader = this.mLoaderViewModel.getLoader(i2);
+                return createAndInstallLoader(i2, bundle, loaderCallbacks, loader != null ? loader.destroy(false) : null);
             }
             throw new IllegalStateException("restartLoader must be called on the main thread");
         }

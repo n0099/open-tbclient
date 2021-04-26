@@ -23,10 +23,10 @@ public class ClientStartStatic {
     public static class a extends CustomMessageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f21176a;
+        public long f21772a;
 
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,10 +35,10 @@ public class ClientStartStatic {
             Boolean data;
             if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (data.booleanValue()) {
-                    this.f21176a = SystemClock.elapsedRealtime();
+                    this.f21772a = SystemClock.elapsedRealtime();
                     return;
                 }
-                if (SystemClock.elapsedRealtime() - this.f21176a > StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD) {
+                if (SystemClock.elapsedRealtime() - this.f21772a > StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD) {
                     new b(null).execute(new Void[0]);
                 }
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
@@ -69,23 +69,23 @@ public class ClientStartStatic {
                 List<String> list = netWork.getNetContext().getResponse().mHeader.get("Set-Cookie");
                 if (!ListUtils.isEmpty(list)) {
                     boolean z = false;
-                    for (int i = 0; i < list.size(); i++) {
-                        if (list.get(i) != null && list.get(i).contains("BAIDUID=")) {
-                            String[] split = list.get(i).split(";");
+                    for (int i2 = 0; i2 < list.size(); i2++) {
+                        if (list.get(i2) != null && list.get(i2).contains("BAIDUID=")) {
+                            String[] split = list.get(i2).split(";");
                             if (split != null) {
                                 int length = split.length;
-                                int i2 = 0;
+                                int i3 = 0;
                                 while (true) {
-                                    if (i2 >= length) {
+                                    if (i3 >= length) {
                                         break;
                                     }
-                                    String str = split[i2];
+                                    String str = split[i3];
                                     if (str != null && str.contains("BAIDUID=")) {
                                         TbSingleton.getInstance().setBaiduIdForAnti(str.trim().substring(8));
                                         z = true;
                                         break;
                                     }
-                                    i2++;
+                                    i3++;
                                 }
                             }
                             if (z) {

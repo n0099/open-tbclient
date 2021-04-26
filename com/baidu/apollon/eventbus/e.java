@@ -5,11 +5,11 @@ import java.util.LinkedList;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedList<d> f3653a = new LinkedList<>();
+    public final LinkedList<d> f3697a = new LinkedList<>();
 
     public synchronized void a(d dVar) {
         if (dVar != null) {
-            this.f3653a.offer(dVar);
+            this.f3697a.offer(dVar);
             notifyAll();
         } else {
             throw new NullPointerException("null cannot be enqueued");
@@ -17,14 +17,14 @@ public final class e {
     }
 
     public synchronized d a() {
-        return this.f3653a.poll();
+        return this.f3697a.poll();
     }
 
-    public synchronized d a(int i) throws InterruptedException {
+    public synchronized d a(int i2) throws InterruptedException {
         d a2;
         a2 = a();
         if (a2 == null) {
-            wait(i);
+            wait(i2);
             a2 = a();
         }
         return a2;

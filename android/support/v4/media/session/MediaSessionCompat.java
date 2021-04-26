@@ -52,6 +52,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes.dex */
 public class MediaSessionCompat {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -176,9 +177,9 @@ public class MediaSessionCompat {
                         if (mediaSessionImplApi212 == null || mediaSessionImplApi212.mQueue == null) {
                             return;
                         }
-                        int i = bundle.getInt(MediaControllerCompat.COMMAND_ARGUMENT_INDEX, -1);
-                        if (i >= 0 && i < mediaSessionImplApi212.mQueue.size()) {
-                            queueItem = mediaSessionImplApi212.mQueue.get(i);
+                        int i2 = bundle.getInt(MediaControllerCompat.COMMAND_ARGUMENT_INDEX, -1);
+                        if (i2 >= 0 && i2 < mediaSessionImplApi212.mQueue.size()) {
+                            queueItem = mediaSessionImplApi212.mQueue.get(i2);
                         }
                         if (queueItem != null) {
                             Callback.this.onRemoveQueueItem(queueItem.getDescription());
@@ -330,12 +331,12 @@ public class MediaSessionCompat {
         }
 
         public Callback() {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 24) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 >= 24) {
                 this.mCallbackObj = MediaSessionCompatApi24.createCallback(new StubApi24());
-            } else if (i >= 23) {
+            } else if (i2 >= 23) {
                 this.mCallbackObj = MediaSessionCompatApi23.createCallback(new StubApi23());
-            } else if (i >= 21) {
+            } else if (i2 >= 21) {
                 this.mCallbackObj = MediaSessionCompatApi21.createCallback(new StubApi21());
             } else {
                 this.mCallbackObj = null;
@@ -368,7 +369,7 @@ public class MediaSessionCompat {
         public void onAddQueueItem(MediaDescriptionCompat mediaDescriptionCompat) {
         }
 
-        public void onAddQueueItem(MediaDescriptionCompat mediaDescriptionCompat, int i) {
+        public void onAddQueueItem(MediaDescriptionCompat mediaDescriptionCompat, int i2) {
         }
 
         public void onCommand(String str, Bundle bundle, ResultReceiver resultReceiver) {
@@ -440,7 +441,7 @@ public class MediaSessionCompat {
         }
 
         @Deprecated
-        public void onRemoveQueueItemAt(int i) {
+        public void onRemoveQueueItemAt(int i2) {
         }
 
         public void onRewind() {
@@ -458,10 +459,10 @@ public class MediaSessionCompat {
         public void onSetRating(RatingCompat ratingCompat, Bundle bundle) {
         }
 
-        public void onSetRepeatMode(int i) {
+        public void onSetRepeatMode(int i2) {
         }
 
-        public void onSetShuffleMode(int i) {
+        public void onSetShuffleMode(int i2) {
         }
 
         public void onSkipToNext() {
@@ -516,7 +517,7 @@ public class MediaSessionCompat {
 
         void setExtras(Bundle bundle);
 
-        void setFlags(int i);
+        void setFlags(int i2);
 
         void setMediaButtonReceiver(PendingIntent pendingIntent);
 
@@ -524,7 +525,7 @@ public class MediaSessionCompat {
 
         void setPlaybackState(PlaybackStateCompat playbackStateCompat);
 
-        void setPlaybackToLocal(int i);
+        void setPlaybackToLocal(int i2);
 
         void setPlaybackToRemote(VolumeProviderCompat volumeProviderCompat);
 
@@ -532,13 +533,13 @@ public class MediaSessionCompat {
 
         void setQueueTitle(CharSequence charSequence);
 
-        void setRatingType(int i);
+        void setRatingType(int i2);
 
-        void setRepeatMode(int i);
+        void setRepeatMode(int i2);
 
         void setSessionActivity(PendingIntent pendingIntent);
 
-        void setShuffleMode(int i);
+        void setShuffleMode(int i2);
     }
 
     @RequiresApi(18)
@@ -662,8 +663,8 @@ public class MediaSessionCompat {
             }
             this.mRcc.setMetadataUpdateListener(new RemoteControlClient.OnMetadataUpdateListener() { // from class: android.support.v4.media.session.MediaSessionCompat.MediaSessionImplApi19.1
                 @Override // android.media.RemoteControlClient.OnMetadataUpdateListener
-                public void onMetadataUpdate(int i, Object obj) {
-                    if (i == 268435457 && (obj instanceof Rating)) {
+                public void onMetadataUpdate(int i2, Object obj) {
+                    if (i2 == 268435457 && (obj instanceof Rating)) {
                         MediaSessionImplApi19.this.postToHandler(19, -1, -1, RatingCompat.fromRating(obj), null);
                     }
                 }
@@ -763,13 +764,13 @@ public class MediaSessionCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void addQueueItemAt(MediaDescriptionCompat mediaDescriptionCompat, int i) {
-                postToHandler(26, mediaDescriptionCompat, i);
+            public void addQueueItemAt(MediaDescriptionCompat mediaDescriptionCompat, int i2) {
+                postToHandler(26, mediaDescriptionCompat, i2);
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void adjustVolume(int i, int i2, String str) {
-                MediaSessionImplBase.this.adjustVolume(i, i2);
+            public void adjustVolume(int i2, int i3, String str) {
+                MediaSessionImplBase.this.adjustVolume(i2, i3);
             }
 
             @Override // android.support.v4.media.session.IMediaSession
@@ -861,28 +862,28 @@ public class MediaSessionCompat {
 
             @Override // android.support.v4.media.session.IMediaSession
             public ParcelableVolumeInfo getVolumeAttributes() {
-                int i;
                 int i2;
+                int i3;
                 int streamMaxVolume;
                 int streamVolume;
-                int i3;
+                int i4;
                 synchronized (MediaSessionImplBase.this.mLock) {
-                    i = MediaSessionImplBase.this.mVolumeType;
-                    i2 = MediaSessionImplBase.this.mLocalStream;
+                    i2 = MediaSessionImplBase.this.mVolumeType;
+                    i3 = MediaSessionImplBase.this.mLocalStream;
                     VolumeProviderCompat volumeProviderCompat = MediaSessionImplBase.this.mVolumeProvider;
-                    if (i == 2) {
+                    if (i2 == 2) {
                         int volumeControl = volumeProviderCompat.getVolumeControl();
                         int maxVolume = volumeProviderCompat.getMaxVolume();
                         streamVolume = volumeProviderCompat.getCurrentVolume();
                         streamMaxVolume = maxVolume;
-                        i3 = volumeControl;
+                        i4 = volumeControl;
                     } else {
-                        streamMaxVolume = MediaSessionImplBase.this.mAudioManager.getStreamMaxVolume(i2);
-                        streamVolume = MediaSessionImplBase.this.mAudioManager.getStreamVolume(i2);
-                        i3 = 2;
+                        streamMaxVolume = MediaSessionImplBase.this.mAudioManager.getStreamMaxVolume(i3);
+                        streamVolume = MediaSessionImplBase.this.mAudioManager.getStreamVolume(i3);
+                        i4 = 2;
                     }
                 }
-                return new ParcelableVolumeInfo(i, i2, i3, streamMaxVolume, streamVolume);
+                return new ParcelableVolumeInfo(i2, i3, i4, streamMaxVolume, streamVolume);
             }
 
             @Override // android.support.v4.media.session.IMediaSession
@@ -930,8 +931,8 @@ public class MediaSessionCompat {
                 postToHandler(10, uri, bundle);
             }
 
-            public void postToHandler(int i) {
-                MediaSessionImplBase.this.postToHandler(i, 0, 0, null, null);
+            public void postToHandler(int i2) {
+                MediaSessionImplBase.this.postToHandler(i2, 0, 0, null, null);
             }
 
             @Override // android.support.v4.media.session.IMediaSession
@@ -988,8 +989,8 @@ public class MediaSessionCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void removeQueueItemAt(int i) {
-                postToHandler(28, i);
+            public void removeQueueItemAt(int i2) {
+                postToHandler(28, i2);
             }
 
             @Override // android.support.v4.media.session.IMediaSession
@@ -1027,13 +1028,13 @@ public class MediaSessionCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void setRepeatMode(int i) throws RemoteException {
-                postToHandler(23, i);
+            public void setRepeatMode(int i2) throws RemoteException {
+                postToHandler(23, i2);
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void setShuffleMode(int i) throws RemoteException {
-                postToHandler(30, i);
+            public void setShuffleMode(int i2) throws RemoteException {
+                postToHandler(30, i2);
             }
 
             @Override // android.support.v4.media.session.IMediaSession
@@ -1041,8 +1042,8 @@ public class MediaSessionCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void setVolumeTo(int i, int i2, String str) {
-                MediaSessionImplBase.this.setVolumeTo(i, i2);
+            public void setVolumeTo(int i2, int i3, String str) {
+                MediaSessionImplBase.this.setVolumeTo(i2, i3);
             }
 
             @Override // android.support.v4.media.session.IMediaSession
@@ -1060,20 +1061,20 @@ public class MediaSessionCompat {
                 MediaSessionImplBase.this.mControllerCallbacks.unregister(iMediaControllerCallback);
             }
 
-            public void postToHandler(int i, int i2) {
-                MediaSessionImplBase.this.postToHandler(i, i2, 0, null, null);
+            public void postToHandler(int i2, int i3) {
+                MediaSessionImplBase.this.postToHandler(i2, i3, 0, null, null);
             }
 
-            public void postToHandler(int i, Object obj) {
-                MediaSessionImplBase.this.postToHandler(i, 0, 0, obj, null);
+            public void postToHandler(int i2, Object obj) {
+                MediaSessionImplBase.this.postToHandler(i2, 0, 0, obj, null);
             }
 
-            public void postToHandler(int i, Object obj, int i2) {
-                MediaSessionImplBase.this.postToHandler(i, i2, 0, obj, null);
+            public void postToHandler(int i2, Object obj, int i3) {
+                MediaSessionImplBase.this.postToHandler(i2, i3, 0, obj, null);
             }
 
-            public void postToHandler(int i, Object obj, Bundle bundle) {
-                MediaSessionImplBase.this.postToHandler(i, 0, 0, obj, bundle);
+            public void postToHandler(int i2, Object obj, Bundle bundle) {
+                MediaSessionImplBase.this.postToHandler(i2, 0, 0, obj, bundle);
             }
         }
 
@@ -1305,7 +1306,7 @@ public class MediaSessionCompat {
             if (componentName != null) {
                 this.mContext = context;
                 this.mPackageName = context.getPackageName();
-                this.mAudioManager = (AudioManager) context.getSystemService("audio");
+                this.mAudioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
                 this.mTag = str;
                 this.mMediaButtonReceiverComponentName = componentName;
                 this.mMediaButtonReceiverIntent = pendingIntent;
@@ -1380,10 +1381,10 @@ public class MediaSessionCompat {
             this.mControllerCallbacks.finishBroadcast();
         }
 
-        private void sendRepeatMode(int i) {
+        private void sendRepeatMode(int i2) {
             for (int beginBroadcast = this.mControllerCallbacks.beginBroadcast() - 1; beginBroadcast >= 0; beginBroadcast--) {
                 try {
-                    this.mControllerCallbacks.getBroadcastItem(beginBroadcast).onRepeatModeChanged(i);
+                    this.mControllerCallbacks.getBroadcastItem(beginBroadcast).onRepeatModeChanged(i2);
                 } catch (RemoteException unused) {
                 }
             }
@@ -1401,10 +1402,10 @@ public class MediaSessionCompat {
             this.mControllerCallbacks.kill();
         }
 
-        private void sendShuffleMode(int i) {
+        private void sendShuffleMode(int i2) {
             for (int beginBroadcast = this.mControllerCallbacks.beginBroadcast() - 1; beginBroadcast >= 0; beginBroadcast--) {
                 try {
-                    this.mControllerCallbacks.getBroadcastItem(beginBroadcast).onShuffleModeChanged(i);
+                    this.mControllerCallbacks.getBroadcastItem(beginBroadcast).onShuffleModeChanged(i2);
                 } catch (RemoteException unused) {
                 }
             }
@@ -1421,16 +1422,16 @@ public class MediaSessionCompat {
             this.mControllerCallbacks.finishBroadcast();
         }
 
-        public void adjustVolume(int i, int i2) {
+        public void adjustVolume(int i2, int i3) {
             if (this.mVolumeType == 2) {
                 VolumeProviderCompat volumeProviderCompat = this.mVolumeProvider;
                 if (volumeProviderCompat != null) {
-                    volumeProviderCompat.onAdjustVolume(i);
+                    volumeProviderCompat.onAdjustVolume(i2);
                     return;
                 }
                 return;
             }
-            this.mAudioManager.adjustStreamVolume(this.mLocalStream, i, i2);
+            this.mAudioManager.adjustStreamVolume(this.mLocalStream, i2, i3);
         }
 
         public RemoteControlClient.MetadataEditor buildRccMetadata(Bundle bundle) {
@@ -1521,8 +1522,8 @@ public class MediaSessionCompat {
             return playbackStateCompat;
         }
 
-        public int getRccStateFromState(int i) {
-            switch (i) {
+        public int getRccStateFromState(int i2) {
+            switch (i2) {
                 case 0:
                     return 0;
                 case 1:
@@ -1551,26 +1552,26 @@ public class MediaSessionCompat {
         }
 
         public int getRccTransportControlFlagsFromActions(long j) {
-            int i = (1 & j) != 0 ? 32 : 0;
+            int i2 = (1 & j) != 0 ? 32 : 0;
             if ((2 & j) != 0) {
-                i |= 16;
+                i2 |= 16;
             }
             if ((4 & j) != 0) {
-                i |= 4;
+                i2 |= 4;
             }
             if ((8 & j) != 0) {
-                i |= 2;
+                i2 |= 2;
             }
             if ((16 & j) != 0) {
-                i |= 1;
+                i2 |= 1;
             }
             if ((32 & j) != 0) {
-                i |= 128;
+                i2 |= 128;
             }
             if ((64 & j) != 0) {
-                i |= 64;
+                i2 |= 64;
             }
-            return (j & 512) != 0 ? i | 8 : i;
+            return (j & 512) != 0 ? i2 | 8 : i2;
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
@@ -1588,10 +1589,10 @@ public class MediaSessionCompat {
             return this.mIsActive;
         }
 
-        public void postToHandler(int i, int i2, int i3, Object obj, Bundle bundle) {
+        public void postToHandler(int i2, int i3, int i4, Object obj, Bundle bundle) {
             synchronized (this.mLock) {
                 if (this.mHandler != null) {
-                    Message obtainMessage = this.mHandler.obtainMessage(i, i2, i3, obj);
+                    Message obtainMessage = this.mHandler.obtainMessage(i2, i3, i4, obj);
                     Bundle bundle2 = new Bundle();
                     bundle2.putString(MediaSessionCompat.DATA_CALLING_PACKAGE, MediaSessionManager.RemoteUserInfo.LEGACY_CONTROLLER);
                     bundle2.putInt("data_calling_pid", Binder.getCallingPid());
@@ -1683,9 +1684,9 @@ public class MediaSessionCompat {
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
-        public void setFlags(int i) {
+        public void setFlags(int i2) {
             synchronized (this.mLock) {
-                this.mFlags = i;
+                this.mFlags = i2;
             }
             update();
         }
@@ -1726,16 +1727,16 @@ public class MediaSessionCompat {
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
-        public void setPlaybackToLocal(int i) {
+        public void setPlaybackToLocal(int i2) {
             VolumeProviderCompat volumeProviderCompat = this.mVolumeProvider;
             if (volumeProviderCompat != null) {
                 volumeProviderCompat.setCallback(null);
             }
-            this.mLocalStream = i;
+            this.mLocalStream = i2;
             this.mVolumeType = 1;
-            int i2 = this.mVolumeType;
-            int i3 = this.mLocalStream;
-            sendVolumeInfoChanged(new ParcelableVolumeInfo(i2, i3, 2, this.mAudioManager.getStreamMaxVolume(i3), this.mAudioManager.getStreamVolume(this.mLocalStream)));
+            int i3 = this.mVolumeType;
+            int i4 = this.mLocalStream;
+            sendVolumeInfoChanged(new ParcelableVolumeInfo(i3, i4, 2, this.mAudioManager.getStreamMaxVolume(i4), this.mAudioManager.getStreamVolume(this.mLocalStream)));
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
@@ -1767,8 +1768,8 @@ public class MediaSessionCompat {
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
-        public void setRatingType(int i) {
-            this.mRatingType = i;
+        public void setRatingType(int i2) {
+            this.mRatingType = i2;
         }
 
         public void setRccState(PlaybackStateCompat playbackStateCompat) {
@@ -1776,10 +1777,10 @@ public class MediaSessionCompat {
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
-        public void setRepeatMode(int i) {
-            if (this.mRepeatMode != i) {
-                this.mRepeatMode = i;
-                sendRepeatMode(i);
+        public void setRepeatMode(int i2) {
+            if (this.mRepeatMode != i2) {
+                this.mRepeatMode = i2;
+                sendRepeatMode(i2);
             }
         }
 
@@ -1791,23 +1792,23 @@ public class MediaSessionCompat {
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
-        public void setShuffleMode(int i) {
-            if (this.mShuffleMode != i) {
-                this.mShuffleMode = i;
-                sendShuffleMode(i);
+        public void setShuffleMode(int i2) {
+            if (this.mShuffleMode != i2) {
+                this.mShuffleMode = i2;
+                sendShuffleMode(i2);
             }
         }
 
-        public void setVolumeTo(int i, int i2) {
+        public void setVolumeTo(int i2, int i3) {
             if (this.mVolumeType == 2) {
                 VolumeProviderCompat volumeProviderCompat = this.mVolumeProvider;
                 if (volumeProviderCompat != null) {
-                    volumeProviderCompat.onSetVolumeTo(i);
+                    volumeProviderCompat.onSetVolumeTo(i2);
                     return;
                 }
                 return;
             }
-            this.mAudioManager.setStreamVolume(this.mLocalStream, i, i2);
+            this.mAudioManager.setStreamVolume(this.mLocalStream, i2, i3);
         }
 
         public void unregisterMediaButtonEventReceiver(PendingIntent pendingIntent, ComponentName componentName) {
@@ -1865,8 +1866,8 @@ public class MediaSessionCompat {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public QueueItem[] newArray(int i) {
-                return new QueueItem[i];
+            public QueueItem[] newArray(int i2) {
+                return new QueueItem[i2];
             }
         };
         public static final int UNKNOWN_ID = -1;
@@ -1924,8 +1925,8 @@ public class MediaSessionCompat {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            this.mDescription.writeToParcel(parcel, i);
+        public void writeToParcel(Parcel parcel, int i2) {
+            this.mDescription.writeToParcel(parcel, i2);
             parcel.writeLong(this.mId);
         }
 
@@ -1973,8 +1974,8 @@ public class MediaSessionCompat {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public Token[] newArray(int i) {
-                return new Token[i];
+            public Token[] newArray(int i2) {
+                return new Token[i2];
             }
         };
         public IMediaSession mExtraBinder;
@@ -2075,9 +2076,9 @@ public class MediaSessionCompat {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             if (Build.VERSION.SDK_INT >= 21) {
-                parcel.writeParcelable((Parcelable) this.mInner, i);
+                parcel.writeParcelable((Parcelable) this.mInner, i2);
             } else {
                 parcel.writeStrongBinder((IBinder) this.mInner);
             }
@@ -2221,8 +2222,8 @@ public class MediaSessionCompat {
         this.mImpl.setExtras(bundle);
     }
 
-    public void setFlags(int i) {
-        this.mImpl.setFlags(i);
+    public void setFlags(int i2) {
+        this.mImpl.setFlags(i2);
     }
 
     public void setMediaButtonReceiver(PendingIntent pendingIntent) {
@@ -2237,8 +2238,8 @@ public class MediaSessionCompat {
         this.mImpl.setPlaybackState(playbackStateCompat);
     }
 
-    public void setPlaybackToLocal(int i) {
-        this.mImpl.setPlaybackToLocal(i);
+    public void setPlaybackToLocal(int i2) {
+        this.mImpl.setPlaybackToLocal(i2);
     }
 
     public void setPlaybackToRemote(VolumeProviderCompat volumeProviderCompat) {
@@ -2257,20 +2258,20 @@ public class MediaSessionCompat {
         this.mImpl.setQueueTitle(charSequence);
     }
 
-    public void setRatingType(int i) {
-        this.mImpl.setRatingType(i);
+    public void setRatingType(int i2) {
+        this.mImpl.setRatingType(i2);
     }
 
-    public void setRepeatMode(int i) {
-        this.mImpl.setRepeatMode(i);
+    public void setRepeatMode(int i2) {
+        this.mImpl.setRepeatMode(i2);
     }
 
     public void setSessionActivity(PendingIntent pendingIntent) {
         this.mImpl.setSessionActivity(pendingIntent);
     }
 
-    public void setShuffleMode(int i) {
-        this.mImpl.setShuffleMode(i);
+    public void setShuffleMode(int i2) {
+        this.mImpl.setShuffleMode(i2);
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -2287,8 +2288,8 @@ public class MediaSessionCompat {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public ResultReceiverWrapper[] newArray(int i) {
-                return new ResultReceiverWrapper[i];
+            public ResultReceiverWrapper[] newArray(int i2) {
+                return new ResultReceiverWrapper[i2];
             }
         };
         public ResultReceiver mResultReceiver;
@@ -2303,8 +2304,8 @@ public class MediaSessionCompat {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
-            this.mResultReceiver.writeToParcel(parcel, i);
+        public void writeToParcel(Parcel parcel, int i2) {
+            this.mResultReceiver.writeToParcel(parcel, i2);
         }
 
         public ResultReceiverWrapper(Parcel parcel) {
@@ -2345,20 +2346,20 @@ public class MediaSessionCompat {
                     intent.setComponent(componentName);
                     pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
                 }
-                int i = Build.VERSION.SDK_INT;
-                if (i >= 28) {
+                int i2 = Build.VERSION.SDK_INT;
+                if (i2 >= 28) {
                     this.mImpl = new MediaSessionImplApi28(context, str, bundle);
                     setCallback(new Callback() { // from class: android.support.v4.media.session.MediaSessionCompat.1
                     });
                     this.mImpl.setMediaButtonReceiver(pendingIntent);
-                } else if (i >= 21) {
+                } else if (i2 >= 21) {
                     this.mImpl = new MediaSessionImplApi21(context, str, bundle);
                     setCallback(new Callback() { // from class: android.support.v4.media.session.MediaSessionCompat.2
                     });
                     this.mImpl.setMediaButtonReceiver(pendingIntent);
-                } else if (i >= 19) {
+                } else if (i2 >= 19) {
                     this.mImpl = new MediaSessionImplApi19(context, str, componentName, pendingIntent);
-                } else if (i >= 18) {
+                } else if (i2 >= 18) {
                     this.mImpl = new MediaSessionImplApi18(context, str, componentName, pendingIntent);
                 } else {
                     this.mImpl = new MediaSessionImplBase(context, str, componentName, pendingIntent);
@@ -2401,12 +2402,12 @@ public class MediaSessionCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void addQueueItemAt(MediaDescriptionCompat mediaDescriptionCompat, int i) {
+            public void addQueueItemAt(MediaDescriptionCompat mediaDescriptionCompat, int i2) {
                 throw new AssertionError();
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void adjustVolume(int i, int i2, String str) {
+            public void adjustVolume(int i2, int i3, String str) {
                 throw new AssertionError();
             }
 
@@ -2580,7 +2581,7 @@ public class MediaSessionCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void removeQueueItemAt(int i) {
+            public void removeQueueItemAt(int i2) {
                 throw new AssertionError();
             }
 
@@ -2615,12 +2616,12 @@ public class MediaSessionCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void setRepeatMode(int i) throws RemoteException {
+            public void setRepeatMode(int i2) throws RemoteException {
                 throw new AssertionError();
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void setShuffleMode(int i) throws RemoteException {
+            public void setShuffleMode(int i2) throws RemoteException {
                 throw new AssertionError();
             }
 
@@ -2629,7 +2630,7 @@ public class MediaSessionCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void setVolumeTo(int i, int i2, String str) {
+            public void setVolumeTo(int i2, int i3, String str) {
                 throw new AssertionError();
             }
 
@@ -2749,8 +2750,8 @@ public class MediaSessionCompat {
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
-        public void setFlags(int i) {
-            MediaSessionCompatApi21.setFlags(this.mSessionObj, i);
+        public void setFlags(int i2) {
+            MediaSessionCompatApi21.setFlags(this.mSessionObj, i2);
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
@@ -2778,8 +2779,8 @@ public class MediaSessionCompat {
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
-        public void setPlaybackToLocal(int i) {
-            MediaSessionCompatApi21.setPlaybackToLocal(this.mSessionObj, i);
+        public void setPlaybackToLocal(int i2) {
+            MediaSessionCompatApi21.setPlaybackToLocal(this.mSessionObj, i2);
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
@@ -2808,21 +2809,21 @@ public class MediaSessionCompat {
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
-        public void setRatingType(int i) {
+        public void setRatingType(int i2) {
             if (Build.VERSION.SDK_INT < 22) {
-                this.mRatingType = i;
+                this.mRatingType = i2;
             } else {
-                MediaSessionCompatApi22.setRatingType(this.mSessionObj, i);
+                MediaSessionCompatApi22.setRatingType(this.mSessionObj, i2);
             }
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
-        public void setRepeatMode(int i) {
-            if (this.mRepeatMode != i) {
-                this.mRepeatMode = i;
+        public void setRepeatMode(int i2) {
+            if (this.mRepeatMode != i2) {
+                this.mRepeatMode = i2;
                 for (int beginBroadcast = this.mExtraControllerCallbacks.beginBroadcast() - 1; beginBroadcast >= 0; beginBroadcast--) {
                     try {
-                        this.mExtraControllerCallbacks.getBroadcastItem(beginBroadcast).onRepeatModeChanged(i);
+                        this.mExtraControllerCallbacks.getBroadcastItem(beginBroadcast).onRepeatModeChanged(i2);
                     } catch (RemoteException unused) {
                     }
                 }
@@ -2836,12 +2837,12 @@ public class MediaSessionCompat {
         }
 
         @Override // android.support.v4.media.session.MediaSessionCompat.MediaSessionImpl
-        public void setShuffleMode(int i) {
-            if (this.mShuffleMode != i) {
-                this.mShuffleMode = i;
+        public void setShuffleMode(int i2) {
+            if (this.mShuffleMode != i2) {
+                this.mShuffleMode = i2;
                 for (int beginBroadcast = this.mExtraControllerCallbacks.beginBroadcast() - 1; beginBroadcast >= 0; beginBroadcast--) {
                     try {
-                        this.mExtraControllerCallbacks.getBroadcastItem(beginBroadcast).onShuffleModeChanged(i);
+                        this.mExtraControllerCallbacks.getBroadcastItem(beginBroadcast).onShuffleModeChanged(i2);
                     } catch (RemoteException unused) {
                     }
                 }

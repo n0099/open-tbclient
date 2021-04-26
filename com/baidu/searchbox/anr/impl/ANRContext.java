@@ -11,7 +11,7 @@ import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import d.b.c0.a.b.d;
+import d.a.c0.a.b.d;
 @Autowired
 /* loaded from: classes2.dex */
 public class ANRContext {
@@ -22,7 +22,7 @@ public class ANRContext {
                 Log.d("Ruka", "onAppNotResponding");
             }
             d<IANRRegister> iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
-            if (iANRUploadList == null || iANRUploadList.a() == null || aNRInfo == null) {
+            if (iANRUploadList == null || iANRUploadList.getList() == null || aNRInfo == null) {
                 return;
             }
             if (AppConfig.isDebug()) {
@@ -38,7 +38,7 @@ public class ANRContext {
             }
             aNRInfo.setTrackUIs(Track.getInstance().getAllTrackUIs());
             aNRInfo.setLogId(CommonUtils.getLogId());
-            for (IANRRegister iANRRegister : iANRUploadList.a()) {
+            for (IANRRegister iANRRegister : iANRUploadList.getList()) {
                 iANRRegister.onANR(context, aNRInfo);
             }
         }

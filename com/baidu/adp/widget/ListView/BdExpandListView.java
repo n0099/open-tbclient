@@ -40,9 +40,9 @@ public class BdExpandListView extends BdListView {
 
     /* loaded from: classes.dex */
     public interface b {
-        void a();
+        void a(float f2);
 
-        void b(float f2);
+        void b();
 
         void onRefresh();
     }
@@ -51,18 +51,18 @@ public class BdExpandListView extends BdListView {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2330a;
+        public int f2308a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f2331b;
+        public int f2309b;
 
-        public c(int i, int i2, int i3, int i4) {
-            this.f2330a = i2;
-            this.f2331b = i4;
+        public c(int i2, int i3, int i4, int i5) {
+            this.f2308a = i3;
+            this.f2309b = i5;
         }
 
         public int a(float f2) {
-            return (int) (this.f2330a + (f2 / 2.5f));
+            return (int) (this.f2308a + (f2 / 2.5f));
         }
     }
 
@@ -78,7 +78,7 @@ public class BdExpandListView extends BdListView {
     }
 
     public final void I(float f2) {
-        this.W.b(360.0f - ((f2 * 360.0f) / this.V));
+        this.W.a(360.0f - ((f2 * 360.0f) / this.V));
     }
 
     public void J() {
@@ -92,12 +92,12 @@ public class BdExpandListView extends BdListView {
         if (this.Q == null) {
             return;
         }
-        if (this.M.getHeight() >= this.Q.f2331b - (this.V / 2)) {
+        if (this.M.getHeight() >= this.Q.f2309b - (this.V / 2)) {
             J();
         } else {
-            this.W.a();
+            this.W.b();
         }
-        this.L.startScroll(0, this.M.getHeight(), 0, this.Q.f2330a - this.M.getHeight(), 200);
+        this.L.startScroll(0, this.M.getHeight(), 0, this.Q.f2308a - this.M.getHeight(), 200);
         invalidate();
         this.R = false;
     }
@@ -133,15 +133,15 @@ public class BdExpandListView extends BdListView {
                         if (this.M.getParent() == this && this.Q != null && this.M.isShown() && this.M.getTop() >= 0 && Math.abs(f4) >= this.U && Math.abs(f3) < this.U) {
                             int a2 = this.Q.a(this.P - this.O);
                             c cVar = this.Q;
-                            if (a2 > cVar.f2330a && a2 <= cVar.f2331b) {
+                            if (a2 > cVar.f2308a && a2 <= cVar.f2309b) {
                                 this.R = true;
                                 this.M.setLayoutParams(new AbsListView.LayoutParams(this.M.getWidth(), a2));
-                                I(a2 - this.Q.f2330a);
+                                I(a2 - this.Q.f2308a);
                             } else {
                                 c cVar2 = this.Q;
-                                if (a2 <= cVar2.f2330a) {
+                                if (a2 <= cVar2.f2308a) {
                                     this.R = false;
-                                } else if (a2 > cVar2.f2331b) {
+                                } else if (a2 > cVar2.f2309b) {
                                     this.R = true;
                                 } else {
                                     this.R = false;
@@ -155,7 +155,7 @@ public class BdExpandListView extends BdListView {
                 if (this.R) {
                     K();
                 } else {
-                    this.W.a();
+                    this.W.b();
                 }
                 new Handler().postDelayed(new a(), 200L);
             } else {
@@ -189,8 +189,8 @@ public class BdExpandListView extends BdListView {
         this.W = bVar;
     }
 
-    public void setExpandView(View view, int i) {
+    public void setExpandView(View view, int i2) {
         this.M = view;
-        this.N = i;
+        this.N = i2;
     }
 }

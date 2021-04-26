@@ -4,9 +4,9 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.b.c.j.e.n;
-import d.b.j0.q0.s1.a.c.a;
-import d.b.j0.q0.s1.a.d.e;
+import d.a.c.j.e.n;
+import d.a.j0.q0.s1.a.c.a;
+import d.a.j0.q0.s1.a.d.e;
 import java.util.List;
 import tbclient.Error;
 import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
@@ -35,7 +35,7 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
         Message<?> orginalMessage = getOrginalMessage();
         FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = (orginalMessage == null || !(orginalMessage.getExtra() instanceof FrsGameStrategyRequestMessage)) ? null : (FrsGameStrategyRequestMessage) orginalMessage.getExtra();
         if (frsGameStrategyRequestMessage != null) {
@@ -45,7 +45,7 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GameForumGuideTabResIdl gameForumGuideTabResIdl = (GameForumGuideTabResIdl) new Wire(new Class[0]).parseFrom(bArr, GameForumGuideTabResIdl.class);
         if (gameForumGuideTabResIdl == null) {
             return;
@@ -55,8 +55,8 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
             setError(error.errorno.intValue());
             setErrorString(gameForumGuideTabResIdl.error.errmsg);
         }
-        this.mTabList = d.b.j0.q0.s1.a.b.a.a(gameForumGuideTabResIdl.data.sub_tab_list);
-        this.mThreadList = d.b.j0.q0.s1.a.b.a.b(gameForumGuideTabResIdl.data.thread_list);
+        this.mTabList = d.a.j0.q0.s1.a.b.a.a(gameForumGuideTabResIdl.data.sub_tab_list);
+        this.mThreadList = d.a.j0.q0.s1.a.b.a.b(gameForumGuideTabResIdl.data.thread_list);
         this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
     }
 }

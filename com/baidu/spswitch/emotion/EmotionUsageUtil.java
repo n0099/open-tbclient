@@ -56,8 +56,8 @@ public class EmotionUsageUtil {
         HashMap hashMap = new HashMap();
         try {
             JSONArray jSONArray = new JSONArray(str);
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
                     String optString = optJSONObject.optString("id", "");
                     if (!TextUtils.isEmpty(optString)) {

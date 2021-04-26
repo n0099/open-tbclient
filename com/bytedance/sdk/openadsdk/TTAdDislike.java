@@ -8,7 +8,7 @@ public interface TTAdDislike {
 
         void onRefuse();
 
-        void onSelected(int i, String str);
+        void onSelected(int i2, String str);
     }
 
     void sendDislikeSource(String str);
@@ -19,5 +19,5 @@ public interface TTAdDislike {
 
     void showDislikeDialog();
 
-    void showDislikeDialog(int i);
+    void showDislikeDialog(int i2);
 }

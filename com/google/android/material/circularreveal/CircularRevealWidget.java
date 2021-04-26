@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.Property;
 import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.google.android.material.circularreveal.CircularRevealHelper;
 import com.google.android.material.math.MathUtils;
@@ -18,7 +19,8 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.animation.TypeEvaluator
-        public RevealInfo evaluate(float f2, RevealInfo revealInfo, RevealInfo revealInfo2) {
+        @NonNull
+        public RevealInfo evaluate(float f2, @NonNull RevealInfo revealInfo, @NonNull RevealInfo revealInfo2) {
             this.revealInfo.set(MathUtils.lerp(revealInfo.centerX, revealInfo2.centerX, f2), MathUtils.lerp(revealInfo.centerY, revealInfo2.centerY, f2), MathUtils.lerp(revealInfo.radius, revealInfo2.radius, f2));
             return this.revealInfo;
         }
@@ -34,13 +36,14 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
-        public RevealInfo get(CircularRevealWidget circularRevealWidget) {
+        @Nullable
+        public RevealInfo get(@NonNull CircularRevealWidget circularRevealWidget) {
             return circularRevealWidget.getRevealInfo();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
-        public void set(CircularRevealWidget circularRevealWidget, RevealInfo revealInfo) {
+        public void set(@NonNull CircularRevealWidget circularRevealWidget, @Nullable RevealInfo revealInfo) {
             circularRevealWidget.setRevealInfo(revealInfo);
         }
     }
@@ -55,13 +58,14 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
-        public Integer get(CircularRevealWidget circularRevealWidget) {
+        @NonNull
+        public Integer get(@NonNull CircularRevealWidget circularRevealWidget) {
             return Integer.valueOf(circularRevealWidget.getCircularRevealScrimColor());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.util.Property
-        public void set(CircularRevealWidget circularRevealWidget, Integer num) {
+        public void set(@NonNull CircularRevealWidget circularRevealWidget, @NonNull Integer num) {
             circularRevealWidget.setCircularRevealScrimColor(num.intValue());
         }
     }
@@ -92,11 +96,11 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
             this.radius = f4;
         }
 
-        public void set(RevealInfo revealInfo) {
+        public void set(@NonNull RevealInfo revealInfo) {
             set(revealInfo.centerX, revealInfo.centerY, revealInfo.radius);
         }
 
-        public RevealInfo(RevealInfo revealInfo) {
+        public RevealInfo(@NonNull RevealInfo revealInfo) {
             this(revealInfo.centerX, revealInfo.centerY, revealInfo.radius);
         }
     }
@@ -120,7 +124,7 @@ public interface CircularRevealWidget extends CircularRevealHelper.Delegate {
 
     void setCircularRevealOverlayDrawable(@Nullable Drawable drawable);
 
-    void setCircularRevealScrimColor(@ColorInt int i);
+    void setCircularRevealScrimColor(@ColorInt int i2);
 
     void setRevealInfo(@Nullable RevealInfo revealInfo);
 }

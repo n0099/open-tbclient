@@ -63,12 +63,12 @@ public class LayerContainer extends FrameLayout {
     }
 
     @PublicMethod
-    public void insertLayer(@NonNull AbsLayer absLayer, @IntRange(from = 0, to = 20) int i) {
+    public void insertLayer(@NonNull AbsLayer absLayer, @IntRange(from = 0, to = 20) int i2) {
         detachLayer(absLayer);
-        if (i < this.mLayers.size()) {
+        if (i2 < this.mLayers.size()) {
             absLayer.setLayerContainer(this);
-            this.mLayers.add(i, absLayer);
-            addView(absLayer.getContentView(), i, this.mLayoutParams);
+            this.mLayers.add(i2, absLayer);
+            addView(absLayer.getContentView(), i2, this.mLayoutParams);
         }
     }
 
@@ -85,8 +85,8 @@ public class LayerContainer extends FrameLayout {
     @PublicMethod
     public void release() {
         int size = this.mLayers.size();
-        for (int i = 0; i < size; i++) {
-            this.mLayers.get(i).onLayerRelease();
+        for (int i2 = 0; i2 < size; i2++) {
+            this.mLayers.get(i2).onLayerRelease();
         }
         this.mLayers.clear();
         removeAllViews();
@@ -126,8 +126,8 @@ public class LayerContainer extends FrameLayout {
         init();
     }
 
-    public LayerContainer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public LayerContainer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         init();
     }
 

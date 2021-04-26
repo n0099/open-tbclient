@@ -6,8 +6,8 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.TbPageContext;
-import d.b.j0.x1.d.a;
-import d.b.j0.x1.d.b;
+import d.a.j0.x1.d.a;
+import d.a.j0.x1.d.b;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
@@ -31,10 +31,10 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
         setOverScrollMode(2);
     }
 
-    public void H(int i) {
-        if (this.A != i) {
+    public void H(int i2) {
+        if (this.A != i2) {
             getListAdapter().notifyDataSetChanged();
-            this.A = i;
+            this.A = i2;
         }
     }
 
@@ -44,8 +44,8 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
         G();
     }
 
-    public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.A = 3;
         G();
     }

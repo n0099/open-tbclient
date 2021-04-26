@@ -5,31 +5,31 @@ import android.text.TextUtils;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.a.d;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f39596a = null;
+    public static f f37197a = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f39597c = new b(c(), c.m, c.f39590g, c.f39591h, c.f39586c, c.i, 10, c.f39588e, c.n);
+    public static final b f37198c = new b(c(), c.m, c.f37190g, c.f37191h, c.f37186c, c.f37192i, 10, c.f37188e, c.n);
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f39598d = false;
+    public static boolean f37199d = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f39599b = new a(f39597c);
+    public a f37200b = new a(f37198c);
 
     public static f a() {
-        if (f39596a == null) {
+        if (f37197a == null) {
             synchronized (f.class) {
-                if (f39596a == null) {
-                    f39596a = new f();
-                    f39598d = true;
+                if (f37197a == null) {
+                    f37197a = new f();
+                    f37199d = true;
                 }
             }
         }
-        return f39596a;
+        return f37197a;
     }
 
     public static final void b(String str, String str2) {
@@ -53,12 +53,12 @@ public class f {
     }
 
     public static File c() {
-        String str = c.f39587d;
+        String str = c.f37187d;
         boolean z = false;
         try {
             d.c b2 = d.b.b();
             if (b2 != null) {
-                if (b2.c() > c.f39589f) {
+                if (b2.c() > c.f37189f) {
                     z = true;
                 }
             }
@@ -72,42 +72,42 @@ public class f {
     }
 
     public void d() {
-        a aVar = this.f39599b;
+        a aVar = this.f37200b;
         if (aVar != null) {
             aVar.a();
-            this.f39599b.b();
-            this.f39599b = null;
+            this.f37200b.b();
+            this.f37200b = null;
         }
     }
 
     public static void b() {
         synchronized (f.class) {
             a().d();
-            if (f39596a != null) {
-                f39596a = null;
+            if (f37197a != null) {
+                f37197a = null;
             }
         }
     }
 
-    public void a(int i, String str, String str2, Throwable th) {
+    public void a(int i2, String str, String str2, Throwable th) {
         a aVar;
-        if (f39598d) {
+        if (f37199d) {
             String b2 = com.tencent.open.utils.e.b();
             if (!TextUtils.isEmpty(b2)) {
                 String str3 = b2 + " SDK_VERSION:" + Constants.SDK_VERSION;
-                if (this.f39599b == null) {
+                if (this.f37200b == null) {
                     return;
                 }
-                e.f39595a.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
-                this.f39599b.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
-                f39598d = false;
+                e.f37196a.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
+                this.f37200b.b(32, Thread.currentThread(), System.currentTimeMillis(), "openSDK_LOG", str3, null);
+                f37199d = false;
             }
         }
-        e.f39595a.b(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
-        if (!d.a.a(c.f39585b, i) || (aVar = this.f39599b) == null) {
+        e.f37196a.b(i2, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
+        if (!d.a.a(c.f37185b, i2) || (aVar = this.f37200b) == null) {
             return;
         }
-        aVar.b(i, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
+        aVar.b(i2, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
     }
 
     public static final void a(String str, String str2) {

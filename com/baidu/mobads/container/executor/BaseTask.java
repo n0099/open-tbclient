@@ -37,12 +37,12 @@ public abstract class BaseTask<T> implements Runnable {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             BaseTaskResult baseTaskResult = (BaseTaskResult) message.obj;
-            int i = message.what;
-            if (i == 1) {
+            int i2 = message.what;
+            if (i2 == 1) {
                 baseTaskResult.mTask.onTaskSuccess(baseTaskResult.mData);
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 baseTaskResult.mTask.onTaskFailed((Throwable) baseTaskResult.mData);
-            } else if (i != 3) {
+            } else if (i2 != 3) {
             } else {
                 baseTaskResult.mTask.onTaskCancelled();
             }

@@ -71,12 +71,12 @@ public class CrabSDK {
         com.baidu.crabsdk.b.a.f(activity);
     }
 
-    public static void enableBlockCatch(int i) {
+    public static void enableBlockCatch(int i2) {
         if (Build.VERSION.SDK_INT < 16) {
             com.baidu.crabsdk.c.a.d("ERROR! BlockCatch only can be enabled when SDK_INT >= 16");
             return;
         }
-        setUploadLimitOfBlockInOneday(i);
+        setUploadLimitOfBlockInOneday(i2);
         if (h.i()) {
             b.a(T).d();
             c.b(T);
@@ -84,9 +84,9 @@ public class CrabSDK {
         }
     }
 
-    public static void enableBlockCatch(int i, boolean z) {
+    public static void enableBlockCatch(int i2, boolean z) {
         a.s = z;
-        enableBlockCatch(i);
+        enableBlockCatch(i2);
     }
 
     public static HashMap<String, String> getUsersCustomKV() {
@@ -105,7 +105,7 @@ public class CrabSDK {
             a.O = str2;
         }
         com.baidu.crabsdk.c.a.d("crab init begin: " + System.currentTimeMillis());
-        a.f4673d = str;
+        a.f4782d = str;
         if (application == null) {
             str3 = "crab init error caused by applcation null value";
         } else {
@@ -121,12 +121,12 @@ public class CrabSDK {
     }
 
     public static void initAnrCollector(Application application, String str) {
-        int i;
-        a.f4673d = str;
+        int i2;
+        a.f4782d = str;
         initCollector(application);
         initCrashSwitch(application);
-        if (!a.D && (i = a.I) != 0) {
-            com.baidu.crabsdk.b.c.a(application, i);
+        if (!a.D && (i2 = a.I) != 0) {
+            com.baidu.crabsdk.b.c.a(application, i2);
         }
         uploadRecord(application);
     }
@@ -222,16 +222,16 @@ public class CrabSDK {
         closeAnrHandler();
     }
 
-    public static void resumeAnrWatchThread(int i) {
+    public static void resumeAnrWatchThread(int i2) {
         try {
             Thread b2 = com.baidu.crabsdk.b.c.b();
             if (b2 == null) {
-                initAnrCollector(T, a.f4673d);
+                initAnrCollector(T, a.f4782d);
                 com.baidu.crabsdk.c.a.c("ANR watch thread is null, init anrCollector again");
             } else if (a.I != 0) {
                 com.baidu.crabsdk.c.a.e("ANR watch thread is running");
             } else {
-                a.I = i;
+                a.I = i2;
                 new Thread(b2).start();
             }
         } catch (Exception e2) {
@@ -239,9 +239,9 @@ public class CrabSDK {
         }
     }
 
-    public static void setAnrObserverType(int i) {
-        if (i == 1 || i == 2) {
-            a.I = i;
+    public static void setAnrObserverType(int i2) {
+        if (i2 == 1 || i2 == 2) {
+            a.I = i2;
         } else {
             a.I = 0;
         }
@@ -251,24 +251,24 @@ public class CrabSDK {
         a.o = str;
     }
 
-    public static void setBehaviorRecordLimit(int i) {
-        a.f4675f = i;
+    public static void setBehaviorRecordLimit(int i2) {
+        a.f4784f = i2;
     }
 
-    public static void setBlockThreshold(int i) {
-        if (i >= 1000) {
-            com.baidu.crabsdk.a.a.f4678g = i;
+    public static void setBlockThreshold(int i2) {
+        if (i2 >= 1000) {
+            com.baidu.crabsdk.a.a.f4788g = i2;
             return;
         }
         com.baidu.crabsdk.c.a.d("You Are Strongly Recommended To Set Threshold Not Less Than 1000ms!!");
-        com.baidu.crabsdk.a.a.f4678g = 1000;
+        com.baidu.crabsdk.a.a.f4788g = 1000;
     }
 
     public static void setChannel(String str) {
         if (str == null || str.length() == 0) {
-            a.f4671b = "alpha";
+            a.f4780b = "alpha";
         } else {
-            a.f4671b = str;
+            a.f4780b = str;
         }
     }
 
@@ -276,15 +276,15 @@ public class CrabSDK {
         a.m = z;
     }
 
-    public static void setConstantSameCrashExceedLimit(int i) {
-        a.z = i;
+    public static void setConstantSameCrashExceedLimit(int i2) {
+        a.z = i2;
     }
 
     public static void setCuid(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        com.baidu.crabsdk.b.h.f4720a = str;
+        com.baidu.crabsdk.b.h.f4832a = str;
     }
 
     public static void setDebugAnrExpUrl(String str) {
@@ -300,7 +300,7 @@ public class CrabSDK {
     }
 
     public static void setDeveloperName(String str) {
-        a.f4670a = str;
+        a.f4779a = str;
     }
 
     public static void setEnableLog(boolean z) {
@@ -311,15 +311,15 @@ public class CrabSDK {
         a.E = z;
     }
 
-    public static void setLogcatLineCount(int i) {
-        if (i > 1000) {
+    public static void setLogcatLineCount(int i2) {
+        if (i2 > 1000) {
             com.baidu.crabsdk.c.a.e("强烈建议logcat最大行数小于1000！");
-            a.f4677h = 1000;
+            a.f4786h = 1000;
         } else {
-            a.f4677h = i;
+            a.f4786h = i2;
         }
         if (NativeCrashHandler.ai() != null) {
-            NativeCrashHandler.ai().b(a.f4677h);
+            NativeCrashHandler.ai().b(a.f4786h);
         }
     }
 
@@ -347,24 +347,24 @@ public class CrabSDK {
         a.p = z;
     }
 
-    public static void setUploadLimitOfAnrInOneday(int i) {
-        a.v = i;
+    public static void setUploadLimitOfAnrInOneday(int i2) {
+        a.v = i2;
     }
 
-    public static void setUploadLimitOfBlockInOneday(int i) {
-        a.w = i;
+    public static void setUploadLimitOfBlockInOneday(int i2) {
+        a.w = i2;
     }
 
-    public static void setUploadLimitOfCrashInOneday(int i) {
-        a.u = i;
+    public static void setUploadLimitOfCrashInOneday(int i2) {
+        a.u = i2;
     }
 
-    public static void setUploadLimitOfSameCrashInOneday(int i) {
-        a.t = i;
+    public static void setUploadLimitOfSameCrashInOneday(int i2) {
+        a.t = i2;
     }
 
-    public static void setUrlRecordLimit(int i) {
-        a.f4676g = i;
+    public static void setUrlRecordLimit(int i2) {
+        a.f4785g = i2;
     }
 
     public static void setUserName(String str) {
@@ -421,7 +421,7 @@ public class CrabSDK {
             str3 = "";
         }
         if (!TextUtils.isEmpty(str2)) {
-            com.baidu.crabsdk.b.h.f4720a = str2;
+            com.baidu.crabsdk.b.h.f4832a = str2;
         }
         return k.d(str.trim(), onUploadFilesCallback, "", "", str3);
     }

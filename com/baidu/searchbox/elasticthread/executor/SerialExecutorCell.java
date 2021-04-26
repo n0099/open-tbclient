@@ -16,12 +16,12 @@ public class SerialExecutorCell extends BaseExecutorCell {
     public static final int SERIAL_MAX_THREAD_NUM = 1;
     public int dredgeCountInRecordLifeCycle;
 
-    public SerialExecutorCell(int i) {
-        super(i);
+    public SerialExecutorCell(int i2) {
+        super(i2);
         this.dredgeCountInRecordLifeCycle = 0;
-        if (i != 1) {
+        if (i2 != 1) {
             String tag = getTag();
-            Log.w(tag, "You are creating a SerialExecutorCell with maxThreadNum " + i + ". For SerialExecutorCell, maxThreadNum must be 1. So it will be forced to set to 1.");
+            Log.w(tag, "You are creating a SerialExecutorCell with maxThreadNum " + i2 + ". For SerialExecutorCell, maxThreadNum must be 1. So it will be forced to set to 1.");
             this.maxThreadNum = 1;
         }
         this.mExecutor = new ThreadPoolExecutor(1, 1, ElasticConfig.EXECUTOR_CONFIG_KEEP_ALIVE_TIME, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());

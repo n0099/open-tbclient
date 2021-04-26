@@ -65,8 +65,8 @@ public class MaskView extends View {
         a();
     }
 
-    public MaskView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public MaskView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a();
     }
 }

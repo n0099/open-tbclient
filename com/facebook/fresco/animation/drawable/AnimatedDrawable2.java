@@ -13,7 +13,7 @@ import com.facebook.fresco.animation.backend.AnimationBackend;
 import com.facebook.fresco.animation.frame.DropFramesFrameScheduler;
 import com.facebook.fresco.animation.frame.FrameScheduler;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableWithCaches {
     public static final int DEFAULT_FRAME_SCHEDULING_DELAY_MS = 8;
     public static final int DEFAULT_FRAME_SCHEDULING_OFFSET_MS = 0;
@@ -38,9 +38,9 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
     public static final Class<?> TAG = AnimatedDrawable2.class;
     public static final AnimationListener NO_OP_LISTENER = new BaseAnimationListener();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface DrawListener {
-        void onDraw(AnimatedDrawable2 animatedDrawable2, FrameScheduler frameScheduler, int i, boolean z, boolean z2, long j, long j2, long j3, long j4, long j5, long j6, long j7);
+        void onDraw(AnimatedDrawable2 animatedDrawable2, FrameScheduler frameScheduler, int i2, boolean z, boolean z2, long j, long j2, long j3, long j4, long j5, long j6, long j7);
     }
 
     public AnimatedDrawable2() {
@@ -91,11 +91,11 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
         } else if (frameNumberToRender == 0 && this.mLastDrawnFrameNumber != -1 && now >= this.mExpectedRenderTimeMs) {
             this.mAnimationListener.onAnimationRepeat(this);
         }
-        int i = frameNumberToRender;
-        boolean drawFrame = this.mAnimationBackend.drawFrame(this, canvas, i);
+        int i2 = frameNumberToRender;
+        boolean drawFrame = this.mAnimationBackend.drawFrame(this, canvas, i2);
         if (drawFrame) {
-            this.mAnimationListener.onAnimationFrame(this, i);
-            this.mLastDrawnFrameNumber = i;
+            this.mAnimationListener.onAnimationFrame(this, i2);
+            this.mLastDrawnFrameNumber = i2;
         }
         if (!drawFrame) {
             onFrameDropped();
@@ -117,7 +117,7 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
         }
         DrawListener drawListener = this.mDrawListener;
         if (drawListener != null) {
-            drawListener.onDraw(this, this.mFrameScheduler, i, drawFrame, this.mIsRunning, this.mStartTimeMs, max, this.mLastFrameAnimationTimeMs, now, now2, j, j2);
+            drawListener.onDraw(this, this.mFrameScheduler, i2, drawFrame, this.mIsRunning, this.mStartTimeMs, max, this.mLastFrameAnimationTimeMs, now, now2, j, j2);
             animatedDrawable2 = this;
             j3 = max;
         } else {
@@ -186,11 +186,11 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
         if (frameScheduler != null) {
             return frameScheduler.getLoopDurationMs();
         }
-        int i = 0;
-        for (int i2 = 0; i2 < this.mAnimationBackend.getFrameCount(); i2++) {
-            i += this.mAnimationBackend.getFrameDurationMs(i2);
+        int i2 = 0;
+        for (int i3 = 0; i3 < this.mAnimationBackend.getFrameCount(); i3++) {
+            i2 += this.mAnimationBackend.getFrameDurationMs(i3);
         }
-        return i;
+        return i2;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -212,12 +212,12 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
         return this.mIsRunning;
     }
 
-    public void jumpToFrame(int i) {
+    public void jumpToFrame(int i2) {
         FrameScheduler frameScheduler;
         if (this.mAnimationBackend == null || (frameScheduler = this.mFrameScheduler) == null) {
             return;
         }
-        this.mLastFrameAnimationTimeMs = frameScheduler.getTargetRenderTimeMs(i);
+        this.mLastFrameAnimationTimeMs = frameScheduler.getTargetRenderTimeMs(i2);
         long now = now() - this.mLastFrameAnimationTimeMs;
         this.mStartTimeMs = now;
         this.mExpectedRenderTimeMs = now;
@@ -234,11 +234,11 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean onLevelChange(int i) {
+    public boolean onLevelChange(int i2) {
         if (this.mIsRunning) {
             return false;
         }
-        long j = i;
+        long j = i2;
         if (this.mLastFrameAnimationTimeMs != j) {
             this.mLastFrameAnimationTimeMs = j;
             invalidateSelf();
@@ -248,14 +248,14 @@ public class AnimatedDrawable2 extends Drawable implements Animatable, DrawableW
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
+    public void setAlpha(int i2) {
         if (this.mDrawableProperties == null) {
             this.mDrawableProperties = new DrawableProperties();
         }
-        this.mDrawableProperties.setAlpha(i);
+        this.mDrawableProperties.setAlpha(i2);
         AnimationBackend animationBackend = this.mAnimationBackend;
         if (animationBackend != null) {
-            animationBackend.setAlpha(i);
+            animationBackend.setAlpha(i2);
         }
     }
 

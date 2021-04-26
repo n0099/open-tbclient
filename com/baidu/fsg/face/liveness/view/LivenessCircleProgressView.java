@@ -14,22 +14,22 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class LivenessCircleProgressView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f6122a;
+    public Paint f6297a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f6123b;
+    public Paint f6298b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f6124c;
+    public Paint f6299c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6125d;
+    public int f6300d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f6126e;
+    public RectF f6301e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6127f;
+    public int f6302f;
 
     public LivenessCircleProgressView(@NonNull Context context) {
         super(context);
@@ -37,44 +37,44 @@ public class LivenessCircleProgressView extends FrameLayout {
     }
 
     private void a() {
-        this.f6127f = 12;
+        this.f6302f = 12;
         Paint paint = new Paint();
-        this.f6122a = paint;
+        this.f6297a = paint;
         paint.setColor(Color.argb(127, 255, 255, 255));
-        this.f6122a.setAntiAlias(true);
-        this.f6122a.setStrokeWidth(this.f6127f);
-        this.f6122a.setStyle(Paint.Style.STROKE);
+        this.f6297a.setAntiAlias(true);
+        this.f6297a.setStrokeWidth(this.f6302f);
+        this.f6297a.setStyle(Paint.Style.STROKE);
         Paint paint2 = new Paint();
-        this.f6123b = paint2;
+        this.f6298b = paint2;
         paint2.setColor(Color.argb(255, 255, 255, 255));
-        this.f6123b.setAntiAlias(true);
-        this.f6123b.setStrokeWidth(this.f6127f);
-        this.f6123b.setStyle(Paint.Style.STROKE);
+        this.f6298b.setAntiAlias(true);
+        this.f6298b.setStrokeWidth(this.f6302f);
+        this.f6298b.setStyle(Paint.Style.STROKE);
         Paint paint3 = new Paint();
-        this.f6124c = paint3;
+        this.f6299c = paint3;
         paint3.setColor(Color.rgb(255, 255, 255));
-        this.f6124c.setAntiAlias(true);
-        this.f6124c.setTextSize(getResources().getDimensionPixelSize(R.dimen.rim_text_size_20));
-        this.f6124c.setTextAlign(Paint.Align.CENTER);
-        this.f6126e = new RectF();
+        this.f6299c.setAntiAlias(true);
+        this.f6299c.setTextSize(getResources().getDimensionPixelSize(R.dimen.rim_text_size_20));
+        this.f6299c.setTextAlign(Paint.Align.CENTER);
+        this.f6301e = new RectF();
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, (getWidth() / 2) - (this.f6127f / 2), this.f6122a);
-        RectF rectF = this.f6126e;
-        int i = this.f6127f;
-        rectF.left = i / 2;
-        rectF.top = i / 2;
-        rectF.right = getWidth() - (this.f6127f / 2);
-        this.f6126e.bottom = getHeight() - (this.f6127f / 2);
-        canvas.drawArc(this.f6126e, -90.0f, (this.f6125d / 100.0f) * 360.0f, false, this.f6123b);
-        canvas.drawText(this.f6125d + "%", getWidth() / 2, getHeight() / 2, this.f6124c);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, (getWidth() / 2) - (this.f6302f / 2), this.f6297a);
+        RectF rectF = this.f6301e;
+        int i2 = this.f6302f;
+        rectF.left = i2 / 2;
+        rectF.top = i2 / 2;
+        rectF.right = getWidth() - (this.f6302f / 2);
+        this.f6301e.bottom = getHeight() - (this.f6302f / 2);
+        canvas.drawArc(this.f6301e, -90.0f, (this.f6300d / 100.0f) * 360.0f, false, this.f6298b);
+        canvas.drawText(this.f6300d + "%", getWidth() / 2, getHeight() / 2, this.f6299c);
     }
 
-    public void updateProgress(int i) {
-        this.f6125d = i;
+    public void updateProgress(int i2) {
+        this.f6300d = i2;
         invalidate();
     }
 

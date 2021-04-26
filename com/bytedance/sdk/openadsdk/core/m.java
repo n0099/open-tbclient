@@ -18,7 +18,6 @@ import com.bytedance.sdk.openadsdk.utils.ae;
 import com.bytedance.sdk.openadsdk.utils.ah;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.al;
-import com.kwai.video.player.KsMediaMeta;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Field;
@@ -32,30 +31,30 @@ import java.util.UUID;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f28152a = false;
+    public static volatile boolean f29014a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile TTCustomController f28153b = null;
+    public static volatile TTCustomController f29015b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f28154c = false;
+    public static volatile boolean f29016c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f28155d = -1;
+    public static int f29017d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static HandlerThread f28156e;
+    public static HandlerThread f29018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f28157f;
+    public static Handler f29019f;
 
     public static void a() {
         Context a2;
         if (p.h().d() && (a2 = p.a()) != null) {
             try {
-                d.c.c.b.a.f(new com.bytedance.sdk.openadsdk.i.d(a2));
-                d.c.c.b.a.g(true);
-                d.c.c.b.a.d(a2, (Application) a2, com.bytedance.sdk.openadsdk.multipro.b.b());
+                d.b.c.b.a.f(new com.bytedance.sdk.openadsdk.i.d(a2));
+                d.b.c.b.a.g(true);
+                d.b.c.b.a.d(a2, (Application) a2, com.bytedance.sdk.openadsdk.multipro.b.b());
             } catch (Exception unused) {
             }
         }
@@ -84,13 +83,13 @@ public class m {
 
     public static Handler b() {
         HandlerThread handlerThread;
-        if (f28157f == null || ((handlerThread = f28156e) != null && !handlerThread.isAlive())) {
+        if (f29019f == null || ((handlerThread = f29018e) != null && !handlerThread.isAlive())) {
             HandlerThread handlerThread2 = new HandlerThread("tt_pangle_thread_init", 10);
-            f28156e = handlerThread2;
+            f29018e = handlerThread2;
             handlerThread2.start();
-            f28157f = new Handler(f28156e.getLooper());
+            f29019f = new Handler(f29018e.getLooper());
         }
-        return f28157f;
+        return f29019f;
     }
 
     public static void a(Context context) {
@@ -111,8 +110,8 @@ public class m {
     }
 
     public static void c(final Context context) {
-        d.c.d.b.l.a(context.getApplicationContext(), new d.c.d.b.g() { // from class: com.bytedance.sdk.openadsdk.core.m.1
-            @Override // d.c.d.b.g
+        d.b.d.b.l.a(context.getApplicationContext(), new d.b.d.b.g() { // from class: com.bytedance.sdk.openadsdk.core.m.1
+            @Override // d.b.d.b.g
             public Map<String, Object> a() {
                 HashMap hashMap = new HashMap();
                 String a2 = k.a(context);
@@ -139,7 +138,7 @@ public class m {
                 hashMap.put(Config.ROM, ae.a());
                 hashMap.put(PmsConstant.EnvParam.Key.CPU_ABI, Build.CPU_ABI);
                 hashMap.put("device_brand", Build.BRAND);
-                hashMap.put(KsMediaMeta.KSM_KEY_LANGUAGE, Locale.getDefault().getLanguage());
+                hashMap.put("language", Locale.getDefault().getLanguage());
                 hashMap.put("os_api", String.valueOf(Build.VERSION.SDK_INT));
                 try {
                     String str = Build.VERSION.RELEASE;
@@ -155,32 +154,32 @@ public class m {
                 return hashMap;
             }
 
-            @Override // d.c.d.b.g
+            @Override // d.b.d.b.g
             public String b() {
                 return k.a(context);
             }
 
-            @Override // d.c.d.b.g
+            @Override // d.b.d.b.g
             public String c() {
                 return AppLogHelper.getInstance().getAppLogUserUniqueID();
             }
 
-            @Override // d.c.d.b.g
+            @Override // d.b.d.b.g
             public String d() {
                 return null;
             }
 
-            @Override // d.c.d.b.g
+            @Override // d.b.d.b.g
             public Map<String, Integer> e() {
                 return null;
             }
 
-            @Override // d.c.d.b.g
+            @Override // d.b.d.b.g
             public List<String> f() {
                 return null;
             }
 
-            @Override // d.c.d.b.g
+            @Override // d.b.d.b.g
             public Map<String, Object> g() {
                 HashMap hashMap = new HashMap();
                 String g2 = i.d().g();
@@ -192,9 +191,9 @@ public class m {
                 return hashMap;
             }
         }, true, false);
-        d.c.d.b.l.d(new d.c.d.b.k() { // from class: com.bytedance.sdk.openadsdk.core.m.2
+        d.b.d.b.l.d(new d.b.d.b.k() { // from class: com.bytedance.sdk.openadsdk.core.m.2
             /* JADX WARN: Removed duplicated region for block: B:13:0x0033 A[Catch: all -> 0x003f, TRY_LEAVE, TryCatch #0 {all -> 0x003f, blocks: (B:3:0x0001, B:5:0x0014, B:7:0x0025, B:13:0x0033), top: B:17:0x0001 }] */
-            @Override // d.c.d.b.k
+            @Override // d.b.d.b.k
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
@@ -208,7 +207,7 @@ public class m {
                         if (!stringWriter2.contains(AdSlot.class.getPackage().getName()) && !stringWriter2.contains("com.bytedance.msdk")) {
                             z = false;
                             if (z) {
-                                d.c.d.b.l.e(e.a().b());
+                                d.b.d.b.l.e(e.a().b());
                                 return true;
                             }
                         }

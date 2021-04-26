@@ -9,17 +9,17 @@ public class a {
         if (length < 1) {
             return configDataArr;
         }
-        int i = length * 2;
-        HomeCfgResponse.ConfigData[] configDataArr2 = new HomeCfgResponse.ConfigData[i + 1];
-        for (int i2 = 0; i2 < length; i2++) {
-            if (configDataArr[i2].isLayoutHasGap()) {
-                configDataArr2[i2 * 2] = a(NHSeperator.SP_SINGLE_SEP);
+        int i2 = length * 2;
+        HomeCfgResponse.ConfigData[] configDataArr2 = new HomeCfgResponse.ConfigData[i2 + 1];
+        for (int i3 = 0; i3 < length; i3++) {
+            if (configDataArr[i3].isLayoutHasGap()) {
+                configDataArr2[i3 * 2] = a(NHSeperator.SP_SINGLE_SEP);
             } else {
-                configDataArr2[i2 * 2] = a(b(configDataArr[i2].getGroup_layout()));
+                configDataArr2[i3 * 2] = a(b(configDataArr[i3].getGroup_layout()));
             }
-            configDataArr2[(i2 * 2) + 1] = configDataArr[i2];
+            configDataArr2[(i3 * 2) + 1] = configDataArr[i3];
         }
-        configDataArr2[i] = a(NHSeperator.SP_NONE);
+        configDataArr2[i2] = a(NHSeperator.SP_NONE);
         return configDataArr2;
     }
 

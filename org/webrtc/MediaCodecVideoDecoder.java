@@ -91,10 +91,10 @@ public class MediaCodecVideoDecoder {
         public final int size;
         public final long timeStampMs;
 
-        public DecodedOutputBuffer(int i, int i2, int i3, long j, long j2, long j3, long j4, long j5) {
-            this.index = i;
-            this.offset = i2;
-            this.size = i3;
+        public DecodedOutputBuffer(int i2, int i3, int i4, long j, long j2, long j3, long j4, long j5) {
+            this.index = i2;
+            this.offset = i3;
+            this.size = i4;
             this.presentationTimeStampMs = j;
             this.timeStampMs = j2;
             this.ntpTimeStampMs = j3;
@@ -192,9 +192,9 @@ public class MediaCodecVideoDecoder {
         public final String codecName;
         public final int colorFormat;
 
-        public DecoderProperties(String str, int i) {
+        public DecoderProperties(String str, int i2) {
             this.codecName = str;
-            this.colorFormat = i;
+            this.colorFormat = i2;
         }
     }
 
@@ -273,7 +273,7 @@ public class MediaCodecVideoDecoder {
 
     /* loaded from: classes7.dex */
     public interface MediaCodecVideoDecoderErrorCallback {
-        void onMediaCodecVideoDecoderCriticalError(int i);
+        void onMediaCodecVideoDecoderCriticalError(int i2);
     }
 
     /* loaded from: classes7.dex */
@@ -300,12 +300,12 @@ public class MediaCodecVideoDecoder {
         }
 
         @Nullable
-        public DecodedTextureBuffer dequeueTextureBuffer(int i) {
+        public DecodedTextureBuffer dequeueTextureBuffer(int i2) {
             DecodedTextureBuffer decodedTextureBuffer;
             synchronized (this.newFrameLock) {
-                if (this.renderedBuffer == null && i > 0 && isWaitingForTexture()) {
+                if (this.renderedBuffer == null && i2 > 0 && isWaitingForTexture()) {
                     try {
-                        this.newFrameLock.wait(i);
+                        this.newFrameLock.wait(i2);
                     } catch (InterruptedException unused) {
                         Thread.currentThread().interrupt();
                     }
@@ -350,8 +350,8 @@ public class MediaCodecVideoDecoder {
             this.surfaceTextureHelper.dispose();
         }
 
-        public void setSize(int i, int i2) {
-            this.surfaceTextureHelper.setTextureSize(i, i2);
+        public void setSize(int i2, int i3) {
+            this.surfaceTextureHelper.setTextureSize(i2, i3);
         }
     }
 
@@ -376,8 +376,8 @@ public class MediaCodecVideoDecoder {
         VIDEO_CODEC_H264;
 
         @CalledByNative("VideoCodecType")
-        public static VideoCodecType fromNativeIndex(int i) {
-            return values()[i];
+        public static VideoCodecType fromNativeIndex(int i2) {
+            return values()[i2];
         }
     }
 
@@ -414,7 +414,7 @@ public class MediaCodecVideoDecoder {
 
     @Nullable
     @CalledByNativeUnchecked
-    private DecodedOutputBuffer dequeueOutputBuffer(int i) {
+    private DecodedOutputBuffer dequeueOutputBuffer(int i2) {
         long j;
         int integer;
         int integer2;
@@ -424,7 +424,7 @@ public class MediaCodecVideoDecoder {
         }
         MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
         while (true) {
-            int dequeueOutputBuffer = this.mediaCodec.dequeueOutputBuffer(bufferInfo, TimeUnit.MILLISECONDS.toMicros(i));
+            int dequeueOutputBuffer = this.mediaCodec.dequeueOutputBuffer(bufferInfo, TimeUnit.MILLISECONDS.toMicros(i2));
             if (dequeueOutputBuffer == -3) {
                 this.outputBuffers = this.mediaCodec.getOutputBuffers();
                 Logging.d(TAG, "Decoder output buffers changed: " + this.outputBuffers.length);
@@ -494,24 +494,24 @@ public class MediaCodecVideoDecoder {
 
     @Nullable
     @CalledByNativeUnchecked
-    private DecodedTextureBuffer dequeueTextureBuffer(int i) {
+    private DecodedTextureBuffer dequeueTextureBuffer(int i2) {
         StringBuilder sb;
         String str;
         checkOnMediaCodecThread();
         if (useSurface()) {
-            DecodedOutputBuffer dequeueOutputBuffer = dequeueOutputBuffer(i);
+            DecodedOutputBuffer dequeueOutputBuffer = dequeueOutputBuffer(i2);
             if (dequeueOutputBuffer != null) {
                 this.dequeuedSurfaceOutputBuffers.add(dequeueOutputBuffer);
             }
             MaybeRenderDecodedTextureBuffer();
-            DecodedTextureBuffer dequeueTextureBuffer = this.textureListener.dequeueTextureBuffer(i);
+            DecodedTextureBuffer dequeueTextureBuffer = this.textureListener.dequeueTextureBuffer(i2);
             if (dequeueTextureBuffer != null) {
                 MaybeRenderDecodedTextureBuffer();
                 return dequeueTextureBuffer;
-            } else if (this.dequeuedSurfaceOutputBuffers.size() >= Math.min(3, this.outputBuffers.length) || (i > 0 && !this.dequeuedSurfaceOutputBuffers.isEmpty())) {
+            } else if (this.dequeuedSurfaceOutputBuffers.size() >= Math.min(3, this.outputBuffers.length) || (i2 > 0 && !this.dequeuedSurfaceOutputBuffers.isEmpty())) {
                 this.droppedFrames++;
                 DecodedOutputBuffer remove = this.dequeuedSurfaceOutputBuffers.remove();
-                if (i > 0) {
+                if (i2 > 0) {
                     sb = new StringBuilder();
                     str = "Draining decoder. Dropping frame with TS: ";
                 } else {
@@ -567,9 +567,9 @@ public class MediaCodecVideoDecoder {
             return null;
         }
         Logging.d(TAG, "Trying to find HW decoder for mime " + str);
-        for (int i = 0; i < MediaCodecList.getCodecCount(); i++) {
+        for (int i2 = 0; i2 < MediaCodecList.getCodecCount(); i2++) {
             try {
-                mediaCodecInfo = MediaCodecList.getCodecInfoAt(i);
+                mediaCodecInfo = MediaCodecList.getCodecInfoAt(i2);
             } catch (IllegalArgumentException e2) {
                 Logging.e(TAG, "Cannot retrieve decoder codec info", e2);
                 mediaCodecInfo = null;
@@ -577,16 +577,16 @@ public class MediaCodecVideoDecoder {
             if (mediaCodecInfo != null && !mediaCodecInfo.isEncoder()) {
                 String[] supportedTypes = mediaCodecInfo.getSupportedTypes();
                 int length = supportedTypes.length;
-                int i2 = 0;
+                int i3 = 0;
                 while (true) {
-                    if (i2 >= length) {
+                    if (i3 >= length) {
                         str2 = null;
                         break;
-                    } else if (supportedTypes[i2].equals(str)) {
+                    } else if (supportedTypes[i3].equals(str)) {
                         str2 = mediaCodecInfo.getName();
                         break;
                     } else {
-                        i2++;
+                        i3++;
                     }
                 }
                 if (str2 == null) {
@@ -594,37 +594,37 @@ public class MediaCodecVideoDecoder {
                 } else {
                     Logging.d(TAG, "Found candidate decoder " + str2);
                     int length2 = strArr.length;
-                    int i3 = 0;
+                    int i4 = 0;
                     while (true) {
-                        if (i3 >= length2) {
+                        if (i4 >= length2) {
                             z = false;
                             break;
-                        } else if (str2.startsWith(strArr[i3])) {
+                        } else if (str2.startsWith(strArr[i4])) {
                             z = true;
                             break;
                         } else {
-                            i3++;
+                            i4++;
                         }
                     }
                     if (z) {
                         try {
                             MediaCodecInfo.CodecCapabilities capabilitiesForType = mediaCodecInfo.getCapabilitiesForType(str);
-                            for (int i4 : capabilitiesForType.colorFormats) {
-                                Logging.v(TAG, "   Color: 0x" + Integer.toHexString(i4));
+                            for (int i5 : capabilitiesForType.colorFormats) {
+                                Logging.v(TAG, "   Color: 0x" + Integer.toHexString(i5));
                             }
                             for (Integer num : supportedColorList) {
                                 int intValue = num.intValue();
                                 int[] iArr2 = capabilitiesForType.colorFormats;
                                 int length3 = iArr2.length;
-                                for (int i5 = 0; i5 < length3; i5++) {
-                                    int i6 = iArr2[i5];
-                                    if (i6 == intValue) {
-                                        Logging.d(TAG, "Found target decoder " + str2 + ". Color: 0x" + Integer.toHexString(i6));
+                                for (int i6 = 0; i6 < length3; i6++) {
+                                    int i7 = iArr2[i6];
+                                    if (i7 == intValue) {
+                                        Logging.d(TAG, "Found target decoder " + str2 + ". Color: 0x" + Integer.toHexString(i7));
                                         if (Build.MODEL.contains("NV2001") || ((Build.MODEL.contains("Y13") || Build.MODEL.contains("R7")) && Build.MANUFACTURER.contains("rockchip"))) {
                                             Logging.d(TAG, "On Duer NV2001 .  enforce Color: 0x" + Integer.toHexString(21));
-                                            i6 = 21;
+                                            i7 = 21;
                                         }
-                                        return new DecoderProperties(str2, i6);
+                                        return new DecoderProperties(str2, i7);
                                     }
                                 }
                             }
@@ -643,7 +643,7 @@ public class MediaCodecVideoDecoder {
     }
 
     @CalledByNativeUnchecked
-    private boolean initDecode(VideoCodecType videoCodecType, int i, int i2) {
+    private boolean initDecode(VideoCodecType videoCodecType, int i2, int i3) {
         String[] supportedH264HwCodecPrefixes;
         String str;
         SurfaceTextureHelper create;
@@ -664,21 +664,21 @@ public class MediaCodecVideoDecoder {
             if (findDecoder == null) {
                 throw new RuntimeException("Cannot find HW decoder for " + videoCodecType);
             }
-            Logging.d(TAG, "Java initDecode: " + videoCodecType + ZeusCrashHandler.NAME_SEPERATOR + i + " x " + i2 + ". Color: 0x" + Integer.toHexString(findDecoder.colorFormat) + ". Use Surface: " + useSurface());
+            Logging.d(TAG, "Java initDecode: " + videoCodecType + ZeusCrashHandler.NAME_SEPERATOR + i2 + " x " + i3 + ". Color: 0x" + Integer.toHexString(findDecoder.colorFormat) + ". Use Surface: " + useSurface());
             runningInstance = this;
             this.mediaCodecThread = Thread.currentThread();
             try {
-                this.width = i;
-                this.height = i2;
-                this.stride = i;
-                this.sliceHeight = i2;
+                this.width = i2;
+                this.height = i3;
+                this.stride = i2;
+                this.sliceHeight = i3;
                 if (useSurface() && (create = SurfaceTextureHelper.create("Decoder SurfaceTextureHelper", eglBase.getEglBaseContext())) != null) {
                     TextureListener textureListener = new TextureListener(create);
                     this.textureListener = textureListener;
-                    textureListener.setSize(i, i2);
+                    textureListener.setSize(i2, i3);
                     this.surface = new Surface(create.getSurfaceTexture());
                 }
-                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i, i2);
+                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i2, i3);
                 if (!useSurface()) {
                     createVideoFormat.setInteger("color-format", findDecoder.colorFormat);
                 }
@@ -754,13 +754,13 @@ public class MediaCodecVideoDecoder {
     }
 
     @CalledByNativeUnchecked
-    private boolean queueInputBuffer(int i, int i2, long j, long j2, long j3) {
+    private boolean queueInputBuffer(int i2, int i3, long j, long j2, long j3) {
         checkOnMediaCodecThread();
         try {
-            this.inputBuffers[i].position(0);
-            this.inputBuffers[i].limit(i2);
+            this.inputBuffers[i2].position(0);
+            this.inputBuffers[i2].limit(i3);
             this.decodeStartTimeMs.add(new TimeStamps(SystemClock.elapsedRealtime(), j2, j3));
-            this.mediaCodec.queueInputBuffer(i, 0, i2, j, 0);
+            this.mediaCodec.queueInputBuffer(i2, 0, i3, j, 0);
             return true;
         } catch (IllegalStateException e2) {
             Logging.e(TAG, "decode failed", e2);
@@ -807,17 +807,17 @@ public class MediaCodecVideoDecoder {
     }
 
     @CalledByNativeUnchecked
-    private void reset(int i, int i2) {
+    private void reset(int i2, int i3) {
         if (this.mediaCodecThread == null || this.mediaCodec == null) {
             throw new RuntimeException("Incorrect reset call for non-initialized decoder.");
         }
-        Logging.d(TAG, "Java reset: " + i + " x " + i2);
+        Logging.d(TAG, "Java reset: " + i2 + " x " + i3);
         this.mediaCodec.flush();
-        this.width = i;
-        this.height = i2;
+        this.width = i2;
+        this.height = i3;
         TextureListener textureListener = this.textureListener;
         if (textureListener != null) {
-            textureListener.setSize(i, i2);
+            textureListener.setSize(i2, i3);
         }
         this.decodeStartTimeMs.clear();
         this.dequeuedSurfaceOutputBuffers.clear();
@@ -826,12 +826,12 @@ public class MediaCodecVideoDecoder {
     }
 
     @CalledByNativeUnchecked
-    private void returnDecodedOutputBuffer(int i) throws IllegalStateException, MediaCodec.CodecException {
+    private void returnDecodedOutputBuffer(int i2) throws IllegalStateException, MediaCodec.CodecException {
         checkOnMediaCodecThread();
         if (useSurface()) {
             throw new IllegalStateException("returnDecodedOutputBuffer() called for surface decoding.");
         }
-        this.mediaCodec.releaseOutputBuffer(i, false);
+        this.mediaCodec.releaseOutputBuffer(i2, false);
     }
 
     public static void setEglContext(EglBase.Context context) {

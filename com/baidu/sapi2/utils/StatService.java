@@ -5,6 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.pass.http.ReqPriority;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
@@ -17,65 +18,39 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class StatService implements NoProguard {
+    public static final String AUTO_STATISTIC = "auto_statistic";
     public static final String STAT_ENENT_QR_LOGIN_ENTER = "qrlogin_enter";
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f11013a = "StatService";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f11014b = "auto_statistic";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, String> f11015c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static List<String> f11016d;
-
-    /* loaded from: classes2.dex */
-    public static class a implements Runnable {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HttpHashMapWrap f11017a;
-
-        public a(HttpHashMapWrap httpHashMapWrap) {
-            this.f11017a = httpHashMapWrap;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            StatService.b(this.f11017a);
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static class b extends HttpHandlerWrap {
-        public b(boolean z) {
-            super(z);
-        }
-
-        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onSuccess(int i, String str) {
-        }
-    }
+    public static final String TAG = "StatService";
+    public static final Map<String, String> commonParams;
+    public static List<String> delayRequestName;
 
     static {
         HashMap hashMap = new HashMap();
-        f11015c = hashMap;
+        commonParams = hashMap;
         hashMap.put("pid", "111");
-        f11015c.put("type", "1023");
-        f11015c.put("device", Build.MODEL);
+        commonParams.put("type", "1023");
+        commonParams.put("device", Build.MODEL);
         ArrayList arrayList = new ArrayList();
-        f11016d = arrayList;
+        delayRequestName = arrayList;
         arrayList.add("share_read");
-        f11016d.add("share_silent_account");
-        f11016d.add("share_silent_account_success");
-        f11016d.add("load_login");
-        f11016d.add("share_account_open");
-        f11016d.add("pass_sdk_init");
+        delayRequestName.add("share_silent_account");
+        delayRequestName.add("share_silent_account_success");
+        delayRequestName.add("load_login");
+        delayRequestName.add("share_account_open");
+        delayRequestName.add("pass_sdk_init");
     }
 
-    public static void b(HttpHashMapWrap httpHashMapWrap) {
-        new HttpClientWrap().get(h.a(h.k), httpHashMapWrap, null, null, new b(true));
+    public static String getEventTypeBase64Value(String str) {
+        return "{eventType=" + str + "}";
+    }
+
+    public static boolean isSearchBox() {
+        try {
+            Class.forName("com.baidu.searchbox.performance.speed.launcher.NetworkRequestScheduler");
+            return true;
+        } catch (Throwable unused) {
+            return false;
+        }
     }
 
     public static void onEvent(String str, Map<String, String> map) {
@@ -83,8 +58,8 @@ public final class StatService implements NoProguard {
             return;
         }
         try {
-            HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            httpHashMapWrap.putAll(f11015c);
+            final HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
+            httpHashMapWrap.putAll(commonParams);
             httpHashMapWrap.put("name", str);
             httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
             httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
@@ -104,10 +79,15 @@ public final class StatService implements NoProguard {
                 }
             }
             Log.d("StatService", sb.toString());
-            if (f11016d.contains(str) && a()) {
-                NetworkRequestScheduler.execute(new a(httpHashMapWrap), "pass_sdk_".concat(str), 60000L, false);
+            if (delayRequestName.contains(str) && isSearchBox()) {
+                NetworkRequestScheduler.execute(new Runnable() { // from class: com.baidu.sapi2.utils.StatService.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        StatService.sendRequest(HttpHashMapWrap.this);
+                    }
+                }, "pass_sdk_".concat(str), 60000L, false);
             } else {
-                b(httpHashMapWrap);
+                sendRequest(httpHashMapWrap);
             }
         } catch (Throwable th) {
             Log.e(th);
@@ -122,19 +102,18 @@ public final class StatService implements NoProguard {
         onEventAutoStatistic(linkedHashMap, null);
     }
 
-    public static boolean a() {
-        try {
-            Class.forName("com.baidu.searchbox.performance.speed.launcher.NetworkRequestScheduler");
-            return true;
-        } catch (Throwable unused) {
-            return false;
-        }
+    public static void sendRequest(HttpHashMapWrap httpHashMapWrap) {
+        new HttpClientWrap().get(SapiHost.getHost(SapiHost.DOMAIN_NSCLICK_URL), ReqPriority.LOW, httpHashMapWrap, null, null, new HttpHandlerWrap(true) { // from class: com.baidu.sapi2.utils.StatService.2
+            @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+            public void onSuccess(int i2, String str) {
+            }
+        });
     }
 
     public static void onEventAutoStat(String str, Map<String, String> map) {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-        httpHashMapWrap.put(f11014b, Base64.encodeToString(a(str).getBytes(), 0));
-        httpHashMapWrap.putAll(f11015c);
+        httpHashMapWrap.put(AUTO_STATISTIC, Base64.encodeToString(getEventTypeBase64Value(str).getBytes(), 0));
+        httpHashMapWrap.putAll(commonParams);
         httpHashMapWrap.put("source", "native");
         httpHashMapWrap.put("data_source", "client");
         httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
@@ -145,7 +124,7 @@ public final class StatService implements NoProguard {
             }
         }
         try {
-            b(httpHashMapWrap);
+            sendRequest(httpHashMapWrap);
         } catch (Exception unused) {
         }
     }
@@ -169,13 +148,9 @@ public final class StatService implements NoProguard {
         }
         sb.append("}");
         Log.d("StatService", "onEventAutoStatistic content=" + sb.toString());
-        map.put(f11014b, Base64.encodeToString(sb.toString().getBytes(), 0));
+        map.put(AUTO_STATISTIC, Base64.encodeToString(sb.toString().getBytes(), 0));
         map.put("source", "native");
         map.put("data_source", "client");
-        onEvent(f11014b, map);
-    }
-
-    public static String a(String str) {
-        return "{eventType=" + str + "}";
+        onEvent(AUTO_STATISTIC, map);
     }
 }

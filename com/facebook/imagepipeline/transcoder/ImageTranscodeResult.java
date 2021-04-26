@@ -3,8 +3,8 @@ package com.facebook.imagepipeline.transcoder;
 public class ImageTranscodeResult {
     public final int mTranscodeStatus;
 
-    public ImageTranscodeResult(int i) {
-        this.mTranscodeStatus = i;
+    public ImageTranscodeResult(int i2) {
+        this.mTranscodeStatus = i2;
     }
 
     public int getTranscodeStatus() {

@@ -12,8 +12,8 @@ public abstract class BaseMvpView extends FrameLayout implements IBaseView {
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public final void doFailure(int i, String str) {
-        doFailure(Integer.MIN_VALUE, i, str);
+    public final void doFailure(int i2, String str) {
+        doFailure(Integer.MIN_VALUE, i2, str);
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
@@ -22,7 +22,7 @@ public abstract class BaseMvpView extends FrameLayout implements IBaseView {
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void showLoading(int i) {
+    public void showLoading(int i2) {
     }
 
     public BaseMvpView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
@@ -30,16 +30,16 @@ public abstract class BaseMvpView extends FrameLayout implements IBaseView {
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public final void doFailure(int i, int i2, String str) {
-        doFailure(i, i2, str, null);
+    public final void doFailure(int i2, int i3, String str) {
+        doFailure(i2, i3, str, null);
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public final void doResult(int i, Object obj) {
-        doResult(i, obj, null);
+    public final void doResult(int i2, Object obj) {
+        doResult(i2, obj, null);
     }
 
-    public BaseMvpView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BaseMvpView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

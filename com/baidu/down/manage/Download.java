@@ -6,7 +6,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class Download {
     public static final DecimalFormat DFOEMAT = new DecimalFormat("###0.0");
     public String mFromParam;
@@ -39,7 +39,7 @@ public class Download {
     public String mDownDir = "";
     public boolean mNotificationNeeded = false;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public enum DownloadState {
         WAITING,
         DOWNLOADING,
@@ -49,13 +49,13 @@ public class Download {
         FINISH,
         UNKNOWN;
 
-        public static DownloadState getState(int i) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
+        public static DownloadState getState(int i2) {
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 != 4) {
+                                if (i2 != 5) {
                                     return UNKNOWN;
                                 }
                                 return FINISH;
@@ -296,8 +296,8 @@ public class Download {
         this.mNotificationNeeded = z;
     }
 
-    public void setPriority(int i) {
-        this.mPriority = i;
+    public void setPriority(int i2) {
+        this.mPriority = i2;
     }
 
     public void setProgressmap(String str) {

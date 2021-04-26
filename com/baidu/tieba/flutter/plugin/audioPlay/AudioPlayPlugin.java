@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.flutter.plugin.audioPlay.AudioPlayAuto;
-import d.b.j0.m0.a.a.i;
+import d.a.j0.m0.a.a.i;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 /* loaded from: classes4.dex */
 public class AudioPlayPlugin implements FlutterPlugin, AudioPlayAuto.HostAudioPlay {
@@ -61,7 +61,7 @@ public class AudioPlayPlugin implements FlutterPlugin, AudioPlayAuto.HostAudioPl
         }
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-        public void onPlayElapse(int i) {
+        public void onPlayElapse(int i2) {
         }
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.i
@@ -73,7 +73,7 @@ public class AudioPlayPlugin implements FlutterPlugin, AudioPlayAuto.HostAudioPl
         }
 
         @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-        public void onShowErr(int i, String str) {
+        public void onShowErr(int i2, String str) {
         }
 
         public void resetVoiceModel(VoiceData$VoiceModel voiceData$VoiceModel) {

@@ -15,7 +15,7 @@ public final class c implements Parcelable.Creator<RouteLineInfo.RouteSectionInf
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public RouteLineInfo.RouteSectionInfo[] newArray(int i) {
-        return new RouteLineInfo.RouteSectionInfo[i];
+    public RouteLineInfo.RouteSectionInfo[] newArray(int i2) {
+        return new RouteLineInfo.RouteSectionInfo[i2];
     }
 }

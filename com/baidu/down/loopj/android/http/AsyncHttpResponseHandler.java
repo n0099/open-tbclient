@@ -1,7 +1,7 @@
 package com.baidu.down.loopj.android.http;
 
 import android.os.Message;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class AsyncHttpResponseHandler {
     public static final int DOWNLOAD_MESSAGE = 4;
     public static final int FAILURE_MESSAGE = 1;
@@ -14,19 +14,19 @@ public class AsyncHttpResponseHandler {
     public boolean mSupportRange = true;
     public boolean mTrunked = false;
 
-    public void handleFailureMessage(Throwable th, String str, int i) {
-        onFailure(th, str, i);
+    public void handleFailureMessage(Throwable th, String str, int i2) {
+        onFailure(th, str, i2);
     }
 
     public void handleMessage(Message message) {
-        int i = message.what;
-        if (i == 0) {
+        int i2 = message.what;
+        if (i2 == 0) {
             Object[] objArr = (Object[]) message.obj;
             handleSuccessMessage(((Integer) objArr[0]).intValue(), (String) objArr[2]);
-        } else if (i != 1) {
-            if (i == 2) {
+        } else if (i2 != 1) {
+            if (i2 == 2) {
                 onStart();
-            } else if (i != 3) {
+            } else if (i2 != 3) {
             } else {
                 onFinish();
             }
@@ -44,13 +44,13 @@ public class AsyncHttpResponseHandler {
         }
     }
 
-    public void handleSuccessMessage(int i, String str) {
-        onSuccess(i, str);
+    public void handleSuccessMessage(int i2, String str) {
+        onSuccess(i2, str);
     }
 
-    public Message obtainMessage(int i, Object obj) {
+    public Message obtainMessage(int i2, Object obj) {
         Message obtain = Message.obtain();
-        obtain.what = i;
+        obtain.what = i2;
         obtain.obj = obj;
         return obtain;
     }
@@ -58,11 +58,11 @@ public class AsyncHttpResponseHandler {
     public void onDownload(String str) {
     }
 
-    public void onFailure(Throwable th, int i) {
+    public void onFailure(Throwable th, int i2) {
     }
 
-    public void onFailure(Throwable th, String str, int i) {
-        onFailure(th, i);
+    public void onFailure(Throwable th, String str, int i2) {
+        onFailure(th, i2);
     }
 
     public void onFinish() {
@@ -71,7 +71,7 @@ public class AsyncHttpResponseHandler {
     public void onStart() {
     }
 
-    public void onSuccess(int i, String str) {
+    public void onSuccess(int i2, String str) {
         onSuccess(str);
     }
 
@@ -98,11 +98,11 @@ public class AsyncHttpResponseHandler {
         sendMessage(obtainMessage(2, null));
     }
 
-    public void sendSuccessMessage(int i, String str, long j) {
-        sendMessage(obtainMessage(0, new Object[]{new Integer(i), str, Long.valueOf(j)}));
+    public void sendSuccessMessage(int i2, String str, long j) {
+        sendMessage(obtainMessage(0, new Object[]{new Integer(i2), str, Long.valueOf(j)}));
     }
 
-    public void sendFailureMessage(Throwable th, byte[] bArr, int i) {
-        sendMessage(obtainMessage(1, new Object[]{th, bArr, Integer.valueOf(i)}));
+    public void sendFailureMessage(Throwable th, byte[] bArr, int i2) {
+        sendMessage(obtainMessage(1, new Object[]{th, bArr, Integer.valueOf(i2)}));
     }
 }

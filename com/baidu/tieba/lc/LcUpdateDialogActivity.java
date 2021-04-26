@@ -164,12 +164,12 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        if (i == this.mSkinType) {
+    public void onChangeSkinType(int i2) {
+        if (i2 == this.mSkinType) {
             return;
         }
-        this.mSkinType = i;
-        super.onChangeSkinType(i);
+        this.mSkinType = i2;
+        super.onChangeSkinType(i2);
         SkinManager.setBackgroundResource(this.mBgView, R.drawable.dialog_background);
         SkinManager.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.mDescView, R.color.CAM_X0105);

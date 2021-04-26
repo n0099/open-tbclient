@@ -3,7 +3,7 @@ package com.baidu.wallet.statistics.impl;
 import android.content.Context;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.qq.e.comm.constants.Constants;
-import d.e.a.a.b.c;
+import d.d.a.a.b.c;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,8 +31,8 @@ public class SensorsSyncHttpImpl implements c {
         }
     }
 
-    @Override // d.e.a.a.b.c
-    public boolean send(Context context, int i, String str, Map<String, String> map) {
+    @Override // d.d.a.a.b.c
+    public boolean send(Context context, int i2, String str, Map<String, String> map) {
         OutputStream outputStream;
         OutputStream outputStream2;
         HttpURLConnection httpURLConnection;
@@ -54,13 +54,13 @@ public class SensorsSyncHttpImpl implements c {
         }
         try {
             httpURLConnection.setUseCaches(false);
-            httpURLConnection.setDoOutput(1 == i);
-            if (1 == i) {
+            httpURLConnection.setDoOutput(1 == i2);
+            if (1 == i2) {
                 httpURLConnection.setRequestMethod("POST");
-            } else if (i == 0) {
+            } else if (i2 == 0) {
                 httpURLConnection.setRequestMethod("GET");
             } else {
-                throw new Exception("not support http method:" + i);
+                throw new Exception("not support http method:" + i2);
             }
             httpURLConnection.setRequestProperty("Content-Encoding", AsyncHttpClient.ENCODING_GZIP);
             httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");

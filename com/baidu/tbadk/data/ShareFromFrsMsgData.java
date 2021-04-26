@@ -41,16 +41,16 @@ public class ShareFromFrsMsgData extends ShareBaseMsgData {
         this.imageUrl = str;
     }
 
-    public void setMemberNum(int i) {
-        this.memberNum = i;
+    public void setMemberNum(int i2) {
+        this.memberNum = i2;
     }
 
     public void setName(String str) {
         this.name = str;
     }
 
-    public void setPostNum(int i) {
-        this.postNum = i;
+    public void setPostNum(int i2) {
+        this.postNum = i2;
     }
 
     @Override // com.baidu.tbadk.data.ShareBaseMsgData

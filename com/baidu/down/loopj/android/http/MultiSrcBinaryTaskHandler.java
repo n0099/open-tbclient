@@ -12,7 +12,7 @@ import com.baidu.down.statistic.MultiSrcStatData;
 import com.baidu.down.utils.Utils;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
     public static final boolean DEBUG = false;
     public static final int MAX_STATICTIS_PAUSE = 3;
@@ -98,7 +98,7 @@ public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
     }
 
     @Override // com.baidu.down.loopj.android.http.BinaryHttpResponseHandler
-    public long receiveResponseData(ICommonRequestHandler iCommonRequestHandler, long j, int i, AsyncHttpRequest asyncHttpRequest) throws IOException {
+    public long receiveResponseData(ICommonRequestHandler iCommonRequestHandler, long j, int i2, AsyncHttpRequest asyncHttpRequest) throws IOException {
         int read;
         long j2 = j;
         InputStream inputStream = iCommonRequestHandler.getInputStream();
@@ -127,30 +127,30 @@ public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
             }
             int length = byteArray.mByteArray.length;
             byte[] bArr = new byte[length];
-            for (int i2 = -1; this.mRunning && multiSrcAsyncHttpRequest.requestIsRunning() && (read = inputStream.read(bArr)) != i2; i2 = -1) {
-                int i3 = length - byteArray.mByteArrayLength;
-                if (read <= i3) {
-                    i3 = read;
+            for (int i3 = -1; this.mRunning && multiSrcAsyncHttpRequest.requestIsRunning() && (read = inputStream.read(bArr)) != i3; i3 = -1) {
+                int i4 = length - byteArray.mByteArrayLength;
+                if (read <= i4) {
+                    i4 = read;
                 }
-                int i4 = byteArray.mByteArrayLength;
-                if (i4 + i3 >= length) {
-                    System.arraycopy(bArr, 0, byteArray.mByteArray, i4, i3);
-                    byteArray.mByteArrayLength += i3;
+                int i5 = byteArray.mByteArrayLength;
+                if (i5 + i4 >= length) {
+                    System.arraycopy(bArr, 0, byteArray.mByteArray, i5, i4);
+                    byteArray.mByteArrayLength += i4;
                     sendDownloadMessage(byteArray);
-                    j2 += i3;
+                    j2 += i4;
                     byteArray = TaskFacade.getInstance(null).getBinaryTaskMng().getByteArrayInfoMng().getByteArray();
                     byteArray.mFilePos = j2;
                     byteArray.mByteArrayLength = 0;
                 } else {
-                    System.arraycopy(bArr, 0, byteArray.mByteArray, i4, i3);
-                    byteArray.mByteArrayLength += i3;
-                    j2 += i3;
+                    System.arraycopy(bArr, 0, byteArray.mByteArray, i5, i4);
+                    byteArray.mByteArrayLength += i4;
+                    j2 += i4;
                 }
-                if (i3 < read) {
-                    int i5 = read - i3;
-                    System.arraycopy(bArr, i3, byteArray.mByteArray, byteArray.mByteArrayLength, i5);
-                    byteArray.mByteArrayLength += i5;
-                    j2 += i5;
+                if (i4 < read) {
+                    int i6 = read - i4;
+                    System.arraycopy(bArr, i4, byteArray.mByteArray, byteArray.mByteArrayLength, i6);
+                    byteArray.mByteArrayLength += i6;
+                    j2 += i6;
                 }
                 if (this.isNeedMultiSrc && this.mTestSpeedStage == 1 && multiSrcAsyncHttpRequest.isTestSpeedRequest()) {
                     multiSrcAsyncHttpRequest.updateAverageSpeed((MultiSrcBinaryReqTask) this.mtask, j2, read);
@@ -169,7 +169,7 @@ public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
             }
         }
         if (this.mRunning && multiSrcAsyncHttpRequest.requestIsRunning()) {
-            sendSuccessMessage(i, null, j2);
+            sendSuccessMessage(i2, null, j2);
         }
         if (this.mTrunked) {
             this.mRunning = false;
@@ -184,8 +184,8 @@ public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
         ((MultiSrcBinaryReqTask) this.mtask).retryServerInfo(onFetchDataRequestListener);
     }
 
-    public void setHttpDNSInfoStatus(String str, int i) {
-        ((MultiSrcBinaryReqTask) this.mtask).setHttpDNSInfoStatus(str, i);
+    public void setHttpDNSInfoStatus(String str, int i2) {
+        ((MultiSrcBinaryReqTask) this.mtask).setHttpDNSInfoStatus(str, i2);
     }
 
     public void setNeedMultiSrc(boolean z) {
@@ -202,7 +202,7 @@ public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
         this.mTestSpeedStage = 2;
     }
 
-    public void updateStatCstatus(int i) {
-        this.mMultiSrcStatData.dyuse = i;
+    public void updateStatCstatus(int i2) {
+        this.mMultiSrcStatData.dyuse = i2;
     }
 }

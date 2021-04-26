@@ -15,34 +15,36 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.TooltipCompatHandler;
-import com.kwad.sdk.utils.ao;
+import com.kwad.sdk.utils.an;
 /* loaded from: classes6.dex */
 public class DownloadProgressBar extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f37187a;
+    public Paint f34927a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f37188b;
+    public Paint f34928b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f37189c;
+    public Paint f34929c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Path f37190d;
+    public Path f34930d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f37191e;
+    public RectF f34931e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f37192f;
+    public String f34932f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f37193g;
+    public float f34933g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Rect f37194h;
-    public LinearGradient i;
+    public Rect f34934h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public LinearGradient f34935i;
     public LinearGradient j;
     public LinearGradient k;
     public long l;
@@ -57,8 +59,8 @@ public class DownloadProgressBar extends View {
         this(context, attributeSet, 0);
     }
 
-    public DownloadProgressBar(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public DownloadProgressBar(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.n = new Runnable() { // from class: com.kwad.sdk.widget.DownloadProgressBar.1
             @Override // java.lang.Runnable
             public void run() {
@@ -68,17 +70,17 @@ public class DownloadProgressBar extends View {
                 }
             }
         };
-        this.f37187a = new Paint(1);
-        this.f37188b = new Paint(1);
-        this.f37191e = new RectF();
+        this.f34927a = new Paint(1);
+        this.f34928b = new Paint(1);
+        this.f34931e = new RectF();
         Paint paint = new Paint(1);
-        this.f37189c = paint;
-        paint.setTextSize(ao.a(context, 16.0f));
-        this.f37189c.setColor(-1);
-        this.f37189c.setTextAlign(Paint.Align.CENTER);
-        this.f37194h = new Rect();
+        this.f34929c = paint;
+        paint.setTextSize(an.a(context, 16.0f));
+        this.f34929c.setColor(-1);
+        this.f34929c.setTextAlign(Paint.Align.CENTER);
+        this.f34934h = new Rect();
         this.m = new Matrix();
-        this.f37190d = new Path();
+        this.f34930d = new Path();
     }
 
     @Override // android.view.View
@@ -90,69 +92,69 @@ public class DownloadProgressBar extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.clipPath(this.f37190d);
-        this.f37187a.setShader(this.i);
-        canvas.drawRect(this.f37191e, this.f37187a);
-        this.f37187a.setShader(this.j);
-        canvas.drawRect(0.0f, 0.0f, (getWidth() * this.f37193g) / 100.0f, getHeight(), this.f37187a);
-        float f2 = this.f37193g;
+        canvas.clipPath(this.f34930d);
+        this.f34927a.setShader(this.f34935i);
+        canvas.drawRect(this.f34931e, this.f34927a);
+        this.f34927a.setShader(this.j);
+        canvas.drawRect(0.0f, 0.0f, (getWidth() * this.f34933g) / 100.0f, getHeight(), this.f34927a);
+        float f2 = this.f34933g;
         float f3 = 0.0f;
         if (f2 > 0.0f && f2 < 100.0f) {
             long elapsedRealtime = (SystemClock.elapsedRealtime() - this.l) % TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS;
-            int i = (elapsedRealtime > 1500L ? 1 : (elapsedRealtime == 1500L ? 0 : -1));
-            float f4 = i >= 0 ? 0.0f : ((float) elapsedRealtime) / 1500.0f;
+            int i2 = (elapsedRealtime > 1500L ? 1 : (elapsedRealtime == 1500L ? 0 : -1));
+            float f4 = i2 >= 0 ? 0.0f : ((float) elapsedRealtime) / 1500.0f;
             this.m.reset();
             this.m.setScale(1.0f, f4);
             this.k.setLocalMatrix(this.m);
-            this.f37188b.setShader(this.k);
-            canvas.drawRect(0.0f, 0.0f, ((getWidth() * this.f37193g) / 100.0f) * f4, getHeight(), this.f37188b);
-            if (elapsedRealtime > 500 && i <= 0) {
+            this.f34928b.setShader(this.k);
+            canvas.drawRect(0.0f, 0.0f, ((getWidth() * this.f34933g) / 100.0f) * f4, getHeight(), this.f34928b);
+            if (elapsedRealtime > 500 && i2 <= 0) {
                 f3 = ((float) (elapsedRealtime - 500)) / 1000.0f;
             }
-            float width = ((getWidth() * this.f37193g) / 100.0f) * f3;
+            float width = ((getWidth() * this.f34933g) / 100.0f) * f3;
             this.m.reset();
             this.m.setScale(1.0f, f4);
             this.k.setLocalMatrix(this.m);
-            this.f37188b.setShader(this.k);
-            canvas.drawRect(0.0f, 0.0f, width, getHeight(), this.f37188b);
+            this.f34928b.setShader(this.k);
+            canvas.drawRect(0.0f, 0.0f, width, getHeight(), this.f34928b);
         }
-        String str = this.f37192f;
+        String str = this.f34932f;
         if (str != null) {
-            this.f37189c.getTextBounds(str, 0, str.length(), this.f37194h);
-            Rect rect = this.f37194h;
-            canvas.drawText(this.f37192f, getWidth() / 2.0f, (getHeight() / 2.0f) - ((rect.top + rect.bottom) / 2.0f), this.f37189c);
+            this.f34929c.getTextBounds(str, 0, str.length(), this.f34934h);
+            Rect rect = this.f34934h;
+            canvas.drawText(this.f34932f, getWidth() / 2.0f, (getHeight() / 2.0f) - ((rect.top + rect.bottom) / 2.0f), this.f34929c);
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        this.i = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{1291525714, 1291569420}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        this.f34935i = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{1291525714, 1291569420}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
         this.j = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{-319918, -276212}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
-        this.f37187a.setShader(this.i);
+        this.f34927a.setShader(this.f34935i);
         LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{16501004, -276212}, new float[]{0.0f, 1.0f}, Shader.TileMode.CLAMP);
         this.k = linearGradient;
-        this.f37188b.setShader(linearGradient);
-        float f2 = i;
-        this.f37191e.set(0.0f, 0.0f, f2, i2);
-        this.f37190d.reset();
+        this.f34928b.setShader(linearGradient);
+        float f2 = i2;
+        this.f34931e.set(0.0f, 0.0f, f2, i3);
+        this.f34930d.reset();
         float f3 = f2 / 2.0f;
-        this.f37190d.addRoundRect(this.f37191e, f3, f3, Path.Direction.CW);
+        this.f34930d.addRoundRect(this.f34931e, f3, f3, Path.Direction.CW);
     }
 
     @Override // android.view.View
-    public void onVisibilityChanged(@NonNull View view, int i) {
-        super.onVisibilityChanged(view, i);
+    public void onVisibilityChanged(@NonNull View view, int i2) {
+        super.onVisibilityChanged(view, i2);
     }
 
     @Override // android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
-        if (i != 0) {
+    public void onWindowVisibilityChanged(int i2) {
+        super.onWindowVisibilityChanged(i2);
+        if (i2 != 0) {
             removeCallbacks(this.n);
             return;
         }
-        float f2 = this.f37193g;
+        float f2 = this.f34933g;
         if (f2 <= 0.0f || f2 >= 100.0f) {
             return;
         }
@@ -161,7 +163,7 @@ public class DownloadProgressBar extends View {
     }
 
     public void setProgress(float f2) {
-        this.f37193g = f2;
+        this.f34933g = f2;
         invalidate();
         if (f2 == 0.0f || f2 == 100.0f) {
             removeCallbacks(this.n);
@@ -171,7 +173,7 @@ public class DownloadProgressBar extends View {
     }
 
     public void setText(String str) {
-        this.f37192f = str;
+        this.f34932f = str;
         invalidate();
     }
 }

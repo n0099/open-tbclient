@@ -30,48 +30,48 @@ public final class Http2 {
     public static final String[] BINARY = new String[256];
 
     static {
-        int i;
-        int i2 = 0;
+        int i2;
         int i3 = 0;
+        int i4 = 0;
         while (true) {
             String[] strArr = BINARY;
-            if (i3 >= strArr.length) {
+            if (i4 >= strArr.length) {
                 break;
             }
-            strArr[i3] = Util.format("%8s", Integer.toBinaryString(i3)).replace(' ', '0');
-            i3++;
+            strArr[i4] = Util.format("%8s", Integer.toBinaryString(i4)).replace(' ', '0');
+            i4++;
         }
         String[] strArr2 = FLAGS;
         strArr2[0] = "";
         strArr2[1] = "END_STREAM";
         int[] iArr = {1};
         strArr2[8] = "PADDED";
-        for (int i4 = 0; i4 < 1; i4++) {
-            FLAGS[iArr[i4] | 8] = FLAGS[i] + "|PADDED";
+        for (int i5 = 0; i5 < 1; i5++) {
+            FLAGS[iArr[i5] | 8] = FLAGS[i2] + "|PADDED";
         }
         String[] strArr3 = FLAGS;
         strArr3[4] = "END_HEADERS";
         strArr3[32] = "PRIORITY";
         strArr3[36] = "END_HEADERS|PRIORITY";
         int[] iArr2 = {4, 32, 36};
-        for (int i5 = 0; i5 < 3; i5++) {
-            int i6 = iArr2[i5];
-            for (int i7 = 0; i7 < 1; i7++) {
-                int i8 = iArr[i7];
-                int i9 = i8 | i6;
-                FLAGS[i9] = FLAGS[i8] + '|' + FLAGS[i6];
-                FLAGS[i9 | 8] = FLAGS[i8] + '|' + FLAGS[i6] + "|PADDED";
+        for (int i6 = 0; i6 < 3; i6++) {
+            int i7 = iArr2[i6];
+            for (int i8 = 0; i8 < 1; i8++) {
+                int i9 = iArr[i8];
+                int i10 = i9 | i7;
+                FLAGS[i10] = FLAGS[i9] + '|' + FLAGS[i7];
+                FLAGS[i10 | 8] = FLAGS[i9] + '|' + FLAGS[i7] + "|PADDED";
             }
         }
         while (true) {
             String[] strArr4 = FLAGS;
-            if (i2 >= strArr4.length) {
+            if (i3 >= strArr4.length) {
                 return;
             }
-            if (strArr4[i2] == null) {
-                strArr4[i2] = BINARY[i2];
+            if (strArr4[i3] == null) {
+                strArr4[i3] = BINARY[i3];
             }
-            i2++;
+            i3++;
         }
     }
 
@@ -94,14 +94,14 @@ public final class Http2 {
         return BINARY[b3];
     }
 
-    public static String frameLog(boolean z, int i, int i2, byte b2, byte b3) {
+    public static String frameLog(boolean z, int i2, int i3, byte b2, byte b3) {
         String[] strArr = FRAME_NAMES;
         String format = b2 < strArr.length ? strArr[b2] : Util.format("0x%02x", Byte.valueOf(b2));
         String formatFlags = formatFlags(b2, b3);
         Object[] objArr = new Object[5];
         objArr[0] = z ? "<<" : ">>";
-        objArr[1] = Integer.valueOf(i);
-        objArr[2] = Integer.valueOf(i2);
+        objArr[1] = Integer.valueOf(i2);
+        objArr[2] = Integer.valueOf(i3);
         objArr[3] = format;
         objArr[4] = formatFlags;
         return Util.format("%s 0x%08x %5d %-13s %s", objArr);

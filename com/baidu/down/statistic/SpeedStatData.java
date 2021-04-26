@@ -12,7 +12,7 @@ import com.baidu.down.utils.Utils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class SpeedStatData {
     public static final String TAG = "SpeedStatData";
 
@@ -46,12 +46,12 @@ public class SpeedStatData {
     public static String buildSpeedStat(Context context, TaskSpeedStat taskSpeedStat, ConfigSpeedStat configSpeedStat) {
         JSONObject jSONObject = new JSONObject();
         if (taskSpeedStat != null && !Utils.isEmpty(taskSpeedStat.getSpeedStatThreadList())) {
-            int i = taskSpeedStat.status;
-            if (i == 1004 || i == 1006) {
+            int i2 = taskSpeedStat.status;
+            if (i2 == 1004 || i2 == 1006) {
                 long currentTimeMillis = System.currentTimeMillis();
                 long j = 0;
-                for (int i2 = 0; i2 < taskSpeedStat.getSpeedStatThreadList().size(); i2++) {
-                    ThreadSpeedStat threadSpeedStat = taskSpeedStat.getSpeedStatThreadList().get(i2);
+                for (int i3 = 0; i3 < taskSpeedStat.getSpeedStatThreadList().size(); i3++) {
+                    ThreadSpeedStat threadSpeedStat = taskSpeedStat.getSpeedStatThreadList().get(i3);
                     j += (threadSpeedStat.dend + threadSpeedStat.dTempDownSize) - threadSpeedStat.dstart;
                 }
                 if (configSpeedStat != null && (Math.abs(currentTimeMillis - taskSpeedStat.startTimeMillis) < configSpeedStat.cfgMinTime * 1000 || j < configSpeedStat.cfgMinSize)) {
@@ -84,8 +84,8 @@ public class SpeedStatData {
             jSONObject.put("startwritetime", taskSpeedStat.startWriteTimeMillis + "");
             jSONObject.put("endwritetime", taskSpeedStat.endWriteTimeMillis + "");
             JSONArray jSONArray = new JSONArray();
-            for (int i3 = 0; i3 < taskSpeedStat.getSpeedStatThreadList().size(); i3++) {
-                ThreadSpeedStat threadSpeedStat2 = taskSpeedStat.getSpeedStatThreadList().get(i3);
+            for (int i4 = 0; i4 < taskSpeedStat.getSpeedStatThreadList().size(); i4++) {
+                ThreadSpeedStat threadSpeedStat2 = taskSpeedStat.getSpeedStatThreadList().get(i4);
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put(ThreadSpeedStat.CLIENT_REQUEST_ID_HEADER_NAME, threadSpeedStat2.cqid);
                 jSONObject2.put("url", threadSpeedStat2.url);

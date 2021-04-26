@@ -12,7 +12,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RoundedCornersDrawable extends ForwardingDrawable implements Rounded {
     public int mBorderColor;
     public final Path mBorderPath;
@@ -38,7 +38,7 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     public Type mType;
 
     /* renamed from: com.facebook.drawee.drawable.RoundedCornersDrawable$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$drawee$drawable$RoundedCornersDrawable$Type;
 
@@ -56,7 +56,7 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum Type {
         OVERLAY_COLOR,
         CLIPPING
@@ -104,14 +104,14 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
         if (this.mIsCircle) {
             this.mBorderPath.addCircle(this.mTempRectangle.centerX(), this.mTempRectangle.centerY(), Math.min(this.mTempRectangle.width(), this.mTempRectangle.height()) / 2.0f, Path.Direction.CW);
         } else {
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 fArr = this.mBorderRadii;
-                if (i >= fArr.length) {
+                if (i2 >= fArr.length) {
                     break;
                 }
-                fArr[i] = (this.mRadii[i] + this.mPadding) - (this.mBorderWidth / 2.0f);
-                i++;
+                fArr[i2] = (this.mRadii[i2] + this.mPadding) - (this.mBorderWidth / 2.0f);
+                i2++;
             }
             this.mBorderPath.addRoundRect(this.mTempRectangle, fArr, Path.Direction.CW);
         }
@@ -123,14 +123,14 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     @Override // com.facebook.drawee.drawable.ForwardingDrawable, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         this.mBounds.set(getBounds());
-        int i = AnonymousClass1.$SwitchMap$com$facebook$drawee$drawable$RoundedCornersDrawable$Type[this.mType.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass1.$SwitchMap$com$facebook$drawee$drawable$RoundedCornersDrawable$Type[this.mType.ordinal()];
+        if (i2 == 1) {
             int save = canvas.save();
             this.mPath.setFillType(Path.FillType.EVEN_ODD);
             canvas.clipPath(this.mPath);
             super.draw(canvas);
             canvas.restoreToCount(save);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             if (this.mScaleDownInsideBorders) {
                 RectF rectF = this.mInsideBorderBounds;
                 if (rectF == null) {
@@ -235,8 +235,8 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
-    public void setBorder(int i, float f2) {
-        this.mBorderColor = i;
+    public void setBorder(int i2, float f2) {
+        this.mBorderColor = i2;
         this.mBorderWidth = f2;
         updatePath();
         invalidateSelf();
@@ -260,8 +260,8 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
         setBorderColorFilter(colorFilter);
     }
 
-    public void setOverlayColor(int i) {
-        this.mOverlayColor = i;
+    public void setOverlayColor(int i2) {
+        this.mOverlayColor = i2;
         invalidateSelf();
     }
 

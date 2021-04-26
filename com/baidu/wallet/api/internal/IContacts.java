@@ -21,7 +21,7 @@ public interface IContacts {
 
     ConcurrentHashMap<String, ContractInfo> loadSimContracts(@NonNull Context context);
 
-    boolean pickContactsByContactsContentUri(@NonNull Activity activity, int i);
+    boolean pickContactsByContactsContentUri(@NonNull Activity activity, int i2);
 
-    boolean pickContactsByPhoneContentType(@NonNull Activity activity, int i);
+    boolean pickContactsByPhoneContentType(@NonNull Activity activity, int i2);
 }

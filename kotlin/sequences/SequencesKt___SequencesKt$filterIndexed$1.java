@@ -1,13 +1,13 @@
 package kotlin.sequences;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import kotlin.Metadata;
 import kotlin.collections.IndexedValue;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0004H\n¢\u0006\u0002\b\u0005"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, AdvanceSetting.NETWORK_TYPE, "Lkotlin/collections/IndexedValue;", "invoke"}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0004H\n¢\u0006\u0002\b\u0005"}, d2 = {"<anonymous>", "", "T", AdvanceSetting.NETWORK_TYPE, "Lkotlin/collections/IndexedValue;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 /* loaded from: classes7.dex */
 public final class SequencesKt___SequencesKt$filterIndexed$1 extends Lambda implements Function1<IndexedValue<? extends T>, Boolean> {
     public final /* synthetic */ Function2 $predicate;
@@ -24,7 +24,8 @@ public final class SequencesKt___SequencesKt$filterIndexed$1 extends Lambda impl
         return Boolean.valueOf(invoke((IndexedValue) obj));
     }
 
-    public final boolean invoke(IndexedValue<? extends T> indexedValue) {
-        return ((Boolean) this.$predicate.invoke(Integer.valueOf(indexedValue.getIndex()), indexedValue.getValue())).booleanValue();
+    public final boolean invoke(IndexedValue<? extends T> it) {
+        Intrinsics.checkNotNullParameter(it, "it");
+        return ((Boolean) this.$predicate.invoke(Integer.valueOf(it.getIndex()), it.getValue())).booleanValue();
     }
 }

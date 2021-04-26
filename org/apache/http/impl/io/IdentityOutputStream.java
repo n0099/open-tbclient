@@ -21,7 +21,7 @@ public class IdentityOutputStream extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
+    public void write(byte[] bArr, int i2, int i3) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -31,7 +31,7 @@ public class IdentityOutputStream extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public void write(int i) throws IOException {
+    public void write(int i2) throws IOException {
         throw new RuntimeException("Stub!");
     }
 }

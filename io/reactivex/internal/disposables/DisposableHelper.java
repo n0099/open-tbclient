@@ -1,18 +1,19 @@
 package io.reactivex.internal.disposables;
 
-import f.b.a0.a;
-import f.b.t.b;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.ProtocolViolationException;
+import io.reactivex.internal.functions.ObjectHelper;
+import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public enum DisposableHelper implements b {
+public enum DisposableHelper implements Disposable {
     DISPOSED;
 
-    public static boolean dispose(AtomicReference<b> atomicReference) {
-        b andSet;
-        b bVar = atomicReference.get();
+    public static boolean dispose(AtomicReference<Disposable> atomicReference) {
+        Disposable andSet;
+        Disposable disposable = atomicReference.get();
         DisposableHelper disposableHelper = DISPOSED;
-        if (bVar == disposableHelper || (andSet = atomicReference.getAndSet(disposableHelper)) == disposableHelper) {
+        if (disposable == disposableHelper || (andSet = atomicReference.getAndSet(disposableHelper)) == disposableHelper) {
             return false;
         }
         if (andSet != null) {
@@ -22,54 +23,54 @@ public enum DisposableHelper implements b {
         return true;
     }
 
-    public static boolean isDisposed(b bVar) {
-        return bVar == DISPOSED;
+    public static boolean isDisposed(Disposable disposable) {
+        return disposable == DISPOSED;
     }
 
-    public static boolean replace(AtomicReference<b> atomicReference, b bVar) {
-        b bVar2;
+    public static boolean replace(AtomicReference<Disposable> atomicReference, Disposable disposable) {
+        Disposable disposable2;
         do {
-            bVar2 = atomicReference.get();
-            if (bVar2 == DISPOSED) {
-                if (bVar != null) {
-                    bVar.dispose();
+            disposable2 = atomicReference.get();
+            if (disposable2 == DISPOSED) {
+                if (disposable != null) {
+                    disposable.dispose();
                     return false;
                 }
                 return false;
             }
-        } while (!atomicReference.compareAndSet(bVar2, bVar));
+        } while (!atomicReference.compareAndSet(disposable2, disposable));
         return true;
     }
 
     public static void reportDisposableSet() {
-        a.f(new ProtocolViolationException("Disposable already set!"));
+        RxJavaPlugins.onError(new ProtocolViolationException("Disposable already set!"));
     }
 
-    public static boolean set(AtomicReference<b> atomicReference, b bVar) {
-        b bVar2;
+    public static boolean set(AtomicReference<Disposable> atomicReference, Disposable disposable) {
+        Disposable disposable2;
         do {
-            bVar2 = atomicReference.get();
-            if (bVar2 == DISPOSED) {
-                if (bVar != null) {
-                    bVar.dispose();
+            disposable2 = atomicReference.get();
+            if (disposable2 == DISPOSED) {
+                if (disposable != null) {
+                    disposable.dispose();
                     return false;
                 }
                 return false;
             }
-        } while (!atomicReference.compareAndSet(bVar2, bVar));
-        if (bVar2 != null) {
-            bVar2.dispose();
+        } while (!atomicReference.compareAndSet(disposable2, disposable));
+        if (disposable2 != null) {
+            disposable2.dispose();
             return true;
         }
         return true;
     }
 
-    public static boolean setOnce(AtomicReference<b> atomicReference, b bVar) {
-        f.b.x.b.a.b(bVar, "d is null");
-        if (atomicReference.compareAndSet(null, bVar)) {
+    public static boolean setOnce(AtomicReference<Disposable> atomicReference, Disposable disposable) {
+        ObjectHelper.requireNonNull(disposable, "d is null");
+        if (atomicReference.compareAndSet(null, disposable)) {
             return true;
         }
-        bVar.dispose();
+        disposable.dispose();
         if (atomicReference.get() != DISPOSED) {
             reportDisposableSet();
             return false;
@@ -77,23 +78,23 @@ public enum DisposableHelper implements b {
         return false;
     }
 
-    public static boolean trySet(AtomicReference<b> atomicReference, b bVar) {
-        if (atomicReference.compareAndSet(null, bVar)) {
+    public static boolean trySet(AtomicReference<Disposable> atomicReference, Disposable disposable) {
+        if (atomicReference.compareAndSet(null, disposable)) {
             return true;
         }
         if (atomicReference.get() == DISPOSED) {
-            bVar.dispose();
+            disposable.dispose();
             return false;
         }
         return false;
     }
 
-    public static boolean validate(b bVar, b bVar2) {
-        if (bVar2 == null) {
-            a.f(new NullPointerException("next is null"));
+    public static boolean validate(Disposable disposable, Disposable disposable2) {
+        if (disposable2 == null) {
+            RxJavaPlugins.onError(new NullPointerException("next is null"));
             return false;
-        } else if (bVar != null) {
-            bVar2.dispose();
+        } else if (disposable != null) {
+            disposable2.dispose();
             reportDisposableSet();
             return false;
         } else {
@@ -101,11 +102,11 @@ public enum DisposableHelper implements b {
         }
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         return true;
     }

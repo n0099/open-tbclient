@@ -7,6 +7,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.R;
 import androidx.core.view.ViewCompat;
 /* loaded from: classes.dex */
@@ -14,11 +15,12 @@ public class AppCompatBackgroundHelper {
     public TintInfo mBackgroundTint;
     public TintInfo mInternalBackgroundTint;
     public TintInfo mTmpInfo;
+    @NonNull
     public final View mView;
     public int mBackgroundResId = -1;
     public final AppCompatDrawableManager mDrawableManager = AppCompatDrawableManager.get();
 
-    public AppCompatBackgroundHelper(View view) {
+    public AppCompatBackgroundHelper(@NonNull View view) {
         this.mView = view;
     }
 
@@ -46,8 +48,8 @@ public class AppCompatBackgroundHelper {
     }
 
     private boolean shouldApplyFrameworkTintUsingColorFilter() {
-        int i = Build.VERSION.SDK_INT;
-        return i > 21 ? this.mInternalBackgroundTint != null : i == 21;
+        int i2 = Build.VERSION.SDK_INT;
+        return i2 > 21 ? this.mInternalBackgroundTint != null : i2 == 21;
     }
 
     public void applySupportBackgroundTint() {
@@ -84,8 +86,10 @@ public class AppCompatBackgroundHelper {
         return null;
     }
 
-    public void loadFromAttributes(AttributeSet attributeSet, int i) {
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.ViewBackgroundHelper, i, 0);
+    public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i2) {
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.ViewBackgroundHelper, i2, 0);
+        View view = this.mView;
+        ViewCompat.saveAttributeDataForStyleable(view, view.getContext(), R.styleable.ViewBackgroundHelper, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i2, 0);
         try {
             if (obtainStyledAttributes.hasValue(R.styleable.ViewBackgroundHelper_android_background)) {
                 this.mBackgroundResId = obtainStyledAttributes.getResourceId(R.styleable.ViewBackgroundHelper_android_background, -1);
@@ -111,10 +115,10 @@ public class AppCompatBackgroundHelper {
         applySupportBackgroundTint();
     }
 
-    public void onSetBackgroundResource(int i) {
-        this.mBackgroundResId = i;
+    public void onSetBackgroundResource(int i2) {
+        this.mBackgroundResId = i2;
         AppCompatDrawableManager appCompatDrawableManager = this.mDrawableManager;
-        setInternalBackgroundTint(appCompatDrawableManager != null ? appCompatDrawableManager.getTintList(this.mView.getContext(), i) : null);
+        setInternalBackgroundTint(appCompatDrawableManager != null ? appCompatDrawableManager.getTintList(this.mView.getContext(), i2) : null);
         applySupportBackgroundTint();
     }
 

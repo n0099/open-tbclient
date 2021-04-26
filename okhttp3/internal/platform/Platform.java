@@ -32,8 +32,8 @@ public class Platform {
     public static List<String> alpnProtocolNames(List<Protocol> list) {
         ArrayList arrayList = new ArrayList(list.size());
         int size = list.size();
-        for (int i = 0; i < size; i++) {
-            Protocol protocol = list.get(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            Protocol protocol = list.get(i2);
             if (protocol != Protocol.HTTP_1_0) {
                 arrayList.add(protocol.toString());
             }
@@ -44,8 +44,8 @@ public class Platform {
     public static byte[] concatLengthPrefixed(List<Protocol> list) {
         Buffer buffer = new Buffer();
         int size = list.size();
-        for (int i = 0; i < size; i++) {
-            Protocol protocol = list.get(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            Protocol protocol = list.get(i2);
             if (protocol != Protocol.HTTP_1_0) {
                 buffer.writeByte(protocol.toString().length());
                 buffer.writeUtf8(protocol.toString());
@@ -121,8 +121,8 @@ public class Platform {
     public void configureTlsExtensions(SSLSocket sSLSocket, String str, List<Protocol> list) {
     }
 
-    public void connectSocket(Socket socket, InetSocketAddress inetSocketAddress, int i) throws IOException {
-        socket.connect(inetSocketAddress, i);
+    public void connectSocket(Socket socket, InetSocketAddress inetSocketAddress, int i2) throws IOException {
+        socket.connect(inetSocketAddress, i2);
     }
 
     public String getPrefix() {
@@ -159,8 +159,8 @@ public class Platform {
         return true;
     }
 
-    public void log(int i, String str, Throwable th) {
-        logger.log(i == 5 ? Level.WARNING : Level.INFO, str, th);
+    public void log(int i2, String str, Throwable th) {
+        logger.log(i2 == 5 ? Level.WARNING : Level.INFO, str, th);
     }
 
     public void logCloseableLeak(String str, Object obj) {

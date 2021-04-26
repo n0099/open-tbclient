@@ -16,10 +16,10 @@ public class WXDesignerSharedObject implements WXMediaMessage.IMediaObject {
     public WXDesignerSharedObject() {
     }
 
-    public WXDesignerSharedObject(String str, int i, String str2, String str3) {
+    public WXDesignerSharedObject(String str, int i2, String str2, String str3) {
         this.url = str2;
         this.thumburl = str;
-        this.designerUIN = i;
+        this.designerUIN = i2;
         this.designerName = str3;
     }
 

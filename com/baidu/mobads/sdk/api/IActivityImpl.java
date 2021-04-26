@@ -13,7 +13,7 @@ public interface IActivityImpl {
 
     boolean dispatchTouchEvent(MotionEvent motionEvent);
 
-    void onActivityResult(int i, int i2, Intent intent);
+    void onActivityResult(int i2, int i3, Intent intent);
 
     void onAttachedToWindow();
 
@@ -27,9 +27,9 @@ public interface IActivityImpl {
 
     void onDetachedFromWindow();
 
-    boolean onKeyDown(int i, KeyEvent keyEvent);
+    boolean onKeyDown(int i2, KeyEvent keyEvent);
 
-    boolean onKeyUp(int i, KeyEvent keyEvent);
+    boolean onKeyUp(int i2, KeyEvent keyEvent);
 
     void onNewIntent(Intent intent);
 
@@ -49,7 +49,7 @@ public interface IActivityImpl {
 
     void onWindowFocusChanged(boolean z);
 
-    void overridePendingTransition(int i, int i2);
+    void overridePendingTransition(int i2, int i3);
 
     void setActivity(Activity activity);
 

@@ -9,13 +9,13 @@ import java.util.concurrent.Executors;
 public class AsyncHttpClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6814a = 4000;
+    public int f7050a = 4000;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6815b = 4000;
+    public int f7051b = 4000;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f6816c = Executors.newCachedThreadPool();
+    public ExecutorService f7052c = Executors.newCachedThreadPool();
 
     /* loaded from: classes2.dex */
     public static abstract class a implements Runnable {
@@ -44,7 +44,7 @@ public class AsyncHttpClient {
         if (str == null) {
             throw new IllegalArgumentException("URI cannot be null");
         }
-        this.f6816c.submit(new com.baidu.mapapi.http.a(this, protoResultCallback, str));
+        this.f7052c.submit(new com.baidu.mapapi.http.a(this, protoResultCallback, str));
     }
 
     public boolean isAuthorized() {

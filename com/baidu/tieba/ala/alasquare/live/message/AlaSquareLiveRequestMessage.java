@@ -4,19 +4,19 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.c.e.p.j;
-import d.b.c.e.p.l;
-import d.b.i0.z0.w;
+import d.a.c.e.p.j;
+import d.a.c.e.p.l;
+import d.a.i0.z0.w;
 import tbclient.LiveSquare.DataReq;
 import tbclient.LiveSquare.LiveSquareReqIdl;
 /* loaded from: classes4.dex */
 public class AlaSquareLiveRequestMessage extends NetMessage {
     public Integer mPn;
 
-    public AlaSquareLiveRequestMessage(int i, boolean z) {
+    public AlaSquareLiveRequestMessage(int i2, boolean z) {
         super(AlaCmdConfigHttp.CMD_SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE);
         this.mPn = 0;
-        this.mPn = Integer.valueOf(i);
+        this.mPn = Integer.valueOf(i2);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage

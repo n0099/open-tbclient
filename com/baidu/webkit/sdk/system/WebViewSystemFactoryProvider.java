@@ -316,12 +316,12 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public String getMainFrameIdInfo(int i) {
+            public String getMainFrameIdInfo(int i2) {
                 return null;
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public String getMainFrameIdReferrer(int i) {
+            public String getMainFrameIdReferrer(int i2) {
                 return null;
             }
 
@@ -521,7 +521,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public int getWormholeNum(int i) {
+            public int getWormholeNum(int i2) {
                 return 0;
             }
 
@@ -574,15 +574,15 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void kernelBrotliPush(long[] jArr, int i) {
+            public void kernelBrotliPush(long[] jArr, int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void kernelEncrypt(byte[] bArr, int i, byte[] bArr2) {
+            public void kernelEncrypt(byte[] bArr, int i2, byte[] bArr2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void notifyBdAppStatusChange(int i) {
+            public void notifyBdAppStatusChange(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -590,7 +590,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void removeMainFrameIdInfo(int i) {
+            public void removeMainFrameIdInfo(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -610,15 +610,15 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setBackupDnsJobDelayTime(int i) {
+            public void setBackupDnsJobDelayTime(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setBackupJobDelayTime(int i) {
+            public void setBackupJobDelayTime(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setBackupLandingJobDelayTime(int i) {
+            public void setBackupLandingJobDelayTime(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -630,7 +630,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setConThreshold(int i) {
+            public void setConThreshold(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -690,11 +690,11 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setHisHijackStopAbEnable(int i) {
+            public void setHisHijackStopAbEnable(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setHttpDnsCache(String str, int i) {
+            public void setHttpDnsCache(String str, int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -706,7 +706,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setIPV6Timeout(int i) {
+            public void setIPV6Timeout(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -722,7 +722,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setKeepAliveTime(int i) {
+            public void setKeepAliveTime(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -734,7 +734,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setMaxFatalAllocationFailureSize(int i) {
+            public void setMaxFatalAllocationFailureSize(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -786,7 +786,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setProxyType(int i) {
+            public void setProxyType(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -794,7 +794,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setQuicThreshold(int i) {
+            public void setQuicThreshold(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -822,7 +822,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setSocketGroupNumber(int i) {
+            public void setSocketGroupNumber(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -834,7 +834,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setSpdyTimeout(int i) {
+            public void setSpdyTimeout(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -862,7 +862,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
-            public void setVideoPlayerMode(int i) {
+            public void setVideoPlayerMode(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.SettingsStatics
@@ -931,7 +931,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public void crashIntentionally(int i) {
+            public void crashIntentionally(int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
@@ -961,7 +961,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public String getZeusSeriesNum(int i, int i2, int i3) {
+            public String getZeusSeriesNum(int i2, int i3, int i4) {
                 return "";
             }
 
@@ -984,7 +984,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public void onMemoryPresure(int i, Activity activity) {
+            public void onMemoryPresure(int i2, Activity activity) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
@@ -993,11 +993,11 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public Uri[] parseFileChooserResult(int i, Intent intent) {
+            public Uri[] parseFileChooserResult(int i2, Intent intent) {
                 if (Build.VERSION.SDK_INT >= 21) {
-                    return WebChromeClient.FileChooserParams.parseResult(i, intent);
+                    return WebChromeClient.FileChooserParams.parseResult(i2, intent);
                 }
-                Uri data = (intent == null || i != -1) ? null : intent.getData();
+                Uri data = (intent == null || i2 != -1) ? null : intent.getData();
                 if (data == null) {
                     return null;
                 }
@@ -1005,7 +1005,7 @@ public final class WebViewSystemFactoryProvider extends WebViewFactoryProvider {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics
-            public void preconnectUrl(String str, int i) {
+            public void preconnectUrl(String str, int i2) {
             }
 
             @Override // com.baidu.webkit.sdk.WebViewFactoryProvider.Statics

@@ -1,7 +1,6 @@
 package com.facebook.cache.disk;
 
 import android.content.Context;
-import android.support.v4.media.session.PlaybackStateCompat;
 import com.baidu.mobstat.Config;
 import com.facebook.cache.common.CacheErrorLogger;
 import com.facebook.cache.common.CacheEventListener;
@@ -14,7 +13,7 @@ import com.facebook.common.internal.Supplier;
 import com.facebook.common.internal.Suppliers;
 import java.io.File;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DiskCacheConfig {
     public final String mBaseDirectoryName;
     public final Supplier<File> mBaseDirectoryPathSupplier;
@@ -29,7 +28,7 @@ public class DiskCacheConfig {
     public final long mMinimumSizeLimit;
     public final int mVersion;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public String mBaseDirectoryName;
         public Supplier<File> mBaseDirectoryPathSupplier;
@@ -115,8 +114,8 @@ public class DiskCacheConfig {
             return this;
         }
 
-        public Builder setVersion(int i) {
-            this.mVersion = i;
+        public Builder setVersion(int i2) {
+            this.mVersion = i2;
             return this;
         }
 
@@ -125,7 +124,7 @@ public class DiskCacheConfig {
             this.mBaseDirectoryName = "image_cache";
             this.mMaxCacheSize = 41943040L;
             this.mMaxCacheSizeOnLowDiskSpace = Config.FULL_TRACE_LOG_LIMIT;
-            this.mMaxCacheSizeOnVeryLowDiskSpace = PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE;
+            this.mMaxCacheSizeOnVeryLowDiskSpace = 2097152L;
             this.mEntryEvictionComparatorSupplier = new DefaultEntryEvictionComparatorSupplier();
             this.mContext = context;
         }

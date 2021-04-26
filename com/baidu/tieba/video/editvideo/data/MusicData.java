@@ -20,10 +20,10 @@ public class MusicData extends OrmObject {
         this.editMusicType = 0;
     }
 
-    public MusicData(String str, int i, String str2) {
+    public MusicData(String str, int i2, String str2) {
         this.editMusicType = 0;
         this.id = str;
-        this.editMusicType = i;
+        this.editMusicType = i2;
         this.name = str2;
     }
 }

@@ -14,11 +14,11 @@ public final class LbsPayBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LbsPayBeanFactory f2633a = new LbsPayBeanFactory();
+        public static LbsPayBeanFactory f2630a = new LbsPayBeanFactory();
     }
 
     public static LbsPayBeanFactory getInstance() {
-        return a.f2633a;
+        return a.f2630a;
     }
 
     public LbsPayBeanFactory() {
@@ -30,14 +30,14 @@ public final class LbsPayBeanFactory implements IBeanFactory {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public BaseBean<?> getBean(Context context, int i, String str) {
+    public BaseBean<?> getBean(Context context, int i2, String str) {
         BaseBean<?> newCashierBean;
         BaseBean<?> baseBean;
-        if (i == 1) {
+        if (i2 == 1) {
             newCashierBean = new NewCashierBean(context);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             newCashierBean = new GetPayBean(context);
-        } else if (i != 3) {
+        } else if (i2 != 3) {
             baseBean = null;
             if (baseBean != null) {
                 BeanManager.getInstance().addBean(str, baseBean);

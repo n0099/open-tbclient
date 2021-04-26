@@ -4,7 +4,6 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import kotlin.Metadata;
-import kotlin.TypeCastException;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
@@ -35,9 +34,7 @@ public final class GeneratorSequence$iterator$1 implements Iterator<T>, KMappedM
         } else {
             function1 = this.this$0.getNextValue;
             T t2 = this.nextItem;
-            if (t2 == 0) {
-                Intrinsics.throwNpe();
-            }
+            Intrinsics.checkNotNull(t2);
             t = function1.invoke(t2);
         }
         this.nextItem = t;
@@ -71,7 +68,7 @@ public final class GeneratorSequence$iterator$1 implements Iterator<T>, KMappedM
                 this.nextState = -1;
                 return t;
             }
-            throw new TypeCastException("null cannot be cast to non-null type T");
+            throw new NullPointerException("null cannot be cast to non-null type T");
         }
         throw new NoSuchElementException();
     }
@@ -85,7 +82,7 @@ public final class GeneratorSequence$iterator$1 implements Iterator<T>, KMappedM
         this.nextItem = t;
     }
 
-    public final void setNextState(int i) {
-        this.nextState = i;
+    public final void setNextState(int i2) {
+        this.nextState = i2;
     }
 }

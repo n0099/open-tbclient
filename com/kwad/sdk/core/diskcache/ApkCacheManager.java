@@ -3,7 +3,7 @@ package com.kwad.sdk.core.diskcache;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.d.a;
-import com.kwad.sdk.utils.ad;
+import com.kwad.sdk.utils.ae;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,16 +18,16 @@ import java.util.concurrent.Future;
 public class ApkCacheManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public Future f33845a;
+    public Future f32870a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f33846b;
+    public File f32871b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ExecutorService f33847c;
+    public final ExecutorService f32872c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Callable<Void> f33848d;
+    public final Callable<Void> f32873d;
 
     /* loaded from: classes6.dex */
     public enum Holder {
@@ -44,15 +44,15 @@ public class ApkCacheManager {
     }
 
     public ApkCacheManager() {
-        this.f33847c = Executors.newSingleThreadExecutor();
-        this.f33848d = new Callable<Void>() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
+        this.f32872c = Executors.newSingleThreadExecutor();
+        this.f32873d = new Callable<Void>() { // from class: com.kwad.sdk.core.diskcache.ApkCacheManager.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: a */
             public Void call() {
                 synchronized (ApkCacheManager.class) {
-                    if (ApkCacheManager.this.f33846b != null && ApkCacheManager.this.f33846b.exists() && !ApkCacheManager.this.c()) {
-                        for (File file : ApkCacheManager.this.d(ApkCacheManager.this.f33846b)) {
+                    if (ApkCacheManager.this.f32871b != null && ApkCacheManager.this.f32871b.exists() && !ApkCacheManager.this.c()) {
+                        for (File file : ApkCacheManager.this.d(ApkCacheManager.this.f32871b)) {
                             if (file.getName().endsWith(".apk")) {
                                 ApkCacheManager.this.c(file);
                                 if (ApkCacheManager.this.c()) {
@@ -70,7 +70,7 @@ public class ApkCacheManager {
             return;
         }
         try {
-            this.f33846b = ad.c(KsAdSDKImpl.get().getContext());
+            this.f32871b = ae.c(KsAdSDKImpl.get().getContext());
         } catch (Throwable th) {
             a.a(th);
         }
@@ -103,8 +103,8 @@ public class ApkCacheManager {
         long j = 0;
         if (listFiles != null) {
             int length = listFiles.length;
-            for (int i = 0; i < length; i++) {
-                j += listFiles[i].isDirectory() ? b(listFiles[i]) : listFiles[i].length();
+            for (int i2 = 0; i2 < length; i2++) {
+                j += listFiles[i2].isDirectory() ? b(listFiles[i2]) : listFiles[i2].length();
             }
         }
         return j;
@@ -131,12 +131,12 @@ public class ApkCacheManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean c() {
-        File file = this.f33846b;
+        File file = this.f32871b;
         if (file == null || !file.exists()) {
             return false;
         }
-        File[] listFiles = this.f33846b.listFiles();
-        return listFiles.length <= 5 || (listFiles.length <= 10 && a(this.f33846b) <= 400);
+        File[] listFiles = this.f32871b.listFiles();
+        return listFiles.length <= 5 || (listFiles.length <= 10 && a(this.f32871b) <= 400);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -152,13 +152,13 @@ public class ApkCacheManager {
     }
 
     public void b() {
-        File file = this.f33846b;
+        File file = this.f32871b;
         if (file == null || !file.exists()) {
             return;
         }
-        Future future = this.f33845a;
+        Future future = this.f32870a;
         if (future == null || future.isDone()) {
-            this.f33845a = this.f33847c.submit(this.f33848d);
+            this.f32870a = this.f32872c.submit(this.f32873d);
         }
     }
 }

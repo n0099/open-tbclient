@@ -12,7 +12,7 @@ public class CheckRealNameSocketResponseMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         Error error;
         CheckRealNameResIdl checkRealNameResIdl = (CheckRealNameResIdl) new Wire(new Class[0]).parseFrom(bArr, CheckRealNameResIdl.class);
         if (bArr == null || (error = checkRealNameResIdl.error) == null) {

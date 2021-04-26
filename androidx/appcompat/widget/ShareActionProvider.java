@@ -112,15 +112,15 @@ public class ShareActionProvider extends ActionProvider {
         PackageManager packageManager = this.mContext.getPackageManager();
         int activityCount = activityChooserModel.getActivityCount();
         int min = Math.min(activityCount, this.mMaxShownActivityCount);
-        for (int i = 0; i < min; i++) {
-            ResolveInfo activity = activityChooserModel.getActivity(i);
-            subMenu.add(0, i, i, activity.loadLabel(packageManager)).setIcon(activity.loadIcon(packageManager)).setOnMenuItemClickListener(this.mOnMenuItemClickListener);
+        for (int i2 = 0; i2 < min; i2++) {
+            ResolveInfo activity = activityChooserModel.getActivity(i2);
+            subMenu.add(0, i2, i2, activity.loadLabel(packageManager)).setIcon(activity.loadIcon(packageManager)).setOnMenuItemClickListener(this.mOnMenuItemClickListener);
         }
         if (min < activityCount) {
             SubMenu addSubMenu = subMenu.addSubMenu(0, min, min, this.mContext.getString(R.string.abc_activity_chooser_view_see_all));
-            for (int i2 = 0; i2 < activityCount; i2++) {
-                ResolveInfo activity2 = activityChooserModel.getActivity(i2);
-                addSubMenu.add(0, i2, i2, activity2.loadLabel(packageManager)).setIcon(activity2.loadIcon(packageManager)).setOnMenuItemClickListener(this.mOnMenuItemClickListener);
+            for (int i3 = 0; i3 < activityCount; i3++) {
+                ResolveInfo activity2 = activityChooserModel.getActivity(i3);
+                addSubMenu.add(0, i3, i3, activity2.loadLabel(packageManager)).setIcon(activity2.loadIcon(packageManager)).setOnMenuItemClickListener(this.mOnMenuItemClickListener);
             }
         }
     }

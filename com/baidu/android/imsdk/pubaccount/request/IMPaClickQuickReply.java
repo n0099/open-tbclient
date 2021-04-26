@@ -80,32 +80,32 @@ public class IMPaClickQuickReply extends PaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
         IClickPaQuickReplyListener iClickPaQuickReplyListener = (IClickPaQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
         if (iClickPaQuickReplyListener != null) {
-            iClickPaQuickReplyListener.onClickQuickReply(i);
+            iClickPaQuickReplyListener.onClickQuickReply(i2);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str = new String(bArr);
         IClickPaQuickReplyListener iClickPaQuickReplyListener = (IClickPaQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
-        int i2 = 1010;
+        int i3 = 1010;
         if (TextUtils.isEmpty(str) && iClickPaQuickReplyListener != null) {
             iClickPaQuickReplyListener.onClickQuickReply(1010);
             return;
         }
         try {
-            i2 = new JSONObject(str).getInt("error_code");
+            i3 = new JSONObject(str).getInt("error_code");
         } catch (JSONException e2) {
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
         }
-        if (i2 == 54000 || i2 == 54001 || i2 == 54002 || i2 == 54003) {
+        if (i3 == 54000 || i3 == 54001 || i3 == 54002 || i3 == 54003) {
             PaManagerImpl.getInstance(this.mContext).setPaQuickRelies(this.mPaid, "", System.currentTimeMillis());
         }
         if (iClickPaQuickReplyListener != null) {
-            iClickPaQuickReplyListener.onClickQuickReply(i2);
+            iClickPaQuickReplyListener.onClickQuickReply(i3);
         }
     }
 

@@ -14,23 +14,25 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.SkinProgressView;
-import d.b.c.e.p.l;
-import d.b.j0.j3.e.d;
+import d.a.c.e.p.l;
+import d.a.j0.j3.e.d;
 /* loaded from: classes5.dex */
 public class BackgroundItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21294e;
+    public Context f21900e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21295f;
+    public View f21901f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f21296g;
+    public TbImageView f21902g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f21297h;
-    public TbImageView i;
+    public TbImageView f21903h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TbImageView f21904i;
     public ImageView j;
     public TextView k;
     public SkinProgressView l;
@@ -53,7 +55,7 @@ public class BackgroundItemView extends LinearLayout {
             if (view == BackgroundItemView.this.l) {
                 TiebaStatic.log(new StatisticItem("c10280").param("obj_id", BackgroundItemView.this.m.getPropsId()));
                 BackgroundItemView.this.p.e(BackgroundItemView.this.m, false);
-            } else if (view == BackgroundItemView.this.f21296g) {
+            } else if (view == BackgroundItemView.this.f21902g) {
                 TiebaStatic.log(new StatisticItem("c10279").param("obj_id", BackgroundItemView.this.m.getPropsId()));
                 BackgroundItemView.this.p.b(BackgroundItemView.this.m);
             }
@@ -63,7 +65,7 @@ public class BackgroundItemView extends LinearLayout {
     public BackgroundItemView(Context context) {
         super(context);
         this.q = new a();
-        this.f21294e = context;
+        this.f21900e = context;
         g();
     }
 
@@ -74,10 +76,10 @@ public class BackgroundItemView extends LinearLayout {
         this.m = dressItemData;
         Boolean valueOf = Boolean.valueOf(dressItemData.getInUse());
         if (dressItemData.getPropsId() == 0) {
-            SkinManager.setImageResource(this.f21296g, R.drawable.pic_bg_moren);
+            SkinManager.setImageResource(this.f21902g, R.drawable.pic_bg_moren);
         } else {
-            this.f21296g.setImageBitmap(null);
-            this.f21296g.W(dressItemData.getExampleImgUrl(), 10, false);
+            this.f21902g.setImageBitmap(null);
+            this.f21902g.V(dressItemData.getExampleImgUrl(), 10, false);
         }
         this.k.setText(dressItemData.getTitle());
         if (valueOf.booleanValue()) {
@@ -86,8 +88,8 @@ public class BackgroundItemView extends LinearLayout {
         } else {
             this.j.setVisibility(8);
         }
-        this.f21297h.W(dressItemData.getPermissionImgUrl(), 10, false);
-        this.i.W(dressItemData.getPropsStateImg(), 10, false);
+        this.f21903h.V(dressItemData.getPermissionImgUrl(), 10, false);
+        this.f21904i.V(dressItemData.getPropsStateImg(), 10, false);
         if (valueOf.booleanValue()) {
             this.l.c(0, 0.0f);
         } else {
@@ -101,30 +103,30 @@ public class BackgroundItemView extends LinearLayout {
     }
 
     public final void g() {
-        int k = (l.k(this.f21294e) - l.g(this.f21294e, R.dimen.ds88)) / 3;
+        int k = (l.k(this.f21900e) - l.g(this.f21900e, R.dimen.ds88)) / 3;
         this.n = k;
         this.o = (int) (k / 0.66d);
-        View inflate = LayoutInflater.from(this.f21294e).inflate(R.layout.background_item, this);
-        this.f21295f = inflate;
-        this.f21296g = (TbImageView) inflate.findViewById(R.id.bg_image);
-        TbImageView tbImageView = (TbImageView) this.f21295f.findViewById(R.id.permission_icon);
-        this.f21297h = tbImageView;
+        View inflate = LayoutInflater.from(this.f21900e).inflate(R.layout.background_item, this);
+        this.f21901f = inflate;
+        this.f21902g = (TbImageView) inflate.findViewById(R.id.bg_image);
+        TbImageView tbImageView = (TbImageView) this.f21901f.findViewById(R.id.permission_icon);
+        this.f21903h = tbImageView;
         tbImageView.setDefaultResource(R.drawable.transparent_bg);
-        this.f21297h.setDefaultBgResource(R.drawable.transparent_bg);
-        TbImageView tbImageView2 = (TbImageView) this.f21295f.findViewById(R.id.state_icon);
-        this.i = tbImageView2;
+        this.f21903h.setDefaultBgResource(R.drawable.transparent_bg);
+        TbImageView tbImageView2 = (TbImageView) this.f21901f.findViewById(R.id.state_icon);
+        this.f21904i = tbImageView2;
         tbImageView2.setDefaultResource(R.drawable.transparent_bg);
-        this.i.setDefaultBgResource(R.drawable.transparent_bg);
-        this.j = (ImageView) this.f21295f.findViewById(R.id.choosed_icon);
-        this.k = (TextView) this.f21295f.findViewById(R.id.text_bg_name);
-        SkinProgressView skinProgressView = (SkinProgressView) this.f21295f.findViewById(R.id.view_bg_use);
+        this.f21904i.setDefaultBgResource(R.drawable.transparent_bg);
+        this.j = (ImageView) this.f21901f.findViewById(R.id.choosed_icon);
+        this.k = (TextView) this.f21901f.findViewById(R.id.text_bg_name);
+        SkinProgressView skinProgressView = (SkinProgressView) this.f21901f.findViewById(R.id.view_bg_use);
         this.l = skinProgressView;
         skinProgressView.setOnClickListener(this.q);
-        this.f21296g.setOnClickListener(this.q);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f21296g.getLayoutParams();
+        this.f21902g.setOnClickListener(this.q);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f21902g.getLayoutParams();
         layoutParams.height = this.o;
         layoutParams.width = this.n;
-        this.f21296g.setLayoutParams(layoutParams);
+        this.f21902g.setLayoutParams(layoutParams);
     }
 
     public void setController(d dVar) {
@@ -134,14 +136,14 @@ public class BackgroundItemView extends LinearLayout {
     public BackgroundItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.q = new a();
-        this.f21294e = context;
+        this.f21900e = context;
         g();
     }
 
-    public BackgroundItemView(Context context, AttributeSet attributeSet, int i) {
+    public BackgroundItemView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet);
         this.q = new a();
-        this.f21294e = context;
+        this.f21900e = context;
         g();
     }
 }

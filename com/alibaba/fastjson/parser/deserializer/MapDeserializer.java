@@ -41,7 +41,7 @@ public class MapDeserializer extends ContextObjectDeserializer implements Object
     }
 
     @Override // com.alibaba.fastjson.parser.deserializer.ContextObjectDeserializer
-    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, String str, int i) {
+    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, String str, int i2) {
         Map<Object, Object> createMap;
         if (type == JSONObject.class && defaultJSONParser.getFieldTypeResolver() == null) {
             return (T) defaultJSONParser.parseObject();
@@ -61,7 +61,7 @@ public class MapDeserializer extends ContextObjectDeserializer implements Object
         ParseContext context = defaultJSONParser.getContext();
         try {
             defaultJSONParser.setContext(context, map, obj);
-            T t = (T) deserialze(defaultJSONParser, type, obj, map, i);
+            T t = (T) deserialze(defaultJSONParser, type, obj, map, i2);
             if (z) {
                 t = (T) Collections.unmodifiableMap((Map) t);
             }
@@ -82,19 +82,19 @@ public class MapDeserializer extends ContextObjectDeserializer implements Object
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Map parseMap(DefaultJSONParser defaultJSONParser, Map<String, Object> map, Type type, Object obj, int i) {
+    public static Map parseMap(DefaultJSONParser defaultJSONParser, Map<String, Object> map, Type type, Object obj, int i2) {
         String scanSymbolUnQuoted;
         Class<?> checkAutoType;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
-        int i2 = jSONLexer.token();
-        int i3 = 0;
-        if (i2 != 12) {
+        int i3 = jSONLexer.token();
+        int i4 = 0;
+        if (i3 != 12) {
             String str = "syntax error, expect {, actual " + jSONLexer.tokenName();
             if (obj instanceof String) {
                 str = (str + ", fieldName ") + obj;
             }
             String str2 = (str + StringUtil.ARRAY_ELEMENT_SEPARATOR) + jSONLexer.info();
-            if (i2 != 4) {
+            if (i3 != 4) {
                 JSONArray jSONArray = new JSONArray();
                 defaultJSONParser.parseArray(jSONArray, obj);
                 if (jSONArray.size() == 1) {
@@ -154,7 +154,7 @@ public class MapDeserializer extends ContextObjectDeserializer implements Object
                 jSONLexer.getCurrent();
                 jSONLexer.resetStringPosition();
                 Object obj3 = null;
-                if (scanSymbolUnQuoted == JSON.DEFAULT_TYPE_KEY && !jSONLexer.isEnabled(Feature.DisableSpecialKeyDetect) && !Feature.isEnabled(i, Feature.DisableSpecialKeyDetect)) {
+                if (scanSymbolUnQuoted == JSON.DEFAULT_TYPE_KEY && !jSONLexer.isEnabled(Feature.DisableSpecialKeyDetect) && !Feature.isEnabled(i2, Feature.DisableSpecialKeyDetect)) {
                     String scanSymbol = jSONLexer.scanSymbol(defaultJSONParser.getSymbolTable(), Typography.quote);
                     ParserConfig config = defaultJSONParser.getConfig();
                     if (scanSymbol.equals("java.util.HashMap")) {
@@ -179,7 +179,7 @@ public class MapDeserializer extends ContextObjectDeserializer implements Object
                     }
                 } else {
                     jSONLexer.nextToken();
-                    if (i3 != 0) {
+                    if (i4 != 0) {
                         defaultJSONParser.setContext(context);
                     }
                     if (jSONLexer.token() == 8) {
@@ -191,22 +191,22 @@ public class MapDeserializer extends ContextObjectDeserializer implements Object
                     defaultJSONParser.checkMapResolve(map, scanSymbolUnQuoted);
                     defaultJSONParser.setContext(context, obj3, scanSymbolUnQuoted);
                     defaultJSONParser.setContext(context);
-                    int i4 = jSONLexer.token();
-                    if (i4 == 20 || i4 == 15) {
+                    int i5 = jSONLexer.token();
+                    if (i5 == 20 || i5 == 15) {
                         break;
-                    } else if (i4 == 13) {
+                    } else if (i5 == 13) {
                         jSONLexer.nextToken();
                         return map;
                     }
                 }
-                i3++;
+                i4++;
             } finally {
                 defaultJSONParser.setContext(context);
             }
         }
     }
 
-    public Map<Object, Object> createMap(Type type, int i) {
+    public Map<Object, Object> createMap(Type type, int i2) {
         if (type == Properties.class) {
             return new Properties();
         }
@@ -219,7 +219,7 @@ public class MapDeserializer extends ContextObjectDeserializer implements Object
         if (type != SortedMap.class && type != TreeMap.class) {
             if (type != ConcurrentMap.class && type != ConcurrentHashMap.class) {
                 if (type == Map.class) {
-                    return (Feature.OrderedField.mask & i) != 0 ? new LinkedHashMap() : new HashMap();
+                    return (Feature.OrderedField.mask & i2) != 0 ? new LinkedHashMap() : new HashMap();
                 } else if (type == HashMap.class) {
                     return new HashMap();
                 } else {
@@ -232,7 +232,7 @@ public class MapDeserializer extends ContextObjectDeserializer implements Object
                         if (EnumMap.class.equals(rawType)) {
                             return new EnumMap((Class) parameterizedType.getActualTypeArguments()[0]);
                         }
-                        return createMap(rawType, i);
+                        return createMap(rawType, i2);
                     }
                     Class cls = (Class) type;
                     if (!cls.isInterface()) {
@@ -257,7 +257,7 @@ public class MapDeserializer extends ContextObjectDeserializer implements Object
         return deserialze(defaultJSONParser, type, obj, map, 0);
     }
 
-    public Object deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, Map map, int i) {
+    public Object deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, Map map, int i2) {
         Type type2;
         if (type instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) type;
@@ -268,7 +268,7 @@ public class MapDeserializer extends ContextObjectDeserializer implements Object
                 type2 = parameterizedType.getActualTypeArguments()[1];
             }
             if (String.class == type3) {
-                return parseMap(defaultJSONParser, map, type2, obj, i);
+                return parseMap(defaultJSONParser, map, type2, obj, i2);
             }
             return parseMap(defaultJSONParser, map, type3, type2, obj);
         }

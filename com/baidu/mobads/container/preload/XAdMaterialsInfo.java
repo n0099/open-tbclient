@@ -20,8 +20,8 @@ public class XAdMaterialsInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public XAdMaterialsInfo[] newArray(int i) {
-            return new XAdMaterialsInfo[i];
+        public XAdMaterialsInfo[] newArray(int i2) {
+            return new XAdMaterialsInfo[i2];
         }
     };
     public String appsid;
@@ -47,9 +47,9 @@ public class XAdMaterialsInfo implements Parcelable {
     public static List<XAdMaterialsInfo> fromJsonArray(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList();
         if (jSONArray != null) {
-            for (int i = 0; i < jSONArray.length(); i++) {
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 try {
-                    arrayList.add(fromJson(jSONArray.getJSONObject(i)));
+                    arrayList.add(fromJson(jSONArray.getJSONObject(i2)));
                 } catch (Exception unused) {
                 }
             }
@@ -79,7 +79,7 @@ public class XAdMaterialsInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.url);
         parcel.writeString(this.appsid);
         parcel.writeString(this.expired);

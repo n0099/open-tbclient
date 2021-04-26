@@ -9,8 +9,8 @@ public class ApplyCopyThreadResponseMessage extends JsonHttpResponsedMessage {
     public String success_remind;
     public String tid_typedesc;
 
-    public ApplyCopyThreadResponseMessage(int i) {
-        super(i);
+    public ApplyCopyThreadResponseMessage(int i2) {
+        super(i2);
         this.errorCode = 0;
         this.errorMessage = null;
         this.tid_typedesc = null;
@@ -18,8 +18,8 @@ public class ApplyCopyThreadResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i, jSONObject);
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (isSuccess()) {
             JSONObject optJSONObject = jSONObject.optJSONObject("error");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("data");

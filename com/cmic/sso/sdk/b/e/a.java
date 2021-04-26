@@ -10,25 +10,25 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManagerFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public X509Certificate f30448a;
+    public X509Certificate f31377a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SSLContext f30449b;
+    public SSLContext f31378b;
 
     public a(String str) {
         a(str);
         try {
             KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
             keyStore.load(null, null);
-            keyStore.setCertificateEntry("cert", this.f30448a);
+            keyStore.setCertificateEntry("cert", this.f31377a);
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init(keyStore);
             SSLContext sSLContext = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
-            this.f30449b = sSLContext;
+            this.f31378b = sSLContext;
             sSLContext.init(null, trustManagerFactory.getTrustManagers(), null);
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -37,7 +37,7 @@ public class a {
 
     private void a(String str) {
         ByteArrayInputStream byteArrayInputStream;
-        if (this.f30448a == null) {
+        if (this.f31377a == null) {
             ByteArrayInputStream byteArrayInputStream2 = null;
             try {
                 try {
@@ -50,7 +50,7 @@ public class a {
                     th = th;
                 }
                 try {
-                    this.f30448a = (X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream);
+                    this.f31377a = (X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream);
                     byteArrayInputStream.close();
                 } catch (CertificateException e3) {
                     e = e3;
@@ -78,6 +78,6 @@ public class a {
     }
 
     public SSLContext a() {
-        return this.f30449b;
+        return this.f31378b;
     }
 }

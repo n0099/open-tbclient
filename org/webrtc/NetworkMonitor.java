@@ -215,11 +215,11 @@ public class NetworkMonitor {
     }
 
     public int getNumObservers() {
-        int i;
+        int i2;
         synchronized (this.autoDetectLock) {
-            i = this.numObservers;
+            i2 = this.numObservers;
         }
-        return i;
+        return i2;
     }
 
     public void removeObserver(NetworkObserver networkObserver) {
@@ -245,9 +245,9 @@ public class NetworkMonitor {
 
     public void stopMonitoring() {
         synchronized (this.autoDetectLock) {
-            int i = this.numObservers - 1;
-            this.numObservers = i;
-            if (i == 0) {
+            int i2 = this.numObservers - 1;
+            this.numObservers = i2;
+            if (i2 == 0) {
                 this.autoDetect.destroy();
                 this.autoDetect = null;
             }

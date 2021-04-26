@@ -1,100 +1,110 @@
 package com.win.opensdk;
 
-import android.graphics.Bitmap;
-import android.os.AsyncTask;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-/* loaded from: classes7.dex */
-public final class V extends AsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    public W f40204a;
+import java.nio.BufferUnderflowException;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.util.Arrays;
+/* loaded from: classes6.dex */
+public class V {
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ File f40205b;
+    public ByteBuffer f37791b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Bitmap f40206c;
+    public U f37792c;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final byte[] f37790a = new byte[256];
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ Bitmap.CompressFormat f40207d;
+    public int f37793d = 0;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ i f40208e;
-
-    public V(File file, Bitmap bitmap, Bitmap.CompressFormat compressFormat, i iVar) {
-        this.f40205b = file;
-        this.f40206c = bitmap;
-        this.f40207d = compressFormat;
-        this.f40208e = iVar;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0040 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // android.os.AsyncTask
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Object doInBackground(Object[] objArr) {
-        IOException e2;
-        FileOutputStream fileOutputStream;
-        Void[] voidArr = (Void[]) objArr;
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            try {
-                fileOutputStream = new FileOutputStream(this.f40205b);
-                try {
-                    try {
-                        this.f40206c.compress(this.f40207d, 100, fileOutputStream);
-                        fileOutputStream.flush();
-                        fileOutputStream.close();
-                    } catch (IOException e3) {
-                        e2 = e3;
-                        this.f40204a = new W(e2);
-                        cancel(true);
-                        if (fileOutputStream != null) {
-                            fileOutputStream.flush();
-                            fileOutputStream.close();
-                        }
-                        return null;
-                    }
-                } catch (Throwable th) {
-                    FileOutputStream fileOutputStream3 = fileOutputStream;
-                    th = th;
-                    fileOutputStream2 = fileOutputStream3;
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.flush();
-                            fileOutputStream2.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
-            } catch (IOException e5) {
-                e5.printStackTrace();
-            }
-        } catch (IOException e6) {
-            e2 = e6;
-            fileOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (fileOutputStream2 != null) {
-            }
-            throw th;
+    public V a(byte[] bArr) {
+        if (bArr != null) {
+            ByteBuffer wrap = ByteBuffer.wrap(bArr);
+            this.f37791b = null;
+            Arrays.fill(this.f37790a, (byte) 0);
+            this.f37792c = new U();
+            this.f37793d = 0;
+            ByteBuffer asReadOnlyBuffer = wrap.asReadOnlyBuffer();
+            this.f37791b = asReadOnlyBuffer;
+            asReadOnlyBuffer.position(0);
+            this.f37791b.order(ByteOrder.LITTLE_ENDIAN);
+        } else {
+            this.f37791b = null;
+            this.f37792c.f37780b = 2;
         }
-        return null;
+        return this;
     }
 
-    @Override // android.os.AsyncTask
-    public void onCancelled() {
-        this.f40208e.a();
+    public final boolean a() {
+        return this.f37792c.f37780b != 0;
     }
 
-    @Override // android.os.AsyncTask
-    public void onPostExecute(Object obj) {
-        Void r1 = (Void) obj;
-        this.f40208e.b();
+    public final int[] a(int i2) {
+        int[] iArr;
+        byte[] bArr = new byte[i2 * 3];
+        try {
+            this.f37791b.get(bArr);
+            iArr = new int[256];
+            int i3 = 0;
+            int i4 = 0;
+            while (i3 < i2) {
+                int i5 = i4 + 1;
+                try {
+                    int i6 = i5 + 1;
+                    int i7 = i6 + 1;
+                    int i8 = i3 + 1;
+                    iArr[i3] = ((bArr[i4] & 255) << 16) | (-16777216) | ((bArr[i5] & 255) << 8) | (bArr[i6] & 255);
+                    i4 = i7;
+                    i3 = i8;
+                } catch (BufferUnderflowException unused) {
+                    this.f37792c.f37780b = 1;
+                    return iArr;
+                }
+            }
+        } catch (BufferUnderflowException unused2) {
+            iArr = null;
+        }
+        return iArr;
+    }
+
+    public final int b() {
+        try {
+            return this.f37791b.get() & 255;
+        } catch (Exception unused) {
+            this.f37792c.f37780b = 1;
+            return 0;
+        }
+    }
+
+    public final int c() {
+        int b2 = b();
+        this.f37793d = b2;
+        int i2 = 0;
+        if (b2 > 0) {
+            while (i2 < this.f37793d) {
+                try {
+                    int i3 = this.f37793d - i2;
+                    this.f37791b.get(this.f37790a, i2, i3);
+                    i2 += i3;
+                } catch (Exception unused) {
+                    this.f37792c.f37780b = 1;
+                }
+            }
+        }
+        return i2;
+    }
+
+    public final void d() {
+        int b2;
+        do {
+            try {
+                b2 = b();
+                this.f37791b.position(this.f37791b.position() + b2);
+            } catch (IllegalArgumentException unused) {
+                return;
+            }
+        } while (b2 > 0);
     }
 }

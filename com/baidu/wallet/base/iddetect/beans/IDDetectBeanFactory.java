@@ -12,11 +12,11 @@ public final class IDDetectBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static IDDetectBeanFactory f23339a = new IDDetectBeanFactory();
+        public static IDDetectBeanFactory f24059a = new IDDetectBeanFactory();
     }
 
     public static IDDetectBeanFactory getInstance() {
-        return a.f23339a;
+        return a.f24059a;
     }
 
     public IDDetectBeanFactory() {
@@ -24,8 +24,8 @@ public final class IDDetectBeanFactory implements IBeanFactory {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.apollon.beans.IBeanFactory
-    public BaseBean<?> getBean(Context context, int i, String str) {
-        com.baidu.wallet.base.iddetect.beans.a aVar = i != 57345 ? null : new com.baidu.wallet.base.iddetect.beans.a(context);
+    public BaseBean<?> getBean(Context context, int i2, String str) {
+        com.baidu.wallet.base.iddetect.beans.a aVar = i2 != 57345 ? null : new com.baidu.wallet.base.iddetect.beans.a(context);
         if (aVar != null) {
             BeanManager.getInstance().addBean(str, aVar);
         }

@@ -95,7 +95,7 @@ public class RequestDataUtils {
         return str + "_" + str2;
     }
 
-    public static JSONObject getPostData(List<RequestParams.Channel> list) throws JSONException {
+    public static JSONObject getPostData(String str, List<RequestParams.Channel> list) throws JSONException {
         if (list == null) {
             return null;
         }
@@ -107,7 +107,7 @@ public class RequestDataUtils {
                 if (dataInterceptor != null) {
                     putInterceptor(dataInterceptor, channel.getChannelId(), jSONObject);
                 } else {
-                    putNormalChannel(channel, jSONObject, arrayList);
+                    putNormalChannel(str, channel, jSONObject, arrayList);
                 }
             }
         }
@@ -120,11 +120,15 @@ public class RequestDataUtils {
         if (requestParams == null) {
             return null;
         }
-        String str = ApsCloudControlProcessor.SERVER_APS;
+        String runNode = requestParams.getRunNode();
+        if (TextUtils.isEmpty(runNode)) {
+            runNode = "aps";
+        }
+        String str = runNode;
         HashMap hashMap = new HashMap();
         JSONObject addFilter = addFilter(requestParams.getFilter());
         try {
-            jSONObject = getPostData(requestParams.getChannelList());
+            jSONObject = getPostData(str, requestParams.getChannelList());
         } catch (JSONException e2) {
             e2.printStackTrace();
             jSONObject = null;
@@ -137,11 +141,11 @@ public class RequestDataUtils {
     }
 
     public static boolean isChannelDegrade(String str) {
-        return CloudControlManager.getInstance().isInDegradeList(ApsCloudControlProcessor.SERVER_APS, str, (String) null);
+        return CloudControlManager.getInstance().isInDegradeList("aps", str, (String) null);
     }
 
     public static boolean isPackageNameDegrade(String str, String str2) {
-        return CloudControlManager.getInstance().isInDegradeList(ApsCloudControlProcessor.SERVER_APS, str, str2);
+        return CloudControlManager.getInstance().isInDegradeList("aps", str, str2);
     }
 
     public static void putInterceptor(IDataInterceptor iDataInterceptor, String str, @NonNull JSONObject jSONObject) throws JSONException {
@@ -152,12 +156,12 @@ public class RequestDataUtils {
         jSONObject.put(str, uploadData);
     }
 
-    public static void putNormalChannel(@NonNull RequestParams.Channel channel, @NonNull JSONObject jSONObject, @NonNull List<DegradeData> list) throws JSONException {
+    public static void putNormalChannel(String str, @NonNull RequestParams.Channel channel, @NonNull JSONObject jSONObject, @NonNull List<DegradeData> list) throws JSONException {
         String channelId = channel.getChannelId();
         if (TextUtils.isEmpty(channelId)) {
             return;
         }
-        if (isChannelDegrade(channelId)) {
+        if (isChannelDegrade(str, channelId)) {
             PackageCallback callback = channel.getCallback();
             if (callback != null) {
                 DegradeData degradeData = new DegradeData();
@@ -175,9 +179,9 @@ public class RequestDataUtils {
             return;
         }
         ArrayList arrayList2 = new ArrayList();
-        removeDegradePackageNames(channel, arrayList2, arrayList);
+        removeDegradePackageNames(str, channel, arrayList2, arrayList);
         if (arrayList2.size() > 0) {
-            putPackageInfo(channel, arrayList2, jSONObject);
+            putPackageInfo(str, channel, arrayList2, jSONObject);
         }
         PackageCallback callback2 = channel.getCallback();
         if (callback2 == null || arrayList.size() <= 0) {
@@ -191,19 +195,17 @@ public class RequestDataUtils {
         list.add(degradeData2);
     }
 
-    public static void putPackageInfo(RequestParams.Channel channel, List<PackageParams> list, JSONObject jSONObject) throws JSONException {
+    public static void putPackageInfo(String str, RequestParams.Channel channel, List<PackageParams> list, JSONObject jSONObject) throws JSONException {
         JSONObject jSONObject2 = new JSONObject();
         if (channel.isUsePmsVersionData()) {
             for (PackageInfo packageInfo : queryItems(channel.getChannelId(), CollectionUtils.convertToPackageNameList(list))) {
                 if (!TextUtils.isEmpty(packageInfo.packageName)) {
-                    String str = packageInfo.packageName;
-                    jSONObject2.put(str, packageInfo.updateVersion + "");
+                    jSONObject2.put(packageInfo.packageName, TextUtils.equals(str, ApsCloudControlProcessor.SERVER_DPM) ? packageInfo.updateSign : packageInfo.updateVersion + "");
                 }
             }
         } else {
             for (PackageParams packageParams : list) {
-                String str2 = packageParams.packageName;
-                jSONObject2.put(str2, packageParams.updateVersion + "");
+                jSONObject2.put(packageParams.packageName, packageParams.updateVersion + "");
             }
         }
         if (jSONObject2.length() > 0) {
@@ -228,17 +230,25 @@ public class RequestDataUtils {
         return arrayList;
     }
 
-    public static void removeDegradePackageNames(RequestParams.Channel channel, List<PackageParams> list, List<String> list2) {
+    public static void removeDegradePackageNames(String str, RequestParams.Channel channel, List<PackageParams> list, List<String> list2) {
         List<PackageParams> packageParamsList;
         if (channel == null || (packageParamsList = channel.getPackageParamsList()) == null) {
             return;
         }
         for (PackageParams packageParams : packageParamsList) {
-            if (isPackageNameDegrade(channel.getChannelId(), packageParams.packageName)) {
+            if (isPackageNameDegrade(str, channel.getChannelId(), packageParams.packageName)) {
                 list2.add(packageParams.packageName);
             } else {
                 list.add(packageParams);
             }
         }
+    }
+
+    public static boolean isChannelDegrade(String str, String str2) {
+        return CloudControlManager.getInstance().isInDegradeList(str, str2, (String) null);
+    }
+
+    public static boolean isPackageNameDegrade(String str, String str2, String str3) {
+        return CloudControlManager.getInstance().isInDegradeList(str, str2, str3);
     }
 }

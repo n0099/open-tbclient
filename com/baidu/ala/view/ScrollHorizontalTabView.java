@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -42,6 +42,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public final List<View> mTabItemView;
     public LinearLayout mTabsContainer;
     public int mTextSize;
+    public OnTabClickListener onTabClickListener;
 
     /* loaded from: classes.dex */
     public class InnerScrollTabPageListener implements ViewPager.OnPageChangeListener {
@@ -51,8 +52,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i) {
-            if (ScrollHorizontalTabView.this.mTabsContainer.getChildCount() == 0 || ScrollHorizontalTabView.this.mPager == null || i != 0) {
+        public void onPageScrollStateChanged(int i2) {
+            if (ScrollHorizontalTabView.this.mTabsContainer.getChildCount() == 0 || ScrollHorizontalTabView.this.mPager == null || i2 != 0) {
                 return;
             }
             ScrollHorizontalTabView.this.mCurrentPositionOffset = 0.0f;
@@ -60,38 +61,38 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f2, int i2) {
+        public void onPageScrolled(int i2, float f2, int i3) {
             if (ScrollHorizontalTabView.this.mScrollTabPageListener != null) {
-                ScrollHorizontalTabView.this.mScrollTabPageListener.onPageScrolled(i, f2, i2);
+                ScrollHorizontalTabView.this.mScrollTabPageListener.onPageScrolled(i2, f2, i3);
             }
             if (ScrollHorizontalTabView.this.mTabsContainer.getChildCount() == 0 || ScrollHorizontalTabView.this.mIsClicked) {
                 return;
             }
-            if (ScrollHorizontalTabView.this.mCurrentTabIndex != i) {
+            if (ScrollHorizontalTabView.this.mCurrentTabIndex != i2) {
                 this.mLastPosition = ScrollHorizontalTabView.this.mCurrentTabIndex;
             }
-            ScrollHorizontalTabView.this.mCurrentTabIndex = i;
+            ScrollHorizontalTabView.this.mCurrentTabIndex = i2;
             ScrollHorizontalTabView.this.mCurrentPositionOffset = f2;
             ScrollHorizontalTabView scrollHorizontalTabView = ScrollHorizontalTabView.this;
-            scrollHorizontalTabView.scrollToChild(i, (int) (f2 * scrollHorizontalTabView.mTabsContainer.getChildAt(i).getWidth()));
+            scrollHorizontalTabView.scrollToChild(i2, (int) (f2 * scrollHorizontalTabView.mTabsContainer.getChildAt(i2).getWidth()));
             ScrollHorizontalTabView.this.updateTabStyles();
             ScrollHorizontalTabView.this.invalidate();
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
-            TabData tabData = (TabData) ListUtils.getItem(ScrollHorizontalTabView.this.mTabDataList, i);
-            if (ScrollHorizontalTabView.this.mScrollTabPageListener == null || ScrollHorizontalTabView.this.mScrollTabPageListener.onPrePageSelect(i, tabData)) {
+        public void onPageSelected(int i2) {
+            TabData tabData = (TabData) ListUtils.getItem(ScrollHorizontalTabView.this.mTabDataList, i2);
+            if (ScrollHorizontalTabView.this.mScrollTabPageListener == null || ScrollHorizontalTabView.this.mScrollTabPageListener.onPrePageSelect(i2, tabData)) {
                 if (ScrollHorizontalTabView.this.mScrollTabPageListener != null) {
-                    ScrollHorizontalTabView.this.mScrollTabPageListener.onPageSelected(i, tabData);
+                    ScrollHorizontalTabView.this.mScrollTabPageListener.onPageSelected(i2, tabData);
                 }
                 if (ScrollHorizontalTabView.this.mIsClicked) {
-                    if (ScrollHorizontalTabView.this.mCurrentTabIndex != i) {
+                    if (ScrollHorizontalTabView.this.mCurrentTabIndex != i2) {
                         this.mLastPosition = ScrollHorizontalTabView.this.mCurrentTabIndex;
                     }
-                    ScrollHorizontalTabView.this.mCurrentTabIndex = i;
+                    ScrollHorizontalTabView.this.mCurrentTabIndex = i2;
                     ScrollHorizontalTabView scrollHorizontalTabView = ScrollHorizontalTabView.this;
-                    scrollHorizontalTabView.scrollToChild(i, (int) (scrollHorizontalTabView.mCurrentPositionOffset * ScrollHorizontalTabView.this.mTabsContainer.getChildAt(i).getWidth()));
+                    scrollHorizontalTabView.scrollToChild(i2, (int) (scrollHorizontalTabView.mCurrentPositionOffset * ScrollHorizontalTabView.this.mTabsContainer.getChildAt(i2).getWidth()));
                     ScrollHorizontalTabView.this.updateTabStyles();
                     ScrollHorizontalTabView.this.invalidate();
                 }
@@ -100,12 +101,17 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     }
 
     /* loaded from: classes.dex */
+    public interface OnTabClickListener {
+        void onClick(int i2);
+    }
+
+    /* loaded from: classes.dex */
     public interface ScrollTabPageListener {
-        void onPageScrolled(int i, float f2, int i2);
+        void onPageScrolled(int i2, float f2, int i3);
 
-        void onPageSelected(int i, TabData tabData);
+        void onPageSelected(int i2, TabData tabData);
 
-        boolean onPrePageSelect(int i, TabData tabData);
+        boolean onPrePageSelect(int i2, TabData tabData);
     }
 
     /* loaded from: classes.dex */
@@ -136,21 +142,24 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int size = ScrollHorizontalTabView.this.mTabItemView.size();
-                int i = 0;
                 int i2 = 0;
+                int i3 = 0;
                 while (true) {
-                    if (i2 >= size) {
+                    if (i3 >= size) {
                         break;
-                    } else if (view == ScrollHorizontalTabView.this.mTabItemView.get(i2)) {
-                        i = i2;
+                    } else if (view == ScrollHorizontalTabView.this.mTabItemView.get(i3)) {
+                        i2 = i3;
                         break;
                     } else {
-                        i2++;
+                        i3++;
                     }
                 }
                 ScrollHorizontalTabView.this.mIsClicked = true;
                 if (ScrollHorizontalTabView.this.mPager != null) {
-                    ScrollHorizontalTabView.this.mPager.setCurrentItem(i);
+                    ScrollHorizontalTabView.this.mPager.setCurrentItem(i2);
+                }
+                if (ScrollHorizontalTabView.this.onTabClickListener != null) {
+                    ScrollHorizontalTabView.this.onTabClickListener.onClick(i2);
                 }
             }
         };
@@ -160,12 +169,12 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     private void fillTabData() {
         int size = this.mTabDataList.size();
         int size2 = this.mTabItemView.size();
-        for (int i = 0; i < size && i < size2; i++) {
-            TabData tabData = this.mTabDataList.get(i);
+        for (int i2 = 0; i2 < size && i2 < size2; i2++) {
+            TabData tabData = this.mTabDataList.get(i2);
             if (tabData == null) {
                 return;
             }
-            ViewHolder viewHolder = new ViewHolder(this.mTabItemView.get(i));
+            ViewHolder viewHolder = new ViewHolder(this.mTabItemView.get(i2));
             TextView textView = viewHolder.title;
             if (textView != null) {
                 textView.setText(tabData.tabName);
@@ -198,12 +207,12 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void scrollToChild(int i, int i2) {
+    public void scrollToChild(int i2, int i3) {
         if (this.mTabItemView.isEmpty()) {
             return;
         }
-        int left = this.mTabItemView.get(i).getLeft() + i2;
-        if (i > 0 || i2 > 0) {
+        int left = this.mTabItemView.get(i2).getLeft() + i3;
+        if (i2 > 0 || i3 > 0) {
             left -= this.mScrollOffset;
         }
         if (left != this.mLastScrollX) {
@@ -240,25 +249,25 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                 size2++;
             }
         } else if (size < size2) {
-            for (int i = size2 - 1; i >= size; i--) {
-                this.mTabItemView.remove(i);
+            for (int i2 = size2 - 1; i2 >= size; i2--) {
+                this.mTabItemView.remove(i2);
             }
         }
         this.mTabsContainer.removeAllViews();
         int size3 = this.mTabItemView.size();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-        for (int i2 = 0; i2 < size3; i2++) {
-            this.mTabsContainer.addView(this.mTabItemView.get(i2), layoutParams);
+        for (int i3 = 0; i3 < size3; i3++) {
+            this.mTabsContainer.addView(this.mTabItemView.get(i3), layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateTabStyles() {
         int size = this.mTabItemView.size();
-        for (int i = 0; i < size; i++) {
-            TextView textView = new ViewHolder(this.mTabItemView.get(i)).title;
+        for (int i2 = 0; i2 < size; i2++) {
+            TextView textView = new ViewHolder(this.mTabItemView.get(i2)).title;
             if (textView != null) {
-                if (i == this.mCurrentTabIndex) {
+                if (i2 == this.mCurrentTabIndex) {
                     setTabStatus(textView, true);
                 } else {
                     setTabStatus(textView, false);
@@ -271,7 +280,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         return this.mCurrentTabIndex;
     }
 
-    public void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i2) {
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);
         updateTabStyles();
         invalidate();
@@ -288,24 +297,24 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         View childAt = this.mTabsContainer.getChildAt(this.mCurrentTabIndex);
         int width = (childAt.getWidth() - childAt.getPaddingLeft()) - childAt.getPaddingRight();
         int left = this.mTabsContainer.getLeft() + childAt.getLeft() + childAt.getPaddingLeft();
-        int i = this.mIndicatorWidth;
-        float f2 = left + ((width - i) / 2);
-        float f3 = i + f2;
+        int i2 = this.mIndicatorWidth;
+        float f2 = left + ((width - i2) / 2);
+        float f3 = i2 + f2;
         if (this.mCurrentPositionOffset > 0.0f && this.mCurrentTabIndex < this.mTabsContainer.getChildCount() - 1) {
             View childAt2 = this.mTabsContainer.getChildAt(this.mCurrentTabIndex + 1);
             int width2 = (childAt2.getWidth() - childAt2.getPaddingRight()) - childAt2.getPaddingLeft();
             int left2 = childAt2.getLeft() + childAt2.getPaddingLeft() + this.mTabsContainer.getLeft();
-            int i2 = this.mIndicatorWidth;
-            float f4 = left2 + ((width2 - i2) / 2);
+            int i3 = this.mIndicatorWidth;
+            float f4 = left2 + ((width2 - i3) / 2);
             float f5 = this.mCurrentPositionOffset;
             f2 = (f4 * f5) + ((1.0f - f5) * f2);
-            f3 = ((i2 + f4) * f5) + ((1.0f - f5) * f3);
+            f3 = ((i3 + f4) * f5) + ((1.0f - f5) * f3);
         }
         canvas.drawRoundRect(new RectF(f2, height - this.mIndicatorHeight, f3, height), 10.0f, 10.0f, this.mRectPaint);
     }
 
-    public void setCurrentIndex(int i) {
-        setCurrentIndex(i, true);
+    public void setCurrentIndex(int i2) {
+        setCurrentIndex(i2, true);
     }
 
     public void setData(List<TabData> list) {
@@ -328,6 +337,10 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         });
     }
 
+    public void setOnTabClickListener(OnTabClickListener onTabClickListener) {
+        this.onTabClickListener = onTabClickListener;
+    }
+
     public void setScrollTabPageListener(ScrollTabPageListener scrollTabPageListener) {
         this.mScrollTabPageListener = scrollTabPageListener;
     }
@@ -340,10 +353,10 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         viewPager.setOnPageChangeListener(this.mPageListener);
     }
 
-    public void setCurrentIndex(int i, boolean z) {
+    public void setCurrentIndex(int i2, boolean z) {
         if (z) {
             int[] iArr = new int[2];
-            ((View) ListUtils.getItem(this.mTabItemView, i)).getLocationOnScreen(iArr);
+            ((View) ListUtils.getItem(this.mTabItemView, i2)).getLocationOnScreen(iArr);
             int k = l.k(getContext()) - iArr[0];
             final int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.ds160);
             if (iArr[0] < 0) {
@@ -365,14 +378,14 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         ViewPager viewPager = this.mPager;
         if (viewPager != null) {
-            viewPager.setCurrentItem(i);
+            viewPager.setCurrentItem(i2);
         }
         updateTabStyles();
     }
 
-    public void setData(List<TabData> list, int i) {
-        if (i > 0) {
-            this.mTextSize = getContext().getResources().getDimensionPixelSize(i);
+    public void setData(List<TabData> list, int i2) {
+        if (i2 > 0) {
+            this.mTextSize = getContext().getResources().getDimensionPixelSize(i2);
         }
         setData(list);
     }
@@ -394,29 +407,32 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int size = ScrollHorizontalTabView.this.mTabItemView.size();
-                int i = 0;
                 int i2 = 0;
+                int i3 = 0;
                 while (true) {
-                    if (i2 >= size) {
+                    if (i3 >= size) {
                         break;
-                    } else if (view == ScrollHorizontalTabView.this.mTabItemView.get(i2)) {
-                        i = i2;
+                    } else if (view == ScrollHorizontalTabView.this.mTabItemView.get(i3)) {
+                        i2 = i3;
                         break;
                     } else {
-                        i2++;
+                        i3++;
                     }
                 }
                 ScrollHorizontalTabView.this.mIsClicked = true;
                 if (ScrollHorizontalTabView.this.mPager != null) {
-                    ScrollHorizontalTabView.this.mPager.setCurrentItem(i);
+                    ScrollHorizontalTabView.this.mPager.setCurrentItem(i2);
+                }
+                if (ScrollHorizontalTabView.this.onTabClickListener != null) {
+                    ScrollHorizontalTabView.this.onTabClickListener.onClick(i2);
                 }
             }
         };
         init();
     }
 
-    public ScrollHorizontalTabView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ScrollHorizontalTabView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
         this.mIndicatorHeight = l.g(TbadkCoreApplication.getInst(), R.dimen.ds5);
@@ -432,21 +448,24 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int size = ScrollHorizontalTabView.this.mTabItemView.size();
-                int i2 = 0;
                 int i22 = 0;
+                int i3 = 0;
                 while (true) {
-                    if (i22 >= size) {
+                    if (i3 >= size) {
                         break;
-                    } else if (view == ScrollHorizontalTabView.this.mTabItemView.get(i22)) {
-                        i2 = i22;
+                    } else if (view == ScrollHorizontalTabView.this.mTabItemView.get(i3)) {
+                        i22 = i3;
                         break;
                     } else {
-                        i22++;
+                        i3++;
                     }
                 }
                 ScrollHorizontalTabView.this.mIsClicked = true;
                 if (ScrollHorizontalTabView.this.mPager != null) {
-                    ScrollHorizontalTabView.this.mPager.setCurrentItem(i2);
+                    ScrollHorizontalTabView.this.mPager.setCurrentItem(i22);
+                }
+                if (ScrollHorizontalTabView.this.onTabClickListener != null) {
+                    ScrollHorizontalTabView.this.onTabClickListener.onClick(i22);
                 }
             }
         };

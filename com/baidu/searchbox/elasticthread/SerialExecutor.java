@@ -19,7 +19,7 @@ public class SerialExecutor extends ExecutorProxy {
     }
 
     @Override // com.baidu.searchbox.elasticthread.ExecutorProxy
-    public void execute(@NonNull Runnable runnable, @NonNull String str, int i) {
+    public void execute(@NonNull Runnable runnable, @NonNull String str, int i2) {
         ExecutorUtilsExt.postOnSerial(runnable, str);
     }
 }

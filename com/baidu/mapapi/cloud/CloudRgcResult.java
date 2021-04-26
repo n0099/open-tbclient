@@ -109,8 +109,8 @@ public class CloudRgcResult {
             JSONArray optJSONArray = jSONObject.optJSONArray("pois");
             if (optJSONArray != null) {
                 this.pois = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject3 != null) {
                         PoiInfo poiInfo = new PoiInfo();
                         poiInfo.parseFromJSON(optJSONObject3);
@@ -121,8 +121,8 @@ public class CloudRgcResult {
             JSONArray optJSONArray2 = jSONObject.optJSONArray("custom_pois");
             if (optJSONArray2 != null) {
                 this.customPois = new ArrayList();
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i2);
+                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                    JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject4 != null) {
                         CloudPoiInfo cloudPoiInfo = new CloudPoiInfo();
                         cloudPoiInfo.b(optJSONObject4);

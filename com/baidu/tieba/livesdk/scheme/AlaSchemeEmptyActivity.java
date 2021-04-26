@@ -6,26 +6,27 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import d.b.i0.a.f;
+import d.a.i0.a.f;
 /* loaded from: classes3.dex */
 public class AlaSchemeEmptyActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         String uri;
         super.onCreate(bundle);
-        if (getIntent() != null) {
-            Uri data = getIntent().getData();
-            String host = data.getHost();
-            String path = data.getPath();
-            if (!"video".equals(host) || path == null || !path.startsWith("/live") || (uri = data.toString()) == null) {
-                return;
-            }
-            String replace = uri.replace(f.f50303a + "://", UrlSchemaHelper.SCHEMA_LIVE_SDK);
-            if (StringUtils.isNull(replace)) {
-                return;
-            }
-            UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{replace});
+        if (getIntent() == null || getIntent().getData() == null) {
+            return;
         }
+        Uri data = getIntent().getData();
+        String host = data.getHost();
+        String path = data.getPath();
+        if (!"video".equals(host) || path == null || !path.startsWith("/live") || (uri = data.toString()) == null) {
+            return;
+        }
+        String replace = uri.replace(f.f47853a + "://", UrlSchemaHelper.SCHEMA_LIVE_SDK);
+        if (StringUtils.isNull(replace)) {
+            return;
+        }
+        UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{replace});
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

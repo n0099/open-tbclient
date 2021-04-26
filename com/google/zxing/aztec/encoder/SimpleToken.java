@@ -7,10 +7,10 @@ public final class SimpleToken extends Token {
     public final short bitCount;
     public final short value;
 
-    public SimpleToken(Token token, int i, int i2) {
+    public SimpleToken(Token token, int i2, int i3) {
         super(token);
-        this.value = (short) i;
-        this.bitCount = (short) i2;
+        this.value = (short) i2;
+        this.bitCount = (short) i3;
     }
 
     @Override // com.google.zxing.aztec.encoder.Token
@@ -21,7 +21,7 @@ public final class SimpleToken extends Token {
     public String toString() {
         short s = this.value;
         short s2 = this.bitCount;
-        int i = (s & ((1 << s2) - 1)) | (1 << s2);
-        return "<" + Integer.toBinaryString(i | (1 << this.bitCount)).substring(1) + Typography.greater;
+        int i2 = (s & ((1 << s2) - 1)) | (1 << s2);
+        return "<" + Integer.toBinaryString(i2 | (1 << this.bitCount)).substring(1) + Typography.greater;
     }
 }

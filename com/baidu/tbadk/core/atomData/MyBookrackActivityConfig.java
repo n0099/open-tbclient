@@ -8,9 +8,9 @@ public class MyBookrackActivityConfig extends IntentConfig {
     public static final String TAB_ID = "tab_id";
     public static final int TAB_MY_FOLLOW = 0;
 
-    public MyBookrackActivityConfig(Context context, int i, String str) {
+    public MyBookrackActivityConfig(Context context, int i2, String str) {
         super(context);
-        getIntent().putExtra("tab_id", i);
+        getIntent().putExtra("tab_id", i2);
         getIntent().putExtra(BOOK_TOWN_URL, str);
     }
 }

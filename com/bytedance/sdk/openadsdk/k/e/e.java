@@ -3,12 +3,12 @@ package com.bytedance.sdk.openadsdk.k.e;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bytedance.sdk.adnet.core.Request;
-import d.c.c.b.d.k;
-import d.c.c.b.d.o;
+import d.b.c.b.d.k;
+import d.b.c.b.d.o;
 /* loaded from: classes5.dex */
 public class e extends Request {
-    public e(int i, String str) {
-        this(i, str, null);
+    public e(int i2, String str) {
+        this(i2, str, null);
     }
 
     @Override // com.bytedance.sdk.adnet.core.Request
@@ -25,7 +25,7 @@ public class e extends Request {
         return 0;
     }
 
-    public e(int i, String str, @Nullable o.a aVar) {
-        super(i, str, aVar);
+    public e(int i2, String str, @Nullable o.a aVar) {
+        super(i2, str, aVar);
     }
 }

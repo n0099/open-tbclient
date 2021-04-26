@@ -6,19 +6,19 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JSONObject f9859a;
+    public static JSONObject f10225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f9860b;
+    public static a f10226b;
 
     public static a a() {
-        if (f9860b == null) {
-            f9860b = new a();
+        if (f10226b == null) {
+            f10226b = new a();
         }
-        if (f9859a == null) {
-            f9859a = new JSONObject();
+        if (f10225a == null) {
+            f10225a = new JSONObject();
         }
-        return f9860b;
+        return f10226b;
     }
 
     public boolean a(String str) {
@@ -27,14 +27,14 @@ public class a {
 
     public void a(String str, String str2) {
         try {
-            f9859a.put(str, str2);
+            f10225a.put(str, str2);
         } catch (JSONException unused) {
         }
     }
 
-    public void a(String str, int i) {
+    public void a(String str, int i2) {
         try {
-            f9859a.put(str, Integer.toString(i));
+            f10225a.put(str, Integer.toString(i2));
         } catch (JSONException unused) {
         }
     }

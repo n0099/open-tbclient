@@ -41,19 +41,19 @@ public class AlaGameFrsLiveThreadsRequestMessage extends HttpMessage {
         addParam("sort_type", this.sortType);
     }
 
-    public void setPn(int i) {
-        this.pn = i;
+    public void setPn(int i2) {
+        this.pn = i2;
     }
 
-    public void setPs(int i) {
-        this.ps = i;
+    public void setPs(int i2) {
+        this.ps = i2;
     }
 
-    public void setSortType(int i) {
-        this.sortType = i;
+    public void setSortType(int i2) {
+        this.sortType = i2;
     }
 
-    public void setTabType(int i) {
-        this.tabType = i;
+    public void setTabType(int i2) {
+        this.tabType = i2;
     }
 }

@@ -7,27 +7,27 @@ import java.util.List;
 public class i {
 
     /* renamed from: c  reason: collision with root package name */
-    public static List<String> f34890c;
+    public static List<String> f33858c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f34891d;
+    public static String f33859d;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f34888a = new Object();
+    public static final Object f33856a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f34889b = new Object();
+    public static final Object f33857b = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public static SimpleDateFormat f34892e = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static SimpleDateFormat f33860e = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     /* renamed from: f  reason: collision with root package name */
-    public static char[] f34893f = new char[29];
+    public static char[] f33861f = new char[29];
 
     /* renamed from: g  reason: collision with root package name */
-    public static char[] f34894g = new char[29];
+    public static char[] f33862g = new char[29];
 
     public static String a(long j) {
-        return j <= 0 ? "unknown" : f34892e.format(new Date(j));
+        return j <= 0 ? "unknown" : f33860e.format(new Date(j));
     }
 }

@@ -18,13 +18,13 @@ public interface GifDecoder {
     /* loaded from: classes5.dex */
     public interface BitmapProvider {
         @NonNull
-        Bitmap obtain(int i, int i2, @NonNull Bitmap.Config config);
+        Bitmap obtain(int i2, int i3, @NonNull Bitmap.Config config);
 
         @NonNull
-        byte[] obtainByteArray(int i);
+        byte[] obtainByteArray(int i2);
 
         @NonNull
-        int[] obtainIntArray(int i);
+        int[] obtainIntArray(int i2);
 
         void release(@NonNull Bitmap bitmap);
 
@@ -49,7 +49,7 @@ public interface GifDecoder {
     @NonNull
     ByteBuffer getData();
 
-    int getDelay(int i);
+    int getDelay(int i2);
 
     int getFrameCount();
 
@@ -71,7 +71,7 @@ public interface GifDecoder {
 
     int getWidth();
 
-    int read(@Nullable InputStream inputStream, int i);
+    int read(@Nullable InputStream inputStream, int i2);
 
     int read(@Nullable byte[] bArr);
 
@@ -79,7 +79,7 @@ public interface GifDecoder {
 
     void setData(@NonNull GifHeader gifHeader, @NonNull ByteBuffer byteBuffer);
 
-    void setData(@NonNull GifHeader gifHeader, @NonNull ByteBuffer byteBuffer, int i);
+    void setData(@NonNull GifHeader gifHeader, @NonNull ByteBuffer byteBuffer, int i2);
 
     void setData(@NonNull GifHeader gifHeader, @NonNull byte[] bArr);
 

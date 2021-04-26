@@ -70,7 +70,7 @@ public class MuteUser extends OrmObject implements Serializable {
         this.userName = str;
     }
 
-    public void setUserStatus(int i) {
-        this.userStatus = i;
+    public void setUserStatus(int i2) {
+        this.userStatus = i2;
     }
 }

@@ -44,8 +44,8 @@ public final class BuilderAdapter<B extends Message.Builder> {
             int size = this.requiredFields.size();
             StringBuilder sb = null;
             String str = "";
-            for (int i = 0; i < size; i++) {
-                Field field = this.requiredFields.get(i);
+            for (int i2 = 0; i2 < size; i2++) {
+                Field field = this.requiredFields.get(i2);
                 if (field.get(b2) == null) {
                     if (sb == null) {
                         sb = new StringBuilder();

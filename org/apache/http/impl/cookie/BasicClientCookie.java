@@ -119,7 +119,7 @@ public class BasicClientCookie implements SetCookie, ClientCookie {
     }
 
     @Override // org.apache.http.cookie.SetCookie
-    public void setVersion(int i) {
+    public void setVersion(int i2) {
         throw new RuntimeException("Stub!");
     }
 

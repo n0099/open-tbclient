@@ -89,8 +89,8 @@ public class a extends d {
                 JSONArray optJSONArray2 = optJSONObject2.optJSONArray("stations");
                 if (optJSONArray2 != null) {
                     ArrayList arrayList2 = new ArrayList();
-                    for (int i = 0; i < optJSONArray2.length(); i++) {
-                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i);
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
                         if (optJSONObject3 != null) {
                             BusLineResult.BusStation busStation = new BusLineResult.BusStation();
                             busStation.setTitle(optJSONObject3.optString("name"));

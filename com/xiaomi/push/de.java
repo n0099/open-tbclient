@@ -5,25 +5,25 @@ import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 public class de implements LoggerInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    public LoggerInterface f40741a;
+    public LoggerInterface f38258a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LoggerInterface f40742b;
+    public LoggerInterface f38259b;
 
     public de(LoggerInterface loggerInterface, LoggerInterface loggerInterface2) {
-        this.f40741a = null;
-        this.f40742b = null;
-        this.f40741a = loggerInterface;
-        this.f40742b = loggerInterface2;
+        this.f38258a = null;
+        this.f38259b = null;
+        this.f38258a = loggerInterface;
+        this.f38259b = loggerInterface2;
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public void log(String str) {
-        LoggerInterface loggerInterface = this.f40741a;
+        LoggerInterface loggerInterface = this.f38258a;
         if (loggerInterface != null) {
             loggerInterface.log(str);
         }
-        LoggerInterface loggerInterface2 = this.f40742b;
+        LoggerInterface loggerInterface2 = this.f38259b;
         if (loggerInterface2 != null) {
             loggerInterface2.log(str);
         }
@@ -31,11 +31,11 @@ public class de implements LoggerInterface {
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public void log(String str, Throwable th) {
-        LoggerInterface loggerInterface = this.f40741a;
+        LoggerInterface loggerInterface = this.f38258a;
         if (loggerInterface != null) {
             loggerInterface.log(str, th);
         }
-        LoggerInterface loggerInterface2 = this.f40742b;
+        LoggerInterface loggerInterface2 = this.f38259b;
         if (loggerInterface2 != null) {
             loggerInterface2.log(str, th);
         }

@@ -22,20 +22,20 @@ public class DuMediaExtractor {
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<DuMediaExtractor> f8011a;
+        public final WeakReference<DuMediaExtractor> f8301a;
 
         public a(DuMediaExtractor duMediaExtractor, Looper looper) {
             super(looper);
-            this.f8011a = new WeakReference<>(duMediaExtractor);
+            this.f8301a = new WeakReference<>(duMediaExtractor);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            DuMediaExtractor duMediaExtractor = this.f8011a.get();
+            DuMediaExtractor duMediaExtractor = this.f8301a.get();
             if (duMediaExtractor == null || duMediaExtractor.mNativeDuMediaExtractor == 0) {
                 CyberLog.w("DuMediaExtractor", "IjkMediaPlayer went away with unhandled events");
             } else {
-                int i = message.what;
+                int i2 = message.what;
             }
         }
     }
@@ -53,14 +53,14 @@ public class DuMediaExtractor {
 
     private native void nativeSetDataSource(String str, String[] strArr, String[] strArr2);
 
-    private native void nativeSetOption(int i, String str, long j);
+    private native void nativeSetOption(int i2, String str, long j);
 
-    private native void nativeSetOption(int i, String str, String str2);
+    private native void nativeSetOption(int i2, String str, String str2);
 
     private native void nativeSetup(Object obj);
 
     @Keep
-    public static boolean onNativeInvoke(Object obj, int i, Bundle bundle) {
+    public static boolean onNativeInvoke(Object obj, int i2, Bundle bundle) {
         if (obj == null || !(obj instanceof WeakReference)) {
             CyberLog.e("DuMediaExtractor", "<null weakThiz>.onNativeInvoke()");
             return false;
@@ -75,12 +75,12 @@ public class DuMediaExtractor {
         }
     }
 
-    public void c(int i, String str, long j) {
-        nativeSetOption(i, str, j);
+    public void c(int i2, String str, long j) {
+        nativeSetOption(i2, str, j);
     }
 
-    public void d(int i, String str, String str2) {
-        nativeSetOption(i, str, str2);
+    public void d(int i2, String str, String str2) {
+        nativeSetOption(i2, str, str2);
     }
 
     public void e(Context context, Uri uri, Map<String, String> map) {

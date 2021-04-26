@@ -2,7 +2,7 @@ package com.baidu.tieba.myCollection.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.GetStoreRemindTime.DataReq;
 import tbclient.GetStoreRemindTime.GetStoreRemindTimeReqIdl;
 /* loaded from: classes3.dex */

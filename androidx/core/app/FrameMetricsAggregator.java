@@ -22,7 +22,6 @@ public class FrameMetricsAggregator {
     public static final int ANIMATION_INDEX = 8;
     public static final int COMMAND_DURATION = 32;
     public static final int COMMAND_INDEX = 5;
-    public static final boolean DBG = false;
     public static final int DELAY_DURATION = 128;
     public static final int DELAY_INDEX = 7;
     public static final int DRAW_DURATION = 8;
@@ -37,7 +36,6 @@ public class FrameMetricsAggregator {
     public static final int SWAP_INDEX = 6;
     public static final int SYNC_DURATION = 16;
     public static final int SYNC_INDEX = 4;
-    public static final String TAG = "FrameMetrics";
     public static final int TOTAL_DURATION = 1;
     public static final int TOTAL_INDEX = 0;
     public FrameMetricsBaseImpl mInstance;
@@ -54,7 +52,7 @@ public class FrameMetricsAggregator {
         public ArrayList<WeakReference<Activity>> mActivities = new ArrayList<>();
         public Window.OnFrameMetricsAvailableListener mListener = new Window.OnFrameMetricsAvailableListener() { // from class: androidx.core.app.FrameMetricsAggregator.FrameMetricsApi24Impl.1
             @Override // android.view.Window.OnFrameMetricsAvailableListener
-            public void onFrameMetricsAvailable(Window window, FrameMetrics frameMetrics, int i) {
+            public void onFrameMetricsAvailable(Window window, FrameMetrics frameMetrics, int i2) {
                 FrameMetricsApi24Impl frameMetricsApi24Impl = FrameMetricsApi24Impl.this;
                 if ((frameMetricsApi24Impl.mTrackingFlags & 1) != 0) {
                     frameMetricsApi24Impl.addDurationItem(frameMetricsApi24Impl.mMetrics[0], frameMetrics.getMetric(8));
@@ -94,8 +92,8 @@ public class FrameMetricsAggregator {
             }
         };
 
-        public FrameMetricsApi24Impl(int i) {
-            this.mTrackingFlags = i;
+        public FrameMetricsApi24Impl(int i2) {
+            this.mTrackingFlags = i2;
         }
 
         @Override // androidx.core.app.FrameMetricsAggregator.FrameMetricsBaseImpl
@@ -106,10 +104,10 @@ public class FrameMetricsAggregator {
                 handlerThread.start();
                 sHandler = new Handler(sHandlerThread.getLooper());
             }
-            for (int i = 0; i <= 8; i++) {
+            for (int i2 = 0; i2 <= 8; i2++) {
                 SparseIntArray[] sparseIntArrayArr = this.mMetrics;
-                if (sparseIntArrayArr[i] == null && (this.mTrackingFlags & (1 << i)) != 0) {
-                    sparseIntArrayArr[i] = new SparseIntArray();
+                if (sparseIntArrayArr[i2] == null && (this.mTrackingFlags & (1 << i2)) != 0) {
+                    sparseIntArrayArr[i2] = new SparseIntArray();
                 }
             }
             activity.getWindow().addOnFrameMetricsAvailableListener(this.mListener, sHandler);
@@ -118,9 +116,9 @@ public class FrameMetricsAggregator {
 
         public void addDurationItem(SparseIntArray sparseIntArray, long j) {
             if (sparseIntArray != null) {
-                int i = (int) ((500000 + j) / 1000000);
+                int i2 = (int) ((500000 + j) / 1000000);
                 if (j >= 0) {
-                    sparseIntArray.put(i, sparseIntArray.get(i) + 1);
+                    sparseIntArray.put(i2, sparseIntArray.get(i2) + 1);
                 }
             }
         }
@@ -191,7 +189,7 @@ public class FrameMetricsAggregator {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface MetricType {
     }
@@ -224,9 +222,9 @@ public class FrameMetricsAggregator {
         return this.mInstance.stop();
     }
 
-    public FrameMetricsAggregator(int i) {
+    public FrameMetricsAggregator(int i2) {
         if (Build.VERSION.SDK_INT >= 24) {
-            this.mInstance = new FrameMetricsApi24Impl(i);
+            this.mInstance = new FrameMetricsApi24Impl(i2);
         } else {
             this.mInstance = new FrameMetricsBaseImpl();
         }

@@ -8,7 +8,7 @@ public interface WalletApiExtListener {
 
     /* loaded from: classes5.dex */
     public interface LoginstatuSyncListener {
-        void onHandleWalletError(int i);
+        void onHandleWalletError(int i2);
 
         void onWebViewLogout(Context context);
 
@@ -32,8 +32,8 @@ public interface WalletApiExtListener {
             
             public int val;
 
-            SyncResult(int i) {
-                this.val = i;
+            SyncResult(int i2) {
+                this.val = i2;
             }
 
             public int getVal() {
@@ -53,8 +53,8 @@ public interface WalletApiExtListener {
 
     /* loaded from: classes5.dex */
     public interface ThirdPartyLoginListener {
-        void onCallFail(int i, String str);
+        void onCallFail(int i2, String str);
 
-        void onCallSuccess(int i, String str);
+        void onCallSuccess(int i2, String str);
     }
 }

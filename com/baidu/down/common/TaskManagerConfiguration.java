@@ -1,5 +1,5 @@
 package com.baidu.down.common;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class TaskManagerConfiguration {
     public String mDomainNameToIpReg;
     public String mHttpDnsServerIp;
@@ -72,9 +72,9 @@ public class TaskManagerConfiguration {
         return this.retryNetDetect;
     }
 
-    public void setBufferSize(int i) {
-        if (i > 0) {
-            this.bufferSize = i;
+    public void setBufferSize(int i2) {
+        if (i2 > 0) {
+            this.bufferSize = i2;
             return;
         }
         throw new RuntimeException("### bufferSize should be bigger than 0!");
@@ -100,21 +100,21 @@ public class TaskManagerConfiguration {
         this.mHttpRetryStrategyEnable = z;
     }
 
-    public void setLogLevel(int i) {
-        this.mLogLevel = i;
+    public void setLogLevel(int i2) {
+        this.mLogLevel = i2;
     }
 
-    public void setMaxBufferCount(int i) {
+    public void setMaxBufferCount(int i2) {
         if (this.maxTaskCount > 0) {
-            this.maxBufferCount = i;
+            this.maxBufferCount = i2;
             return;
         }
         throw new RuntimeException("### maxBufferCount should be bigger than 0!");
     }
 
-    public void setMaxTaskCount(int i) {
-        if (i > 0 && i <= 3) {
-            this.maxTaskCount = i;
+    public void setMaxTaskCount(int i2) {
+        if (i2 > 0 && i2 <= 3) {
+            this.maxTaskCount = i2;
             return;
         }
         throw new RuntimeException("### maxTaskCount should be 0-3");
@@ -134,8 +134,8 @@ public class TaskManagerConfiguration {
         this.retryNetDetect = z;
     }
 
-    public void setTrafficStatsTag(int i) {
-        this.mTrafficStatsTag = i;
+    public void setTrafficStatsTag(int i2) {
+        this.mTrafficStatsTag = i2;
     }
 
     public void setURLRetryHostReg(String str) {

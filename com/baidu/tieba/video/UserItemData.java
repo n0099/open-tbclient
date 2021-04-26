@@ -33,8 +33,8 @@ public class UserItemData implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public UserItemData[] newArray(int i) {
-            return new UserItemData[i];
+        public UserItemData[] newArray(int i2) {
+            return new UserItemData[i2];
         }
     }
 
@@ -54,7 +54,7 @@ public class UserItemData implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.user_id);
         parcel.writeString(this.user_name);
         parcel.writeString(this.name_show);

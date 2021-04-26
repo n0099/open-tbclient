@@ -35,8 +35,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder addAction(int i, CharSequence charSequence, PendingIntent pendingIntent) {
-            this.mBuilder.addAction(i, charSequence, pendingIntent);
+        public Builder addAction(int i2, CharSequence charSequence, PendingIntent pendingIntent) {
+            this.mBuilder.addAction(i2, charSequence, pendingIntent);
             return this;
         }
 
@@ -81,8 +81,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setBadgeIconType(int i) {
-            this.mBuilder.setBadgeIconType(i);
+        public Builder setBadgeIconType(int i2) {
+            this.mBuilder.setBadgeIconType(i2);
             return this;
         }
 
@@ -102,8 +102,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setColor(@ColorInt int i) {
-            this.mBuilder.setColor(i);
+        public Builder setColor(@ColorInt int i2) {
+            this.mBuilder.setColor(i2);
             return this;
         }
 
@@ -172,8 +172,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setDefaults(int i) {
-            this.mBuilder.setDefaults(i);
+        public Builder setDefaults(int i2) {
+            this.mBuilder.setDefaults(i2);
             return this;
         }
 
@@ -207,8 +207,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setGroupAlertBehavior(int i) {
-            this.mBuilder.setGroupAlertBehavior(i);
+        public Builder setGroupAlertBehavior(int i2) {
+            this.mBuilder.setGroupAlertBehavior(i2);
             return this;
         }
 
@@ -228,8 +228,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setLights(@ColorInt int i, int i2, int i3) {
-            this.mBuilder.setLights(i, i2, i3);
+        public Builder setLights(@ColorInt int i2, int i3, int i4) {
+            this.mBuilder.setLights(i2, i3, i4);
             return this;
         }
 
@@ -242,8 +242,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setNumber(int i) {
-            this.mBuilder.setNumber(i);
+        public Builder setNumber(int i2) {
+            this.mBuilder.setNumber(i2);
             return this;
         }
 
@@ -263,15 +263,15 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setPriority(int i) {
-            this.mBuilder.setPriority(i);
+        public Builder setPriority(int i2) {
+            this.mBuilder.setPriority(i2);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setProgress(int i, int i2, boolean z) {
-            this.mBuilder.setProgress(i, i2, z);
+        public Builder setProgress(int i2, int i3, boolean z) {
+            this.mBuilder.setProgress(i2, i3, z);
             return this;
         }
 
@@ -305,15 +305,15 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setSmallIcon(int i) {
-            this.mBuilder.setSmallIcon(i);
+        public Builder setSmallIcon(int i2) {
+            this.mBuilder.setSmallIcon(i2);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setSmallIcon(int i, int i2) {
-            this.mBuilder.setSmallIcon(i, i2);
+        public Builder setSmallIcon(int i2, int i3) {
+            this.mBuilder.setSmallIcon(i2, i3);
             return this;
         }
 
@@ -333,8 +333,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setSound(Uri uri, int i) {
-            this.mBuilder.setSound(uri, i);
+        public Builder setSound(Uri uri, int i2) {
+            this.mBuilder.setSound(uri, i2);
             return this;
         }
 
@@ -382,8 +382,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setVisibility(int i) {
-            this.mBuilder.setVisibility(i);
+        public Builder setVisibility(int i2) {
+            this.mBuilder.setVisibility(i2);
             return this;
         }
 

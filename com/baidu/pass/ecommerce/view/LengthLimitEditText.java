@@ -24,25 +24,25 @@ public class LengthLimitEditText extends EditText implements NoProguard {
     private void setLengthInputFilter() {
         setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.pass.ecommerce.view.LengthLimitEditText.1
             @Override // android.text.InputFilter
-            public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-                int length = LengthLimitEditText.this.mLengthLimit - (spanned.length() - (i4 - i3));
+            public CharSequence filter(CharSequence charSequence, int i2, int i3, Spanned spanned, int i4, int i5) {
+                int length = LengthLimitEditText.this.mLengthLimit - (spanned.length() - (i5 - i4));
                 if (length <= 0) {
                     if (LengthLimitEditText.this.onTextBeyondLengthLimitListener != null) {
                         LengthLimitEditText.this.onTextBeyondLengthLimitListener.onBeyondLengthLimit();
                     }
                     return "";
-                } else if (length >= i2 - i) {
+                } else if (length >= i3 - i2) {
                     return null;
                 } else {
-                    int i5 = length + i;
-                    return (Character.isHighSurrogate(charSequence.charAt(i5 + (-1))) && (i5 = i5 + (-1)) == i) ? "" : charSequence.subSequence(i, i5);
+                    int i6 = length + i2;
+                    return (Character.isHighSurrogate(charSequence.charAt(i6 + (-1))) && (i6 = i6 + (-1)) == i2) ? "" : charSequence.subSequence(i2, i6);
                 }
             }
         }});
     }
 
-    public void setLengthLimit(int i) {
-        this.mLengthLimit = i;
+    public void setLengthLimit(int i2) {
+        this.mLengthLimit = i2;
         setLengthInputFilter();
     }
 
@@ -50,7 +50,7 @@ public class LengthLimitEditText extends EditText implements NoProguard {
         this.onTextBeyondLengthLimitListener = onTextBeyondLengthLimitListener;
     }
 
-    public LengthLimitEditText(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public LengthLimitEditText(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

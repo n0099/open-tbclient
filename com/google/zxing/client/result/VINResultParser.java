@@ -8,25 +8,25 @@ public final class VINResultParser extends ResultParser {
     public static final Pattern IOQ = Pattern.compile("[IOQ]");
     public static final Pattern AZ09 = Pattern.compile("[A-Z0-9]{17}");
 
-    public static char checkChar(int i) {
-        if (i < 10) {
-            return (char) (i + 48);
+    public static char checkChar(int i2) {
+        if (i2 < 10) {
+            return (char) (i2 + 48);
         }
-        if (i == 10) {
+        if (i2 == 10) {
             return 'X';
         }
         throw new IllegalArgumentException();
     }
 
     public static boolean checkChecksum(CharSequence charSequence) {
-        int i = 0;
         int i2 = 0;
-        while (i < charSequence.length()) {
-            int i3 = i + 1;
-            i2 += vinPositionWeight(i3) * vinCharValue(charSequence.charAt(i));
-            i = i3;
+        int i3 = 0;
+        while (i2 < charSequence.length()) {
+            int i4 = i2 + 1;
+            i3 += vinPositionWeight(i4) * vinCharValue(charSequence.charAt(i2));
+            i2 = i4;
         }
-        return charSequence.charAt(8) == checkChar(i2 % 11);
+        return charSequence.charAt(8) == checkChar(i3 % 11);
     }
 
     public static String countryCode(CharSequence charSequence) {
@@ -154,20 +154,20 @@ public final class VINResultParser extends ResultParser {
         return (c2 - 'A') + 1;
     }
 
-    public static int vinPositionWeight(int i) {
-        if (i <= 0 || i > 7) {
-            if (i == 8) {
+    public static int vinPositionWeight(int i2) {
+        if (i2 <= 0 || i2 > 7) {
+            if (i2 == 8) {
                 return 10;
             }
-            if (i == 9) {
+            if (i2 == 9) {
                 return 0;
             }
-            if (i < 10 || i > 17) {
+            if (i2 < 10 || i2 > 17) {
                 throw new IllegalArgumentException();
             }
-            return 19 - i;
+            return 19 - i2;
         }
-        return 9 - i;
+        return 9 - i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

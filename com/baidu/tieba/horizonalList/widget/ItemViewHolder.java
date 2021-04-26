@@ -2,12 +2,12 @@ package com.baidu.tieba.horizonalList.widget;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import d.b.j0.b1.b.c;
+import d.a.j0.b1.b.c;
 /* loaded from: classes4.dex */
 public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public View.OnClickListener f17211a;
+    public View.OnClickListener f17504a;
 
     public ItemViewHolder(View view) {
         super(view);
@@ -17,9 +17,9 @@ public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
 
     public abstract ItemViewHolder c(View view);
 
-    public abstract void d(int i);
+    public abstract void d(int i2);
 
     public void e(View.OnClickListener onClickListener) {
-        this.f17211a = onClickListener;
+        this.f17504a = onClickListener;
     }
 }

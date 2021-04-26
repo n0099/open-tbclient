@@ -11,7 +11,7 @@ public final class VINParsedResult extends ParsedResult {
     public final String vin;
     public final String worldManufacturerID;
 
-    public VINParsedResult(String str, String str2, String str3, String str4, String str5, String str6, int i, char c2, String str7) {
+    public VINParsedResult(String str, String str2, String str3, String str4, String str5, String str6, int i2, char c2, String str7) {
         super(ParsedResultType.VIN);
         this.vin = str;
         this.worldManufacturerID = str2;
@@ -19,7 +19,7 @@ public final class VINParsedResult extends ParsedResult {
         this.vehicleIdentifierSection = str4;
         this.countryCode = str5;
         this.vehicleAttributes = str6;
-        this.modelYear = i;
+        this.modelYear = i2;
         this.plantCode = c2;
         this.sequentialNumber = str7;
     }

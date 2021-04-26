@@ -10,57 +10,57 @@ import java.io.FileNotFoundException;
 public class ImageProcessor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3720a = -1;
+    public static final int f3767a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f3721b;
+    public final int f3768b;
 
     public ImageProcessor(Context context) {
-        this.f3721b = ((DisplayUtils.getDisplayWidth(context) * DisplayUtils.getDisplayHeight(context)) * 3) / 2;
+        this.f3768b = ((DisplayUtils.getDisplayWidth(context) * DisplayUtils.getDisplayHeight(context)) * 3) / 2;
     }
 
-    public static int a(BitmapFactory.Options options, int i, int i2) {
-        int b2 = b(options, i, i2);
+    public static int a(BitmapFactory.Options options, int i2, int i3) {
+        int b2 = b(options, i2, i3);
         if (b2 <= 8) {
-            int i3 = 1;
-            while (i3 < b2) {
-                i3 <<= 1;
+            int i4 = 1;
+            while (i4 < b2) {
+                i4 <<= 1;
             }
-            return i3;
+            return i4;
         }
         return ((b2 + 7) / 8) * 8;
     }
 
-    public static int b(BitmapFactory.Options options, int i, int i2) {
+    public static int b(BitmapFactory.Options options, int i2, int i3) {
         int min;
         double d2 = options.outWidth;
         double d3 = options.outHeight;
-        int ceil = i2 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d2 * d3) / i2));
-        if (i == -1) {
+        int ceil = i3 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d2 * d3) / i3));
+        if (i2 == -1) {
             min = 128;
         } else {
-            double d4 = i;
+            double d4 = i2;
             min = (int) Math.min(Math.floor(d2 / d4), Math.floor(d3 / d4));
         }
         if (min < ceil) {
             return ceil;
         }
-        if (i2 == -1 && i == -1) {
+        if (i3 == -1 && i2 == -1) {
             return 1;
         }
-        return i == -1 ? ceil : min;
+        return i2 == -1 ? ceil : min;
     }
 
-    public Bitmap decode(File file, int i) throws FileNotFoundException {
+    public Bitmap decode(File file, int i2) throws FileNotFoundException {
         if (file != null) {
             try {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
                 BitmapFactory.decodeFile(file.getPath(), options);
                 if (!options.mCancel && options.outWidth != -1 && options.outHeight != -1) {
-                    options.inSampleSize = a(options, -1, this.f3721b);
+                    options.inSampleSize = a(options, -1, this.f3768b);
                     options.inJustDecodeBounds = false;
-                    options.inDensity = i;
+                    options.inDensity = i2;
                     options.inDither = false;
                     options.inPreferredConfig = Bitmap.Config.ARGB_8888;
                     return BitmapFactory.decodeFile(file.getPath(), options);

@@ -78,7 +78,7 @@ public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<ByteBuffer> buildLoadData(@NonNull File file, int i, int i2, @NonNull Options options) {
+    public ModelLoader.LoadData<ByteBuffer> buildLoadData(@NonNull File file, int i2, int i3, @NonNull Options options) {
         return new ModelLoader.LoadData<>(new ObjectKey(file), new ByteBufferFetcher(file));
     }
 }

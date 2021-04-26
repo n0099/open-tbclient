@@ -16,7 +16,7 @@ public final class ExceptionsKt {
             sb.append(": " + str);
         }
         String sb2 = sb.toString();
-        Intrinsics.checkExpressionValueIsNotNull(sb2, "sb.toString()");
+        Intrinsics.checkNotNullExpressionValue(sb2, "sb.toString()");
         return sb2;
     }
 }

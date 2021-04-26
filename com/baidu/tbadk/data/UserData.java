@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import d.b.c.j.e.n;
-import d.b.i0.r.q.g2;
-import d.b.i0.t.o;
+import d.a.c.j.e.n;
+import d.a.i0.r.q.g2;
+import d.a.i0.t.o;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +44,7 @@ public class UserData extends MetaData {
     public int bimg_end_time;
     public String bimg_url;
     public CloseAdData closeAdData;
+    public String followFrom;
     public String grade;
     public int have_attention;
     public long inTime;
@@ -113,12 +114,12 @@ public class UserData extends MetaData {
             return getIsGroupManager() || getIsGroupOwner();
         }
 
-        public void setIsGroupManager(int i) {
-            this.isGroupManager = i;
+        public void setIsGroupManager(int i2) {
+            this.isGroupManager = i2;
         }
 
-        public void setIsGroupOwner(int i) {
-            this.isGroupOwner = i;
+        public void setIsGroupOwner(int i2) {
+            this.isGroupOwner = i2;
         }
     }
 
@@ -175,6 +176,10 @@ public class UserData extends MetaData {
 
     public CloseAdData getCloseAdData() {
         return this.closeAdData;
+    }
+
+    public String getFollowFrom() {
+        return this.followFrom;
     }
 
     public List<MyGift> getGift() {
@@ -328,8 +333,8 @@ public class UserData extends MetaData {
     }
 
     public boolean isBawu() {
-        int i = this.managerLevel;
-        return i == 1 || i == 2;
+        int i2 = this.managerLevel;
+        return i2 == 1 || i2 == 2;
     }
 
     public boolean isLike() {
@@ -383,18 +388,18 @@ public class UserData extends MetaData {
         }
         this.mPhotoAlbum.clear();
         o oVar = new o();
-        oVar.g(getPortraitH());
+        oVar.h(getPortraitH());
         oVar.k(getPortrait());
-        oVar.j(true);
+        oVar.i(true);
         this.mPhotoAlbum.add(oVar);
         List<UserPics> list = user.user_pics;
         if (list != null && list.size() > 0) {
             for (UserPics userPics : user.user_pics) {
                 if (userPics != null) {
                     o oVar2 = new o();
-                    oVar2.g(userPics.big);
+                    oVar2.h(userPics.big);
                     oVar2.k(userPics.small);
-                    oVar2.j(false);
+                    oVar2.i(false);
                     this.mPhotoAlbum.add(oVar2);
                 }
             }
@@ -455,27 +460,27 @@ public class UserData extends MetaData {
         this.mLikeForum.clear();
         List<LikeForumInfo> list2 = user.likeForum;
         if (list2 != null) {
-            for (int i = 0; i < list2.size(); i++) {
+            for (int i2 = 0; i2 < list2.size(); i2++) {
                 MyLikeForum myLikeForum = new MyLikeForum();
-                myLikeForum.parserProtobuf(list2.get(i));
+                myLikeForum.parserProtobuf(list2.get(i2));
                 this.mLikeForum.add(myLikeForum);
             }
         }
         this.mGroup.clear();
         List<MyGroupInfo> list3 = user.groupList;
         if (list3 != null) {
-            for (int i2 = 0; i2 < list3.size(); i2++) {
+            for (int i3 = 0; i3 < list3.size(); i3++) {
                 MyGroup myGroup = new MyGroup();
-                myGroup.parserProtobuf(list3.get(i2));
+                myGroup.parserProtobuf(list3.get(i3));
                 this.mGroup.add(myGroup);
             }
         }
         this.mGift.clear();
         List<GiftInfo> list4 = user.gift_list;
         if (list4 != null) {
-            for (int i3 = 0; i3 < list4.size(); i3++) {
+            for (int i4 = 0; i4 < list4.size(); i4++) {
                 MyGift myGift = new MyGift();
-                myGift.parserProtobuf(list4.get(i3));
+                myGift.parserProtobuf(list4.get(i4));
                 this.mGift.add(myGift);
             }
         }
@@ -532,8 +537,8 @@ public class UserData extends MetaData {
         this.bg_pic = str;
     }
 
-    public void setBimg_end_time(int i) {
-        this.bimg_end_time = i;
+    public void setBimg_end_time(int i2) {
+        this.bimg_end_time = i2;
     }
 
     public void setBimg_url(String str) {
@@ -545,8 +550,8 @@ public class UserData extends MetaData {
     }
 
     @Override // com.baidu.tbadk.data.MetaData
-    public void setGiftNum(int i) {
-        this.mGiftNum = i;
+    public void setGiftNum(int i2) {
+        this.mGiftNum = i2;
     }
 
     public void setGrade(String str) {
@@ -557,8 +562,8 @@ public class UserData extends MetaData {
         this.mGroup = list;
     }
 
-    public void setHave_attention(int i) {
-        setLikeStatus(i);
+    public void setHave_attention(int i2) {
+        setLikeStatus(i2);
     }
 
     public void setInTime(long j) {
@@ -573,12 +578,12 @@ public class UserData extends MetaData {
         this.ip = str;
     }
 
-    public void setIsFriend(int i) {
-        this.isFriend = i;
+    public void setIsFriend(int i2) {
+        this.isFriend = i2;
     }
 
-    public void setIsMem(int i) {
-        this.is_mem = i;
+    public void setIsMem(int i2) {
+        this.is_mem = i2;
     }
 
     public void setLastReplyTime(long j) {
@@ -601,14 +606,14 @@ public class UserData extends MetaData {
         this.mLikeForum = list;
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, d.b.i0.r.f0.q.a
-    public void setLikeStatus(int i) {
-        super.setLikeStatus(i);
-        this.have_attention = i;
+    @Override // com.baidu.tbadk.data.MetaData, d.a.i0.r.f0.q.a
+    public void setLikeStatus(int i2) {
+        super.setLikeStatus(i2);
+        this.have_attention = i2;
     }
 
-    public void setLike_bars(int i) {
-        this.like_bars = i;
+    public void setLike_bars(int i2) {
+        this.like_bars = i2;
     }
 
     public void setLng(String str) {
@@ -631,24 +636,24 @@ public class UserData extends MetaData {
         this.position = str;
     }
 
-    public void setPosts_num(int i) {
-        this.posts_num = i;
+    public void setPosts_num(int i2) {
+        this.posts_num = i2;
     }
 
-    public void setPrivateThread(int i) {
-        this.privateThread = i;
+    public void setPrivateThread(int i2) {
+        this.privateThread = i2;
     }
 
-    public void setSex(int i) {
-        this.sex = i;
+    public void setSex(int i2) {
+        this.sex = i2;
     }
 
     public void setTb_age(String str) {
         this.tb_age = str;
     }
 
-    public void setUserType(int i) {
-        this.userType = i;
+    public void setUserType(int i2) {
+        this.userType = i2;
     }
 
     public boolean showPbPrivate() {
@@ -682,6 +687,7 @@ public class UserData extends MetaData {
             this.tb_age = jSONObject.optString("tb_age");
             int optInt3 = jSONObject.optInt("is_manager", 0);
             this.isOfficialAccount = jSONObject.optInt("is_guanfang", 0);
+            this.followFrom = jSONObject.optString("follow_from");
             if (optInt3 == 1) {
                 this.isManager = true;
             } else {
@@ -733,20 +739,20 @@ public class UserData extends MetaData {
             }
             this.mPhotoAlbum.clear();
             o oVar = new o();
-            oVar.g(getPortraitH());
+            oVar.h(getPortraitH());
             oVar.k(getPortrait());
-            oVar.j(true);
+            oVar.i(true);
             this.mPhotoAlbum.add(oVar);
             JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                for (int i2 = 0; i2 < length; i2++) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                     if (jSONObject2 != null) {
                         o oVar2 = new o();
-                        oVar2.g(jSONObject2.optString("big"));
+                        oVar2.h(jSONObject2.optString("big"));
                         oVar2.k(jSONObject2.optString("small"));
-                        oVar2.j(false);
+                        oVar2.i(false);
                         this.mPhotoAlbum.add(oVar2);
                     }
                 }
@@ -756,8 +762,8 @@ public class UserData extends MetaData {
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("likeForum");
             if (optJSONArray2 != null) {
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    JSONObject optJSONObject6 = optJSONArray2.optJSONObject(i2);
+                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                    JSONObject optJSONObject6 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject6 != null) {
                         MyLikeForum myLikeForum = new MyLikeForum();
                         myLikeForum.parseJson(optJSONObject6);
@@ -767,8 +773,8 @@ public class UserData extends MetaData {
             }
             JSONArray optJSONArray3 = jSONObject.optJSONArray("groupList");
             if (optJSONArray3 != null) {
-                for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                    JSONObject optJSONObject7 = optJSONArray3.optJSONObject(i3);
+                for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
+                    JSONObject optJSONObject7 = optJSONArray3.optJSONObject(i4);
                     if (optJSONObject7 != null) {
                         MyGroup myGroup = new MyGroup();
                         myGroup.parseJson(optJSONObject7);
@@ -778,8 +784,8 @@ public class UserData extends MetaData {
             }
             JSONArray optJSONArray4 = jSONObject.optJSONArray("gift_list");
             if (optJSONArray4 != null) {
-                for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                    JSONObject optJSONObject8 = optJSONArray4.optJSONObject(i4);
+                for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
+                    JSONObject optJSONObject8 = optJSONArray4.optJSONObject(i5);
                     if (optJSONObject8 != null) {
                         MyGift myGift = new MyGift();
                         myGift.parseJson(optJSONObject8);
@@ -811,7 +817,7 @@ public class UserData extends MetaData {
         }
     }
 
-    public UserData(long j, String str, String str2, int i) {
+    public UserData(long j, String str, String str2, int i2) {
         this.password = null;
         this.isManager = false;
         this.isMask = false;
@@ -828,6 +834,6 @@ public class UserData extends MetaData {
         setUserId(String.valueOf(j));
         setUserName(str);
         setPortrait(str2);
-        this.sex = i;
+        this.sex = i2;
     }
 }

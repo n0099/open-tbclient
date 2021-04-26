@@ -22,29 +22,31 @@ import com.bytedance.sdk.openadsdk.utils.z;
 public class TsView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f27580a;
+    public final Context f28414a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GifView f27581b;
+    public GifView f28415b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TTCountdownView f27582c;
+    public TTCountdownView f28416c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f27583d;
+    public ImageView f28417d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f27584e;
+    public FrameLayout f28418e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f27585f;
+    public FrameLayout f28419f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f27586g;
+    public ImageView f28420g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f27587h;
-    public TextView i;
+    public RelativeLayout f28421h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f28422i;
     public NativeExpressView j;
     public int k;
     public int l;
@@ -53,24 +55,24 @@ public class TsView extends FrameLayout {
 
     public TsView(@NonNull Context context) {
         super(context);
-        this.f27580a = context;
+        this.f28414a = context;
         a();
     }
 
     public TTCountdownView getCountDownView() {
-        return this.f27582c;
+        return this.f28416c;
     }
 
     public View getDislikeView() {
-        return this.f27582c;
+        return this.f28416c;
     }
 
     public View getFullClickBarView() {
-        return this.f27587h;
+        return this.f28421h;
     }
 
     public FrameLayout getVideoContainer() {
-        return this.f27584e;
+        return this.f28418e;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -79,59 +81,59 @@ public class TsView extends FrameLayout {
         post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.splash.TsView.1
             @Override // java.lang.Runnable
             public void run() {
-                al.h(TsView.this.f27582c);
+                al.h(TsView.this.f28416c);
             }
         });
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        int i5;
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        int i6;
+        super.onLayout(z, i2, i3, i4, i5);
         if (getHeight() >= al.d(p.a())) {
-            i5 = this.m;
+            i6 = this.m;
         } else {
-            i5 = this.n;
+            i6 = this.n;
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f27587h.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f28421h.getLayoutParams();
         if (layoutParams == null) {
             return;
         }
-        int i6 = this.l + 150;
-        if (this.k <= i6) {
-            this.k = i6;
+        int i7 = this.l + 150;
+        if (this.k <= i7) {
+            this.k = i7;
         }
-        if (i5 <= 0) {
-            i5 = 0;
+        if (i6 <= 0) {
+            i6 = 0;
         }
         layoutParams.height = al.c(p.a(), this.l);
         layoutParams.width = al.c(p.a(), this.k);
-        layoutParams.bottomMargin = al.c(p.a(), i5);
+        layoutParams.bottomMargin = al.c(p.a(), i6);
         layoutParams.gravity = 81;
-        this.f27587h.setLayoutParams(layoutParams);
+        this.f28421h.setLayoutParams(layoutParams);
     }
 
-    public void setAdlogoViewVisibility(int i) {
-        al.a((View) this.f27586g, i);
+    public void setAdlogoViewVisibility(int i2) {
+        al.a((View) this.f28420g, i2);
     }
 
     public void setClickBarDesc(String str) {
-        TextView textView = this.i;
+        TextView textView = this.f28422i;
         if (textView != null) {
             textView.setText(str);
         }
     }
 
-    public void setCountDownTime(int i) {
-        TTCountdownView tTCountdownView = this.f27582c;
+    public void setCountDownTime(int i2) {
+        TTCountdownView tTCountdownView = this.f28416c;
         if (tTCountdownView != null) {
-            tTCountdownView.setCountDownTime(i);
+            tTCountdownView.setCountDownTime(i2);
         }
     }
 
     public void setDrawable(Drawable drawable) {
-        this.f27581b.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.f27581b.setImageDrawable(drawable);
+        this.f28415b.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.f28415b.setImageDrawable(drawable);
     }
 
     public void setExpressView(NativeExpressView nativeExpressView) {
@@ -139,23 +141,23 @@ public class TsView extends FrameLayout {
             return;
         }
         this.j = nativeExpressView;
-        this.f27585f.addView(nativeExpressView);
+        this.f28419f.addView(nativeExpressView);
         setExpressViewVisibility(0);
         setVideoViewVisibility(8);
         setImageViewVisibility(8);
     }
 
-    public void setExpressViewVisibility(int i) {
-        al.a((View) this.f27585f, i);
+    public void setExpressViewVisibility(int i2) {
+        al.a((View) this.f28419f, i2);
     }
 
     public void setGifView(byte[] bArr) {
-        this.f27581b.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f27581b.a(bArr, false);
+        this.f28415b.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f28415b.a(bArr, false);
     }
 
-    public void setImageViewVisibility(int i) {
-        al.a((View) this.f27581b, i);
+    public void setImageViewVisibility(int i2) {
+        al.a((View) this.f28415b, i2);
     }
 
     @Override // android.view.View
@@ -177,31 +179,31 @@ public class TsView extends FrameLayout {
         super.setOnTouchListener(onTouchListener);
     }
 
-    public void setSkipIconVisibility(int i) {
-        al.a((View) this.f27582c, i);
+    public void setSkipIconVisibility(int i2) {
+        al.a((View) this.f28416c, i2);
     }
 
     public final void setSkipListener(View.OnClickListener onClickListener) {
-        TTCountdownView tTCountdownView = this.f27582c;
+        TTCountdownView tTCountdownView = this.f28416c;
         if (tTCountdownView != null) {
             tTCountdownView.setOnClickListener(onClickListener);
         }
     }
 
-    public void setVideoViewVisibility(int i) {
-        al.a((View) this.f27584e, i);
-        al.a((View) this.f27583d, i);
+    public void setVideoViewVisibility(int i2) {
+        al.a((View) this.f28418e, i2);
+        al.a((View) this.f28417d, i2);
     }
 
-    public final void setVoiceViewImageResource(@DrawableRes int i) {
-        ImageView imageView = this.f27583d;
+    public final void setVoiceViewImageResource(@DrawableRes int i2) {
+        ImageView imageView = this.f28417d;
         if (imageView != null) {
-            imageView.setImageResource(i);
+            imageView.setImageResource(i2);
         }
     }
 
     public final void setVoiceViewListener(View.OnClickListener onClickListener) {
-        ImageView imageView = this.f27583d;
+        ImageView imageView = this.f28417d;
         if (imageView != null) {
             imageView.setOnClickListener(onClickListener);
         }
@@ -209,31 +211,31 @@ public class TsView extends FrameLayout {
 
     private void a() {
         setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        Context context = this.f27580a;
+        Context context = this.f28414a;
         View inflate = FrameLayout.inflate(context, ad.f(context, "tt_splash_view"), this);
-        this.f27581b = (GifView) inflate.findViewById(ad.e(this.f27580a, "tt_splash_ad_gif"));
-        this.f27582c = (TTCountdownView) inflate.findViewById(ad.e(this.f27580a, "tt_splash_skip_btn"));
-        this.f27583d = (ImageView) inflate.findViewById(ad.e(this.f27580a, "tt_splash_video_ad_mute"));
-        this.f27584e = (FrameLayout) inflate.findViewById(ad.e(this.f27580a, "tt_splash_video_container"));
-        this.f27585f = (FrameLayout) inflate.findViewById(ad.e(this.f27580a, "tt_splash_express_container"));
-        this.f27586g = (ImageView) inflate.findViewById(ad.e(this.f27580a, "tt_ad_logo"));
-        this.f27587h = (RelativeLayout) inflate.findViewById(ad.e(this.f27580a, "tt_full_splash_bar_layout"));
-        this.i = (TextView) inflate.findViewById(ad.e(this.f27580a, "tt_splash_bar_text"));
+        this.f28415b = (GifView) inflate.findViewById(ad.e(this.f28414a, "tt_splash_ad_gif"));
+        this.f28416c = (TTCountdownView) inflate.findViewById(ad.e(this.f28414a, "tt_splash_skip_btn"));
+        this.f28417d = (ImageView) inflate.findViewById(ad.e(this.f28414a, "tt_splash_video_ad_mute"));
+        this.f28418e = (FrameLayout) inflate.findViewById(ad.e(this.f28414a, "tt_splash_video_container"));
+        this.f28419f = (FrameLayout) inflate.findViewById(ad.e(this.f28414a, "tt_splash_express_container"));
+        this.f28420g = (ImageView) inflate.findViewById(ad.e(this.f28414a, "tt_ad_logo"));
+        this.f28421h = (RelativeLayout) inflate.findViewById(ad.e(this.f28414a, "tt_full_splash_bar_layout"));
+        this.f28422i = (TextView) inflate.findViewById(ad.e(this.f28414a, "tt_splash_bar_text"));
     }
 
-    public void a(int i, int i2, int i3, int i4, int i5) {
-        RelativeLayout relativeLayout = this.f27587h;
+    public void a(int i2, int i3, int i4, int i5, int i6) {
+        RelativeLayout relativeLayout = this.f28421h;
         if (relativeLayout == null) {
             return;
         }
-        if (i != 0) {
+        if (i2 != 0) {
             relativeLayout.setVisibility(8);
             return;
         }
         relativeLayout.setVisibility(0);
-        this.k = i2;
-        this.l = i3;
-        this.m = i4;
-        this.n = i5;
+        this.k = i3;
+        this.l = i4;
+        this.m = i5;
+        this.n = i6;
     }
 }

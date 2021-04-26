@@ -16,20 +16,20 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.R;
-import d.b.j0.d3.l0.b;
-import d.b.j0.d3.l0.c;
+import d.a.j0.d3.l0.b;
+import d.a.j0.d3.l0.c;
 @SuppressLint({"SetJavaScriptEnabled"})
 /* loaded from: classes4.dex */
 public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity> {
     public static final String JS_PROMPT_ACCOUNT_METHOD_EXIT = "exit";
     public static final String JS_PROMPT_INTERFACE_NAME = "AccountJsBridge";
     public static final String PAGE_TYPE = "page_type";
-    public d.b.j0.d3.l0.a jsBridge;
+    public d.a.j0.d3.l0.a jsBridge;
     public NavigationBar mNavigationBar;
     public String mPageType;
     public BaseWebView mWebView;
     public b jsPromptInterface = new b() { // from class: com.baidu.tieba.account.AccountRestoreActivity.1
-        @Override // d.b.j0.d3.l0.b
+        @Override // d.a.j0.d3.l0.b
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if (TextUtils.equals(AccountRestoreActivity.JS_PROMPT_INTERFACE_NAME, str) && TextUtils.equals("exit", str2)) {
                 jsPromptResult.confirm();
@@ -46,7 +46,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         public a() {
         }
 
-        @Override // d.b.j0.d3.l0.c
+        @Override // d.a.j0.d3.l0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             if (AccountRestoreActivity.this.jsBridge != null) {
                 return AccountRestoreActivity.this.jsBridge.b(AccountRestoreActivity.this.mWebView, str, jsPromptResult);
@@ -66,16 +66,16 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_restore_activity);
-        d.b.j0.d3.l0.a aVar = new d.b.j0.d3.l0.a();
+        d.a.j0.d3.l0.a aVar = new d.a.j0.d3.l0.a();
         this.jsBridge = aVar;
         aVar.a(this.jsPromptInterface);
         this.mPageType = getIntent().getStringExtra("page_type");

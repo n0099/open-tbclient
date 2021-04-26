@@ -54,8 +54,8 @@ public class Snapshot {
         this.mHeight = constraintWidget.getHeight();
         ArrayList<ConstraintAnchor> anchors = constraintWidget.getAnchors();
         int size = anchors.size();
-        for (int i = 0; i < size; i++) {
-            this.mConnections.add(new Connection(anchors.get(i)));
+        for (int i2 = 0; i2 < size; i2++) {
+            this.mConnections.add(new Connection(anchors.get(i2)));
         }
     }
 
@@ -65,8 +65,8 @@ public class Snapshot {
         constraintWidget.setWidth(this.mWidth);
         constraintWidget.setHeight(this.mHeight);
         int size = this.mConnections.size();
-        for (int i = 0; i < size; i++) {
-            this.mConnections.get(i).applyTo(constraintWidget);
+        for (int i2 = 0; i2 < size; i2++) {
+            this.mConnections.get(i2).applyTo(constraintWidget);
         }
     }
 
@@ -76,8 +76,8 @@ public class Snapshot {
         this.mWidth = constraintWidget.getWidth();
         this.mHeight = constraintWidget.getHeight();
         int size = this.mConnections.size();
-        for (int i = 0; i < size; i++) {
-            this.mConnections.get(i).updateFrom(constraintWidget);
+        for (int i2 = 0; i2 < size; i2++) {
+            this.mConnections.get(i2).updateFrom(constraintWidget);
         }
     }
 }

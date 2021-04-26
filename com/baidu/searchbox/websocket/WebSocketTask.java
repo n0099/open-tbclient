@@ -16,8 +16,8 @@ public final class WebSocketTask implements IWebSocketClient {
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient
-    public void close(int i, String str) {
-        this.webSocketClient.close(i, str);
+    public void close(int i2, String str) {
+        this.webSocketClient.close(i2, str);
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketClient

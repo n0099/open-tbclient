@@ -21,8 +21,8 @@ public class SignleGraphicTextMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public SignleGraphicTextMsg[] newArray(int i) {
-            return new SignleGraphicTextMsg[i];
+        public SignleGraphicTextMsg[] newArray(int i2) {
+            return new SignleGraphicTextMsg[i2];
         }
     };
     public static final int GRAPH = 0;
@@ -118,7 +118,7 @@ public class SignleGraphicTextMsg extends NormalMsg {
         this.mDigest = str;
     }
 
-    public boolean setJsonContent(String str, String str2, String str3, String str4, String str5, int i) {
+    public boolean setJsonContent(String str, String str2, String str3, String str4, String str5, int i2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(LightappBusinessClient.MTD_DIGEST) || TextUtils.isEmpty(str4)) {
             return false;
         }
@@ -133,7 +133,7 @@ public class SignleGraphicTextMsg extends NormalMsg {
                 jSONObject.put("article_url", str4);
             }
             jSONObject.put("sti_cover1", str5);
-            jSONObject.put("sti_type", i);
+            jSONObject.put("sti_type", i2);
             return setMsgContent(jSONObject.toString());
         } catch (Exception unused) {
             LogUtils.e("SignleGraphicTextMsg", "content error!");
@@ -141,8 +141,8 @@ public class SignleGraphicTextMsg extends NormalMsg {
         }
     }
 
-    public void setSubType(int i) {
-        this.mSubType = i;
+    public void setSubType(int i2) {
+        this.mSubType = i2;
     }
 
     public void setTitle(String str) {
@@ -150,8 +150,8 @@ public class SignleGraphicTextMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.mTitle);
         parcel.writeString(this.mDigest);
         parcel.writeString(this.mCover);

@@ -17,13 +17,13 @@ public interface VideoEncoder {
 
         public int getSum() {
             int[][] iArr;
-            int i = 0;
+            int i2 = 0;
             for (int[] iArr2 : this.bitratesBbs) {
-                for (int i2 : iArr2) {
-                    i += i2;
+                for (int i3 : iArr2) {
+                    i2 += i3;
                 }
             }
-            return i;
+            return i2;
         }
     }
 
@@ -73,10 +73,10 @@ public interface VideoEncoder {
             this.high = null;
         }
 
-        public ScalingSettings(int i, int i2) {
+        public ScalingSettings(int i2, int i3) {
             this.on = true;
-            this.low = Integer.valueOf(i);
-            this.high = Integer.valueOf(i2);
+            this.low = Integer.valueOf(i2);
+            this.high = Integer.valueOf(i3);
         }
 
         @Deprecated
@@ -87,10 +87,10 @@ public interface VideoEncoder {
         }
 
         @Deprecated
-        public ScalingSettings(boolean z, int i, int i2) {
+        public ScalingSettings(boolean z, int i2, int i3) {
             this.on = z;
-            this.low = Integer.valueOf(i);
-            this.high = Integer.valueOf(i2);
+            this.low = Integer.valueOf(i2);
+            this.high = Integer.valueOf(i3);
         }
 
         public String toString() {
@@ -112,13 +112,13 @@ public interface VideoEncoder {
         public final int width;
 
         @CalledByNative("Settings")
-        public Settings(int i, int i2, int i3, int i4, int i5, int i6, boolean z) {
-            this.numberOfCores = i;
-            this.width = i2;
-            this.height = i3;
-            this.startBitrate = i4;
-            this.maxFramerate = i5;
-            this.numberOfSimulcastStreams = i6;
+        public Settings(int i2, int i3, int i4, int i5, int i6, int i7, boolean z) {
+            this.numberOfCores = i2;
+            this.width = i3;
+            this.height = i4;
+            this.startBitrate = i5;
+            this.maxFramerate = i6;
+            this.numberOfSimulcastStreams = i7;
             this.automaticResizeOn = z;
         }
     }
@@ -145,5 +145,5 @@ public interface VideoEncoder {
     VideoCodecStatus release();
 
     @CalledByNative
-    VideoCodecStatus setRateAllocation(BitrateAllocation bitrateAllocation, int i);
+    VideoCodecStatus setRateAllocation(BitrateAllocation bitrateAllocation, int i2);
 }

@@ -53,18 +53,18 @@ public class VirtualBarAssist {
         }
         Rect rect = new Rect();
         this.childOfContent.getWindowVisibleDisplayFrame(rect);
-        int i = rect.bottom - rect.top;
-        if (i != this.usableHeightPrevious) {
+        int i2 = rect.bottom - rect.top;
+        if (i2 != this.usableHeightPrevious) {
             int height = this.childOfContent.getRootView().getHeight();
-            int i2 = height - rect.bottom;
-            int i3 = (height - i) - i2;
-            if (i3 > height / 4) {
-                this.childOfContent.getLayoutParams().height = height - i3;
+            int i3 = height - rect.bottom;
+            int i4 = (height - i2) - i3;
+            if (i4 > height / 4) {
+                this.childOfContent.getLayoutParams().height = height - i4;
             } else {
-                this.childOfContent.getLayoutParams().height = height - i2;
+                this.childOfContent.getLayoutParams().height = height - i3;
             }
             this.childOfContent.requestLayout();
-            this.usableHeightPrevious = i;
+            this.usableHeightPrevious = i2;
         }
     }
 

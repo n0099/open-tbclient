@@ -5,14 +5,14 @@ import android.media.MediaPlayer;
 public class l implements MediaPlayer.OnCompletionListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ i f9933a;
+    public final /* synthetic */ i f10301a;
 
     public l(i iVar) {
-        this.f9933a = iVar;
+        this.f10301a = iVar;
     }
 
     @Override // android.media.MediaPlayer.OnCompletionListener
     public void onCompletion(MediaPlayer mediaPlayer) {
-        this.f9933a.f9930c = false;
+        this.f10301a.f10298c = false;
     }
 }

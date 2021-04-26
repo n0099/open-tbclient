@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.i0.r.d0.b;
+import d.a.i0.r.d0.b;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -26,8 +26,8 @@ public class WhiteListData extends LinkedList<String> {
         try {
             JSONArray jSONArray = new JSONArray(str);
             int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                String optString = jSONArray.optString(i);
+            for (int i2 = 0; i2 < length; i2++) {
+                String optString = jSONArray.optString(i2);
                 if (!TextUtils.isEmpty(optString)) {
                     add(optString);
                 }

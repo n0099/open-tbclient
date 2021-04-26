@@ -77,8 +77,8 @@ public class IMConfigInternal {
         }
     }
 
-    public boolean setProductLine(Context context, int i) {
-        Utility.writeIntData(context, Constants.KEY_PRODUCT_LINE, i);
+    public boolean setProductLine(Context context, int i2) {
+        Utility.writeIntData(context, Constants.KEY_PRODUCT_LINE, i2);
         return true;
     }
 }

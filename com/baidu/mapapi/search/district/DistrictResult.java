@@ -29,7 +29,7 @@ public class DistrictResult extends SearchResult implements Parcelable {
         int readInt = parcel.readInt();
         if (readInt > 0) {
             this.polylines = new ArrayList();
-            for (int i = 0; i < readInt; i++) {
+            for (int i2 = 0; i2 < readInt; i2++) {
                 this.polylines.add(parcel.createTypedArrayList(LatLng.CREATOR));
             }
         }
@@ -62,8 +62,8 @@ public class DistrictResult extends SearchResult implements Parcelable {
         this.centerPt = latLng;
     }
 
-    public void setCityCode(int i) {
-        this.cityCode = i;
+    public void setCityCode(int i2) {
+        this.cityCode = i2;
     }
 
     public void setCityName(String str) {
@@ -75,9 +75,9 @@ public class DistrictResult extends SearchResult implements Parcelable {
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
-        parcel.writeParcelable(this.centerPt, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
+        parcel.writeParcelable(this.centerPt, i2);
         List<List<LatLng>> list = this.polylines;
         parcel.writeInt(list == null ? 0 : list.size());
         for (List<LatLng> list2 : this.polylines) {

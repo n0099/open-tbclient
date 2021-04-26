@@ -24,19 +24,19 @@ public abstract class ResponsePrecallback implements IBeanResponseCallback, NoPr
         throw new NullPointerException("callbackClz null");
     }
 
-    public abstract void handleResponse(int i, Object obj, String str);
+    public abstract void handleResponse(int i2, Object obj, String str);
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecFailure(int i, int i2, String str) {
+    public void onBeanExecFailure(int i2, int i3, String str) {
         removeRequest();
-        BeanErrorContent beanErrorContent = new BeanErrorContent(i, i2, str, null);
+        BeanErrorContent beanErrorContent = new BeanErrorContent(i2, i3, str, null);
         EventBus eventBus = EventBus.getInstance();
         eventBus.getClass();
         eventBus.post(new EventBus.Event(getNotifyKeyName(getClass(), ResponseType.Fail), beanErrorContent));
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecSuccess(int i, Object obj, String str) {
+    public void onBeanExecSuccess(int i2, Object obj, String str) {
         if (obj != null) {
             EventBus eventBus = EventBus.getInstance();
             eventBus.getClass();
@@ -47,7 +47,7 @@ public abstract class ResponsePrecallback implements IBeanResponseCallback, NoPr
             eventBus2.post(new EventBus.Event(getNotifyKeyName(getClass(), ResponseType.OkString), str));
         }
         removeRequest();
-        handleResponse(i, obj, str);
+        handleResponse(i2, obj, str);
     }
 
     public abstract void removeRequest();

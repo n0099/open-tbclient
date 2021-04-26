@@ -129,13 +129,13 @@ public class ConnectManager {
                 if (length > 6) {
                     length = 6;
                 }
-                for (int i = 0; i < length; i++) {
-                    if (!Character.isDigit(simOperator.charAt(i))) {
+                for (int i2 = 0; i2 < length; i2++) {
+                    if (!Character.isDigit(simOperator.charAt(i2))) {
                         if (sb.length() > 0) {
                             break;
                         }
                     } else {
-                        sb.append(simOperator.charAt(i));
+                        sb.append(simOperator.charAt(i2));
                     }
                 }
                 this.mSimOperatorCode = Integer.valueOf(sb.toString()).toString();

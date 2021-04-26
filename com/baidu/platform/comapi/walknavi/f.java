@@ -5,21 +5,21 @@ import com.baidu.platform.comapi.walknavi.g.a;
 public class f implements a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f9602a;
+    public final /* synthetic */ b f9960a;
 
     public f(b bVar) {
-        this.f9602a = bVar;
+        this.f9960a = bVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.a.b
-    public void a(int i) {
-        if (i == 1) {
+    public void a(int i2) {
+        if (i2 == 1) {
             if (b.a().Q() instanceof com.baidu.platform.comapi.walknavi.g.a) {
                 b.a().P().a(new g(this));
                 return;
             }
             return;
         }
-        this.f9602a.s();
+        this.f9960a.s();
     }
 }

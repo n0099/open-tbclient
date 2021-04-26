@@ -31,8 +31,8 @@ public class RetrieveMsgReceiver implements IMessageReceiveListener {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.IMessageReceiveListener
-    public void onReceiveMessage(int i, int i2, ArrayList<ChatMsg> arrayList) {
-        if (i == 0 && arrayList != null && arrayList.size() > 0) {
+    public void onReceiveMessage(int i2, int i3, ArrayList<ChatMsg> arrayList) {
+        if (i2 == 0 && arrayList != null && arrayList.size() > 0) {
             synchronized (this) {
                 Iterator<ChatMsg> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -46,8 +46,8 @@ public class RetrieveMsgReceiver implements IMessageReceiveListener {
                                 JSONArray jSONArray = new JSONArray(dataList);
                                 if (jSONArray.length() > 0) {
                                     int length = jSONArray.length();
-                                    for (int i3 = 0; i3 < length; i3++) {
-                                        RetrieveTaskManager.getInstance(this.mContext).dispatch(jSONArray.optJSONObject(i3));
+                                    for (int i4 = 0; i4 < length; i4++) {
+                                        RetrieveTaskManager.getInstance(this.mContext).dispatch(jSONArray.optJSONObject(i4));
                                     }
                                 }
                             } catch (Exception e2) {

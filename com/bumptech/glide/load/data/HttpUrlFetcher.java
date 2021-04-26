@@ -44,8 +44,8 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
         HttpURLConnection build(URL url) throws IOException;
     }
 
-    public HttpUrlFetcher(GlideUrl glideUrl, int i) {
-        this(glideUrl, i, DEFAULT_CONNECTION_FACTORY);
+    public HttpUrlFetcher(GlideUrl glideUrl, int i2) {
+        this(glideUrl, i2, DEFAULT_CONNECTION_FACTORY);
     }
 
     private InputStream getStreamForSuccessfulRequest(HttpURLConnection httpURLConnection) throws IOException {
@@ -60,16 +60,16 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
         return this.stream;
     }
 
-    public static boolean isHttpOk(int i) {
-        return i / 100 == 2;
+    public static boolean isHttpOk(int i2) {
+        return i2 / 100 == 2;
     }
 
-    public static boolean isHttpRedirect(int i) {
-        return i / 100 == 3;
+    public static boolean isHttpRedirect(int i2) {
+        return i2 / 100 == 3;
     }
 
-    private InputStream loadDataWithRedirects(URL url, int i, URL url2, Map<String, String> map) throws IOException {
-        if (i < 5) {
+    private InputStream loadDataWithRedirects(URL url, int i2, URL url2, Map<String, String> map) throws IOException {
+        if (i2 < 5) {
             if (url2 != null) {
                 try {
                     if (url.toURI().equals(url2.toURI())) {
@@ -106,7 +106,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
             if (!TextUtils.isEmpty(headerField)) {
                 URL url3 = new URL(url, headerField);
                 cleanup();
-                return loadDataWithRedirects(url3, i + 1, url, map);
+                return loadDataWithRedirects(url3, i2 + 1, url, map);
             }
             throw new HttpException("Received empty or null redirect url");
         }
@@ -178,9 +178,9 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
     }
 
     @VisibleForTesting
-    public HttpUrlFetcher(GlideUrl glideUrl, int i, HttpUrlConnectionFactory httpUrlConnectionFactory) {
+    public HttpUrlFetcher(GlideUrl glideUrl, int i2, HttpUrlConnectionFactory httpUrlConnectionFactory) {
         this.glideUrl = glideUrl;
-        this.timeout = i;
+        this.timeout = i2;
         this.connectionFactory = httpUrlConnectionFactory;
     }
 }

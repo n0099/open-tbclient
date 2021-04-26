@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public class DiskEmotionOperate extends DiskFileOperate {
@@ -110,7 +110,7 @@ public class DiskEmotionOperate extends DiskFileOperate {
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void setData(byte[] bArr) {
         super.setData(bArr);
-        if (isGif() || !l.A(bArr)) {
+        if (isGif() || !l.B(bArr)) {
             return;
         }
         setGif(true);

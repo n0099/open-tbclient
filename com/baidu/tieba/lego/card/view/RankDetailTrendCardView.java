@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
 public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
@@ -33,17 +33,17 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f18361e;
+        public final /* synthetic */ RankDetailTrendCard f18721e;
 
         public a(RankDetailTrendCard rankDetailTrendCard) {
-            this.f18361e = rankDetailTrendCard;
+            this.f18721e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (ViewHelper.checkUpIsLogin(RankDetailTrendCardView.this.getContext())) {
-                d.b.j0.j1.m.b a2 = d.b.j0.j1.m.b.a();
-                RankDetailTrendCard rankDetailTrendCard = this.f18361e;
+                d.a.j0.j1.m.b a2 = d.a.j0.j1.m.b.a();
+                RankDetailTrendCard rankDetailTrendCard = this.f18721e;
                 a2.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
             }
         }
@@ -53,15 +53,15 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f18363e;
+        public final /* synthetic */ RankDetailTrendCard f18723e;
 
         public b(RankDetailTrendCard rankDetailTrendCard) {
-            this.f18363e = rankDetailTrendCard;
+            this.f18723e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            RankDetailTrendCardView.this.q(this.f18363e);
+            RankDetailTrendCardView.this.q(this.f18723e);
         }
     }
 
@@ -80,9 +80,9 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: K */
-    public void y(RankDetailTrendCard rankDetailTrendCard, int i) {
-        d.b.i0.s0.a.a(this.m, getRootView());
+    /* renamed from: J */
+    public void x(RankDetailTrendCard rankDetailTrendCard, int i2) {
+        d.a.i0.s0.a.a(this.m, getRootView());
         SkinManager.setBackgroundResource(this.r, R.drawable.addresslist_item_bg);
         SkinManager.setViewTextColor(this.t, R.color.CAM_X0108);
         SkinManager.setViewTextColor(this.u, R.color.CAM_X0105);
@@ -91,8 +91,8 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: L */
-    public void z(RankDetailTrendCard rankDetailTrendCard) {
+    /* renamed from: K */
+    public void y(RankDetailTrendCard rankDetailTrendCard) {
         if (rankDetailTrendCard.getRank() == 1) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.y.getLayoutParams();
             layoutParams.topMargin = getResources().getDimensionPixelSize(R.dimen.ds24);
@@ -105,7 +105,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         if (!TextUtils.isEmpty(rankDetailTrendCard.getIconUrl())) {
             this.s.setVisibility(0);
             this.s.setImageDrawable(null);
-            this.s.W(rankDetailTrendCard.getIconUrl(), 10, false);
+            this.s.V(rankDetailTrendCard.getIconUrl(), 10, false);
             this.t.setVisibility(8);
         } else if (rankDetailTrendCard.getRank() <= 0) {
             this.s.setVisibility(8);
@@ -140,7 +140,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         }
         if (!TextUtils.isEmpty(rankDetailTrendCard.getPostUrl()) && !TextUtils.isEmpty(rankDetailTrendCard.getBtnText()) && !TextUtils.isEmpty(rankDetailTrendCard.getBtnDone())) {
             this.x.setVisibility(0);
-            I(this.x, rankDetailTrendCard.isDone(), rankDetailTrendCard.getBtnText(), rankDetailTrendCard.getBtnDone());
+            H(this.x, rankDetailTrendCard.isDone(), rankDetailTrendCard.getBtnText(), rankDetailTrendCard.getBtnDone());
             this.x.setTag(rankDetailTrendCard.getPostUrl());
             this.x.setOnClickListener(new a(rankDetailTrendCard));
             this.v.setVisibility(8);
@@ -151,7 +151,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
                 this.v.setVisibility(0);
                 this.w.setVisibility(8);
                 this.v.setImageDrawable(null);
-                this.v.W(rankDetailTrendCard.getPicTrendUrl(), 10, false);
+                this.v.V(rankDetailTrendCard.getPicTrendUrl(), 10, false);
             } else if (!TextUtils.isEmpty(rankDetailTrendCard.getTrendText())) {
                 this.w.setVisibility(0);
                 this.v.setVisibility(8);
@@ -182,13 +182,13 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         } else {
             this.y.setVisibility(0);
             this.y.setTag(rankDetailTrendCard.getPicUrl());
-            this.y.W(rankDetailTrendCard.getPicUrl(), 10, false);
+            this.y.V(rankDetailTrendCard.getPicUrl(), 10, false);
         }
         setCardOnClickListener(new b(rankDetailTrendCard));
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View v() {
+    public View u() {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.card_rank_trend, (ViewGroup) null);
         this.r = linearLayout;
         this.s = (TbImageView) o(linearLayout, R.id.leftIcon);

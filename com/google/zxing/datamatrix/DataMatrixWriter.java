@@ -19,10 +19,10 @@ public final class DataMatrixWriter implements Writer {
         int height = byteMatrix.getHeight();
         BitMatrix bitMatrix = new BitMatrix(width, height);
         bitMatrix.clear();
-        for (int i = 0; i < width; i++) {
-            for (int i2 = 0; i2 < height; i2++) {
-                if (byteMatrix.get(i, i2) == 1) {
-                    bitMatrix.set(i, i2);
+        for (int i2 = 0; i2 < width; i2++) {
+            for (int i3 = 0; i3 < height; i3++) {
+                if (byteMatrix.get(i2, i3) == 1) {
+                    bitMatrix.set(i2, i3);
                 }
             }
         }
@@ -33,56 +33,56 @@ public final class DataMatrixWriter implements Writer {
         int symbolDataWidth = symbolInfo.getSymbolDataWidth();
         int symbolDataHeight = symbolInfo.getSymbolDataHeight();
         ByteMatrix byteMatrix = new ByteMatrix(symbolInfo.getSymbolWidth(), symbolInfo.getSymbolHeight());
-        int i = 0;
-        for (int i2 = 0; i2 < symbolDataHeight; i2++) {
-            if (i2 % symbolInfo.matrixHeight == 0) {
-                int i3 = 0;
-                for (int i4 = 0; i4 < symbolInfo.getSymbolWidth(); i4++) {
-                    byteMatrix.set(i3, i, i4 % 2 == 0);
-                    i3++;
+        int i2 = 0;
+        for (int i3 = 0; i3 < symbolDataHeight; i3++) {
+            if (i3 % symbolInfo.matrixHeight == 0) {
+                int i4 = 0;
+                for (int i5 = 0; i5 < symbolInfo.getSymbolWidth(); i5++) {
+                    byteMatrix.set(i4, i2, i5 % 2 == 0);
+                    i4++;
                 }
-                i++;
+                i2++;
             }
-            int i5 = 0;
-            for (int i6 = 0; i6 < symbolDataWidth; i6++) {
-                if (i6 % symbolInfo.matrixWidth == 0) {
-                    byteMatrix.set(i5, i, true);
-                    i5++;
+            int i6 = 0;
+            for (int i7 = 0; i7 < symbolDataWidth; i7++) {
+                if (i7 % symbolInfo.matrixWidth == 0) {
+                    byteMatrix.set(i6, i2, true);
+                    i6++;
                 }
-                byteMatrix.set(i5, i, defaultPlacement.getBit(i6, i2));
-                i5++;
-                int i7 = symbolInfo.matrixWidth;
-                if (i6 % i7 == i7 - 1) {
-                    byteMatrix.set(i5, i, i2 % 2 == 0);
-                    i5++;
+                byteMatrix.set(i6, i2, defaultPlacement.getBit(i7, i3));
+                i6++;
+                int i8 = symbolInfo.matrixWidth;
+                if (i7 % i8 == i8 - 1) {
+                    byteMatrix.set(i6, i2, i3 % 2 == 0);
+                    i6++;
                 }
             }
-            i++;
-            int i8 = symbolInfo.matrixHeight;
-            if (i2 % i8 == i8 - 1) {
-                int i9 = 0;
-                for (int i10 = 0; i10 < symbolInfo.getSymbolWidth(); i10++) {
-                    byteMatrix.set(i9, i, true);
-                    i9++;
+            i2++;
+            int i9 = symbolInfo.matrixHeight;
+            if (i3 % i9 == i9 - 1) {
+                int i10 = 0;
+                for (int i11 = 0; i11 < symbolInfo.getSymbolWidth(); i11++) {
+                    byteMatrix.set(i10, i2, true);
+                    i10++;
                 }
-                i++;
+                i2++;
             }
         }
         return convertByteMatrixToBitMatrix(byteMatrix);
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) {
-        return encode(str, barcodeFormat, i, i2, null);
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3) {
+        return encode(str, barcodeFormat, i2, i3, null);
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3, Map<EncodeHintType, ?> map) {
         Dimension dimension;
         if (!str.isEmpty()) {
             if (barcodeFormat != BarcodeFormat.DATA_MATRIX) {
                 throw new IllegalArgumentException("Can only encode DATA_MATRIX, but got " + barcodeFormat);
-            } else if (i >= 0 && i2 >= 0) {
+            } else if (i2 >= 0 && i3 >= 0) {
                 SymbolShapeHint symbolShapeHint = SymbolShapeHint.FORCE_NONE;
                 Dimension dimension2 = null;
                 if (map != null) {
@@ -108,7 +108,7 @@ public final class DataMatrixWriter implements Writer {
                 defaultPlacement.place();
                 return encodeLowLevel(defaultPlacement, lookup);
             } else {
-                throw new IllegalArgumentException("Requested dimensions are too small: " + i + 'x' + i2);
+                throw new IllegalArgumentException("Requested dimensions are too small: " + i2 + 'x' + i3);
             }
         }
         throw new IllegalArgumentException("Found empty contents");

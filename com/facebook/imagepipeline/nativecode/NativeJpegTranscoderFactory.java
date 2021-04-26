@@ -13,8 +13,8 @@ public class NativeJpegTranscoderFactory implements ImageTranscoderFactory {
     public final boolean mUseDownSamplingRatio;
 
     @DoNotStrip
-    public NativeJpegTranscoderFactory(int i, boolean z) {
-        this.mMaxBitmapSize = i;
+    public NativeJpegTranscoderFactory(int i2, boolean z) {
+        this.mMaxBitmapSize = i2;
         this.mUseDownSamplingRatio = z;
     }
 

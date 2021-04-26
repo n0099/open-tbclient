@@ -11,39 +11,39 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
-import d.b.i0.z0.f0;
-import d.b.i0.z0.h0;
-import d.b.j0.e1.f.c;
-import d.b.j0.e1.h.l;
+import d.a.i0.z0.f0;
+import d.a.i0.z0.h0;
+import d.a.j0.e1.f.c;
+import d.a.j0.e1.h.l;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f18048e = new b(0);
+    public CustomMessageListener f18393e = new b(0);
 
     /* loaded from: classes4.dex */
     public class a extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ChatMessage f18049a;
+        public final /* synthetic */ ChatMessage f18394a;
 
         public a(ChatMessage chatMessage) {
-            this.f18049a = chatMessage;
+            this.f18394a = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // d.b.i0.z0.f0
+        @Override // d.a.i0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(l.t().c(String.valueOf(OfficialNotificationListModel.this.mUser.getUserId()), String.valueOf(this.f18049a.getMsgId())));
+            return Boolean.valueOf(l.t().c(String.valueOf(OfficialNotificationListModel.this.mUser.getUserId()), String.valueOf(this.f18394a.getMsgId())));
         }
     }
 
     /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -100,10 +100,10 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
             return false;
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.f17727c = 20;
-        aVar.f17725a = null;
-        aVar.f17726b = null;
-        aVar.f17728d = this.mUser.getUserIdLong() + "";
+        aVar.f18053c = 20;
+        aVar.f18051a = null;
+        aVar.f18052b = null;
+        aVar.f18054d = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
         return true;
     }
@@ -115,7 +115,7 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
             return false;
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.f17727c = 20;
+        aVar.f18053c = 20;
         MsgPageData msgPageData = this.mDatas;
         long j2 = 0;
         if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
@@ -124,9 +124,9 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
             j2 = this.mDatas.getChatMessages().get(0).getMsgId();
             j = this.mDatas.getChatMessages().get(0).getRecordId();
         }
-        aVar.f17725a = String.valueOf(j2);
-        aVar.f17726b = String.valueOf(j);
-        aVar.f17728d = this.mUser.getUserIdLong() + "";
+        aVar.f18051a = String.valueOf(j2);
+        aVar.f18052b = String.valueOf(j);
+        aVar.f18054d = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialNotificationHistoryMessage(aVar));
         return true;
     }
@@ -162,8 +162,8 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
     }
 
     public final void registerListener() {
-        MessageManager.getInstance().registerListener(2012123, this.f18048e);
-        MessageManager.getInstance().registerListener(2001147, this.f18048e);
+        MessageManager.getInstance().registerListener(2012123, this.f18393e);
+        MessageManager.getInstance().registerListener(2001147, this.f18393e);
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
@@ -172,6 +172,6 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
     }
 
     public final void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.f18048e);
+        MessageManager.getInstance().unRegisterListener(this.f18393e);
     }
 }

@@ -68,26 +68,28 @@ import org.json.JSONObject;
 public class LivenessVideoActivity extends LivenessCameraBaseActivity {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5824b = "CONSTRASTBEANTAG";
+    public static final String f5983b = "CONSTRASTBEANTAG";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5825c = "LivenessVideoActivity";
+    public static final String f5984c = "LivenessVideoActivity";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5826d = -1;
+    public static final int f5985d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5827e = 0;
+    public static final int f5986e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5828f = 1;
+    public static final int f5987f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f5829g = 2;
+    public static final int f5988g = 2;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f5830h = 3;
-    public static final int i = 4;
+    public static final int f5989h = 3;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final int f5990i = 4;
     public int B;
     public int C;
     public ArrayList<HashMap<String, byte[]>> D;
@@ -275,7 +277,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         if (livenessVideoXfordView != null) {
             livenessVideoXfordView.release();
         }
-        BeanManager.getInstance().removeAllBeans(f5825c);
+        BeanManager.getInstance().removeAllBeans(f5984c);
         BeanManager.getInstance().removeAllBeans("CONSTRASTBEANTAG");
     }
 
@@ -465,7 +467,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 } else {
                     RimStatisticsUtil.onEventStart(d.W);
                     LogUtil.d("hello", "onEventStart(StatServiceEvent.VIDEOUPLOAD):  视频上传接口开始");
-                    com.baidu.fsg.face.liveness.beans.a aVar = (com.baidu.fsg.face.liveness.beans.a) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 11, f5825c);
+                    com.baidu.fsg.face.liveness.beans.a aVar = (com.baidu.fsg.face.liveness.beans.a) FaceSDKBeansFactory.getInstance().getBean(getActivity(), 11, f5984c);
                     UploadBean.UploadFileModel uploadFileModel = new UploadBean.UploadFileModel();
                     uploadFileModel.contentType = "video/mp4";
                     uploadFileModel.filedata = bArr;
@@ -735,7 +737,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
                 bioAlertDialog.dismiss();
                 if (LivenessVideoActivity.this.t != null) {
                     LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
-                    livenessRecogResult.setResultCode(LivenessRecogResult.ERROR_CODE_LIVENESS_VIDEO_TIMEOUT);
+                    livenessRecogResult.setResultCode(-401);
                     LivenessVideoActivity.this.t.b(livenessRecogResult);
                 }
                 LivenessVideoActivity.this.e();
@@ -846,7 +848,7 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         rect.top = iArr[1];
         rect.right = this.j.getWidth() - rect.left;
         rect.bottom = rect.top + rect.width();
-        this.faceRectGroup.f5637a = rect;
+        this.faceRectGroup.f5790a = rect;
         this.j.setFocusViewRect(rect);
         ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
         layoutParams.width = rect.width();
@@ -996,8 +998,8 @@ public class LivenessVideoActivity extends LivenessCameraBaseActivity {
         this.W = i3;
         this.X = cameraInfo.orientation;
         b bVar = this.faceRectGroup;
-        bVar.f5639c = i2;
-        bVar.f5640d = i3;
+        bVar.f5792c = i2;
+        bVar.f5793d = i3;
         GetFPResponse.LivenessConfig livenessConfig = this.v;
         if (livenessConfig == null || TextUtils.isEmpty(livenessConfig.min_face_size)) {
             if (this.V > 640 && this.W > 480) {

@@ -5,6 +5,8 @@ import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.transition.Transition;
 import androidx.transition.TransitionValues;
@@ -14,7 +16,7 @@ import java.util.Map;
 public class TextScale extends Transition {
     public static final String PROPNAME_SCALE = "android:textscale:scale";
 
-    private void captureValues(TransitionValues transitionValues) {
+    private void captureValues(@NonNull TransitionValues transitionValues) {
         View view = transitionValues.view;
         if (view instanceof TextView) {
             transitionValues.values.put(PROPNAME_SCALE, Float.valueOf(((TextView) view).getScaleX()));
@@ -22,17 +24,17 @@ public class TextScale extends Transition {
     }
 
     @Override // androidx.transition.Transition
-    public void captureEndValues(TransitionValues transitionValues) {
+    public void captureEndValues(@NonNull TransitionValues transitionValues) {
         captureValues(transitionValues);
     }
 
     @Override // androidx.transition.Transition
-    public void captureStartValues(TransitionValues transitionValues) {
+    public void captureStartValues(@NonNull TransitionValues transitionValues) {
         captureValues(transitionValues);
     }
 
     @Override // androidx.transition.Transition
-    public Animator createAnimator(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator createAnimator(@NonNull ViewGroup viewGroup, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
         if (transitionValues == null || transitionValues2 == null || !(transitionValues.view instanceof TextView)) {
             return null;
         }
@@ -49,7 +51,7 @@ public class TextScale extends Transition {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(floatValue, floatValue2);
             ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.google.android.material.internal.TextScale.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                public void onAnimationUpdate(@NonNull ValueAnimator valueAnimator) {
                     float floatValue3 = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                     textView.setScaleX(floatValue3);
                     textView.setScaleY(floatValue3);

@@ -25,7 +25,7 @@ public class CommonGroupChatMessage extends ChatMessage {
         }
     }
 
-    public CommonGroupChatMessage(int i) {
-        super(i);
+    public CommonGroupChatMessage(int i2) {
+        super(i2);
     }
 }

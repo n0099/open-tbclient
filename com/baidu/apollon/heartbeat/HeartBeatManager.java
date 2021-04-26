@@ -19,32 +19,34 @@ public final class HeartBeatManager implements NoProguard {
     public static final String EVENT_KEY = "activity_state_oberserver";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3662a = "HeartBeatManager";
+    public static final String f3706a = "HeartBeatManager";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3663b = 180;
+    public static final int f3707b = 180;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HeartBeatManager f3664c;
+    public static HeartBeatManager f3708c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f3665d = null;
+    public Context f3709d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public RestHeartBeat f3666e = new RestHeartBeat();
+    public RestHeartBeat f3710e = new RestHeartBeat();
 
     /* renamed from: f  reason: collision with root package name */
-    public Timer f3667f = null;
+    public Timer f3711f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f3668g = new b();
+    public b f3712g = new b();
 
     /* renamed from: h  reason: collision with root package name */
-    public long f3669h = 0;
-    public a.InterfaceC0063a i = new a.InterfaceC0063a() { // from class: com.baidu.apollon.heartbeat.HeartBeatManager.1
+    public long f3713h = 0;
+
+    /* renamed from: i  reason: collision with root package name */
+    public a.InterfaceC0063a f3714i = new a.InterfaceC0063a() { // from class: com.baidu.apollon.heartbeat.HeartBeatManager.1
         @Override // com.baidu.apollon.restnet.a.InterfaceC0063a
         public boolean a(String str) {
-            return TextUtils.equals(a.c().a() + HeartBeatManager.this.f3666e.mHeartbeatUrl, str);
+            return TextUtils.equals(a.c().a() + HeartBeatManager.this.f3710e.mHeartbeatUrl, str);
         }
 
         @Override // com.baidu.apollon.restnet.a.InterfaceC0063a
@@ -53,18 +55,18 @@ public final class HeartBeatManager implements NoProguard {
                 return;
             }
             if (!a(str)) {
-                HeartBeatManager.this.f3666e.reset();
-                long splitTimeMs = HeartBeatManager.this.f3666e.getSplitTimeMs();
+                HeartBeatManager.this.f3710e.reset();
+                long splitTimeMs = HeartBeatManager.this.f3710e.getSplitTimeMs();
                 HeartBeatManager.this.a(splitTimeMs, splitTimeMs);
-                String str3 = HeartBeatManager.f3662a;
-                LogUtil.i(str3, HeartBeatManager.f3662a + " business request success.");
+                String str3 = HeartBeatManager.f3706a;
+                LogUtil.i(str3, HeartBeatManager.f3706a + " business request success.");
                 return;
             }
-            String str4 = HeartBeatManager.f3662a;
+            String str4 = HeartBeatManager.f3706a;
             StringBuilder sb = new StringBuilder();
-            sb.append(HeartBeatManager.f3662a);
+            sb.append(HeartBeatManager.f3706a);
             sb.append(" heartbeat ");
-            sb.append(HeartBeatManager.this.f3669h > 0 ? "background " : "");
+            sb.append(HeartBeatManager.this.f3713h > 0 ? "background " : "");
             sb.append("request success.");
             LogUtil.i(str4, sb.toString());
         }
@@ -113,56 +115,56 @@ public final class HeartBeatManager implements NoProguard {
             if (!TextUtils.isEmpty(heartBeatCfgEntity.KA_MAX)) {
                 this.mKeepAliveMax = Integer.valueOf(heartBeatCfgEntity.KA_MAX).intValue();
             }
-            String str = HeartBeatManager.f3662a;
-            LogUtil.i(str, HeartBeatManager.f3662a + " cfg:" + heartBeatCfgEntity);
+            String str = HeartBeatManager.f3706a;
+            LogUtil.i(str, HeartBeatManager.f3706a + " cfg:" + heartBeatCfgEntity);
         }
     }
 
     public static synchronized HeartBeatManager getInstance() {
         HeartBeatManager heartBeatManager;
         synchronized (HeartBeatManager.class) {
-            if (f3664c == null) {
-                f3664c = new HeartBeatManager();
+            if (f3708c == null) {
+                f3708c = new HeartBeatManager();
             }
-            heartBeatManager = f3664c;
+            heartBeatManager = f3708c;
         }
         return heartBeatManager;
     }
 
     public synchronized void applyBeating() {
-        HeartBeatCfgEntity a2 = a.c().a(this.f3665d);
+        HeartBeatCfgEntity a2 = a.c().a(this.f3709d);
         if (a2 != null && a2.isUsed()) {
             if (a2.validate()) {
-                this.f3666e.updateCfg(a2);
-                this.f3668g.a(1);
+                this.f3710e.updateCfg(a2);
+                this.f3712g.a(1);
             } else {
-                String str = f3662a;
-                LogUtil.w(str, f3662a + " start resp isn't validate.");
+                String str = f3706a;
+                LogUtil.w(str, f3706a + " start resp isn't validate.");
             }
             return;
         }
-        String str2 = f3662a;
-        LogUtil.w(str2, f3662a + " start resp is null or isn't used.");
-        this.f3668g.a(2);
+        String str2 = f3706a;
+        LogUtil.w(str2, f3706a + " start resp is null or isn't used.");
+        this.f3712g.a(2);
     }
 
     public void executeInForeground(boolean z) {
-        String str = f3662a;
-        LogUtil.i(str, f3662a + " onStateChanged isForeground:" + z);
+        String str = f3706a;
+        LogUtil.i(str, f3706a + " onStateChanged isForeground:" + z);
         if (z) {
-            if (this.f3666e.isValid()) {
-                this.f3668g.a(1);
-                this.f3668g.a(4);
+            if (this.f3710e.isValid()) {
+                this.f3712g.a(1);
+                this.f3712g.a(4);
             }
-            a.c().b(this.f3665d);
+            a.c().b(this.f3709d);
             return;
         }
-        this.f3668g.a(3);
+        this.f3712g.a(3);
     }
 
     public void init(Context context, String str) {
         if (context != null) {
-            this.f3665d = context.getApplicationContext();
+            this.f3709d = context.getApplicationContext();
             a.c().b(str);
             return;
         }
@@ -170,63 +172,63 @@ public final class HeartBeatManager implements NoProguard {
     }
 
     public void startHeartBeat() {
-        com.baidu.apollon.restnet.a.a(this.i);
-        a(0L, this.f3666e.getSplitTimeMs());
-        String str = f3662a;
-        LogUtil.i(str, f3662a + " HeartBeat start.");
+        com.baidu.apollon.restnet.a.a(this.f3714i);
+        a(0L, this.f3710e.getSplitTimeMs());
+        String str = f3706a;
+        LogUtil.i(str, f3706a + " HeartBeat start.");
     }
 
     public void stopHeartBeat() {
-        Timer timer = this.f3667f;
+        Timer timer = this.f3711f;
         if (timer != null) {
             timer.cancel();
-            this.f3667f = null;
+            this.f3711f = null;
         }
-        this.f3666e.reset();
+        this.f3710e.reset();
         a(0L);
         com.baidu.apollon.restnet.a.a(null);
-        String str = f3662a;
-        LogUtil.i(str, f3662a + " HeartBeat end.");
+        String str = f3706a;
+        LogUtil.i(str, f3706a + " HeartBeat end.");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (this.f3666e.beating()) {
-            this.f3668g.a(2);
-            String str = f3662a;
-            LogUtil.i(str, f3662a + " heartbeat beat enough mKeepAliveMax:" + this.f3666e.mKeepAliveMax + ", costTime:" + this.f3666e.mCostTime);
-        } else if (this.f3669h > 0 && Calendar.getInstance().getTimeInMillis() / 1000 > this.f3669h + 180) {
-            this.f3668g.a(2);
-        } else if (!NetworkUtils.isNetworkAvailable(this.f3665d)) {
-            String str2 = f3662a;
-            LogUtil.i(str2, f3662a + " schedule the network isn't available.");
+        if (this.f3710e.beating()) {
+            this.f3712g.a(2);
+            String str = f3706a;
+            LogUtil.i(str, f3706a + " heartbeat beat enough mKeepAliveMax:" + this.f3710e.mKeepAliveMax + ", costTime:" + this.f3710e.mCostTime);
+        } else if (this.f3713h > 0 && Calendar.getInstance().getTimeInMillis() / 1000 > this.f3713h + 180) {
+            this.f3712g.a(2);
+        } else if (!NetworkUtils.isNetworkAvailable(this.f3709d)) {
+            String str2 = f3706a;
+            LogUtil.i(str2, f3706a + " schedule the network isn't available.");
         } else {
-            RestTemplate restTemplate = new RestTemplate(this.f3665d);
+            RestTemplate restTemplate = new RestTemplate(this.f3709d);
             restTemplate.setMessageConverter(new com.baidu.apollon.restnet.converter.b());
             try {
-                String str3 = f3662a;
-                LogUtil.i(str3, f3662a + " send heartbeat request.");
-                restTemplate.a(a.c().a() + this.f3666e.mHeartbeatUrl, null, "utf-8", String.class);
+                String str3 = f3706a;
+                LogUtil.i(str3, f3706a + " send heartbeat request.");
+                restTemplate.a(a.c().a() + this.f3710e.mHeartbeatUrl, null, "utf-8", String.class);
             } catch (RestRuntimeException e2) {
-                String str4 = f3662a;
-                LogUtil.errord(str4, f3662a + " Heart Beat exception:" + e2.getMessage());
+                String str4 = f3706a;
+                LogUtil.errord(str4, f3706a + " Heart Beat exception:" + e2.getMessage());
                 e2.printStackTrace();
             }
         }
     }
 
     public void a(long j) {
-        this.f3669h = j;
+        this.f3713h = j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j, long j2) {
         try {
-            if (this.f3667f != null) {
-                this.f3667f.cancel();
+            if (this.f3711f != null) {
+                this.f3711f.cancel();
             }
             Timer timer = new Timer();
-            this.f3667f = timer;
+            this.f3711f = timer;
             timer.schedule(new TimerTask() { // from class: com.baidu.apollon.heartbeat.HeartBeatManager.2
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {

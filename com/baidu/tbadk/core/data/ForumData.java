@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.c.j.e.n;
-import d.b.i0.r.q.a0;
-import d.b.i0.r.q.c0;
-import d.b.i0.r.q.c2;
-import d.b.i0.r.q.d2;
-import d.b.i0.r.q.f0;
-import d.b.i0.r.q.f2;
-import d.b.i0.r.q.k;
-import d.b.i0.r.q.l0;
-import d.b.i0.r.q.l2;
+import d.a.c.j.e.n;
+import d.a.i0.r.q.a0;
+import d.a.i0.r.q.c0;
+import d.a.i0.r.q.c2;
+import d.a.i0.r.q.d2;
+import d.a.i0.r.q.f0;
+import d.a.i0.r.q.f2;
+import d.a.i0.r.q.k;
+import d.a.i0.r.q.l0;
+import d.a.i0.r.q.l2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -352,7 +352,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return this.topic_special_icon_right;
     }
 
-    @Override // d.b.c.j.e.n
+    @Override // d.a.c.j.e.n
     public BdUniqueId getType() {
         return FORUM_FLOOR_TYPE;
     }
@@ -447,9 +447,9 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
             this.managers = forumInfo.managers;
             List<Classify> list = forumInfo.good_classify;
             if (list != null) {
-                for (int i = 0; i < list.size(); i++) {
+                for (int i2 = 0; i2 < list.size(); i2++) {
                     l0 l0Var = new l0();
-                    l0Var.d(list.get(i));
+                    l0Var.d(list.get(i2));
                     this.good_classify.add(l0Var);
                 }
             }
@@ -477,17 +477,17 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
             }
             List<Badges> list2 = forumInfo.badges;
             if (list2 != null && list2.size() > 0) {
-                for (int i2 = 0; i2 < list2.size(); i2++) {
+                for (int i3 = 0; i3 < list2.size(); i3++) {
                     k kVar = new k();
-                    kVar.b(list2.get(i2));
+                    kVar.b(list2.get(i3));
                     this.mBadgeData.add(kVar);
                 }
             }
             List<RecommendForum> list3 = forumInfo.recommend_forum;
             if (list3 != null && list3.size() > 0) {
-                for (int i3 = 0; i3 < list3.size(); i3++) {
+                for (int i4 = 0; i4 < list3.size(); i4++) {
                     RecommendForumData recommendForumData = new RecommendForumData();
-                    recommendForumData.parserProtobuf(list3.get(i3));
+                    recommendForumData.parserProtobuf(list3.get(i4));
                     this.mRecommendForumData.add(recommendForumData);
                 }
             }
@@ -546,12 +546,12 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         this.canAddPhotoLivePost = z;
     }
 
-    public void setCurScore(int i) {
-        this.cur_score = i;
+    public void setCurScore(int i2) {
+        this.cur_score = i2;
     }
 
-    public void setFavo_type(int i) {
-        this.favo_type = i;
+    public void setFavo_type(int i2) {
+        this.favo_type = i2;
     }
 
     public void setFirst_class(String str) {
@@ -574,36 +574,36 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         this.image_url = str;
     }
 
-    public void setIsLocalEffect(int i) {
-        this.is_local_effect = i;
+    public void setIsLocalEffect(int i2) {
+        this.is_local_effect = i2;
     }
 
-    public void setIsSupportLocal(int i) {
-        this.is_support_local = i;
+    public void setIsSupportLocal(int i2) {
+        this.is_support_local = i2;
     }
 
-    public void setIs_exists(int i) {
-        this.is_exists = i;
+    public void setIs_exists(int i2) {
+        this.is_exists = i2;
     }
 
-    public void setIs_forbidden(int i) {
-        this.is_forbidden = i;
+    public void setIs_forbidden(int i2) {
+        this.is_forbidden = i2;
     }
 
     public void setLevelName(String str) {
         this.level_name = str;
     }
 
-    public void setLevelupScore(int i) {
-        this.levelup_score = i;
+    public void setLevelupScore(int i2) {
+        this.levelup_score = i2;
     }
 
-    public void setLike(int i) {
-        this.is_like = i;
+    public void setLike(int i2) {
+        this.is_like = i2;
     }
 
-    public void setMember_num(int i) {
-        this.member_num = i;
+    public void setMember_num(int i2) {
+        this.member_num = i2;
     }
 
     public void setName(String str) {
@@ -614,8 +614,8 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         this.news_info = f2Var;
     }
 
-    public void setPost_num(int i) {
-        this.post_num = i;
+    public void setPost_num(int i2) {
+        this.post_num = i2;
     }
 
     public void setRiskTipNotice(String str) {
@@ -654,8 +654,8 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         this.tag_name = str;
     }
 
-    public void setThread_num(int i) {
-        this.thread_num = i;
+    public void setThread_num(int i2) {
+        this.thread_num = i2;
     }
 
     public void setTopCode(c2 c2Var) {
@@ -666,8 +666,8 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         this.top_notice_data = d2Var;
     }
 
-    public void setUser_level(int i) {
-        this.user_level = i;
+    public void setUser_level(int i2) {
+        this.user_level = i2;
     }
 
     public void setYuleData(l2 l2Var) {
@@ -713,9 +713,9 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
             setFavo_type(jSONObject.optInt("favo_type", 0));
             JSONArray optJSONArray = jSONObject.optJSONArray("managers");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     Manager.Builder builder = new Manager.Builder();
-                    JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
+                    JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
                     builder.id = Long.valueOf(jSONObject2.getLong("id"));
                     builder.name = jSONObject2.getString("name");
                     builder.show_name = jSONObject2.getString("show_name");
@@ -725,9 +725,9 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("good_classify");
             if (optJSONArray2 != null) {
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     l0 l0Var = new l0();
-                    l0Var.c(optJSONArray2.optJSONObject(i2));
+                    l0Var.c(optJSONArray2.optJSONObject(i3));
                     this.good_classify.add(l0Var);
                 }
             }
@@ -755,17 +755,17 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
             }
             JSONArray optJSONArray3 = jSONObject.optJSONArray("badges");
             if (optJSONArray3 != null && optJSONArray3.length() > 0) {
-                for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
                     k kVar = new k();
-                    kVar.a(optJSONArray3.optJSONObject(i3));
+                    kVar.a(optJSONArray3.optJSONObject(i4));
                     this.mBadgeData.add(kVar);
                 }
             }
             JSONArray optJSONArray4 = jSONObject.optJSONArray("recommend_forum");
             if (optJSONArray4 != null && optJSONArray4.length() > 0) {
-                for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
                     RecommendForumData recommendForumData = new RecommendForumData();
-                    recommendForumData.parserJson(optJSONArray4.optJSONObject(i4));
+                    recommendForumData.parserJson(optJSONArray4.optJSONObject(i5));
                     this.mRecommendForumData.add(recommendForumData);
                 }
             }

@@ -40,13 +40,13 @@ public final class LruArrayPool implements ArrayPool {
         }
 
         public int hashCode() {
-            int i = this.size * 31;
+            int i2 = this.size * 31;
             Class<?> cls = this.arrayClass;
-            return i + (cls != null ? cls.hashCode() : 0);
+            return i2 + (cls != null ? cls.hashCode() : 0);
         }
 
-        public void init(int i, Class<?> cls) {
-            this.size = i;
+        public void init(int i2, Class<?> cls) {
+            this.size = i2;
             this.arrayClass = cls;
         }
 
@@ -62,9 +62,9 @@ public final class LruArrayPool implements ArrayPool {
 
     /* loaded from: classes5.dex */
     public static final class KeyPool extends BaseKeyPool<Key> {
-        public Key get(int i, Class<?> cls) {
+        public Key get(int i2, Class<?> cls) {
             Key key = get();
-            key.init(i, cls);
+            key.init(i2, cls);
             return key;
         }
 
@@ -85,27 +85,27 @@ public final class LruArrayPool implements ArrayPool {
         this.maxSize = 4194304;
     }
 
-    private void decrementArrayOfSize(int i, Class<?> cls) {
+    private void decrementArrayOfSize(int i2, Class<?> cls) {
         NavigableMap<Integer, Integer> sizesForAdapter = getSizesForAdapter(cls);
-        Integer num = (Integer) sizesForAdapter.get(Integer.valueOf(i));
+        Integer num = (Integer) sizesForAdapter.get(Integer.valueOf(i2));
         if (num != null) {
             if (num.intValue() == 1) {
-                sizesForAdapter.remove(Integer.valueOf(i));
+                sizesForAdapter.remove(Integer.valueOf(i2));
                 return;
             } else {
-                sizesForAdapter.put(Integer.valueOf(i), Integer.valueOf(num.intValue() - 1));
+                sizesForAdapter.put(Integer.valueOf(i2), Integer.valueOf(num.intValue() - 1));
                 return;
             }
         }
-        throw new NullPointerException("Tried to decrement empty size, size: " + i + ", this: " + this);
+        throw new NullPointerException("Tried to decrement empty size, size: " + i2 + ", this: " + this);
     }
 
     private void evict() {
         evictToSize(this.maxSize);
     }
 
-    private void evictToSize(int i) {
-        while (this.currentSize > i) {
+    private void evictToSize(int i2) {
+        while (this.currentSize > i2) {
             Object removeLast = this.groupedMap.removeLast();
             Preconditions.checkNotNull(removeLast);
             ArrayAdapterInterface adapterFromObject = getAdapterFromObject(removeLast);
@@ -168,16 +168,16 @@ public final class LruArrayPool implements ArrayPool {
     }
 
     private boolean isNoMoreThanHalfFull() {
-        int i = this.currentSize;
-        return i == 0 || this.maxSize / i >= 2;
+        int i2 = this.currentSize;
+        return i2 == 0 || this.maxSize / i2 >= 2;
     }
 
-    private boolean isSmallEnoughForReuse(int i) {
-        return i <= this.maxSize / 2;
+    private boolean isSmallEnoughForReuse(int i2) {
+        return i2 <= this.maxSize / 2;
     }
 
-    private boolean mayFillRequest(int i, Integer num) {
-        return num != null && (isNoMoreThanHalfFull() || num.intValue() <= i * 8);
+    private boolean mayFillRequest(int i2, Integer num) {
+        return num != null && (isNoMoreThanHalfFull() || num.intValue() <= i2 * 8);
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool
@@ -186,30 +186,30 @@ public final class LruArrayPool implements ArrayPool {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool
-    public synchronized <T> T get(int i, Class<T> cls) {
+    public synchronized <T> T get(int i2, Class<T> cls) {
         Key key;
-        Integer ceilingKey = getSizesForAdapter(cls).ceilingKey(Integer.valueOf(i));
-        if (mayFillRequest(i, ceilingKey)) {
+        Integer ceilingKey = getSizesForAdapter(cls).ceilingKey(Integer.valueOf(i2));
+        if (mayFillRequest(i2, ceilingKey)) {
             key = this.keyPool.get(ceilingKey.intValue(), cls);
         } else {
-            key = this.keyPool.get(i, cls);
+            key = this.keyPool.get(i2, cls);
         }
         return (T) getForKey(key, cls);
     }
 
     public int getCurrentSize() {
-        int i = 0;
+        int i2 = 0;
         for (Class<?> cls : this.sortedSizes.keySet()) {
             for (Integer num : this.sortedSizes.get(cls).keySet()) {
-                i += num.intValue() * ((Integer) this.sortedSizes.get(cls).get(num)).intValue() * getAdapterFromType(cls).getElementSizeInBytes();
+                i2 += num.intValue() * ((Integer) this.sortedSizes.get(cls).get(num)).intValue() * getAdapterFromType(cls).getElementSizeInBytes();
             }
         }
-        return i;
+        return i2;
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool
-    public synchronized <T> T getExact(int i, Class<T> cls) {
-        return (T) getForKey(this.keyPool.get(i, cls), cls);
+    public synchronized <T> T getExact(int i2, Class<T> cls) {
+        return (T) getForKey(this.keyPool.get(i2, cls), cls);
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool
@@ -219,11 +219,11 @@ public final class LruArrayPool implements ArrayPool {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool
-    public synchronized void trimMemory(int i) {
+    public synchronized void trimMemory(int i2) {
         try {
-            if (i >= 40) {
+            if (i2 >= 40) {
                 clearMemory();
-            } else if (i >= 20 || i == 15) {
+            } else if (i2 >= 20 || i2 == 15) {
                 evictToSize(this.maxSize / 2);
             }
         } catch (Throwable th) {
@@ -243,21 +243,21 @@ public final class LruArrayPool implements ArrayPool {
             NavigableMap<Integer, Integer> sizesForAdapter = getSizesForAdapter(cls);
             Integer num = (Integer) sizesForAdapter.get(Integer.valueOf(key.size));
             Integer valueOf = Integer.valueOf(key.size);
-            int i = 1;
+            int i2 = 1;
             if (num != null) {
-                i = 1 + num.intValue();
+                i2 = 1 + num.intValue();
             }
-            sizesForAdapter.put(valueOf, Integer.valueOf(i));
+            sizesForAdapter.put(valueOf, Integer.valueOf(i2));
             this.currentSize += elementSizeInBytes;
             evict();
         }
     }
 
-    public LruArrayPool(int i) {
+    public LruArrayPool(int i2) {
         this.groupedMap = new GroupedLinkedMap<>();
         this.keyPool = new KeyPool();
         this.sortedSizes = new HashMap();
         this.adapters = new HashMap();
-        this.maxSize = i;
+        this.maxSize = i2;
     }
 }

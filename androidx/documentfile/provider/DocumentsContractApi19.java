@@ -104,8 +104,8 @@ public class DocumentsContractApi19 {
         return queryForLong(context, uri, "_size", 0L);
     }
 
-    public static int queryForInt(Context context, Uri uri, String str, int i) {
-        return (int) queryForLong(context, uri, str, i);
+    public static int queryForInt(Context context, Uri uri, String str, int i2) {
+        return (int) queryForLong(context, uri, str, i2);
     }
 
     public static long queryForLong(Context context, Uri uri, String str, long j) {

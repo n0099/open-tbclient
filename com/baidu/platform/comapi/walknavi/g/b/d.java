@@ -6,10 +6,10 @@ import android.view.View;
 public class d extends com.baidu.platform.comapi.wnplatform.o.m {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f9651a;
+    public final /* synthetic */ c f10011a;
 
     public d(c cVar) {
-        this.f9651a = cVar;
+        this.f10011a = cVar;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.o.m
@@ -17,12 +17,12 @@ public class d extends com.baidu.platform.comapi.wnplatform.o.m {
         Handler handler;
         Handler handler2;
         if (com.baidu.platform.comapi.walknavi.b.a().t()) {
-            handler = this.f9651a.n;
+            handler = this.f10011a.n;
             if (handler != null) {
-                c cVar = this.f9651a;
-                if (cVar.i != null) {
+                c cVar = this.f10011a;
+                if (cVar.f10009i != null) {
                     handler2 = cVar.n;
-                    handler2.removeCallbacks(this.f9651a.i);
+                    handler2.removeCallbacks(this.f10011a.f10009i);
                 }
             }
             com.baidu.platform.comapi.walknavi.b.a().a(1, false);

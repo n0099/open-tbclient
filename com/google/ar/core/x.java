@@ -4,22 +4,22 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.util.Log;
 import com.google.ar.core.exceptions.FatalException;
-import d.h.b.a.l;
-import d.h.b.a.m;
-import d.h.b.a.q;
+import d.g.b.a.l;
+import d.g.b.a.m;
+import d.g.b.a.q;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public final class x extends com.google.a.b.a.a.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ AtomicBoolean f30672a;
+    public final /* synthetic */ AtomicBoolean f31609a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ q f30673b;
+    public final /* synthetic */ q f31610b;
 
     public x(q qVar, AtomicBoolean atomicBoolean) {
-        this.f30673b = qVar;
-        this.f30672a = atomicBoolean;
+        this.f31610b = qVar;
+        this.f31609a = atomicBoolean;
     }
 
     @Override // com.google.a.b.a.a.a.d
@@ -28,52 +28,52 @@ public final class x extends com.google.a.b.a.a.a.e {
 
     @Override // com.google.a.b.a.a.a.d
     public final void a(Bundle bundle) throws RemoteException {
-        if (this.f30672a.getAndSet(true)) {
+        if (this.f31609a.getAndSet(true)) {
             return;
         }
-        int i = bundle.getInt("error.code", -100);
-        int i2 = bundle.getInt("install.status", 0);
-        if (i2 == 4) {
-            this.f30673b.f67075f.a(p.COMPLETED);
-        } else if (i != 0) {
+        int i2 = bundle.getInt("error.code", -100);
+        int i3 = bundle.getInt("install.status", 0);
+        if (i3 == 4) {
+            this.f31610b.f65490f.a(p.COMPLETED);
+        } else if (i2 != 0) {
             StringBuilder sb = new StringBuilder(51);
             sb.append("requestInstall = ");
-            sb.append(i);
+            sb.append(i2);
             sb.append(", launching fullscreen.");
             Log.w("ARCore-InstallService", sb.toString());
-            q qVar = this.f30673b;
-            l lVar = qVar.f67076g;
-            l.n(qVar.f67074e, qVar.f67075f);
+            q qVar = this.f31610b;
+            l lVar = qVar.f65491g;
+            l.n(qVar.f65489e, qVar.f65490f);
         } else if (bundle.containsKey("resolution.intent")) {
-            q qVar2 = this.f30673b;
-            l lVar2 = qVar2.f67076g;
-            l.b(qVar2.f67074e, bundle, qVar2.f67075f);
-        } else if (i2 != 10) {
-            switch (i2) {
+            q qVar2 = this.f31610b;
+            l lVar2 = qVar2.f65491g;
+            l.b(qVar2.f65489e, bundle, qVar2.f65490f);
+        } else if (i3 != 10) {
+            switch (i3) {
                 case 1:
                 case 2:
                 case 3:
-                    this.f30673b.f67075f.a(p.ACCEPTED);
+                    this.f31610b.f65490f.a(p.ACCEPTED);
                     return;
                 case 4:
-                    this.f30673b.f67075f.a(p.COMPLETED);
+                    this.f31610b.f65490f.a(p.COMPLETED);
                     return;
                 case 5:
-                    this.f30673b.f67075f.b(new FatalException("Unexpected FAILED install status without error."));
+                    this.f31610b.f65490f.b(new FatalException("Unexpected FAILED install status without error."));
                     return;
                 case 6:
-                    this.f30673b.f67075f.a(p.CANCELLED);
+                    this.f31610b.f65490f.a(p.CANCELLED);
                     return;
                 default:
-                    m mVar = this.f30673b.f67075f;
+                    m mVar = this.f31610b.f65490f;
                     StringBuilder sb2 = new StringBuilder(38);
                     sb2.append("Unexpected install status: ");
-                    sb2.append(i2);
+                    sb2.append(i3);
                     mVar.b(new FatalException(sb2.toString()));
                     return;
             }
         } else {
-            this.f30673b.f67075f.b(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
+            this.f31610b.f65490f.b(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
         }
     }
 

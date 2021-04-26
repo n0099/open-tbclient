@@ -1,12 +1,14 @@
 package com.baidu.tieba.ala.alasquare.live_tab.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.j0.t.d.c.e.a;
-import d.b.j0.t.d.c.e.d;
-import d.b.j0.t.d.c.e.g;
-import d.b.j0.t.d.c.e.h;
-import d.b.j0.t.d.c.e.j;
+import d.a.c.e.p.k;
+import d.a.j0.t.d.c.e.a;
+import d.a.j0.t.d.c.e.d;
+import d.a.j0.t.d.c.e.g;
+import d.a.j0.t.d.c.e.h;
+import d.a.j0.t.d.c.e.j;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {
@@ -21,9 +23,9 @@ public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
-        super.decodeLogicInBackGround(i, jSONObject);
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
             return;
         }
@@ -57,5 +59,10 @@ public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {
             this.tabAllLiveInfo = jVar;
             jVar.a(optJSONObject6);
         }
+        String optString = optJSONObject.optString("show_switch", null);
+        if (k.isEmpty(optString)) {
+            return;
+        }
+        TbSingleton.getInstance().setYyCloudSwitch(optString);
     }
 }

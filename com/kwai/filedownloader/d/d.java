@@ -1,25 +1,25 @@
 package com.kwai.filedownloader.d;
 /* loaded from: classes6.dex */
 public class d {
-    public static boolean a(int i) {
-        return i < 0;
+    public static boolean a(int i2) {
+        return i2 < 0;
     }
 
-    public static boolean a(int i, int i2) {
-        if ((i == 3 || i == 5 || i != i2) && !a(i)) {
-            if (i < 1 || i > 6 || i2 < 10 || i2 > 11) {
-                if (i == 1) {
-                    return i2 != 0;
-                } else if (i == 2) {
-                    return (i2 == 0 || i2 == 1 || i2 == 6) ? false : true;
-                } else if (i == 3) {
-                    return (i2 == 0 || i2 == 1 || i2 == 2 || i2 == 6) ? false : true;
-                } else if (i == 5) {
-                    return (i2 == 1 || i2 == 6) ? false : true;
-                } else if (i != 6) {
+    public static boolean a(int i2, int i3) {
+        if ((i2 == 3 || i2 == 5 || i2 != i3) && !a(i2)) {
+            if (i2 < 1 || i2 > 6 || i3 < 10 || i3 > 11) {
+                if (i2 == 1) {
+                    return i3 != 0;
+                } else if (i2 == 2) {
+                    return (i3 == 0 || i3 == 1 || i3 == 6) ? false : true;
+                } else if (i2 == 3) {
+                    return (i3 == 0 || i3 == 1 || i3 == 2 || i3 == 6) ? false : true;
+                } else if (i2 == 5) {
+                    return (i3 == 1 || i3 == 6) ? false : true;
+                } else if (i2 != 6) {
                     return true;
                 } else {
-                    return (i2 == 0 || i2 == 1) ? false : true;
+                    return (i3 == 0 || i3 == 1) ? false : true;
                 }
             }
             return false;
@@ -31,29 +31,29 @@ public class d {
         return aVar.v() == 0 || aVar.v() == 3;
     }
 
-    public static boolean b(int i) {
-        return i > 0;
+    public static boolean b(int i2) {
+        return i2 > 0;
     }
 
-    public static boolean b(int i, int i2) {
-        if ((i == 3 || i == 5 || i != i2) && !a(i)) {
-            if (i2 == -2 || i2 == -1) {
+    public static boolean b(int i2, int i3) {
+        if ((i2 == 3 || i2 == 5 || i2 != i3) && !a(i2)) {
+            if (i3 == -2 || i3 == -1) {
                 return true;
             }
-            if (i == 0) {
-                return i2 == 10;
-            } else if (i == 1) {
-                return i2 == 6;
-            } else if (i == 2 || i == 3) {
-                return i2 == -3 || i2 == 3 || i2 == 5;
-            } else if (i == 5 || i == 6) {
-                return i2 == 2 || i2 == 5;
-            } else if (i == 10) {
-                return i2 == 11;
-            } else if (i != 11) {
+            if (i2 == 0) {
+                return i3 == 10;
+            } else if (i2 == 1) {
+                return i3 == 6;
+            } else if (i2 == 2 || i2 == 3) {
+                return i3 == -3 || i3 == 3 || i3 == 5;
+            } else if (i2 == 5 || i2 == 6) {
+                return i3 == 2 || i3 == 5;
+            } else if (i2 == 10) {
+                return i3 == 11;
+            } else if (i2 != 11) {
                 return false;
             } else {
-                return i2 == -4 || i2 == -3 || i2 == 1;
+                return i3 == -4 || i3 == -3 || i3 == 1;
             }
         }
         return false;

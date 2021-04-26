@@ -7,13 +7,13 @@ import org.json.JSONObject;
 public class CommitVoteResMsg extends JsonHttpResponsedMessage {
     public AuthTokenData tokenData;
 
-    public CommitVoteResMsg(int i) {
-        super(i);
+    public CommitVoteResMsg(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i, jSONObject);
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        super.decodeLogicInBackGround(i2, jSONObject);
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode != 200 || error < 0 || jSONObject == null) {

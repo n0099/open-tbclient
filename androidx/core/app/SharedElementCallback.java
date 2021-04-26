@@ -37,18 +37,18 @@ public abstract class SharedElementCallback {
         if ((drawable instanceof BitmapDrawable) && min == 1.0f) {
             return ((BitmapDrawable) drawable).getBitmap();
         }
-        int i = (int) (intrinsicWidth * min);
-        int i2 = (int) (intrinsicHeight * min);
-        Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+        int i2 = (int) (intrinsicWidth * min);
+        int i3 = (int) (intrinsicHeight * min);
+        Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         Rect bounds = drawable.getBounds();
-        int i3 = bounds.left;
-        int i4 = bounds.top;
-        int i5 = bounds.right;
-        int i6 = bounds.bottom;
-        drawable.setBounds(0, 0, i, i2);
+        int i4 = bounds.left;
+        int i5 = bounds.top;
+        int i6 = bounds.right;
+        int i7 = bounds.bottom;
+        drawable.setBounds(0, 0, i2, i3);
         drawable.draw(canvas);
-        drawable.setBounds(i3, i4, i5, i6);
+        drawable.setBounds(i4, i5, i6, i7);
         return createBitmap;
     }
 
@@ -76,15 +76,15 @@ public abstract class SharedElementCallback {
             return null;
         }
         float min = Math.min(1.0f, 1048576.0f / (round * round2));
-        int i = (int) (round * min);
-        int i2 = (int) (round2 * min);
+        int i2 = (int) (round * min);
+        int i3 = (int) (round2 * min);
         if (this.mTempMatrix == null) {
             this.mTempMatrix = new Matrix();
         }
         this.mTempMatrix.set(matrix);
         this.mTempMatrix.postTranslate(-rectF.left, -rectF.top);
         this.mTempMatrix.postScale(min, min);
-        Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+        Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         canvas.concat(this.mTempMatrix);
         view.draw(canvas);

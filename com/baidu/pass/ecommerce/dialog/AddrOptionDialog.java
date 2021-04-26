@@ -24,7 +24,7 @@ public class AddrOptionDialog extends BaseDialogFragment implements View.OnClick
         public static final int OPTION_DEL_TYPE = 1002;
         public static final int OPTION_SET_DEFAULT_TYPE = 1001;
 
-        void onOptionClick(int i);
+        void onOptionClick(int i2);
     }
 
     @SuppressLint({"ValidFragment"})

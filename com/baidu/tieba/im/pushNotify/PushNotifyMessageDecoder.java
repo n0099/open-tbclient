@@ -22,14 +22,14 @@ public class PushNotifyMessageDecoder extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        BdLog.e("cmd is " + i);
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+        BdLog.e("cmd is " + i2);
         PushNotifyResIdl pushNotifyResIdl = (PushNotifyResIdl) new Wire(new Class[0]).parseFrom(bArr, PushNotifyResIdl.class);
         List<PusherMsg> list = pushNotifyResIdl.multiMsg;
         int size = list == null ? 0 : list.size();
         this.mMsgList = new LinkedList<>();
-        for (int i2 = 0; i2 < size; i2++) {
-            PusherMsg pusherMsg = pushNotifyResIdl.multiMsg.get(i2);
+        for (int i3 = 0; i3 < size; i3++) {
+            PusherMsg pusherMsg = pushNotifyResIdl.multiMsg.get(i3);
             PushNotifyMessage pushNotifyMessage = new PushNotifyMessage();
             pushNotifyMessage.setGroupId(pusherMsg.data.groupId.longValue());
             pushNotifyMessage.setNewestMsgId(pusherMsg.data.msgId.longValue());

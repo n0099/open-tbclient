@@ -3,6 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.sapi2.activity.IdCardOcrCameraActivity;
 import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -36,12 +37,12 @@ public abstract class cw {
         }
     }
 
-    public static int a(int i, int i2) {
-        return (((i2 + LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK) / 1448) * 132) + 1080 + i + i2;
+    public static int a(int i2, int i3) {
+        return (((i3 + LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK) / 1448) * 132) + IdCardOcrCameraActivity.G + i2 + i3;
     }
 
-    public static int a(int i, int i2, int i3) {
-        return (((i2 + 200) / 1448) * 132) + 1011 + i2 + i + i3;
+    public static int a(int i2, int i3, int i4) {
+        return (((i3 + 200) / 1448) * 132) + 1011 + i3 + i2 + i4;
     }
 
     public static int a(cv cvVar, String str, List<bf> list, String str2) {
@@ -66,16 +67,16 @@ public abstract class cw {
     }
 
     public static int a(List<bf> list) {
-        int i = 0;
+        int i2 = 0;
         for (bf bfVar : list) {
             if (!TextUtils.isEmpty(bfVar.a())) {
-                i += bfVar.a().length();
+                i2 += bfVar.a().length();
             }
             if (!TextUtils.isEmpty(bfVar.b())) {
-                i += bfVar.b().length();
+                i2 += bfVar.b().length();
             }
         }
-        return i * 2;
+        return i2 * 2;
     }
 
     public static String a(Context context, String str, List<bf> list) {
@@ -95,11 +96,11 @@ public abstract class cw {
             try {
                 ArrayList<String> arrayList = new ArrayList<>();
                 if (z) {
-                    co m214a = cs.a().m214a(str);
-                    if (m214a != null) {
-                        arrayList = m214a.a(str);
+                    co m217a = cs.a().m217a(str);
+                    if (m217a != null) {
+                        arrayList = m217a.a(str);
                     }
-                    coVar = m214a;
+                    coVar = m217a;
                 } else {
                     coVar = null;
                 }
@@ -117,7 +118,7 @@ public abstract class cw {
                         iOException = e2;
                         str2 = str4;
                     }
-                    if (!cvVar.m223a(context, next, (List<bf>) arrayList2)) {
+                    if (!cvVar.m226a(context, next, (List<bf>) arrayList2)) {
                         return str4;
                     }
                     String a2 = cvVar.a(context, next, (List<bf>) arrayList2);

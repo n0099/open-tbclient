@@ -276,8 +276,8 @@ public class JSONObject {
         if (jSONArray == null || (length = jSONArray.length()) == 0) {
             return null;
         }
-        for (int i = 0; i < length; i++) {
-            jSONArray2.put(opt(JSON.toString(jSONArray.opt(i))));
+        for (int i2 = 0; i2 < length; i2++) {
+            jSONArray2.put(opt(JSON.toString(jSONArray.opt(i2))));
         }
         return jSONArray2;
     }
@@ -310,9 +310,9 @@ public class JSONObject {
         return d3 != null ? d3.doubleValue() : d2;
     }
 
-    public int optInt(String str, int i) {
+    public int optInt(String str, int i2) {
         Integer integer = JSON.toInteger(opt(str));
-        return integer != null ? integer.intValue() : i;
+        return integer != null ? integer.intValue() : i2;
     }
 
     public long optLong(String str, long j) {
@@ -342,8 +342,8 @@ public class JSONObject {
         }
     }
 
-    public JSONObject put(String str, int i) throws JSONException {
-        this.nameValuePairs.put(checkName(str), Integer.valueOf(i));
+    public JSONObject put(String str, int i2) throws JSONException {
+        this.nameValuePairs.put(checkName(str), Integer.valueOf(i2));
         return this;
     }
 
@@ -352,8 +352,8 @@ public class JSONObject {
         return this;
     }
 
-    public String toString(int i) throws JSONException {
-        JSONStringer jSONStringer = new JSONStringer(i);
+    public String toString(int i2) throws JSONException {
+        JSONStringer jSONStringer = new JSONStringer(i2);
         writeTo(jSONStringer);
         return jSONStringer.toString();
     }

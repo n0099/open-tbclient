@@ -11,7 +11,7 @@ import java.io.FileReader;
 public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30070a;
+    public static String f30987a;
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x004c */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0071 */
@@ -132,10 +132,10 @@ public class aj {
     }
 
     public static String b() {
-        if (TextUtils.isEmpty(f30070a)) {
-            f30070a = new String(Base64.decode("ZGV2aWNlX2lk", 0));
+        if (TextUtils.isEmpty(f30987a)) {
+            f30987a = new String(Base64.decode("ZGV2aWNlX2lk", 0));
         }
-        return f30070a;
+        return f30987a;
     }
 
     public static boolean a() {

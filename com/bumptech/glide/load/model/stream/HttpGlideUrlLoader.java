@@ -48,7 +48,7 @@ public class HttpGlideUrlLoader implements ModelLoader<GlideUrl, InputStream> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<InputStream> buildLoadData(@NonNull GlideUrl glideUrl, int i, int i2, @NonNull Options options) {
+    public ModelLoader.LoadData<InputStream> buildLoadData(@NonNull GlideUrl glideUrl, int i2, int i3, @NonNull Options options) {
         ModelCache<GlideUrl, GlideUrl> modelCache = this.modelCache;
         if (modelCache != null) {
             GlideUrl glideUrl2 = modelCache.get(glideUrl, 0, 0);

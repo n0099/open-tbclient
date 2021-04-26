@@ -1,0 +1,22 @@
+package d.a.j0.m3;
+
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class d {
+
+    /* renamed from: a  reason: collision with root package name */
+    public final List<String> f56852a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final String f56853b;
+
+    public d(List<String> list, String str) {
+        if (list != null) {
+            this.f56852a = new ArrayList(list);
+        } else {
+            this.f56852a = new ArrayList();
+        }
+        this.f56853b = str;
+    }
+}

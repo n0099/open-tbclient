@@ -11,7 +11,7 @@ public interface NativeADMediaListener {
 
     void onVideoInit();
 
-    void onVideoLoaded(int i);
+    void onVideoLoaded(int i2);
 
     void onVideoLoading();
 

@@ -7,18 +7,18 @@ import org.json.JSONObject;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public SearchType f9378a;
+    public SearchType f9729a;
 
     public abstract SearchResult a(String str);
 
     public SearchType a() {
-        return this.f9378a;
+        return this.f9729a;
     }
 
     public abstract void a(SearchResult searchResult, Object obj);
 
     public void a(SearchType searchType) {
-        this.f9378a = searchType;
+        this.f9729a = searchType;
     }
 
     public boolean a(String str, SearchResult searchResult, boolean z) {

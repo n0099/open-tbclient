@@ -1,7 +1,7 @@
 package com.baidu.tbadk.getUserInfo;
 
 import com.baidu.adp.framework.message.NetMessage;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.GetUserInfo.DataReq;
 import tbclient.GetUserInfo.GetUserInfoReqIdl;
 /* loaded from: classes3.dex */
@@ -9,8 +9,8 @@ public class GetUserInfoRequstData extends NetMessage {
     public long mUid;
     public int screenWidth;
 
-    public GetUserInfoRequstData(int i, int i2) {
-        super(i, i2);
+    public GetUserInfoRequstData(int i2, int i3) {
+        super(i2, i3);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -30,8 +30,8 @@ public class GetUserInfoRequstData extends NetMessage {
         return this.mUid;
     }
 
-    public void setScreenWidth(int i) {
-        this.screenWidth = i;
+    public void setScreenWidth(int i2) {
+        this.screenWidth = i2;
     }
 
     public void setUid(long j) {

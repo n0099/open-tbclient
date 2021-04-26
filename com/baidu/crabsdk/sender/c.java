@@ -14,16 +14,16 @@ import java.util.Map;
 public final class c extends a {
 
     /* renamed from: b  reason: collision with root package name */
-    public ActivityManager f4795b;
+    public ActivityManager f4909b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4796c;
+    public int f4910c;
 
     public c(Context context) {
         super(context);
-        this.f4795b = null;
-        this.f4796c = -100;
-        this.f4795b = (ActivityManager) context.getSystemService("activity");
+        this.f4909b = null;
+        this.f4910c = -100;
+        this.f4909b = (ActivityManager) context.getSystemService("activity");
     }
 
     public static Map<String, Object> c(ActivityManager.ProcessErrorStateInfo processErrorStateInfo, String str) {
@@ -77,8 +77,8 @@ public final class c extends a {
 
     @Override // com.baidu.crabsdk.sender.a
     public final void a(String str) {
-        if (this.f4796c != Process.myPid()) {
-            this.f4796c = Process.myPid();
+        if (this.f4910c != Process.myPid()) {
+            this.f4910c = Process.myPid();
             try {
                 com.baidu.crabsdk.c.a.b("anr trace logic thread.");
                 boolean d2 = d(str);
@@ -103,7 +103,7 @@ public final class c extends a {
 
     public final ActivityManager.ProcessErrorStateInfo b() {
         try {
-            List<ActivityManager.ProcessErrorStateInfo> processesInErrorState = this.f4795b.getProcessesInErrorState();
+            List<ActivityManager.ProcessErrorStateInfo> processesInErrorState = this.f4909b.getProcessesInErrorState();
             if (processesInErrorState != null) {
                 for (ActivityManager.ProcessErrorStateInfo processErrorStateInfo : processesInErrorState) {
                     if (processErrorStateInfo.condition == 2) {
@@ -131,18 +131,18 @@ public final class c extends a {
                 if (com.baidu.crabsdk.a.P != null) {
                     com.baidu.crabsdk.a.P.onAnrStarted(c2);
                 }
-                Map<String, Object> c3 = g.c(this.f4792a, null, false);
+                Map<String, Object> c3 = g.c(this.f4906a, null, false);
                 if (c3 == null) {
                     com.baidu.crabsdk.c.a.e("info map is null!");
                     return true;
                 }
                 c3.putAll(c2);
                 g.h(c3);
-                i.b(this.f4792a, i.h(c3));
+                i.b(this.f4906a, i.h(c3));
                 h.k();
                 if (h.a()) {
                     com.baidu.crabsdk.c.a.b("begin to upload anr info...");
-                    k.b(false, this.f4792a);
+                    k.b(false, this.f4906a);
                 }
             } else {
                 com.baidu.crabsdk.c.a.b("Anr occur! But not the current pid!" + Process.myPid());

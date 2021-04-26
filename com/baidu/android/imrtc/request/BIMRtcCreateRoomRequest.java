@@ -111,11 +111,11 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imrtc.request.HttpExecutor.ResponseHandler
-    public void onFailure(int i, String str) {
+    public void onFailure(int i2, String str) {
         if (this.mListener != null) {
-            report(-10, i);
-            this.mListener.onResult(i, str, new BIMRtcTokenListener.BIMRTCGetTokeResult());
-            trackRequest(i, "room/create");
+            report(-10, i2);
+            this.mListener.onResult(i2, str, new BIMRtcTokenListener.BIMRTCGetTokeResult());
+            trackRequest(i2, "room/create");
         }
     }
 
@@ -134,7 +134,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
         String str4 = "";
         String str5 = new String(bArr);
         LogUtils.e(TAG, "onSuccess :" + str5);
-        int i = -1;
+        int i2 = -1;
         long j2 = -1;
         try {
             JSONObject jSONObject = new JSONObject(str5);
@@ -150,7 +150,7 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
                 RtcUtility.setRtcRoomToken(this.mContext, str3);
                 str4 = jSONObject.optString("rtc_appid", "");
                 RtcUtility.setRtcAppId(this.mContext, str4);
-                i = optInt;
+                i2 = optInt;
             } catch (JSONException e2) {
                 j = j2;
                 jSONException = e2;
@@ -175,9 +175,9 @@ public class BIMRtcCreateRoomRequest extends BaseHttpRequest {
             bIMRTCGetTokeResult.useId = j2;
             bIMRTCGetTokeResult.token = str3;
             bIMRTCGetTokeResult.rtcAppId = str4;
-            report(-10, i);
-            this.mListener.onResult(i, str2, bIMRTCGetTokeResult);
-            trackRequest(i, "room/create");
+            report(-10, i2);
+            this.mListener.onResult(i2, str2, bIMRTCGetTokeResult);
+            trackRequest(i2, "room/create");
         }
     }
 

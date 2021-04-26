@@ -141,9 +141,9 @@ public class CpuLpVideoControllerDecoration {
         this.mProgressSeekBar.setProgressDrawable(new LayerDrawable(new Drawable[]{shapeDrawable, new ClipDrawable(shapeDrawable2, GravityCompat.START, 1)}));
         this.mProgressSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.mobads.container.video.CpuLpVideoControllerDecoration.5
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
-            public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
+            public void onProgressChanged(SeekBar seekBar, int i2, boolean z) {
                 if (z) {
-                    CpuLpVideoControllerDecoration.this.mParent.changePlayProgress(i);
+                    CpuLpVideoControllerDecoration.this.mParent.changePlayProgress(i2);
                 }
             }
 
@@ -232,14 +232,14 @@ public class CpuLpVideoControllerDecoration {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 CpuLpVideoControllerDecoration cpuLpVideoControllerDecoration = CpuLpVideoControllerDecoration.this;
-                int i = cpuLpVideoControllerDecoration.mVideoStatus;
-                if (i == 10) {
+                int i2 = cpuLpVideoControllerDecoration.mVideoStatus;
+                if (i2 == 10) {
                     cpuLpVideoControllerDecoration.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.PAUSE_ICON));
                     CpuLpVideoControllerDecoration.this.mParent.pauseVideo();
-                } else if (i == 11) {
+                } else if (i2 == 11) {
                     cpuLpVideoControllerDecoration.mMidImg.setImageBitmap(ConvertUtils.string2bitmap(CpuLpVideoControllerDecoration.PLAY_ICON));
                     CpuLpVideoControllerDecoration.this.mParent.resumeVideo();
-                } else if (i == 12) {
+                } else if (i2 == 12) {
                     cpuLpVideoControllerDecoration.mParent.retryPlay();
                     CpuLpVideoControllerDecoration.this.mVideoStatus = 10;
                 }
@@ -400,8 +400,8 @@ public class CpuLpVideoControllerDecoration {
         this.mParent.addView(this.mTopVideoTitleView, layoutParams);
     }
 
-    public void fillFloatViewWithData(JsWithPlayerData jsWithPlayerData, int i) {
-        if (i == 2) {
+    public void fillFloatViewWithData(JsWithPlayerData jsWithPlayerData, int i2) {
+        if (i2 == 2) {
             this.mUserWantBlue = false;
             this.mPlayBackSpeed = 1.0f;
             this.mPlaybackSpeedImg.setImageBitmap(ConvertUtils.string2bitmap(SPEED100));
@@ -525,11 +525,11 @@ public class CpuLpVideoControllerDecoration {
         }, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
     }
 
-    public void upDateVideoTime(int i, int i2) {
-        this.mProgressSeekBar.setProgress(i);
-        int i3 = i / 1000;
-        this.mCurTimeTv.setText(String.format(Locale.getDefault(), "%02d:%02d", Integer.valueOf(i3 / 60), Integer.valueOf(i3 % 60)));
+    public void upDateVideoTime(int i2, int i3) {
+        this.mProgressSeekBar.setProgress(i2);
         int i4 = i2 / 1000;
-        this.timeTv.setText(String.format(Locale.getDefault(), "%02d:%02d", Integer.valueOf(i4 / 60), Integer.valueOf(i4 % 60)));
+        this.mCurTimeTv.setText(String.format(Locale.getDefault(), "%02d:%02d", Integer.valueOf(i4 / 60), Integer.valueOf(i4 % 60)));
+        int i5 = i3 / 1000;
+        this.timeTv.setText(String.format(Locale.getDefault(), "%02d:%02d", Integer.valueOf(i5 / 60), Integer.valueOf(i5 % 60)));
     }
 }

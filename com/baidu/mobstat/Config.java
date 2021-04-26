@@ -246,19 +246,19 @@ public class Config {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public int f8347a;
+        public int f8645a;
 
-        EventViewType(int i) {
-            this.f8347a = i;
+        EventViewType(int i2) {
+            this.f8645a = i2;
         }
 
         public int getValue() {
-            return this.f8347a;
+            return this.f8645a;
         }
 
         @Override // java.lang.Enum
         public String toString() {
-            return String.valueOf(this.f8347a);
+            return String.valueOf(this.f8645a);
         }
     }
 

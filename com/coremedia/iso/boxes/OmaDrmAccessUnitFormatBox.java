@@ -8,15 +8,15 @@ import g.a.a.a;
 import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class OmaDrmAccessUnitFormatBox extends AbstractFullBox {
     public static final String TYPE = "odaf";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
     public byte allBits;
     public int initVectorLength;
     public int keyIndicatorLength;
@@ -84,13 +84,13 @@ public final class OmaDrmAccessUnitFormatBox extends AbstractFullBox {
         this.selectiveEncryption = (b2 & ByteCompanionObject.MIN_VALUE) == 128;
     }
 
-    public void setInitVectorLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i)));
-        this.initVectorLength = i;
+    public void setInitVectorLength(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i2)));
+        this.initVectorLength = i2;
     }
 
-    public void setKeyIndicatorLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_4, this, this, g.a.b.a.a.e(i)));
-        this.keyIndicatorLength = i;
+    public void setKeyIndicatorLength(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_4, this, this, g.a.b.a.a.e(i2)));
+        this.keyIndicatorLength = i2;
     }
 }

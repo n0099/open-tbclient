@@ -15,8 +15,8 @@ public class AES {
         }
         int length = bArr.length;
         String str = "";
-        for (int i = 0; i < length; i++) {
-            str = (bArr[i] & 255) < 16 ? str + "0" + Integer.toHexString(bArr[i] & 255) : str + Integer.toHexString(bArr[i] & 255);
+        for (int i2 = 0; i2 < length; i2++) {
+            str = (bArr[i2] & 255) < 16 ? str + "0" + Integer.toHexString(bArr[i2] & 255) : str + Integer.toHexString(bArr[i2] & 255);
         }
         return str;
     }
@@ -63,9 +63,9 @@ public class AES {
         if (str != null && str.length() >= 2) {
             int length = str.length() / 2;
             byte[] bArr = new byte[length];
-            for (int i = 0; i < length; i++) {
-                int i2 = i * 2;
-                bArr[i] = (byte) Integer.parseInt(str.substring(i2, i2 + 2), 16);
+            for (int i2 = 0; i2 < length; i2++) {
+                int i3 = i2 * 2;
+                bArr[i2] = (byte) Integer.parseInt(str.substring(i3, i3 + 2), 16);
             }
             return bArr;
         }
@@ -74,7 +74,7 @@ public class AES {
 
     public static String padString(String str) {
         int length = 16 - (str.length() % 16);
-        for (int i = 0; i < length; i++) {
+        for (int i2 = 0; i2 < length; i2++) {
             str = str + ' ';
         }
         return str;

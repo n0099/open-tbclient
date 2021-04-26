@@ -21,7 +21,7 @@ import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
     public static AnimatedImageDecoder sGifAnimatedImageDecoder = loadIfPresent("com.facebook.animated.gif.GifImage");
     public static AnimatedImageDecoder sWebpAnimatedImageDecoder = loadIfPresent("com.facebook.animated.webp.WebPImage");
@@ -34,8 +34,8 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
     }
 
     @SuppressLint({"NewApi"})
-    private CloseableReference<Bitmap> createBitmap(int i, int i2, Bitmap.Config config) {
-        CloseableReference<Bitmap> createBitmapInternal = this.mBitmapFactory.createBitmapInternal(i, i2, config);
+    private CloseableReference<Bitmap> createBitmap(int i2, int i3, Bitmap.Config config) {
+        CloseableReference<Bitmap> createBitmapInternal = this.mBitmapFactory.createBitmapInternal(i2, i3, config);
         createBitmapInternal.get().eraseColor(0);
         if (Build.VERSION.SDK_INT >= 12) {
             createBitmapInternal.get().setHasAlpha(true);
@@ -43,19 +43,19 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
         return createBitmapInternal;
     }
 
-    private CloseableReference<Bitmap> createPreviewBitmap(AnimatedImage animatedImage, Bitmap.Config config, int i) {
+    private CloseableReference<Bitmap> createPreviewBitmap(AnimatedImage animatedImage, Bitmap.Config config, int i2) {
         CloseableReference<Bitmap> createBitmap = createBitmap(animatedImage.getWidth(), animatedImage.getHeight(), config);
         new AnimatedImageCompositor(this.mAnimatedDrawableBackendProvider.get(AnimatedImageResult.forAnimatedImage(animatedImage), null), new AnimatedImageCompositor.Callback() { // from class: com.facebook.imagepipeline.animated.factory.AnimatedImageFactoryImpl.1
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.Callback
             @Nullable
-            public CloseableReference<Bitmap> getCachedBitmap(int i2) {
+            public CloseableReference<Bitmap> getCachedBitmap(int i3) {
                 return null;
             }
 
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.Callback
-            public void onIntermediateResult(int i2, Bitmap bitmap) {
+            public void onIntermediateResult(int i3, Bitmap bitmap) {
             }
-        }).renderFrame(i, createBitmap.get());
+        }).renderFrame(i2, createBitmap.get());
         return createBitmap;
     }
 
@@ -64,17 +64,17 @@ public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
         final ArrayList arrayList = new ArrayList(animatedDrawableBackend.getFrameCount());
         AnimatedImageCompositor animatedImageCompositor = new AnimatedImageCompositor(animatedDrawableBackend, new AnimatedImageCompositor.Callback() { // from class: com.facebook.imagepipeline.animated.factory.AnimatedImageFactoryImpl.2
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.Callback
-            public CloseableReference<Bitmap> getCachedBitmap(int i) {
-                return CloseableReference.cloneOrNull((CloseableReference) arrayList.get(i));
+            public CloseableReference<Bitmap> getCachedBitmap(int i2) {
+                return CloseableReference.cloneOrNull((CloseableReference) arrayList.get(i2));
             }
 
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.Callback
-            public void onIntermediateResult(int i, Bitmap bitmap) {
+            public void onIntermediateResult(int i2, Bitmap bitmap) {
             }
         });
-        for (int i = 0; i < animatedDrawableBackend.getFrameCount(); i++) {
+        for (int i2 = 0; i2 < animatedDrawableBackend.getFrameCount(); i2++) {
             CloseableReference<Bitmap> createBitmap = createBitmap(animatedDrawableBackend.getWidth(), animatedDrawableBackend.getHeight(), config);
-            animatedImageCompositor.renderFrame(i, createBitmap.get());
+            animatedImageCompositor.renderFrame(i2, createBitmap.get());
             arrayList.add(createBitmap);
         }
         return arrayList;

@@ -16,7 +16,7 @@ import androidx.annotation.RestrictTo;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.internal.view.SupportMenuItem;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ActionMenuItem implements SupportMenuItem {
     public static final int CHECKABLE = 1;
@@ -24,8 +24,6 @@ public class ActionMenuItem implements SupportMenuItem {
     public static final int ENABLED = 16;
     public static final int EXCLUSIVE = 4;
     public static final int HIDDEN = 8;
-    public static final int NO_ICON = 0;
-    public final int mCategoryOrder;
     public MenuItem.OnMenuItemClickListener mClickListener;
     public CharSequence mContentDescription;
     public Context mContext;
@@ -41,19 +39,17 @@ public class ActionMenuItem implements SupportMenuItem {
     public CharSequence mTooltipText;
     public int mShortcutNumericModifiers = 4096;
     public int mShortcutAlphabeticModifiers = 4096;
-    public int mIconResId = 0;
     public ColorStateList mIconTintList = null;
     public PorterDuff.Mode mIconTintMode = null;
     public boolean mHasIconTint = false;
     public boolean mHasIconTintMode = false;
     public int mFlags = 16;
 
-    public ActionMenuItem(Context context, int i, int i2, int i3, int i4, CharSequence charSequence) {
+    public ActionMenuItem(Context context, int i2, int i3, int i4, int i5, CharSequence charSequence) {
         this.mContext = context;
-        this.mId = i2;
-        this.mGroup = i;
-        this.mCategoryOrder = i3;
-        this.mOrdering = i4;
+        this.mId = i3;
+        this.mGroup = i2;
+        this.mOrdering = i5;
         this.mTitle = charSequence;
     }
 
@@ -228,6 +224,16 @@ public class ActionMenuItem implements SupportMenuItem {
         return (this.mFlags & 8) == 0;
     }
 
+    @Override // androidx.core.internal.view.SupportMenuItem
+    public boolean requiresActionButton() {
+        return true;
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem
+    public boolean requiresOverflow() {
+        return false;
+    }
+
     @Override // android.view.MenuItem
     public MenuItem setActionProvider(ActionProvider actionProvider) {
         throw new UnsupportedOperationException();
@@ -265,7 +271,6 @@ public class ActionMenuItem implements SupportMenuItem {
     @Override // android.view.MenuItem
     public MenuItem setIcon(Drawable drawable) {
         this.mIconDrawable = drawable;
-        this.mIconResId = 0;
         applyIconTint();
         return this;
     }
@@ -317,7 +322,7 @@ public class ActionMenuItem implements SupportMenuItem {
     }
 
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public void setShowAsAction(int i) {
+    public void setShowAsAction(int i2) {
     }
 
     @Override // androidx.core.internal.view.SupportMenuItem
@@ -344,9 +349,9 @@ public class ActionMenuItem implements SupportMenuItem {
     }
 
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setAlphabeticShortcut(char c2, int i) {
+    public MenuItem setAlphabeticShortcut(char c2, int i2) {
         this.mShortcutAlphabeticChar = Character.toLowerCase(c2);
-        this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i);
+        this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i2);
         return this;
     }
 
@@ -358,22 +363,22 @@ public class ActionMenuItem implements SupportMenuItem {
     }
 
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setNumericShortcut(char c2, int i) {
+    public MenuItem setNumericShortcut(char c2, int i2) {
         this.mShortcutNumericChar = c2;
-        this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i);
+        this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i2);
         return this;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public SupportMenuItem setShowAsActionFlags(int i) {
-        setShowAsAction(i);
+    public SupportMenuItem setShowAsActionFlags(int i2) {
+        setShowAsAction(i2);
         return this;
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setTitle(int i) {
-        this.mTitle = this.mContext.getResources().getString(i);
+    public MenuItem setTitle(int i2) {
+        this.mTitle = this.mContext.getResources().getString(i2);
         return this;
     }
 
@@ -390,26 +395,25 @@ public class ActionMenuItem implements SupportMenuItem {
         throw new UnsupportedOperationException();
     }
 
+    @Override // android.view.MenuItem
+    public MenuItem setIcon(int i2) {
+        this.mIconDrawable = ContextCompat.getDrawable(this.mContext, i2);
+        applyIconTint();
+        return this;
+    }
+
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setShortcut(char c2, char c3, int i, int i2) {
+    public MenuItem setShortcut(char c2, char c3, int i2, int i3) {
         this.mShortcutNumericChar = c2;
-        this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i);
+        this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i2);
         this.mShortcutAlphabeticChar = Character.toLowerCase(c3);
-        this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i2);
+        this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i3);
         return this;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public SupportMenuItem setActionView(int i) {
+    public SupportMenuItem setActionView(int i2) {
         throw new UnsupportedOperationException();
-    }
-
-    @Override // android.view.MenuItem
-    public MenuItem setIcon(int i) {
-        this.mIconResId = i;
-        this.mIconDrawable = ContextCompat.getDrawable(this.mContext, i);
-        applyIconTint();
-        return this;
     }
 }

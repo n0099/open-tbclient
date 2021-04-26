@@ -53,8 +53,8 @@ public final class b implements i, j {
             Collection<Object> a2 = a(com.alipay.a.b.a.a(type), type);
             if (type instanceof ParameterizedType) {
                 Type type2 = ((ParameterizedType) type).getActualTypeArguments()[0];
-                for (int i = 0; i < aVar.a(); i++) {
-                    a2.add(e.a(aVar.a(i), type2));
+                for (int i2 = 0; i2 < aVar.a(); i2++) {
+                    a2.add(e.a(aVar.a(i2), type2));
                 }
                 return a2;
             }

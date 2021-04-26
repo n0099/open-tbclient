@@ -17,14 +17,14 @@ public class ArrayRow implements LinearSystem.Row {
         this.variables = new ArrayLinkedVariables(this, cache);
     }
 
-    public ArrayRow addError(LinearSystem linearSystem, int i) {
-        this.variables.put(linearSystem.createErrorVariable(i, "ep"), 1.0f);
-        this.variables.put(linearSystem.createErrorVariable(i, "em"), -1.0f);
+    public ArrayRow addError(LinearSystem linearSystem, int i2) {
+        this.variables.put(linearSystem.createErrorVariable(i2, "ep"), 1.0f);
+        this.variables.put(linearSystem.createErrorVariable(i2, "em"), -1.0f);
         return this;
     }
 
-    public ArrayRow addSingleError(SolverVariable solverVariable, int i) {
-        this.variables.put(solverVariable, i);
+    public ArrayRow addSingleError(SolverVariable solverVariable, int i2) {
+        this.variables.put(solverVariable, i2);
         return this;
     }
 
@@ -50,7 +50,7 @@ public class ArrayRow implements LinearSystem.Row {
         this.constantValue = 0.0f;
     }
 
-    public ArrayRow createRowCentering(SolverVariable solverVariable, SolverVariable solverVariable2, int i, float f2, SolverVariable solverVariable3, SolverVariable solverVariable4, int i2) {
+    public ArrayRow createRowCentering(SolverVariable solverVariable, SolverVariable solverVariable2, int i2, float f2, SolverVariable solverVariable3, SolverVariable solverVariable4, int i3) {
         if (solverVariable2 == solverVariable3) {
             this.variables.put(solverVariable, 1.0f);
             this.variables.put(solverVariable4, 1.0f);
@@ -62,33 +62,33 @@ public class ArrayRow implements LinearSystem.Row {
             this.variables.put(solverVariable2, -1.0f);
             this.variables.put(solverVariable3, -1.0f);
             this.variables.put(solverVariable4, 1.0f);
-            if (i > 0 || i2 > 0) {
-                this.constantValue = (-i) + i2;
+            if (i2 > 0 || i3 > 0) {
+                this.constantValue = (-i2) + i3;
             }
         } else if (f2 <= 0.0f) {
             this.variables.put(solverVariable, -1.0f);
             this.variables.put(solverVariable2, 1.0f);
-            this.constantValue = i;
+            this.constantValue = i2;
         } else if (f2 >= 1.0f) {
             this.variables.put(solverVariable3, -1.0f);
             this.variables.put(solverVariable4, 1.0f);
-            this.constantValue = i2;
+            this.constantValue = i3;
         } else {
             float f3 = 1.0f - f2;
             this.variables.put(solverVariable, f3 * 1.0f);
             this.variables.put(solverVariable2, f3 * (-1.0f));
             this.variables.put(solverVariable3, (-1.0f) * f2);
             this.variables.put(solverVariable4, 1.0f * f2);
-            if (i > 0 || i2 > 0) {
-                this.constantValue = ((-i) * f3) + (i2 * f2);
+            if (i2 > 0 || i3 > 0) {
+                this.constantValue = ((-i2) * f3) + (i3 * f2);
             }
         }
         return this;
     }
 
-    public ArrayRow createRowDefinition(SolverVariable solverVariable, int i) {
+    public ArrayRow createRowDefinition(SolverVariable solverVariable, int i2) {
         this.variable = solverVariable;
-        float f2 = i;
+        float f2 = i2;
         solverVariable.computedValue = f2;
         this.constantValue = f2;
         this.isSimpleDefinition = true;
@@ -110,16 +110,16 @@ public class ArrayRow implements LinearSystem.Row {
         return this;
     }
 
-    public ArrayRow createRowEqualDimension(float f2, float f3, float f4, SolverVariable solverVariable, int i, SolverVariable solverVariable2, int i2, SolverVariable solverVariable3, int i3, SolverVariable solverVariable4, int i4) {
+    public ArrayRow createRowEqualDimension(float f2, float f3, float f4, SolverVariable solverVariable, int i2, SolverVariable solverVariable2, int i3, SolverVariable solverVariable3, int i4, SolverVariable solverVariable4, int i5) {
         if (f3 != 0.0f && f2 != f4) {
             float f5 = (f2 / f3) / (f4 / f3);
-            this.constantValue = ((-i) - i2) + (i3 * f5) + (i4 * f5);
+            this.constantValue = ((-i2) - i3) + (i4 * f5) + (i5 * f5);
             this.variables.put(solverVariable, 1.0f);
             this.variables.put(solverVariable2, -1.0f);
             this.variables.put(solverVariable4, f5);
             this.variables.put(solverVariable3, -f5);
         } else {
-            this.constantValue = ((-i) - i2) + i3 + i4;
+            this.constantValue = ((-i2) - i3) + i4 + i5;
             this.variables.put(solverVariable, 1.0f);
             this.variables.put(solverVariable2, -1.0f);
             this.variables.put(solverVariable4, 1.0f);
@@ -151,25 +151,25 @@ public class ArrayRow implements LinearSystem.Row {
         return this;
     }
 
-    public ArrayRow createRowEquals(SolverVariable solverVariable, int i) {
-        if (i < 0) {
-            this.constantValue = i * (-1);
+    public ArrayRow createRowEquals(SolverVariable solverVariable, int i2) {
+        if (i2 < 0) {
+            this.constantValue = i2 * (-1);
             this.variables.put(solverVariable, 1.0f);
         } else {
-            this.constantValue = i;
+            this.constantValue = i2;
             this.variables.put(solverVariable, -1.0f);
         }
         return this;
     }
 
-    public ArrayRow createRowGreaterThan(SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, int i) {
+    public ArrayRow createRowGreaterThan(SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, int i2) {
         boolean z = false;
-        if (i != 0) {
-            if (i < 0) {
-                i *= -1;
+        if (i2 != 0) {
+            if (i2 < 0) {
+                i2 *= -1;
                 z = true;
             }
-            this.constantValue = i;
+            this.constantValue = i2;
         }
         if (!z) {
             this.variables.put(solverVariable, -1.0f);
@@ -183,14 +183,14 @@ public class ArrayRow implements LinearSystem.Row {
         return this;
     }
 
-    public ArrayRow createRowLowerThan(SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, int i) {
+    public ArrayRow createRowLowerThan(SolverVariable solverVariable, SolverVariable solverVariable2, SolverVariable solverVariable3, int i2) {
         boolean z = false;
-        if (i != 0) {
-            if (i < 0) {
-                i *= -1;
+        if (i2 != 0) {
+            if (i2 < 0) {
+                i2 *= -1;
                 z = true;
             }
-            this.constantValue = i;
+            this.constantValue = i2;
         }
         if (!z) {
             this.variables.put(solverVariable, -1.0f);
@@ -248,14 +248,14 @@ public class ArrayRow implements LinearSystem.Row {
         ArrayRow arrayRow = (ArrayRow) row;
         this.variable = null;
         this.variables.clear();
-        int i = 0;
+        int i2 = 0;
         while (true) {
             ArrayLinkedVariables arrayLinkedVariables = arrayRow.variables;
-            if (i >= arrayLinkedVariables.currentSize) {
+            if (i2 >= arrayLinkedVariables.currentSize) {
                 return;
             }
-            this.variables.add(arrayLinkedVariables.getVariable(i), arrayRow.variables.getVariableValue(i), true);
-            i++;
+            this.variables.add(arrayLinkedVariables.getVariable(i2), arrayRow.variables.getVariableValue(i2), true);
+            i2++;
         }
     }
 
@@ -302,7 +302,7 @@ public class ArrayRow implements LinearSystem.Row {
     public String toReadableString() {
         boolean z;
         float variableValue;
-        int i;
+        int i2;
         String str = (this.variable == null ? "0" : "" + this.variable) + " = ";
         if (this.constantValue != 0.0f) {
             str = str + this.constantValue;
@@ -310,10 +310,10 @@ public class ArrayRow implements LinearSystem.Row {
         } else {
             z = false;
         }
-        int i2 = this.variables.currentSize;
-        for (int i3 = 0; i3 < i2; i3++) {
-            SolverVariable variable = this.variables.getVariable(i3);
-            if (variable != null && (this.variables.getVariableValue(i3)) != 0.0f) {
+        int i3 = this.variables.currentSize;
+        for (int i4 = 0; i4 < i3; i4++) {
+            SolverVariable variable = this.variables.getVariable(i4);
+            if (variable != null && (this.variables.getVariableValue(i4)) != 0.0f) {
                 String solverVariable = variable.toString();
                 if (!z) {
                     if (variableValue < 0.0f) {
@@ -322,7 +322,7 @@ public class ArrayRow implements LinearSystem.Row {
                     }
                     str = variableValue == 1.0f ? str + solverVariable : str + variableValue + " " + solverVariable;
                     z = true;
-                } else if (i > 0) {
+                } else if (i2 > 0) {
                     str = str + " + ";
                     if (variableValue == 1.0f) {
                     }
@@ -348,30 +348,30 @@ public class ArrayRow implements LinearSystem.Row {
 
     @Override // androidx.constraintlayout.solver.LinearSystem.Row
     public void addError(SolverVariable solverVariable) {
-        int i = solverVariable.strength;
+        int i2 = solverVariable.strength;
         float f2 = 1.0f;
-        if (i != 1) {
-            if (i == 2) {
+        if (i2 != 1) {
+            if (i2 == 2) {
                 f2 = 1000.0f;
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 f2 = 1000000.0f;
-            } else if (i == 4) {
+            } else if (i2 == 4) {
                 f2 = 1.0E9f;
-            } else if (i == 5) {
+            } else if (i2 == 5) {
                 f2 = 1.0E12f;
             }
         }
         this.variables.put(solverVariable, f2);
     }
 
-    public ArrayRow createRowEquals(SolverVariable solverVariable, SolverVariable solverVariable2, int i) {
+    public ArrayRow createRowEquals(SolverVariable solverVariable, SolverVariable solverVariable2, int i2) {
         boolean z = false;
-        if (i != 0) {
-            if (i < 0) {
-                i *= -1;
+        if (i2 != 0) {
+            if (i2 < 0) {
+                i2 *= -1;
                 z = true;
             }
-            this.constantValue = i;
+            this.constantValue = i2;
         }
         if (!z) {
             this.variables.put(solverVariable, -1.0f);
@@ -383,8 +383,8 @@ public class ArrayRow implements LinearSystem.Row {
         return this;
     }
 
-    public ArrayRow createRowGreaterThan(SolverVariable solverVariable, int i, SolverVariable solverVariable2) {
-        this.constantValue = i;
+    public ArrayRow createRowGreaterThan(SolverVariable solverVariable, int i2, SolverVariable solverVariable2) {
+        this.constantValue = i2;
         this.variables.put(solverVariable, -1.0f);
         return this;
     }

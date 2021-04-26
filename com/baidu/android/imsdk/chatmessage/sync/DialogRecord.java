@@ -39,8 +39,8 @@ public class DialogRecord {
         return this.updateTime;
     }
 
-    public DialogRecord setCategory(int i) {
-        this.category = i;
+    public DialogRecord setCategory(int i2) {
+        this.category = i2;
         return this;
     }
 
@@ -54,8 +54,8 @@ public class DialogRecord {
         return this;
     }
 
-    public DialogRecord setJumpToRecent(int i) {
-        this.jumpToRecent = i;
+    public DialogRecord setJumpToRecent(int i2) {
+        this.jumpToRecent = i2;
         return this;
     }
 
@@ -66,8 +66,8 @@ public class DialogRecord {
         return this;
     }
 
-    public DialogRecord setState(int i) {
-        this.state = i;
+    public DialogRecord setState(int i2) {
+        this.state = i2;
         return this;
     }
 

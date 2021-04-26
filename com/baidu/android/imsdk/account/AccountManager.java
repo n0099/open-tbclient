@@ -152,11 +152,11 @@ public class AccountManager extends BaseManager {
         return AccountManagerImpl.getInstance(context).setAppid(j);
     }
 
-    public static boolean setEnv(Context context, int i) {
+    public static boolean setEnv(Context context, int i2) {
         if (BaseManager.isNullContext(context)) {
             return false;
         }
-        return AccountManagerImpl.getInstance(context).setEnv(context, i);
+        return AccountManagerImpl.getInstance(context).setEnv(context, i2);
     }
 
     public static void setLogStateChangedListener(Context context, ILoginStateChangedListener iLoginStateChangedListener) {
@@ -167,9 +167,9 @@ public class AccountManager extends BaseManager {
         AccountManagerImpl.getInstance(context).setMediaRole(z);
     }
 
-    public static void setMsgSettingSwitchStatus(Context context, int i, int i2, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
+    public static void setMsgSettingSwitchStatus(Context context, int i2, int i3, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
         if (!BaseManager.isNullContext(context)) {
-            AccountManagerImpl.getInstance(context).setMsgSettingSwitchStatus(i, i2, iSetMsgSettingSwitchListener);
+            AccountManagerImpl.getInstance(context).setMsgSettingSwitchStatus(i2, i3, iSetMsgSettingSwitchListener);
         } else if (iSetMsgSettingSwitchListener != null) {
             iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
         }
@@ -179,9 +179,9 @@ public class AccountManager extends BaseManager {
         AccountManagerImpl.getInstance(context).setNotifyPaid(j);
     }
 
-    public static void setNotificationPrivacy(Context context, int i, ISetNotificationPrivacyListener iSetNotificationPrivacyListener) {
+    public static void setNotificationPrivacy(Context context, int i2, ISetNotificationPrivacyListener iSetNotificationPrivacyListener) {
         if (!BaseManager.isNullContext(context)) {
-            AccountManagerImpl.getInstance(context).setNotificationPrivacy(i, iSetNotificationPrivacyListener);
+            AccountManagerImpl.getInstance(context).setNotificationPrivacy(i2, iSetNotificationPrivacyListener);
         } else if (iSetNotificationPrivacyListener != null) {
             iSetNotificationPrivacyListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
         }
@@ -194,8 +194,8 @@ public class AccountManager extends BaseManager {
         return AccountManagerImpl.getInstance(context).setUid(str);
     }
 
-    public static void setUpdateSwitch(Context context, int i) {
-        AccountManagerImpl.getInstance(context).setUpdateSwitch(i);
+    public static void setUpdateSwitch(Context context, int i2) {
+        AccountManagerImpl.getInstance(context).setUpdateSwitch(i2);
     }
 
     public static void setZhidaAppid(Context context, long j, String str, ISwitchZhidaListener iSwitchZhidaListener) {

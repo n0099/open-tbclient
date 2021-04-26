@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.i;
 /* loaded from: classes6.dex */
 public interface c {
-    void b();
+    void a_();
 
-    void c_();
+    void e();
 }

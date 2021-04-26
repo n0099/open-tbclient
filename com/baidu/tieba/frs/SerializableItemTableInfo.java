@@ -23,11 +23,11 @@ public class SerializableItemTableInfo implements Serializable {
         return this.isCommented;
     }
 
-    public void setCommentStar(int i) {
-        this.commentStar = i;
+    public void setCommentStar(int i2) {
+        this.commentStar = i2;
     }
 
-    public void setIsCommented(int i) {
-        this.isCommented = i;
+    public void setIsCommented(int i2) {
+        this.isCommented = i2;
     }
 }

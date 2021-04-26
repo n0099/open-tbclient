@@ -22,34 +22,34 @@ public final class UPCEANExtension5Support {
         iArr2[2] = 0;
         iArr2[3] = 0;
         int size = bitArray.getSize();
-        int i = iArr[1];
-        int i2 = 0;
-        for (int i3 = 0; i3 < 5 && i < size; i3++) {
-            int decodeDigit = UPCEANReader.decodeDigit(bitArray, iArr2, i, UPCEANReader.L_AND_G_PATTERNS);
+        int i2 = iArr[1];
+        int i3 = 0;
+        for (int i4 = 0; i4 < 5 && i2 < size; i4++) {
+            int decodeDigit = UPCEANReader.decodeDigit(bitArray, iArr2, i2, UPCEANReader.L_AND_G_PATTERNS);
             sb.append((char) ((decodeDigit % 10) + 48));
-            for (int i4 : iArr2) {
-                i += i4;
+            for (int i5 : iArr2) {
+                i2 += i5;
             }
             if (decodeDigit >= 10) {
-                i2 |= 1 << (4 - i3);
+                i3 |= 1 << (4 - i4);
             }
-            if (i3 != 4) {
-                i = bitArray.getNextUnset(bitArray.getNextSet(i));
+            if (i4 != 4) {
+                i2 = bitArray.getNextUnset(bitArray.getNextSet(i2));
             }
         }
         if (sb.length() == 5) {
-            if (extensionChecksum(sb.toString()) == determineCheckDigit(i2)) {
-                return i;
+            if (extensionChecksum(sb.toString()) == determineCheckDigit(i3)) {
+                return i2;
             }
             throw NotFoundException.getNotFoundInstance();
         }
         throw NotFoundException.getNotFoundInstance();
     }
 
-    public static int determineCheckDigit(int i) throws NotFoundException {
-        for (int i2 = 0; i2 < 10; i2++) {
-            if (i == CHECK_DIGIT_ENCODINGS[i2]) {
-                return i2;
+    public static int determineCheckDigit(int i2) throws NotFoundException {
+        for (int i3 = 0; i3 < 10; i3++) {
+            if (i2 == CHECK_DIGIT_ENCODINGS[i3]) {
+                return i3;
             }
         }
         throw NotFoundException.getNotFoundInstance();
@@ -57,15 +57,15 @@ public final class UPCEANExtension5Support {
 
     public static int extensionChecksum(CharSequence charSequence) {
         int length = charSequence.length();
-        int i = 0;
-        for (int i2 = length - 2; i2 >= 0; i2 -= 2) {
-            i += charSequence.charAt(i2) - '0';
+        int i2 = 0;
+        for (int i3 = length - 2; i3 >= 0; i3 -= 2) {
+            i2 += charSequence.charAt(i3) - '0';
         }
-        int i3 = i * 3;
-        for (int i4 = length - 1; i4 >= 0; i4 -= 2) {
-            i3 += charSequence.charAt(i4) - '0';
+        int i4 = i2 * 3;
+        for (int i5 = length - 1; i5 >= 0; i5 -= 2) {
+            i4 += charSequence.charAt(i5) - '0';
         }
-        return (i3 * 3) % 10;
+        return (i4 * 3) % 10;
     }
 
     public static String parseExtension5String(String str) {
@@ -89,11 +89,11 @@ public final class UPCEANExtension5Support {
         }
         int parseInt = Integer.parseInt(str.substring(1));
         String valueOf2 = String.valueOf(parseInt / 100);
-        int i = parseInt % 100;
-        if (i < 10) {
-            valueOf = "0" + i;
+        int i2 = parseInt % 100;
+        if (i2 < 10) {
+            valueOf = "0" + i2;
         } else {
-            valueOf = String.valueOf(i);
+            valueOf = String.valueOf(i2);
         }
         return str2 + valueOf2 + IStringUtil.EXTENSION_SEPARATOR + valueOf;
     }
@@ -108,13 +108,13 @@ public final class UPCEANExtension5Support {
         return null;
     }
 
-    public Result decodeRow(int i, BitArray bitArray, int[] iArr) throws NotFoundException {
+    public Result decodeRow(int i2, BitArray bitArray, int[] iArr) throws NotFoundException {
         StringBuilder sb = this.decodeRowStringBuffer;
         sb.setLength(0);
         int decodeMiddle = decodeMiddle(bitArray, iArr, sb);
         String sb2 = sb.toString();
         Map<ResultMetadataType, Object> parseExtensionString = parseExtensionString(sb2);
-        float f2 = i;
+        float f2 = i2;
         Result result = new Result(sb2, null, new ResultPoint[]{new ResultPoint((iArr[0] + iArr[1]) / 2.0f, f2), new ResultPoint(decodeMiddle, f2)}, BarcodeFormat.UPC_EAN_EXTENSION);
         if (parseExtensionString != null) {
             result.putAllMetadata(parseExtensionString);

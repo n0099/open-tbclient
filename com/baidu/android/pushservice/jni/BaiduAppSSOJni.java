@@ -43,17 +43,17 @@ public class BaiduAppSSOJni {
         return null;
     }
 
-    public static native byte[] decryptAES(byte[] bArr, int i, int i2);
+    public static native byte[] decryptAES(byte[] bArr, int i2, int i3);
 
     public static native String encodeBySha1(byte[] bArr);
 
-    public static native byte[] encryptAES(String str, int i);
+    public static native byte[] encryptAES(String str, int i2);
 
     public static native byte[] encryptAESwithKey(String str, String str2, String str3);
 
     public static native byte[] getKey(String str);
 
-    public static native String getPrivateKey(int i);
+    public static native String getPrivateKey(int i2);
 
-    public static native String getPublicKey(int i);
+    public static native String getPublicKey(int i2);
 }

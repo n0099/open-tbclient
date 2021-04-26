@@ -6,7 +6,7 @@ public enum PMSConstants$CloudSwitch {
     
     public int value;
 
-    PMSConstants$CloudSwitch(int i) {
-        this.value = i;
+    PMSConstants$CloudSwitch(int i2) {
+        this.value = i2;
     }
 }

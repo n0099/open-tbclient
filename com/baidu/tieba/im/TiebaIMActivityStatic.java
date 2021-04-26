@@ -81,9 +81,9 @@ import com.baidu.tieba.im.recommend.detail.RecommendDetailHttpResponseMessage;
 import com.baidu.tieba.im.recommend.detail.RecommendDetailSocketResponseMessage;
 import com.baidu.tieba.im.searchGroup.AddGroupActivity;
 import com.baidu.tieba.im.validate.ValidateActivity;
-import d.b.i0.z0.f0;
-import d.b.i0.z0.h0;
-import d.b.i0.z0.n0;
+import d.a.i0.z0.f0;
+import d.a.i0.z0.h0;
+import d.a.i0.z0.n0;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -168,8 +168,8 @@ public class TiebaIMActivityStatic {
 
     /* loaded from: classes4.dex */
     public static class g extends CustomMessageListener {
-        public g(int i) {
-            super(i);
+        public g(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -180,12 +180,12 @@ public class TiebaIMActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f17448b == null || (tbPageContext = aVar.f17447a) == null) {
+            if (aVar.f17757b == null || (tbPageContext = aVar.f17756a) == null) {
                 return;
             }
             MsgMultiImageTextViewItemAdapter msgMultiImageTextViewItemAdapter = new MsgMultiImageTextViewItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_MULTI_PIC_TEXT);
-            msgMultiImageTextViewItemAdapter.n0(true);
-            aVar.f17448b.add(msgMultiImageTextViewItemAdapter);
+            msgMultiImageTextViewItemAdapter.j0(true);
+            aVar.f17757b.add(msgMultiImageTextViewItemAdapter);
         }
     }
 
@@ -196,38 +196,38 @@ public class TiebaIMActivityStatic {
         public class a extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ LinkedList f17413a;
+            public final /* synthetic */ LinkedList f17722a;
 
             public a(h hVar, LinkedList linkedList) {
-                this.f17413a = linkedList;
+                this.f17722a = linkedList;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.f0
+            @Override // d.a.i0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                return d.b.j0.e1.h.l.t().a(this.f17413a);
+                return d.a.j0.e1.h.l.t().a(this.f17722a);
             }
         }
 
         /* loaded from: classes4.dex */
-        public class b implements d.b.i0.z0.n<Void> {
+        public class b implements d.a.i0.z0.n<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomMessage f17414a;
+            public final /* synthetic */ CustomMessage f17723a;
 
             public b(h hVar, CustomMessage customMessage) {
-                this.f17414a = customMessage;
+                this.f17723a = customMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.n
+            @Override // d.a.i0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
-                if (((OfficalBarChatActivityConfig) this.f17414a.getData()).getUserData().getUserIdLong() == 0) {
+                if (((OfficalBarChatActivityConfig) this.f17723a.getData()).getUserData().getUserIdLong() == 0) {
                     return;
                 }
-                ((OfficalBarChatActivityConfig) this.f17414a.getData()).startActivity(OfficialBarChatActivity.class);
+                ((OfficalBarChatActivityConfig) this.f17723a.getData()).startActivity(OfficialBarChatActivity.class);
             }
         }
 
@@ -257,7 +257,7 @@ public class TiebaIMActivityStatic {
                     if (c2 == null || c2.length() <= 0) {
                         return 1;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), d.b.c.e.m.b.f(c2, 0L), c3, c4, 0)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), d.a.c.e.m.b.f(c2, 0L), c3, c4, 0)));
                     return 1;
                 } else if (str.contains(UrlSchemaHelper.SCHEMA_FORUM_BROADCAST_SINGLE_FEED)) {
                     Uri parse = Uri.parse(str);
@@ -276,7 +276,7 @@ public class TiebaIMActivityStatic {
                     String queryParameter4 = Uri.parse(str).getQueryParameter(TbTitleActivityConfig.FORUM_ID);
                     HashMap hashMap = new HashMap();
                     hashMap.put("forum_id", queryParameter4);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new d.b.j0.d3.h0.m(tbPageContext.getPageActivity(), OpenFlutter.ACTIVITY_FORUM_DETAIL, hashMap)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new d.a.j0.d3.h0.m(tbPageContext.getPageActivity(), OpenFlutter.ACTIVITY_FORUM_DETAIL, hashMap)));
                     return 0;
                 }
             }
@@ -318,8 +318,8 @@ public class TiebaIMActivityStatic {
 
     /* loaded from: classes4.dex */
     public static class n extends CustomMessageListener {
-        public n(int i) {
-            super(i);
+        public n(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -330,16 +330,16 @@ public class TiebaIMActivityStatic {
                 return;
             }
             MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-            if (aVar.f17448b == null || (tbPageContext = aVar.f17447a) == null) {
+            if (aVar.f17757b == null || (tbPageContext = aVar.f17756a) == null) {
                 return;
             }
             MsgPhotoLiveItemAdapter msgPhotoLiveItemAdapter = new MsgPhotoLiveItemAdapter(tbPageContext, ChatMessage.TYPE_MSG_PHOTOLIVE);
-            msgPhotoLiveItemAdapter.m0(true);
-            aVar.f17448b.add(msgPhotoLiveItemAdapter);
-            MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.f17447a, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
-            msgActivityViewItemAdapter.m0(true);
-            msgActivityViewItemAdapter.n0(true);
-            aVar.f17448b.add(msgActivityViewItemAdapter);
+            msgPhotoLiveItemAdapter.i0(true);
+            aVar.f17757b.add(msgPhotoLiveItemAdapter);
+            MsgActivityViewItemAdapter msgActivityViewItemAdapter = new MsgActivityViewItemAdapter(aVar.f17756a, ChatMessage.TYPE_MSG_GROUP_ACTIVITY);
+            msgActivityViewItemAdapter.i0(true);
+            msgActivityViewItemAdapter.j0(true);
+            aVar.f17757b.add(msgActivityViewItemAdapter);
         }
     }
 
@@ -420,7 +420,7 @@ public class TiebaIMActivityStatic {
         CustomMessageTask customMessageTask7 = new CustomMessageTask(2003004, new a());
         customMessageTask7.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask7);
-        CustomMessageTask customMessageTask8 = new CustomMessageTask(2001306, new d.b.j0.e1.q.a.a());
+        CustomMessageTask customMessageTask8 = new CustomMessageTask(2001306, new d.a.j0.e1.q.a.a());
         customMessageTask8.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask8);
         CustomMessageTask customMessageTask9 = new CustomMessageTask(2001299, new b());
@@ -429,17 +429,17 @@ public class TiebaIMActivityStatic {
     }
 
     public static boolean a() {
-        i(2001106, d.b.j0.e1.v.a.n.class);
-        i(2001205, d.b.j0.e1.v.a.p.class);
-        i(2001206, d.b.j0.e1.v.a.o.class);
-        i(2001207, d.b.j0.e1.v.a.q.class);
-        i(2001144, d.b.j0.e1.v.a.g.class);
-        i(2001147, d.b.j0.e1.v.a.m.class);
-        i(2001154, d.b.j0.e1.v.a.j.class);
-        i(2001150, d.b.j0.e1.v.a.h.class);
-        i(2001151, d.b.j0.e1.v.a.i.class);
-        i(2001152, d.b.j0.e1.v.a.k.class);
-        i(2001177, d.b.j0.e1.v.a.l.class);
+        i(2001106, d.a.j0.e1.v.a.n.class);
+        i(2001205, d.a.j0.e1.v.a.p.class);
+        i(2001206, d.a.j0.e1.v.a.o.class);
+        i(2001207, d.a.j0.e1.v.a.q.class);
+        i(2001144, d.a.j0.e1.v.a.g.class);
+        i(2001147, d.a.j0.e1.v.a.m.class);
+        i(2001154, d.a.j0.e1.v.a.j.class);
+        i(2001150, d.a.j0.e1.v.a.h.class);
+        i(2001151, d.a.j0.e1.v.a.i.class);
+        i(2001152, d.a.j0.e1.v.a.k.class);
+        i(2001177, d.a.j0.e1.v.a.l.class);
         return true;
     }
 
@@ -479,38 +479,38 @@ public class TiebaIMActivityStatic {
     }
 
     public static void g() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, d.b.j0.d3.d0.a.a(RecommendDetailActivity.RECOMMEND_DETAIL_URL, 303025));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, d.a.j0.d3.d0.a.a(RecommendDetailActivity.RECOMMEND_DETAIL_URL, 303025));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setIsUseCurrentBDUSS(false);
         tbHttpMessageTask.setResponsedClass(RecommendDetailHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        d.b.j0.d3.d0.a.f(303025, RecommendDetailSocketResponseMessage.class, false);
+        d.a.j0.d3.d0.a.f(303025, RecommendDetailSocketResponseMessage.class, false);
     }
 
     public static boolean h() {
-        MessageManager.getInstance().addResponsedMessageRule(new d.b.j0.e1.l.a());
-        MessageManager.getInstance().addResponsedMessageRule(new d.b.j0.e1.l.b());
+        MessageManager.getInstance().addResponsedMessageRule(new d.a.j0.e1.l.a());
+        MessageManager.getInstance().addResponsedMessageRule(new d.a.j0.e1.l.b());
         return true;
     }
 
-    public static d.b.i0.v0.a i(int i2, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
-        return d.b.j0.e1.c.a(i2, cls);
+    public static d.a.i0.v0.a i(int i2, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+        return d.a.j0.e1.c.a(i2, cls);
     }
 
     public static void j() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_DETAIL_CMD, d.b.j0.d3.d0.a.a(TbConfig.GET_FORUM_DETAIL, 303021));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_DETAIL_CMD, d.a.j0.d3.d0.a.a(TbConfig.GET_FORUM_DETAIL, 303021));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setIsUseCurrentBDUSS(false);
         tbHttpMessageTask.setResponsedClass(ForumDetailHttpResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        d.b.j0.d3.d0.a.f(303021, ForumDetailSocketResponse.class, false);
+        d.a.j0.d3.d0.a.f(303021, ForumDetailSocketResponse.class, false);
     }
 
-    public static d.b.i0.v0.b k(int i2, Class<? extends SocketResponsedMessage> cls, boolean z) {
-        return d.b.j0.e1.c.b(i2, cls, z);
+    public static d.a.i0.v0.b k(int i2, Class<? extends SocketResponsedMessage> cls, boolean z) {
+        return d.a.j0.e1.c.b(i2, cls, z);
     }
 }

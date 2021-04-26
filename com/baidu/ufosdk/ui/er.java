@@ -20,48 +20,50 @@ import com.baidu.tieba.R;
 public final class er extends Dialog {
 
     /* renamed from: a */
-    public final int f22925a;
+    public final int f23636a;
 
     /* renamed from: b */
-    public final int f22926b;
+    public final int f23637b;
 
     /* renamed from: c */
-    public final int f22927c;
+    public final int f23638c;
 
     /* renamed from: d */
-    public final int f22928d;
+    public final int f23639d;
 
     /* renamed from: e */
-    public final int f22929e;
+    public final int f23640e;
 
     /* renamed from: f */
-    public final int f22930f;
+    public final int f23641f;
 
     /* renamed from: g */
-    public final int f22931g;
+    public final int f23642g;
 
     /* renamed from: h */
-    public Context f22932h;
-    public eu i;
+    public Context f23643h;
+
+    /* renamed from: i */
+    public eu f23644i;
     public EditText j;
     public String k;
 
     public er(Context context, String str) {
         super(context);
-        this.f22925a = R.dimen.L_X02;
-        this.f22926b = R.dimen.L_X03;
-        this.f22927c = R.dimen.L_X04;
-        this.f22928d = R.dimen.L_X05;
-        this.f22929e = R.dimen.L_X06;
-        this.f22930f = R.dimen.M_H_X001;
-        this.f22931g = R.dimen.M_H_X002;
+        this.f23636a = R.dimen.L_X02;
+        this.f23637b = R.dimen.L_X03;
+        this.f23638c = R.dimen.L_X04;
+        this.f23639d = R.dimen.L_X05;
+        this.f23640e = R.dimen.L_X06;
+        this.f23641f = R.dimen.M_H_X001;
+        this.f23642g = R.dimen.M_H_X002;
         this.k = "";
-        this.f22932h = context;
+        this.f23643h = context;
         this.k = str;
     }
 
     public final void a(eu euVar) {
-        this.i = euVar;
+        this.f23644i = euVar;
     }
 
     @Override // android.app.Dialog
@@ -72,11 +74,11 @@ public final class er extends Dialog {
         getWindow().setBackgroundDrawable(new BitmapDrawable());
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(com.baidu.ufosdk.b.A);
-        gradientDrawable.setCornerRadius(com.baidu.ufosdk.f.i.a(this.f22932h, 4.0f));
-        RelativeLayout relativeLayout = new RelativeLayout(this.f22932h);
+        gradientDrawable.setCornerRadius(com.baidu.ufosdk.f.i.a(this.f23643h, 4.0f));
+        RelativeLayout relativeLayout = new RelativeLayout(this.f23643h);
         relativeLayout.setId(R.dimen.L_X02);
         relativeLayout.setBackgroundDrawable(gradientDrawable);
-        TextView textView = new TextView(this.f22932h);
+        TextView textView = new TextView(this.f23643h);
         textView.setId(R.dimen.M_H_X002);
         textView.setTextColor(-16777216);
         textView.setTextSize(18.0f);
@@ -84,28 +86,28 @@ public final class er extends Dialog {
         textView.setText(com.baidu.ufosdk.f.s.a("38"));
         textView.setGravity(17);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f22932h, 10.0f), com.baidu.ufosdk.f.i.a(this.f22932h, 20.0f), com.baidu.ufosdk.f.i.a(this.f22932h, 10.0f), 0);
+        layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f23643h, 10.0f), com.baidu.ufosdk.f.i.a(this.f23643h, 20.0f), com.baidu.ufosdk.f.i.a(this.f23643h, 10.0f), 0);
         layoutParams.addRule(14);
         relativeLayout.addView(textView, layoutParams);
-        TextView textView2 = new TextView(this.f22932h);
+        TextView textView2 = new TextView(this.f23643h);
         textView2.setId(R.dimen.L_X03);
         textView2.setTextColor(-16777216);
         textView2.setTextSize(15.0f);
         textView2.setText(com.baidu.ufosdk.f.s.a("39"));
         textView2.setGravity(17);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams2.setMargins(com.baidu.ufosdk.f.i.a(this.f22932h, 20.0f), com.baidu.ufosdk.f.i.a(this.f22932h, 20.0f), com.baidu.ufosdk.f.i.a(this.f22932h, 20.0f), 0);
+        layoutParams2.setMargins(com.baidu.ufosdk.f.i.a(this.f23643h, 20.0f), com.baidu.ufosdk.f.i.a(this.f23643h, 20.0f), com.baidu.ufosdk.f.i.a(this.f23643h, 20.0f), 0);
         layoutParams2.addRule(14);
         layoutParams2.addRule(3, textView.getId());
         relativeLayout.addView(textView2, layoutParams2);
-        int a2 = com.baidu.ufosdk.f.i.a(this.f22932h, 4.0f);
+        int a2 = com.baidu.ufosdk.f.i.a(this.f23643h, 4.0f);
         int parseColor = Color.parseColor("#2E3135");
         int parseColor2 = Color.parseColor("#FFFFFF");
         GradientDrawable gradientDrawable2 = new GradientDrawable();
         gradientDrawable2.setColor(parseColor2);
         gradientDrawable2.setCornerRadius(a2);
         gradientDrawable2.setStroke(1, parseColor);
-        EditText editText = new EditText(this.f22932h);
+        EditText editText = new EditText(this.f23643h);
         this.j = editText;
         editText.setId(R.dimen.L_X04);
         this.j.setTextSize(15.0f);
@@ -116,23 +118,23 @@ public final class er extends Dialog {
         }
         this.j.setHint(com.baidu.ufosdk.f.s.a("41"));
         this.j.setBackgroundDrawable(gradientDrawable2);
-        this.j.setPadding(com.baidu.ufosdk.f.i.a(this.f22932h, 3.0f), com.baidu.ufosdk.f.i.a(this.f22932h, 3.0f), com.baidu.ufosdk.f.i.a(this.f22932h, 3.0f), com.baidu.ufosdk.f.i.a(this.f22932h, 3.0f));
-        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(this.f22932h, 35.0f));
+        this.j.setPadding(com.baidu.ufosdk.f.i.a(this.f23643h, 3.0f), com.baidu.ufosdk.f.i.a(this.f23643h, 3.0f), com.baidu.ufosdk.f.i.a(this.f23643h, 3.0f), com.baidu.ufosdk.f.i.a(this.f23643h, 3.0f));
+        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(this.f23643h, 35.0f));
         layoutParams3.addRule(3, textView2.getId());
-        layoutParams3.setMargins(com.baidu.ufosdk.f.i.a(this.f22932h, 25.0f), com.baidu.ufosdk.f.i.a(this.f22932h, 10.0f), com.baidu.ufosdk.f.i.a(this.f22932h, 25.0f), com.baidu.ufosdk.f.i.a(this.f22932h, 5.0f));
+        layoutParams3.setMargins(com.baidu.ufosdk.f.i.a(this.f23643h, 25.0f), com.baidu.ufosdk.f.i.a(this.f23643h, 10.0f), com.baidu.ufosdk.f.i.a(this.f23643h, 25.0f), com.baidu.ufosdk.f.i.a(this.f23643h, 5.0f));
         relativeLayout.addView(this.j, layoutParams3);
-        LinearLayout linearLayout = new LinearLayout(this.f22932h);
+        LinearLayout linearLayout = new LinearLayout(this.f23643h);
         linearLayout.setId(R.dimen.L_X05);
         linearLayout.setOrientation(0);
         linearLayout.setBackgroundColor(0);
         linearLayout.setGravity(17);
-        TextView textView3 = new TextView(this.f22932h);
+        TextView textView3 = new TextView(this.f23643h);
         textView3.setId(R.dimen.L_X06);
         textView3.setText(com.baidu.ufosdk.f.s.a(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR));
-        int i = com.baidu.ufosdk.b.v;
-        int i2 = com.baidu.ufosdk.b.t;
-        int i3 = com.baidu.ufosdk.b.v;
-        textView3.setTextColor(com.baidu.ufosdk.f.i.a(i, i2, i3, i3));
+        int i2 = com.baidu.ufosdk.b.v;
+        int i3 = com.baidu.ufosdk.b.t;
+        int i4 = com.baidu.ufosdk.b.v;
+        textView3.setTextColor(com.baidu.ufosdk.f.i.a(i2, i3, i4, i4));
         textView3.setBackgroundColor(0);
         textView3.setTextSize(17.0f);
         textView3.setGravity(17);
@@ -140,18 +142,18 @@ public final class er extends Dialog {
         LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams4.weight = 1.0f;
         linearLayout.addView(textView3, layoutParams4);
-        View view = new View(this.f22932h);
-        LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f22932h, 0.8f), -1);
-        layoutParams5.setMargins(0, com.baidu.ufosdk.f.i.a(this.f22932h, 10.0f), 0, 0);
+        View view = new View(this.f23643h);
+        LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(this.f23643h, 0.8f), -1);
+        layoutParams5.setMargins(0, com.baidu.ufosdk.f.i.a(this.f23643h, 10.0f), 0, 0);
         view.setBackgroundColor(ConfirmDialog.APP_DESC_COLOR_DEFAULT);
         linearLayout.addView(view, layoutParams5);
-        TextView textView4 = new TextView(this.f22932h);
+        TextView textView4 = new TextView(this.f23643h);
         textView4.setId(R.dimen.M_H_X001);
         textView4.setText(com.baidu.ufosdk.f.s.a(PayConfig.PAYMENT_POS_KEY_MANGA));
-        int i4 = com.baidu.ufosdk.b.v;
-        int i5 = com.baidu.ufosdk.b.t;
-        int i6 = com.baidu.ufosdk.b.v;
-        textView4.setTextColor(com.baidu.ufosdk.f.i.a(i4, i5, i6, i6));
+        int i5 = com.baidu.ufosdk.b.v;
+        int i6 = com.baidu.ufosdk.b.t;
+        int i7 = com.baidu.ufosdk.b.v;
+        textView4.setTextColor(com.baidu.ufosdk.f.i.a(i5, i6, i7, i7));
         textView4.setBackgroundColor(0);
         textView4.setTextSize(17.0f);
         textView4.setGravity(17);
@@ -159,7 +161,7 @@ public final class er extends Dialog {
         LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(-1, -2);
         layoutParams6.weight = 1.0f;
         linearLayout.addView(textView4, layoutParams6);
-        RelativeLayout.LayoutParams layoutParams7 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(this.f22932h, 50.0f));
+        RelativeLayout.LayoutParams layoutParams7 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(this.f23643h, 50.0f));
         layoutParams7.addRule(3, this.j.getId());
         relativeLayout.addView(linearLayout, layoutParams7);
         setContentView(relativeLayout, new ViewGroup.LayoutParams(-1, -2));

@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.mcast;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.bumptech.glide.load.engine.GlideException;
 import java.io.BufferedReader;
@@ -45,7 +44,7 @@ public class ParseM3u8 {
             return;
         }
         TS ts = new TS();
-        String trim = str.substring(str.indexOf(":") + 1).replace(ExifInterface.GPS_DIRECTION_TRUE, " ").trim();
+        String trim = str.substring(str.indexOf(":") + 1).replace("T", " ").trim();
         ts.stime = trim;
         if (trim.length() >= 20) {
             try {
@@ -98,23 +97,23 @@ public class ParseM3u8 {
     public List<TS> getLatestTS(long j) {
         boolean z;
         Iterator<TS> it = this.mTslist.iterator();
-        int i = -1;
+        int i2 = -1;
         while (true) {
             if (!it.hasNext()) {
                 z = false;
                 break;
             }
-            i++;
+            i2++;
             if (it.next().time == j) {
                 z = true;
                 break;
             }
         }
-        if (!z || this.mTslist.size() <= i) {
+        if (!z || this.mTslist.size() <= i2) {
             return null;
         }
         ArrayList<TS> arrayList = this.mTslist;
-        return arrayList.subList(i, arrayList.size());
+        return arrayList.subList(i2, arrayList.size());
     }
 
     public long getMaxTime() {
@@ -128,22 +127,22 @@ public class ParseM3u8 {
     public List<TS> getNewAppendTS(long j) {
         Iterator<TS> it = this.mTslist.iterator();
         boolean z = false;
-        int i = 0;
+        int i2 = 0;
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            i++;
+            i2++;
             if (it.next().time == j) {
                 z = true;
                 break;
             }
         }
-        if (!z || this.mTslist.size() <= i) {
+        if (!z || this.mTslist.size() <= i2) {
             return null;
         }
         ArrayList<TS> arrayList = this.mTslist;
-        return arrayList.subList(i, arrayList.size());
+        return arrayList.subList(i2, arrayList.size());
     }
 
     public int getTsSize() {
@@ -188,24 +187,24 @@ public class ParseM3u8 {
         }
     }
 
-    public List<TS> getTslist(int i) {
+    public List<TS> getTslist(int i2) {
         boolean z;
         Iterator<TS> it = this.mTslist.iterator();
-        int i2 = -1;
+        int i3 = -1;
         while (true) {
             if (!it.hasNext()) {
                 z = false;
                 break;
             }
-            i2++;
-            if (it.next().relativetime >= i) {
+            i3++;
+            if (it.next().relativetime >= i2) {
                 z = true;
                 break;
             }
         }
         if (z) {
             ArrayList<TS> arrayList = this.mTslist;
-            return arrayList.subList(i2, arrayList.size());
+            return arrayList.subList(i3, arrayList.size());
         }
         return null;
     }

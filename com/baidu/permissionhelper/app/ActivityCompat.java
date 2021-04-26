@@ -11,14 +11,14 @@ public class ActivityCompat extends ContextCompat {
 
     /* loaded from: classes2.dex */
     public interface OnRequestPermissionsResultCallback {
-        void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
+        void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr);
     }
 
-    public static void requestPermissions(Activity activity, String[] strArr, int i) {
+    public static void requestPermissions(Activity activity, String[] strArr, int i2) {
         if (ApiUtil.shouldCheckPermission()) {
-            ActivityCompatApi23.requestPermissions(activity, strArr, i);
+            ActivityCompatApi23.requestPermissions(activity, strArr, i2);
         } else if (activity instanceof OnRequestPermissionsResultCallback) {
-            requestPermissions(activity, strArr, i, (OnRequestPermissionsResultCallback) activity);
+            requestPermissions(activity, strArr, i2, (OnRequestPermissionsResultCallback) activity);
         }
     }
 
@@ -41,9 +41,9 @@ public class ActivityCompat extends ContextCompat {
         return true;
     }
 
-    public static void requestPermissions(final Activity activity, final String[] strArr, final int i, final OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
+    public static void requestPermissions(final Activity activity, final String[] strArr, final int i2, final OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
         if (ApiUtil.shouldCheckPermission()) {
-            ActivityCompatApi23.requestPermissions(activity, strArr, i);
+            ActivityCompatApi23.requestPermissions(activity, strArr, i2);
         } else if (activity.isFinishing() || onRequestPermissionsResultCallback == null) {
         } else {
             new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.permissionhelper.app.ActivityCompat.1
@@ -53,10 +53,10 @@ public class ActivityCompat extends ContextCompat {
                     PackageManager packageManager = activity.getPackageManager();
                     String packageName = activity.getPackageName();
                     int length = strArr.length;
-                    for (int i2 = 0; i2 < length; i2++) {
-                        iArr[i2] = packageManager.checkPermission(strArr[i2], packageName);
+                    for (int i3 = 0; i3 < length; i3++) {
+                        iArr[i3] = packageManager.checkPermission(strArr[i3], packageName);
                     }
-                    onRequestPermissionsResultCallback.onRequestPermissionsResult(i, strArr, iArr);
+                    onRequestPermissionsResultCallback.onRequestPermissionsResult(i2, strArr, iArr);
                 }
             });
         }

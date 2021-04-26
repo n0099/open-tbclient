@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class PaymentConfirmRequestData implements Serializable {
     public static final String TERMINAL_ANDROID = "320";
     public static final long serialVersionUID = 5867821330520807722L;
+    public int currency;
     public long goods_duration;
     public String goods_name;
     public long goods_num;
@@ -17,6 +18,10 @@ public class PaymentConfirmRequestData implements Serializable {
     public long scene_id;
     public long tdou_num;
     public String terminal;
+
+    public int getCurrency() {
+        return this.currency;
+    }
 
     public long getGoods_duration() {
         return this.goods_duration;
@@ -66,6 +71,10 @@ public class PaymentConfirmRequestData implements Serializable {
         return this.terminal;
     }
 
+    public void setCurrency(int i2) {
+        this.currency = i2;
+    }
+
     public void setGoods_duration(long j) {
         this.goods_duration = j;
     }
@@ -86,8 +95,8 @@ public class PaymentConfirmRequestData implements Serializable {
         this.goods_unit = str;
     }
 
-    public void setGoods_user_level(int i) {
-        this.goods_user_level = i;
+    public void setGoods_user_level(int i2) {
+        this.goods_user_level = i2;
     }
 
     public void setOpen_id(long j) {
@@ -98,8 +107,8 @@ public class PaymentConfirmRequestData implements Serializable {
         this.order_id = str;
     }
 
-    public void setPay_type(int i) {
-        this.pay_type = i;
+    public void setPay_type(int i2) {
+        this.pay_type = i2;
     }
 
     public void setScene_id(long j) {

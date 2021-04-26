@@ -18,9 +18,9 @@ public class SimpleImageTranscoder implements ImageTranscoder {
     public final int mMaxBitmapSize;
     public final boolean mResizingEnabled;
 
-    public SimpleImageTranscoder(boolean z, int i) {
+    public SimpleImageTranscoder(boolean z, int i2) {
         this.mResizingEnabled = z;
-        this.mMaxBitmapSize = i;
+        this.mMaxBitmapSize = i2;
     }
 
     public static Bitmap.CompressFormat getOutputFormat(@Nullable ImageFormat imageFormat) {

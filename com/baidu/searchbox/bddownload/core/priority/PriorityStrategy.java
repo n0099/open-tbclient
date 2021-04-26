@@ -13,6 +13,12 @@ public class PriorityStrategy {
     }
 
     public static int compareTaskPriority(DownloadTask downloadTask, DownloadTask downloadTask2) {
+        if (downloadTask == null) {
+            return -1;
+        }
+        if (downloadTask2 == null) {
+            return 1;
+        }
         if (downloadTask.getPriority() == downloadTask2.getPriority()) {
             long lastSeconds = downloadTask.getLastSeconds() - downloadTask2.getLastSeconds();
             return (downloadTask.getLastSeconds() <= 0 || downloadTask2.getLastSeconds() <= 0) ? lastSeconds > 0 ? 1 : -1 : lastSeconds > 0 ? -1 : 1;

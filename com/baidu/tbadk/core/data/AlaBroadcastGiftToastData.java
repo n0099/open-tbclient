@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.tencent.open.SocialConstants;
-import d.b.i0.r.q.o;
+import d.a.i0.r.q.o;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaBroadcastGiftToastData extends o implements Parcelable {
@@ -29,8 +29,8 @@ public class AlaBroadcastGiftToastData extends o implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public AlaBroadcastGiftToastData[] newArray(int i) {
-            return new AlaBroadcastGiftToastData[i];
+        public AlaBroadcastGiftToastData[] newArray(int i2) {
+            return new AlaBroadcastGiftToastData[i2];
         }
     }
 
@@ -42,7 +42,7 @@ public class AlaBroadcastGiftToastData extends o implements Parcelable {
         return 0;
     }
 
-    @Override // d.b.i0.r.q.o
+    @Override // d.a.i0.r.q.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
@@ -58,7 +58,7 @@ public class AlaBroadcastGiftToastData extends o implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeLong(this.live_id);
         parcel.writeString(this.sender);
         parcel.writeString(this.receiver);

@@ -14,7 +14,6 @@ import android.text.TextUtils;
 import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import android.widget.Toast;
-import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.container.XAdRemoteCommonUtils;
@@ -307,12 +306,12 @@ public abstract class BaseHtmlBridgeHandler {
             if (activity != null && !activity.isFinishing()) {
                 AlertDialog create = new AlertDialog.Builder(activity).setIcon(17301659).setTitle(string).setMessage(string2).setPositiveButton(string3, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.11
                     @Override // android.content.DialogInterface.OnClickListener
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                    public void onClick(DialogInterface dialogInterface, int i2) {
                         BaseHtmlBridgeHandler.this.fireAnonymousEvent(str2, "true");
                     }
                 }).setNegativeButton(string4, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.10
                     @Override // android.content.DialogInterface.OnClickListener
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                    public void onClick(DialogInterface dialogInterface, int i2) {
                         BaseHtmlBridgeHandler.this.fireAnonymousEvent(str2, "false");
                     }
                 }).create();
@@ -364,9 +363,9 @@ public abstract class BaseHtmlBridgeHandler {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void try2FireCustomizeTracking(IXAdInstanceInfo iXAdInstanceInfo, int i) {
+    public void try2FireCustomizeTracking(IXAdInstanceInfo iXAdInstanceInfo, int i2) {
         try {
-            SendLogUtil.Builder.create(this.mAdContainerCxt.getAppContext()).appendType(i).appendProdType(this.mAdContainerCxt.getAdProd()).appendAppSid(this.mAdContainerCxt.getAppsid()).appendAdInfo(iXAdInstanceInfo).append("from", "native-remote").send();
+            SendLogUtil.Builder.create(this.mAdContainerCxt.getAppContext()).appendType(i2).appendProdType(this.mAdContainerCxt.getAdProd()).appendAppSid(this.mAdContainerCxt.getAppsid()).appendAdInfo(iXAdInstanceInfo).append("from", "native-remote").send();
         } catch (Exception e2) {
             this.mAdLogger.d(e2);
         }
@@ -506,7 +505,7 @@ public abstract class BaseHtmlBridgeHandler {
         boolean z;
         JSONObject jSONObject2;
         String str4;
-        int i;
+        int i2;
         String str5;
         String str6;
         Context appContext;
@@ -602,7 +601,7 @@ public abstract class BaseHtmlBridgeHandler {
                         } catch (Exception e4) {
                             e = e4;
                             str4 = str7;
-                            i = 0;
+                            i2 = 0;
                             try {
                                 this.mAdLogger.d(e);
                                 str8 = "";
@@ -633,7 +632,7 @@ public abstract class BaseHtmlBridgeHandler {
                                 cloneIXAdInstanceInfo.setCanDelete(optBoolean8);
                                 if (!TextUtils.isEmpty(str5)) {
                                 }
-                                cloneIXAdInstanceInfo.setAppSize(i);
+                                cloneIXAdInstanceInfo.setAppSize(i2);
                                 cloneIXAdInstanceInfo.setAppName(str6);
                                 cloneIXAdInstanceInfo.setSecondConfirmed(optBoolean9);
                                 cloneIXAdInstanceInfo.setTitle(jSONObject5.optString("title", "").replace(StringUtil.ARRAY_START, "").replace("}", ""));
@@ -644,7 +643,7 @@ public abstract class BaseHtmlBridgeHandler {
                                     if (NetworkInfoUtils.isCurrentNetworkAvailable(appContext)) {
                                         CommonUtils.showAlertDialog(activity, jSONObject5.optString("dlgTitle", CommonUtils.DIALOG_TITLE), jSONObject5.optString("dlgBody", CommonUtils.DIALOG_MESSAGE), jSONObject5.optString("okBtn", CommonUtils.DIALOG_POS_TEXT), jSONObject5.optString("cancelBtn", CommonUtils.DIALOG_NEG_TEXT), true, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.7
                                             @Override // android.content.DialogInterface.OnClickListener
-                                            public void onClick(DialogInterface dialogInterface, int i2) {
+                                            public void onClick(DialogInterface dialogInterface, int i3) {
                                                 cloneIXAdInstanceInfo.setActionOnlyWifi(false);
                                                 cloneIXAdInstanceInfo.setSecondConfirmed(true);
                                                 BaseHtmlBridgeHandler.this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
@@ -653,7 +652,7 @@ public abstract class BaseHtmlBridgeHandler {
                                             }
                                         }, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.8
                                             @Override // android.content.DialogInterface.OnClickListener
-                                            public void onClick(DialogInterface dialogInterface, int i2) {
+                                            public void onClick(DialogInterface dialogInterface, int i3) {
                                                 cloneIXAdInstanceInfo.setActionOnlyWifi(true);
                                                 cloneIXAdInstanceInfo.setSecondConfirmed(true);
                                                 BaseHtmlBridgeHandler.this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
@@ -696,7 +695,7 @@ public abstract class BaseHtmlBridgeHandler {
                             cloneIXAdInstanceInfo.setCanDelete(optBoolean8);
                             if (!TextUtils.isEmpty(str5)) {
                             }
-                            cloneIXAdInstanceInfo.setAppSize(i);
+                            cloneIXAdInstanceInfo.setAppSize(i2);
                             cloneIXAdInstanceInfo.setAppName(str6);
                             cloneIXAdInstanceInfo.setSecondConfirmed(optBoolean9);
                             cloneIXAdInstanceInfo.setTitle(jSONObject5.optString("title", "").replace(StringUtil.ARRAY_START, "").replace("}", ""));
@@ -716,11 +715,11 @@ public abstract class BaseHtmlBridgeHandler {
                                 str7 = optString9;
                             }
                             str8 = jSONObject3.optString("appname");
-                            i = optInt2;
+                            i2 = optInt2;
                             str4 = str7;
                         } catch (Exception e7) {
                             e = e7;
-                            i = optInt2;
+                            i2 = optInt2;
                             str4 = str7;
                             this.mAdLogger.d(e);
                             str8 = "";
@@ -746,7 +745,7 @@ public abstract class BaseHtmlBridgeHandler {
                             cloneIXAdInstanceInfo.setCanDelete(optBoolean8);
                             if (!TextUtils.isEmpty(str5)) {
                             }
-                            cloneIXAdInstanceInfo.setAppSize(i);
+                            cloneIXAdInstanceInfo.setAppSize(i2);
                             cloneIXAdInstanceInfo.setAppName(str6);
                             cloneIXAdInstanceInfo.setSecondConfirmed(optBoolean9);
                             cloneIXAdInstanceInfo.setTitle(jSONObject5.optString("title", "").replace(StringUtil.ARRAY_START, "").replace("}", ""));
@@ -763,14 +762,14 @@ public abstract class BaseHtmlBridgeHandler {
                     } else {
                         str8 = "";
                         str4 = optString6;
-                        i = 0;
+                        i2 = 0;
                     }
                     str5 = str4;
                     str6 = str8;
                 } catch (Exception e8) {
                     e = e8;
                     str4 = optString6;
-                    i = 0;
+                    i2 = 0;
                 }
                 if (jSONObject2 != null) {
                     cloneIXAdInstanceInfo.setExp2ForSingleAd(jSONObject2.toString());
@@ -802,7 +801,7 @@ public abstract class BaseHtmlBridgeHandler {
                 if (!TextUtils.isEmpty(str5)) {
                     cloneIXAdInstanceInfo.setQueryKey(str5);
                 }
-                cloneIXAdInstanceInfo.setAppSize(i);
+                cloneIXAdInstanceInfo.setAppSize(i2);
                 cloneIXAdInstanceInfo.setAppName(str6);
                 cloneIXAdInstanceInfo.setSecondConfirmed(optBoolean9);
                 cloneIXAdInstanceInfo.setTitle(jSONObject5.optString("title", "").replace(StringUtil.ARRAY_START, "").replace("}", ""));
@@ -813,7 +812,7 @@ public abstract class BaseHtmlBridgeHandler {
                     if (NetworkInfoUtils.isCurrentNetworkAvailable(appContext) && !NetworkInfoUtils.isWifiConnected(appContext).booleanValue() && TextUtils.isEmpty(str9) && activity != null && !this.mAdContainerCxt.getAdProd().equals("rsplash")) {
                         CommonUtils.showAlertDialog(activity, jSONObject5.optString("dlgTitle", CommonUtils.DIALOG_TITLE), jSONObject5.optString("dlgBody", CommonUtils.DIALOG_MESSAGE), jSONObject5.optString("okBtn", CommonUtils.DIALOG_POS_TEXT), jSONObject5.optString("cancelBtn", CommonUtils.DIALOG_NEG_TEXT), true, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.7
                             @Override // android.content.DialogInterface.OnClickListener
-                            public void onClick(DialogInterface dialogInterface, int i2) {
+                            public void onClick(DialogInterface dialogInterface, int i3) {
                                 cloneIXAdInstanceInfo.setActionOnlyWifi(false);
                                 cloneIXAdInstanceInfo.setSecondConfirmed(true);
                                 BaseHtmlBridgeHandler.this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
@@ -822,7 +821,7 @@ public abstract class BaseHtmlBridgeHandler {
                             }
                         }, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.bridge.BaseHtmlBridgeHandler.8
                             @Override // android.content.DialogInterface.OnClickListener
-                            public void onClick(DialogInterface dialogInterface, int i2) {
+                            public void onClick(DialogInterface dialogInterface, int i3) {
                                 cloneIXAdInstanceInfo.setActionOnlyWifi(true);
                                 cloneIXAdInstanceInfo.setSecondConfirmed(true);
                                 BaseHtmlBridgeHandler.this.mBridgeListener.onAdClicked(cloneIXAdInstanceInfo);
@@ -1092,9 +1091,9 @@ public abstract class BaseHtmlBridgeHandler {
                 this.mAdLogger.d(optString2);
             } else if (optString.equals("I")) {
                 this.mAdLogger.i(optString2);
-            } else if (optString.equals(ExifInterface.LONGITUDE_WEST)) {
+            } else if (optString.equals("W")) {
                 this.mAdLogger.w(optString2);
-            } else if (optString.equals(ExifInterface.LONGITUDE_EAST)) {
+            } else if (optString.equals("E")) {
                 this.mAdLogger.e(optString2);
             }
         } catch (Exception e2) {
@@ -1138,12 +1137,12 @@ public abstract class BaseHtmlBridgeHandler {
                 String string = appContext.getSharedPreferences(AdDownloadApkUtils.PKGS_PREF_DOWNLOAD, 0).getString(queryParameter + XAdRemoteAPKDownloadExtraInfo.KEY_SPLIT + currentProcessName, null);
                 if (string != null) {
                     JSONObject jSONObject2 = new JSONObject(string);
-                    int i = jSONObject2.getInt("dl");
+                    int i2 = jSONObject2.getInt("dl");
                     IDownloader.DownloadStatus[] values = IDownloader.DownloadStatus.values();
                     IDownloader.DownloadStatus downloadStatus = IDownloader.DownloadStatus.NONE;
-                    for (int i2 = 0; i2 < values.length; i2++) {
-                        if (values[i2].getCode() == i) {
-                            downloadStatus = values[i2];
+                    for (int i3 = 0; i3 < values.length; i3++) {
+                        if (values[i3].getCode() == i2) {
+                            downloadStatus = values[i3];
                         }
                     }
                     if (downloadStatus == IDownloader.DownloadStatus.COMPLETED) {

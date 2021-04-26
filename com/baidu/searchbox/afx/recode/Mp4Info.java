@@ -7,11 +7,11 @@ public final class Mp4Info {
     public final int mRotation;
     public final int mWidth;
 
-    public Mp4Info(int i, int i2, int i3, int i4, long j) {
-        this.mWidth = i;
-        this.mHeight = i2;
-        this.mRotation = i3;
-        this.mBitrate = i4;
+    public Mp4Info(int i2, int i3, int i4, int i5, long j) {
+        this.mWidth = i2;
+        this.mHeight = i3;
+        this.mRotation = i4;
+        this.mBitrate = i5;
         this.mDurationUs = j;
     }
 

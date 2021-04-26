@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @DoNotStrip
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
     @DoNotStrip
     public long mNativeContext;
@@ -30,7 +30,7 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
 
     public static native WebPImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer);
 
-    public static native WebPImage nativeCreateFromNativeMemory(long j, int i);
+    public static native WebPImage nativeCreateFromNativeMemory(long j, int i2);
 
     private native void nativeDispose();
 
@@ -38,7 +38,7 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
 
     private native int nativeGetDuration();
 
-    private native WebPFrame nativeGetFrame(int i);
+    private native WebPFrame nativeGetFrame(int i2);
 
     private native int nativeGetFrameCount();
 
@@ -53,8 +53,8 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
     private native int nativeGetWidth();
 
     @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
-    public AnimatedImage decode(long j, int i) {
-        return create(j, i);
+    public AnimatedImage decode(long j, int i2) {
+        return create(j, i2);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
@@ -87,10 +87,10 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
-    public AnimatedDrawableFrameInfo getFrameInfo(int i) {
-        WebPFrame frame = getFrame(i);
+    public AnimatedDrawableFrameInfo getFrameInfo(int i2) {
+        WebPFrame frame = getFrame(i2);
         try {
-            return new AnimatedDrawableFrameInfo(i, frame.getXOffset(), frame.getYOffset(), frame.getWidth(), frame.getHeight(), frame.isBlendWithPreviousFrame() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, frame.shouldDisposeToBackgroundColor() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
+            return new AnimatedDrawableFrameInfo(i2, frame.getXOffset(), frame.getYOffset(), frame.getWidth(), frame.getHeight(), frame.isBlendWithPreviousFrame() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, frame.shouldDisposeToBackgroundColor() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
         } finally {
             frame.dispose();
         }
@@ -128,8 +128,8 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
-    public WebPFrame getFrame(int i) {
-        return nativeGetFrame(i);
+    public WebPFrame getFrame(int i2) {
+        return nativeGetFrame(i2);
     }
 
     public static WebPImage create(ByteBuffer byteBuffer) {
@@ -138,9 +138,9 @@ public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
         return nativeCreateFromDirectByteBuffer(byteBuffer);
     }
 
-    public static WebPImage create(long j, int i) {
+    public static WebPImage create(long j, int i2) {
         StaticWebpNativeLoader.ensure();
         Preconditions.checkArgument(j != 0);
-        return nativeCreateFromNativeMemory(j, i);
+        return nativeCreateFromNativeMemory(j, i2);
     }
 }

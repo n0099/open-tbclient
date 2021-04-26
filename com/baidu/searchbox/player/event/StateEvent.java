@@ -12,8 +12,8 @@ public class StateEvent extends VideoEvent {
         setType(5);
     }
 
-    private PlayerStatus getStatus(int i) {
-        return (PlayerStatus) getExtra(i);
+    private PlayerStatus getStatus(int i2) {
+        return (PlayerStatus) getExtra(i2);
     }
 
     public static VideoEvent obtainEvent() {

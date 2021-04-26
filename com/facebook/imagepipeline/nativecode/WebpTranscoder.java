@@ -8,7 +8,7 @@ import java.io.OutputStream;
 public interface WebpTranscoder {
     boolean isWebpNativelySupported(ImageFormat imageFormat);
 
-    void transcodeWebpToJpeg(InputStream inputStream, OutputStream outputStream, int i) throws IOException;
+    void transcodeWebpToJpeg(InputStream inputStream, OutputStream outputStream, int i2) throws IOException;
 
     void transcodeWebpToPng(InputStream inputStream, OutputStream outputStream) throws IOException;
 }

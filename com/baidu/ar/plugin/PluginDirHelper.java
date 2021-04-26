@@ -76,8 +76,8 @@ public class PluginDirHelper {
         return enforceDirExists(new File(makePluginBaseDir(context, str), "Signature/"));
     }
 
-    public static String getPluginSignatureFile(Context context, String str, int i) {
-        return new File(getPluginSignatureDir(context, str), String.format("Signature_%s.key", Integer.valueOf(i))).getPath();
+    public static String getPluginSignatureFile(Context context, String str, int i2) {
+        return new File(getPluginSignatureDir(context, str), String.format("Signature_%s.key", Integer.valueOf(i2))).getPath();
     }
 
     public static List<String> getPluginSignatureFiles(Context context, String str) {

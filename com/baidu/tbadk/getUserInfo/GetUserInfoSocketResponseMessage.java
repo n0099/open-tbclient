@@ -4,8 +4,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.z.a;
-import d.b.i0.z.b;
+import d.a.i0.z.a;
+import d.a.i0.z.b;
 import tbclient.Error;
 import tbclient.GetUserInfo.GetUserInfoResIdl;
 /* loaded from: classes3.dex */
@@ -22,8 +22,8 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        super.afterDispatchInBackGround(i, (int) bArr);
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+        super.afterDispatchInBackGround(i2, (int) bArr);
         a aVar = this.mData;
         if (aVar != null && aVar.a() != null) {
             b.a().e(this.mData.a());
@@ -34,7 +34,7 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetUserInfoResIdl getUserInfoResIdl;
         Error error;
         if (bArr == null || (error = (getUserInfoResIdl = (GetUserInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetUserInfoResIdl.class)).error) == null) {

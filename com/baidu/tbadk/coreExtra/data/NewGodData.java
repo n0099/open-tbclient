@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import d.b.i0.r.q.o;
+import d.a.i0.r.q.o;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.NewGodInfo;
@@ -34,8 +34,8 @@ public class NewGodData extends o implements Serializable {
     }
 
     public boolean hasNewGodInvited() {
-        int i = this.mStatus;
-        return i == 2 || i == 4;
+        int i2 = this.mStatus;
+        return i2 == 2 || i2 == 4;
     }
 
     public boolean isNewGod() {
@@ -50,7 +50,7 @@ public class NewGodData extends o implements Serializable {
         return this.mType == 2;
     }
 
-    @Override // d.b.i0.r.q.o
+    @Override // d.a.i0.r.q.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
@@ -85,7 +85,7 @@ public class NewGodData extends o implements Serializable {
         this.mFieldName = str;
     }
 
-    public void setStatus(int i) {
-        this.mStatus = i;
+    public void setStatus(int i2) {
+        this.mStatus = i2;
     }
 }

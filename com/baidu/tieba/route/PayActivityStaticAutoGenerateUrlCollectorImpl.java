@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class PayActivityStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, String> getCmdRouterMap() {
@@ -21,6 +21,7 @@ public final class PayActivityStaticAutoGenerateUrlCollectorImpl implements ICmd
         hashMap.put("2921393", "com.baidu.tieba.wallet.pay.PayActivityStatic");
         hashMap.put("2001387", "com.baidu.tieba.wallet.pay.PayActivityStatic");
         hashMap.put("3001000", "com.baidu.tieba.wallet.pay.PayActivityStatic");
+        hashMap.put("2921539", "com.baidu.tieba.wallet.pay.PayActivityStatic");
         return hashMap;
     }
 

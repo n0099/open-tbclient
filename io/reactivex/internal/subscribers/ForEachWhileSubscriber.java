@@ -1,38 +1,41 @@
 package io.reactivex.internal.subscribers;
 
-import f.b.g;
-import f.b.t.b;
-import f.b.w.a;
-import f.b.w.i;
-import g.d.d;
+import io.reactivex.FlowableSubscriber;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
+import io.reactivex.exceptions.Exceptions;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Predicate;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
+import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
+import org.reactivestreams.Subscription;
 /* loaded from: classes7.dex */
-public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implements g<T>, b {
+public final class ForEachWhileSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Disposable {
     public static final long serialVersionUID = -4403180040475402120L;
     public boolean done;
-    public final a onComplete;
-    public final f.b.w.g<? super Throwable> onError;
-    public final i<? super T> onNext;
+    public final Action onComplete;
+    public final Consumer<? super Throwable> onError;
+    public final Predicate<? super T> onNext;
 
-    public ForEachWhileSubscriber(i<? super T> iVar, f.b.w.g<? super Throwable> gVar, a aVar) {
-        this.onNext = iVar;
-        this.onError = gVar;
-        this.onComplete = aVar;
+    public ForEachWhileSubscriber(Predicate<? super T> predicate, Consumer<? super Throwable> consumer, Action action) {
+        this.onNext = predicate;
+        this.onError = consumer;
+        this.onComplete = action;
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
         SubscriptionHelper.cancel(this);
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         return SubscriptionHelper.isCancelled(get());
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onComplete() {
         if (this.done) {
             return;
@@ -41,27 +44,27 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
         try {
             this.onComplete.run();
         } catch (Throwable th) {
-            f.b.u.a.a(th);
-            f.b.a0.a.f(th);
+            Exceptions.throwIfFatal(th);
+            RxJavaPlugins.onError(th);
         }
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onError(Throwable th) {
         if (this.done) {
-            f.b.a0.a.f(th);
+            RxJavaPlugins.onError(th);
             return;
         }
         this.done = true;
         try {
             this.onError.accept(th);
         } catch (Throwable th2) {
-            f.b.u.a.a(th2);
-            f.b.a0.a.f(new CompositeException(th, th2));
+            Exceptions.throwIfFatal(th2);
+            RxJavaPlugins.onError(new CompositeException(th, th2));
         }
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onNext(T t) {
         if (this.done) {
             return;
@@ -73,16 +76,14 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
             dispose();
             onComplete();
         } catch (Throwable th) {
-            f.b.u.a.a(th);
+            Exceptions.throwIfFatal(th);
             dispose();
             onError(th);
         }
     }
 
-    @Override // f.b.g, g.d.c
-    public void onSubscribe(d dVar) {
-        if (SubscriptionHelper.setOnce(this, dVar)) {
-            dVar.request(Long.MAX_VALUE);
-        }
+    @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
+    public void onSubscribe(Subscription subscription) {
+        SubscriptionHelper.setOnce(this, subscription, Long.MAX_VALUE);
     }
 }

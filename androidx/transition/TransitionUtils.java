@@ -30,11 +30,11 @@ public class TransitionUtils {
         public Matrix evaluate(float f2, Matrix matrix, Matrix matrix2) {
             matrix.getValues(this.mTempStartValues);
             matrix2.getValues(this.mTempEndValues);
-            for (int i = 0; i < 9; i++) {
+            for (int i2 = 0; i2 < 9; i2++) {
                 float[] fArr = this.mTempEndValues;
-                float f3 = fArr[i];
+                float f3 = fArr[i2];
                 float[] fArr2 = this.mTempStartValues;
-                fArr[i] = fArr2[i] + ((f3 - fArr2[i]) * f2);
+                fArr[i2] = fArr2[i2] + ((f3 - fArr2[i2]) * f2);
             }
             this.mTempMatrix.setValues(this.mTempEndValues);
             return this.mTempMatrix;
@@ -78,7 +78,7 @@ public class TransitionUtils {
         boolean z;
         boolean z2;
         ViewGroup viewGroup2;
-        int i;
+        int i2;
         int round;
         int round2;
         if (HAS_IS_ATTACHED_TO_WINDOW) {
@@ -88,12 +88,12 @@ public class TransitionUtils {
                 Bitmap bitmap = null;
                 if (HAS_OVERLAY || !z) {
                     viewGroup2 = null;
-                    i = 0;
+                    i2 = 0;
                 } else if (!z2) {
                     return null;
                 } else {
                     viewGroup2 = (ViewGroup) view.getParent();
-                    i = viewGroup2.indexOfChild(view);
+                    i2 = viewGroup2.indexOfChild(view);
                     viewGroup.getOverlay().add(view);
                 }
                 round = Math.round(rectF.width());
@@ -120,7 +120,7 @@ public class TransitionUtils {
                 }
                 if (HAS_OVERLAY && z) {
                     viewGroup.getOverlay().remove(view);
-                    viewGroup2.addView(view, i);
+                    viewGroup2.addView(view, i2);
                 }
                 return bitmap;
             }
@@ -132,7 +132,7 @@ public class TransitionUtils {
         if (HAS_OVERLAY) {
         }
         viewGroup2 = null;
-        i = 0;
+        i2 = 0;
         round = Math.round(rectF.width());
         round2 = Math.round(rectF.height());
         if (round > 0) {
@@ -146,7 +146,7 @@ public class TransitionUtils {
         }
         if (HAS_OVERLAY) {
             viewGroup.getOverlay().remove(view);
-            viewGroup2.addView(view, i);
+            viewGroup2.addView(view, i2);
         }
         return bitmap2;
     }

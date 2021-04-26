@@ -9,26 +9,26 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
 import androidx.core.app.NotificationCompat;
-import d.b.f0.a;
-import d.b.f0.b;
-import d.b.f0.c;
+import d.a.f0.a;
+import d.a.f0.b;
+import d.a.f0.c;
 /* loaded from: classes2.dex */
 public class CustomNotification {
     public NotificationCompat.Style mStyle = new NotificationCompat.DecoratedCustomViewStyle();
 
-    private void setRemoteViewText(RemoteViews remoteViews, int i, String str) {
+    private void setRemoteViewText(RemoteViews remoteViews, int i2, String str) {
         if (remoteViews != null) {
             if (!TextUtils.isEmpty(str)) {
-                remoteViews.setTextViewText(i, str);
-                remoteViews.setViewVisibility(i, 0);
+                remoteViews.setTextViewText(i2, str);
+                remoteViews.setViewVisibility(i2, 0);
                 return;
             }
-            remoteViews.setViewVisibility(i, 8);
+            remoteViews.setViewVisibility(i2, 8);
         }
     }
 
     @TargetApi(16)
-    public Notification getCustomNotification(Context context, String str, String str2, Bitmap bitmap, String str3, String str4, String str5, boolean z, int i, int i2, String str6, PendingIntent pendingIntent) {
+    public Notification getCustomNotification(Context context, String str, String str2, Bitmap bitmap, String str3, String str4, String str5, boolean z, int i2, int i3, String str6, PendingIntent pendingIntent) {
         NotificationCompat.Builder builder;
         if (Build.VERSION.SDK_INT < 26) {
             builder = new NotificationCompat.Builder(context);
@@ -56,14 +56,14 @@ public class CustomNotification {
             setRemoteViewText(remoteViews, b.content_text, str4);
             setRemoteViewText(remoteViews, b.content_status, str5);
         }
-        if (i >= 0 && i <= 100) {
-            remoteViews.setProgressBar(b.progress_bar, 100, i, false);
+        if (i2 >= 0 && i2 <= 100) {
+            remoteViews.setProgressBar(b.progress_bar, 100, i2, false);
             remoteViews.setViewVisibility(b.progress_bar, 0);
         } else {
             remoteViews.setViewVisibility(b.progress_bar, 8);
         }
         remoteViews.setTextViewText(b.btn_action, str6);
         remoteViews.setOnClickPendingIntent(b.btn_action, pendingIntent);
-        return builder.setSmallIcon(i2).setOngoing(false).setTicker(str2).setAutoCancel(z).setWhen(System.currentTimeMillis()).setCustomContentView(remoteViews).build();
+        return builder.setSmallIcon(i3).setOngoing(false).setTicker(str2).setAutoCancel(z).setWhen(System.currentTimeMillis()).setCustomContentView(remoteViews).build();
     }
 }

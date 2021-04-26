@@ -3,10 +3,10 @@ package com.facebook.common.memory;
 import java.io.Closeable;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface PooledByteBuffer extends Closeable {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class ClosedException extends RuntimeException {
         public ClosedException() {
             super("Invalid bytebuf. Already closed");
@@ -23,9 +23,9 @@ public interface PooledByteBuffer extends Closeable {
 
     boolean isClosed();
 
-    byte read(int i);
+    byte read(int i2);
 
-    int read(int i, byte[] bArr, int i2, int i3);
+    int read(int i2, byte[] bArr, int i3, int i4);
 
     int size();
 }

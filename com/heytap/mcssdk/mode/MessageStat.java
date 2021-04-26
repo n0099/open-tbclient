@@ -24,14 +24,14 @@ public class MessageStat {
         this.mEventTime = System.currentTimeMillis();
     }
 
-    public MessageStat(int i, String str, String str2, String str3) {
-        this(i, str, null, null, str2, str3);
+    public MessageStat(int i2, String str, String str2, String str3) {
+        this(i2, str, null, null, str2, str3);
     }
 
-    public MessageStat(int i, String str, String str2, String str3, String str4, String str5) {
+    public MessageStat(int i2, String str, String str2, String str3, String str4, String str5) {
         this.mType = 4096;
         this.mEventTime = System.currentTimeMillis();
-        setType(i);
+        setType(i2);
         setAppPackage(str);
         setGlobalId(str2);
         setTaskID(str3);
@@ -113,16 +113,16 @@ public class MessageStat {
         this.mProperty = str;
     }
 
-    public void setTaskID(int i) {
-        this.mTaskID = String.valueOf(i);
+    public void setTaskID(int i2) {
+        this.mTaskID = String.valueOf(i2);
     }
 
     public void setTaskID(String str) {
         this.mTaskID = str;
     }
 
-    public void setType(int i) {
-        this.mType = i;
+    public void setType(int i2) {
+        this.mType = i2;
     }
 
     public String toJsonObject() {

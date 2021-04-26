@@ -7,8 +7,8 @@ public abstract class ExecutorProxy implements Executor {
     public int mDefaultPriority;
     public String mDefaultTaskName;
 
-    public ExecutorProxy(String str, int i) {
-        this.mDefaultPriority = i;
+    public ExecutorProxy(String str, int i2) {
+        this.mDefaultPriority = i2;
         this.mDefaultTaskName = str;
     }
 
@@ -17,10 +17,10 @@ public abstract class ExecutorProxy implements Executor {
 
     public abstract void execute(@NonNull Runnable runnable, @NonNull String str);
 
-    public abstract void execute(@NonNull Runnable runnable, @NonNull String str, int i);
+    public abstract void execute(@NonNull Runnable runnable, @NonNull String str, int i2);
 
-    public void setDefaultPriority(int i) {
-        this.mDefaultPriority = i;
+    public void setDefaultPriority(int i2) {
+        this.mDefaultPriority = i2;
     }
 
     public void setDefaultTaskName(String str) {

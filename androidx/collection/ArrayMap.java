@@ -22,8 +22,8 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
                 }
 
                 @Override // androidx.collection.MapCollections
-                public Object colGetEntry(int i, int i2) {
-                    return ArrayMap.this.mArray[(i << 1) + i2];
+                public Object colGetEntry(int i2, int i3) {
+                    return ArrayMap.this.mArray[(i2 << 1) + i3];
                 }
 
                 @Override // androidx.collection.MapCollections
@@ -52,13 +52,13 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
                 }
 
                 @Override // androidx.collection.MapCollections
-                public void colRemoveAt(int i) {
-                    ArrayMap.this.removeAt(i);
+                public void colRemoveAt(int i2) {
+                    ArrayMap.this.removeAt(i2);
                 }
 
                 @Override // androidx.collection.MapCollections
-                public V colSetValue(int i, V v) {
-                    return ArrayMap.this.setValueAt(i, v);
+                public V colSetValue(int i2, V v) {
+                    return ArrayMap.this.setValueAt(i2, v);
                 }
             };
         }
@@ -100,8 +100,8 @@ public class ArrayMap<K, V> extends SimpleArrayMap<K, V> implements Map<K, V> {
         return getCollection().getValues();
     }
 
-    public ArrayMap(int i) {
-        super(i);
+    public ArrayMap(int i2) {
+        super(i2);
     }
 
     public ArrayMap(SimpleArrayMap simpleArrayMap) {

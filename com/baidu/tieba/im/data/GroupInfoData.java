@@ -5,7 +5,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
-import d.b.c.j.e.n;
+import d.a.c.j.e.n;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
@@ -111,7 +111,7 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         return this.portrait;
     }
 
-    @Override // d.b.c.j.e.n
+    @Override // d.a.c.j.e.n
     public BdUniqueId getType() {
         return TYPE_FRS_GROUP;
     }
@@ -124,16 +124,16 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         this.authorId = j;
     }
 
-    public void setAuthorIsMeizhi(int i) {
-        this.authorIsMeizhi = i;
+    public void setAuthorIsMeizhi(int i2) {
+        this.authorIsMeizhi = i2;
     }
 
     public void setAuthorName(String str) {
         this.authorName = str;
     }
 
-    public void setForumId(int i) {
-        this.forumId = i;
+    public void setForumId(int i2) {
+        this.forumId = i2;
     }
 
     public void setForumName(String str) {
@@ -144,12 +144,12 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         this.forumShowName = str;
     }
 
-    public void setFrom(int i) {
-        this.from = i;
+    public void setFrom(int i2) {
+        this.from = i2;
     }
 
-    public void setGrade(int i) {
-        this.grade = i;
+    public void setGrade(int i2) {
+        this.grade = i2;
     }
 
     public void setGroupId(long j) {
@@ -160,20 +160,20 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         this.intro = str;
     }
 
-    public void setIsGroupManager(int i) {
-        this.isGroupManager = i;
+    public void setIsGroupManager(int i2) {
+        this.isGroupManager = i2;
     }
 
-    public void setMaxMemberNum(int i) {
-        this.maxMemberNum = i;
+    public void setMaxMemberNum(int i2) {
+        this.maxMemberNum = i2;
     }
 
     public void setMemGroup(boolean z) {
         this.isMemGroup = z;
     }
 
-    public void setMemberNum(int i) {
-        this.memberNum = i;
+    public void setMemberNum(int i2) {
+        this.memberNum = i2;
     }
 
     public void setName(String str) {

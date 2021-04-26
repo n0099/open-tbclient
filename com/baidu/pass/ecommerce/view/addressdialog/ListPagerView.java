@@ -64,30 +64,30 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
 
     /* loaded from: classes2.dex */
     public interface OnEntitySelectedListener {
-        void onEntitySelected(int i, AddressBean addressBean);
+        void onEntitySelected(int i2, AddressBean addressBean);
     }
 
-    public ListPagerView(@NonNull Context context, int i, OnEntitySelectedListener onEntitySelectedListener) {
-        this(context, i, false, onEntitySelectedListener);
+    public ListPagerView(@NonNull Context context, int i2, OnEntitySelectedListener onEntitySelectedListener) {
+        this(context, i2, false, onEntitySelectedListener);
     }
 
     private void changeViewStatus(ViewStatus viewStatus, String str) {
         if (this.mRecyclerView == null || this.mLoadingView == null || this.mEmptyView == null) {
             return;
         }
-        int i = AnonymousClass1.$SwitchMap$com$baidu$pass$ecommerce$view$addressdialog$ViewStatus[viewStatus.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass1.$SwitchMap$com$baidu$pass$ecommerce$view$addressdialog$ViewStatus[viewStatus.ordinal()];
+        if (i2 == 1) {
             this.mRecyclerView.setVisibility(0);
             this.mLoadingView.setVisibility(8);
             this.mEmptyView.setVisibility(8);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             this.mRecyclerView.setVisibility(8);
             this.mLoadingView.setVisibility(8);
             this.mEmptyView.setVisibility(0);
             this.mEmptyView.setText(str);
             this.mPagerAddressId = "";
-        } else if (i != 3) {
-            if (i != 4) {
+        } else if (i2 != 3) {
+            if (i2 != 4) {
                 return;
             }
             this.mLoadingView.setVisibility(0);
@@ -141,12 +141,12 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void doFailure(int i, int i2, String str, String str2) {
-        changeViewStatus(ViewStatus.ERROR, this.mPresenter.getErrorMsg(i2));
+    public void doFailure(int i2, int i3, String str, String str2) {
+        changeViewStatus(ViewStatus.ERROR, this.mPresenter.getErrorMsg(i3));
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void doResult(int i, Object obj, String str) {
+    public void doResult(int i2, Object obj, String str) {
         refershEntity((ElementNode.AddressEntity) obj);
     }
 
@@ -160,16 +160,16 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
     }
 
     @Override // com.baidu.pass.ecommerce.adapter.AddrPagerListAdapter.OnAddressSelectedListener
-    public void onAddressSelected(int i, AddressBean addressBean) {
+    public void onAddressSelected(int i2, AddressBean addressBean) {
         if (addressBean == null) {
             return;
         }
-        if (i != -1) {
+        if (i2 != -1) {
             ElementNode.AddressEntity addressEntity = this.mDataEntity;
             addressEntity.selectedId = addressBean.id;
             addressEntity.selectedName = addressBean.name;
             addressEntity.selectedType = addressBean.type;
-            addressEntity.selectedPosition = i;
+            addressEntity.selectedPosition = i2;
             this.mAdapter.setHotCityId(null);
         } else {
             this.mAdapter.setHotCityId(addressBean.id);
@@ -202,10 +202,10 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
         addressEntity.selectedType = str3;
     }
 
-    public ListPagerView(@NonNull Context context, int i, boolean z, OnEntitySelectedListener onEntitySelectedListener) {
+    public ListPagerView(@NonNull Context context, int i2, boolean z, OnEntitySelectedListener onEntitySelectedListener) {
         super(context);
         this.mContext = context;
-        this.mPageIndex = i;
+        this.mPageIndex = i2;
         this.mIsDarkMode = z;
         this.mOnEntitySelectedListener = onEntitySelectedListener;
         AddrListPagerPresenter addrListPagerPresenter = new AddrListPagerPresenter();
@@ -231,15 +231,15 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
         this.mPresenter.getAddressGetRegion(101, addrSelectorRequestParam);
     }
 
-    public void setSelectedPositionInfo(String str, String str2, String str3, int i) {
+    public void setSelectedPositionInfo(String str, String str2, String str3, int i2) {
         ElementNode.AddressEntity addressEntity = this.mDataEntity;
         addressEntity.selectedId = str;
         addressEntity.selectedName = str2;
         addressEntity.selectedType = str3;
-        addressEntity.selectedPosition = i;
+        addressEntity.selectedPosition = i2;
     }
 
-    public void setSelectedPositionInfo(int i) {
-        this.mDataEntity.selectedPosition = i;
+    public void setSelectedPositionInfo(int i2) {
+        this.mDataEntity.selectedPosition = i2;
     }
 }

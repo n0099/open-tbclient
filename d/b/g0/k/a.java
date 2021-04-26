@@ -1,4 +1,0 @@
-package d.b.g0.k;
-/* loaded from: classes2.dex */
-public interface a<T> extends Runnable, Comparable<T> {
-}

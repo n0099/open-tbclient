@@ -115,8 +115,8 @@ public class PlatformPlugin {
             }
 
             @Override // io.flutter.embedding.engine.systemchannels.PlatformChannel.PlatformMessageHandler
-            public void setPreferredOrientations(int i) {
-                PlatformPlugin.this.setSystemChromePreferredOrientations(i);
+            public void setPreferredOrientations(int i2) {
+                PlatformPlugin.this.setSystemChromePreferredOrientations(i2);
             }
 
             @Override // io.flutter.embedding.engine.systemchannels.PlatformChannel.PlatformMessageHandler
@@ -190,11 +190,11 @@ public class PlatformPlugin {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setSystemChromeApplicationSwitcherDescription(PlatformChannel.AppSwitcherDescription appSwitcherDescription) {
-        int i = Build.VERSION.SDK_INT;
-        if (i < 21) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 < 21) {
             return;
         }
-        if (i < 28 && i > 21) {
+        if (i2 < 28 && i2 > 21) {
             this.activity.setTaskDescription(new ActivityManager.TaskDescription(appSwitcherDescription.label, (Bitmap) null, appSwitcherDescription.color));
         }
         if (Build.VERSION.SDK_INT >= 28) {
@@ -204,22 +204,22 @@ public class PlatformPlugin {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setSystemChromeEnabledSystemUIOverlays(List<PlatformChannel.SystemUiOverlay> list) {
-        int i = (list.size() != 0 || Build.VERSION.SDK_INT < 19) ? 1798 : 5894;
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            int i3 = AnonymousClass2.$SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiOverlay[list.get(i2).ordinal()];
-            if (i3 == 1) {
-                i &= -5;
-            } else if (i3 == 2) {
-                i = i & (-513) & (-3);
+        int i2 = (list.size() != 0 || Build.VERSION.SDK_INT < 19) ? 1798 : 5894;
+        for (int i3 = 0; i3 < list.size(); i3++) {
+            int i4 = AnonymousClass2.$SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiOverlay[list.get(i3).ordinal()];
+            if (i4 == 1) {
+                i2 &= -5;
+            } else if (i4 == 2) {
+                i2 = i2 & (-513) & (-3);
             }
         }
-        this.mEnabledOverlays = i;
+        this.mEnabledOverlays = i2;
         updateSystemUiOverlays();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setSystemChromePreferredOrientations(int i) {
-        this.activity.setRequestedOrientation(i);
+    public void setSystemChromePreferredOrientations(int i2) {
+        this.activity.setRequestedOrientation(i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -230,10 +230,10 @@ public class PlatformPlugin {
         if (Build.VERSION.SDK_INT >= 26) {
             PlatformChannel.Brightness brightness = systemChromeStyle.systemNavigationBarIconBrightness;
             if (brightness != null) {
-                int i = AnonymousClass2.$SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$Brightness[brightness.ordinal()];
-                if (i == 1) {
+                int i2 = AnonymousClass2.$SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$Brightness[brightness.ordinal()];
+                if (i2 == 1) {
                     systemUiVisibility |= 16;
-                } else if (i == 2) {
+                } else if (i2 == 2) {
                     systemUiVisibility &= -17;
                 }
             }
@@ -245,10 +245,10 @@ public class PlatformPlugin {
         if (Build.VERSION.SDK_INT >= 23) {
             PlatformChannel.Brightness brightness2 = systemChromeStyle.statusBarIconBrightness;
             if (brightness2 != null) {
-                int i2 = AnonymousClass2.$SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$Brightness[brightness2.ordinal()];
-                if (i2 == 1) {
+                int i3 = AnonymousClass2.$SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$Brightness[brightness2.ordinal()];
+                if (i3 == 1) {
                     systemUiVisibility |= 8192;
-                } else if (i2 == 2) {
+                } else if (i3 == 2) {
                     systemUiVisibility &= -8193;
                 }
             }
@@ -285,15 +285,15 @@ public class PlatformPlugin {
     @VisibleForTesting
     public void vibrateHapticFeedback(PlatformChannel.HapticFeedbackType hapticFeedbackType) {
         View decorView = this.activity.getWindow().getDecorView();
-        int i = AnonymousClass2.$SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$HapticFeedbackType[hapticFeedbackType.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass2.$SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$HapticFeedbackType[hapticFeedbackType.ordinal()];
+        if (i2 == 1) {
             decorView.performHapticFeedback(0);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             decorView.performHapticFeedback(1);
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             decorView.performHapticFeedback(3);
-        } else if (i != 4) {
-            if (i == 5 && Build.VERSION.SDK_INT >= 21) {
+        } else if (i2 != 4) {
+            if (i2 == 5 && Build.VERSION.SDK_INT >= 21) {
                 decorView.performHapticFeedback(4);
             }
         } else if (Build.VERSION.SDK_INT >= 23) {

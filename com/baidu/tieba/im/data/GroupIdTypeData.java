@@ -25,19 +25,19 @@ public class GroupIdTypeData implements Serializable {
         return this.userType;
     }
 
-    public void setCustomType(int i) {
-        this.mCustomType = i;
+    public void setCustomType(int i2) {
+        this.mCustomType = i2;
     }
 
     public void setGroupId(long j) {
         this.groupId = j;
     }
 
-    public void setGroupType(int i) {
-        this.groupType = i;
+    public void setGroupType(int i2) {
+        this.groupType = i2;
     }
 
-    public void setUserType(int i) {
-        this.userType = i;
+    public void setUserType(int i2) {
+        this.userType = i2;
     }
 }

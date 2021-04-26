@@ -25,8 +25,8 @@ public final class a implements i, j {
             Class<?> componentType = ((Class) type).getComponentType();
             int a2 = aVar.a();
             Object newInstance = Array.newInstance(componentType, a2);
-            for (int i = 0; i < a2; i++) {
-                Array.set(newInstance, i, e.a(aVar.a(i), componentType));
+            for (int i2 = 0; i2 < a2; i2++) {
+                Array.set(newInstance, i2, e.a(aVar.a(i2), componentType));
             }
             return newInstance;
         }

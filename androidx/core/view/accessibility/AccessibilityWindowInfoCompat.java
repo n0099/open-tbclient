@@ -3,6 +3,7 @@ package androidx.core.view.accessibility;
 import android.graphics.Rect;
 import android.os.Build;
 import android.view.accessibility.AccessibilityWindowInfo;
+import androidx.annotation.NonNull;
 /* loaded from: classes.dex */
 public class AccessibilityWindowInfoCompat {
     public static final int TYPE_ACCESSIBILITY_OVERLAY = 4;
@@ -24,8 +25,8 @@ public class AccessibilityWindowInfoCompat {
         return null;
     }
 
-    public static String typeToString(int i) {
-        return i != 1 ? i != 2 ? i != 3 ? i != 4 ? "<UNKNOWN>" : "TYPE_ACCESSIBILITY_OVERLAY" : "TYPE_SYSTEM" : "TYPE_INPUT_METHOD" : "TYPE_APPLICATION";
+    public static String typeToString(int i2) {
+        return i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? "<UNKNOWN>" : "TYPE_ACCESSIBILITY_OVERLAY" : "TYPE_SYSTEM" : "TYPE_INPUT_METHOD" : "TYPE_APPLICATION";
     }
 
     public static AccessibilityWindowInfoCompat wrapNonNullInstance(Object obj) {
@@ -39,7 +40,7 @@ public class AccessibilityWindowInfoCompat {
         if (this == obj) {
             return true;
         }
-        if (obj != null && AccessibilityWindowInfoCompat.class == obj.getClass()) {
+        if (obj != null && (obj instanceof AccessibilityWindowInfoCompat)) {
             AccessibilityWindowInfoCompat accessibilityWindowInfoCompat = (AccessibilityWindowInfoCompat) obj;
             Object obj2 = this.mInfo;
             if (obj2 == null) {
@@ -67,9 +68,9 @@ public class AccessibilityWindowInfoCompat {
         }
     }
 
-    public AccessibilityWindowInfoCompat getChild(int i) {
+    public AccessibilityWindowInfoCompat getChild(int i2) {
         if (Build.VERSION.SDK_INT >= 21) {
-            return wrapNonNullInstance(((AccessibilityWindowInfo) this.mInfo).getChild(i));
+            return wrapNonNullInstance(((AccessibilityWindowInfo) this.mInfo).getChild(i2));
         }
         return null;
     }
@@ -158,6 +159,7 @@ public class AccessibilityWindowInfoCompat {
         }
     }
 
+    @NonNull
     public String toString() {
         StringBuilder sb = new StringBuilder();
         Rect rect = new Rect();

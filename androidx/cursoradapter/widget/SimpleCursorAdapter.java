@@ -25,12 +25,12 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
 
     /* loaded from: classes.dex */
     public interface ViewBinder {
-        boolean setViewValue(View view, Cursor cursor, int i);
+        boolean setViewValue(View view, Cursor cursor, int i2);
     }
 
     @Deprecated
-    public SimpleCursorAdapter(Context context, int i, Cursor cursor, String[] strArr, int[] iArr) {
-        super(context, i, cursor);
+    public SimpleCursorAdapter(Context context, int i2, Cursor cursor, String[] strArr, int[] iArr) {
+        super(context, i2, cursor);
         this.mStringConversionColumn = -1;
         this.mTo = iArr;
         this.mOriginalFrom = strArr;
@@ -44,8 +44,8 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
             if (iArr == null || iArr.length != length) {
                 this.mFrom = new int[length];
             }
-            for (int i = 0; i < length; i++) {
-                this.mFrom[i] = cursor.getColumnIndexOrThrow(strArr[i]);
+            for (int i2 = 0; i2 < length; i2++) {
+                this.mFrom[i2] = cursor.getColumnIndexOrThrow(strArr[i2]);
             }
             return;
         }
@@ -58,13 +58,13 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
         int[] iArr = this.mTo;
         int length = iArr.length;
         int[] iArr2 = this.mFrom;
-        for (int i = 0; i < length; i++) {
-            View findViewById = view.findViewById(iArr[i]);
+        for (int i2 = 0; i2 < length; i2++) {
+            View findViewById = view.findViewById(iArr[i2]);
             if (findViewById != null) {
-                if (viewBinder != null ? viewBinder.setViewValue(findViewById, cursor, iArr2[i]) : false) {
+                if (viewBinder != null ? viewBinder.setViewValue(findViewById, cursor, iArr2[i2]) : false) {
                     continue;
                 } else {
-                    String string = cursor.getString(iArr2[i]);
+                    String string = cursor.getString(iArr2[i2]);
                     if (string == null) {
                         string = "";
                     }
@@ -93,9 +93,9 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
         if (cursorToStringConverter != null) {
             return cursorToStringConverter.convertToString(cursor);
         }
-        int i = this.mStringConversionColumn;
-        if (i > -1) {
-            return cursor.getString(i);
+        int i2 = this.mStringConversionColumn;
+        if (i2 > -1) {
+            return cursor.getString(i2);
         }
         return super.convertToString(cursor);
     }
@@ -116,8 +116,8 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
         this.mCursorToStringConverter = cursorToStringConverter;
     }
 
-    public void setStringConversionColumn(int i) {
-        this.mStringConversionColumn = i;
+    public void setStringConversionColumn(int i2) {
+        this.mStringConversionColumn = i2;
     }
 
     public void setViewBinder(ViewBinder viewBinder) {
@@ -142,8 +142,8 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
         return super.swapCursor(cursor);
     }
 
-    public SimpleCursorAdapter(Context context, int i, Cursor cursor, String[] strArr, int[] iArr, int i2) {
-        super(context, i, cursor, i2);
+    public SimpleCursorAdapter(Context context, int i2, Cursor cursor, String[] strArr, int[] iArr, int i3) {
+        super(context, i2, cursor, i3);
         this.mStringConversionColumn = -1;
         this.mTo = iArr;
         this.mOriginalFrom = strArr;

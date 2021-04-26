@@ -85,13 +85,13 @@ public class BdUploadFeature extends a implements INoProGuard, IUploadFile {
     }
 
     @Override // com.baidu.browser.sailor.feature.upload.IUploadFile
-    public void onResult(Activity activity, int i, Intent intent) {
+    public void onResult(Activity activity, int i2, Intent intent) {
         BdUploadHandler uploadHandler = getUploadHandler(activity);
         if (uploadHandler == null) {
             Log.d("BdUploadHandler is null.");
             return;
         }
-        uploadHandler.onResult(i, intent);
+        uploadHandler.onResult(i2, intent);
         this.mUploadHandlers.remove(activity);
     }
 

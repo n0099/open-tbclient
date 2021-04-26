@@ -19,6 +19,6 @@ public class OAdSqlLiteHelper extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
     }
 }

@@ -20,20 +20,20 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.j;
-import d.b.c.e.p.k;
-import d.b.i0.z0.l;
-import d.b.j0.h2.h;
-import d.b.j0.h2.i;
+import d.a.c.e.p.j;
+import d.a.c.e.p.k;
+import d.a.i0.z0.l;
+import d.a.j0.h2.h;
+import d.a.j0.h2.i;
 import tbclient.SmartApp;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public SmartAppBrowseHistoryAdapter mAdapter;
     public i mHistoryRecordMoreDialog;
     public FrameLayout mListContainer;
     public h mModel;
     public NavigationBar mNavigationBar;
-    public d.b.i0.d0.h mNetRefreshView;
+    public d.a.i0.d0.h mNetRefreshView;
     public NoDataView mNoDataView;
     public TextView mNoMoreDataView;
     public NoNetworkView mNoNetworkView;
@@ -45,34 +45,34 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public View.OnClickListener mOnNoNetButtonClickListener = new e();
     public View.OnClickListener mNoDataViewRefreshListener = new f();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements h.b {
         public a() {
         }
 
-        @Override // d.b.j0.h2.h.b
-        public void a(boolean z, d.b.j0.h2.a aVar) {
+        @Override // d.a.j0.h2.h.b
+        public void a(boolean z, d.a.j0.h2.a aVar) {
             if (!z || aVar == null) {
                 SmartAppBrowseHistoryActivity.this.dealNoDataView(true);
                 SmartAppBrowseHistoryActivity.this.dealNoMoreDataView(0);
             } else if (SmartAppBrowseHistoryActivity.this.mAdapter != null) {
                 SmartAppBrowseHistoryActivity.this.dealNoDataView(ListUtils.isEmpty(aVar.a()));
                 SmartAppBrowseHistoryActivity.this.dealNoMoreDataView(ListUtils.getCount(aVar.a()));
-                SmartAppBrowseHistoryActivity.this.mAdapter.l(aVar.a());
+                SmartAppBrowseHistoryActivity.this.mAdapter.h(aVar.a());
                 SmartAppBrowseHistoryActivity.this.mAdapter.notifyDataSetChanged();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements i.b {
         public b() {
         }
 
-        @Override // d.b.j0.h2.i.b
+        @Override // d.a.j0.h2.i.b
         public void a(String str) {
             if (SmartAppBrowseHistoryActivity.this.mAdapter != null) {
-                SmartAppBrowseHistoryActivity.this.mAdapter.k(str);
+                SmartAppBrowseHistoryActivity.this.mAdapter.g(str);
                 if (SmartAppBrowseHistoryActivity.this.mAdapter.getItemCount() == 0) {
                     SmartAppBrowseHistoryActivity.this.dealNoDataView(true);
                 }
@@ -83,7 +83,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -92,7 +92,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         public void onClick(View view) {
             if (view.getTag() instanceof SmartApp) {
                 SmartApp smartApp = (SmartApp) view.getTag();
-                if (!d.b.j0.s.a.b(smartApp.id, smartApp.link, "1191000600000000", smartApp.is_game)) {
+                if (!d.a.j0.s.a.b(smartApp.id, smartApp.link, "1191000600000000", smartApp.is_game)) {
                     if (k.isEmpty(smartApp.h5_url)) {
                         return;
                     }
@@ -106,13 +106,13 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
                 statisticItem.param("obj_param1", smartApp.is_game.intValue());
                 TiebaStatic.log(statisticItem);
                 if (SmartAppBrowseHistoryActivity.this.mAdapter != null) {
-                    SmartAppBrowseHistoryActivity.this.mAdapter.h(smartApp);
+                    SmartAppBrowseHistoryActivity.this.mAdapter.d(smartApp);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements View.OnLongClickListener {
         public d() {
         }
@@ -134,7 +134,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements View.OnClickListener {
         public e() {
         }
@@ -152,7 +152,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements View.OnClickListener {
         public f() {
         }
@@ -186,8 +186,8 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dealNoMoreDataView(int i) {
-        if (d.b.c.e.p.l.g(getActivity(), R.dimen.tbds177) * i >= d.b.c.e.p.l.i(getActivity()) - this.mNavigationBar.getHeight()) {
+    public void dealNoMoreDataView(int i2) {
+        if (d.a.c.e.p.l.g(getActivity(), R.dimen.tbds177) * i2 >= d.a.c.e.p.l.i(getActivity()) - this.mNavigationBar.getHeight()) {
             this.mRecyclerView.y(this.mNoMoreDataView);
             this.mRecyclerView.r(this.mNoMoreDataView);
             return;
@@ -202,7 +202,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         }
         this.mRecyclerView.setVisibility(8);
         if (this.mNetRefreshView == null) {
-            this.mNetRefreshView = new d.b.i0.d0.h(getActivity(), this.mOnNoNetButtonClickListener);
+            this.mNetRefreshView = new d.a.i0.d0.h(getActivity(), this.mOnNoNetButtonClickListener);
         }
         this.mNetRefreshView.j(getActivity().getResources().getDimensionPixelSize(R.dimen.tbds340));
         this.mNetRefreshView.l(getString(R.string.neterror));
@@ -226,14 +226,14 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         SmartAppBrowseHistoryAdapter smartAppBrowseHistoryAdapter = new SmartAppBrowseHistoryAdapter(getActivity());
         this.mAdapter = smartAppBrowseHistoryAdapter;
-        smartAppBrowseHistoryAdapter.m(this.mOnItemClickListener);
-        this.mAdapter.n(this.mOnLongClickListener);
+        smartAppBrowseHistoryAdapter.i(this.mOnItemClickListener);
+        this.mAdapter.j(this.mOnLongClickListener);
         this.mRecyclerView.setAdapter(this.mAdapter);
         this.mNoMoreDataView = new TextView(getActivity());
-        this.mNoMoreDataView.setLayoutParams(new RecyclerView.LayoutParams(-1, d.b.c.e.p.l.g(getActivity(), R.dimen.tbds182)));
+        this.mNoMoreDataView.setLayoutParams(new RecyclerView.LayoutParams(-1, d.a.c.e.p.l.g(getActivity(), R.dimen.tbds182)));
         this.mNoMoreDataView.setGravity(17);
         this.mNoMoreDataView.setText(R.string.list_has_no_more);
-        this.mNoMoreDataView.setTextSize(0, d.b.c.e.p.l.g(getActivity(), R.dimen.tbds33));
+        this.mNoMoreDataView.setTextSize(0, d.a.c.e.p.l.g(getActivity(), R.dimen.tbds33));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -247,18 +247,18 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.mNoNetworkView.c(getPageContext(), i);
-        d.b.i0.d0.h hVar = this.mNetRefreshView;
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        this.mNoNetworkView.c(getPageContext(), i2);
+        d.a.i0.d0.h hVar = this.mNetRefreshView;
         if (hVar != null) {
             hVar.onChangeSkinType();
         }
         NoDataView noDataView = this.mNoDataView;
         if (noDataView != null) {
             SkinManager.setBackgroundResource(noDataView, R.color.CAM_X0201);
-            this.mNoDataView.f(getPageContext(), i);
+            this.mNoDataView.f(getPageContext(), i2);
         }
         TextView textView = this.mNoMoreDataView;
         if (textView != null) {

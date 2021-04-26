@@ -153,9 +153,9 @@ public class FlutterPluginRegistry implements PluginRegistry, PluginRegistry.Req
     }
 
     @Override // io.flutter.plugin.common.PluginRegistry.ActivityResultListener
-    public boolean onActivityResult(int i, int i2, Intent intent) {
+    public boolean onActivityResult(int i2, int i3, Intent intent) {
         for (PluginRegistry.ActivityResultListener activityResultListener : this.mActivityResultListeners) {
-            if (activityResultListener.onActivityResult(i, i2, intent)) {
+            if (activityResultListener.onActivityResult(i2, i3, intent)) {
                 return true;
             }
         }
@@ -177,9 +177,9 @@ public class FlutterPluginRegistry implements PluginRegistry, PluginRegistry.Req
     }
 
     @Override // io.flutter.plugin.common.PluginRegistry.RequestPermissionsResultListener
-    public boolean onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+    public boolean onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
         for (PluginRegistry.RequestPermissionsResultListener requestPermissionsResultListener : this.mRequestPermissionsResultListeners) {
-            if (requestPermissionsResultListener.onRequestPermissionsResult(i, strArr, iArr)) {
+            if (requestPermissionsResultListener.onRequestPermissionsResult(i2, strArr, iArr)) {
                 return true;
             }
         }

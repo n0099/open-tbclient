@@ -14,8 +14,8 @@ public class MessageCenterActivityConfig extends IntentConfig {
         super(context);
     }
 
-    public MessageCenterActivityConfig(Context context, int i) {
+    public MessageCenterActivityConfig(Context context, int i2) {
         super(context);
-        getIntent().putExtra(SELECTED_TAB_ID, i);
+        getIntent().putExtra(SELECTED_TAB_ID, i2);
     }
 }

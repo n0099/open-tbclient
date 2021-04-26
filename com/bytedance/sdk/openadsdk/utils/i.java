@@ -15,7 +15,6 @@ import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.bytedance.sdk.openadsdk.AppLogHelper;
 import com.bytedance.sdk.openadsdk.TTCustomController;
-import com.kwai.video.player.KsMediaMeta;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -26,23 +25,23 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f30124a = null;
+    public static String f31041a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f30125b = false;
+    public static volatile boolean f31042b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f30126c = true;
+    public static volatile boolean f31043c = true;
 
     /* loaded from: classes5.dex */
     public static class a extends BroadcastReceiver {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if ("android.intent.action.SCREEN_ON".equals(intent.getAction())) {
-                boolean unused = i.f30126c = true;
+                boolean unused = i.f31043c = true;
                 u.c("DeviceUtils", "screen_on");
             } else if ("android.intent.action.SCREEN_OFF".equals(intent.getAction())) {
-                boolean unused2 = i.f30126c = false;
+                boolean unused2 = i.f31043c = false;
                 u.c("DeviceUtils", "screen_off");
             }
         }
@@ -53,13 +52,13 @@ public class i {
             try {
                 PowerManager powerManager = (PowerManager) com.bytedance.sdk.openadsdk.core.p.a().getSystemService("power");
                 if (powerManager != null) {
-                    f30126c = powerManager.isScreenOn();
+                    f31043c = powerManager.isScreenOn();
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
             }
         }
-        return f30126c;
+        return f31043c;
     }
 
     public static boolean c(Context context) {
@@ -94,13 +93,13 @@ public class i {
             jSONObject.put("os_version", Build.VERSION.RELEASE + "");
             jSONObject.put("vendor", Build.MANUFACTURER);
             jSONObject.put("model", Build.MODEL);
-            jSONObject.put(KsMediaMeta.KSM_KEY_LANGUAGE, Locale.getDefault().getLanguage());
+            jSONObject.put("language", Locale.getDefault().getLanguage());
             jSONObject.put("conn_type", x.b(context));
             jSONObject.put(IAdRequestParam.MAC, b());
             jSONObject.put("screen_width", al.c(context));
             jSONObject.put("screen_height", al.d(context));
             jSONObject.put("oaid", y.a());
-            jSONObject.put(PmsConstant.EnvParam.Key.FREE_SPACE, m.f30128a);
+            jSONObject.put(PmsConstant.EnvParam.Key.FREE_SPACE, m.f31045a);
             jSONObject.put("applog_did", AppLogHelper.getInstance().getAppLogDid());
             jSONObject.put("sec_did", com.bytedance.sdk.openadsdk.core.s.a().b());
         } catch (Throwable unused) {
@@ -111,11 +110,11 @@ public class i {
     @NonNull
     public static String b() {
         String str;
-        if (!TextUtils.isEmpty(f30124a)) {
-            return f30124a;
+        if (!TextUtils.isEmpty(f31041a)) {
+            return f31041a;
         }
         String a2 = com.bytedance.sdk.openadsdk.core.i.a("sdk_local_mac_address", 172800000L);
-        f30124a = a2;
+        f31041a = a2;
         if (TextUtils.isEmpty(a2)) {
             TTCustomController e2 = com.bytedance.sdk.openadsdk.core.i.d().e();
             if (e2 != null && e2.isCanUseWifiState() && e2.isCanUseLocation()) {
@@ -127,20 +126,20 @@ public class i {
                 str = "DU:MM:YA:DD:RE:SS";
             }
             String str2 = TextUtils.isEmpty(str) ? "DU:MM:YA:DD:RE:SS" : str;
-            f30124a = str2;
+            f31041a = str2;
             com.bytedance.sdk.openadsdk.core.i.a("sdk_local_mac_address", str2);
         }
-        return f30124a;
+        return f31041a;
     }
 
     public static void a(Context context) {
-        if (f30125b) {
+        if (f31042b) {
             return;
         }
         try {
             PowerManager powerManager = (PowerManager) context.getSystemService("power");
             if (powerManager != null) {
-                f30126c = powerManager.isScreenOn();
+                f31043c = powerManager.isScreenOn();
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -150,7 +149,7 @@ public class i {
         intentFilter.addAction("android.intent.action.SCREEN_ON");
         intentFilter.addAction("android.intent.action.SCREEN_OFF");
         context.registerReceiver(aVar, intentFilter);
-        f30125b = true;
+        f31042b = true;
     }
 
     @SuppressLint({"NewApi"})
@@ -164,8 +163,8 @@ public class i {
                     }
                     StringBuilder sb = new StringBuilder();
                     int length = hardwareAddress.length;
-                    for (int i = 0; i < length; i++) {
-                        sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
+                    for (int i2 = 0; i2 < length; i2++) {
+                        sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i2])));
                     }
                     if (sb.length() > 0) {
                         sb.deleteCharAt(sb.length() - 1);

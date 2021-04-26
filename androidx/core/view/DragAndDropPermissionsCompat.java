@@ -15,7 +15,7 @@ public final class DragAndDropPermissionsCompat {
     }
 
     @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public static DragAndDropPermissionsCompat request(Activity activity, DragEvent dragEvent) {
         DragAndDropPermissions requestDragAndDropPermissions;
         if (Build.VERSION.SDK_INT < 24 || (requestDragAndDropPermissions = activity.requestDragAndDropPermissions(dragEvent)) == null) {

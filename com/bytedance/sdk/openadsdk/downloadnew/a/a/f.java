@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import d.p.a.e.b.o.k;
+import d.o.a.e.b.o.k;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
@@ -17,13 +17,13 @@ import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
-public class f implements d.p.a.e.b.o.a {
+public class f implements d.o.a.e.b.o.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f28901a;
+    public final WeakReference<Context> f29790a;
 
     public f(Context context) {
-        this.f28901a = new WeakReference<>(context);
+        this.f29790a = new WeakReference<>(context);
     }
 
     @Nullable
@@ -56,8 +56,8 @@ public class f implements d.p.a.e.b.o.a {
         }
     }
 
-    @Override // d.p.a.e.b.o.a
-    public k downloadWithConnection(int i, String str, List<com.ss.android.socialbase.downloader.model.c> list) throws IOException {
+    @Override // d.o.a.e.b.o.a
+    public k downloadWithConnection(int i2, String str, List<com.ss.android.socialbase.downloader.model.c> list) throws IOException {
         final int responseCode;
         final HttpURLConnection a2 = a(str, list);
         if (a2 != null && (responseCode = a2.getResponseCode()) >= 200 && responseCode < 300) {
@@ -66,21 +66,21 @@ public class f implements d.p.a.e.b.o.a {
             String contentEncoding = a2.getContentEncoding();
             final GZIPInputStream gZIPInputStream = (TextUtils.isEmpty(contentEncoding) || !contentEncoding.contains(AsyncHttpClient.ENCODING_GZIP)) ? inputStream : new GZIPInputStream(inputStream);
             return new k() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.f.1
-                @Override // d.p.a.e.b.o.k
+                @Override // d.o.a.e.b.o.k
                 public InputStream a() {
                     return gZIPInputStream;
                 }
 
-                @Override // d.p.a.e.b.o.i
+                @Override // d.o.a.e.b.o.i
                 public int b() {
                     return responseCode;
                 }
 
-                @Override // d.p.a.e.b.o.i
+                @Override // d.o.a.e.b.o.i
                 public void c() {
                 }
 
-                @Override // d.p.a.e.b.o.k
+                @Override // d.o.a.e.b.o.k
                 public void d() {
                     try {
                         a2.disconnect();
@@ -88,7 +88,7 @@ public class f implements d.p.a.e.b.o.a {
                     }
                 }
 
-                @Override // d.p.a.e.b.o.i
+                @Override // d.o.a.e.b.o.i
                 public String a(String str2) {
                     return (String) a3.get(str2);
                 }
@@ -100,8 +100,8 @@ public class f implements d.p.a.e.b.o.a {
     private Map<String, String> a(HttpURLConnection httpURLConnection) {
         HashMap hashMap = new HashMap();
         int size = httpURLConnection.getHeaderFields().size();
-        for (int i = 0; i < size; i++) {
-            hashMap.put(httpURLConnection.getHeaderFieldKey(i), httpURLConnection.getHeaderField(i));
+        for (int i2 = 0; i2 < size; i2++) {
+            hashMap.put(httpURLConnection.getHeaderFieldKey(i2), httpURLConnection.getHeaderField(i2));
         }
         return hashMap;
     }

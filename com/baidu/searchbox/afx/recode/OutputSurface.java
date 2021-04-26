@@ -21,9 +21,9 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
     public EGLSurface mEGLSurface = EGL14.EGL_NO_SURFACE;
     public Object mFrameSyncObject = new Object();
 
-    public OutputSurface(int i, int i2) {
-        if (i > 0 && i2 > 0) {
-            eglSetup(i, i2);
+    public OutputSurface(int i2, int i3) {
+        if (i2 > 0 && i3 > 0) {
+            eglSetup(i2, i3);
             makeCurrent();
             setup();
             return;
@@ -39,7 +39,7 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
         throw new RuntimeException(str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
     }
 
-    private void eglSetup(int i, int i2) {
+    private void eglSetup(int i2, int i3) {
         EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
         this.mEGLDisplay = eglGetDisplay;
         if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
@@ -53,7 +53,7 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
                 this.mEGLContext = EGL14.eglCreateContext(this.mEGLDisplay, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
                 checkEglError("eglCreateContext");
                 if (this.mEGLContext != null) {
-                    this.mEGLSurface = EGL14.eglCreatePbufferSurface(this.mEGLDisplay, eGLConfigArr[0], new int[]{12375, i, 12374, i2, 12344}, 0);
+                    this.mEGLSurface = EGL14.eglCreatePbufferSurface(this.mEGLDisplay, eGLConfigArr[0], new int[]{12375, i2, 12374, i3, 12344}, 0);
                     checkEglError("eglCreatePbufferSurface");
                     if (this.mEGLSurface == null) {
                         throw new RuntimeException("surface was null");
@@ -99,12 +99,12 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
         this.mTextureRender.changeFragmentShader(str);
     }
 
-    public boolean checkForNewImage(int i) {
+    public boolean checkForNewImage(int i2) {
         synchronized (this.mFrameSyncObject) {
             do {
                 if (!this.mFrameAvailable) {
                     try {
-                        this.mFrameSyncObject.wait(i);
+                        this.mFrameSyncObject.wait(i2);
                     } catch (InterruptedException e2) {
                         throw new RuntimeException(e2);
                     }

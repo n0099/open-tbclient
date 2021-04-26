@@ -18,16 +18,16 @@ import javax.net.ssl.SSLSession;
 public final class OtpTokenUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23372a = "OtpTokenUtils";
+    public static final String f24094a = "OtpTokenUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23373b = "key_later_server_time";
+    public static final String f24095b = "key_later_server_time";
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f23374c = 0;
+    public static long f24096c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f23375d = 10;
+    public static int f24097d = 10;
 
     public static InputStream a(HttpURLConnection httpURLConnection) {
         try {
@@ -37,8 +37,8 @@ public final class OtpTokenUtils {
         }
     }
 
-    public static String getEncryptTOtpCode(Context context, int i, String str, int i2) {
-        return !TextUtils.isEmpty(str) ? new c(str, i, 0L, i2).a(context) : "";
+    public static String getEncryptTOtpCode(Context context, int i2, String str, int i3) {
+        return !TextUtils.isEmpty(str) ? new c(str, i2, 0L, i3).a(context) : "";
     }
 
     public static String getSN(String str) {
@@ -97,11 +97,11 @@ public final class OtpTokenUtils {
     }
 
     public static long getmSyncWithServerTime(Context context) {
-        return ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f23373b, 0L)).longValue();
+        return ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f24095b, 0L)).longValue();
     }
 
     public static void setmSyncWithServerTime(Context context, long j) {
-        SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f23373b, Long.valueOf(j));
+        SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f24095b, Long.valueOf(j));
     }
 
     public static long syncTime(long j) {
@@ -109,7 +109,7 @@ public final class OtpTokenUtils {
         HttpsURLConnection httpsURLConnection2 = null;
         try {
             try {
-                f23374c = 0L;
+                f24096c = 0L;
                 httpsURLConnection = (HttpsURLConnection) new URL("https://www.baidu.com/").openConnection();
             } catch (Exception e2) {
                 e = e2;
@@ -121,7 +121,7 @@ public final class OtpTokenUtils {
             httpsURLConnection.setDoOutput(true);
             httpsURLConnection.setUseCaches(false);
             httpsURLConnection.setRequestMethod("GET");
-            httpsURLConnection.setConnectTimeout(f23375d * 1000);
+            httpsURLConnection.setConnectTimeout(f24097d * 1000);
             httpsURLConnection.setHostnameVerifier(new HostnameVerifier() { // from class: com.baidu.wallet.base.nopassauth.OtpTokenUtils.1
                 @Override // javax.net.ssl.HostnameVerifier
                 public boolean verify(String str, SSLSession sSLSession) {
@@ -129,7 +129,7 @@ public final class OtpTokenUtils {
                 }
             });
             httpsURLConnection.connect();
-            f23374c = httpsURLConnection.getDate() / 1000;
+            f24096c = httpsURLConnection.getDate() / 1000;
             if (httpsURLConnection != null) {
                 try {
                     InputStream a2 = a(httpsURLConnection);
@@ -141,7 +141,7 @@ public final class OtpTokenUtils {
                 }
                 httpsURLConnection.disconnect();
             }
-            return (System.currentTimeMillis() / 1000) - f23374c;
+            return (System.currentTimeMillis() / 1000) - f24096c;
         } catch (Exception e4) {
             e = e4;
             httpsURLConnection2 = httpsURLConnection;
@@ -215,12 +215,12 @@ public final class OtpTokenUtils {
     public static byte[] xorArrayRepeat(byte[] bArr, byte[] bArr2) {
         byte[] bArr3 = new byte[bArr.length];
         int length = bArr.length;
-        int i = 0;
         int i2 = 0;
-        while (i < length) {
-            bArr3[i2] = (byte) (bArr[i] ^ bArr2[i2 % bArr2.length]);
-            i++;
+        int i3 = 0;
+        while (i2 < length) {
+            bArr3[i3] = (byte) (bArr[i2] ^ bArr2[i3 % bArr2.length]);
             i2++;
+            i3++;
         }
         return bArr3;
     }
@@ -230,10 +230,10 @@ public final class OtpTokenUtils {
             return bArr;
         }
         byte[] bArr2 = new byte[bArr.length + 1];
-        int i = 0;
+        int i2 = 0;
         for (byte b2 : bArr) {
-            bArr2[i] = b2;
-            i++;
+            bArr2[i2] = b2;
+            i2++;
         }
         bArr2[bArr.length] = z ? (byte) 1 : (byte) 0;
         return bArr2;

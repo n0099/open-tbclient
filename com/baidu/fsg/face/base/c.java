@@ -6,23 +6,23 @@ import com.baidu.fsg.face.base.dto.SapiBiometricDto;
 public class c extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5627a = "1.3.7";
+    public static final String f5780a = "1.3.7";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5628b = 32;
+    public static final int f5781b = 32;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f5629c;
+    public static c f5782c;
 
     public static c a() {
-        if (f5629c == null) {
+        if (f5782c == null) {
             synchronized (c.class) {
-                if (f5629c == null) {
-                    f5629c = new c();
+                if (f5782c == null) {
+                    f5782c = new c();
                 }
             }
         }
-        return f5629c;
+        return f5782c;
     }
 
     private b c() {
@@ -35,9 +35,9 @@ public class c extends d {
     }
 
     @Override // com.baidu.fsg.face.base.d
-    public b a(int i) {
+    public b a(int i2) {
         try {
-            return (b) Class.forName(a.a(i)).getMethod("getInstance", new Class[0]).invoke(null, new Object[0]);
+            return (b) Class.forName(a.a(i2)).getMethod("getInstance", new Class[0]).invoke(null, new Object[0]);
         } catch (Exception e2) {
             com.baidu.fsg.face.base.d.d.a(e2);
             return c();

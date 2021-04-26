@@ -27,19 +27,19 @@ public abstract class AbstractManifestWriter implements ManifestWriter {
         long[] sampleDurations;
         long[] sampleNumbers = this.intersectionFinder.sampleNumbers(track);
         long[] jArr = new long[sampleNumbers.length];
-        int i = 0;
-        int i2 = 1;
+        int i2 = 0;
+        int i3 = 1;
         for (long j : track.getSampleDurations()) {
-            int i3 = i2 + 1;
-            while (i2 < i3) {
-                if (i != sampleNumbers.length - 1) {
-                    int i4 = i + 1;
-                    if (i2 == sampleNumbers[i4]) {
-                        i = i4;
+            int i4 = i3 + 1;
+            while (i3 < i4) {
+                if (i2 != sampleNumbers.length - 1) {
+                    int i5 = i2 + 1;
+                    if (i3 == sampleNumbers[i5]) {
+                        i2 = i5;
                     }
                 }
-                jArr[i] = jArr[i] + j;
-                i2++;
+                jArr[i2] = jArr[i2] + j;
+                i3++;
             }
         }
         return jArr;

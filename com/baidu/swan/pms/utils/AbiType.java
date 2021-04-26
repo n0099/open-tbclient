@@ -7,7 +7,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import d.b.h0.l.f;
+import d.a.h0.l.f;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -51,11 +51,11 @@ public final class AbiType {
         AbiType abiType4 = new AbiType("X86_64", 4, "x86_64", abiType3, ARMEABI_V7A, ARMEABI);
         X86_64 = abiType4;
         $VALUES = new AbiType[]{ARMEABI, ARMEABI_V7A, ARM64_V8A, X86, abiType4};
-        DEBUG = f.f49610a;
+        DEBUG = f.f47117a;
         sIndex = new HashMap();
     }
 
-    public AbiType(String str, int i, String str2, AbiType... abiTypeArr) {
+    public AbiType(String str, int i2, String str2, AbiType... abiTypeArr) {
         ArrayList arrayList = new ArrayList();
         this.compatible = arrayList;
         this.id = str2;

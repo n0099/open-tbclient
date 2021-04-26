@@ -63,13 +63,13 @@ public class HttpMultipart {
             writeBytes(encode, outputStream);
             writeBytes(CR_LF, outputStream);
             Header header = formBodyPart.getHeader();
-            int i = AnonymousClass1.$SwitchMap$org$apache$http$entity$mime$HttpMultipartMode[httpMultipartMode.ordinal()];
-            if (i == 1) {
+            int i2 = AnonymousClass1.$SwitchMap$org$apache$http$entity$mime$HttpMultipartMode[httpMultipartMode.ordinal()];
+            if (i2 == 1) {
                 Iterator<MinimalField> it = header.iterator();
                 while (it.hasNext()) {
                     writeField(it.next(), outputStream);
                 }
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 writeField(formBodyPart.getHeader().getField("Content-Disposition"), this.charset, outputStream);
                 if (formBodyPart.getBody().getFilename() != null) {
                     writeField(formBodyPart.getHeader().getField("Content-Type"), this.charset, outputStream);

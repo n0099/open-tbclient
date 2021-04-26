@@ -8,31 +8,31 @@ import java.util.Properties;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f37397a;
+    public final int f35119a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f37398b;
+    public final long f35120b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f37399c;
+    public final boolean f35121c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f37400d;
+    public final boolean f35122d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f37401e;
+    public final int f35123e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f37402f;
+    public final boolean f35124f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f37403g;
+    public final boolean f35125g;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f37404a = new e();
+        public static final e f35126a = new e();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:124:0x0098 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -71,12 +71,12 @@ public class e {
         String str7;
         String str8;
         Object obj;
-        int i;
+        int i2;
         Object obj2;
         long j;
         Object obj3;
         long j2;
-        int i2;
+        int i3;
         ?? r4;
         if (c.a() == null) {
             throw new IllegalStateException("Please invoke the 'FileDownloader#setup' before using FileDownloader. If you want to register some components on FileDownloader please invoke the 'FileDownloader#setupOnApplicationOnCreate' on the 'Application#onCreate' first.");
@@ -100,7 +100,7 @@ public class e {
                             str5 = null;
                             if (e instanceof FileNotFoundException) {
                                 e.printStackTrace();
-                            } else if (d.f37396a) {
+                            } else if (d.f35118a) {
                                 d.c(e.class, "not found filedownloader.properties", new Object[0]);
                             }
                             if (inputStream2 != null) {
@@ -115,19 +115,19 @@ public class e {
                             str8 = null;
                             if (str6 == null) {
                             }
-                            this.f37400d = true;
+                            this.f35122d = true;
                             if (str2 != null) {
                             }
                             if (str3 != null) {
                             }
-                            this.f37398b = j2;
+                            this.f35120b = j2;
                             if (str4 != null) {
                             }
                             if (str7 == null) {
                             }
                             if (str8 == null) {
                             }
-                            if (d.f37396a) {
+                            if (d.f35118a) {
                             }
                         }
                         try {
@@ -146,19 +146,19 @@ public class e {
                             str8 = null;
                             if (str6 == null) {
                             }
-                            this.f37400d = true;
+                            this.f35122d = true;
                             if (str2 != null) {
                             }
                             if (str3 != null) {
                             }
-                            this.f37398b = j2;
+                            this.f35120b = j2;
                             if (str4 != null) {
                             }
                             if (str7 == null) {
                             }
                             if (str8 == null) {
                             }
-                            if (d.f37396a) {
+                            if (d.f35118a) {
                             }
                         }
                         try {
@@ -176,19 +176,19 @@ public class e {
                             str8 = null;
                             if (str6 == null) {
                             }
-                            this.f37400d = true;
+                            this.f35122d = true;
                             if (str2 != null) {
                             }
                             if (str3 != null) {
                             }
-                            this.f37398b = j2;
+                            this.f35120b = j2;
                             if (str4 != null) {
                             }
                             if (str7 == null) {
                             }
                             if (str8 == null) {
                             }
-                            if (d.f37396a) {
+                            if (d.f35118a) {
                             }
                         }
                         try {
@@ -205,19 +205,19 @@ public class e {
                             str8 = null;
                             if (str6 == null) {
                             }
-                            this.f37400d = true;
+                            this.f35122d = true;
                             if (str2 != null) {
                             }
                             if (str3 != null) {
                             }
-                            this.f37398b = j2;
+                            this.f35120b = j2;
                             if (str4 != null) {
                             }
                             if (str7 == null) {
                             }
                             if (str8 == null) {
                             }
-                            if (d.f37396a) {
+                            if (d.f35118a) {
                             }
                         }
                         try {
@@ -234,19 +234,19 @@ public class e {
                             str8 = null;
                             if (str6 == null) {
                             }
-                            this.f37400d = true;
+                            this.f35122d = true;
                             if (str2 != null) {
                             }
                             if (str3 != null) {
                             }
-                            this.f37398b = j2;
+                            this.f35120b = j2;
                             if (str4 != null) {
                             }
                             if (str7 == null) {
                             }
                             if (str8 == null) {
                             }
-                            if (d.f37396a) {
+                            if (d.f35118a) {
                             }
                         }
                     } catch (IOException e8) {
@@ -265,19 +265,19 @@ public class e {
                         str8 = null;
                         if (str6 == null) {
                         }
-                        this.f37400d = true;
+                        this.f35122d = true;
                         if (str2 != null) {
                         }
                         if (str3 != null) {
                         }
-                        this.f37398b = j2;
+                        this.f35120b = j2;
                         if (str4 != null) {
                         }
                         if (str7 == null) {
                         }
                         if (str8 == null) {
                         }
-                        if (d.f37396a) {
+                        if (d.f35118a) {
                         }
                     }
                 } catch (Throwable th2) {
@@ -317,20 +317,20 @@ public class e {
         }
         if (str6 == null) {
             obj = "download.max-network-thread-count";
-            i = 0;
-            this.f37399c = false;
+            i2 = 0;
+            this.f35121c = false;
         } else if (!str6.equals("true") && !str6.equals("false")) {
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", "http.lenient", "true", "false"));
         } else {
             obj = "download.max-network-thread-count";
-            i = 0;
-            this.f37399c = str6.equals("true");
+            i2 = 0;
+            this.f35121c = str6.equals("true");
         }
-        this.f37400d = true;
+        this.f35122d = true;
         if (str2 != null) {
-            this.f37397a = Math.max(i, Integer.valueOf(str2).intValue());
+            this.f35119a = Math.max(i2, Integer.valueOf(str2).intValue());
         } else {
-            this.f37397a = 65536;
+            this.f35119a = 65536;
         }
         if (str3 != null) {
             obj2 = "download.min-progress-time";
@@ -343,29 +343,29 @@ public class e {
             obj3 = "http.lenient";
             j2 = 2000;
         }
-        this.f37398b = j2;
+        this.f35120b = j2;
         if (str4 != null) {
-            this.f37401e = a(Integer.valueOf(str4).intValue());
-            i2 = 3;
+            this.f35123e = a(Integer.valueOf(str4).intValue());
+            i3 = 3;
         } else {
-            i2 = 3;
-            this.f37401e = 3;
+            i3 = 3;
+            this.f35123e = 3;
         }
         if (str7 == null) {
             r4 = 0;
-            this.f37402f = false;
+            this.f35124f = false;
         } else if (!str7.equals("true") && !str7.equals("false")) {
-            Object[] objArr = new Object[i2];
+            Object[] objArr = new Object[i3];
             objArr[0] = "file.non-pre-allocation";
             objArr[1] = "true";
             objArr[2] = "false";
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", objArr));
         } else {
             r4 = 0;
-            this.f37402f = str7.equals("true");
+            this.f35124f = str7.equals("true");
         }
         if (str8 == null) {
-            this.f37403g = r4;
+            this.f35125g = r4;
         } else if (!str8.equals("true") && !str8.equals("false")) {
             Object[] objArr2 = new Object[3];
             objArr2[r4] = "broadcast.completed";
@@ -373,38 +373,38 @@ public class e {
             objArr2[2] = "false";
             throw new IllegalStateException(f.a("the value of '%s' must be '%s' or '%s'", objArr2));
         } else {
-            this.f37403g = str8.equals("true");
+            this.f35125g = str8.equals("true");
         }
-        if (d.f37396a) {
+        if (d.f35118a) {
             Object[] objArr3 = new Object[11];
             objArr3[r4] = Long.valueOf(System.currentTimeMillis() - j);
             objArr3[1] = obj3;
-            objArr3[2] = Boolean.valueOf(this.f37399c);
+            objArr3[2] = Boolean.valueOf(this.f35121c);
             objArr3[3] = "process.non-separate";
-            objArr3[4] = Boolean.valueOf(this.f37400d);
+            objArr3[4] = Boolean.valueOf(this.f35122d);
             objArr3[5] = "download.min-progress-step";
-            objArr3[6] = Integer.valueOf(this.f37397a);
+            objArr3[6] = Integer.valueOf(this.f35119a);
             objArr3[7] = obj2;
-            objArr3[8] = Long.valueOf(this.f37398b);
+            objArr3[8] = Long.valueOf(this.f35120b);
             objArr3[9] = obj;
-            objArr3[10] = Integer.valueOf(this.f37401e);
+            objArr3[10] = Integer.valueOf(this.f35123e);
             d.b(e.class, "init properties %d\n load properties: %s=%B; %s=%B; %s=%d; %s=%d; %s=%d", objArr3);
         }
     }
 
-    public static int a(int i) {
-        if (i > 12) {
-            d.d(e.class, "require the count of network thread  is %d, what is more than the max valid count(%d), so adjust to %d auto", Integer.valueOf(i), 12, 12);
+    public static int a(int i2) {
+        if (i2 > 12) {
+            d.d(e.class, "require the count of network thread  is %d, what is more than the max valid count(%d), so adjust to %d auto", Integer.valueOf(i2), 12, 12);
             return 12;
-        } else if (i < 1) {
-            d.d(e.class, "require the count of network thread  is %d, what is less than the min valid count(%d), so adjust to %d auto", Integer.valueOf(i), 1, 1);
+        } else if (i2 < 1) {
+            d.d(e.class, "require the count of network thread  is %d, what is less than the min valid count(%d), so adjust to %d auto", Integer.valueOf(i2), 1, 1);
             return 1;
         } else {
-            return i;
+            return i2;
         }
     }
 
     public static e a() {
-        return a.f37404a;
+        return a.f35126a;
     }
 }

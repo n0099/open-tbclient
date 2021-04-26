@@ -34,8 +34,8 @@ public class BDVideoPlayerUbcHelper {
         return jSONObject.toString();
     }
 
-    public static int positive(int i) {
-        return Math.max(i, 0);
+    public static int positive(int i2) {
+        return Math.max(i2, 0);
     }
 
     @NonNull

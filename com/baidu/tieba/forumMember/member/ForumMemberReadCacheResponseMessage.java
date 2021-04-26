@@ -2,7 +2,7 @@ package com.baidu.tieba.forumMember.member;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.d3.w;
+import d.a.j0.d3.w;
 import java.util.List;
 import tbclient.Error;
 import tbclient.GetMemberInfo.DataRes;
@@ -27,7 +27,7 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
         this.mIsBawuShow = false;
     }
 
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         DataRes dataRes;
         GetMemberInfoResIdl getMemberInfoResIdl = (GetMemberInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMemberInfoResIdl.class);
         if (getMemberInfoResIdl != null) {

@@ -53,12 +53,12 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
     private List<ThreadRecord> getMultiThreadRecords(long j) {
         ArrayList arrayList = new ArrayList();
         int threadNum = this.mConfig.getThreadNum();
-        int i = 0;
-        while (i < threadNum) {
+        int i2 = 0;
+        while (i2 < threadNum) {
             long j2 = j / threadNum;
-            long j3 = j2 * i;
-            arrayList.add(new ThreadRecord(i, this.mTag, this.mRequest.getUri(), j3, i == threadNum + (-1) ? j : (j2 + j3) - 1, 0L));
-            i++;
+            long j3 = j2 * i2;
+            arrayList.add(new ThreadRecord(i2, this.mTag, this.mRequest.getUri(), j3, i2 == threadNum + (-1) ? j : (j2 + j3) - 1, 0L));
+            i2++;
         }
         return arrayList;
     }
@@ -76,11 +76,11 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
         this.mDownloadTasks.clear();
         if (z) {
             List<ThreadRecord> multiThreadRecords = getMultiThreadRecords(j);
-            int i = 0;
+            int i2 = 0;
             for (ThreadRecord threadRecord : multiThreadRecords) {
-                i = (int) (i + threadRecord.getFinished());
+                i2 = (int) (i2 + threadRecord.getFinished());
             }
-            this.mDownloadInfo.setFinished(i);
+            this.mDownloadInfo.setFinished(i2);
             for (ThreadRecord threadRecord2 : multiThreadRecords) {
                 this.mDownloadTasks.add(new MultiDownloadTask(this.mDownloadInfo, threadRecord2, this));
             }
@@ -147,8 +147,8 @@ public class DownloaderImpl implements Downloader, HttpConnectTask.OnConnectList
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.Downloader
     public boolean isRunning() {
-        int i = this.mStatus;
-        return i == 101 || i == 102 || i == 103 || i == 104;
+        int i2 = this.mStatus;
+        return i2 == 101 || i2 == 102 || i2 == 103 || i2 == 104;
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.HttpConnectTask.OnConnectListener

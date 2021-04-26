@@ -1,64 +1,25 @@
 package com.kwad.sdk.utils;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.kwad.sdk.R;
+import androidx.annotation.NonNull;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class p {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Handler f37169a = new Handler(Looper.getMainLooper());
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f37170b = false;
-
-    public static void a(Context context) {
-        a(context, q.c(context));
-    }
-
-    public static void a(Context context, String str) {
-        a(context, str, R.layout.ksad_content_alliance_toast_2);
-    }
-
-    public static void a(Context context, String str, int i) {
-        a(context, str, i, 800L);
-    }
-
-    public static void a(Context context, String str, int i, long j) {
-        if (f37170b) {
-            return;
+    @NonNull
+    public static <T> List<List<T>> a(List<T> list, int i2) {
+        ArrayList arrayList = new ArrayList();
+        if (list == null) {
+            return arrayList;
         }
-        f37170b = true;
-        View inflate = LayoutInflater.from(context).inflate(i, (ViewGroup) null);
-        ((TextView) inflate.findViewById(R.id.ksad_message_toast_txt)).setText(str);
-        Toast toast = new Toast(context.getApplicationContext());
-        toast.setGravity(17, 0, 0);
-        toast.setDuration(0);
-        toast.setView(inflate);
-        toast.show();
-        f37169a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.p.1
-            @Override // java.lang.Runnable
-            public void run() {
-                boolean unused = p.f37170b = false;
-            }
-        }, j);
-    }
-
-    public static void a(Context context, String str, long j) {
-        a(context, str, R.layout.ksad_content_alliance_toast_2, j);
-    }
-
-    public static void b(Context context) {
-        a(context, q.f(context));
-    }
-
-    public static void c(Context context) {
-        a(context, q.b(context));
+        if (i2 <= 0) {
+            i2 = list.size();
+        }
+        int i3 = 0;
+        while (i3 < list.size()) {
+            int i4 = i3 + i2;
+            arrayList.add(list.subList(i3, i4 > list.size() ? list.size() : i4));
+            i3 = i4;
+        }
+        return arrayList;
     }
 }

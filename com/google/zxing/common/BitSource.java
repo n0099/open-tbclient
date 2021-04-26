@@ -21,45 +21,45 @@ public final class BitSource {
         return this.byteOffset;
     }
 
-    public int readBits(int i) {
-        if (i > 0 && i <= 32 && i <= available()) {
-            int i2 = this.bitOffset;
-            int i3 = 0;
-            if (i2 > 0) {
-                int i4 = 8 - i2;
-                int i5 = i < i4 ? i : i4;
-                int i6 = i4 - i5;
+    public int readBits(int i2) {
+        if (i2 > 0 && i2 <= 32 && i2 <= available()) {
+            int i3 = this.bitOffset;
+            int i4 = 0;
+            if (i3 > 0) {
+                int i5 = 8 - i3;
+                int i6 = i2 < i5 ? i2 : i5;
+                int i7 = i5 - i6;
                 byte[] bArr = this.bytes;
-                int i7 = this.byteOffset;
-                int i8 = (((255 >> (8 - i5)) << i6) & bArr[i7]) >> i6;
-                i -= i5;
-                int i9 = this.bitOffset + i5;
-                this.bitOffset = i9;
-                if (i9 == 8) {
+                int i8 = this.byteOffset;
+                int i9 = (((255 >> (8 - i6)) << i7) & bArr[i8]) >> i7;
+                i2 -= i6;
+                int i10 = this.bitOffset + i6;
+                this.bitOffset = i10;
+                if (i10 == 8) {
                     this.bitOffset = 0;
-                    this.byteOffset = i7 + 1;
+                    this.byteOffset = i8 + 1;
                 }
-                i3 = i8;
+                i4 = i9;
             }
-            if (i > 0) {
-                while (i >= 8) {
-                    int i10 = i3 << 8;
+            if (i2 > 0) {
+                while (i2 >= 8) {
+                    int i11 = i4 << 8;
                     byte[] bArr2 = this.bytes;
-                    int i11 = this.byteOffset;
-                    i3 = (bArr2[i11] & 255) | i10;
-                    this.byteOffset = i11 + 1;
-                    i -= 8;
+                    int i12 = this.byteOffset;
+                    i4 = (bArr2[i12] & 255) | i11;
+                    this.byteOffset = i12 + 1;
+                    i2 -= 8;
                 }
-                if (i > 0) {
-                    int i12 = 8 - i;
-                    int i13 = (i3 << i) | ((((255 >> i12) << i12) & this.bytes[this.byteOffset]) >> i12);
-                    this.bitOffset += i;
-                    return i13;
+                if (i2 > 0) {
+                    int i13 = 8 - i2;
+                    int i14 = (i4 << i2) | ((((255 >> i13) << i13) & this.bytes[this.byteOffset]) >> i13);
+                    this.bitOffset += i2;
+                    return i14;
                 }
-                return i3;
+                return i4;
             }
-            return i3;
+            return i4;
         }
-        throw new IllegalArgumentException(String.valueOf(i));
+        throw new IllegalArgumentException(String.valueOf(i2));
     }
 }

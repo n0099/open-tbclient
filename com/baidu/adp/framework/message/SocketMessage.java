@@ -11,8 +11,8 @@ public class SocketMessage extends Message<byte[]> {
     public Object mExtraData;
     public int mRetryCount;
 
-    public SocketMessage(int i) {
-        super(i);
+    public SocketMessage(int i2) {
+        super(i2);
         this.mData = null;
         this.mExtraData = null;
         this.mEncodeName = null;
@@ -25,8 +25,8 @@ public class SocketMessage extends Message<byte[]> {
     }
 
     @Override // com.baidu.adp.framework.message.Message
-    public boolean checkCmd(int i) {
-        return FrameHelper.c(i);
+    public boolean checkCmd(int i2) {
+        return FrameHelper.c(i2);
     }
 
     public byte[] encodeExtraDataInBackGround() {
@@ -61,8 +61,8 @@ public class SocketMessage extends Message<byte[]> {
         this.mExtraData = obj;
     }
 
-    public void setmRetryCount(int i) {
-        this.mRetryCount = i;
+    public void setmRetryCount(int i2) {
+        this.mRetryCount = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -87,8 +87,8 @@ public class SocketMessage extends Message<byte[]> {
         }
     }
 
-    public SocketMessage(int i, Object obj) {
-        super(i);
+    public SocketMessage(int i2, Object obj) {
+        super(i2);
         this.mData = null;
         this.mExtraData = null;
         this.mEncodeName = null;
@@ -97,8 +97,8 @@ public class SocketMessage extends Message<byte[]> {
         this.mEncodeName = GLOBAL_ENCODE_NAME;
     }
 
-    public SocketMessage(int i, BdUniqueId bdUniqueId) {
-        super(i, bdUniqueId);
+    public SocketMessage(int i2, BdUniqueId bdUniqueId) {
+        super(i2, bdUniqueId);
         this.mData = null;
         this.mExtraData = null;
         this.mEncodeName = null;

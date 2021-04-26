@@ -53,8 +53,8 @@ public class UnLoginCastService {
 
         @Override // com.baidu.android.imsdk.mcast.UpMessageManager.Task
         public void work() {
-            int i;
             int i2;
+            int i3;
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
                 jSONObject.optInt("version");
@@ -68,41 +68,41 @@ public class UnLoginCastService {
                 String str = UnLoginCastService.TAG;
                 LogUtils.d(str, "FXF work data is " + jSONArray.toString());
                 JSONArray jSONArray2 = new JSONArray();
-                for (int i3 = 0; i3 < length; i3++) {
-                    JSONArray jSONArray3 = jSONArray.getJSONObject(i3).getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES);
-                    for (int i4 = 0; i4 < jSONArray3.length(); i4++) {
-                        JSONObject jSONObject2 = jSONArray3.getJSONObject(i4);
+                for (int i4 = 0; i4 < length; i4++) {
+                    JSONArray jSONArray3 = jSONArray.getJSONObject(i4).getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES);
+                    for (int i5 = 0; i5 < jSONArray3.length(); i5++) {
+                        JSONObject jSONObject2 = jSONArray3.getJSONObject(i5);
                         if (jSONObject2.optInt("origin_id", -1) != Utility.getTriggerId(UnLoginCastService.mContext)) {
                             jSONArray2.put(jSONObject2);
                         }
                     }
                 }
                 int length2 = jSONArray2.length();
-                int i5 = (int) (optLong / 1000000000);
-                if (i5 == 0) {
-                    i2 = i5;
-                    i = 0;
-                } else if (length2 >= i5) {
-                    i = length2 / i5;
-                    i2 = i5;
+                int i6 = (int) (optLong / 1000000000);
+                if (i6 == 0) {
+                    i3 = i6;
+                    i2 = 0;
+                } else if (length2 >= i6) {
+                    i2 = length2 / i6;
+                    i3 = i6;
                 } else {
-                    i = 1;
-                    i2 = length2;
+                    i2 = 1;
+                    i3 = length2;
                 }
                 String str2 = UnLoginCastService.TAG;
-                LogUtils.d(str2, "HBBH work ts duration is " + optLong + " " + i5 + " num is " + i + " size is " + length2);
-                if (i <= 0) {
+                LogUtils.d(str2, "HBBH work ts duration is " + optLong + " " + i6 + " num is " + i2 + " size is " + length2);
+                if (i2 <= 0) {
                     ChatMsgManagerImpl.getInstance(UnLoginCastService.mContext).deliverMcastMessage(UnLoginCastService.this.mCastId, jSONArray2);
                     return;
                 }
-                int i6 = 0;
-                for (int i7 = 0; i7 < i2 && UnLoginCastService.this.isActive && !UnLoginCastService.this.isSeek; i7++) {
+                int i7 = 0;
+                for (int i8 = 0; i8 < i3 && UnLoginCastService.this.isActive && !UnLoginCastService.this.isSeek; i8++) {
                     JSONArray jSONArray4 = new JSONArray();
-                    int i8 = 0;
-                    while (i8 < i) {
-                        jSONArray4.put(jSONArray2.get(i6));
-                        i8++;
-                        i6++;
+                    int i9 = 0;
+                    while (i9 < i2) {
+                        jSONArray4.put(jSONArray2.get(i7));
+                        i9++;
+                        i7++;
                     }
                     String str3 = UnLoginCastService.TAG;
                     LogUtils.d(str3, "FXF upload a ts message  " + jSONArray4.toString());
@@ -113,15 +113,15 @@ public class UnLoginCastService {
                         e2.printStackTrace();
                     }
                 }
-                if (!UnLoginCastService.this.isActive || UnLoginCastService.this.isSeek || i6 >= length2) {
+                if (!UnLoginCastService.this.isActive || UnLoginCastService.this.isSeek || i7 >= length2) {
                     return;
                 }
                 JSONArray jSONArray5 = new JSONArray();
-                int i9 = i6;
-                while (i6 < length2) {
-                    jSONArray5.put(jSONArray2.get(i9));
-                    i6++;
-                    i9++;
+                int i10 = i7;
+                while (i7 < length2) {
+                    jSONArray5.put(jSONArray2.get(i10));
+                    i7++;
+                    i10++;
                 }
                 String str4 = UnLoginCastService.TAG;
                 LogUtils.d(str4, "FXF upload a last ts message  " + jSONArray5.toString());
@@ -150,8 +150,8 @@ public class UnLoginCastService {
     public void getM3u8task(String str) {
         String addListener = ListenerManager.getInstance().addListener(new GetM3u8CallBack() { // from class: com.baidu.android.imsdk.mcast.UnLoginCastService.7
             @Override // com.baidu.android.imsdk.mcast.GetM3u8CallBack
-            public void onResult(int i, byte[] bArr) {
-                UnLoginCastService.this.handleOnM3u8Callback(i, bArr);
+            public void onResult(int i2, byte[] bArr) {
+                UnLoginCastService.this.handleOnM3u8Callback(i2, bArr);
             }
         });
         String str2 = TAG;
@@ -163,15 +163,15 @@ public class UnLoginCastService {
     private void getTstask(String str) {
         String addListener = ListenerManager.getInstance().addListener(new GetM3u8CallBack() { // from class: com.baidu.android.imsdk.mcast.UnLoginCastService.6
             @Override // com.baidu.android.imsdk.mcast.GetM3u8CallBack
-            public void onResult(int i, byte[] bArr) {
+            public void onResult(int i2, byte[] bArr) {
                 String str2 = UnLoginCastService.TAG;
-                LogUtils.d(str2, "FXF receive a ts file " + i);
-                if (i == 0 || i == 200) {
+                LogUtils.d(str2, "FXF receive a ts file " + i2);
+                if (i2 == 0 || i2 == 200) {
                     UnLoginCastService.this.onResultTs(bArr);
                     return;
                 }
                 String str3 = UnLoginCastService.TAG;
-                LogUtils.e(str3, "FXF getTstask error " + i);
+                LogUtils.e(str3, "FXF getTstask error " + i2);
             }
         });
         int indexOf = this.mRoomUrl.indexOf("/", 10);
@@ -214,8 +214,8 @@ public class UnLoginCastService {
                     }
                 }
                 if (arrayList != null && arrayList.size() > 0) {
-                    for (int i = 0; i < arrayList.size(); i++) {
-                        this.mTss.add(arrayList.get(i));
+                    for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                        this.mTss.add(arrayList.get(i2));
                     }
                     synchronized (this.mawakeLock) {
                         this.mawakeLock.notifyAll();
@@ -307,7 +307,7 @@ public class UnLoginCastService {
                 if (!this.isActive) {
                     break;
                 }
-                for (int i = 0; i < size && this.isActive && !this.isSeek; i++) {
+                for (int i2 = 0; i2 < size && this.isActive && !this.isSeek; i2++) {
                     ParseM3u8.TS peek = this.mTss.peek();
                     if (proofreadTimeAxis(peek.relativetime)) {
                         break;
@@ -315,20 +315,20 @@ public class UnLoginCastService {
                     this.mTss.poll();
                     getTstask(peek.tsfile);
                     String str = TAG;
-                    LogUtils.d(str, "FXF request ts " + i + " " + peek.tsfile + " " + peek.relativetime);
+                    LogUtils.d(str, "FXF request ts " + i2 + " " + peek.tsfile + " " + peek.relativetime);
                 }
             }
         }
         LogUtils.d(TAG, "FXF requestTsTask finish");
     }
 
-    public void handleOnM3u8Callback(int i, byte[] bArr) {
+    public void handleOnM3u8Callback(int i2, byte[] bArr) {
         boolean onResultM3u8;
         String str = TAG;
-        LogUtils.d(str, "FXF receive a m3u8 file " + i);
-        if (i != 0 && i != 200) {
+        LogUtils.d(str, "FXF receive a m3u8 file " + i2);
+        if (i2 != 0 && i2 != 200) {
             String str2 = TAG;
-            LogUtils.e(str2, "FXF getM3u8task error " + i);
+            LogUtils.e(str2, "FXF getM3u8task error " + i2);
             onResultM3u8 = true;
         } else {
             this.mTryTimes = 0;
@@ -356,11 +356,11 @@ public class UnLoginCastService {
         stopService(1);
     }
 
-    public void replay(String str, String str2, int i) {
+    public void replay(String str, String str2, int i2) {
         LogUtils.d(TAG, "FXF replay--->");
         this.isActive = true;
         this.mPause = false;
-        this.mType = i;
+        this.mType = i2;
         this.mRoomUrl = str2;
         this.mCastId = str;
         Thread thread = new Thread() { // from class: com.baidu.android.imsdk.mcast.UnLoginCastService.4
@@ -385,8 +385,8 @@ public class UnLoginCastService {
                 if (arrayList.size() > 0) {
                     UnLoginCastService.this.startSeekTime = System.currentTimeMillis() / 1000;
                     UnLoginCastService.this.startSeekTsTime = arrayList.get(0).relativetime;
-                    for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                        UnLoginCastService.this.mTss.add(arrayList.get(i2));
+                    for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                        UnLoginCastService.this.mTss.add(arrayList.get(i3));
                     }
                     synchronized (UnLoginCastService.this.mawakeLock) {
                         UnLoginCastService.this.mawakeLock.notifyAll();
@@ -398,14 +398,14 @@ public class UnLoginCastService {
         LogUtils.d(TAG, "FXF replay<---");
     }
 
-    public void seek(int i) {
+    public void seek(int i2) {
         LogUtils.d(TAG, "FXF start seek--->");
-        this.mPosition = i;
+        this.mPosition = i2;
         if (this.mType != 1) {
             return;
         }
         if (this.mPause) {
-            this.mPausePosition = i;
+            this.mPausePosition = i2;
         } else if (this.isActive) {
             this.isSeek = true;
             LogUtils.d(TAG, "FXF start seek...");
@@ -428,8 +428,8 @@ public class UnLoginCastService {
                         if (arrayList.size() > 0) {
                             UnLoginCastService.this.startSeekTime = System.currentTimeMillis() / 1000;
                             UnLoginCastService.this.startSeekTsTime = arrayList.get(0).relativetime;
-                            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                                UnLoginCastService.this.mTss.add(arrayList.get(i2));
+                            for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                                UnLoginCastService.this.mTss.add(arrayList.get(i3));
                             }
                             synchronized (UnLoginCastService.this.mawakeLock) {
                                 UnLoginCastService.this.mawakeLock.notifyAll();
@@ -442,20 +442,20 @@ public class UnLoginCastService {
         }
     }
 
-    public void setPullInterval(int i) {
-        this.mInterval = i;
+    public void setPullInterval(int i2) {
+        this.mInterval = i2;
         String str = TAG;
         LogUtils.d(str, "setPullInterval " + this.mInterval);
     }
 
-    public int startService(String str, String str2, int i) {
+    public int startService(String str, String str2, int i2) {
         LogUtils.d(TAG, "FXF startService--->");
         if (this.isActive) {
             stopService(0);
         }
         this.mPause = false;
         this.isActive = true;
-        this.mType = i;
+        this.mType = i2;
         this.mRoomUrl = str2;
         this.mCastId = str;
         Thread thread = new Thread() { // from class: com.baidu.android.imsdk.mcast.UnLoginCastService.1
@@ -471,14 +471,14 @@ public class UnLoginCastService {
         return 0;
     }
 
-    public void stopService(int i) {
+    public void stopService(int i2) {
         LogUtils.d(TAG, "FXF stopService--->");
         this.isActive = false;
-        if (i == 0) {
+        if (i2 == 0) {
             this.mLastpm = null;
         }
         this.mTryTimes = 0;
-        if (i == 1 && this.mType == 1) {
+        if (i2 == 1 && this.mType == 1) {
             if (this.mTss.size() > 0) {
                 this.mPausePosition = (int) this.mTss.peek().relativetime;
             } else {

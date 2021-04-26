@@ -3,12 +3,12 @@ package com.baidu.swan.games.view.webview;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import d.b.h0.a.k;
-import d.b.h0.g.k0.j.a;
+import d.a.h0.a.k;
+import d.a.h0.g.k0.j.a;
 @Keep
 /* loaded from: classes3.dex */
 public class GameWebViewJavascriptInterface {
-    public static final boolean DEBUG = k.f45772a;
+    public static final boolean DEBUG = k.f43101a;
     public static final String JAVASCRIPT_INTERFACE_NAME = "swan";
     public static final String TAG = "GameJavascriptInterface";
 

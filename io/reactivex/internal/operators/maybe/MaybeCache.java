@@ -1,103 +1,106 @@
 package io.reactivex.internal.operators.maybe;
 
-import f.b.h;
-import f.b.i;
-import f.b.j;
-import f.b.t.b;
+import io.reactivex.Maybe;
+import io.reactivex.MaybeObserver;
+import io.reactivex.MaybeSource;
+import io.reactivex.disposables.Disposable;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class MaybeCache<T> extends h<T> implements i<T> {
-    public static final CacheDisposable[] i = new CacheDisposable[0];
-    public static final CacheDisposable[] j = new CacheDisposable[0];
-
-    /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<j<T>> f69192e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final AtomicReference<CacheDisposable<T>[]> f69193f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public T f69194g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Throwable f69195h;
+public final class MaybeCache<T> extends Maybe<T> implements MaybeObserver<T> {
+    public static final CacheDisposable[] EMPTY = new CacheDisposable[0];
+    public static final CacheDisposable[] TERMINATED = new CacheDisposable[0];
+    public Throwable error;
+    public final AtomicReference<CacheDisposable<T>[]> observers = new AtomicReference<>(EMPTY);
+    public final AtomicReference<MaybeSource<T>> source;
+    public T value;
 
     /* loaded from: classes7.dex */
-    public static final class CacheDisposable<T> extends AtomicReference<MaybeCache<T>> implements b {
+    public static final class CacheDisposable<T> extends AtomicReference<MaybeCache<T>> implements Disposable {
         public static final long serialVersionUID = -5791853038359966195L;
-        public final i<? super T> actual;
+        public final MaybeObserver<? super T> actual;
 
-        public CacheDisposable(i<? super T> iVar, MaybeCache<T> maybeCache) {
+        public CacheDisposable(MaybeObserver<? super T> maybeObserver, MaybeCache<T> maybeCache) {
             super(maybeCache);
-            this.actual = iVar;
+            this.actual = maybeObserver;
         }
 
-        @Override // f.b.t.b
+        @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             MaybeCache<T> andSet = getAndSet(null);
             if (andSet != null) {
-                andSet.d(this);
+                andSet.remove(this);
             }
         }
 
-        @Override // f.b.t.b
+        @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
             return get() == null;
         }
     }
 
-    @Override // f.b.h
-    public void b(i<? super T> iVar) {
-        CacheDisposable<T> cacheDisposable = new CacheDisposable<>(iVar, this);
-        iVar.onSubscribe(cacheDisposable);
-        if (c(cacheDisposable)) {
-            if (cacheDisposable.isDisposed()) {
-                d(cacheDisposable);
-                return;
-            }
-            j<T> andSet = this.f69192e.getAndSet(null);
-            if (andSet != null) {
-                andSet.a(this);
-            }
-        } else if (cacheDisposable.isDisposed()) {
-        } else {
-            Throwable th = this.f69195h;
-            if (th != null) {
-                iVar.onError(th);
-                return;
-            }
-            Object obj = (T) this.f69194g;
-            if (obj != null) {
-                iVar.onSuccess(obj);
-            } else {
-                iVar.onComplete();
-            }
-        }
+    public MaybeCache(MaybeSource<T> maybeSource) {
+        this.source = new AtomicReference<>(maybeSource);
     }
 
-    public boolean c(CacheDisposable<T> cacheDisposable) {
+    public boolean add(CacheDisposable<T> cacheDisposable) {
         CacheDisposable<T>[] cacheDisposableArr;
         CacheDisposable<T>[] cacheDisposableArr2;
         do {
-            cacheDisposableArr = this.f69193f.get();
-            if (cacheDisposableArr == j) {
+            cacheDisposableArr = this.observers.get();
+            if (cacheDisposableArr == TERMINATED) {
                 return false;
             }
             int length = cacheDisposableArr.length;
             cacheDisposableArr2 = new CacheDisposable[length + 1];
             System.arraycopy(cacheDisposableArr, 0, cacheDisposableArr2, 0, length);
             cacheDisposableArr2[length] = cacheDisposable;
-        } while (!this.f69193f.compareAndSet(cacheDisposableArr, cacheDisposableArr2));
+        } while (!this.observers.compareAndSet(cacheDisposableArr, cacheDisposableArr2));
         return true;
+    }
+
+    @Override // io.reactivex.MaybeObserver
+    public void onComplete() {
+        CacheDisposable<T>[] andSet;
+        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(TERMINATED)) {
+            if (!cacheDisposable.isDisposed()) {
+                cacheDisposable.actual.onComplete();
+            }
+        }
+    }
+
+    @Override // io.reactivex.MaybeObserver
+    public void onError(Throwable th) {
+        CacheDisposable<T>[] andSet;
+        this.error = th;
+        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(TERMINATED)) {
+            if (!cacheDisposable.isDisposed()) {
+                cacheDisposable.actual.onError(th);
+            }
+        }
+    }
+
+    @Override // io.reactivex.MaybeObserver
+    public void onSubscribe(Disposable disposable) {
+    }
+
+    @Override // io.reactivex.MaybeObserver
+    public void onSuccess(T t) {
+        CacheDisposable<T>[] andSet;
+        this.value = t;
+        for (CacheDisposable<T> cacheDisposable : this.observers.getAndSet(TERMINATED)) {
+            if (!cacheDisposable.isDisposed()) {
+                cacheDisposable.actual.onSuccess(t);
+            }
+        }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.internal.operators.maybe.MaybeCache$CacheDisposable<T>[]> */
     /* JADX WARN: Multi-variable type inference failed */
-    public void d(CacheDisposable<T> cacheDisposable) {
+    public void remove(CacheDisposable<T> cacheDisposable) {
         CacheDisposable<T>[] cacheDisposableArr;
         CacheDisposable[] cacheDisposableArr2;
         do {
-            cacheDisposableArr = this.f69193f.get();
+            cacheDisposableArr = this.observers.get();
             int length = cacheDisposableArr.length;
             if (length == 0) {
                 return;
@@ -118,48 +121,41 @@ public final class MaybeCache<T> extends h<T> implements i<T> {
                 return;
             }
             if (length == 1) {
-                cacheDisposableArr2 = i;
+                cacheDisposableArr2 = EMPTY;
             } else {
                 CacheDisposable[] cacheDisposableArr3 = new CacheDisposable[length - 1];
                 System.arraycopy(cacheDisposableArr, 0, cacheDisposableArr3, 0, i2);
                 System.arraycopy(cacheDisposableArr, i2 + 1, cacheDisposableArr3, i2, (length - i2) - 1);
                 cacheDisposableArr2 = cacheDisposableArr3;
             }
-        } while (!this.f69193f.compareAndSet(cacheDisposableArr, cacheDisposableArr2));
+        } while (!this.observers.compareAndSet(cacheDisposableArr, cacheDisposableArr2));
     }
 
-    @Override // f.b.i
-    public void onComplete() {
-        CacheDisposable<T>[] andSet;
-        for (CacheDisposable<T> cacheDisposable : this.f69193f.getAndSet(j)) {
-            if (!cacheDisposable.isDisposed()) {
-                cacheDisposable.actual.onComplete();
+    @Override // io.reactivex.Maybe
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+        CacheDisposable<T> cacheDisposable = new CacheDisposable<>(maybeObserver, this);
+        maybeObserver.onSubscribe(cacheDisposable);
+        if (add(cacheDisposable)) {
+            if (cacheDisposable.isDisposed()) {
+                remove(cacheDisposable);
+                return;
             }
-        }
-    }
-
-    @Override // f.b.i
-    public void onError(Throwable th) {
-        CacheDisposable<T>[] andSet;
-        this.f69195h = th;
-        for (CacheDisposable<T> cacheDisposable : this.f69193f.getAndSet(j)) {
-            if (!cacheDisposable.isDisposed()) {
-                cacheDisposable.actual.onError(th);
+            MaybeSource<T> andSet = this.source.getAndSet(null);
+            if (andSet != null) {
+                andSet.subscribe(this);
             }
-        }
-    }
-
-    @Override // f.b.i
-    public void onSubscribe(b bVar) {
-    }
-
-    @Override // f.b.i
-    public void onSuccess(T t) {
-        CacheDisposable<T>[] andSet;
-        this.f69194g = t;
-        for (CacheDisposable<T> cacheDisposable : this.f69193f.getAndSet(j)) {
-            if (!cacheDisposable.isDisposed()) {
-                cacheDisposable.actual.onSuccess(t);
+        } else if (cacheDisposable.isDisposed()) {
+        } else {
+            Throwable th = this.error;
+            if (th != null) {
+                maybeObserver.onError(th);
+                return;
+            }
+            Object obj = (T) this.value;
+            if (obj != null) {
+                maybeObserver.onSuccess(obj);
+            } else {
+                maybeObserver.onComplete();
             }
         }
     }

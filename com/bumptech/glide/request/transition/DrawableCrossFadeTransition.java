@@ -9,8 +9,8 @@ public class DrawableCrossFadeTransition implements Transition<Drawable> {
     public final int duration;
     public final boolean isCrossFadeEnabled;
 
-    public DrawableCrossFadeTransition(int i, boolean z) {
-        this.duration = i;
+    public DrawableCrossFadeTransition(int i2, boolean z) {
+        this.duration = i2;
         this.isCrossFadeEnabled = z;
     }
 

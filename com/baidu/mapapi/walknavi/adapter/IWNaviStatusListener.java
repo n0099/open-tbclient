@@ -5,5 +5,5 @@ import com.baidu.platform.comapi.walknavi.WalkNaviModeSwitchListener;
 public interface IWNaviStatusListener {
     void onNaviExit();
 
-    void onWalkNaviModeChange(int i, WalkNaviModeSwitchListener walkNaviModeSwitchListener);
+    void onWalkNaviModeChange(int i2, WalkNaviModeSwitchListener walkNaviModeSwitchListener);
 }

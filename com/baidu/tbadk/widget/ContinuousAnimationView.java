@@ -19,12 +19,12 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
-            ContinuousAnimationView.this.x();
+            ContinuousAnimationView.this.v();
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            ContinuousAnimationView.this.y();
+            ContinuousAnimationView.this.w();
             if (ContinuousAnimationView.this.m) {
                 ContinuousAnimationView.this.m = false;
             }
@@ -34,7 +34,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
-            ContinuousAnimationView.this.z();
+            ContinuousAnimationView.this.x();
             if (ContinuousAnimationView.this.m) {
                 ContinuousAnimationView.this.cancelAnimation();
                 ContinuousAnimationView.this.m = false;
@@ -43,7 +43,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
-            ContinuousAnimationView.this.A();
+            ContinuousAnimationView.this.y();
             ContinuousAnimationView.this.l = true;
         }
     }
@@ -52,14 +52,11 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         this(context, null);
     }
 
-    public final void A() {
-    }
-
-    public final void B() {
-        addAnimatorListener(new a());
-        setAnimation(R.raw.lottie_common_pull_refresh);
-        loop(true);
-        setFrame(0);
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void c() {
+        if (isAnimating()) {
+            cancelAnimation();
+        }
     }
 
     @Override // com.baidu.tbadk.widget.lottie.TBLottieAnimationView, com.airbnb.lottie.LottieAnimationView
@@ -74,18 +71,11 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
     public void d() {
-        if (isAnimating()) {
-            cancelAnimation();
-        }
-    }
-
-    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public void e() {
         playAnimation();
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public void f(float f2, float f3) {
+    public void e(float f2, float f3) {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
@@ -99,7 +89,7 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
-    public void j() {
+    public void k() {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
@@ -126,6 +116,12 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         super.playAnimation();
     }
 
+    public final void v() {
+    }
+
+    public final void w() {
+    }
+
     public final void x() {
     }
 
@@ -133,16 +129,20 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     }
 
     public final void z() {
+        addAnimatorListener(new a());
+        setAnimation(R.raw.lottie_common_pull_refresh);
+        loop(true);
+        setFrame(0);
     }
 
     public ContinuousAnimationView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public ContinuousAnimationView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ContinuousAnimationView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.l = false;
         this.m = false;
-        B();
+        z();
     }
 }

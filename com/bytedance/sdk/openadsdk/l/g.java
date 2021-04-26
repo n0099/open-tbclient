@@ -5,19 +5,19 @@ import java.util.UUID;
 public abstract class g implements Comparable<g>, Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29469a;
+    public int f30374a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29470b;
+    public String f30375b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29471c;
+    public String f30376c;
 
-    public g(String str, int i) {
-        this.f29469a = 0;
-        this.f29469a = i == 0 ? 5 : i;
-        this.f29470b = UUID.randomUUID().toString() + "-" + String.valueOf(System.nanoTime());
-        this.f29471c = str;
+    public g(String str, int i2) {
+        this.f30374a = 0;
+        this.f30374a = i2 == 0 ? 5 : i2;
+        this.f30375b = UUID.randomUUID().toString() + "-" + String.valueOf(System.nanoTime());
+        this.f30376c = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,17 +31,17 @@ public abstract class g implements Comparable<g>, Runnable {
     }
 
     public int g() {
-        return this.f29469a;
+        return this.f30374a;
     }
 
     public String h() {
-        return this.f29471c;
+        return this.f30376c;
     }
 
     public g(String str) {
-        this.f29469a = 0;
-        this.f29469a = 5;
-        this.f29470b = UUID.randomUUID().toString() + "-" + String.valueOf(System.nanoTime());
-        this.f29471c = str;
+        this.f30374a = 0;
+        this.f30374a = 5;
+        this.f30375b = UUID.randomUUID().toString() + "-" + String.valueOf(System.nanoTime());
+        this.f30376c = str;
     }
 }

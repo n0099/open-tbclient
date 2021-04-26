@@ -10,21 +10,21 @@ import java.lang.annotation.RetentionPolicy;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3741a = 0;
+    public static final int f3789a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3742b = -1;
+    public static final int f3790b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3743c = -2;
+    public static final int f3791c = -2;
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
     public @interface a {
     }
 
-    public static int a(@NonNull Context context, @NonNull String str, int i, int i2, String str2) {
-        if (context.checkPermission(str, i, i2) == -1) {
+    public static int a(@NonNull Context context, @NonNull String str, int i2, int i3, String str2) {
+        if (context.checkPermission(str, i2, i3) == -1) {
             return -1;
         }
         String a2 = com.baidu.apollon.permission.a.a(str);
@@ -32,7 +32,7 @@ public final class c {
             return 0;
         }
         if (str2 == null) {
-            String[] packagesForUid = context.getPackageManager().getPackagesForUid(i2);
+            String[] packagesForUid = context.getPackageManager().getPackagesForUid(i3);
             if (packagesForUid == null || packagesForUid.length <= 0) {
                 return -1;
             }

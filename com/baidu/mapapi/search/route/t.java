@@ -14,7 +14,7 @@ public final class t implements Parcelable.Creator<WalkingRouteResult> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public WalkingRouteResult[] newArray(int i) {
-        return new WalkingRouteResult[i];
+    public WalkingRouteResult[] newArray(int i2) {
+        return new WalkingRouteResult[i2];
     }
 }

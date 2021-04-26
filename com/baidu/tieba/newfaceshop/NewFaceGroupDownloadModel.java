@@ -14,57 +14,57 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.faceshop.EmotionGroupData;
 import com.baidu.tieba.newfaceshop.message.GetFaceGroupInfoResponseMessage;
-import d.b.j0.l0.g;
-import d.b.j0.y1.d;
-import d.b.j0.y1.e.b;
+import d.a.j0.l0.g;
+import d.a.j0.y1.d;
+import d.a.j0.y1.e.b;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class NewFaceGroupDownloadModel extends FaceBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f18873e = new a(this, CmdConfigHttp.CMD_GET_FACE_GROUP_INFO);
+    public final HttpMessageListener f19316e = new a(this, CmdConfigHttp.CMD_GET_FACE_GROUP_INFO);
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
 
         /* renamed from: com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0209a implements b {
+        public class C0205a implements b {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d.b.j0.y1.f.a f18874a;
+            public final /* synthetic */ d.a.j0.y1.f.a f19317a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Boolean f18875b;
+            public final /* synthetic */ Boolean f19318b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ b f18876c;
+            public final /* synthetic */ b f19319c;
 
             /* renamed from: com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C0210a extends BdAsyncTask<Void, Void, Boolean> {
+            public class C0206a extends BdAsyncTask<Void, Void, Boolean> {
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f18877a;
+                public final /* synthetic */ String f19320a;
 
-                public C0210a(String str) {
-                    this.f18877a = str;
+                public C0206a(String str) {
+                    this.f19320a = str;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Boolean doInBackground(Void... voidArr) {
-                    int f2 = d.b.j0.l0.a.c().f(C0209a.this.f18874a);
+                    int f2 = d.a.j0.l0.a.c().f(C0205a.this.f19317a);
                     if (f2 == 0) {
                         return Boolean.FALSE;
                     }
                     EmotionGroupData emotionGroupData = new EmotionGroupData();
-                    emotionGroupData.setGroupId(C0209a.this.f18874a.f64474a);
+                    emotionGroupData.setGroupId(C0205a.this.f19317a.f62749a);
                     emotionGroupData.setEmotionsCount(f2);
-                    emotionGroupData.setHeight(C0209a.this.f18874a.f64478e.get(0).i);
-                    emotionGroupData.setWidth(C0209a.this.f18874a.f64478e.get(0).j);
+                    emotionGroupData.setHeight(C0205a.this.f19317a.f62753e.get(0).f62758i);
+                    emotionGroupData.setWidth(C0205a.this.f19317a.f62753e.get(0).j);
                     emotionGroupData.setDownloadTime(System.currentTimeMillis());
-                    emotionGroupData.setGroupName(C0209a.this.f18874a.f64475b);
+                    emotionGroupData.setGroupName(C0205a.this.f19317a.f62750b);
                     emotionGroupData.setStatus(1);
                     if (g.k().e(emotionGroupData)) {
                         return Boolean.valueOf(g.k().f(TbadkCoreApplication.getCurrentAccount(), emotionGroupData));
@@ -77,66 +77,66 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                 public void onPostExecute(Boolean bool) {
                     if (bool != null && bool.booleanValue()) {
                         MessageManager.getInstance().runTask(2004603, (Class) null);
-                        if (C0209a.this.f18875b.booleanValue()) {
+                        if (C0205a.this.f19318b.booleanValue()) {
                             d.m().w();
                         }
-                        b bVar = C0209a.this.f18876c;
+                        b bVar = C0205a.this.f19319c;
                         if (bVar != null) {
-                            bVar.onSuccess(this.f18877a);
+                            bVar.onSuccess(this.f19320a);
                         }
-                        d.b.j0.l0.a0.a aVar = new d.b.j0.l0.a0.a();
-                        aVar.f58309a = 0;
+                        d.a.j0.l0.a0.a aVar = new d.a.j0.l0.a0.a();
+                        aVar.f56305a = 0;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, aVar));
                         return;
                     }
-                    b bVar2 = C0209a.this.f18876c;
+                    b bVar2 = C0205a.this.f19319c;
                     if (bVar2 != null) {
                         bVar2.onFail("failed to download");
                     }
-                    d.b.j0.l0.a0.a aVar2 = new d.b.j0.l0.a0.a();
-                    aVar2.f58309a = 1;
+                    d.a.j0.l0.a0.a aVar2 = new d.a.j0.l0.a0.a();
+                    aVar2.f56305a = 1;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, aVar2));
                 }
             }
 
-            public C0209a(a aVar, d.b.j0.y1.f.a aVar2, Boolean bool, b bVar) {
-                this.f18874a = aVar2;
-                this.f18875b = bool;
-                this.f18876c = bVar;
+            public C0205a(a aVar, d.a.j0.y1.f.a aVar2, Boolean bool, b bVar) {
+                this.f19317a = aVar2;
+                this.f19318b = bool;
+                this.f19319c = bVar;
             }
 
-            @Override // d.b.j0.y1.e.b
+            @Override // d.a.j0.y1.e.b
             public void onFail(String str) {
                 BdLog.e("FaceDownload:" + str);
-                b bVar = this.f18876c;
+                b bVar = this.f19319c;
                 if (bVar != null) {
                     bVar.onFail(str);
                 }
-                d.b.j0.l0.a0.a aVar = new d.b.j0.l0.a0.a();
-                aVar.f58309a = 1;
+                d.a.j0.l0.a0.a aVar = new d.a.j0.l0.a0.a();
+                aVar.f56305a = 1;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, aVar));
             }
 
-            @Override // d.b.j0.y1.e.b
-            public void onProgress(int i) {
-                b bVar = this.f18876c;
+            @Override // d.a.j0.y1.e.b
+            public void onProgress(int i2) {
+                b bVar = this.f19319c;
                 if (bVar != null) {
-                    bVar.onProgress(i);
+                    bVar.onProgress(i2);
                 }
-                d.b.j0.l0.a0.a aVar = new d.b.j0.l0.a0.a();
-                aVar.f58309a = 2;
-                aVar.f58310b = i;
+                d.a.j0.l0.a0.a aVar = new d.a.j0.l0.a0.a();
+                aVar.f56305a = 2;
+                aVar.f56306b = i2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921375, aVar));
             }
 
-            @Override // d.b.j0.y1.e.b
+            @Override // d.a.j0.y1.e.b
             public void onSuccess(String str) {
-                new C0210a(str).execute(new Void[0]);
+                new C0206a(str).execute(new Void[0]);
             }
         }
 
-        public a(NewFaceGroupDownloadModel newFaceGroupDownloadModel, int i) {
-            super(i);
+        public a(NewFaceGroupDownloadModel newFaceGroupDownloadModel, int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -157,9 +157,9 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                         bool = (Boolean) obj2;
                     }
                 }
-                d.b.j0.y1.f.a data = ((GetFaceGroupInfoResponseMessage) httpResponsedMessage).getData();
+                d.a.j0.y1.f.a data = ((GetFaceGroupInfoResponseMessage) httpResponsedMessage).getData();
                 if (data != null) {
-                    d.b.j0.y1.b.c(data, new C0209a(this, data, bool, bVar));
+                    d.a.j0.y1.b.c(data, new C0205a(this, data, bool, bVar));
                 } else if (bVar != null) {
                     bVar.onFail("group data null");
                 }
@@ -170,9 +170,9 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
     public NewFaceGroupDownloadModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f18873e.setTag(getUniqueId());
-        this.f18873e.setSelfListener(true);
-        registerListener(this.f18873e);
+        this.f19316e.setTag(getUniqueId());
+        this.f19316e.setSelfListener(true);
+        registerListener(this.f19316e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -182,7 +182,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f18873e);
+        MessageManager.getInstance().unRegisterListener(this.f19316e);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_FACE_GROUP_INFO);
         return true;
     }

@@ -119,8 +119,8 @@ public class AudioAttributesCompat implements VersionedParcelable {
         return toVolumeStreamType(z, audioAttributesCompat.getFlags(), audioAttributesCompat.getUsage());
     }
 
-    public static int usageForStreamType(int i) {
-        switch (i) {
+    public static int usageForStreamType(int i2) {
+        switch (i2) {
             case 0:
                 return 2;
             case 1:
@@ -146,8 +146,8 @@ public class AudioAttributesCompat implements VersionedParcelable {
         }
     }
 
-    public static String usageToString(int i) {
-        switch (i) {
+    public static String usageToString(int i2) {
+        switch (i2) {
             case 0:
                 return "USAGE_UNKNOWN";
             case 1:
@@ -180,7 +180,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
                 return "USAGE_GAME";
             case 15:
             default:
-                return "unknown usage " + i;
+                return "unknown usage " + i2;
             case 16:
                 return "USAGE_ASSISTANT";
         }
@@ -256,13 +256,13 @@ public class AudioAttributesCompat implements VersionedParcelable {
         this.mImpl = audioAttributesImpl;
     }
 
-    public static int toVolumeStreamType(boolean z, int i, int i2) {
-        if ((i & 1) == 1) {
+    public static int toVolumeStreamType(boolean z, int i2, int i3) {
+        if ((i2 & 1) == 1) {
             return z ? 1 : 7;
-        } else if ((i & 4) == 4) {
+        } else if ((i2 & 4) == 4) {
             return z ? 0 : 6;
         } else {
-            switch (i2) {
+            switch (i3) {
                 case 0:
                     return z ? Integer.MIN_VALUE : 3;
                 case 1:
@@ -291,7 +291,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
                 case 15:
                 default:
                     if (z) {
-                        throw new IllegalArgumentException("Unknown usage value " + i2 + " in audio attributes");
+                        throw new IllegalArgumentException("Unknown usage value " + i3 + " in audio attributes");
                     }
                     return 3;
             }
@@ -316,9 +316,9 @@ public class AudioAttributesCompat implements VersionedParcelable {
             AudioAttributesImpl audioAttributesImplBase;
             if (!AudioAttributesCompat.sForceLegacyBehavior && Build.VERSION.SDK_INT >= 21) {
                 AudioAttributes.Builder usage = new AudioAttributes.Builder().setContentType(this.mContentType).setFlags(this.mFlags).setUsage(this.mUsage);
-                int i = this.mLegacyStream;
-                if (i != -1) {
-                    usage.setLegacyStreamType(i);
+                int i2 = this.mLegacyStream;
+                if (i2 != -1) {
+                    usage.setLegacyStreamType(i2);
                 }
                 audioAttributesImplBase = new AudioAttributesImplApi21(usage.build(), this.mLegacyStream);
             } else {
@@ -327,23 +327,23 @@ public class AudioAttributesCompat implements VersionedParcelable {
             return new AudioAttributesCompat(audioAttributesImplBase);
         }
 
-        public Builder setContentType(int i) {
-            if (i != 0 && i != 1 && i != 2 && i != 3 && i != 4) {
+        public Builder setContentType(int i2) {
+            if (i2 != 0 && i2 != 1 && i2 != 2 && i2 != 3 && i2 != 4) {
                 this.mUsage = 0;
             } else {
-                this.mContentType = i;
+                this.mContentType = i2;
             }
             return this;
         }
 
-        public Builder setFlags(int i) {
-            this.mFlags = (i & 1023) | this.mFlags;
+        public Builder setFlags(int i2) {
+            this.mFlags = (i2 & 1023) | this.mFlags;
             return this;
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        public Builder setInternalLegacyStreamType(int i) {
-            switch (i) {
+        public Builder setInternalLegacyStreamType(int i2) {
+            switch (i2) {
                 case 0:
                     this.mContentType = 1;
                     break;
@@ -380,23 +380,23 @@ public class AudioAttributesCompat implements VersionedParcelable {
                     this.mContentType = 1;
                     break;
                 default:
-                    Log.e(AudioAttributesCompat.TAG, "Invalid stream type " + i + " for AudioAttributesCompat");
+                    Log.e(AudioAttributesCompat.TAG, "Invalid stream type " + i2 + " for AudioAttributesCompat");
                     break;
             }
-            this.mUsage = AudioAttributesCompat.usageForStreamType(i);
+            this.mUsage = AudioAttributesCompat.usageForStreamType(i2);
             return this;
         }
 
-        public Builder setLegacyStreamType(int i) {
-            if (i != 10) {
-                this.mLegacyStream = i;
-                return Build.VERSION.SDK_INT >= 21 ? setInternalLegacyStreamType(i) : this;
+        public Builder setLegacyStreamType(int i2) {
+            if (i2 != 10) {
+                this.mLegacyStream = i2;
+                return Build.VERSION.SDK_INT >= 21 ? setInternalLegacyStreamType(i2) : this;
             }
             throw new IllegalArgumentException("STREAM_ACCESSIBILITY is not a legacy stream type that was used for audio playback");
         }
 
-        public Builder setUsage(int i) {
-            switch (i) {
+        public Builder setUsage(int i2) {
+            switch (i2) {
                 case 0:
                 case 1:
                 case 2:
@@ -413,11 +413,11 @@ public class AudioAttributesCompat implements VersionedParcelable {
                 case 13:
                 case 14:
                 case 15:
-                    this.mUsage = i;
+                    this.mUsage = i2;
                     break;
                 case 16:
                     if (!AudioAttributesCompat.sForceLegacyBehavior && Build.VERSION.SDK_INT > 25) {
-                        this.mUsage = i;
+                        this.mUsage = i2;
                         break;
                     } else {
                         this.mUsage = 12;

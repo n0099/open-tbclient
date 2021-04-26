@@ -10,19 +10,19 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f3722a = 52428800;
+    public static final long f3769a = 52428800;
 
     /* renamed from: b  reason: collision with root package name */
-    public final InterfaceC0061a f3723b;
+    public final InterfaceC0061a f3770b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f3724c;
+    public final String f3771c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f3725d;
+    public File f3772d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f3726e;
+    public long f3773e;
 
     /* renamed from: com.baidu.apollon.imagemanager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -54,13 +54,13 @@ public class a {
     }
 
     private void b() {
-        if (this.f3726e < 0) {
-            this.f3726e = 52428800 - c();
+        if (this.f3773e < 0) {
+            this.f3773e = 52428800 - c();
         }
     }
 
     private long c() {
-        File[] listFiles = this.f3725d.listFiles();
+        File[] listFiles = this.f3772d.listFiles();
         long j = 0;
         if (listFiles != null && listFiles.length > 0) {
             for (File file : listFiles) {
@@ -71,26 +71,26 @@ public class a {
     }
 
     public a(Context context, String str, String str2, InterfaceC0061a interfaceC0061a) {
-        this.f3726e = Long.MIN_VALUE;
-        this.f3724c = str2;
+        this.f3773e = Long.MIN_VALUE;
+        this.f3771c = str2;
         if (CheckUtils.isExternalStorageWriteable(context)) {
             File externalFilesDir = context.getExternalFilesDir(null);
             if (externalFilesDir != null) {
-                this.f3725d = new File(externalFilesDir, str);
+                this.f3772d = new File(externalFilesDir, str);
             } else {
-                this.f3725d = new File(context.getCacheDir(), str);
+                this.f3772d = new File(context.getCacheDir(), str);
             }
         } else {
-            this.f3725d = new File(context.getCacheDir(), str);
+            this.f3772d = new File(context.getCacheDir(), str);
         }
-        if (!this.f3725d.exists()) {
-            this.f3725d.mkdirs();
+        if (!this.f3772d.exists()) {
+            this.f3772d.mkdirs();
         }
-        this.f3723b = interfaceC0061a;
+        this.f3770b = interfaceC0061a;
     }
 
     private String b(String str) {
-        return String.valueOf(str.hashCode()) + this.f3724c;
+        return String.valueOf(str.hashCode()) + this.f3771c;
     }
 
     public static void a(byte[] bArr, File file) {
@@ -108,18 +108,18 @@ public class a {
         a(a3.getParentFile());
         a(bArr, a3);
         b();
-        long length = this.f3726e - a(str).length();
-        if (length < 0 && (interfaceC0061a = this.f3723b) != null && (a2 = interfaceC0061a.a(this.f3725d)) != null) {
+        long length = this.f3773e - a(str).length();
+        if (length < 0 && (interfaceC0061a = this.f3770b) != null && (a2 = interfaceC0061a.a(this.f3772d)) != null) {
             for (File file : a2) {
                 length += file.length();
                 file.delete();
             }
         }
-        this.f3726e = length;
+        this.f3773e = length;
     }
 
     public File a(String str) {
-        File file = new File(this.f3725d, b(str));
+        File file = new File(this.f3772d, b(str));
         if (file.exists()) {
             file.setLastModified(System.currentTimeMillis());
         }
@@ -127,7 +127,7 @@ public class a {
     }
 
     public void a() {
-        File[] listFiles = this.f3725d.listFiles();
+        File[] listFiles = this.f3772d.listFiles();
         if (listFiles == null) {
             return;
         }

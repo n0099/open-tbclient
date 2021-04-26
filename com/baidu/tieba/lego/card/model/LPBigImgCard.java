@@ -3,10 +3,10 @@ package com.baidu.tieba.lego.card.model;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
-import d.b.c.e.p.l;
-import d.b.j0.j1.o.i.a;
-import d.b.j0.j1.o.k.b;
-import d.b.j0.j1.o.k.d;
+import d.a.c.e.p.l;
+import d.a.j0.j1.o.i.a;
+import d.a.j0.j1.o.k.b;
+import d.a.j0.j1.o.k.d;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
@@ -95,20 +95,20 @@ public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public double getRatio() {
-        int i = this.picWidth;
-        if (i > 0) {
-            return this.picHeight / i;
+        int i2 = this.picWidth;
+        if (i2 > 0) {
+            return this.picHeight / i2;
         }
         return super.getRatio();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.j0.j1.o.i.a
+    @Override // d.a.j0.j1.o.i.a
     public void doLoad(LPBigImgCard lPBigImgCard, TbPageContext tbPageContext) {
         if (lPBigImgCard == null || tbPageContext == null) {
             return;
         }
         int k = l.k(TbadkCoreApplication.getInst());
-        d.b.c.e.l.d.h().k(lPBigImgCard.getPicUrl(), 17, null, k, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * k), tbPageContext.getUniqueId(), new Object[0]);
+        d.a.c.e.l.d.h().k(lPBigImgCard.getPicUrl(), 17, null, k, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * k), tbPageContext.getUniqueId(), new Object[0]);
     }
 }

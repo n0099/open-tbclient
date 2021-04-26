@@ -13,10 +13,10 @@ public class SsoHandler extends BaseSsoHandler {
     }
 
     @Override // com.sina.weibo.sdk.auth.BaseSsoHandler
-    public void fillExtraIntent(Intent intent, int i) {
-        super.fillExtraIntent(intent, i);
-        if (i == 32974) {
-            intent.putExtra("com.sina.weibo.intent.extra.REQUEST_CODE", i);
+    public void fillExtraIntent(Intent intent, int i2) {
+        super.fillExtraIntent(intent, i2);
+        if (i2 == 32974) {
+            intent.putExtra("com.sina.weibo.intent.extra.REQUEST_CODE", i2);
         }
     }
 

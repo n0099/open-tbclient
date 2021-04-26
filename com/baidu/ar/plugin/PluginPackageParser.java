@@ -199,9 +199,9 @@ public class PluginPackageParser {
         if (Build.VERSION.SDK_INT >= 21 && applicationInfo.splitPublicSourceDirs == null) {
             applicationInfo.splitPublicSourceDirs = new String[]{this.mPluginFile.getPath()};
         }
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 24) {
-            if (i < 26) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 24) {
+            if (i2 < 26) {
                 try {
                     FieldUtils.writeField(applicationInfo, "deviceEncryptedDataDir", applicationInfo.dataDir);
                     FieldUtils.writeField(applicationInfo, "credentialEncryptedDataDir", applicationInfo.dataDir);
@@ -224,21 +224,21 @@ public class PluginPackageParser {
         return packageInfo;
     }
 
-    public void collectCertificates(int i) throws Exception {
-        this.mParser.collectCertificates(i);
+    public void collectCertificates(int i2) throws Exception {
+        this.mParser.collectCertificates(i2);
     }
 
     public List<ActivityInfo> getActivities() throws Exception {
         return new ArrayList(this.mActivityInfoCache.values());
     }
 
-    public ActivityInfo getActivityInfo(ComponentName componentName, int i) throws Exception {
+    public ActivityInfo getActivityInfo(ComponentName componentName, int i2) throws Exception {
         Object obj;
         synchronized (this.mActivityObjCache) {
             obj = this.mActivityObjCache.get(componentName);
         }
         if (obj != null) {
-            ActivityInfo generateActivityInfo = this.mParser.generateActivityInfo(obj, i);
+            ActivityInfo generateActivityInfo = this.mParser.generateActivityInfo(obj, i2);
             fixApplicationInfo(generateActivityInfo.applicationInfo);
             if (TextUtils.isEmpty(generateActivityInfo.processName)) {
                 generateActivityInfo.processName = generateActivityInfo.packageName;
@@ -256,8 +256,8 @@ public class PluginPackageParser {
         return list;
     }
 
-    public ApplicationInfo getApplicationInfo(int i) throws Exception {
-        ApplicationInfo generateApplicationInfo = this.mParser.generateApplicationInfo(i);
+    public ApplicationInfo getApplicationInfo(int i2) throws Exception {
+        ApplicationInfo generateApplicationInfo = this.mParser.generateApplicationInfo(i2);
         fixApplicationInfo(generateApplicationInfo);
         if (TextUtils.isEmpty(generateApplicationInfo.processName)) {
             generateApplicationInfo.processName = generateApplicationInfo.packageName;
@@ -265,13 +265,13 @@ public class PluginPackageParser {
         return generateApplicationInfo;
     }
 
-    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i) throws Exception {
+    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i2) throws Exception {
         Object obj;
         synchronized (this.mInstrumentationObjCache) {
             obj = this.mInstrumentationObjCache.get(componentName);
         }
         if (obj != null) {
-            return this.mParser.generateInstrumentationInfo(obj, i);
+            return this.mParser.generateInstrumentationInfo(obj, i2);
         }
         return null;
     }
@@ -280,8 +280,8 @@ public class PluginPackageParser {
         return new ArrayList(this.mInstrumentationInfoCache.values());
     }
 
-    public PackageInfo getPackageInfo(int i) throws Exception {
-        PackageInfo generatePackageInfo = this.mParser.generatePackageInfo(this.mHostPackageInfo.gids, i, this.mPluginFile.lastModified(), this.mPluginFile.lastModified(), new HashSet<>(getRequestedPermissions()));
+    public PackageInfo getPackageInfo(int i2) throws Exception {
+        PackageInfo generatePackageInfo = this.mParser.generatePackageInfo(this.mHostPackageInfo.gids, i2, this.mPluginFile.lastModified(), this.mPluginFile.lastModified(), new HashSet<>(getRequestedPermissions()));
         fixPackageInfo(generatePackageInfo);
         return generatePackageInfo;
     }
@@ -290,13 +290,13 @@ public class PluginPackageParser {
         return this.mPackageName;
     }
 
-    public PermissionGroupInfo getPermissionGroupInfo(ComponentName componentName, int i) throws Exception {
+    public PermissionGroupInfo getPermissionGroupInfo(ComponentName componentName, int i2) throws Exception {
         Object obj;
         synchronized (this.mPermissionGroupObjCache) {
             obj = this.mPermissionGroupObjCache.get(componentName);
         }
         if (obj != null) {
-            return this.mParser.generatePermissionGroupInfo(obj, i);
+            return this.mParser.generatePermissionGroupInfo(obj, i2);
         }
         return null;
     }
@@ -305,13 +305,13 @@ public class PluginPackageParser {
         return new ArrayList(this.mPermissionGroupInfoCache.values());
     }
 
-    public PermissionInfo getPermissionInfo(ComponentName componentName, int i) throws Exception {
+    public PermissionInfo getPermissionInfo(ComponentName componentName, int i2) throws Exception {
         Object obj;
         synchronized (this.mPermissionsObjCache) {
             obj = this.mPermissionsObjCache.get(componentName);
         }
         if (obj != null) {
-            return this.mParser.generatePermissionInfo(obj, i);
+            return this.mParser.generatePermissionInfo(obj, i2);
         }
         return null;
     }
@@ -324,13 +324,13 @@ public class PluginPackageParser {
         return this.mPluginFile;
     }
 
-    public ProviderInfo getProviderInfo(ComponentName componentName, int i) throws Exception {
+    public ProviderInfo getProviderInfo(ComponentName componentName, int i2) throws Exception {
         Object obj;
         synchronized (this.mProviderObjCache) {
             obj = this.mProviderObjCache.get(componentName);
         }
         if (obj != null) {
-            ProviderInfo generateProviderInfo = this.mParser.generateProviderInfo(obj, i);
+            ProviderInfo generateProviderInfo = this.mParser.generateProviderInfo(obj, i2);
             fixApplicationInfo(generateProviderInfo.applicationInfo);
             if (TextUtils.isEmpty(generateProviderInfo.processName)) {
                 generateProviderInfo.processName = generateProviderInfo.packageName;
@@ -352,13 +352,13 @@ public class PluginPackageParser {
         return new ArrayList(this.mProviderInfoCache.values());
     }
 
-    public ActivityInfo getReceiverInfo(ComponentName componentName, int i) throws Exception {
+    public ActivityInfo getReceiverInfo(ComponentName componentName, int i2) throws Exception {
         Object obj;
         synchronized (this.mReceiversObjCache) {
             obj = this.mReceiversObjCache.get(componentName);
         }
         if (obj != null) {
-            ActivityInfo generateReceiverInfo = this.mParser.generateReceiverInfo(obj, i);
+            ActivityInfo generateReceiverInfo = this.mParser.generateReceiverInfo(obj, i2);
             fixApplicationInfo(generateReceiverInfo.applicationInfo);
             if (TextUtils.isEmpty(generateReceiverInfo.processName)) {
                 generateReceiverInfo.processName = generateReceiverInfo.packageName;
@@ -391,13 +391,13 @@ public class PluginPackageParser {
         return arrayList;
     }
 
-    public ServiceInfo getServiceInfo(ComponentName componentName, int i) throws Exception {
+    public ServiceInfo getServiceInfo(ComponentName componentName, int i2) throws Exception {
         Object obj;
         synchronized (this.mServiceObjCache) {
             obj = this.mServiceObjCache.get(componentName);
         }
         if (obj != null) {
-            ServiceInfo generateServiceInfo = this.mParser.generateServiceInfo(obj, i);
+            ServiceInfo generateServiceInfo = this.mParser.generateServiceInfo(obj, i2);
             fixApplicationInfo(generateServiceInfo.applicationInfo);
             if (TextUtils.isEmpty(generateServiceInfo.processName)) {
                 generateServiceInfo.processName = generateServiceInfo.packageName;

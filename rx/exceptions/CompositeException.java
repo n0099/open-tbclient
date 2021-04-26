@@ -39,20 +39,20 @@ public final class CompositeException extends RuntimeException {
     public static final class b extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final PrintStream f69296a;
+        public final PrintStream f68333a;
 
         public b(PrintStream printStream) {
-            this.f69296a = printStream;
+            this.f68333a = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public Object a() {
-            return this.f69296a;
+            return this.f68333a;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public void b(Object obj) {
-            this.f69296a.println(obj);
+            this.f68333a.println(obj);
         }
     }
 
@@ -60,20 +60,20 @@ public final class CompositeException extends RuntimeException {
     public static final class c extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final PrintWriter f69297a;
+        public final PrintWriter f68334a;
 
         public c(PrintWriter printWriter) {
-            this.f69297a = printWriter;
+            this.f68334a = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public Object a() {
-            return this.f69297a;
+            return this.f68334a;
         }
 
         @Override // rx.exceptions.CompositeException.a
         public void b(Object obj) {
-            this.f69297a.println(obj);
+            this.f68334a.println(obj);
         }
     }
 
@@ -210,13 +210,13 @@ public final class CompositeException extends RuntimeException {
             sb.append(stackTraceElement);
             sb.append('\n');
         }
-        int i = 1;
+        int i2 = 1;
         for (Throwable th : this.exceptions) {
             sb.append("  ComposedException ");
-            sb.append(i);
+            sb.append(i2);
             sb.append(" :\n");
             appendStackTrace(sb, th, TrackUI.SEPERATOR);
-            i++;
+            i2++;
         }
         synchronized (aVar.a()) {
             aVar.b(sb.toString());

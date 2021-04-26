@@ -15,35 +15,35 @@ import java.util.Set;
 public final class a implements SharedPreferences {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ContentResolver f39532a;
+    public final ContentResolver f37128a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String[] f39533b = {"_id", "key", "type", "value"};
+    public final String[] f37129b = {"_id", "key", "type", "value"};
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashMap<String, Object> f39534c = new HashMap<>();
+    public final HashMap<String, Object> f37130c = new HashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public SharedPreferences$EditorC0528a f39535d = null;
+    public SharedPreferences$EditorC0472a f37131d = null;
 
     /* renamed from: com.tencent.mm.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class SharedPreferences$EditorC0528a implements SharedPreferences.Editor {
+    public static class SharedPreferences$EditorC0472a implements SharedPreferences.Editor {
 
         /* renamed from: a  reason: collision with root package name */
-        public ContentResolver f39536a;
+        public ContentResolver f37132a;
 
         /* renamed from: e  reason: collision with root package name */
-        public Map<String, Object> f39537e = new HashMap();
+        public Map<String, Object> f37133e = new HashMap();
 
         /* renamed from: f  reason: collision with root package name */
-        public Set<String> f39538f = new HashSet();
+        public Set<String> f37134f = new HashSet();
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f39539g = false;
+        public boolean f37135g = false;
 
-        public SharedPreferences$EditorC0528a(ContentResolver contentResolver) {
-            this.f39536a = contentResolver;
+        public SharedPreferences$EditorC0472a(ContentResolver contentResolver) {
+            this.f37132a = contentResolver;
         }
 
         @Override // android.content.SharedPreferences.Editor
@@ -52,7 +52,7 @@ public final class a implements SharedPreferences {
 
         @Override // android.content.SharedPreferences.Editor
         public final SharedPreferences.Editor clear() {
-            this.f39539g = true;
+            this.f37135g = true;
             return this;
         }
 
@@ -66,51 +66,51 @@ public final class a implements SharedPreferences {
         */
         public final boolean commit() {
             String str;
-            int i;
+            int i2;
             boolean z;
             ContentValues contentValues = new ContentValues();
-            if (this.f39539g) {
-                this.f39536a.delete(a.b.CONTENT_URI, null, null);
-                this.f39539g = false;
+            if (this.f37135g) {
+                this.f37132a.delete(a.b.CONTENT_URI, null, null);
+                this.f37135g = false;
             }
-            Iterator<String> it = this.f39538f.iterator();
+            Iterator<String> it = this.f37134f.iterator();
             while (it.hasNext()) {
-                this.f39536a.delete(a.b.CONTENT_URI, "key = ?", new String[]{it.next()});
+                this.f37132a.delete(a.b.CONTENT_URI, "key = ?", new String[]{it.next()});
             }
-            for (Map.Entry<String, Object> entry : this.f39537e.entrySet()) {
+            for (Map.Entry<String, Object> entry : this.f37133e.entrySet()) {
                 Object value = entry.getValue();
                 if (value == null) {
                     str = "unresolve failed, null value";
                 } else {
                     if (value instanceof Integer) {
-                        i = 1;
+                        i2 = 1;
                     } else if (value instanceof Long) {
-                        i = 2;
+                        i2 = 2;
                     } else if (value instanceof String) {
-                        i = 3;
+                        i2 = 3;
                     } else if (value instanceof Boolean) {
-                        i = 4;
+                        i2 = 4;
                     } else if (value instanceof Float) {
-                        i = 5;
+                        i2 = 5;
                     } else if (value instanceof Double) {
-                        i = 6;
+                        i2 = 6;
                     } else {
                         str = "unresolve failed, unknown type=" + value.getClass().toString();
                     }
-                    if (i != 0) {
+                    if (i2 != 0) {
                         z = false;
                     } else {
-                        contentValues.put("type", Integer.valueOf(i));
+                        contentValues.put("type", Integer.valueOf(i2));
                         contentValues.put("value", value.toString());
                         z = true;
                     }
                     if (!z) {
-                        this.f39536a.update(a.b.CONTENT_URI, contentValues, "key = ?", new String[]{entry.getKey()});
+                        this.f37132a.update(a.b.CONTENT_URI, contentValues, "key = ?", new String[]{entry.getKey()});
                     }
                 }
                 com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.PluginProvider.Resolver", str);
-                i = 0;
-                if (i != 0) {
+                i2 = 0;
+                if (i2 != 0) {
                 }
                 if (!z) {
                 }
@@ -120,36 +120,36 @@ public final class a implements SharedPreferences {
 
         @Override // android.content.SharedPreferences.Editor
         public final SharedPreferences.Editor putBoolean(String str, boolean z) {
-            this.f39537e.put(str, Boolean.valueOf(z));
-            this.f39538f.remove(str);
+            this.f37133e.put(str, Boolean.valueOf(z));
+            this.f37134f.remove(str);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public final SharedPreferences.Editor putFloat(String str, float f2) {
-            this.f39537e.put(str, Float.valueOf(f2));
-            this.f39538f.remove(str);
+            this.f37133e.put(str, Float.valueOf(f2));
+            this.f37134f.remove(str);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
-        public final SharedPreferences.Editor putInt(String str, int i) {
-            this.f39537e.put(str, Integer.valueOf(i));
-            this.f39538f.remove(str);
+        public final SharedPreferences.Editor putInt(String str, int i2) {
+            this.f37133e.put(str, Integer.valueOf(i2));
+            this.f37134f.remove(str);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public final SharedPreferences.Editor putLong(String str, long j) {
-            this.f39537e.put(str, Long.valueOf(j));
-            this.f39538f.remove(str);
+            this.f37133e.put(str, Long.valueOf(j));
+            this.f37134f.remove(str);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public final SharedPreferences.Editor putString(String str, String str2) {
-            this.f39537e.put(str, str2);
-            this.f39538f.remove(str);
+            this.f37133e.put(str, str2);
+            this.f37134f.remove(str);
             return this;
         }
 
@@ -160,22 +160,22 @@ public final class a implements SharedPreferences {
 
         @Override // android.content.SharedPreferences.Editor
         public final SharedPreferences.Editor remove(String str) {
-            this.f39538f.add(str);
+            this.f37134f.add(str);
             return this;
         }
     }
 
     public a(Context context) {
-        this.f39532a = context.getContentResolver();
+        this.f37128a = context.getContentResolver();
     }
 
     private Object getValue(String str) {
         try {
-            Cursor query = this.f39532a.query(a.b.CONTENT_URI, this.f39533b, "key = ?", new String[]{str}, null);
+            Cursor query = this.f37128a.query(a.b.CONTENT_URI, this.f37129b, "key = ?", new String[]{str}, null);
             if (query == null) {
                 return null;
             }
-            Object a2 = query.moveToFirst() ? a.C0532a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex("value"))) : null;
+            Object a2 = query.moveToFirst() ? a.C0476a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex("value"))) : null;
             query.close();
             return a2;
         } catch (Exception e2) {
@@ -191,16 +191,16 @@ public final class a implements SharedPreferences {
 
     @Override // android.content.SharedPreferences
     public final SharedPreferences.Editor edit() {
-        if (this.f39535d == null) {
-            this.f39535d = new SharedPreferences$EditorC0528a(this.f39532a);
+        if (this.f37131d == null) {
+            this.f37131d = new SharedPreferences$EditorC0472a(this.f37128a);
         }
-        return this.f39535d;
+        return this.f37131d;
     }
 
     @Override // android.content.SharedPreferences
     public final Map<String, ?> getAll() {
         try {
-            Cursor query = this.f39532a.query(a.b.CONTENT_URI, this.f39533b, null, null, null);
+            Cursor query = this.f37128a.query(a.b.CONTENT_URI, this.f37129b, null, null, null);
             if (query == null) {
                 return null;
             }
@@ -208,13 +208,13 @@ public final class a implements SharedPreferences {
             int columnIndex2 = query.getColumnIndex("type");
             int columnIndex3 = query.getColumnIndex("value");
             while (query.moveToNext()) {
-                this.f39534c.put(query.getString(columnIndex), a.C0532a.a(query.getInt(columnIndex2), query.getString(columnIndex3)));
+                this.f37130c.put(query.getString(columnIndex), a.C0476a.a(query.getInt(columnIndex2), query.getString(columnIndex3)));
             }
             query.close();
-            return this.f39534c;
+            return this.f37130c;
         } catch (Exception e2) {
             e2.printStackTrace();
-            return this.f39534c;
+            return this.f37130c;
         }
     }
 
@@ -231,9 +231,9 @@ public final class a implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public final int getInt(String str, int i) {
+    public final int getInt(String str, int i2) {
         Object value = getValue(str);
-        return (value == null || !(value instanceof Integer)) ? i : ((Integer) value).intValue();
+        return (value == null || !(value instanceof Integer)) ? i2 : ((Integer) value).intValue();
     }
 
     @Override // android.content.SharedPreferences

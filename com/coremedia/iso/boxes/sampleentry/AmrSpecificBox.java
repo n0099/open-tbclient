@@ -8,16 +8,16 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import g.a.a.a;
 import g.a.b.b.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AmrSpecificBox extends AbstractBox {
     public static final String TYPE = "damr";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
     public int decoderVersion;
     public int framesPerSample;
     public int modeChangePeriod;

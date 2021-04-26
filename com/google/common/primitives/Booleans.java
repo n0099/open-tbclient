@@ -1,6 +1,6 @@
 package com.google.common.primitives;
 
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.Arrays;
@@ -38,8 +38,8 @@ public final class Booleans {
                 if (booleanArrayAsList.size() != size) {
                     return false;
                 }
-                for (int i = 0; i < size; i++) {
-                    if (this.array[this.start + i] != booleanArrayAsList.array[booleanArrayAsList.start + i]) {
+                for (int i2 = 0; i2 < size; i2++) {
+                    if (this.array[this.start + i2] != booleanArrayAsList.array[booleanArrayAsList.start + i2]) {
                         return false;
                     }
                 }
@@ -50,11 +50,11 @@ public final class Booleans {
 
         @Override // java.util.AbstractList, java.util.Collection, java.util.List
         public int hashCode() {
-            int i = 1;
-            for (int i2 = this.start; i2 < this.end; i2++) {
-                i = (i * 31) + Booleans.d(this.array[i2]);
+            int i2 = 1;
+            for (int i3 = this.start; i3 < this.end; i3++) {
+                i2 = (i2 * 31) + Booleans.d(this.array[i3]);
             }
-            return i;
+            return i2;
         }
 
         @Override // java.util.AbstractList, java.util.List
@@ -86,14 +86,14 @@ public final class Booleans {
         }
 
         @Override // java.util.AbstractList, java.util.List
-        public List<Boolean> subList(int i, int i2) {
-            n.v(i, i2, size());
-            if (i == i2) {
+        public List<Boolean> subList(int i2, int i3) {
+            n.v(i2, i3, size());
+            if (i2 == i3) {
                 return Collections.emptyList();
             }
             boolean[] zArr = this.array;
-            int i3 = this.start;
-            return new BooleanArrayAsList(zArr, i + i3, i3 + i2);
+            int i4 = this.start;
+            return new BooleanArrayAsList(zArr, i2 + i4, i4 + i3);
         }
 
         public boolean[] toBooleanArray() {
@@ -104,11 +104,11 @@ public final class Booleans {
         public String toString() {
             StringBuilder sb = new StringBuilder(size() * 7);
             sb.append(this.array[this.start] ? "[true" : "[false");
-            int i = this.start;
+            int i2 = this.start;
             while (true) {
-                i++;
-                if (i < this.end) {
-                    sb.append(this.array[i] ? ", true" : ", false");
+                i2++;
+                if (i2 < this.end) {
+                    sb.append(this.array[i2] ? ", true" : ", false");
                 } else {
                     sb.append(']');
                     return sb.toString();
@@ -116,28 +116,28 @@ public final class Booleans {
             }
         }
 
-        public BooleanArrayAsList(boolean[] zArr, int i, int i2) {
+        public BooleanArrayAsList(boolean[] zArr, int i2, int i3) {
             this.array = zArr;
-            this.start = i;
-            this.end = i2;
+            this.start = i2;
+            this.end = i3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Boolean get(int i) {
-            n.n(i, size());
-            return Boolean.valueOf(this.array[this.start + i]);
+        public Boolean get(int i2) {
+            n.n(i2, size());
+            return Boolean.valueOf(this.array[this.start + i2]);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Boolean set(int i, Boolean bool) {
-            n.n(i, size());
+        public Boolean set(int i2, Boolean bool) {
+            n.n(i2, size());
             boolean[] zArr = this.array;
-            int i2 = this.start;
-            boolean z = zArr[i2 + i];
+            int i3 = this.start;
+            boolean z = zArr[i3 + i2];
             n.p(bool);
-            zArr[i2 + i] = bool.booleanValue();
+            zArr[i3 + i2] = bool.booleanValue();
             return Boolean.valueOf(z);
         }
     }
@@ -150,8 +150,8 @@ public final class Booleans {
         public final String toString;
         public final int trueValue;
 
-        BooleanComparator(int i, String str) {
-            this.trueValue = i;
+        BooleanComparator(int i2, String str) {
+            this.trueValue = i2;
             this.toString = str;
         }
 
@@ -180,8 +180,8 @@ public final class Booleans {
         @Override // java.util.Comparator
         public int compare(boolean[] zArr, boolean[] zArr2) {
             int min = Math.min(zArr.length, zArr2.length);
-            for (int i = 0; i < min; i++) {
-                int c2 = Booleans.c(zArr[i], zArr2[i]);
+            for (int i2 = 0; i2 < min; i2++) {
+                int c2 = Booleans.c(zArr[i2], zArr2[i2]);
                 if (c2 != 0) {
                     return c2;
                 }
@@ -201,20 +201,20 @@ public final class Booleans {
         return z ? 1231 : 1237;
     }
 
-    public static int e(boolean[] zArr, boolean z, int i, int i2) {
-        while (i < i2) {
-            if (zArr[i] == z) {
-                return i;
+    public static int e(boolean[] zArr, boolean z, int i2, int i3) {
+        while (i2 < i3) {
+            if (zArr[i2] == z) {
+                return i2;
             }
-            i++;
+            i2++;
         }
         return -1;
     }
 
-    public static int f(boolean[] zArr, boolean z, int i, int i2) {
-        for (int i3 = i2 - 1; i3 >= i; i3--) {
-            if (zArr[i3] == z) {
-                return i3;
+    public static int f(boolean[] zArr, boolean z, int i2, int i3) {
+        for (int i4 = i3 - 1; i4 >= i2; i4--) {
+            if (zArr[i4] == z) {
+                return i4;
             }
         }
         return -1;

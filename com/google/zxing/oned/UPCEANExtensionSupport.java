@@ -10,12 +10,12 @@ public final class UPCEANExtensionSupport {
     public final UPCEANExtension2Support twoSupport = new UPCEANExtension2Support();
     public final UPCEANExtension5Support fiveSupport = new UPCEANExtension5Support();
 
-    public Result decodeRow(int i, BitArray bitArray, int i2) throws NotFoundException {
-        int[] findGuardPattern = UPCEANReader.findGuardPattern(bitArray, i2, false, EXTENSION_START_PATTERN);
+    public Result decodeRow(int i2, BitArray bitArray, int i3) throws NotFoundException {
+        int[] findGuardPattern = UPCEANReader.findGuardPattern(bitArray, i3, false, EXTENSION_START_PATTERN);
         try {
-            return this.fiveSupport.decodeRow(i, bitArray, findGuardPattern);
+            return this.fiveSupport.decodeRow(i2, bitArray, findGuardPattern);
         } catch (ReaderException unused) {
-            return this.twoSupport.decodeRow(i, bitArray, findGuardPattern);
+            return this.twoSupport.decodeRow(i2, bitArray, findGuardPattern);
         }
     }
 }

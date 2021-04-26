@@ -5,6 +5,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.view.menu.MenuBuilder;
@@ -12,7 +13,7 @@ import androidx.appcompat.view.menu.MenuPopupHelper;
 import androidx.appcompat.view.menu.SubMenuBuilder;
 import androidx.appcompat.widget.ActionBarContextView;
 import java.lang.ref.WeakReference;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class StandaloneActionMode extends ActionMode implements MenuBuilder.Callback {
     public ActionMode.Callback mCallback;
@@ -94,12 +95,12 @@ public class StandaloneActionMode extends ActionMode implements MenuBuilder.Call
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-    public boolean onMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
+    public boolean onMenuItemSelected(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
         return this.mCallback.onActionItemClicked(this, menuItem);
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder.Callback
-    public void onMenuModeChange(MenuBuilder menuBuilder) {
+    public void onMenuModeChange(@NonNull MenuBuilder menuBuilder) {
         invalidate();
         this.mContextView.showOverflowMenu();
     }
@@ -135,12 +136,12 @@ public class StandaloneActionMode extends ActionMode implements MenuBuilder.Call
     }
 
     @Override // androidx.appcompat.view.ActionMode
-    public void setSubtitle(int i) {
-        setSubtitle(this.mContext.getString(i));
+    public void setSubtitle(int i2) {
+        setSubtitle(this.mContext.getString(i2));
     }
 
     @Override // androidx.appcompat.view.ActionMode
-    public void setTitle(int i) {
-        setTitle(this.mContext.getString(i));
+    public void setTitle(int i2) {
+        setTitle(this.mContext.getString(i2));
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.gametab;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.j0.q0.x1.a;
+import d.a.j0.q0.x1.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -15,16 +15,16 @@ public class AlaGameTabGetNewNotifyResponsedMessage extends JsonHttpResponsedMes
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i, jSONObject);
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (hasError() || jSONObject == null) {
             return;
         }
         JSONArray jSONArray = jSONObject.getJSONArray("data");
         int length = jSONArray.length();
         this.mData = new ArrayList(length);
-        for (int i2 = 0; i2 < length; i2++) {
-            JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+        for (int i3 = 0; i3 < length; i3++) {
+            JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
             if (jSONObject2 != null) {
                 this.mData.add(new a(jSONObject2.optInt("tab_id"), jSONObject2.optInt("has_new")));
             }

@@ -18,8 +18,8 @@ public class PassSaveMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public PassSaveMsg[] newArray(int i) {
-            return new PassSaveMsg[i];
+        public PassSaveMsg[] newArray(int i2) {
+            return new PassSaveMsg[i2];
         }
     };
     public static final String TAG = "PassSaveMsg";

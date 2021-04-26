@@ -2,7 +2,7 @@ package com.baidu.tieba.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.CommonReq;
 import tbclient.UserPk.DataReq;
 import tbclient.UserPk.UserPkReqIdl;
@@ -11,7 +11,7 @@ public class RequestBlessMessage extends NetMessage {
     public int click_type;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f18710common;
+    public CommonReq f19137common;
     public Long pk_id;
     public int pk_index;
     public int pk_type;
@@ -25,7 +25,7 @@ public class RequestBlessMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f69812common = this.f18710common;
+        builder.f68859common = this.f19137common;
         builder.pk_id = this.pk_id;
         builder.topic_id = this.topic_id;
         builder.pk_index = Integer.valueOf(this.pk_index);
@@ -40,24 +40,24 @@ public class RequestBlessMessage extends NetMessage {
         return builder2.build(false);
     }
 
-    public void setClickType(int i) {
-        this.click_type = i;
+    public void setClickType(int i2) {
+        this.click_type = i2;
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f18710common = commonReq;
+        this.f19137common = commonReq;
     }
 
     public void setPkId(Long l) {
         this.pk_id = l;
     }
 
-    public void setPkIndex(int i) {
-        this.pk_index = i;
+    public void setPkIndex(int i2) {
+        this.pk_index = i2;
     }
 
-    public void setPkType(int i) {
-        this.pk_type = i;
+    public void setPkType(int i2) {
+        this.pk_type = i2;
     }
 
     public void setTopicId(Long l) {

@@ -8,7 +8,7 @@ import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.i0.c0.a;
+import d.a.i0.c0.a;
 /* loaded from: classes4.dex */
 public class GuardServiceObserver extends Service {
     public final long STEP = 900000;
@@ -37,18 +37,18 @@ public class GuardServiceObserver extends Service {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
-        super.onStart(intent, i);
+    public void onStart(Intent intent, int i2) {
+        super.onStart(intent, i2);
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(Intent intent, int i2, int i3) {
         try {
             TiebaStatic.log(CommonStatisticKey.KEY_KEEP_LIVE);
             a.b(0, 0, 0, 1, 5);
             BdSocketLinkService.startService(false, "restart");
         } catch (Throwable unused) {
         }
-        return super.onStartCommand(intent, i, i2);
+        return super.onStartCommand(intent, i2, i3);
     }
 }

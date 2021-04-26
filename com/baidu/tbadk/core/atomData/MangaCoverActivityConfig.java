@@ -16,8 +16,8 @@ public class MangaCoverActivityConfig extends IntentConfig {
         super(context);
     }
 
-    public void setFrom(int i) {
-        getIntent().putExtra("from", i);
+    public void setFrom(int i2) {
+        getIntent().putExtra("from", i2);
     }
 
     public MangaCoverActivityConfig(Context context, long j) {

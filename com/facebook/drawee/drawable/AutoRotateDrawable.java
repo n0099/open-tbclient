@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, CloneableDrawable {
     public static final int DEGREES_IN_FULL_ROTATION = 360;
     public static final int FRAME_INTERVAL_MS = 20;
@@ -16,8 +16,8 @@ public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, 
     @VisibleForTesting
     public float mRotationAngle;
 
-    public AutoRotateDrawable(Drawable drawable, int i) {
-        this(drawable, i, true);
+    public AutoRotateDrawable(Drawable drawable, int i2) {
+        this(drawable, i2, true);
     }
 
     private int getIncrement() {
@@ -36,13 +36,13 @@ public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, 
     public void draw(Canvas canvas) {
         int save = canvas.save();
         Rect bounds = getBounds();
-        int i = bounds.right - bounds.left;
-        int i2 = bounds.bottom - bounds.top;
+        int i2 = bounds.right - bounds.left;
+        int i3 = bounds.bottom - bounds.top;
         float f2 = this.mRotationAngle;
         if (!this.mClockwise) {
             f2 = 360.0f - f2;
         }
-        canvas.rotate(f2, bounds.left + (i / 2), bounds.top + (i2 / 2));
+        canvas.rotate(f2, bounds.left + (i2 / 2), bounds.top + (i3 / 2));
         super.draw(canvas);
         canvas.restoreToCount(save);
         scheduleNextFrame();
@@ -66,11 +66,11 @@ public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, 
         this.mClockwise = z;
     }
 
-    public AutoRotateDrawable(Drawable drawable, int i, boolean z) {
+    public AutoRotateDrawable(Drawable drawable, int i2, boolean z) {
         super((Drawable) Preconditions.checkNotNull(drawable));
         this.mRotationAngle = 0.0f;
         this.mIsScheduled = false;
-        this.mInterval = i;
+        this.mInterval = i2;
         this.mClockwise = z;
     }
 

@@ -8,41 +8,43 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import d.b.c.j.e.a;
-import d.b.c.j.e.n;
-import d.b.c.j.e.r;
+import d.a.c.j.e.a;
+import d.a.c.j.e.n;
+import d.a.c.j.e.r;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> implements r<n> {
 
     /* renamed from: e  reason: collision with root package name */
-    public SparseArray<a<n, TypeAdapter.ViewHolder>> f2391e;
+    public SparseArray<a<n, TypeAdapter.ViewHolder>> f2373e;
     @SuppressLint({"UseSparseArrays"})
 
     /* renamed from: f  reason: collision with root package name */
-    public SparseArray<Integer> f2392f = new SparseArray<>();
+    public SparseArray<Integer> f2374f = new SparseArray<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public List<n> f2393g = new ArrayList();
+    public List<n> f2375g = new ArrayList();
 
     /* renamed from: h  reason: collision with root package name */
-    public RecyclerView f2394h = null;
-    public int i = -1;
+    public RecyclerView f2376h = null;
 
-    @Override // d.b.c.j.e.r
-    public int a(int i, int i2) {
-        List<n> list = this.f2393g;
+    /* renamed from: i  reason: collision with root package name */
+    public int f2377i = -1;
+
+    @Override // d.a.c.j.e.r
+    public int a(int i2, int i3) {
+        List<n> list = this.f2375g;
         if (list != null && list.size() != 0) {
-            int size = this.f2393g.size();
-            int i3 = -1;
-            for (int i4 = 0; i4 < size; i4++) {
-                if (this.f2393g.get(i4) != null && this.f2393g.get(i4).getType() != null) {
-                    if (i2 == this.f2393g.get(i4).getType().getId()) {
-                        i3++;
+            int size = this.f2375g.size();
+            int i4 = -1;
+            for (int i5 = 0; i5 < size; i5++) {
+                if (this.f2375g.get(i5) != null && this.f2375g.get(i5).getType() != null) {
+                    if (i3 == this.f2375g.get(i5).getType().getId()) {
+                        i4++;
                     }
-                    if (i4 == i) {
-                        return i3;
+                    if (i5 == i2) {
+                        return i4;
                     }
                 }
             }
@@ -50,106 +52,74 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         return -1;
     }
 
-    @Override // d.b.c.j.e.r
+    @Override // d.a.c.j.e.r
     public a<n, TypeAdapter.ViewHolder> b(n nVar) {
         BdUniqueId type;
         Integer num;
         if (nVar == null) {
             return null;
         }
-        int i = -1;
-        SparseArray<a<n, TypeAdapter.ViewHolder>> sparseArray = this.f2391e;
-        if (sparseArray != null && sparseArray.size() != 0 && (type = nVar.getType()) != null && (num = this.f2392f.get(type.getId())) != null) {
-            i = num.intValue();
+        int i2 = -1;
+        SparseArray<a<n, TypeAdapter.ViewHolder>> sparseArray = this.f2373e;
+        if (sparseArray != null && sparseArray.size() != 0 && (type = nVar.getType()) != null && (num = this.f2374f.get(type.getId())) != null) {
+            i2 = num.intValue();
         }
-        if (i < 0 || i >= this.f2391e.size()) {
+        if (i2 < 0 || i2 >= this.f2373e.size()) {
             return null;
         }
-        return this.f2391e.get(i);
+        return this.f2373e.get(i2);
     }
 
     public void c(a<n, TypeAdapter.ViewHolder> aVar) {
         if (aVar == null || aVar.G() == null) {
             return;
         }
-        if (this.f2391e == null) {
-            this.f2391e = new SparseArray<>();
+        if (this.f2373e == null) {
+            this.f2373e = new SparseArray<>();
         }
         if (aVar.G() != null) {
-            aVar.b0(this);
+            aVar.Y(this);
             int id = aVar.G().getId();
-            int size = this.f2391e.size();
-            this.f2391e.put(size, aVar);
-            this.f2392f.put(id, Integer.valueOf(size));
+            int size = this.f2373e.size();
+            this.f2373e.put(size, aVar);
+            this.f2374f.put(id, Integer.valueOf(size));
         }
     }
 
-    @Override // d.b.c.j.e.o
-    public int getCount() {
-        return getItemCount();
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        List<n> list = this.f2393g;
-        if (list != null) {
-            return list.size();
-        }
-        return 0;
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemViewType(int i) {
-        n item;
-        BdUniqueId type;
-        Integer num;
-        this.i = i;
-        SparseArray<a<n, TypeAdapter.ViewHolder>> sparseArray = this.f2391e;
-        if (sparseArray == null || sparseArray.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.f2392f.get(type.getId())) == null) {
-            return -1;
-        }
-        return num.intValue();
-    }
-
-    public List<n> m() {
-        return this.f2393g;
+    public List<n> d() {
+        return this.f2375g;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.c.j.e.o
-    /* renamed from: n */
-    public n getItem(int i) {
-        List<n> list = this.f2393g;
+    @Override // d.a.c.j.e.o
+    /* renamed from: e */
+    public n getItem(int i2) {
+        List<n> list = this.f2375g;
         if (list != null) {
             int size = list.size();
-            if (i < 0 || i >= size) {
+            if (i2 < 0 || i2 >= size) {
                 return null;
             }
-            return this.f2393g.get(i);
+            return this.f2375g.get(i2);
         }
         return null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: o */
-    public void onBindViewHolder(TypeAdapter.ViewHolder viewHolder, int i) {
+    /* renamed from: f */
+    public void onBindViewHolder(TypeAdapter.ViewHolder viewHolder, int i2) {
         a<n, TypeAdapter.ViewHolder> aVar;
         n item;
-        if (viewHolder == null || this.f2391e == null || this.f2393g == null) {
+        if (viewHolder == null || this.f2373e == null || this.f2375g == null) {
             return;
         }
         int itemCount = getItemCount();
-        if (i < 0 || i >= itemCount || (aVar = this.f2391e.get(getItemViewType(i))) == null || (item = getItem(i)) == null || !(item instanceof n)) {
+        if (i2 < 0 || i2 >= itemCount || (aVar = this.f2373e.get(getItemViewType(i2))) == null || (item = getItem(i2)) == null || !(item instanceof n)) {
             return;
         }
         try {
-            aVar.Y(i, this.f2394h, viewHolder, item);
+            aVar.X(i2, this.f2376h, viewHolder, item);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -157,18 +127,18 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: p */
-    public TypeAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    /* renamed from: g */
+    public TypeAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
         a<n, TypeAdapter.ViewHolder> aVar;
-        if (this.f2394h == null) {
-            this.f2394h = (RecyclerView) viewGroup;
+        if (this.f2376h == null) {
+            this.f2376h = (RecyclerView) viewGroup;
         }
-        n item = getItem(this.i);
-        SparseArray<a<n, TypeAdapter.ViewHolder>> sparseArray = this.f2391e;
+        n item = getItem(this.f2377i);
+        SparseArray<a<n, TypeAdapter.ViewHolder>> sparseArray = this.f2373e;
         TypeAdapter.ViewHolder viewHolder = null;
-        if (sparseArray != null && (aVar = sparseArray.get(i)) != null) {
+        if (sparseArray != null && (aVar = sparseArray.get(i2)) != null) {
             try {
-                viewHolder = aVar.S(viewGroup, item);
+                viewHolder = aVar.Q(viewGroup, item);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -179,66 +149,98 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         return viewHolder;
     }
 
-    public void q(ViewGroup viewGroup, View view, int i, long j) {
-        if (this.f2391e == null) {
+    @Override // d.a.c.j.e.o
+    public int getCount() {
+        return getItemCount();
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        List<n> list = this.f2375g;
+        if (list != null) {
+            return list.size();
+        }
+        return 0;
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public long getItemId(int i2) {
+        return i2;
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemViewType(int i2) {
+        n item;
+        BdUniqueId type;
+        Integer num;
+        this.f2377i = i2;
+        SparseArray<a<n, TypeAdapter.ViewHolder>> sparseArray = this.f2373e;
+        if (sparseArray == null || sparseArray.size() == 0 || (item = getItem(i2)) == null || (type = item.getType()) == null || (num = this.f2374f.get(type.getId())) == null) {
+            return -1;
+        }
+        return num.intValue();
+    }
+
+    public void h(ViewGroup viewGroup, View view, int i2, long j) {
+        if (this.f2373e == null) {
             return;
         }
-        n item = getItem(i);
-        int itemViewType = getItemViewType(i);
-        a<n, TypeAdapter.ViewHolder> valueAt = itemViewType >= 0 ? this.f2391e.valueAt(itemViewType) : null;
+        n item = getItem(i2);
+        int itemViewType = getItemViewType(i2);
+        a<n, TypeAdapter.ViewHolder> valueAt = itemViewType >= 0 ? this.f2373e.valueAt(itemViewType) : null;
+        if (valueAt == null || valueAt.z() == null) {
+            return;
+        }
+        valueAt.z().b(view, item, valueAt.G(), viewGroup, i2, j);
+    }
+
+    public boolean i(ViewGroup viewGroup, View view, int i2, long j) {
+        if (this.f2373e == null) {
+            return false;
+        }
+        n item = getItem(i2);
+        int itemViewType = getItemViewType(i2);
+        a<n, TypeAdapter.ViewHolder> valueAt = itemViewType >= 0 ? this.f2373e.valueAt(itemViewType) : null;
         if (valueAt == null || valueAt.A() == null) {
+            return false;
+        }
+        return valueAt.A().a(view, item, valueAt.G(), viewGroup, i2, j);
+    }
+
+    public void j(int i2, int i3) {
+        if (i2 < this.f2375g.size()) {
+            this.f2375g.remove(i2);
+            notifyItemRemoved(i2 + i3);
+        }
+    }
+
+    public void k(int i2, int i3, int i4) {
+        if (i2 >= this.f2375g.size() || i3 >= this.f2375g.size() || i2 > i3) {
             return;
         }
-        valueAt.A().f(view, item, valueAt.G(), viewGroup, i, j);
+        this.f2375g.subList(i2, i3 + 1).clear();
+        notifyItemRangeRemoved(i4 + i2, (i3 - i2) + 1);
     }
 
-    public boolean r(ViewGroup viewGroup, View view, int i, long j) {
-        if (this.f2391e == null) {
-            return false;
+    public void l(List<? extends n> list, int i2, int i3) {
+        List<n> list2 = this.f2375g;
+        if (list2 == null) {
+            this.f2375g = new ArrayList();
+        } else {
+            list2.clear();
         }
-        n item = getItem(i);
-        int itemViewType = getItemViewType(i);
-        a<n, TypeAdapter.ViewHolder> valueAt = itemViewType >= 0 ? this.f2391e.valueAt(itemViewType) : null;
-        if (valueAt == null || valueAt.B() == null) {
-            return false;
-        }
-        return valueAt.B().a(view, item, valueAt.G(), viewGroup, i, j);
-    }
-
-    public void s(int i, int i2) {
-        if (i < this.f2393g.size()) {
-            this.f2393g.remove(i);
-            notifyItemRemoved(i + i2);
-        }
+        this.f2375g.addAll(list);
+        notifyItemRangeChanged(i2, i3);
     }
 
     public void setData(List<? extends n> list) {
-        List<n> list2 = this.f2393g;
+        List<n> list2 = this.f2375g;
         if (list2 == null) {
-            this.f2393g = new ArrayList();
+            this.f2375g = new ArrayList();
         } else {
             list2.clear();
         }
-        this.f2393g.addAll(list);
+        this.f2375g.addAll(list);
         notifyDataSetChanged();
-    }
-
-    public void u(int i, int i2, int i3) {
-        if (i >= this.f2393g.size() || i2 >= this.f2393g.size() || i > i2) {
-            return;
-        }
-        this.f2393g.subList(i, i2 + 1).clear();
-        notifyItemRangeRemoved(i3 + i, (i2 - i) + 1);
-    }
-
-    public void v(List<? extends n> list, int i, int i2) {
-        List<n> list2 = this.f2393g;
-        if (list2 == null) {
-            this.f2393g = new ArrayList();
-        } else {
-            list2.clear();
-        }
-        this.f2393g.addAll(list);
-        notifyItemRangeChanged(i, i2);
     }
 }

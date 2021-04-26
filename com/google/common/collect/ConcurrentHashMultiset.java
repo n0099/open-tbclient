@@ -1,13 +1,13 @@
 package com.google.common.collect;
 
 import com.google.common.primitives.Ints;
-import d.h.c.a.n;
-import d.h.c.c.a0;
-import d.h.c.c.f0;
-import d.h.c.c.i0;
-import d.h.c.c.m;
-import d.h.c.c.r0;
-import d.h.c.c.t;
+import d.g.c.a.n;
+import d.g.c.c.a0;
+import d.g.c.c.f0;
+import d.g.c.c.i0;
+import d.g.c.c.m;
+import d.g.c.c.r0;
+import d.g.c.c.t;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
-public final class ConcurrentHashMultiset<E> extends d.h.c.c.d<E> implements Serializable {
+public final class ConcurrentHashMultiset<E> extends d.g.c.c.d<E> implements Serializable {
     public static final long serialVersionUID = 1;
     public final transient ConcurrentMap<E, AtomicInteger> countMap;
 
@@ -30,21 +30,21 @@ public final class ConcurrentHashMultiset<E> extends d.h.c.c.d<E> implements Ser
     public class b extends AbstractIterator<i0.a<E>> {
 
         /* renamed from: g  reason: collision with root package name */
-        public final Iterator<Map.Entry<E, AtomicInteger>> f30837g;
+        public final Iterator<Map.Entry<E, AtomicInteger>> f31794g;
 
         public b() {
-            this.f30837g = ConcurrentHashMultiset.this.countMap.entrySet().iterator();
+            this.f31794g = ConcurrentHashMultiset.this.countMap.entrySet().iterator();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.AbstractIterator
         /* renamed from: d */
         public i0.a<E> a() {
-            while (this.f30837g.hasNext()) {
-                Map.Entry<E, AtomicInteger> next = this.f30837g.next();
-                int i = next.getValue().get();
-                if (i != 0) {
-                    return Multisets.g(next.getKey(), i);
+            while (this.f31794g.hasNext()) {
+                Map.Entry<E, AtomicInteger> next = this.f31794g.next();
+                int i2 = next.getValue().get();
+                if (i2 != 0) {
+                    return Multisets.g(next.getKey(), i2);
                 }
             }
             return b();
@@ -55,47 +55,47 @@ public final class ConcurrentHashMultiset<E> extends d.h.c.c.d<E> implements Ser
     public class c extends t<i0.a<E>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public i0.a<E> f30839e;
+        public i0.a<E> f31796e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Iterator f30840f;
+        public final /* synthetic */ Iterator f31797f;
 
         public c(Iterator it) {
-            this.f30840f = it;
+            this.f31797f = it;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.h.c.c.y
+        @Override // d.g.c.c.y
         /* renamed from: b */
         public Iterator<i0.a<E>> delegate() {
-            return this.f30840f;
+            return this.f31797f;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.h.c.c.t, java.util.Iterator
+        @Override // d.g.c.c.t, java.util.Iterator
         /* renamed from: c */
         public i0.a<E> next() {
             i0.a<E> aVar = (i0.a) super.next();
-            this.f30839e = aVar;
+            this.f31796e = aVar;
             return aVar;
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            m.e(this.f30839e != null);
-            ConcurrentHashMultiset.this.setCount(this.f30839e.getElement(), 0);
-            this.f30839e = null;
+            m.e(this.f31796e != null);
+            ConcurrentHashMultiset.this.setCount(this.f31796e.getElement(), 0);
+            this.f31796e = null;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d extends d.h.c.c.d<E>.b {
+    public class d extends d.g.c.c.d<E>.b {
         public d() {
             super();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.h.c.c.d.b, com.google.common.collect.Multisets.d
+        @Override // d.g.c.c.d.b, com.google.common.collect.Multisets.d
         /* renamed from: c */
         public ConcurrentHashMultiset<E> b() {
             return ConcurrentHashMultiset.this;
@@ -126,7 +126,7 @@ public final class ConcurrentHashMultiset<E> extends d.h.c.c.d<E> implements Ser
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final r0.b<ConcurrentHashMultiset> f30843a = r0.a(ConcurrentHashMultiset.class, "countMap");
+        public static final r0.b<ConcurrentHashMultiset> f31800a = r0.a(ConcurrentHashMultiset.class, "countMap");
     }
 
     public ConcurrentHashMultiset(ConcurrentMap<E, AtomicInteger> concurrentMap) {
@@ -140,7 +140,7 @@ public final class ConcurrentHashMultiset<E> extends d.h.c.c.d<E> implements Ser
 
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
         objectInputStream.defaultReadObject();
-        e.f30843a.b(this, (ConcurrentMap) objectInputStream.readObject());
+        e.f31800a.b(this, (ConcurrentMap) objectInputStream.readObject());
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v1, resolved type: java.util.ArrayList */
@@ -167,32 +167,32 @@ public final class ConcurrentHashMultiset<E> extends d.h.c.c.d<E> implements Ser
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0065, code lost:
         if (r4.countMap.putIfAbsent(r5, r2) == null) goto L31;
      */
-    @Override // d.h.c.c.d, d.h.c.c.i0
+    @Override // d.g.c.c.d, d.g.c.c.i0
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int add(E e2, int i) {
+    public int add(E e2, int i2) {
         AtomicInteger atomicInteger;
         AtomicInteger atomicInteger2;
         n.p(e2);
-        if (i == 0) {
+        if (i2 == 0) {
             return count(e2);
         }
-        m.d(i, "occurences");
+        m.d(i2, "occurences");
         do {
             atomicInteger = (AtomicInteger) Maps.x(this.countMap, e2);
-            if (atomicInteger != null || (atomicInteger = this.countMap.putIfAbsent(e2, new AtomicInteger(i))) != null) {
+            if (atomicInteger != null || (atomicInteger = this.countMap.putIfAbsent(e2, new AtomicInteger(i2))) != null) {
                 while (true) {
-                    int i2 = atomicInteger.get();
-                    if (i2 == 0) {
+                    int i3 = atomicInteger.get();
+                    if (i3 == 0) {
                         break;
                     }
                     try {
-                        if (atomicInteger.compareAndSet(i2, d.h.c.f.c.a(i2, i))) {
-                            return i2;
+                        if (atomicInteger.compareAndSet(i3, d.g.c.f.c.a(i3, i2))) {
+                            return i3;
                         }
                     } catch (ArithmeticException unused) {
-                        throw new IllegalArgumentException("Overflow adding " + i + " occurrences to a count of " + i2);
+                        throw new IllegalArgumentException("Overflow adding " + i2 + " occurrences to a count of " + i3);
                     }
                 }
             } else {
@@ -202,17 +202,17 @@ public final class ConcurrentHashMultiset<E> extends d.h.c.c.d<E> implements Ser
         return 0;
     }
 
-    @Override // d.h.c.c.d, java.util.AbstractCollection, java.util.Collection
+    @Override // d.g.c.c.d, java.util.AbstractCollection, java.util.Collection
     public void clear() {
         this.countMap.clear();
     }
 
-    @Override // d.h.c.c.d, java.util.AbstractCollection, java.util.Collection, d.h.c.c.i0
+    @Override // d.g.c.c.d, java.util.AbstractCollection, java.util.Collection, d.g.c.c.i0
     public /* bridge */ /* synthetic */ boolean contains(Object obj) {
         return super.contains(obj);
     }
 
-    @Override // d.h.c.c.i0
+    @Override // d.g.c.c.i0
     public int count(Object obj) {
         AtomicInteger atomicInteger = (AtomicInteger) Maps.x(this.countMap, obj);
         if (atomicInteger == null) {
@@ -221,96 +221,96 @@ public final class ConcurrentHashMultiset<E> extends d.h.c.c.d<E> implements Ser
         return atomicInteger.get();
     }
 
-    @Override // d.h.c.c.d
+    @Override // d.g.c.c.d
     public Set<E> createElementSet() {
         return new a(this, this.countMap.keySet());
     }
 
-    @Override // d.h.c.c.d
+    @Override // d.g.c.c.d
     @Deprecated
     public Set<i0.a<E>> createEntrySet() {
         return new d(this, null);
     }
 
-    @Override // d.h.c.c.d
+    @Override // d.g.c.c.d
     public int distinctElements() {
         return this.countMap.size();
     }
 
-    @Override // d.h.c.c.d
+    @Override // d.g.c.c.d
     public Iterator<E> elementIterator() {
         throw new AssertionError("should never be called");
     }
 
-    @Override // d.h.c.c.d, d.h.c.c.i0
+    @Override // d.g.c.c.d, d.g.c.c.i0
     public /* bridge */ /* synthetic */ Set elementSet() {
         return super.elementSet();
     }
 
-    @Override // d.h.c.c.d
+    @Override // d.g.c.c.d
     public Iterator<i0.a<E>> entryIterator() {
         return new c(new b());
     }
 
-    @Override // d.h.c.c.d, d.h.c.c.i0
+    @Override // d.g.c.c.d, d.g.c.c.i0
     public /* bridge */ /* synthetic */ Set entrySet() {
         return super.entrySet();
     }
 
-    @Override // d.h.c.c.d, java.util.AbstractCollection, java.util.Collection
+    @Override // d.g.c.c.d, java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
         return this.countMap.isEmpty();
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, d.h.c.c.i0
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, d.g.c.c.i0
     public Iterator<E> iterator() {
         return Multisets.i(this);
     }
 
-    @Override // d.h.c.c.d, d.h.c.c.i0
-    public int remove(Object obj, int i) {
-        int i2;
+    @Override // d.g.c.c.d, d.g.c.c.i0
+    public int remove(Object obj, int i2) {
+        int i3;
         int max;
-        if (i == 0) {
+        if (i2 == 0) {
             return count(obj);
         }
-        m.d(i, "occurences");
+        m.d(i2, "occurences");
         AtomicInteger atomicInteger = (AtomicInteger) Maps.x(this.countMap, obj);
         if (atomicInteger == null) {
             return 0;
         }
         do {
-            i2 = atomicInteger.get();
-            if (i2 == 0) {
+            i3 = atomicInteger.get();
+            if (i3 == 0) {
                 return 0;
             }
-            max = Math.max(0, i2 - i);
-        } while (!atomicInteger.compareAndSet(i2, max));
+            max = Math.max(0, i3 - i2);
+        } while (!atomicInteger.compareAndSet(i3, max));
         if (max == 0) {
             this.countMap.remove(obj, atomicInteger);
         }
-        return i2;
+        return i3;
     }
 
-    public boolean removeExactly(Object obj, int i) {
-        int i2;
+    public boolean removeExactly(Object obj, int i2) {
         int i3;
-        if (i == 0) {
+        int i4;
+        if (i2 == 0) {
             return true;
         }
-        m.d(i, "occurences");
+        m.d(i2, "occurences");
         AtomicInteger atomicInteger = (AtomicInteger) Maps.x(this.countMap, obj);
         if (atomicInteger == null) {
             return false;
         }
         do {
-            i2 = atomicInteger.get();
-            if (i2 < i) {
+            i3 = atomicInteger.get();
+            if (i3 < i2) {
                 return false;
             }
-            i3 = i2 - i;
-        } while (!atomicInteger.compareAndSet(i2, i3));
-        if (i3 == 0) {
+            i4 = i3 - i2;
+        } while (!atomicInteger.compareAndSet(i3, i4));
+        if (i4 == 0) {
             this.countMap.remove(obj, atomicInteger);
         }
         return true;
@@ -328,36 +328,36 @@ public final class ConcurrentHashMultiset<E> extends d.h.c.c.d<E> implements Ser
     /* JADX WARN: Code restructure failed: missing block: B:15:0x003a, code lost:
         if (r4.countMap.putIfAbsent(r5, r2) == null) goto L29;
      */
-    @Override // d.h.c.c.d, d.h.c.c.i0
+    @Override // d.g.c.c.d, d.g.c.c.i0
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int setCount(E e2, int i) {
+    public int setCount(E e2, int i2) {
         AtomicInteger atomicInteger;
         AtomicInteger atomicInteger2;
         n.p(e2);
-        m.b(i, "count");
+        m.b(i2, "count");
         do {
             atomicInteger = (AtomicInteger) Maps.x(this.countMap, e2);
-            if (atomicInteger == null && (i == 0 || (atomicInteger = this.countMap.putIfAbsent(e2, new AtomicInteger(i))) == null)) {
+            if (atomicInteger == null && (i2 == 0 || (atomicInteger = this.countMap.putIfAbsent(e2, new AtomicInteger(i2))) == null)) {
                 return 0;
             }
             while (true) {
-                int i2 = atomicInteger.get();
-                if (i2 == 0) {
+                int i3 = atomicInteger.get();
+                if (i3 == 0) {
                     break;
-                } else if (atomicInteger.compareAndSet(i2, i)) {
-                    if (i == 0) {
+                } else if (atomicInteger.compareAndSet(i3, i2)) {
+                    if (i2 == 0) {
                         this.countMap.remove(e2, atomicInteger);
                     }
-                    return i2;
+                    return i3;
                 }
             }
         } while (!this.countMap.replace(e2, atomicInteger, atomicInteger2));
         return 0;
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, d.h.c.c.i0
+    @Override // java.util.AbstractCollection, java.util.Collection, d.g.c.c.i0
     public int size() {
         long j = 0;
         for (AtomicInteger atomicInteger : this.countMap.values()) {
@@ -375,36 +375,36 @@ public final class ConcurrentHashMultiset<E> extends d.h.c.c.d<E> implements Ser
     public class a extends a0<E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Set f30836e;
+        public final /* synthetic */ Set f31793e;
 
         public a(ConcurrentHashMultiset concurrentHashMultiset, Set set) {
-            this.f30836e = set;
+            this.f31793e = set;
         }
 
-        @Override // d.h.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
-            return obj != null && d.h.c.c.n.d(this.f30836e, obj);
+            return obj != null && d.g.c.c.n.d(this.f31793e, obj);
         }
 
-        @Override // d.h.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
         public boolean containsAll(Collection<?> collection) {
             return standardContainsAll(collection);
         }
 
-        @Override // d.h.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
         public boolean remove(Object obj) {
-            return obj != null && d.h.c.c.n.e(this.f30836e, obj);
+            return obj != null && d.g.c.c.n.e(this.f31793e, obj);
         }
 
-        @Override // d.h.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
         public boolean removeAll(Collection<?> collection) {
             return standardRemoveAll(collection);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.h.c.c.a0, d.h.c.c.r, d.h.c.c.y
+        @Override // d.g.c.c.a0, d.g.c.c.r, d.g.c.c.y
         public Set<E> delegate() {
-            return this.f30836e;
+            return this.f31793e;
         }
     }
 
@@ -423,29 +423,29 @@ public final class ConcurrentHashMultiset<E> extends d.h.c.c.d<E> implements Ser
         return new ConcurrentHashMultiset<>(concurrentMap);
     }
 
-    @Override // d.h.c.c.d, d.h.c.c.i0
-    public boolean setCount(E e2, int i, int i2) {
+    @Override // d.g.c.c.d, d.g.c.c.i0
+    public boolean setCount(E e2, int i2, int i3) {
         n.p(e2);
-        m.b(i, "oldCount");
-        m.b(i2, "newCount");
+        m.b(i2, "oldCount");
+        m.b(i3, "newCount");
         AtomicInteger atomicInteger = (AtomicInteger) Maps.x(this.countMap, e2);
         if (atomicInteger == null) {
-            if (i != 0) {
+            if (i2 != 0) {
                 return false;
             }
-            return i2 == 0 || this.countMap.putIfAbsent(e2, new AtomicInteger(i2)) == null;
+            return i3 == 0 || this.countMap.putIfAbsent(e2, new AtomicInteger(i3)) == null;
         }
-        int i3 = atomicInteger.get();
-        if (i3 == i) {
-            if (i3 == 0) {
-                if (i2 == 0) {
+        int i4 = atomicInteger.get();
+        if (i4 == i2) {
+            if (i4 == 0) {
+                if (i3 == 0) {
                     this.countMap.remove(e2, atomicInteger);
                     return true;
                 }
-                AtomicInteger atomicInteger2 = new AtomicInteger(i2);
+                AtomicInteger atomicInteger2 = new AtomicInteger(i3);
                 return this.countMap.putIfAbsent(e2, atomicInteger2) == null || this.countMap.replace(e2, atomicInteger, atomicInteger2);
-            } else if (atomicInteger.compareAndSet(i3, i2)) {
-                if (i2 == 0) {
+            } else if (atomicInteger.compareAndSet(i4, i3)) {
+                if (i3 == 0) {
                     this.countMap.remove(e2, atomicInteger);
                 }
                 return true;

@@ -25,8 +25,8 @@ public class BTree {
         bTree.addString(str.substring(1), obj);
     }
 
-    public BTree down(int i) {
-        if (i == 0) {
+    public BTree down(int i2) {
+        if (i2 == 0) {
             return this.zero;
         }
         return this.one;

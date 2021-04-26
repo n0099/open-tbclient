@@ -3,8 +3,8 @@ package com.baidu.tieba.personExtra;
 import android.os.Bundle;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-import d.b.j0.h2.c;
-/* loaded from: classes3.dex */
+import d.a.j0.h2.c;
+/* loaded from: classes4.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
     public PersonBarAdapter mAdapter = null;
     public PersonBarModel mModel = null;
@@ -60,7 +60,7 @@ public class PersonBarActivity extends BasePersonInfoActivity {
         return this.requestCode;
     }
 
-    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (this.mIsChooseBarMode && this.requestCode != 23011) {
@@ -74,12 +74,12 @@ public class PersonBarActivity extends BasePersonInfoActivity {
     }
 
     @Override // com.baidu.tieba.personExtra.BasePersonInfoActivity, androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
+    public void onPageSelected(int i2) {
         BaseFragment baseFragment;
         c i1;
-        super.onPageSelected(i);
+        super.onPageSelected(i2);
         PersonBarAdapter personBarAdapter = this.mAdapter;
-        if (personBarAdapter == null || personBarAdapter.getItem(i) == null || (baseFragment = (BaseFragment) this.mAdapter.getItem(i)) == null || !(baseFragment instanceof PersonBarFragment) || (i1 = ((PersonBarFragment) baseFragment).i1()) == null) {
+        if (personBarAdapter == null || personBarAdapter.getItem(i2) == null || (baseFragment = (BaseFragment) this.mAdapter.getItem(i2)) == null || !(baseFragment instanceof PersonBarFragment) || (i1 = ((PersonBarFragment) baseFragment).i1()) == null) {
             return;
         }
         i1.f(false);

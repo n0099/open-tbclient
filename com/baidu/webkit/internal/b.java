@@ -3,18 +3,18 @@ package com.baidu.webkit.internal;
 public final class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f26562a;
+    public final /* synthetic */ String f27369a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f26563b;
+    public final /* synthetic */ String f27370b;
 
     public b(String str, String str2) {
-        this.f26562a = str;
-        this.f26563b = str2;
+        this.f27369a = str;
+        this.f27370b = str2;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        ApisInteractWithMario.setCrashKeyValue(this.f26562a, this.f26563b);
+        ApisInteractWithMario.setCrashKeyValue(this.f27369a, this.f27370b);
     }
 }

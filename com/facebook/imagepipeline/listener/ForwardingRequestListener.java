@@ -33,9 +33,9 @@ public class ForwardingRequestListener implements RequestListener {
     @Override // com.facebook.imagepipeline.producers.ProducerListener
     public void onDecoderFinishWithFailure(ImageRequest imageRequest, EncodedImage encodedImage, Throwable th, @Nullable Map<String, String> map) {
         int size = this.mRequestListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                this.mRequestListeners.get(i).onDecoderFinishWithFailure(imageRequest, encodedImage, th, map);
+                this.mRequestListeners.get(i2).onDecoderFinishWithFailure(imageRequest, encodedImage, th, map);
             } catch (Exception e2) {
                 onException("InternalListener exception in onProducerFinishWithFailure", e2);
             }
@@ -45,9 +45,9 @@ public class ForwardingRequestListener implements RequestListener {
     @Override // com.facebook.imagepipeline.producers.ProducerListener
     public void onProducerEvent(String str, String str2, String str3) {
         int size = this.mRequestListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                this.mRequestListeners.get(i).onProducerEvent(str, str2, str3);
+                this.mRequestListeners.get(i2).onProducerEvent(str, str2, str3);
             } catch (Exception e2) {
                 onException("InternalListener exception in onIntermediateChunkStart", e2);
             }
@@ -57,9 +57,9 @@ public class ForwardingRequestListener implements RequestListener {
     @Override // com.facebook.imagepipeline.producers.ProducerListener
     public void onProducerFinishWithCancellation(String str, String str2, @Nullable Map<String, String> map) {
         int size = this.mRequestListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                this.mRequestListeners.get(i).onProducerFinishWithCancellation(str, str2, map);
+                this.mRequestListeners.get(i2).onProducerFinishWithCancellation(str, str2, map);
             } catch (Exception e2) {
                 onException("InternalListener exception in onProducerFinishWithCancellation", e2);
             }
@@ -69,9 +69,9 @@ public class ForwardingRequestListener implements RequestListener {
     @Override // com.facebook.imagepipeline.producers.ProducerListener
     public void onProducerFinishWithFailure(String str, String str2, Throwable th, @Nullable Map<String, String> map) {
         int size = this.mRequestListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                this.mRequestListeners.get(i).onProducerFinishWithFailure(str, str2, th, map);
+                this.mRequestListeners.get(i2).onProducerFinishWithFailure(str, str2, th, map);
             } catch (Exception e2) {
                 onException("InternalListener exception in onProducerFinishWithFailure", e2);
             }
@@ -81,9 +81,9 @@ public class ForwardingRequestListener implements RequestListener {
     @Override // com.facebook.imagepipeline.producers.ProducerListener
     public void onProducerFinishWithSuccess(String str, String str2, @Nullable Map<String, String> map) {
         int size = this.mRequestListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                this.mRequestListeners.get(i).onProducerFinishWithSuccess(str, str2, map);
+                this.mRequestListeners.get(i2).onProducerFinishWithSuccess(str, str2, map);
             } catch (Exception e2) {
                 onException("InternalListener exception in onProducerFinishWithSuccess", e2);
             }
@@ -93,9 +93,9 @@ public class ForwardingRequestListener implements RequestListener {
     @Override // com.facebook.imagepipeline.producers.ProducerListener
     public void onProducerStart(String str, String str2) {
         int size = this.mRequestListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                this.mRequestListeners.get(i).onProducerStart(str, str2);
+                this.mRequestListeners.get(i2).onProducerStart(str, str2);
             } catch (Exception e2) {
                 onException("InternalListener exception in onProducerStart", e2);
             }
@@ -105,9 +105,9 @@ public class ForwardingRequestListener implements RequestListener {
     @Override // com.facebook.imagepipeline.listener.RequestListener
     public void onRequestCancellation(String str) {
         int size = this.mRequestListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                this.mRequestListeners.get(i).onRequestCancellation(str);
+                this.mRequestListeners.get(i2).onRequestCancellation(str);
             } catch (Exception e2) {
                 onException("InternalListener exception in onRequestCancellation", e2);
             }
@@ -117,9 +117,9 @@ public class ForwardingRequestListener implements RequestListener {
     @Override // com.facebook.imagepipeline.listener.RequestListener
     public void onRequestFailure(ImageRequest imageRequest, String str, Throwable th, boolean z) {
         int size = this.mRequestListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                this.mRequestListeners.get(i).onRequestFailure(imageRequest, str, th, z);
+                this.mRequestListeners.get(i2).onRequestFailure(imageRequest, str, th, z);
             } catch (Exception e2) {
                 onException("InternalListener exception in onRequestFailure", e2);
             }
@@ -129,9 +129,9 @@ public class ForwardingRequestListener implements RequestListener {
     @Override // com.facebook.imagepipeline.listener.RequestListener
     public void onRequestStart(ImageRequest imageRequest, Object obj, String str, boolean z) {
         int size = this.mRequestListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                this.mRequestListeners.get(i).onRequestStart(imageRequest, obj, str, z);
+                this.mRequestListeners.get(i2).onRequestStart(imageRequest, obj, str, z);
             } catch (Exception e2) {
                 onException("InternalListener exception in onRequestStart", e2);
             }
@@ -141,9 +141,9 @@ public class ForwardingRequestListener implements RequestListener {
     @Override // com.facebook.imagepipeline.listener.RequestListener
     public void onRequestSuccess(ImageRequest imageRequest, String str, boolean z) {
         int size = this.mRequestListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                this.mRequestListeners.get(i).onRequestSuccess(imageRequest, str, z);
+                this.mRequestListeners.get(i2).onRequestSuccess(imageRequest, str, z);
             } catch (Exception e2) {
                 onException("InternalListener exception in onRequestSuccess", e2);
             }
@@ -153,9 +153,9 @@ public class ForwardingRequestListener implements RequestListener {
     @Override // com.facebook.imagepipeline.producers.ProducerListener
     public void onUltimateProducerReached(String str, String str2, boolean z) {
         int size = this.mRequestListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                this.mRequestListeners.get(i).onUltimateProducerReached(str, str2, z);
+                this.mRequestListeners.get(i2).onUltimateProducerReached(str, str2, z);
             } catch (Exception e2) {
                 onException("InternalListener exception in onProducerFinishWithSuccess", e2);
             }
@@ -165,8 +165,8 @@ public class ForwardingRequestListener implements RequestListener {
     @Override // com.facebook.imagepipeline.producers.ProducerListener
     public boolean requiresExtraMap(String str) {
         int size = this.mRequestListeners.size();
-        for (int i = 0; i < size; i++) {
-            if (this.mRequestListeners.get(i).requiresExtraMap(str)) {
+        for (int i2 = 0; i2 < size; i2++) {
+            if (this.mRequestListeners.get(i2).requiresExtraMap(str)) {
                 return true;
             }
         }

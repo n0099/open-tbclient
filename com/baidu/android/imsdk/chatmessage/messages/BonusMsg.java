@@ -18,8 +18,8 @@ public class BonusMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public BonusMsg[] newArray(int i) {
-            return new BonusMsg[i];
+        public BonusMsg[] newArray(int i2) {
+            return new BonusMsg[i2];
         }
     };
     public static final String TAG = "BonusMsg";
@@ -131,8 +131,8 @@ public class BonusMsg extends NormalMsg {
         this.mDiscountCondition = str;
     }
 
-    public void setDiscountType(int i) {
-        this.mDiscountType = i;
+    public void setDiscountType(int i2) {
+        this.mDiscountType = i2;
     }
 
     public void setDiscountValue(String str) {
@@ -155,8 +155,8 @@ public class BonusMsg extends NormalMsg {
         this.mSkipAddr = str;
     }
 
-    public void setSkipType(int i) {
-        this.mSkipType = i;
+    public void setSkipType(int i2) {
+        this.mSkipType = i2;
     }
 
     public void setSource(String str) {
@@ -168,8 +168,8 @@ public class BonusMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.mText);
         parcel.writeString(this.mSource);
         parcel.writeString(this.mIdentity);

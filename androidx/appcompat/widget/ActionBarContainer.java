@@ -3,6 +3,7 @@ package androidx.appcompat.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.ActionMode;
 import android.view.MotionEvent;
@@ -12,7 +13,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.core.view.ViewCompat;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ActionBarContainer extends FrameLayout {
     public View mActionBarView;
@@ -97,17 +98,17 @@ public class ActionBarContainer extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         Drawable drawable;
-        super.onLayout(z, i, i2, i3, i4);
+        super.onLayout(z, i2, i3, i4, i5);
         View view = this.mTabContainer;
         boolean z2 = true;
         boolean z3 = false;
         boolean z4 = (view == null || view.getVisibility() == 8) ? false : true;
         if (view != null && view.getVisibility() != 8) {
             int measuredHeight = getMeasuredHeight();
-            int i5 = ((FrameLayout.LayoutParams) view.getLayoutParams()).bottomMargin;
-            view.layout(i, (measuredHeight - view.getMeasuredHeight()) - i5, i3, measuredHeight - i5);
+            int i6 = ((FrameLayout.LayoutParams) view.getLayoutParams()).bottomMargin;
+            view.layout(i2, (measuredHeight - view.getMeasuredHeight()) - i6, i4, measuredHeight - i6);
         }
         if (this.mIsSplit) {
             Drawable drawable2 = this.mSplitBackground;
@@ -143,17 +144,17 @@ public class ActionBarContainer extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         int measuredHeightWithMargins;
-        int i3;
-        if (this.mActionBarView == null && View.MeasureSpec.getMode(i2) == Integer.MIN_VALUE && (i3 = this.mHeight) >= 0) {
-            i2 = View.MeasureSpec.makeMeasureSpec(Math.min(i3, View.MeasureSpec.getSize(i2)), Integer.MIN_VALUE);
+        int i4;
+        if (this.mActionBarView == null && View.MeasureSpec.getMode(i3) == Integer.MIN_VALUE && (i4 = this.mHeight) >= 0) {
+            i3 = View.MeasureSpec.makeMeasureSpec(Math.min(i4, View.MeasureSpec.getSize(i3)), Integer.MIN_VALUE);
         }
-        super.onMeasure(i, i2);
+        super.onMeasure(i2, i3);
         if (this.mActionBarView == null) {
             return;
         }
-        int mode = View.MeasureSpec.getMode(i2);
+        int mode = View.MeasureSpec.getMode(i3);
         View view = this.mTabContainer;
         if (view == null || view.getVisibility() == 8 || mode == 1073741824) {
             return;
@@ -163,7 +164,7 @@ public class ActionBarContainer extends FrameLayout {
         } else {
             measuredHeightWithMargins = !isCollapsed(this.mContextView) ? getMeasuredHeightWithMargins(this.mContextView) : 0;
         }
-        setMeasuredDimension(getMeasuredWidth(), Math.min(measuredHeightWithMargins + getMeasuredHeightWithMargins(this.mTabContainer), mode == Integer.MIN_VALUE ? View.MeasureSpec.getSize(i2) : Integer.MAX_VALUE));
+        setMeasuredDimension(getMeasuredWidth(), Math.min(measuredHeightWithMargins + getMeasuredHeightWithMargins(this.mTabContainer), mode == Integer.MIN_VALUE ? View.MeasureSpec.getSize(i3) : Integer.MAX_VALUE));
     }
 
     @Override // android.view.View
@@ -192,6 +193,9 @@ public class ActionBarContainer extends FrameLayout {
         }
         setWillNotDraw(z);
         invalidate();
+        if (Build.VERSION.SDK_INT >= 21) {
+            invalidateOutline();
+        }
     }
 
     public void setSplitBackground(Drawable drawable) {
@@ -214,6 +218,9 @@ public class ActionBarContainer extends FrameLayout {
         }
         setWillNotDraw(z);
         invalidate();
+        if (Build.VERSION.SDK_INT >= 21) {
+            invalidateOutline();
+        }
     }
 
     public void setStackedBackground(Drawable drawable) {
@@ -236,6 +243,9 @@ public class ActionBarContainer extends FrameLayout {
         }
         setWillNotDraw(z);
         invalidate();
+        if (Build.VERSION.SDK_INT >= 21) {
+            invalidateOutline();
+        }
     }
 
     public void setTabContainer(ScrollingTabContainerView scrollingTabContainerView) {
@@ -259,9 +269,9 @@ public class ActionBarContainer extends FrameLayout {
     }
 
     @Override // android.view.View
-    public void setVisibility(int i) {
-        super.setVisibility(i);
-        boolean z = i == 0;
+    public void setVisibility(int i2) {
+        super.setVisibility(i2);
+        boolean z = i2 == 0;
         Drawable drawable = this.mBackground;
         if (drawable != null) {
             drawable.setVisible(z, false);
@@ -282,9 +292,9 @@ public class ActionBarContainer extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
-    public ActionMode startActionModeForChild(View view, ActionMode.Callback callback, int i) {
-        if (i != 0) {
-            return super.startActionModeForChild(view, callback, i);
+    public ActionMode startActionModeForChild(View view, ActionMode.Callback callback, int i2) {
+        if (i2 != 0) {
+            return super.startActionModeForChild(view, callback, i2);
         }
         return null;
     }

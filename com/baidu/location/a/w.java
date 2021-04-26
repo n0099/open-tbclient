@@ -16,30 +16,32 @@ public class w {
     public int B;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f6630a = 0;
+    public long f6857a = 0;
     public a z;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ArrayList<String> f6623b = new ArrayList<>();
+    public static ArrayList<String> f6849b = new ArrayList<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public static ArrayList<String> f6624c = new ArrayList<>();
+    public static ArrayList<String> f6850c = new ArrayList<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public static ArrayList<String> f6625d = new ArrayList<>();
+    public static ArrayList<String> f6851d = new ArrayList<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f6626e = com.baidu.location.d.i.f6748a + "/yo.dat";
+    public static String f6852e = com.baidu.location.d.i.f6983a + "/yo.dat";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f6627f = com.baidu.location.d.i.f6748a + "/yoh.dat";
+    public static final String f6853f = com.baidu.location.d.i.f6983a + "/yoh.dat";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f6628g = com.baidu.location.d.i.f6748a + "/yom.dat";
+    public static final String f6854g = com.baidu.location.d.i.f6983a + "/yom.dat";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f6629h = com.baidu.location.d.i.f6748a + "/yol.dat";
-    public static final String i = com.baidu.location.d.i.f6748a + "/yor.dat";
+    public static final String f6855h = com.baidu.location.d.i.f6983a + "/yol.dat";
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final String f6856i = com.baidu.location.d.i.f6983a + "/yor.dat";
     public static File j = null;
     public static int k = 8;
     public static int l = 8;
@@ -63,19 +65,19 @@ public class w {
     public class a extends com.baidu.location.d.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f6631a = false;
+        public boolean f6858a = false;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f6632b = 0;
+        public int f6859b = 0;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f6633c = 0;
+        public int f6860c = 0;
 
         /* renamed from: e  reason: collision with root package name */
-        public ArrayList<String> f6635e = new ArrayList<>();
+        public ArrayList<String> f6862e = new ArrayList<>();
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f6636f = true;
+        public boolean f6863f = true;
 
         public a() {
             this.k = new HashMap();
@@ -86,14 +88,14 @@ public class w {
             Map<String, Object> map;
             StringBuilder sb;
             String str;
-            this.f6741h = com.baidu.location.d.j.c();
-            if (this.f6632b != 1) {
-                this.f6741h = com.baidu.location.d.j.e();
+            this.f6975h = com.baidu.location.d.j.c();
+            if (this.f6859b != 1) {
+                this.f6975h = com.baidu.location.d.j.e();
             }
-            this.i = 2;
-            if (this.f6635e != null) {
-                for (int i = 0; i < this.f6635e.size(); i++) {
-                    if (this.f6632b == 1) {
+            this.f6976i = 2;
+            if (this.f6862e != null) {
+                for (int i2 = 0; i2 < this.f6862e.size(); i2++) {
+                    if (this.f6859b == 1) {
                         map = this.k;
                         sb = new StringBuilder();
                         str = "cldc[";
@@ -103,12 +105,12 @@ public class w {
                         str = "cltr[";
                     }
                     sb.append(str);
-                    sb.append(i);
+                    sb.append(i2);
                     sb.append("]");
-                    map.put(sb.toString(), this.f6635e.get(i));
+                    map.put(sb.toString(), this.f6862e.get(i2));
                 }
                 this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
-                if (this.f6632b != 1) {
+                if (this.f6859b != 1) {
                     this.k.put("qt", "cltrg");
                 }
             }
@@ -117,14 +119,14 @@ public class w {
         @Override // com.baidu.location.d.e
         public void a(boolean z) {
             if (z && this.j != null) {
-                ArrayList<String> arrayList = this.f6635e;
+                ArrayList<String> arrayList = this.f6862e;
                 if (arrayList != null) {
                     arrayList.clear();
                 }
                 try {
                     JSONObject jSONObject = new JSONObject(this.j);
                     if (jSONObject.has("ison") && jSONObject.getInt("ison") == 0) {
-                        this.f6636f = false;
+                        this.f6863f = false;
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -134,62 +136,62 @@ public class w {
             if (map != null) {
                 map.clear();
             }
-            this.f6631a = false;
+            this.f6858a = false;
         }
 
         public synchronized void b() {
-            if (this.f6631a) {
+            if (this.f6858a) {
                 return;
             }
-            if (com.baidu.location.d.e.p > 4 && this.f6633c < com.baidu.location.d.e.p) {
-                this.f6633c++;
+            if (com.baidu.location.d.e.p > 4 && this.f6860c < com.baidu.location.d.e.p) {
+                this.f6860c++;
                 return;
             }
-            this.f6633c = 0;
-            this.f6631a = true;
-            this.f6632b = 0;
+            this.f6860c = 0;
+            this.f6858a = true;
+            this.f6859b = 0;
             try {
-                if (this.f6635e == null || this.f6635e.size() < 1) {
-                    if (this.f6635e == null) {
-                        this.f6635e = new ArrayList<>();
+                if (this.f6862e == null || this.f6862e.size() < 1) {
+                    if (this.f6862e == null) {
+                        this.f6862e = new ArrayList<>();
                     }
-                    this.f6632b = 0;
-                    int i = 0;
+                    this.f6859b = 0;
+                    int i2 = 0;
                     while (true) {
                         String str = null;
-                        String b2 = this.f6632b < 2 ? w.b() : null;
-                        if (b2 == null && this.f6632b != 1 && this.f6636f) {
-                            this.f6632b = 2;
+                        String b2 = this.f6859b < 2 ? w.b() : null;
+                        if (b2 == null && this.f6859b != 1 && this.f6863f) {
+                            this.f6859b = 2;
                             try {
                                 str = g.a();
                             } catch (Exception unused) {
                             }
                         } else {
-                            this.f6632b = 1;
+                            this.f6859b = 1;
                             str = b2;
                         }
                         if (str == null) {
                             break;
                         } else if (!str.contains("err!")) {
-                            this.f6635e.add(str);
-                            i += str.length();
-                            if (i >= com.baidu.location.d.a.i) {
+                            this.f6862e.add(str);
+                            i2 += str.length();
+                            if (i2 >= com.baidu.location.d.a.f6943i) {
                                 break;
                             }
                         }
                     }
                 }
-                if (this.f6635e != null && this.f6635e.size() >= 1) {
-                    b(this.f6632b != 1 ? com.baidu.location.d.j.e() : com.baidu.location.d.j.f6755f);
+                if (this.f6862e != null && this.f6862e.size() >= 1) {
+                    b(this.f6859b != 1 ? com.baidu.location.d.j.e() : com.baidu.location.d.j.f6990f);
                     return;
                 }
-                if (this.f6635e != null) {
-                    this.f6635e.clear();
+                if (this.f6862e != null) {
+                    this.f6862e.clear();
                 }
-                this.f6631a = false;
+                this.f6858a = false;
             } catch (Exception unused2) {
-                if (this.f6635e != null) {
-                    this.f6635e.clear();
+                if (this.f6862e != null) {
+                    this.f6862e.clear();
                 }
             }
         }
@@ -208,7 +210,7 @@ public class w {
                 if (i2 >= 0) {
                     try {
                         if (j == null) {
-                            File file = new File(f6626e);
+                            File file = new File(f6852e);
                             j = file;
                             if (!file.exists()) {
                                 j = null;
@@ -289,20 +291,20 @@ public class w {
         ArrayList<String> arrayList;
         String str2 = null;
         if (i2 == 1) {
-            str = f6627f;
-            arrayList = f6623b;
+            str = f6853f;
+            arrayList = f6849b;
         } else if (i2 == 2) {
-            str = f6628g;
-            arrayList = f6624c;
+            str = f6854g;
+            arrayList = f6850c;
         } else {
             if (i2 == 3) {
-                str = f6629h;
+                str = f6855h;
             } else if (i2 != 4) {
                 return null;
             } else {
-                str = i;
+                str = f6856i;
             }
-            arrayList = f6625d;
+            arrayList = f6851d;
         }
         if (arrayList == null) {
             return null;
@@ -352,16 +354,16 @@ public class w {
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 == 3) {
-                        str = f6629h;
+                        str = f6855h;
                     } else if (i2 != 4) {
                         return;
                     } else {
-                        str = i;
+                        str = f6856i;
                         if (!z) {
                             return;
                         }
                     }
-                    arrayList = f6625d;
+                    arrayList = f6851d;
                     file = new File(str);
                     if (!file.exists()) {
                         d(str);
@@ -418,8 +420,8 @@ public class w {
                     a(i2 + 1, true);
                     return;
                 }
-                str = f6628g;
-                arrayList = f6624c;
+                str = f6854g;
+                arrayList = f6850c;
                 file = new File(str);
                 if (!file.exists()) {
                 }
@@ -447,7 +449,7 @@ public class w {
                 }
                 return;
             }
-            str = f6627f;
+            str = f6853f;
             if (z) {
                 return;
             }
@@ -475,7 +477,7 @@ public class w {
         } catch (Exception unused) {
             return;
         }
-        arrayList = f6623b;
+        arrayList = f6849b;
         file = new File(str);
         if (!file.exists()) {
         }
@@ -601,7 +603,7 @@ public class w {
     public static boolean a(Location location, com.baidu.location.b.h hVar) {
         List<ScanResult> list;
         boolean z = false;
-        if (location != null && hVar != null && (list = hVar.f6679a) != null && !list.isEmpty()) {
+        if (location != null && hVar != null && (list = hVar.f6909a) != null && !list.isEmpty()) {
             if (hVar.b(y)) {
                 return false;
             }
@@ -688,7 +690,7 @@ public class w {
             if (file.exists()) {
                 return;
             }
-            File file2 = new File(com.baidu.location.d.i.f6748a);
+            File file2 = new File(com.baidu.location.d.i.f6983a);
             if (!file2.exists()) {
                 file2.mkdirs();
             }
@@ -709,7 +711,7 @@ public class w {
     }
 
     public static String e() {
-        File file = new File(f6628g);
+        File file = new File(f6854g);
         String str = null;
         if (file.exists()) {
             try {
@@ -732,7 +734,7 @@ public class w {
             } catch (Exception unused2) {
             }
         }
-        File file2 = new File(f6629h);
+        File file2 = new File(f6855h);
         if (file2.exists()) {
             try {
                 RandomAccessFile randomAccessFile2 = new RandomAccessFile(file2, "rw");
@@ -754,7 +756,7 @@ public class w {
             } catch (Exception unused4) {
             }
         }
-        File file3 = new File(i);
+        File file3 = new File(f6856i);
         if (file3.exists()) {
             try {
                 RandomAccessFile randomAccessFile3 = new RandomAccessFile(file3, "rw");
@@ -787,13 +789,13 @@ public class w {
             }
             int i2 = com.baidu.location.d.j.q;
             if (i2 == 1) {
-                arrayList = f6623b;
+                arrayList = f6849b;
             } else if (i2 == 2) {
-                arrayList = f6624c;
+                arrayList = f6850c;
             } else if (i2 != 3) {
                 return;
             } else {
-                arrayList = f6625d;
+                arrayList = f6851d;
             }
             if (arrayList == null) {
                 return;
@@ -818,26 +820,26 @@ public class w {
                 return str;
             }
         }
-        a(f6625d, t);
-        if (f6625d.size() > 0) {
-            str = f6625d.get(0);
-            f6625d.remove(0);
+        a(f6851d, t);
+        if (f6851d.size() > 0) {
+            str = f6851d.get(0);
+            f6851d.remove(0);
         }
         if (str != null) {
             return str;
         }
-        a(f6625d, s);
-        if (f6625d.size() > 0) {
-            str = f6625d.get(0);
-            f6625d.remove(0);
+        a(f6851d, s);
+        if (f6851d.size() > 0) {
+            str = f6851d.get(0);
+            f6851d.remove(0);
         }
         if (str != null) {
             return str;
         }
-        a(f6625d, u);
-        if (f6625d.size() > 0) {
-            String str2 = f6625d.get(0);
-            f6625d.remove(0);
+        a(f6851d, u);
+        if (f6851d.size() > 0) {
+            String str2 = f6851d.get(0);
+            f6851d.remove(0);
             return str2;
         }
         return str;

@@ -9,49 +9,49 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class k implements s {
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f37423a;
+    public a.b f35145a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.d f37424b;
+    public a.d f35146b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Queue<MessageSnapshot> f37425c;
+    public Queue<MessageSnapshot> f35147c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f37426d = false;
+    public boolean f35148d = false;
 
     public k(a.b bVar, a.d dVar) {
         b(bVar, dVar);
     }
 
-    private void a(int i) {
-        if (com.kwai.filedownloader.d.d.a(i)) {
-            if (!this.f37425c.isEmpty()) {
-                MessageSnapshot peek = this.f37425c.peek();
-                com.kwai.filedownloader.f.d.d(this, "the messenger[%s](with id[%d]) has already accomplished all his job, but there still are some messages in parcel queue[%d] queue-top-status[%d]", this, Integer.valueOf(peek.m()), Integer.valueOf(this.f37425c.size()), Byte.valueOf(peek.b()));
+    private void a(int i2) {
+        if (com.kwai.filedownloader.d.d.a(i2)) {
+            if (!this.f35147c.isEmpty()) {
+                MessageSnapshot peek = this.f35147c.peek();
+                com.kwai.filedownloader.f.d.d(this, "the messenger[%s](with id[%d]) has already accomplished all his job, but there still are some messages in parcel queue[%d] queue-top-status[%d]", this, Integer.valueOf(peek.m()), Integer.valueOf(this.f35147c.size()), Byte.valueOf(peek.b()));
             }
-            this.f37423a = null;
+            this.f35145a = null;
         }
     }
 
     private void b(a.b bVar, a.d dVar) {
-        this.f37423a = bVar;
-        this.f37424b = dVar;
-        this.f37425c = new LinkedBlockingQueue();
+        this.f35145a = bVar;
+        this.f35146b = dVar;
+        this.f35147c = new LinkedBlockingQueue();
     }
 
     private void k(MessageSnapshot messageSnapshot) {
-        a.b bVar = this.f37423a;
+        a.b bVar = this.f35145a;
         if (bVar == null) {
-            if (com.kwai.filedownloader.f.d.f37396a) {
+            if (com.kwai.filedownloader.f.d.f35118a) {
                 com.kwai.filedownloader.f.d.c(this, "occur this case, it would be the host task of this messenger has been over(paused/warn/completed/error) on the other thread before receiving the snapshot(id[%d], status[%d])", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(messageSnapshot.b()));
             }
-        } else if (!this.f37426d && bVar.F().p() != null) {
-            this.f37425c.offer(messageSnapshot);
+        } else if (!this.f35148d && bVar.F().p() != null) {
+            this.f35147c.offer(messageSnapshot);
             j.a().a(this);
         } else {
-            if ((l.b() || this.f37423a.O()) && messageSnapshot.b() == 4) {
-                this.f37424b.c();
+            if ((l.b() || this.f35145a.O()) && messageSnapshot.b() == 4) {
+                this.f35146b.c();
             }
             a(messageSnapshot.b());
         }
@@ -59,7 +59,7 @@ public class k implements s {
 
     @Override // com.kwai.filedownloader.s
     public void a(a.b bVar, a.d dVar) {
-        if (this.f37423a != null) {
+        if (this.f35145a != null) {
             throw new IllegalStateException(com.kwai.filedownloader.f.f.a("the messenger is working, can't re-appointment for %s", bVar));
         }
         b(bVar, dVar);
@@ -67,34 +67,34 @@ public class k implements s {
 
     @Override // com.kwai.filedownloader.s
     public void a(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37396a) {
-            com.kwai.filedownloader.f.d.c(this, "notify pending %s", this.f37423a);
+        if (com.kwai.filedownloader.f.d.f35118a) {
+            com.kwai.filedownloader.f.d.c(this, "notify pending %s", this.f35145a);
         }
-        this.f37424b.f_();
+        this.f35146b.b_();
         k(messageSnapshot);
     }
 
     @Override // com.kwai.filedownloader.s
     public boolean a() {
-        if (com.kwai.filedownloader.f.d.f37396a) {
-            com.kwai.filedownloader.f.d.c(this, "notify begin %s", this.f37423a);
+        if (com.kwai.filedownloader.f.d.f35118a) {
+            com.kwai.filedownloader.f.d.c(this, "notify begin %s", this.f35145a);
         }
-        if (this.f37423a == null) {
-            com.kwai.filedownloader.f.d.d(this, "can't begin the task, the holder fo the messenger is nil, %d", Integer.valueOf(this.f37425c.size()));
+        if (this.f35145a == null) {
+            com.kwai.filedownloader.f.d.d(this, "can't begin the task, the holder fo the messenger is nil, %d", Integer.valueOf(this.f35147c.size()));
             return false;
         }
-        this.f37424b.a();
+        this.f35146b.a();
         return true;
     }
 
     @Override // com.kwai.filedownloader.s
     public void b() {
-        if (this.f37426d) {
+        if (this.f35148d) {
             return;
         }
-        MessageSnapshot poll = this.f37425c.poll();
+        MessageSnapshot poll = this.f35147c.poll();
         byte b2 = poll.b();
-        a.b bVar = this.f37423a;
+        a.b bVar = this.f35145a;
         if (bVar == null) {
             return;
         }
@@ -108,7 +108,7 @@ public class k implements s {
         if (b2 == 4) {
             try {
                 p.b(F);
-                j(((com.kwai.filedownloader.message.a) poll).g_());
+                j(((com.kwai.filedownloader.message.a) poll).c_());
                 return;
             } catch (Throwable th) {
                 h(G.a(th));
@@ -162,109 +162,109 @@ public class k implements s {
 
     @Override // com.kwai.filedownloader.s
     public void b(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37396a) {
-            com.kwai.filedownloader.f.d.c(this, "notify started %s", this.f37423a);
+        if (com.kwai.filedownloader.f.d.f35118a) {
+            com.kwai.filedownloader.f.d.c(this, "notify started %s", this.f35145a);
         }
-        this.f37424b.f_();
+        this.f35146b.b_();
         k(messageSnapshot);
     }
 
     @Override // com.kwai.filedownloader.s
     public void c(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37396a) {
-            com.kwai.filedownloader.f.d.c(this, "notify connected %s", this.f37423a);
+        if (com.kwai.filedownloader.f.d.f35118a) {
+            com.kwai.filedownloader.f.d.c(this, "notify connected %s", this.f35145a);
         }
-        this.f37424b.f_();
+        this.f35146b.b_();
         k(messageSnapshot);
     }
 
     @Override // com.kwai.filedownloader.s
     public boolean c() {
-        return this.f37423a.F().C();
+        return this.f35145a.F().C();
     }
 
     @Override // com.kwai.filedownloader.s
     public void d(MessageSnapshot messageSnapshot) {
-        a F = this.f37423a.F();
-        if (com.kwai.filedownloader.f.d.f37396a) {
+        a F = this.f35145a.F();
+        if (com.kwai.filedownloader.f.d.f35118a) {
             com.kwai.filedownloader.f.d.c(this, "notify progress %s %d %d", F, Long.valueOf(F.r()), Long.valueOf(F.t()));
         }
         if (F.j() > 0) {
-            this.f37424b.f_();
+            this.f35146b.b_();
             k(messageSnapshot);
-        } else if (com.kwai.filedownloader.f.d.f37396a) {
-            com.kwai.filedownloader.f.d.c(this, "notify progress but client not request notify %s", this.f37423a);
+        } else if (com.kwai.filedownloader.f.d.f35118a) {
+            com.kwai.filedownloader.f.d.c(this, "notify progress but client not request notify %s", this.f35145a);
         }
     }
 
     @Override // com.kwai.filedownloader.s
     public boolean d() {
-        return this.f37425c.peek().b() == 4;
+        return this.f35147c.peek().b() == 4;
     }
 
     @Override // com.kwai.filedownloader.s
     public void e() {
-        this.f37426d = true;
+        this.f35148d = true;
     }
 
     @Override // com.kwai.filedownloader.s
     public void e(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37396a) {
-            com.kwai.filedownloader.f.d.c(this, "notify block completed %s %s", this.f37423a, Thread.currentThread().getName());
+        if (com.kwai.filedownloader.f.d.f35118a) {
+            com.kwai.filedownloader.f.d.c(this, "notify block completed %s %s", this.f35145a, Thread.currentThread().getName());
         }
-        this.f37424b.f_();
+        this.f35146b.b_();
         k(messageSnapshot);
     }
 
     @Override // com.kwai.filedownloader.s
     public void f(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37396a) {
-            a F = this.f37423a.F();
-            com.kwai.filedownloader.f.d.c(this, "notify retry %s %d %d %s", this.f37423a, Integer.valueOf(F.A()), Integer.valueOf(F.B()), F.y());
+        if (com.kwai.filedownloader.f.d.f35118a) {
+            a F = this.f35145a.F();
+            com.kwai.filedownloader.f.d.c(this, "notify retry %s %d %d %s", this.f35145a, Integer.valueOf(F.A()), Integer.valueOf(F.B()), F.y());
         }
-        this.f37424b.f_();
+        this.f35146b.b_();
         k(messageSnapshot);
     }
 
     @Override // com.kwai.filedownloader.s
     public void g(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37396a) {
-            com.kwai.filedownloader.f.d.c(this, "notify warn %s", this.f37423a);
+        if (com.kwai.filedownloader.f.d.f35118a) {
+            com.kwai.filedownloader.f.d.c(this, "notify warn %s", this.f35145a);
         }
-        this.f37424b.c();
+        this.f35146b.c();
         k(messageSnapshot);
     }
 
     @Override // com.kwai.filedownloader.s
     public void h(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37396a) {
-            a.b bVar = this.f37423a;
+        if (com.kwai.filedownloader.f.d.f35118a) {
+            a.b bVar = this.f35145a;
             com.kwai.filedownloader.f.d.c(this, "notify error %s %s", bVar, bVar.F().y());
         }
-        this.f37424b.c();
+        this.f35146b.c();
         k(messageSnapshot);
     }
 
     @Override // com.kwai.filedownloader.s
     public void i(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37396a) {
-            com.kwai.filedownloader.f.d.c(this, "notify paused %s", this.f37423a);
+        if (com.kwai.filedownloader.f.d.f35118a) {
+            com.kwai.filedownloader.f.d.c(this, "notify paused %s", this.f35145a);
         }
-        this.f37424b.c();
+        this.f35146b.c();
         k(messageSnapshot);
     }
 
     public void j(MessageSnapshot messageSnapshot) {
-        if (com.kwai.filedownloader.f.d.f37396a) {
-            com.kwai.filedownloader.f.d.c(this, "notify completed %s", this.f37423a);
+        if (com.kwai.filedownloader.f.d.f35118a) {
+            com.kwai.filedownloader.f.d.c(this, "notify completed %s", this.f35145a);
         }
-        this.f37424b.c();
+        this.f35146b.c();
         k(messageSnapshot);
     }
 
     public String toString() {
         Object[] objArr = new Object[2];
-        a.b bVar = this.f37423a;
+        a.b bVar = this.f35145a;
         objArr[0] = Integer.valueOf(bVar == null ? -1 : bVar.F().h());
         objArr[1] = super.toString();
         return com.kwai.filedownloader.f.f.a("%d:%s", objArr);

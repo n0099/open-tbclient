@@ -10,9 +10,9 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
-import d.b.c.c.e.c.a;
-import d.b.c.e.m.b;
-import d.b.c.j.e.n;
+import d.a.c.c.e.c.a;
+import d.a.c.e.m.b;
+import d.a.c.j.e.n;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -65,8 +65,8 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
     public static final BdUniqueId TYPE_MSG_REPLY_CARD = BdUniqueId.gen();
     public static final BdUniqueId TYPE_MSG_PHOTOLIVE = BdUniqueId.gen();
 
-    public ChatMessage(int i) {
-        super(i);
+    public ChatMessage(int i2) {
+        super(i2);
         this.progressValue = 0;
         this.statisticsTaskId = -1L;
         this.statisticsServiceId = -1L;
@@ -277,25 +277,25 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         return this.toUserInfo;
     }
 
-    @Override // d.b.c.j.e.n
+    @Override // d.a.c.j.e.n
     public BdUniqueId getType() {
-        int i = this.msgType;
-        if (i == 11) {
+        int i2 = this.msgType;
+        if (i2 == 11) {
             return TYPE_MSG_MID;
         }
-        if (i == 12) {
+        if (i2 == 12) {
             return TYPE_MSG_TOPIC;
         }
-        if (i == 6) {
+        if (i2 == 6) {
             return TYPE_MSG_GROUP_ACTIVITY;
         }
-        if (i == 7) {
+        if (i2 == 7) {
             return TYPE_MSG_MULTI_PIC_TEXT;
         }
-        if (i == 23) {
+        if (i2 == 23) {
             return TYPE_MSG_REPLY_CARD;
         }
-        if (i == 25) {
+        if (i2 == 25) {
             return TYPE_MSG_PHOTOLIVE;
         }
         if (getUserInfo() != null && getUserInfo().getUserId() != null) {
@@ -331,7 +331,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         return this.mIsPushForOperateAccount;
     }
 
-    @Override // d.b.c.c.e.c.a
+    @Override // d.a.c.c.e.c.a
     public boolean onFindMessage(SocketMessage socketMessage) {
         if (socketMessage != null && (socketMessage instanceof ChatMessage)) {
             ChatMessage chatMessage = (ChatMessage) socketMessage;
@@ -352,12 +352,12 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         this.content = str;
     }
 
-    public void setCustomGroupType(int i) {
-        this.customGroupType = i;
+    public void setCustomGroupType(int i2) {
+        this.customGroupType = i2;
     }
 
-    public void setFollowStatus(int i) {
-        this.followStatus = i;
+    public void setFollowStatus(int i2) {
+        this.followStatus = i2;
     }
 
     public void setGifLoadSuccess(boolean z) {
@@ -372,12 +372,12 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         this.hasRead = z;
     }
 
-    public void setHeight(int i) {
-        this.height = i;
+    public void setHeight(int i2) {
+        this.height = i2;
     }
 
-    public void setIsFriend(int i) {
-        this.isFriend = i;
+    public void setIsFriend(int i2) {
+        this.isFriend = i2;
     }
 
     public void setIsPushForOperateAccount(boolean z) {
@@ -404,20 +404,20 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         this.msgId = j;
     }
 
-    public void setMsgType(int i) {
-        this.msgType = i;
+    public void setMsgType(int i2) {
+        this.msgType = i2;
     }
 
     public void setObjContent(Object obj) {
         this.objContent = obj;
     }
 
-    public void setProgressValue(int i) {
-        this.progressValue = i;
+    public void setProgressValue(int i2) {
+        this.progressValue = i2;
     }
 
-    public void setReadCountPv(int i) {
-        this.readCountPv = i;
+    public void setReadCountPv(int i2) {
+        this.readCountPv = i2;
     }
 
     public void setRecordId(long j) {
@@ -468,7 +468,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         this.userInfo = userData;
     }
 
-    public void setWidth(int i) {
-        this.width = i;
+    public void setWidth(int i2) {
+        this.width = i2;
     }
 }

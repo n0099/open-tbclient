@@ -51,10 +51,10 @@ public class LiveIMManager implements LiveIM {
         this.mIMManager.unregisterConnectListener();
         this.mIMManager.registerConnectListener(new ConnectListener() { // from class: com.baidu.livesdk.sdk.im.live.LiveIMManager.1
             @Override // com.baidu.livesdk.api.im.ConnectListener
-            public void onResult(int i) {
-                if (i == 0) {
+            public void onResult(int i2) {
+                if (i2 == 0) {
                     LiveIMManager.this.reconnect();
-                } else if (1 == i) {
+                } else if (1 == i2) {
                     LiveIMManager.this.mIMManager.tryConnection();
                 }
             }
@@ -63,9 +63,9 @@ public class LiveIMManager implements LiveIM {
     }
 
     @Override // com.baidu.livesdk.api.im.live.LiveIM
-    public synchronized void enterRoom(String str, String str2, int i, IMCastSetListener iMCastSetListener, boolean z) {
+    public synchronized void enterRoom(String str, String str2, int i2, IMCastSetListener iMCastSetListener, boolean z) {
         register();
-        create(str, str2, z).enterRoom(str, str2, i, iMCastSetListener, z);
+        create(str, str2, z).enterRoom(str, str2, i2, iMCastSetListener, z);
     }
 
     @Override // com.baidu.livesdk.api.im.live.LiveIM

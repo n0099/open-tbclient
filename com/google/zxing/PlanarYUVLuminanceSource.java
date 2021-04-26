@@ -8,16 +8,16 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
     public final int top;
     public final byte[] yuvData;
 
-    public PlanarYUVLuminanceSource(byte[] bArr, int i, int i2, int i3, int i4, int i5, int i6, boolean z) {
-        super(i5, i6);
-        if (i3 + i5 <= i && i4 + i6 <= i2) {
+    public PlanarYUVLuminanceSource(byte[] bArr, int i2, int i3, int i4, int i5, int i6, int i7, boolean z) {
+        super(i6, i7);
+        if (i4 + i6 <= i2 && i5 + i7 <= i3) {
             this.yuvData = bArr;
-            this.dataWidth = i;
-            this.dataHeight = i2;
-            this.left = i3;
-            this.top = i4;
+            this.dataWidth = i2;
+            this.dataHeight = i3;
+            this.left = i4;
+            this.top = i5;
             if (z) {
-                reverseHorizontal(i5, i6);
+                reverseHorizontal(i6, i7);
                 return;
             }
             return;
@@ -25,29 +25,29 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
         throw new IllegalArgumentException("Crop rectangle does not fit within image data.");
     }
 
-    private void reverseHorizontal(int i, int i2) {
+    private void reverseHorizontal(int i2, int i3) {
         byte[] bArr = this.yuvData;
-        int i3 = (this.top * this.dataWidth) + this.left;
-        int i4 = 0;
-        while (i4 < i2) {
-            int i5 = (i / 2) + i3;
-            int i6 = (i3 + i) - 1;
-            int i7 = i3;
-            while (i7 < i5) {
-                byte b2 = bArr[i7];
-                bArr[i7] = bArr[i6];
-                bArr[i6] = b2;
-                i7++;
-                i6--;
+        int i4 = (this.top * this.dataWidth) + this.left;
+        int i5 = 0;
+        while (i5 < i3) {
+            int i6 = (i2 / 2) + i4;
+            int i7 = (i4 + i2) - 1;
+            int i8 = i4;
+            while (i8 < i6) {
+                byte b2 = bArr[i8];
+                bArr[i8] = bArr[i7];
+                bArr[i7] = b2;
+                i8++;
+                i7--;
             }
-            i4++;
-            i3 += this.dataWidth;
+            i5++;
+            i4 += this.dataWidth;
         }
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public LuminanceSource crop(int i, int i2, int i3, int i4) {
-        return new PlanarYUVLuminanceSource(this.yuvData, this.dataWidth, this.dataHeight, this.left + i, this.top + i2, i3, i4, false);
+    public LuminanceSource crop(int i2, int i3, int i4, int i5) {
+        return new PlanarYUVLuminanceSource(this.yuvData, this.dataWidth, this.dataHeight, this.left + i2, this.top + i3, i4, i5, false);
     }
 
     @Override // com.google.zxing.LuminanceSource
@@ -57,33 +57,33 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
         if (width == this.dataWidth && height == this.dataHeight) {
             return this.yuvData;
         }
-        int i = width * height;
-        byte[] bArr = new byte[i];
-        int i2 = this.top;
-        int i3 = this.dataWidth;
-        int i4 = (i2 * i3) + this.left;
-        if (width == i3) {
-            System.arraycopy(this.yuvData, i4, bArr, 0, i);
+        int i2 = width * height;
+        byte[] bArr = new byte[i2];
+        int i3 = this.top;
+        int i4 = this.dataWidth;
+        int i5 = (i3 * i4) + this.left;
+        if (width == i4) {
+            System.arraycopy(this.yuvData, i5, bArr, 0, i2);
             return bArr;
         }
-        for (int i5 = 0; i5 < height; i5++) {
-            System.arraycopy(this.yuvData, i4, bArr, i5 * width, width);
-            i4 += this.dataWidth;
+        for (int i6 = 0; i6 < height; i6++) {
+            System.arraycopy(this.yuvData, i5, bArr, i6 * width, width);
+            i5 += this.dataWidth;
         }
         return bArr;
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public byte[] getRow(int i, byte[] bArr) {
-        if (i >= 0 && i < getHeight()) {
+    public byte[] getRow(int i2, byte[] bArr) {
+        if (i2 >= 0 && i2 < getHeight()) {
             int width = getWidth();
             if (bArr == null || bArr.length < width) {
                 bArr = new byte[width];
             }
-            System.arraycopy(this.yuvData, ((i + this.top) * this.dataWidth) + this.left, bArr, 0, width);
+            System.arraycopy(this.yuvData, ((i2 + this.top) * this.dataWidth) + this.left, bArr, 0, width);
             return bArr;
         }
-        throw new IllegalArgumentException("Requested row is outside the image: " + i);
+        throw new IllegalArgumentException("Requested row is outside the image: " + i2);
     }
 
     public int getThumbnailHeight() {
@@ -104,13 +104,13 @@ public final class PlanarYUVLuminanceSource extends LuminanceSource {
         int height = getHeight() / 2;
         int[] iArr = new int[width * height];
         byte[] bArr = this.yuvData;
-        int i = (this.top * this.dataWidth) + this.left;
-        for (int i2 = 0; i2 < height; i2++) {
-            int i3 = i2 * width;
-            for (int i4 = 0; i4 < width; i4++) {
-                iArr[i3 + i4] = ((bArr[(i4 << 1) + i] & 255) * 65793) | (-16777216);
+        int i2 = (this.top * this.dataWidth) + this.left;
+        for (int i3 = 0; i3 < height; i3++) {
+            int i4 = i3 * width;
+            for (int i5 = 0; i5 < width; i5++) {
+                iArr[i4 + i5] = ((bArr[(i5 << 1) + i2] & 255) * 65793) | (-16777216);
             }
-            i += this.dataWidth << 1;
+            i2 += this.dataWidth << 1;
         }
         return iArr;
     }

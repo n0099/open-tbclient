@@ -10,45 +10,45 @@ public final class SegmentedByteString extends ByteString {
     public final transient int[] directory;
     public final transient byte[][] segments;
 
-    public SegmentedByteString(Buffer buffer, int i) {
+    public SegmentedByteString(Buffer buffer, int i2) {
         super(null);
-        Util.checkOffsetAndCount(buffer.size, 0L, i);
+        Util.checkOffsetAndCount(buffer.size, 0L, i2);
         Segment segment = buffer.head;
-        int i2 = 0;
         int i3 = 0;
         int i4 = 0;
-        while (i3 < i) {
-            int i5 = segment.limit;
-            int i6 = segment.pos;
-            if (i5 != i6) {
-                i3 += i5 - i6;
-                i4++;
+        int i5 = 0;
+        while (i4 < i2) {
+            int i6 = segment.limit;
+            int i7 = segment.pos;
+            if (i6 != i7) {
+                i4 += i6 - i7;
+                i5++;
                 segment = segment.next;
             } else {
                 throw new AssertionError("s.limit == s.pos");
             }
         }
-        this.segments = new byte[i4];
-        this.directory = new int[i4 * 2];
+        this.segments = new byte[i5];
+        this.directory = new int[i5 * 2];
         Segment segment2 = buffer.head;
-        int i7 = 0;
-        while (i2 < i) {
-            this.segments[i7] = segment2.data;
-            i2 += segment2.limit - segment2.pos;
-            if (i2 > i) {
-                i2 = i;
+        int i8 = 0;
+        while (i3 < i2) {
+            this.segments[i8] = segment2.data;
+            i3 += segment2.limit - segment2.pos;
+            if (i3 > i2) {
+                i3 = i2;
             }
             int[] iArr = this.directory;
-            iArr[i7] = i2;
-            iArr[this.segments.length + i7] = segment2.pos;
+            iArr[i8] = i3;
+            iArr[this.segments.length + i8] = segment2.pos;
             segment2.shared = true;
-            i7++;
+            i8++;
             segment2 = segment2.next;
         }
     }
 
-    private int segment(int i) {
-        int binarySearch = Arrays.binarySearch(this.directory, 0, this.segments.length, i + 1);
+    private int segment(int i2) {
+        int binarySearch = Arrays.binarySearch(this.directory, 0, this.segments.length, i2 + 1);
         return binarySearch >= 0 ? binarySearch : ~binarySearch;
     }
 
@@ -90,40 +90,40 @@ public final class SegmentedByteString extends ByteString {
     }
 
     @Override // okio.ByteString
-    public byte getByte(int i) {
-        Util.checkOffsetAndCount(this.directory[this.segments.length - 1], i, 1L);
-        int segment = segment(i);
-        int i2 = segment == 0 ? 0 : this.directory[segment - 1];
+    public byte getByte(int i2) {
+        Util.checkOffsetAndCount(this.directory[this.segments.length - 1], i2, 1L);
+        int segment = segment(i2);
+        int i3 = segment == 0 ? 0 : this.directory[segment - 1];
         int[] iArr = this.directory;
         byte[][] bArr = this.segments;
-        return bArr[segment][(i - i2) + iArr[bArr.length + segment]];
+        return bArr[segment][(i2 - i3) + iArr[bArr.length + segment]];
     }
 
     @Override // okio.ByteString
     public int hashCode() {
-        int i = this.hashCode;
-        if (i != 0) {
-            return i;
+        int i2 = this.hashCode;
+        if (i2 != 0) {
+            return i2;
         }
         int length = this.segments.length;
-        int i2 = 0;
         int i3 = 0;
-        int i4 = 1;
-        while (i2 < length) {
-            byte[] bArr = this.segments[i2];
+        int i4 = 0;
+        int i5 = 1;
+        while (i3 < length) {
+            byte[] bArr = this.segments[i3];
             int[] iArr = this.directory;
-            int i5 = iArr[length + i2];
-            int i6 = iArr[i2];
-            int i7 = (i6 - i3) + i5;
-            while (i5 < i7) {
-                i4 = (i4 * 31) + bArr[i5];
-                i5++;
+            int i6 = iArr[length + i3];
+            int i7 = iArr[i3];
+            int i8 = (i7 - i4) + i6;
+            while (i6 < i8) {
+                i5 = (i5 * 31) + bArr[i6];
+                i6++;
             }
-            i2++;
-            i3 = i6;
+            i3++;
+            i4 = i7;
         }
-        this.hashCode = i4;
-        return i4;
+        this.hashCode = i5;
+        return i5;
     }
 
     @Override // okio.ByteString
@@ -142,8 +142,8 @@ public final class SegmentedByteString extends ByteString {
     }
 
     @Override // okio.ByteString
-    public int indexOf(byte[] bArr, int i) {
-        return toByteString().indexOf(bArr, i);
+    public int indexOf(byte[] bArr, int i2) {
+        return toByteString().indexOf(bArr, i2);
     }
 
     @Override // okio.ByteString
@@ -152,8 +152,8 @@ public final class SegmentedByteString extends ByteString {
     }
 
     @Override // okio.ByteString
-    public int lastIndexOf(byte[] bArr, int i) {
-        return toByteString().lastIndexOf(bArr, i);
+    public int lastIndexOf(byte[] bArr, int i2) {
+        return toByteString().lastIndexOf(bArr, i2);
     }
 
     @Override // okio.ByteString
@@ -162,22 +162,22 @@ public final class SegmentedByteString extends ByteString {
     }
 
     @Override // okio.ByteString
-    public boolean rangeEquals(int i, ByteString byteString, int i2, int i3) {
-        if (i < 0 || i > size() - i3) {
+    public boolean rangeEquals(int i2, ByteString byteString, int i3, int i4) {
+        if (i2 < 0 || i2 > size() - i4) {
             return false;
         }
-        int segment = segment(i);
-        while (i3 > 0) {
-            int i4 = segment == 0 ? 0 : this.directory[segment - 1];
-            int min = Math.min(i3, ((this.directory[segment] - i4) + i4) - i);
+        int segment = segment(i2);
+        while (i4 > 0) {
+            int i5 = segment == 0 ? 0 : this.directory[segment - 1];
+            int min = Math.min(i4, ((this.directory[segment] - i5) + i5) - i2);
             int[] iArr = this.directory;
             byte[][] bArr = this.segments;
-            if (!byteString.rangeEquals(i2, bArr[segment], (i - i4) + iArr[bArr.length + segment], min)) {
+            if (!byteString.rangeEquals(i3, bArr[segment], (i2 - i5) + iArr[bArr.length + segment], min)) {
                 return false;
             }
-            i += min;
             i2 += min;
-            i3 -= min;
+            i3 += min;
+            i4 -= min;
             segment++;
         }
         return true;
@@ -204,8 +204,8 @@ public final class SegmentedByteString extends ByteString {
     }
 
     @Override // okio.ByteString
-    public ByteString substring(int i) {
-        return toByteString().substring(i);
+    public ByteString substring(int i2) {
+        return toByteString().substring(i2);
     }
 
     @Override // okio.ByteString
@@ -224,15 +224,15 @@ public final class SegmentedByteString extends ByteString {
         byte[][] bArr = this.segments;
         byte[] bArr2 = new byte[iArr[bArr.length - 1]];
         int length = bArr.length;
-        int i = 0;
         int i2 = 0;
-        while (i < length) {
+        int i3 = 0;
+        while (i2 < length) {
             int[] iArr2 = this.directory;
-            int i3 = iArr2[length + i];
-            int i4 = iArr2[i];
-            System.arraycopy(this.segments[i], i3, bArr2, i2, i4 - i2);
-            i++;
-            i2 = i4;
+            int i4 = iArr2[length + i2];
+            int i5 = iArr2[i2];
+            System.arraycopy(this.segments[i2], i4, bArr2, i3, i5 - i3);
+            i2++;
+            i3 = i5;
         }
         return bArr2;
     }
@@ -251,15 +251,15 @@ public final class SegmentedByteString extends ByteString {
     public void write(OutputStream outputStream) throws IOException {
         if (outputStream != null) {
             int length = this.segments.length;
-            int i = 0;
             int i2 = 0;
-            while (i < length) {
+            int i3 = 0;
+            while (i2 < length) {
                 int[] iArr = this.directory;
-                int i3 = iArr[length + i];
-                int i4 = iArr[i];
-                outputStream.write(this.segments[i], i3, i4 - i2);
-                i++;
-                i2 = i4;
+                int i4 = iArr[length + i2];
+                int i5 = iArr[i2];
+                outputStream.write(this.segments[i2], i4, i5 - i3);
+                i2++;
+                i3 = i5;
             }
             return;
         }
@@ -267,20 +267,20 @@ public final class SegmentedByteString extends ByteString {
     }
 
     @Override // okio.ByteString
-    public ByteString substring(int i, int i2) {
-        return toByteString().substring(i, i2);
+    public ByteString substring(int i2, int i3) {
+        return toByteString().substring(i2, i3);
     }
 
     @Override // okio.ByteString
     public void write(Buffer buffer) {
         int length = this.segments.length;
-        int i = 0;
         int i2 = 0;
-        while (i < length) {
+        int i3 = 0;
+        while (i2 < length) {
             int[] iArr = this.directory;
-            int i3 = iArr[length + i];
-            int i4 = iArr[i];
-            Segment segment = new Segment(this.segments[i], i3, (i3 + i4) - i2, true, false);
+            int i4 = iArr[length + i2];
+            int i5 = iArr[i2];
+            Segment segment = new Segment(this.segments[i2], i4, (i4 + i5) - i3, true, false);
             Segment segment2 = buffer.head;
             if (segment2 == null) {
                 segment.prev = segment;
@@ -289,29 +289,29 @@ public final class SegmentedByteString extends ByteString {
             } else {
                 segment2.prev.push(segment);
             }
-            i++;
-            i2 = i4;
+            i2++;
+            i3 = i5;
         }
-        buffer.size += i2;
+        buffer.size += i3;
     }
 
     @Override // okio.ByteString
-    public boolean rangeEquals(int i, byte[] bArr, int i2, int i3) {
-        if (i < 0 || i > size() - i3 || i2 < 0 || i2 > bArr.length - i3) {
+    public boolean rangeEquals(int i2, byte[] bArr, int i3, int i4) {
+        if (i2 < 0 || i2 > size() - i4 || i3 < 0 || i3 > bArr.length - i4) {
             return false;
         }
-        int segment = segment(i);
-        while (i3 > 0) {
-            int i4 = segment == 0 ? 0 : this.directory[segment - 1];
-            int min = Math.min(i3, ((this.directory[segment] - i4) + i4) - i);
+        int segment = segment(i2);
+        while (i4 > 0) {
+            int i5 = segment == 0 ? 0 : this.directory[segment - 1];
+            int min = Math.min(i4, ((this.directory[segment] - i5) + i5) - i2);
             int[] iArr = this.directory;
             byte[][] bArr2 = this.segments;
-            if (!Util.arrayRangeEquals(bArr2[segment], (i - i4) + iArr[bArr2.length + segment], bArr, i2, min)) {
+            if (!Util.arrayRangeEquals(bArr2[segment], (i2 - i5) + iArr[bArr2.length + segment], bArr, i3, min)) {
                 return false;
             }
-            i += min;
             i2 += min;
-            i3 -= min;
+            i3 += min;
+            i4 -= min;
             segment++;
         }
         return true;

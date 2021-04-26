@@ -23,16 +23,16 @@ import androidx.annotation.Nullable;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.bumptech.glide.load.engine.GlideException;
-import d.b.h0.m.a.a.a;
-import d.b.h0.m.a.a.c;
-import d.b.h0.m.a.a.d;
-import d.b.h0.m.a.a.g;
-import d.b.h0.m.a.a.i;
-import d.b.h0.m.a.a.j;
-import d.b.h0.m.a.a.k;
-import d.b.h0.m.a.a.o;
-import d.b.h0.m.a.a.r;
-import d.b.h0.m.a.c.f;
+import d.a.h0.m.a.a.a;
+import d.a.h0.m.a.a.c;
+import d.a.h0.m.a.a.d;
+import d.a.h0.m.a.a.g;
+import d.a.h0.m.a.a.i;
+import d.a.h0.m.a.a.j;
+import d.a.h0.m.a.a.k;
+import d.a.h0.m.a.a.o;
+import d.a.h0.m.a.a.r;
+import d.a.h0.m.a.c.f;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -61,13 +61,13 @@ public class FragmentActivity extends g implements a.b, c.a {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            int i = message.what;
-            if (i == 1) {
+            int i2 = message.what;
+            if (i2 == 1) {
                 FragmentActivity fragmentActivity = FragmentActivity.this;
                 if (fragmentActivity.mStopped) {
                     fragmentActivity.doReallyStop(false);
                 }
-            } else if (i != 2) {
+            } else if (i2 != 2) {
                 super.handleMessage(message);
             } else {
                 FragmentActivity.this.onResumeFragments();
@@ -82,34 +82,34 @@ public class FragmentActivity extends g implements a.b, c.a {
             super(FragmentActivity.this);
         }
 
-        @Override // d.b.h0.m.a.a.h
+        @Override // d.a.h0.m.a.a.h
         @Nullable
-        public View a(int i) {
-            return FragmentActivity.this.findViewById(i);
+        public View a(int i2) {
+            return FragmentActivity.this.findViewById(i2);
         }
 
-        @Override // d.b.h0.m.a.a.h
+        @Override // d.a.h0.m.a.a.h
         public boolean b() {
             Window window = FragmentActivity.this.getWindow();
             return (window == null || window.peekDecorView() == null) ? false : true;
         }
 
-        @Override // d.b.h0.m.a.a.j
+        @Override // d.a.h0.m.a.a.j
         public void n(Fragment fragment) {
             FragmentActivity.this.onAttachFragment(fragment);
         }
 
-        @Override // d.b.h0.m.a.a.j
+        @Override // d.a.h0.m.a.a.j
         public void o(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
             FragmentActivity.this.dump(str, fileDescriptor, printWriter, strArr);
         }
 
-        @Override // d.b.h0.m.a.a.j
+        @Override // d.a.h0.m.a.a.j
         public LayoutInflater p() {
             return FragmentActivity.this.getLayoutInflater().cloneInContext(FragmentActivity.this);
         }
 
-        @Override // d.b.h0.m.a.a.j
+        @Override // d.a.h0.m.a.a.j
         public int q() {
             Window window = FragmentActivity.this.getWindow();
             if (window == null) {
@@ -118,22 +118,22 @@ public class FragmentActivity extends g implements a.b, c.a {
             return window.getAttributes().windowAnimations;
         }
 
-        @Override // d.b.h0.m.a.a.j
+        @Override // d.a.h0.m.a.a.j
         public boolean r() {
             return FragmentActivity.this.getWindow() != null;
         }
 
-        @Override // d.b.h0.m.a.a.j
-        public void s(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
-            FragmentActivity.this.requestPermissionsFromFragment(fragment, strArr, i);
+        @Override // d.a.h0.m.a.a.j
+        public void s(@NonNull Fragment fragment, @NonNull String[] strArr, int i2) {
+            FragmentActivity.this.requestPermissionsFromFragment(fragment, strArr, i2);
         }
 
-        @Override // d.b.h0.m.a.a.j
+        @Override // d.a.h0.m.a.a.j
         public boolean t(Fragment fragment) {
             return !FragmentActivity.this.isFinishing();
         }
 
-        @Override // d.b.h0.m.a.a.j
+        @Override // d.a.h0.m.a.a.j
         public void u() {
             FragmentActivity.this.supportInvalidateOptionsMenu();
         }
@@ -143,13 +143,13 @@ public class FragmentActivity extends g implements a.b, c.a {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public Object f12707a;
+        public Object f12615a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<Fragment> f12708b;
+        public List<Fragment> f12616b;
 
         /* renamed from: c  reason: collision with root package name */
-        public f<String, o> f12709c;
+        public f<String, o> f12617c;
     }
 
     private void dumpViewHierarchy(String str, PrintWriter printWriter, View view) {
@@ -163,19 +163,19 @@ public class FragmentActivity extends g implements a.b, c.a {
         printWriter.println(viewToString(view));
         if ((view instanceof ViewGroup) && (childCount = (viewGroup = (ViewGroup) view).getChildCount()) > 0) {
             String str2 = str + GlideException.IndentedAppendable.INDENT;
-            for (int i = 0; i < childCount; i++) {
-                dumpViewHierarchy(str2, printWriter, viewGroup.getChildAt(i));
+            for (int i2 = 0; i2 < childCount; i2++) {
+                dumpViewHierarchy(str2, printWriter, viewGroup.getChildAt(i2));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void requestPermissionsFromFragment(Fragment fragment, String[] strArr, int i) {
-        if (i == -1) {
-            d.b.h0.m.a.a.a.h(this, strArr, i);
-        } else if ((i & (-256)) == 0) {
+    public void requestPermissionsFromFragment(Fragment fragment, String[] strArr, int i2) {
+        if (i2 == -1) {
+            d.a.h0.m.a.a.a.h(this, strArr, i2);
+        } else if ((i2 & (-256)) == 0) {
             this.mRequestedPermissionsFromFragment = true;
-            d.b.h0.m.a.a.a.h(this, strArr, ((fragment.j + 1) << 8) + (i & 255));
+            d.a.h0.m.a.a.a.h(this, strArr, ((fragment.j + 1) << 8) + (i2 & 255));
         } else {
             throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
         }
@@ -227,10 +227,10 @@ public class FragmentActivity extends g implements a.b, c.a {
             sb.append(Integer.toHexString(id));
             Resources resources = view.getResources();
             if (id != 0 && resources != null) {
-                int i = (-16777216) & id;
-                if (i == 16777216) {
+                int i2 = (-16777216) & id;
+                if (i2 == 16777216) {
                     str = "android";
-                } else if (i != 2130706432) {
+                } else if (i2 != 2130706432) {
                     try {
                         str = resources.getResourcePackageName(id);
                     } catch (Resources.NotFoundException unused) {
@@ -252,7 +252,7 @@ public class FragmentActivity extends g implements a.b, c.a {
         return sb.toString();
     }
 
-    @Override // d.b.h0.m.a.a.f
+    @Override // d.a.h0.m.a.a.f
     public final View dispatchFragmentsOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
         return this.mFragments.B(view, str, context, attributeSet);
     }
@@ -293,7 +293,7 @@ public class FragmentActivity extends g implements a.b, c.a {
     public Object getLastCustomNonConfigurationInstance() {
         c cVar = (c) getLastNonConfigurationInstance();
         if (cVar != null) {
-            return cVar.f12707a;
+            return cVar.f12615a;
         }
         return null;
     }
@@ -307,25 +307,25 @@ public class FragmentActivity extends g implements a.b, c.a {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
         this.mFragments.A();
-        int i3 = i >> 16;
-        if (i3 != 0) {
-            int i4 = i3 - 1;
+        int i4 = i2 >> 16;
+        if (i4 != 0) {
+            int i5 = i4 - 1;
             int x = this.mFragments.x();
-            if (x != 0 && i4 >= 0 && i4 < x) {
-                Fragment fragment = this.mFragments.w(new ArrayList(x)).get(i4);
+            if (x != 0 && i5 >= 0 && i5 < x) {
+                Fragment fragment = this.mFragments.w(new ArrayList(x)).get(i5);
                 if (fragment == null) {
-                    Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
+                    Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i2));
                     return;
                 }
-                fragment.p0(i & 65535, i2, intent);
+                fragment.m0(i2 & 65535, i3, intent);
                 return;
             }
-            Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
+            Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i2));
             return;
         }
-        super.onActivityResult(i, i2, intent);
+        super.onActivityResult(i2, i3, intent);
     }
 
     public void onAttachFragment(Fragment fragment) {
@@ -345,33 +345,33 @@ public class FragmentActivity extends g implements a.b, c.a {
         this.mFragments.d(configuration);
     }
 
-    @Override // d.b.h0.m.a.a.f, android.app.Activity
+    @Override // d.a.h0.m.a.a.f, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         this.mFragments.a(null);
         super.onCreate(bundle);
         c cVar = (c) getLastNonConfigurationInstance();
         if (cVar != null) {
-            this.mFragments.E(cVar.f12709c);
+            this.mFragments.E(cVar.f12617c);
         }
         if (bundle != null) {
-            this.mFragments.D(bundle.getParcelable("android:support:fragments"), cVar != null ? cVar.f12708b : null);
+            this.mFragments.D(bundle.getParcelable("android:support:fragments"), cVar != null ? cVar.f12616b : null);
         }
         this.mFragments.f();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onCreatePanelMenu(int i, Menu menu) {
-        if (i == 0) {
-            boolean onCreatePanelMenu = super.onCreatePanelMenu(i, menu) | this.mFragments.g(menu, getMenuInflater());
+    public boolean onCreatePanelMenu(int i2, Menu menu) {
+        if (i2 == 0) {
+            boolean onCreatePanelMenu = super.onCreatePanelMenu(i2, menu) | this.mFragments.g(menu, getMenuInflater());
             if (Build.VERSION.SDK_INT >= 11) {
                 return onCreatePanelMenu;
             }
             return true;
         }
-        return super.onCreatePanelMenu(i, menu);
+        return super.onCreatePanelMenu(i2, menu);
     }
 
-    @Override // d.b.h0.m.a.a.g, android.app.Activity, android.view.LayoutInflater.Factory2
+    @Override // d.a.h0.m.a.a.g, android.app.Activity, android.view.LayoutInflater.Factory2
     public /* bridge */ /* synthetic */ View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
         return super.onCreateView(view, str, context, attributeSet);
     }
@@ -385,12 +385,12 @@ public class FragmentActivity extends g implements a.b, c.a {
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (Build.VERSION.SDK_INT < 5 && i == 4 && keyEvent.getRepeatCount() == 0) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (Build.VERSION.SDK_INT < 5 && i2 == 4 && keyEvent.getRepeatCount() == 0) {
             onBackPressed();
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
@@ -400,12 +400,12 @@ public class FragmentActivity extends g implements a.b, c.a {
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onMenuItemSelected(int i, MenuItem menuItem) {
-        if (super.onMenuItemSelected(i, menuItem)) {
+    public boolean onMenuItemSelected(int i2, MenuItem menuItem) {
+        if (super.onMenuItemSelected(i2, menuItem)) {
             return true;
         }
-        if (i != 0) {
-            if (i != 6) {
+        if (i2 != 0) {
+            if (i2 != 6) {
                 return false;
             }
             return this.mFragments.e(menuItem);
@@ -420,11 +420,11 @@ public class FragmentActivity extends g implements a.b, c.a {
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public void onPanelClosed(int i, Menu menu) {
-        if (i == 0) {
+    public void onPanelClosed(int i2, Menu menu) {
+        if (i2 == 0) {
             this.mFragments.k(menu);
         }
-        super.onPanelClosed(i, menu);
+        super.onPanelClosed(i2, menu);
     }
 
     @Override // android.app.Activity
@@ -451,16 +451,16 @@ public class FragmentActivity extends g implements a.b, c.a {
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view, Menu menu) {
-        if (i == 0 && menu != null) {
+    public boolean onPreparePanel(int i2, View view, Menu menu) {
+        if (i2 == 0 && menu != null) {
             if (this.mOptionsMenuInvalidated) {
                 this.mOptionsMenuInvalidated = false;
                 menu.clear();
-                onCreatePanelMenu(i, menu);
+                onCreatePanelMenu(i2, menu);
             }
             return onPrepareOptionsPanel(view, menu) | this.mFragments.m(menu);
         }
-        return super.onPreparePanel(i, view, menu);
+        return super.onPreparePanel(i2, view, menu);
     }
 
     public void onReallyStop() {
@@ -468,22 +468,22 @@ public class FragmentActivity extends g implements a.b, c.a {
         this.mFragments.n();
     }
 
-    @Override // android.app.Activity, d.b.h0.m.a.a.a.b
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        int i2 = (i >> 8) & 255;
-        if (i2 != 0) {
-            int i3 = i2 - 1;
+    @Override // android.app.Activity, d.a.h0.m.a.a.a.b
+    public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+        int i3 = (i2 >> 8) & 255;
+        if (i3 != 0) {
+            int i4 = i3 - 1;
             int x = this.mFragments.x();
-            if (x != 0 && i3 >= 0 && i3 < x) {
-                Fragment fragment = this.mFragments.w(new ArrayList(x)).get(i3);
+            if (x != 0 && i4 >= 0 && i4 < x) {
+                Fragment fragment = this.mFragments.w(new ArrayList(x)).get(i4);
                 if (fragment == null) {
-                    Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
+                    Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i2));
                     return;
                 }
-                fragment.F0(i & 255, strArr, iArr);
+                fragment.E0(i2 & 255, strArr, iArr);
                 return;
             }
-            Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
+            Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i2));
         }
     }
 
@@ -515,9 +515,9 @@ public class FragmentActivity extends g implements a.b, c.a {
             return null;
         }
         c cVar = new c();
-        cVar.f12707a = onRetainCustomNonConfigurationInstance;
-        cVar.f12708b = G;
-        cVar.f12709c = F;
+        cVar.f12615a = onRetainCustomNonConfigurationInstance;
+        cVar.f12616b = G;
+        cVar.f12617c = F;
         return cVar;
     }
 
@@ -561,33 +561,33 @@ public class FragmentActivity extends g implements a.b, c.a {
     }
 
     public void setEnterSharedElementCallback(r rVar) {
-        d.b.h0.m.a.a.a.i(this, rVar);
+        d.a.h0.m.a.a.a.i(this, rVar);
     }
 
     public void setExitSharedElementCallback(r rVar) {
-        d.b.h0.m.a.a.a.j(this, rVar);
+        d.a.h0.m.a.a.a.j(this, rVar);
     }
 
     @Override // android.app.Activity
-    public void startActivityForResult(Intent intent, int i) {
-        if (i != -1 && ((-65536) & i) != 0) {
+    public void startActivityForResult(Intent intent, int i2) {
+        if (i2 != -1 && ((-65536) & i2) != 0) {
             throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
         }
-        super.startActivityForResult(intent, i);
+        super.startActivityForResult(intent, i2);
     }
 
-    public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
-        if (i == -1) {
+    public void startActivityFromFragment(Fragment fragment, Intent intent, int i2) {
+        if (i2 == -1) {
             super.startActivityForResult(intent, -1);
-        } else if (((-65536) & i) == 0) {
-            super.startActivityForResult(intent, ((fragment.j + 1) << 16) + (i & 65535));
+        } else if (((-65536) & i2) == 0) {
+            super.startActivityForResult(intent, ((fragment.j + 1) << 16) + (i2 & 65535));
         } else {
             throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
         }
     }
 
     public void supportFinishAfterTransition() {
-        d.b.h0.m.a.a.a.f(this);
+        d.a.h0.m.a.a.a.f(this);
     }
 
     public void supportInvalidateOptionsMenu() {
@@ -599,23 +599,23 @@ public class FragmentActivity extends g implements a.b, c.a {
     }
 
     public void supportPostponeEnterTransition() {
-        d.b.h0.m.a.a.a.g(this);
+        d.a.h0.m.a.a.a.g(this);
     }
 
     public void supportStartPostponedEnterTransition() {
-        d.b.h0.m.a.a.a.k(this);
+        d.a.h0.m.a.a.a.k(this);
     }
 
-    @Override // d.b.h0.m.a.a.c.a
-    public final void validateRequestPermissionsRequestCode(int i) {
+    @Override // d.a.h0.m.a.a.c.a
+    public final void validateRequestPermissionsRequestCode(int i2) {
         if (this.mRequestedPermissionsFromFragment) {
             this.mRequestedPermissionsFromFragment = false;
-        } else if ((i & (-256)) != 0) {
+        } else if ((i2 & (-256)) != 0) {
             throw new IllegalArgumentException("Can only use lower 8 bits for requestCode");
         }
     }
 
-    @Override // d.b.h0.m.a.a.f, android.app.Activity, android.view.LayoutInflater.Factory
+    @Override // d.a.h0.m.a.a.f, android.app.Activity, android.view.LayoutInflater.Factory
     public /* bridge */ /* synthetic */ View onCreateView(String str, Context context, AttributeSet attributeSet) {
         return super.onCreateView(str, context, attributeSet);
     }

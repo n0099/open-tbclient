@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class NativeEmotionManagerActivityConfig extends IntentConfig {
     public static final String KEY = "is_bazhu";
 
-    public NativeEmotionManagerActivityConfig(Context context, int i) {
+    public NativeEmotionManagerActivityConfig(Context context, int i2) {
         super(context);
-        getIntent().putExtra(KEY, i);
+        getIntent().putExtra(KEY, i2);
     }
 }

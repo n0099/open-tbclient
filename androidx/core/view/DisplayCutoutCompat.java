@@ -3,6 +3,7 @@ package androidx.core.view;
 import android.graphics.Rect;
 import android.os.Build;
 import android.view.DisplayCutout;
+import androidx.annotation.RequiresApi;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class DisplayCutoutCompat {
@@ -26,12 +27,12 @@ public final class DisplayCutoutCompat {
         if (obj == null || DisplayCutoutCompat.class != obj.getClass()) {
             return false;
         }
+        DisplayCutoutCompat displayCutoutCompat = (DisplayCutoutCompat) obj;
         Object obj2 = this.mDisplayCutout;
-        Object obj3 = ((DisplayCutoutCompat) obj).mDisplayCutout;
         if (obj2 == null) {
-            return obj3 == null;
+            return displayCutoutCompat.mDisplayCutout == null;
         }
-        return obj2.equals(obj3);
+        return obj2.equals(displayCutoutCompat.mDisplayCutout);
     }
 
     public List<Rect> getBoundingRects() {
@@ -79,6 +80,11 @@ public final class DisplayCutoutCompat {
 
     public String toString() {
         return "DisplayCutoutCompat{" + this.mDisplayCutout + "}";
+    }
+
+    @RequiresApi(api = 28)
+    public DisplayCutout unwrap() {
+        return (DisplayCutout) this.mDisplayCutout;
     }
 
     public DisplayCutoutCompat(Object obj) {

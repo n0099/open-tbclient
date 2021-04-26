@@ -3,10 +3,10 @@ package com.baidu.tieba.im.db;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.b.i0.z0.f0;
-import d.b.i0.z0.h0;
-import d.b.i0.z0.n;
-import d.b.j0.e1.h.g;
+import d.a.i0.z0.f0;
+import d.a.i0.z0.h0;
+import d.a.i0.z0.n;
+import d.a.j0.e1.h.g;
 /* loaded from: classes4.dex */
 public class Static {
 
@@ -15,21 +15,21 @@ public class Static {
 
         /* renamed from: com.baidu.tieba.im.db.Static$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0202a extends f0<Void> {
+        public class C0197a extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f17594a;
+            public final /* synthetic */ CustomResponsedMessage f17913a;
 
-            public C0202a(a aVar, CustomResponsedMessage customResponsedMessage) {
-                this.f17594a = customResponsedMessage;
+            public C0197a(a aVar, CustomResponsedMessage customResponsedMessage) {
+                this.f17913a = customResponsedMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.f0
+            @Override // d.a.i0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                if (this.f17594a.getData() instanceof String) {
-                    g.a((String) this.f17594a.getData());
+                if (this.f17913a.getData() instanceof String) {
+                    g.a((String) this.f17913a.getData());
                     return null;
                 }
                 return null;
@@ -42,15 +42,15 @@ public class Static {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.n
+            @Override // d.a.i0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r3) {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008016));
             }
         }
 
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +59,7 @@ public class Static {
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2008015 || customResponsedMessage.getData() == null) {
                 return;
             }
-            h0.c(new C0202a(this, customResponsedMessage), new b(this));
+            h0.c(new C0197a(this, customResponsedMessage), new b(this));
         }
     }
 

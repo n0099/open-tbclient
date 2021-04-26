@@ -131,8 +131,8 @@ public class SeqParameterSet extends BitstreamElement {
         cAVLCReader.readNBit(2, "SPS: reserved_zero_2bits");
         seqParameterSet.level_idc = (int) cAVLCReader.readNBit(8, "SPS: level_idc");
         seqParameterSet.seq_parameter_set_id = cAVLCReader.readUE("SPS: seq_parameter_set_id");
-        int i = seqParameterSet.profile_idc;
-        if (i != 100 && i != 110 && i != 122 && i != 144) {
+        int i2 = seqParameterSet.profile_idc;
+        if (i2 != 100 && i2 != 110 && i2 != 122 && i2 != 144) {
             seqParameterSet.chroma_format_idc = ChromaFormat.YUV_420;
         } else {
             ChromaFormat fromId = ChromaFormat.fromId(cAVLCReader.readUE("SPS: chroma_format_idc"));
@@ -159,9 +159,9 @@ public class SeqParameterSet extends BitstreamElement {
             int readUE2 = cAVLCReader.readUE("SPS: num_ref_frames_in_pic_order_cnt_cycle");
             seqParameterSet.num_ref_frames_in_pic_order_cnt_cycle = readUE2;
             seqParameterSet.offsetForRefFrame = new int[readUE2];
-            for (int i2 = 0; i2 < seqParameterSet.num_ref_frames_in_pic_order_cnt_cycle; i2++) {
+            for (int i3 = 0; i3 < seqParameterSet.num_ref_frames_in_pic_order_cnt_cycle; i3++) {
                 int[] iArr = seqParameterSet.offsetForRefFrame;
-                iArr[i2] = cAVLCReader.readSE("SPS: offsetForRefFrame [" + i2 + "]");
+                iArr[i3] = cAVLCReader.readSE("SPS: offsetForRefFrame [" + i3 + "]");
             }
         }
         seqParameterSet.num_ref_frames = cAVLCReader.readUE("SPS: num_ref_frames");
@@ -194,14 +194,14 @@ public class SeqParameterSet extends BitstreamElement {
         hRDParameters.cpb_cnt_minus1 = cAVLCReader.readUE("SPS: cpb_cnt_minus1");
         hRDParameters.bit_rate_scale = (int) cAVLCReader.readNBit(4, "HRD: bit_rate_scale");
         hRDParameters.cpb_size_scale = (int) cAVLCReader.readNBit(4, "HRD: cpb_size_scale");
-        int i = hRDParameters.cpb_cnt_minus1;
-        hRDParameters.bit_rate_value_minus1 = new int[i + 1];
-        hRDParameters.cpb_size_value_minus1 = new int[i + 1];
-        hRDParameters.cbr_flag = new boolean[i + 1];
-        for (int i2 = 0; i2 <= hRDParameters.cpb_cnt_minus1; i2++) {
-            hRDParameters.bit_rate_value_minus1[i2] = cAVLCReader.readUE("HRD: bit_rate_value_minus1");
-            hRDParameters.cpb_size_value_minus1[i2] = cAVLCReader.readUE("HRD: cpb_size_value_minus1");
-            hRDParameters.cbr_flag[i2] = cAVLCReader.readBool("HRD: cbr_flag");
+        int i2 = hRDParameters.cpb_cnt_minus1;
+        hRDParameters.bit_rate_value_minus1 = new int[i2 + 1];
+        hRDParameters.cpb_size_value_minus1 = new int[i2 + 1];
+        hRDParameters.cbr_flag = new boolean[i2 + 1];
+        for (int i3 = 0; i3 <= hRDParameters.cpb_cnt_minus1; i3++) {
+            hRDParameters.bit_rate_value_minus1[i3] = cAVLCReader.readUE("HRD: bit_rate_value_minus1");
+            hRDParameters.cpb_size_value_minus1[i3] = cAVLCReader.readUE("HRD: cpb_size_value_minus1");
+            hRDParameters.cbr_flag[i3] = cAVLCReader.readBool("HRD: cbr_flag");
         }
         hRDParameters.initial_cpb_removal_delay_length_minus1 = (int) cAVLCReader.readNBit(5, "HRD: initial_cpb_removal_delay_length_minus1");
         hRDParameters.cpb_removal_delay_length_minus1 = (int) cAVLCReader.readNBit(5, "HRD: cpb_removal_delay_length_minus1");
@@ -212,17 +212,17 @@ public class SeqParameterSet extends BitstreamElement {
 
     public static void readScalingListMatrix(CAVLCReader cAVLCReader, SeqParameterSet seqParameterSet) throws IOException {
         seqParameterSet.scalingMatrix = new ScalingMatrix();
-        for (int i = 0; i < 8; i++) {
+        for (int i2 = 0; i2 < 8; i2++) {
             if (cAVLCReader.readBool("SPS: seqScalingListPresentFlag")) {
                 ScalingMatrix scalingMatrix = seqParameterSet.scalingMatrix;
                 ScalingList[] scalingListArr = new ScalingList[8];
                 scalingMatrix.ScalingList4x4 = scalingListArr;
                 ScalingList[] scalingListArr2 = new ScalingList[8];
                 scalingMatrix.ScalingList8x8 = scalingListArr2;
-                if (i < 6) {
-                    scalingListArr[i] = ScalingList.read(cAVLCReader, 16);
+                if (i2 < 6) {
+                    scalingListArr[i2] = ScalingList.read(cAVLCReader, 16);
                 } else {
-                    scalingListArr2[i - 6] = ScalingList.read(cAVLCReader, 64);
+                    scalingListArr2[i2 - 6] = ScalingList.read(cAVLCReader, 64);
                 }
             }
         }
@@ -232,10 +232,10 @@ public class SeqParameterSet extends BitstreamElement {
         cAVLCWriter.writeUE(hRDParameters.cpb_cnt_minus1, "HRD: cpb_cnt_minus1");
         cAVLCWriter.writeNBit(hRDParameters.bit_rate_scale, 4, "HRD: bit_rate_scale");
         cAVLCWriter.writeNBit(hRDParameters.cpb_size_scale, 4, "HRD: cpb_size_scale");
-        for (int i = 0; i <= hRDParameters.cpb_cnt_minus1; i++) {
-            cAVLCWriter.writeUE(hRDParameters.bit_rate_value_minus1[i], "HRD: ");
-            cAVLCWriter.writeUE(hRDParameters.cpb_size_value_minus1[i], "HRD: ");
-            cAVLCWriter.writeBool(hRDParameters.cbr_flag[i], "HRD: ");
+        for (int i2 = 0; i2 <= hRDParameters.cpb_cnt_minus1; i2++) {
+            cAVLCWriter.writeUE(hRDParameters.bit_rate_value_minus1[i2], "HRD: ");
+            cAVLCWriter.writeUE(hRDParameters.cpb_size_value_minus1[i2], "HRD: ");
+            cAVLCWriter.writeBool(hRDParameters.cbr_flag[i2], "HRD: ");
         }
         cAVLCWriter.writeNBit(hRDParameters.initial_cpb_removal_delay_length_minus1, 5, "HRD: initial_cpb_removal_delay_length_minus1");
         cAVLCWriter.writeNBit(hRDParameters.cpb_removal_delay_length_minus1, 5, "HRD: cpb_removal_delay_length_minus1");
@@ -320,8 +320,8 @@ public class SeqParameterSet extends BitstreamElement {
         cAVLCWriter.writeNBit(0L, 4, "SPS: reserved");
         cAVLCWriter.writeNBit(this.level_idc, 8, "SPS: level_idc");
         cAVLCWriter.writeUE(this.seq_parameter_set_id, "SPS: seq_parameter_set_id");
-        int i = this.profile_idc;
-        if (i == 100 || i == 110 || i == 122 || i == 144) {
+        int i2 = this.profile_idc;
+        if (i2 == 100 || i2 == 110 || i2 == 122 || i2 == 144) {
             cAVLCWriter.writeUE(this.chroma_format_idc.getId(), "SPS: chroma_format_idc");
             if (this.chroma_format_idc == ChromaFormat.YUV_444) {
                 cAVLCWriter.writeBool(this.residual_color_transform_flag, "SPS: residual_color_transform_flag");
@@ -331,19 +331,19 @@ public class SeqParameterSet extends BitstreamElement {
             cAVLCWriter.writeBool(this.qpprime_y_zero_transform_bypass_flag, "SPS: qpprime_y_zero_transform_bypass_flag");
             cAVLCWriter.writeBool(this.scalingMatrix != null, "SPS: ");
             if (this.scalingMatrix != null) {
-                for (int i2 = 0; i2 < 8; i2++) {
-                    if (i2 < 6) {
-                        cAVLCWriter.writeBool(this.scalingMatrix.ScalingList4x4[i2] != null, "SPS: ");
+                for (int i3 = 0; i3 < 8; i3++) {
+                    if (i3 < 6) {
+                        cAVLCWriter.writeBool(this.scalingMatrix.ScalingList4x4[i3] != null, "SPS: ");
                         ScalingList[] scalingListArr = this.scalingMatrix.ScalingList4x4;
-                        if (scalingListArr[i2] != null) {
-                            scalingListArr[i2].write(cAVLCWriter);
+                        if (scalingListArr[i3] != null) {
+                            scalingListArr[i3].write(cAVLCWriter);
                         }
                     } else {
-                        int i3 = i2 - 6;
-                        cAVLCWriter.writeBool(this.scalingMatrix.ScalingList8x8[i3] != null, "SPS: ");
+                        int i4 = i3 - 6;
+                        cAVLCWriter.writeBool(this.scalingMatrix.ScalingList8x8[i4] != null, "SPS: ");
                         ScalingList[] scalingListArr2 = this.scalingMatrix.ScalingList8x8;
-                        if (scalingListArr2[i3] != null) {
-                            scalingListArr2[i3].write(cAVLCWriter);
+                        if (scalingListArr2[i4] != null) {
+                            scalingListArr2[i4].write(cAVLCWriter);
                         }
                     }
                 }
@@ -351,22 +351,22 @@ public class SeqParameterSet extends BitstreamElement {
         }
         cAVLCWriter.writeUE(this.log2_max_frame_num_minus4, "SPS: log2_max_frame_num_minus4");
         cAVLCWriter.writeUE(this.pic_order_cnt_type, "SPS: pic_order_cnt_type");
-        int i4 = this.pic_order_cnt_type;
-        if (i4 == 0) {
+        int i5 = this.pic_order_cnt_type;
+        if (i5 == 0) {
             cAVLCWriter.writeUE(this.log2_max_pic_order_cnt_lsb_minus4, "SPS: log2_max_pic_order_cnt_lsb_minus4");
-        } else if (i4 == 1) {
+        } else if (i5 == 1) {
             cAVLCWriter.writeBool(this.delta_pic_order_always_zero_flag, "SPS: delta_pic_order_always_zero_flag");
             cAVLCWriter.writeSE(this.offset_for_non_ref_pic, "SPS: offset_for_non_ref_pic");
             cAVLCWriter.writeSE(this.offset_for_top_to_bottom_field, "SPS: offset_for_top_to_bottom_field");
             cAVLCWriter.writeUE(this.offsetForRefFrame.length, "SPS: ");
-            int i5 = 0;
+            int i6 = 0;
             while (true) {
                 int[] iArr = this.offsetForRefFrame;
-                if (i5 >= iArr.length) {
+                if (i6 >= iArr.length) {
                     break;
                 }
-                cAVLCWriter.writeSE(iArr[i5], "SPS: ");
-                i5++;
+                cAVLCWriter.writeSE(iArr[i6], "SPS: ");
+                i6++;
             }
         }
         cAVLCWriter.writeUE(this.num_ref_frames, "SPS: num_ref_frames");

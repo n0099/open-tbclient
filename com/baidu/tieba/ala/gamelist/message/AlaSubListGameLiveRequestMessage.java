@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.c.e.p.l;
-import d.b.i0.z0.w;
+import d.a.c.e.p.l;
+import d.a.i0.z0.w;
 import tbclient.LiveTabliveSubTab.DataReq;
 import tbclient.LiveTabliveSubTab.LiveTabliveSubTabReqIdl;
 /* loaded from: classes4.dex */
@@ -16,15 +16,15 @@ public class AlaSubListGameLiveRequestMessage extends NetMessage {
     public Integer mPn;
     public int sort_type;
 
-    public AlaSubListGameLiveRequestMessage(int i, int i2, String str, String str2, int i3) {
+    public AlaSubListGameLiveRequestMessage(int i2, int i3, String str, String str2, int i4) {
         super(AlaCmdConfigHttp.CMD_ALA_SUB_LIVE_LIST, AlaCmdConfigSocket.CMD_ALA_SUB_LIVE_LIST);
         this.mPn = 0;
         this.entryId = 0;
-        this.mPn = Integer.valueOf(i);
-        this.entryId = Integer.valueOf(i2);
+        this.mPn = Integer.valueOf(i2);
+        this.entryId = Integer.valueOf(i3);
         this.entryName = str;
         this.labelName = str2;
-        this.sort_type = i3;
+        this.sort_type = i4;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage

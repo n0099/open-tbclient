@@ -32,8 +32,8 @@ public class BIMKickRequestRtcInfo extends BIMRtcInfo {
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
-        BIMKickRequestRtcInfo bIMKickRequestRtcInfo = new BIMKickRequestRtcInfo(super.toRtcInfo(i, str, str2));
+    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
+        BIMKickRequestRtcInfo bIMKickRequestRtcInfo = new BIMKickRequestRtcInfo(super.toRtcInfo(i2, str, str2));
         try {
             JSONObject jSONObject = new JSONObject(str2);
             JSONObject optJSONObject = jSONObject.optJSONObject("kick_user");

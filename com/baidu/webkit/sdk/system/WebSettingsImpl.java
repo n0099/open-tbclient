@@ -388,8 +388,8 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    public final void setCacheMode(int i) {
-        this.mSettings.setCacheMode(i);
+    public final void setCacheMode(int i2) {
+        this.mSettings.setCacheMode(i2);
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
@@ -408,13 +408,13 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    public final void setDefaultFixedFontSize(int i) {
-        this.mSettings.setDefaultFixedFontSize(i);
+    public final void setDefaultFixedFontSize(int i2) {
+        this.mSettings.setDefaultFixedFontSize(i2);
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    public final void setDefaultFontSize(int i) {
-        this.mSettings.setDefaultFontSize(i);
+    public final void setDefaultFontSize(int i2) {
+        this.mSettings.setDefaultFontSize(i2);
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
@@ -429,9 +429,9 @@ public final class WebSettingsImpl extends WebSettings {
 
     @Override // com.baidu.webkit.sdk.WebSettings
     @TargetApi(24)
-    public final void setDisabledActionModeMenuItems(int i) {
+    public final void setDisabledActionModeMenuItems(int i2) {
         if (Build.VERSION.SDK_INT >= 24) {
-            this.mSettings.setDisabledActionModeMenuItems(i);
+            this.mSettings.setDisabledActionModeMenuItems(i2);
         }
     }
 
@@ -533,20 +533,20 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    public final void setMinimumFontSize(int i) {
-        this.mSettings.setMinimumFontSize(i);
+    public final void setMinimumFontSize(int i2) {
+        this.mSettings.setMinimumFontSize(i2);
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    public final void setMinimumLogicalFontSize(int i) {
-        this.mSettings.setMinimumLogicalFontSize(i);
+    public final void setMinimumLogicalFontSize(int i2) {
+        this.mSettings.setMinimumLogicalFontSize(i2);
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
     @TargetApi(21)
-    public final void setMixedContentMode(int i) {
+    public final void setMixedContentMode(int i2) {
         if (Build.VERSION.SDK_INT >= 21) {
-            this.mSettings.setMixedContentMode(i);
+            this.mSettings.setMixedContentMode(i2);
         }
     }
 
@@ -610,9 +610,9 @@ public final class WebSettingsImpl extends WebSettings {
 
     @Override // com.baidu.webkit.sdk.WebSettings
     @TargetApi(14)
-    public final void setTextZoom(int i) {
+    public final void setTextZoom(int i2) {
         if (Build.VERSION.SDK_INT >= 14) {
-            this.mSettings.setTextZoom(i);
+            this.mSettings.setTextZoom(i2);
         }
     }
 

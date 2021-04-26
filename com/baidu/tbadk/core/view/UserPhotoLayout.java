@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class UserPhotoLayout extends LinearLayout implements AbsListView.RecyclerListener {
@@ -24,7 +24,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public int mNormalShowCount;
     public int mPadding;
     public e mTbRecyclerListener;
-    public d.b.c.e.k.b<HeadImageView> mUserPhotoPool;
+    public d.a.c.e.k.b<HeadImageView> mUserPhotoPool;
 
     /* loaded from: classes3.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
@@ -45,18 +45,18 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements d.b.c.e.k.c<HeadImageView> {
+    public static class b implements d.a.c.e.k.c<HeadImageView> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f13238a;
+        public final /* synthetic */ Context f13195a;
 
         public b(Context context) {
-            this.f13238a = context;
+            this.f13195a = context;
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.b.c.e.k.c
+        @Override // d.a.c.e.k.c
         public /* bridge */ /* synthetic */ HeadImageView a(HeadImageView headImageView) {
             HeadImageView headImageView2 = headImageView;
             e(headImageView2);
@@ -65,7 +65,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // d.b.c.e.k.c
+        @Override // d.a.c.e.k.c
         public /* bridge */ /* synthetic */ HeadImageView c(HeadImageView headImageView) {
             HeadImageView headImageView2 = headImageView;
             h(headImageView2);
@@ -77,7 +77,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.c.e.k.c
+        @Override // d.a.c.e.k.c
         /* renamed from: f */
         public void b(HeadImageView headImageView) {
             headImageView.setBackgroundResource(0);
@@ -87,10 +87,10 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.c.e.k.c
+        @Override // d.a.c.e.k.c
         /* renamed from: g */
         public HeadImageView d() {
-            return new HeadImageView(this.f13238a);
+            return new HeadImageView(this.f13195a);
         }
 
         public HeadImageView h(HeadImageView headImageView) {
@@ -106,43 +106,43 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f13239e;
+        public final int f13196e;
 
-        public /* synthetic */ c(UserPhotoLayout userPhotoLayout, int i, a aVar) {
-            this(i);
+        public /* synthetic */ c(UserPhotoLayout userPhotoLayout, int i2, a aVar) {
+            this(i2);
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (UserPhotoLayout.this.mChildClickListener != null) {
-                UserPhotoLayout.this.mChildClickListener.a(this.f13239e);
+                UserPhotoLayout.this.mChildClickListener.a(this.f13196e);
             }
         }
 
-        public c(int i) {
-            this.f13239e = i;
+        public c(int i2) {
+            this.f13196e = i2;
         }
     }
 
     /* loaded from: classes3.dex */
     public interface d {
-        void a(int i);
+        void a(int i2);
     }
 
     /* loaded from: classes3.dex */
     public static class e implements AbsListView.RecyclerListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f13241e;
+        public int f13198e;
 
-        public e(int i) {
-            this.f13241e = 0;
-            this.f13241e = i;
+        public e(int i2) {
+            this.f13198e = 0;
+            this.f13198e = i2;
         }
 
         @Override // android.widget.AbsListView.RecyclerListener
         public void onMovedToScrapHeap(View view) {
-            View findViewById = view.findViewById(this.f13241e);
+            View findViewById = view.findViewById(this.f13198e);
             if (findViewById == null || !(findViewById instanceof UserPhotoLayout)) {
                 return;
             }
@@ -152,7 +152,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
 
     /* loaded from: classes3.dex */
     public interface f {
-        d.b.c.e.k.b<HeadImageView> a();
+        d.a.c.e.k.b<HeadImageView> a();
 
         int b();
 
@@ -163,12 +163,12 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this(context, null);
     }
 
-    public static d.b.c.e.k.b<HeadImageView> createUserPhotoPool(Context context, int i) {
-        return new d.b.c.e.k.b<>(new b(context), i, 0);
+    public static d.a.c.e.k.b<HeadImageView> createUserPhotoPool(Context context, int i2) {
+        return new d.a.c.e.k.b<>(new b(context), i2, 0);
     }
 
     private HeadImageView getImageView(Context context) {
-        d.b.c.e.k.b<HeadImageView> bVar = this.mUserPhotoPool;
+        d.a.c.e.k.b<HeadImageView> bVar = this.mUserPhotoPool;
         HeadImageView b2 = bVar != null ? bVar.b() : null;
         return (b2 == null || b2.getParent() != null) ? new HeadImageView(context) : b2;
     }
@@ -191,8 +191,8 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
             return;
         }
         long drawingTime = getDrawingTime();
-        for (int i = 0; i < this.mChildCount; i++) {
-            drawChild(canvas, (HeadImageView) getChildAt(i), drawingTime);
+        for (int i2 = 0; i2 < this.mChildCount; i2++) {
+            drawChild(canvas, (HeadImageView) getChildAt(i2), drawingTime);
         }
     }
 
@@ -205,33 +205,33 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
         if (this.mChildCount == 0) {
             return;
         }
-        int i5 = 0;
-        while (i5 < this.mChildCount) {
-            int i6 = this.mPadding;
-            int i7 = this.mItemSize;
-            int i8 = i6 * i5;
-            i5++;
-            ((HeadImageView) getChildAt(i5)).layout((i6 * i5) + (i7 * i5), 0, i8 + (i7 * i5), i7);
+        int i6 = 0;
+        while (i6 < this.mChildCount) {
+            int i7 = this.mPadding;
+            int i8 = this.mItemSize;
+            int i9 = i7 * i6;
+            i6++;
+            ((HeadImageView) getChildAt(i6)).layout((i7 * i6) + (i8 * i6), 0, i9 + (i8 * i6), i8);
         }
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        int i3 = this.mChildCount;
-        if (i3 == 0) {
+    public void onMeasure(int i2, int i3) {
+        int i4 = this.mChildCount;
+        if (i4 == 0) {
             setMeasuredDimension(0, 0);
             return;
         }
-        int i4 = this.mItemSize;
-        setMeasuredDimension((i3 * i4) + ((i3 - 1) * this.mPadding), i4);
-        for (int i5 = 0; i5 < this.mChildCount; i5++) {
-            int i6 = this.mItemSize;
-            measureChild((HeadImageView) getChildAt(i5), i6, i6);
+        int i5 = this.mItemSize;
+        setMeasuredDimension((i4 * i5) + ((i4 - 1) * this.mPadding), i5);
+        for (int i6 = 0; i6 < this.mChildCount; i6++) {
+            int i7 = this.mItemSize;
+            measureChild((HeadImageView) getChildAt(i6), i7, i7);
         }
     }
 
@@ -263,27 +263,27 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
         int size = list.size();
         this.mChildCount = size;
-        int i = this.mNormalShowCount;
-        if (size > i) {
-            this.mChildCount = i;
+        int i2 = this.mNormalShowCount;
+        if (size > i2) {
+            this.mChildCount = i2;
         }
-        for (int i2 = 0; i2 < this.mChildCount; i2++) {
+        for (int i3 = 0; i3 < this.mChildCount; i3++) {
             HeadImageView imageView = getImageView(this.mContext);
             imageView.setAutoChangeStyle(this.mAutoChangeStyle);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             addView(imageView);
-            imageView.W(this.mDatas.get(i2).getPortrait(), 12, false);
+            imageView.V(this.mDatas.get(i3).getPortrait(), 12, false);
         }
         requestLayout();
         invalidate();
     }
 
-    public void setItemSize(int i) {
-        this.mItemSize = i;
+    public void setItemSize(int i2) {
+        this.mItemSize = i2;
     }
 
-    public void setNormalShowCount(int i) {
-        this.mNormalShowCount = i;
+    public void setNormalShowCount(int i2) {
+        this.mNormalShowCount = i2;
     }
 
     public void setOnChildClickListener(d dVar) {
@@ -314,8 +314,8 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i) {
-        super.addView(view, i);
+    public void addView(View view, int i2) {
+        super.addView(view, i2);
         view.setOnClickListener(new c(this, getChildCount() - 1, null));
     }
 }

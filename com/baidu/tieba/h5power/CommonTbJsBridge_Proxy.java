@@ -7,11 +7,11 @@ import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.vivo.push.PushClientConstants;
-import d.b.c.e.p.k;
-import d.b.j0.d3.l0.d.a;
-import d.b.j0.d3.l0.d.b;
-import d.b.j0.d3.l0.d.c;
-import d.b.j0.d3.l0.d.e;
+import d.a.c.e.p.k;
+import d.a.j0.d3.l0.d.a;
+import d.a.j0.d3.l0.d.b;
+import d.a.j0.d3.l0.d.c;
+import d.a.j0.d3.l0.d.e;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -37,7 +37,7 @@ public class CommonTbJsBridge_Proxy extends a {
         this.mNotificationNameList.add(CommonTbJsBridge.CLICK_GO_BACK_TO_H5);
     }
 
-    @Override // d.b.j0.d3.l0.d.a
+    @Override // d.a.j0.d3.l0.d.a
     public c dispatch(e eVar, c cVar) {
         c cVar2 = cVar == null ? new c() : cVar;
         String b2 = eVar.b();
@@ -312,7 +312,7 @@ public class CommonTbJsBridge_Proxy extends a {
         return cVar2;
     }
 
-    @Override // d.b.j0.d3.l0.d.a
+    @Override // d.a.j0.d3.l0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         c cVar = null;
         if (k.isEmpty(str) || !this.mNotificationNameList.contains(str)) {

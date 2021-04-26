@@ -9,17 +9,17 @@ public interface a extends IInterface {
 
     /* renamed from: com.samsung.android.deviceidservice.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static abstract class AbstractBinderC0490a extends Binder implements a {
+    public static abstract class AbstractBinderC0434a extends Binder implements a {
 
         /* renamed from: com.samsung.android.deviceidservice.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0491a implements a {
+        public static class C0435a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f38785a;
+            public IBinder f36366a;
 
-            public C0491a(IBinder iBinder) {
-                this.f38785a = iBinder;
+            public C0435a(IBinder iBinder) {
+                this.f36366a = iBinder;
             }
 
             @Override // com.samsung.android.deviceidservice.a
@@ -28,7 +28,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
-                    this.f38785a.transact(1, obtain, obtain2, 0);
+                    this.f36366a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -44,7 +44,7 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                     obtain.writeString(str);
-                    this.f38785a.transact(2, obtain, obtain2, 0);
+                    this.f36366a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -55,7 +55,7 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f38785a;
+                return this.f36366a;
             }
 
             @Override // com.samsung.android.deviceidservice.a
@@ -65,7 +65,7 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
                     obtain.writeString(str);
-                    this.f38785a.transact(3, obtain, obtain2, 0);
+                    this.f36366a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -75,7 +75,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC0490a() {
+        public AbstractBinderC0434a() {
             attachInterface(this, "com.samsung.android.deviceidservice.IDeviceIdService");
         }
 
@@ -84,21 +84,21 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.samsung.android.deviceidservice.IDeviceIdService");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0491a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0435a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) {
             String a2;
-            if (i == 1) {
+            if (i2 == 1) {
                 parcel.enforceInterface("com.samsung.android.deviceidservice.IDeviceIdService");
                 a2 = a();
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 parcel.enforceInterface("com.samsung.android.deviceidservice.IDeviceIdService");
                 a2 = a(parcel.readString());
-            } else if (i != 3) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 3) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString("com.samsung.android.deviceidservice.IDeviceIdService");
                 return true;

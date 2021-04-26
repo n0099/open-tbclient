@@ -134,13 +134,13 @@ public final class CertificatePinner {
             list = certificateChainCleaner.clean(list, str);
         }
         int size = list.size();
-        for (int i = 0; i < size; i++) {
-            X509Certificate x509Certificate = (X509Certificate) list.get(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            X509Certificate x509Certificate = (X509Certificate) list.get(i2);
             int size2 = findMatchingPins.size();
             ByteString byteString = null;
             ByteString byteString2 = null;
-            for (int i2 = 0; i2 < size2; i2++) {
-                Pin pin = findMatchingPins.get(i2);
+            for (int i3 = 0; i3 < size2; i3++) {
+                Pin pin = findMatchingPins.get(i3);
                 if (pin.hashAlgorithm.equals("sha256/")) {
                     if (byteString == null) {
                         byteString = sha256(x509Certificate);
@@ -164,8 +164,8 @@ public final class CertificatePinner {
         sb.append("Certificate pinning failure!");
         sb.append("\n  Peer certificate chain:");
         int size3 = list.size();
-        for (int i3 = 0; i3 < size3; i3++) {
-            X509Certificate x509Certificate2 = (X509Certificate) list.get(i3);
+        for (int i4 = 0; i4 < size3; i4++) {
+            X509Certificate x509Certificate2 = (X509Certificate) list.get(i4);
             sb.append("\n    ");
             sb.append(pin(x509Certificate2));
             sb.append(": ");
@@ -175,9 +175,9 @@ public final class CertificatePinner {
         sb.append(str);
         sb.append(":");
         int size4 = findMatchingPins.size();
-        for (int i4 = 0; i4 < size4; i4++) {
+        for (int i5 = 0; i5 < size4; i5++) {
             sb.append("\n    ");
-            sb.append(findMatchingPins.get(i4));
+            sb.append(findMatchingPins.get(i5));
         }
         throw new SSLPeerUnverifiedException(sb.toString());
     }

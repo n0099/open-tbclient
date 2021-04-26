@@ -18,8 +18,8 @@ public class BannerExpressVideoView extends a {
 
     @Override // com.bytedance.sdk.openadsdk.core.bannerexpress.a
     public void a() {
-        NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f27747a, this.f27750d, this.f27751e, this.j);
-        this.f27748b = nativeExpressVideoView;
+        NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f28587a, this.f28590d, this.f28591e, this.j);
+        this.f28588b = nativeExpressVideoView;
         addView(nativeExpressVideoView, new ViewGroup.LayoutParams(-1, -1));
     }
 
@@ -54,7 +54,7 @@ public class BannerExpressVideoView extends a {
     }
 
     public com.bytedance.sdk.openadsdk.multipro.b.a getVideoModel() {
-        NativeExpressView nativeExpressView = this.f27748b;
+        NativeExpressView nativeExpressView = this.f28588b;
         if (nativeExpressView != null) {
             return ((NativeExpressVideoView) nativeExpressView).getVideoModel();
         }
@@ -62,8 +62,8 @@ public class BannerExpressVideoView extends a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.bannerexpress.a
-    public /* bridge */ /* synthetic */ void setDuration(int i) {
-        super.setDuration(i);
+    public /* bridge */ /* synthetic */ void setDuration(int i2) {
+        super.setDuration(i2);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.bannerexpress.a
@@ -78,24 +78,24 @@ public class BannerExpressVideoView extends a {
 
     @Override // com.bytedance.sdk.openadsdk.core.bannerexpress.a
     public void a(l lVar, AdSlot adSlot) {
-        NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f27747a, lVar, adSlot, this.j);
-        this.f27749c = nativeExpressVideoView;
+        NativeExpressVideoView nativeExpressVideoView = new NativeExpressVideoView(this.f28587a, lVar, adSlot, this.j);
+        this.f28589c = nativeExpressVideoView;
         nativeExpressVideoView.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.BannerExpressVideoView.1
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-            public void onAdClicked(View view, int i) {
+            public void onAdClicked(View view, int i2) {
                 BannerExpressVideoView bannerExpressVideoView = BannerExpressVideoView.this;
-                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = bannerExpressVideoView.f27752f;
+                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = bannerExpressVideoView.f28592f;
                 if (expressAdInteractionListener != null) {
-                    expressAdInteractionListener.onAdClicked(bannerExpressVideoView, i);
+                    expressAdInteractionListener.onAdClicked(bannerExpressVideoView, i2);
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-            public void onAdShow(View view, int i) {
+            public void onAdShow(View view, int i2) {
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-            public void onRenderFail(View view, String str, int i) {
+            public void onRenderFail(View view, String str, int i2) {
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
@@ -104,7 +104,7 @@ public class BannerExpressVideoView extends a {
                 BannerExpressVideoView.this.f();
             }
         });
-        al.a((View) this.f27749c, 8);
-        addView(this.f27749c, new ViewGroup.LayoutParams(-1, -1));
+        al.a((View) this.f28589c, 8);
+        addView(this.f28589c, new ViewGroup.LayoutParams(-1, -1));
     }
 }

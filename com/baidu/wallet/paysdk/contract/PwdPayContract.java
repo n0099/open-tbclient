@@ -37,9 +37,9 @@ public interface PwdPayContract {
             this.mPayRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
         }
 
-        public void clearPayPwdCache(int i) {
+        public void clearPayPwdCache(int i2) {
             PwdRequest pwdRequest;
-            if ((100015 == i || 100018 == i) && (pwdRequest = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD)) != null) {
+            if ((100015 == i2 || 100018 == i2) && (pwdRequest = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD)) != null) {
                 pwdRequest.mPayPass = null;
             }
         }
@@ -71,38 +71,38 @@ public interface PwdPayContract {
         }
 
         @Override // com.baidu.wallet.paysdk.presenter.NetWorkPresenter
-        public void handleFailure(int i, int i2, String str) {
+        public void handleFailure(int i2, int i3, String str) {
             this.mActivity.dismissLoading(-1);
-            if (i == 257) {
-                StatisticManager.onEventEnd(StatServiceEvent.CHECK_PASSWORD, i2);
+            if (i2 == 257) {
+                StatisticManager.onEventEnd(StatServiceEvent.CHECK_PASSWORD, i3);
                 this.mActivity.showPWdInputView(true);
-                clearPayPwdCache(i2);
-                if (i2 == 100015) {
+                clearPayPwdCache(i3);
+                if (i3 == 100015) {
                     this.mActivity.showPassError(str);
                     return;
-                } else if (i2 == 100018) {
+                } else if (i3 == 100018) {
                     this.mActivity.setErrorTips(false, null);
                     PwdPayActivity pwdPayActivity = this.mActivity;
                     pwdPayActivity.mDialogMsg = str;
-                    pwdPayActivity.mPayErrorCode = i2;
-                    pwdPayActivity.mBeanId = i;
+                    pwdPayActivity.mPayErrorCode = i3;
+                    pwdPayActivity.mBeanId = i2;
                     WalletGlobalUtils.safeShowDialog(pwdPayActivity, 17, "");
                     return;
-                } else if (i2 == -8) {
+                } else if (i3 == -8) {
                     WalletGlobalUtils.safeShowDialog(this.mActivity, 11, "");
                     return;
-                } else if (i2 == 60500) {
+                } else if (i3 == 60500) {
                     PwdPayActivity pwdPayActivity2 = this.mActivity;
                     pwdPayActivity2.mDialogMsg = str;
-                    pwdPayActivity2.mPayErrorCode = i2;
-                    pwdPayActivity2.mBeanId = i;
+                    pwdPayActivity2.mPayErrorCode = i3;
+                    pwdPayActivity2.mBeanId = i2;
                     WalletGlobalUtils.safeShowDialog(pwdPayActivity2, 37, "");
                     return;
-                } else if (65312 == i2) {
+                } else if (65312 == i3) {
                     PwdPayActivity pwdPayActivity3 = this.mActivity;
                     GlobalUtils.toast(pwdPayActivity3, ResUtils.getString(pwdPayActivity3, "bd_wallet_fingerprint_auth_failed"));
                     String str2 = this.TAG;
-                    LogUtil.d(str2, "指纹验证失败, 切到密码输入模式   , wireless-pay接口请求失败 错误码是  : " + i2);
+                    LogUtil.d(str2, "指纹验证失败, 切到密码输入模式   , wireless-pay接口请求失败 错误码是  : " + i3);
                     this.mActivity.turntoPwdPay(true, null);
                     return;
                 } else {
@@ -115,12 +115,12 @@ public interface PwdPayContract {
                     return;
                 }
             }
-            this.mActivity.handleFailure(i, i2, str);
+            this.mActivity.handleFailure(i2, i3, str);
         }
 
         @Override // com.baidu.wallet.paysdk.presenter.NetWorkPresenter
-        public void handleResponse(int i, Object obj, String str) {
-            this.mActivity.handleResponse(i, obj, str);
+        public void handleResponse(int i2, Object obj, String str) {
+            this.mActivity.handleResponse(i2, obj, str);
         }
 
         public boolean isGatewaySignPay() {
@@ -131,8 +131,8 @@ public interface PwdPayContract {
             return null;
         }
 
-        public boolean onBeanExecFailureWithErrContent(int i, int i2, String str, Object obj) {
-            clearPayPwdCache(i2);
+        public boolean onBeanExecFailureWithErrContent(int i2, int i3, String str, Object obj) {
+            clearPayPwdCache(i3);
             return false;
         }
 

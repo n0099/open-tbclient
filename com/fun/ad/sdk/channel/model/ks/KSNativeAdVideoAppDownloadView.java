@@ -1,8 +1,8 @@
 package com.fun.ad.sdk.channel.model.ks;
 
-import a.a.a.a.r.b.d.b;
-import a.a.a.a.r.b.d.c;
-import a.a.a.a.v.d;
+import a.a.a.a.t.b.d.b;
+import a.a.a.a.t.b.d.c;
+import a.a.a.a.x.d;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
@@ -26,22 +26,22 @@ import java.util.ArrayList;
 public class KSNativeAdVideoAppDownloadView extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f30585a;
+    public TextView f31519a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f30586b;
+    public FrameLayout f31520b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f30587c;
+    public ImageView f31521c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f30588d;
+    public ImageView f31522d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f30589e;
+    public TextView f31523e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f30590f;
+    public Button f31524f;
 
     public KSNativeAdVideoAppDownloadView(Context context) {
         this(context, null);
@@ -51,15 +51,15 @@ public class KSNativeAdVideoAppDownloadView extends c {
         this(context, attributeSet, 0);
     }
 
-    public KSNativeAdVideoAppDownloadView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public KSNativeAdVideoAppDownloadView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 
-    @Override // a.a.a.a.r.b.d.c
+    @Override // a.a.a.a.t.b.d.c
     public void a(Activity activity, KsNativeAd ksNativeAd, KsNativeAd.AdInteractionListener adInteractionListener) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(this);
-        arrayList.add(this.f30590f);
+        arrayList.add(this.f31524f);
         ksNativeAd.registerViewForInteraction(this, arrayList, adInteractionListener);
         View videoView = ksNativeAd.getVideoView(activity, new KsAdVideoPlayConfig.Builder().videoSoundEnable(FunAdSdk.getFunAdConfig().isVideoSoundEnable).dataFlowAutoStart(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart).build());
         d.b("KSNativeAd video videoView: " + videoView, new Object[0]);
@@ -67,18 +67,18 @@ public class KSNativeAdVideoAppDownloadView extends c {
             ((ViewGroup) videoView.getParent()).removeView(videoView);
         }
         if (videoView != null) {
-            this.f30586b.removeAllViews();
-            this.f30586b.addView(videoView);
+            this.f31520b.removeAllViews();
+            this.f31520b.addView(videoView);
         }
-        this.f30587c.setImageBitmap(ksNativeAd.getSdkLogo());
-        this.f30585a.setText(ksNativeAd.getAdDescription());
+        this.f31521c.setImageBitmap(ksNativeAd.getSdkLogo());
+        this.f31519a.setText(ksNativeAd.getAdDescription());
         if (TextUtils.isEmpty(ksNativeAd.getAppIconUrl())) {
-            this.f30588d.setVisibility(8);
+            this.f31522d.setVisibility(8);
         } else {
-            this.f30588d.setVisibility(0);
+            this.f31522d.setVisibility(0);
             Context context = getContext();
             String appIconUrl = ksNativeAd.getAppIconUrl();
-            ImageView imageView = this.f30588d;
+            ImageView imageView = this.f31522d;
             if (context == null) {
                 d.b("GlideHelper: context is null when load: " + appIconUrl, new Object[0]);
             } else if (context instanceof Activity) {
@@ -92,29 +92,29 @@ public class KSNativeAdVideoAppDownloadView extends c {
                 Glide.with(context).load(appIconUrl).into(imageView);
             }
         }
-        this.f30589e.setText(ksNativeAd.getAppName());
-        this.f30590f.setText(ksNativeAd.getActionDescription());
-        ksNativeAd.setDownloadListener(new b(ksNativeAd.getActionDescription(), this.f30590f));
+        this.f31523e.setText(ksNativeAd.getAppName());
+        this.f31524f.setText(ksNativeAd.getActionDescription());
+        ksNativeAd.setDownloadListener(new b(ksNativeAd.getActionDescription(), this.f31524f));
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30585a = (TextView) findViewById(R.id.ad_description);
-        this.f30586b = (FrameLayout) findViewById(R.id.ad_video);
-        this.f30587c = (ImageView) findViewById(R.id.ad_logo);
-        this.f30588d = (ImageView) findViewById(R.id.ad_app_icon);
-        this.f30589e = (TextView) findViewById(R.id.ad_app_title);
-        this.f30590f = (Button) findViewById(R.id.ad_app_download);
+        this.f31519a = (TextView) findViewById(R.id.ad_description);
+        this.f31520b = (FrameLayout) findViewById(R.id.ad_video);
+        this.f31521c = (ImageView) findViewById(R.id.ad_logo);
+        this.f31522d = (ImageView) findViewById(R.id.ad_app_icon);
+        this.f31523e = (TextView) findViewById(R.id.ad_app_title);
+        this.f31524f = (Button) findViewById(R.id.ad_app_download);
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30586b.getLayoutParams();
-        int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
-        layoutParams.width = i5;
-        layoutParams.height = (int) (i5 / 1.78f);
-        this.f30586b.setLayoutParams(layoutParams);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f31520b.getLayoutParams();
+        int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
+        layoutParams.width = i6;
+        layoutParams.height = (int) (i6 / 1.78f);
+        this.f31520b.setLayoutParams(layoutParams);
     }
 }

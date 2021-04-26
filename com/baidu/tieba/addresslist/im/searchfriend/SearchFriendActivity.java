@@ -24,7 +24,7 @@ import com.baidu.tbadk.data.SearchFriendResult;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.j0.q.e.b.a;
+import d.a.j0.q.e.b.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -33,7 +33,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     public static final String HTTP_PARAMS_SEARCH_KEY = "search_key";
     public View mParentView;
     public NavigationBar navigationBar;
-    public d.b.j0.q.e.b.a searchBar;
+    public d.a.j0.q.e.b.a searchBar;
     public View searchView;
     public a.c searchBarCallback = new a();
     public CustomMessageListener getOfficialAccountListener = new b(2001265);
@@ -44,7 +44,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         public a() {
         }
 
-        @Override // d.b.j0.q.e.b.a.c
+        @Override // d.a.j0.q.e.b.a.c
         public void a(String str) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SEARCH_FRIEND_CMD);
             httpMessage.addParam(SearchFriendActivity.HTTP_PARAMS_SEARCH_KEY, str);
@@ -54,8 +54,8 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
 
     /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,7 +70,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             Object next = it.next();
-                            if ((next instanceof d.b.i0.s.f.a) && userInfo.getUserId() == ((d.b.i0.s.f.a) next).e()) {
+                            if ((next instanceof d.a.i0.s.f.a) && userInfo.getUserId() == ((d.a.i0.s.f.a) next).e()) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(SearchFriendActivity.this.getPageContext().getPageActivity(), userInfo.getUserId(), userInfo.getUserName(), userInfo.getPortrait(), 0, 4)));
                                 return;
                             }
@@ -86,8 +86,8 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
 
     /* loaded from: classes4.dex */
     public class c extends HttpMessageListener {
-        public c(int i) {
-            super(i);
+        public c(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -162,7 +162,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.c
-    public d.b.c.e.k.b<TbImageView> getUserIconPool() {
+    public d.a.c.e.k.b<TbImageView> getUserIconPool() {
         return UserIconBox.c(getPageContext().getPageActivity(), 8);
     }
 
@@ -171,10 +171,10 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.navigationBar.onChangeSkinType(getPageContext(), i);
-        this.searchBar.f(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.navigationBar.onChangeSkinType(getPageContext(), i2);
+        this.searchBar.f(i2);
         getLayoutMode().j(this.searchView);
         getLayoutMode().j(this.mParentView);
     }
@@ -191,7 +191,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         navigationBar.setTitleText(R.string.find_new_friend);
         this.navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e());
         this.searchView = findViewById(R.id.new_search_friend_search_container);
-        this.searchBar = new d.b.j0.q.e.b.a(getPageContext(), this.searchView);
+        this.searchBar = new d.a.j0.q.e.b.a(getPageContext(), this.searchView);
         this.searchView.setOnClickListener(dVar);
         this.searchBar.l(this.searchBarCallback);
         TiebaStatic.log("add_new");

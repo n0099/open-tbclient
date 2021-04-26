@@ -1,7 +1,9 @@
 package com.baidu.wallet.lightapp.multipage;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.wallet.BaiduWalletServiceProviderMap;
+import com.google.android.material.badge.BadgeDrawable;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
@@ -11,72 +13,72 @@ import java.util.concurrent.ConcurrentHashMap;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f24979a;
+    public static final Set<String> f25745a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Map<String, String>> f24980b;
+    public Map<String, Map<String, String>> f25746b;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static g f24981a = new g();
+        public static g f25747a = new g();
     }
 
     static {
         HashSet hashSet = new HashSet();
-        f24979a = hashSet;
+        f25745a = hashSet;
         hashSet.add("getItem");
-        f24979a.add("setItem");
-        f24979a.add("clear");
-        f24979a.add("key");
-        f24979a.add("length");
-        f24979a.add("removeItem");
+        f25745a.add("setItem");
+        f25745a.add("clear");
+        f25745a.add("key");
+        f25745a.add(CloudStabilityUBCUtils.KEY_LENGTH);
+        f25745a.add("removeItem");
     }
 
     public static boolean a(String str) {
-        return f24979a.contains(str);
+        return f25745a.contains(str);
     }
 
     private void b() {
     }
 
     public void b(String str) {
-        this.f24980b.remove(str);
+        this.f25746b.remove(str);
     }
 
     public void c(String str) {
-        for (Map.Entry<String, Map<String, String>> entry : this.f24980b.entrySet()) {
+        for (Map.Entry<String, Map<String, String>> entry : this.f25746b.entrySet()) {
             if (entry.getKey().startsWith(str)) {
-                this.f24980b.remove(entry.getKey());
+                this.f25746b.remove(entry.getKey());
             }
         }
     }
 
     public int d(String str) {
-        if (this.f24980b.containsKey(str)) {
-            return this.f24980b.get(str).size();
+        if (this.f25746b.containsKey(str)) {
+            return this.f25746b.get(str).size();
         }
         return 0;
     }
 
     public g() {
-        this.f24980b = new ConcurrentHashMap();
+        this.f25746b = new ConcurrentHashMap();
     }
 
     public static g a() {
-        return a.f24981a;
+        return a.f25747a;
     }
 
     public void b(String str, String str2) {
-        if (this.f24980b.containsKey(str2) && this.f24980b.get(str2).containsKey(str)) {
-            this.f24980b.get(str2).remove(str);
+        if (this.f25746b.containsKey(str2) && this.f25746b.get(str2).containsKey(str)) {
+            this.f25746b.get(str2).remove(str);
         }
     }
 
     public String a(String str, String str2) {
-        if (this.f24980b.containsKey(str2) && this.f24980b.get(str2).containsKey(str)) {
-            return this.f24980b.get(str2).get(str);
+        if (this.f25746b.containsKey(str2) && this.f25746b.get(str2).containsKey(str)) {
+            return this.f25746b.get(str2).get(str);
         }
         return null;
     }
@@ -87,57 +89,57 @@ public class g {
     public void d(String str, String str2) {
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
         ConcurrentHashMap concurrentHashMap2 = new ConcurrentHashMap();
-        for (String str3 : this.f24980b.keySet()) {
+        for (String str3 : this.f25746b.keySet()) {
             if (!TextUtils.isEmpty(str3) && str3.startsWith(str)) {
-                concurrentHashMap2.put(str3, this.f24980b.get(str3));
-                concurrentHashMap.put(str2 + str3.substring(str3.indexOf("+") + 1, str3.length()), this.f24980b.get(str3));
+                concurrentHashMap2.put(str3, this.f25746b.get(str3));
+                concurrentHashMap.put(str2 + str3.substring(str3.indexOf(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX) + 1, str3.length()), this.f25746b.get(str3));
             }
         }
         for (String str4 : concurrentHashMap2.keySet()) {
-            this.f24980b.remove(str4);
+            this.f25746b.remove(str4);
         }
         Iterator it = concurrentHashMap.keySet().iterator();
         while (it.hasNext()) {
             String str5 = (String) it.next();
-            if (this.f24980b.containsKey(str5)) {
+            if (this.f25746b.containsKey(str5)) {
                 Map map = (Map) concurrentHashMap.get(str5);
                 Iterator it2 = map.keySet().iterator();
                 while (it.hasNext()) {
                     String str6 = (String) it2.next();
-                    if (!this.f24980b.get(str5).containsKey(str6)) {
-                        this.f24980b.get(str5).put(str6, map.get(str6));
+                    if (!this.f25746b.get(str5).containsKey(str6)) {
+                        this.f25746b.get(str5).put(str6, map.get(str6));
                     }
                 }
             } else {
-                this.f24980b.put(str5, concurrentHashMap.get(str5));
+                this.f25746b.put(str5, concurrentHashMap.get(str5));
             }
         }
     }
 
     public void a(String str, String str2, String str3) {
-        if (this.f24980b.containsKey(str3)) {
-            this.f24980b.get(str3).put(str, str2);
+        if (this.f25746b.containsKey(str3)) {
+            this.f25746b.get(str3).put(str, str2);
             return;
         }
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
         concurrentHashMap.put(str, str2);
-        this.f24980b.put(str3, concurrentHashMap);
+        this.f25746b.put(str3, concurrentHashMap);
     }
 
     public String c(String str, String str2) {
-        int i;
+        int i2;
         try {
-            i = Integer.valueOf(str).intValue();
+            i2 = Integer.valueOf(str).intValue();
         } catch (Exception unused) {
-            i = -1;
+            i2 = -1;
         }
-        if (this.f24980b.containsKey(str2)) {
-            Map<String, String> map = this.f24980b.get(str2);
+        if (this.f25746b.containsKey(str2)) {
+            Map<String, String> map = this.f25746b.get(str2);
             String[] strArr = (String[]) map.keySet().toArray(new String[map.keySet().size()]);
-            if (i < 0 || i >= strArr.length) {
+            if (i2 < 0 || i2 >= strArr.length) {
                 return null;
             }
-            return strArr[i];
+            return strArr[i2];
         }
         return null;
     }
@@ -149,7 +151,7 @@ public class g {
         b();
         switch (str.hashCode()) {
             case -1106363674:
-                if (str.equals("length")) {
+                if (str.equals(CloudStabilityUBCUtils.KEY_LENGTH)) {
                     c2 = 7;
                     break;
                 }

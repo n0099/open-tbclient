@@ -42,8 +42,8 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
         return this.hasMore;
     }
 
-    public void setAvailabel(int i) {
-        if (i == 1) {
+    public void setAvailabel(int i2) {
+        if (i2 == 1) {
             this.available = true;
         } else {
             this.available = false;
@@ -52,36 +52,36 @@ public class ResponseGetLivableForumList extends SocketResponsedMessage {
 
     public void setData(List<ForumRalatedInfo> list) {
         if (list != null) {
-            for (int i = 0; i < list.size(); i++) {
-                if (list.get(i) != null) {
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                if (list.get(i2) != null) {
                     ForumData forumData = new ForumData();
-                    forumData.setCurScore(list.get(i).curScore.intValue());
-                    forumData.setImage_url(list.get(i).avatar);
-                    forumData.setLevelupScore(list.get(i).leftScore.intValue());
-                    forumData.setUser_level(list.get(i).level.intValue());
-                    forumData.setName(list.get(i).name);
-                    forumData.setId(list.get(i).forumId.toString());
+                    forumData.setCurScore(list.get(i2).curScore.intValue());
+                    forumData.setImage_url(list.get(i2).avatar);
+                    forumData.setLevelupScore(list.get(i2).leftScore.intValue());
+                    forumData.setUser_level(list.get(i2).level.intValue());
+                    forumData.setName(list.get(i2).name);
+                    forumData.setId(list.get(i2).forumId.toString());
                     this.data.add(forumData);
                 }
             }
         }
     }
 
-    public void setHasMore(int i) {
-        if (i == 1) {
+    public void setHasMore(int i2) {
+        if (i2 == 1) {
             this.hasMore = true;
         } else {
             this.hasMore = false;
         }
     }
 
-    public void setMiniLevel(int i) {
-        this.minLevel = i;
+    public void setMiniLevel(int i2) {
+        this.minLevel = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetLivableForumListResIdl getLivableForumListResIdl = (GetLivableForumListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetLivableForumListResIdl.class);
         setError(getLivableForumListResIdl.error.errorno.intValue());
         setErrorString(getLivableForumListResIdl.error.usermsg);

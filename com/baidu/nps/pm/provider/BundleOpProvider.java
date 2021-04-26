@@ -13,14 +13,14 @@ import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.pm.IBundleInfo;
 import com.baidu.nps.utils.Constant;
 import com.baidu.nps.utils.ContextHolder;
-import d.b.x.c.a.f;
-import d.b.x.f.b.a;
-import d.b.x.h.b;
-import d.b.x.h.c;
-import d.b.x.h.e;
+import d.a.x.g.b.a;
+import d.a.x.i.b;
+import d.a.x.i.c;
+import d.a.x.i.f;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +30,7 @@ public class BundleOpProvider extends ContentProvider {
     public static final String METHOD_BUNDLE_CLEAR = "cleardeprecated";
     public static final String METHOD_BUNDLE_DOWNLOAD = "download";
     public static final String METHOD_BUNDLE_DOWNLOAD_ALL = "download_all";
+    public static final String METHOD_BUNDLE_DOWNLOAD_BACKGROUND = "downloadBackground";
     public static final String METHOD_BUNDLE_FETCH = "fetch";
     public static final String METHOD_BUNDLE_INSTALL = "install";
     public static final String METHOD_BUNDLE_INSTALL_ONLY = "installonly";
@@ -55,29 +56,49 @@ public class BundleOpProvider extends ContentProvider {
 
     private Bundle clearDeprecatedBundles(Bundle bundle) {
         Bundle bundle2 = new Bundle();
-        ArrayList parcelableArrayList = bundle.getParcelableArrayList(Constant.TAG.PARAM_VALUE);
-        if (parcelableArrayList != null) {
-            Iterator it = parcelableArrayList.iterator();
-            while (it.hasNext()) {
-                BundleInfo bundleInfo = BundleInfo.toBundleInfo((ContentValues) it.next());
-                d.b.x.f.a.a.d(getContext()).b(bundleInfo.getPackageName(), bundleInfo.getMinVersion());
-            }
-        }
-        d.b.x.f.a.a.d(getContext()).c();
+        d.a.x.g.a.a.c(getContext()).b();
         return bundle2;
     }
 
     private synchronized Bundle downloadAllBundles() {
-        Cursor g2 = d.b.x.f.a.a.d(getContext()).g(1);
-        List<BundleInfo> bundleInfoList = BundleInfo.toBundleInfoList(g2);
-        try {
-            g2.close();
-        } catch (Exception unused) {
+        List<BundleInfo> e2 = d.a.x.g.a.a.c(getContext()).e();
+        ArrayList<BundleInfo> arrayList = new ArrayList();
+        HashSet hashSet = new HashSet();
+        for (BundleInfo bundleInfo : e2) {
+            if (bundleInfo != null) {
+                if (bundleInfo.getType() == 1) {
+                    arrayList.add(bundleInfo);
+                } else if (bundleInfo.getType() == 3) {
+                    hashSet.add(bundleInfo.getPackageName());
+                }
+            }
         }
-        for (BundleInfo bundleInfo : bundleInfoList) {
-            downloadBundle(bundleInfo, 49);
+        for (BundleInfo bundleInfo2 : arrayList) {
+            if (hashSet.contains(bundleInfo2.getPackageName())) {
+                if (bundleInfo2.getSilenceUpdate() == 1) {
+                    downloadBundle(bundleInfo2, 49);
+                }
+            } else if (bundleInfo2.getSilence() == 1) {
+                downloadBundle(bundleInfo2, 49);
+            }
         }
         return new Bundle();
+    }
+
+    private Bundle downloadBackground(Bundle bundle) {
+        Bundle bundle2 = new Bundle();
+        if (bundle != null) {
+            ContentValues contentValues = (ContentValues) bundle.getParcelable(Constant.TAG.PARAM_VALUE);
+            BundleInfo bundleInfo = contentValues != null ? BundleInfo.toBundleInfo(contentValues) : null;
+            if (bundleInfo == null) {
+                bundle2.putInt(Constant.TAG.RET_CODE, 4);
+                return bundle2;
+            }
+            bundleInfo.setSilenceUpdate(1);
+            bundleInfo.setSilence(1);
+            d.a.x.g.a.a.c(getContext()).i(null, BundleInfo.toContentValues(bundleInfo), null, null);
+        }
+        return bundle2;
     }
 
     private Bundle downloadBundle(BundleInfo bundleInfo) {
@@ -93,17 +114,17 @@ public class BundleOpProvider extends ContentProvider {
         ArrayList arrayList = new ArrayList();
         arrayList.add(bundleInfo);
         a.d b2 = a.c().b(arrayList);
-        int i = b2.f65843a;
-        if (i == 0) {
-            for (IBundleInfo iBundleInfo : b2.f65844b) {
+        int i2 = b2.f64198a;
+        if (i2 == 0) {
+            for (IBundleInfo iBundleInfo : b2.f64199b) {
                 BundleInfo bundleInfo2 = BundleInfo.toBundleInfo(iBundleInfo);
                 bundleInfo2.setType(1);
-                d.b.x.f.a.a.d(getContext()).k(null, BundleInfo.toContentValues(bundleInfo2), null, null);
+                d.a.x.g.a.a.c(getContext()).i(null, BundleInfo.toContentValues(bundleInfo2), null, null);
             }
-            i = 0;
+            i2 = 0;
         }
-        bundle.putInt(Constant.TAG.RET_CODE, i);
-        IBundleInfo iBundleInfo2 = b2.f65844b.isEmpty() ? null : b2.f65844b.get(0);
+        bundle.putInt(Constant.TAG.RET_CODE, i2);
+        IBundleInfo iBundleInfo2 = b2.f64199b.isEmpty() ? null : b2.f64199b.get(0);
         if (iBundleInfo2 != null) {
             bundle.putParcelable(Constant.TAG.RET_VALUE, BundleInfo.toContentValues(iBundleInfo2));
         }
@@ -136,10 +157,10 @@ public class BundleOpProvider extends ContentProvider {
         if (fetchBundleInfo.getInt(Constant.TAG.RET_CODE) != 0) {
             return fetchBundleInfo;
         }
-        Cursor h2 = d.b.x.f.a.a.d(getContext()).h(bundleInfo.getPackageName(), 1);
-        List<BundleInfo> bundleInfoList = BundleInfo.toBundleInfoList(h2);
+        Cursor f2 = d.a.x.g.a.a.c(getContext()).f(bundleInfo.getPackageName(), 1);
+        List<BundleInfo> bundleInfoList = BundleInfo.toBundleInfoList(f2);
         try {
-            h2.close();
+            f2.close();
         } catch (Exception unused) {
         }
         if (!bundleInfoList.isEmpty()) {
@@ -186,23 +207,23 @@ public class BundleOpProvider extends ContentProvider {
                 }
                 long currentTimeMillis = System.currentTimeMillis();
                 synchronized (this.mInstallingLocks.get(packageName)) {
-                    Cursor i = d.b.x.f.a.a.d(getContext()).i(bundleInfo.getPackageName(), bundleInfo.getVersionCode(), 3);
+                    Cursor g2 = d.a.x.g.a.a.c(getContext()).g(bundleInfo.getPackageName(), bundleInfo.getVersionCode(), 3);
                     int i2 = 13;
-                    if (i.getCount() == 0) {
+                    if (g2.getCount() == 0) {
                         int f2 = a.c().f(bundleInfo, file);
                         if (f2 == 13) {
                             bundleInfo.setType(3);
-                            bundleInfo.setAbi(e.a());
-                            d.b.x.f.a.a.d(getContext()).k(null, BundleInfo.toContentValues(bundleInfo), null, null);
+                            bundleInfo.setAbi(f.a());
+                            d.a.x.g.a.a.c(getContext()).i(null, BundleInfo.toContentValues(bundleInfo), null, null);
                             bundle.putParcelable(Constant.TAG.RET_VALUE, BundleInfo.toContentValues(bundleInfo));
                         }
-                        f.a().b().recordInstallResult(f2, bundleInfo.getPackageName(), bundleInfo.getVersionCode(), "");
+                        d.a.x.c.a.f.a().b().recordInstallResult(f2, bundleInfo.getPackageName(), bundleInfo.getVersionCode(), "");
                         i2 = f2;
                     } else {
-                        bundle.putParcelable(Constant.TAG.RET_VALUE, BundleInfo.toContentValues(BundleInfo.toBundleInfoList(i).get(0)));
+                        bundle.putParcelable(Constant.TAG.RET_VALUE, BundleInfo.toContentValues(BundleInfo.toBundleInfoList(g2).get(0)));
                     }
                     try {
-                        i.close();
+                        g2.close();
                     } catch (Exception unused) {
                     }
                     bundle.putInt(Constant.TAG.RET_CODE, i2);
@@ -215,7 +236,7 @@ public class BundleOpProvider extends ContentProvider {
     }
 
     private Bundle installLocalBundle(BundleInfo bundleInfo) {
-        int i;
+        int i2;
         Bundle bundle = new Bundle();
         if (bundleInfo == null) {
             bundle.putInt(Constant.TAG.RET_CODE, 4);
@@ -227,34 +248,34 @@ public class BundleOpProvider extends ContentProvider {
             }
         }
         synchronized (this.mInstallingLocks.get(bundleInfo.getPackageName())) {
-            Cursor i2 = d.b.x.f.a.a.d(getContext()).i(bundleInfo.getPackageName(), bundleInfo.getVersionCode(), 3);
-            i = 13;
-            if (i2.getCount() == 0) {
-                int g2 = a.c().g(bundleInfo);
-                if (g2 == 13) {
+            Cursor g2 = d.a.x.g.a.a.c(getContext()).g(bundleInfo.getPackageName(), bundleInfo.getVersionCode(), 3);
+            i2 = 13;
+            if (g2.getCount() == 0) {
+                int g3 = a.c().g(bundleInfo);
+                if (g3 == 13) {
                     bundleInfo.setType(3);
-                    bundleInfo.setAbi(e.a());
+                    bundleInfo.setAbi(f.a());
                     bundleInfo.setApkPath("");
-                    d.b.x.f.a.a.d(getContext()).k(null, BundleInfo.toContentValues(bundleInfo), null, null);
+                    d.a.x.g.a.a.c(getContext()).i(null, BundleInfo.toContentValues(bundleInfo), null, null);
                     bundle.putParcelable(Constant.TAG.RET_VALUE, BundleInfo.toContentValues(bundleInfo));
                 }
-                f.a().b().recordInstallResult(g2, bundleInfo.getPackageName(), bundleInfo.getVersionCode(), "");
-                i = g2;
+                d.a.x.c.a.f.a().b().recordInstallResult(g3, bundleInfo.getPackageName(), bundleInfo.getVersionCode(), "");
+                i2 = g3;
             } else {
-                bundle.putParcelable(Constant.TAG.RET_VALUE, BundleInfo.toContentValues(BundleInfo.toBundleInfoList(i2).get(0)));
+                bundle.putParcelable(Constant.TAG.RET_VALUE, BundleInfo.toContentValues(BundleInfo.toBundleInfoList(g2).get(0)));
             }
             try {
-                i2.close();
+                g2.close();
             } catch (Exception unused) {
             }
         }
-        bundle.putInt(Constant.TAG.RET_CODE, i);
+        bundle.putInt(Constant.TAG.RET_CODE, i2);
         notifyDataChange(bundleInfo.getPackageName(), System.currentTimeMillis());
         return bundle;
     }
 
     private Bundle installPresetBundle(BundleInfo bundleInfo) {
-        int i;
+        int i2;
         Bundle bundle = new Bundle();
         if (bundleInfo == null) {
             bundle.putInt(Constant.TAG.RET_CODE, 4);
@@ -266,27 +287,27 @@ public class BundleOpProvider extends ContentProvider {
             }
         }
         synchronized (this.mInstallingLocks.get(bundleInfo.getPackageName())) {
-            Cursor i2 = d.b.x.f.a.a.d(getContext()).i(bundleInfo.getPackageName(), bundleInfo.getVersionCode(), 3);
-            i = 13;
-            if (i2.getCount() == 0) {
+            Cursor g2 = d.a.x.g.a.a.c(getContext()).g(bundleInfo.getPackageName(), bundleInfo.getVersionCode(), 3);
+            i2 = 13;
+            if (g2.getCount() == 0) {
                 int i3 = a.c().i(bundleInfo);
                 if (i3 == 13) {
                     bundleInfo.setType(3);
-                    bundleInfo.setAbi(e.a());
-                    d.b.x.f.a.a.d(getContext()).k(null, BundleInfo.toContentValues(bundleInfo), null, null);
+                    bundleInfo.setAbi(f.a());
+                    d.a.x.g.a.a.c(getContext()).i(null, BundleInfo.toContentValues(bundleInfo), null, null);
                     bundle.putParcelable(Constant.TAG.RET_VALUE, BundleInfo.toContentValues(bundleInfo));
                 }
-                f.a().b().recordInstallResult(i3, bundleInfo.getPackageName(), bundleInfo.getVersionCode(), "");
-                i = i3;
+                d.a.x.c.a.f.a().b().recordInstallResult(i3, bundleInfo.getPackageName(), bundleInfo.getVersionCode(), "");
+                i2 = i3;
             } else {
-                bundle.putParcelable(Constant.TAG.RET_VALUE, BundleInfo.toContentValues(BundleInfo.toBundleInfoList(i2).get(0)));
+                bundle.putParcelable(Constant.TAG.RET_VALUE, BundleInfo.toContentValues(BundleInfo.toBundleInfoList(g2).get(0)));
             }
             try {
-                i2.close();
+                g2.close();
             } catch (Exception unused) {
             }
         }
-        bundle.putInt(Constant.TAG.RET_CODE, i);
+        bundle.putInt(Constant.TAG.RET_CODE, i2);
         notifyDataChange(bundleInfo.getPackageName(), System.currentTimeMillis());
         return bundle;
     }
@@ -319,21 +340,21 @@ public class BundleOpProvider extends ContentProvider {
         this.mPresetInited = true;
         return bundle;
         synchronized (this.mInstallingLocks.get(next.getPackageName())) {
-            Cursor i = d.b.x.f.a.a.d(getContext()).i(next.getPackageName(), next.getVersionCode(), 3);
-            if (i.getCount() == 0) {
+            Cursor g2 = d.a.x.g.a.a.c(getContext()).g(next.getPackageName(), next.getVersionCode(), 3);
+            if (g2.getCount() == 0) {
                 int i2 = a.c().i(next);
                 if (i2 == 13) {
                     next.setType(3);
-                    next.setAbi(e.a());
-                    d.b.x.f.a.a.d(getContext()).k(null, BundleInfo.toContentValues(next), null, null);
+                    next.setAbi(f.a());
+                    d.a.x.g.a.a.c(getContext()).i(null, BundleInfo.toContentValues(next), null, null);
                     arrayList.add(next);
                 }
-                f.a().b().recordInstallResult(i2, next.getPackageName(), next.getVersionCode(), "");
+                d.a.x.c.a.f.a().b().recordInstallResult(i2, next.getPackageName(), next.getVersionCode(), "");
             } else {
-                arrayList.add(BundleInfo.toBundleInfoList(i).get(0));
+                arrayList.add(BundleInfo.toBundleInfoList(g2).get(0));
             }
             try {
-                i.close();
+                g2.close();
             } catch (Exception unused) {
             }
         }
@@ -359,7 +380,7 @@ public class BundleOpProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
-        return d.b.x.f.a.a.d(getContext()).a(uri, str, strArr);
+        return d.a.x.g.a.a.c(getContext()).a(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
@@ -379,12 +400,12 @@ public class BundleOpProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        return d.b.x.f.a.a.d(getContext()).e(uri, strArr, str, strArr2, str2);
+        return d.a.x.g.a.a.c(getContext()).d(uri, strArr, str, strArr2, str2);
     }
 
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        return d.b.x.f.a.a.d(getContext()).k(uri, contentValues, str, strArr);
+        return d.a.x.g.a.a.c(getContext()).i(uri, contentValues, str, strArr);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -396,10 +417,10 @@ public class BundleOpProvider extends ContentProvider {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private Bundle downloadBundle(BundleInfo bundleInfo, int i) {
+    private Bundle downloadBundle(BundleInfo bundleInfo, int i2) {
         BundleInfo bundleInfo2;
-        Cursor h2;
-        Cursor i2;
+        Cursor f2;
+        Cursor g2;
         Bundle bundle = new Bundle();
         if (bundleInfo == null) {
             bundle.putInt(Constant.TAG.RET_CODE, 4);
@@ -413,7 +434,7 @@ public class BundleOpProvider extends ContentProvider {
         synchronized (this.mDownloadingLocks.get(bundleInfo.getPackageName())) {
             long currentTimeMillis = System.currentTimeMillis();
             try {
-                i2 = d.b.x.f.a.a.d(getContext()).i(bundleInfo.getPackageName(), bundleInfo.getVersionCode(), 2);
+                g2 = d.a.x.g.a.a.c(getContext()).g(bundleInfo.getPackageName(), bundleInfo.getVersionCode(), 2);
                 try {
                 } finally {
                 }
@@ -422,19 +443,19 @@ public class BundleOpProvider extends ContentProvider {
                     e2.printStackTrace();
                 }
             }
-            if (i2.getCount() > 0) {
+            if (g2.getCount() > 0) {
                 bundle.putInt(Constant.TAG.RET_CODE, 2);
                 bundle.putLong("time_stamp", currentTimeMillis);
-                if (i2 != null) {
-                    i2.close();
+                if (g2 != null) {
+                    g2.close();
                 }
                 return bundle;
             }
-            if (i2 != null) {
-                i2.close();
+            if (g2 != null) {
+                g2.close();
             }
             try {
-                i2 = d.b.x.f.a.a.d(getContext()).i(bundleInfo.getPackageName(), bundleInfo.getVersionCode(), 3);
+                g2 = d.a.x.g.a.a.c(getContext()).g(bundleInfo.getPackageName(), bundleInfo.getVersionCode(), 3);
                 try {
                 } finally {
                     try {
@@ -447,27 +468,27 @@ public class BundleOpProvider extends ContentProvider {
                     e3.printStackTrace();
                 }
             }
-            if (i2.getCount() > 0) {
+            if (g2.getCount() > 0) {
                 bundle.putInt(Constant.TAG.RET_CODE, 2);
                 bundle.putLong("time_stamp", currentTimeMillis);
-                if (i2 != null) {
-                    i2.close();
+                if (g2 != null) {
+                    g2.close();
                 }
                 return bundle;
             }
-            if (i2 != null) {
-                i2.close();
+            if (g2 != null) {
+                g2.close();
             }
             try {
-                h2 = d.b.x.f.a.a.d(getContext()).h(bundleInfo.getPackageName(), 1);
+                f2 = d.a.x.g.a.a.c(getContext()).f(bundleInfo.getPackageName(), 1);
                 try {
                 } catch (Throwable th) {
                     try {
                         throw th;
                     } catch (Throwable th2) {
-                        if (h2 != null) {
+                        if (f2 != null) {
                             try {
-                                h2.close();
+                                f2.close();
                             } catch (Throwable th3) {
                                 th.addSuppressed(th3);
                             }
@@ -479,17 +500,17 @@ public class BundleOpProvider extends ContentProvider {
                 e = e4;
                 bundleInfo2 = null;
             }
-            if (h2.getCount() == 0) {
+            if (f2.getCount() == 0) {
                 bundle.putInt(Constant.TAG.RET_CODE, 3);
-                if (h2 != null) {
-                    h2.close();
+                if (f2 != null) {
+                    f2.close();
                 }
                 return bundle;
             }
-            bundleInfo2 = BundleInfo.toBundleInfoList(h2).get(0);
-            if (h2 != null) {
+            bundleInfo2 = BundleInfo.toBundleInfoList(f2).get(0);
+            if (f2 != null) {
                 try {
-                    h2.close();
+                    f2.close();
                 } catch (Exception e5) {
                     e = e5;
                     if (b.a()) {
@@ -503,10 +524,10 @@ public class BundleOpProvider extends ContentProvider {
                 bundle.putInt(Constant.TAG.RET_CODE, 3);
                 return bundle;
             }
-            int a2 = a.c().a(bundleInfo2, i);
+            int a2 = a.c().a(bundleInfo2, i2);
             if (a2 == 2) {
                 bundleInfo2.setType(2);
-                d.b.x.f.a.a.d(getContext()).k(null, BundleInfo.toContentValues(bundleInfo2), null, null);
+                d.a.x.g.a.a.c(getContext()).i(null, BundleInfo.toContentValues(bundleInfo2), null, null);
                 bundle.putParcelable(Constant.TAG.RET_VALUE, BundleInfo.toContentValues(bundleInfo2));
                 bundle.putLong("time_stamp", currentTimeMillis);
             }
@@ -552,7 +573,10 @@ public class BundleOpProvider extends ContentProvider {
                     if (METHOD_BUNDLE_RECORD.equalsIgnoreCase(str2)) {
                         return recordBundleRunning(bundle);
                     }
-                    return METHOD_BUNDLE_CHECK.equalsIgnoreCase(str2) ? checkBundleRunning(bundle) : bundle2;
+                    if (METHOD_BUNDLE_CHECK.equalsIgnoreCase(str2)) {
+                        return checkBundleRunning(bundle);
+                    }
+                    return METHOD_BUNDLE_DOWNLOAD_BACKGROUND.equals(str2) ? downloadBackground(bundle) : bundle2;
                 }
             }
         }
@@ -563,17 +587,17 @@ public class BundleOpProvider extends ContentProvider {
         ArrayList arrayList = new ArrayList();
         ArrayList<IBundleInfo> arrayList2 = new ArrayList();
         a.d b2 = a.c().b(arrayList);
-        int i = b2.f65843a;
-        if (i == 0) {
-            for (IBundleInfo iBundleInfo : b2.f65844b) {
+        int i2 = b2.f64198a;
+        if (i2 == 0) {
+            for (IBundleInfo iBundleInfo : b2.f64199b) {
                 BundleInfo bundleInfo = BundleInfo.toBundleInfo(iBundleInfo);
                 bundleInfo.setType(1);
-                d.b.x.f.a.a.d(getContext()).k(null, BundleInfo.toContentValues(bundleInfo), null, null);
+                d.a.x.g.a.a.c(getContext()).i(null, BundleInfo.toContentValues(bundleInfo), null, null);
                 arrayList2.add(bundleInfo);
             }
-            i = 0;
+            i2 = 0;
         }
-        bundle.putInt(Constant.TAG.RET_CODE, i);
+        bundle.putInt(Constant.TAG.RET_CODE, i2);
         ArrayList<? extends Parcelable> arrayList3 = new ArrayList<>();
         for (IBundleInfo iBundleInfo2 : arrayList2) {
             arrayList3.add(BundleInfo.toContentValues(iBundleInfo2));

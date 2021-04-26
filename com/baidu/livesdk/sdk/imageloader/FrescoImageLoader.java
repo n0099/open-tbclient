@@ -85,7 +85,7 @@ public class FrescoImageLoader implements ImageLoader {
     }
 
     @Override // com.baidu.livesdk.api.imageloader.ImageLoader
-    public void loadImage(final String str, final ImageView imageView, int i, final int i2, final ImageLoadListener imageLoadListener, final ImageProcessor imageProcessor) {
+    public void loadImage(final String str, final ImageView imageView, int i2, final int i3, final ImageLoadListener imageLoadListener, final ImageProcessor imageProcessor) {
         if (this.mRelease) {
             return;
         }
@@ -93,19 +93,19 @@ public class FrescoImageLoader implements ImageLoader {
             if (imageLoadListener != null) {
                 imageLoadListener.onLoadingFail(str);
             }
-            if (imageView == null || i2 <= 0) {
+            if (imageView == null || i3 <= 0) {
                 return;
             }
-            imageView.setImageResource(i2);
+            imageView.setImageResource(i3);
         } else if (imageView instanceof SimpleDraweeView) {
             SimpleDraweeView simpleDraweeView = (SimpleDraweeView) imageView;
             GenericDraweeHierarchy hierarchy = simpleDraweeView.getHierarchy();
-            hierarchy.setFailureImage(i2);
-            hierarchy.setPlaceholderImage(i);
+            hierarchy.setFailureImage(i3);
+            hierarchy.setPlaceholderImage(i2);
             simpleDraweeView.setImageURI(Uri.parse(str));
         } else {
-            if (imageView != null && i > 0) {
-                imageView.setImageResource(i);
+            if (imageView != null && i2 > 0) {
+                imageView.setImageResource(i2);
             }
             Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(str)).setLowestPermittedRequestLevel(ImageRequest.RequestLevel.FULL_FETCH).build(), this).subscribe(new BaseBitmapDataSubscriber() { // from class: com.baidu.livesdk.sdk.imageloader.FrescoImageLoader.1
                 @Override // com.facebook.datasource.BaseDataSubscriber
@@ -115,14 +115,14 @@ public class FrescoImageLoader implements ImageLoader {
                         imageLoadListener2.onLoadingFail(str);
                     }
                     ImageView imageView2 = imageView;
-                    if (imageView2 == null || i2 <= 0) {
+                    if (imageView2 == null || i3 <= 0) {
                         return;
                     }
                     imageView2.post(new Runnable() { // from class: com.baidu.livesdk.sdk.imageloader.FrescoImageLoader.1.3
                         @Override // java.lang.Runnable
                         public void run() {
                             AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
-                            imageView.setImageResource(i2);
+                            imageView.setImageResource(i3);
                         }
                     });
                 }
@@ -158,14 +158,14 @@ public class FrescoImageLoader implements ImageLoader {
                         imageLoadListener3.onLoadingFail(str);
                     }
                     ImageView imageView3 = imageView;
-                    if (imageView3 == null || i2 <= 0) {
+                    if (imageView3 == null || i3 <= 0) {
                         return;
                     }
                     imageView3.post(new Runnable() { // from class: com.baidu.livesdk.sdk.imageloader.FrescoImageLoader.1.2
                         @Override // java.lang.Runnable
                         public void run() {
                             AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
-                            imageView.setImageResource(i2);
+                            imageView.setImageResource(i3);
                         }
                     });
                 }

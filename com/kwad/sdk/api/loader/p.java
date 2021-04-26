@@ -8,7 +8,7 @@ import java.security.MessageDigest;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f32231a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f32642a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String a(File file) {
         try {
@@ -18,11 +18,11 @@ public class p {
             byte[] digest = messageDigest.digest();
             StringBuilder sb = new StringBuilder(digest.length * 2);
             for (byte b2 : digest) {
-                int i = b2 & 255;
-                if (i < 16) {
+                int i2 = b2 & 255;
+                if (i2 < 16) {
                     sb.append("0");
                 }
-                sb.append(Integer.toHexString(i));
+                sb.append(Integer.toHexString(i2));
             }
             return sb.toString();
         } catch (Exception e2) {

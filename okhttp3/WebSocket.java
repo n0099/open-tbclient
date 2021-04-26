@@ -12,7 +12,7 @@ public interface WebSocket {
 
     void cancel();
 
-    boolean close(int i, @Nullable String str);
+    boolean close(int i2, @Nullable String str);
 
     long queueSize();
 

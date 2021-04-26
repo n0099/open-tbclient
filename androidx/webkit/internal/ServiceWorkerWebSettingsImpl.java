@@ -126,12 +126,12 @@ public class ServiceWorkerWebSettingsImpl extends ServiceWorkerWebSettingsCompat
 
     @Override // androidx.webkit.ServiceWorkerWebSettingsCompat
     @SuppressLint({"NewApi"})
-    public void setCacheMode(int i) {
+    public void setCacheMode(int i2) {
         WebViewFeatureInternal webViewFeatureInternal = WebViewFeatureInternal.SERVICE_WORKER_CACHE_MODE;
         if (webViewFeatureInternal.isSupportedByFramework()) {
-            getFrameworksImpl().setCacheMode(i);
+            getFrameworksImpl().setCacheMode(i2);
         } else if (webViewFeatureInternal.isSupportedByWebView()) {
-            getBoundaryInterface().setCacheMode(i);
+            getBoundaryInterface().setCacheMode(i2);
         } else {
             throw WebViewFeatureInternal.getUnsupportedOperationException();
         }

@@ -5,5 +5,5 @@ public interface IPanelHeightTarget {
 
     void onSoftInputShowing(boolean z);
 
-    void refreshHeight(int i);
+    void refreshHeight(int i2);
 }

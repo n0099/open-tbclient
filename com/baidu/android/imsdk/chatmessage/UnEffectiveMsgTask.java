@@ -20,11 +20,11 @@ public class UnEffectiveMsgTask implements Runnable {
         this.mContext = context;
     }
 
-    private void sendStatusChangeBroadcast(long j, int i) {
+    private void sendStatusChangeBroadcast(long j, int i2) {
         Intent intent = new Intent(IMConstants.MESSAGE_STATUS_CHANGE);
         intent.setPackage(this.mContext.getApplicationContext().getPackageName());
         intent.putExtra("_id", j);
-        intent.putExtra(IMConstants.MSG_STATUS, i);
+        intent.putExtra(IMConstants.MSG_STATUS, i2);
         this.mContext.sendBroadcast(intent);
     }
 

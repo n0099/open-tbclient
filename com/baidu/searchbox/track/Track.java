@@ -84,9 +84,9 @@ public class Track {
         TraceManager.getInstance().setOnFragmentListener(onFragmentTraceListener);
     }
 
-    public void setTrackUICapacity(int i) {
-        if (i >= 0) {
-            this.mTrackUIDeque.setCapacity(i);
+    public void setTrackUICapacity(int i2) {
+        if (i2 >= 0) {
+            this.mTrackUIDeque.setCapacity(i2);
             return;
         }
         throw new IllegalArgumentException("capacity should not < 0");

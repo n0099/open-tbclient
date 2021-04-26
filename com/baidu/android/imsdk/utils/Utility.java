@@ -29,7 +29,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.down.utils.Utils;
 import com.baidu.webkit.sdk.VideoCloudSetting;
-import d.b.r.a;
+import d.a.r.a;
 import java.io.File;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -62,8 +62,8 @@ public final class Utility {
         void deleteItem(Context context, Long l);
     }
 
-    public static boolean availableNotificationPaType(int i) {
-        return 32 <= i && 56 >= i;
+    public static boolean availableNotificationPaType(int i2) {
+        return 32 <= i2 && 56 >= i2;
     }
 
     public static String byte2Hex(byte[] bArr) {
@@ -103,8 +103,8 @@ public final class Utility {
             if (reliableMaxMsg != null && reliableMaxMsg.length() > 0) {
                 int length = reliableMaxMsg.length();
                 JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i <= length; i++) {
-                    JSONObject optJSONObject = reliableMaxMsg.optJSONObject(i);
+                for (int i2 = 0; i2 <= length; i2++) {
+                    JSONObject optJSONObject = reliableMaxMsg.optJSONObject(i2);
                     if (optJSONObject != null && System.currentTimeMillis() - optJSONObject.optLong(Constants.RELIABLE_UPDATTIME) < Constants.EXPIRED_TIME.longValue()) {
                         jSONArray.put(optJSONObject);
                     }
@@ -138,17 +138,17 @@ public final class Utility {
         return intent;
     }
 
-    public static Intent creatMethodIntent(Context context, int i) {
+    public static Intent creatMethodIntent(Context context, int i2) {
         Intent intent = new Intent(context, a.class);
-        intent.putExtra("method", i);
+        intent.putExtra("method", i2);
         intent.putExtra("service_id", 2);
         intent.setPackage(context.getPackageName());
         return intent;
     }
 
-    public static Intent createMcastMethodIntent(Context context, int i) {
+    public static Intent createMcastMethodIntent(Context context, int i2) {
         Intent intent = new Intent(context, a.class);
-        intent.putExtra("method", i);
+        intent.putExtra("method", i2);
         intent.putExtra("service_id", 3);
         intent.setPackage(context.getPackageName());
         return intent;
@@ -257,27 +257,27 @@ public final class Utility {
         return readLongData(context, "buid", 0L);
     }
 
-    public static int getBusinessType(int i, int i2) {
-        if (i == 7 && i2 == 16) {
+    public static int getBusinessType(int i2, int i3) {
+        if (i2 == 7 && i3 == 16) {
             return 4;
         }
-        if (i == 7 && i2 == 21) {
+        if (i2 == 7 && i3 == 21) {
             return 6;
         }
-        if (i != 7 || i2 > 0) {
-            if (i == 17) {
+        if (i2 != 7 || i3 > 0) {
+            if (i2 == 17) {
                 return 7;
             }
-            if (i == 1 || i == 5) {
+            if (i2 == 1 || i2 == 5) {
                 return 8;
             }
-            if (i == 23) {
+            if (i2 == 23) {
                 return 9;
             }
-            if (i == 19 || i == 29) {
+            if (i2 == 19 || i2 == 29) {
                 return 10;
             }
-            return i == 25 ? 20 : 3;
+            return i2 == 25 ? 20 : 3;
         }
         return 3;
     }
@@ -429,10 +429,10 @@ public final class Utility {
             try {
                 if (jSONArray.length() > 0) {
                     int length = jSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    for (int i2 = 0; i2 < length; i2++) {
+                        JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                         if (optJSONObject != null && optJSONObject.optLong(str) == j) {
-                            return i;
+                            return i2;
                         }
                     }
                     return -1;
@@ -459,16 +459,16 @@ public final class Utility {
     }
 
     public static int getPeakDelayTime() {
-        int i = 0;
+        int i2 = 0;
         try {
             Class<?> cls = Class.forName("com.baidu.searchbox.interfere.NetworkInterfereHelper");
             if (((Boolean) cls.getMethod("isPeakTime", new Class[0]).invoke(null, new Object[0])).booleanValue()) {
-                i = ((Integer) cls.getMethod("getDelayTime", new Class[0]).invoke(null, new Object[0])).intValue();
+                i2 = ((Integer) cls.getMethod("getDelayTime", new Class[0]).invoke(null, new Object[0])).intValue();
             }
         } catch (Exception unused) {
             LogUtils.e("Utility", "Utility.getPeakDelayTime java.lang.ClassNotFoundException: com.baidu.searchbox.interfere.NetworkInterfereHelper");
         }
-        return i * 1000;
+        return i2 * 1000;
     }
 
     public static String getPushAppId(Context context) {
@@ -531,8 +531,8 @@ public final class Utility {
         return Build.VERSION.SDK_INT >= 29;
     }
 
-    public static boolean isCategoryCorrect(int i) {
-        return i > -1 && i < 3;
+    public static boolean isCategoryCorrect(int i2) {
+        return i2 > -1 && i2 < 3;
     }
 
     public static boolean isContacterCorrect(long j) {
@@ -625,8 +625,8 @@ public final class Utility {
         return readStringData(context, Constants.KEY_LOGIN_CUID, null);
     }
 
-    public static int readIntData(Context context, String str, int i) {
-        return context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).getInt(str, i);
+    public static int readIntData(Context context, String str, int i2) {
+        return context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).getInt(str, i2);
     }
 
     public static int readLoginType(Context context) {
@@ -679,27 +679,27 @@ public final class Utility {
         return putString2.putString(Constants.KEY_PUSH_APP_ID + AccountManager.getUid(context), str3).commit();
     }
 
-    public static void sendConnectionStateBroadCast(Context context, int i) {
+    public static void sendConnectionStateBroadCast(Context context, int i2) {
         try {
             Intent intent = new Intent(IMConstants.LONG_CONNECTION_STATE);
             intent.setPackage(context.getPackageName());
-            intent.putExtra("lcs", i);
+            intent.putExtra("lcs", i2);
             context.sendBroadcast(intent);
         } catch (Exception e2) {
             LogUtils.e("Utility", "Exception ", e2);
         }
     }
 
-    public static void setBdDnsEnable(Context context, int i) {
-        writeIntData(context, Constants.KEY_BDDNS_TYPE, i);
+    public static void setBdDnsEnable(Context context, int i2) {
+        writeIntData(context, Constants.KEY_BDDNS_TYPE, i2);
     }
 
-    public static void setConnType(Context context, int i) {
-        writeIntData(context, Constants.KEY_CONN_TYPE, i);
+    public static void setConnType(Context context, int i2) {
+        writeIntData(context, Constants.KEY_CONN_TYPE, i2);
     }
 
-    public static boolean setCuidAuthority(Context context, int i) {
-        writeIntData(context, Constants.KEY_CUID_AUTHORITY, i);
+    public static boolean setCuidAuthority(Context context, int i2) {
+        writeIntData(context, Constants.KEY_CUID_AUTHORITY, i2);
         return true;
     }
 
@@ -709,8 +709,8 @@ public final class Utility {
         writeStringData(context, Constants.KEY_DEVICE_ID, str);
     }
 
-    public static void setIMTrackFailCount(Context context, int i) {
-        writeIntData(context, Constants.IM_TRACK_FAIL_COUNT, i);
+    public static void setIMTrackFailCount(Context context, int i2) {
+        writeIntData(context, Constants.IM_TRACK_FAIL_COUNT, i2);
     }
 
     public static void setIMTrackTime(Context context) {
@@ -781,12 +781,12 @@ public final class Utility {
         writeBooleanData(context, Constants.KEY_STUDIO_IS_HOST_SEND_MSG, z);
     }
 
-    public static void setUploadIMInitTrack(Context context, int i) {
-        writeIntData(context, Constants.IM_INIT_TRACK_UPLOAD, i);
+    public static void setUploadIMInitTrack(Context context, int i2) {
+        writeIntData(context, Constants.IM_INIT_TRACK_UPLOAD, i2);
     }
 
-    public static void setUploadIMTrack(Context context, int i) {
-        writeIntData(context, Constants.IM_TRACK_UPLOAD, i);
+    public static void setUploadIMTrack(Context context, int i2) {
+        writeIntData(context, Constants.IM_TRACK_UPLOAD, i2);
     }
 
     public static boolean setZhidaAppid(Context context, long j) {
@@ -822,11 +822,11 @@ public final class Utility {
         try {
             File[] listFiles = file.listFiles();
             if (listFiles != null) {
-                for (int i = 0; i < listFiles.length; i++) {
-                    if (listFiles[i].isDirectory()) {
-                        length = sumFolderSize(listFiles[i]);
+                for (int i2 = 0; i2 < listFiles.length; i2++) {
+                    if (listFiles[i2].isDirectory()) {
+                        length = sumFolderSize(listFiles[i2]);
                     } else {
-                        length = listFiles[i].length();
+                        length = listFiles[i2].length();
                     }
                     j += length;
                 }
@@ -844,20 +844,20 @@ public final class Utility {
         }
         Collections.sort(list);
         Collections.sort(list2);
-        int i = 0;
         int i2 = 0;
-        while (i < list.size() && i2 < list2.size()) {
-            if (list.get(i).equals(list2.get(i2))) {
-                i++;
-            } else if (list.get(i).longValue() < list2.get(i2).longValue()) {
-                arrayList.add(list.get(i));
-                i++;
+        int i3 = 0;
+        while (i2 < list.size() && i3 < list2.size()) {
+            if (list.get(i2).equals(list2.get(i3))) {
+                i2++;
+            } else if (list.get(i2).longValue() < list2.get(i3).longValue()) {
+                arrayList.add(list.get(i2));
+                i2++;
             }
-            i2++;
+            i3++;
         }
-        while (i < list.size()) {
-            arrayList.add(list.get(i));
-            i++;
+        while (i2 < list.size()) {
+            arrayList.add(list.get(i2));
+            i2++;
         }
         for (Long l : arrayList) {
             deleteItem.deleteItem(context, l);
@@ -893,8 +893,8 @@ public final class Utility {
         }
     }
 
-    public static void updateBindPushCUIDStatus(Context context, int i) {
-        context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putInt(Constants.KEY_PUSH_BIND_STATUS, i).apply();
+    public static void updateBindPushCUIDStatus(Context context, int i2) {
+        context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putInt(Constants.KEY_PUSH_BIND_STATUS, i2).apply();
     }
 
     public static boolean writeAccessToken(Context context, String str) {
@@ -922,8 +922,8 @@ public final class Utility {
         writeStringData(context, Constants.KEY_CUID_GENERATE_TOKEN, str);
     }
 
-    public static void writeIntData(Context context, String str, int i) {
-        context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putInt(str, i).apply();
+    public static void writeIntData(Context context, String str, int i2) {
+        context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putInt(str, i2).apply();
     }
 
     public static boolean writeLoginCFrom(Context context, String str) {
@@ -963,24 +963,24 @@ public final class Utility {
         return true;
     }
 
-    public static void writeLoginOpenType(Context context, int i) {
-        writeIntData(context, Constants.KEY_LOGIN_OPEN_TYPE, i);
+    public static void writeLoginOpenType(Context context, int i2) {
+        writeIntData(context, Constants.KEY_LOGIN_OPEN_TYPE, i2);
     }
 
-    public static void writeLoginRole(Context context, int i) {
-        writeIntData(context, Constants.KEY_LOGIN_ROLE, i);
+    public static void writeLoginRole(Context context, int i2) {
+        writeIntData(context, Constants.KEY_LOGIN_ROLE, i2);
     }
 
-    public static void writeLoginType(Context context, int i) {
-        writeIntData(context, "login_type", i);
+    public static void writeLoginType(Context context, int i2) {
+        writeIntData(context, "login_type", i2);
     }
 
     public static void writeLongData(Context context, String str, long j) {
         context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).edit().putLong(str, j).apply();
     }
 
-    public static void writePrivate(Context context, int i) {
-        writeIntData(context, Constants.KEY_ACCOUNT_PRIVATE, i);
+    public static void writePrivate(Context context, int i2) {
+        writeIntData(context, Constants.KEY_ACCOUNT_PRIVATE, i2);
     }
 
     public static void writeReliableMaxMsg(Context context, JSONArray jSONArray) {
@@ -990,8 +990,8 @@ public final class Utility {
         context.getSharedPreferences(Constants.PREF_RELIABLE_MSG_DATA, 0).edit().putString(Constants.RELIABLE_MAX_MSGINFO_KEY, jSONArray.toString()).apply();
     }
 
-    public static void writeRestApiDisable(int i) {
-        mDisableRestapi = i;
+    public static void writeRestApiDisable(int i2) {
+        mDisableRestapi = i2;
     }
 
     public static void writeStringData(Context context, String str, String str2) {

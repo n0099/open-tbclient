@@ -5,18 +5,18 @@ import java.io.Serializable;
 public final class Count implements Serializable {
     public int value;
 
-    public Count(int i) {
-        this.value = i;
-    }
-
-    public void add(int i) {
-        this.value += i;
-    }
-
-    public int addAndGet(int i) {
-        int i2 = this.value + i;
+    public Count(int i2) {
         this.value = i2;
-        return i2;
+    }
+
+    public void add(int i2) {
+        this.value += i2;
+    }
+
+    public int addAndGet(int i2) {
+        int i3 = this.value + i2;
+        this.value = i3;
+        return i3;
     }
 
     public boolean equals(Object obj) {
@@ -27,18 +27,18 @@ public final class Count implements Serializable {
         return this.value;
     }
 
-    public int getAndSet(int i) {
-        int i2 = this.value;
-        this.value = i;
-        return i2;
+    public int getAndSet(int i2) {
+        int i3 = this.value;
+        this.value = i2;
+        return i3;
     }
 
     public int hashCode() {
         return this.value;
     }
 
-    public void set(int i) {
-        this.value = i;
+    public void set(int i2) {
+        this.value = i2;
     }
 
     public String toString() {

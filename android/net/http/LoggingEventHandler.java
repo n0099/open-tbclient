@@ -11,7 +11,7 @@ public class LoggingEventHandler implements EventHandler {
     }
 
     @Override // android.net.http.EventHandler
-    public void data(byte[] bArr, int i) {
+    public void data(byte[] bArr, int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -21,7 +21,7 @@ public class LoggingEventHandler implements EventHandler {
     }
 
     @Override // android.net.http.EventHandler
-    public void error(int i, String str) {
+    public void error(int i2, String str) {
         throw new RuntimeException("Stub!");
     }
 
@@ -44,7 +44,7 @@ public class LoggingEventHandler implements EventHandler {
     }
 
     @Override // android.net.http.EventHandler
-    public void status(int i, int i2, int i3, String str) {
+    public void status(int i2, int i3, int i4, String str) {
         throw new RuntimeException("Stub!");
     }
 }

@@ -27,8 +27,8 @@ public class MediaSessionManagerImplApi28 extends MediaSessionManagerImplApi21 {
     public static final class RemoteUserInfoImplApi28 implements MediaSessionManager.RemoteUserInfoImpl {
         public final MediaSessionManager.RemoteUserInfo mObject;
 
-        public RemoteUserInfoImplApi28(String str, int i, int i2) {
-            this.mObject = new MediaSessionManager.RemoteUserInfo(str, i, i2);
+        public RemoteUserInfoImplApi28(String str, int i2, int i3) {
+            this.mObject = new MediaSessionManager.RemoteUserInfo(str, i2, i3);
         }
 
         public boolean equals(Object obj) {

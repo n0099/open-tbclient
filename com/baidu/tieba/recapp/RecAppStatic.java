@@ -15,23 +15,24 @@ import com.baidu.tieba.recapp.activity.AdDebugActivity;
 import com.baidu.tieba.recapp.activity.AdDebugActivityConfig;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
-import d.b.i0.r.q.a2;
-import d.b.j0.e.e.e;
-import d.b.j0.s2.d;
-import d.b.j0.s2.f;
-import d.b.j0.s2.h;
-import d.b.j0.s2.l;
-import d.b.j0.s2.v;
-import d.b.j0.s2.x;
+import d.a.i0.r.q.a2;
+import d.a.j0.e.e.e;
+import d.a.j0.s2.d;
+import d.a.j0.s2.f;
+import d.a.j0.s2.h;
+import d.a.j0.s2.l;
+import d.a.j0.s2.v;
+import d.a.j0.s2.w;
+import d.a.j0.s2.y;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RecAppStatic {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements l.a {
-        @Override // d.b.j0.s2.l.a
+        @Override // d.a.j0.s2.l.a
         public int a(Context context, String[] strArr) {
             if (strArr != null && strArr[0] != null) {
                 Uri parse = Uri.parse(strArr[0]);
@@ -79,7 +80,7 @@ public class RecAppStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b extends BroadcastReceiver {
         public final /* synthetic */ TbadkCoreApplication val$application;
 
@@ -94,9 +95,10 @@ public class RecAppStatic {
     }
 
     static {
-        v.f62162a.set(new x());
+        w.f60358a.set(new y());
+        d.a.j0.s2.c0.a.f60198a.set(new v());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        d.b.j0.o.a.l().e(new a());
+        d.a.j0.o.a.l().e(new a());
         e.b().c(1, new h());
         e.b().c(2, new f());
         a2.u3.set(true);
@@ -110,6 +112,6 @@ public class RecAppStatic {
         d.t().a();
         d.t().f();
         BdLog.isDebugMode();
-        d.b.j0.o.d.h.a.f59080a.set(new d.b.j0.s2.a0.b());
+        d.a.j0.o.d.h.a.f57103a.set(new d.a.j0.s2.b0.b());
     }
 }

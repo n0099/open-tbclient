@@ -37,8 +37,8 @@ public final class DrawableSplashScreen implements SplashScreen {
             setImageDrawable(drawable);
         }
 
-        public DrawableSplashScreenView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-            super(context, attributeSet, i);
+        public DrawableSplashScreenView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+            super(context, attributeSet, i2);
         }
     }
 

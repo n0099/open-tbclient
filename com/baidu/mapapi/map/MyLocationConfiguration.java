@@ -26,18 +26,18 @@ public class MyLocationConfiguration {
         this.accuracyCircleStrokeColor = a(this.accuracyCircleStrokeColor);
     }
 
-    public MyLocationConfiguration(LocationMode locationMode, boolean z, BitmapDescriptor bitmapDescriptor, int i, int i2) {
+    public MyLocationConfiguration(LocationMode locationMode, boolean z, BitmapDescriptor bitmapDescriptor, int i2, int i3) {
         this.accuracyCircleFillColor = 4521984;
         this.accuracyCircleStrokeColor = 4653056;
         this.locationMode = locationMode == null ? LocationMode.NORMAL : locationMode;
         this.enableDirection = z;
         this.customMarker = bitmapDescriptor;
-        this.accuracyCircleFillColor = a(i);
-        this.accuracyCircleStrokeColor = a(i2);
+        this.accuracyCircleFillColor = a(i2);
+        this.accuracyCircleStrokeColor = a(i3);
     }
 
-    private int a(int i) {
-        int i2 = (65280 & i) >> 8;
-        return Color.argb(((-16777216) & i) >> 24, i & 255, i2, (16711680 & i) >> 16);
+    private int a(int i2) {
+        int i3 = (65280 & i2) >> 8;
+        return Color.argb(((-16777216) & i2) >> 24, i2 & 255, i3, (16711680 & i2) >> 16);
     }
 }

@@ -39,7 +39,7 @@ public abstract class ResponseBody implements Closeable {
         }
 
         @Override // java.io.Reader
-        public int read(char[] cArr, int i, int i2) throws IOException {
+        public int read(char[] cArr, int i2, int i3) throws IOException {
             if (!this.closed) {
                 Reader reader = this.delegate;
                 if (reader == null) {
@@ -47,7 +47,7 @@ public abstract class ResponseBody implements Closeable {
                     this.delegate = inputStreamReader;
                     reader = inputStreamReader;
                 }
-                return reader.read(cArr, i, i2);
+                return reader.read(cArr, i2, i3);
             }
             throw new IOException("Stream closed");
         }

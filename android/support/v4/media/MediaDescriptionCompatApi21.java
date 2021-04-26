@@ -81,7 +81,7 @@ public class MediaDescriptionCompatApi21 {
         return ((MediaDescription) obj).getTitle();
     }
 
-    public static void writeToParcel(Object obj, Parcel parcel, int i) {
-        ((MediaDescription) obj).writeToParcel(parcel, i);
+    public static void writeToParcel(Object obj, Parcel parcel, int i2) {
+        ((MediaDescription) obj).writeToParcel(parcel, i2);
     }
 }

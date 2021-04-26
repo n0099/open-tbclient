@@ -68,8 +68,8 @@ public class NetWorkUtils {
         return connectionInfo.getIpAddress();
     }
 
-    public static String getMobileType(int i, String str) {
-        switch (i) {
+    public static String getMobileType(int i2, String str) {
+        switch (i2) {
             case 1:
             case 2:
             case 4:
@@ -189,9 +189,9 @@ public class NetWorkUtils {
         return (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) ? "NULL" : connectionInfo.getSSID();
     }
 
-    public static InetAddress intToInetAddress(int i) {
+    public static InetAddress intToInetAddress(int i2) {
         try {
-            return InetAddress.getByAddress(new byte[]{(byte) (i & 255), (byte) ((i >> 8) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 24) & 255)});
+            return InetAddress.getByAddress(new byte[]{(byte) (i2 & 255), (byte) ((i2 >> 8) & 255), (byte) ((i2 >> 16) & 255), (byte) ((i2 >> 24) & 255)});
         } catch (UnknownHostException unused) {
             throw new AssertionError();
         }

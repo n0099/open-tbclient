@@ -1,11 +1,11 @@
 package com.google.common.collect;
 
 import com.google.common.collect.ImmutableCollection;
-import d.h.c.a.n;
-import d.h.c.c.c1;
-import d.h.c.c.e0;
-import d.h.c.c.j0;
-import d.h.c.c.m;
+import d.g.c.a.n;
+import d.g.c.c.c1;
+import d.g.c.c.e0;
+import d.g.c.c.j0;
+import d.g.c.c.m;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
@@ -37,10 +37,10 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
     public static class a<E> extends ImmutableCollection.a<E> {
 
         /* renamed from: d  reason: collision with root package name */
-        public Object[] f30924d;
+        public Object[] f31885d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f30925e;
+        public int f31886e;
 
         public a() {
             super(4);
@@ -51,17 +51,17 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
         /* renamed from: h */
         public a<E> a(E e2) {
             n.p(e2);
-            if (this.f30924d != null && ImmutableSet.chooseTableSize(this.f30880b) <= this.f30924d.length) {
+            if (this.f31885d != null && ImmutableSet.chooseTableSize(this.f31839b) <= this.f31885d.length) {
                 k(e2);
                 return this;
             }
-            this.f30924d = null;
+            this.f31885d = null;
             super.f(e2);
             return this;
         }
 
         public a<E> i(E... eArr) {
-            if (this.f30924d != null) {
+            if (this.f31885d != null) {
                 for (E e2 : eArr) {
                     a(e2);
                 }
@@ -80,52 +80,52 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
         }
 
         public final void k(E e2) {
-            int length = this.f30924d.length - 1;
+            int length = this.f31885d.length - 1;
             int hashCode = e2.hashCode();
             int c2 = e0.c(hashCode);
             while (true) {
-                int i = c2 & length;
-                Object[] objArr = this.f30924d;
-                Object obj = objArr[i];
+                int i2 = c2 & length;
+                Object[] objArr = this.f31885d;
+                Object obj = objArr[i2];
                 if (obj == null) {
-                    objArr[i] = e2;
-                    this.f30925e += hashCode;
+                    objArr[i2] = e2;
+                    this.f31886e += hashCode;
                     super.f(e2);
                     return;
                 } else if (obj.equals(e2)) {
                     return;
                 } else {
-                    c2 = i + 1;
+                    c2 = i2 + 1;
                 }
             }
         }
 
         public ImmutableSet<E> l() {
             ImmutableSet<E> construct;
-            int i = this.f30880b;
-            if (i != 0) {
-                if (i != 1) {
-                    if (this.f30924d == null || ImmutableSet.chooseTableSize(i) != this.f30924d.length) {
-                        construct = ImmutableSet.construct(this.f30880b, this.f30879a);
-                        this.f30880b = construct.size();
+            int i2 = this.f31839b;
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (this.f31885d == null || ImmutableSet.chooseTableSize(i2) != this.f31885d.length) {
+                        construct = ImmutableSet.construct(this.f31839b, this.f31838a);
+                        this.f31839b = construct.size();
                     } else {
-                        Object[] copyOf = ImmutableSet.shouldTrim(this.f30880b, this.f30879a.length) ? Arrays.copyOf(this.f30879a, this.f30880b) : this.f30879a;
-                        int i2 = this.f30925e;
-                        Object[] objArr = this.f30924d;
-                        construct = new RegularImmutableSet<>(copyOf, i2, objArr, objArr.length - 1, this.f30880b);
+                        Object[] copyOf = ImmutableSet.shouldTrim(this.f31839b, this.f31838a.length) ? Arrays.copyOf(this.f31838a, this.f31839b) : this.f31838a;
+                        int i3 = this.f31886e;
+                        Object[] objArr = this.f31885d;
+                        construct = new RegularImmutableSet<>(copyOf, i3, objArr, objArr.length - 1, this.f31839b);
                     }
-                    this.f30881c = true;
-                    this.f30924d = null;
+                    this.f31840c = true;
+                    this.f31885d = null;
                     return construct;
                 }
-                return ImmutableSet.of(this.f30879a[0]);
+                return ImmutableSet.of(this.f31838a[0]);
             }
             return ImmutableSet.of();
         }
 
-        public a(int i) {
-            super(i);
-            this.f30924d = new Object[ImmutableSet.chooseTableSize(i)];
+        public a(int i2) {
+            super(i2);
+            this.f31885d = new Object[ImmutableSet.chooseTableSize(i2)];
         }
     }
 
@@ -133,13 +133,13 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
         return new a<>();
     }
 
-    public static <E> a<E> builderWithExpectedSize(int i) {
-        m.b(i, "expectedSize");
-        return new a<>(i);
+    public static <E> a<E> builderWithExpectedSize(int i2) {
+        m.b(i2, "expectedSize");
+        return new a<>(i2);
     }
 
-    public static int chooseTableSize(int i) {
-        int max = Math.max(i, 2);
+    public static int chooseTableSize(int i2) {
+        int max = Math.max(i2, 2);
         if (max < 751619276) {
             int highestOneBit = Integer.highestOneBit(max - 1) << 1;
             while (highestOneBit * 0.7d < max) {
@@ -151,27 +151,27 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
         return 1073741824;
     }
 
-    public static <E> ImmutableSet<E> construct(int i, Object... objArr) {
-        if (i != 0) {
-            if (i != 1) {
-                int chooseTableSize = chooseTableSize(i);
+    public static <E> ImmutableSet<E> construct(int i2, Object... objArr) {
+        if (i2 != 0) {
+            if (i2 != 1) {
+                int chooseTableSize = chooseTableSize(i2);
                 Object[] objArr2 = new Object[chooseTableSize];
-                int i2 = chooseTableSize - 1;
-                int i3 = 0;
+                int i3 = chooseTableSize - 1;
                 int i4 = 0;
-                for (int i5 = 0; i5 < i; i5++) {
-                    Object obj = objArr[i5];
-                    j0.a(obj, i5);
+                int i5 = 0;
+                for (int i6 = 0; i6 < i2; i6++) {
+                    Object obj = objArr[i6];
+                    j0.a(obj, i6);
                     int hashCode = obj.hashCode();
                     int c2 = e0.c(hashCode);
                     while (true) {
-                        int i6 = c2 & i2;
-                        Object obj2 = objArr2[i6];
+                        int i7 = c2 & i3;
+                        Object obj2 = objArr2[i7];
                         if (obj2 == null) {
-                            objArr[i4] = obj;
-                            objArr2[i6] = obj;
-                            i3 += hashCode;
-                            i4++;
+                            objArr[i5] = obj;
+                            objArr2[i7] = obj;
+                            i4 += hashCode;
+                            i5++;
                             break;
                         } else if (obj2.equals(obj)) {
                             break;
@@ -180,17 +180,17 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
                         }
                     }
                 }
-                Arrays.fill(objArr, i4, i, (Object) null);
-                if (i4 == 1) {
-                    return new SingletonImmutableSet(objArr[0], i3);
+                Arrays.fill(objArr, i5, i2, (Object) null);
+                if (i5 == 1) {
+                    return new SingletonImmutableSet(objArr[0], i4);
                 }
-                if (chooseTableSize(i4) < chooseTableSize / 2) {
-                    return construct(i4, objArr);
+                if (chooseTableSize(i5) < chooseTableSize / 2) {
+                    return construct(i5, objArr);
                 }
-                if (shouldTrim(i4, objArr.length)) {
-                    objArr = Arrays.copyOf(objArr, i4);
+                if (shouldTrim(i5, objArr.length)) {
+                    objArr = Arrays.copyOf(objArr, i5);
                 }
-                return new RegularImmutableSet(objArr, i3, objArr2, i2, i4);
+                return new RegularImmutableSet(objArr, i4, objArr2, i3, i5);
             }
             return of(objArr[0]);
         }
@@ -212,8 +212,8 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
         return RegularImmutableSet.EMPTY;
     }
 
-    public static boolean shouldTrim(int i, int i2) {
-        return i < (i2 >> 1) + (i2 >> 2);
+    public static boolean shouldTrim(int i2, int i3) {
+        return i2 < (i3 >> 1) + (i3 >> 2);
     }
 
     @Override // com.google.common.collect.ImmutableCollection

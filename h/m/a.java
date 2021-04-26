@@ -13,16 +13,16 @@ import rx.exceptions.OnErrorThrowable;
 public final class a {
     public static void a(Throwable th, Throwable th2) {
         HashSet hashSet = new HashSet();
-        int i = 0;
+        int i2 = 0;
         while (th.getCause() != null) {
-            int i2 = i + 1;
-            if (i >= 25) {
+            int i3 = i2 + 1;
+            if (i2 >= 25) {
                 return;
             }
             th = th.getCause();
             if (!hashSet.contains(th.getCause())) {
                 hashSet.add(th.getCause());
-                i = i2;
+                i2 = i3;
             }
         }
         try {
@@ -32,14 +32,14 @@ public final class a {
     }
 
     public static Throwable b(Throwable th) {
-        int i = 0;
+        int i2 = 0;
         while (th.getCause() != null) {
-            int i2 = i + 1;
-            if (i >= 25) {
+            int i3 = i2 + 1;
+            if (i2 >= 25) {
                 return new RuntimeException("Stack too deep to get final cause");
             }
             th = th.getCause();
-            i = i2;
+            i2 = i3;
         }
         return th;
     }

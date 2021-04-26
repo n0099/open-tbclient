@@ -33,19 +33,19 @@ import com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment;
 public class BankCardListFragment extends CardListBaseFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f26323a;
+    public LinearLayout f27129a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f26324b;
+    public View f27130b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f26325c = false;
+    public boolean f27131c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public e f26326d;
+    public e f27132d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f26327e;
+    public View f27133e;
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment
     public void bindCardData(boolean z) {
@@ -76,8 +76,8 @@ public class BankCardListFragment extends CardListBaseFragment {
         }
         CardListResponse.Misc misc2 = this.mCardListResponse.card_bind_misc_info;
         if (misc2 != null) {
-            this.f26325c = "1".equals(misc2.can_bind_card_flag);
-            View view = this.f26324b;
+            this.f27131c = "1".equals(misc2.can_bind_card_flag);
+            View view = this.f27130b;
             if (view != null) {
                 view.setVisibility(0);
             }
@@ -118,12 +118,12 @@ public class BankCardListFragment extends CardListBaseFragment {
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment
     public void loadData() {
         removeRequest();
-        if (this.f26326d == null) {
-            this.f26326d = (e) PayBeanFactory.getInstance().getBean((Context) this.mActivity, PayBeanFactory.BEAN_ID_CARD_LIST, "BankCardListFragment");
+        if (this.f27132d == null) {
+            this.f27132d = (e) PayBeanFactory.getInstance().getBean((Context) this.mActivity, PayBeanFactory.BEAN_ID_CARD_LIST, "BankCardListFragment");
         }
-        this.f26326d.setResponseCallback(this);
-        this.f26326d.a(SourceFlag.SDK);
-        this.f26326d.execBean();
+        this.f27132d.setResponseCallback(this);
+        this.f27132d.a(SourceFlag.SDK);
+        this.f27132d.execBean();
     }
 
     @Override // com.baidu.wallet.personal.ui.fragment.base.CardListBaseFragment, android.view.View.OnClickListener
@@ -131,9 +131,9 @@ public class BankCardListFragment extends CardListBaseFragment {
         String string;
         CardListResponse.Misc misc;
         super.onClick(view);
-        if (view == this.f26324b) {
+        if (view == this.f27130b) {
             PayStatisticsUtil.onEventWithValue(StatServiceEvent.ADD_NEW_BANK_CARD, "addBankCard");
-            if (this.f26325c) {
+            if (this.f27131c) {
                 CardListBaseFragment.a aVar = this.mCallback;
                 if (aVar != null) {
                     aVar.bindCard();
@@ -184,26 +184,26 @@ public class BankCardListFragment extends CardListBaseFragment {
     }
 
     private View a() {
-        if (this.f26327e == null) {
+        if (this.f27133e == null) {
             View inflate = this.mInflater.inflate(ResUtils.layout(this.mActivity, "wallet_bank_card_list_fragment"), (ViewGroup) null);
-            this.f26327e = inflate;
-            this.f26323a = (LinearLayout) inflate.findViewById(ResUtils.id(this.mActivity, "wallet_my_bank_ll_credicard"));
-            View findViewById = this.f26327e.findViewById(ResUtils.id(this.mActivity, "wallet_my_bank_card_btn"));
-            this.f26324b = findViewById;
+            this.f27133e = inflate;
+            this.f27129a = (LinearLayout) inflate.findViewById(ResUtils.id(this.mActivity, "wallet_my_bank_ll_credicard"));
+            View findViewById = this.f27133e.findViewById(ResUtils.id(this.mActivity, "wallet_my_bank_card_btn"));
+            this.f27130b = findViewById;
             findViewById.setOnClickListener(this);
-            this.f26324b.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.wallet.personal.ui.fragment.BankCardListFragment.1
+            this.f27130b.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.wallet.personal.ui.fragment.BankCardListFragment.1
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-                        ViewHelper.setAlpha(BankCardListFragment.this.f26324b, 0.5f);
+                        ViewHelper.setAlpha(BankCardListFragment.this.f27130b, 0.5f);
                         return false;
                     }
-                    ViewHelper.setAlpha(BankCardListFragment.this.f26324b, 1.0f);
+                    ViewHelper.setAlpha(BankCardListFragment.this.f27130b, 1.0f);
                     return false;
                 }
             });
         }
-        return this.f26327e;
+        return this.f27133e;
     }
 
     private void b() {
@@ -217,9 +217,9 @@ public class BankCardListFragment extends CardListBaseFragment {
 
     private void a(ApplyCardEntrance[] applyCardEntranceArr) {
         LinearLayout linearLayout;
-        LinearLayout linearLayout2 = this.f26323a;
+        LinearLayout linearLayout2 = this.f27129a;
         if (linearLayout2 != null && linearLayout2.getChildCount() > 0) {
-            this.f26323a.removeAllViews();
+            this.f27129a.removeAllViews();
         }
         Activity activity = this.mActivity;
         if (activity == null || applyCardEntranceArr == null || applyCardEntranceArr.length <= 0) {
@@ -238,7 +238,7 @@ public class BankCardListFragment extends CardListBaseFragment {
                 a2.setAdjustViewBounds(true);
                 a2.setContentDescription(applyCardEntrance.desc + "");
                 LinearLayout.LayoutParams a3 = a(heightToWidthRatio, displayWidth, dimension, z ? dimension2 : dimension);
-                if (a2 != null && a3 != null && (linearLayout = this.f26323a) != null) {
+                if (a2 != null && a3 != null && (linearLayout = this.f27129a) != null) {
                     linearLayout.addView(a2, a3);
                 }
                 z = false;
@@ -281,10 +281,10 @@ public class BankCardListFragment extends CardListBaseFragment {
         return netImageView;
     }
 
-    private LinearLayout.LayoutParams a(float f2, int i, int i2, int i3) {
+    private LinearLayout.LayoutParams a(float f2, int i2, int i3, int i4) {
         if (f2 > 0.0f) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, (int) ((i - (i2 * 2)) * f2));
-            layoutParams.setMargins(0, i3, 0, 0);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, (int) ((i2 - (i3 * 2)) * f2));
+            layoutParams.setMargins(0, i4, 0, 0);
             return layoutParams;
         }
         return null;

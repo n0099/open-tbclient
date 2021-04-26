@@ -6,7 +6,7 @@ public final class b<K, V> extends ConcurrentHashMap<K, Long> {
     public b() {
     }
 
-    public b(int i, float f2) {
+    public b(int i2, float f2) {
         super(0, 0.75f, 16);
     }
 

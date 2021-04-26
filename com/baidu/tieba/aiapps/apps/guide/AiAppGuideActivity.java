@@ -8,7 +8,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes4.dex */
 public class AiAppGuideActivity extends BaseActivity {
     public static final int GIF_HEIGHT = 828;
@@ -29,8 +29,8 @@ public class AiAppGuideActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         SkinManager.setImageResource(this.mImgClose, R.drawable.icon_use_close_n);
     }
 
@@ -55,7 +55,7 @@ public class AiAppGuideActivity extends BaseActivity {
     }
 
     @Override // android.app.Activity
-    public void overridePendingTransition(int i, int i2) {
+    public void overridePendingTransition(int i2, int i3) {
         super.overridePendingTransition(0, 0);
     }
 }

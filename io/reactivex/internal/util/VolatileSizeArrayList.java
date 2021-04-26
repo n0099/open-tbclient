@@ -55,8 +55,8 @@ public final class VolatileSizeArrayList<T> extends AtomicInteger implements Lis
     }
 
     @Override // java.util.List
-    public T get(int i) {
-        return this.list.get(i);
+    public T get(int i2) {
+        return this.list.get(i2);
     }
 
     @Override // java.util.List, java.util.Collection
@@ -111,8 +111,8 @@ public final class VolatileSizeArrayList<T> extends AtomicInteger implements Lis
     }
 
     @Override // java.util.List
-    public T set(int i, T t) {
-        return this.list.set(i, t);
+    public T set(int i2, T t) {
+        return this.list.set(i2, t);
     }
 
     @Override // java.util.List, java.util.Collection
@@ -121,8 +121,8 @@ public final class VolatileSizeArrayList<T> extends AtomicInteger implements Lis
     }
 
     @Override // java.util.List
-    public List<T> subList(int i, int i2) {
-        return this.list.subList(i, i2);
+    public List<T> subList(int i2, int i3) {
+        return this.list.subList(i2, i3);
     }
 
     @Override // java.util.List, java.util.Collection
@@ -136,8 +136,8 @@ public final class VolatileSizeArrayList<T> extends AtomicInteger implements Lis
     }
 
     @Override // java.util.List
-    public ListIterator<T> listIterator(int i) {
-        return this.list.listIterator(i);
+    public ListIterator<T> listIterator(int i2) {
+        return this.list.listIterator(i2);
     }
 
     @Override // java.util.List, java.util.Collection
@@ -145,26 +145,26 @@ public final class VolatileSizeArrayList<T> extends AtomicInteger implements Lis
         return (E[]) this.list.toArray(eArr);
     }
 
-    public VolatileSizeArrayList(int i) {
-        this.list = new ArrayList<>(i);
+    public VolatileSizeArrayList(int i2) {
+        this.list = new ArrayList<>(i2);
     }
 
     @Override // java.util.List
-    public void add(int i, T t) {
-        this.list.add(i, t);
+    public void add(int i2, T t) {
+        this.list.add(i2, t);
         lazySet(this.list.size());
     }
 
     @Override // java.util.List
-    public boolean addAll(int i, Collection<? extends T> collection) {
-        boolean addAll = this.list.addAll(i, collection);
+    public boolean addAll(int i2, Collection<? extends T> collection) {
+        boolean addAll = this.list.addAll(i2, collection);
         lazySet(this.list.size());
         return addAll;
     }
 
     @Override // java.util.List
-    public T remove(int i) {
-        T remove = this.list.remove(i);
+    public T remove(int i2) {
+        T remove = this.list.remove(i2);
         lazySet(this.list.size());
         return remove;
     }

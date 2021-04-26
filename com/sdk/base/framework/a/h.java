@@ -22,33 +22,33 @@ import javax.net.ssl.HttpsURLConnection;
 public class h<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38859a = "h";
+    public static final String f36441a = "h";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f38860b = com.sdk.base.framework.c.f.f38904b;
+    public static boolean f36442b = com.sdk.base.framework.c.f.f36488b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f38861c = UUID.randomUUID().toString();
+    public static String f36443c = UUID.randomUUID().toString();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final HostnameVerifier f38862f = new i();
+    public static final HostnameVerifier f36444f = new i();
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f38863d;
+    public Context f36445d;
 
     /* renamed from: e  reason: collision with root package name */
-    public k<T> f38864e;
+    public k<T> f36446e;
 
     public h(Context context, k<T> kVar) {
-        this.f38863d = context;
-        this.f38864e = kVar;
+        this.f36445d = context;
+        this.f36446e = kVar;
     }
 
     private ByteArrayOutputStream a(k<T> kVar) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         if (kVar != null) {
             try {
-                String b2 = k.b(this.f38864e.e());
+                String b2 = k.b(this.f36446e.e());
                 if (kVar.d().contains("/dro/log/v1.0/log")) {
                     b2 = kVar.e().toString();
                 }
@@ -56,17 +56,17 @@ public class h<T> {
                 if (b3 == null || b3.size() <= 0) {
                     byteArrayOutputStream.write(b2.getBytes("utf-8"));
                 } else {
-                    byteArrayOutputStream.write(("--" + f38861c + Part.CRLF).getBytes("utf-8"));
+                    byteArrayOutputStream.write(("--" + f36443c + Part.CRLF).getBytes("utf-8"));
                     byteArrayOutputStream.write("Content-Disposition: form-data; name=\"params\"".getBytes("utf-8"));
                     byteArrayOutputStream.write("\r\n\r\n".getBytes("utf-8"));
                     byteArrayOutputStream.write(b2.getBytes("utf-8"));
                     byteArrayOutputStream.write(Part.CRLF.getBytes("utf-8"));
-                    for (int i = 0; i < b3.size(); i++) {
-                        File file = b3.get(i);
+                    for (int i2 = 0; i2 < b3.size(); i2++) {
+                        File file = b3.get(i2);
                         if (file != null) {
                             FileInputStream fileInputStream = new FileInputStream(file);
                             String name = file.getName();
-                            byteArrayOutputStream.write(("--" + f38861c + Part.CRLF).getBytes("utf-8"));
+                            byteArrayOutputStream.write(("--" + f36443c + Part.CRLF).getBytes("utf-8"));
                             StringBuilder sb = new StringBuilder("Content-Disposition: form-data; name=\"");
                             sb.append(name);
                             sb.append("\"; filename=\"");
@@ -84,7 +84,7 @@ public class h<T> {
                                 byteArrayOutputStream.write(bArr, 0, read);
                             }
                             StringBuilder sb2 = new StringBuilder("\r\n--");
-                            sb2.append(f38861c);
+                            sb2.append(f36443c);
                             sb2.append("--\r\n");
                             byteArrayOutputStream.write(sb2.toString().getBytes("utf-8"));
                             byteArrayOutputStream.flush();
@@ -94,7 +94,7 @@ public class h<T> {
                 }
             } catch (Exception e2) {
                 com.sdk.base.framework.f.f.a.b(e2.toString());
-                com.sdk.base.framework.a.a.c.b(f38859a, e2.toString(), Boolean.valueOf(f38860b));
+                com.sdk.base.framework.a.a.c.b(f36441a, e2.toString(), Boolean.valueOf(f36442b));
             }
         }
         return byteArrayOutputStream;
@@ -108,12 +108,12 @@ public class h<T> {
         String str;
         StringBuilder sb;
         try {
-            if (this.f38864e != null) {
-                String a2 = this.f38864e.a();
-                String d2 = this.f38864e.d();
-                str = j.f38865a.k;
+            if (this.f36446e != null) {
+                String a2 = this.f36446e.a();
+                String d2 = this.f36446e.d();
+                str = j.f36447a.k;
                 if (a2.equals(str)) {
-                    String b2 = k.b(this.f38864e.e());
+                    String b2 = k.b(this.f36446e.e());
                     if (!com.sdk.base.framework.a.a.c.b(b2).booleanValue()) {
                         return d2;
                     }
@@ -132,7 +132,7 @@ public class h<T> {
                 return sb.toString();
             }
         } catch (Exception e2) {
-            com.sdk.base.framework.a.a.c.b(f38859a, e2.getMessage(), Boolean.valueOf(f38860b));
+            com.sdk.base.framework.a.a.c.b(f36441a, e2.getMessage(), Boolean.valueOf(f36442b));
         }
         return null;
     }
@@ -151,40 +151,40 @@ public class h<T> {
         a aVar;
         HttpURLConnection httpURLConnection2;
         com.sdk.base.framework.f.g.c a2;
-        com.sdk.base.framework.f.g.c.f38937c.a();
+        com.sdk.base.framework.f.g.c.f36522c.a();
         try {
             HttpsURLConnection httpsURLConnection = null;
             r1 = null;
             HttpURLConnection httpURLConnection3 = null;
             if (com.sdk.base.framework.a.a.c.b(str).booleanValue()) {
                 URL url = new URL(str);
-                int a3 = com.sdk.base.framework.f.g.b.a(this.f38863d, null).a();
+                int a3 = com.sdk.base.framework.f.g.b.a(this.f36445d, null).a();
                 System.currentTimeMillis();
-                if (a(str) && a3 != com.sdk.base.framework.f.g.c.f38936b.a()) {
+                if (a(str) && a3 != com.sdk.base.framework.f.g.c.f36521b.a()) {
                     int b2 = com.sdk.base.framework.f.a.a.b();
                     if (b2 < 23) {
-                        String d2 = this.f38864e.d();
+                        String d2 = this.f36446e.d();
                         if (a(d2)) {
                             ArrayList arrayList = new ArrayList();
                             if (com.sdk.base.framework.a.a.c.b(d2).booleanValue()) {
                                 arrayList.add(d2);
                             }
-                            a2 = com.sdk.base.framework.f.g.b.a(this.f38863d, arrayList);
+                            a2 = com.sdk.base.framework.f.g.b.a(this.f36445d, arrayList);
                         } else {
-                            a2 = com.sdk.base.framework.f.g.b.a(this.f38863d, null);
+                            a2 = com.sdk.base.framework.f.g.b.a(this.f36445d, null);
                         }
                         a3 = a2.a();
-                        if (b2 <= 21 || a3 == com.sdk.base.framework.f.g.c.f38936b.a()) {
+                        if (b2 <= 21 || a3 == com.sdk.base.framework.f.g.c.f36521b.a()) {
                             httpURLConnection2 = null;
                             if (httpURLConnection2 != null) {
                                 return null;
                             }
                             httpURLConnection3 = httpURLConnection2;
                         } else {
-                            aVar = new a(this.f38863d, url);
+                            aVar = new a(this.f36445d, url);
                         }
                     } else {
-                        aVar = new a(this.f38863d, url);
+                        aVar = new a(this.f36445d, url);
                     }
                     httpURLConnection2 = aVar.a();
                     if (httpURLConnection2 != null) {
@@ -194,7 +194,7 @@ public class h<T> {
                     httpURLConnection = (HttpURLConnection) url.openConnection();
                 } else {
                     httpURLConnection = httpURLConnection3;
-                    if (a3 == com.sdk.base.framework.f.g.c.f38935a.a()) {
+                    if (a3 == com.sdk.base.framework.f.g.c.f36520a.a()) {
                         a3 = 2;
                         httpURLConnection = httpURLConnection3;
                     }
@@ -208,7 +208,7 @@ public class h<T> {
                         httpsURLConnection = httpURLConnection;
                         if ("https".equals(protocol.toLowerCase(Locale.getDefault()))) {
                             HttpsURLConnection httpsURLConnection2 = (HttpsURLConnection) httpURLConnection;
-                            httpsURLConnection2.setHostnameVerifier(f38862f);
+                            httpsURLConnection2.setHostnameVerifier(f36444f);
                             httpsURLConnection = httpsURLConnection2;
                         }
                     }
@@ -217,12 +217,12 @@ public class h<T> {
                 httpsURLConnection.setConnectTimeout(30000);
                 httpsURLConnection.setReadTimeout(30000);
                 httpsURLConnection.setInstanceFollowRedirects(false);
-                httpsURLConnection.setRequestProperty("user-agent", com.sdk.base.framework.f.d.a.a(this.f38863d));
+                httpsURLConnection.setRequestProperty("user-agent", com.sdk.base.framework.f.d.a.a(this.f36445d));
                 StringBuilder sb = new StringBuilder();
                 sb.append(a3);
                 httpsURLConnection.setRequestProperty("netType", sb.toString());
                 httpsURLConnection.setRequestProperty(IAdRequestParam.OS, "android");
-                HashMap<String, Object> h2 = this.f38864e.h();
+                HashMap<String, Object> h2 = this.f36446e.h();
                 if (h2 != null && h2.size() > 0) {
                     for (Map.Entry<String, Object> entry : h2.entrySet()) {
                         Object value = entry.getValue();
@@ -235,7 +235,7 @@ public class h<T> {
             return httpsURLConnection;
         } catch (Exception e2) {
             com.sdk.base.framework.f.f.a.b(e2.toString());
-            com.sdk.base.framework.a.a.c.b(f38859a, e2.toString(), Boolean.valueOf(f38860b));
+            com.sdk.base.framework.a.a.c.b(f36441a, e2.toString(), Boolean.valueOf(f36442b));
             throw e2;
         }
     }
@@ -244,21 +244,21 @@ public class h<T> {
         String str;
         String str2;
         if (httpURLConnection != null) {
-            k<T> kVar = this.f38864e;
+            k<T> kVar = this.f36446e;
             if (kVar == null || !kVar.c()) {
                 str = "application/x-www-form-urlencoded";
             } else {
-                str = "multipart/form-data; boundary=" + f38861c;
+                str = "multipart/form-data; boundary=" + f36443c;
             }
             httpURLConnection.setRequestProperty("Content-Type", str);
             httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
             httpURLConnection.setRequestProperty("connection", "keep-alive");
-            if (this.f38864e != null) {
-                str2 = j.f38866b.k;
-                if (str2.equals(this.f38864e.a())) {
+            if (this.f36446e != null) {
+                str2 = j.f36448b.k;
+                if (str2.equals(this.f36446e.a())) {
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.connect();
-                    httpURLConnection.getOutputStream().write(a(this.f38864e).toByteArray());
+                    httpURLConnection.getOutputStream().write(a(this.f36446e).toByteArray());
                 } else {
                     httpURLConnection.setRequestMethod("GET");
                     httpURLConnection.connect();
@@ -269,10 +269,10 @@ public class h<T> {
     }
 
     public final k<T> b() {
-        return this.f38864e;
+        return this.f36446e;
     }
 
     public final void c() {
-        this.f38864e.a(j.f38865a.toString());
+        this.f36446e.a(j.f36447a.toString());
     }
 }

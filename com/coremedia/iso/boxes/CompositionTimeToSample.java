@@ -11,22 +11,22 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CompositionTimeToSample extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE = "ctts";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
     public List<Entry> entries;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         public int count;
         public int offset;
 
-        public Entry(int i, int i2) {
-            this.count = i;
-            this.offset = i2;
+        public Entry(int i2, int i3) {
+            this.count = i2;
+            this.offset = i3;
         }
 
         public int getCount() {
@@ -37,12 +37,12 @@ public class CompositionTimeToSample extends AbstractFullBox {
             return this.offset;
         }
 
-        public void setCount(int i) {
-            this.count = i;
+        public void setCount(int i2) {
+            this.count = i2;
         }
 
-        public void setOffset(int i) {
-            this.offset = i;
+        public void setOffset(int i2) {
+            this.offset = i2;
         }
 
         public String toString() {
@@ -71,13 +71,13 @@ public class CompositionTimeToSample extends AbstractFullBox {
             j += entry.getCount();
         }
         int[] iArr = new int[(int) j];
-        int i = 0;
+        int i2 = 0;
         for (Entry entry2 : list) {
-            int i2 = 0;
-            while (i2 < entry2.getCount()) {
-                iArr[i] = entry2.getOffset();
+            int i3 = 0;
+            while (i3 < entry2.getCount()) {
+                iArr[i2] = entry2.getOffset();
+                i3++;
                 i2++;
-                i++;
             }
         }
         return iArr;
@@ -88,7 +88,7 @@ public class CompositionTimeToSample extends AbstractFullBox {
         parseVersionAndFlags(byteBuffer);
         int l2i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
         this.entries = new ArrayList(l2i);
-        for (int i = 0; i < l2i; i++) {
+        for (int i2 = 0; i2 < l2i; i2++) {
             this.entries.add(new Entry(CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer)), byteBuffer.getInt()));
         }
     }

@@ -15,24 +15,26 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.j0.e1.i.a.b.b;
-import d.b.j0.e1.l.c.a;
+import d.a.c.e.p.l;
+import d.a.j0.e1.i.a.b.b;
+import d.a.j0.e1.l.c.a;
 /* loaded from: classes4.dex */
 public class OfficialFeedItemImage extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17563e;
+    public Context f17880e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f17564f;
+    public TbImageView f17881f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f17565g;
+    public ImageView f17882g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17566h;
-    public TextView i;
+    public TextView f17883h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f17884i;
     public View j;
     public View k;
     public View l;
@@ -44,69 +46,69 @@ public class OfficialFeedItemImage extends RelativeLayout {
     }
 
     public void a() {
-        this.f17564f.setRadius(l.g(this.f17563e, R.dimen.tbds31));
-        this.f17564f.setConrers(3);
+        this.f17881f.setRadius(l.g(this.f17880e, R.dimen.tbds31));
+        this.f17881f.setConrers(3);
         ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
-        layoutParams.height = l.g(this.f17563e, R.dimen.tbds579);
+        layoutParams.height = l.g(this.f17880e, R.dimen.tbds579);
         this.k.setLayoutParams(layoutParams);
         RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.l.getLayoutParams();
-        layoutParams2.leftMargin = l.g(this.f17563e, R.dimen.tbds27);
+        layoutParams2.leftMargin = l.g(this.f17880e, R.dimen.tbds27);
         this.l.setLayoutParams(layoutParams2);
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
-        layoutParams3.leftMargin = l.g(this.f17563e, R.dimen.tbds30);
-        layoutParams3.bottomMargin = l.g(this.f17563e, R.dimen.tbds27);
-        this.i.setLayoutParams(layoutParams3);
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f17884i.getLayoutParams();
+        layoutParams3.leftMargin = l.g(this.f17880e, R.dimen.tbds30);
+        layoutParams3.bottomMargin = l.g(this.f17880e, R.dimen.tbds27);
+        this.f17884i.setLayoutParams(layoutParams3);
     }
 
     public final void b() {
-        LayoutInflater.from(this.f17563e).inflate(R.layout.official_feed_item_image, (ViewGroup) this, true);
-        this.f17564f = (TbImageView) findViewById(R.id.message_image);
-        this.f17565g = (ImageView) findViewById(R.id.message_read_icon);
-        this.f17566h = (TextView) findViewById(R.id.message_read_count);
-        this.i = (TextView) findViewById(R.id.message_title);
+        LayoutInflater.from(this.f17880e).inflate(R.layout.official_feed_item_image, (ViewGroup) this, true);
+        this.f17881f = (TbImageView) findViewById(R.id.message_image);
+        this.f17882g = (ImageView) findViewById(R.id.message_read_icon);
+        this.f17883h = (TextView) findViewById(R.id.message_read_count);
+        this.f17884i = (TextView) findViewById(R.id.message_title);
         this.j = findViewById(R.id.black_mask);
-        this.f17564f.setConrers(15);
-        this.f17564f.setRadius(l.g(this.f17563e, R.dimen.tbds21));
+        this.f17881f.setConrers(15);
+        this.f17881f.setRadius(l.g(this.f17880e, R.dimen.tbds21));
         this.k = findViewById(R.id.image_container);
         this.l = findViewById(R.id.msg_read_container);
         c();
     }
 
     public void c() {
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f17565g, R.drawable.icon_pure_broadcast_read16_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f17882g, R.drawable.icon_pure_broadcast_read16_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
         DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606);
         if (this.m) {
             gradientLinear.into(this.j);
         } else {
             gradientLinear.blRadius(l.g(getContext(), R.dimen.tbds21)).brRadius(l.g(getContext(), R.dimen.tbds21)).into(this.j);
         }
-        SkinManager.setViewTextColor(this.f17566h, R.color.CAM_X0101);
-        SkinManager.setViewTextColor(this.i, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.f17883h, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.f17884i, R.color.CAM_X0101);
     }
 
-    public void d(int i) {
-        if (i > 0) {
-            this.f17566h.setText(this.f17563e.getString(R.string.person_view_num, StringHelper.numberUniformFormatExtraWithRound(i)));
-            this.f17566h.setVisibility(0);
-            this.f17565g.setVisibility(0);
+    public void d(int i2) {
+        if (i2 > 0) {
+            this.f17883h.setText(this.f17880e.getString(R.string.person_view_num, StringHelper.numberUniformFormatExtraWithRound(i2)));
+            this.f17883h.setVisibility(0);
+            this.f17882g.setVisibility(0);
             return;
         }
-        this.f17566h.setVisibility(8);
-        this.f17565g.setVisibility(8);
+        this.f17883h.setVisibility(8);
+        this.f17882g.setVisibility(8);
     }
 
-    public void setData(a.C1289a c1289a, int i, b bVar) {
-        this.f17564f.W(c1289a.f55852c, 10, false);
-        this.i.setText(c1289a.f55850a);
+    public void setData(a.C1228a c1228a, int i2, b bVar) {
+        this.f17881f.V(c1228a.f53712c, 10, false);
+        this.f17884i.setText(c1228a.f53710a);
         if (bVar != null) {
-            i = bVar.i();
+            i2 = bVar.i();
         }
-        d(i);
+        d(i2);
     }
 
     public OfficialFeedItemImage(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f17563e = context;
+        this.f17880e = context;
         b();
     }
 }

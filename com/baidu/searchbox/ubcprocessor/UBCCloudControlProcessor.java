@@ -8,8 +8,8 @@ import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
 import com.baidu.ubc.UBCManager;
-import d.b.l0.s;
-import d.b.l0.w;
+import d.a.l0.t;
+import d.a.l0.x;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,11 +58,11 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
         JSONObject serviceData = cloudControlResponseInfo.getServiceData();
         if (TextUtils.equals(cloudControlResponseInfo.getServiceName(), UBC_KEY) && serviceData != null) {
             boolean z = !"0".equals(option != null ? option.optString("version_asc") : "0");
-            w wVar = new w("", serviceData);
-            if (wVar.h()) {
-                final String e2 = wVar.e();
-                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(wVar, z, new s() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
-                    @Override // d.b.l0.s
+            x xVar = new x("", serviceData);
+            if (xVar.h()) {
+                final String e2 = xVar.e();
+                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(xVar, z, new t() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
+                    @Override // d.a.l0.t
                     public void setUBCConfigStatisticData(JSONObject jSONObject) {
                         ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                         if (jSONObject == null || (iCloudControlUBCCallBack2 = iCloudControlUBCCallBack) == null) {
@@ -76,12 +76,12 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                     }
                 });
             }
-            List<UBCCloudConfigObserver> a2 = new UBCCloudConfigObservers().mObservers.a();
-            if (a2 == null || a2.isEmpty()) {
+            List<UBCCloudConfigObserver> list = new UBCCloudConfigObservers().mObservers.getList();
+            if (list == null || list.isEmpty()) {
                 return;
             }
             String jSONObject = serviceData.toString();
-            for (UBCCloudConfigObserver uBCCloudConfigObserver : a2) {
+            for (UBCCloudConfigObserver uBCCloudConfigObserver : list) {
                 try {
                     uBCCloudConfigObserver.onReceiveUbcCloudConfig(jSONObject, option);
                 } catch (Exception e3) {

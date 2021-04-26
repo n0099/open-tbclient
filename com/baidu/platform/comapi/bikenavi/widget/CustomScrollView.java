@@ -22,30 +22,32 @@ public class CustomScrollView extends ScrollView {
     public static final Object TAG = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    public VelocityTracker f9408a;
+    public VelocityTracker f9760a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9409b;
+    public int f9761b;
     public int bottom;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9410c;
+    public int f9762c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f9411d;
+    public b f9763d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f9412e;
+    public b f9764e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GestureDetector f9413f;
+    public GestureDetector f9765f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GestureDetector f9414g;
+    public GestureDetector f9766g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f9415h;
-    public int i;
+    public int f9767h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f9768i;
     public LinearLayout j;
     public View k;
     public LinearLayout l;
@@ -67,7 +69,7 @@ public class CustomScrollView extends ScrollView {
 
     /* loaded from: classes2.dex */
     public interface b {
-        void a(int i);
+        void a(int i2);
 
         void a(com.baidu.platform.comapi.wnplatform.n.b bVar, com.baidu.platform.comapi.wnplatform.n.b bVar2);
     }
@@ -88,24 +90,24 @@ public class CustomScrollView extends ScrollView {
     }
 
     private void acquireVelocityTracker(MotionEvent motionEvent) {
-        if (this.f9408a == null) {
-            this.f9408a = VelocityTracker.obtain();
+        if (this.f9760a == null) {
+            this.f9760a = VelocityTracker.obtain();
         }
-        this.f9408a.addMovement(motionEvent);
+        this.f9760a.addMovement(motionEvent);
     }
 
-    private com.baidu.platform.comapi.wnplatform.n.b calculateNextStatus(int i, int i2) {
-        int i3 = f.f9434a[this.n.ordinal()];
-        if (i3 == 1) {
-            if ((i < 0 && Math.abs(i) > 1000) || i2 > this.f9410c) {
+    private com.baidu.platform.comapi.wnplatform.n.b calculateNextStatus(int i2, int i3) {
+        int i4 = f.f9788a[this.n.ordinal()];
+        if (i4 == 1) {
+            if ((i2 < 0 && Math.abs(i2) > 1000) || i3 > this.f9762c) {
                 return com.baidu.platform.comapi.wnplatform.n.b.TOP;
             }
             return com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
-        } else if (i3 != 2) {
+        } else if (i4 != 2) {
             return com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
         } else {
-            if (i <= 1000 && i2 >= this.f9410c) {
-                if (i2 > this.top) {
+            if (i2 <= 1000 && i3 >= this.f9762c) {
+                if (i3 > this.top) {
                     return com.baidu.platform.comapi.wnplatform.n.b.NULL;
                 }
                 return com.baidu.platform.comapi.wnplatform.n.b.TOP;
@@ -143,13 +145,13 @@ public class CustomScrollView extends ScrollView {
 
     private void initView(Context context) {
         setTag(TAG);
-        this.f9413f = new GestureDetector(context, new c());
-        this.f9414g = new GestureDetector(context, new a());
+        this.f9765f = new GestureDetector(context, new c());
+        this.f9766g = new GestureDetector(context, new a());
         setFadingEdgeLength(0);
         setVerticalScrollBarEnabled(false);
         this.top = com.baidu.platform.comapi.wnplatform.o.g.c(context) - com.baidu.platform.comapi.wnplatform.o.g.d(context);
         this.bottom = 0;
-        this.f9410c = 3;
+        this.f9762c = 3;
         com.baidu.platform.comapi.wnplatform.o.a.a.a((Activity) getContext(), R.array.Mask_X006, this);
         this.j = (LinearLayout) findViewById(R.dimen.abc_action_bar_content_inset_with_nav);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.dimen.abc_action_bar_content_inset_material);
@@ -184,7 +186,7 @@ public class CustomScrollView extends ScrollView {
     @Override // android.widget.ScrollView, android.view.View
     public int computeVerticalScrollRange() {
         int computeVerticalScrollRange = super.computeVerticalScrollRange();
-        this.f9415h = computeVerticalScrollRange;
+        this.f9767h = computeVerticalScrollRange;
         return computeVerticalScrollRange;
     }
 
@@ -197,29 +199,29 @@ public class CustomScrollView extends ScrollView {
         if (motionEvent.getAction() == 0) {
             stopAnim();
         }
-        return super.onInterceptTouchEvent(motionEvent) && this.f9413f.onTouchEvent(motionEvent);
+        return super.onInterceptTouchEvent(motionEvent) && this.f9765f.onTouchEvent(motionEvent);
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
         if (z) {
-            this.i = i4 - i2;
+            this.f9768i = i5 - i3;
         }
     }
 
     @Override // android.view.View
-    public void onScrollChanged(int i, int i2, int i3, int i4) {
-        b bVar = this.f9411d;
+    public void onScrollChanged(int i2, int i3, int i4, int i5) {
+        b bVar = this.f9763d;
         if (bVar != null) {
-            bVar.a(i2);
+            bVar.a(i3);
         }
-        b bVar2 = this.f9412e;
+        b bVar2 = this.f9764e;
         if (bVar2 != null) {
-            bVar2.a(i2);
+            bVar2.a(i3);
         }
-        boolean z = this.f9415h - this.i == i2;
-        if (i2 == 0 || z) {
+        boolean z = this.f9767h - this.f9768i == i3;
+        if (i3 == 0 || z) {
             try {
                 if (this.scrollerField == null) {
                     this.scrollerField = getDeclaredField(this, "mScroller");
@@ -232,21 +234,21 @@ public class CustomScrollView extends ScrollView {
             } catch (Exception unused) {
             }
         }
-        super.onScrollChanged(i, i2, i3, i4);
+        super.onScrollChanged(i2, i3, i4, i5);
     }
 
     @Override // android.widget.ScrollView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         ViewConfiguration.get(getContext());
-        this.f9409b = ViewConfiguration.getMaximumFlingVelocity();
+        this.f9761b = ViewConfiguration.getMaximumFlingVelocity();
         View view = this.k;
         if ((view == null ? false : canMoveMap(motionEvent, view)) && this.n == com.baidu.platform.comapi.wnplatform.n.b.BOTTOM) {
             return false;
         }
         acquireVelocityTracker(motionEvent);
         if (motionEvent.getAction() == 1) {
-            VelocityTracker velocityTracker = this.f9408a;
-            velocityTracker.computeCurrentVelocity(1000, this.f9409b);
+            VelocityTracker velocityTracker = this.f9760a;
+            velocityTracker.computeCurrentVelocity(1000, this.f9761b);
             com.baidu.platform.comapi.wnplatform.n.b calculateNextStatus = calculateNextStatus((int) velocityTracker.getYVelocity(), getScrollY());
             if (calculateNextStatus != com.baidu.platform.comapi.wnplatform.n.b.NULL) {
                 updateStatus(calculateNextStatus, true);
@@ -274,46 +276,46 @@ public class CustomScrollView extends ScrollView {
         }
     }
 
-    public void setBlankHeight(int i) {
+    public void setBlankHeight(int i2) {
         this.j.removeAllViews();
         this.k = new View(getContext());
-        this.k.setLayoutParams(new AbsListView.LayoutParams(0, i));
+        this.k.setLayoutParams(new AbsListView.LayoutParams(0, i2));
         this.j.addView(this.k);
     }
 
     public void setCustomOnScrollChangeListener(b bVar) {
-        this.f9412e = bVar;
+        this.f9764e = bVar;
     }
 
     public void setOnScrollChangeListener(b bVar) {
-        this.f9411d = bVar;
+        this.f9763d = bVar;
     }
 
-    public void setStatusHeight(int i, int i2) {
-        this.l.setMinimumHeight(i);
-        this.top = i;
-        this.bottom = i2;
-        this.f9410c = 3;
+    public void setStatusHeight(int i2, int i3) {
+        this.l.setMinimumHeight(i2);
+        this.top = i2;
+        this.bottom = i3;
+        this.f9762c = 3;
     }
 
     public void updateStatus(com.baidu.platform.comapi.wnplatform.n.b bVar, boolean z) {
-        b bVar2 = this.f9411d;
+        b bVar2 = this.f9763d;
         if (bVar2 != null) {
             bVar2.a(this.n, bVar);
         }
-        b bVar3 = this.f9412e;
+        b bVar3 = this.f9764e;
         if (bVar3 != null) {
             bVar3.a(this.n, bVar);
         }
         this.n = bVar;
-        int i = f.f9434a[bVar.ordinal()];
-        if (i == 1) {
+        int i2 = f.f9788a[bVar.ordinal()];
+        if (i2 == 1) {
             if (z) {
                 smoothScrollTo(0, this.bottom);
             } else {
                 scrollTo(0, this.bottom);
             }
-        } else if (i != 2) {
+        } else if (i2 != 2) {
         } else {
             if (z) {
                 smoothScrollTo(0, this.top);
@@ -325,17 +327,17 @@ public class CustomScrollView extends ScrollView {
 
     public CustomScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f9415h = 0;
-        this.i = 0;
+        this.f9767h = 0;
+        this.f9768i = 0;
         this.m = false;
         this.n = com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
         initView(context);
     }
 
-    public CustomScrollView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f9415h = 0;
-        this.i = 0;
+    public CustomScrollView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f9767h = 0;
+        this.f9768i = 0;
         this.m = false;
         this.n = com.baidu.platform.comapi.wnplatform.n.b.BOTTOM;
         initView(context);

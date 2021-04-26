@@ -27,12 +27,12 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
     public long mEndTime;
     public String mKey;
 
-    public IMMediaGetChatSessionRequest(Context context, long j, int i, long j2, String str) {
+    public IMMediaGetChatSessionRequest(Context context, long j, int i2, long j2, String str) {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
         this.mContacter = j;
-        this.mCount = i;
+        this.mCount = i2;
         this.mEndTime = j2;
         this.mKey = str;
     }
@@ -80,11 +80,11 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
             if (!TextUtils.isEmpty(this.mContactorThirdid)) {
                 jSONObject.put("contacter_third_id", this.mContactorThirdid);
             }
-            int i = 20;
+            int i2 = 20;
             if (this.mCount <= 20) {
-                i = this.mCount;
+                i2 = this.mCount;
             }
-            jSONObject.put("count", i);
+            jSONObject.put("count", i2);
             jSONObject.put("sign", generateSign(jSONObject));
         } catch (JSONException e2) {
             LogUtils.e(TAG, "Exception ", e2);
@@ -93,8 +93,8 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         LogUtils.d(TAG, "onFailure error = " + transErrorCode.first + " errormsg = " + ((String) transErrorCode.second));
         ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(((Integer) transErrorCode.first).intValue(), false, 0, null, null, this.mKey);
     }
@@ -105,12 +105,12 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str;
-        int i2;
         int i3;
         int i4;
         int i5;
+        int i6;
         long j;
         String extLog;
         String str2 = new String(bArr);
@@ -122,15 +122,15 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
             JSONObject jSONObject = new JSONObject(str2);
             int optInt = jSONObject.optInt("error_code", 0);
             if (optInt == 0) {
-                i2 = jSONObject.optInt("has_more", 0);
+                i3 = jSONObject.optInt("has_more", 0);
                 try {
-                    i3 = jSONObject.optInt("total_unread_num", 0);
+                    i4 = jSONObject.optInt("total_unread_num", 0);
                     try {
                         JSONArray optJSONArray = jSONObject.optJSONArray("sessions");
                         if (optJSONArray != null) {
-                            int i6 = 0;
-                            while (i6 < optJSONArray.length()) {
-                                JSONObject jSONObject2 = optJSONArray.getJSONObject(i6);
+                            int i7 = 0;
+                            while (i7 < optJSONArray.length()) {
+                                JSONObject jSONObject2 = optJSONArray.getJSONObject(i7);
                                 try {
                                     j = Long.parseLong(Utility.transBDUK(jSONObject2.optString("contacter_pass_uk")));
                                 } catch (NumberFormatException e2) {
@@ -140,10 +140,10 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                                     e = e3;
                                     str = str3;
                                     LogUtils.e(str, "IMMediaGetChatSessionRequest JSONException", e);
-                                    i4 = 1010;
-                                    if (i2 == 1) {
+                                    i5 = 1010;
+                                    if (i3 == 1) {
                                     }
-                                    ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i4, i2 == 1, i3, hashMap, hashMap2, this.mKey);
+                                    ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i5, i3 == 1, i4, hashMap, hashMap2, this.mKey);
                                 }
                                 String str4 = str3;
                                 try {
@@ -151,9 +151,9 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                                     int optInt2 = jSONObject2.optInt("content_type");
                                     String optString = jSONObject2.optString("content");
                                     JSONArray jSONArray = optJSONArray;
-                                    int i7 = optInt;
-                                    int i8 = i2;
+                                    int i8 = optInt;
                                     int i9 = i3;
+                                    int i10 = i4;
                                     try {
                                         ChatMsg newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.mContext, 0, optInt2, -1);
                                         String str5 = "";
@@ -166,19 +166,19 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                                             } catch (JSONException e4) {
                                                 e = e4;
                                                 str = str4;
-                                                i2 = i8;
                                                 i3 = i9;
+                                                i4 = i10;
                                                 LogUtils.e(str, "IMMediaGetChatSessionRequest JSONException", e);
-                                                i4 = 1010;
-                                                if (i2 == 1) {
+                                                i5 = 1010;
+                                                if (i3 == 1) {
                                                 }
-                                                ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i4, i2 == 1, i3, hashMap, hashMap2, this.mKey);
+                                                ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i5, i3 == 1, i4, hashMap, hashMap2, this.mKey);
                                             }
                                         } else {
                                             extLog = "";
                                         }
                                         int optInt3 = jSONObject2.optInt("unread_num");
-                                        int i10 = i6;
+                                        int i11 = i7;
                                         long optLong2 = jSONObject2.optLong("last_time");
                                         long optLong3 = jSONObject2.optLong("contacter_im_uk");
                                         str = str4;
@@ -201,21 +201,21 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                                             } else if (j2 != 0) {
                                                 hashMap2.put(Long.valueOf(j2), chatSession);
                                             }
-                                            i6 = i10 + 1;
+                                            i7 = i11 + 1;
                                             optJSONArray = jSONArray;
-                                            optInt = i7;
-                                            i2 = i8;
+                                            optInt = i8;
                                             i3 = i9;
+                                            i4 = i10;
                                             str3 = str;
                                         } catch (JSONException e5) {
                                             e = e5;
-                                            i2 = i8;
                                             i3 = i9;
+                                            i4 = i10;
                                             LogUtils.e(str, "IMMediaGetChatSessionRequest JSONException", e);
-                                            i4 = 1010;
-                                            if (i2 == 1) {
+                                            i5 = 1010;
+                                            if (i3 == 1) {
                                             }
-                                            ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i4, i2 == 1, i3, hashMap, hashMap2, this.mKey);
+                                            ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i5, i3 == 1, i4, hashMap, hashMap2, this.mKey);
                                         }
                                     } catch (JSONException e6) {
                                         e = e6;
@@ -227,9 +227,9 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                                 }
                             }
                         }
-                        i5 = optInt;
-                        i2 = i2;
+                        i6 = optInt;
                         i3 = i3;
+                        i4 = i4;
                     } catch (JSONException e8) {
                         e = e8;
                         str = str3;
@@ -237,25 +237,25 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                 } catch (JSONException e9) {
                     e = e9;
                     str = TAG;
-                    i3 = 0;
+                    i4 = 0;
                     LogUtils.e(str, "IMMediaGetChatSessionRequest JSONException", e);
-                    i4 = 1010;
-                    if (i2 == 1) {
+                    i5 = 1010;
+                    if (i3 == 1) {
                     }
-                    ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i4, i2 == 1, i3, hashMap, hashMap2, this.mKey);
+                    ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i5, i3 == 1, i4, hashMap, hashMap2, this.mKey);
                 }
             } else {
-                i5 = optInt;
-                i2 = 0;
+                i6 = optInt;
                 i3 = 0;
+                i4 = 0;
             }
-            i4 = i5;
+            i5 = i6;
         } catch (JSONException e10) {
             e = e10;
             str = TAG;
-            i2 = 0;
+            i3 = 0;
         }
-        ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i4, i2 == 1, i3, hashMap, hashMap2, this.mKey);
+        ChatSessionManagerImpl.getInstance(this.mContext).onMediaGetChatSessionRequest(i5, i3 == 1, i4, hashMap, hashMap2, this.mKey);
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -263,15 +263,15 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         return super.shouldAbort();
     }
 
-    public IMMediaGetChatSessionRequest(Context context, long j, int i, long j2, String str, int i2, long j3, String str2) {
+    public IMMediaGetChatSessionRequest(Context context, long j, int i2, long j2, String str, int i3, long j3, String str2) {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
         this.mContacter = j;
-        this.mCount = i2;
+        this.mCount = i3;
         this.mEndTime = j3;
         this.mKey = str2;
-        this.mContactorType = i;
+        this.mContactorType = i2;
         this.mContactorPauid = j2;
         this.mContactorThirdid = str;
     }

@@ -13,8 +13,8 @@ public class TestFrameLayout extends FrameLayout {
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         com.baidu.platform.comapi.wnplatform.d.a.a("child count", "count" + getChildCount());
-        for (int i = 0; i < getChildCount(); i++) {
-            getChildAt(i).dispatchTouchEvent(motionEvent);
+        for (int i2 = 0; i2 < getChildCount(); i2++) {
+            getChildAt(i2).dispatchTouchEvent(motionEvent);
         }
         return true;
     }

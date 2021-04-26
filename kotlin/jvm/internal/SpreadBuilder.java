@@ -8,8 +8,8 @@ import java.util.Iterator;
 public class SpreadBuilder {
     public final ArrayList<Object> list;
 
-    public SpreadBuilder(int i) {
-        this.list = new ArrayList<>(i);
+    public SpreadBuilder(int i2) {
+        this.list = new ArrayList<>(i2);
     }
 
     public void add(Object obj) {

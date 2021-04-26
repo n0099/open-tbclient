@@ -30,6 +30,7 @@ import com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher;
 import com.baidu.searchbox.player.ubc.SimpleVideoStatisticsDispatcher;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes2.dex */
 public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public static final String TAG = "BDVideoPlayer";
@@ -59,8 +60,8 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
 
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
-        public void onAudioFocusChange(int i) {
-            BDVideoPlayer.this.onAudioFocusChanged(i);
+        public void onAudioFocusChange(int i2) {
+            BDVideoPlayer.this.onAudioFocusChanged(i2);
         }
     }
 
@@ -430,7 +431,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         baseKernelLayer.mute(z);
     }
 
-    public void onAudioFocusChanged(final int i) {
+    public void onAudioFocusChanged(final int i2) {
         Activity activity = getActivity();
         if (activity == null || isPlayerMute()) {
             return;
@@ -438,8 +439,8 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         activity.runOnUiThread(new Runnable() { // from class: com.baidu.searchbox.player.BDVideoPlayer.1
             @Override // java.lang.Runnable
             public void run() {
-                int i2 = i;
-                if ((i2 == -2 || i2 == -1) && BDVideoPlayer.this.isPlaying()) {
+                int i3 = i2;
+                if ((i3 == -2 || i3 == -1) && BDVideoPlayer.this.isPlaying()) {
                     BDVideoPlayer.this.pauseInternal(2);
                     BDVideoPlayer.this.abandonAudioFocus();
                 }
@@ -448,7 +449,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
-    public void onBufferingUpdate(int i) {
+    public void onBufferingUpdate(int i2) {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
@@ -460,19 +461,19 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
-    public boolean onError(int i, int i2, Object obj) {
-        getPlayerEventTrigger().onError(i, i2, obj);
-        getStatDispatcher().onError(i, i2, obj);
-        getStatEventTrigger().onError(i, i2, obj);
+    public boolean onError(int i2, int i3, Object obj) {
+        getPlayerEventTrigger().onError(i2, i3, obj);
+        getStatDispatcher().onError(i2, i3, obj);
+        getStatEventTrigger().onError(i2, i3, obj);
         VideoSystemHelper.setKeepScreenOnOff(getActivity(), false);
         return true;
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
-    public boolean onInfo(int i, int i2, Object obj) {
-        getPlayerEventTrigger().onInfo(i, i2, obj);
-        getStatDispatcher().onInfo(i, i2, obj != null ? obj.toString() : "");
-        getStatEventTrigger().onInfo(i, i2, obj);
+    public boolean onInfo(int i2, int i3, Object obj) {
+        getPlayerEventTrigger().onInfo(i2, i3, obj);
+        getStatDispatcher().onInfo(i2, i3, obj != null ? obj.toString() : "");
+        getStatEventTrigger().onInfo(i2, i3, obj);
         return false;
     }
 
@@ -487,8 +488,8 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
-    public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
-        getPlayerEventTrigger().onVideoSizeChanged(i, i2, i3, i4);
+    public void onVideoSizeChanged(int i2, int i3, int i4, int i5) {
+        getPlayerEventTrigger().onVideoSizeChanged(i2, i3, i4, i5);
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
@@ -497,12 +498,12 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         pauseInternal(0);
     }
 
-    public void pauseInternal(int i) {
+    public void pauseInternal(int i2) {
         if (this.mKernelLayer == null) {
             return;
         }
         abandonAudioFocus();
-        this.mVideoSession.getControlEventTrigger().pause(i);
+        this.mVideoSession.getControlEventTrigger().pause(i2);
         this.mKernelLayer.pause();
         getStatDispatcher().pause();
     }
@@ -566,7 +567,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
             return;
         }
         if (this.mAudioManager == null) {
-            this.mAudioManager = (AudioManager) getAppContext().getSystemService("audio");
+            this.mAudioManager = (AudioManager) getAppContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         }
         if (this.mAudioManager != null) {
             if (this.mAudioFocusListener == null) {
@@ -629,20 +630,20 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
-    public void seekTo(int i) {
+    public void seekTo(int i2) {
         if (this.mKernelLayer == null) {
             return;
         }
-        this.mVideoSession.getControlEventTrigger().seekTo(i);
+        this.mVideoSession.getControlEventTrigger().seekTo(i2);
     }
 
     @PublicMethod
-    public void seekToMs(int i) {
+    public void seekToMs(int i2) {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer == null) {
             return;
         }
-        baseKernelLayer.seekToMs(i);
+        baseKernelLayer.seekToMs(i2);
     }
 
     @PublicMethod
@@ -718,7 +719,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
-    public void setParameter(String str, int i) {
+    public void setParameter(String str, int i2) {
     }
 
     @PublicMethod
@@ -774,22 +775,22 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
-    public void setVideoRotation(int i) {
+    public void setVideoRotation(int i2) {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer == null) {
             return;
         }
-        baseKernelLayer.setVideoRotation(i);
+        baseKernelLayer.setVideoRotation(i2);
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
     @PublicMethod
-    public void setVideoScalingMode(int i) {
+    public void setVideoScalingMode(int i2) {
         BaseKernelLayer baseKernelLayer = this.mKernelLayer;
         if (baseKernelLayer == null) {
             return;
         }
-        baseKernelLayer.setVideoScalingMode(i);
+        baseKernelLayer.setVideoScalingMode(i2);
     }
 
     @PublicMethod

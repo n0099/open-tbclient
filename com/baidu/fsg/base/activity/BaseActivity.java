@@ -26,13 +26,13 @@ public class BaseActivity extends Activity implements NoProguard {
     public static final String WITH_ANIM = "with_anim";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5165a = "BaseActivity";
+    public static final String f5295a = "BaseActivity";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5166b = false;
+    public static final boolean f5296b = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f5172h;
+    public long f5302h;
     public RimStatisticsUtil mStatUtil;
     public static LinkedList<BaseActivity> mActivityStack = new LinkedList<>();
     public static int mLiveActivityNum = 0;
@@ -41,29 +41,29 @@ public class BaseActivity extends Activity implements NoProguard {
     public int mFlag = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f5167c = false;
+    public boolean f5297c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f5168d = true;
+    public boolean f5298d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f5169e = MULTI_WINDOW_TIPS;
+    public String f5299e = MULTI_WINDOW_TIPS;
 
     /* renamed from: f  reason: collision with root package name */
-    public SafeScrollView f5170f = null;
+    public SafeScrollView f5300f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5171g = false;
+    public boolean f5301g = false;
 
     @TargetApi(24)
     private void a() {
         if (Build.VERSION.SDK_INT < 24 || !isInMultiWindowMode()) {
             return;
         }
-        if (this.f5167c) {
-            RimGlobalUtils.toastWithText(getActivity(), this.f5169e, 1);
+        if (this.f5297c) {
+            RimGlobalUtils.toastWithText(getActivity(), this.f5299e, 1);
         }
-        if (this.f5168d) {
+        if (this.f5298d) {
             return;
         }
         finish();
@@ -114,13 +114,13 @@ public class BaseActivity extends Activity implements NoProguard {
         }
     }
 
-    public static synchronized void clearTasksWithFlag(int i) {
+    public static synchronized void clearTasksWithFlag(int i2) {
         synchronized (BaseActivity.class) {
             LogUtil.d("BaseActivity", "clearTasksWithFlag. stack size = " + mActivityStack.size());
             Iterator<BaseActivity> it = mActivityStack.iterator();
             while (it.hasNext()) {
                 BaseActivity next = it.next();
-                if (next.mFlag == i) {
+                if (next.mFlag == i2) {
                     next.finish();
                     next.overridePendingTransition(0, 0);
                 }
@@ -162,14 +162,14 @@ public class BaseActivity extends Activity implements NoProguard {
         return this;
     }
 
-    public ArrayList<String> getHandlerFailureData(int i, int i2, String str) {
+    public ArrayList<String> getHandlerFailureData(int i2, int i3, String str) {
         String str2;
         String str3 = "";
         ArrayList<String> arrayList = new ArrayList<>();
         try {
-            str2 = String.valueOf(i);
+            str2 = String.valueOf(i2);
             try {
-                str3 = String.valueOf(i2);
+                str3 = String.valueOf(i3);
             } catch (Exception unused) {
             }
         } catch (Exception unused2) {
@@ -182,7 +182,7 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     public boolean isActivityInForeground() {
-        return this.f5171g;
+        return this.f5301g;
     }
 
     public boolean isRequestedOrientation() {
@@ -204,7 +204,7 @@ public class BaseActivity extends Activity implements NoProguard {
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
-        this.f5172h = System.currentTimeMillis();
+        this.f5302h = System.currentTimeMillis();
         this.mStatUtil = RimStatisticsUtil.getInstance();
         RimStatisticsUtil.onPush(getClass().getSimpleName());
         if (isRequestedOrientation()) {
@@ -216,9 +216,9 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     @Override // android.app.Activity
-    public Dialog onCreateDialog(int i) {
-        if (i != 242) {
-            return super.onCreateDialog(i);
+    public Dialog onCreateDialog(int i2) {
+        if (i2 != 242) {
+            return super.onCreateDialog(i2);
         }
         return new com.baidu.fsg.base.activity.a.a(this);
     }
@@ -231,11 +231,11 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 82 && keyEvent.isLongPress()) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 82 && keyEvent.isLongPress()) {
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // android.app.Activity
@@ -243,15 +243,15 @@ public class BaseActivity extends Activity implements NoProguard {
     public void onMultiWindowModeChanged(boolean z) {
         if (Build.VERSION.SDK_INT >= 24) {
             super.onMultiWindowModeChanged(z);
-            SafeScrollView safeScrollView = this.f5170f;
+            SafeScrollView safeScrollView = this.f5300f;
             if (safeScrollView != null) {
                 safeScrollView.dismissKeyBoard();
             }
             if (z && isActivityInForeground()) {
-                if (this.f5167c) {
-                    RimGlobalUtils.toastWithText(getActivity(), this.f5169e, 1);
+                if (this.f5297c) {
+                    RimGlobalUtils.toastWithText(getActivity(), this.f5299e, 1);
                 }
-                if (this.f5168d) {
+                if (this.f5298d) {
                     return;
                 }
                 finish();
@@ -263,7 +263,7 @@ public class BaseActivity extends Activity implements NoProguard {
     public void onPause() {
         super.onPause();
         decLiveActivityNum();
-        this.f5171g = false;
+        this.f5301g = false;
         RimStatisticsUtil.onOut(getClass().getSimpleName());
     }
 
@@ -271,10 +271,10 @@ public class BaseActivity extends Activity implements NoProguard {
     public void onResume() {
         super.onResume();
         addLiveActivityNum();
-        this.f5171g = true;
-        if (0 != this.f5172h) {
-            RimStatisticsUtil.onIn(getClass().getSimpleName(), System.currentTimeMillis() - this.f5172h);
-            this.f5172h = 0L;
+        this.f5301g = true;
+        if (0 != this.f5302h) {
+            RimStatisticsUtil.onIn(getClass().getSimpleName(), System.currentTimeMillis() - this.f5302h);
+            this.f5302h = 0L;
         } else {
             RimStatisticsUtil.onIn(getClass().getSimpleName(), 0L);
         }
@@ -286,23 +286,23 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     public void setIsMultiWindowAvailable(boolean z) {
-        if (z != this.f5168d) {
-            this.f5168d = z;
+        if (z != this.f5298d) {
+            this.f5298d = z;
         }
     }
 
     public void setIsShowMultiWindowTips(boolean z) {
-        if (z != this.f5167c) {
-            this.f5167c = z;
+        if (z != this.f5297c) {
+            this.f5297c = z;
         }
     }
 
     public void setMultiWindowTipsId(String str) {
-        this.f5169e = str;
+        this.f5299e = str;
     }
 
     public void setSafeScrollView(SafeScrollView safeScrollView) {
-        this.f5170f = safeScrollView;
+        this.f5300f = safeScrollView;
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
@@ -310,12 +310,12 @@ public class BaseActivity extends Activity implements NoProguard {
         startActivityForResult(intent, -1);
     }
 
-    public void startActivityForResult(Class<?> cls, int i) {
-        startActivityForResult(new Intent(this, cls), i);
+    public void startActivityForResult(Class<?> cls, int i2) {
+        startActivityForResult(new Intent(this, cls), i2);
     }
 
-    public void startActivityForResultWithoutAnim(Intent intent, int i) {
-        super.startActivityForResult(intent, i);
+    public void startActivityForResultWithoutAnim(Intent intent, int i2) {
+        super.startActivityForResult(intent, i2);
     }
 
     public void startActivityWithExtras(Bundle bundle, Class<?> cls) {
@@ -344,8 +344,8 @@ public class BaseActivity extends Activity implements NoProguard {
     }
 
     @Override // android.app.Activity
-    public void startActivityForResult(Intent intent, int i) {
-        super.startActivityForResult(intent, i);
+    public void startActivityForResult(Intent intent, int i2) {
+        super.startActivityForResult(intent, i2);
         if ("1".equals(BeanConstants.ANIMSTYLE)) {
             RimAnimUtils.startActivityAnim(getActivity());
         }

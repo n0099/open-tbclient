@@ -15,8 +15,8 @@ public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.mDatas.get(i));
+    public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
+        viewGroup.removeView(this.mDatas.get(i2));
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -26,9 +26,9 @@ public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     @NonNull
-    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
-        viewGroup.addView(this.mDatas.get(i));
-        return this.mDatas.get(i);
+    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i2) {
+        viewGroup.addView(this.mDatas.get(i2));
+        return this.mDatas.get(i2);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter

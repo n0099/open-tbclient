@@ -15,22 +15,24 @@ import android.widget.RelativeLayout;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class SubPbView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public BlankView f19641e;
+    public BlankView f20123e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f19642f;
+    public View f20124f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f19643g;
+    public LinearLayout f20125g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdTypeListView f19644h;
-    public RelativeLayout i;
+    public BdTypeListView f20126h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public RelativeLayout f20127i;
     public float j;
     public float k;
     public boolean l;
@@ -78,7 +80,7 @@ public class SubPbView extends LinearLayout {
     */
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         boolean z;
-        if (this.f19641e != null && this.r) {
+        if (this.f20123e != null && this.r) {
             if (this.n.isRunning()) {
                 this.n.end();
                 return true;
@@ -92,8 +94,8 @@ public class SubPbView extends LinearLayout {
                         this.q = 1.0f - ((rawY - this.j) / l.i(getContext()));
                     }
                 }
-                z = this.k > this.j && this.f19642f.getTop() == 0 && this.f19644h.getFirstVisiblePosition() == 0;
-                boolean z2 = this.k - this.j > ((float) this.p) && this.f19642f.getTop() == 0 && this.f19644h.getFirstVisiblePosition() == 0;
+                z = this.k > this.j && this.f20124f.getTop() == 0 && this.f20126h.getFirstVisiblePosition() == 0;
+                boolean z2 = this.k - this.j > ((float) this.p) && this.f20124f.getTop() == 0 && this.f20126h.getFirstVisiblePosition() == 0;
                 this.m = z2;
                 if (z2) {
                     this.n.setIntValues((int) (this.k - this.j), l.i(getContext()));
@@ -104,7 +106,7 @@ public class SubPbView extends LinearLayout {
                     this.k = 0.0f;
                     requestLayout();
                 }
-                if (this.k <= this.j && this.f19642f.getTop() == 0 && this.f19644h.getFirstVisiblePosition() == 0) {
+                if (this.k <= this.j && this.f20124f.getTop() == 0 && this.f20126h.getFirstVisiblePosition() == 0) {
                     this.l = true;
                     requestLayout();
                     return true;
@@ -154,42 +156,42 @@ public class SubPbView extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     public void onDraw(Canvas canvas) {
         float f2 = this.q;
-        if (f2 >= 0.0f && this.f19641e != null) {
+        if (f2 >= 0.0f && this.f20123e != null) {
             canvas.drawColor(Color.argb((int) (f2 * 168.0f), 0, 0, 0), PorterDuff.Mode.SRC);
         }
         super.onDraw(canvas);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.f19641e == null) {
-            super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        if (this.f20123e == null) {
+            super.onLayout(z, i2, i3, i4, i5);
             return;
         }
-        int i5 = this.o;
-        if (i5 == 0) {
-            super.onLayout(z, i, i2, i3, i4);
+        int i6 = this.o;
+        if (i6 == 0) {
+            super.onLayout(z, i2, i3, i4, i5);
             float f2 = this.k;
             float f3 = this.j;
             if (f2 > f3) {
-                LinearLayout linearLayout = this.f19643g;
-                linearLayout.layout(i, (int) (f2 - f3), i3, ((int) (f2 - f3)) + linearLayout.getHeight());
-                this.i.layout(i, ((int) (this.k - this.j)) + this.f19643g.getHeight(), i3, i4);
+                LinearLayout linearLayout = this.f20125g;
+                linearLayout.layout(i2, (int) (f2 - f3), i4, ((int) (f2 - f3)) + linearLayout.getHeight());
+                this.f20127i.layout(i2, ((int) (this.k - this.j)) + this.f20125g.getHeight(), i4, i5);
                 return;
             }
             return;
         }
-        LinearLayout linearLayout2 = this.f19643g;
-        linearLayout2.layout(i, i5, i3, linearLayout2.getMeasuredHeight() + i5);
-        this.i.layout(i, this.o + this.f19643g.getMeasuredHeight(), i3, i4);
+        LinearLayout linearLayout2 = this.f20125g;
+        linearLayout2.layout(i2, i6, i4, linearLayout2.getMeasuredHeight() + i6);
+        this.f20127i.layout(i2, this.o + this.f20125g.getMeasuredHeight(), i4, i5);
     }
 
     public void setBlankView(BlankView blankView) {
-        this.f19641e = blankView;
+        this.f20123e = blankView;
     }
 
     public void setContentView(RelativeLayout relativeLayout) {
-        this.i = relativeLayout;
+        this.f20127i = relativeLayout;
     }
 
     public void setEnableDragExit(boolean z) {
@@ -197,23 +199,23 @@ public class SubPbView extends LinearLayout {
     }
 
     public void setListView(BdTypeListView bdTypeListView) {
-        this.f19644h = bdTypeListView;
+        this.f20126h = bdTypeListView;
     }
 
     public void setNavigationView(LinearLayout linearLayout) {
-        this.f19643g = linearLayout;
+        this.f20125g = linearLayout;
     }
 
     public void setTopView(View view) {
-        this.f19642f = view;
+        this.f20124f = view;
     }
 
     public SubPbView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public SubPbView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public SubPbView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.q = 0.0f;
         this.p = (l.i(context) / 3) - l.g(TbadkCoreApplication.getInst(), R.dimen.ds160);
         this.o = l.i(context);

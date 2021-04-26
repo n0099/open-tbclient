@@ -46,15 +46,15 @@ public abstract class BaseHttpRequest implements HttpExecutor.HttpRequest, HttpE
         return "POST";
     }
 
-    public void report(int i, int i2) {
+    public void report(int i2, int i3) {
         if (BIMRtcManager.mBIMRtcEvent != null) {
-            BIMRtcManager.mBIMRtcEvent.sdkAction = i;
-            BIMRtcManager.mBIMRtcEvent.sdkRoomId = i2 == 0 ? this.mRtcRoomId : "-2";
-            BIMRtcManager.mBIMRtcEvent.sdkSeqId = i2;
+            BIMRtcManager.mBIMRtcEvent.sdkAction = i2;
+            BIMRtcManager.mBIMRtcEvent.sdkRoomId = i3 == 0 ? this.mRtcRoomId : "-2";
+            BIMRtcManager.mBIMRtcEvent.sdkSeqId = i3;
         }
     }
 
-    public void trackRequest(int i, String str) {
-        new BIMRtcTrack.RequestBuilder(this.mContext).method(str).requestId("-1").requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i).ext(trackExt()).build();
+    public void trackRequest(int i2, String str) {
+        new BIMRtcTrack.RequestBuilder(this.mContext).method(str).requestId("-1").requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i2).ext(trackExt()).build();
     }
 }

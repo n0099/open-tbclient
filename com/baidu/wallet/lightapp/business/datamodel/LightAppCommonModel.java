@@ -22,8 +22,8 @@ public class LightAppCommonModel implements NoProguard {
         return JsonUtils.toJson(this);
     }
 
-    public LightAppCommonModel(int i) {
+    public LightAppCommonModel(int i2) {
         this();
-        this.result = i;
+        this.result = i2;
     }
 }

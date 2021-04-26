@@ -68,11 +68,11 @@ public final class StringUtil implements IStringUtil {
             return nullSafeToString(objArr[0]);
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < objArr.length; i++) {
-            if (i > 0) {
+        for (int i2 = 0; i2 < objArr.length; i2++) {
+            if (i2 > 0) {
                 sb.append(str);
             }
-            sb.append(objArr[i]);
+            sb.append(objArr[i2]);
         }
         return sb.toString();
     }
@@ -105,10 +105,10 @@ public final class StringUtil implements IStringUtil {
         int indexOf = replace.indexOf(":");
         String str2 = "";
         if (indexOf != -1) {
-            int i = indexOf + 1;
-            String substring = replace.substring(0, i);
+            int i2 = indexOf + 1;
+            String substring = replace.substring(0, i2);
             if (!substring.contains("/")) {
-                replace = replace.substring(i);
+                replace = replace.substring(i2);
                 str2 = substring;
             }
         }
@@ -118,20 +118,20 @@ public final class StringUtil implements IStringUtil {
         }
         String[] delimitedListToStringArray = delimitedListToStringArray(replace, "/");
         LinkedList linkedList = new LinkedList();
-        int i2 = 0;
+        int i3 = 0;
         for (int length = delimitedListToStringArray.length - 1; length >= 0; length--) {
             String str3 = delimitedListToStringArray[length];
             if (!".".equals(str3)) {
                 if (IStringUtil.TOP_PATH.equals(str3)) {
-                    i2++;
-                } else if (i2 > 0) {
-                    i2--;
+                    i3++;
+                } else if (i3 > 0) {
+                    i3--;
                 } else {
                     linkedList.add(0, str3);
                 }
             }
         }
-        for (int i3 = 0; i3 < i2; i3++) {
+        for (int i4 = 0; i4 < i3; i4++) {
             linkedList.add(0, IStringUtil.TOP_PATH);
         }
         return str2 + collectionToDelimitedString(linkedList, "/");
@@ -231,8 +231,8 @@ public final class StringUtil implements IStringUtil {
     public static String deleteAny(String str, String str2) {
         if (hasLength(str) && hasLength(str2)) {
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < str.length(); i++) {
-                char charAt = str.charAt(i);
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                char charAt = str.charAt(i2);
                 if (str2.indexOf(charAt) == -1) {
                     sb.append(charAt);
                 }
@@ -254,7 +254,7 @@ public final class StringUtil implements IStringUtil {
 
     @Deprecated
     public static byte[] getByteFromInputStream(InputStream inputStream) {
-        int i;
+        int i2;
         if (inputStream == null) {
             return null;
         }
@@ -262,15 +262,15 @@ public final class StringUtil implements IStringUtil {
         byte[] bArr = new byte[1024];
         while (true) {
             try {
-                i = inputStream.read(bArr, 0, 1024);
+                i2 = inputStream.read(bArr, 0, 1024);
             } catch (IOException e2) {
                 Log.e(TAG, e2.toString());
-                i = 0;
+                i2 = 0;
             }
-            if (i == -1) {
+            if (i2 == -1) {
                 break;
             }
-            byteArrayOutputStream.write(bArr, 0, i);
+            byteArrayOutputStream.write(bArr, 0, i2);
         }
         byte[] byteArray = byteArrayOutputStream.toByteArray();
         try {
@@ -398,8 +398,8 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static boolean lenghtEnought(String str, int i) {
-        return i >= 0 && !isEmpty(str) && str.length() >= i;
+    public static boolean lenghtEnought(String str, int i2) {
+        return i2 >= 0 && !isEmpty(str) && str.length() >= i2;
     }
 
     @Deprecated
@@ -461,6 +461,9 @@ public final class StringUtil implements IStringUtil {
     @Deprecated
     public static Locale parseLocaleString(String str) {
         String[] strArr = tokenizeToStringArray(str, "_ ", false, false);
+        if (strArr == null) {
+            return null;
+        }
         String str2 = "";
         String str3 = strArr.length > 0 ? strArr[0] : "";
         String str4 = strArr.length > 1 ? strArr[1] : "";
@@ -517,16 +520,16 @@ public final class StringUtil implements IStringUtil {
     public static String replace(String str, String str2, String str3) {
         if (hasLength(str) && hasLength(str2) && str3 != null) {
             StringBuilder sb = new StringBuilder();
-            int i = 0;
+            int i2 = 0;
             int indexOf = str.indexOf(str2);
             int length = str2.length();
             while (indexOf >= 0) {
-                sb.append(str.substring(i, indexOf));
+                sb.append(str.substring(i2, indexOf));
                 sb.append(str3);
-                i = indexOf + length;
-                indexOf = str.indexOf(str2, i);
+                i2 = indexOf + length;
+                indexOf = str.indexOf(str2, i2);
             }
-            sb.append(str.substring(i));
+            sb.append(str.substring(i2));
             return sb.toString();
         }
         return str;
@@ -570,10 +573,10 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static boolean substringMatch(CharSequence charSequence, int i, CharSequence charSequence2) {
-        for (int i2 = 0; i2 < charSequence2.length(); i2++) {
-            int i3 = i + i2;
-            if (i3 >= charSequence.length() || charSequence.charAt(i3) != charSequence2.charAt(i2)) {
+    public static boolean substringMatch(CharSequence charSequence, int i2, CharSequence charSequence2) {
+        for (int i3 = 0; i3 < charSequence2.length(); i3++) {
+            int i4 = i2 + i3;
+            if (i4 >= charSequence.length() || charSequence.charAt(i4) != charSequence2.charAt(i3)) {
                 return false;
             }
         }
@@ -612,8 +615,8 @@ public final class StringUtil implements IStringUtil {
         if (hasLength(str)) {
             int length = str.length();
             StringBuilder sb = new StringBuilder(length);
-            for (int i = 0; i < length; i++) {
-                char charAt = str.charAt(i);
+            for (int i2 = 0; i2 < length; i2++) {
+                char charAt = str.charAt(i2);
                 if (!Character.isWhitespace(charAt)) {
                     sb.append(charAt);
                 }
@@ -629,9 +632,9 @@ public final class StringUtil implements IStringUtil {
             return new String[0];
         }
         String[] strArr2 = new String[strArr.length];
-        for (int i = 0; i < strArr.length; i++) {
-            String str = strArr[i];
-            strArr2[i] = str != null ? str.trim() : null;
+        for (int i2 = 0; i2 < strArr.length; i2++) {
+            String str = strArr[i2];
+            strArr2[i2] = str != null ? str.trim() : null;
         }
         return strArr2;
     }
@@ -710,8 +713,8 @@ public final class StringUtil implements IStringUtil {
     }
 
     public static void validateLocalePart(String str) {
-        for (int i = 0; i < str.length(); i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            char charAt = str.charAt(i2);
             if (charAt != '_' && charAt != ' ' && !Character.isLetterOrDigit(charAt)) {
                 throw new IllegalArgumentException("Locale part \"" + str + "\" contains invalid characters");
             }
@@ -725,7 +728,7 @@ public final class StringUtil implements IStringUtil {
 
     @Deprecated
     public static String[] delimitedListToStringArray(String str, String str2, String str3) {
-        int i = 0;
+        int i2 = 0;
         if (str == null) {
             return new String[0];
         }
@@ -734,22 +737,22 @@ public final class StringUtil implements IStringUtil {
         }
         ArrayList arrayList = new ArrayList();
         if ("".equals(str2)) {
-            while (i < str.length()) {
-                int i2 = i + 1;
-                arrayList.add(deleteAny(str.substring(i, i2), str3));
-                i = i2;
+            while (i2 < str.length()) {
+                int i3 = i2 + 1;
+                arrayList.add(deleteAny(str.substring(i2, i3), str3));
+                i2 = i3;
             }
         } else {
             while (true) {
-                int indexOf = str.indexOf(str2, i);
+                int indexOf = str.indexOf(str2, i2);
                 if (indexOf == -1) {
                     break;
                 }
-                arrayList.add(deleteAny(str.substring(i, indexOf), str3));
-                i = str2.length() + indexOf;
+                arrayList.add(deleteAny(str.substring(i2, indexOf), str3));
+                i2 = str2.length() + indexOf;
             }
-            if (str.length() > 0 && i <= str.length()) {
-                arrayList.add(deleteAny(str.substring(i), str3));
+            if (str.length() > 0 && i2 <= str.length()) {
+                arrayList.add(deleteAny(str.substring(i2), str3));
             }
         }
         return toStringArray(arrayList);
@@ -830,13 +833,13 @@ public final class StringUtil implements IStringUtil {
             return EMPTY_ARRAY;
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            if (i == 0) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (i2 == 0) {
                 sb.append(ARRAY_START);
             } else {
                 sb.append(ARRAY_ELEMENT_SEPARATOR);
             }
-            sb.append(String.valueOf(objArr[i]));
+            sb.append(String.valueOf(objArr[i2]));
         }
         sb.append("}");
         return sb.toString();
@@ -851,13 +854,13 @@ public final class StringUtil implements IStringUtil {
             return EMPTY_ARRAY;
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            if (i == 0) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (i2 == 0) {
                 sb.append(ARRAY_START);
             } else {
                 sb.append(ARRAY_ELEMENT_SEPARATOR);
             }
-            sb.append(zArr[i]);
+            sb.append(zArr[i2]);
         }
         sb.append("}");
         return sb.toString();
@@ -872,13 +875,13 @@ public final class StringUtil implements IStringUtil {
             return EMPTY_ARRAY;
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            if (i == 0) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (i2 == 0) {
                 sb.append(ARRAY_START);
             } else {
                 sb.append(ARRAY_ELEMENT_SEPARATOR);
             }
-            sb.append((int) bArr[i]);
+            sb.append((int) bArr[i2]);
         }
         sb.append("}");
         return sb.toString();
@@ -893,14 +896,14 @@ public final class StringUtil implements IStringUtil {
             return EMPTY_ARRAY;
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            if (i == 0) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (i2 == 0) {
                 sb.append(ARRAY_START);
             } else {
                 sb.append(ARRAY_ELEMENT_SEPARATOR);
             }
             sb.append("'");
-            sb.append(cArr[i]);
+            sb.append(cArr[i2]);
             sb.append("'");
         }
         sb.append("}");
@@ -916,13 +919,13 @@ public final class StringUtil implements IStringUtil {
             return EMPTY_ARRAY;
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            if (i == 0) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (i2 == 0) {
                 sb.append(ARRAY_START);
             } else {
                 sb.append(ARRAY_ELEMENT_SEPARATOR);
             }
-            sb.append(dArr[i]);
+            sb.append(dArr[i2]);
         }
         sb.append("}");
         return sb.toString();
@@ -937,13 +940,13 @@ public final class StringUtil implements IStringUtil {
             return EMPTY_ARRAY;
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            if (i == 0) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (i2 == 0) {
                 sb.append(ARRAY_START);
             } else {
                 sb.append(ARRAY_ELEMENT_SEPARATOR);
             }
-            sb.append(fArr[i]);
+            sb.append(fArr[i2]);
         }
         sb.append("}");
         return sb.toString();
@@ -958,13 +961,13 @@ public final class StringUtil implements IStringUtil {
             return EMPTY_ARRAY;
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            if (i == 0) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (i2 == 0) {
                 sb.append(ARRAY_START);
             } else {
                 sb.append(ARRAY_ELEMENT_SEPARATOR);
             }
-            sb.append(iArr[i]);
+            sb.append(iArr[i2]);
         }
         sb.append("}");
         return sb.toString();
@@ -979,13 +982,13 @@ public final class StringUtil implements IStringUtil {
             return EMPTY_ARRAY;
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            if (i == 0) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (i2 == 0) {
                 sb.append(ARRAY_START);
             } else {
                 sb.append(ARRAY_ELEMENT_SEPARATOR);
             }
-            sb.append(jArr[i]);
+            sb.append(jArr[i2]);
         }
         sb.append("}");
         return sb.toString();
@@ -1000,13 +1003,13 @@ public final class StringUtil implements IStringUtil {
             return EMPTY_ARRAY;
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            if (i == 0) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (i2 == 0) {
                 sb.append(ARRAY_START);
             } else {
                 sb.append(ARRAY_ELEMENT_SEPARATOR);
             }
-            sb.append((int) sArr[i]);
+            sb.append((int) sArr[i2]);
         }
         sb.append("}");
         return sb.toString();

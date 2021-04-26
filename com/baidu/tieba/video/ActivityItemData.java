@@ -29,8 +29,8 @@ public class ActivityItemData implements Serializable, Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public ActivityItemData[] newArray(int i) {
-            return new ActivityItemData[i];
+        public ActivityItemData[] newArray(int i2) {
+            return new ActivityItemData[i2];
         }
     }
 
@@ -43,7 +43,7 @@ public class ActivityItemData implements Serializable, Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.activity_id);
         parcel.writeString(this.activity_name);
         parcel.writeString(this.activity_describe);

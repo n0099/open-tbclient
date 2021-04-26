@@ -28,5 +28,5 @@ public interface IMChatService {
 
     void init();
 
-    void invoke(String str, String str2, int i, Function1<? super Integer, Unit> function1);
+    void invoke(String str, String str2, int i2, Function1<? super Integer, Unit> function1);
 }

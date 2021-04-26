@@ -5,10 +5,10 @@ import android.text.TextUtils;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f34262a = b() + "ksad-android-3.3.9";
+    public static final String f33232a = b() + "ksad-android-3.3.8.3";
 
     public static String a() {
-        return f34262a;
+        return f33232a;
     }
 
     public static String b() {
@@ -18,8 +18,8 @@ public final class k {
         }
         StringBuffer stringBuffer = new StringBuffer();
         int length = property.length();
-        for (int i = 0; i < length; i++) {
-            char charAt = property.charAt(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            char charAt = property.charAt(i2);
             if (charAt <= 31 || charAt >= 127) {
                 stringBuffer.append(String.format("\\u%04x", Integer.valueOf(charAt)));
             } else {

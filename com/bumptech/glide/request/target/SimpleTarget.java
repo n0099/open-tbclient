@@ -25,8 +25,8 @@ public abstract class SimpleTarget<Z> extends BaseTarget<Z> {
     public void removeCallback(@NonNull SizeReadyCallback sizeReadyCallback) {
     }
 
-    public SimpleTarget(int i, int i2) {
-        this.width = i;
-        this.height = i2;
+    public SimpleTarget(int i2, int i3) {
+        this.width = i2;
+        this.height = i3;
     }
 }

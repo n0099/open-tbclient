@@ -6,10 +6,10 @@ import java.util.List;
 public class a extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Throwable> f29837a;
+    public List<Throwable> f30750a;
 
     public a(List<Throwable> list) {
-        this.f29837a = list;
+        this.f30750a = list;
         if (list == null || list.isEmpty()) {
             return;
         }
@@ -26,9 +26,9 @@ public class a extends Exception {
         }
         StackTraceElement[] stackTrace = th.getStackTrace();
         int length = stackTrace.length;
-        for (int i = 0; i < length; i++) {
-            StackTraceElement stackTraceElement = stackTrace[i];
-            if (i == 0) {
+        for (int i2 = 0; i2 < length; i2++) {
+            StackTraceElement stackTraceElement = stackTrace[i2];
+            if (i2 == 0) {
                 String message = th.getMessage();
                 StringBuilder sb = new StringBuilder();
                 sb.append("\b\b\b\nCaused by:");

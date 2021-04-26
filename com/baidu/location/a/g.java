@@ -7,29 +7,31 @@ import java.io.RandomAccessFile;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static g f6529a = null;
+    public static g f6749a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f6530b = "Temp_in.dat";
+    public static String f6750b = "Temp_in.dat";
 
     /* renamed from: c  reason: collision with root package name */
-    public static File f6531c = new File(com.baidu.location.d.i.f6748a, f6530b);
+    public static File f6751c = new File(com.baidu.location.d.i.f6983a, f6750b);
 
     /* renamed from: d  reason: collision with root package name */
-    public static StringBuffer f6532d = null;
+    public static StringBuffer f6752d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f6533e = true;
+    public static boolean f6753e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f6534f = 0;
+    public static int f6754f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f6535g = 0;
+    public static int f6755g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f6536h = 0;
-    public static long i = 0;
+    public static long f6756h = 0;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static long f6757i = 0;
     public static long j = 0;
     public static double k = 0.0d;
     public static double l = 0.0d;
@@ -43,10 +45,10 @@ public class g {
         int readInt2;
         int readInt3;
         int i2;
-        File file = f6531c;
+        File file = f6751c;
         if (file != null && file.exists()) {
             try {
-                randomAccessFile = new RandomAccessFile(f6531c, "rw");
+                randomAccessFile = new RandomAccessFile(f6751c, "rw");
                 randomAccessFile.seek(0L);
                 readInt = randomAccessFile.readInt();
                 readInt2 = randomAccessFile.readInt();
@@ -95,12 +97,12 @@ public class g {
     }
 
     public static void b() {
-        f6533e = true;
-        f6532d = null;
-        f6534f = 0;
-        f6535g = 0;
-        f6536h = 0L;
-        i = 0L;
+        f6753e = true;
+        f6752d = null;
+        f6754f = 0;
+        f6755g = 0;
+        f6756h = 0L;
+        f6757i = 0L;
         j = 0L;
         k = 0.0d;
         l = 0.0d;
@@ -110,22 +112,22 @@ public class g {
     }
 
     public static boolean c() {
-        if (f6531c.exists()) {
-            f6531c.delete();
+        if (f6751c.exists()) {
+            f6751c.delete();
         }
-        if (!f6531c.getParentFile().exists()) {
-            f6531c.getParentFile().mkdirs();
+        if (!f6751c.getParentFile().exists()) {
+            f6751c.getParentFile().mkdirs();
         }
         try {
-            f6531c.createNewFile();
-            RandomAccessFile randomAccessFile = new RandomAccessFile(f6531c, "rw");
+            f6751c.createNewFile();
+            RandomAccessFile randomAccessFile = new RandomAccessFile(f6751c, "rw");
             randomAccessFile.seek(0L);
             randomAccessFile.writeInt(0);
             randomAccessFile.writeInt(0);
             randomAccessFile.writeInt(1);
             randomAccessFile.close();
             b();
-            return f6531c.exists();
+            return f6751c.exists();
         } catch (IOException unused) {
             return false;
         }

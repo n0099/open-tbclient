@@ -23,11 +23,11 @@ public class IMGroupSetRequest extends IMUserBaseHttpRequest {
     public String mGroupId;
     public String mKey;
 
-    public IMGroupSetRequest(Context context, String str, String str2, long j, int i) {
+    public IMGroupSetRequest(Context context, String str, String str2, long j, int i2) {
         this.mContext = context;
         this.mGroupId = str2;
         this.mKey = str;
-        this.mDisturb = i;
+        this.mDisturb = i2;
         this.mAppid = j;
     }
 
@@ -58,8 +58,8 @@ public class IMGroupSetRequest extends IMUserBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
             return;
@@ -68,29 +68,29 @@ public class IMGroupSetRequest extends IMUserBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str;
-        int i2;
+        int i3;
         try {
             JSONObject jSONObject = new JSONObject(new String(bArr));
             if (jSONObject.has("response_params")) {
-                i2 = jSONObject.getJSONObject("response_params").getInt("error_code");
+                i3 = jSONObject.getJSONObject("response_params").getInt("error_code");
                 str = jSONObject.optString("error_msg", Constants.ERROR_MSG_SUCCESS);
             } else {
-                i2 = jSONObject.getInt("error_code");
+                i3 = jSONObject.getInt("error_code");
                 str = jSONObject.optString("error_msg", "");
             }
         } catch (JSONException e2) {
             LogUtils.e("IMUserSetRequest", "JSONException", e2);
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-            i2 = 1010;
+            i3 = 1010;
         }
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {
-            ((BIMValueCallBack) removeListener).onResult(i2, str, String.valueOf(this.mGroupId));
+            ((BIMValueCallBack) removeListener).onResult(i3, str, String.valueOf(this.mGroupId));
         }
-        if (i2 == 0) {
+        if (i3 == 0) {
             GroupInfoDAOImpl.setGroupDisturb(this.mContext, String.valueOf(this.mGroupId), this.mDisturb);
         }
     }

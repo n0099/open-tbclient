@@ -3,8 +3,8 @@ package com.baidu.adp.plugin.pluginBase;
 import android.content.Intent;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import d.b.c.h.f.a;
-import d.b.c.h.f.b;
+import d.a.c.h.f.a;
+import d.a.c.h.f.b;
 /* loaded from: classes.dex */
 public class PluginBaseFragmentActivity extends PluginBaseActivity {
     public b mProxyActivity = null;
@@ -30,11 +30,11 @@ public class PluginBaseFragmentActivity extends PluginBaseActivity {
         this.mProxyActivity = bVar;
     }
 
-    public void startActivityFromFragment(Fragment fragment, Intent intent, int i) {
+    public void startActivityFromFragment(Fragment fragment, Intent intent, int i2) {
         b bVar = this.mProxyActivity;
         if (bVar == null) {
             return;
         }
-        bVar.proxyStartActivityFromFragment(fragment, intent, i);
+        bVar.proxyStartActivityFromFragment(fragment, intent, i2);
     }
 }

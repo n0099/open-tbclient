@@ -28,8 +28,8 @@ public class CloudControlConfig {
         
         public int value;
 
-        AvailablePKType(int i) {
-            this.value = i;
+        AvailablePKType(int i2) {
+            this.value = i2;
         }
 
         public int getValue() {
@@ -105,9 +105,9 @@ public class CloudControlConfig {
         if (d2 == this.inAvailableVersion) {
             return true;
         }
-        for (int i = 0; i < this.inAvailableVersionArray.length(); i++) {
+        for (int i2 = 0; i2 < this.inAvailableVersionArray.length(); i2++) {
             try {
-                parseDouble = Double.parseDouble(this.inAvailableVersionArray.getString(i));
+                parseDouble = Double.parseDouble(this.inAvailableVersionArray.getString(i2));
                 this.inAvailableVersion = parseDouble;
             } catch (JSONException e3) {
                 e3.printStackTrace();
@@ -190,8 +190,8 @@ public class CloudControlConfig {
             boolean z = false;
             boolean z2 = false;
             boolean z3 = false;
-            for (int i = 0; i < this.inAvailableVersionArray.length(); i++) {
-                String string = this.inAvailableVersionArray.getString(i);
+            for (int i2 = 0; i2 < this.inAvailableVersionArray.length(); i2++) {
+                String string = this.inAvailableVersionArray.getString(i2);
                 if (XAdSDKRemoteVersion.getVersion() == Double.valueOf(string).doubleValue()) {
                     this.inAvailableVersion = Double.valueOf(string).doubleValue();
                 }

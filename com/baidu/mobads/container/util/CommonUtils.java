@@ -134,12 +134,12 @@ public class CommonUtils {
         }
     }
 
-    public static Bitmap getResizedBitmap(Bitmap bitmap, int i, int i2) {
+    public static Bitmap getResizedBitmap(Bitmap bitmap, int i2, int i3) {
         try {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
             Matrix matrix = new Matrix();
-            matrix.postScale(i2 / width, i / height);
+            matrix.postScale(i3 / width, i2 / height);
             return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, false);
         } catch (Exception unused) {
             return null;
@@ -261,12 +261,12 @@ public class CommonUtils {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(DIALOG_TITLE).setMessage(DIALOG_MESSAGE).setPositiveButton(DIALOG_POS_TEXT, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.util.CommonUtils.2
             @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int i2) {
                 DialogOperation.this.onClickButton(true);
             }
         }).setNegativeButton(DIALOG_NEG_TEXT, new DialogInterface.OnClickListener() { // from class: com.baidu.mobads.container.util.CommonUtils.1
             @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int i2) {
                 DialogOperation.this.onClickButton(false);
             }
         }).setCancelable(false).create();

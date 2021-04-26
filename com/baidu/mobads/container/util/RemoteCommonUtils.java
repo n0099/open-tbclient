@@ -70,15 +70,15 @@ public class RemoteCommonUtils {
         return (jSONObject == null || TextUtils.isEmpty(str)) ? "" : jSONObject.optString(str, "");
     }
 
-    public void printErrorMessageLog(int i, String str, String str2) {
-        RemoteXAdLogger.getInstance().e(getInstance().genCompleteErrorMessage(String.valueOf(i), str, str2));
+    public void printErrorMessageLog(int i2, String str, String str2) {
+        RemoteXAdLogger.getInstance().e(getInstance().genCompleteErrorMessage(String.valueOf(i2), str, str2));
     }
 
-    public void sendDownloadApkLog(Context context, int i, String str, XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo) {
+    public void sendDownloadApkLog(Context context, int i2, String str, XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo) {
         String str2;
         try {
             SendLogUtil.Builder create = SendLogUtil.Builder.create(context);
-            create.appendType(i);
+            create.appendType(i2);
             create.appendApId("");
             create.append("msg", str);
             if (xAdRemoteAPKDownloadExtraInfo != null) {
@@ -153,11 +153,11 @@ public class RemoteCommonUtils {
         }
     }
 
-    public void sendDownloadApkLog(Context context, int i, String str, XAdRemoteDownloadAdInfo xAdRemoteDownloadAdInfo) {
+    public void sendDownloadApkLog(Context context, int i2, String str, XAdRemoteDownloadAdInfo xAdRemoteDownloadAdInfo) {
         String str2;
         try {
             SendLogUtil.Builder create = SendLogUtil.Builder.create(context);
-            create.appendType(i);
+            create.appendType(i2);
             create.appendApId("");
             create.append("msg", str);
             if (xAdRemoteDownloadAdInfo != null) {

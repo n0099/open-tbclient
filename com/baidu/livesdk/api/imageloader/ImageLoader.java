@@ -10,7 +10,7 @@ public interface ImageLoader {
 
     void loadImage(String str, ImageView imageView);
 
-    void loadImage(String str, ImageView imageView, int i, int i2, ImageLoadListener imageLoadListener, ImageProcessor imageProcessor);
+    void loadImage(String str, ImageView imageView, int i2, int i3, ImageLoadListener imageLoadListener, ImageProcessor imageProcessor);
 
     void loadImage(String str, ImageView imageView, ImageLoadListener imageLoadListener);
 

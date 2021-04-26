@@ -31,11 +31,11 @@ public class AdViewUtils {
             try {
                 if (view.isShown()) {
                     DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-                    int i = displayMetrics.heightPixels;
-                    int i2 = displayMetrics.widthPixels;
+                    int i2 = displayMetrics.heightPixels;
+                    int i3 = displayMetrics.widthPixels;
                     Rect rect = new Rect();
                     view.getGlobalVisibleRect(rect);
-                    if (rect.top <= i && rect.left <= i2) {
+                    if (rect.top <= i2 && rect.left <= i3) {
                         return (int) (((rect.width() * rect.height()) * 100.0d) / (view.getWidth() * view.getHeight()));
                     }
                 }
@@ -75,7 +75,7 @@ public class AdViewUtils {
         }
     }
 
-    public static boolean isVisible(View view, int i) {
+    public static boolean isVisible(View view, int i2) {
         if (view == null || view.getVisibility() != 0 || view.getParent() == null) {
             return false;
         }
@@ -83,7 +83,7 @@ public class AdViewUtils {
         if (view.getGlobalVisibleRect(rect)) {
             long height = rect.height() * rect.width();
             long height2 = view.getHeight() * view.getWidth();
-            return height2 > 0 && height * 100 >= ((long) i) * height2;
+            return height2 > 0 && height * 100 >= ((long) i2) * height2;
         }
         return false;
     }

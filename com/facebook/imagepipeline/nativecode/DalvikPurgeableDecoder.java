@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.os.Build;
-import androidx.exifinterface.media.ExifInterface;
 import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Throwables;
@@ -27,23 +26,23 @@ public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
 
     static {
         ImagePipelineNativeLoader.load();
-        EOI = new byte[]{-1, ExifInterface.MARKER_EOI};
+        EOI = new byte[]{-1, -39};
     }
 
     @VisibleForTesting
-    public static boolean endsWithEOI(CloseableReference<PooledByteBuffer> closeableReference, int i) {
+    public static boolean endsWithEOI(CloseableReference<PooledByteBuffer> closeableReference, int i2) {
         PooledByteBuffer pooledByteBuffer = closeableReference.get();
-        return i >= 2 && pooledByteBuffer.read(i + (-2)) == -1 && pooledByteBuffer.read(i - 1) == -39;
+        return i2 >= 2 && pooledByteBuffer.read(i2 + (-2)) == -1 && pooledByteBuffer.read(i2 - 1) == -39;
     }
 
     @VisibleForTesting
-    public static BitmapFactory.Options getBitmapFactoryOptions(int i, Bitmap.Config config) {
+    public static BitmapFactory.Options getBitmapFactoryOptions(int i2, Bitmap.Config config) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inDither = true;
         options.inPreferredConfig = config;
         options.inPurgeable = true;
         options.inInputShareable = true;
-        options.inSampleSize = i;
+        options.inSampleSize = i2;
         if (Build.VERSION.SDK_INT >= 11) {
             options.inMutable = true;
         }
@@ -72,20 +71,20 @@ public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
         }
     }
 
-    public abstract Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i, BitmapFactory.Options options);
+    public abstract Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i2, BitmapFactory.Options options);
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference<Bitmap> decodeJPEGFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i) {
-        return decodeJPEGFromEncodedImageWithColorSpace(encodedImage, config, rect, i, false);
+    public CloseableReference<Bitmap> decodeJPEGFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i2) {
+        return decodeJPEGFromEncodedImageWithColorSpace(encodedImage, config, rect, i2, false);
     }
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i, boolean z) {
+    public CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i2, boolean z) {
         BitmapFactory.Options bitmapFactoryOptions = getBitmapFactoryOptions(encodedImage.getSampleSize(), config);
         CloseableReference<PooledByteBuffer> byteBufferRef = encodedImage.getByteBufferRef();
         Preconditions.checkNotNull(byteBufferRef);
         try {
-            return pinBitmap(decodeJPEGByteArrayAsPurgeable(byteBufferRef, i, bitmapFactoryOptions));
+            return pinBitmap(decodeJPEGByteArrayAsPurgeable(byteBufferRef, i2, bitmapFactoryOptions));
         } finally {
             CloseableReference.closeSafely(byteBufferRef);
         }

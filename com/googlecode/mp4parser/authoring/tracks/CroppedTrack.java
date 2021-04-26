@@ -96,9 +96,9 @@ public class CroppedTrack extends AbstractTrack {
     @Override // com.googlecode.mp4parser.authoring.Track
     public synchronized long[] getSampleDurations() {
         long[] jArr;
-        int i = this.toSample - this.fromSample;
-        jArr = new long[i];
-        System.arraycopy(this.origTrack.getSampleDurations(), this.fromSample, jArr, 0, i);
+        int i2 = this.toSample - this.fromSample;
+        jArr = new long[i2];
+        System.arraycopy(this.origTrack.getSampleDurations(), this.fromSample, jArr, 0, i2);
         return jArr;
     }
 
@@ -117,16 +117,16 @@ public class CroppedTrack extends AbstractTrack {
         if (this.origTrack.getSyncSamples() != null) {
             long[] syncSamples = this.origTrack.getSyncSamples();
             int length = syncSamples.length;
-            int i = 0;
-            while (i < syncSamples.length && syncSamples[i] < this.fromSample) {
-                i++;
+            int i2 = 0;
+            while (i2 < syncSamples.length && syncSamples[i2] < this.fromSample) {
+                i2++;
             }
             while (length > 0 && this.toSample < syncSamples[length - 1]) {
                 length--;
             }
-            long[] copyOfRange = Arrays.copyOfRange(this.origTrack.getSyncSamples(), i, length);
-            for (int i2 = 0; i2 < copyOfRange.length; i2++) {
-                copyOfRange[i2] = copyOfRange[i2] - this.fromSample;
+            long[] copyOfRange = Arrays.copyOfRange(this.origTrack.getSyncSamples(), i2, length);
+            for (int i3 = 0; i3 < copyOfRange.length; i3++) {
+                copyOfRange[i3] = copyOfRange[i3] - this.fromSample;
             }
             return copyOfRange;
         }

@@ -32,7 +32,7 @@ public interface IWalletLoginListener extends IWalletHostListener2 {
 
     String getOpenLoginToken();
 
-    void handlerWalletError(int i);
+    void handlerWalletError(int i2);
 
     boolean isLogin();
 

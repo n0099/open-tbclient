@@ -6,30 +6,30 @@ import android.text.TextUtils;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11377a;
+    public String f11199a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11378b;
+    public String f11200b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11379c;
+    public String f11201c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IntentFilter f11380d;
+    public IntentFilter f11202d;
 
     public g(String str, IntentFilter intentFilter, String str2, String str3) {
-        this.f11377a = str;
-        this.f11380d = intentFilter;
-        this.f11378b = str2;
-        this.f11379c = str3;
+        this.f11199a = str;
+        this.f11202d = intentFilter;
+        this.f11200b = str2;
+        this.f11201c = str3;
     }
 
     public final boolean a(g gVar) {
         if (gVar != null) {
             try {
-                if (!TextUtils.isEmpty(gVar.f11377a) && !TextUtils.isEmpty(gVar.f11378b) && !TextUtils.isEmpty(gVar.f11379c) && gVar.f11377a.equals(this.f11377a) && gVar.f11378b.equals(this.f11378b) && gVar.f11379c.equals(this.f11379c)) {
-                    if (gVar.f11380d != null && this.f11380d != null) {
-                        return this.f11380d == gVar.f11380d;
+                if (!TextUtils.isEmpty(gVar.f11199a) && !TextUtils.isEmpty(gVar.f11200b) && !TextUtils.isEmpty(gVar.f11201c) && gVar.f11199a.equals(this.f11199a) && gVar.f11200b.equals(this.f11200b) && gVar.f11201c.equals(this.f11201c)) {
+                    if (gVar.f11202d != null && this.f11202d != null) {
+                        return this.f11202d == gVar.f11202d;
                     }
                     return true;
                 }
@@ -43,7 +43,7 @@ public final class g {
 
     public final String toString() {
         try {
-            return "PluginloaderIntentFilter:" + this.f11377a + "-" + this.f11378b + "-" + this.f11379c + "-" + this.f11380d;
+            return "PluginloaderIntentFilter:" + this.f11199a + "-" + this.f11200b + "-" + this.f11201c + "-" + this.f11202d;
         } catch (Throwable unused) {
             return "";
         }

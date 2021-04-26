@@ -3,7 +3,7 @@ package com.baidu.tieba.newinterest.activity;
 import android.os.Bundle;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
-import d.b.j0.z1.f.a;
+import d.a.j0.z1.f.a;
 /* loaded from: classes3.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
     public a mGuideView;
@@ -15,18 +15,18 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         super.onBackPressed();
-        this.mGuideView.h();
+        this.mGuideView.g();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        this.mGuideView.i();
+    public void onChangeSkinType(int i2) {
+        this.mGuideView.h();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);

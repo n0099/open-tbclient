@@ -26,9 +26,9 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.payment.data.PayVcodeInfoData;
 import com.baidu.tieba.payment.message.ResponsePayNewVcodeInfoMessage;
-import d.b.j0.c2.b;
-import d.b.j0.d3.l0.a;
-import d.b.j0.d3.l0.c;
+import d.a.j0.c2.b;
+import d.a.j0.d3.l0.a;
+import d.a.j0.d3.l0.c;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -55,13 +55,13 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     public String mVcodeResult;
     public String mVcodeType;
     public String mVcodeUrl;
-    public d.b.j0.c2.a mView;
+    public d.a.j0.c2.a mView;
     public boolean mHasShowAnim = false;
     public HttpMessageListener mNewVcodeInfoListener = new HttpMessageListener(CmdConfigHttp.CMD_PAY_NEW_VCODE) { // from class: com.baidu.tieba.payment.PayVcodeActivity.10
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            PayVcodeActivity.this.mView.m(false);
+            PayVcodeActivity.this.mView.l(false);
             if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponsePayNewVcodeInfoMessage)) {
                 return;
             }
@@ -88,7 +88,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void changeVcode() {
-        this.mView.m(true);
+        this.mView.l(true);
         this.mModel.t();
     }
 
@@ -97,8 +97,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         if (StringUtils.isNull(this.mVcodeChangeCallBack)) {
             return;
         }
-        BaseWebView i = this.mView.i();
-        i.loadUrl("javascript:" + this.mVcodeChangeCallBack + "()");
+        BaseWebView h2 = this.mView.h();
+        h2.loadUrl("javascript:" + this.mVcodeChangeCallBack + "()");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -111,8 +111,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         if (StringUtils.isNull(this.mVcodeInputCallback) || !this.mVcodeLoadSuccess) {
             return;
         }
-        BaseWebView i = this.mView.i();
-        i.loadUrl("javascript:" + this.mVcodeInputCallback + "()");
+        BaseWebView h2 = this.mView.h();
+        h2.loadUrl("javascript:" + this.mVcodeInputCallback + "()");
     }
 
     private void initData(Bundle bundle) {
@@ -124,12 +124,12 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 super.handleMessage(message);
-                int i = message.what;
-                if (i == 1) {
+                int i2 = message.what;
+                if (i2 == 1) {
                     PayVcodeActivity.this.changeVcode();
-                } else if (i == 2) {
+                } else if (i2 == 2) {
                     PayVcodeActivity.this.showToast(R.string.payment_vcode_error);
-                } else if (i != 3) {
+                } else if (i2 != 3) {
                 } else {
                     PayVcodeActivity.this.doNext();
                 }
@@ -138,7 +138,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     }
 
     private void initUI() {
-        d.b.j0.c2.a aVar = new d.b.j0.c2.a(this);
+        d.a.j0.c2.a aVar = new d.a.j0.c2.a(this);
         this.mView = aVar;
         aVar.f().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.4
             @Override // android.view.View.OnClickListener
@@ -152,20 +152,20 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 if (PayVcodeActivity.this.mVcodeLoadSuccess) {
                     return;
                 }
-                PayVcodeActivity.this.mView.m(true);
-                PayVcodeActivity.this.mView.i().stopLoading();
-                PayVcodeActivity.this.mView.i().loadUrl(PayVcodeActivity.this.mUrl);
+                PayVcodeActivity.this.mView.l(true);
+                PayVcodeActivity.this.mView.h().stopLoading();
+                PayVcodeActivity.this.mView.h().loadUrl(PayVcodeActivity.this.mUrl);
             }
         });
         b bVar = new b(this);
         bVar.a(this.jsCallback);
-        this.mView.i().setWebChromeClient(bVar);
-        this.mView.i().setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.payment.PayVcodeActivity.6
+        this.mView.h().setWebChromeClient(bVar);
+        this.mView.h().setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.payment.PayVcodeActivity.6
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
-                PayVcodeActivity.this.mView.m(false);
-                PayVcodeActivity.this.mView.l(!PayVcodeActivity.this.mVcodeLoadSuccess);
+                PayVcodeActivity.this.mView.l(false);
+                PayVcodeActivity.this.mView.k(!PayVcodeActivity.this.mVcodeLoadSuccess);
             }
         });
         this.mView.d().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.7
@@ -178,8 +178,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loadWebView() {
-        this.mView.m(true);
-        this.mView.i().loadUrl(this.mUrl);
+        this.mView.l(true);
+        this.mView.h().loadUrl(this.mUrl);
     }
 
     private void register() {
@@ -187,7 +187,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         registerListener(this.mNewVcodeInfoListener);
     }
 
-    public void addJsPromptInterface(d.b.j0.d3.l0.b bVar) {
+    public void addJsPromptInterface(d.a.j0.d3.l0.b bVar) {
         if (bVar != null) {
             this.jsBridge.a(bVar);
         }
@@ -222,13 +222,13 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             public void onAnimationStart(Animation animation) {
             }
         });
-        this.mView.h().startAnimation(loadAnimation);
+        this.mView.g().startAnimation(loadAnimation);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mView.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mView.onChangeSkinType(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -239,8 +239,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         setActivityBgTransparent();
         a aVar = new a();
         this.jsBridge = aVar;
-        aVar.a(new d.b.j0.d3.l0.b() { // from class: com.baidu.tieba.payment.PayVcodeActivity.1
-            @Override // d.b.j0.d3.l0.b
+        aVar.a(new d.a.j0.d3.l0.b() { // from class: com.baidu.tieba.payment.PayVcodeActivity.1
+            @Override // d.a.j0.d3.l0.b
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 if (PayVcodeActivity.VCODE_JS_INTERFACE.equalsIgnoreCase(str)) {
                     if (PayVcodeActivity.JS_CANCEL_VCODE.equalsIgnoreCase(str2)) {
@@ -302,10 +302,10 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             }
         });
         this.jsCallback = new c() { // from class: com.baidu.tieba.payment.PayVcodeActivity.2
-            @Override // d.b.j0.d3.l0.c
+            @Override // d.a.j0.d3.l0.c
             public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
                 if (PayVcodeActivity.this.jsBridge != null) {
-                    return PayVcodeActivity.this.jsBridge.b(PayVcodeActivity.this.mView.i(), str, jsPromptResult);
+                    return PayVcodeActivity.this.jsBridge.b(PayVcodeActivity.this.mView.h(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -328,12 +328,12 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4) {
             hideAnimation(false);
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -345,7 +345,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         showAnimation();
     }
 
-    public void removePromptInterface(d.b.j0.d3.l0.b bVar) {
+    public void removePromptInterface(d.a.j0.d3.l0.b bVar) {
         if (bVar != null) {
             this.jsBridge.g(bVar);
         }
@@ -373,7 +373,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             public void onAnimationStart(Animation animation) {
             }
         });
-        this.mView.h().startAnimation(loadAnimation);
+        this.mView.g().startAnimation(loadAnimation);
         this.mHasShowAnim = true;
     }
 }

@@ -45,11 +45,11 @@ public final class bt {
 
     public static String a(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < bArr.length; i++) {
-            int i2 = (bArr[i] >> 4) & 15;
-            int i3 = bArr[i] & 15;
-            sb.append((char) (i2 >= 10 ? (i2 + 97) - 10 : i2 + 48));
+        for (int i2 = 0; i2 < bArr.length; i2++) {
+            int i3 = (bArr[i2] >> 4) & 15;
+            int i4 = bArr[i2] & 15;
             sb.append((char) (i3 >= 10 ? (i3 + 97) - 10 : i3 + 48));
+            sb.append((char) (i4 >= 10 ? (i4 + 97) - 10 : i4 + 48));
         }
         return sb.toString();
     }

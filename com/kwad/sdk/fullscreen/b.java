@@ -9,64 +9,64 @@ import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
-import com.kwad.sdk.plugin.g;
-import com.kwad.sdk.reward.f;
+import com.kwad.sdk.plugin.f;
+import com.kwad.sdk.reward.g;
 /* loaded from: classes6.dex */
 public class b implements KsFullScreenVideoAd {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public AdTemplate f35399a;
+    public AdTemplate f34133a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdInfo f35400b;
+    public AdInfo f34134b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KsFullScreenVideoAd.FullScreenVideoAdInteractionListener f35401c;
+    public KsFullScreenVideoAd.FullScreenVideoAdInteractionListener f34135c;
 
     public b(@NonNull AdTemplate adTemplate) {
-        this.f35399a = adTemplate;
-        this.f35400b = c.j(adTemplate);
+        this.f34133a = adTemplate;
+        this.f34134b = c.g(adTemplate);
     }
 
     private void a(Context context, KsVideoPlayConfig ksVideoPlayConfig) {
         if (!isAdEnable()) {
-            com.kwad.sdk.core.d.a.b("KsFullScreenVideoAdControl", "isAdEnable is false");
+            com.kwad.sdk.core.d.a.c("KsFullScreenVideoAdControl", "isAdEnable is false");
             return;
         }
         if (ksVideoPlayConfig == null) {
             ksVideoPlayConfig = new KsVideoPlayConfig.Builder().build();
         }
-        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) g.a(DevelopMangerPlugin.class)).a("KEY_INIT_VOICE_STATUS");
+        DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) f.a(DevelopMangerPlugin.class)).a("KEY_INIT_VOICE_STATUS");
         if (a2 != null) {
             ksVideoPlayConfig.setVideoSoundEnable(((Boolean) a2.getValue()).booleanValue());
         }
-        KsFullScreenVideoActivityProxy.launch(context, this.f35399a, ksVideoPlayConfig, this.f35401c);
+        KsFullScreenVideoActivityProxy.launch(context, this.f34133a, ksVideoPlayConfig, this.f34135c);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
     public int getECPM() {
-        return com.kwad.sdk.core.response.b.a.A(this.f35400b);
+        return com.kwad.sdk.core.response.b.a.x(this.f34134b);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
     public boolean isAdEnable() {
-        if (com.kwad.sdk.core.config.c.ae() >= 0) {
+        if (com.kwad.sdk.core.config.c.y() >= 0) {
             return true;
         }
-        return f.b(this.f35399a);
+        return g.b(this.f34133a);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
-    public void setBidEcpm(int i) {
-        AdTemplate adTemplate = this.f35399a;
-        adTemplate.mBidEcpm = i;
-        com.kwad.sdk.core.report.b.m(adTemplate);
+    public void setBidEcpm(int i2) {
+        AdTemplate adTemplate = this.f34133a;
+        adTemplate.mBidEcpm = i2;
+        com.kwad.sdk.core.report.b.l(adTemplate);
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd
     public void setFullScreenVideoAdInteractionListener(KsFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener) {
-        this.f35401c = fullScreenVideoAdInteractionListener;
+        this.f34135c = fullScreenVideoAdInteractionListener;
     }
 
     @Override // com.kwad.sdk.api.KsFullScreenVideoAd

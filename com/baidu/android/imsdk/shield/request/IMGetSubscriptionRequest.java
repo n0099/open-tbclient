@@ -40,8 +40,8 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         LogUtils.d(TAG, "IMGetSubscriptionRequest onFailure :" + transErrorCode.first + " errmsg = " + ((String) transErrorCode.second));
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener == null || !(removeListener instanceof IGetSubscriptionListener)) {
@@ -54,13 +54,13 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         long j;
         Exception exc;
         String str;
         String str2;
         String str3;
-        int i2;
+        int i3;
         IMListener removeListener;
         String str4 = "";
         String str5 = new String(bArr);
@@ -69,8 +69,8 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
         long j2 = 0;
         try {
             JSONObject jSONObject = new JSONObject(str5);
-            i2 = jSONObject.optInt("error_code");
-            if (i2 == 0) {
+            i3 = jSONObject.optInt("error_code");
+            if (i3 == 0) {
                 String optString = jSONObject.optString("error_msg", "");
                 j2 = jSONObject.optLong("pa_uid");
                 str2 = jSONObject.optString("pa_avatar");
@@ -78,8 +78,8 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
                     str4 = jSONObject.optString("pa_nickname");
                     JSONArray optJSONArray = jSONObject.optJSONArray("data");
                     if (optJSONArray != null && optJSONArray.length() > 0) {
-                        for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                            GetSubscriptionResult.SubscriptionInfo generateSubscriptionInfo = generateSubscriptionInfo(optJSONArray.getJSONObject(i3));
+                        for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                            GetSubscriptionResult.SubscriptionInfo generateSubscriptionInfo = generateSubscriptionInfo(optJSONArray.getJSONObject(i4));
                             if (generateSubscriptionInfo != null) {
                                 arrayList.add(generateSubscriptionInfo);
                             }
@@ -97,7 +97,7 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
                     str3 = str;
                     str4 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                     j2 = j;
-                    i2 = 1010;
+                    i3 = 1010;
                     removeListener = ListenerManager.getInstance().removeListener(this.mKey);
                     if (removeListener == null) {
                     }
@@ -115,7 +115,7 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
         removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener == null && (removeListener instanceof IGetSubscriptionListener)) {
             GetSubscriptionResult getSubscriptionResult = new GetSubscriptionResult();
-            getSubscriptionResult.setErrorCode(i2);
+            getSubscriptionResult.setErrorCode(i3);
             getSubscriptionResult.setErrorMsg(str4);
             getSubscriptionResult.setPauid(j2);
             getSubscriptionResult.setPaAvatar(str2);

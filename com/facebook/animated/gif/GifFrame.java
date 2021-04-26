@@ -5,7 +5,7 @@ import com.facebook.common.internal.DoNotStrip;
 import com.facebook.imagepipeline.animated.base.AnimatedImageFrame;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GifFrame implements AnimatedImageFrame {
     @DoNotStrip
     public long mNativeContext;
@@ -46,7 +46,7 @@ public class GifFrame implements AnimatedImageFrame {
     private native boolean nativeHasTransparency();
 
     @DoNotStrip
-    private native void nativeRenderFrame(int i, int i2, Bitmap bitmap);
+    private native void nativeRenderFrame(int i2, int i3, Bitmap bitmap);
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public void dispose() {
@@ -95,7 +95,7 @@ public class GifFrame implements AnimatedImageFrame {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
-    public void renderFrame(int i, int i2, Bitmap bitmap) {
-        nativeRenderFrame(i, i2, bitmap);
+    public void renderFrame(int i2, int i3, Bitmap bitmap) {
+        nativeRenderFrame(i2, i3, bitmap);
     }
 }

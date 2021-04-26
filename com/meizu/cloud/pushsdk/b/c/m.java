@@ -13,49 +13,49 @@ import java.util.regex.Pattern;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f37949a = new byte[0];
+    public static final byte[] f35500a = new byte[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f37950b = new String[0];
+    public static final String[] f35501b = new String[0];
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Charset f37951c = Charset.forName("UTF-8");
+    public static final Charset f35502c = Charset.forName("UTF-8");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final TimeZone f37952d = TimeZone.getTimeZone("GMT");
+    public static final TimeZone f35503d = TimeZone.getTimeZone("GMT");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f37953e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static final Pattern f35504e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
-    public static int a(String str, int i, int i2) {
-        while (i < i2) {
-            char charAt = str.charAt(i);
+    public static int a(String str, int i2, int i3) {
+        while (i2 < i3) {
+            char charAt = str.charAt(i2);
             if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
-                return i;
+                return i2;
             }
-            i++;
+            i2++;
         }
-        return i2;
+        return i3;
     }
 
-    public static int a(String str, int i, int i2, char c2) {
-        while (i < i2) {
-            if (str.charAt(i) == c2) {
-                return i;
+    public static int a(String str, int i2, int i3, char c2) {
+        while (i2 < i3) {
+            if (str.charAt(i2) == c2) {
+                return i2;
             }
-            i++;
+            i2++;
         }
-        return i2;
+        return i3;
     }
 
-    public static int a(String str, int i, int i2, String str2) {
-        while (i < i2) {
-            if (str2.indexOf(str.charAt(i)) != -1) {
-                return i;
+    public static int a(String str, int i2, int i3, String str2) {
+        while (i2 < i3) {
+            if (str2.indexOf(str.charAt(i2)) != -1) {
+                return i2;
             }
-            i++;
+            i2++;
         }
-        return i2;
+        return i3;
     }
 
     public static String a(String str) {
@@ -94,19 +94,19 @@ public class m {
         }
     }
 
-    public static int b(String str, int i, int i2) {
-        for (int i3 = i2 - 1; i3 >= i; i3--) {
-            char charAt = str.charAt(i3);
+    public static int b(String str, int i2, int i3) {
+        for (int i4 = i3 - 1; i4 >= i2; i4--) {
+            char charAt = str.charAt(i4);
             if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
-                return i3 + 1;
+                return i4 + 1;
             }
         }
-        return i;
+        return i2;
     }
 
     public static boolean b(String str) {
-        for (int i = 0; i < str.length(); i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            char charAt = str.charAt(i2);
             if (charAt <= 31 || charAt >= 127 || " #%/:?@[\\]".indexOf(charAt) != -1) {
                 return true;
             }

@@ -11,16 +11,16 @@ public class ErrorInfo {
     public ErrorInfo() {
     }
 
-    private void initDefault(int i) {
-        this.code = i;
-        if (i == 2105) {
+    private void initDefault(int i2) {
+        this.code = i2;
+        if (i2 == 2105) {
             this.errorMsg = ErrorConstant.ErrorMsg.META_ERROR_CONNECTION;
             this.tipMsg = ErrorConstant.TipMsg.META_ERROR_CONNECTION;
-        } else if (i == 2120) {
+        } else if (i2 == 2120) {
             this.errorMsg = ErrorConstant.ErrorMsg.META_ERROR_FATAL;
             this.tipMsg = ErrorConstant.TipMsg.META_ERROR_FATAL;
-        } else if (i != 2407) {
-            switch (i) {
+        } else if (i2 != 2407) {
+            switch (i2) {
                 case 2101:
                     this.errorMsg = ErrorConstant.ErrorMsg.META_ERROR_FATAL;
                     this.tipMsg = ErrorConstant.TipMsg.META_ERROR_NETWORK;
@@ -33,7 +33,7 @@ public class ErrorInfo {
                     this.tipMsg = ErrorConstant.TipMsg.META_ERROR_RESPONSE;
                     return;
                 default:
-                    switch (i) {
+                    switch (i2) {
                         case 2200:
                             this.errorMsg = ErrorConstant.ErrorMsg.DOWNLOAD_SUCCESS;
                             this.tipMsg = ErrorConstant.TipMsg.DOWNLOAD_SUCCESS;
@@ -47,7 +47,7 @@ public class ErrorInfo {
                             this.tipMsg = ErrorConstant.TipMsg.DOWNLOAD_ERROR_MD5;
                             return;
                         default:
-                            switch (i) {
+                            switch (i2) {
                                 case ErrorConstant.Code.DOWNLOAD_ERROR_PATH /* 2204 */:
                                     this.errorMsg = ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_PATH;
                                     this.tipMsg = ErrorConstant.TipMsg.DOWNLOAD_ERROR_PATH;
@@ -119,12 +119,12 @@ public class ErrorInfo {
         return "code=" + this.code + ",errMsg=" + this.errorMsg + ",tipMsg" + this.tipMsg;
     }
 
-    public ErrorInfo(int i) {
-        this(i, null);
+    public ErrorInfo(int i2) {
+        this(i2, null);
     }
 
-    public ErrorInfo(int i, String str) {
-        initDefault(i);
+    public ErrorInfo(int i2, String str) {
+        initDefault(i2);
         if (TextUtils.isEmpty(str)) {
             return;
         }
@@ -135,8 +135,8 @@ public class ErrorInfo {
         this.errorMsg += str;
     }
 
-    public ErrorInfo(int i, String str, String str2) {
-        this.code = i;
+    public ErrorInfo(int i2, String str, String str2) {
+        this.code = i2;
         this.errorMsg = str;
         this.tipMsg = str2;
     }

@@ -4,7 +4,7 @@ import com.kwai.filedownloader.f.c;
 /* loaded from: classes6.dex */
 public class b implements c.d {
     @Override // com.kwai.filedownloader.f.c.d
-    public int a(int i, String str, String str2, boolean z) {
+    public int a(int i2, String str, String str2, boolean z) {
         return a(str, str2, z);
     }
 

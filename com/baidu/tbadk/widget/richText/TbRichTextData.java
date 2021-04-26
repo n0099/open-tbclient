@@ -2,26 +2,28 @@ package com.baidu.tbadk.widget.richText;
 
 import android.text.SpannableStringBuilder;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import d.b.c.f.a.b;
-import d.b.i0.b1.m.d;
-import d.b.i0.b1.m.i;
+import d.a.c.f.a.b;
+import d.a.i0.b1.m.d;
+import d.a.i0.b1.m.i;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class TbRichTextData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13973e;
+    public int f14008e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SpannableStringBuilder f13974f;
+    public SpannableStringBuilder f14009f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbRichTextImageInfo f13975g;
+    public TbRichTextImageInfo f14010g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<d> f13976h;
-    public TbRichTextVoiceInfo i;
+    public ArrayList<d> f14011h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TbRichTextVoiceInfo f14012i;
     public TbRichTextTextInfo j;
     public TbRichTextEmotionInfo k;
     public i l;
@@ -44,18 +46,18 @@ public class TbRichTextData extends OrmObject {
     }
 
     public TbRichTextData() {
-        this.f13973e = 0;
-        this.f13974f = null;
-        this.f13975g = null;
-        this.f13976h = null;
-        this.i = null;
+        this.f14008e = 0;
+        this.f14009f = null;
+        this.f14010g = null;
+        this.f14011h = null;
+        this.f14012i = null;
         this.j = null;
         this.p = false;
-        this.q = b.f42889a;
+        this.q = b.f40106a;
     }
 
     public SpannableStringBuilder A() {
-        return this.f13974f;
+        return this.f14009f;
     }
 
     public int B() {
@@ -63,23 +65,23 @@ public class TbRichTextData extends OrmObject {
     }
 
     public TbRichTextTextInfo C() {
-        if (this.f13973e != 1) {
+        if (this.f14008e != 1) {
             return null;
         }
         return this.j;
     }
 
     public i D() {
-        if (this.f13973e != 32) {
+        if (this.f14008e != 32) {
             return null;
         }
         return this.l;
     }
 
     public TbRichTextVoiceInfo E() {
-        int i = this.f13973e;
-        if (i == 512 || i == 768) {
-            return this.i;
+        int i2 = this.f14008e;
+        if (i2 == 512 || i2 == 768) {
+            return this.f14012i;
         }
         return null;
     }
@@ -89,25 +91,25 @@ public class TbRichTextData extends OrmObject {
     }
 
     public void G(TbRichTextEmotionInfo tbRichTextEmotionInfo) {
-        if (this.f13973e != 17) {
+        if (this.f14008e != 17) {
             return;
         }
         this.k = tbRichTextEmotionInfo;
     }
 
     public void H(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo) {
-        if (this.f13973e != 1281) {
+        if (this.f14008e != 1281) {
             return;
         }
         this.r = tbRichTextEvaluateItemInfo;
     }
 
-    public void I(int i, int i2) {
-        ArrayList<d> arrayList = this.f13976h;
+    public void I(int i2, int i3) {
+        ArrayList<d> arrayList = this.f14011h;
         if (arrayList != null) {
             Iterator<d> it = arrayList.iterator();
             while (it.hasNext()) {
-                it.next().setBounds(0, 0, i, i2);
+                it.next().setBounds(0, 0, i2, i3);
             }
         }
     }
@@ -117,10 +119,10 @@ public class TbRichTextData extends OrmObject {
     }
 
     public void K(TbRichTextImageInfo tbRichTextImageInfo) {
-        if (this.f13973e != 8) {
+        if (this.f14008e != 8) {
             return;
         }
-        this.f13975g = tbRichTextImageInfo;
+        this.f14010g = tbRichTextImageInfo;
     }
 
     public void L(TbRichTextLinkButtonInfo tbRichTextLinkButtonInfo) {
@@ -131,80 +133,80 @@ public class TbRichTextData extends OrmObject {
     }
 
     public void N(TbRichTextMemeInfo tbRichTextMemeInfo) {
-        if (this.f13973e != 20) {
+        if (this.f14008e != 20) {
             return;
         }
         this.n = tbRichTextMemeInfo;
     }
 
-    public void O(int i) {
-        this.o = i;
+    public void O(int i2) {
+        this.o = i2;
     }
 
     public void P(i iVar) {
-        if (this.f13973e != 32) {
+        if (this.f14008e != 32) {
             return;
         }
         this.l = iVar;
     }
 
     public void Q(TbRichTextVoiceInfo tbRichTextVoiceInfo) {
-        int i = this.f13973e;
-        if (i == 512 || i == 768) {
-            this.i = tbRichTextVoiceInfo;
+        int i2 = this.f14008e;
+        if (i2 == 512 || i2 == 768) {
+            this.f14012i = tbRichTextVoiceInfo;
         }
     }
 
     public void R(CharSequence charSequence) {
-        int i = this.f13973e;
-        if ((i == 1 || i == 768) && charSequence != null) {
-            if (this.f13974f == null) {
-                this.f13974f = new SpannableStringBuilder("");
+        int i2 = this.f14008e;
+        if ((i2 == 1 || i2 == 768) && charSequence != null) {
+            if (this.f14009f == null) {
+                this.f14009f = new SpannableStringBuilder("");
             }
-            this.f13974f.replace(0, 0, charSequence);
-            this.j.charLength = this.f13974f.length();
+            this.f14009f.replace(0, 0, charSequence);
+            this.j.charLength = this.f14009f.length();
         }
     }
 
     public int getType() {
-        return this.f13973e;
+        return this.f14008e;
     }
 
     public void s(CharSequence charSequence) {
-        int i = this.f13973e;
-        if ((i == 1 || i == 768) && charSequence != null) {
-            if (this.f13974f == null) {
-                this.f13974f = new SpannableStringBuilder("");
+        int i2 = this.f14008e;
+        if ((i2 == 1 || i2 == 768) && charSequence != null) {
+            if (this.f14009f == null) {
+                this.f14009f = new SpannableStringBuilder("");
             }
-            this.f13974f.append(charSequence);
-            this.j.charLength = this.f13974f.length();
+            this.f14009f.append(charSequence);
+            this.j.charLength = this.f14009f.length();
         }
     }
 
     public void setVideoUrl(String str) {
-        if (this.f13973e != 32 || str == null) {
+        if (this.f14008e != 32 || str == null) {
             return;
         }
-        this.f13974f = new SpannableStringBuilder(str);
+        this.f14009f = new SpannableStringBuilder(str);
     }
 
     public ArrayList<d> t() {
-        if (this.f13976h == null) {
-            this.f13976h = new ArrayList<>();
+        if (this.f14011h == null) {
+            this.f14011h = new ArrayList<>();
         }
-        return this.f13976h;
+        return this.f14011h;
     }
 
     public String toString() {
         TbRichTextEmotionInfo tbRichTextEmotionInfo;
-        int i = this.f13973e;
-        if (i == 1) {
-            SpannableStringBuilder spannableStringBuilder = this.f13974f;
+        int i2 = this.f14008e;
+        if (i2 == 1) {
+            SpannableStringBuilder spannableStringBuilder = this.f14009f;
             return spannableStringBuilder != null ? spannableStringBuilder.toString() : "";
-        } else if (i != 8) {
-            return (i != 17 || (tbRichTextEmotionInfo = this.k) == null) ? "" : tbRichTextEmotionInfo.mGifInfo.mSharpText;
+        } else if (i2 != 8) {
+            return (i2 != 17 || (tbRichTextEmotionInfo = this.k) == null) ? "" : tbRichTextEmotionInfo.mGifInfo.mSharpText;
         } else {
-            TbRichTextImageInfo tbRichTextImageInfo = this.f13975g;
+            TbRichTextImageInfo tbRichTextImageInfo = this.f14010g;
             return tbRichTextImageInfo != null ? tbRichTextImageInfo.u() : "";
         }
     }
@@ -222,14 +224,14 @@ public class TbRichTextData extends OrmObject {
     }
 
     public TbRichTextImageInfo x() {
-        if (this.f13973e != 8) {
+        if (this.f14008e != 8) {
             return null;
         }
-        return this.f13975g;
+        return this.f14010g;
     }
 
     public TbRichTextLinkImageInfo y() {
-        if (this.f13973e != 1280) {
+        if (this.f14008e != 1280) {
             return null;
         }
         return this.m;
@@ -239,16 +241,16 @@ public class TbRichTextData extends OrmObject {
         return this.n;
     }
 
-    public TbRichTextData(int i) {
-        this.f13973e = 0;
-        this.f13974f = null;
-        this.f13975g = null;
-        this.f13976h = null;
-        this.i = null;
+    public TbRichTextData(int i2) {
+        this.f14008e = 0;
+        this.f14009f = null;
+        this.f14010g = null;
+        this.f14011h = null;
+        this.f14012i = null;
         this.j = null;
         this.p = false;
-        this.q = b.f42889a;
-        this.f13973e = i;
+        this.q = b.f40106a;
+        this.f14008e = i2;
         this.j = new TbRichTextTextInfo(this);
     }
 }

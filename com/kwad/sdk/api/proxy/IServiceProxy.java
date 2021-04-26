@@ -28,7 +28,7 @@ public interface IServiceProxy extends IComponentProxy {
 
     @KsAdSdkDynamicApi
     @Keep
-    int onStartCommand(@NonNull Service service, Intent intent, int i, int i2);
+    int onStartCommand(@NonNull Service service, Intent intent, int i2, int i3);
 
     boolean onUnbind(Service service, Intent intent);
 }

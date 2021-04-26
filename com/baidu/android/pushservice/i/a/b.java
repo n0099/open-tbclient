@@ -12,29 +12,29 @@ public class b {
     public static /* synthetic */ class AnonymousClass2 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f3349a;
+        public static final /* synthetic */ int[] f3383a;
 
         static {
             int[] iArr = new int[a.e.values().length];
-            f3349a = iArr;
+            f3383a = iArr;
             try {
                 iArr[a.e.CRASH.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f3349a[a.e.DB.ordinal()] = 2;
+                f3383a[a.e.DB.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f3349a[a.e.CONNECTION.ordinal()] = 3;
+                f3383a[a.e.CONNECTION.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f3349a[a.e.REQUEST.ordinal()] = 4;
+                f3383a[a.e.REQUEST.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f3349a[a.e.ACK.ordinal()] = 5;
+                f3383a[a.e.ACK.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -44,48 +44,48 @@ public class b {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f3350a;
+        public Context f3384a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.baidu.android.pushservice.c.a.a f3351b;
+        public com.baidu.android.pushservice.c.a.a f3385b;
 
         public a(Context context) {
             com.baidu.android.pushservice.c.a.a aVar = new com.baidu.android.pushservice.c.a.a();
-            this.f3351b = aVar;
-            this.f3350a = context;
-            aVar.f2776a = "";
-            aVar.f2777b = "";
-            aVar.f2778c = -1L;
-            aVar.f2779d = "";
-            aVar.f2780e = -1L;
+            this.f3385b = aVar;
+            this.f3384a = context;
+            aVar.f2777a = "";
+            aVar.f2778b = "";
+            aVar.f2779c = -1L;
+            aVar.f2780d = "";
+            aVar.f2781e = -1L;
         }
 
         public a a(long j) {
-            this.f3351b.f2778c = j;
+            this.f3385b.f2779c = j;
             return this;
         }
 
         public a a(String str) {
-            this.f3351b.f2776a = str;
+            this.f3385b.f2777a = str;
             return this;
         }
 
         public void a() {
-            b.b(this.f3350a, a.e.ACK, this.f3351b);
+            b.b(this.f3384a, a.e.ACK, this.f3385b);
         }
 
         public a b(long j) {
-            this.f3351b.f2780e = j;
+            this.f3385b.f2781e = j;
             return this;
         }
 
         public a b(String str) {
-            this.f3351b.f2777b = str;
+            this.f3385b.f2778b = str;
             return this;
         }
 
         public a c(String str) {
-            this.f3351b.f2779d = str;
+            this.f3385b.f2780d = str;
             return this;
         }
     }
@@ -95,67 +95,67 @@ public class b {
     public static final class C0052b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f3352a;
+        public Context f3386a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.baidu.android.pushservice.c.a.b f3353b;
+        public com.baidu.android.pushservice.c.a.b f3387b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f3354c;
+        public boolean f3388c;
 
         public C0052b(Context context) {
             com.baidu.android.pushservice.c.a.b bVar = new com.baidu.android.pushservice.c.a.b();
-            this.f3353b = bVar;
-            this.f3352a = context;
-            bVar.f2789a = -1L;
-            bVar.f2790b = -1L;
-            bVar.f2791c = "";
-            bVar.f2792d = -1L;
-            bVar.f2793e = -1L;
-            bVar.f2794f = "";
-            bVar.f2795g = -1L;
+            this.f3387b = bVar;
+            this.f3386a = context;
+            bVar.f2790a = -1L;
+            bVar.f2791b = -1L;
+            bVar.f2792c = "";
+            bVar.f2793d = -1L;
+            bVar.f2794e = -1L;
+            bVar.f2795f = "";
+            bVar.f2796g = -1L;
         }
 
         public C0052b a(long j) {
-            this.f3353b.f2789a = j;
+            this.f3387b.f2790a = j;
             return this;
         }
 
         public C0052b a(String str) {
-            this.f3353b.f2791c = str;
+            this.f3387b.f2792c = str;
             return this;
         }
 
         public C0052b a(boolean z) {
-            this.f3354c = z;
+            this.f3388c = z;
             return this;
         }
 
         public void a() {
-            if (this.f3354c) {
-                e.a(this.f3352a).a(this.f3353b);
+            if (this.f3388c) {
+                e.a(this.f3386a).a(this.f3387b);
             } else {
-                b.b(this.f3352a, a.e.CONNECTION, this.f3353b);
+                b.b(this.f3386a, a.e.CONNECTION, this.f3387b);
             }
         }
 
         public C0052b b(long j) {
-            this.f3353b.f2790b = j;
+            this.f3387b.f2791b = j;
             return this;
         }
 
         public C0052b b(String str) {
-            this.f3353b.f2794f = str;
+            this.f3387b.f2795f = str;
             return this;
         }
 
         public C0052b c(long j) {
-            this.f3353b.f2793e = j;
+            this.f3387b.f2794e = j;
             return this;
         }
 
         public C0052b d(long j) {
-            this.f3353b.f2795g = j;
+            this.f3387b.f2796g = j;
             return this;
         }
     }
@@ -164,37 +164,37 @@ public class b {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f3355a;
+        public Context f3389a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.baidu.android.pushservice.c.a.c f3356b;
+        public com.baidu.android.pushservice.c.a.c f3390b;
 
         public c(Context context) {
             com.baidu.android.pushservice.c.a.c cVar = new com.baidu.android.pushservice.c.a.c();
-            this.f3356b = cVar;
-            this.f3355a = context;
-            cVar.f2804a = "";
-            cVar.f2805b = System.currentTimeMillis();
-            com.baidu.android.pushservice.c.a.c cVar2 = this.f3356b;
-            cVar2.f2806c = "";
-            cVar2.f2807d = 201001L;
+            this.f3390b = cVar;
+            this.f3389a = context;
+            cVar.f2806a = "";
+            cVar.f2807b = System.currentTimeMillis();
+            com.baidu.android.pushservice.c.a.c cVar2 = this.f3390b;
+            cVar2.f2808c = "";
+            cVar2.f2809d = 201001L;
         }
 
         public c a(long j) {
-            this.f3356b.f2807d = j;
+            this.f3390b.f2809d = j;
             return this;
         }
 
         public c a(String str) {
-            this.f3356b.f2804a = str;
+            this.f3390b.f2806a = str;
             return this;
         }
 
         public void a() {
-            if (TextUtils.isEmpty(this.f3356b.f2804a)) {
+            if (TextUtils.isEmpty(this.f3390b.f2806a)) {
                 return;
             }
-            b.b(this.f3355a, a.e.CRASH, this.f3356b);
+            b.b(this.f3389a, a.e.CRASH, this.f3390b);
         }
     }
 
@@ -202,60 +202,60 @@ public class b {
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f3357a;
+        public Context f3391a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.baidu.android.pushservice.c.a.e f3358b;
+        public com.baidu.android.pushservice.c.a.e f3392b;
 
         public d(Context context) {
             com.baidu.android.pushservice.c.a.e eVar = new com.baidu.android.pushservice.c.a.e();
-            this.f3358b = eVar;
-            this.f3357a = context;
-            eVar.f2824a = "";
-            eVar.f2825b = "";
-            eVar.f2826c = -1L;
-            eVar.f2827d = -1L;
-            eVar.f2828e = -1L;
-            eVar.f2829f = "";
-            eVar.f2830g = -1L;
+            this.f3392b = eVar;
+            this.f3391a = context;
+            eVar.f2828a = "";
+            eVar.f2829b = "";
+            eVar.f2830c = -1L;
+            eVar.f2831d = -1L;
+            eVar.f2832e = -1L;
+            eVar.f2833f = "";
+            eVar.f2834g = -1L;
         }
 
         public d a(long j) {
-            this.f3358b.f2826c = j;
+            this.f3392b.f2830c = j;
             return this;
         }
 
         public d a(String str) {
-            this.f3358b.f2824a = str;
+            this.f3392b.f2828a = str;
             return this;
         }
 
         public void a() {
-            b.b(this.f3357a, a.e.REQUEST, this.f3358b);
+            b.b(this.f3391a, a.e.REQUEST, this.f3392b);
         }
 
         public d b(long j) {
-            this.f3358b.f2827d = j;
+            this.f3392b.f2831d = j;
             return this;
         }
 
         public d b(String str) {
-            this.f3358b.f2825b = str;
+            this.f3392b.f2829b = str;
             return this;
         }
 
         public d c(long j) {
-            this.f3358b.f2828e = j;
+            this.f3392b.f2832e = j;
             return this;
         }
 
         public d c(String str) {
-            this.f3358b.f2829f = str;
+            this.f3392b.f2833f = str;
             return this;
         }
 
         public d d(long j) {
-            this.f3358b.f2830g = j;
+            this.f3392b.f2834g = j;
             return this;
         }
     }
@@ -267,17 +267,17 @@ public class b {
             a2.a(new com.baidu.android.pushservice.h.c("reportTracker - " + eVar.name(), (short) 90) { // from class: com.baidu.android.pushservice.i.a.b.1
                 @Override // com.baidu.android.pushservice.h.c
                 public void a() {
-                    synchronized (e.f2923a) {
-                        int i = AnonymousClass2.f3349a[eVar.ordinal()];
-                        if (i == 1) {
+                    synchronized (e.f2933a) {
+                        int i2 = AnonymousClass2.f3383a[eVar.ordinal()];
+                        if (i2 == 1) {
                             e.a(applicationContext).a((com.baidu.android.pushservice.c.a.c) obj);
-                        } else if (i == 2) {
+                        } else if (i2 == 2) {
                             e.a(applicationContext).a((com.baidu.android.pushservice.c.a.d) obj);
-                        } else if (i == 3) {
+                        } else if (i2 == 3) {
                             e.a(applicationContext).a((com.baidu.android.pushservice.c.a.b) obj);
-                        } else if (i == 4) {
+                        } else if (i2 == 4) {
                             e.a(applicationContext).a((com.baidu.android.pushservice.c.a.e) obj);
-                        } else if (i == 5) {
+                        } else if (i2 == 5) {
                             e.a(applicationContext).a((com.baidu.android.pushservice.c.a.a) obj);
                         }
                     }

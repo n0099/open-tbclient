@@ -45,9 +45,7 @@ public final class LinesSequence$iterator$1 implements Iterator<String>, KMapped
         if (hasNext()) {
             String str = this.nextValue;
             this.nextValue = null;
-            if (str == null) {
-                Intrinsics.throwNpe();
-            }
+            Intrinsics.checkNotNull(str);
             return str;
         }
         throw new NoSuchElementException();

@@ -3,7 +3,7 @@ package com.facebook.drawee.backends.pipeline.info;
 import com.facebook.imagepipeline.image.ImageInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ImagePerfState {
     @Nullable
     public Object mCallerContext;
@@ -95,12 +95,12 @@ public class ImagePerfState {
         this.mImageInfo = imageInfo;
     }
 
-    public void setImageLoadStatus(int i) {
-        this.mImageLoadStatus = i;
+    public void setImageLoadStatus(int i2) {
+        this.mImageLoadStatus = i2;
     }
 
-    public void setImageOrigin(int i) {
-        this.mImageOrigin = i;
+    public void setImageOrigin(int i2) {
+        this.mImageOrigin = i2;
     }
 
     public void setImageRequest(@Nullable ImageRequest imageRequest) {
@@ -119,12 +119,12 @@ public class ImagePerfState {
         this.mInvisibilityEventTimeMs = j;
     }
 
-    public void setOnScreenHeight(int i) {
-        this.mOnScreenHeightPx = i;
+    public void setOnScreenHeight(int i2) {
+        this.mOnScreenHeightPx = i2;
     }
 
-    public void setOnScreenWidth(int i) {
-        this.mOnScreenWidthPx = i;
+    public void setOnScreenWidth(int i2) {
+        this.mOnScreenWidthPx = i2;
     }
 
     public void setPrefetch(boolean z) {

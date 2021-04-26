@@ -145,10 +145,10 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         @SuppressLint({"NewApi"})
         public IPAddress[] getIPAddresses(LinkProperties linkProperties) {
             IPAddress[] iPAddressArr = new IPAddress[linkProperties.getLinkAddresses().size()];
-            int i = 0;
+            int i2 = 0;
             for (LinkAddress linkAddress : linkProperties.getLinkAddresses()) {
-                iPAddressArr[i] = new IPAddress(linkAddress.getAddress().getAddress());
-                i++;
+                iPAddressArr[i2] = new IPAddress(linkAddress.getAddress().getAddress());
+                i2++;
             }
             return iPAddressArr;
         }
@@ -273,12 +273,12 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         public final int underlyingNetworkSubtypeForVpn;
         public final int underlyingNetworkTypeForVpn;
 
-        public NetworkState(boolean z, int i, int i2, int i3, int i4) {
+        public NetworkState(boolean z, int i2, int i3, int i4, int i5) {
             this.connected = z;
-            this.type = i;
-            this.subtype = i2;
-            this.underlyingNetworkTypeForVpn = i3;
-            this.underlyingNetworkSubtypeForVpn = i4;
+            this.type = i2;
+            this.subtype = i3;
+            this.underlyingNetworkTypeForVpn = i4;
+            this.underlyingNetworkSubtypeForVpn = i5;
         }
 
         public int getNetworkSubType() {
@@ -343,8 +343,8 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
 
         @Override // android.net.ConnectivityManager.NetworkCallback
-        public void onLosing(Network network, int i) {
-            Logging.d(NetworkMonitorAutoDetect.TAG, "Network " + network.toString() + " is about to lose in " + i + "ms");
+        public void onLosing(Network network, int i2) {
+            Logging.d(NetworkMonitorAutoDetect.TAG, "Network " + network.toString() + " is about to lose in " + i2 + "ms");
         }
 
         @Override // android.net.ConnectivityManager.NetworkCallback
@@ -378,8 +378,8 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             try {
                 ArrayList list = Collections.list(NetworkInterface.getByName(wifiP2pGroup.getInterface()).getInetAddresses());
                 IPAddress[] iPAddressArr = new IPAddress[list.size()];
-                for (int i = 0; i < list.size(); i++) {
-                    iPAddressArr[i] = new IPAddress(((InetAddress) list.get(i)).getAddress());
+                for (int i2 = 0; i2 < list.size(); i2++) {
+                    iPAddressArr[i2] = new IPAddress(((InetAddress) list.get(i2)).getAddress());
                 }
                 NetworkInformation networkInformation = new NetworkInformation(wifiP2pGroup.getInterface(), ConnectionType.CONNECTION_WIFI, ConnectionType.CONNECTION_NONE, 0L, iPAddressArr);
                 this.wifiP2pNetworkInfo = networkInformation;
@@ -389,8 +389,8 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             }
         }
 
-        private void onWifiP2pStateChange(int i) {
-            if (i == 1) {
+        private void onWifiP2pStateChange(int i2) {
+            if (i2 == 1) {
                 this.wifiP2pNetworkInfo = null;
                 this.observer.onNetworkDisconnect(0L);
             }
@@ -485,12 +485,12 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         return getConnectionType(networkState.isConnected(), networkState.getNetworkType(), networkState.getNetworkSubType());
     }
 
-    public static ConnectionType getConnectionType(boolean z, int i, int i2) {
+    public static ConnectionType getConnectionType(boolean z, int i2, int i3) {
         if (z) {
-            if (i != 0) {
-                return i != 1 ? i != 6 ? i != 7 ? i != 9 ? i != 17 ? ConnectionType.CONNECTION_UNKNOWN : ConnectionType.CONNECTION_VPN : ConnectionType.CONNECTION_ETHERNET : ConnectionType.CONNECTION_BLUETOOTH : ConnectionType.CONNECTION_4G : ConnectionType.CONNECTION_WIFI;
+            if (i2 != 0) {
+                return i2 != 1 ? i2 != 6 ? i2 != 7 ? i2 != 9 ? i2 != 17 ? ConnectionType.CONNECTION_UNKNOWN : ConnectionType.CONNECTION_VPN : ConnectionType.CONNECTION_ETHERNET : ConnectionType.CONNECTION_BLUETOOTH : ConnectionType.CONNECTION_4G : ConnectionType.CONNECTION_WIFI;
             }
-            switch (i2) {
+            switch (i3) {
                 case 1:
                 case 2:
                 case 4:

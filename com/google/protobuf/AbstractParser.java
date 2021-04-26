@@ -109,14 +109,14 @@ public abstract class AbstractParser<MessageType extends MessageLite> implements
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.Parser
-    public MessageType parseFrom(byte[] bArr, int i, int i2, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
-        return checkMessageInitialized(parsePartialFrom(bArr, i, i2, extensionRegistryLite));
+    public MessageType parseFrom(byte[] bArr, int i2, int i3, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+        return checkMessageInitialized(parsePartialFrom(bArr, i2, i3, extensionRegistryLite));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.Parser
-    public MessageType parseFrom(byte[] bArr, int i, int i2) throws InvalidProtocolBufferException {
-        return parseFrom(bArr, i, i2, EMPTY_REGISTRY);
+    public MessageType parseFrom(byte[] bArr, int i2, int i3) throws InvalidProtocolBufferException {
+        return parseFrom(bArr, i2, i3, EMPTY_REGISTRY);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -139,10 +139,10 @@ public abstract class AbstractParser<MessageType extends MessageLite> implements
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.Parser
-    public MessageType parsePartialFrom(byte[] bArr, int i, int i2, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+    public MessageType parsePartialFrom(byte[] bArr, int i2, int i3, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
         try {
             try {
-                CodedInputStream newInstance = CodedInputStream.newInstance(bArr, i, i2);
+                CodedInputStream newInstance = CodedInputStream.newInstance(bArr, i2, i3);
                 MessageType messagetype = (MessageType) parsePartialFrom(newInstance, extensionRegistryLite);
                 try {
                     newInstance.checkLastTagWas(0);
@@ -172,8 +172,8 @@ public abstract class AbstractParser<MessageType extends MessageLite> implements
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.protobuf.Parser
-    public MessageType parsePartialFrom(byte[] bArr, int i, int i2) throws InvalidProtocolBufferException {
-        return parsePartialFrom(bArr, i, i2, EMPTY_REGISTRY);
+    public MessageType parsePartialFrom(byte[] bArr, int i2, int i3) throws InvalidProtocolBufferException {
+        return parsePartialFrom(bArr, i2, i3, EMPTY_REGISTRY);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

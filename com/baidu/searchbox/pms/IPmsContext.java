@@ -22,6 +22,11 @@ public interface IPmsContext {
         }
 
         @Override // com.baidu.searchbox.pms.IPmsContext
+        public RequestParams getRegisterParams(String str, String str2) {
+            return null;
+        }
+
+        @Override // com.baidu.searchbox.pms.IPmsContext
         public StatisticCallback getStatisticCallback() {
             return null;
         }
@@ -32,6 +37,8 @@ public interface IPmsContext {
     List<RequestParams.Channel> getLongConnectParams();
 
     RequestParams getRegisterParams(String str);
+
+    RequestParams getRegisterParams(String str, String str2);
 
     StatisticCallback getStatisticCallback();
 }

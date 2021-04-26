@@ -66,11 +66,11 @@ public class WalletPayResultActivity extends BaseActivity<WalletPayResultActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         IWalletPayResultView iWalletPayResultView = this.mView;
         if (iWalletPayResultView != null) {
-            iWalletPayResultView.onChangeSkinType(i);
+            iWalletPayResultView.onChangeSkinType(i2);
         }
     }
 
@@ -156,12 +156,12 @@ public class WalletPayResultActivity extends BaseActivity<WalletPayResultActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (4 == i) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (4 == i2) {
             setResult(-1, new Intent());
             finish();
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

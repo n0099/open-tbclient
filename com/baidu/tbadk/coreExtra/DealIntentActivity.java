@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import d.b.c.a.a;
+import d.a.c.a.a;
 /* loaded from: classes3.dex */
 public class DealIntentActivity extends Activity {
     @Override // android.app.Activity, android.view.Window.Callback
@@ -28,10 +28,10 @@ public class DealIntentActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void setRequestedOrientation(int i) {
-        if (a.d(this) && a.a(i)) {
+    public void setRequestedOrientation(int i2) {
+        if (a.d(this) && a.a(i2)) {
             return;
         }
-        super.setRequestedOrientation(i);
+        super.setRequestedOrientation(i2);
     }
 }

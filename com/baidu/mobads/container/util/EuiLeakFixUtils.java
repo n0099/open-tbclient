@@ -16,9 +16,9 @@ public class EuiLeakFixUtils {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static int emuiLevel() {
-        int i = level;
-        if (i > 0) {
-            return i;
+        int i2 = level;
+        if (i2 > 0) {
+            return i2;
         }
         Properties properties = new Properties();
         File file = new File(Environment.getRootDirectory(), "build.prop");

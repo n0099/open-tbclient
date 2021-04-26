@@ -8,15 +8,15 @@ import android.view.View;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes4.dex */
 public class GridLineView extends BdGridView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f18176e;
+    public Paint f18525e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18177f;
+    public int f18526f;
 
     public GridLineView(Context context) {
         super(context);
@@ -25,41 +25,41 @@ public class GridLineView extends BdGridView {
 
     public final void c(Context context) {
         Paint paint = new Paint();
-        this.f18176e = paint;
+        this.f18525e = paint;
         paint.setStyle(Paint.Style.STROKE);
-        this.f18176e.setColor(SkinManager.getColor(R.color.CAM_X0204));
-        this.f18176e.setStrokeWidth(1.0f);
-        this.f18177f = l.g(context, R.dimen.ds26);
+        this.f18525e.setColor(SkinManager.getColor(R.color.CAM_X0204));
+        this.f18525e.setStrokeWidth(1.0f);
+        this.f18526f = l.g(context, R.dimen.ds26);
     }
 
     public void d() {
-        this.f18176e.setColor(SkinManager.getColor(R.color.CAM_X0204));
+        this.f18525e.setColor(SkinManager.getColor(R.color.CAM_X0204));
     }
 
     @Override // com.baidu.tbadk.core.view.BdGridView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         View childAt;
-        int i;
+        int i2;
         super.dispatchDraw(canvas);
         int childCount = getChildCount();
         if (childCount > 0 && (childAt = getChildAt(0)) != null) {
             int numColumns = getNumColumns();
-            int i2 = childCount % numColumns;
-            int i3 = childCount / numColumns;
-            if (i2 != 0) {
-                i3++;
+            int i3 = childCount % numColumns;
+            int i4 = childCount / numColumns;
+            if (i3 != 0) {
+                i4++;
             }
             int width = childAt.getWidth() * numColumns;
             int width2 = childAt.getWidth();
             int height = childAt.getHeight();
             int top = childAt.getTop();
-            for (int i4 = 1; i4 <= i3; i4++) {
-                float f2 = top + (height * i4);
-                canvas.drawLine(0.0f, f2, width, f2, this.f18176e);
-                for (int i5 = 1; i5 < numColumns; i5++) {
-                    float f3 = width2 * i5;
-                    int i6 = this.f18177f;
-                    canvas.drawLine(f3, ((i4 - 1) * height) + top + i6, f3, i - i6, this.f18176e);
+            for (int i5 = 1; i5 <= i4; i5++) {
+                float f2 = top + (height * i5);
+                canvas.drawLine(0.0f, f2, width, f2, this.f18525e);
+                for (int i6 = 1; i6 < numColumns; i6++) {
+                    float f3 = width2 * i6;
+                    int i7 = this.f18526f;
+                    canvas.drawLine(f3, ((i5 - 1) * height) + top + i7, f3, i2 - i7, this.f18525e);
                 }
             }
         }
@@ -70,8 +70,8 @@ public class GridLineView extends BdGridView {
         c(context);
     }
 
-    public GridLineView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public GridLineView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         c(context);
     }
 }

@@ -39,9 +39,9 @@ public class CircleIndicator extends View {
 
     private void drawCircles(Canvas canvas) {
         this.mTabPaint.setColor(this.mCircleColor);
-        for (int i = 0; i < this.mTabCount; i++) {
-            int i2 = this.mRadius;
-            canvas.drawCircle(this.mInitTranslationX + (this.mInterWidth * i), i2, i2, this.mTabPaint);
+        for (int i2 = 0; i2 < this.mTabCount; i2++) {
+            int i3 = this.mRadius;
+            canvas.drawCircle(this.mInitTranslationX + (this.mInterWidth * i2), i3, i3, this.mTabPaint);
         }
     }
 
@@ -60,8 +60,8 @@ public class CircleIndicator extends View {
 
     private void drawRoundRect(Canvas canvas) {
         this.mTabPaint.setColor(this.mRectColor);
-        int i = (this.mInitTranslationX + this.mTranslationX) - (this.mInterWidth / 2);
-        canvas.drawRoundRect(new RectF(i, 0, this.mRectWidth + i, (this.mRadius * 2) + 0), 10.0f, 10.0f, this.mTabPaint);
+        int i2 = (this.mInitTranslationX + this.mTranslationX) - (this.mInterWidth / 2);
+        canvas.drawRoundRect(new RectF(i2, 0, this.mRectWidth + i2, (this.mRadius * 2) + 0), 10.0f, 10.0f, this.mTabPaint);
     }
 
     private void init() {
@@ -85,10 +85,10 @@ public class CircleIndicator extends View {
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        this.mHeight = i2;
-        this.mWidth = i;
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        this.mHeight = i3;
+        this.mWidth = i2;
         int dp2px = (int) UIUtils.dp2px(getContext(), 10.0f);
         this.mInterWidth = dp2px;
         this.mInitTranslationX = (this.mWidth - ((this.mTabCount - 1) * dp2px)) / 2;
@@ -96,8 +96,8 @@ public class CircleIndicator extends View {
         this.mRectWidth = dp2px;
     }
 
-    public void scroll(int i, float f2) {
-        this.mTranslationX = (int) (this.mInterWidth * (f2 + i));
+    public void scroll(int i2, float f2) {
+        this.mTranslationX = (int) (this.mInterWidth * (f2 + i2));
         invalidate();
     }
 
@@ -117,26 +117,26 @@ public class CircleIndicator extends View {
         this(context, attributeSet, 0);
     }
 
-    public CircleIndicator(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public CircleIndicator(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mTabCount = 1;
         this.mTranslationX = 0;
         this.mPageChangeListener = new ViewPager.OnPageChangeListener() { // from class: com.baidu.spswitch.emotion.view.CircleIndicator.1
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageScrollStateChanged(int i2) {
+            public void onPageScrollStateChanged(int i3) {
                 GlobalOnItemClickListenerManager.getInstance().removeLongClickCallback();
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageScrolled(int i2, float f2, int i3) {
+            public void onPageScrolled(int i3, float f2, int i4) {
                 if (f2 > 0.0f) {
-                    CircleIndicator.this.scroll(i2, f2);
+                    CircleIndicator.this.scroll(i3, f2);
                 }
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageSelected(int i2) {
-                CircleIndicator.this.mCurrentPos = i2;
+            public void onPageSelected(int i3) {
+                CircleIndicator.this.mCurrentPos = i3;
             }
         };
         init();

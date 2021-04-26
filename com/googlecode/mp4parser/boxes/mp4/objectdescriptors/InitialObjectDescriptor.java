@@ -23,7 +23,7 @@ public class InitialObjectDescriptor extends ObjectDescriptorBase {
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
     public void parseDetail(ByteBuffer byteBuffer) throws IOException {
-        int i;
+        int i2;
         int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
         this.objectDescriptorId = (65472 & readUInt16) >> 6;
         this.urlFlag = (readUInt16 & 63) >> 5;
@@ -33,17 +33,17 @@ public class InitialObjectDescriptor extends ObjectDescriptorBase {
             int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
             this.urlLength = readUInt8;
             this.urlString = IsoTypeReader.readString(byteBuffer, readUInt8);
-            i = size - (this.urlLength + 1);
+            i2 = size - (this.urlLength + 1);
         } else {
             this.oDProfileLevelIndication = IsoTypeReader.readUInt8(byteBuffer);
             this.sceneProfileLevelIndication = IsoTypeReader.readUInt8(byteBuffer);
             this.audioProfileLevelIndication = IsoTypeReader.readUInt8(byteBuffer);
             this.visualProfileLevelIndication = IsoTypeReader.readUInt8(byteBuffer);
             this.graphicsProfileLevelIndication = IsoTypeReader.readUInt8(byteBuffer);
-            i = size - 5;
-            if (i > 2) {
+            i2 = size - 5;
+            if (i2 > 2) {
                 BaseDescriptor createFrom = ObjectDescriptorFactory.createFrom(-1, byteBuffer);
-                i -= createFrom.getSize();
+                i2 -= createFrom.getSize();
                 if (createFrom instanceof ESDescriptor) {
                     this.esDescriptors.add((ESDescriptor) createFrom);
                 } else {
@@ -51,7 +51,7 @@ public class InitialObjectDescriptor extends ObjectDescriptorBase {
                 }
             }
         }
-        if (i > 2) {
+        if (i2 > 2) {
             BaseDescriptor createFrom2 = ObjectDescriptorFactory.createFrom(-1, byteBuffer);
             if (createFrom2 instanceof ExtensionDescriptor) {
                 this.extensionDescriptors.add((ExtensionDescriptor) createFrom2);

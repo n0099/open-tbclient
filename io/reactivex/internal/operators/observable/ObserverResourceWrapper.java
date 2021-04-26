@@ -1,55 +1,55 @@
 package io.reactivex.internal.operators.observable;
 
-import f.b.o;
-import f.b.t.b;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class ObserverResourceWrapper<T> extends AtomicReference<b> implements o<T>, b {
+public final class ObserverResourceWrapper<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
     public static final long serialVersionUID = -8612022020200669122L;
-    public final o<? super T> actual;
-    public final AtomicReference<b> subscription = new AtomicReference<>();
+    public final Observer<? super T> actual;
+    public final AtomicReference<Disposable> subscription = new AtomicReference<>();
 
-    public ObserverResourceWrapper(o<? super T> oVar) {
-        this.actual = oVar;
+    public ObserverResourceWrapper(Observer<? super T> observer) {
+        this.actual = observer;
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
         DisposableHelper.dispose(this.subscription);
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         return this.subscription.get() == DisposableHelper.DISPOSED;
     }
 
-    @Override // f.b.o
+    @Override // io.reactivex.Observer
     public void onComplete() {
         dispose();
         this.actual.onComplete();
     }
 
-    @Override // f.b.o
+    @Override // io.reactivex.Observer
     public void onError(Throwable th) {
         dispose();
         this.actual.onError(th);
     }
 
-    @Override // f.b.o
+    @Override // io.reactivex.Observer
     public void onNext(T t) {
         this.actual.onNext(t);
     }
 
-    @Override // f.b.o
-    public void onSubscribe(b bVar) {
-        if (DisposableHelper.setOnce(this.subscription, bVar)) {
+    @Override // io.reactivex.Observer
+    public void onSubscribe(Disposable disposable) {
+        if (DisposableHelper.setOnce(this.subscription, disposable)) {
             this.actual.onSubscribe(this);
         }
     }
 
-    public void setResource(b bVar) {
-        DisposableHelper.set(this, bVar);
+    public void setResource(Disposable disposable) {
+        DisposableHelper.set(this, disposable);
     }
 }

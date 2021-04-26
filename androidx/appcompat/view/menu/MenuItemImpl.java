@@ -27,7 +27,7 @@ import androidx.appcompat.view.menu.MenuView;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.internal.view.SupportMenuItem;
 import androidx.core.view.ActionProvider;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public final class MenuItemImpl implements SupportMenuItem {
     public static final int CHECKABLE = 1;
@@ -71,19 +71,19 @@ public final class MenuItemImpl implements SupportMenuItem {
     public int mFlags = 16;
     public boolean mIsActionViewExpanded = false;
 
-    public MenuItemImpl(MenuBuilder menuBuilder, int i, int i2, int i3, int i4, CharSequence charSequence, int i5) {
+    public MenuItemImpl(MenuBuilder menuBuilder, int i2, int i3, int i4, int i5, CharSequence charSequence, int i6) {
         this.mShowAsAction = 0;
         this.mMenu = menuBuilder;
-        this.mId = i2;
-        this.mGroup = i;
-        this.mCategoryOrder = i3;
-        this.mOrdering = i4;
+        this.mId = i3;
+        this.mGroup = i2;
+        this.mCategoryOrder = i4;
+        this.mOrdering = i5;
         this.mTitle = charSequence;
-        this.mShowAsAction = i5;
+        this.mShowAsAction = i6;
     }
 
-    public static void appendModifier(StringBuilder sb, int i, int i2, String str) {
-        if ((i & i2) == i2) {
+    public static void appendModifier(StringBuilder sb, int i2, int i3, String str) {
+        if ((i2 & i3) == i3) {
             sb.append(str);
         }
     }
@@ -251,13 +251,13 @@ public final class MenuItemImpl implements SupportMenuItem {
         if (ViewConfiguration.get(this.mMenu.getContext()).hasPermanentMenuKey()) {
             sb.append(resources.getString(R.string.abc_prepend_shortcut_label));
         }
-        int i = this.mMenu.isQwertyMode() ? this.mShortcutAlphabeticModifiers : this.mShortcutNumericModifiers;
-        appendModifier(sb, i, 65536, resources.getString(R.string.abc_menu_meta_shortcut_label));
-        appendModifier(sb, i, 4096, resources.getString(R.string.abc_menu_ctrl_shortcut_label));
-        appendModifier(sb, i, 2, resources.getString(R.string.abc_menu_alt_shortcut_label));
-        appendModifier(sb, i, 1, resources.getString(R.string.abc_menu_shift_shortcut_label));
-        appendModifier(sb, i, 4, resources.getString(R.string.abc_menu_sym_shortcut_label));
-        appendModifier(sb, i, 8, resources.getString(R.string.abc_menu_function_shortcut_label));
+        int i2 = this.mMenu.isQwertyMode() ? this.mShortcutAlphabeticModifiers : this.mShortcutNumericModifiers;
+        appendModifier(sb, i2, 65536, resources.getString(R.string.abc_menu_meta_shortcut_label));
+        appendModifier(sb, i2, 4096, resources.getString(R.string.abc_menu_ctrl_shortcut_label));
+        appendModifier(sb, i2, 2, resources.getString(R.string.abc_menu_alt_shortcut_label));
+        appendModifier(sb, i2, 1, resources.getString(R.string.abc_menu_shift_shortcut_label));
+        appendModifier(sb, i2, 4, resources.getString(R.string.abc_menu_sym_shortcut_label));
+        appendModifier(sb, i2, 8, resources.getString(R.string.abc_menu_function_shortcut_label));
         if (shortcut == '\b') {
             sb.append(resources.getString(R.string.abc_menu_delete_shortcut_label));
         } else if (shortcut == '\n') {
@@ -387,8 +387,14 @@ public final class MenuItemImpl implements SupportMenuItem {
         return (this.mShowAsAction & 1) == 1;
     }
 
+    @Override // androidx.core.internal.view.SupportMenuItem
     public boolean requiresActionButton() {
         return (this.mShowAsAction & 2) == 2;
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem
+    public boolean requiresOverflow() {
+        return (requiresActionButton() || requestsActionButton()) ? false : true;
     }
 
     @Override // android.view.MenuItem
@@ -418,10 +424,10 @@ public final class MenuItemImpl implements SupportMenuItem {
 
     @Override // android.view.MenuItem
     public MenuItem setCheckable(boolean z) {
-        int i = this.mFlags;
-        int i2 = (z ? 1 : 0) | (i & (-2));
-        this.mFlags = i2;
-        if (i != i2) {
+        int i2 = this.mFlags;
+        int i3 = (z ? 1 : 0) | (i2 & (-2));
+        this.mFlags = i3;
+        if (i2 != i3) {
             this.mMenu.onItemsChanged(false);
         }
         return this;
@@ -438,10 +444,10 @@ public final class MenuItemImpl implements SupportMenuItem {
     }
 
     public void setCheckedInt(boolean z) {
-        int i = this.mFlags;
-        int i2 = (z ? 2 : 0) | (i & (-3));
-        this.mFlags = i2;
-        if (i != i2) {
+        int i2 = this.mFlags;
+        int i3 = (z ? 2 : 0) | (i2 & (-3));
+        this.mFlags = i3;
+        if (i2 != i3) {
             this.mMenu.onItemsChanged(false);
         }
     }
@@ -537,12 +543,12 @@ public final class MenuItemImpl implements SupportMenuItem {
     }
 
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public void setShowAsAction(int i) {
-        int i2 = i & 3;
-        if (i2 != 0 && i2 != 1 && i2 != 2) {
+    public void setShowAsAction(int i2) {
+        int i3 = i2 & 3;
+        if (i3 != 0 && i3 != 1 && i3 != 2) {
             throw new IllegalArgumentException("SHOW_AS_ACTION_ALWAYS, SHOW_AS_ACTION_IF_ROOM, and SHOW_AS_ACTION_NEVER are mutually exclusive.");
         }
-        this.mShowAsAction = i;
+        this.mShowAsAction = i2;
         this.mMenu.onItemActionRequestChanged(this);
     }
 
@@ -600,10 +606,10 @@ public final class MenuItemImpl implements SupportMenuItem {
     }
 
     public boolean setVisibleInt(boolean z) {
-        int i = this.mFlags;
-        int i2 = (z ? 0 : 8) | (i & (-9));
-        this.mFlags = i2;
-        return i != i2;
+        int i2 = this.mFlags;
+        int i3 = (z ? 0 : 8) | (i2 & (-9));
+        this.mFlags = i3;
+        return i2 != i3;
     }
 
     public boolean shouldShowIcon() {
@@ -636,8 +642,8 @@ public final class MenuItemImpl implements SupportMenuItem {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public SupportMenuItem setShowAsActionFlags(int i) {
-        setShowAsAction(i);
+    public SupportMenuItem setShowAsActionFlags(int i2) {
+        setShowAsAction(i2);
         return this;
     }
 
@@ -652,67 +658,67 @@ public final class MenuItemImpl implements SupportMenuItem {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
     public SupportMenuItem setActionView(View view) {
-        int i;
+        int i2;
         this.mActionView = view;
         this.mActionProvider = null;
-        if (view != null && view.getId() == -1 && (i = this.mId) > 0) {
-            view.setId(i);
+        if (view != null && view.getId() == -1 && (i2 = this.mId) > 0) {
+            view.setId(i2);
         }
         this.mMenu.onItemActionRequestChanged(this);
         return this;
     }
 
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setAlphabeticShortcut(char c2, int i) {
-        if (this.mShortcutAlphabeticChar == c2 && this.mShortcutAlphabeticModifiers == i) {
+    public MenuItem setAlphabeticShortcut(char c2, int i2) {
+        if (this.mShortcutAlphabeticChar == c2 && this.mShortcutAlphabeticModifiers == i2) {
             return this;
         }
         this.mShortcutAlphabeticChar = Character.toLowerCase(c2);
-        this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i);
-        this.mMenu.onItemsChanged(false);
-        return this;
-    }
-
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setNumericShortcut(char c2, int i) {
-        if (this.mShortcutNumericChar == c2 && this.mShortcutNumericModifiers == i) {
-            return this;
-        }
-        this.mShortcutNumericChar = c2;
-        this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i);
-        this.mMenu.onItemsChanged(false);
-        return this;
-    }
-
-    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public MenuItem setShortcut(char c2, char c3, int i, int i2) {
-        this.mShortcutNumericChar = c2;
-        this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i);
-        this.mShortcutAlphabeticChar = Character.toLowerCase(c3);
         this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i2);
         this.mMenu.onItemsChanged(false);
         return this;
     }
 
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public MenuItem setNumericShortcut(char c2, int i2) {
+        if (this.mShortcutNumericChar == c2 && this.mShortcutNumericModifiers == i2) {
+            return this;
+        }
+        this.mShortcutNumericChar = c2;
+        this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i2);
+        this.mMenu.onItemsChanged(false);
+        return this;
+    }
+
+    @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
+    public MenuItem setShortcut(char c2, char c3, int i2, int i3) {
+        this.mShortcutNumericChar = c2;
+        this.mShortcutNumericModifiers = KeyEvent.normalizeMetaState(i2);
+        this.mShortcutAlphabeticChar = Character.toLowerCase(c3);
+        this.mShortcutAlphabeticModifiers = KeyEvent.normalizeMetaState(i3);
+        this.mMenu.onItemsChanged(false);
+        return this;
+    }
+
     @Override // android.view.MenuItem
-    public MenuItem setIcon(int i) {
+    public MenuItem setIcon(int i2) {
         this.mIconDrawable = null;
-        this.mIconResId = i;
+        this.mIconResId = i2;
         this.mNeedToApplyIconTint = true;
         this.mMenu.onItemsChanged(false);
         return this;
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setTitle(int i) {
-        return setTitle(this.mMenu.getContext().getString(i));
+    public MenuItem setTitle(int i2) {
+        return setTitle(this.mMenu.getContext().getString(i2));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.core.internal.view.SupportMenuItem, android.view.MenuItem
-    public SupportMenuItem setActionView(int i) {
+    public SupportMenuItem setActionView(int i2) {
         Context context = this.mMenu.getContext();
-        setActionView(LayoutInflater.from(context).inflate(i, (ViewGroup) new LinearLayout(context), false));
+        setActionView(LayoutInflater.from(context).inflate(i2, (ViewGroup) new LinearLayout(context), false));
         return this;
     }
 }

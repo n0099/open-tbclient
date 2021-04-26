@@ -4,7 +4,7 @@ import h.f;
 import h.j;
 import h.k;
 import h.o.a.a;
-import h.o.d.j.d;
+import h.o.d.i.d;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Queue;
@@ -30,16 +30,16 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
     public final AtomicLong requested;
     public final h.o.a.d<T, R>[] subscribers;
 
-    public OnSubscribeCombineLatest$LatestCoordinator(j<? super R> jVar, h.n.j<? extends R> jVar2, int i, int i2, boolean z) {
+    public OnSubscribeCombineLatest$LatestCoordinator(j<? super R> jVar, h.n.j<? extends R> jVar2, int i2, int i3, boolean z) {
         this.actual = jVar;
         this.combiner = jVar2;
-        this.bufferSize = i2;
+        this.bufferSize = i3;
         this.delayError = z;
-        Object[] objArr = new Object[i];
+        Object[] objArr = new Object[i2];
         this.latest = objArr;
         Arrays.fill(objArr, MISSING);
-        this.subscribers = new h.o.a.d[i];
-        this.queue = new d<>(i2);
+        this.subscribers = new h.o.a.d[i2];
+        this.queue = new d<>(i3);
         this.requested = new AtomicLong();
         this.error = new AtomicReference<>();
     }
@@ -84,27 +84,27 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         }
     }
 
-    public void combine(Object obj, int i) {
+    public void combine(Object obj, int i2) {
         boolean z;
-        h.o.a.d<T, R> dVar = this.subscribers[i];
+        h.o.a.d<T, R> dVar = this.subscribers[i2];
         synchronized (this) {
             int length = this.latest.length;
-            Object obj2 = this.latest[i];
-            int i2 = this.active;
+            Object obj2 = this.latest[i2];
+            int i3 = this.active;
             if (obj2 == MISSING) {
-                i2++;
-                this.active = i2;
-            }
-            int i3 = this.complete;
-            if (obj == null) {
                 i3++;
-                this.complete = i3;
+                this.active = i3;
+            }
+            int i4 = this.complete;
+            if (obj == null) {
+                i4++;
+                this.complete = i4;
             } else {
-                this.latest[i] = NotificationLite.e(obj);
+                this.latest[i2] = NotificationLite.e(obj);
             }
             boolean z2 = false;
-            z = i2 == length;
-            if (i3 == length || (obj == null && obj2 == MISSING)) {
+            z = i3 == length;
+            if (i4 == length || (obj == null && obj2 == MISSING)) {
                 z2 = true;
             }
             if (z2) {
@@ -153,7 +153,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         j<? super R> jVar = this.actual;
         boolean z = this.delayError;
         AtomicLong atomicLong = this.requested;
-        int i = 1;
+        int i2 = 1;
         while (!checkTerminated(this.done, dVar.isEmpty(), jVar, dVar, z)) {
             long j2 = atomicLong.get();
             long j3 = 0;
@@ -220,10 +220,10 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
 
     @Override // h.f
     public void request(long j) {
-        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i < 0) {
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i2 < 0) {
             throw new IllegalArgumentException("n >= required but it was " + j);
-        } else if (i != 0) {
+        } else if (i2 != 0) {
             a.b(this.requested, j);
             drain();
         }
@@ -232,14 +232,14 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
     public void subscribe(h.d<? extends T>[] dVarArr) {
         h.o.a.d<T, R>[] dVarArr2 = this.subscribers;
         int length = dVarArr2.length;
-        for (int i = 0; i < length; i++) {
-            dVarArr2[i] = new h.o.a.d<>(this, i);
+        for (int i2 = 0; i2 < length; i2++) {
+            dVarArr2[i2] = new h.o.a.d<>(this, i2);
         }
         lazySet(0);
         this.actual.add(this);
         this.actual.setProducer(this);
-        for (int i2 = 0; i2 < length && !this.cancelled; i2++) {
-            dVarArr[i2].B(dVarArr2[i2]);
+        for (int i3 = 0; i3 < length && !this.cancelled; i3++) {
+            dVarArr[i3].z(dVarArr2[i3]);
         }
     }
 

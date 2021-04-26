@@ -56,7 +56,7 @@ public class VirtualDisplayController {
         }
     }
 
-    public VirtualDisplayController(Context context, AccessibilityEventsDelegate accessibilityEventsDelegate, VirtualDisplay virtualDisplay, PlatformViewFactory platformViewFactory, Surface surface, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, View.OnFocusChangeListener onFocusChangeListener, int i, Object obj) {
+    public VirtualDisplayController(Context context, AccessibilityEventsDelegate accessibilityEventsDelegate, VirtualDisplay virtualDisplay, PlatformViewFactory platformViewFactory, Surface surface, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, View.OnFocusChangeListener onFocusChangeListener, int i2, Object obj) {
         this.context = context;
         this.accessibilityEventsDelegate = accessibilityEventsDelegate;
         this.textureEntry = surfaceTextureEntry;
@@ -64,19 +64,19 @@ public class VirtualDisplayController {
         this.surface = surface;
         this.virtualDisplay = virtualDisplay;
         this.densityDpi = context.getResources().getDisplayMetrics().densityDpi;
-        SingleViewPresentation singleViewPresentation = new SingleViewPresentation(context, this.virtualDisplay.getDisplay(), platformViewFactory, accessibilityEventsDelegate, i, obj, onFocusChangeListener);
+        SingleViewPresentation singleViewPresentation = new SingleViewPresentation(context, this.virtualDisplay.getDisplay(), platformViewFactory, accessibilityEventsDelegate, i2, obj, onFocusChangeListener);
         this.presentation = singleViewPresentation;
         singleViewPresentation.show();
     }
 
-    public static VirtualDisplayController create(Context context, AccessibilityEventsDelegate accessibilityEventsDelegate, PlatformViewFactory platformViewFactory, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, int i, int i2, int i3, Object obj, View.OnFocusChangeListener onFocusChangeListener) {
-        surfaceTextureEntry.surfaceTexture().setDefaultBufferSize(i, i2);
+    public static VirtualDisplayController create(Context context, AccessibilityEventsDelegate accessibilityEventsDelegate, PlatformViewFactory platformViewFactory, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, int i2, int i3, int i4, Object obj, View.OnFocusChangeListener onFocusChangeListener) {
+        surfaceTextureEntry.surfaceTexture().setDefaultBufferSize(i2, i3);
         Surface surface = new Surface(surfaceTextureEntry.surfaceTexture());
-        VirtualDisplay createVirtualDisplay = ((DisplayManager) context.getSystemService("display")).createVirtualDisplay("flutter-vd", i, i2, context.getResources().getDisplayMetrics().densityDpi, surface, 0);
+        VirtualDisplay createVirtualDisplay = ((DisplayManager) context.getSystemService("display")).createVirtualDisplay("flutter-vd", i2, i3, context.getResources().getDisplayMetrics().densityDpi, surface, 0);
         if (createVirtualDisplay == null) {
             return null;
         }
-        return new VirtualDisplayController(context, accessibilityEventsDelegate, createVirtualDisplay, platformViewFactory, surface, surfaceTextureEntry, onFocusChangeListener, i3, obj);
+        return new VirtualDisplayController(context, accessibilityEventsDelegate, createVirtualDisplay, platformViewFactory, surface, surfaceTextureEntry, onFocusChangeListener, i4, obj);
     }
 
     public void dispose() {
@@ -128,13 +128,13 @@ public class VirtualDisplayController {
         this.presentation.getView().onInputConnectionUnlocked();
     }
 
-    public void resize(int i, int i2, final Runnable runnable) {
+    public void resize(int i2, int i3, final Runnable runnable) {
         boolean isFocused = getView().isFocused();
         SingleViewPresentation.PresentationState detachState = this.presentation.detachState();
         this.virtualDisplay.setSurface(null);
         this.virtualDisplay.release();
-        this.textureEntry.surfaceTexture().setDefaultBufferSize(i, i2);
-        this.virtualDisplay = ((DisplayManager) this.context.getSystemService("display")).createVirtualDisplay("flutter-vd", i, i2, this.densityDpi, this.surface, 0);
+        this.textureEntry.surfaceTexture().setDefaultBufferSize(i2, i3);
+        this.virtualDisplay = ((DisplayManager) this.context.getSystemService("display")).createVirtualDisplay("flutter-vd", i2, i3, this.densityDpi, this.surface, 0);
         final View view = getView();
         view.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() { // from class: io.flutter.plugin.platform.VirtualDisplayController.1
             @Override // android.view.View.OnAttachStateChangeListener

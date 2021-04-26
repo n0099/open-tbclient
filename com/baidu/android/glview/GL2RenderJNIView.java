@@ -44,27 +44,27 @@ public class GL2RenderJNIView extends GLSurfaceView {
         public int mStencilSize;
         public int[] mValue = new int[1];
 
-        public ConfigChooser(int i, int i2, int i3, int i4, int i5, int i6) {
-            this.mRedSize = i;
-            this.mGreenSize = i2;
-            this.mBlueSize = i3;
-            this.mAlphaSize = i4;
-            this.mDepthSize = i5;
-            this.mStencilSize = i6;
+        public ConfigChooser(int i2, int i3, int i4, int i5, int i6, int i7) {
+            this.mRedSize = i2;
+            this.mGreenSize = i3;
+            this.mBlueSize = i4;
+            this.mAlphaSize = i5;
+            this.mDepthSize = i6;
+            this.mStencilSize = i7;
         }
 
-        private int findConfigAttrib(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i, int i2) {
-            return egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, this.mValue) ? this.mValue[0] : i2;
+        private int findConfigAttrib(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i2, int i3) {
+            return egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i2, this.mValue) ? this.mValue[0] : i3;
         }
 
         private void printConfig(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
             int[] iArr = {12320, 12321, 12322, 12323, 12324, 12325, 12326, 12327, 12328, 12329, 12330, 12331, 12332, 12333, 12334, 12335, 12336, 12337, 12338, 12339, 12340, 12343, 12342, 12341, 12345, 12346, 12347, 12348, 12349, 12350, 12351, 12352, 12354};
             String[] strArr = {"EGL_BUFFER_SIZE", "EGL_ALPHA_SIZE", "EGL_BLUE_SIZE", "EGL_GREEN_SIZE", "EGL_RED_SIZE", "EGL_DEPTH_SIZE", "EGL_STENCIL_SIZE", "EGL_CONFIG_CAVEAT", "EGL_CONFIG_ID", "EGL_LEVEL", "EGL_MAX_PBUFFER_HEIGHT", "EGL_MAX_PBUFFER_PIXELS", "EGL_MAX_PBUFFER_WIDTH", "EGL_NATIVE_RENDERABLE", "EGL_NATIVE_VISUAL_ID", "EGL_NATIVE_VISUAL_TYPE", "EGL_PRESERVED_RESOURCES", "EGL_SAMPLES", "EGL_SAMPLE_BUFFERS", "EGL_SURFACE_TYPE", "EGL_TRANSPARENT_TYPE", "EGL_TRANSPARENT_RED_VALUE", "EGL_TRANSPARENT_GREEN_VALUE", "EGL_TRANSPARENT_BLUE_VALUE", "EGL_BIND_TO_TEXTURE_RGB", "EGL_BIND_TO_TEXTURE_RGBA", "EGL_MIN_SWAP_INTERVAL", "EGL_MAX_SWAP_INTERVAL", "EGL_LUMINANCE_SIZE", "EGL_ALPHA_MASK_SIZE", "EGL_COLOR_BUFFER_TYPE", "EGL_RENDERABLE_TYPE", "EGL_CONFORMANT"};
             int[] iArr2 = new int[1];
-            for (int i = 0; i < 33; i++) {
-                int i2 = iArr[i];
-                String str = strArr[i];
-                if (egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i2, iArr2)) {
+            for (int i2 = 0; i2 < 33; i2++) {
+                int i3 = iArr[i2];
+                String str = strArr[i2];
+                if (egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i3, iArr2)) {
                     Log.w(GL2RenderJNIView.TAG, String.format("  %s: %d\n", str, Integer.valueOf(iArr2[0])));
                 } else {
                     do {
@@ -76,9 +76,9 @@ public class GL2RenderJNIView extends GLSurfaceView {
         private void printConfigs(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr) {
             int length = eGLConfigArr.length;
             Log.w(GL2RenderJNIView.TAG, String.format("%d configurations", Integer.valueOf(length)));
-            for (int i = 0; i < length; i++) {
-                Log.w(GL2RenderJNIView.TAG, String.format("Configuration %d:\n", Integer.valueOf(i)));
-                printConfig(egl10, eGLDisplay, eGLConfigArr[i]);
+            for (int i2 = 0; i2 < length; i2++) {
+                Log.w(GL2RenderJNIView.TAG, String.format("Configuration %d:\n", Integer.valueOf(i2)));
+                printConfig(egl10, eGLDisplay, eGLConfigArr[i2]);
             }
         }
 
@@ -86,10 +86,10 @@ public class GL2RenderJNIView extends GLSurfaceView {
         public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay) {
             int[] iArr = new int[1];
             egl10.eglChooseConfig(eGLDisplay, s_configAttribs2, null, 0, iArr);
-            int i = iArr[0];
-            if (i > 0) {
-                EGLConfig[] eGLConfigArr = new EGLConfig[i];
-                egl10.eglChooseConfig(eGLDisplay, s_configAttribs2, eGLConfigArr, i, iArr);
+            int i2 = iArr[0];
+            if (i2 > 0) {
+                EGLConfig[] eGLConfigArr = new EGLConfig[i2];
+                egl10.eglChooseConfig(eGLDisplay, s_configAttribs2, eGLConfigArr, i2, iArr);
                 return chooseConfig(egl10, eGLDisplay, eGLConfigArr);
             }
             throw new IllegalArgumentException("No configs match configSpec");
@@ -169,8 +169,8 @@ public class GL2RenderJNIView extends GLSurfaceView {
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
-        public void onSurfaceChanged(GL10 gl10, int i, int i2) {
-            GL2JNILib.setviewport(this.m_hRender, i, i2);
+        public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
+            GL2JNILib.setviewport(this.m_hRender, i2, i3);
             GL2JNILib.ratio(this.m_hRender, GL2RenderJNIView.this.mAspectRatio);
             GL2JNILib.stretch(this.m_hRender, GL2RenderJNIView.this.mScaleMode);
         }
@@ -181,8 +181,8 @@ public class GL2RenderJNIView extends GLSurfaceView {
             GL2RenderJNIView.this.mloaded = true;
         }
 
-        public void setSurfaceTexture(Surface surface, int i) {
-            GL2JNILib.setSurfaceTex(this.m_hRender, surface, i);
+        public void setSurfaceTexture(Surface surface, int i2) {
+            GL2JNILib.setSurfaceTex(this.m_hRender, surface, i2);
         }
     }
 
@@ -195,13 +195,13 @@ public class GL2RenderJNIView extends GLSurfaceView {
         init(false, 0, 0);
     }
 
-    public GL2RenderJNIView(Context context, boolean z, int i, int i2) {
+    public GL2RenderJNIView(Context context, boolean z, int i2, int i3) {
         super(context);
         this.mAspectRatio = 0;
         this.mScaleMode = 1;
         this.mfixed = false;
         this.mloaded = false;
-        init(z, i, i2);
+        init(z, i2, i3);
     }
 
     public static void checkEglError(String str, EGL10 egl10) {
@@ -214,12 +214,12 @@ public class GL2RenderJNIView extends GLSurfaceView {
         }
     }
 
-    private void init(boolean z, int i, int i2) {
+    private void init(boolean z, int i2, int i3) {
         if (z) {
             getHolder().setFormat(-3);
         }
         setEGLContextFactory(new ContextFactory());
-        setEGLConfigChooser(!z ? new ConfigChooser(8, 8, 8, 8, i, i2) : new ConfigChooser(5, 6, 5, 0, i, i2));
+        setEGLConfigChooser(!z ? new ConfigChooser(8, 8, 8, 8, i2, i3) : new ConfigChooser(5, 6, 5, 0, i2, i3));
         Renderer renderer = new Renderer(this);
         this.mRender = renderer;
         setRenderer(renderer);
@@ -249,8 +249,8 @@ public class GL2RenderJNIView extends GLSurfaceView {
         return this.mScaleMode;
     }
 
-    public void initSurfaceTex(int i) {
-        this.mSurfaceTexID = i;
+    public void initSurfaceTex(int i2) {
+        this.mSurfaceTexID = i2;
         SurfaceTexture surfaceTexture = new SurfaceTexture(this.mSurfaceTexID);
         this.mSurfaceTexture = surfaceTexture;
         surfaceTexture.setOnFrameAvailableListener(this.mRender);
@@ -296,20 +296,20 @@ public class GL2RenderJNIView extends GLSurfaceView {
         this.mfixed = bool.booleanValue();
     }
 
-    public void setRatio(int i) {
-        if (this.mAspectRatio != i) {
-            this.mAspectRatio = i;
+    public void setRatio(int i2) {
+        if (this.mAspectRatio != i2) {
+            this.mAspectRatio = i2;
             if (this.mloaded) {
-                GL2JNILib.ratio(this.mRender.m_hRender, i);
+                GL2JNILib.ratio(this.mRender.m_hRender, i2);
             }
         }
     }
 
-    public void setStretch(int i) {
-        if (this.mScaleMode != i) {
-            this.mScaleMode = i;
+    public void setStretch(int i2) {
+        if (this.mScaleMode != i2) {
+            this.mScaleMode = i2;
             if (this.mloaded) {
-                GL2JNILib.stretch(this.mRender.m_hRender, i);
+                GL2JNILib.stretch(this.mRender.m_hRender, i2);
             }
         }
     }

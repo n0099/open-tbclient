@@ -9,13 +9,13 @@ public interface ISAccountManager {
 
     String getCurrentZid(Context context);
 
-    a getIsAccountService();
+    ISAccountService getIsAccountService();
 
     SapiAccount getSession();
 
     String getVersionName();
 
-    String getZidAndCheckSafe(Context context, String str, int i);
+    String getZidAndCheckSafe(Context context, String str, int i2);
 
     boolean validate(SapiAccount sapiAccount);
 }

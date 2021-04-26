@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import com.baidu.sapi2.utils.SapiUtils;
-import d.b.y.a.b;
+import d.a.y.a.b;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -66,10 +66,10 @@ public class LoadCircleView extends View {
         }
     }
 
-    public LoadCircleView(Context context, float f2, int i) {
+    public LoadCircleView(Context context, float f2, int i2) {
         this(context, null);
         this.mEndRadius = f2;
-        this.mMaskColor = i;
+        this.mMaskColor = i2;
         initialize();
     }
 
@@ -213,16 +213,16 @@ public class LoadCircleView extends View {
         canvas.drawCircle(this.mWidth / 2, this.mHeight / 2, this.mCurrentRadius, this.mSecondaryPaint);
     }
 
-    public void setMaskColor(int i) {
-        this.mMaskColor = i;
+    public void setMaskColor(int i2) {
+        this.mMaskColor = i2;
     }
 
     public LoadCircleView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public LoadCircleView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public LoadCircleView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mPrimaryWidth = 2;
         this.mSecondaryWidth = 2;
         this.mMaxInterval = 1.0f;

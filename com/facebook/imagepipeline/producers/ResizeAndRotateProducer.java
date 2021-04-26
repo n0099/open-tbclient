@@ -55,9 +55,9 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
             this.mImageTranscoderFactory = imageTranscoderFactory;
             this.mJobScheduler = new JobScheduler(ResizeAndRotateProducer.this.mExecutor, new JobScheduler.JobRunnable() { // from class: com.facebook.imagepipeline.producers.ResizeAndRotateProducer.TransformingConsumer.1
                 @Override // com.facebook.imagepipeline.producers.JobScheduler.JobRunnable
-                public void run(EncodedImage encodedImage, int i) {
+                public void run(EncodedImage encodedImage, int i2) {
                     TransformingConsumer transformingConsumer = TransformingConsumer.this;
-                    transformingConsumer.doTransform(encodedImage, i, (ImageTranscoder) Preconditions.checkNotNull(transformingConsumer.mImageTranscoderFactory.createImageTranscoder(encodedImage.getImageFormat(), TransformingConsumer.this.mIsResizingEnabled)));
+                    transformingConsumer.doTransform(encodedImage, i2, (ImageTranscoder) Preconditions.checkNotNull(transformingConsumer.mImageTranscoderFactory.createImageTranscoder(encodedImage.getImageFormat(), TransformingConsumer.this.mIsResizingEnabled)));
                 }
             }, 100);
             this.mProducerContext.addCallbacks(new BaseProducerContextCallbacks() { // from class: com.facebook.imagepipeline.producers.ResizeAndRotateProducer.TransformingConsumer.2
@@ -78,7 +78,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void doTransform(EncodedImage encodedImage, int i, ImageTranscoder imageTranscoder) {
+        public void doTransform(EncodedImage encodedImage, int i2, ImageTranscoder imageTranscoder) {
             this.mProducerContext.getListener().onProducerStart(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME);
             ImageRequest imageRequest = this.mProducerContext.getImageRequest();
             PooledByteBufferOutputStream newOutputStream = ResizeAndRotateProducer.this.mPooledByteBufferFactory.newOutputStream();
@@ -93,9 +93,9 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
                         encodedImage2.parseMetaData();
                         this.mProducerContext.getListener().onProducerFinishWithSuccess(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME, extraMap);
                         if (transcode.getTranscodeStatus() != 1) {
-                            i |= 16;
+                            i2 |= 16;
                         }
-                        getConsumer().onNewResult(encodedImage2, i);
+                        getConsumer().onNewResult(encodedImage2, i2);
                         EncodedImage.closeSafely(encodedImage2);
                         return;
                     } finally {
@@ -105,7 +105,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
                 throw new RuntimeException("Error while transcoding the image");
             } catch (Exception e2) {
                 this.mProducerContext.getListener().onProducerFinishWithFailure(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME, e2, null);
-                if (BaseConsumer.isLast(i)) {
+                if (BaseConsumer.isLast(i2)) {
                     getConsumer().onFailure(e2);
                 }
             } finally {
@@ -113,22 +113,22 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
             }
         }
 
-        private void forwardNewResult(EncodedImage encodedImage, int i, ImageFormat imageFormat) {
+        private void forwardNewResult(EncodedImage encodedImage, int i2, ImageFormat imageFormat) {
             EncodedImage newResultsForJpegOrHeif;
             if (imageFormat != DefaultImageFormats.JPEG && imageFormat != DefaultImageFormats.HEIF) {
                 newResultsForJpegOrHeif = getNewResultForImagesWithoutExifData(encodedImage);
             } else {
                 newResultsForJpegOrHeif = getNewResultsForJpegOrHeif(encodedImage);
             }
-            getConsumer().onNewResult(newResultsForJpegOrHeif, i);
+            getConsumer().onNewResult(newResultsForJpegOrHeif, i2);
         }
 
         @Nullable
-        private EncodedImage getCloneWithRotationApplied(EncodedImage encodedImage, int i) {
+        private EncodedImage getCloneWithRotationApplied(EncodedImage encodedImage, int i2) {
             EncodedImage cloneOrNull = EncodedImage.cloneOrNull(encodedImage);
             encodedImage.close();
             if (cloneOrNull != null) {
-                cloneOrNull.setRotationAngle(i);
+                cloneOrNull.setRotationAngle(i2);
             }
             return cloneOrNull;
         }
@@ -168,11 +168,11 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(@Nullable EncodedImage encodedImage, int i) {
+        public void onNewResultImpl(@Nullable EncodedImage encodedImage, int i2) {
             if (this.mIsCancelled) {
                 return;
             }
-            boolean isLast = BaseConsumer.isLast(i);
+            boolean isLast = BaseConsumer.isLast(i2);
             if (encodedImage == null) {
                 if (isLast) {
                     getConsumer().onNewResult(null, 1);
@@ -184,8 +184,8 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
             TriState shouldTransform = ResizeAndRotateProducer.shouldTransform(this.mProducerContext.getImageRequest(), encodedImage, (ImageTranscoder) Preconditions.checkNotNull(this.mImageTranscoderFactory.createImageTranscoder(imageFormat, this.mIsResizingEnabled)));
             if (isLast || shouldTransform != TriState.UNSET) {
                 if (shouldTransform != TriState.YES) {
-                    forwardNewResult(encodedImage, i, imageFormat);
-                } else if (this.mJobScheduler.updateJob(encodedImage, i)) {
+                    forwardNewResult(encodedImage, i2, imageFormat);
+                } else if (this.mJobScheduler.updateJob(encodedImage, i2)) {
                     if (isLast || this.mProducerContext.isIntermediateResultExpected()) {
                         this.mJobScheduler.scheduleJob();
                     }

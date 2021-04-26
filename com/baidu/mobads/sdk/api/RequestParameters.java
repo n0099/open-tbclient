@@ -55,19 +55,19 @@ public final class RequestParameters {
             return this;
         }
 
-        public final Builder downloadAppConfirmPolicy(int i) {
-            this.downloadAppConfirmPolicy = i;
+        public final Builder downloadAppConfirmPolicy(int i2) {
+            this.downloadAppConfirmPolicy = i2;
             return this;
         }
 
-        public final Builder setHeight(int i) {
-            this.height = i;
+        public final Builder setHeight(int i2) {
+            this.height = i2;
             this.customSize = true;
             return this;
         }
 
-        public final Builder setWidth(int i) {
-            this.width = i;
+        public final Builder setWidth(int i2) {
+            this.width = i2;
             this.customSize = true;
             return this;
         }
@@ -109,8 +109,8 @@ public final class RequestParameters {
         return this.customSize;
     }
 
-    public void setAdsType(int i) {
-        this.adsType = i;
+    public void setAdsType(int i2) {
+        this.adsType = i2;
     }
 
     public void setExtras(Map<String, String> map) {

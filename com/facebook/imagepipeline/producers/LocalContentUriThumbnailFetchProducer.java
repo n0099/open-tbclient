@@ -67,7 +67,7 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
     public static int getRotationAngle(String str) {
         if (str != null) {
             try {
-                return JfifUtil.getAutoRotateAngleFromOrientation(new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1));
+                return JfifUtil.getAutoRotateAngleFromOrientation(new ExifInterface(str).getAttributeInt("Orientation", 1));
             } catch (IOException e2) {
                 FLog.e(TAG, e2, "Unable to retrieve thumbnail rotation for %s", str);
             }
@@ -76,14 +76,14 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
     }
 
     @Nullable
-    private EncodedImage getThumbnail(ResizeOptions resizeOptions, int i) throws IOException {
+    private EncodedImage getThumbnail(ResizeOptions resizeOptions, int i2) throws IOException {
         int thumbnailKind = getThumbnailKind(resizeOptions);
         Cursor cursor = null;
         if (thumbnailKind == 0) {
             return null;
         }
         try {
-            Cursor queryMiniThumbnail = MediaStore.Images.Thumbnails.queryMiniThumbnail(this.mContentResolver, i, thumbnailKind, THUMBNAIL_PROJECTION);
+            Cursor queryMiniThumbnail = MediaStore.Images.Thumbnails.queryMiniThumbnail(this.mContentResolver, i2, thumbnailKind, THUMBNAIL_PROJECTION);
             if (queryMiniThumbnail == null) {
                 if (queryMiniThumbnail != null) {
                     queryMiniThumbnail.close();

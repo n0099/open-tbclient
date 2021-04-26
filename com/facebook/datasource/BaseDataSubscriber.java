@@ -1,5 +1,5 @@
 package com.facebook.datasource;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseDataSubscriber<T> implements DataSubscriber<T> {
     @Override // com.facebook.datasource.DataSubscriber
     public void onCancellation(DataSource<T> dataSource) {

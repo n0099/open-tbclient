@@ -10,10 +10,10 @@ import com.baidu.tieba.R;
 public class AlbumVideoCompressingDialogView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public AlbumCompressProgressView f22048e;
+    public AlbumCompressProgressView f22729e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f22049f;
+    public TextView f22730f;
 
     public AlbumVideoCompressingDialogView(Context context) {
         super(context);
@@ -22,21 +22,21 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.dailog_album_video_compress, this);
-        this.f22048e = (AlbumCompressProgressView) findViewById(R.id.view_compress_progress);
-        this.f22049f = (TextView) findViewById(R.id.txt_compress_progress);
+        this.f22729e = (AlbumCompressProgressView) findViewById(R.id.view_compress_progress);
+        this.f22730f = (TextView) findViewById(R.id.txt_compress_progress);
     }
 
     public boolean b() {
         return getParent() != null;
     }
 
-    public void setPercent(int i) {
-        if (i < 0 || i > 100) {
+    public void setPercent(int i2) {
+        if (i2 < 0 || i2 > 100) {
             return;
         }
-        this.f22048e.setProgress(i);
-        TextView textView = this.f22049f;
-        textView.setText(i + "%");
+        this.f22729e.setProgress(i2);
+        TextView textView = this.f22730f;
+        textView.setText(i2 + "%");
     }
 
     public AlbumVideoCompressingDialogView(Context context, AttributeSet attributeSet) {
@@ -44,8 +44,8 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
         a(context);
     }
 
-    public AlbumVideoCompressingDialogView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public AlbumVideoCompressingDialogView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a(context);
     }
 }

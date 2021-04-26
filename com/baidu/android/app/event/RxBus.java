@@ -17,7 +17,7 @@ public class RxBus {
     public static volatile RxBus mInstance;
     public ConcurrentHashMap<Object, ConcurrentHashMap<Class, d>> mObservables = new ConcurrentHashMap<>();
     public ConcurrentHashMap<Object, ConcurrentHashMap<Class, List<j>>> mSubscribers = new ConcurrentHashMap<>();
-    public final c<Object, Object> mRxBusSubject = new c<>(PublishSubject.N());
+    public final c<Object, Object> mRxBusSubject = new c<>(PublishSubject.K());
 
     /* loaded from: classes.dex */
     public class Remover implements k {
@@ -162,11 +162,11 @@ public class RxBus {
     }
 
     private <T> d<T> createObservable(final Object obj, Class<T> cls) {
-        return this.mRxBusSubject.s(cls).k(new TagKeeperOperator(obj, cls)).t().e(new b<T>() { // from class: com.baidu.android.app.event.RxBus.1
+        return this.mRxBusSubject.r(cls).j(new TagKeeperOperator(obj, cls)).s().d(new b<T>() { // from class: com.baidu.android.app.event.RxBus.1
             @Override // h.n.b
             public void call(T t) {
             }
-        }).y();
+        }).x();
     }
 
     public static RxBus get() {

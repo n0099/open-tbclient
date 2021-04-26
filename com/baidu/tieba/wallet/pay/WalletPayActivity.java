@@ -46,12 +46,12 @@ import com.baidu.tieba.wallet.WalletStatisticKey;
 import com.baidu.tieba.wallet.pay.WalletPayViewController;
 import com.baidu.wallet.api.BaiduWallet;
 import com.baidu.wallet.core.beans.BeanManager;
-import d.b.c.c.g.a;
-import d.b.c.e.m.e;
-import d.b.c.e.p.k;
-import d.b.c.e.p.l;
-import d.b.i0.r.d0.b;
-import d.b.i0.r.s.a;
+import d.a.c.c.g.a;
+import d.a.c.e.m.e;
+import d.a.c.e.p.k;
+import d.a.c.e.p.l;
+import d.a.i0.r.d0.b;
+import d.a.i0.r.s.a;
 import java.util.Date;
 import java.util.HashMap;
 import org.json.JSONException;
@@ -160,7 +160,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
         }
     };
     public a mNetMessagelistener = new a(CmdConfigHttp.CMD_GET_ORDER, 303043) { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.5
-        @Override // d.b.c.c.g.a
+        @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             DataRes data;
             WalletPayActivity.this.mIsPaying = false;
@@ -214,11 +214,11 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
     };
     public LBSPayBack mPayCallback = new LBSPayBack() { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.14
         @Override // com.baidu.android.lbspay.LBSPayBack
-        public void onPayResult(int i, String str) {
-            if (i == 0) {
+        public void onPayResult(int i2, String str) {
+            if (i2 == 0) {
                 WalletPayActivity.this.sendGetPayinfoMessage();
                 TiebaStatic.log("c10123");
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 e.a().post(new Runnable() { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.14.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -227,7 +227,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
                     }
                 });
                 WalletPayActivity.this.finishSelf();
-            } else if (i != 3) {
+            } else if (i2 != 3) {
             } else {
                 WalletPayActivity walletPayActivity = WalletPayActivity.this;
                 walletPayActivity.showToast(walletPayActivity.getResources().getString(R.string.pay_fail));
@@ -238,13 +238,13 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void createPayDebugLog(String str, int i, String str2, int i2, String str3) {
-        d.b.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+    public void createPayDebugLog(String str, int i2, String str2, int i3, String str3) {
+        d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
         statsItem.b("requestMethod", str);
         statsItem.b("eventType", "requestfail");
-        statsItem.c("response_code", Integer.valueOf(i));
+        statsItem.c("response_code", Integer.valueOf(i2));
         statsItem.b("error_msg", str2);
-        statsItem.c("error_code", Integer.valueOf(i2));
+        statsItem.c("error_code", Integer.valueOf(i3));
         statsItem.b("extra_msg", str3);
         statsItem.b("uid", TbadkCoreApplication.getCurrentAccount());
         BdStatisticsManager.getInstance().debug("TiebaPayFail", statsItem);
@@ -318,8 +318,8 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
             drawable = SkinManager.getDrawable(R.drawable.btn_dailog_choose_s);
         }
         if (drawable != null) {
-            int i = this.checkViewWidth;
-            drawable.setBounds(0, 0, i, i);
+            int i2 = this.checkViewWidth;
+            drawable.setBounds(0, 0, i2, i2);
         }
         this.mOtherApkView.setCompoundDrawables(drawable, null, null, null);
     }
@@ -473,10 +473,10 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
             }
 
             @Override // com.baidu.android.pay.PayCallBack
-            public void onPayResult(int i, String str2) {
-                if (i == 0) {
+            public void onPayResult(int i2, String str2) {
+                if (i2 == 0) {
                     WalletPayActivity.this.showPaySuccessDialog();
-                } else if (i != 1) {
+                } else if (i2 != 1) {
                     WalletPayActivity.this.finishSelf();
                 } else {
                     WalletPayActivity.this.showToast(R.string.pay_fail);
@@ -487,8 +487,8 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
         if (intent != null) {
             if (intent.getBooleanExtra("rebuy", false)) {
                 finish();
@@ -502,8 +502,8 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         WalletPayViewController walletPayViewController = this.mViewController;
         if (walletPayViewController != null) {
             walletPayViewController.onChangeSkinType();
@@ -553,11 +553,11 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (4 == i) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (4 == i2) {
             finishSelf();
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -580,7 +580,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
     }
 
     @Override // android.app.Activity
-    public void overridePendingTransition(int i, int i2) {
+    public void overridePendingTransition(int i2, int i3) {
         super.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
@@ -634,14 +634,14 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
         } else {
             str2 = notifyPopup.y_btn_text;
         }
-        d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(getActivity());
+        d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getActivity());
         aVar.setContentViewSize(1);
         aVar.setCanceledOnTouchOutside(false);
         aVar.setContentView(this.mDialogRootView);
         aVar.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.11
             @Override // android.content.DialogInterface.OnKeyListener
-            public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-                if (4 == i) {
+            public boolean onKey(DialogInterface dialogInterface, int i2, KeyEvent keyEvent) {
+                if (4 == i2) {
                     dialogInterface.dismiss();
                     WalletPayActivity.this.finishSelf();
                     return false;
@@ -650,20 +650,20 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
             }
         });
         aVar.setNegativeButton(str, new a.e() { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.12
-            @Override // d.b.i0.r.s.a.e
-            public void onClick(d.b.i0.r.s.a aVar2) {
+            @Override // d.a.i0.r.s.a.e
+            public void onClick(d.a.i0.r.s.a aVar2) {
                 aVar2.dismiss();
                 WalletPayActivity.this.finishSelf();
             }
         });
         aVar.setPositiveButton(str2, new a.e() { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.13
-            @Override // d.b.i0.r.s.a.e
-            public void onClick(d.b.i0.r.s.a aVar2) {
+            @Override // d.a.i0.r.s.a.e
+            public void onClick(d.a.i0.r.s.a aVar2) {
                 if (!k.isEmpty(notifyPopup.y_btn_link)) {
-                    d.b.i0.v.b.l().t("app_update" + new Date().getTime(), notifyPopup.y_btn_link, "tieba" + new Date().getTime(), null);
+                    d.a.i0.v.b.l().t("app_update" + new Date().getTime(), notifyPopup.y_btn_link, "tieba" + new Date().getTime(), null);
                 }
                 if (!k.isEmpty(notifyPopup.appendix_text) && WalletPayActivity.this.mOtherApkSelected && !k.isEmpty(notifyPopup.appendix_link)) {
-                    d.b.i0.v.b.l().t("app_update_extra" + new Date().getTime(), notifyPopup.appendix_link, "tiebaextra" + new Date().getTime(), null);
+                    d.a.i0.v.b.l().t("app_update_extra" + new Date().getTime(), notifyPopup.appendix_link, "tiebaextra" + new Date().getTime(), null);
                 }
                 aVar2.dismiss();
                 WalletPayActivity.this.finishSelf();
@@ -673,13 +673,13 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
         aVar.show();
     }
 
-    public d.b.i0.r.s.a showPaySuccessDialog() {
-        d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(getPageContext().getPageActivity());
+    public d.a.i0.r.s.a showPaySuccessDialog() {
+        d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getPageContext().getPageActivity());
         aVar.setCanceledOnTouchOutside(false);
         aVar.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.6
             @Override // android.content.DialogInterface.OnKeyListener
-            public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-                if (i == 4) {
+            public boolean onKey(DialogInterface dialogInterface, int i2, KeyEvent keyEvent) {
+                if (i2 == 4) {
                     dialogInterface.dismiss();
                     WalletPayActivity.this.finishSelf();
                     return false;
@@ -731,7 +731,7 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
         if (notifyPopup == null) {
             return;
         }
-        d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(getActivity());
+        d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getActivity());
         aVar.setMessage(notifyPopup.hint);
         aVar.setCanceledOnTouchOutside(false);
         if (StringUtils.isNull(notifyPopup.n_btn_text)) {
@@ -745,17 +745,17 @@ public class WalletPayActivity extends BaseActivity<WalletPayActivity> {
             str2 = notifyPopup.y_btn_text;
         }
         aVar.setNegativeButton(str, new a.e() { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.8
-            @Override // d.b.i0.r.s.a.e
-            public void onClick(d.b.i0.r.s.a aVar2) {
+            @Override // d.a.i0.r.s.a.e
+            public void onClick(d.a.i0.r.s.a aVar2) {
                 aVar2.dismiss();
                 WalletPayActivity.this.finishSelf();
             }
         });
         aVar.setPositiveButton(str2, new a.e() { // from class: com.baidu.tieba.wallet.pay.WalletPayActivity.9
-            @Override // d.b.i0.r.s.a.e
-            public void onClick(d.b.i0.r.s.a aVar2) {
+            @Override // d.a.i0.r.s.a.e
+            public void onClick(d.a.i0.r.s.a aVar2) {
                 if (!k.isEmpty(notifyPopup.y_btn_link)) {
-                    d.b.i0.v.b.l().t("app_update", notifyPopup.y_btn_link, "tieba", null);
+                    d.a.i0.v.b.l().t("app_update", notifyPopup.y_btn_link, "tieba", null);
                 }
                 aVar2.dismiss();
                 WalletPayActivity.this.finishSelf();

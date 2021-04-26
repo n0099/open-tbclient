@@ -63,10 +63,10 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     public static class b implements ContextMenu.ContextMenuInfo {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f17178a;
+        public View f17469a;
 
-        public b(View view, int i, long j) {
-            this.f17178a = view;
+        public b(View view, int i2, long j) {
+            this.f17469a = view;
         }
     }
 
@@ -74,7 +74,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     public class c extends DataSetObserver {
 
         /* renamed from: a  reason: collision with root package name */
-        public Parcelable f17179a = null;
+        public Parcelable f17470a = null;
 
         public c() {
         }
@@ -86,11 +86,11 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             adapterView.mDataChanged = true;
             adapterView.mOldItemCount = adapterView.mItemCount;
             adapterView.mItemCount = adapterView.getAdapter().getCount();
-            if (AdapterView.this.getAdapter().hasStableIds() && (parcelable = this.f17179a) != null) {
+            if (AdapterView.this.getAdapter().hasStableIds() && (parcelable = this.f17470a) != null) {
                 AdapterView adapterView2 = AdapterView.this;
                 if (adapterView2.mOldItemCount == 0 && adapterView2.mItemCount > 0) {
                     adapterView2.onRestoreInstanceState(parcelable);
-                    this.f17179a = null;
+                    this.f17470a = null;
                     AdapterView.this.checkFocus();
                     AdapterView.this.requestLayout();
                 }
@@ -105,7 +105,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             AdapterView adapterView = AdapterView.this;
             adapterView.mDataChanged = true;
             if (adapterView.getAdapter().hasStableIds()) {
-                this.f17179a = AdapterView.this.onSaveInstanceState();
+                this.f17470a = AdapterView.this.onSaveInstanceState();
             }
             AdapterView adapterView2 = AdapterView.this;
             adapterView2.mOldItemCount = adapterView2.mItemCount;
@@ -122,17 +122,17 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes4.dex */
     public interface d {
-        void a(AdapterView<?> adapterView, View view, int i, long j);
+        void a(AdapterView<?> adapterView, View view, int i2, long j);
     }
 
     /* loaded from: classes4.dex */
     public interface e {
-        boolean a(AdapterView<?> adapterView, View view, int i, long j);
+        boolean a(AdapterView<?> adapterView, View view, int i2, long j);
     }
 
     /* loaded from: classes4.dex */
     public interface f {
-        void a(AdapterView<?> adapterView, View view, int i, long j);
+        void a(AdapterView<?> adapterView, View view, int i2, long j);
 
         void b(AdapterView<?> adapterView);
     }
@@ -277,32 +277,32 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public int findSyncPosition() {
-        int i = this.mItemCount;
-        if (i != 0) {
+        int i2 = this.mItemCount;
+        if (i2 != 0) {
             long j = this.mSyncColId;
-            int i2 = this.mSyncPosition;
+            int i3 = this.mSyncPosition;
             if (j != Long.MIN_VALUE) {
-                int i3 = i - 1;
-                int min = Math.min(i3, Math.max(0, i2));
+                int i4 = i2 - 1;
+                int min = Math.min(i4, Math.max(0, i3));
                 long uptimeMillis = SystemClock.uptimeMillis() + 100;
                 T adapter = getAdapter();
                 if (adapter != null) {
-                    int i4 = min;
-                    int i5 = i4;
+                    int i5 = min;
+                    int i6 = i5;
                     loop0: while (true) {
                         boolean z = false;
                         while (SystemClock.uptimeMillis() <= uptimeMillis) {
                             if (adapter.getItemId(min) != j) {
-                                boolean z2 = i4 == i3;
-                                boolean z3 = i5 == 0;
+                                boolean z2 = i5 == i4;
+                                boolean z3 = i6 == 0;
                                 if (z2 && z3) {
                                     break loop0;
                                 } else if (z3 || (z && !z2)) {
-                                    i4++;
-                                    min = i4;
-                                } else if (z2 || (!z && !z3)) {
-                                    i5--;
+                                    i5++;
                                     min = i5;
+                                } else if (z2 || (!z && !z3)) {
+                                    i6--;
+                                    min = i6;
                                     z = true;
                                 }
                             } else {
@@ -337,20 +337,20 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         return this.mFirstPosition;
     }
 
-    public Object getItemAtPosition(int i) {
+    public Object getItemAtPosition(int i2) {
         T adapter = getAdapter();
-        if (adapter == null || i < 0) {
+        if (adapter == null || i2 < 0) {
             return null;
         }
-        return adapter.getItem(i);
+        return adapter.getItem(i2);
     }
 
-    public long getItemIdAtPosition(int i) {
+    public long getItemIdAtPosition(int i2) {
         T adapter = getAdapter();
-        if (adapter == null || i < 0) {
+        if (adapter == null || i2 < 0) {
             return Long.MIN_VALUE;
         }
-        return adapter.getItemId(i);
+        return adapter.getItemId(i2);
     }
 
     public int getLastVisiblePosition() {
@@ -381,9 +381,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             }
         }
         int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            if (getChildAt(i).equals(view)) {
-                return this.mFirstPosition + i;
+        for (int i2 = 0; i2 < childCount; i2++) {
+            if (getChildAt(i2).equals(view)) {
+                return this.mFirstPosition + i2;
             }
         }
         return -1;
@@ -416,9 +416,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     */
     public void handleDataChanged() {
         boolean z;
-        int i = this.mItemCount;
+        int i2 = this.mItemCount;
         boolean z2 = true;
-        if (i > 0) {
+        if (i2 > 0) {
             if (this.mNeedSync) {
                 this.mNeedSync = false;
                 int findSyncPosition = findSyncPosition();
@@ -427,8 +427,8 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                     z = true;
                     if (!z) {
                         int selectedItemPosition = getSelectedItemPosition();
-                        if (selectedItemPosition >= i) {
-                            selectedItemPosition = i - 1;
+                        if (selectedItemPosition >= i2) {
+                            selectedItemPosition = i2 - 1;
                         }
                         if (selectedItemPosition < 0) {
                             selectedItemPosition = 0;
@@ -467,8 +467,8 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         return false;
     }
 
-    public int lookForSelectablePosition(int i, boolean z) {
-        return i;
+    public int lookForSelectablePosition(int i2, boolean z) {
+        return i2;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -506,7 +506,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         this.mLayoutWidth = getWidth();
     }
 
@@ -523,13 +523,13 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         return false;
     }
 
-    public boolean performItemClick(View view, int i, long j) {
+    public boolean performItemClick(View view, int i2, long j) {
         if (this.mOnItemClickListener != null) {
             playSoundEffect(0);
             if (view != null) {
                 view.sendAccessibilityEvent(1);
             }
-            this.mOnItemClickListener.a(this, view, i, j);
+            this.mOnItemClickListener.a(this, view, i2, j);
             return true;
         }
         return false;
@@ -539,9 +539,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         if (getChildCount() > 0) {
             this.mNeedSync = true;
             this.mSyncWidth = this.mLayoutWidth;
-            int i = this.mSelectedPosition;
-            if (i >= 0) {
-                View childAt = getChildAt(i - this.mFirstPosition);
+            int i2 = this.mSelectedPosition;
+            if (i2 >= 0) {
+                View childAt = getChildAt(i2 - this.mFirstPosition);
                 this.mSyncColId = this.mNextSelectedColId;
                 this.mSyncPosition = this.mNextSelectedPosition;
                 if (childAt != null) {
@@ -552,8 +552,8 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             }
             View childAt2 = getChildAt(0);
             T adapter = getAdapter();
-            int i2 = this.mFirstPosition;
-            if (i2 >= 0 && i2 < adapter.getCount()) {
+            int i3 = this.mFirstPosition;
+            if (i3 >= 0 && i3 < adapter.getCount()) {
                 this.mSyncColId = adapter.getItemId(this.mFirstPosition);
             } else {
                 this.mSyncColId = -1L;
@@ -577,7 +577,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup
-    public void removeViewAt(int i) {
+    public void removeViewAt(int i2) {
         throw new UnsupportedOperationException("removeViewAt(int) is not supported in AdapterView");
     }
 
@@ -634,12 +634,12 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         super.setFocusableInTouchMode(z2);
     }
 
-    public void setNextSelectedPositionInt(int i) {
-        this.mNextSelectedPosition = i;
-        long itemIdAtPosition = getItemIdAtPosition(i);
+    public void setNextSelectedPositionInt(int i2) {
+        this.mNextSelectedPosition = i2;
+        long itemIdAtPosition = getItemIdAtPosition(i2);
         this.mNextSelectedColId = itemIdAtPosition;
-        if (this.mNeedSync && this.mSyncMode == 0 && i >= 0) {
-            this.mSyncPosition = i;
+        if (this.mNeedSync && this.mSyncMode == 0 && i2 >= 0) {
+            this.mSyncPosition = i2;
             this.mSyncColId = itemIdAtPosition;
         }
     }
@@ -664,15 +664,15 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         this.mOnItemSelectedListener = fVar;
     }
 
-    public void setSelectedPositionInt(int i) {
-        this.mSelectedPosition = i;
-        this.mSelectedColId = getItemIdAtPosition(i);
+    public void setSelectedPositionInt(int i2) {
+        this.mSelectedPosition = i2;
+        this.mSelectedColId = getItemIdAtPosition(i2);
     }
 
-    public abstract void setSelection(int i);
+    public abstract void setSelection(int i2);
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i) {
+    public void addView(View view, int i2) {
         throw new UnsupportedOperationException("addView(View, int) is not supported in AdapterView");
     }
 
@@ -682,7 +682,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view, int i2, ViewGroup.LayoutParams layoutParams) {
         throw new UnsupportedOperationException("addView(View, int, LayoutParams) is not supported in AdapterView");
     }
 
@@ -702,8 +702,8 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     @TargetApi(16)
-    public AdapterView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public AdapterView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mFirstPosition = 0;
         this.mSyncColId = Long.MIN_VALUE;
         this.mNeedSync = false;

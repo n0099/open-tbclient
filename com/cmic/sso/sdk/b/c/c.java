@@ -9,96 +9,98 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30435a;
+    public String f31363a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30436b;
+    public String f31364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f30437c;
+    public Map<String, String> f31365c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30438d;
+    public String f31366d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f30439e;
+    public boolean f31367e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30440f;
+    public String f31368f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Network f30441g;
+    public Network f31369g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f30442h;
-    public String i;
+    public long f31370h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f31371i;
     public int j;
     public g k;
 
     public c(String str, Map<String, String> map, g gVar, String str2, String str3) {
-        this.f30439e = false;
-        this.f30436b = str;
+        this.f31367e = false;
+        this.f31364b = str;
         this.k = gVar;
-        this.f30437c = map == null ? new HashMap<>() : map;
-        this.f30435a = gVar == null ? "" : gVar.b().toString();
-        this.f30438d = str2;
-        this.f30440f = str3;
-        this.i = gVar != null ? gVar.a() : "";
+        this.f31365c = map == null ? new HashMap<>() : map;
+        this.f31363a = gVar == null ? "" : gVar.b().toString();
+        this.f31366d = str2;
+        this.f31368f = str3;
+        this.f31371i = gVar != null ? gVar.a() : "";
         l();
     }
 
     private void l() {
-        this.f30437c.put(CommandMessage.SDK_VERSION, AuthnHelper.SDK_VERSION);
-        this.f30437c.put("Content-Type", "application/json");
-        this.f30437c.put("traceId", this.f30440f);
-        this.f30437c.put("appid", this.i);
-        this.f30437c.put(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
+        this.f31365c.put(CommandMessage.SDK_VERSION, AuthnHelper.SDK_VERSION);
+        this.f31365c.put("Content-Type", "application/json");
+        this.f31365c.put("traceId", this.f31368f);
+        this.f31365c.put("appid", this.f31371i);
+        this.f31365c.put(HTTP.CONN_DIRECTIVE, IntentConfig.CLOSE);
     }
 
     public void a(String str, String str2) {
-        this.f30437c.put(str, str2);
+        this.f31365c.put(str, str2);
     }
 
     public boolean b() {
-        return this.f30439e;
+        return this.f31367e;
     }
 
     public Map<String, String> c() {
-        return this.f30437c;
+        return this.f31365c;
     }
 
     public String d() {
-        return this.f30435a;
+        return this.f31363a;
     }
 
     public String e() {
-        return this.f30438d;
+        return this.f31366d;
     }
 
     public String f() {
-        return this.f30440f;
+        return this.f31368f;
     }
 
     public boolean g() {
-        return !e.a(this.f30440f) || this.f30436b.contains("logReport") || this.f30436b.contains("uniConfig");
+        return !e.a(this.f31368f) || this.f31364b.contains("logReport") || this.f31364b.contains("uniConfig");
     }
 
     public Network h() {
-        return this.f30441g;
+        return this.f31369g;
     }
 
     public long i() {
-        return this.f30442h;
+        return this.f31370h;
     }
 
     public boolean j() {
-        int i = this.j;
-        this.j = i + 1;
-        return i < 2;
+        int i2 = this.j;
+        this.j = i2 + 1;
+        return i2 < 2;
     }
 
     public g k() {
@@ -106,19 +108,19 @@ public class c {
     }
 
     public String a() {
-        return this.f30436b;
+        return this.f31364b;
     }
 
     public void a(boolean z) {
-        this.f30439e = z;
+        this.f31367e = z;
     }
 
     public void a(Network network) {
-        this.f30441g = network;
+        this.f31369g = network;
     }
 
     public void a(long j) {
-        this.f30442h = j;
+        this.f31370h = j;
     }
 
     public c(String str, g gVar, String str2, String str3) {

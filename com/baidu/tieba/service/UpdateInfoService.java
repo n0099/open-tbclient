@@ -8,49 +8,49 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.model.ReportUserInfoModel;
-import d.b.c.e.i.a;
-/* loaded from: classes4.dex */
+import d.a.c.e.i.a;
+/* loaded from: classes5.dex */
 public class UpdateInfoService extends BdBaseService {
     public a.c locationCallBack = new b();
     public ReportUserInfoModel mModel;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements ReportUserInfoModel.b {
         public a() {
         }
 
         @Override // com.baidu.tieba.model.ReportUserInfoModel.b
-        public void a(int i) {
+        public void a(int i2) {
             BdLog.i("location_success");
-            BdLog.e("location_success next time=" + i);
-            if (i <= 0) {
-                i = 3600;
-            } else if (i >= 32400) {
-                i = 32400;
+            BdLog.e("location_success next time=" + i2);
+            if (i2 <= 0) {
+                i2 = 3600;
+            } else if (i2 >= 32400) {
+                i2 = 32400;
             }
-            UpdateInfoService.this.mModel.x(i * 1000);
+            UpdateInfoService.this.mModel.x(i2 * 1000);
         }
 
         @Override // com.baidu.tieba.model.ReportUserInfoModel.b
-        public void onError(int i, String str) {
-            BdLog.i("location_errorCode&errorCode=" + i + "&errorMsg" + str);
+        public void onError(int i2, String str) {
+            BdLog.i("location_errorCode&errorCode=" + i2 + "&errorMsg" + str);
             UpdateInfoService.this.mModel.x(600000L);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements a.c {
         public b() {
         }
 
-        @Override // d.b.c.e.i.a.c
-        public void onLocationGeted(int i, String str, Address address) {
-            if (i == 0 && address != null) {
+        @Override // d.a.c.e.i.a.c
+        public void onLocationGeted(int i2, String str, Address address) {
+            if (i2 == 0 && address != null) {
                 float longitude = (float) address.getLongitude();
                 float latitude = (float) address.getLatitude();
-                d.b.j0.s2.d0.a.e().j(String.valueOf(longitude));
-                d.b.j0.s2.d0.a.e().i(String.valueOf(latitude));
-                d.b.j0.s2.d0.a.e().k(System.currentTimeMillis());
+                d.a.j0.s2.f0.a.e().j(String.valueOf(longitude));
+                d.a.j0.s2.f0.a.e().i(String.valueOf(latitude));
+                d.a.j0.s2.f0.a.e().k(System.currentTimeMillis());
                 if (UpdateInfoService.this.mModel.t() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                     UpdateInfoService.this.mModel.v(1, longitude, latitude);
                     UpdateInfoService.this.mModel.w();
@@ -60,11 +60,11 @@ public class UpdateInfoService extends BdBaseService {
     }
 
     private void findLocationFromLocal() {
-        d.b.c.e.i.a.l().i(true, this.locationCallBack);
+        d.a.c.e.i.a.l().i(true, this.locationCallBack);
     }
 
     private void unRegisterLocalLocation() {
-        d.b.c.e.i.a.l().q(this.locationCallBack);
+        d.a.c.e.i.a.l().q(this.locationCallBack);
     }
 
     @Override // android.app.Service
@@ -90,8 +90,8 @@ public class UpdateInfoService extends BdBaseService {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
-        super.onStart(intent, i);
+    public void onStart(Intent intent, int i2) {
+        super.onStart(intent, i2);
         if (this.mModel.t()) {
             findLocationFromLocal();
         }

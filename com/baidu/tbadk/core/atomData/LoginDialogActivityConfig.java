@@ -4,12 +4,13 @@ import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.DialogLoginHelper;
-import d.b.i0.r.q.r0;
+import d.a.i0.r.q.r0;
 /* loaded from: classes3.dex */
 public class LoginDialogActivityConfig extends IntentConfig {
     public static final String LOGIN_DIALOG_DATA_LOCATE = "login_dialog_data_locate";
     public static final String LOGIN_DIALOG_DATA_TYPE = "login_dialog_data_type";
     public static final String LOGIN_DIALOG_DATA_URL = "login_dialog_data_url";
+    public static final String LOGIN_DIALOG_LOGIN_LISTENER = "login_dialog_login_listener";
     public static final String ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM = "one_key_login_encrypt_phone_num";
     public static final String ONE_KEY_LOGIN_OPERATOR = "one_key_login_operator";
     public static final String ONE_KEY_LOGIN_SIGN = "one_key_login_sign";
@@ -29,64 +30,56 @@ public class LoginDialogActivityConfig extends IntentConfig {
         getIntent().putExtra(LOGIN_DIALOG_DATA_TYPE, DialogLoginHelper.DIALOG_TYPE_ONE_KEY);
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public LoginDialogActivityConfig(r0 r0Var) {
         super(r0Var.a());
-        char c2;
         getIntent().putExtra(LOGIN_DIALOG_DATA_LOCATE, r0Var.b());
+        if (r0Var.c() != null) {
+            getIntent().putExtra("login_dialog_login_listener", r0Var.c());
+        }
         String b2 = r0Var.b();
+        char c2 = 65535;
         switch (b2.hashCode()) {
             case -1723264065:
                 if (b2.equals("pb_shoucang")) {
                     c2 = 1;
                     break;
                 }
-                c2 = 65535;
                 break;
             case -1142545818:
                 if (b2.equals("frs_fabu")) {
                     c2 = 2;
                     break;
                 }
-                c2 = 65535;
                 break;
             case -652469911:
                 if (b2.equals("pb_huifu_louzhonglou")) {
                     c2 = 4;
                     break;
                 }
-                c2 = 65535;
                 break;
             case -360946952:
                 if (b2.equals("first_login_abtest")) {
                     c2 = 6;
                     break;
                 }
-                c2 = 65535;
                 break;
             case -72485631:
                 if (b2.equals("pb_huitie")) {
                     c2 = 3;
                     break;
                 }
-                c2 = 65535;
                 break;
             case 844222914:
                 if (b2.equals("pb_chakanhuifu")) {
                     c2 = 0;
                     break;
                 }
-                c2 = 65535;
                 break;
             case 1683575996:
                 if (b2.equals("sousuo_dianji")) {
                     c2 = 5;
                     break;
                 }
-                c2 = 65535;
-                break;
-            default:
-                c2 = 65535;
                 break;
         }
         switch (c2) {
@@ -111,7 +104,7 @@ public class LoginDialogActivityConfig extends IntentConfig {
                 setIntentAction(IntentAction.ActivityForResult);
                 return;
             case 5:
-                getIntent().putExtra(LOGIN_DIALOG_DATA_URL, r0Var.c());
+                getIntent().putExtra(LOGIN_DIALOG_DATA_URL, r0Var.d());
                 return;
             case 6:
                 setRequestCode(25059);

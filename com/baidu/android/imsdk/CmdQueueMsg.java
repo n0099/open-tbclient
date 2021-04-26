@@ -15,8 +15,8 @@ public class CmdQueueMsg implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public CmdQueueMsg[] newArray(int i) {
-            return new CmdQueueMsg[i];
+        public CmdQueueMsg[] newArray(int i2) {
+            return new CmdQueueMsg[i2];
         }
     };
     public String body;
@@ -62,8 +62,8 @@ public class CmdQueueMsg implements Parcelable {
         this.extra = str;
     }
 
-    public void setMethodId(int i) {
-        this.methodId = i;
+    public void setMethodId(int i2) {
+        this.methodId = i2;
     }
 
     public void setUuid(String str) {
@@ -71,7 +71,7 @@ public class CmdQueueMsg implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.uuid);
         parcel.writeString(this.body);
         parcel.writeInt(this.methodId);

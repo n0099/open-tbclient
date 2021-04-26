@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class WriteThreadMng {
     public static final boolean DEBUG = false;
     public static final String TAG = "WriteThreadMng";
@@ -16,17 +16,17 @@ public class WriteThreadMng {
     public WriteThread[] mWriteThread;
     public ExecutorService mWriteThreadPool;
 
-    public WriteThreadMng(int i) {
+    public WriteThreadMng(int i2) {
         this.mWriteThreadPool = null;
         this.mWritePoolSize = 3;
         this.mWriteThread = null;
         this.mThreadMap = null;
-        this.mWritePoolSize = i;
-        this.mWriteThreadPool = Executors.newFixedThreadPool(i, new NamingThreadFactory(WriteThread.TAG));
+        this.mWritePoolSize = i2;
+        this.mWriteThreadPool = Executors.newFixedThreadPool(i2, new NamingThreadFactory(WriteThread.TAG));
         this.mWriteThread = new WriteThread[this.mWritePoolSize];
-        for (int i2 = 0; i2 < this.mWritePoolSize; i2++) {
-            this.mWriteThread[i2] = new WriteThread();
-            this.mWriteThreadPool.execute(this.mWriteThread[i2]);
+        for (int i3 = 0; i3 < this.mWritePoolSize; i3++) {
+            this.mWriteThread[i3] = new WriteThread();
+            this.mWriteThreadPool.execute(this.mWriteThread[i3]);
         }
         this.mThreadMap = new HashMap();
     }

@@ -83,12 +83,12 @@ public class BindFastRequest extends BeanRequestBase implements Serializable {
         return PayRequestCache.BindCategory.Pwd == category ? NetworkBean.BizType.Pwd : bizType;
     }
 
-    public static PayRequestCache.BindCategory getCategory(int i) {
+    public static PayRequestCache.BindCategory getCategory(int i2) {
         if (PayRequestCache.getInstance().isPaying()) {
             return PayRequestCache.BindCategory.Other;
         }
-        if (i != 1) {
-            if (i != 3 && i != 4 && i != 5) {
+        if (i2 != 1) {
+            if (i2 != 3 && i2 != 4 && i2 != 5) {
                 return PayRequestCache.BindCategory.Other;
             }
             return PayRequestCache.BindCategory.Pwd;
@@ -230,12 +230,12 @@ public class BindFastRequest extends BeanRequestBase implements Serializable {
     }
 
     public String getWithoutPay() {
-        int i = getmBindFrom();
-        if (i != 0) {
-            if (i == 1) {
+        int i2 = getmBindFrom();
+        if (i2 != 0) {
+            if (i2 == 1) {
                 return "1";
             }
-            if (i != 2 && i == 3 && this.mBondCard == null) {
+            if (i2 != 2 && i2 == 3 && this.mBondCard == null) {
                 return "1";
             }
         } else if (!PayDataCache.getInstance().hasMobilePwd()) {
@@ -293,20 +293,20 @@ public class BindFastRequest extends BeanRequestBase implements Serializable {
     }
 
     public boolean isRealPay() {
-        int i = this.mBindFrom;
-        return i == 0 || i == 2 || i == 6 || i == 7 || i == 8;
+        int i2 = this.mBindFrom;
+        return i2 == 0 || i2 == 2 || i2 == 6 || i2 == 7 || i2 == 8;
     }
 
     public void saveSession(BeanResponseBase.Session session) {
         NetworkBean.SessionCache.getInstance().put(getBizType(), session);
     }
 
-    public void setBankType(int i) {
-        this.mBankType = i;
+    public void setBankType(int i2) {
+        this.mBankType = i2;
     }
 
-    public void setBindFromOrigin(int i) {
-        this.mBindFromOrigin = i;
+    public void setBindFromOrigin(int i2) {
+        this.mBindFromOrigin = i2;
     }
 
     public void setCalcPaymentResponse(CalcPaymentResponse calcPaymentResponse) {
@@ -383,8 +383,8 @@ public class BindFastRequest extends BeanRequestBase implements Serializable {
         this.mName = str;
     }
 
-    public void setmNeedSms(int i) {
-        this.mNeedSms = i;
+    public void setmNeedSms(int i2) {
+        this.mNeedSms = i2;
     }
 
     public void setmPhone(String str) {
@@ -403,7 +403,7 @@ public class BindFastRequest extends BeanRequestBase implements Serializable {
         this.mValidDate = str;
     }
 
-    public static String getCardRequestType(int i) {
-        return i == 1 ? Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE : i == 0 ? "2" : i == 2 ? "3" : (i == 3 || i == 4) ? PayRequestCache.getInstance().isPaying() ? "5" : "4" : i == 5 ? "6" : i == 6 ? "8" : (i == 7 || i == 8) ? HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9 : "";
+    public static String getCardRequestType(int i2) {
+        return i2 == 1 ? Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE : i2 == 0 ? "2" : i2 == 2 ? "3" : (i2 == 3 || i2 == 4) ? PayRequestCache.getInstance().isPaying() ? "5" : "4" : i2 == 5 ? "6" : i2 == 6 ? "8" : (i2 == 7 || i2 == 8) ? HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9 : "";
     }
 }

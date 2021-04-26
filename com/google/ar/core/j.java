@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public final class j extends LinkedHashMap<Long, AugmentedFace> {
-    public j(int i, float f2, boolean z) {
+    public j(int i2, float f2, boolean z) {
         super(1, 0.75f, true);
     }
 

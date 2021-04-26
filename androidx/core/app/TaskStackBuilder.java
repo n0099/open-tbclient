@@ -78,13 +78,13 @@ public final class TaskStackBuilder implements Iterable<Intent> {
     }
 
     @Nullable
-    public Intent editIntentAt(int i) {
-        return this.mIntents.get(i);
+    public Intent editIntentAt(int i2) {
+        return this.mIntents.get(i2);
     }
 
     @Deprecated
-    public Intent getIntent(int i) {
-        return editIntentAt(i);
+    public Intent getIntent(int i2) {
+        return editIntentAt(i2);
     }
 
     public int getIntentCount() {
@@ -99,15 +99,15 @@ public final class TaskStackBuilder implements Iterable<Intent> {
             return intentArr;
         }
         intentArr[0] = new Intent(this.mIntents.get(0)).addFlags(268484608);
-        for (int i = 1; i < size; i++) {
-            intentArr[i] = new Intent(this.mIntents.get(i));
+        for (int i2 = 1; i2 < size; i2++) {
+            intentArr[i2] = new Intent(this.mIntents.get(i2));
         }
         return intentArr;
     }
 
     @Nullable
-    public PendingIntent getPendingIntent(int i, int i2) {
-        return getPendingIntent(i, i2, null);
+    public PendingIntent getPendingIntent(int i2, int i3) {
+        return getPendingIntent(i2, i3, null);
     }
 
     @Override // java.lang.Iterable
@@ -121,15 +121,15 @@ public final class TaskStackBuilder implements Iterable<Intent> {
     }
 
     @Nullable
-    public PendingIntent getPendingIntent(int i, int i2, @Nullable Bundle bundle) {
+    public PendingIntent getPendingIntent(int i2, int i3, @Nullable Bundle bundle) {
         if (!this.mIntents.isEmpty()) {
             ArrayList<Intent> arrayList = this.mIntents;
             Intent[] intentArr = (Intent[]) arrayList.toArray(new Intent[arrayList.size()]);
             intentArr[0] = new Intent(intentArr[0]).addFlags(268484608);
             if (Build.VERSION.SDK_INT >= 16) {
-                return PendingIntent.getActivities(this.mSourceContext, i, intentArr, i2, bundle);
+                return PendingIntent.getActivities(this.mSourceContext, i2, intentArr, i3, bundle);
             }
-            return PendingIntent.getActivities(this.mSourceContext, i, intentArr, i2);
+            return PendingIntent.getActivities(this.mSourceContext, i2, intentArr, i3);
         }
         throw new IllegalStateException("No intents added to TaskStackBuilder; cannot getPendingIntent");
     }

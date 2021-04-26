@@ -10,11 +10,11 @@ public class HotSelectActivityConfig extends IntentConfig {
     public static int FROM_POST_THREAD = 2;
     public static String HOT_TOPIC_SING = "#";
 
-    public HotSelectActivityConfig(Context context, int i, int i2) {
+    public HotSelectActivityConfig(Context context, int i2, int i3) {
         super(context);
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
-        getIntent().putExtra("from", i2);
+        getIntent().putExtra("from", i3);
     }
 
     public void setForumExtra(long j, String str, String str2) {

@@ -13,24 +13,24 @@ import java.lang.reflect.Method;
 public class RewardWebView extends WebView {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12438e;
+    public boolean f12322e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f12439f;
+    public Handler f12323f;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12440e;
+        public final /* synthetic */ String f12324e;
 
         public a(String str) {
-            this.f12440e = str;
+            this.f12324e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            RewardWebView.super.loadUrl(this.f12440e);
+            RewardWebView.super.loadUrl(this.f12324e);
         }
     }
 
@@ -38,29 +38,31 @@ public class RewardWebView extends WebView {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12442e;
+        public final /* synthetic */ String f12326e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f12443f;
+        public final /* synthetic */ String f12327f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f12444g;
+        public final /* synthetic */ String f12328g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f12445h;
-        public final /* synthetic */ String i;
+        public final /* synthetic */ String f12329h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public final /* synthetic */ String f12330i;
 
         public b(String str, String str2, String str3, String str4, String str5) {
-            this.f12442e = str;
-            this.f12443f = str2;
-            this.f12444g = str3;
-            this.f12445h = str4;
-            this.i = str5;
+            this.f12326e = str;
+            this.f12327f = str2;
+            this.f12328g = str3;
+            this.f12329h = str4;
+            this.f12330i = str5;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            RewardWebView.super.loadDataWithBaseURL(this.f12442e, this.f12443f, this.f12444g, this.f12445h, this.i);
+            RewardWebView.super.loadDataWithBaseURL(this.f12326e, this.f12327f, this.f12328g, this.f12329h, this.f12330i);
         }
     }
 
@@ -68,26 +70,26 @@ public class RewardWebView extends WebView {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f12446e;
+        public final /* synthetic */ String f12331e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ValueCallback f12447f;
+        public final /* synthetic */ ValueCallback f12332f;
 
         public c(String str, ValueCallback valueCallback) {
-            this.f12446e = str;
-            this.f12447f = valueCallback;
+            this.f12331e = str;
+            this.f12332f = valueCallback;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            RewardWebView.super.evaluateJavascript(this.f12446e, this.f12447f);
+            RewardWebView.super.evaluateJavascript(this.f12331e, this.f12332f);
         }
     }
 
     public RewardWebView(Context context) {
         super(context);
-        this.f12438e = false;
-        this.f12439f = new Handler(Looper.getMainLooper());
+        this.f12322e = false;
+        this.f12323f = new Handler(Looper.getMainLooper());
         d();
         setClickable(true);
         setBackgroundColor(0);
@@ -135,14 +137,14 @@ public class RewardWebView extends WebView {
     @Override // android.webkit.WebView
     public void destroy() {
         try {
-            if (this.f12438e) {
+            if (this.f12322e) {
                 return;
             }
             if (getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
             }
             super.destroy();
-            this.f12438e = true;
+            this.f12322e = true;
         } catch (Exception unused) {
         }
     }
@@ -151,13 +153,13 @@ public class RewardWebView extends WebView {
         if (Looper.myLooper() == Looper.getMainLooper()) {
             runnable.run();
         } else {
-            this.f12439f.post(runnable);
+            this.f12323f.post(runnable);
         }
     }
 
     @Override // android.webkit.WebView
     public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
-        if (this.f12438e) {
+        if (this.f12322e) {
             return;
         }
         e(new c(str, valueCallback));
@@ -165,12 +167,12 @@ public class RewardWebView extends WebView {
 
     public final void f() {
         WebSettings settings = getSettings();
-        settings.setUserAgentString(d.b.h0.a.g2.a.b(settings.getUserAgentString()));
+        settings.setUserAgentString(d.a.h0.a.g2.a.b(settings.getUserAgentString()));
     }
 
     @Override // android.webkit.WebView
     public void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5) {
-        if (this.f12438e) {
+        if (this.f12322e) {
             return;
         }
         e(new b(str, str2, str3, str4, str5));
@@ -179,7 +181,7 @@ public class RewardWebView extends WebView {
     @Override // android.webkit.WebView
     public void loadUrl(String str) {
         try {
-            if (this.f12438e) {
+            if (this.f12322e) {
                 return;
             }
             e(new a(str));

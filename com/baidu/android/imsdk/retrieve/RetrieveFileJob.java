@@ -51,9 +51,9 @@ public class RetrieveFileJob extends IRetrieveJob {
         }
 
         @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
-        public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
+        public void onGenBosObjectUrlListener(int i2, String str, String str2, String str3, Map<String, String> map) {
             String str4;
-            if (i == 0) {
+            if (i2 == 0) {
                 if (map != null) {
                     str4 = map.get(AsyncChatTask.PUT_URL);
                     map.get(AsyncChatTask.GET_URL);
@@ -63,9 +63,9 @@ public class RetrieveFileJob extends IRetrieveJob {
                 final String str5 = str4;
                 IFileUploadListener iFileUploadListener = new IFileUploadListener() { // from class: com.baidu.android.imsdk.retrieve.RetrieveFileJob.2.1
                     @Override // com.baidu.android.imsdk.upload.IFileUploadListener
-                    public void onFailed(int i2, String str6) {
-                        LogUtils.d(RetrieveFileJob.TAG, "retrieve--> IFileUploadListener onFailed errorcode:" + i2 + ", failedMsg:" + str6);
-                        if (i2 != 1005) {
+                    public void onFailed(int i3, String str6) {
+                        LogUtils.d(RetrieveFileJob.TAG, "retrieve--> IFileUploadListener onFailed errorcode:" + i3 + ", failedMsg:" + str6);
+                        if (i3 != 1005) {
                             RetrieveFileJob.this.mRetryCount.incrementAndGet();
                             AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
                             RetrieveFileJob.this.startRetrieveFile(anonymousClass2.val$fileBean, anonymousClass2.val$context);
@@ -78,9 +78,9 @@ public class RetrieveFileJob extends IRetrieveJob {
                     }
 
                     @Override // com.baidu.android.imsdk.upload.IFileUploadListener
-                    public void onFinished(int i2) {
+                    public void onFinished(int i3) {
                         LogUtils.d(RetrieveFileJob.TAG, "retrieve--> IFileUploadListener onFinished");
-                        if (i2 == 0) {
+                        if (i3 == 0) {
                             RetrieveFileJob.this.mRetryCount.set(0);
                             RetrieveReportImpl retrieveReportImpl = RetrieveReportImpl.getInstance(AnonymousClass2.this.val$context);
                             AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
@@ -101,7 +101,7 @@ public class RetrieveFileJob extends IRetrieveJob {
                     }
 
                     @Override // com.baidu.android.imsdk.upload.IFileUploadListener
-                    public void onProgress(int i2) {
+                    public void onProgress(int i3) {
                     }
                 };
                 if (RetrieveFileJob.this.isUpload(this.val$context, this.val$filePath, this.val$fileBean)) {
@@ -126,9 +126,9 @@ public class RetrieveFileJob extends IRetrieveJob {
         }
     }
 
-    private void genBosObjectUrl(Context context, String str, String str2, String str3, int i, int i2, int i3, IGenBosObjectUrlListener iGenBosObjectUrlListener) {
+    private void genBosObjectUrl(Context context, String str, String str2, String str3, int i2, int i3, int i4, IGenBosObjectUrlListener iGenBosObjectUrlListener) {
         LogUtils.d(TAG, "filePath=" + str);
-        IMGenBosObjectUrlRequest iMGenBosObjectUrlRequest = new IMGenBosObjectUrlRequest(context, str, str2, str3, i, i2, i3, ListenerManager.getInstance().addListener(iGenBosObjectUrlListener));
+        IMGenBosObjectUrlRequest iMGenBosObjectUrlRequest = new IMGenBosObjectUrlRequest(context, str, str2, str3, i2, i3, i4, ListenerManager.getInstance().addListener(iGenBosObjectUrlListener));
         HttpHelper.executor(context, iMGenBosObjectUrlRequest, iMGenBosObjectUrlRequest);
     }
 
@@ -213,9 +213,9 @@ public class RetrieveFileJob extends IRetrieveJob {
                                 int length = listFiles.length;
                                 boolean z = false;
                                 str2 = str4;
-                                int i = 0;
-                                while (i < length) {
-                                    File file2 = listFiles[i];
+                                int i2 = 0;
+                                while (i2 < length) {
+                                    File file2 = listFiles[i2];
                                     long length2 = j2 + file2.length();
                                     if (file2.exists()) {
                                         fileArr = listFiles;
@@ -225,7 +225,7 @@ public class RetrieveFileJob extends IRetrieveJob {
                                         fileArr = listFiles;
                                         j = length2;
                                     }
-                                    i++;
+                                    i2++;
                                     listFiles = fileArr;
                                     j2 = j;
                                 }

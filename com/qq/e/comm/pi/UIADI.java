@@ -31,15 +31,15 @@ public interface UIADI extends ApkDownloadComplianceInterface {
 
     void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy);
 
-    void setMaxVideoDuration(int i);
+    void setMaxVideoDuration(int i2);
 
     void setMediaListener(UnifiedInterstitialMediaListener unifiedInterstitialMediaListener);
 
-    void setMinVideoDuration(int i);
+    void setMinVideoDuration(int i2);
 
     void setVideoOption(VideoOption videoOption);
 
-    void setVideoPlayPolicy(int i);
+    void setVideoPlayPolicy(int i2);
 
     void show();
 

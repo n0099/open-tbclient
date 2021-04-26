@@ -8,25 +8,25 @@ import javax.microedition.khronos.opengles.GL10;
 public class MapRenderer implements GLSurfaceView.Renderer {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f7594d = MapRenderer.class.getSimpleName();
+    public static final String f7863d = MapRenderer.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7595a;
+    public int f7864a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7596b;
+    public int f7865b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f7597c;
+    public int f7866c;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f7598e;
+    public long f7867e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f7599f;
+    public a f7868f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final j f7600g;
+    public final j f7869g;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -34,8 +34,8 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     }
 
     public MapRenderer(j jVar, a aVar) {
-        this.f7599f = aVar;
-        this.f7600g = jVar;
+        this.f7868f = aVar;
+        this.f7869g = jVar;
     }
 
     private void a(GL10 gl10) {
@@ -44,17 +44,17 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     }
 
     private boolean a() {
-        return this.f7598e != 0;
+        return this.f7867e != 0;
     }
 
     public static native void nativeInit(long j);
 
     public static native int nativeRender(long j);
 
-    public static native void nativeResize(long j, int i, int i2);
+    public static native void nativeResize(long j, int i2, int i3);
 
     public void a(long j) {
-        this.f7598e = j;
+        this.f7867e = j;
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
@@ -63,27 +63,27 @@ public class MapRenderer implements GLSurfaceView.Renderer {
             a(gl10);
             return;
         }
-        if (this.f7597c <= 1) {
-            nativeResize(this.f7598e, this.f7595a, this.f7596b);
-            this.f7597c++;
+        if (this.f7866c <= 1) {
+            nativeResize(this.f7867e, this.f7864a, this.f7865b);
+            this.f7866c++;
         }
-        this.f7599f.f();
-        int nativeRender = nativeRender(this.f7598e);
-        if (this.f7600g.a() == null) {
+        this.f7868f.f();
+        int nativeRender = nativeRender(this.f7867e);
+        if (this.f7869g.a() == null) {
             return;
         }
-        if (this.f7600g.a().f7654h != null) {
-            for (l lVar : this.f7600g.a().f7654h) {
-                if (this.f7600g.a() == null) {
+        if (this.f7869g.a().f7927h != null) {
+            for (l lVar : this.f7869g.a().f7927h) {
+                if (this.f7869g.a() == null) {
                     return;
                 }
-                ab I = this.f7600g.a().I();
+                ab I = this.f7869g.a().I();
                 if (lVar != null) {
                     lVar.a(gl10, I);
                 }
             }
         }
-        j jVar = this.f7600g;
+        j jVar = this.f7869g;
         if (nativeRender == 1) {
             jVar.requestRender();
         } else if (jVar.a().b()) {
@@ -96,18 +96,18 @@ public class MapRenderer implements GLSurfaceView.Renderer {
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
-    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
-        long j = this.f7598e;
+    public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
+        long j = this.f7867e;
         if (j != 0) {
-            nativeResize(j, i, i2);
+            nativeResize(j, i2, i3);
         }
     }
 
     @Override // android.opengl.GLSurfaceView.Renderer
     public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-        nativeInit(this.f7598e);
+        nativeInit(this.f7867e);
         if (a()) {
-            this.f7599f.f();
+            this.f7868f.f();
         }
     }
 }

@@ -3,6 +3,7 @@ package androidx.transition;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
@@ -45,8 +46,8 @@ public class Fade extends Visibility {
         }
     }
 
-    public Fade(int i) {
-        setMode(i);
+    public Fade(int i2) {
+        setMode(i2);
     }
 
     private Animator createAnimation(final View view, float f2, float f3) {
@@ -93,6 +94,7 @@ public class Fade extends Visibility {
     public Fade() {
     }
 
+    @SuppressLint({"RestrictedApi"})
     public Fade(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, Styleable.FADE);

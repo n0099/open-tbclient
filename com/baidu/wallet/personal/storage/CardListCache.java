@@ -23,22 +23,22 @@ import java.io.Serializable;
 public class CardListCache extends MyDb {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f26274f = {"user_id TEXT not null", "card_list TEXT NOT null default ''", "primary key (user_id)"};
+    public static final String[] f27078f = {"user_id TEXT not null", "card_list TEXT NOT null default ''", "primary key (user_id)"};
 
     /* renamed from: a  reason: collision with root package name */
-    public CardListResponse f26275a;
+    public CardListResponse f27079a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CardListResponse f26276b;
+    public CardListResponse f27080b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b<CardListResponse> f26277c;
+    public b<CardListResponse> f27081c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a<CardListResponse> f26278d;
+    public a<CardListResponse> f27082d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f26279e;
+    public Handler f27083e;
 
     /* loaded from: classes5.dex */
     public interface a<Value extends Serializable> {
@@ -54,30 +54,30 @@ public class CardListCache extends MyDb {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f26281a = 2;
+        public static int f27085a = 2;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final CardListCache f26282b = new CardListCache(BaiduWalletDelegate.getInstance().getAppContext(), "wallet_sdk.db", f26281a);
+        public static final CardListCache f27086b = new CardListCache(BaiduWalletDelegate.getInstance().getAppContext(), "wallet_sdk.db", f27085a);
     }
 
     public static CardListCache getInstance() {
-        return c.f26282b;
+        return c.f27086b;
     }
 
     public void getCardList(b<CardListResponse> bVar) {
-        this.f26277c = bVar;
+        this.f27081c = bVar;
         if (bVar == null) {
             return;
         }
-        this.f26279e.obtainMessage(10001).sendToTarget();
+        this.f27083e.obtainMessage(10001).sendToTarget();
     }
 
     public void getEemCardList(a<CardListResponse> aVar) {
-        this.f26278d = aVar;
+        this.f27082d = aVar;
         if (aVar == null) {
             return;
         }
-        this.f26279e.obtainMessage(10002).sendToTarget();
+        this.f27083e.obtainMessage(10002).sendToTarget();
     }
 
     public String getUserId() {
@@ -113,8 +113,8 @@ public class CardListCache extends MyDb {
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         this.mDb = sQLiteDatabase;
-        MyDb.createTable(sQLiteDatabase, "tb_card_list", f26274f);
-        MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f26274f);
+        MyDb.createTable(sQLiteDatabase, "tb_card_list", f27078f);
+        MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f27078f);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -123,14 +123,14 @@ public class CardListCache extends MyDb {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
         this.mDb = sQLiteDatabase;
-        if (i2 > i) {
-            MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f26274f);
+        if (i3 > i2) {
+            MyDb.createTable(sQLiteDatabase, "tb_eem_card_list", f27078f);
         }
     }
 
-    public void updateCardList(int i, CardListResponse cardListResponse) {
+    public void updateCardList(int i2, CardListResponse cardListResponse) {
         if (cardListResponse == null) {
             return;
         }
@@ -138,39 +138,39 @@ public class CardListCache extends MyDb {
         if (TextUtils.isEmpty(a2)) {
             return;
         }
-        if (i == 599) {
-            this.f26279e.obtainMessage(10000, a2).sendToTarget();
-        } else if (i == 607) {
-            this.f26279e.obtainMessage(10003, a2).sendToTarget();
+        if (i2 == 599) {
+            this.f27083e.obtainMessage(10000, a2).sendToTarget();
+        } else if (i2 == 607) {
+            this.f27083e.obtainMessage(10003, a2).sendToTarget();
         }
     }
 
-    public CardListCache(Context context, String str, int i) {
-        super(context, str, i);
+    public CardListCache(Context context, String str, int i2) {
+        super(context, str, i2);
         HandlerThread handlerThread = new HandlerThread("sdk_db_thread");
         handlerThread.start();
-        this.f26279e = new Handler(handlerThread.getLooper()) { // from class: com.baidu.wallet.personal.storage.CardListCache.1
+        this.f27083e = new Handler(handlerThread.getLooper()) { // from class: com.baidu.wallet.personal.storage.CardListCache.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (BaiduWalletDelegate.getInstance().getAppContext() == null) {
                     return;
                 }
-                int i2 = message.what;
-                if (10000 == i2) {
+                int i3 = message.what;
+                if (10000 == i3) {
                     CardListCache.this.a((String) message.obj, "tb_card_list");
-                } else if (10001 == i2) {
+                } else if (10001 == i3) {
                     CardListCache cardListCache = CardListCache.this;
-                    cardListCache.f26275a = cardListCache.a("tb_card_list");
-                    if (CardListCache.this.f26277c != null) {
-                        CardListCache.this.f26277c.a(CardListCache.this.f26275a);
+                    cardListCache.f27079a = cardListCache.a("tb_card_list");
+                    if (CardListCache.this.f27081c != null) {
+                        CardListCache.this.f27081c.a(CardListCache.this.f27079a);
                     }
-                } else if (10003 == i2) {
+                } else if (10003 == i3) {
                     CardListCache.this.a((String) message.obj, "tb_eem_card_list");
-                } else if (10002 == i2) {
+                } else if (10002 == i3) {
                     CardListCache cardListCache2 = CardListCache.this;
-                    cardListCache2.f26276b = cardListCache2.a("tb_eem_card_list");
-                    if (CardListCache.this.f26278d != null) {
-                        CardListCache.this.f26278d.a(CardListCache.this.f26276b);
+                    cardListCache2.f27080b = cardListCache2.a("tb_eem_card_list");
+                    if (CardListCache.this.f27082d != null) {
+                        CardListCache.this.f27082d.a(CardListCache.this.f27080b);
                     }
                 }
             }

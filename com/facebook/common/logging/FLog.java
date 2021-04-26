@@ -1,5 +1,5 @@
 package com.facebook.common.logging;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FLog {
     public static final int ASSERT = 7;
     public static final int DEBUG = 3;
@@ -39,8 +39,8 @@ public class FLog {
         }
     }
 
-    public static boolean isLoggable(int i) {
-        return sHandler.isLoggable(i);
+    public static boolean isLoggable(int i2) {
+        return sHandler.isLoggable(i2);
     }
 
     public static void setLoggingDelegate(LoggingDelegate loggingDelegate) {
@@ -51,8 +51,8 @@ public class FLog {
         throw new IllegalArgumentException();
     }
 
-    public static void setMinimumLoggingLevel(int i) {
-        sHandler.setMinimumLoggingLevel(i);
+    public static void setMinimumLoggingLevel(int i2) {
+        sHandler.setMinimumLoggingLevel(i2);
     }
 
     public static void v(String str, String str2) {

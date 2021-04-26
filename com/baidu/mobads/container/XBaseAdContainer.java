@@ -54,7 +54,6 @@ import com.baidu.mobads.sdk.api.IOAdEvent;
 import com.baidu.mobads.sdk.api.IOAdEventListener;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -178,7 +177,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
     }
 
     public XBaseAdContainer(XAdContainerContext xAdContainerContext) {
-        int i;
+        int i2;
         JSONObject jSONObject = null;
         this.mAdContainerCxt = xAdContainerContext;
         this.mAppContext = xAdContainerContext.getAppContext();
@@ -193,16 +192,16 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
         IXAdInstanceInfo adInstanceInfo = this.mAdContainerCxt.getAdInstanceInfo();
         if (adInstanceInfo != null) {
             jSONObject = adInstanceInfo.getOriginJsonObject();
-            i = adInstanceInfo.getActionType();
+            i2 = adInstanceInfo.getActionType();
         } else {
-            i = 0;
+            i2 = 0;
         }
         if (jSONObject != null) {
             String optString = jSONObject.optString("control_flags");
             try {
                 if (!TextUtils.isEmpty(optString)) {
                     JSONObject jSONObject2 = new JSONObject(optString);
-                    if (optString != null && i == 1) {
+                    if (optString != null && i2 == 1) {
                         App2Activity.ANIMATION_DURATION_ACTIVITY_ENTER = jSONObject2.optInt("cutscenes_time", 0);
                     } else {
                         App2Activity.ANIMATION_DURATION_ACTIVITY_ENTER = 0;
@@ -239,7 +238,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                 }
 
                 @Override // com.baidu.mobads.container.components.CircleTextProgressbar.OnCountdownProgressListener
-                public void onProgress(int i) {
+                public void onProgress(int i2) {
                 }
             });
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ScreenUtils.dp2px(this.mActivity, 40.0f), ScreenUtils.dp2px(this.mActivity, 40.0f));
@@ -279,7 +278,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
         this.mAdContainerCxt.getAdProdBase().addView(relativeLayout);
     }
 
-    public void checkAPO(int i) {
+    public void checkAPO(int i2) {
         try {
             JSONObject originJsonObject = this.mAdContainerCxt.getAdInstanceInfo().getOriginJsonObject();
             if (originJsonObject.optInt("act") == 2) {
@@ -293,7 +292,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                             if (this.mAppContext.getPackageManager().resolveActivity(intent, 65536) != null) {
                                 this.mAppContext.startActivity(intent);
-                                PackageUtils.sendDownloadAPOLog(this.mAppContext, this.mAdContainerCxt, optString3, optString2, i);
+                                PackageUtils.sendDownloadAPOLog(this.mAppContext, this.mAdContainerCxt, optString3, optString2, i2);
                             }
                         }
                     } else {
@@ -306,16 +305,16 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
         }
     }
 
-    public void checkAndSendRsplashShowLog(final int i, HashMap<String, Object> hashMap) {
+    public void checkAndSendRsplashShowLog(final int i2, HashMap<String, Object> hashMap) {
         XAdContainerContext xAdContainerContext = this.mAdContainerCxt;
         if (xAdContainerContext != null) {
             if (xAdContainerContext.getAdInstanceInfo() != null) {
                 StateMachine.event(this.mAdContainerCxt.getAdInstanceInfo().getUniqueId(), AdStateCode.EVENT_IMPRESSION);
             }
-            if (i != 1 && i != 2) {
+            if (i2 != 1 && i2 != 2) {
                 int viewState = AdViewUtils.getViewState(this.mAdContainerCxt.getAdProdBase());
-                sendSplashViewState(viewState, true, i, 413, "");
-                sendSplashViewState(viewState, true, i, HttpStatus.SC_INSUFFICIENT_SPACE_ON_RESOURCE, "");
+                sendSplashViewState(viewState, true, i2, 413, "");
+                sendSplashViewState(viewState, true, i2, HttpStatus.SC_INSUFFICIENT_SPACE_ON_RESOURCE, "");
                 sendImpressionLog(this.mAdContainerCxt.getAdInstanceInfo());
                 send3rdImpressionLog();
                 processAdStart(hashMap);
@@ -325,13 +324,13 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
             if (viewState2 == 0) {
                 sendImpressionLog(this.mAdContainerCxt.getAdInstanceInfo());
                 send3rdImpressionLog();
-                sendSplashViewState(viewState2, true, i, 413, "");
+                sendSplashViewState(viewState2, true, i2, 413, "");
                 processAdStart(hashMap);
                 return;
             }
             try {
                 processAdStart(hashMap);
-                sendSplashViewState(viewState2, false, i, 413, "1");
+                sendSplashViewState(viewState2, false, i2, 413, "1");
                 this.showRecord = "";
                 this.showRecord += viewState2;
                 if (this.mTimer != null) {
@@ -342,7 +341,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                 this.mTimer = oAdTimer;
                 oAdTimer.setEventHandler(new OAdTimer.EventHandler() { // from class: com.baidu.mobads.container.XBaseAdContainer.7
                     @Override // com.baidu.mobads.container.util.OAdTimer.EventHandler
-                    public void onTimer(int i2) {
+                    public void onTimer(int i3) {
                         int viewState3 = AdViewUtils.getViewState(XBaseAdContainer.this.mAdContainerCxt.getAdProdBase());
                         StringBuilder sb = new StringBuilder();
                         XBaseAdContainer xBaseAdContainer = XBaseAdContainer.this;
@@ -354,7 +353,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                             xBaseAdContainer2.sendImpressionLog(xBaseAdContainer2.mAdContainerCxt.getAdInstanceInfo());
                             XBaseAdContainer.this.send3rdImpressionLog();
                             XBaseAdContainer xBaseAdContainer3 = XBaseAdContainer.this;
-                            xBaseAdContainer3.sendSplashViewState(9, true, i, HttpStatus.SC_LOCKED, xBaseAdContainer3.showRecord);
+                            xBaseAdContainer3.sendSplashViewState(9, true, i2, HttpStatus.SC_LOCKED, xBaseAdContainer3.showRecord);
                             if (XBaseAdContainer.this.mTimer != null) {
                                 XBaseAdContainer.this.mTimer.stop();
                                 XBaseAdContainer.this.mTimer = null;
@@ -366,7 +365,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                     public void onTimerComplete() {
                         int viewState3 = AdViewUtils.getViewState(XBaseAdContainer.this.mAdContainerCxt.getAdProdBase());
                         XBaseAdContainer xBaseAdContainer = XBaseAdContainer.this;
-                        xBaseAdContainer.sendSplashViewState(viewState3, false, i, HttpStatus.SC_LOCKED, xBaseAdContainer.showRecord);
+                        xBaseAdContainer.sendSplashViewState(viewState3, false, i2, HttpStatus.SC_LOCKED, xBaseAdContainer.showRecord);
                         XAdContainerContext xAdContainerContext2 = XBaseAdContainer.this.mAdContainerCxt;
                         if (xAdContainerContext2 == null || xAdContainerContext2.getAdInstanceInfo() == null) {
                             return;
@@ -375,9 +374,9 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                     }
                 });
                 this.mTimer.start();
-                sendSplashViewState(viewState2, false, i, 413, "2");
+                sendSplashViewState(viewState2, false, i2, 413, "2");
             } catch (Exception e2) {
-                sendSplashViewState(viewState2, false, i, HttpStatus.SC_LOCKED, "exception");
+                sendSplashViewState(viewState2, false, i2, HttpStatus.SC_LOCKED, "exception");
                 this.mAdLogger.d(e2);
             }
         }
@@ -534,7 +533,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
     }
 
     public void load() {
-        this.mAdLogger.d(TAG, TrackLoadSettingsAtom.TYPE);
+        this.mAdLogger.d(TAG, "load");
         this.mAdState = 1;
         ActivityUtils.runOnUiThread(new Runnable() { // from class: com.baidu.mobads.container.XBaseAdContainer.1
             @Override // java.lang.Runnable
@@ -574,7 +573,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
         }
     }
 
-    public void onWindowVisibilityChanged(int i) {
+    public void onWindowVisibilityChanged(int i2) {
     }
 
     public ApoParser parseApo(IXAdInstanceInfo iXAdInstanceInfo) {
@@ -594,7 +593,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
         processAdStart(null);
     }
 
-    public Boolean processKeyEvent(int i, KeyEvent keyEvent) {
+    public Boolean processKeyEvent(int i2, KeyEvent keyEvent) {
         return Boolean.FALSE;
     }
 
@@ -640,8 +639,8 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
         XAdInstanceInfoExt xAdInstanceInfoExt2;
         XAdInstanceInfoExt xAdInstanceInfoExt3;
         String str;
-        int i;
         int i2;
+        int i3;
         XAdInstanceInfoExt xAdInstanceInfoExt4;
         XAdInstanceInfoExt xAdInstanceInfoExt5;
         long lastOpenAppTime;
@@ -659,10 +658,10 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                 this.mAdLogger.d(e3);
             }
         }
-        int i3 = App2Activity.ANIMATION_DURATION_ACTIVITY_ENTER;
+        int i4 = App2Activity.ANIMATION_DURATION_ACTIVITY_ENTER;
         try {
             JSONObject jSONObject2 = new JSONObject(iXAdInstanceInfo.getOriginJsonObject().optString("control_flags"));
-            i3 = jSONObject2.optInt("cutscenes_time", i3);
+            i4 = jSONObject2.optInt("cutscenes_time", i4);
             z = jSONObject2.optBoolean("exp_apo_ignore_freq_limit", false);
         } catch (Exception unused) {
             z = false;
@@ -705,7 +704,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                     if (count == 0 && z2) {
                         try {
                             XAdPersistData xAdPersistData = XAdPersistData.getInstance();
-                            i = count;
+                            i2 = count;
                             try {
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("");
@@ -719,10 +718,10 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                             } catch (Throwable unused5) {
                             }
                         } catch (Throwable unused6) {
-                            i = count;
+                            i2 = count;
                         }
-                        i2 = i;
-                        if (i2 == 0 && z2 && !AppConfigImp.getInstance().isLpMultiProcess()) {
+                        i3 = i2;
+                        if (i3 == 0 && z2 && !AppConfigImp.getInstance().isLpMultiProcess()) {
                             try {
                                 XAdInstanceInfoExt xAdInstanceInfoExt6 = new XAdInstanceInfoExt(iXAdInstanceInfo);
                                 try {
@@ -747,7 +746,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                             }
                             App2Activity.SHOUBAI_LP_APO_START = true;
                             App2Activity.SHOUBAI_LP_APO_START_TIME = System.currentTimeMillis();
-                            App2Activity.ANIMATION_DURATION_ACTIVITY_ENTER = i3;
+                            App2Activity.ANIMATION_DURATION_ACTIVITY_ENTER = i4;
                             new XAdRemoteClickHandler().onAdClicked(this, iXAdInstanceInfo, Boolean.TRUE, getShouBaiLpFlag(this.mAdContainerCxt, iXAdInstanceInfo));
                             xAdInstanceInfoExt4 = xAdInstanceInfoExt5;
                         } else {
@@ -759,11 +758,11 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                         }
                         hashMap.put("exp_main", "" + parseApo.getCount(true));
                         hashMap.put("exp_lite", "" + parseApo3.getCount(true));
-                        hashMap.put("exp_allow", "" + i2);
+                        hashMap.put("exp_allow", "" + i3);
                         if (jSONObject != null) {
                             PackageUtils.sendAPOInfo(this.mAdContainerCxt, jSONObject.optString("page", ""), iXAdInstanceInfo.getAppPackageName(), SDKLogTypeConstants.TYPE_SHOUBAI_APO_INFO, jSONObject.optInt("fb_act", 0), jSONObject.optInt(str, 0), hashMap);
                         }
-                        if (i2 == 0 && 1 == parseApo.getCount(true)) {
+                        if (i3 == 0 && 1 == parseApo.getCount(true)) {
                             if (1 < parseApo.getCount(false)) {
                                 Intent intent = new Intent("android.intent.action.VIEW", parseApo.getUri());
                                 if (!TextUtils.isEmpty(parseApo.getPackageName())) {
@@ -778,13 +777,13 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                                 XAdInstanceInfoExt xAdInstanceInfoExt7 = xAdInstanceInfoExt4 == null ? iXAdInstanceInfo : xAdInstanceInfoExt4;
                                 new XAdRemoteClickHandler().onAdClicked(this, xAdInstanceInfoExt7, Boolean.TRUE, getShouBaiLpFlag(this.mAdContainerCxt, xAdInstanceInfoExt7));
                             }
-                        } else if (i2 == 0 && 1 == parseApo2.getCount(true)) {
+                        } else if (i3 == 0 && 1 == parseApo2.getCount(true)) {
                             new XAdRemoteClickHandler().onAdClicked(this, xAdInstanceInfoExt2, Boolean.TRUE, getShouBaiLpFlag(this.mAdContainerCxt, xAdInstanceInfoExt2));
-                        } else if (i2 == 0 && 1 == parseApo3.getCount(true)) {
+                        } else if (i3 == 0 && 1 == parseApo3.getCount(true)) {
                             XAdInstanceInfoExt xAdInstanceInfoExt8 = xAdInstanceInfoExt3;
                             new XAdRemoteClickHandler().onAdClicked(this, xAdInstanceInfoExt8, Boolean.TRUE, getShouBaiLpFlag(this.mAdContainerCxt, xAdInstanceInfoExt8));
                         } else {
-                            App2Activity.ANIMATION_DURATION_ACTIVITY_ENTER = i3;
+                            App2Activity.ANIMATION_DURATION_ACTIVITY_ENTER = i4;
                             if (parseApo.getCount(false) > 0) {
                                 try {
                                     XAdInstanceInfoExt xAdInstanceInfoExt9 = new XAdInstanceInfoExt(iXAdInstanceInfo.getOriginJsonObject());
@@ -809,11 +808,11 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                         }
                         return;
                     }
-                    i = count;
+                    i2 = count;
                     xAdInstanceInfoExt3 = xAdInstanceInfoExt;
                     str = "version";
-                    i2 = i;
-                    if (i2 == 0) {
+                    i3 = i2;
+                    if (i3 == 0) {
                     }
                     xAdInstanceInfoExt4 = null;
                     HashMap hashMap2 = new HashMap();
@@ -821,16 +820,16 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
                     }
                     hashMap2.put("exp_main", "" + parseApo.getCount(true));
                     hashMap2.put("exp_lite", "" + parseApo3.getCount(true));
-                    hashMap2.put("exp_allow", "" + i2);
+                    hashMap2.put("exp_allow", "" + i3);
                     if (jSONObject != null) {
                     }
-                    if (i2 == 0) {
+                    if (i3 == 0) {
                     }
-                    if (i2 == 0) {
+                    if (i3 == 0) {
                     }
-                    if (i2 == 0) {
+                    if (i3 == 0) {
                     }
-                    App2Activity.ANIMATION_DURATION_ACTIVITY_ENTER = i3;
+                    App2Activity.ANIMATION_DURATION_ACTIVITY_ENTER = i4;
                     if (parseApo.getCount(false) > 0) {
                     }
                     new XAdRemoteClickHandler().onAdClicked(this, iXAdInstanceInfo, Boolean.TRUE, getShouBaiLpFlag(this.mAdContainerCxt, iXAdInstanceInfo));
@@ -852,11 +851,11 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
         count = XAdSDKRemoteExp.SearchBoxAct.count(lastOpenAppTime) | z;
         if (count == 0) {
         }
-        i = count;
+        i2 = count;
         xAdInstanceInfoExt3 = xAdInstanceInfoExt;
         str = "version";
-        i2 = i;
-        if (i2 == 0) {
+        i3 = i2;
+        if (i3 == 0) {
         }
         xAdInstanceInfoExt4 = null;
         HashMap hashMap22 = new HashMap();
@@ -864,16 +863,16 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
         }
         hashMap22.put("exp_main", "" + parseApo.getCount(true));
         hashMap22.put("exp_lite", "" + parseApo32.getCount(true));
-        hashMap22.put("exp_allow", "" + i2);
+        hashMap22.put("exp_allow", "" + i3);
         if (jSONObject != null) {
         }
-        if (i2 == 0) {
+        if (i3 == 0) {
         }
-        if (i2 == 0) {
+        if (i3 == 0) {
         }
-        if (i2 == 0) {
+        if (i3 == 0) {
         }
-        App2Activity.ANIMATION_DURATION_ACTIVITY_ENTER = i3;
+        App2Activity.ANIMATION_DURATION_ACTIVITY_ENTER = i4;
         if (parseApo.getCount(false) > 0) {
         }
         new XAdRemoteClickHandler().onAdClicked(this, iXAdInstanceInfo, Boolean.TRUE, getShouBaiLpFlag(this.mAdContainerCxt, iXAdInstanceInfo));
@@ -886,7 +885,7 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
 
     public abstract void resetAdContainerName();
 
-    public void resize(int i, int i2) {
+    public void resize(int i2, int i3) {
     }
 
     public void resume() {
@@ -928,8 +927,8 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
         if (list == null) {
             return;
         }
-        for (int i = 0; i < list.size(); i++) {
-            String str = list.get(i);
+        for (int i2 = 0; i2 < list.size(); i2++) {
+            String str = list.get(i2);
             if (!TextUtils.isEmpty(str)) {
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -954,16 +953,16 @@ public abstract class XBaseAdContainer implements IOAdEventListener {
         this.mAdContainerCxt.getEventDispatcher().dispatchEvent(new XAdRemoteEvent("AdImpression", iXAdInstanceInfo.getUniqueId()));
     }
 
-    public void sendRsplashExpClickLog(int i) {
-        sendSplashViewState(9, false, i, HttpStatus.SC_FAILED_DEPENDENCY, this.showRecord);
+    public void sendRsplashExpClickLog(int i2) {
+        sendSplashViewState(9, false, i2, HttpStatus.SC_FAILED_DEPENDENCY, this.showRecord);
     }
 
-    public void sendSplashViewState(int i, boolean z, int i2, int i3, String str) {
-        SplashVSLogUtil.sendLog(this.mAdContainerCxt, i, z, i2, i3, str);
+    public void sendSplashViewState(int i2, boolean z, int i3, int i4, String str) {
+        SplashVSLogUtil.sendLog(this.mAdContainerCxt, i2, z, i3, i4, str);
     }
 
-    public void setAdStateForTest(int i) {
-        this.mAdState = i;
+    public void setAdStateForTest(int i2) {
+        this.mAdState = i2;
     }
 
     public void setParameters(HashMap<String, String> hashMap) {

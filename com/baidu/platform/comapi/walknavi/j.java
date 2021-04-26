@@ -9,27 +9,27 @@ import android.telephony.TelephonyManager;
 public class j extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f9711a;
+    public final /* synthetic */ b f10071a;
 
     public j(b bVar) {
-        this.f9711a = bVar;
+        this.f10071a = bVar;
     }
 
     private void a(Context context) {
         Context context2;
         Context context3;
-        context2 = this.f9711a.y;
+        context2 = this.f10071a.y;
         int a2 = com.baidu.platform.comapi.wnplatform.o.h.a(context2);
         if (a2 != 0) {
-            com.baidu.platform.comapi.walknavi.b.a.f9461a = a2;
-            context3 = this.f9711a.y;
+            com.baidu.platform.comapi.walknavi.b.a.f9816a = a2;
+            context3 = this.f10071a.y;
             com.baidu.platform.comapi.wnplatform.o.h.a(context3, 0);
         }
     }
 
     private void b(Context context) {
         Handler handler;
-        handler = this.f9711a.z;
+        handler = this.f10071a.z;
         handler.postDelayed(new k(this), 2000L);
     }
 

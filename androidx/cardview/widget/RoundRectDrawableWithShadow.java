@@ -86,13 +86,13 @@ public class RoundRectDrawableWithShadow extends Drawable {
         float f5 = f4 / (this.mShadowSize + f4);
         Paint paint = this.mCornerShadowPaint;
         float f6 = this.mCornerRadius + this.mShadowSize;
-        int i = this.mShadowStartColor;
-        paint.setShader(new RadialGradient(0.0f, 0.0f, f6, new int[]{i, i, this.mShadowEndColor}, new float[]{0.0f, f5, 1.0f}, Shader.TileMode.CLAMP));
+        int i2 = this.mShadowStartColor;
+        paint.setShader(new RadialGradient(0.0f, 0.0f, f6, new int[]{i2, i2, this.mShadowEndColor}, new float[]{0.0f, f5, 1.0f}, Shader.TileMode.CLAMP));
         Paint paint2 = this.mEdgeShadowPaint;
         float f7 = this.mCornerRadius;
         float f8 = this.mShadowSize;
-        int i2 = this.mShadowStartColor;
-        paint2.setShader(new LinearGradient(0.0f, (-f7) + f8, 0.0f, (-f7) - f8, new int[]{i2, i2, this.mShadowEndColor}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP));
+        int i3 = this.mShadowStartColor;
+        paint2.setShader(new LinearGradient(0.0f, (-f7) + f8, 0.0f, (-f7) - f8, new int[]{i3, i3, this.mShadowEndColor}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP));
         this.mEdgeShadowPaint.setAntiAlias(false);
     }
 
@@ -182,8 +182,8 @@ public class RoundRectDrawableWithShadow extends Drawable {
     }
 
     private int toEven(float f2) {
-        int i = (int) (f2 + 0.5f);
-        return i % 2 == 1 ? i - 1 : i;
+        int i2 = (int) (f2 + 0.5f);
+        return i2 % 2 == 1 ? i2 - 1 : i2;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -272,10 +272,10 @@ public class RoundRectDrawableWithShadow extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        this.mPaint.setAlpha(i);
-        this.mCornerShadowPaint.setAlpha(i);
-        this.mEdgeShadowPaint.setAlpha(i);
+    public void setAlpha(int i2) {
+        this.mPaint.setAlpha(i2);
+        this.mCornerShadowPaint.setAlpha(i2);
+        this.mEdgeShadowPaint.setAlpha(i2);
     }
 
     public void setColor(@Nullable ColorStateList colorStateList) {

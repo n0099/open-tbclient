@@ -32,10 +32,10 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public static final String VIDEO_LIST = "video_list";
     public static List<VideoItemData> bigDataList;
 
-    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i) {
+    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i2) {
         super(context);
         getIntent().putExtra(VIDEO_LIST, (Serializable) list);
-        getIntent().putExtra(VIDEO_INDEX, i);
+        getIntent().putExtra(VIDEO_INDEX, i2);
     }
 
     public void setIsFromBjhPb(boolean z) {
@@ -54,10 +54,10 @@ public class VideoPlayActivityConfig extends IntentConfig {
         }
     }
 
-    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str) {
+    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i2, Rect rect, String str) {
         super(context);
         getIntent().putExtra(VIDEO_LIST, (Serializable) list);
-        getIntent().putExtra(VIDEO_INDEX, i);
+        getIntent().putExtra(VIDEO_INDEX, i2);
         getIntent().putExtra("from", str);
         getIntent().setSourceBounds(rect);
     }
@@ -69,10 +69,10 @@ public class VideoPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("from", str2);
     }
 
-    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4) {
+    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i2, Rect rect, String str, String str2, String str3, String str4) {
         super(context);
         getIntent().putExtra(VIDEO_LIST, (Serializable) list);
-        getIntent().putExtra(VIDEO_INDEX, i);
+        getIntent().putExtra(VIDEO_INDEX, i2);
         getIntent().putExtra("page_from", str);
         getIntent().putExtra("st_type", str2);
         getIntent().putExtra("yuelaou_locate", str3);
@@ -80,10 +80,10 @@ public class VideoPlayActivityConfig extends IntentConfig {
         getIntent().setSourceBounds(rect);
     }
 
-    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4, String str5) {
+    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
         super(context);
         getIntent().putExtra(VIDEO_LIST, (Serializable) list);
-        getIntent().putExtra(VIDEO_INDEX, i);
+        getIntent().putExtra(VIDEO_INDEX, i2);
         getIntent().putExtra("page_from", str);
         getIntent().putExtra("st_type", str2);
         getIntent().putExtra("yuelaou_locate", str3);

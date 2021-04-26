@@ -53,9 +53,9 @@ public class VideoEvent implements IPoolItem {
         return acquire;
     }
 
-    public static VideoEvent obtain(@NonNull String str, int i) {
+    public static VideoEvent obtain(@NonNull String str, int i2) {
         VideoEvent acquire = sEventPool.acquire();
-        acquire.setType(i);
+        acquire.setType(i2);
         acquire.setAction(str);
         return acquire;
     }
@@ -71,8 +71,8 @@ public class VideoEvent implements IPoolItem {
     }
 
     @PublicMethod
-    public boolean getBooleanExtra(int i) {
-        return getBooleanExtra(i, false);
+    public boolean getBooleanExtra(int i2) {
+        return getBooleanExtra(i2, false);
     }
 
     @PublicMethod
@@ -81,18 +81,18 @@ public class VideoEvent implements IPoolItem {
     }
 
     @PublicMethod
-    public Object getExtra(int i) {
-        return this.mEventBundle.get(i);
+    public Object getExtra(int i2) {
+        return this.mEventBundle.get(i2);
     }
 
     @PublicMethod
-    public int getIntExtra(int i) {
-        return getIntExtra(i, 0);
+    public int getIntExtra(int i2) {
+        return getIntExtra(i2, 0);
     }
 
     @PublicMethod
-    public long getLongExtra(int i) {
-        return getLongExtra(i, 0L);
+    public long getLongExtra(int i2) {
+        return getLongExtra(i2, 0L);
     }
 
     @PublicMethod(version = "11.24.0.0")
@@ -107,8 +107,8 @@ public class VideoEvent implements IPoolItem {
     }
 
     @PublicMethod
-    public String getStringExtra(int i) {
-        return getStringExtra(i, "");
+    public String getStringExtra(int i2) {
+        return getStringExtra(i2, "");
     }
 
     @PublicMethod
@@ -137,8 +137,8 @@ public class VideoEvent implements IPoolItem {
     }
 
     @PublicMethod
-    public void putExtra(int i, Object obj) {
-        this.mEventBundle.put(i, obj);
+    public void putExtra(int i2, Object obj) {
+        this.mEventBundle.put(i2, obj);
     }
 
     @PublicMethod
@@ -153,14 +153,14 @@ public class VideoEvent implements IPoolItem {
 
     @PublicMethod
     public void setBundle(@NonNull SparseArray<Object> sparseArray) {
-        for (int i = 0; i < sparseArray.size(); i++) {
-            this.mEventBundle.put(sparseArray.keyAt(i), sparseArray.valueAt(i));
+        for (int i2 = 0; i2 < sparseArray.size(); i2++) {
+            this.mEventBundle.put(sparseArray.keyAt(i2), sparseArray.valueAt(i2));
         }
     }
 
     @PublicMethod(version = "11.24.0.0")
-    public void setPriority(int i) {
-        this.mPriority = i;
+    public void setPriority(int i2) {
+        this.mPriority = i2;
     }
 
     @PublicMethod
@@ -169,13 +169,13 @@ public class VideoEvent implements IPoolItem {
     }
 
     @PublicMethod
-    public void setTargetType(int i) {
-        this.mTargetType = i;
+    public void setTargetType(int i2) {
+        this.mTargetType = i2;
     }
 
     @PublicMethod
-    public void setType(int i) {
-        this.mType = i;
+    public void setType(int i2) {
+        this.mType = i2;
     }
 
     @NonNull
@@ -223,26 +223,26 @@ public class VideoEvent implements IPoolItem {
     }
 
     @PublicMethod
-    public boolean getBooleanExtra(int i, boolean z) {
-        Object obj = this.mEventBundle.get(i);
+    public boolean getBooleanExtra(int i2, boolean z) {
+        Object obj = this.mEventBundle.get(i2);
         return obj instanceof Boolean ? ((Boolean) obj).booleanValue() : z;
     }
 
     @PublicMethod
-    public int getIntExtra(int i, int i2) {
-        Object obj = this.mEventBundle.get(i);
-        return obj instanceof Integer ? ((Integer) obj).intValue() : i2;
+    public int getIntExtra(int i2, int i3) {
+        Object obj = this.mEventBundle.get(i2);
+        return obj instanceof Integer ? ((Integer) obj).intValue() : i3;
     }
 
     @PublicMethod
-    public long getLongExtra(int i, long j) {
-        Object obj = this.mEventBundle.get(i);
+    public long getLongExtra(int i2, long j) {
+        Object obj = this.mEventBundle.get(i2);
         return obj instanceof Long ? ((Long) obj).longValue() : j;
     }
 
     @PublicMethod
-    public String getStringExtra(int i, String str) {
-        Object obj = this.mEventBundle.get(i);
+    public String getStringExtra(int i2, String str) {
+        Object obj = this.mEventBundle.get(i2);
         return obj != null ? String.valueOf(obj) : str;
     }
 }

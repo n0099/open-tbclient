@@ -8,7 +8,7 @@ import android.view.Window;
 import android.view.WindowManager;
 /* loaded from: classes2.dex */
 public class PassBioDisplayUtil {
-    public static void enableNavigationBarTint(Activity activity, int i) {
+    public static void enableNavigationBarTint(Activity activity, int i2) {
         if (Build.VERSION.SDK_INT >= 19) {
             Window window = activity.getWindow();
             WindowManager.LayoutParams attributes = window.getAttributes();
@@ -17,7 +17,7 @@ public class PassBioDisplayUtil {
         }
         SapiSystemBarTintManager sapiSystemBarTintManager = new SapiSystemBarTintManager(activity);
         sapiSystemBarTintManager.setNavigationBarTintEnabled(true);
-        sapiSystemBarTintManager.setNavigationBarTintColor(i);
+        sapiSystemBarTintManager.setNavigationBarTintColor(i2);
     }
 
     public static int getNavigationBarHeight(Activity activity) {
@@ -32,11 +32,11 @@ public class PassBioDisplayUtil {
             Display defaultDisplay = windowManager.getDefaultDisplay();
             DisplayMetrics displayMetrics = new DisplayMetrics();
             defaultDisplay.getRealMetrics(displayMetrics);
-            int i = displayMetrics.heightPixels;
-            int i2 = displayMetrics.widthPixels;
+            int i2 = displayMetrics.heightPixels;
+            int i3 = displayMetrics.widthPixels;
             DisplayMetrics displayMetrics2 = new DisplayMetrics();
             defaultDisplay.getMetrics(displayMetrics2);
-            return i2 - displayMetrics2.widthPixels > 0 || i - displayMetrics2.heightPixels > 0;
+            return i3 - displayMetrics2.widthPixels > 0 || i2 - displayMetrics2.heightPixels > 0;
         }
         return false;
     }

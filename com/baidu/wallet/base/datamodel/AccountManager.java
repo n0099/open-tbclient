@@ -39,8 +39,8 @@ public final class AccountManager implements NoProguard {
         public String tokenValue;
         public int userType;
 
-        public User(int i, String str) {
-            this.userType = i;
+        public User(int i2, String str) {
+            this.userType = i2;
             this.tokenValue = str;
         }
 
@@ -128,13 +128,13 @@ public final class AccountManager implements NoProguard {
         if (LocalRouter.getInstance(this.mContext).isRequestAvailable(new RouterRequest().provider("hce").action("cleanData"))) {
             LocalRouter.getInstance(this.mContext.getApplicationContext()).route(this.mContext, new RouterRequest().provider("hce").action("cleanData"), new RouterCallback() { // from class: com.baidu.wallet.base.datamodel.AccountManager.1
                 @Override // com.baidu.wallet.router.RouterCallback
-                public void onResult(int i, HashMap hashMap) {
-                    if (i == 5) {
+                public void onResult(int i2, HashMap hashMap) {
+                    if (i2 == 5) {
                         HashMap hashMap2 = new HashMap();
                         hashMap2.put("provider", "hce");
                         hashMap2.put("action", "cleanData");
-                        DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap2.values());
-                        PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap2.values());
+                        DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
+                        PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
                     }
                 }
             });

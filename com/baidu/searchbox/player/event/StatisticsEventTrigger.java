@@ -3,26 +3,26 @@ package com.baidu.searchbox.player.event;
 public class StatisticsEventTrigger extends SingleTargetTrigger {
     public static final int KEY_LOOP_COUNT = 1;
 
-    public void onError(int i, int i2, Object obj) {
+    public void onError(int i2, int i3, Object obj) {
         VideoEvent obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_ERROR);
         obtainEvent.putExtra(2, String.valueOf(obj));
-        obtainEvent.putExtra(4, Integer.valueOf(i2));
+        obtainEvent.putExtra(4, Integer.valueOf(i3));
         triggerEvent(obtainEvent);
     }
 
-    public void onInfo(int i, int i2, Object obj) {
+    public void onInfo(int i2, int i3, Object obj) {
         VideoEvent obtainEvent;
-        if (i == 701) {
+        if (i2 == 701) {
             obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_BUFFER_START);
-        } else if (i == 702) {
+        } else if (i2 == 702) {
             obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_BUFFER_END);
-        } else if (i == 904 || i == 956) {
+        } else if (i2 == 904 || i2 == 956) {
             obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_FIRST_FRAME_DISPLAY);
             obtainEvent.putExtra(2, String.valueOf(obj));
-        } else if (i != 10009) {
+        } else if (i2 != 10009) {
             obtainEvent = null;
         } else {
-            obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_CARLTON);
+            obtainEvent = StatisticsEvent.obtainEvent("statistics_player_carlton");
             obtainEvent.putExtra(2, String.valueOf(obj));
         }
         if (obtainEvent != null) {
@@ -30,9 +30,9 @@ public class StatisticsEventTrigger extends SingleTargetTrigger {
         }
     }
 
-    public void onPlayerComplete(int i) {
+    public void onPlayerComplete(int i2) {
         VideoEvent obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_COMPLETE);
-        obtainEvent.putExtra(1, Integer.valueOf(i));
+        obtainEvent.putExtra(1, Integer.valueOf(i2));
         triggerEvent(obtainEvent);
     }
 
@@ -40,9 +40,9 @@ public class StatisticsEventTrigger extends SingleTargetTrigger {
         triggerEvent(StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_START));
     }
 
-    public void onPlayerStop(int i) {
+    public void onPlayerStop(int i2) {
         VideoEvent obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_STOP);
-        obtainEvent.putExtra(1, Integer.valueOf(i));
+        obtainEvent.putExtra(1, Integer.valueOf(i2));
         triggerEvent(obtainEvent);
     }
 }

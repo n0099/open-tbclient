@@ -51,8 +51,8 @@ public final class ArraysKt___ArraysJvmKt$asList$1 extends AbstractList<Byte> im
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.collections.AbstractList, java.util.List
-    public Byte get(int i) {
-        return Byte.valueOf(this.$this_asList[i]);
+    public Byte get(int i2) {
+        return Byte.valueOf(this.$this_asList[i2]);
     }
 
     public int indexOf(byte b2) {

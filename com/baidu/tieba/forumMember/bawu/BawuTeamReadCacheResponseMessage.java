@@ -16,7 +16,7 @@ public class BawuTeamReadCacheResponseMessage extends CustomResponsedMessage<Obj
         super(2003005);
     }
 
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         DataRes dataRes;
         if (bArr == null) {
             return;

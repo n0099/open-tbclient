@@ -14,8 +14,8 @@ public class DelegateResult implements DelegateDef.ResultCode {
     public final Bundle mResult;
     public final int mResultCode;
 
-    public DelegateResult(int i, Class<? extends ActivityDelegation> cls) {
-        this(i, cls, null);
+    public DelegateResult(int i2, Class<? extends ActivityDelegation> cls) {
+        this(i2, cls, null);
     }
 
     private String getDesc() {
@@ -52,15 +52,15 @@ public class DelegateResult implements DelegateDef.ResultCode {
         return this;
     }
 
-    public DelegateResult(int i, Class<? extends Delegation> cls, @Nullable Bundle bundle) {
-        this(i, cls, bundle, null);
+    public DelegateResult(int i2, Class<? extends Delegation> cls, @Nullable Bundle bundle) {
+        this(i2, cls, bundle, null);
     }
 
-    public DelegateResult(int i, Class<? extends Delegation> cls, @Nullable Bundle bundle, @Nullable Bundle bundle2) {
+    public DelegateResult(int i2, Class<? extends Delegation> cls, @Nullable Bundle bundle, @Nullable Bundle bundle2) {
         this.mDesc = new StringBuilder();
         this.mParams = new Bundle();
         this.mResult = new Bundle();
-        this.mResultCode = i;
+        this.mResultCode = i2;
         this.mDelegation = cls;
         putParams(bundle);
         putResult(bundle2);

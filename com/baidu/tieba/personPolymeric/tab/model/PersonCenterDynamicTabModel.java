@@ -11,37 +11,39 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabHttpResMessage;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabRequestMessage;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabSocketResMessage;
-import d.b.i0.r.q.a2;
+import d.a.i0.r.q.a2;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.User;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonCenterDynamicTabModel extends BdBaseModel {
 
     /* renamed from: g  reason: collision with root package name */
-    public b f20156g;
-    public long i;
+    public b f20674g;
+
+    /* renamed from: i  reason: collision with root package name */
+    public long f20676i;
     public User j;
     public MetaData k;
-    public final d.b.c.c.g.a m;
+    public final d.a.c.c.g.a m;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f20154e = 0;
+    public long f20672e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20155f = false;
+    public boolean f20673f = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<a2> f20157h = new ArrayList();
+    public final List<a2> f20675h = new ArrayList();
     public BdUniqueId l = BdUniqueId.gen();
 
-    /* loaded from: classes3.dex */
-    public class a extends d.b.c.c.g.a {
-        public a(int i, int i2) {
-            super(i, i2);
+    /* loaded from: classes4.dex */
+    public class a extends d.a.c.c.g.a {
+        public a(int i2, int i3) {
+            super(i2, i3);
         }
 
-        @Override // d.b.c.c.g.a
+        @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             long j;
             boolean z;
@@ -64,25 +66,25 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
                 z = false;
             }
             if (responsedMessage.getError() != 0) {
-                if (PersonCenterDynamicTabModel.this.f20156g != null) {
-                    PersonCenterDynamicTabModel.this.f20156g.b(PersonCenterDynamicTabModel.this.f20154e == 0);
+                if (PersonCenterDynamicTabModel.this.f20674g != null) {
+                    PersonCenterDynamicTabModel.this.f20674g.b(PersonCenterDynamicTabModel.this.f20672e == 0);
                     return;
                 }
                 return;
             }
             if (!ListUtils.isEmpty(list)) {
                 PersonCenterDynamicTabModel.this.D(list);
-                PersonCenterDynamicTabModel.this.f20157h.addAll(list);
+                PersonCenterDynamicTabModel.this.f20675h.addAll(list);
             }
-            PersonCenterDynamicTabModel.this.f20155f = z;
-            if (PersonCenterDynamicTabModel.this.f20156g != null) {
-                PersonCenterDynamicTabModel.this.f20156g.a(PersonCenterDynamicTabModel.this.f20157h, PersonCenterDynamicTabModel.this.f20155f, PersonCenterDynamicTabModel.this.f20154e == 0);
+            PersonCenterDynamicTabModel.this.f20673f = z;
+            if (PersonCenterDynamicTabModel.this.f20674g != null) {
+                PersonCenterDynamicTabModel.this.f20674g.a(PersonCenterDynamicTabModel.this.f20675h, PersonCenterDynamicTabModel.this.f20673f, PersonCenterDynamicTabModel.this.f20672e == 0);
             }
-            PersonCenterDynamicTabModel.this.f20154e = j;
+            PersonCenterDynamicTabModel.this.f20672e = j;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(List<a2> list, boolean z, boolean z2);
 
@@ -92,23 +94,23 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public PersonCenterDynamicTabModel(TbPageContext tbPageContext, long j) {
         a aVar = new a(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647);
         this.m = aVar;
-        this.i = j;
+        this.f20676i = j;
         aVar.setTag(this.l);
         MessageManager.getInstance().registerListener(this.m);
     }
 
     public boolean A() {
-        return this.f20155f;
+        return this.f20673f;
     }
 
     public final void B(long j) {
-        PersonCenterDynamicTabRequestMessage personCenterDynamicTabRequestMessage = new PersonCenterDynamicTabRequestMessage(this.i, j, 10);
+        PersonCenterDynamicTabRequestMessage personCenterDynamicTabRequestMessage = new PersonCenterDynamicTabRequestMessage(this.f20676i, j, 10);
         personCenterDynamicTabRequestMessage.setTag(this.l);
         MessageManager.getInstance().sendMessage(personCenterDynamicTabRequestMessage);
     }
 
     public void C() {
-        B(this.f20154e);
+        B(this.f20672e);
     }
 
     public final void D(List<a2> list) {
@@ -129,9 +131,9 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     }
 
     public void E() {
-        this.f20154e = 0L;
-        this.f20157h.clear();
-        B(this.f20154e);
+        this.f20672e = 0L;
+        this.f20675h.clear();
+        B(this.f20672e);
     }
 
     public void F(MetaData metaData) {
@@ -139,7 +141,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     }
 
     public void G(b bVar) {
-        this.f20156g = bVar;
+        this.f20674g = bVar;
     }
 
     public void H(User user) {
@@ -158,9 +160,9 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        this.f20154e = 0L;
-        this.f20155f = false;
-        this.f20157h.clear();
+        this.f20672e = 0L;
+        this.f20673f = false;
+        this.f20675h.clear();
         if (this.m != null) {
             MessageManager.getInstance().unRegisterListener(this.m);
         }

@@ -11,19 +11,19 @@ import androidx.fragment.app.Fragment;
 public class TextureSupportMapFragment extends Fragment {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7066a = TextureSupportMapFragment.class.getSimpleName();
+    public static final String f7319a = TextureSupportMapFragment.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public TextureMapView f7067b;
+    public TextureMapView f7320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BaiduMapOptions f7068c;
+    public BaiduMapOptions f7321c;
 
     public TextureSupportMapFragment() {
     }
 
     public TextureSupportMapFragment(BaiduMapOptions baiduMapOptions) {
-        this.f7068c = baiduMapOptions;
+        this.f7321c = baiduMapOptions;
     }
 
     public static TextureSupportMapFragment newInstance() {
@@ -35,7 +35,7 @@ public class TextureSupportMapFragment extends Fragment {
     }
 
     public BaiduMap getBaiduMap() {
-        TextureMapView textureMapView = this.f7067b;
+        TextureMapView textureMapView = this.f7320b;
         if (textureMapView == null) {
             return null;
         }
@@ -43,7 +43,7 @@ public class TextureSupportMapFragment extends Fragment {
     }
 
     public TextureMapView getMapView() {
-        return this.f7067b;
+        return this.f7320b;
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -68,8 +68,8 @@ public class TextureSupportMapFragment extends Fragment {
 
     @Override // androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        TextureMapView textureMapView = new TextureMapView(getActivity(), this.f7068c);
-        this.f7067b = textureMapView;
+        TextureMapView textureMapView = new TextureMapView(getActivity(), this.f7321c);
+        this.f7320b = textureMapView;
         return textureMapView;
     }
 
@@ -81,7 +81,7 @@ public class TextureSupportMapFragment extends Fragment {
     @Override // androidx.fragment.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.f7067b.onDestroy();
+        this.f7320b.onDestroy();
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -92,13 +92,13 @@ public class TextureSupportMapFragment extends Fragment {
     @Override // androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        this.f7067b.onPause();
+        this.f7320b.onPause();
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        this.f7067b.onResume();
+        this.f7320b.onResume();
     }
 
     @Override // androidx.fragment.app.Fragment

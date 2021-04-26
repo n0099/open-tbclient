@@ -24,13 +24,13 @@ public class PoiNearbySearchOption {
         return this;
     }
 
-    public PoiNearbySearchOption pageCapacity(int i) {
-        this.mPageCapacity = i;
+    public PoiNearbySearchOption pageCapacity(int i2) {
+        this.mPageCapacity = i2;
         return this;
     }
 
-    public PoiNearbySearchOption pageNum(int i) {
-        this.mPageNum = i;
+    public PoiNearbySearchOption pageNum(int i2) {
+        this.mPageNum = i2;
         return this;
     }
 
@@ -39,8 +39,8 @@ public class PoiNearbySearchOption {
         return this;
     }
 
-    public PoiNearbySearchOption radius(int i) {
-        this.mRadius = i;
+    public PoiNearbySearchOption radius(int i2) {
+        this.mRadius = i2;
         return this;
     }
 
@@ -49,8 +49,8 @@ public class PoiNearbySearchOption {
         return this;
     }
 
-    public PoiNearbySearchOption scope(int i) {
-        this.mScope = i;
+    public PoiNearbySearchOption scope(int i2) {
+        this.mScope = i2;
         return this;
     }
 

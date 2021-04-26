@@ -11,27 +11,27 @@ import org.json.JSONException;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentLinkedQueue<com.bytedance.sdk.openadsdk.l.a.a> f29459a = new ConcurrentLinkedQueue<>();
+    public static final ConcurrentLinkedQueue<com.bytedance.sdk.openadsdk.l.a.a> f30364a = new ConcurrentLinkedQueue<>();
 
     public static void a(a aVar, long j, long j2) {
         if (aVar == null) {
             return;
         }
-        f29459a.offer(new com.bytedance.sdk.openadsdk.l.a.a(aVar.a(), aVar.getCorePoolSize(), aVar.getMaximumPoolSize(), j, j2));
+        f30364a.offer(new com.bytedance.sdk.openadsdk.l.a.a(aVar.a(), aVar.getCorePoolSize(), aVar.getMaximumPoolSize(), j, j2));
         a(false);
     }
 
     public static void a(boolean z) {
         int valueOf;
         c g2 = e.g();
-        if ((z || f29459a.size() >= 60) && g2 != null) {
-            synchronized (f29459a) {
-                if (f29459a.isEmpty()) {
+        if ((z || f30364a.size() >= 60) && g2 != null) {
+            synchronized (f30364a) {
+                if (f30364a.isEmpty()) {
                     return;
                 }
-                com.bytedance.sdk.openadsdk.l.a.a[] aVarArr = (com.bytedance.sdk.openadsdk.l.a.a[]) f29459a.toArray(new com.bytedance.sdk.openadsdk.l.a.a[f29459a.size()]);
-                f29459a.clear();
-                int i = 0;
+                com.bytedance.sdk.openadsdk.l.a.a[] aVarArr = (com.bytedance.sdk.openadsdk.l.a.a[]) f30364a.toArray(new com.bytedance.sdk.openadsdk.l.a.a[f30364a.size()]);
+                f30364a.clear();
+                int i2 = 0;
                 if (aVarArr.length != 0) {
                     HashMap hashMap = new HashMap();
                     for (com.bytedance.sdk.openadsdk.l.a.a aVar : aVarArr) {
@@ -74,11 +74,11 @@ public class d {
                 }
                 Set<Thread> keySet = Thread.getAllStackTraces().keySet();
                 HashMap hashMap2 = new HashMap();
-                int i2 = 0;
+                int i3 = 0;
                 for (Thread thread : keySet) {
                     String name = thread.getName();
                     if (!TextUtils.isEmpty(name) && name.startsWith("tt_pangle_thread_")) {
-                        i2++;
+                        i3++;
                         Integer num = (Integer) hashMap2.get(name);
                         if (num == null) {
                             valueOf = 1;
@@ -91,18 +91,18 @@ public class d {
                 JSONArray jSONArray = new JSONArray();
                 for (String str : hashMap2.keySet()) {
                     try {
-                        jSONArray.put(i, ((Integer) hashMap2.get(str)) + "_" + str);
-                        i++;
+                        jSONArray.put(i2, ((Integer) hashMap2.get(str)) + "_" + str);
+                        i2++;
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
                 }
-                g2.a(new com.bytedance.sdk.openadsdk.l.a.b(i2, jSONArray.toString()));
+                g2.a(new com.bytedance.sdk.openadsdk.l.a.b(i3, jSONArray.toString()));
             }
         }
     }
 
-    public static String a(String str, int i, int i2) {
-        return str + "_core_" + i + "_max_" + i2;
+    public static String a(String str, int i2, int i3) {
+        return str + "_core_" + i2 + "_max_" + i3;
     }
 }

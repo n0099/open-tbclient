@@ -1,7 +1,7 @@
 package com.baidu.tieba.faceshop;
 
 import android.text.TextUtils;
-import d.b.j0.k0.c.b;
+import d.a.j0.k0.c.b;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -10,7 +10,7 @@ public class AdsEmotionGroupData implements Serializable, b {
     public String colorCoverUrl;
     public String groupId;
 
-    @Override // d.b.j0.k0.c.b
+    @Override // d.a.j0.k0.c.b
     public boolean IsValid() {
         return !TextUtils.isEmpty(this.colorCoverUrl);
     }
@@ -19,7 +19,7 @@ public class AdsEmotionGroupData implements Serializable, b {
         return this.colorCoverUrl;
     }
 
-    @Override // d.b.j0.k0.c.b
+    @Override // d.a.j0.k0.c.b
     public String getGroupId() {
         return this.groupId;
     }

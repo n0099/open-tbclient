@@ -70,7 +70,7 @@ public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
     }
 
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<Model> buildLoadData(@NonNull Model model, int i, int i2, @NonNull Options options) {
+    public ModelLoader.LoadData<Model> buildLoadData(@NonNull Model model, int i2, int i3, @NonNull Options options) {
         return new ModelLoader.LoadData<>(new ObjectKey(model), new UnitFetcher(model));
     }
 

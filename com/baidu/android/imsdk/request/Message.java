@@ -55,8 +55,8 @@ public abstract class Message {
         return null;
     }
 
-    public static void saveCmdMessage(Context context, Message message, String str, int i) {
-        DBManager.getInstance(context).saveCmdMsg(message.getUUID(), message.getType(), message.getBody(), str, i, 0);
+    public static void saveCmdMessage(Context context, Message message, String str, int i2) {
+        DBManager.getInstance(context).saveCmdMsg(message.getUUID(), message.getType(), message.getBody(), str, i2, 0);
     }
 
     public abstract void buildBody();
@@ -153,9 +153,9 @@ public abstract class Message {
         return this.mUk;
     }
 
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        if (i == 4001 || i == 4003 || i == 4004 || i == 4005) {
-            LoginManager.getInstance(context).triggleLogoutListener(i, str);
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+        if (i2 == 4001 || i2 == 4003 || i2 == 4004 || i2 == 4005) {
+            LoginManager.getInstance(context).triggleLogoutListener(i2, str);
         }
     }
 
@@ -212,8 +212,8 @@ public abstract class Message {
         DBManager.getInstance(context).updateCmdMsgSendStatus(getUUID(), 2);
     }
 
-    public void setType(int i) {
-        this.mType = i;
+    public void setType(int i2) {
+        this.mType = i2;
     }
 
     public void setUUID(String str) {

@@ -9,7 +9,7 @@ public abstract class ImmutableSortedMapFauxverideShim<K, V> extends ImmutableMa
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap.b<K, V> builderWithExpectedSize(int i) {
+    public static <K, V> ImmutableSortedMap.b<K, V> builderWithExpectedSize(int i2) {
         throw new UnsupportedOperationException();
     }
 

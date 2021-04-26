@@ -14,8 +14,8 @@ public class WebMessageAdapter implements WebMessageBoundaryInterface {
 
     public static WebMessagePortCompat[] toWebMessagePortCompats(InvocationHandler[] invocationHandlerArr) {
         WebMessagePortCompat[] webMessagePortCompatArr = new WebMessagePortCompat[invocationHandlerArr.length];
-        for (int i = 0; i < invocationHandlerArr.length; i++) {
-            webMessagePortCompatArr[i] = new WebMessagePortImpl(invocationHandlerArr[i]);
+        for (int i2 = 0; i2 < invocationHandlerArr.length; i2++) {
+            webMessagePortCompatArr[i2] = new WebMessagePortImpl(invocationHandlerArr[i2]);
         }
         return webMessagePortCompatArr;
     }
@@ -36,8 +36,8 @@ public class WebMessageAdapter implements WebMessageBoundaryInterface {
             return null;
         }
         InvocationHandler[] invocationHandlerArr = new InvocationHandler[ports.length];
-        for (int i = 0; i < ports.length; i++) {
-            invocationHandlerArr[i] = ports[i].getInvocationHandler();
+        for (int i2 = 0; i2 < ports.length; i2++) {
+            invocationHandlerArr[i2] = ports[i2].getInvocationHandler();
         }
         return invocationHandlerArr;
     }

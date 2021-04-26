@@ -4,7 +4,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CommandShareHttpResMsg extends JsonHttpResponsedMessage {
     public String token;
 
@@ -13,8 +13,8 @@ public class CommandShareHttpResMsg extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i, jSONObject);
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (getError() != 0 || jSONObject == null) {
             return;
         }

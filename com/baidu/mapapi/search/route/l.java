@@ -14,7 +14,7 @@ public final class l implements Parcelable.Creator<MassTransitRouteResult> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public MassTransitRouteResult[] newArray(int i) {
-        return new MassTransitRouteResult[i];
+    public MassTransitRouteResult[] newArray(int i2) {
+        return new MassTransitRouteResult[i2];
     }
 }

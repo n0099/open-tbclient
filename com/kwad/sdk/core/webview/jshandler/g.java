@@ -1,54 +1,56 @@
 package com.kwad.sdk.core.webview.jshandler;
 
+import android.os.Handler;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.download.b.a;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.t;
-import org.json.JSONException;
+import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class g implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f34722a;
+    public final com.kwad.sdk.core.webview.a f33681a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f34723b;
+    public final AdTemplate f33682b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f34724c;
+    public com.kwad.sdk.core.download.b.b f33683c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f34725d = new a();
+    public final Handler f33684d;
 
     /* loaded from: classes6.dex */
     public static final class a extends com.kwad.sdk.core.response.a.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f34727a;
+        public int f33687a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f34728b;
+        public String f33688b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f34729c;
+        public String f33689c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f34730d;
+        public String f33690d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f34731e;
+        public int f33691e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f34732f;
+        public int f33692f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f34733g;
+        public String f33693g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f34734h;
-        public String i;
+        public String f33694h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public String f33695i;
         public String j;
         public String k;
         public String l;
@@ -59,37 +61,26 @@ public class g implements com.kwad.sdk.core.webview.a.a {
         public boolean p;
     }
 
-    public g(com.kwad.sdk.core.webview.a aVar) {
-        this.f34722a = aVar;
-        AdTemplate adTemplate = new AdTemplate();
-        this.f34723b = adTemplate;
-        try {
-            adTemplate.parseJson(new JSONObject(this.f34722a.f34670b.mOriginJString));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-    }
-
     public static void a(@NonNull AdInfo adInfo, @NonNull a aVar) {
         AdInfo.AdConversionInfo adConversionInfo = adInfo.adConversionInfo;
-        adConversionInfo.deeplinkUrl = aVar.i;
+        adConversionInfo.deeplinkUrl = aVar.f33695i;
         adConversionInfo.marketUrl = aVar.m;
         AdInfo.AdBaseInfo adBaseInfo = adInfo.adBaseInfo;
-        adBaseInfo.adOperationType = aVar.f34727a;
-        adBaseInfo.appPackageName = aVar.f34729c;
-        adBaseInfo.appName = aVar.f34728b;
-        adBaseInfo.appVersion = aVar.f34730d;
-        adBaseInfo.packageSize = aVar.f34732f;
+        adBaseInfo.adOperationType = aVar.f33687a;
+        adBaseInfo.appPackageName = aVar.f33689c;
+        adBaseInfo.appName = aVar.f33688b;
+        adBaseInfo.appVersion = aVar.f33690d;
+        adBaseInfo.packageSize = aVar.f33692f;
         adBaseInfo.appIconUrl = aVar.j;
         adBaseInfo.appDescription = aVar.k;
-        if (!com.kwad.sdk.core.response.b.a.y(adInfo)) {
-            adInfo.adConversionInfo.h5Url = aVar.f34734h;
+        if (!com.kwad.sdk.core.response.b.a.v(adInfo)) {
+            adInfo.adConversionInfo.h5Url = aVar.f33694h;
             return;
         }
         AdInfo.AdConversionInfo adConversionInfo2 = adInfo.adConversionInfo;
-        String str = aVar.f34734h;
+        String str = aVar.f33694h;
         adConversionInfo2.appDownloadUrl = str;
-        adInfo.downloadId = t.a(str);
+        adInfo.downloadId = r.a(str);
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -100,26 +91,45 @@ public class g implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        try {
-            this.f34725d.parseJson(new JSONObject(str));
-            a(com.kwad.sdk.core.response.b.c.j(this.f34723b), this.f34725d);
-            if (this.f34724c == null) {
-                com.kwad.sdk.core.download.b.b bVar = new com.kwad.sdk.core.download.b.b(this.f34723b);
-                this.f34724c = bVar;
-                bVar.a(1);
+        com.kwad.sdk.core.download.b.b bVar;
+        int i2;
+        if (com.kwad.sdk.core.response.b.a.v(com.kwad.sdk.core.response.b.c.g(this.f33682b))) {
+            if (this.f33683c == null) {
+                this.f33683c = new com.kwad.sdk.core.download.b.b(this.f33682b);
             }
-            com.kwad.sdk.core.download.b.a.a(this.f34722a.f34673e.getContext(), this.f34723b, new a.InterfaceC0396a() { // from class: com.kwad.sdk.core.webview.jshandler.g.1
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0396a
-                public void a() {
-                }
-            }, this.f34724c);
-        } catch (JSONException e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+            bVar = this.f33683c;
+            i2 = 2;
+        } else {
+            AdInfo g2 = com.kwad.sdk.core.response.b.c.g(this.f33682b);
+            a aVar = new a();
+            try {
+                aVar.parseJson(new JSONObject(str));
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
+            }
+            a(g2, aVar);
+            if (this.f33683c == null) {
+                this.f33683c = new com.kwad.sdk.core.download.b.b(this.f33682b);
+            }
+            bVar = this.f33683c;
+            i2 = 1;
         }
+        bVar.a(i2);
+        this.f33684d.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.g.1
+            @Override // java.lang.Runnable
+            public void run() {
+                com.kwad.sdk.core.download.b.a.a(g.this.f33681a.f33625e.getContext(), g.this.f33682b, new a.InterfaceC0376a() { // from class: com.kwad.sdk.core.webview.jshandler.g.1.1
+                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC0376a
+                    public void a() {
+                    }
+                }, g.this.f33683c, false);
+            }
+        });
         cVar.a(null);
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
+        this.f33684d.removeCallbacksAndMessages(null);
     }
 }

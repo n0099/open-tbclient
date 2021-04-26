@@ -22,8 +22,8 @@ public class LightAppCallQRCodeScannerModel implements NoProguard {
         return JsonUtils.toJson(this);
     }
 
-    public LightAppCallQRCodeScannerModel(int i) {
+    public LightAppCallQRCodeScannerModel(int i2) {
         this();
-        this.result = i;
+        this.result = i2;
     }
 }

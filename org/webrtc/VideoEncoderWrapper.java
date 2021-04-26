@@ -32,5 +32,5 @@ public class VideoEncoderWrapper {
         return scalingSettings.on;
     }
 
-    public static native void nativeOnEncodedFrame(long j, ByteBuffer byteBuffer, int i, int i2, long j2, int i3, int i4, boolean z, Integer num);
+    public static native void nativeOnEncodedFrame(long j, ByteBuffer byteBuffer, int i2, int i3, long j2, int i4, int i5, boolean z, Integer num);
 }

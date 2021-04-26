@@ -6,6 +6,7 @@ import android.util.Log;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Locale;
 /* loaded from: classes.dex */
 public class RomUtils {
     public static final String KEY_VERSION_EMUI = "ro.build.version.emui";
@@ -44,7 +45,7 @@ public class RomUtils {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static String check() {
         char c2;
-        String lowerCase = Build.MANUFACTURER.toLowerCase();
+        String lowerCase = Build.MANUFACTURER.toLowerCase(Locale.getDefault());
         switch (lowerCase.hashCode()) {
             case -1443430368:
                 if (lowerCase.equals(MANUFACTURER_SMARTISAN)) {
@@ -89,7 +90,7 @@ public class RomUtils {
                 c2 = 65535;
                 break;
             case 103777484:
-                if (lowerCase.equals(MANUFACTURER_MEIZU)) {
+                if (lowerCase.equals("meizu")) {
                     c2 = 7;
                     break;
                 }
@@ -164,7 +165,7 @@ public class RomUtils {
                 }
                 return getOtherRomName();
             case 7:
-                if (Build.DISPLAY.toUpperCase().contains("FLYME")) {
+                if (Build.DISPLAY.toUpperCase(Locale.getDefault()).contains("FLYME")) {
                     sRomName = "FLYME";
                     return "FLYME";
                 }
@@ -202,11 +203,11 @@ public class RomUtils {
     public static String getOtherRomName() {
         String str = Build.DISPLAY;
         sRomVersion = str;
-        if (str.toUpperCase().contains("FLYME")) {
+        if (str.toUpperCase(Locale.getDefault()).contains("FLYME")) {
             sRomName = "FLYME";
         } else {
             sRomVersion = "unknown";
-            sRomName = Build.MANUFACTURER.toUpperCase();
+            sRomName = Build.MANUFACTURER.toUpperCase(Locale.getDefault());
         }
         return sRomName;
     }
@@ -286,7 +287,7 @@ public class RomUtils {
 
     public static boolean isFlymeQuickly() {
         String str = Build.DISPLAY;
-        return !TextUtils.isEmpty(str) && str.toUpperCase().contains("FLYME");
+        return !TextUtils.isEmpty(str) && str.toUpperCase(Locale.getDefault()).contains("FLYME");
     }
 
     public static boolean isMagicBoxDevice() {
@@ -359,11 +360,11 @@ public class RomUtils {
                                 } else {
                                     String str3 = Build.DISPLAY;
                                     sRomVersion = str3;
-                                    if (str3.toUpperCase().contains("FLYME")) {
+                                    if (str3.toUpperCase(Locale.getDefault()).contains("FLYME")) {
                                         sRomName = "FLYME";
                                     } else {
                                         sRomVersion = "unknown";
-                                        sRomName = Build.MANUFACTURER.toUpperCase();
+                                        sRomName = Build.MANUFACTURER.toUpperCase(Locale.getDefault());
                                     }
                                 }
                             }

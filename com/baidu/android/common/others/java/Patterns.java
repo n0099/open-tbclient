@@ -29,10 +29,10 @@ public class Patterns {
     public static final String concatGroups(Matcher matcher) {
         StringBuilder sb = new StringBuilder();
         int groupCount = matcher.groupCount();
-        for (int i = 1; i <= groupCount; i++) {
-            String group = matcher.group(i);
+        for (int i2 = 1; i2 <= groupCount; i2++) {
+            String group = matcher.group(i2);
             PrintStream printStream = System.err;
-            printStream.println("Group(" + i + ") : " + group);
+            printStream.println("Group(" + i2 + ") : " + group);
             if (group != null) {
                 sb.append(group);
             }
@@ -44,8 +44,8 @@ public class Patterns {
         StringBuilder sb = new StringBuilder();
         String group = matcher.group();
         int length = group.length();
-        for (int i = 0; i < length; i++) {
-            char charAt = group.charAt(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            char charAt = group.charAt(i2);
             if (charAt == '+' || Character.isDigit(charAt)) {
                 sb.append(charAt);
             }

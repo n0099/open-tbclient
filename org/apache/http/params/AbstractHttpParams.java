@@ -17,7 +17,7 @@ public abstract class AbstractHttpParams implements HttpParams {
     }
 
     @Override // org.apache.http.params.HttpParams
-    public int getIntParameter(String str, int i) {
+    public int getIntParameter(String str, int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -47,7 +47,7 @@ public abstract class AbstractHttpParams implements HttpParams {
     }
 
     @Override // org.apache.http.params.HttpParams
-    public HttpParams setIntParameter(String str, int i) {
+    public HttpParams setIntParameter(String str, int i2) {
         throw new RuntimeException("Stub!");
     }
 

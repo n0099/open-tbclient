@@ -10,21 +10,23 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.baidu.tieba.recapp.lego.view.form.FormCardView;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class FormItemBaseView extends RelativeLayout implements FormCardView.d {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20516e;
+    public Context f21060e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Resources f20517f;
+    public Resources f21061f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20518g;
+    public int f21062g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20519h;
-    public int i;
+    public int f21063h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f21064i;
     public int j;
     public int k;
     public int l;
@@ -40,27 +42,27 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
     public Activity v;
     public float w;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public enum DrawableType {
         ERROR_FRAME,
         ORDINARY_FRAME
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f20520a;
+        public static final /* synthetic */ int[] f21065a;
 
         static {
             int[] iArr = new int[DrawableType.values().length];
-            f20520a = iArr;
+            f21065a = iArr;
             try {
                 iArr[DrawableType.ERROR_FRAME.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f20520a[DrawableType.ORDINARY_FRAME.ordinal()] = 2;
+                f21065a[DrawableType.ORDINARY_FRAME.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -68,11 +70,11 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
 
     public FormItemBaseView(Context context) {
         super(context);
-        this.f20516e = null;
-        this.f20517f = null;
-        this.f20518g = 0;
-        this.f20519h = 0;
-        this.i = 0;
+        this.f21060e = null;
+        this.f21061f = null;
+        this.f21062g = 0;
+        this.f21063h = 0;
+        this.f21064i = 0;
         this.j = 0;
         this.k = 0;
         this.l = 0;
@@ -95,10 +97,10 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
 
     public void c(View view, DrawableType drawableType) {
         this.t = view;
-        int i = a.f20520a[drawableType.ordinal()];
-        if (i == 1) {
+        int i2 = a.f21065a[drawableType.ordinal()];
+        if (i2 == 1) {
             this.t.setBackgroundResource(R.drawable.form_frame_red);
-        } else if (i != 2) {
+        } else if (i2 != 2) {
             this.t.setBackgroundDrawable(null);
         } else {
             this.t.setBackgroundResource(R.drawable.form_frame_white);
@@ -106,17 +108,17 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
     }
 
     public final void d(Context context) {
-        this.f20516e = context;
+        this.f21060e = context;
         this.v = (Activity) context;
         Resources resources = context.getApplicationContext().getResources();
-        this.f20517f = resources;
+        this.f21061f = resources;
         this.m = resources.getColor(R.color.form_font_color);
-        this.q = this.f20517f.getColor(R.color.form_button_font_color);
-        this.r = this.f20517f.getColor(R.color.form_button_grey_bg_color);
+        this.q = this.f21061f.getColor(R.color.form_button_font_color);
+        this.r = this.f21061f.getColor(R.color.form_button_grey_bg_color);
         this.s = -1;
         this.l = -1;
-        this.f20517f.getDrawable(R.drawable.form_frame_white);
-        this.f20517f.getDrawable(R.drawable.form_frame_red);
+        this.f21061f.getDrawable(R.drawable.form_frame_white);
+        this.f21061f.getDrawable(R.drawable.form_frame_red);
     }
 
     public void e() {
@@ -124,26 +126,26 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
 
     public void f(float f2) {
         this.w = f2;
-        this.f20517f.getDimension(R.dimen.form_size90);
-        float dimension = this.f20517f.getDimension(R.dimen.form_font_size28);
-        float dimension2 = this.f20517f.getDimension(R.dimen.form_font_size20);
-        float dimension3 = this.f20517f.getDimension(R.dimen.form_font_size36);
+        this.f21061f.getDimension(R.dimen.form_size90);
+        float dimension = this.f21061f.getDimension(R.dimen.form_font_size28);
+        float dimension2 = this.f21061f.getDimension(R.dimen.form_font_size20);
+        float dimension3 = this.f21061f.getDimension(R.dimen.form_font_size36);
         float f3 = this.w;
-        this.f20518g = (int) (((int) this.f20517f.getDimension(R.dimen.form_size20)) * f3);
-        this.f20519h = (int) (((int) this.f20517f.getDimension(R.dimen.form_size40)) * f3);
-        this.i = (int) (((int) this.f20517f.getDimension(R.dimen.form_size50)) * f3);
-        this.j = (int) (((int) this.f20517f.getDimension(R.dimen.form_size80)) * f3);
-        this.k = (int) (((int) this.f20517f.getDimension(R.dimen.form_size240)) * f3);
+        this.f21062g = (int) (((int) this.f21061f.getDimension(R.dimen.form_size20)) * f3);
+        this.f21063h = (int) (((int) this.f21061f.getDimension(R.dimen.form_size40)) * f3);
+        this.f21064i = (int) (((int) this.f21061f.getDimension(R.dimen.form_size50)) * f3);
+        this.j = (int) (((int) this.f21061f.getDimension(R.dimen.form_size80)) * f3);
+        this.k = (int) (((int) this.f21061f.getDimension(R.dimen.form_size240)) * f3);
         this.n = (int) (dimension * f3);
         this.o = (int) (dimension2 * f3);
         this.p = (int) (dimension3 * f3);
     }
 
     public boolean g(FormCard.b bVar) {
-        if (bVar != null && bVar.f20423a != -1 && !TextUtils.isEmpty(bVar.f20424b)) {
+        if (bVar != null && bVar.f20966a != -1 && !TextUtils.isEmpty(bVar.f20967b)) {
             setVisibility(0);
             e();
-            this.u = bVar.f20425c;
+            this.u = bVar.f20968c;
             return true;
         }
         setVisibility(8);
@@ -169,11 +171,11 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
 
     public FormItemBaseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20516e = null;
-        this.f20517f = null;
-        this.f20518g = 0;
-        this.f20519h = 0;
-        this.i = 0;
+        this.f21060e = null;
+        this.f21061f = null;
+        this.f21062g = 0;
+        this.f21063h = 0;
+        this.f21064i = 0;
         this.j = 0;
         this.k = 0;
         this.l = 0;
@@ -190,13 +192,13 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         d(context);
     }
 
-    public FormItemBaseView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f20516e = null;
-        this.f20517f = null;
-        this.f20518g = 0;
-        this.f20519h = 0;
-        this.i = 0;
+    public FormItemBaseView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f21060e = null;
+        this.f21061f = null;
+        this.f21062g = 0;
+        this.f21063h = 0;
+        this.f21064i = 0;
         this.j = 0;
         this.k = 0;
         this.l = 0;

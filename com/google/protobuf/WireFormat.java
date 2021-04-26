@@ -73,9 +73,9 @@ public final class WireFormat {
             return true;
         }
 
-        FieldType(JavaType javaType, int i) {
+        FieldType(JavaType javaType, int i2) {
             this.javaType = javaType;
-            this.wireType = i;
+            this.wireType = i2;
         }
     }
 
@@ -102,15 +102,15 @@ public final class WireFormat {
         }
     }
 
-    public static int getTagFieldNumber(int i) {
-        return i >>> 3;
+    public static int getTagFieldNumber(int i2) {
+        return i2 >>> 3;
     }
 
-    public static int getTagWireType(int i) {
-        return i & 7;
+    public static int getTagWireType(int i2) {
+        return i2 & 7;
     }
 
-    public static int makeTag(int i, int i2) {
-        return (i << 3) | i2;
+    public static int makeTag(int i2, int i3) {
+        return (i2 << 3) | i3;
     }
 }

@@ -57,10 +57,10 @@ public class CharArrayCodec implements ObjectDeserializer {
             }
             if (z) {
                 char[] cArr = new char[collection.size()];
-                int i = 0;
+                int i2 = 0;
                 for (String str : collection) {
-                    cArr[i] = str.charAt(0);
-                    i++;
+                    cArr[i2] = str.charAt(0);
+                    i2++;
                 }
                 return cArr;
             }

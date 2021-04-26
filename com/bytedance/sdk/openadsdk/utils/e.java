@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, ArrayList<String>> f30107a = new HashMap<>();
+    public static HashMap<String, ArrayList<String>> f31024a = new HashMap<>();
 
     public static ArrayList<String> a(Context context, String str) {
         Signature[] b2;
@@ -19,8 +19,8 @@ public class e {
             if (packageName == null) {
                 return null;
             }
-            if (f30107a.get(str) != null) {
-                return f30107a.get(str);
+            if (f31024a.get(str) != null) {
+                return f31024a.get(str);
             }
             arrayList = new ArrayList<>();
             try {
@@ -38,7 +38,7 @@ public class e {
             } catch (Exception e2) {
                 u.b(e2.toString());
             }
-            f30107a.put(str, arrayList);
+            f31024a.put(str, arrayList);
         }
         return arrayList;
     }
@@ -56,9 +56,9 @@ public class e {
         StringBuilder sb = new StringBuilder();
         ArrayList<String> a2 = a(context, "SHA1");
         if (a2 != null && a2.size() != 0) {
-            for (int i = 0; i < a2.size(); i++) {
-                sb.append(a2.get(i));
-                if (i < a2.size() - 1) {
+            for (int i2 = 0; i2 < a2.size(); i2++) {
+                sb.append(a2.get(i2));
+                if (i2 < a2.size() - 1) {
                     sb.append(",");
                 }
             }

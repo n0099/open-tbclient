@@ -9,19 +9,19 @@ import com.baidu.tieba.pushdialog.PushDialogActivity;
 public class HomeWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4071a = "HomeWatcher";
+    public static final String f4132a = "HomeWatcher";
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f4072b;
+    public final Context f4133b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final IntentFilter f4073c = new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS");
+    public final IntentFilter f4134c = new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS");
 
     /* renamed from: d  reason: collision with root package name */
-    public OnHomePressedListener f4074d;
+    public OnHomePressedListener f4135d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f4075e;
+    public a f4136e;
 
     /* loaded from: classes.dex */
     public interface OnHomePressedListener {
@@ -34,16 +34,16 @@ public class HomeWatcher {
     public class a extends BroadcastReceiver {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f4076a = "reason";
+        public final String f4137a = "reason";
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f4077b = "globalactions";
+        public final String f4138b = "globalactions";
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f4078c = PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS;
+        public final String f4139c = PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f4079d = "homekey";
+        public final String f4140d = "homekey";
 
         public a() {
         }
@@ -51,37 +51,37 @@ public class HomeWatcher {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             String stringExtra;
-            if (!intent.getAction().equals("android.intent.action.CLOSE_SYSTEM_DIALOGS") || (stringExtra = intent.getStringExtra("reason")) == null || HomeWatcher.this.f4074d == null) {
+            if (!intent.getAction().equals("android.intent.action.CLOSE_SYSTEM_DIALOGS") || (stringExtra = intent.getStringExtra("reason")) == null || HomeWatcher.this.f4135d == null) {
                 return;
             }
             if (stringExtra.equals("homekey")) {
-                HomeWatcher.this.f4074d.onHomePressed();
+                HomeWatcher.this.f4135d.onHomePressed();
             } else if (stringExtra.equals(PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS)) {
-                HomeWatcher.this.f4074d.onHomeLongPressed();
+                HomeWatcher.this.f4135d.onHomeLongPressed();
             }
         }
     }
 
     public HomeWatcher(Context context) {
-        this.f4072b = context;
+        this.f4133b = context;
     }
 
     public void setOnHomePressedListener(OnHomePressedListener onHomePressedListener) {
-        this.f4074d = onHomePressedListener;
-        this.f4075e = new a();
+        this.f4135d = onHomePressedListener;
+        this.f4136e = new a();
     }
 
     public void startWatch() {
-        a aVar = this.f4075e;
+        a aVar = this.f4136e;
         if (aVar != null) {
-            this.f4072b.registerReceiver(aVar, this.f4073c);
+            this.f4133b.registerReceiver(aVar, this.f4134c);
         }
     }
 
     public void stopWatch() {
-        a aVar = this.f4075e;
+        a aVar = this.f4136e;
         if (aVar != null) {
-            this.f4072b.unregisterReceiver(aVar);
+            this.f4133b.unregisterReceiver(aVar);
         }
     }
 }

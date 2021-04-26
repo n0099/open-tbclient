@@ -69,13 +69,13 @@ public class SyncAllMessage extends SyncStrategy {
     }
 
     public int getState() {
-        int i;
-        return (this.mState == 1 && ((i = this.mTriggerReason) == 0 || i == 1)) ? 0 : 1;
+        int i2;
+        return (this.mState == 1 && ((i2 = this.mTriggerReason) == 0 || i2 == 1)) ? 0 : 1;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public void onComplete(int i) {
-        super.onComplete(i);
+    public void onComplete(int i2) {
+        super.onComplete(i2);
     }
 
     public void reset() {

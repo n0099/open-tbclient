@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class ImageFormatChecker {
     public static ImageFormatChecker sInstance;
     @Nullable
@@ -45,19 +45,19 @@ public class ImageFormatChecker {
         return imageFormatChecker;
     }
 
-    public static int readHeaderFromStream(int i, InputStream inputStream, byte[] bArr) throws IOException {
+    public static int readHeaderFromStream(int i2, InputStream inputStream, byte[] bArr) throws IOException {
         Preconditions.checkNotNull(inputStream);
         Preconditions.checkNotNull(bArr);
-        Preconditions.checkArgument(bArr.length >= i);
+        Preconditions.checkArgument(bArr.length >= i2);
         if (inputStream.markSupported()) {
             try {
-                inputStream.mark(i);
-                return ByteStreams.read(inputStream, bArr, 0, i);
+                inputStream.mark(i2);
+                return ByteStreams.read(inputStream, bArr, 0, i2);
             } finally {
                 inputStream.reset();
             }
         }
-        return ByteStreams.read(inputStream, bArr, 0, i);
+        return ByteStreams.read(inputStream, bArr, 0, i2);
     }
 
     private void updateMaxHeaderLength() {
@@ -72,9 +72,9 @@ public class ImageFormatChecker {
 
     public ImageFormat determineImageFormat(InputStream inputStream) throws IOException {
         Preconditions.checkNotNull(inputStream);
-        int i = this.mMaxHeaderLength;
-        byte[] bArr = new byte[i];
-        int readHeaderFromStream = readHeaderFromStream(i, inputStream, bArr);
+        int i2 = this.mMaxHeaderLength;
+        byte[] bArr = new byte[i2];
+        int readHeaderFromStream = readHeaderFromStream(i2, inputStream, bArr);
         ImageFormat determineFormat = this.mDefaultFormatChecker.determineFormat(bArr, readHeaderFromStream);
         if (determineFormat == null || determineFormat == ImageFormat.UNKNOWN) {
             List<ImageFormat.FormatChecker> list = this.mCustomImageFormatCheckers;

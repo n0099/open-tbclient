@@ -8,8 +8,8 @@ public final class AI01320xDecoder extends AI013x0xDecoder {
     }
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder
-    public void addWeightCode(StringBuilder sb, int i) {
-        if (i < 10000) {
+    public void addWeightCode(StringBuilder sb, int i2) {
+        if (i2 < 10000) {
             sb.append("(3202)");
         } else {
             sb.append("(3203)");
@@ -17,7 +17,7 @@ public final class AI01320xDecoder extends AI013x0xDecoder {
     }
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder
-    public int checkWeight(int i) {
-        return i < 10000 ? i : i - 10000;
+    public int checkWeight(int i2) {
+        return i2 < 10000 ? i2 : i2 - 10000;
     }
 }

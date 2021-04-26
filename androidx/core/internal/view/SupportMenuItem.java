@@ -6,7 +6,7 @@ import android.view.MenuItem;
 import android.view.View;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.ActionProvider;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public interface SupportMenuItem extends MenuItem {
     public static final int SHOW_AS_ACTION_ALWAYS = 2;
@@ -47,14 +47,18 @@ public interface SupportMenuItem extends MenuItem {
     @Override // android.view.MenuItem
     boolean isActionViewExpanded();
 
+    boolean requiresActionButton();
+
+    boolean requiresOverflow();
+
     @Override // android.view.MenuItem
-    MenuItem setActionView(int i);
+    MenuItem setActionView(int i2);
 
     @Override // android.view.MenuItem
     MenuItem setActionView(View view);
 
     @Override // android.view.MenuItem
-    MenuItem setAlphabeticShortcut(char c2, int i);
+    MenuItem setAlphabeticShortcut(char c2, int i2);
 
     @Override // android.view.MenuItem
     SupportMenuItem setContentDescription(CharSequence charSequence);
@@ -66,16 +70,16 @@ public interface SupportMenuItem extends MenuItem {
     MenuItem setIconTintMode(PorterDuff.Mode mode);
 
     @Override // android.view.MenuItem
-    MenuItem setNumericShortcut(char c2, int i);
+    MenuItem setNumericShortcut(char c2, int i2);
 
     @Override // android.view.MenuItem
-    MenuItem setShortcut(char c2, char c3, int i, int i2);
+    MenuItem setShortcut(char c2, char c3, int i2, int i3);
 
     @Override // android.view.MenuItem
-    void setShowAsAction(int i);
+    void setShowAsAction(int i2);
 
     @Override // android.view.MenuItem
-    MenuItem setShowAsActionFlags(int i);
+    MenuItem setShowAsActionFlags(int i2);
 
     SupportMenuItem setSupportActionProvider(ActionProvider actionProvider);
 

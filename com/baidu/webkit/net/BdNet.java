@@ -76,15 +76,15 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     public static class a implements X509TrustManager {
 
         /* renamed from: a  reason: collision with root package name */
-        public X509TrustManager f26722a;
+        public X509TrustManager f27533a;
 
         /* renamed from: b  reason: collision with root package name */
-        public X509TrustManager f26723b;
+        public X509TrustManager f27534b;
 
         public a(KeyStore keyStore) throws KeyStoreException {
             try {
-                this.f26722a = a(null);
-                this.f26723b = a(keyStore);
+                this.f27533a = a(null);
+                this.f27534b = a(keyStore);
             } catch (NoSuchAlgorithmException e2) {
                 e2.printStackTrace();
             }
@@ -99,25 +99,25 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             try {
-                this.f26722a.checkClientTrusted(x509CertificateArr, str);
+                this.f27533a.checkClientTrusted(x509CertificateArr, str);
             } catch (CertificateException unused) {
-                this.f26723b.checkClientTrusted(x509CertificateArr, str);
+                this.f27534b.checkClientTrusted(x509CertificateArr, str);
             }
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             try {
-                this.f26722a.checkServerTrusted(x509CertificateArr, str);
+                this.f27533a.checkServerTrusted(x509CertificateArr, str);
             } catch (CertificateException unused) {
-                this.f26723b.checkServerTrusted(x509CertificateArr, str);
+                this.f27534b.checkServerTrusted(x509CertificateArr, str);
             }
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
-            X509Certificate[] acceptedIssuers = this.f26722a.getAcceptedIssuers();
-            X509Certificate[] acceptedIssuers2 = this.f26723b.getAcceptedIssuers();
+            X509Certificate[] acceptedIssuers = this.f27533a.getAcceptedIssuers();
+            X509Certificate[] acceptedIssuers2 = this.f27534b.getAcceptedIssuers();
             X509Certificate[] x509CertificateArr = (X509Certificate[]) Arrays.copyOf(acceptedIssuers, acceptedIssuers.length + acceptedIssuers2.length);
             System.arraycopy(acceptedIssuers2, 0, x509CertificateArr, acceptedIssuers.length, acceptedIssuers2.length);
             return x509CertificateArr;
@@ -126,8 +126,8 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
 
     public BdNet(Context context) {
         this.mContext = new WeakReference<>(context);
-        if (e.a().f26744c == null) {
-            e.a().f26744c = getContext().getApplicationContext();
+        if (e.a().f27555c == null) {
+            e.a().f27555c = getContext().getApplicationContext();
         }
         this.mTaskList = new Vector<>();
         this.mWorkerList = new Vector<>();
@@ -139,8 +139,8 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
 
     private boolean isComplete() {
         int size = this.mWorkerList.size();
-        for (int i = 0; i < size; i++) {
-            if (this.mWorkerList.get(i).a()) {
+        for (int i2 = 0; i2 < size; i2++) {
+            if (this.mWorkerList.get(i2).a()) {
                 return false;
             }
         }
@@ -177,7 +177,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
             d2.getWorker().a(bdNetEngine);
             return d2;
         } else if (pollTask != null) {
-            worker.f26746a = pollTask;
+            worker.f27557a = pollTask;
             worker.a(bdNetEngine);
             pollTask.setWorker(worker);
             return pollTask;
@@ -191,15 +191,15 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                 if (e.b()) {
                     e a2 = e.a();
                     try {
-                        if (a2.f26742a != null) {
-                            a2.f26742a.clear();
-                            a2.f26742a = null;
+                        if (a2.f27553a != null) {
+                            a2.f27553a.clear();
+                            a2.f27553a = null;
                         }
-                        int size = a2.f26743b.size();
-                        for (int i = 0; i < size; i++) {
-                            a2.f26743b.get(i).stopDownload();
+                        int size = a2.f27554b.size();
+                        for (int i2 = 0; i2 < size; i2++) {
+                            a2.f27554b.get(i2).stopDownload();
                         }
-                        a2.f26743b.clear();
+                        a2.f27554b.clear();
                         releaseSSLContext();
                         BdNetTask.clearTaskPool();
                         e.c();
@@ -274,10 +274,10 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     }
 
     @Override // com.baidu.webkit.net.BdNetEngine.b
-    public void onNetDownloadError(BdNetEngine bdNetEngine, BdNetTask bdNetTask, NetError netError, int i) {
+    public void onNetDownloadError(BdNetEngine bdNetEngine, BdNetTask bdNetTask, NetError netError, int i2) {
         INetListener iNetListener = this.mListener;
         if (iNetListener != null) {
-            iNetListener.onNetDownloadError(this, bdNetTask, netError, i);
+            iNetListener.onNetDownloadError(this, bdNetTask, netError, i2);
         }
     }
 
@@ -290,10 +290,10 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     }
 
     @Override // com.baidu.webkit.net.BdNetEngine.b
-    public void onNetReceiveData(BdNetEngine bdNetEngine, BdNetTask bdNetTask, byte[] bArr, int i) {
+    public void onNetReceiveData(BdNetEngine bdNetEngine, BdNetTask bdNetTask, byte[] bArr, int i2) {
         INetListener iNetListener = this.mListener;
         if (iNetListener != null) {
-            iNetListener.onNetReceiveData(this, bdNetTask, bArr, i);
+            iNetListener.onNetReceiveData(this, bdNetTask, bArr, i2);
         }
     }
 
@@ -306,27 +306,27 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     }
 
     @Override // com.baidu.webkit.net.BdNetEngine.b
-    public boolean onNetRedirect(BdNetEngine bdNetEngine, BdNetTask bdNetTask, int i) {
+    public boolean onNetRedirect(BdNetEngine bdNetEngine, BdNetTask bdNetTask, int i2) {
         INetListener iNetListener = this.mListener;
         if (iNetListener != null) {
-            return iNetListener.onNetRedirect(this, bdNetTask, i);
+            return iNetListener.onNetRedirect(this, bdNetTask, i2);
         }
         return true;
     }
 
     @Override // com.baidu.webkit.net.BdNetEngine.b
-    public void onNetResponseCode(BdNetEngine bdNetEngine, BdNetTask bdNetTask, int i) {
+    public void onNetResponseCode(BdNetEngine bdNetEngine, BdNetTask bdNetTask, int i2) {
         INetListener iNetListener = this.mListener;
         if (iNetListener != null) {
-            iNetListener.onNetResponseCode(this, bdNetTask, i);
+            iNetListener.onNetResponseCode(this, bdNetTask, i2);
         }
     }
 
     @Override // com.baidu.webkit.net.BdNetEngine.b
-    public void onNetStateChanged(BdNetEngine bdNetEngine, BdNetTask bdNetTask, NetState netState, int i) {
+    public void onNetStateChanged(BdNetEngine bdNetEngine, BdNetTask bdNetTask, NetState netState, int i2) {
         INetListener iNetListener = this.mListener;
         if (iNetListener != null) {
-            iNetListener.onNetStateChanged(this, bdNetTask, netState, i);
+            iNetListener.onNetStateChanged(this, bdNetTask, netState, i2);
         }
     }
 
@@ -339,10 +339,10 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     }
 
     @Override // com.baidu.webkit.net.BdNetEngine.b
-    public void onNetUploadData(BdNetEngine bdNetEngine, BdNetTask bdNetTask, int i, int i2) {
+    public void onNetUploadData(BdNetEngine bdNetEngine, BdNetTask bdNetTask, int i2, int i3) {
         INetListener iNetListener = this.mListener;
         if (iNetListener != null) {
-            iNetListener.onNetUploadData(this, bdNetTask, i, i2);
+            iNetListener.onNetUploadData(this, bdNetTask, i2, i3);
         }
     }
 
@@ -364,18 +364,18 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         this.mListener = iNetListener;
     }
 
-    public void setPoolSize(int i) {
-        if (i <= 0 || i > 3) {
+    public void setPoolSize(int i2) {
+        if (i2 <= 0 || i2 > 3) {
             return;
         }
-        this.mPoolSize = i;
+        this.mPoolSize = i2;
     }
 
-    public void setPriority(int i) {
-        if (i < 0 || i > 3) {
+    public void setPriority(int i2) {
+        if (i2 < 0 || i2 > 3) {
             return;
         }
-        this.mPriority = i;
+        this.mPriority = i2;
     }
 
     public void start(BdNetTask bdNetTask) throws NullPointerException {

@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.aperf.bosuploader.ZipUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import d.b.c0.b.a.a;
+import d.a.c0.b.a.a;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
@@ -56,11 +56,11 @@ public class FileUploadStrategy implements IUpload {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
         public int compareTo(@NonNull FileEntity fileEntity) {
-            int i = ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) > 0L ? 1 : ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) == 0L ? 0 : -1));
-            if (i > 0) {
+            int i2 = ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) > 0L ? 1 : ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) == 0L ? 0 : -1));
+            if (i2 > 0) {
                 return -1;
             }
-            return i < 0 ? 1 : 0;
+            return i2 < 0 ? 1 : 0;
         }
     }
 
@@ -178,8 +178,8 @@ public class FileUploadStrategy implements IUpload {
         public long mLifeTime;
         public int mMaxCount;
 
-        public TrimConfig(int i, long j) {
-            this.mMaxCount = i;
+        public TrimConfig(int i2, long j) {
+            this.mMaxCount = i2;
             this.mLifeTime = j;
         }
     }
@@ -253,19 +253,19 @@ public class FileUploadStrategy implements IUpload {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean doUpload(int i) {
-        int i2;
+    public boolean doUpload(int i2) {
+        int i3;
         Pair<LinkedList<FileEntity>, LinkedList<File>> clearInvalidFiles = clearInvalidFiles();
         if (clearInvalidFiles == null) {
             return false;
         }
         if (((LinkedList) clearInvalidFiles.first).size() > 0) {
             Iterator it = ((LinkedList) clearInvalidFiles.first).iterator();
-            i2 = 0;
-            while (it.hasNext() && i2 < i) {
+            i3 = 0;
+            while (it.hasNext() && i3 < i2) {
                 FileEntity fileEntity = (FileEntity) it.next();
                 if (fileEntity != null) {
-                    i2++;
+                    i3++;
                     ResponseEntity uploadAction = uploadAction(fileEntity);
                     if (uploadAction == null || !uploadAction.isSuccess()) {
                         break;
@@ -274,9 +274,9 @@ public class FileUploadStrategy implements IUpload {
                 }
             }
         } else {
-            i2 = 0;
+            i3 = 0;
         }
-        return i2 == i;
+        return i3 == i2;
     }
 
     @NonNull
@@ -284,7 +284,7 @@ public class FileUploadStrategy implements IUpload {
         LinkedList linkedList = new LinkedList();
         LinkedList linkedList2 = new LinkedList();
         long currentTimeMillis = System.currentTimeMillis();
-        int i = 0;
+        int i2 = 0;
         for (File file : fileArr) {
             if (file != null && file.exists()) {
                 FileEntity fileEntity = FileEntity.getFileEntity(file);
@@ -303,9 +303,9 @@ public class FileUploadStrategy implements IUpload {
         if (linkedList.size() > trimConfig.mMaxCount) {
             Iterator it = linkedList.iterator();
             while (it.hasNext()) {
-                i++;
+                i2++;
                 FileEntity fileEntity2 = (FileEntity) it.next();
-                if (i > trimConfig.mMaxCount) {
+                if (i2 > trimConfig.mMaxCount) {
                     linkedList2.add(fileEntity2.mFile);
                     it.remove();
                 }
@@ -360,16 +360,16 @@ public class FileUploadStrategy implements IUpload {
         return new ResponseEntity(false);
     }
 
-    public void reUpload(final int i) {
+    public void reUpload(final int i2) {
         ThreadPoolExecutor threadPoolExecutor;
-        if (i > 0 && (threadPoolExecutor = this.mUploadExecutor) != null) {
+        if (i2 > 0 && (threadPoolExecutor = this.mUploadExecutor) != null) {
             threadPoolExecutor.execute(new Runnable() { // from class: com.baidu.searchbox.aperf.bosuploader.uploadstrategy.FileUploadStrategy.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (!FileUploadStrategy.this.doUpload(i)) {
+                    if (!FileUploadStrategy.this.doUpload(i2)) {
                         FileUploadStrategy.this.updateFileFlag();
                     } else {
-                        FileUploadStrategy.this.reUpload(i);
+                        FileUploadStrategy.this.reUpload(i2);
                     }
                 }
             });

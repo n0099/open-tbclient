@@ -12,8 +12,8 @@ import javax.annotation.concurrent.ThreadSafe;
 @TargetApi(26)
 /* loaded from: classes6.dex */
 public class OreoDecoder extends DefaultDecoder {
-    public OreoDecoder(BitmapPool bitmapPool, int i, Pools.SynchronizedPool synchronizedPool) {
-        super(bitmapPool, i, synchronizedPool);
+    public OreoDecoder(BitmapPool bitmapPool, int i2, Pools.SynchronizedPool synchronizedPool) {
+        super(bitmapPool, i2, synchronizedPool);
     }
 
     public static boolean hasColorGamutMismatch(BitmapFactory.Options options) {
@@ -22,7 +22,7 @@ public class OreoDecoder extends DefaultDecoder {
     }
 
     @Override // com.facebook.imagepipeline.platform.DefaultDecoder
-    public int getBitmapSize(int i, int i2, BitmapFactory.Options options) {
-        return hasColorGamutMismatch(options) ? i * i2 * 8 : BitmapUtil.getSizeInByteForBitmap(i, i2, options.inPreferredConfig);
+    public int getBitmapSize(int i2, int i3, BitmapFactory.Options options) {
+        return hasColorGamutMismatch(options) ? i2 * i3 * 8 : BitmapUtil.getSizeInByteForBitmap(i2, i3, options.inPreferredConfig);
     }
 }

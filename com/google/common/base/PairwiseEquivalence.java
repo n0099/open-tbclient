@@ -1,6 +1,6 @@
 package com.google.common.base;
 
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.io.Serializable;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
@@ -50,10 +50,10 @@ public final class PairwiseEquivalence<T> extends Equivalence<Iterable<T>> imple
     }
 
     public int doHash(Iterable<T> iterable) {
-        int i = 78721;
+        int i2 = 78721;
         for (T t : iterable) {
-            i = (i * 24943) + this.elementEquivalence.hash(t);
+            i2 = (i2 * 24943) + this.elementEquivalence.hash(t);
         }
-        return i;
+        return i2;
     }
 }

@@ -53,19 +53,19 @@ public class TbDimenManager {
         return null;
     }
 
-    private void setDensity(DisplayMetrics displayMetrics, float f2, int i) {
-        TbDimenUtil.setDensity(displayMetrics, f2, i);
+    private void setDensity(DisplayMetrics displayMetrics, float f2, int i2) {
+        TbDimenUtil.setDensity(displayMetrics, f2, i2);
     }
 
-    public void adaptDimen(Context context, float f2, int i) {
+    public void adaptDimen(Context context, float f2, int i2) {
         DisplayMetrics metrics = getMetrics(context);
         DisplayMetrics metrics2 = getMetrics(this.mApplication);
-        setDensity(metrics, f2, i);
-        setDensity(metrics2, f2, i);
+        setDensity(metrics, f2, i2);
+        setDensity(metrics2, f2, i2);
         DisplayMetrics metricsOnMiui = getMetricsOnMiui(context);
         DisplayMetrics metricsOnMiui2 = getMetricsOnMiui(this.mApplication);
-        setDensity(metricsOnMiui, f2, i);
-        setDensity(metricsOnMiui2, f2, i);
+        setDensity(metricsOnMiui, f2, i2);
+        setDensity(metricsOnMiui2, f2, i2);
     }
 
     public float getDefaultDensity() {

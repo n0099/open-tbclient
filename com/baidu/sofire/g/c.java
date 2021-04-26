@@ -59,7 +59,7 @@ public final class c {
     }
 
     public static PublicKey a(String str) {
-        int i;
+        int i2;
         boolean z;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -76,20 +76,20 @@ public final class c {
                     if (certificateArr == null) {
                         certificateArr = a2;
                     } else {
-                        while (i < certificateArr.length) {
-                            int i2 = 0;
+                        while (i2 < certificateArr.length) {
+                            int i3 = 0;
                             while (true) {
-                                if (i2 >= a2.length) {
+                                if (i3 >= a2.length) {
                                     z = false;
                                     break;
-                                } else if (certificateArr[i] != null && certificateArr[i].equals(a2[i2])) {
+                                } else if (certificateArr[i2] != null && certificateArr[i2].equals(a2[i3])) {
                                     z = true;
                                     break;
                                 } else {
-                                    i2++;
+                                    i3++;
                                 }
                             }
-                            i = (z && certificateArr.length == a2.length) ? i + 1 : 0;
+                            i2 = (z && certificateArr.length == a2.length) ? i2 + 1 : 0;
                             jarFile.close();
                             return null;
                         }

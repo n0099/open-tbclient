@@ -10,7 +10,7 @@ import java.util.List;
 public class gg {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40964a;
+    public int f38488a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f432a;
@@ -19,41 +19,43 @@ public class gg {
     public List<fz> f433a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40965b;
+    public String f38489b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40966c;
+    public String f38490c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40967d;
+    public String f38491d;
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f40968a = new a("internal-server-error");
+        public static final a f38492a = new a("internal-server-error");
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f40969b = new a("forbidden");
+        public static final a f38493b = new a("forbidden");
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f40970c = new a("bad-request");
+        public static final a f38494c = new a("bad-request");
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f40971d = new a("conflict");
+        public static final a f38495d = new a("conflict");
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f40972e = new a("feature-not-implemented");
+        public static final a f38496e = new a("feature-not-implemented");
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f40973f = new a("gone");
+        public static final a f38497f = new a("gone");
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f40974g = new a("item-not-found");
+        public static final a f38498g = new a("item-not-found");
 
         /* renamed from: h  reason: collision with root package name */
-        public static final a f40975h = new a("jid-malformed");
-        public static final a i = new a("not-acceptable");
+        public static final a f38499h = new a("jid-malformed");
+
+        /* renamed from: i  reason: collision with root package name */
+        public static final a f38500i = new a("not-acceptable");
         public static final a j = new a("not-allowed");
         public static final a k = new a("not-authorized");
         public static final a l = new a("payment-required");
@@ -82,25 +84,25 @@ public class gg {
         }
     }
 
-    public gg(int i, String str, String str2, String str3, String str4, List<fz> list) {
+    public gg(int i2, String str, String str2, String str3, String str4, List<fz> list) {
         this.f433a = null;
-        this.f40964a = i;
+        this.f38488a = i2;
         this.f432a = str;
-        this.f40966c = str2;
-        this.f40965b = str3;
-        this.f40967d = str4;
+        this.f38490c = str2;
+        this.f38489b = str3;
+        this.f38491d = str4;
         this.f433a = list;
     }
 
     public gg(Bundle bundle) {
         this.f433a = null;
-        this.f40964a = bundle.getInt("ext_err_code");
+        this.f38488a = bundle.getInt("ext_err_code");
         if (bundle.containsKey("ext_err_type")) {
             this.f432a = bundle.getString("ext_err_type");
         }
-        this.f40965b = bundle.getString("ext_err_cond");
-        this.f40966c = bundle.getString("ext_err_reason");
-        this.f40967d = bundle.getString("ext_err_msg");
+        this.f38489b = bundle.getString("ext_err_cond");
+        this.f38490c = bundle.getString("ext_err_reason");
+        this.f38491d = bundle.getString("ext_err_msg");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
             this.f433a = new ArrayList(parcelableArray.length);
@@ -116,11 +118,11 @@ public class gg {
     public gg(a aVar) {
         this.f433a = null;
         a(aVar);
-        this.f40967d = null;
+        this.f38491d = null;
     }
 
     private void a(a aVar) {
-        this.f40965b = aVar.f434a;
+        this.f38489b = aVar.f434a;
     }
 
     public Bundle a() {
@@ -129,28 +131,28 @@ public class gg {
         if (str != null) {
             bundle.putString("ext_err_type", str);
         }
-        bundle.putInt("ext_err_code", this.f40964a);
-        String str2 = this.f40966c;
+        bundle.putInt("ext_err_code", this.f38488a);
+        String str2 = this.f38490c;
         if (str2 != null) {
             bundle.putString("ext_err_reason", str2);
         }
-        String str3 = this.f40965b;
+        String str3 = this.f38489b;
         if (str3 != null) {
             bundle.putString("ext_err_cond", str3);
         }
-        String str4 = this.f40967d;
+        String str4 = this.f38491d;
         if (str4 != null) {
             bundle.putString("ext_err_msg", str4);
         }
         List<fz> list = this.f433a;
         if (list != null) {
             Bundle[] bundleArr = new Bundle[list.size()];
-            int i = 0;
+            int i2 = 0;
             for (fz fzVar : this.f433a) {
                 Bundle a2 = fzVar.a();
                 if (a2 != null) {
-                    bundleArr[i] = a2;
-                    i++;
+                    bundleArr[i2] = a2;
+                    i2++;
                 }
             }
             bundle.putParcelableArray("ext_exts", bundleArr);
@@ -159,33 +161,33 @@ public class gg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m332a() {
+    public String m335a() {
         StringBuilder sb = new StringBuilder();
         sb.append("<error code=\"");
-        sb.append(this.f40964a);
+        sb.append(this.f38488a);
         sb.append("\"");
         if (this.f432a != null) {
             sb.append(" type=\"");
             sb.append(this.f432a);
             sb.append("\"");
         }
-        if (this.f40966c != null) {
+        if (this.f38490c != null) {
             sb.append(" reason=\"");
-            sb.append(this.f40966c);
+            sb.append(this.f38490c);
             sb.append("\"");
         }
         sb.append(">");
-        if (this.f40965b != null) {
+        if (this.f38489b != null) {
             sb.append("<");
-            sb.append(this.f40965b);
+            sb.append(this.f38489b);
             sb.append(" xmlns=\"urn:ietf:params:xml:ns:xmpp-stanzas\"/>");
         }
-        if (this.f40967d != null) {
+        if (this.f38491d != null) {
             sb.append("<text xml:lang=\"en\" xmlns=\"urn:ietf:params:xml:ns:xmpp-stanzas\">");
-            sb.append(this.f40967d);
+            sb.append(this.f38491d);
             sb.append("</text>");
         }
-        for (fz fzVar : m333a()) {
+        for (fz fzVar : m336a()) {
             sb.append(fzVar.d());
         }
         sb.append("</error>");
@@ -193,7 +195,7 @@ public class gg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<fz> m333a() {
+    public synchronized List<fz> m336a() {
         if (this.f433a == null) {
             return Collections.emptyList();
         }
@@ -202,16 +204,16 @@ public class gg {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        String str = this.f40965b;
+        String str = this.f38489b;
         if (str != null) {
             sb.append(str);
         }
         sb.append("(");
-        sb.append(this.f40964a);
+        sb.append(this.f38488a);
         sb.append(SmallTailInfo.EMOTION_SUFFIX);
-        if (this.f40967d != null) {
+        if (this.f38491d != null) {
             sb.append(" ");
-            sb.append(this.f40967d);
+            sb.append(this.f38491d);
         }
         return sb.toString();
     }

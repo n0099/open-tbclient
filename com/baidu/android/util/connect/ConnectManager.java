@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.NetworkInfo;
 import android.net.Proxy;
 import com.baidu.webkit.internal.ConectivityUtils;
+import java.util.Locale;
 @Deprecated
 /* loaded from: classes.dex */
 public class ConnectManager {
@@ -24,7 +25,7 @@ public class ConnectManager {
 
     private void checkApn(NetworkInfo networkInfo) {
         String lowerCase;
-        if (networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
+        if (networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase(Locale.getDefault())) != null) {
             if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
                 if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
                     this.mUseWap = true;
@@ -69,7 +70,7 @@ public class ConnectManager {
     private void checkNetworkType(Context context) {
         NetworkInfo activeNetworkInfo = NetWorkUtils.getActiveNetworkInfo(context);
         if (activeNetworkInfo != null) {
-            if ("wifi".equals(activeNetworkInfo.getTypeName().toLowerCase())) {
+            if ("wifi".equals(activeNetworkInfo.getTypeName().toLowerCase(Locale.getDefault()))) {
                 this.mNetType = "wifi";
                 this.mUseWap = false;
             } else {
@@ -98,7 +99,7 @@ public class ConnectManager {
         }
         if (activeNetworkInfo.getType() == 0) {
             int subtype = activeNetworkInfo.getSubtype();
-            String lowerCase = activeNetworkInfo.getExtraInfo() == null ? "none" : activeNetworkInfo.getExtraInfo().toLowerCase();
+            String lowerCase = activeNetworkInfo.getExtraInfo() == null ? "none" : activeNetworkInfo.getExtraInfo().toLowerCase(Locale.getDefault());
             StringBuilder sb = new StringBuilder();
             String subtypeName = activeNetworkInfo.getSubtypeName();
             if (subtype != 20) {

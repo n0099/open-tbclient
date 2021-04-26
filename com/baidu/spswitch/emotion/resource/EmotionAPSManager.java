@@ -37,7 +37,7 @@ public class EmotionAPSManager {
 
     /* loaded from: classes2.dex */
     public interface EmotionInstallResultCb {
-        void onResult(int i, String str);
+        void onResult(int i2, String str);
     }
 
     /* loaded from: classes2.dex */
@@ -381,13 +381,13 @@ public class EmotionAPSManager {
         sb.append("表情APS根目录:" + getEmotionRootDir().getPath());
         sb.append("\n合法资源清单:\n");
         Map<String, EmotionResourceInfo> map = this.mResourceMap;
-        int i = 1;
+        int i2 = 1;
         if (map != null && !map.isEmpty()) {
             Iterator<Map.Entry<String, EmotionResourceInfo>> it = this.mResourceMap.entrySet().iterator();
             while (it != null && it.hasNext()) {
                 EmotionResourceInfo value = it.next().getValue();
                 if (value != null) {
-                    sb.append("\n======第" + i + "个资源包======\n");
+                    sb.append("\n======第" + i2 + "个资源包======\n");
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("包名:");
                     sb2.append(value.mPkgName);
@@ -397,18 +397,18 @@ public class EmotionAPSManager {
                     sb.append("\n最大宿主版本号:" + value.mMaxHostVer);
                     sb.append("\nAPS下载路径:" + value.mDownloadFilePath);
                     sb.append("\n包存储路径:" + value.mEmotionResSavePath);
-                    i++;
+                    i2++;
                 }
             }
         } else {
             File[] restoreFileList = getRestoreFileList();
             if (restoreFileList != null && restoreFileList.length > 0) {
-                i = 0;
+                i2 = 0;
             }
             sb.append("\n暂无\n");
             StringBuilder sb3 = new StringBuilder();
             sb3.append("\n表情资源: ");
-            sb3.append(i != 0 ? "下载失败\n" : "下载成功\n");
+            sb3.append(i2 != 0 ? "下载失败\n" : "下载成功\n");
             sb.append(sb3.toString());
         }
         return sb.toString();
@@ -442,12 +442,12 @@ public class EmotionAPSManager {
         File[] restoreFileList = getRestoreFileList();
         if (restoreFileList != null && restoreFileList.length > 0) {
             int length = restoreFileList.length;
-            int i = 0;
+            int i2 = 0;
             while (true) {
-                if (i >= length) {
+                if (i2 >= length) {
                     break;
                 }
-                File file = restoreFileList[i];
+                File file = restoreFileList[i2];
                 EmotionResourceInfo restoreEmotionResourceInfo = restoreEmotionResourceInfo(file);
                 if (restoreEmotionResourceInfo != null) {
                     EmotionResourceInfo emotionResourceInfo = this.mResourceMap.get(restoreEmotionResourceInfo.mPkgName);
@@ -482,7 +482,7 @@ public class EmotionAPSManager {
                 } else {
                     FileUtils.deleteFile(file);
                 }
-                i++;
+                i2++;
             }
             if (this.mLoaded || !DEBUG) {
                 return;
@@ -496,7 +496,7 @@ public class EmotionAPSManager {
     public void mockDoAPSProcess() {
         doAPSProcess(new EmotionResourceInfo(EMOTION_PACKAGE_NAME_FOR_NORMAL, Environment.getExternalStorageDirectory().getPath() + File.separator + "emotion.zip", "", -2L, "0.0.0.0", "255.255.255.255"), new EmotionInstallResultCb() { // from class: com.baidu.spswitch.emotion.resource.EmotionAPSManager.1
             @Override // com.baidu.spswitch.emotion.resource.EmotionAPSManager.EmotionInstallResultCb
-            public void onResult(int i, String str) {
+            public void onResult(int i2, String str) {
             }
         }, true);
     }
@@ -504,7 +504,7 @@ public class EmotionAPSManager {
     public void presetDoAPSProcess() {
         doAPSProcess(new EmotionResourceInfo(EMOTION_PACKAGE_NAME_FOR_NORMAL, EMOTION_PRESET_PATH, "", -1L, "0.0.0.0", "255.255.255.255"), new EmotionInstallResultCb() { // from class: com.baidu.spswitch.emotion.resource.EmotionAPSManager.2
             @Override // com.baidu.spswitch.emotion.resource.EmotionAPSManager.EmotionInstallResultCb
-            public void onResult(int i, String str) {
+            public void onResult(int i2, String str) {
             }
         }, true);
     }

@@ -13,20 +13,20 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.BlackListItemData;
 import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
 import com.baidu.tieba.im.model.BlackListModel;
-import d.b.c.e.p.j;
-import d.b.i0.r.s.a;
+import d.a.c.e.p.j;
+import d.a.i0.r.s.a;
 /* loaded from: classes4.dex */
 public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
-    public d.b.i0.r.s.a mDialog;
-    public d.b.c.c.g.c mListener = new a(0);
+    public d.a.i0.r.s.a mDialog;
+    public d.a.c.c.g.c mListener = new a(0);
     public BlackListModel mModel;
     public BlackListItemData mNeedRemovedData;
-    public d.b.j0.f1.a.c.b mView;
+    public d.a.j0.f1.a.c.b mView;
 
     /* loaded from: classes4.dex */
-    public class a extends d.b.c.c.g.c {
-        public a(int i) {
-            super(i);
+    public class a extends d.a.c.c.g.c {
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -45,12 +45,12 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
                     if (IMBlackListActivity.this.mDialog != null) {
                         IMBlackListActivity.this.mDialog.dismiss();
                     }
-                    IMBlackListActivity.this.mView.k(responseGetMaskInfoMessage.getBlackList());
+                    IMBlackListActivity.this.mView.j(responseGetMaskInfoMessage.getBlackList());
                     return;
                 }
                 IMBlackListActivity.this.showToast(StringUtils.isNull(responseGetMaskInfoMessage.getErrorString()) ? IMBlackListActivity.this.getResources().getString(R.string.neterror) : responseGetMaskInfoMessage.getErrorString());
                 if (j.z()) {
-                    IMBlackListActivity.this.mView.i();
+                    IMBlackListActivity.this.mView.h();
                 }
             } else if (socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage) && ((RequestUpdateMaskInfoMessage) orginalMessage).getMaskType() == 10) {
                 if (responseUpdateMaskInfoMessage.getError() == 0) {
@@ -60,7 +60,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
                     IMBlackListActivity iMBlackListActivity = IMBlackListActivity.this;
                     iMBlackListActivity.showToast(iMBlackListActivity.getPageContext().getString(R.string.black_list_remove_success));
                     if (IMBlackListActivity.this.mNeedRemovedData != null) {
-                        IMBlackListActivity.this.mView.l(IMBlackListActivity.this.mNeedRemovedData);
+                        IMBlackListActivity.this.mView.k(IMBlackListActivity.this.mNeedRemovedData);
                         IMBlackListActivity.this.mNeedRemovedData = null;
                         return;
                     }
@@ -90,8 +90,8 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         public c() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             aVar.show();
             if (IMBlackListActivity.this.mNeedRemovedData != null) {
                 IMBlackListActivity.this.showLoadingDialog();
@@ -105,14 +105,14 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         public d() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
 
     private void createDialog(String str) {
-        d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(getPageContext().getPageActivity());
+        d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getPageContext().getPageActivity());
         this.mDialog = aVar;
         aVar.setMessage(str);
         this.mDialog.setPositiveButton(R.string.confirm, new c());
@@ -127,12 +127,12 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     }
 
     private void initView() {
-        this.mView = new d.b.j0.f1.a.c.b(this);
+        this.mView = new d.a.j0.f1.a.c.b(this);
     }
 
     private void loadData() {
         this.mModel.loadBlackList();
-        this.mView.h();
+        this.mView.g();
     }
 
     private void showDialog(BlackListItemData blackListItemData) {

@@ -26,7 +26,7 @@ public interface j {
 
     void a(String str);
 
-    String[] a(int i);
+    String[] a(int i2);
 
     void b(GetCardInfoResponse.CertificateTypeInfo certificateTypeInfo);
 

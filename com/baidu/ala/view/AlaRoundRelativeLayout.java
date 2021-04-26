@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes.dex */
 public class AlaRoundRelativeLayout extends RelativeLayout {
     public float[] mRadius;
@@ -41,8 +41,8 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
         this.mRectF.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
         setRoundPath();
     }
@@ -52,8 +52,8 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
             return;
         }
         this.mRadius = new float[fArr.length];
-        for (int i = 0; i < fArr.length; i++) {
-            this.mRadius[i] = fArr[i];
+        for (int i2 = 0; i2 < fArr.length; i2++) {
+            this.mRadius[i2] = fArr[i2];
         }
         setRoundPath();
         invalidate();
@@ -67,8 +67,8 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
         init();
     }
 
-    public AlaRoundRelativeLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public AlaRoundRelativeLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         float g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
         this.mRoundLayoutRadius = g2;
         this.mRadius = new float[]{g2, g2, g2, g2, g2, g2, g2, g2};

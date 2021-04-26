@@ -12,8 +12,8 @@ public class BIMKickResSyncRtcInfo extends BIMKickReqSyncRtcInfo {
         return this.mKickedStatus;
     }
 
-    public void setBIMKickedStatus(int i) {
-        this.mKickedStatus = i;
+    public void setBIMKickedStatus(int i2) {
+        this.mKickedStatus = i2;
     }
 
     @Override // com.baidu.android.imrtc.notify.BIMKickReqSyncRtcInfo, com.baidu.android.imrtc.notify.BIMSyncRtcInfo, com.baidu.android.imrtc.BIMRtcInfo

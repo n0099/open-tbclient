@@ -102,14 +102,14 @@ public final class StatusBarUtil {
         WindowManager.LayoutParams attributes = this.window.getAttributes();
         try {
             Class<?> cls = Class.forName("android.view.WindowManager$LayoutParams");
-            int i = cls.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON").getInt(attributes);
+            int i2 = cls.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON").getInt(attributes);
             Field declaredField = cls.getDeclaredField("meizuFlags");
             declaredField.setAccessible(true);
-            int i2 = declaredField.getInt(attributes);
+            int i3 = declaredField.getInt(attributes);
             if (z) {
-                declaredField.set(attributes, Integer.valueOf(i2 | i));
+                declaredField.set(attributes, Integer.valueOf(i3 | i2));
             } else {
-                declaredField.set(attributes, Integer.valueOf((~i) & i2));
+                declaredField.set(attributes, Integer.valueOf((~i2) & i3));
             }
             return true;
         } catch (Exception unused) {
@@ -138,12 +138,12 @@ public final class StatusBarUtil {
         Class<?> cls = this.window.getClass();
         try {
             Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-            int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+            int i2 = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
             Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
             Window window = this.window;
             Object[] objArr = new Object[2];
-            objArr[0] = Integer.valueOf(z ? i : 0);
-            objArr[1] = Integer.valueOf(i);
+            objArr[0] = Integer.valueOf(z ? i2 : 0);
+            objArr[1] = Integer.valueOf(i2);
             method.invoke(window, objArr);
             return true;
         } catch (Exception unused) {
@@ -152,9 +152,9 @@ public final class StatusBarUtil {
     }
 
     public boolean process() {
-        int i = Build.VERSION.SDK_INT;
+        int i2 = Build.VERSION.SDK_INT;
         if (processPrivateAPI() || processLollipopAbove()) {
-            if (i == 19) {
+            if (i2 == 19) {
                 processKitkat();
             }
             processActionBar(this.actionBarView);

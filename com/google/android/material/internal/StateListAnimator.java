@@ -4,13 +4,17 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.util.StateSet;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes6.dex */
 public final class StateListAnimator {
     public final ArrayList<Tuple> tuples = new ArrayList<>();
+    @Nullable
     public Tuple lastMatch = null;
+    @Nullable
     public ValueAnimator runningAnimator = null;
     public final Animator.AnimatorListener animationListener = new AnimatorListenerAdapter() { // from class: com.google.android.material.internal.StateListAnimator.1
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -41,7 +45,7 @@ public final class StateListAnimator {
         }
     }
 
-    private void start(Tuple tuple) {
+    private void start(@NonNull Tuple tuple) {
         ValueAnimator valueAnimator = tuple.animator;
         this.runningAnimator = valueAnimator;
         valueAnimator.start();
@@ -64,17 +68,17 @@ public final class StateListAnimator {
     public void setState(int[] iArr) {
         Tuple tuple;
         int size = this.tuples.size();
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            if (i >= size) {
+            if (i2 >= size) {
                 tuple = null;
                 break;
             }
-            tuple = this.tuples.get(i);
+            tuple = this.tuples.get(i2);
             if (StateSet.stateSetMatches(tuple.specs, iArr)) {
                 break;
             }
-            i++;
+            i2++;
         }
         Tuple tuple2 = this.lastMatch;
         if (tuple == tuple2) {

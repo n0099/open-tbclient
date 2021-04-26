@@ -29,37 +29,37 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     }
 
     private int fillbuf(InputStream inputStream, byte[] bArr) throws IOException {
-        int i = this.markpos;
-        if (i != -1) {
-            int i2 = this.pos - i;
-            int i3 = this.marklimit;
-            if (i2 < i3) {
-                if (i == 0 && i3 > bArr.length && this.count == bArr.length) {
+        int i2 = this.markpos;
+        if (i2 != -1) {
+            int i3 = this.pos - i2;
+            int i4 = this.marklimit;
+            if (i3 < i4) {
+                if (i2 == 0 && i4 > bArr.length && this.count == bArr.length) {
                     int length = bArr.length * 2;
-                    if (length <= i3) {
-                        i3 = length;
+                    if (length <= i4) {
+                        i4 = length;
                     }
-                    byte[] bArr2 = (byte[]) this.byteArrayPool.get(i3, byte[].class);
+                    byte[] bArr2 = (byte[]) this.byteArrayPool.get(i4, byte[].class);
                     System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
                     this.buf = bArr2;
                     this.byteArrayPool.put(bArr);
                     bArr = bArr2;
                 } else {
-                    int i4 = this.markpos;
-                    if (i4 > 0) {
-                        System.arraycopy(bArr, i4, bArr, 0, bArr.length - i4);
+                    int i5 = this.markpos;
+                    if (i5 > 0) {
+                        System.arraycopy(bArr, i5, bArr, 0, bArr.length - i5);
                     }
                 }
-                int i5 = this.pos - this.markpos;
-                this.pos = i5;
+                int i6 = this.pos - this.markpos;
+                this.pos = i6;
                 this.markpos = 0;
                 this.count = 0;
-                int read = inputStream.read(bArr, i5, bArr.length - i5);
-                int i6 = this.pos;
+                int read = inputStream.read(bArr, i6, bArr.length - i6);
+                int i7 = this.pos;
                 if (read > 0) {
-                    i6 += read;
+                    i7 += read;
                 }
-                this.count = i6;
+                this.count = i7;
                 return read;
             }
         }
@@ -105,8 +105,8 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public synchronized void mark(int i) {
-        this.marklimit = Math.max(this.marklimit, i);
+    public synchronized void mark(int i2) {
+        this.marklimit = Math.max(this.marklimit, i2);
         this.markpos = this.pos;
     }
 
@@ -125,9 +125,9 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
                     throw streamClosed();
                 }
                 if (this.count - this.pos > 0) {
-                    int i = this.pos;
-                    this.pos = i + 1;
-                    return bArr[i] & 255;
+                    int i2 = this.pos;
+                    this.pos = i2 + 1;
+                    return bArr[i2] & 255;
                 }
                 return -1;
             }
@@ -191,62 +191,62 @@ public class RecyclableBufferedInputStream extends FilterInputStream {
     }
 
     @VisibleForTesting
-    public RecyclableBufferedInputStream(@NonNull InputStream inputStream, @NonNull ArrayPool arrayPool, int i) {
+    public RecyclableBufferedInputStream(@NonNull InputStream inputStream, @NonNull ArrayPool arrayPool, int i2) {
         super(inputStream);
         this.markpos = -1;
         this.byteArrayPool = arrayPool;
-        this.buf = (byte[]) arrayPool.get(i, byte[].class);
+        this.buf = (byte[]) arrayPool.get(i2, byte[].class);
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public synchronized int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
-        int i3;
+    public synchronized int read(@NonNull byte[] bArr, int i2, int i3) throws IOException {
         int i4;
+        int i5;
         byte[] bArr2 = this.buf;
         if (bArr2 == null) {
             throw streamClosed();
         }
-        if (i2 == 0) {
+        if (i3 == 0) {
             return 0;
         }
         InputStream inputStream = ((FilterInputStream) this).in;
         if (inputStream != null) {
             if (this.pos < this.count) {
-                int i5 = this.count - this.pos >= i2 ? i2 : this.count - this.pos;
-                System.arraycopy(bArr2, this.pos, bArr, i, i5);
-                this.pos += i5;
-                if (i5 == i2 || inputStream.available() == 0) {
-                    return i5;
+                int i6 = this.count - this.pos >= i3 ? i3 : this.count - this.pos;
+                System.arraycopy(bArr2, this.pos, bArr, i2, i6);
+                this.pos += i6;
+                if (i6 == i3 || inputStream.available() == 0) {
+                    return i6;
                 }
-                i += i5;
-                i3 = i2 - i5;
+                i2 += i6;
+                i4 = i3 - i6;
             } else {
-                i3 = i2;
+                i4 = i3;
             }
             while (true) {
-                if (this.markpos == -1 && i3 >= bArr2.length) {
-                    i4 = inputStream.read(bArr, i, i3);
-                    if (i4 == -1) {
-                        return i3 != i2 ? i2 - i3 : -1;
+                if (this.markpos == -1 && i4 >= bArr2.length) {
+                    i5 = inputStream.read(bArr, i2, i4);
+                    if (i5 == -1) {
+                        return i4 != i3 ? i3 - i4 : -1;
                     }
                 } else if (fillbuf(inputStream, bArr2) == -1) {
-                    return i3 != i2 ? i2 - i3 : -1;
+                    return i4 != i3 ? i3 - i4 : -1;
                 } else {
                     if (bArr2 != this.buf && (bArr2 = this.buf) == null) {
                         throw streamClosed();
                     }
-                    i4 = this.count - this.pos >= i3 ? i3 : this.count - this.pos;
-                    System.arraycopy(bArr2, this.pos, bArr, i, i4);
-                    this.pos += i4;
+                    i5 = this.count - this.pos >= i4 ? i4 : this.count - this.pos;
+                    System.arraycopy(bArr2, this.pos, bArr, i2, i5);
+                    this.pos += i5;
                 }
-                i3 -= i4;
-                if (i3 == 0) {
-                    return i2;
+                i4 -= i5;
+                if (i4 == 0) {
+                    return i3;
                 }
                 if (inputStream.available() == 0) {
-                    return i2 - i3;
+                    return i3 - i4;
                 }
-                i += i4;
+                i2 += i5;
             }
         } else {
             throw streamClosed();

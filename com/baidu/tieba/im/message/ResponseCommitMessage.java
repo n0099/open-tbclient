@@ -9,12 +9,12 @@ public abstract class ResponseCommitMessage extends SocketResponsedMessage {
     public long msgId;
     public long recordId;
 
-    public ResponseCommitMessage(int i) {
-        super(i);
+    public ResponseCommitMessage(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
+    public abstract /* synthetic */ void decodeInBackGround(int i2, T t) throws Exception;
 
     public BlockPopInfoData getBlockPopInfoData() {
         return this.mBlockPopInfoData;

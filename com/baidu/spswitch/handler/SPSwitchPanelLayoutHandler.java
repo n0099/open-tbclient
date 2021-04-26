@@ -14,14 +14,14 @@ public class SPSwitchPanelLayoutHandler implements IPanelConflictLayout {
         this.mPanelLayout = view;
     }
 
-    public boolean filterSetVisibility(int i) {
-        if (i == 0) {
+    public boolean filterSetVisibility(int i2) {
+        if (i2 == 0) {
             this.mIsHide = false;
         }
-        if (i == this.mPanelLayout.getVisibility()) {
+        if (i2 == this.mPanelLayout.getVisibility()) {
             return true;
         }
-        return isSoftInputShowing() && i == 0;
+        return isSoftInputShowing() && i2 == 0;
     }
 
     @Override // com.baidu.spswitch.IPanelConflictLayout
@@ -46,18 +46,18 @@ public class SPSwitchPanelLayoutHandler implements IPanelConflictLayout {
         return !this.mIsHide;
     }
 
-    public int[] processOnMeasure(int i, int i2) {
+    public int[] processOnMeasure(int i2, int i3) {
         if (this.mIsHide) {
             this.mPanelLayout.setVisibility(8);
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
-            i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
-            i = makeMeasureSpec;
+            i3 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+            i2 = makeMeasureSpec;
         }
-        return new int[]{i, i2};
+        return new int[]{i2, i3};
     }
 
-    public void refreshPanelHeight(int i) {
-        ViewUtil.refreshHeight(this.mPanelLayout, i);
+    public void refreshPanelHeight(int i2) {
+        ViewUtil.refreshHeight(this.mPanelLayout, i2);
     }
 
     public void setIsSoftInputShowing(boolean z) {

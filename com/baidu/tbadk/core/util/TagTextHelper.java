@@ -21,17 +21,17 @@ public final class TagTextHelper {
         @StringRes
         public int tagStrRes;
 
-        HotTopicTag(@StringRes int i, @ColorRes int i2) {
-            this.tagStrRes = i;
-            this.tagColorRes = i2;
+        HotTopicTag(@StringRes int i2, @ColorRes int i3) {
+            this.tagStrRes = i2;
+            this.tagColorRes = i3;
         }
 
-        public static HotTopicTag getHotTopicTag(int i) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 5) {
+        public static HotTopicTag getHotTopicTag(int i2) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 != 4) {
+                            if (i2 != 5) {
                                 return null;
                             }
                             return FEI;
@@ -47,24 +47,24 @@ public final class TagTextHelper {
     }
 
     @ColorRes
-    public static int getHotTopicTagColorRes(int i) {
-        HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
+    public static int getHotTopicTagColorRes(int i2) {
+        HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i2);
         if (hotTopicTag != null) {
             return hotTopicTag.tagColorRes;
         }
         return R.color.transparent;
     }
 
-    public static String getHotTopicTagStr(@NonNull Context context, int i) {
-        HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
+    public static String getHotTopicTagStr(@NonNull Context context, int i2) {
+        HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i2);
         return hotTopicTag != null ? context.getString(hotTopicTag.tagStrRes) : "";
     }
 
     @ColorRes
-    public static int getIndexTextColorRes(int i) {
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
+    public static int getIndexTextColorRes(int i2) {
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 != 3) {
                     return R.color.CAM_X0110;
                 }
                 return R.color.CAM_X0312;

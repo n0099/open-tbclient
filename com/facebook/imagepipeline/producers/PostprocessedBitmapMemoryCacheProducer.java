@@ -36,12 +36,12 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer<Closeabl
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i) {
+        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i2) {
             if (closeableReference == null) {
-                if (BaseConsumer.isLast(i)) {
-                    getConsumer().onNewResult(null, i);
+                if (BaseConsumer.isLast(i2)) {
+                    getConsumer().onNewResult(null, i2);
                 }
-            } else if (!BaseConsumer.isNotLast(i) || this.mIsRepeatedProcessor) {
+            } else if (!BaseConsumer.isNotLast(i2) || this.mIsRepeatedProcessor) {
                 CloseableReference<CloseableImage> cache = this.mIsMemoryCachedEnabled ? this.mMemoryCache.cache(this.mCacheKey, closeableReference) : null;
                 try {
                     getConsumer().onProgressUpdate(1.0f);
@@ -49,7 +49,7 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer<Closeabl
                     if (cache != null) {
                         closeableReference = cache;
                     }
-                    consumer.onNewResult(closeableReference, i);
+                    consumer.onNewResult(closeableReference, i2);
                 } finally {
                     CloseableReference.closeSafely(cache);
                 }

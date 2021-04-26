@@ -6,8 +6,8 @@ import android.os.HandlerThread;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.lcp.sdk.client.bean.BLCPRequest;
-import d.b.r.a;
-import d.b.s.a.b.d.b;
+import d.a.r.a;
+import d.a.s.a.b.d.b;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -52,25 +52,25 @@ public class AckHandlerThread extends HandlerThread {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryAck(final Context context, final NewAckMessage newAckMessage) {
-        if (!a.f65510e || newAckMessage == null) {
+        if (!a.f63831e || newAckMessage == null) {
             return;
         }
         BLCPRequest bLCPRequest = new BLCPRequest();
-        bLCPRequest.f6413a = 2L;
-        bLCPRequest.f6414b = 95L;
-        bLCPRequest.f6415c = newAckMessage.getBody().getBytes();
-        bLCPRequest.f6416d = System.nanoTime();
+        bLCPRequest.f6598a = 2L;
+        bLCPRequest.f6599b = 95L;
+        bLCPRequest.f6600c = newAckMessage.getBody().getBytes();
+        bLCPRequest.f6601d = System.nanoTime();
         String str = TAG;
-        LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f6416d);
-        d.b.s.a.b.a.c(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
-            @Override // d.b.s.a.b.d.b
-            public void onResponse(int i, String str2, long j, long j2, long j3, byte[] bArr) {
+        LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f6601d);
+        d.a.s.a.b.a.c(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
+            @Override // d.a.s.a.b.d.b
+            public void onResponse(int i2, String str2, long j, long j2, long j3, byte[] bArr) {
                 if (j2 == 95) {
                     try {
                         String str3 = AckHandlerThread.TAG;
-                        LogUtils.d(str3, "retry Ack Response err :" + i + ", methodId :" + j2 + ", data :" + bArr.length);
-                        newAckMessage.handleMessageResult(context, new JSONObject(new String(bArr)), i, str2);
-                        if (i != 0) {
+                        LogUtils.d(str3, "retry Ack Response err :" + i2 + ", methodId :" + j2 + ", data :" + bArr.length);
+                        newAckMessage.handleMessageResult(context, new JSONObject(new String(bArr)), i2, str2);
+                        if (i2 != 0) {
                             if (AckHandlerThread.this.mRetryCount.get() < 3) {
                                 LogUtils.d(AckHandlerThread.TAG, "ack failed, retry~~");
                                 AckHandlerThread.this.mAckHandler.sendMessageDelayed(AckMessage.getSendMessage(1, newAckMessage), 1000L);

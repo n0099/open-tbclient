@@ -53,33 +53,33 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
 
     /* loaded from: classes5.dex */
     public interface Observer {
-        void a(double d2);
+        void a(int i2);
 
-        void b(int i, int i2);
+        void b(double d2);
 
-        void c(int i);
+        void c(int i2);
 
-        void d(int[] iArr);
+        void d(int i2);
 
-        void e(int i);
+        void e(int i2, int i3);
 
-        void onConnectionTypeChanged(int i);
+        void f(int[] iArr);
     }
 
     /* loaded from: classes5.dex */
     public static abstract class RegistrationPolicy {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetworkChangeNotifierAutoDetect f22455a;
+        public NetworkChangeNotifierAutoDetect f23151a;
 
         public abstract void a();
 
         public void b(NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect) {
-            this.f22455a = networkChangeNotifierAutoDetect;
+            this.f23151a = networkChangeNotifierAutoDetect;
         }
 
         public final void c() {
-            this.f22455a.register();
+            this.f23151a.register();
         }
     }
 
@@ -106,53 +106,53 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ConnectivityManager f22457a;
+        public final ConnectivityManager f23153a;
 
         public b(Context context) {
-            this.f22457a = (ConnectivityManager) context.getSystemService("connectivity");
+            this.f23153a = (ConnectivityManager) context.getSystemService("connectivity");
         }
 
         @TargetApi(21)
         public Network[] a() {
-            return this.f22457a.getAllNetworks();
+            return this.f23153a.getAllNetworks();
         }
 
         @TargetApi(21)
         public int b() {
             Network[] allNetworksFiltered;
-            NetworkInfo activeNetworkInfo = this.f22457a.getActiveNetworkInfo();
-            int i = -1;
+            NetworkInfo activeNetworkInfo = this.f23153a.getActiveNetworkInfo();
+            int i2 = -1;
             if (activeNetworkInfo == null) {
                 return -1;
             }
             for (Network network : NetworkChangeNotifierAutoDetect.getAllNetworksFiltered(this, null)) {
                 NetworkInfo d2 = d(network);
                 if (d2 != null && (d2.getType() == activeNetworkInfo.getType() || d2.getType() == 17)) {
-                    i = NetworkChangeNotifierAutoDetect.networkToNetId(network);
+                    i2 = NetworkChangeNotifierAutoDetect.networkToNetId(network);
                 }
             }
-            return i;
+            return i2;
         }
 
         @TargetApi(21)
         public NetworkCapabilities c(Network network) {
-            return this.f22457a.getNetworkCapabilities(network);
+            return this.f23153a.getNetworkCapabilities(network);
         }
 
         public final NetworkInfo d(Network network) {
             try {
                 try {
-                    return this.f22457a.getNetworkInfo(network);
+                    return this.f23153a.getNetworkInfo(network);
                 } catch (NullPointerException unused) {
                     return null;
                 }
             } catch (NullPointerException unused2) {
-                return this.f22457a.getNetworkInfo(network);
+                return this.f23153a.getNetworkInfo(network);
             }
         }
 
         public d e() {
-            return g(this.f22457a.getActiveNetworkInfo());
+            return g(this.f23153a.getActiveNetworkInfo());
         }
 
         @TargetApi(21)
@@ -173,12 +173,12 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
 
         @TargetApi(21)
         public void h(NetworkRequest networkRequest, ConnectivityManager.NetworkCallback networkCallback) {
-            this.f22457a.registerNetworkCallback(networkRequest, networkCallback);
+            this.f23153a.registerNetworkCallback(networkRequest, networkCallback);
         }
 
         @TargetApi(21)
         public void i(ConnectivityManager.NetworkCallback networkCallback) {
-            this.f22457a.unregisterNetworkCallback(networkCallback);
+            this.f23153a.unregisterNetworkCallback(networkCallback);
         }
 
         @TargetApi(21)
@@ -196,30 +196,30 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f22473a;
+        public final boolean f23169a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f22474b;
+        public final int f23170b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f22475c;
+        public final int f23171c;
 
-        public d(boolean z, int i, int i2) {
-            this.f22473a = z;
-            this.f22474b = i;
-            this.f22475c = i2;
+        public d(boolean z, int i2, int i3) {
+            this.f23169a = z;
+            this.f23170b = i2;
+            this.f23171c = i3;
         }
 
         public int a() {
-            return this.f22475c;
+            return this.f23171c;
         }
 
         public int b() {
-            return this.f22474b;
+            return this.f23170b;
         }
 
         public boolean c() {
-            return this.f22473a;
+            return this.f23169a;
         }
     }
 
@@ -227,28 +227,28 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f22476a;
+        public final Context f23172a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final WifiManager f22477b;
+        public final WifiManager f23173b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f22478c;
+        public final boolean f23174c;
 
         public e(Context context) {
-            this.f22476a = context;
-            boolean z = context.getPackageManager().checkPermission("android.permission.ACCESS_WIFI_STATE", this.f22476a.getPackageName()) == 0;
-            this.f22478c = z;
-            this.f22477b = z ? (WifiManager) this.f22476a.getSystemService("wifi") : null;
+            this.f23172a = context;
+            boolean z = context.getPackageManager().checkPermission("android.permission.ACCESS_WIFI_STATE", this.f23172a.getPackageName()) == 0;
+            this.f23174c = z;
+            this.f23173b = z ? (WifiManager) this.f23172a.getSystemService("wifi") : null;
         }
 
         public boolean a() {
-            return this.f22478c;
+            return this.f23174c;
         }
 
         public int b() {
             WifiInfo c2;
-            if (!this.f22478c || this.f22477b == null || (c2 = c()) == null) {
+            if (!this.f23174c || this.f23173b == null || (c2 = c()) == null) {
                 return -1;
             }
             return c2.getLinkSpeed();
@@ -257,19 +257,19 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         public final WifiInfo c() {
             try {
                 try {
-                    return this.f22477b.getConnectionInfo();
+                    return this.f23173b.getConnectionInfo();
                 } catch (NullPointerException unused) {
                     return null;
                 }
             } catch (NullPointerException unused2) {
-                return this.f22477b.getConnectionInfo();
+                return this.f23173b.getConnectionInfo();
             }
         }
 
         public String d() {
             WifiInfo wifiInfo;
             String ssid;
-            Intent registerReceiver = this.f22476a.registerReceiver(null, new IntentFilter(McastConfig.ACTION_NETWORK_STATE_CHANGED));
+            Intent registerReceiver = this.f23172a.registerReceiver(null, new IntentFilter(McastConfig.ACTION_NETWORK_STATE_CHANGED));
             return (registerReceiver == null || (wifiInfo = (WifiInfo) registerReceiver.getParcelableExtra("wifiInfo")) == null || (ssid = wifiInfo.getSSID()) == null) ? "" : ssid;
         }
     }
@@ -317,14 +317,14 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         this.mWifiSSID = currentWifiSSID;
         String str = TAG;
         Log.d(str, "Network connectivity changed, type is: " + this.mConnectionType);
-        this.mObserver.onConnectionTypeChanged(currentConnectionType);
+        this.mObserver.a(currentConnectionType);
     }
 
     @TargetApi(21)
     public static Network[] getAllNetworksFiltered(b bVar, Network network) {
         NetworkCapabilities c2;
         Network[] a2 = bVar.a();
-        int i = 0;
+        int i2 = 0;
         for (Network network2 : a2) {
             if (!network2.equals(network) && (c2 = bVar.c(network2)) != null && c2.hasCapability(12)) {
                 if (c2.hasTransport(4)) {
@@ -332,12 +332,12 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                         return new Network[]{network2};
                     }
                 } else {
-                    a2[i] = network2;
-                    i++;
+                    a2[i2] = network2;
+                    i2++;
                 }
             }
         }
-        return (Network[]) Arrays.copyOf(a2, i);
+        return (Network[]) Arrays.copyOf(a2, i2);
     }
 
     private String getCurrentWifiSSID(d dVar) {
@@ -352,7 +352,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         }
         this.mMaxBandwidthMbps = currentMaxBandwidthInMbps;
         this.mMaxBandwidthConnectionType = this.mConnectionType;
-        this.mObserver.a(currentMaxBandwidthInMbps);
+        this.mObserver.b(currentMaxBandwidthInMbps);
     }
 
     @TargetApi(21)
@@ -485,12 +485,12 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         }
         Network[] allNetworksFiltered = getAllNetworksFiltered(this.mConnectivityManagerDelegate, null);
         int[] iArr = new int[allNetworksFiltered.length * 2];
-        int i = 0;
+        int i2 = 0;
         for (Network network : allNetworksFiltered) {
-            int i2 = i + 1;
-            iArr[i] = networkToNetId(network);
-            i = i2 + 1;
-            iArr[i2] = getCurrentConnectionType(this.mConnectivityManagerDelegate.f(network));
+            int i3 = i2 + 1;
+            iArr[i2] = networkToNetId(network);
+            i2 = i3 + 1;
+            iArr[i3] = getCurrentConnectionType(this.mConnectivityManagerDelegate.f(network));
         }
         return iArr;
     }
@@ -527,10 +527,10 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             if (this.mShouldSignalObserver) {
                 Network[] allNetworksFiltered = getAllNetworksFiltered(this.mConnectivityManagerDelegate, null);
                 int[] iArr = new int[allNetworksFiltered.length];
-                for (int i = 0; i < allNetworksFiltered.length; i++) {
-                    iArr[i] = networkToNetId(allNetworksFiltered[i]);
+                for (int i2 = 0; i2 < allNetworksFiltered.length; i2++) {
+                    iArr[i2] = networkToNetId(allNetworksFiltered[i2]);
                 }
-                this.mObserver.d(iArr);
+                this.mObserver.f(iArr);
             }
         }
     }
@@ -560,32 +560,32 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     public class c extends ConnectivityManager.NetworkCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public Network f22458a;
+        public Network f23154a;
 
         /* loaded from: classes5.dex */
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f22460e;
+            public final /* synthetic */ int f23156e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f22461f;
+            public final /* synthetic */ int f23157f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ boolean f22462g;
+            public final /* synthetic */ boolean f23158g;
 
-            public a(int i, int i2, boolean z) {
-                this.f22460e = i;
-                this.f22461f = i2;
-                this.f22462g = z;
+            public a(int i2, int i3, boolean z) {
+                this.f23156e = i2;
+                this.f23157f = i3;
+                this.f23158g = z;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                NetworkChangeNotifierAutoDetect.this.mObserver.b(this.f22460e, this.f22461f);
-                if (this.f22462g) {
-                    NetworkChangeNotifierAutoDetect.this.mObserver.onConnectionTypeChanged(this.f22461f);
-                    NetworkChangeNotifierAutoDetect.this.mObserver.d(new int[]{this.f22460e});
+                NetworkChangeNotifierAutoDetect.this.mObserver.e(this.f23156e, this.f23157f);
+                if (this.f23158g) {
+                    NetworkChangeNotifierAutoDetect.this.mObserver.a(this.f23157f);
+                    NetworkChangeNotifierAutoDetect.this.mObserver.f(new int[]{this.f23156e});
                 }
             }
         }
@@ -594,36 +594,36 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         public class b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f22464e;
+            public final /* synthetic */ int f23160e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f22465f;
+            public final /* synthetic */ int f23161f;
 
-            public b(int i, int i2) {
-                this.f22464e = i;
-                this.f22465f = i2;
+            public b(int i2, int i3) {
+                this.f23160e = i2;
+                this.f23161f = i3;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                NetworkChangeNotifierAutoDetect.this.mObserver.b(this.f22464e, this.f22465f);
+                NetworkChangeNotifierAutoDetect.this.mObserver.e(this.f23160e, this.f23161f);
             }
         }
 
         /* renamed from: com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect$c$c  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0238c implements Runnable {
+        public class RunnableC0233c implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f22467e;
+            public final /* synthetic */ int f23163e;
 
-            public RunnableC0238c(int i) {
-                this.f22467e = i;
+            public RunnableC0233c(int i2) {
+                this.f23163e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                NetworkChangeNotifierAutoDetect.this.mObserver.c(this.f22467e);
+                NetworkChangeNotifierAutoDetect.this.mObserver.c(this.f23163e);
             }
         }
 
@@ -631,15 +631,15 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         public class d implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Network f22469e;
+            public final /* synthetic */ Network f23165e;
 
             public d(Network network) {
-                this.f22469e = network;
+                this.f23165e = network;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                NetworkChangeNotifierAutoDetect.this.mObserver.e(NetworkChangeNotifierAutoDetect.networkToNetId(this.f22469e));
+                NetworkChangeNotifierAutoDetect.this.mObserver.d(NetworkChangeNotifierAutoDetect.networkToNetId(this.f23165e));
             }
         }
 
@@ -647,20 +647,20 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         public class e implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f22471e;
+            public final /* synthetic */ int f23167e;
 
-            public e(int i) {
-                this.f22471e = i;
+            public e(int i2) {
+                this.f23167e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                NetworkChangeNotifierAutoDetect.this.mObserver.onConnectionTypeChanged(this.f22471e);
+                NetworkChangeNotifierAutoDetect.this.mObserver.a(this.f23167e);
             }
         }
 
         public c() {
-            this.f22458a = null;
+            this.f23154a = null;
         }
 
         public final boolean a(Network network, NetworkCapabilities networkCapabilities) {
@@ -675,16 +675,16 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         }
 
         public final boolean c(Network network) {
-            Network network2 = this.f22458a;
+            Network network2 = this.f23154a;
             return (network2 == null || network2.equals(network)) ? false : true;
         }
 
         public void d() {
             NetworkCapabilities c2;
             Network[] allNetworksFiltered = NetworkChangeNotifierAutoDetect.getAllNetworksFiltered(NetworkChangeNotifierAutoDetect.this.mConnectivityManagerDelegate, null);
-            this.f22458a = null;
+            this.f23154a = null;
             if (allNetworksFiltered.length == 1 && (c2 = NetworkChangeNotifierAutoDetect.this.mConnectivityManagerDelegate.c(allNetworksFiltered[0])) != null && c2.hasTransport(4)) {
-                this.f22458a = allNetworksFiltered[0];
+                this.f23154a = allNetworksFiltered[0];
             }
         }
 
@@ -696,7 +696,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             }
             boolean hasTransport = c2.hasTransport(4);
             if (hasTransport) {
-                this.f22458a = network;
+                this.f23154a = network;
             }
             int networkToNetId = NetworkChangeNotifierAutoDetect.networkToNetId(network);
             NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = NetworkChangeNotifierAutoDetect.this;
@@ -714,11 +714,11 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         }
 
         @Override // android.net.ConnectivityManager.NetworkCallback
-        public void onLosing(Network network, int i) {
+        public void onLosing(Network network, int i2) {
             if (b(network, null)) {
                 return;
             }
-            NetworkChangeNotifierAutoDetect.this.runOnThread(new RunnableC0238c(NetworkChangeNotifierAutoDetect.networkToNetId(network)));
+            NetworkChangeNotifierAutoDetect.this.runOnThread(new RunnableC0233c(NetworkChangeNotifierAutoDetect.networkToNetId(network)));
         }
 
         @Override // android.net.ConnectivityManager.NetworkCallback
@@ -727,8 +727,8 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                 return;
             }
             NetworkChangeNotifierAutoDetect.this.runOnThread(new d(network));
-            if (this.f22458a != null) {
-                this.f22458a = null;
+            if (this.f23154a != null) {
+                this.f23154a = null;
                 for (Network network2 : NetworkChangeNotifierAutoDetect.getAllNetworksFiltered(NetworkChangeNotifierAutoDetect.this.mConnectivityManagerDelegate, network)) {
                     onAvailable(network2);
                 }

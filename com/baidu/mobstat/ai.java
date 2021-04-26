@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.kwai.video.player.NativeErrorCode;
 /* loaded from: classes2.dex */
 public class ai {
     @SuppressLint({"NewApi"})
@@ -29,7 +28,7 @@ public class ai {
         agVar.setBackgroundColor(-16745729);
         agVar.setGravity(17);
         agVar.setText("连接中");
-        agVar.setTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE, "baidu_mtj_edit_txtview");
+        agVar.setTag(-5000, "baidu_mtj_edit_txtview");
         viewGroup.post(new Runnable() { // from class: com.baidu.mobstat.ai.1
             @Override // java.lang.Runnable
             public void run() {
@@ -47,7 +46,7 @@ public class ai {
     }
 
     public static boolean a(View view) {
-        Object tag = view.getTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE);
+        Object tag = view.getTag(-5000);
         return tag != null && (tag instanceof String) && ((String) tag).equals("baidu_mtj_edit_txtview");
     }
 
@@ -88,7 +87,7 @@ public class ai {
         builder.setMessage("是否确认退出连接?");
         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() { // from class: com.baidu.mobstat.ai.3
             @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int i2) {
                 dialogInterface.dismiss();
                 am.a().c();
                 bc.c().a("autotrace: connect close, app close");
@@ -98,7 +97,7 @@ public class ai {
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.baidu.mobstat.ai.4
             @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
+            public void onClick(DialogInterface dialogInterface, int i2) {
                 dialogInterface.dismiss();
             }
         });
@@ -110,16 +109,16 @@ public class ai {
         textView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.mobstat.ai.2
 
             /* renamed from: a  reason: collision with root package name */
-            public int f8469a = 0;
+            public int f8771a = 0;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f8470b = 0;
+            public int f8772b = 0;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f8471c = 0;
+            public int f8773c = 0;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f8472d = 0;
+            public int f8774d = 0;
 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view2, MotionEvent motionEvent) {
@@ -127,24 +126,24 @@ public class ai {
                 int rawY = (int) motionEvent.getRawY();
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    this.f8469a = rawX;
-                    this.f8470b = rawY;
-                    this.f8471c = rawX - view2.getLeft();
-                    this.f8472d = rawY - view2.getTop();
+                    this.f8771a = rawX;
+                    this.f8772b = rawY;
+                    this.f8773c = rawX - view2.getLeft();
+                    this.f8774d = rawY - view2.getTop();
                 } else if (action != 1) {
                     if (action == 2) {
-                        int i = rawX - this.f8471c;
-                        int i2 = rawY - this.f8472d;
+                        int i2 = rawX - this.f8773c;
+                        int i3 = rawY - this.f8774d;
                         Rect rect = new Rect();
                         view.getLocalVisibleRect(rect);
-                        if (rect.contains(new Rect(i, i2, view2.getWidth() + i, view2.getHeight() + i2))) {
+                        if (rect.contains(new Rect(i2, i3, view2.getWidth() + i2, view2.getHeight() + i3))) {
                             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-                            marginLayoutParams.leftMargin = i;
-                            marginLayoutParams.topMargin = i2;
+                            marginLayoutParams.leftMargin = i2;
+                            marginLayoutParams.topMargin = i3;
                             view2.setLayoutParams(marginLayoutParams);
                         }
                     }
-                } else if (ai.b(this.f8469a, (int) motionEvent.getRawX(), this.f8470b, (int) motionEvent.getRawY())) {
+                } else if (ai.b(this.f8771a, (int) motionEvent.getRawX(), this.f8772b, (int) motionEvent.getRawY())) {
                     ai.b((Context) activity);
                 }
                 return true;
@@ -157,9 +156,9 @@ public class ai {
         if (viewGroup == null) {
             return null;
         }
-        for (int i = 0; i < viewGroup.getChildCount(); i++) {
-            View childAt = viewGroup.getChildAt(i);
-            if (childAt != null && (tag = childAt.getTag(NativeErrorCode.EKS_FFMPEG_ERROR_BASE)) != null && (tag instanceof String) && ((String) tag).equals("baidu_mtj_edit_txtview")) {
+        for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
+            View childAt = viewGroup.getChildAt(i2);
+            if (childAt != null && (tag = childAt.getTag(-5000)) != null && (tag instanceof String) && ((String) tag).equals("baidu_mtj_edit_txtview")) {
                 return childAt;
             }
         }

@@ -50,17 +50,16 @@ import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import com.kwai.video.player.PlayerPostEvent;
-import d.b.c.e.p.l;
-import d.b.i0.w.m;
-import d.b.i0.w.n;
-import d.b.j0.d2.k.e.r;
-import d.b.j0.d2.k.e.u0;
-import d.b.j0.d2.k.e.v;
-import d.b.j0.d2.k.e.w;
+import d.a.c.e.p.l;
+import d.a.i0.w.m;
+import d.a.i0.w.n;
+import d.a.j0.d2.k.e.r;
+import d.a.j0.d2.k.e.u0;
+import d.a.j0.d2.k.e.v;
+import d.a.j0.d2.k.e.w;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class PbFullScreenEditorActivity extends BaseActivity implements r.c, VoiceManager.j, d.b.i0.w.b {
+public class PbFullScreenEditorActivity extends BaseActivity implements r.c, VoiceManager.j, d.a.i0.w.b {
     public static final int REPLY_MAX_SIZE = 140;
     public u0 mContentProcessController;
     public Context mContext;
@@ -102,7 +101,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                 PbFullScreenEditorActivity.this.mEditorTools.q();
                 PbFullScreenEditorActivity.this.mEditorTools.y();
             }
-            l.w(PbFullScreenEditorActivity.this.mContext, PbFullScreenEditorActivity.this.mEditContent);
+            l.x(PbFullScreenEditorActivity.this.mContext, PbFullScreenEditorActivity.this.mEditContent);
         }
     }
 
@@ -139,11 +138,11 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         }
 
         @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
 
         @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
     }
 
@@ -162,14 +161,14 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
     public class e extends GestureDetector.SimpleOnGestureListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int[] f19376e = new int[2];
+        public int[] f19840e = new int[2];
 
         public e() {
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
-            l.w(TbadkCoreApplication.getInst(), PbFullScreenEditorActivity.this.getCurrentFocus());
+            l.x(TbadkCoreApplication.getInst(), PbFullScreenEditorActivity.this.getCurrentFocus());
             return super.onFling(motionEvent, motionEvent2, f2, f3);
         }
 
@@ -177,13 +176,13 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         public boolean onSingleTapUp(MotionEvent motionEvent) {
             WholeDisplayGridView wholeDisplayGridView;
             if (motionEvent != null && (wholeDisplayGridView = PbFullScreenEditorActivity.this.mImgsGridView) != null) {
-                wholeDisplayGridView.getLocationInWindow(this.f19376e);
-                int x = ((int) motionEvent.getX()) - this.f19376e[0];
-                int y = ((int) motionEvent.getY()) - this.f19376e[1];
+                wholeDisplayGridView.getLocationInWindow(this.f19840e);
+                int x = ((int) motionEvent.getX()) - this.f19840e[0];
+                int y = ((int) motionEvent.getY()) - this.f19840e[1];
                 if (x >= 0 && x < wholeDisplayGridView.getWidth() && y >= 0 && y < wholeDisplayGridView.getHeight() && wholeDisplayGridView.pointToPosition(x, y) == -1) {
                     PbFullScreenEditorActivity.this.mEditorTools.q();
                     PbFullScreenEditorActivity.this.mEditorTools.y();
-                    l.J(TbadkCoreApplication.getInst(), PbFullScreenEditorActivity.this.mEditContent);
+                    l.K(TbadkCoreApplication.getInst(), PbFullScreenEditorActivity.this.mEditContent);
                 }
             }
             return super.onSingleTapUp(motionEvent);
@@ -201,7 +200,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                 PbFullScreenEditorActivity.this.mEditorTools.q();
                 PbFullScreenEditorActivity.this.mEditorTools.y();
             }
-            l.J(TbadkCoreApplication.getInst(), PbFullScreenEditorActivity.this.mEditContent);
+            l.K(TbadkCoreApplication.getInst(), PbFullScreenEditorActivity.this.mEditContent);
         }
     }
 
@@ -231,15 +230,15 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
     public class i implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f19381e;
+        public final /* synthetic */ String f19845e;
 
         public i(String str) {
-            this.f19381e = str;
+            this.f19845e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            PbFullScreenEditorActivity.this.showToast(this.f19381e);
+            PbFullScreenEditorActivity.this.showToast(this.f19845e);
         }
     }
 
@@ -283,14 +282,14 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
     public void deleteVoice() {
         n nVar;
         if (this.mFullScreenEditor.h() != null) {
-            d.b.i0.r.g0.a.a(d.b.i0.r.g0.a.b(this.mFullScreenEditor.h().voiceId));
+            d.a.i0.r.g0.a.a(d.a.i0.r.g0.a.b(this.mFullScreenEditor.h().voiceId));
         }
         this.mFullScreenEditor.r(null);
         this.mLayoutVoicePlay.setVisibility(8);
         this.mVoicePlayButton.setVoiceModel(null);
         m n = this.mEditorTools.n(6);
         if (n != null && (nVar = n.k) != null) {
-            nVar.onAction(new d.b.i0.w.a(52, 0, null));
+            nVar.onAction(new d.a.i0.w.a(52, 0, null));
         }
         checkPostBtnEnabled();
     }
@@ -359,7 +358,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
             initEditTools(pbEditorData.getEditorType() == 1);
             String disableVoiceMessage = this.mPbEditorData.getDisableVoiceMessage();
             if (!TextUtils.isEmpty(disableVoiceMessage) && (editorTools = this.mEditorTools) != null) {
-                d.b.i0.w.h m = editorTools.m(6);
+                d.a.i0.w.h m = editorTools.m(6);
                 if (m instanceof View) {
                     ((View) m).setOnClickListener(new i(disableVoiceMessage));
                 }
@@ -395,7 +394,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                 this.mFullScreenEditor.r(voiceModel);
                 m n = this.mEditorTools.n(6);
                 if (n != null && (nVar = n.k) != null) {
-                    nVar.onAction(new d.b.i0.w.a(52, 0, voiceModel));
+                    nVar.onAction(new d.a.i0.w.a(52, 0, voiceModel));
                 }
                 EditorTools editorTools2 = this.mEditorTools;
                 editorTools2.x((View) editorTools2.m(6));
@@ -518,14 +517,14 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         return this.mVoiceManager;
     }
 
-    @Override // d.b.i0.w.b
-    public void onAction(d.b.i0.w.a aVar) {
+    @Override // d.a.i0.w.b
+    public void onAction(d.a.i0.w.a aVar) {
         if (aVar == null) {
             return;
         }
-        int i2 = aVar.f52278a;
+        int i2 = aVar.f49949a;
         if (i2 == 3) {
-            d.b.j0.k0.b.a(this.mEditContent);
+            d.a.j0.k0.b.a(this.mEditContent);
         } else if (i2 == 14) {
             ensureWriteImagesInfo();
             AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.mContext, this.mWriteImagesInfo.toJsonString(), true, true);
@@ -534,8 +533,8 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
             if (threadData != null && !TextUtils.isEmpty(threadData.getForumId())) {
                 albumFloatActivityConfig.getIntent().putExtra("forum_id", this.mThreadData.getForumId());
             }
-            albumFloatActivityConfig.setRequestCode(PlayerPostEvent.MEDIA_REP_CHANGE_END);
-            if (d.b.i0.w.w.a.a().b() == 1) {
+            albumFloatActivityConfig.setRequestCode(12002);
+            if (d.a.i0.w.w.a.a().b() == 1) {
                 albumFloatActivityConfig.setRequestFrom(2);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
@@ -547,14 +546,14 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
                 deleteVoice();
                 return;
             }
-            Object obj = aVar.f52280c;
+            Object obj = aVar.f49951c;
             if (obj instanceof VoiceData$VoiceModel) {
                 addVoice((VoiceData$VoiceModel) obj);
             }
         } else {
-            Object obj2 = aVar.f52280c;
-            if (obj2 instanceof d.b.i0.s.c.v) {
-                d.b.i0.s.c.v vVar = (d.b.i0.s.c.v) obj2;
+            Object obj2 = aVar.f49951c;
+            if (obj2 instanceof d.a.i0.s.c.v) {
+                d.a.i0.s.c.v vVar = (d.a.i0.s.c.v) obj2;
                 if (vVar.e() != EmotionGroupType.BIG_EMOTION && vVar.e() != EmotionGroupType.USER_COLLECT) {
                     this.mEditContent.l(vVar);
                     return;
@@ -685,7 +684,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         }
     }
 
-    @Override // d.b.j0.d2.k.e.r.c
+    @Override // d.a.j0.d2.k.e.r.c
     public void onClickImage(int i2) {
         ImageFileInfo imageInfoAt = this.mWriteImagesInfo.getImageInfoAt(i2);
         if (imageInfoAt == null || imageInfoAt.getImageType() == 1) {
@@ -723,7 +722,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         adjustResizeForSoftInput();
     }
 
-    @Override // d.b.j0.d2.k.e.r.c
+    @Override // d.a.j0.d2.k.e.r.c
     public void onDeleteImage(int i2) {
         WriteImagesInfo writeImagesInfo = this.mWriteImagesInfo;
         if (writeImagesInfo == null || writeImagesInfo.getChosedFiles() == null) {
@@ -732,7 +731,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
         if (i2 >= 0 && i2 < this.mWriteImagesInfo.size()) {
             ImageFileInfo remove = this.mWriteImagesInfo.getChosedFiles().remove(i2);
             if (remove.isTempFile()) {
-                d.b.c.e.a.d.g().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
+                d.a.c.e.a.d.g().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
             }
             this.mImgsAdapter.notifyDataSetChanged();
         }
@@ -754,7 +753,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements r.c, Voi
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
-        l.w(this, getCurrentFocus());
+        l.x(this, getCurrentFocus());
         super.onPause();
     }
 

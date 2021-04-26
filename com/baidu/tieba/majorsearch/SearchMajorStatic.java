@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SearchMajorActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.majorsearch.message.SearchMajorHttpResponsedMessage;
-import d.b.j0.d3.d0.a;
+import d.a.j0.d3.d0.a;
 /* loaded from: classes3.dex */
 public class SearchMajorStatic {
     static {

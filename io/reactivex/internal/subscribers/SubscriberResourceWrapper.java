@@ -1,70 +1,70 @@
 package io.reactivex.internal.subscribers;
 
-import f.b.g;
-import f.b.t.b;
-import g.d.c;
-import g.d.d;
+import io.reactivex.FlowableSubscriber;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.concurrent.atomic.AtomicReference;
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
 /* loaded from: classes7.dex */
-public final class SubscriberResourceWrapper<T> extends AtomicReference<b> implements g<T>, b, d {
+public final class SubscriberResourceWrapper<T> extends AtomicReference<Disposable> implements FlowableSubscriber<T>, Disposable, Subscription {
     public static final long serialVersionUID = -8612022020200669122L;
-    public final c<? super T> actual;
-    public final AtomicReference<d> subscription = new AtomicReference<>();
+    public final Subscriber<? super T> actual;
+    public final AtomicReference<Subscription> subscription = new AtomicReference<>();
 
-    public SubscriberResourceWrapper(c<? super T> cVar) {
-        this.actual = cVar;
+    public SubscriberResourceWrapper(Subscriber<? super T> subscriber) {
+        this.actual = subscriber;
     }
 
-    @Override // g.d.d
+    @Override // org.reactivestreams.Subscription
     public void cancel() {
         dispose();
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
         SubscriptionHelper.cancel(this.subscription);
         DisposableHelper.dispose(this);
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         return this.subscription.get() == SubscriptionHelper.CANCELLED;
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onComplete() {
         DisposableHelper.dispose(this);
         this.actual.onComplete();
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onError(Throwable th) {
         DisposableHelper.dispose(this);
         this.actual.onError(th);
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onNext(T t) {
         this.actual.onNext(t);
     }
 
-    @Override // f.b.g, g.d.c
-    public void onSubscribe(d dVar) {
-        if (SubscriptionHelper.setOnce(this.subscription, dVar)) {
+    @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
+    public void onSubscribe(Subscription subscription) {
+        if (SubscriptionHelper.setOnce(this.subscription, subscription)) {
             this.actual.onSubscribe(this);
         }
     }
 
-    @Override // g.d.d
+    @Override // org.reactivestreams.Subscription
     public void request(long j) {
         if (SubscriptionHelper.validate(j)) {
             this.subscription.get().request(j);
         }
     }
 
-    public void setResource(b bVar) {
-        DisposableHelper.set(this, bVar);
+    public void setResource(Disposable disposable) {
+        DisposableHelper.set(this, disposable);
     }
 }

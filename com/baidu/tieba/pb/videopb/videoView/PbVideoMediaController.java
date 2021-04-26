@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class PbVideoMediaController extends OperableVideoMediaControllerView {
     public ProgressBar t;
@@ -25,8 +25,8 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
-    public void o(int i, int i2) {
-        super.o(i, i2);
+    public void o(int i2, int i3) {
+        super.o(i2, i3);
         this.t.setProgress(this.l.getProgress());
     }
 
@@ -46,18 +46,18 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     public void setBottomBarShow(boolean z) {
         this.t.setVisibility(z ? 0 : 8);
         this.l.setVisibility(z ? 8 : 0);
-        this.f20201h.setVisibility(z ? 8 : 0);
-        this.i.setVisibility(z ? 8 : 0);
+        this.f20727h.setVisibility(z ? 8 : 0);
+        this.f20728i.setVisibility(z ? 8 : 0);
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
-    public void setCurrentDuration(int i, boolean z) {
-        super.setCurrentDuration(i, z);
+    public void setCurrentDuration(int i2, boolean z) {
+        super.setCurrentDuration(i2, z);
         if (!z) {
-            this.l.setProgress((int) (((i * 1.0f) / this.p) * 10000.0f));
-            TextView textView = this.f20201h;
+            this.l.setProgress((int) (((i2 * 1.0f) / this.p) * 10000.0f));
+            TextView textView = this.f20727h;
             if (textView != null) {
-                textView.setText(StringHelper.stringForVideoTime(i));
+                textView.setText(StringHelper.stringForVideoTime(i2));
             }
         }
         this.t.setProgress(this.l.getProgress());
@@ -70,8 +70,8 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
             g2 = l.g(getContext(), R.dimen.tbds210);
         }
         layoutParams.height = g2;
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f20201h.getLayoutParams();
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f20727h.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.f20728i.getLayoutParams();
         layoutParams2.leftMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds78);
         layoutParams3.rightMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds150 : R.dimen.tbds184);
     }
@@ -85,8 +85,8 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
         u();
     }
 
-    public PbVideoMediaController(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public PbVideoMediaController(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         u();
     }
 }

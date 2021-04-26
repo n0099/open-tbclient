@@ -9,8 +9,8 @@ public class BDSharedPreferences {
     public static final String KEY_PREFIX_TIME = "time_";
     public SharedPreferences mSharedPreferences;
 
-    public BDSharedPreferences(Context context, String str, int i) {
-        this.mSharedPreferences = context.getApplicationContext().getSharedPreferences(str, i);
+    public BDSharedPreferences(Context context, String str, int i2) {
+        this.mSharedPreferences = context.getApplicationContext().getSharedPreferences(str, i2);
     }
 
     public boolean contains(String str) {

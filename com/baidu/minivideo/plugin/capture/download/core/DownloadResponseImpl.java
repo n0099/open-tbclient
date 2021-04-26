@@ -71,10 +71,10 @@ public class DownloadResponseImpl implements DownloadResponse {
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onDownloadProgress(long j, long j2, int i) {
+    public void onDownloadProgress(long j, long j2, int i2) {
         this.mDownloadStatus.setFinished(j);
         this.mDownloadStatus.setLength(j2);
-        this.mDownloadStatus.setPercent(i);
+        this.mDownloadStatus.setPercent(i2);
         this.mDownloadStatus.setStatus(104);
         this.mDelivery.post(this.mDownloadStatus);
     }

@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser.boxes.piff;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -13,9 +12,9 @@ import java.util.List;
 import kotlin.jvm.internal.ByteCompanionObject;
 /* loaded from: classes6.dex */
 public class TfrfBox extends AbstractFullBox {
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
     public List<Entry> entries;
 
     /* loaded from: classes6.dex */
@@ -59,7 +58,7 @@ public class TfrfBox extends AbstractFullBox {
     public void _parseDetails(ByteBuffer byteBuffer) {
         parseVersionAndFlags(byteBuffer);
         int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-        for (int i = 0; i < readUInt8; i++) {
+        for (int i2 = 0; i2 < readUInt8; i2++) {
             Entry entry = new Entry();
             if (getVersion() == 1) {
                 entry.fragmentAbsoluteTime = IsoTypeReader.readUInt64(byteBuffer);
@@ -104,7 +103,7 @@ public class TfrfBox extends AbstractFullBox {
 
     @Override // com.googlecode.mp4parser.AbstractBox
     public byte[] getUserType() {
-        return new byte[]{-44, ByteCompanionObject.MIN_VALUE, 126, -14, ExifInterface.MARKER_SOF10, 57, 70, -107, -114, 84, 38, ExifInterface.MARKER_SOF11, -98, 70, -89, -97};
+        return new byte[]{-44, ByteCompanionObject.MIN_VALUE, 126, -14, -54, 57, 70, -107, -114, 84, 38, -53, -98, 70, -89, -97};
     }
 
     public String toString() {

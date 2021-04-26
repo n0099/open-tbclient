@@ -73,8 +73,8 @@ public class UgcSharedPreferences {
         return sPref.getBoolean(FRONT_OR_BACK_CAMERA, true);
     }
 
-    public static void setBeautifulLevel(int i) {
-        sPref.edit().putInt(KEY_BEAUTIFUL_LEVEL, i).apply();
+    public static void setBeautifulLevel(int i2) {
+        sPref.edit().putInt(KEY_BEAUTIFUL_LEVEL, i2).apply();
     }
 
     public static void setCameraFront(boolean z) {
@@ -124,16 +124,16 @@ public class UgcSharedPreferences {
         sPref.edit().putLong(LAST_CAPTURE_CONFIG_TIME, j).apply();
     }
 
-    public static void setSaveVideoLocalStatus(int i) {
-        sPref.edit().putInt(KEY_SAVE_VIDEO_LOACL, i).apply();
+    public static void setSaveVideoLocalStatus(int i2) {
+        sPref.edit().putInt(KEY_SAVE_VIDEO_LOACL, i2).apply();
     }
 
-    public static void setShootDisplayLimit(int i) {
-        sPref.edit().putInt(KEY_CONFIG_DISPLAY_TIMES, i).apply();
+    public static void setShootDisplayLimit(int i2) {
+        sPref.edit().putInt(KEY_CONFIG_DISPLAY_TIMES, i2).apply();
     }
 
-    public static void setSyncIconCloseTimes(String str, int i) {
-        sPref.edit().putInt(str, i).apply();
+    public static void setSyncIconCloseTimes(String str, int i2) {
+        sPref.edit().putInt(str, i2).apply();
     }
 
     public static void setSyncVideoPublishConfig(String str) {
@@ -143,7 +143,7 @@ public class UgcSharedPreferences {
         sPref.edit().putString(SYNC_VIDEO_PUBLISH_CONFIG, str).apply();
     }
 
-    public static void setThinFaceLevel(int i) {
-        sPref.edit().putInt(KEY_THIN_FACE_LEVEL, i).apply();
+    public static void setThinFaceLevel(int i2) {
+        sPref.edit().putInt(KEY_THIN_FACE_LEVEL, i2).apply();
     }
 }

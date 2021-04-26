@@ -8,32 +8,34 @@ import com.baidu.tbadk.ProxyAdkBaseActivity;
 import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import d.b.c.a.e;
-import d.b.c.e.p.j;
-import d.b.i0.r.f0.f;
-import d.b.j0.l0.l;
+import d.a.c.a.e;
+import d.a.c.e.p.j;
+import d.a.i0.r.f0.f;
+import d.a.j0.l0.l;
 /* loaded from: classes4.dex */
 public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurchaseRecordsActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public l f15340e;
+    public l f15486e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FacePurchaseRecordsModel f15341f;
+    public FacePurchaseRecordsModel f15487f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15342g;
+    public String f15488g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f15343h = new b();
-    public NoNetworkView.b i = new c();
+    public e f15489h = new b();
+
+    /* renamed from: i  reason: collision with root package name */
+    public NoNetworkView.b f15490i = new c();
 
     /* loaded from: classes4.dex */
     public class a implements f.g {
         public a() {
         }
 
-        @Override // d.b.i0.r.f0.f.g
+        @Override // d.a.i0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             FacePurchaseRecordsActivity.this.k(false);
         }
@@ -44,14 +46,14 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
         public b() {
         }
 
-        @Override // d.b.c.a.e
+        @Override // d.a.c.a.e
         public void c(Object obj) {
             FacePurchaseRecordsActivity.this.hideProgressBar();
             if (obj != null && (obj instanceof FacePurchaseRecordsData)) {
-                if (FacePurchaseRecordsActivity.this.f15340e != null) {
+                if (FacePurchaseRecordsActivity.this.f15486e != null) {
                     FacePurchaseRecordsData facePurchaseRecordsData = (FacePurchaseRecordsData) obj;
                     if (facePurchaseRecordsData.errno == 0) {
-                        FacePurchaseRecordsActivity.this.f15340e.f(facePurchaseRecordsData);
+                        FacePurchaseRecordsActivity.this.f15486e.f(facePurchaseRecordsData);
                         return;
                     }
                     String str = facePurchaseRecordsData.usermsg;
@@ -77,30 +79,30 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
             if (z) {
                 FacePurchaseRecordsActivity.this.k(true);
             }
-            FacePurchaseRecordsActivity.this.f15340e.b(z);
+            FacePurchaseRecordsActivity.this.f15486e.b(z);
         }
     }
 
     public final void h() {
-        this.f15340e.a(this.i);
+        this.f15486e.a(this.f15490i);
     }
 
     public final void i(Bundle bundle) {
-        this.f15341f = new FacePurchaseRecordsModel(getActivity());
+        this.f15487f = new FacePurchaseRecordsModel(getActivity());
         if (bundle != null) {
-            this.f15342g = bundle.getString("st_type");
+            this.f15488g = bundle.getString("st_type");
         } else {
-            this.f15342g = getIntent().getStringExtra("st_type");
+            this.f15488g = getIntent().getStringExtra("st_type");
         }
-        this.f15341f.setStType(this.f15342g);
-        this.f15341f.setLoadDataCallBack(this.f15343h);
+        this.f15487f.setStType(this.f15488g);
+        this.f15487f.setLoadDataCallBack(this.f15489h);
     }
 
     public final void j() {
         l lVar = new l(getPageContext());
-        this.f15340e = lVar;
+        this.f15486e = lVar;
         lVar.i(new a());
-        this.f15340e.h(this);
+        this.f15486e.h(this);
         h();
     }
 
@@ -109,21 +111,21 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
             if (z) {
                 showProgressBar();
             }
-            this.f15341f.y();
+            this.f15487f.y();
             return;
         }
-        this.f15340e.c();
+        this.f15486e.c();
     }
 
     public final void l() {
-        this.f15340e.g(this.i);
+        this.f15486e.g(this.f15490i);
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
-    public void onChangeSkinType(int i) {
-        l lVar = this.f15340e;
+    public void onChangeSkinType(int i2) {
+        l lVar = this.f15486e;
         if (lVar != null) {
-            lVar.e(i);
+            lVar.e(i2);
         }
     }
 
@@ -137,7 +139,7 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
-        FacePurchaseRecordsModel facePurchaseRecordsModel = this.f15341f;
+        FacePurchaseRecordsModel facePurchaseRecordsModel = this.f15487f;
         if (facePurchaseRecordsModel != null) {
             facePurchaseRecordsModel.cancelLoadData();
         }
@@ -146,14 +148,14 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
         FacePurchasePackageData facePurchasePackageData;
-        l lVar = this.f15340e;
-        if (lVar == null || lVar.d() == null || (facePurchasePackageData = (FacePurchasePackageData) this.f15340e.d().getItem(i)) == null) {
+        l lVar = this.f15486e;
+        if (lVar == null || lVar.d() == null || (facePurchasePackageData = (FacePurchasePackageData) this.f15486e.d().getItem(i2)) == null) {
             return;
         }
         sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(getPageContext().getPageActivity(), String.valueOf(facePurchasePackageData.pid), false, "purchase_record")));
-        super.onItemClick(adapterView, view, i, j);
+        super.onItemClick(adapterView, view, i2, j);
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
@@ -163,7 +165,7 @@ public class FacePurchaseRecordsActivity extends ProxyAdkBaseActivity<FacePurcha
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putString("st_type", this.f15342g);
+        bundle.putString("st_type", this.f15488g);
         super.onSaveInstanceState(bundle);
     }
 }

@@ -9,13 +9,13 @@ import java.util.Map;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f41273a = 0;
+    public static volatile int f38817a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     public static Map<String, o> f816a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f41274b = -1;
+    public static int f38818b = -1;
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x0024  */
     /* JADX WARN: Removed duplicated region for block: B:14:0x0025  */
@@ -23,38 +23,38 @@ public class l {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static int a() {
-        int i;
+        int i2;
         boolean z;
-        if (f41273a == 0) {
+        if (f38817a == 0) {
             try {
-                i = 1;
+                i2 = 1;
             } catch (Throwable th) {
                 com.xiaomi.channel.commonutils.logger.b.a("get isMIUI failed", th);
-                f41273a = 0;
+                f38817a = 0;
             }
-            if (TextUtils.isEmpty(m518a("ro.miui.ui.version.code")) && TextUtils.isEmpty(m518a("ro.miui.ui.version.name"))) {
+            if (TextUtils.isEmpty(m521a("ro.miui.ui.version.code")) && TextUtils.isEmpty(m521a("ro.miui.ui.version.name"))) {
                 z = false;
                 if (z) {
-                    i = 2;
+                    i2 = 2;
                 }
-                f41273a = i;
-                com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f41273a);
+                f38817a = i2;
+                com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f38817a);
             }
             z = true;
             if (z) {
             }
-            f41273a = i;
-            com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f41273a);
+            f38817a = i2;
+            com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f38817a);
         }
-        return f41273a;
+        return f38817a;
     }
 
     public static int a(Context context) {
-        String m518a = m518a("ro.miui.ui.version.code");
-        if (TextUtils.isEmpty(m518a) || !TextUtils.isDigitsOnly(m518a)) {
+        String m521a = m521a("ro.miui.ui.version.code");
+        if (TextUtils.isEmpty(m521a) || !TextUtils.isDigitsOnly(m521a)) {
             return 0;
         }
-        return Integer.parseInt(m518a);
+        return Integer.parseInt(m521a);
     }
 
     public static o a(String str) {
@@ -63,13 +63,13 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m517a() {
+    public static String m520a() {
         int a2 = t.a();
-        return (!m520a() || a2 <= 0) ? "" : a2 < 2 ? "alpha" : a2 < 3 ? "development" : "stable";
+        return (!m523a() || a2 <= 0) ? "" : a2 < 2 ? "alpha" : a2 < 3 ? "development" : "stable";
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m518a(String str) {
+    public static String m521a(String str) {
         try {
             try {
                 return (String) bh.a("android.os.SystemProperties", "get", str, "");
@@ -83,7 +83,7 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m519a() {
+    public static void m522a() {
         if (f816a != null) {
             return;
         }
@@ -135,22 +135,22 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m520a() {
+    public static boolean m523a() {
         return a() == 1;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m521a(Context context) {
-        return context != null && m522a(context.getPackageName());
+    public static boolean m524a(Context context) {
+        return context != null && m525a(context.getPackageName());
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m522a(String str) {
+    public static boolean m525a(String str) {
         return "com.xiaomi.xmsf".equals(str);
     }
 
     public static o b(String str) {
-        m519a();
+        m522a();
         return f816a.get(str.toUpperCase());
     }
 
@@ -184,30 +184,30 @@ public class l {
             a2 = s.a("persist.sys.country", "");
         }
         if (!TextUtils.isEmpty(a2)) {
-            com.xiaomi.channel.commonutils.logger.b.m55a("get region from system, region = " + a2);
+            com.xiaomi.channel.commonutils.logger.b.m58a("get region from system, region = " + a2);
         }
         if (TextUtils.isEmpty(a2)) {
             String country = Locale.getDefault().getCountry();
-            com.xiaomi.channel.commonutils.logger.b.m55a("locale.default.country = " + country);
+            com.xiaomi.channel.commonutils.logger.b.m58a("locale.default.country = " + country);
             return country;
         }
         return a2;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m523b() {
+    public static boolean m526b() {
         return a() == 2;
     }
 
     public static boolean c() {
-        if (f41274b < 0) {
+        if (f38818b < 0) {
             Object a2 = bh.a("miui.external.SdkHelper", "isMiuiSystem", new Object[0]);
-            f41274b = 0;
+            f38818b = 0;
             if (a2 != null && (a2 instanceof Boolean) && !((Boolean) Boolean.class.cast(a2)).booleanValue()) {
-                f41274b = 1;
+                f38818b = 1;
             }
         }
-        return f41274b > 0;
+        return f38818b > 0;
     }
 
     public static boolean d() {

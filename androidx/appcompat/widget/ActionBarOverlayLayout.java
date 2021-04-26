@@ -2,6 +2,7 @@ package androidx.appcompat.widget;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -17,16 +18,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
 import android.view.Window;
+import android.view.WindowInsets;
 import android.widget.OverScroller;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.appcompat.view.menu.MenuPresenter;
+import androidx.core.graphics.Insets;
 import androidx.core.view.NestedScrollingParent;
+import androidx.core.view.NestedScrollingParent2;
+import androidx.core.view.NestedScrollingParent3;
 import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+import androidx.core.view.WindowInsetsCompat;
+@SuppressLint({"UnknownNullness"})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
-public class ActionBarOverlayLayout extends ViewGroup implements DecorContentParent, NestedScrollingParent {
+public class ActionBarOverlayLayout extends ViewGroup implements DecorContentParent, NestedScrollingParent, NestedScrollingParent2, NestedScrollingParent3 {
     public static final int ACTION_BAR_ANIMATE_DELAY = 600;
     public static final int[] ATTRS = {R.attr.actionBarSize, 16842841};
     public static final String TAG = "ActionBarOverlayLayout";
@@ -36,7 +46,9 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     public final Runnable mAddActionBarHideOffset;
     public boolean mAnimatingForFling;
     public final Rect mBaseContentInsets;
-    public final Rect mBaseInnerInsets;
+    @NonNull
+    public WindowInsetsCompat mBaseInnerInsets;
+    public final Rect mBaseInnerInsetsRect;
     public ContentFrameLayout mContent;
     public final Rect mContentInsets;
     public ViewPropertyAnimator mCurrentActionBarTopAnimator;
@@ -46,10 +58,16 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     public boolean mHideOnContentScroll;
     public int mHideOnContentScrollReference;
     public boolean mIgnoreWindowContentOverlay;
-    public final Rect mInnerInsets;
+    @NonNull
+    public WindowInsetsCompat mInnerInsets;
+    public final Rect mInnerInsetsRect;
     public final Rect mLastBaseContentInsets;
-    public final Rect mLastBaseInnerInsets;
-    public final Rect mLastInnerInsets;
+    @NonNull
+    public WindowInsetsCompat mLastBaseInnerInsets;
+    public final Rect mLastBaseInnerInsetsRect;
+    @NonNull
+    public WindowInsetsCompat mLastInnerInsets;
+    public final Rect mLastInnerInsetsRect;
     public int mLastSystemUiVisibility;
     public boolean mOverlayMode;
     public final NestedScrollingParentHelper mParentHelper;
@@ -68,7 +86,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
 
         void onContentScrollStopped();
 
-        void onWindowVisibilityChanged(int i);
+        void onWindowVisibilityChanged(int i2);
 
         void showForSystem();
     }
@@ -79,8 +97,8 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
             super(context, attributeSet);
         }
 
-        public LayoutParams(int i, int i2) {
-            super(i, i2);
+        public LayoutParams(int i2, int i3) {
+            super(i2, i3);
         }
 
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
@@ -92,7 +110,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
         }
     }
 
-    public ActionBarOverlayLayout(Context context) {
+    public ActionBarOverlayLayout(@NonNull Context context) {
         this(context, null);
     }
 
@@ -107,36 +125,36 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean applyInsets(View view, Rect rect, boolean z, boolean z2, boolean z3, boolean z4) {
+    private boolean applyInsets(@NonNull View view, @NonNull Rect rect, boolean z, boolean z2, boolean z3, boolean z4) {
         boolean z5;
         LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
         if (z) {
-            int i = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin;
-            int i2 = rect.left;
-            if (i != i2) {
-                ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = i2;
+            int i2 = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin;
+            int i3 = rect.left;
+            if (i2 != i3) {
+                ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = i3;
                 z5 = true;
                 if (z2) {
-                    int i3 = ((ViewGroup.MarginLayoutParams) layoutParams).topMargin;
-                    int i4 = rect.top;
-                    if (i3 != i4) {
-                        ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = i4;
+                    int i4 = ((ViewGroup.MarginLayoutParams) layoutParams).topMargin;
+                    int i5 = rect.top;
+                    if (i4 != i5) {
+                        ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = i5;
                         z5 = true;
                     }
                 }
                 if (z4) {
-                    int i5 = ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
-                    int i6 = rect.right;
-                    if (i5 != i6) {
-                        ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin = i6;
+                    int i6 = ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
+                    int i7 = rect.right;
+                    if (i6 != i7) {
+                        ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin = i7;
                         z5 = true;
                     }
                 }
                 if (z3) {
-                    int i7 = ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
-                    int i8 = rect.bottom;
-                    if (i7 != i8) {
-                        ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = i8;
+                    int i8 = ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
+                    int i9 = rect.bottom;
+                    if (i8 != i9) {
+                        ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = i9;
                         return true;
                     }
                 }
@@ -189,8 +207,8 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
         this.mRemoveActionBarHideOffset.run();
     }
 
-    private boolean shouldHideActionBarOnFling(float f2, float f3) {
-        this.mFlingEstimator.fling(0, 0, 0, (int) f3, 0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    private boolean shouldHideActionBarOnFling(float f2) {
+        this.mFlingEstimator.fling(0, 0, 0, (int) f2, 0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
         return this.mFlingEstimator.getFinalY() > this.mActionBarTop.getHeight();
     }
 
@@ -224,13 +242,15 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
 
     @Override // android.view.View
     public boolean fitSystemWindows(Rect rect) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            return super.fitSystemWindows(rect);
+        }
         pullChildren();
-        int windowSystemUiVisibility = ViewCompat.getWindowSystemUiVisibility(this) & 256;
         boolean applyInsets = applyInsets(this.mActionBarTop, rect, true, true, false, true);
-        this.mBaseInnerInsets.set(rect);
-        ViewUtils.computeFitSystemWindows(this, this.mBaseInnerInsets, this.mBaseContentInsets);
-        if (!this.mLastBaseInnerInsets.equals(this.mBaseInnerInsets)) {
-            this.mLastBaseInnerInsets.set(this.mBaseInnerInsets);
+        this.mBaseInnerInsetsRect.set(rect);
+        ViewUtils.computeFitSystemWindows(this, this.mBaseInnerInsetsRect, this.mBaseContentInsets);
+        if (!this.mLastBaseInnerInsetsRect.equals(this.mBaseInnerInsetsRect)) {
+            this.mLastBaseInnerInsetsRect.set(this.mBaseInnerInsetsRect);
             applyInsets = true;
         }
         if (!this.mLastBaseContentInsets.equals(this.mBaseContentInsets)) {
@@ -290,13 +310,13 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
-    public void initFeature(int i) {
+    public void initFeature(int i2) {
         pullChildren();
-        if (i == 2) {
+        if (i2 == 2) {
             this.mDecorToolbar.initProgress();
-        } else if (i == 5) {
+        } else if (i2 == 5) {
             this.mDecorToolbar.initIndeterminateProgress();
-        } else if (i != 109) {
+        } else if (i2 != 109) {
         } else {
             setOverlayMode(true);
         }
@@ -323,6 +343,32 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     @Override // android.view.View
+    @RequiresApi(21)
+    public WindowInsets onApplyWindowInsets(@NonNull WindowInsets windowInsets) {
+        pullChildren();
+        WindowInsetsCompat windowInsetsCompat = WindowInsetsCompat.toWindowInsetsCompat(windowInsets);
+        boolean applyInsets = applyInsets(this.mActionBarTop, new Rect(windowInsetsCompat.getSystemWindowInsetLeft(), windowInsetsCompat.getSystemWindowInsetTop(), windowInsetsCompat.getSystemWindowInsetRight(), windowInsetsCompat.getSystemWindowInsetBottom()), true, true, false, true);
+        ViewCompat.computeSystemWindowInsets(this, windowInsetsCompat, this.mBaseContentInsets);
+        Rect rect = this.mBaseContentInsets;
+        WindowInsetsCompat inset = windowInsetsCompat.inset(rect.left, rect.top, rect.right, rect.bottom);
+        this.mBaseInnerInsets = inset;
+        boolean z = true;
+        if (!this.mLastBaseInnerInsets.equals(inset)) {
+            this.mLastBaseInnerInsets = this.mBaseInnerInsets;
+            applyInsets = true;
+        }
+        if (this.mLastBaseContentInsets.equals(this.mBaseContentInsets)) {
+            z = applyInsets;
+        } else {
+            this.mLastBaseContentInsets.set(this.mBaseContentInsets);
+        }
+        if (z) {
+            requestLayout();
+        }
+        return windowInsetsCompat.consumeDisplayCutout().consumeSystemWindowInsets().consumeStableInsets().toWindowInsets();
+    }
+
+    @Override // android.view.View
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
         init(getContext());
@@ -336,30 +382,28 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         int childCount = getChildCount();
         int paddingLeft = getPaddingLeft();
-        getPaddingRight();
         int paddingTop = getPaddingTop();
-        getPaddingBottom();
-        for (int i5 = 0; i5 < childCount; i5++) {
-            View childAt = getChildAt(i5);
+        for (int i6 = 0; i6 < childCount; i6++) {
+            View childAt = getChildAt(i6);
             if (childAt.getVisibility() != 8) {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
-                int i6 = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + paddingLeft;
-                int i7 = ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + paddingTop;
-                childAt.layout(i6, i7, measuredWidth + i6, measuredHeight + i7);
+                int i7 = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + paddingLeft;
+                int i8 = ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + paddingTop;
+                childAt.layout(i7, i8, measuredWidth + i7, measuredHeight + i8);
             }
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         int measuredHeight;
         pullChildren();
-        measureChildWithMargins(this.mActionBarTop, i, 0, i2, 0);
+        measureChildWithMargins(this.mActionBarTop, i2, 0, i3, 0);
         LayoutParams layoutParams = (LayoutParams) this.mActionBarTop.getLayoutParams();
         int max = Math.max(0, this.mActionBarTop.getMeasuredWidth() + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin);
         int max2 = Math.max(0, this.mActionBarTop.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin);
@@ -374,33 +418,46 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
             measuredHeight = this.mActionBarTop.getVisibility() != 8 ? this.mActionBarTop.getMeasuredHeight() : 0;
         }
         this.mContentInsets.set(this.mBaseContentInsets);
-        this.mInnerInsets.set(this.mBaseInnerInsets);
+        if (Build.VERSION.SDK_INT >= 21) {
+            this.mInnerInsets = this.mBaseInnerInsets;
+        } else {
+            this.mInnerInsetsRect.set(this.mBaseInnerInsetsRect);
+        }
         if (!this.mOverlayMode && !z) {
             Rect rect = this.mContentInsets;
             rect.top += measuredHeight;
             rect.bottom += 0;
+            if (Build.VERSION.SDK_INT >= 21) {
+                this.mInnerInsets = this.mInnerInsets.inset(0, measuredHeight, 0, 0);
+            }
+        } else if (Build.VERSION.SDK_INT >= 21) {
+            this.mInnerInsets = new WindowInsetsCompat.Builder(this.mInnerInsets).setSystemWindowInsets(Insets.of(this.mInnerInsets.getSystemWindowInsetLeft(), this.mInnerInsets.getSystemWindowInsetTop() + measuredHeight, this.mInnerInsets.getSystemWindowInsetRight(), this.mInnerInsets.getSystemWindowInsetBottom() + 0)).build();
         } else {
-            Rect rect2 = this.mInnerInsets;
+            Rect rect2 = this.mInnerInsetsRect;
             rect2.top += measuredHeight;
             rect2.bottom += 0;
         }
         applyInsets(this.mContent, this.mContentInsets, true, true, true, true);
-        if (!this.mLastInnerInsets.equals(this.mInnerInsets)) {
-            this.mLastInnerInsets.set(this.mInnerInsets);
-            this.mContent.dispatchFitSystemWindows(this.mInnerInsets);
+        if (Build.VERSION.SDK_INT >= 21 && !this.mLastInnerInsets.equals(this.mInnerInsets)) {
+            WindowInsetsCompat windowInsetsCompat = this.mInnerInsets;
+            this.mLastInnerInsets = windowInsetsCompat;
+            ViewCompat.dispatchApplyWindowInsets(this.mContent, windowInsetsCompat);
+        } else if (Build.VERSION.SDK_INT < 21 && !this.mLastInnerInsetsRect.equals(this.mInnerInsetsRect)) {
+            this.mLastInnerInsetsRect.set(this.mInnerInsetsRect);
+            this.mContent.dispatchFitSystemWindows(this.mInnerInsetsRect);
         }
-        measureChildWithMargins(this.mContent, i, 0, i2, 0);
+        measureChildWithMargins(this.mContent, i2, 0, i3, 0);
         LayoutParams layoutParams2 = (LayoutParams) this.mContent.getLayoutParams();
         int max3 = Math.max(max, this.mContent.getMeasuredWidth() + ((ViewGroup.MarginLayoutParams) layoutParams2).leftMargin + ((ViewGroup.MarginLayoutParams) layoutParams2).rightMargin);
         int max4 = Math.max(max2, this.mContent.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) layoutParams2).topMargin + ((ViewGroup.MarginLayoutParams) layoutParams2).bottomMargin);
         int combineMeasuredStates2 = View.combineMeasuredStates(combineMeasuredStates, this.mContent.getMeasuredState());
-        setMeasuredDimension(View.resolveSizeAndState(Math.max(max3 + getPaddingLeft() + getPaddingRight(), getSuggestedMinimumWidth()), i, combineMeasuredStates2), View.resolveSizeAndState(Math.max(max4 + getPaddingTop() + getPaddingBottom(), getSuggestedMinimumHeight()), i2, combineMeasuredStates2 << 16));
+        setMeasuredDimension(View.resolveSizeAndState(Math.max(max3 + getPaddingLeft() + getPaddingRight(), getSuggestedMinimumWidth()), i2, combineMeasuredStates2), View.resolveSizeAndState(Math.max(max4 + getPaddingTop() + getPaddingBottom(), getSuggestedMinimumHeight()), i3, combineMeasuredStates2 << 16));
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public boolean onNestedFling(View view, float f2, float f3, boolean z) {
         if (this.mHideOnContentScroll && z) {
-            if (shouldHideActionBarOnFling(f2, f3)) {
+            if (shouldHideActionBarOnFling(f3)) {
                 addActionBarHideOffset();
             } else {
                 removeActionBarHideOffset();
@@ -417,60 +474,50 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedPreScroll(View view, int i, int i2, int[] iArr) {
+    public void onNestedPreScroll(View view, int i2, int i3, int[] iArr) {
     }
 
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScroll(View view, int i, int i2, int i3, int i4) {
-        int i5 = this.mHideOnContentScrollReference + i2;
-        this.mHideOnContentScrollReference = i5;
-        setActionBarHideOffset(i5);
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScrollAccepted(View view, View view2, int i) {
-        this.mParentHelper.onNestedScrollAccepted(view, view2, i);
-        this.mHideOnContentScrollReference = getActionBarHideOffset();
-        haltActionBarHideOffsetAnimations();
-        ActionBarVisibilityCallback actionBarVisibilityCallback = this.mActionBarVisibilityCallback;
-        if (actionBarVisibilityCallback != null) {
-            actionBarVisibilityCallback.onContentScrollStarted();
+    @Override // androidx.core.view.NestedScrollingParent2
+    public void onNestedPreScroll(View view, int i2, int i3, int[] iArr, int i4) {
+        if (i4 == 0) {
+            onNestedPreScroll(view, i2, i3, iArr);
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onStartNestedScroll(View view, View view2, int i) {
-        if ((i & 2) == 0 || this.mActionBarTop.getVisibility() != 0) {
-            return false;
-        }
-        return this.mHideOnContentScroll;
+    @Override // androidx.core.view.NestedScrollingParent3
+    public void onNestedScroll(View view, int i2, int i3, int i4, int i5, int i6, int[] iArr) {
+        onNestedScroll(view, i2, i3, i4, i5, i6);
     }
 
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onStopNestedScroll(View view) {
-        if (this.mHideOnContentScroll && !this.mAnimatingForFling) {
-            if (this.mHideOnContentScrollReference <= this.mActionBarTop.getHeight()) {
-                postRemoveActionBarHideOffset();
-            } else {
-                postAddActionBarHideOffset();
-            }
+    @Override // androidx.core.view.NestedScrollingParent2
+    public void onNestedScrollAccepted(View view, View view2, int i2, int i3) {
+        if (i3 == 0) {
+            onNestedScrollAccepted(view, view2, i2);
         }
-        ActionBarVisibilityCallback actionBarVisibilityCallback = this.mActionBarVisibilityCallback;
-        if (actionBarVisibilityCallback != null) {
-            actionBarVisibilityCallback.onContentScrollStopped();
+    }
+
+    @Override // androidx.core.view.NestedScrollingParent2
+    public boolean onStartNestedScroll(View view, View view2, int i2, int i3) {
+        return i3 == 0 && onStartNestedScroll(view, view2, i2);
+    }
+
+    @Override // androidx.core.view.NestedScrollingParent2
+    public void onStopNestedScroll(View view, int i2) {
+        if (i2 == 0) {
+            onStopNestedScroll(view);
         }
     }
 
     @Override // android.view.View
-    public void onWindowSystemUiVisibilityChanged(int i) {
+    public void onWindowSystemUiVisibilityChanged(int i2) {
         if (Build.VERSION.SDK_INT >= 16) {
-            super.onWindowSystemUiVisibilityChanged(i);
+            super.onWindowSystemUiVisibilityChanged(i2);
         }
         pullChildren();
-        int i2 = this.mLastSystemUiVisibility ^ i;
-        this.mLastSystemUiVisibility = i;
-        boolean z = (i & 4) == 0;
-        boolean z2 = (i & 256) != 0;
+        int i3 = this.mLastSystemUiVisibility ^ i2;
+        this.mLastSystemUiVisibility = i2;
+        boolean z = (i2 & 4) == 0;
+        boolean z2 = (i2 & 256) != 0;
         ActionBarVisibilityCallback actionBarVisibilityCallback = this.mActionBarVisibilityCallback;
         if (actionBarVisibilityCallback != null) {
             actionBarVisibilityCallback.enableContentAnimations(!z2);
@@ -480,19 +527,19 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
                 this.mActionBarVisibilityCallback.showForSystem();
             }
         }
-        if ((i2 & 256) == 0 || this.mActionBarVisibilityCallback == null) {
+        if ((i3 & 256) == 0 || this.mActionBarVisibilityCallback == null) {
             return;
         }
         ViewCompat.requestApplyInsets(this);
     }
 
     @Override // android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
-        this.mWindowVisibility = i;
+    public void onWindowVisibilityChanged(int i2) {
+        super.onWindowVisibilityChanged(i2);
+        this.mWindowVisibility = i2;
         ActionBarVisibilityCallback actionBarVisibilityCallback = this.mActionBarVisibilityCallback;
         if (actionBarVisibilityCallback != null) {
-            actionBarVisibilityCallback.onWindowVisibilityChanged(i);
+            actionBarVisibilityCallback.onWindowVisibilityChanged(i2);
         }
     }
 
@@ -516,18 +563,18 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
         this.mDecorToolbar.saveHierarchyState(sparseArray);
     }
 
-    public void setActionBarHideOffset(int i) {
+    public void setActionBarHideOffset(int i2) {
         haltActionBarHideOffsetAnimations();
-        this.mActionBarTop.setTranslationY(-Math.max(0, Math.min(i, this.mActionBarTop.getHeight())));
+        this.mActionBarTop.setTranslationY(-Math.max(0, Math.min(i2, this.mActionBarTop.getHeight())));
     }
 
     public void setActionBarVisibilityCallback(ActionBarVisibilityCallback actionBarVisibilityCallback) {
         this.mActionBarVisibilityCallback = actionBarVisibilityCallback;
         if (getWindowToken() != null) {
             this.mActionBarVisibilityCallback.onWindowVisibilityChanged(this.mWindowVisibility);
-            int i = this.mLastSystemUiVisibility;
-            if (i != 0) {
-                onWindowSystemUiVisibilityChanged(i);
+            int i2 = this.mLastSystemUiVisibility;
+            if (i2 != 0) {
+                onWindowSystemUiVisibilityChanged(i2);
                 ViewCompat.requestApplyInsets(this);
             }
         }
@@ -549,15 +596,15 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
-    public void setIcon(int i) {
+    public void setIcon(int i2) {
         pullChildren();
-        this.mDecorToolbar.setIcon(i);
+        this.mDecorToolbar.setIcon(i2);
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
-    public void setLogo(int i) {
+    public void setLogo(int i2) {
         pullChildren();
-        this.mDecorToolbar.setLogo(i);
+        this.mDecorToolbar.setLogo(i2);
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
@@ -581,7 +628,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
-    public void setUiOptions(int i) {
+    public void setUiOptions(int i2) {
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent
@@ -607,16 +654,21 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
         return this.mDecorToolbar.showOverflowMenu();
     }
 
-    public ActionBarOverlayLayout(Context context, AttributeSet attributeSet) {
+    public ActionBarOverlayLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mWindowVisibility = 0;
         this.mBaseContentInsets = new Rect();
         this.mLastBaseContentInsets = new Rect();
         this.mContentInsets = new Rect();
-        this.mBaseInnerInsets = new Rect();
-        this.mLastBaseInnerInsets = new Rect();
-        this.mInnerInsets = new Rect();
-        this.mLastInnerInsets = new Rect();
+        this.mBaseInnerInsetsRect = new Rect();
+        this.mLastBaseInnerInsetsRect = new Rect();
+        this.mInnerInsetsRect = new Rect();
+        this.mLastInnerInsetsRect = new Rect();
+        WindowInsetsCompat windowInsetsCompat = WindowInsetsCompat.CONSUMED;
+        this.mBaseInnerInsets = windowInsetsCompat;
+        this.mLastBaseInnerInsets = windowInsetsCompat;
+        this.mInnerInsets = windowInsetsCompat;
+        this.mLastInnerInsets = windowInsetsCompat;
         this.mTopAnimatorListener = new AnimatorListenerAdapter() { // from class: androidx.appcompat.widget.ActionBarOverlayLayout.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
@@ -664,9 +716,57 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
         return new LayoutParams(getContext(), attributeSet);
     }
 
+    @Override // androidx.core.view.NestedScrollingParent2
+    public void onNestedScroll(View view, int i2, int i3, int i4, int i5, int i6) {
+        if (i6 == 0) {
+            onNestedScroll(view, i2, i3, i4, i5);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
+    public void onNestedScrollAccepted(View view, View view2, int i2) {
+        this.mParentHelper.onNestedScrollAccepted(view, view2, i2);
+        this.mHideOnContentScrollReference = getActionBarHideOffset();
+        haltActionBarHideOffsetAnimations();
+        ActionBarVisibilityCallback actionBarVisibilityCallback = this.mActionBarVisibilityCallback;
+        if (actionBarVisibilityCallback != null) {
+            actionBarVisibilityCallback.onContentScrollStarted();
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
+    public boolean onStartNestedScroll(View view, View view2, int i2) {
+        if ((i2 & 2) == 0 || this.mActionBarTop.getVisibility() != 0) {
+            return false;
+        }
+        return this.mHideOnContentScroll;
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
+    public void onStopNestedScroll(View view) {
+        if (this.mHideOnContentScroll && !this.mAnimatingForFling) {
+            if (this.mHideOnContentScrollReference <= this.mActionBarTop.getHeight()) {
+                postRemoveActionBarHideOffset();
+            } else {
+                postAddActionBarHideOffset();
+            }
+        }
+        ActionBarVisibilityCallback actionBarVisibilityCallback = this.mActionBarVisibilityCallback;
+        if (actionBarVisibilityCallback != null) {
+            actionBarVisibilityCallback.onContentScrollStopped();
+        }
+    }
+
     @Override // android.view.ViewGroup
     public ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
         return new LayoutParams(layoutParams);
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
+    public void onNestedScroll(View view, int i2, int i3, int i4, int i5) {
+        int i6 = this.mHideOnContentScrollReference + i3;
+        this.mHideOnContentScrollReference = i6;
+        setActionBarHideOffset(i6);
     }
 
     @Override // androidx.appcompat.widget.DecorContentParent

@@ -8,10 +8,10 @@ import java.util.concurrent.Executor;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f37384a = com.kwai.filedownloader.f.b.a(10, "EventPool");
+    public final Executor f35106a = com.kwai.filedownloader.f.b.a(10, "EventPool");
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, LinkedList<c>> f37385b = new HashMap<>();
+    public final HashMap<String, LinkedList<c>> f35107b = new HashMap<>();
 
     private void a(LinkedList<c> linkedList, b bVar) {
         Object[] array;
@@ -20,24 +20,24 @@ public class a {
                 break;
             }
         }
-        Runnable runnable = bVar.f37388a;
+        Runnable runnable = bVar.f35110a;
         if (runnable != null) {
             runnable.run();
         }
     }
 
     public boolean a(b bVar) {
-        if (d.f37396a) {
+        if (d.f35118a) {
             d.e(this, "publish %s", bVar.b());
         }
         if (bVar != null) {
             String b2 = bVar.b();
-            LinkedList<c> linkedList = this.f37385b.get(b2);
+            LinkedList<c> linkedList = this.f35107b.get(b2);
             if (linkedList == null) {
                 synchronized (b2.intern()) {
-                    linkedList = this.f37385b.get(b2);
+                    linkedList = this.f35107b.get(b2);
                     if (linkedList == null) {
-                        if (d.f37396a) {
+                        if (d.f35118a) {
                             d.c(this, "No listener for this event %s", b2);
                         }
                         return false;
@@ -52,16 +52,16 @@ public class a {
 
     public boolean a(String str, c cVar) {
         boolean add;
-        if (d.f37396a) {
+        if (d.f35118a) {
             d.e(this, "setListener %s", str);
         }
         if (cVar != null) {
-            LinkedList<c> linkedList = this.f37385b.get(str);
+            LinkedList<c> linkedList = this.f35107b.get(str);
             if (linkedList == null) {
                 synchronized (str.intern()) {
-                    linkedList = this.f37385b.get(str);
+                    linkedList = this.f35107b.get(str);
                     if (linkedList == null) {
-                        HashMap<String, LinkedList<c>> hashMap = this.f37385b;
+                        HashMap<String, LinkedList<c>> hashMap = this.f35107b;
                         LinkedList<c> linkedList2 = new LinkedList<>();
                         hashMap.put(str, linkedList2);
                         linkedList = linkedList2;
@@ -77,13 +77,13 @@ public class a {
     }
 
     public void b(final b bVar) {
-        if (d.f37396a) {
+        if (d.f35118a) {
             d.e(this, "asyncPublishInNewThread %s", bVar.b());
         }
         if (bVar == null) {
             throw new IllegalArgumentException("event must not be null!");
         }
-        this.f37384a.execute(new Runnable() { // from class: com.kwai.filedownloader.event.a.1
+        this.f35106a.execute(new Runnable() { // from class: com.kwai.filedownloader.event.a.1
             @Override // java.lang.Runnable
             public void run() {
                 try {

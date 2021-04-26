@@ -28,8 +28,8 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
     public static class ResourceViewTransitionAnimationFactory implements ViewTransition.ViewTransitionAnimationFactory {
         public final int animationId;
 
-        public ResourceViewTransitionAnimationFactory(int i) {
-            this.animationId = i;
+        public ResourceViewTransitionAnimationFactory(int i2) {
+            this.animationId = i2;
         }
 
         @Override // com.bumptech.glide.request.transition.ViewTransition.ViewTransitionAnimationFactory
@@ -53,8 +53,8 @@ public class ViewAnimationFactory<R> implements TransitionFactory<R> {
         return NoTransition.get();
     }
 
-    public ViewAnimationFactory(int i) {
-        this(new ResourceViewTransitionAnimationFactory(i));
+    public ViewAnimationFactory(int i2) {
+        this(new ResourceViewTransitionAnimationFactory(i2));
     }
 
     public ViewAnimationFactory(ViewTransition.ViewTransitionAnimationFactory viewTransitionAnimationFactory) {

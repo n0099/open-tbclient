@@ -19,37 +19,39 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.i0.r.q.a2;
-import d.b.i0.r.u.c;
+import d.a.c.e.p.l;
+import d.a.i0.r.q.a2;
+import d.a.i0.r.u.c;
 /* loaded from: classes3.dex */
 public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public a2 f13179e;
+    public a2 f13126e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f13180f;
+    public Context f13127f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f13181g;
+    public View f13128g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13182h;
-    public TextView i;
+    public int f13129h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f13130i;
     public Drawable j;
     public View.OnClickListener k;
     public int l;
 
     public ThreadForumEnterGoodsButton(Context context) {
         super(context);
-        this.f13182h = 0;
+        this.f13129h = 0;
         this.l = 3;
         d(context);
     }
 
     public void a(a2 a2Var) {
-        this.f13179e = a2Var;
+        this.f13126e = a2Var;
         if (a2Var != null) {
             String string = getResources().getString(R.string.frs_goods_tip_content);
             if (StringUtils.isNull(string)) {
@@ -58,8 +60,8 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             }
             setVisibility(0);
             f();
-            this.i.setText(string);
-            this.i.setVisibility(0);
+            this.f13130i.setText(string);
+            this.f13130i.setVisibility(0);
             e();
             b();
             return;
@@ -68,25 +70,25 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
     }
 
     public final void b() {
-        int i = this.f13182h;
-        if (i == 2) {
+        int i2 = this.f13129h;
+        if (i2 == 2) {
             c("c13966", 1);
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             c("c13966", 2);
         }
     }
 
-    public final void c(String str, int i) {
-        TiebaStatic.log(new StatisticItem(str).param("obj_locate", i).param("fid", this.f13179e.c0()).param("fname", this.f13179e.i0()).param("tid", this.f13179e.w1()));
+    public final void c(String str, int i2) {
+        TiebaStatic.log(new StatisticItem(str).param("obj_locate", i2).param("fid", this.f13126e.c0()).param("fname", this.f13126e.i0()).param("tid", this.f13126e.w1()));
     }
 
     public final void d(Context context) {
-        this.f13180f = context;
+        this.f13127f = context;
         setOnClickListener(this);
         View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_button, (ViewGroup) this, true);
-        this.f13181g = inflate;
+        this.f13128g = inflate;
         TextView textView = (TextView) inflate.findViewById(R.id.forum_name_text);
-        this.i = textView;
+        this.f13130i = textView;
         c d2 = c.d(textView);
         d2.v(R.string.F_X01);
         d2.u(R.dimen.T_X09);
@@ -95,46 +97,46 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         d2.k(R.string.J_X01);
         d2.i(R.dimen.L_X02);
         d2.h(R.color.CAM_X0305);
-        this.i.setCompoundDrawablePadding(l.g(this.f13180f, R.dimen.M_W_X002));
+        this.f13130i.setCompoundDrawablePadding(l.g(this.f13127f, R.dimen.M_W_X002));
     }
 
     public void e() {
         int skinType;
-        if (this.f13179e == null || this.l == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+        if (this.f13126e == null || this.l == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
             return;
         }
         this.l = skinType;
         int color = SkinManager.getColor(R.color.CAM_X0305);
-        SkinManager.setViewTextColorWithClickState(this.i, color);
+        SkinManager.setViewTextColorWithClickState(this.f13130i, color);
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_good12, color, WebPManager.ResourceStateType.NORMAL_PRESS);
         this.j = pureDrawable;
         if (pureDrawable != null) {
-            this.j.setBounds(0, 0, l.g(this.f13180f, R.dimen.T_X09), l.g(this.f13180f, R.dimen.T_X09));
+            this.j.setBounds(0, 0, l.g(this.f13127f, R.dimen.T_X09), l.g(this.f13127f, R.dimen.T_X09));
         }
         f();
     }
 
     public final void f() {
-        this.i.setCompoundDrawables(this.j, null, null, null);
+        this.f13130i.setCompoundDrawables(this.j, null, null, null);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (StringUtils.isNull(this.f13179e.i0())) {
+        if (StringUtils.isNull(this.f13126e.i0())) {
             return;
         }
-        view.setTag(this.f13179e);
-        int i = this.f13182h;
-        if (i == 0) {
-            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f13180f).createNormalCfg(this.f13179e.i0(), FrsActivityConfig.FROM_PB_OR_PERSON);
+        view.setTag(this.f13126e);
+        int i2 = this.f13129h;
+        if (i2 == 0) {
+            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f13127f).createNormalCfg(this.f13126e.i0(), FrsActivityConfig.FROM_PB_OR_PERSON);
             createNormalCfg.setCallFrom(14);
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             c("c13967", 2);
-            FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(this.f13180f).createNormalCfg(this.f13179e.i0(), FrsActivityConfig.FROM_PB_OR_PERSON);
+            FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(this.f13127f).createNormalCfg(this.f13126e.i0(), FrsActivityConfig.FROM_PB_OR_PERSON);
             createNormalCfg2.setCallFrom(14);
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg2));
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             c("c13967", 1);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921488));
         }
@@ -148,13 +150,13 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         this.k = onClickListener;
     }
 
-    public void setFrom(int i) {
-        this.f13182h = i;
+    public void setFrom(int i2) {
+        this.f13129h = i2;
     }
 
     public ThreadForumEnterGoodsButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13182h = 0;
+        this.f13129h = 0;
         this.l = 3;
         d(context);
     }

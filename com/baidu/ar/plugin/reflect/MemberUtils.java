@@ -72,27 +72,27 @@ public class MemberUtils {
             cls = wrapperToPrimitive(cls);
             f2 = 0.1f;
         }
-        int i = 0;
+        int i2 = 0;
         while (cls != cls2) {
             Class<?>[] clsArr = ORDERED_PRIMITIVE_TYPES;
-            if (i >= clsArr.length) {
+            if (i2 >= clsArr.length) {
                 break;
             }
-            if (cls == clsArr[i]) {
+            if (cls == clsArr[i2]) {
                 f2 += 0.1f;
-                if (i < clsArr.length - 1) {
-                    cls = clsArr[i + 1];
+                if (i2 < clsArr.length - 1) {
+                    cls = clsArr[i2 + 1];
                 }
             }
-            i++;
+            i2++;
         }
         return f2;
     }
 
     public static float getTotalTransformationCost(Class<?>[] clsArr, Class<?>[] clsArr2) {
         float f2 = 0.0f;
-        for (int i = 0; i < clsArr.length; i++) {
-            f2 += getObjectTransformationCost(clsArr[i], clsArr2[i]);
+        for (int i2 = 0; i2 < clsArr.length; i2++) {
+            f2 += getObjectTransformationCost(clsArr[i2], clsArr2[i2]);
         }
         return f2;
     }
@@ -105,8 +105,8 @@ public class MemberUtils {
         return isAssignable(cls, cls2, true);
     }
 
-    public static boolean isPackageAccess(int i) {
-        return (i & 7) == 0;
+    public static boolean isPackageAccess(int i2) {
+        return (i2 & 7) == 0;
     }
 
     public static Class<?> primitiveToWrapper(Class<?> cls) {
@@ -139,8 +139,8 @@ public class MemberUtils {
             if (clsArr2 == null) {
                 clsArr2 = Utils.EMPTY_CLASS_ARRAY;
             }
-            for (int i = 0; i < clsArr.length; i++) {
-                if (!isAssignable(clsArr[i], clsArr2[i], z)) {
+            for (int i2 = 0; i2 < clsArr.length; i2++) {
+                if (!isAssignable(clsArr[i2], clsArr2[i2], z)) {
                     return false;
                 }
             }

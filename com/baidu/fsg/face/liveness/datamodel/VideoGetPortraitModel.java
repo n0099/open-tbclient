@@ -38,8 +38,8 @@ public class VideoGetPortraitModel implements IBeanResponse, Serializable {
             }
         }
         long[] jArr = new long[arrayList.size()];
-        for (int i = 0; i < arrayList.size(); i++) {
-            jArr[i] = ((Long) arrayList.get(i)).longValue();
+        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+            jArr[i2] = ((Long) arrayList.get(i2)).longValue();
         }
         return jArr;
     }
@@ -60,20 +60,20 @@ public class VideoGetPortraitModel implements IBeanResponse, Serializable {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public int getVideoMaxSize() {
-        int i;
+        int i2;
         try {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
         if (!TextUtils.isEmpty(this.videoMaxSize)) {
-            i = Integer.parseInt(this.videoMaxSize);
-            if (i <= 0) {
-                return i;
+            i2 = Integer.parseInt(this.videoMaxSize);
+            if (i2 <= 0) {
+                return i2;
             }
             return Integer.MAX_VALUE;
         }
-        i = Integer.MAX_VALUE;
-        if (i <= 0) {
+        i2 = Integer.MAX_VALUE;
+        if (i2 <= 0) {
         }
     }
 

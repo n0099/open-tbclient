@@ -12,29 +12,31 @@ public class BusLineResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<BusLineResult> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7163a;
+    public String f7418a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7164b;
+    public String f7419b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f7165c;
+    public boolean f7420c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Date f7166d;
+    public Date f7421d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Date f7167e;
+    public Date f7422e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f7168f;
+    public String f7423f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<BusStation> f7169g;
+    public List<BusStation> f7424g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<BusStep> f7170h;
-    public float i;
+    public List<BusStep> f7425h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public float f7426i;
     public float j;
     public String k;
 
@@ -47,27 +49,27 @@ public class BusLineResult extends SearchResult implements Parcelable {
     }
 
     public BusLineResult() {
-        this.f7163a = null;
-        this.f7164b = null;
-        this.f7169g = null;
-        this.f7170h = null;
+        this.f7418a = null;
+        this.f7419b = null;
+        this.f7424g = null;
+        this.f7425h = null;
         this.k = null;
     }
 
     public BusLineResult(Parcel parcel) {
-        this.f7163a = null;
-        this.f7164b = null;
-        this.f7169g = null;
-        this.f7170h = null;
+        this.f7418a = null;
+        this.f7419b = null;
+        this.f7424g = null;
+        this.f7425h = null;
         this.k = null;
-        this.f7163a = parcel.readString();
-        this.f7164b = parcel.readString();
-        this.f7165c = ((Boolean) parcel.readValue(Boolean.class.getClassLoader())).booleanValue();
-        this.f7166d = (Date) parcel.readValue(Date.class.getClassLoader());
-        this.f7167e = (Date) parcel.readValue(Date.class.getClassLoader());
-        this.f7168f = parcel.readString();
-        this.f7169g = parcel.readArrayList(BusStation.class.getClassLoader());
-        this.f7170h = parcel.readArrayList(RouteStep.class.getClassLoader());
+        this.f7418a = parcel.readString();
+        this.f7419b = parcel.readString();
+        this.f7420c = ((Boolean) parcel.readValue(Boolean.class.getClassLoader())).booleanValue();
+        this.f7421d = (Date) parcel.readValue(Date.class.getClassLoader());
+        this.f7422e = (Date) parcel.readValue(Date.class.getClassLoader());
+        this.f7423f = parcel.readString();
+        this.f7424g = parcel.readArrayList(BusStation.class.getClassLoader());
+        this.f7425h = parcel.readArrayList(RouteStep.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -76,19 +78,19 @@ public class BusLineResult extends SearchResult implements Parcelable {
     }
 
     public float getBasePrice() {
-        return this.i;
+        return this.f7426i;
     }
 
     public String getBusCompany() {
-        return this.f7163a;
+        return this.f7418a;
     }
 
     public String getBusLineName() {
-        return this.f7164b;
+        return this.f7419b;
     }
 
     public Date getEndTime() {
-        return this.f7167e;
+        return this.f7422e;
     }
 
     public String getLineDirection() {
@@ -100,35 +102,35 @@ public class BusLineResult extends SearchResult implements Parcelable {
     }
 
     public Date getStartTime() {
-        return this.f7166d;
+        return this.f7421d;
     }
 
     public List<BusStation> getStations() {
-        return this.f7169g;
+        return this.f7424g;
     }
 
     public List<BusStep> getSteps() {
-        return this.f7170h;
+        return this.f7425h;
     }
 
     public String getUid() {
-        return this.f7168f;
+        return this.f7423f;
     }
 
     public boolean isMonthTicket() {
-        return this.f7165c;
+        return this.f7420c;
     }
 
     public void setBasePrice(float f2) {
-        this.i = f2;
+        this.f7426i = f2;
     }
 
     public void setBusLineName(String str) {
-        this.f7164b = str;
+        this.f7419b = str;
     }
 
     public void setEndTime(Date date) {
-        this.f7167e = date;
+        this.f7422e = date;
     }
 
     public void setLineDirection(String str) {
@@ -140,34 +142,34 @@ public class BusLineResult extends SearchResult implements Parcelable {
     }
 
     public void setMonthTicket(boolean z) {
-        this.f7165c = z;
+        this.f7420c = z;
     }
 
     public void setStartTime(Date date) {
-        this.f7166d = date;
+        this.f7421d = date;
     }
 
     public void setStations(List<BusStation> list) {
-        this.f7169g = list;
+        this.f7424g = list;
     }
 
     public void setSteps(List<BusStep> list) {
-        this.f7170h = list;
+        this.f7425h = list;
     }
 
     public void setUid(String str) {
-        this.f7168f = str;
+        this.f7423f = str;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f7163a);
-        parcel.writeString(this.f7164b);
-        parcel.writeValue(Boolean.valueOf(this.f7165c));
-        parcel.writeValue(this.f7166d);
-        parcel.writeValue(this.f7167e);
-        parcel.writeString(this.f7168f);
-        parcel.writeList(this.f7169g);
-        parcel.writeList(this.f7170h);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeString(this.f7418a);
+        parcel.writeString(this.f7419b);
+        parcel.writeValue(Boolean.valueOf(this.f7420c));
+        parcel.writeValue(this.f7421d);
+        parcel.writeValue(this.f7422e);
+        parcel.writeString(this.f7423f);
+        parcel.writeList(this.f7424g);
+        parcel.writeList(this.f7425h);
     }
 }

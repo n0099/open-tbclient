@@ -8,7 +8,7 @@ import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.generic.GenericDraweeHierarchyInflater;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GenericDraweeView extends DraweeView<GenericDraweeHierarchy> {
     public GenericDraweeView(Context context, GenericDraweeHierarchy genericDraweeHierarchy) {
         super(context);
@@ -37,14 +37,14 @@ public class GenericDraweeView extends DraweeView<GenericDraweeHierarchy> {
         inflateHierarchy(context, attributeSet);
     }
 
-    public GenericDraweeView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public GenericDraweeView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         inflateHierarchy(context, attributeSet);
     }
 
     @TargetApi(21)
-    public GenericDraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
-        super(context, attributeSet, i, i2);
+    public GenericDraweeView(Context context, AttributeSet attributeSet, int i2, int i3) {
+        super(context, attributeSet, i2, i3);
         inflateHierarchy(context, attributeSet);
     }
 }

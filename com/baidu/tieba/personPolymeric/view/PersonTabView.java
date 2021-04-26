@@ -8,21 +8,23 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonTabView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20182e;
+    public Context f20706e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f20183f;
+    public TextView f20707f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20184g;
+    public TextView f20708g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f20185h;
-    public View i;
+    public View f20709h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public View f20710i;
     public View j;
     public View k;
     public int l;
@@ -31,7 +33,7 @@ public class PersonTabView extends LinearLayout {
     public b o;
     public View.OnClickListener p;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -49,9 +51,9 @@ public class PersonTabView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
-        void onTabSelect(int i);
+        void onTabSelect(int i2);
     }
 
     public PersonTabView(Context context) {
@@ -64,36 +66,36 @@ public class PersonTabView extends LinearLayout {
     }
 
     public final void c(Context context) {
-        this.f20182e = context;
+        this.f20706e = context;
         LayoutInflater.from(context).inflate(R.layout.person_button_header_view, this);
         TextView textView = (TextView) findViewById(R.id.main_thread_btn);
-        this.f20183f = textView;
+        this.f20707f = textView;
         textView.setOnClickListener(this.p);
         TextView textView2 = (TextView) findViewById(R.id.reply_btn);
-        this.f20184g = textView2;
+        this.f20708g = textView2;
         textView2.setOnClickListener(this.p);
-        this.f20185h = findViewById(R.id.main_thread_divider);
-        this.i = findViewById(R.id.reply_btn_divider);
+        this.f20709h = findViewById(R.id.main_thread_divider);
+        this.f20710i = findViewById(R.id.reply_btn_divider);
         this.j = findViewById(R.id.main_thread_bottom_divider);
         this.k = findViewById(R.id.reply_btn_bottom_divider);
         setCurrentTab(0);
     }
 
-    public void setCurrentTab(int i) {
-        if (i == this.l) {
+    public void setCurrentTab(int i2) {
+        if (i2 == this.l) {
             return;
         }
-        this.l = i;
-        if (i == 0) {
-            this.f20185h.setVisibility(0);
-            this.i.setVisibility(4);
-            this.f20183f.setTextColor(this.m);
-            this.f20184g.setTextColor(this.n);
-        } else if (i == 1) {
-            this.f20185h.setVisibility(4);
-            this.i.setVisibility(0);
-            this.f20183f.setTextColor(this.n);
-            this.f20184g.setTextColor(this.m);
+        this.l = i2;
+        if (i2 == 0) {
+            this.f20709h.setVisibility(0);
+            this.f20710i.setVisibility(4);
+            this.f20707f.setTextColor(this.m);
+            this.f20708g.setTextColor(this.n);
+        } else if (i2 == 1) {
+            this.f20709h.setVisibility(4);
+            this.f20710i.setVisibility(0);
+            this.f20707f.setTextColor(this.n);
+            this.f20708g.setTextColor(this.m);
         }
     }
 
@@ -110,8 +112,8 @@ public class PersonTabView extends LinearLayout {
         c(context);
     }
 
-    public PersonTabView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public PersonTabView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.l = 0;
         this.m = SkinManager.getColor(R.color.CAM_X0105);
         this.n = SkinManager.getColor(R.color.CAM_X0106);

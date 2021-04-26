@@ -65,9 +65,9 @@ public class Utils {
             return;
         }
         String[] strArr = {"mLastSrvView", "mServedView", "mNextServedView"};
-        for (int i = 0; i < 3; i++) {
+        for (int i2 = 0; i2 < 3; i2++) {
             try {
-                Field declaredField = inputMethodManager.getClass().getDeclaredField(strArr[i]);
+                Field declaredField = inputMethodManager.getClass().getDeclaredField(strArr[i2]);
                 if (!declaredField.isAccessible()) {
                     declaredField.setAccessible(true);
                 }

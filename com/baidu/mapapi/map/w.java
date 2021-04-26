@@ -12,10 +12,10 @@ import javax.microedition.khronos.opengles.GL10;
 public class w implements com.baidu.mapsdkplatform.comapi.map.l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f7140a;
+    public final /* synthetic */ WearMapView f7395a;
 
     public w(WearMapView wearMapView) {
-        this.f7140a = wearMapView;
+        this.f7395a = wearMapView;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -30,22 +30,22 @@ public class w implements com.baidu.mapsdkplatform.comapi.map.l {
         String format;
         TextView textView;
         TextView textView2;
-        jVar = this.f7140a.f7089e;
+        jVar = this.f7395a.f7343e;
         if (jVar != null) {
-            jVar2 = this.f7140a.f7089e;
+            jVar2 = this.f7395a.f7343e;
             if (jVar2.a() == null) {
                 return;
             }
-            jVar3 = this.f7140a.f7089e;
-            float f3 = jVar3.a().E().f7605a;
-            f2 = this.f7140a.z;
+            jVar3 = this.f7395a.f7343e;
+            float f3 = jVar3.a().E().f7874a;
+            f2 = this.f7395a.z;
             if (f2 != f3) {
                 sparseArray = WearMapView.w;
                 int intValue = ((Integer) sparseArray.get((int) f3)).intValue();
-                jVar4 = this.f7140a.f7089e;
-                imageView = this.f7140a.q;
-                int i = ((int) (intValue / jVar4.a().E().m)) / 2;
-                imageView.setPadding(i, 0, i, 0);
+                jVar4 = this.f7395a.f7343e;
+                imageView = this.f7395a.q;
+                int i2 = ((int) (intValue / jVar4.a().E().m)) / 2;
+                imageView.setPadding(i2, 0, i2, 0);
                 Object[] objArr = new Object[1];
                 if (intValue >= 1000) {
                     objArr[0] = Integer.valueOf(intValue / 1000);
@@ -54,13 +54,13 @@ public class w implements com.baidu.mapsdkplatform.comapi.map.l {
                     objArr[0] = Integer.valueOf(intValue);
                     format = String.format(" %d米 ", objArr);
                 }
-                textView = this.f7140a.o;
+                textView = this.f7395a.o;
                 textView.setText(format);
-                textView2 = this.f7140a.p;
+                textView2 = this.f7395a.p;
                 textView2.setText(format);
-                this.f7140a.z = f3;
+                this.f7395a.z = f3;
             }
-            this.f7140a.requestLayout();
+            this.f7395a.requestLayout();
         }
     }
 

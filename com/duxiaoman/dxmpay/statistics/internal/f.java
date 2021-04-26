@@ -5,19 +5,19 @@ import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.xiaomi.mipush.sdk.Constants;
-import d.e.a.a.a;
-import d.e.a.a.b.l;
+import d.d.a.a.a;
+import d.d.a.a.b.l;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f30505a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
+    public static final List<String> f31435a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
         {
             add("HUAWEI");
             add("OPPO");
@@ -30,7 +30,7 @@ public class f {
         String trim = str == null ? RomUtils.UNKNOWN : str.trim();
         try {
             if (!TextUtils.isEmpty(trim)) {
-                for (String str2 : f30505a) {
+                for (String str2 : f31435a) {
                     if (str2.equalsIgnoreCase(trim)) {
                         return str2;
                     }
@@ -80,10 +80,10 @@ public class f {
             jSONObject3.put(Constants.EXTRA_KEY_APP_VERSION_CODE, str9);
             jSONObject.put("pub", jSONObject3);
             if (jSONArray != null && jSONArray.length() > 0) {
-                int i = 0;
-                while (i < jSONArray.length()) {
+                int i2 = 0;
+                while (i2 < jSONArray.length()) {
                     JSONObject jSONObject4 = new JSONObject();
-                    JSONObject jSONObject5 = (JSONObject) jSONArray.opt(i);
+                    JSONObject jSONObject5 = (JSONObject) jSONArray.opt(i2);
                     jSONObject4.put("event", str2);
                     jSONObject4.put("type", "track");
                     if (jSONObject5.has(str10)) {
@@ -135,15 +135,15 @@ public class f {
                                 jSONObject6.put(next2, jSONObject5.opt(next2));
                             } else {
                                 JSONArray jSONArray4 = new JSONArray(jSONObject5.optString("ev"));
-                                int i2 = 0;
-                                int i3 = 1;
-                                while (i2 < jSONArray4.length()) {
+                                int i3 = 0;
+                                int i4 = 1;
+                                while (i3 < jSONArray4.length()) {
                                     StringBuilder sb = new StringBuilder();
                                     sb.append("value");
-                                    sb.append(i3);
-                                    jSONObject6.put(sb.toString(), jSONArray4.optString(i2));
-                                    i2++;
+                                    sb.append(i4);
+                                    jSONObject6.put(sb.toString(), jSONArray4.optString(i3));
                                     i3++;
+                                    i4++;
                                 }
                             }
                             str10 = str12;
@@ -160,7 +160,7 @@ public class f {
                     JSONArray jSONArray5 = jSONArray;
                     jSONObject4.put("properties", jSONObject6);
                     jSONArray2.put(jSONObject4);
-                    i++;
+                    i2++;
                     str10 = str13;
                     jSONArray = jSONArray5;
                 }

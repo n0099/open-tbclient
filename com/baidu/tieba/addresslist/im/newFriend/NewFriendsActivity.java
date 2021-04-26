@@ -19,20 +19,20 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 import com.baidu.tieba.R;
 import com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel;
-import d.b.i0.r.f0.f;
-import d.b.i0.r.s.b;
-import d.b.i0.z0.f0;
-import d.b.i0.z0.h0;
-import d.b.j0.q.e.a.a;
+import d.a.i0.r.f0.f;
+import d.a.i0.r.s.b;
+import d.a.i0.z0.f0;
+import d.a.i0.z0.h0;
+import d.a.j0.q.e.a.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
-    public d.b.i0.r.s.b mDeleteNewFriendDialog;
-    public d.b.j0.q.e.a.c mView;
+    public d.a.i0.r.s.b mDeleteNewFriendDialog;
+    public d.a.j0.q.e.a.c mView;
     public String SHARE_ID = "recommend_new_friend" + TbadkCoreApplication.getCurrentAccount();
     public a.c mNewFriendItemListener = new e();
     public final CustomMessageListener mNewFriendAction = new f(2001174);
-    public final d.b.c.c.g.c mPassListener = new i(304101);
+    public final d.a.c.c.g.c mPassListener = new i(304101);
     public final f.g mOnPullRefreshLisner = new c();
     public final RecommendFriendModel praiseYModel = new RecommendFriendModel(this, new d());
 
@@ -40,36 +40,36 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public class a extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.j0.e1.g.a f14292a;
+        public final /* synthetic */ d.a.j0.e1.g.a f14347a;
 
-        public a(d.b.j0.e1.g.a aVar) {
-            this.f14292a = aVar;
+        public a(d.a.j0.e1.g.a aVar) {
+            this.f14347a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // d.b.i0.z0.f0
+        @Override // d.a.i0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(d.b.j0.q.e.a.b.f().b(this.f14292a.b()));
+            return Boolean.valueOf(d.a.j0.q.e.a.b.f().b(this.f14347a.b()));
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements d.b.i0.z0.n<Boolean> {
+    public class b implements d.a.i0.z0.n<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.j0.e1.g.a f14294a;
+        public final /* synthetic */ d.a.j0.e1.g.a f14349a;
 
-        public b(d.b.j0.e1.g.a aVar) {
-            this.f14294a = aVar;
+        public b(d.a.j0.e1.g.a aVar) {
+            this.f14349a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.n
+        @Override // d.a.i0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             if (bool.booleanValue()) {
-                NewFriendsActivity.this.mView.g(this.f14294a);
+                NewFriendsActivity.this.mView.g(this.f14349a);
             }
         }
     }
@@ -79,7 +79,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         public c() {
         }
 
-        @Override // d.b.i0.r.f0.f.g
+        @Override // d.a.i0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (z) {
                 return;
@@ -112,8 +112,8 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         public e() {
         }
 
-        @Override // d.b.j0.q.e.a.a.c
-        public void a(int i, int i2, View view, d.b.j0.e1.g.a aVar) {
+        @Override // d.a.j0.q.e.a.a.c
+        public void a(int i2, int i3, View view, d.a.j0.e1.g.a aVar) {
             if (aVar.f() == 0) {
                 NewFriendsActivity.this.addtNewFriend(aVar);
             } else if (aVar.f() == 1) {
@@ -124,8 +124,8 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
 
     /* loaded from: classes4.dex */
     public class f extends CustomMessageListener {
-        public f(int i) {
-            super(i);
+        public f(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -142,36 +142,36 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class g extends f0<List<d.b.j0.e1.g.a>> {
+    public class g extends f0<List<d.a.j0.e1.g.a>> {
         public g() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.f0
+        @Override // d.a.i0.z0.f0
         /* renamed from: a */
-        public List<d.b.j0.e1.g.a> doInBackground() {
-            return d.b.j0.q.e.a.b.f().j();
+        public List<d.a.j0.e1.g.a> doInBackground() {
+            return d.a.j0.q.e.a.b.f().j();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class h implements d.b.i0.z0.n<List<d.b.j0.e1.g.a>> {
+    public class h implements d.a.i0.z0.n<List<d.a.j0.e1.g.a>> {
         public h() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.n
+        @Override // d.a.i0.z0.n
         /* renamed from: a */
-        public void onReturnDataInUI(List<d.b.j0.e1.g.a> list) {
+        public void onReturnDataInUI(List<d.a.j0.e1.g.a> list) {
             NewFriendsActivity.this.mView.f().e(list);
             NewFriendsActivity.this.mView.f().notifyDataSetChanged();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class i extends d.b.c.c.g.c {
-        public i(int i) {
-            super(i);
+    public class i extends d.a.c.c.g.c {
+        public i(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -191,55 +191,55 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class j extends f0<List<d.b.j0.e1.g.a>> {
+    public class j extends f0<List<d.a.j0.e1.g.a>> {
         public j() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.f0
+        @Override // d.a.i0.z0.f0
         /* renamed from: a */
-        public List<d.b.j0.e1.g.a> doInBackground() {
-            d.b.j0.q.e.a.b.f().p();
-            return d.b.j0.q.e.a.b.f().j();
+        public List<d.a.j0.e1.g.a> doInBackground() {
+            d.a.j0.q.e.a.b.f().p();
+            return d.a.j0.q.e.a.b.f().j();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class k implements d.b.i0.z0.n<List<d.b.j0.e1.g.a>> {
+    public class k implements d.a.i0.z0.n<List<d.a.j0.e1.g.a>> {
         public k() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.n
+        @Override // d.a.i0.z0.n
         /* renamed from: a */
-        public void onReturnDataInUI(List<d.b.j0.e1.g.a> list) {
+        public void onReturnDataInUI(List<d.a.j0.e1.g.a> list) {
             NewFriendsActivity.this.mView.e();
             NewFriendsActivity.this.mView.h(list);
         }
     }
 
     /* loaded from: classes4.dex */
-    public class l extends f0<List<d.b.j0.e1.g.a>> {
+    public class l extends f0<List<d.a.j0.e1.g.a>> {
         public l() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.f0
+        @Override // d.a.i0.z0.f0
         /* renamed from: a */
-        public List<d.b.j0.e1.g.a> doInBackground() {
-            return d.b.j0.q.e.a.b.f().g();
+        public List<d.a.j0.e1.g.a> doInBackground() {
+            return d.a.j0.q.e.a.b.f().g();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class m implements d.b.i0.z0.n<List<d.b.j0.e1.g.a>> {
+    public class m implements d.a.i0.z0.n<List<d.a.j0.e1.g.a>> {
         public m() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.n
+        @Override // d.a.i0.z0.n
         /* renamed from: a */
-        public void onReturnDataInUI(List<d.b.j0.e1.g.a> list) {
+        public void onReturnDataInUI(List<d.a.j0.e1.g.a> list) {
             NewFriendsActivity.this.mView.m(list);
         }
     }
@@ -248,16 +248,16 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public class n implements b.c {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.j0.e1.g.a f14307a;
+        public d.a.j0.e1.g.a f14362a;
 
-        public n(d.b.j0.e1.g.a aVar) {
-            this.f14307a = aVar;
+        public n(d.a.j0.e1.g.a aVar) {
+            this.f14362a = aVar;
         }
 
-        @Override // d.b.i0.r.s.b.c
-        public void a(d.b.i0.r.s.b bVar, int i, View view) {
+        @Override // d.a.i0.r.s.b.c
+        public void a(d.a.i0.r.s.b bVar, int i2, View view) {
             bVar.e();
-            d.b.j0.e1.g.a aVar = this.f14307a;
+            d.a.j0.e1.g.a aVar = this.f14362a;
             if (aVar != null) {
                 NewFriendsActivity.this.deleteNewFriend(aVar);
             }
@@ -265,19 +265,19 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void addtNewFriend(d.b.j0.e1.g.a aVar) {
+    public void addtNewFriend(d.a.j0.e1.g.a aVar) {
         if (aVar != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(getPageContext().getPageActivity(), String.valueOf(aVar.b()), aVar.d(), aVar.e(), "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deleteNewFriend(d.b.j0.e1.g.a aVar) {
+    public void deleteNewFriend(d.a.j0.e1.g.a aVar) {
         h0.c(new a(aVar), new b(aVar));
     }
 
-    private d.b.i0.r.s.b getDeleteNewFriendDialog(n nVar) {
-        d.b.i0.r.s.b bVar = new d.b.i0.r.s.b(getPageContext().getPageActivity());
+    private d.a.i0.r.s.b getDeleteNewFriendDialog(n nVar) {
+        d.a.i0.r.s.b bVar = new d.a.i0.r.s.b(getPageContext().getPageActivity());
         bVar.k(R.string.operation);
         bVar.j(new String[]{getPageContext().getString(R.string.delete)}, nVar);
         return bVar;
@@ -294,8 +294,8 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void passNewFriend(d.b.j0.e1.g.a aVar) {
-        d.b.i0.h0.a.a(aVar.b(), AddFriendActivityConfig.TYPE_NEW_FRD);
+    public void passNewFriend(d.a.j0.e1.g.a aVar) {
+        d.a.i0.h0.a.a(aVar.b(), AddFriendActivityConfig.TYPE_NEW_FRD);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -319,9 +319,9 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.new_friend_activity);
-        d.b.j0.q.e.a.c cVar = new d.b.j0.q.e.a.c(this);
+        d.a.j0.q.e.a.c cVar = new d.a.j0.q.e.a.c(this);
         this.mView = cVar;
-        cVar.i(this.mOnPullRefreshLisner);
+        cVar.j(this.mOnPullRefreshLisner);
         this.mView.k(this.mNewFriendItemListener);
         registerListener(this.mNewFriendAction);
         registerListener(this.mPassListener);
@@ -339,7 +339,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.i0.r.s.b bVar = this.mDeleteNewFriendDialog;
+        d.a.i0.r.s.b bVar = this.mDeleteNewFriendDialog;
         if (bVar != null) {
             bVar.e();
         }
@@ -347,19 +347,19 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
-        d.b.j0.e1.g.a item = this.mView.f().getItem(i2);
-        if (item != null && (item instanceof d.b.j0.e1.g.a) && i2 == j2) {
+        d.a.j0.e1.g.a item = this.mView.f().getItem(i2);
+        if (item != null && (item instanceof d.a.j0.e1.g.a) && i2 == j2) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), String.valueOf(item.b()), item.d())));
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j2) {
-        d.b.j0.e1.g.a item = this.mView.f().getItem(i2);
-        if (item == null || !(item instanceof d.b.j0.e1.g.a)) {
+        d.a.j0.e1.g.a item = this.mView.f().getItem(i2);
+        if (item == null || !(item instanceof d.a.j0.e1.g.a)) {
             return true;
         }
-        d.b.i0.r.s.b deleteNewFriendDialog = getDeleteNewFriendDialog(new n(item));
+        d.a.i0.r.s.b deleteNewFriendDialog = getDeleteNewFriendDialog(new n(item));
         this.mDeleteNewFriendDialog = deleteNewFriendDialog;
         deleteNewFriendDialog.c(getPageContext());
         this.mDeleteNewFriendDialog.m();

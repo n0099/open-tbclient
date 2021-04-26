@@ -57,4 +57,9 @@ public abstract class PropertyReference extends CallableReference implements KPr
     public KProperty getReflected() {
         return (KProperty) super.getReflected();
     }
+
+    @SinceKotlin(version = "1.4")
+    public PropertyReference(Object obj, Class cls, String str, String str2, int i2) {
+        super(obj, cls, str, str2, (i2 & 1) == 1);
+    }
 }

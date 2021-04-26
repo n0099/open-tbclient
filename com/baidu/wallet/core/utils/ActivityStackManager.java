@@ -14,11 +14,11 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static ActivityStackManager f23947a = new ActivityStackManager();
+        public static ActivityStackManager f24695a = new ActivityStackManager();
     }
 
     public static ActivityStackManager getInstance() {
-        return a.f23947a;
+        return a.f24695a;
     }
 
     public void addActivity(Activity activity) {
@@ -61,8 +61,8 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
         if (size < 2) {
             return getTopActivity();
         }
-        for (int i = size - 1; i >= 0; i--) {
-            Activity activity = this.stack.get(i);
+        for (int i2 = size - 1; i2 >= 0; i2--) {
+            Activity activity = this.stack.get(i2);
             if (activity != null && !activity.isFinishing()) {
                 return activity;
             }

@@ -15,15 +15,15 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class SampleGroupDescriptionBox extends AbstractFullBox {
     public static final String TYPE = "sgpd";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_8 = null;
     public int defaultLength;
     public int descriptionLength;
     public List<GroupEntry> groupEntries;
@@ -84,15 +84,15 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
                 if (readUInt32 <= 0) {
                     return;
                 }
-                int i = this.defaultLength;
+                int i2 = this.defaultLength;
                 if (getVersion() == 1) {
                     if (this.defaultLength == 0) {
-                        i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
-                        this.descriptionLength = i;
+                        i2 = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
+                        this.descriptionLength = i2;
                     }
-                    int position = byteBuffer.position() + i;
+                    int position = byteBuffer.position() + i2;
                     ByteBuffer slice = byteBuffer.slice();
-                    slice.limit(i);
+                    slice.limit(i2);
                     this.groupEntries.add(parseGroupEntry(slice, this.groupingType));
                     byteBuffer.position(position);
                     readUInt32 = j;
@@ -177,9 +177,9 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
         return hashCode + (list != null ? list.hashCode() : 0);
     }
 
-    public void setDefaultLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i)));
-        this.defaultLength = i;
+    public void setDefaultLength(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i2)));
+        this.defaultLength = i2;
     }
 
     public void setGroupEntries(List<GroupEntry> list) {

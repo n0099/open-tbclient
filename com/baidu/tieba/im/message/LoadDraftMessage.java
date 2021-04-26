@@ -8,10 +8,10 @@ public abstract class LoadDraftMessage extends CustomMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17723a;
+        public String f18049a;
     }
 
-    public LoadDraftMessage(int i, a aVar) {
-        super(i, aVar);
+    public LoadDraftMessage(int i2, a aVar) {
+        super(i2, aVar);
     }
 }

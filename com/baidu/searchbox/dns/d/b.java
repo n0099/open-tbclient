@@ -18,7 +18,7 @@ public class b {
         return a.K;
     }
 
-    public com.baidu.searchbox.dns.d.a a(String str, boolean z, int i) {
+    public com.baidu.searchbox.dns.d.a a(String str, boolean z, int i2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -27,7 +27,7 @@ public class b {
                 if (DnsUtil.DEBUG) {
                     Log.d(DnsUtil.TAG, " creat dns transmit task isBatch: " + z + " host: " + str);
                 }
-                return new com.baidu.searchbox.dns.d.a(z, str, i);
+                return new com.baidu.searchbox.dns.d.a(z, str, i2);
             }
             return null;
         }

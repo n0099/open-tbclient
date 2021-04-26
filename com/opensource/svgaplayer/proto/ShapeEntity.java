@@ -4,10 +4,10 @@ import com.squareup.wire2.FieldEncoding;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.ProtoAdapter;
 import com.squareup.wire2.WireField;
-import d.o.a.c;
-import d.o.a.d;
-import d.o.a.g;
-import d.o.a.h.a;
+import d.n.a.c;
+import d.n.a.d;
+import d.n.a.g;
+import d.n.a.h.a;
 import java.io.IOException;
 import okio.ByteString;
 /* loaded from: classes6.dex */
@@ -233,8 +233,8 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         }
 
         public int hashCode() {
-            int i = this.hashCode;
-            if (i == 0) {
+            int i2 = this.hashCode;
+            if (i2 == 0) {
                 int hashCode = unknownFields().hashCode() * 37;
                 Float f2 = this.x;
                 int hashCode2 = (hashCode + (f2 != null ? f2.hashCode() : 0)) * 37;
@@ -247,7 +247,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 this.hashCode = hashCode5;
                 return hashCode5;
             }
-            return i;
+            return i2;
         }
 
         @Override // com.squareup.wire2.Message
@@ -584,8 +584,8 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         }
 
         public int hashCode() {
-            int i = this.hashCode;
-            if (i == 0) {
+            int i2 = this.hashCode;
+            if (i2 == 0) {
                 int hashCode = unknownFields().hashCode() * 37;
                 Float f2 = this.x;
                 int hashCode2 = (hashCode + (f2 != null ? f2.hashCode() : 0)) * 37;
@@ -600,7 +600,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 this.hashCode = hashCode6;
                 return hashCode6;
             }
-            return i;
+            return i2;
         }
 
         @Override // com.squareup.wire2.Message
@@ -664,16 +664,16 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         @WireField(adapter = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f38358d;
+        public final String f35925d;
 
         /* loaded from: classes6.dex */
         public static final class Builder extends Message.a<ShapeArgs, Builder> {
 
             /* renamed from: d  reason: collision with root package name */
-            public String f38359d;
+            public String f35926d;
 
             public Builder d(String str) {
-                this.f38359d = str;
+                this.f35926d = str;
                 return this;
             }
 
@@ -681,7 +681,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.squareup.wire2.Message.a
             public ShapeArgs build() {
-                return new ShapeArgs(this.f38359d, super.buildUnknownFields());
+                return new ShapeArgs(this.f35926d, super.buildUnknownFields());
             }
         }
 
@@ -714,7 +714,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.squareup.wire2.ProtoAdapter
             public void encode(d dVar, ShapeArgs shapeArgs) throws IOException {
-                String str = shapeArgs.f38358d;
+                String str = shapeArgs.f35925d;
                 if (str != null) {
                     ProtoAdapter.STRING.encodeWithTag(dVar, 1, str);
                 }
@@ -724,7 +724,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.squareup.wire2.ProtoAdapter
             public int encodedSize(ShapeArgs shapeArgs) {
-                String str = shapeArgs.f38358d;
+                String str = shapeArgs.f35925d;
                 return (str != null ? ProtoAdapter.STRING.encodedSizeWithTag(1, str) : 0) + shapeArgs.unknownFields().size();
             }
 
@@ -747,29 +747,29 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             }
             if (obj instanceof ShapeArgs) {
                 ShapeArgs shapeArgs = (ShapeArgs) obj;
-                return unknownFields().equals(shapeArgs.unknownFields()) && a.f(this.f38358d, shapeArgs.f38358d);
+                return unknownFields().equals(shapeArgs.unknownFields()) && a.f(this.f35925d, shapeArgs.f35925d);
             }
             return false;
         }
 
         public int hashCode() {
-            int i = this.hashCode;
-            if (i == 0) {
+            int i2 = this.hashCode;
+            if (i2 == 0) {
                 int hashCode = unknownFields().hashCode() * 37;
-                String str = this.f38358d;
+                String str = this.f35925d;
                 int hashCode2 = hashCode + (str != null ? str.hashCode() : 0);
                 this.hashCode = hashCode2;
                 return hashCode2;
             }
-            return i;
+            return i2;
         }
 
         @Override // com.squareup.wire2.Message
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            if (this.f38358d != null) {
+            if (this.f35925d != null) {
                 sb.append(", d=");
-                sb.append(this.f38358d);
+                sb.append(this.f35925d);
             }
             StringBuilder replace = sb.replace(0, 2, "ShapeArgs{");
             replace.append('}');
@@ -778,7 +778,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
 
         public ShapeArgs(String str, ByteString byteString) {
             super(ADAPTER, byteString);
-            this.f38358d = str;
+            this.f35925d = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -787,7 +787,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         /* renamed from: newBuilder */
         public Message.a<ShapeArgs, Builder> newBuilder2() {
             Builder builder = new Builder();
-            builder.f38359d = this.f38358d;
+            builder.f35926d = this.f35925d;
             builder.addUnknownFields(unknownFields());
             return builder;
         }
@@ -897,14 +897,14 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             public static final ProtoAdapter<LineCap> ADAPTER = ProtoAdapter.newEnumAdapter(LineCap.class);
             public final int value;
 
-            LineCap(int i) {
-                this.value = i;
+            LineCap(int i2) {
+                this.value = i2;
             }
 
-            public static LineCap fromValue(int i) {
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i != 2) {
+            public static LineCap fromValue(int i2) {
+                if (i2 != 0) {
+                    if (i2 != 1) {
+                        if (i2 != 2) {
                             return null;
                         }
                         return LineCap_SQUARE;
@@ -914,7 +914,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 return LineCap_BUTT;
             }
 
-            @Override // d.o.a.g
+            @Override // d.n.a.g
             public int getValue() {
                 return this.value;
             }
@@ -929,14 +929,14 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             public static final ProtoAdapter<LineJoin> ADAPTER = ProtoAdapter.newEnumAdapter(LineJoin.class);
             public final int value;
 
-            LineJoin(int i) {
-                this.value = i;
+            LineJoin(int i2) {
+                this.value = i2;
             }
 
-            public static LineJoin fromValue(int i) {
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i != 2) {
+            public static LineJoin fromValue(int i2) {
+                if (i2 != 0) {
+                    if (i2 != 1) {
+                        if (i2 != 2) {
                             return null;
                         }
                         return LineJoin_BEVEL;
@@ -946,7 +946,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 return LineJoin_MITER;
             }
 
-            @Override // d.o.a.g
+            @Override // d.n.a.g
             public int getValue() {
                 return this.value;
             }
@@ -1111,15 +1111,15 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
 
             /* renamed from: a  reason: collision with root package name */
-            public final Float f38360a;
+            public final Float f35927a;
             @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
 
             /* renamed from: b  reason: collision with root package name */
-            public final Float f38361b;
+            public final Float f35928b;
             @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
 
             /* renamed from: g  reason: collision with root package name */
-            public final Float f38362g;
+            public final Float f35929g;
             @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
             public final Float r;
 
@@ -1127,27 +1127,27 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             public static final class Builder extends Message.a<RGBAColor, Builder> {
 
                 /* renamed from: a  reason: collision with root package name */
-                public Float f38363a;
+                public Float f35930a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public Float f38364b;
+                public Float f35931b;
 
                 /* renamed from: g  reason: collision with root package name */
-                public Float f38365g;
+                public Float f35932g;
                 public Float r;
 
                 public Builder a(Float f2) {
-                    this.f38363a = f2;
+                    this.f35930a = f2;
                     return this;
                 }
 
                 public Builder b(Float f2) {
-                    this.f38364b = f2;
+                    this.f35931b = f2;
                     return this;
                 }
 
                 public Builder g(Float f2) {
-                    this.f38365g = f2;
+                    this.f35932g = f2;
                     return this;
                 }
 
@@ -1160,7 +1160,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.squareup.wire2.Message.a
                 public RGBAColor build() {
-                    return new RGBAColor(this.r, this.f38365g, this.f38364b, this.f38363a, super.buildUnknownFields());
+                    return new RGBAColor(this.r, this.f35932g, this.f35931b, this.f35930a, super.buildUnknownFields());
                 }
             }
 
@@ -1203,15 +1203,15 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     if (f2 != null) {
                         ProtoAdapter.FLOAT.encodeWithTag(dVar, 1, f2);
                     }
-                    Float f3 = rGBAColor.f38362g;
+                    Float f3 = rGBAColor.f35929g;
                     if (f3 != null) {
                         ProtoAdapter.FLOAT.encodeWithTag(dVar, 2, f3);
                     }
-                    Float f4 = rGBAColor.f38361b;
+                    Float f4 = rGBAColor.f35928b;
                     if (f4 != null) {
                         ProtoAdapter.FLOAT.encodeWithTag(dVar, 3, f4);
                     }
-                    Float f5 = rGBAColor.f38360a;
+                    Float f5 = rGBAColor.f35927a;
                     if (f5 != null) {
                         ProtoAdapter.FLOAT.encodeWithTag(dVar, 4, f5);
                     }
@@ -1223,11 +1223,11 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 public int encodedSize(RGBAColor rGBAColor) {
                     Float f2 = rGBAColor.r;
                     int encodedSizeWithTag = f2 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, f2) : 0;
-                    Float f3 = rGBAColor.f38362g;
+                    Float f3 = rGBAColor.f35929g;
                     int encodedSizeWithTag2 = encodedSizeWithTag + (f3 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(2, f3) : 0);
-                    Float f4 = rGBAColor.f38361b;
+                    Float f4 = rGBAColor.f35928b;
                     int encodedSizeWithTag3 = encodedSizeWithTag2 + (f4 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(3, f4) : 0);
-                    Float f5 = rGBAColor.f38360a;
+                    Float f5 = rGBAColor.f35927a;
                     return encodedSizeWithTag3 + (f5 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(4, f5) : 0) + rGBAColor.unknownFields().size();
                 }
 
@@ -1258,27 +1258,27 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 }
                 if (obj instanceof RGBAColor) {
                     RGBAColor rGBAColor = (RGBAColor) obj;
-                    return unknownFields().equals(rGBAColor.unknownFields()) && a.f(this.r, rGBAColor.r) && a.f(this.f38362g, rGBAColor.f38362g) && a.f(this.f38361b, rGBAColor.f38361b) && a.f(this.f38360a, rGBAColor.f38360a);
+                    return unknownFields().equals(rGBAColor.unknownFields()) && a.f(this.r, rGBAColor.r) && a.f(this.f35929g, rGBAColor.f35929g) && a.f(this.f35928b, rGBAColor.f35928b) && a.f(this.f35927a, rGBAColor.f35927a);
                 }
                 return false;
             }
 
             public int hashCode() {
-                int i = this.hashCode;
-                if (i == 0) {
+                int i2 = this.hashCode;
+                if (i2 == 0) {
                     int hashCode = unknownFields().hashCode() * 37;
                     Float f2 = this.r;
                     int hashCode2 = (hashCode + (f2 != null ? f2.hashCode() : 0)) * 37;
-                    Float f3 = this.f38362g;
+                    Float f3 = this.f35929g;
                     int hashCode3 = (hashCode2 + (f3 != null ? f3.hashCode() : 0)) * 37;
-                    Float f4 = this.f38361b;
+                    Float f4 = this.f35928b;
                     int hashCode4 = (hashCode3 + (f4 != null ? f4.hashCode() : 0)) * 37;
-                    Float f5 = this.f38360a;
+                    Float f5 = this.f35927a;
                     int hashCode5 = hashCode4 + (f5 != null ? f5.hashCode() : 0);
                     this.hashCode = hashCode5;
                     return hashCode5;
                 }
-                return i;
+                return i2;
             }
 
             @Override // com.squareup.wire2.Message
@@ -1288,17 +1288,17 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     sb.append(", r=");
                     sb.append(this.r);
                 }
-                if (this.f38362g != null) {
+                if (this.f35929g != null) {
                     sb.append(", g=");
-                    sb.append(this.f38362g);
+                    sb.append(this.f35929g);
                 }
-                if (this.f38361b != null) {
+                if (this.f35928b != null) {
                     sb.append(", b=");
-                    sb.append(this.f38361b);
+                    sb.append(this.f35928b);
                 }
-                if (this.f38360a != null) {
+                if (this.f35927a != null) {
                     sb.append(", a=");
-                    sb.append(this.f38360a);
+                    sb.append(this.f35927a);
                 }
                 StringBuilder replace = sb.replace(0, 2, "RGBAColor{");
                 replace.append('}');
@@ -1308,9 +1308,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             public RGBAColor(Float f2, Float f3, Float f4, Float f5, ByteString byteString) {
                 super(ADAPTER, byteString);
                 this.r = f2;
-                this.f38362g = f3;
-                this.f38361b = f4;
-                this.f38360a = f5;
+                this.f35929g = f3;
+                this.f35928b = f4;
+                this.f35927a = f5;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1320,9 +1320,9 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             public Message.a<RGBAColor, Builder> newBuilder2() {
                 Builder builder = new Builder();
                 builder.r = this.r;
-                builder.f38365g = this.f38362g;
-                builder.f38364b = this.f38361b;
-                builder.f38363a = this.f38360a;
+                builder.f35932g = this.f35929g;
+                builder.f35931b = this.f35928b;
+                builder.f35930a = this.f35927a;
                 builder.addUnknownFields(unknownFields());
                 return builder;
             }
@@ -1355,8 +1355,8 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         }
 
         public int hashCode() {
-            int i = this.hashCode;
-            if (i == 0) {
+            int i2 = this.hashCode;
+            if (i2 == 0) {
                 int hashCode = unknownFields().hashCode() * 37;
                 RGBAColor rGBAColor = this.fill;
                 int hashCode2 = (hashCode + (rGBAColor != null ? rGBAColor.hashCode() : 0)) * 37;
@@ -1379,7 +1379,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 this.hashCode = hashCode10;
                 return hashCode10;
             }
-            return i;
+            return i2;
         }
 
         @Override // com.squareup.wire2.Message
@@ -1469,15 +1469,15 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         public static final ProtoAdapter<ShapeType> ADAPTER = ProtoAdapter.newEnumAdapter(ShapeType.class);
         public final int value;
 
-        ShapeType(int i) {
-            this.value = i;
+        ShapeType(int i2) {
+            this.value = i2;
         }
 
-        public static ShapeType fromValue(int i) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
+        public static ShapeType fromValue(int i2) {
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
                             return null;
                         }
                         return KEEP;
@@ -1489,7 +1489,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             return SHAPE;
         }
 
-        @Override // d.o.a.g
+        @Override // d.n.a.g
         public int getValue() {
             return this.value;
         }
@@ -1511,8 +1511,8 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
     }
 
     public int hashCode() {
-        int i = this.hashCode;
-        if (i == 0) {
+        int i2 = this.hashCode;
+        if (i2 == 0) {
             int hashCode = unknownFields().hashCode() * 37;
             ShapeType shapeType = this.type;
             int hashCode2 = (hashCode + (shapeType != null ? shapeType.hashCode() : 0)) * 37;
@@ -1529,7 +1529,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             this.hashCode = hashCode7;
             return hashCode7;
         }
-        return i;
+        return i2;
     }
 
     @Override // com.squareup.wire2.Message

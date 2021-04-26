@@ -35,8 +35,8 @@ public class LruDiskCache extends LruCache<String, CacheResource<File>> {
         void onResourceEvicted(String str, CacheResource<File> cacheResource);
     }
 
-    public LruDiskCache(int i, String str) {
-        super(i);
+    public LruDiskCache(int i2, String str) {
+        super(i2);
         this.listeners = new ArrayList();
         this.restoreCompleted = false;
         this.cacheCount = 0;
@@ -46,15 +46,15 @@ public class LruDiskCache extends LruCache<String, CacheResource<File>> {
     }
 
     public static /* synthetic */ int access$108(LruDiskCache lruDiskCache) {
-        int i = lruDiskCache.cacheCount;
-        lruDiskCache.cacheCount = i + 1;
-        return i;
+        int i2 = lruDiskCache.cacheCount;
+        lruDiskCache.cacheCount = i2 + 1;
+        return i2;
     }
 
     public static /* synthetic */ int access$110(LruDiskCache lruDiskCache) {
-        int i = lruDiskCache.cacheCount;
-        lruDiskCache.cacheCount = i - 1;
-        return i;
+        int i2 = lruDiskCache.cacheCount;
+        lruDiskCache.cacheCount = i2 - 1;
+        return i2;
     }
 
     private void deleteFileAsync(final CacheResource<File> cacheResource) {
@@ -97,8 +97,8 @@ public class LruDiskCache extends LruCache<String, CacheResource<File>> {
         }
     }
 
-    public static LruDiskCache open(final String str, int i) {
-        final LruDiskCache lruDiskCache = new LruDiskCache(i, str);
+    public static LruDiskCache open(final String str, int i2) {
+        final LruDiskCache lruDiskCache = new LruDiskCache(i2, str);
         lruDiskCache.restoreCompleted = false;
         TaskScheduler.getInstance().submit(new BaseTask() { // from class: com.baidu.mobads.container.util.cache.LruDiskCache.1
             @Override // com.baidu.mobads.container.executor.BaseTask

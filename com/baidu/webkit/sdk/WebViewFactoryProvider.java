@@ -129,9 +129,9 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         String getMLModelUrl();
 
-        String getMainFrameIdInfo(int i);
+        String getMainFrameIdInfo(int i2);
 
-        String getMainFrameIdReferrer(int i);
+        String getMainFrameIdReferrer(int i2);
 
         boolean getMainLinkDirectEnabled();
 
@@ -211,7 +211,7 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         String getWormholeForbidenHost();
 
-        int getWormholeNum(int i);
+        int getWormholeNum(int i2);
 
         String getZeusManagerPkgName();
 
@@ -233,15 +233,15 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         ByteBuffer kernelBrotliPull(long[] jArr);
 
-        void kernelBrotliPush(long[] jArr, int i);
+        void kernelBrotliPush(long[] jArr, int i2);
 
-        void kernelEncrypt(byte[] bArr, int i, byte[] bArr2);
+        void kernelEncrypt(byte[] bArr, int i2, byte[] bArr2);
 
-        void notifyBdAppStatusChange(int i);
+        void notifyBdAppStatusChange(int i2);
 
         void removeDnsInfo(String str);
 
-        void removeMainFrameIdInfo(int i);
+        void removeMainFrameIdInfo(int i2);
 
         void setAbTestSwitch(String str);
 
@@ -251,17 +251,17 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         void setAppStatus(boolean z);
 
-        void setBackupDnsJobDelayTime(int i);
+        void setBackupDnsJobDelayTime(int i2);
 
-        void setBackupJobDelayTime(int i);
+        void setBackupJobDelayTime(int i2);
 
-        void setBackupLandingJobDelayTime(int i);
+        void setBackupLandingJobDelayTime(int i2);
 
         void setClientIP(String str);
 
         void setCloudSettingsToT5(String str);
 
-        void setConThreshold(int i);
+        void setConThreshold(int i2);
 
         void setCuid(String str);
 
@@ -291,15 +291,15 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         void setHijackEnv(boolean z);
 
-        void setHisHijackStopAbEnable(int i);
+        void setHisHijackStopAbEnable(int i2);
 
-        void setHttpDnsCache(String str, int i);
+        void setHttpDnsCache(String str, int i2);
 
         void setHttpDnsDnFailed(String str);
 
         void setIPV6CheckList(String str);
 
-        void setIPV6Timeout(int i);
+        void setIPV6Timeout(int i2);
 
         void setImgQuality(WebSettings.ImgQuality imgQuality);
 
@@ -307,13 +307,13 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         void setIpv6First(boolean z);
 
-        void setKeepAliveTime(int i);
+        void setKeepAliveTime(int i2);
 
         void setMLModel(String str, String str2);
 
         void setMainLinkDirectEnabled(boolean z);
 
-        void setMaxFatalAllocationFailureSize(int i);
+        void setMaxFatalAllocationFailureSize(int i2);
 
         void setMulripleConnectEnabled(boolean z);
 
@@ -339,11 +339,11 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         void setProxyInfo(String str, String[] strArr);
 
-        void setProxyType(int i);
+        void setProxyType(int i2);
 
         void setQuicDefaultOpen(boolean z);
 
-        void setQuicThreshold(int i);
+        void setQuicThreshold(int i2);
 
         void setRefererPattern(String str, String str2);
 
@@ -357,13 +357,13 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         void setShowWebProviderBy(boolean z);
 
-        void setSocketGroupNumber(int i);
+        void setSocketGroupNumber(int i2);
 
         void setSpdyCompressEnabled(boolean z);
 
         void setSpdyEncryptionEnabled(boolean z);
 
-        void setSpdyTimeout(int i);
+        void setSpdyTimeout(int i2);
 
         void setStatisticParam(String str);
 
@@ -377,7 +377,7 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         void setTimgConfUrl(String str);
 
-        void setVideoPlayerMode(int i);
+        void setVideoPlayerMode(int i2);
 
         void setWebessenseEnabled(boolean z);
 
@@ -408,7 +408,7 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         void clearPageCacheCounts();
 
-        void crashIntentionally(int i);
+        void crashIntentionally(int i2);
 
         void enableSlowWholeDocumentDraw();
 
@@ -420,7 +420,7 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         String getDefaultUserAgent(Context context);
 
-        String getZeusSeriesNum(int i, int i2, int i3);
+        String getZeusSeriesNum(int i2, int i3, int i4);
 
         int historyNavigationCount();
 
@@ -430,13 +430,13 @@ public abstract class WebViewFactoryProvider extends Observable {
 
         void makeMF30Inited();
 
-        void onMemoryPresure(int i, Activity activity);
+        void onMemoryPresure(int i2, Activity activity);
 
         int pageCacheCount();
 
-        Uri[] parseFileChooserResult(int i, Intent intent);
+        Uri[] parseFileChooserResult(int i2, Intent intent);
 
-        void preconnectUrl(String str, int i);
+        void preconnectUrl(String str, int i2);
 
         void prefetch(String str, Map<String, String> map, WebView.MainResourcePrefetchListener mainResourcePrefetchListener);
 
@@ -575,7 +575,7 @@ public abstract class WebViewFactoryProvider extends Observable {
     public void onABTestReady() {
     }
 
-    public void onPageKeySectionTimeCostKeySection(WebView webView, String str, int i, long j) {
+    public void onPageKeySectionTimeCostKeySection(WebView webView, String str, int i2, long j) {
     }
 
     public void preInitWebView() {

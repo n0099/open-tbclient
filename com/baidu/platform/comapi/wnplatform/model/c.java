@@ -5,5 +5,5 @@ import android.os.Bundle;
 public class c extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Bundle f9877a = new Bundle();
+    public static Bundle f10244a = new Bundle();
 }

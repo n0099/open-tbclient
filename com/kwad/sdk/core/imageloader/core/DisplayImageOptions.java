@@ -126,8 +126,8 @@ public final class DisplayImageOptions {
             throw new IllegalArgumentException("decodingOptions can't be null");
         }
 
-        public Builder delayBeforeLoading(int i) {
-            this.delayBeforeLoading = i;
+        public Builder delayBeforeLoading(int i2) {
+            this.delayBeforeLoading = i2;
             return this;
         }
 
@@ -174,8 +174,8 @@ public final class DisplayImageOptions {
             return this;
         }
 
-        public Builder showImageForEmptyUri(int i) {
-            this.imageResForEmptyUri = i;
+        public Builder showImageForEmptyUri(int i2) {
+            this.imageResForEmptyUri = i2;
             return this;
         }
 
@@ -184,8 +184,8 @@ public final class DisplayImageOptions {
             return this;
         }
 
-        public Builder showImageOnFail(int i) {
-            this.imageResOnFail = i;
+        public Builder showImageOnFail(int i2) {
+            this.imageResOnFail = i2;
             return this;
         }
 
@@ -194,8 +194,8 @@ public final class DisplayImageOptions {
             return this;
         }
 
-        public Builder showImageOnLoading(int i) {
-            this.imageResOnLoading = i;
+        public Builder showImageOnLoading(int i2) {
+            this.imageResOnLoading = i2;
             return this;
         }
 
@@ -205,8 +205,8 @@ public final class DisplayImageOptions {
         }
 
         @Deprecated
-        public Builder showStubImage(int i) {
-            this.imageResOnLoading = i;
+        public Builder showStubImage(int i2) {
+            this.imageResOnLoading = i2;
             return this;
         }
 
@@ -263,18 +263,18 @@ public final class DisplayImageOptions {
     }
 
     public Drawable getImageForEmptyUri(Resources resources) {
-        int i = this.imageResForEmptyUri;
-        return i != 0 ? resources.getDrawable(i) : this.imageForEmptyUri;
+        int i2 = this.imageResForEmptyUri;
+        return i2 != 0 ? resources.getDrawable(i2) : this.imageForEmptyUri;
     }
 
     public Drawable getImageOnFail(Resources resources) {
-        int i = this.imageResOnFail;
-        return i != 0 ? resources.getDrawable(i) : this.imageOnFail;
+        int i2 = this.imageResOnFail;
+        return i2 != 0 ? resources.getDrawable(i2) : this.imageOnFail;
     }
 
     public Drawable getImageOnLoading(Resources resources) {
-        int i = this.imageResOnLoading;
-        return i != 0 ? resources.getDrawable(i) : this.imageOnLoading;
+        int i2 = this.imageResOnLoading;
+        return i2 != 0 ? resources.getDrawable(i2) : this.imageOnLoading;
     }
 
     public ImageScaleType getImageScaleType() {

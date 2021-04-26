@@ -144,17 +144,17 @@ public class WebSettingsGlobalBlink implements INoProGuard {
 
     public static void checkHttpDnsUpdate() {
         if (WebKitFactory.getNeedDownloadCloudResource() && getHttpDnsUpdateEnabled()) {
-            int i = 3600;
+            int i2 = 3600;
             String GetCloudSettingsValue = GetCloudSettingsValue("httpdns_check_interval");
             if (GetCloudSettingsValue != null && !GetCloudSettingsValue.isEmpty()) {
                 try {
-                    i = Integer.parseInt(GetCloudSettingsValue);
+                    i2 = Integer.parseInt(GetCloudSettingsValue);
                 } catch (NumberFormatException e2) {
                     e2.printStackTrace();
                 }
             }
-            Log.i(LOGTAG, "defaultHttpDnsInterval " + i);
-            if (System.currentTimeMillis() - mHttpDnsUpdateTime > i * 1000) {
+            Log.i(LOGTAG, "defaultHttpDnsInterval " + i2);
+            if (System.currentTimeMillis() - mHttpDnsUpdateTime > i2 * 1000) {
                 mHttpDnsUpdateTime = System.currentTimeMillis();
                 HttpDnsCache.tryToUpdateHttpDnsCacheStaticIP(WebViewFactory.getContext());
             }
@@ -275,9 +275,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static int getBackupDnsJobDelayTime() {
         IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
         if (abTestInterface != null) {
-            int i = abTestInterface.getSwitch(ABTestConstants.BACKUP_DNS_JOB_DELAY_TIME, -1);
-            Log.i(LOGTAG, "getBackupDnsJobDelayTime " + i);
-            return i;
+            int i2 = abTestInterface.getSwitch(ABTestConstants.BACKUP_DNS_JOB_DELAY_TIME, -1);
+            Log.i(LOGTAG, "getBackupDnsJobDelayTime " + i2);
+            return i2;
         }
         try {
             String str = CfgFileUtils.get(CfgFileUtils.KEY_BACK_DNS_TIME, "-1");
@@ -500,9 +500,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static int getEnableNqeQuicByAb() {
         IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
         if (abTestInterface != null) {
-            int i = abTestInterface.getSwitch(ABTestConstants.ENABLE_QUIC_BY_NQE, 0);
-            Log.i(LOGTAG, "[debug] getEnableNqeQuicByAb AbTestValue = " + i);
-            return i;
+            int i2 = abTestInterface.getSwitch(ABTestConstants.ENABLE_QUIC_BY_NQE, 0);
+            Log.i(LOGTAG, "[debug] getEnableNqeQuicByAb AbTestValue = " + i2);
+            return i2;
         }
         return 0;
     }
@@ -525,9 +525,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static int getEnableQuicByInit() {
         IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
         if (abTestInterface != null) {
-            int i = abTestInterface.getSwitch(ABTestConstants.ENABLE_QUIC_BY_INIT, 0);
-            Log.i(LOGTAG, "[debug] getEnableQuicByInit AbTestValue = " + i);
-            return i;
+            int i2 = abTestInterface.getSwitch(ABTestConstants.ENABLE_QUIC_BY_INIT, 0);
+            Log.i(LOGTAG, "[debug] getEnableQuicByInit AbTestValue = " + i2);
+            return i2;
         }
         return 0;
     }
@@ -791,9 +791,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static int getKeepAliveTimeNative() {
         IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
         if (abTestInterface != null) {
-            int i = abTestInterface.getSwitch(CfgFileUtils.KEY_KEEP_ALIVE_TIME, 63);
-            Log.i(LOGTAG, "getKeepAliveTime1 " + i);
-            return i;
+            int i2 = abTestInterface.getSwitch(CfgFileUtils.KEY_KEEP_ALIVE_TIME, 63);
+            Log.i(LOGTAG, "getKeepAliveTime1 " + i2);
+            return i2;
         }
         try {
             String str = CfgFileUtils.get(CfgFileUtils.KEY_KEEP_ALIVE_TIME, "-1");
@@ -876,9 +876,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static String getMainFrameIdInfo(int i) {
+    public static String getMainFrameIdInfo(int i2) {
         try {
-            return WebViewFactory.hasProvider() ? WebViewFactory.getProvider().getSettingsStatics().getMainFrameIdInfo(i) : "";
+            return WebViewFactory.hasProvider() ? WebViewFactory.getProvider().getSettingsStatics().getMainFrameIdInfo(i2) : "";
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
             return "";
@@ -888,9 +888,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static String getMainFrameIdReferrer(int i) {
+    public static String getMainFrameIdReferrer(int i2) {
         try {
-            return WebViewFactory.hasProvider() ? WebViewFactory.getProvider().getSettingsStatics().getMainFrameIdReferrer(i) : "";
+            return WebViewFactory.hasProvider() ? WebViewFactory.getProvider().getSettingsStatics().getMainFrameIdReferrer(i2) : "";
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
             return "";
@@ -1354,9 +1354,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static int getSocketGroupNumberNative() {
         IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
         if (abTestInterface != null) {
-            int i = abTestInterface.getSwitch("socket_group_number", -1);
-            Log.i(LOGTAG, "getSocketGroupNumberNative " + i);
-            return i;
+            int i2 = abTestInterface.getSwitch("socket_group_number", -1);
+            Log.i(LOGTAG, "getSocketGroupNumberNative " + i2);
+            return i2;
         }
         try {
             String str = CfgFileUtils.get("socket_group_number", "-1");
@@ -1466,9 +1466,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static int getUnusedIdleSocketTimeout() {
         IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
         if (abTestInterface != null) {
-            int i = abTestInterface.getSwitch(ABTestConstants.UNUSED_IDLE_SOCKET_TIMEOUT_KEY, 0);
-            Log.i(LOGTAG, "T7-preconnect getUnusedIdleSocketTimeout AbTestValue = " + i);
-            return i;
+            int i2 = abTestInterface.getSwitch(ABTestConstants.UNUSED_IDLE_SOCKET_TIMEOUT_KEY, 0);
+            Log.i(LOGTAG, "T7-preconnect getUnusedIdleSocketTimeout AbTestValue = " + i2);
+            return i2;
         }
         return 0;
     }
@@ -1499,9 +1499,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static int getWeakNetOptAbtestSwitch() {
         IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
         if (abTestInterface != null) {
-            int i = abTestInterface.getSwitch(ABTestConstants.WEAK_NET_OPT_SWITCH_KEY, 0);
+            int i2 = abTestInterface.getSwitch(ABTestConstants.WEAK_NET_OPT_SWITCH_KEY, 0);
             Log.d(LOGTAG, "[WEAK_NET_OPT] switch value: " + abTestInterface.getRawSwitch().toString());
-            return i;
+            return i2;
         }
         return 0;
     }
@@ -1526,8 +1526,8 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         if (jSONArray != null) {
             try {
                 ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    arrayList.add(jSONArray.getString(i));
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    arrayList.add(jSONArray.getString(i2));
                 }
                 return arrayList;
             } catch (JSONException e2) {
@@ -1568,10 +1568,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static int getWormholeNum(int i) {
+    public static int getWormholeNum(int i2) {
         try {
             if (WebViewFactory.hasProvider()) {
-                return WebViewFactory.getProvider().getSettingsStatics().getWormholeNum(i);
+                return WebViewFactory.getProvider().getSettingsStatics().getWormholeNum(i2);
             }
             return 0;
         } catch (UnsatisfiedLinkError e2) {
@@ -1618,9 +1618,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static int getZeusPsSwitch() {
         IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
         if (abTestInterface != null) {
-            int i = abTestInterface.getSwitch(ABTestConstants.ZEUS_PS_KEY, 0);
-            Log.i(LOGTAG, "[debug] getZeusPsSwitch AbTestValue = " + i);
-            return i;
+            int i2 = abTestInterface.getSwitch(ABTestConstants.ZEUS_PS_KEY, 0);
+            Log.i(LOGTAG, "[debug] getZeusPsSwitch AbTestValue = " + i2);
+            return i2;
         }
         return 0;
     }
@@ -1628,9 +1628,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
     public static int getZeusResourceRecordType() {
         IABTestInterface abTestInterface = WebViewFactory.getAbTestInterface();
         if (abTestInterface != null) {
-            int i = abTestInterface.getSwitch(ABTestConstants.ZEUS_RESOURCE_RECORD_TYPE_KEY, 0);
-            Log.i(LOGTAG, "[debug] getZeusResourceRecordType AbTestValue = " + i);
-            return i;
+            int i2 = abTestInterface.getSwitch(ABTestConstants.ZEUS_RESOURCE_RECORD_TYPE_KEY, 0);
+            Log.i(LOGTAG, "[debug] getZeusResourceRecordType AbTestValue = " + i2);
+            return i2;
         }
         return 0;
     }
@@ -1701,8 +1701,8 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                     android.util.Log.d(LOGTAG, "empty blacklist");
                     return false;
                 }
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    if (isMatchedDevice((JSONObject) jSONArray.get(i))) {
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    if (isMatchedDevice((JSONObject) jSONArray.get(i2))) {
                         android.util.Log.d(LOGTAG, "in blacklist");
                         return true;
                     }
@@ -1814,8 +1814,8 @@ public class WebSettingsGlobalBlink implements INoProGuard {
                 bool = Boolean.valueOf(WebKitFactory.getEnableMultipleProcess() == WebKitFactory.SwitchState.On);
                 sMultiprocessEnabled = bool;
             } else {
-                int i = Build.VERSION.SDK_INT;
-                if (i < 21 || i > 28) {
+                int i2 = Build.VERSION.SDK_INT;
+                if (i2 < 21 || i2 > 28) {
                     str = "multiprocess not enabled for current SDK version";
                 } else {
                     ActivityManager activityManager = (ActivityManager) WebViewFactory.getContext().getSystemService("activity");
@@ -2005,10 +2005,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         return ByteBuffer.allocate(0);
     }
 
-    public static void kernelBrotliPush(long[] jArr, int i) {
+    public static void kernelBrotliPush(long[] jArr, int i2) {
         try {
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().getSettingsStatics().kernelBrotliPush(jArr, i);
+                WebViewFactory.getProvider().getSettingsStatics().kernelBrotliPush(jArr, i2);
             }
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
@@ -2017,10 +2017,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void kernelEncrypt(byte[] bArr, int i, byte[] bArr2) {
+    public static void kernelEncrypt(byte[] bArr, int i2, byte[] bArr2) {
         try {
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().getSettingsStatics().kernelEncrypt(bArr, i, bArr2);
+                WebViewFactory.getProvider().getSettingsStatics().kernelEncrypt(bArr, i2, bArr2);
             }
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
@@ -2040,9 +2040,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void notifyBdAppStatusChange(int i) {
-        Log.e(LOGTAG, "notifyBdAppStatusChange " + i);
-        WebViewFactory.getProvider().getSettingsStatics().notifyBdAppStatusChange(i);
+    public static void notifyBdAppStatusChange(int i2) {
+        Log.e(LOGTAG, "notifyBdAppStatusChange " + i2);
+        WebViewFactory.getProvider().getSettingsStatics().notifyBdAppStatusChange(i2);
     }
 
     public static void notifyPause() {
@@ -2084,16 +2084,16 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             String string = sharedPreferences.getString(PREF_KEY_RENDER_CRASHES, null);
             Log.d(LOGTAG, "  existing crashes: " + string);
             if (string != null) {
-                int i = 1;
+                int i2 = 1;
                 for (String str : string.split(",")) {
                     if (currentTimeMillis - Long.parseLong(str, 10) < RENDER_CRASH_LOG_TIMEOUT) {
-                        i++;
+                        i2++;
                         sb.append(",");
                         sb.append(str);
                     }
                 }
-                Log.d(LOGTAG, "  recent crash count: " + i);
-                if (i >= MAX_RENDER_CRASH_COUNT) {
+                Log.d(LOGTAG, "  recent crash count: " + i2);
+                if (i2 >= MAX_RENDER_CRASH_COUNT) {
                     Log.i(LOGTAG, "  too many crashes recently, disabling multiprocess");
                     edit.putBoolean(PREF_KEY_MULTIPROCESS_DISABLED, true);
                     edit.remove(PREF_KEY_RENDER_CRASHES);
@@ -2130,10 +2130,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void removeMainFrameIdInfo(int i) {
+    public static void removeMainFrameIdInfo(int i2) {
         try {
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().getSettingsStatics().removeMainFrameIdInfo(i);
+                WebViewFactory.getProvider().getSettingsStatics().removeMainFrameIdInfo(i2);
             }
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
@@ -2190,11 +2190,11 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void setBackupDnsJobDelayTime(int i) {
+    public static void setBackupDnsJobDelayTime(int i2) {
         try {
-            Log.w(LOGTAG, "setBackupDnsJobDelayTime " + i);
+            Log.w(LOGTAG, "setBackupDnsJobDelayTime " + i2);
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().getSettingsStatics().setBackupDnsJobDelayTime(i);
+                WebViewFactory.getProvider().getSettingsStatics().setBackupDnsJobDelayTime(i2);
             }
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
@@ -2203,12 +2203,12 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void setBackupJobDelayTime(int i) {
+    public static void setBackupJobDelayTime(int i2) {
         try {
-            Log.w(LOGTAG, "setBackupJobDelayTime " + i);
-            CfgFileUtils.set(CfgFileUtils.KEY_BACK_DNS_TIME, String.valueOf(i));
+            Log.w(LOGTAG, "setBackupJobDelayTime " + i2);
+            CfgFileUtils.set(CfgFileUtils.KEY_BACK_DNS_TIME, String.valueOf(i2));
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().getSettingsStatics().setBackupJobDelayTime(i);
+                WebViewFactory.getProvider().getSettingsStatics().setBackupJobDelayTime(i2);
             }
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
@@ -2217,11 +2217,11 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void setBackupLandingJobDelayTime(int i) {
+    public static void setBackupLandingJobDelayTime(int i2) {
         try {
-            Log.w(LOGTAG, "setBackupLandingJobDelayTime " + i);
+            Log.w(LOGTAG, "setBackupLandingJobDelayTime " + i2);
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().getSettingsStatics().setBackupLandingJobDelayTime(i);
+                WebViewFactory.getProvider().getSettingsStatics().setBackupLandingJobDelayTime(i2);
             }
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
@@ -2293,11 +2293,11 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void setConThreshold(int i) {
+    public static void setConThreshold(int i2) {
         try {
-            Log.w(LOGTAG, "setConThreshold " + i);
+            Log.w(LOGTAG, "setConThreshold " + i2);
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().getSettingsStatics().setConThreshold(i);
+                WebViewFactory.getProvider().getSettingsStatics().setConThreshold(i2);
             }
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
@@ -2498,11 +2498,11 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void setHttpDnsCache(String str, int i) {
+    public static void setHttpDnsCache(String str, int i2) {
         try {
-            httpDnsSource = i;
+            httpDnsSource = i2;
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().getSettingsStatics().setHttpDnsCache(str, i);
+                WebViewFactory.getProvider().getSettingsStatics().setHttpDnsCache(str, i2);
             }
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
@@ -2541,11 +2541,11 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void setIPV6Timeout(int i) {
+    public static void setIPV6Timeout(int i2) {
         try {
-            Log.w(LOGTAG, "setIPV6Timeout " + i);
+            Log.w(LOGTAG, "setIPV6Timeout " + i2);
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().getSettingsStatics().setIPV6Timeout(i);
+                WebViewFactory.getProvider().getSettingsStatics().setIPV6Timeout(i2);
             }
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
@@ -2588,12 +2588,12 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void setKeepAliveTime(int i) {
+    public static void setKeepAliveTime(int i2) {
         try {
-            Log.w(LOGTAG, "setKeepAliveTime " + i);
-            CfgFileUtils.set(CfgFileUtils.KEY_KEEP_ALIVE_TIME, String.valueOf(i));
+            Log.w(LOGTAG, "setKeepAliveTime " + i2);
+            CfgFileUtils.set(CfgFileUtils.KEY_KEEP_ALIVE_TIME, String.valueOf(i2));
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().getSettingsStatics().setKeepAliveTime(i);
+                WebViewFactory.getProvider().getSettingsStatics().setKeepAliveTime(i2);
             }
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
@@ -2833,12 +2833,12 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void setQuicThreshold(int i) {
+    public static void setQuicThreshold(int i2) {
         try {
-            Log.w(LOGTAG, "setQuicThreshold " + i);
+            Log.w(LOGTAG, "setQuicThreshold " + i2);
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().getSettingsStatics().setQuicThreshold(i);
-                if (i == -1 || WebViewFactory.getProvider().getSettingsStatics().getQuicInit()) {
+                WebViewFactory.getProvider().getSettingsStatics().setQuicThreshold(i2);
+                if (i2 == -1 || WebViewFactory.getProvider().getSettingsStatics().getQuicInit()) {
                     return;
                 }
                 QuicPreConnect.tryToQuicPreConnect(WebKitFactory.getContext());
@@ -2923,12 +2923,12 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void setSocketGroupNumber(int i) {
+    public static void setSocketGroupNumber(int i2) {
         try {
-            Log.w(LOGTAG, "setSocketGroupNumber " + i);
-            CfgFileUtils.set("socket_group_number", String.valueOf(i));
+            Log.w(LOGTAG, "setSocketGroupNumber " + i2);
+            CfgFileUtils.set("socket_group_number", String.valueOf(i2));
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().getSettingsStatics().setSocketGroupNumber(i);
+                WebViewFactory.getProvider().getSettingsStatics().setSocketGroupNumber(i2);
             }
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
@@ -2961,10 +2961,10 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         }
     }
 
-    public static void setSpdyTimeout(int i) {
+    public static void setSpdyTimeout(int i2) {
         try {
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().getSettingsStatics().setSpdyTimeout(i);
+                WebViewFactory.getProvider().getSettingsStatics().setSpdyTimeout(i2);
             }
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
@@ -3051,11 +3051,11 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         mUseLogSdk = z;
     }
 
-    public static void setVideoPlayerMode(int i) {
-        Log.w(LOGTAG, "setVideoPlayerMode " + i);
+    public static void setVideoPlayerMode(int i2) {
+        Log.w(LOGTAG, "setVideoPlayerMode " + i2);
         try {
             if (WebViewFactory.hasProvider()) {
-                WebViewFactory.getProvider().getSettingsStatics().setVideoPlayerMode(i);
+                WebViewFactory.getProvider().getSettingsStatics().setVideoPlayerMode(i2);
             }
         } catch (UnsatisfiedLinkError e2) {
             e2.printStackTrace();
@@ -3168,9 +3168,9 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             String host = new URL(str).getHost();
             if (GetCloudSettingsValue("smart_detector_white_hosts") != null) {
                 String[] split = GetCloudSettingsValue("smart_detector_white_hosts").split(";");
-                for (int i = 0; i < split.length; i++) {
-                    if (!"".equals(split[i]) && host.indexOf(split[i]) >= 0) {
-                        Log.d(LOGTAG, "url : " + str + " match white host: " + split[i]);
+                for (int i2 = 0; i2 < split.length; i2++) {
+                    if (!"".equals(split[i2]) && host.indexOf(split[i2]) >= 0) {
+                        Log.d(LOGTAG, "url : " + str + " match white host: " + split[i2]);
                         return Boolean.TRUE;
                     }
                 }

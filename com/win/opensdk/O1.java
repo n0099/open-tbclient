@@ -1,28 +1,4 @@
 package com.win.opensdk;
-
-import android.location.Location;
-import android.location.LocationListener;
-import android.os.Bundle;
-/* loaded from: classes7.dex */
-public class O1 implements LocationListener {
-    public /* synthetic */ O1(N1 n1) {
-    }
-
-    @Override // android.location.LocationListener
-    public void onLocationChanged(Location location) {
-        P1.f40128c.f40129a = location.getLatitude();
-        P1.f40128c.f40130b = location.getLongitude();
-    }
-
-    @Override // android.location.LocationListener
-    public void onProviderDisabled(String str) {
-    }
-
-    @Override // android.location.LocationListener
-    public void onProviderEnabled(String str) {
-    }
-
-    @Override // android.location.LocationListener
-    public void onStatusChanged(String str, int i, Bundle bundle) {
-    }
+/* loaded from: classes6.dex */
+public interface O1 {
 }

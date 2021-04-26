@@ -16,16 +16,16 @@ public class MaskMessageModel extends BdBaseModel {
         super(tbPageContext);
     }
 
-    private RequestGetMaskInfoMessage createMaskInfoMessage(int i) {
+    private RequestGetMaskInfoMessage createMaskInfoMessage(int i2) {
         RequestGetMaskInfoMessage requestGetMaskInfoMessage = new RequestGetMaskInfoMessage();
-        requestGetMaskInfoMessage.setMaskType(i);
+        requestGetMaskInfoMessage.setMaskType(i2);
         return requestGetMaskInfoMessage;
     }
 
-    private RequestUpdateMaskInfoMessage createUpdateMaskMessage(int i, boolean z) {
+    private RequestUpdateMaskInfoMessage createUpdateMaskMessage(int i2, boolean z) {
         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
         requestUpdateMaskInfoMessage.setMask(z);
-        requestUpdateMaskInfoMessage.setMaskType(i);
+        requestUpdateMaskInfoMessage.setMaskType(i2);
         requestUpdateMaskInfoMessage.setList("");
         return requestUpdateMaskInfoMessage;
     }
@@ -54,12 +54,12 @@ public class MaskMessageModel extends BdBaseModel {
     public void saveInstance(Bundle bundle) {
     }
 
-    public void sendGetMaskInfoMessage(int i) {
-        super.sendMessage(createMaskInfoMessage(i));
+    public void sendGetMaskInfoMessage(int i2) {
+        super.sendMessage(createMaskInfoMessage(i2));
     }
 
-    public void sendUpdateMaskMessage(int i, boolean z) {
-        super.sendMessage(createUpdateMaskMessage(i, z));
+    public void sendUpdateMaskMessage(int i2, boolean z) {
+        super.sendMessage(createUpdateMaskMessage(i2, z));
     }
 
     public void unRegisterListener(MessageListener<?> messageListener) {

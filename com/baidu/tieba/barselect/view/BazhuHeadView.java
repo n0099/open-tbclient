@@ -6,14 +6,14 @@ import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.j0.j1.o.k.b;
+import d.a.c.e.p.l;
+import d.a.j0.j1.o.k.b;
 /* loaded from: classes4.dex */
 public class BazhuHeadView extends HeadPendantView {
     public TbImageView q;
 
-    public BazhuHeadView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BazhuHeadView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 
     @Override // com.baidu.tbadk.core.view.HeadPendantView
@@ -72,23 +72,23 @@ public class BazhuHeadView extends HeadPendantView {
         }
     }
 
-    public void setBawuLogoView(int i) {
-        if (i == 0) {
+    public void setBawuLogoView(int i2) {
+        if (i2 == 0) {
             this.q.setVisibility(8);
             return;
         }
-        this.q.setImageResource(i);
+        this.q.setImageResource(i2);
         this.q.setVisibility(0);
     }
 
-    public void setPendantView(int i) {
+    public void setPendantView(int i2) {
         if (getPendantView() != null) {
-            if (i == 0) {
+            if (i2 == 0) {
                 getPendantView().setVisibility(8);
                 return;
             }
             getPendantView().setVisibility(0);
-            getPendantView().setImageResource(i);
+            getPendantView().setImageResource(i2);
         }
     }
 

@@ -1,6 +1,6 @@
 package com.google.common.primitives;
 
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.util.Comparator;
 /* loaded from: classes6.dex */
 public final class SignedBytes {
@@ -18,8 +18,8 @@ public final class SignedBytes {
         @Override // java.util.Comparator
         public int compare(byte[] bArr, byte[] bArr2) {
             int min = Math.min(bArr.length, bArr2.length);
-            for (int i = 0; i < min; i++) {
-                int b2 = SignedBytes.b(bArr[i], bArr2[i]);
+            for (int i2 = 0; i2 < min; i2++) {
+                int b2 = SignedBytes.b(bArr[i2], bArr2[i2]);
                 if (b2 != 0) {
                     return b2;
                 }

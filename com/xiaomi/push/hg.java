@@ -8,8 +8,8 @@ public enum hg {
     /* renamed from: a  reason: collision with other field name */
     public final int f471a;
 
-    hg(int i) {
-        this.f471a = i;
+    hg(int i2) {
+        this.f471a = i2;
     }
 
     public int a() {

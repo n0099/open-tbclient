@@ -27,7 +27,7 @@ public class c {
     public static String a(String str) {
         if (!TextUtils.isEmpty(str) && !"Unknown".equals(str)) {
             try {
-                String optString = new JSONObject(str).optString(com.kwad.sdk.crash.c.f34823g);
+                String optString = new JSONObject(str).optString(com.kwad.sdk.crash.c.f33789g);
                 if (!TextUtils.isEmpty(optString)) {
                     return optString;
                 }

@@ -158,11 +158,11 @@ public interface IMediaControllerCallback extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
-            public void onRepeatModeChanged(int i) throws RemoteException {
+            public void onRepeatModeChanged(int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    obtain.writeInt(i);
+                    obtain.writeInt(i2);
                     this.mRemote.transact(9, obtain, null, 1);
                 } finally {
                     obtain.recycle();
@@ -192,11 +192,11 @@ public interface IMediaControllerCallback extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
-            public void onShuffleModeChanged(int i) throws RemoteException {
+            public void onShuffleModeChanged(int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    obtain.writeInt(i);
+                    obtain.writeInt(i2);
                     this.mRemote.transact(12, obtain, null, 1);
                 } finally {
                     obtain.recycle();
@@ -254,9 +254,9 @@ public interface IMediaControllerCallback extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i != 1598968902) {
-                switch (i) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 != 1598968902) {
+                switch (i2) {
                     case 1:
                         parcel.enforceInterface(DESCRIPTOR);
                         onEvent(parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
@@ -310,7 +310,7 @@ public interface IMediaControllerCallback extends IInterface {
                         onSessionReady();
                         return true;
                     default:
-                        return super.onTransact(i, parcel, parcel2, i2);
+                        return super.onTransact(i2, parcel, parcel2, i3);
                 }
             }
             parcel2.writeString(DESCRIPTOR);
@@ -332,13 +332,13 @@ public interface IMediaControllerCallback extends IInterface {
 
     void onQueueTitleChanged(CharSequence charSequence) throws RemoteException;
 
-    void onRepeatModeChanged(int i) throws RemoteException;
+    void onRepeatModeChanged(int i2) throws RemoteException;
 
     void onSessionDestroyed() throws RemoteException;
 
     void onSessionReady() throws RemoteException;
 
-    void onShuffleModeChanged(int i) throws RemoteException;
+    void onShuffleModeChanged(int i2) throws RemoteException;
 
     void onShuffleModeChangedRemoved(boolean z) throws RemoteException;
 

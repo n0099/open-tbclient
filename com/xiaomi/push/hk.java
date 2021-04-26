@@ -1,6 +1,4 @@
 package com.xiaomi.push;
-
-import com.baidu.android.imsdk.internal.Constants;
 /* loaded from: classes7.dex */
 public enum hk {
     UploadSwitch(1),
@@ -113,10 +111,10 @@ public enum hk {
     ScenePushForegroundDuration(113),
     ScenePushForegroundDurationLong(114),
     StatDataUploadFrequency(120),
-    StatDataUploadNum(Constants.METHOD_IM_FRIEND_GROUP_DROP),
+    StatDataUploadNum(121),
     StatDataProcessFrequency(122),
-    StatDataSwitch(Constants.METHOD_IM_FRIEND_GROUP_QUERY),
-    StatDataUploadWay(Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER),
+    StatDataSwitch(123),
+    StatDataUploadWay(124),
     StatDataDeleteFrequency(125),
     CollectionDataPluginVersion(1001),
     CollectionPluginDownloadUrl(1002),
@@ -127,8 +125,8 @@ public enum hk {
     /* renamed from: a  reason: collision with other field name */
     public final int f490a;
 
-    hk(int i) {
-        this.f490a = i;
+    hk(int i2) {
+        this.f490a = i2;
     }
 
     public int a() {

@@ -8,10 +8,10 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
     public int intLength;
     public long value;
 
@@ -54,9 +54,9 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
         this.intLength = remaining;
     }
 
-    public void setIntLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i)));
-        this.intLength = i;
+    public void setIntLength(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i2)));
+        this.intLength = i2;
     }
 
     public void setValue(long j) {

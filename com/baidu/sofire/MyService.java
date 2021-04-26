@@ -13,15 +13,15 @@ import com.baidu.sofire.g.t;
 public class MyService extends Service {
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f11280b;
+    public static long f11099b;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f11281a = 0;
+    public volatile int f11100a = 0;
 
     public static /* synthetic */ int a(MyService myService) {
-        int i = myService.f11281a;
-        myService.f11281a = i + 1;
-        return i;
+        int i2 = myService.f11100a;
+        myService.f11100a = i2 + 1;
+        return i2;
     }
 
     @Override // android.app.Service
@@ -30,41 +30,41 @@ public class MyService extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(final Intent intent, int i, int i2) {
+    public int onStartCommand(final Intent intent, int i2, int i3) {
         try {
         } catch (Throwable unused) {
             com.baidu.sofire.g.d.a();
         }
         if (intent == null) {
-            return super.onStartCommand(intent, i, i2);
+            return super.onStartCommand(intent, i2, i3);
         }
         Bundle bundleExtra = intent.getBundleExtra("bundle");
         if (bundleExtra != null) {
             String[] stringArray = bundleExtra.getStringArray("appkey");
             int[] intArray = bundleExtra.getIntArray("key");
-            int i3 = bundleExtra.getInt("delay");
+            int i4 = bundleExtra.getInt("delay");
             if (stringArray != null && stringArray.length == 2 && !TextUtils.isEmpty(stringArray[0]) && !TextUtils.isEmpty(stringArray[1])) {
-                com.baidu.sofire.core.d.a(getApplicationContext(), i3, stringArray[0], stringArray[1], intArray);
-                return super.onStartCommand(intent, i, i2);
+                com.baidu.sofire.core.d.a(getApplicationContext(), i4, stringArray[0], stringArray[1], intArray);
+                return super.onStartCommand(intent, i2, i3);
             }
         }
         final String stringExtra = intent.getStringExtra("from_plugin_package");
         if (TextUtils.isEmpty(stringExtra) && TextUtils.isEmpty(intent.getAction())) {
             a();
         } else {
-            long j = f11280b;
+            long j = f11099b;
             if ("teac".equals(intent.getAction())) {
-                f11280b = System.currentTimeMillis();
+                f11099b = System.currentTimeMillis();
                 if (System.currentTimeMillis() - j < 3000) {
-                    return super.onStartCommand(intent, i, i2);
+                    return super.onStartCommand(intent, i2, i3);
                 }
-                if (com.baidu.sofire.g.d.j != 0 && f11280b - com.baidu.sofire.g.d.j > 5000) {
+                if (com.baidu.sofire.g.d.j != 0 && f11099b - com.baidu.sofire.g.d.j > 5000) {
                     StringBuilder sb = new StringBuilder("persist process alive now:");
-                    sb.append(f11280b);
+                    sb.append(f11099b);
                     sb.append("init:");
                     sb.append(com.baidu.sofire.g.d.j);
                     b.b();
-                    return super.onStartCommand(intent, i, i2);
+                    return super.onStartCommand(intent, i2, i3);
                 }
             }
             StringBuilder sb2 = new StringBuilder();
@@ -117,15 +117,15 @@ public class MyService extends Service {
                 }
             });
         }
-        return super.onStartCommand(intent, i, i2);
+        return super.onStartCommand(intent, i2, i3);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         try {
-            this.f11281a--;
-            if (this.f11281a <= 0) {
-                this.f11281a = 0;
+            this.f11100a--;
+            if (this.f11100a <= 0) {
+                this.f11100a = 0;
                 b.a();
                 stopSelf();
             }

@@ -9,7 +9,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.i0.r.d0.a;
+import d.a.i0.r.d0.a;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.Map;
@@ -55,8 +55,8 @@ public class MainSharedPrefProvider extends ContentProvider {
     private boolean needBroadcast(String str) {
         if (str != null && str.length() != 0) {
             int length = a.k.length;
-            for (int i = 0; i < length; i++) {
-                if (str.equals(a.k[i])) {
+            for (int i2 = 0; i2 < length; i2++) {
+                if (str.equals(a.k[i2])) {
                     return true;
                 }
             }

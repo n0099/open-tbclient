@@ -1,6 +1,7 @@
 package io.reactivex.exceptions;
 
 import com.baidu.searchbox.track.ui.TrackUI;
+import io.reactivex.annotations.NonNull;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -29,43 +30,39 @@ public final class CompositeException extends RuntimeException {
     }
 
     /* loaded from: classes7.dex */
-    public static abstract class a {
-        public abstract void a(Object obj);
+    public static abstract class PrintStreamOrWriter {
+        public abstract void println(Object obj);
     }
 
     /* loaded from: classes7.dex */
-    public static final class b extends a {
+    public static final class WrappedPrintStream extends PrintStreamOrWriter {
+        public final PrintStream printStream;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final PrintStream f69177a;
-
-        public b(PrintStream printStream) {
-            this.f69177a = printStream;
+        public WrappedPrintStream(PrintStream printStream) {
+            this.printStream = printStream;
         }
 
-        @Override // io.reactivex.exceptions.CompositeException.a
-        public void a(Object obj) {
-            this.f69177a.println(obj);
+        @Override // io.reactivex.exceptions.CompositeException.PrintStreamOrWriter
+        public void println(Object obj) {
+            this.printStream.println(obj);
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class c extends a {
+    public static final class WrappedPrintWriter extends PrintStreamOrWriter {
+        public final PrintWriter printWriter;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final PrintWriter f69178a;
-
-        public c(PrintWriter printWriter) {
-            this.f69178a = printWriter;
+        public WrappedPrintWriter(PrintWriter printWriter) {
+            this.printWriter = printWriter;
         }
 
-        @Override // io.reactivex.exceptions.CompositeException.a
-        public void a(Object obj) {
-            this.f69178a.println(obj);
+        @Override // io.reactivex.exceptions.CompositeException.PrintStreamOrWriter
+        public void println(Object obj) {
+            this.printWriter.println(obj);
         }
     }
 
-    public CompositeException(Throwable... thArr) {
+    public CompositeException(@NonNull Throwable... thArr) {
         this(thArr == null ? Collections.singletonList(new NullPointerException("exceptions was null")) : Arrays.asList(thArr));
     }
 
@@ -101,22 +98,8 @@ public final class CompositeException extends RuntimeException {
         return arrayList;
     }
 
-    private Throwable getRootCause(Throwable th) {
-        Throwable cause = th.getCause();
-        if (cause == null || this.cause == cause) {
-            return th;
-        }
-        while (true) {
-            Throwable cause2 = cause.getCause();
-            if (cause2 == null || cause2 == cause) {
-                break;
-            }
-            cause = cause2;
-        }
-        return cause;
-    }
-
     @Override // java.lang.Throwable
+    @NonNull
     public synchronized Throwable getCause() {
         if (this.cause == null) {
             CompositeExceptionCausalChain compositeExceptionCausalChain = new CompositeExceptionCausalChain();
@@ -146,13 +129,30 @@ public final class CompositeException extends RuntimeException {
         return this.cause;
     }
 
+    @NonNull
     public List<Throwable> getExceptions() {
         return this.exceptions;
     }
 
     @Override // java.lang.Throwable
+    @NonNull
     public String getMessage() {
         return this.message;
+    }
+
+    public Throwable getRootCause(Throwable th) {
+        Throwable cause = th.getCause();
+        if (cause == null || this.cause == cause) {
+            return th;
+        }
+        while (true) {
+            Throwable cause2 = cause.getCause();
+            if (cause2 == null || cause2 == cause) {
+                break;
+            }
+            cause = cause2;
+        }
+        return cause;
     }
 
     @Override // java.lang.Throwable
@@ -166,15 +166,15 @@ public final class CompositeException extends RuntimeException {
 
     @Override // java.lang.Throwable
     public void printStackTrace(PrintStream printStream) {
-        printStackTrace(new b(printStream));
+        printStackTrace(new WrappedPrintStream(printStream));
     }
 
     @Override // java.lang.Throwable
     public void printStackTrace(PrintWriter printWriter) {
-        printStackTrace(new c(printWriter));
+        printStackTrace(new WrappedPrintWriter(printWriter));
     }
 
-    public CompositeException(Iterable<? extends Throwable> iterable) {
+    public CompositeException(@NonNull Iterable<? extends Throwable> iterable) {
         LinkedHashSet linkedHashSet = new LinkedHashSet();
         ArrayList arrayList = new ArrayList();
         if (iterable != null) {
@@ -199,7 +199,7 @@ public final class CompositeException extends RuntimeException {
         throw new IllegalArgumentException("errors is empty");
     }
 
-    private void printStackTrace(a aVar) {
+    private void printStackTrace(PrintStreamOrWriter printStreamOrWriter) {
         StackTraceElement[] stackTrace;
         StringBuilder sb = new StringBuilder(128);
         sb.append(this);
@@ -209,14 +209,14 @@ public final class CompositeException extends RuntimeException {
             sb.append(stackTraceElement);
             sb.append('\n');
         }
-        int i = 1;
+        int i2 = 1;
         for (Throwable th : this.exceptions) {
             sb.append("  ComposedException ");
-            sb.append(i);
+            sb.append(i2);
             sb.append(" :\n");
             appendStackTrace(sb, th, TrackUI.SEPERATOR);
-            i++;
+            i2++;
         }
-        aVar.a(sb.toString());
+        printStreamOrWriter.println(sb.toString());
     }
 }

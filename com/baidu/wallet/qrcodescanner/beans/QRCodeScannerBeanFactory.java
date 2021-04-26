@@ -10,17 +10,17 @@ public final class QRCodeScannerBeanFactory implements IBeanFactory {
     public static final int QRCODE_WHITE_LIST = 2560;
 
     /* renamed from: a  reason: collision with root package name */
-    public static QRCodeScannerBeanFactory f26450a;
+    public static QRCodeScannerBeanFactory f27257a;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static QRCodeScannerBeanFactory f26451a = new QRCodeScannerBeanFactory();
+        public static QRCodeScannerBeanFactory f27258a = new QRCodeScannerBeanFactory();
     }
 
     public static QRCodeScannerBeanFactory getInstance() {
-        return a.f26451a;
+        return a.f27258a;
     }
 
     public QRCodeScannerBeanFactory() {
@@ -32,12 +32,12 @@ public final class QRCodeScannerBeanFactory implements IBeanFactory {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public BaseBean<?> getBean(Context context, int i, String str) {
+    public BaseBean<?> getBean(Context context, int i2, String str) {
         BaseBean<?> bVar;
         BaseBean<?> baseBean;
-        if (i == 2560) {
+        if (i2 == 2560) {
             bVar = new b(context);
-        } else if (i != 2561) {
+        } else if (i2 != 2561) {
             baseBean = null;
             if (baseBean != null) {
                 BeanManager.getInstance().addBean(str, baseBean);

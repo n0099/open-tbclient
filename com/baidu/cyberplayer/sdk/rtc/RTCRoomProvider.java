@@ -7,64 +7,64 @@ import com.baidu.cyberplayer.sdk.rtc.CyberRTCAudioSamples;
 import com.baidu.cyberplayer.sdk.rtc.CyberRTCSetting;
 import java.nio.ByteBuffer;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class RTCRoomProvider {
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public enum CyberRtcLiveTransferMode {
         RTC_LIVE_TRANSFER_MODE_ANCHOR_TRANSMISSION,
         RTC_LIVE_TRANSFER_MODE_ROOM_TRANSMISSION
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class CyberRtcRoomAudioLevel {
         public String nicName;
         public long userID;
         public int volumeLevel;
 
-        public CyberRtcRoomAudioLevel(long j, String str, int i) {
+        public CyberRtcRoomAudioLevel(long j, String str, int i2) {
             this.userID = j;
             this.nicName = str;
-            this.volumeLevel = i;
+            this.volumeLevel = i2;
         }
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface CyberRtcRoomDelegate {
-        void onEngineStatisticsInfo(int i);
+        void onEngineStatisticsInfo(int i2);
 
-        void onErrorInfoUpdate(int i);
+        void onErrorInfoUpdate(int i2);
 
-        void onPeerConnectStateUpdate(int i);
+        void onPeerConnectStateUpdate(int i2);
 
         void onRoomDataMessage(ByteBuffer byteBuffer);
 
-        void onRoomEventUpdate(int i, long j, String str);
+        void onRoomEventUpdate(int i2, long j, String str);
 
         void onStreamInfoUpdate(String[] strArr);
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class CyberRtcRoomUserInfo {
         public String attribute;
         public int role;
         public long userID;
         public String userName;
 
-        public CyberRtcRoomUserInfo(long j, String str, String str2, int i) {
+        public CyberRtcRoomUserInfo(long j, String str, String str2, int i2) {
             this.userID = j;
             this.userName = str;
             this.attribute = str2;
-            this.role = i;
+            this.role = i2;
         }
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class CyberRtcRoomVideoDimension {
         public int videoHeight;
         public int videoRotation;
@@ -72,13 +72,13 @@ public abstract class RTCRoomProvider {
     }
 
     @Keep
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public enum CyberRtcSoundMode {
         RTC_SOUND_MODE_SPEAKER,
         RTC_SOUND_MODE_EAR
     }
 
-    public abstract void changeSurfaceSize(long j, int i, int i2);
+    public abstract void changeSurfaceSize(long j, int i2, int i3);
 
     public abstract boolean configLiveServerWithUrl(String str, boolean z, boolean z2, String str2, CyberRtcLiveTransferMode cyberRtcLiveTransferMode);
 
@@ -154,7 +154,7 @@ public abstract class RTCRoomProvider {
 
     public abstract void stopSubscribeStreaming(long j);
 
-    public abstract void subscribeStreaming(int i, long j);
+    public abstract void subscribeStreaming(int i2, long j);
 
     public abstract void switchCamera();
 }

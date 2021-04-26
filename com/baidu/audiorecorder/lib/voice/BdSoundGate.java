@@ -1,59 +1,59 @@
 package com.baidu.audiorecorder.lib.voice;
 
-import d.b.f.a.a.d;
+import d.a.f.a.a.d;
 /* loaded from: classes.dex */
 public class BdSoundGate {
 
     /* renamed from: c  reason: collision with root package name */
-    public static BdSoundGate f4267c;
+    public static BdSoundGate f4337c;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4268a = -1;
+    public int f4338a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4269b;
+    public int f4339b;
 
     static {
         System.loadLibrary("sound_gate");
     }
 
     public static BdSoundGate b() {
-        if (f4267c == null) {
-            f4267c = new BdSoundGate();
+        if (f4337c == null) {
+            f4337c = new BdSoundGate();
         }
-        return f4267c;
+        return f4337c;
     }
 
-    private native void close(int i);
+    private native void close(int i2);
 
-    private native int getChanger(int i, float f2, float f3, float f4);
+    private native int getChanger(int i2, float f2, float f3, float f4);
 
-    private native int through(int i, short[] sArr, short[] sArr2);
+    private native int through(int i2, short[] sArr, short[] sArr2);
 
-    private native int throughMono(int i, short[] sArr, short[] sArr2);
+    private native int throughMono(int i2, short[] sArr, short[] sArr2);
 
     public int a() {
-        return this.f4269b;
+        return this.f4339b;
     }
 
-    public void c(int i, float f2, float f3, float f4) {
-        this.f4269b = i;
-        this.f4268a = getChanger(i, f2, f3, f4);
+    public void c(int i2, float f2, float f3, float f4) {
+        this.f4339b = i2;
+        this.f4338a = getChanger(i2, f2, f3, f4);
     }
 
-    public void d(int i, int i2) {
-        b().c(i, 0.0f, d.a(i2), 0.0f);
+    public void d(int i2, int i3) {
+        b().c(i2, 0.0f, d.a(i3), 0.0f);
     }
 
     public void e() {
-        int i = this.f4268a;
-        if (i > 0) {
-            close(i);
-            this.f4268a = -1;
+        int i2 = this.f4338a;
+        if (i2 > 0) {
+            close(i2);
+            this.f4338a = -1;
         }
     }
 
     public void f(short[] sArr, short[] sArr2) {
-        throughMono(this.f4268a, sArr, sArr2);
+        throughMono(this.f4338a, sArr, sArr2);
     }
 }

@@ -20,28 +20,28 @@ public class ErrorLogResult implements MethodChannel.Result {
         } else {
             str3 = "";
         }
-        int i = this.level;
-        if (i < 5) {
+        int i2 = this.level;
+        if (i2 < 5) {
             return;
         }
-        Log.println(i, this.tag, str2 + str3);
+        Log.println(i2, this.tag, str2 + str3);
     }
 
     @Override // io.flutter.plugin.common.MethodChannel.Result
     public void notImplemented() {
-        int i = this.level;
-        if (i < 5) {
+        int i2 = this.level;
+        if (i2 < 5) {
             return;
         }
-        Log.println(i, this.tag, "method not implemented");
+        Log.println(i2, this.tag, "method not implemented");
     }
 
     @Override // io.flutter.plugin.common.MethodChannel.Result
     public void success(@Nullable Object obj) {
     }
 
-    public ErrorLogResult(String str, int i) {
+    public ErrorLogResult(String str, int i2) {
         this.tag = str;
-        this.level = i;
+        this.level = i2;
     }
 }

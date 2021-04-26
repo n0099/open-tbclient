@@ -20,7 +20,7 @@ public interface Consumer<T> {
 
     void onFailure(Throwable th);
 
-    void onNewResult(T t, int i);
+    void onNewResult(T t, int i2);
 
     void onProgressUpdate(float f2);
 }

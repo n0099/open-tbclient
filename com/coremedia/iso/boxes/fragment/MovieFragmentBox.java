@@ -5,7 +5,7 @@ import com.googlecode.mp4parser.AbstractContainerBox;
 import com.googlecode.mp4parser.DataSource;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MovieFragmentBox extends AbstractContainerBox {
     public static final String TYPE = "moof";
 
@@ -40,8 +40,8 @@ public class MovieFragmentBox extends AbstractContainerBox {
     public long[] getTrackNumbers() {
         List boxes = getBoxes(TrackFragmentBox.class, false);
         long[] jArr = new long[boxes.size()];
-        for (int i = 0; i < boxes.size(); i++) {
-            jArr[i] = ((TrackFragmentBox) boxes.get(i)).getTrackFragmentHeaderBox().getTrackId();
+        for (int i2 = 0; i2 < boxes.size(); i2++) {
+            jArr[i2] = ((TrackFragmentBox) boxes.get(i2)).getTrackFragmentHeaderBox().getTrackId();
         }
         return jArr;
     }

@@ -21,13 +21,13 @@ public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
     public static final int VIDEO_UPLOAD_BEAN = 11;
 
     /* renamed from: a  reason: collision with root package name */
-    public static FaceSDKBeansFactory f5913a;
+    public static FaceSDKBeansFactory f6075a;
 
     public static FaceSDKBeansFactory getInstance() {
-        if (f5913a == null) {
-            f5913a = new FaceSDKBeansFactory();
+        if (f6075a == null) {
+            f6075a = new FaceSDKBeansFactory();
         }
-        return f5913a;
+        return f6075a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x004f  */
@@ -35,13 +35,13 @@ public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ApollonBean getBean(Context context, int i, String str) {
+    public ApollonBean getBean(Context context, int i2, String str) {
         ApollonBean iVar;
         ApollonBean apollonBean;
-        if (i == 1) {
+        if (i2 == 1) {
             iVar = new i(context);
-        } else if (i != 2) {
-            switch (i) {
+        } else if (i2 != 2) {
+            switch (i2) {
                 case 5:
                     iVar = new j(context);
                     break;

@@ -74,8 +74,8 @@ public class Guideline extends ConstraintWidget {
         this.mAnchors.clear();
         this.mAnchors.add(this.mAnchor);
         int length = this.mListAnchors.length;
-        for (int i = 0; i < length; i++) {
-            this.mListAnchors[i] = this.mAnchor;
+        for (int i2 = 0; i2 < length; i2++) {
+            this.mListAnchors[i2] = this.mAnchor;
         }
     }
 
@@ -121,7 +121,7 @@ public class Guideline extends ConstraintWidget {
     }
 
     @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
-    public void analyze(int i) {
+    public void analyze(int i2) {
         ConstraintWidget parent = getParent();
         if (parent == null) {
             return;
@@ -140,9 +140,9 @@ public class Guideline extends ConstraintWidget {
             } else if (this.mRelativePercent == -1.0f || parent.getHorizontalDimensionBehaviour() != ConstraintWidget.DimensionBehaviour.FIXED) {
                 return;
             } else {
-                int i2 = (int) (parent.mWidth * this.mRelativePercent);
-                this.mLeft.getResolutionNode().dependsOn(1, parent.mLeft.getResolutionNode(), i2);
-                this.mRight.getResolutionNode().dependsOn(1, parent.mLeft.getResolutionNode(), i2);
+                int i3 = (int) (parent.mWidth * this.mRelativePercent);
+                this.mLeft.getResolutionNode().dependsOn(1, parent.mLeft.getResolutionNode(), i3);
+                this.mRight.getResolutionNode().dependsOn(1, parent.mLeft.getResolutionNode(), i3);
                 return;
             }
         }
@@ -156,9 +156,9 @@ public class Guideline extends ConstraintWidget {
             this.mBottom.getResolutionNode().dependsOn(1, parent.mBottom.getResolutionNode(), -this.mRelativeEnd);
         } else if (this.mRelativePercent == -1.0f || parent.getVerticalDimensionBehaviour() != ConstraintWidget.DimensionBehaviour.FIXED) {
         } else {
-            int i3 = (int) (parent.mHeight * this.mRelativePercent);
-            this.mTop.getResolutionNode().dependsOn(1, parent.mTop.getResolutionNode(), i3);
-            this.mBottom.getResolutionNode().dependsOn(1, parent.mTop.getResolutionNode(), i3);
+            int i4 = (int) (parent.mHeight * this.mRelativePercent);
+            this.mTop.getResolutionNode().dependsOn(1, parent.mTop.getResolutionNode(), i4);
+            this.mBottom.getResolutionNode().dependsOn(1, parent.mTop.getResolutionNode(), i4);
         }
     }
 
@@ -185,14 +185,14 @@ public class Guideline extends ConstraintWidget {
         Rectangle rectangle = this.mHead;
         int drawX = getDrawX() - this.mHeadSize;
         int drawY = getDrawY();
-        int i = this.mHeadSize;
-        rectangle.setBounds(drawX, drawY - (i * 2), i * 2, i * 2);
+        int i2 = this.mHeadSize;
+        rectangle.setBounds(drawX, drawY - (i2 * 2), i2 * 2, i2 * 2);
         if (getOrientation() == 0) {
             Rectangle rectangle2 = this.mHead;
             int drawX2 = getDrawX() - (this.mHeadSize * 2);
             int drawY2 = getDrawY();
-            int i2 = this.mHeadSize;
-            rectangle2.setBounds(drawX2, drawY2 - i2, i2 * 2, i2 * 2);
+            int i3 = this.mHeadSize;
+            rectangle2.setBounds(drawX2, drawY2 - i3, i3 * 2, i3 * 2);
         }
         return this.mHead;
     }
@@ -253,61 +253,61 @@ public class Guideline extends ConstraintWidget {
     }
 
     @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
-    public void setDrawOrigin(int i, int i2) {
+    public void setDrawOrigin(int i2, int i3) {
         if (this.mOrientation == 1) {
-            int i3 = i - this.mOffsetX;
+            int i4 = i2 - this.mOffsetX;
             if (this.mRelativeBegin != -1) {
-                setGuideBegin(i3);
+                setGuideBegin(i4);
                 return;
             } else if (this.mRelativeEnd != -1) {
-                setGuideEnd(getParent().getWidth() - i3);
+                setGuideEnd(getParent().getWidth() - i4);
                 return;
             } else if (this.mRelativePercent != -1.0f) {
-                setGuidePercent(i3 / getParent().getWidth());
+                setGuidePercent(i4 / getParent().getWidth());
                 return;
             } else {
                 return;
             }
         }
-        int i4 = i2 - this.mOffsetY;
+        int i5 = i3 - this.mOffsetY;
         if (this.mRelativeBegin != -1) {
-            setGuideBegin(i4);
+            setGuideBegin(i5);
         } else if (this.mRelativeEnd != -1) {
-            setGuideEnd(getParent().getHeight() - i4);
+            setGuideEnd(getParent().getHeight() - i5);
         } else if (this.mRelativePercent != -1.0f) {
-            setGuidePercent(i4 / getParent().getHeight());
+            setGuidePercent(i5 / getParent().getHeight());
         }
     }
 
-    public void setGuideBegin(int i) {
-        if (i > -1) {
+    public void setGuideBegin(int i2) {
+        if (i2 > -1) {
             this.mRelativePercent = -1.0f;
-            this.mRelativeBegin = i;
+            this.mRelativeBegin = i2;
             this.mRelativeEnd = -1;
         }
     }
 
-    public void setGuideEnd(int i) {
-        if (i > -1) {
+    public void setGuideEnd(int i2) {
+        if (i2 > -1) {
             this.mRelativePercent = -1.0f;
             this.mRelativeBegin = -1;
-            this.mRelativeEnd = i;
+            this.mRelativeEnd = i2;
         }
     }
 
-    public void setGuidePercent(int i) {
-        setGuidePercent(i / 100.0f);
+    public void setGuidePercent(int i2) {
+        setGuidePercent(i2 / 100.0f);
     }
 
-    public void setMinimumPosition(int i) {
-        this.mMinimumPosition = i;
+    public void setMinimumPosition(int i2) {
+        this.mMinimumPosition = i2;
     }
 
-    public void setOrientation(int i) {
-        if (this.mOrientation == i) {
+    public void setOrientation(int i2) {
+        if (this.mOrientation == i2) {
             return;
         }
-        this.mOrientation = i;
+        this.mOrientation = i2;
         this.mAnchors.clear();
         if (this.mOrientation == 1) {
             this.mAnchor = this.mLeft;
@@ -316,8 +316,8 @@ public class Guideline extends ConstraintWidget {
         }
         this.mAnchors.add(this.mAnchor);
         int length = this.mListAnchors.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            this.mListAnchors[i2] = this.mAnchor;
+        for (int i3 = 0; i3 < length; i3++) {
+            this.mListAnchors[i3] = this.mAnchor;
         }
     }
 

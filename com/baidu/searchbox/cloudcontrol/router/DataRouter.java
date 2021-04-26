@@ -105,7 +105,7 @@ public class DataRouter {
                     }
                 }
                 try {
-                    countDownLatch.await(10L, TimeUnit.SECONDS);
+                    countDownLatch.await(15L, TimeUnit.SECONDS);
                 } catch (InterruptedException e4) {
                     if (AppConfig.isDebug()) {
                         Log.d(DataRouter.TAG, "processServiceData method need call  cloudControlUBCCallBack " + e4.toString());

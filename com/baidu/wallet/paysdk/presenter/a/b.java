@@ -3,10 +3,10 @@ package com.baidu.wallet.paysdk.presenter.a;
 import com.baidu.wallet.paysdk.contract.a;
 /* loaded from: classes5.dex */
 public class b {
-    public static a.InterfaceC0270a a(int i, a.b bVar) {
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
+    public static a.InterfaceC0265a a(int i2, a.b bVar) {
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 != 3) {
                     return null;
                 }
                 return new c(bVar);

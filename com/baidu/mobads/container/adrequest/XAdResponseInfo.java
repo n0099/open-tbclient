@@ -40,8 +40,8 @@ public class XAdResponseInfo implements IXAdResponseInfo {
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("ad");
             if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.adInstanceList.add(new XAdInstanceInfoExt(optJSONArray.getJSONObject(i)));
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    this.adInstanceList.add(new XAdInstanceInfoExt(optJSONArray.getJSONObject(i2)));
                 }
             }
             this.adsNum = this.mOriginResponseObject.optInt("n", 0);
@@ -161,8 +161,8 @@ public class XAdResponseInfo implements IXAdResponseInfo {
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
-    public void setAdsNum(int i) {
-        this.adsNum = i;
+    public void setAdsNum(int i2) {
+        this.adsNum = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
@@ -196,13 +196,13 @@ public class XAdResponseInfo implements IXAdResponseInfo {
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
-    public void setIntIcon(int i) {
-        this.intIcon = i;
+    public void setIntIcon(int i2) {
+        this.intIcon = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo
-    public void setLunpan(int i) {
-        this.lunpan = i;
+    public void setLunpan(int i2) {
+        this.lunpan = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdResponseInfo

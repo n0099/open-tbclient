@@ -12,8 +12,8 @@ import org.json.JSONObject;
 public class QueryMatchEmotionResponseMessage extends JsonHttpResponsedMessage {
     public List<EmotionImageData> mData;
 
-    public QueryMatchEmotionResponseMessage(int i) {
-        super(i);
+    public QueryMatchEmotionResponseMessage(int i2) {
+        super(i2);
     }
 
     private List<EmotionImageData> parseImageData(JSONArray jSONArray) {
@@ -22,9 +22,9 @@ public class QueryMatchEmotionResponseMessage extends JsonHttpResponsedMessage {
         }
         ArrayList arrayList = new ArrayList();
         int min = Math.min(jSONArray.length(), 10);
-        for (int i = 0; i < min; i++) {
+        for (int i2 = 0; i2 < min; i2++) {
             try {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                JSONObject jSONObject = jSONArray.getJSONObject(i2);
                 EmotionImageData emotionImageData = new EmotionImageData();
                 emotionImageData.setPicId(jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY));
                 emotionImageData.setPicUrl(jSONObject.optString("pic_url"));
@@ -41,7 +41,7 @@ public class QueryMatchEmotionResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         int statusCode = getStatusCode();
         int error = getError();

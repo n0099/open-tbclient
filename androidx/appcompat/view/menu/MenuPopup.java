@@ -16,39 +16,39 @@ import androidx.annotation.Nullable;
 public abstract class MenuPopup implements ShowableListMenu, MenuPresenter, AdapterView.OnItemClickListener {
     public Rect mEpicenterBounds;
 
-    public static int measureIndividualMenuWidth(ListAdapter listAdapter, ViewGroup viewGroup, Context context, int i) {
+    public static int measureIndividualMenuWidth(ListAdapter listAdapter, ViewGroup viewGroup, Context context, int i2) {
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
         int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(0, 0);
         int count = listAdapter.getCount();
         View view = null;
-        int i2 = 0;
         int i3 = 0;
-        for (int i4 = 0; i4 < count; i4++) {
-            int itemViewType = listAdapter.getItemViewType(i4);
-            if (itemViewType != i3) {
+        int i4 = 0;
+        for (int i5 = 0; i5 < count; i5++) {
+            int itemViewType = listAdapter.getItemViewType(i5);
+            if (itemViewType != i4) {
                 view = null;
-                i3 = itemViewType;
+                i4 = itemViewType;
             }
             if (viewGroup == null) {
                 viewGroup = new FrameLayout(context);
             }
-            view = listAdapter.getView(i4, view, viewGroup);
+            view = listAdapter.getView(i5, view, viewGroup);
             view.measure(makeMeasureSpec, makeMeasureSpec2);
             int measuredWidth = view.getMeasuredWidth();
-            if (measuredWidth >= i) {
-                return i;
+            if (measuredWidth >= i2) {
+                return i2;
             }
-            if (measuredWidth > i2) {
-                i2 = measuredWidth;
+            if (measuredWidth > i3) {
+                i3 = measuredWidth;
             }
         }
-        return i2;
+        return i3;
     }
 
     public static boolean shouldPreserveIconSpacing(MenuBuilder menuBuilder) {
         int size = menuBuilder.size();
-        for (int i = 0; i < size; i++) {
-            MenuItem item = menuBuilder.getItem(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            MenuItem item = menuBuilder.getItem(i2);
             if (item.isVisible() && item.getIcon() != null) {
                 return true;
             }
@@ -98,9 +98,9 @@ public abstract class MenuPopup implements ShowableListMenu, MenuPresenter, Adap
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
         ListAdapter listAdapter = (ListAdapter) adapterView.getAdapter();
-        toMenuAdapter(listAdapter).mAdapterMenu.performItemAction((MenuItem) listAdapter.getItem(i), this, closeMenuOnSubMenuOpened() ? 0 : 4);
+        toMenuAdapter(listAdapter).mAdapterMenu.performItemAction((MenuItem) listAdapter.getItem(i2), this, closeMenuOnSubMenuOpened() ? 0 : 4);
     }
 
     public abstract void setAnchorView(View view);
@@ -111,13 +111,13 @@ public abstract class MenuPopup implements ShowableListMenu, MenuPresenter, Adap
 
     public abstract void setForceShowIcon(boolean z);
 
-    public abstract void setGravity(int i);
+    public abstract void setGravity(int i2);
 
-    public abstract void setHorizontalOffset(int i);
+    public abstract void setHorizontalOffset(int i2);
 
     public abstract void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener);
 
     public abstract void setShowTitle(boolean z);
 
-    public abstract void setVerticalOffset(int i);
+    public abstract void setVerticalOffset(int i2);
 }

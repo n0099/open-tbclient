@@ -164,9 +164,9 @@ public class BceClientConfiguration {
         this.acceptEncoding = str;
     }
 
-    public void setConnectionTimeoutInMillis(int i) {
-        CheckUtils.checkArgument(i >= 0, "connectionTimeoutInMillis should not be negative.");
-        this.connectionTimeoutInMillis = i;
+    public void setConnectionTimeoutInMillis(int i2) {
+        CheckUtils.checkArgument(i2 >= 0, "connectionTimeoutInMillis should not be negative.");
+        this.connectionTimeoutInMillis = i2;
     }
 
     public void setCredentials(BceCredentials bceCredentials) {
@@ -187,9 +187,9 @@ public class BceClientConfiguration {
         this.localAddress = inetAddress;
     }
 
-    public void setMaxConnections(int i) {
-        CheckUtils.checkArgument(i >= 0, "maxConnections should not be negative.");
-        this.maxConnections = i;
+    public void setMaxConnections(int i2) {
+        CheckUtils.checkArgument(i2 >= 0, "maxConnections should not be negative.");
+        this.maxConnections = i2;
     }
 
     public void setProtocol(Protocol protocol) {
@@ -211,8 +211,8 @@ public class BceClientConfiguration {
         this.proxyPassword = str;
     }
 
-    public void setProxyPort(int i) {
-        this.proxyPort = i;
+    public void setProxyPort(int i2) {
+        this.proxyPort = i2;
     }
 
     public void setProxyPreemptiveAuthenticationEnabled(boolean z) {
@@ -241,13 +241,13 @@ public class BceClientConfiguration {
         this.retryPolicy = retryPolicy;
     }
 
-    public void setSocketBufferSizeInBytes(int i) {
-        this.socketBufferSizeInBytes = i;
+    public void setSocketBufferSizeInBytes(int i2) {
+        this.socketBufferSizeInBytes = i2;
     }
 
-    public void setSocketTimeoutInMillis(int i) {
-        CheckUtils.checkArgument(i >= 0, "socketTimeoutInMillis should not be negative.");
-        this.socketTimeoutInMillis = i;
+    public void setSocketTimeoutInMillis(int i2) {
+        CheckUtils.checkArgument(i2 >= 0, "socketTimeoutInMillis should not be negative.");
+        this.socketTimeoutInMillis = i2;
     }
 
     public void setUploadSegmentPart(long j) {
@@ -268,8 +268,8 @@ public class BceClientConfiguration {
         return "BceClientConfiguration [ \n  userAgent=" + this.userAgent + ", \n  retryPolicy=" + this.retryPolicy + ", \n  localAddress=" + this.localAddress + ", \n  protocol=" + this.protocol + ", \n  proxyHost=" + this.proxyHost + ", \n  proxyPort=" + this.proxyPort + ", \n  proxyUsername=" + this.proxyUsername + ", \n  proxyPassword=" + this.proxyPassword + ", \n  proxyDomain=" + this.proxyDomain + ", \n  proxyWorkstation=" + this.proxyWorkstation + ", \n  proxyPreemptiveAuthenticationEnabled=" + this.proxyPreemptiveAuthenticationEnabled + ", \n  maxConnections=" + this.maxConnections + ", \n  socketTimeoutInMillis=" + this.socketTimeoutInMillis + ", \n  connectionTimeoutInMillis=" + this.connectionTimeoutInMillis + ", \n  socketBufferSizeInBytes=" + this.socketBufferSizeInBytes + ", \n  endpoint=" + this.endpoint + ", \n  region=" + this.region + ", \n  credentials=" + this.credentials + ", \n  uploadSegmentPart=" + this.uploadSegmentPart + ", \n  acceptEncoding=" + this.acceptEncoding + ", \n  keepAliveDuration=" + this.keepAliveDuration + "]\n";
     }
 
-    public BceClientConfiguration withConnectionTimeoutInMillis(int i) {
-        setConnectionTimeoutInMillis(i);
+    public BceClientConfiguration withConnectionTimeoutInMillis(int i2) {
+        setConnectionTimeoutInMillis(i2);
         return this;
     }
 
@@ -288,8 +288,8 @@ public class BceClientConfiguration {
         return this;
     }
 
-    public BceClientConfiguration withMaxConnections(int i) {
-        setMaxConnections(i);
+    public BceClientConfiguration withMaxConnections(int i2) {
+        setMaxConnections(i2);
         return this;
     }
 
@@ -313,8 +313,8 @@ public class BceClientConfiguration {
         return this;
     }
 
-    public BceClientConfiguration withProxyPort(int i) {
-        setProxyPort(i);
+    public BceClientConfiguration withProxyPort(int i2) {
+        setProxyPort(i2);
         return this;
     }
 
@@ -343,13 +343,13 @@ public class BceClientConfiguration {
         return this;
     }
 
-    public BceClientConfiguration withSocketBufferSizeInBytes(int i) {
-        setSocketBufferSizeInBytes(i);
+    public BceClientConfiguration withSocketBufferSizeInBytes(int i2) {
+        setSocketBufferSizeInBytes(i2);
         return this;
     }
 
-    public BceClientConfiguration withSocketTimeoutInMillis(int i) {
-        setSocketTimeoutInMillis(i);
+    public BceClientConfiguration withSocketTimeoutInMillis(int i2) {
+        setSocketTimeoutInMillis(i2);
         return this;
     }
 

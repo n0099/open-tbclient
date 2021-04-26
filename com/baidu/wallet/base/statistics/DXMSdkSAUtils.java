@@ -18,16 +18,16 @@ import org.json.JSONObject;
 public final class DXMSdkSAUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23385a = "DXMSdkSAUtils";
+    public static final String f24107a = "DXMSdkSAUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23386b = "https://bi-sensors.duxiaoman.com/sa?project=production";
+    public static final String f24108b = "https://bi-sensors.duxiaoman.com/sa?project=production";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final DxmSdkSensorsDataAPI.DebugMode f23387c = DxmSdkSensorsDataAPI.DebugMode.DEBUG_OFF;
+    public static final DxmSdkSensorsDataAPI.DebugMode f24109c = DxmSdkSensorsDataAPI.DebugMode.DEBUG_OFF;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f23388d = "DXMSDK";
+    public static final String f24110d = "DXMSDK";
 
     public static JSONObject a(Context context) {
         JSONObject jSONObject = new JSONObject();
@@ -42,13 +42,13 @@ public final class DXMSdkSAUtils {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        LogUtil.d(f23385a, "commonParams = " + jSONObject.toString());
+        LogUtil.d(f24107a, "commonParams = " + jSONObject.toString());
         return jSONObject;
     }
 
     public static void initSensorStat(Context context) {
-        LogUtil.d(f23385a, "initSensorStat");
-        DxmSdkSensorsDataAPI.J(context, f23386b, f23387c);
+        LogUtil.d(f24107a, "initSensorStat");
+        DxmSdkSensorsDataAPI.J(context, f24108b, f24109c);
         onChangeProperties(a(context));
     }
 
@@ -67,8 +67,8 @@ public final class DXMSdkSAUtils {
         onEventWithValues(str, Arrays.asList(""));
     }
 
-    public static void onEventEnd(String str, int i) {
-        LogUtil.d(f23385a, "onEventEnd. id = " + str + " , retCode = " + i);
+    public static void onEventEnd(String str, int i2) {
+        LogUtil.d(f24107a, "onEventEnd. id = " + str + " , retCode = " + i2);
         if (TextUtils.isEmpty(str)) {
             return;
         }
@@ -76,27 +76,27 @@ public final class DXMSdkSAUtils {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("event_key", str);
-            jSONObject.put("value0", String.valueOf(i));
+            jSONObject.put("value0", String.valueOf(i2));
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        DxmSdkSensorsDataAPI.H().O(f23388d, jSONObject);
+        DxmSdkSensorsDataAPI.H().O(f24110d, jSONObject);
     }
 
-    public static void onEventEndWithValues(String str, int i, Collection<String> collection) {
-        LogUtil.d(f23385a, "onEventEndWithValues. id = " + str + " , retCode = " + i + " , values = " + collection);
+    public static void onEventEndWithValues(String str, int i2, Collection<String> collection) {
+        LogUtil.d(f24107a, "onEventEndWithValues. id = " + str + " , retCode = " + i2 + " , values = " + collection);
         if (TextUtils.isEmpty(str)) {
             return;
         }
         if (collection == null) {
             collection = new ArrayList<>();
         }
-        collection.add(String.valueOf(i));
+        collection.add(String.valueOf(i2));
         onEventWithValues(str, collection);
     }
 
     public static void onEventStart(String str) {
-        LogUtil.d(f23385a, "onEventStart. id = " + str);
+        LogUtil.d(f24107a, "onEventStart. id = " + str);
         if (TextUtils.isEmpty(str)) {
             return;
         }
@@ -105,7 +105,7 @@ public final class DXMSdkSAUtils {
     }
 
     public static void onEventWithValues(String str, Collection<String> collection) {
-        LogUtil.d(f23385a, "onEventWithValues. id = " + str + ", values = " + collection);
+        LogUtil.d(f24107a, "onEventWithValues. id = " + str + ", values = " + collection);
         if (TextUtils.isEmpty(str)) {
             return;
         }
@@ -141,7 +141,7 @@ public final class DXMSdkSAUtils {
                 jSONObject.put("value8", jSONArray.get(8));
             }
             refreshUnionIDProperty();
-            DxmSdkSensorsDataAPI.H().M(f23388d, jSONObject);
+            DxmSdkSensorsDataAPI.H().M(f24110d, jSONObject);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -149,7 +149,7 @@ public final class DXMSdkSAUtils {
 
     public static void refreshUnionIDProperty() {
         String unionId = WalletLoginHelper.getInstance().getUnionId();
-        LogUtil.d(f23385a, "refreshUnionIDProperty union_id = " + unionId);
+        LogUtil.d(f24107a, "refreshUnionIDProperty union_id = " + unionId);
         if (!TextUtils.isEmpty(unionId)) {
             DxmSdkSensorsDataAPI.H().C(unionId);
         } else {

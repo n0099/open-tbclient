@@ -8,25 +8,25 @@ import com.baidu.turbonet.base.annotations.CalledByNative;
 public class ThreadUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f22354a = new Object();
+    public static final Object f23046a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f22355b = false;
+    public static boolean f23047b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f22356c;
+    public static Handler f23048c;
 
     public static Handler a() {
         Handler handler;
-        synchronized (f22354a) {
-            if (f22356c == null) {
-                if (!f22355b) {
-                    f22356c = new Handler(Looper.getMainLooper());
+        synchronized (f23046a) {
+            if (f23048c == null) {
+                if (!f23047b) {
+                    f23048c = new Handler(Looper.getMainLooper());
                 } else {
                     throw new RuntimeException("Did not yet override the UI thread");
                 }
             }
-            handler = f22356c;
+            handler = f23048c;
         }
         return handler;
     }
@@ -48,12 +48,12 @@ public class ThreadUtils {
     }
 
     @CalledByNative
-    public static boolean isThreadPriorityAudio(int i) {
-        return Process.getThreadPriority(i) == -16;
+    public static boolean isThreadPriorityAudio(int i2) {
+        return Process.getThreadPriority(i2) == -16;
     }
 
     @CalledByNative
-    public static void setThreadPriorityAudio(int i) {
-        Process.setThreadPriority(i, -16);
+    public static void setThreadPriorityAudio(int i2) {
+        Process.setThreadPriority(i2, -16);
     }
 }

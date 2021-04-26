@@ -5,16 +5,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import d.b.h0.a.f;
-import d.b.h0.a.g;
+import d.a.h0.a.f;
+import d.a.h0.a.g;
 /* loaded from: classes3.dex */
 public class ShowConfirmBarLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f12329e;
+    public Button f12202e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f12330f;
+    public b f12203f;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -23,8 +23,8 @@ public class ShowConfirmBarLayout extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (ShowConfirmBarLayout.this.f12330f != null) {
-                ShowConfirmBarLayout.this.f12330f.onClick(view);
+            if (ShowConfirmBarLayout.this.f12203f != null) {
+                ShowConfirmBarLayout.this.f12203f.onClick(view);
             }
         }
     }
@@ -37,11 +37,11 @@ public class ShowConfirmBarLayout extends RelativeLayout {
     public ShowConfirmBarLayout(Context context) {
         super(context);
         Button button = (Button) LayoutInflater.from(context).inflate(g.aiapps_textarea_confirm_bar, this).findViewById(f.confirm_button);
-        this.f12329e = button;
+        this.f12202e = button;
         button.setOnClickListener(new a());
     }
 
     public void setOnConfirmButtonClickListener(b bVar) {
-        this.f12330f = bVar;
+        this.f12203f = bVar;
     }
 }

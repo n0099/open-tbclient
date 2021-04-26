@@ -5,49 +5,49 @@ import com.baidu.ar.npc.BaiduArView;
 public /* synthetic */ class ae {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f4201a;
+    public static final /* synthetic */ int[] f4270a;
 
     static {
         int[] iArr = new int[BaiduArView.i.values().length];
-        f4201a = iArr;
+        f4270a = iArr;
         try {
             iArr[BaiduArView.i.EStatSingleFingerCandidate.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f4201a[BaiduArView.i.EStatTwoFingersCandidate.ordinal()] = 2;
+            f4270a[BaiduArView.i.EStatTwoFingersCandidate.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f4201a[BaiduArView.i.EStatScroll.ordinal()] = 3;
+            f4270a[BaiduArView.i.EStatScroll.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f4201a[BaiduArView.i.EStatTwoFingersScroll.ordinal()] = 4;
+            f4270a[BaiduArView.i.EStatTwoFingersScroll.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f4201a[BaiduArView.i.EStatPinchAndUnpinch.ordinal()] = 5;
+            f4270a[BaiduArView.i.EStatPinchAndUnpinch.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f4201a[BaiduArView.i.EStatLongPresss.ordinal()] = 6;
+            f4270a[BaiduArView.i.EStatLongPresss.ordinal()] = 6;
         } catch (NoSuchFieldError unused6) {
         }
         try {
-            f4201a[BaiduArView.i.EScrollAfterLongPress.ordinal()] = 7;
+            f4270a[BaiduArView.i.EScrollAfterLongPress.ordinal()] = 7;
         } catch (NoSuchFieldError unused7) {
         }
         try {
-            f4201a[BaiduArView.i.EStatPinch.ordinal()] = 8;
+            f4270a[BaiduArView.i.EStatPinch.ordinal()] = 8;
         } catch (NoSuchFieldError unused8) {
         }
         try {
-            f4201a[BaiduArView.i.EStatUnPinch.ordinal()] = 9;
+            f4270a[BaiduArView.i.EStatUnPinch.ordinal()] = 9;
         } catch (NoSuchFieldError unused9) {
         }
         try {
-            f4201a[BaiduArView.i.EStatUnknown.ordinal()] = 10;
+            f4270a[BaiduArView.i.EStatUnknown.ordinal()] = 10;
         } catch (NoSuchFieldError unused10) {
         }
     }

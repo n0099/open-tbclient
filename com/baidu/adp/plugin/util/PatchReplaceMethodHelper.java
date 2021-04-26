@@ -19,17 +19,17 @@ public class PatchReplaceMethodHelper {
     public static class a extends ClassLoader {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DexFile f2272a;
+        public final /* synthetic */ DexFile f2243a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ClassLoader classLoader, DexFile dexFile) {
             super(classLoader);
-            this.f2272a = dexFile;
+            this.f2243a = dexFile;
         }
 
         @Override // java.lang.ClassLoader
         public Class<?> findClass(String str) throws ClassNotFoundException {
-            Class<?> loadClass = this.f2272a.loadClass(str, this);
+            Class<?> loadClass = this.f2243a.loadClass(str, this);
             if (loadClass == null && str.startsWith("com.baidu.adp.plugin.PluginPatchAnnotation")) {
                 return Class.forName(str);
             }
@@ -54,20 +54,20 @@ public class PatchReplaceMethodHelper {
                         return true;
                     }
                     Method[] declaredMethods = loadDex.loadClass(entries.nextElement(), aVar).getDeclaredMethods();
-                    for (int i = 0; i < declaredMethods.length; i++) {
-                        Annotation[] annotations = declaredMethods[i].getAnnotations();
-                        if (annotations != null && annotations.length != 0 && (pluginPatchAnnotation = (PluginPatchAnnotation) declaredMethods[i].getAnnotation(PluginPatchAnnotation.class)) != null && cls == null) {
+                    for (int i2 = 0; i2 < declaredMethods.length; i2++) {
+                        Annotation[] annotations = declaredMethods[i2].getAnnotations();
+                        if (annotations != null && annotations.length != 0 && (pluginPatchAnnotation = (PluginPatchAnnotation) declaredMethods[i2].getAnnotation(PluginPatchAnnotation.class)) != null && cls == null) {
                             cls = Class.forName(pluginPatchAnnotation.clazz(), true, context.getClassLoader());
                         }
                     }
                     setFieldsFlag(cls);
                 }
             } catch (IOException e2) {
-                d.b.c.h.h.a b2 = d.b.c.h.h.a.b();
+                d.a.c.h.h.a b2 = d.a.c.h.h.a.b();
                 b2.r("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e2.getMessage());
                 e2.printStackTrace();
             } catch (ClassNotFoundException e3) {
-                d.b.c.h.h.a b3 = d.b.c.h.h.a.b();
+                d.a.c.h.h.a b3 = d.a.c.h.h.a.b();
                 b3.r("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e3.getMessage());
                 e3.printStackTrace();
             }

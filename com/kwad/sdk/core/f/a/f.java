@@ -13,18 +13,18 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f33993a;
+    public Context f33025a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f33994b = new LinkedBlockingQueue<>(1);
+    public final LinkedBlockingQueue<IBinder> f33026b = new LinkedBlockingQueue<>(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f33995c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.f.1
+    public ServiceConnection f33027c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.f.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            com.kwad.sdk.core.d.a.b("OppoDeviceIDHelper", "onServiceConnected");
+            com.kwad.sdk.core.d.a.c("OppoDeviceIDHelper", "onServiceConnected");
             try {
-                f.this.f33994b.put(iBinder);
+                f.this.f33026b.put(iBinder);
             } catch (InterruptedException e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -36,12 +36,12 @@ public class f {
     };
 
     public f(Context context) {
-        this.f33993a = context;
+        this.f33025a = context;
     }
 
     private String b() {
         try {
-            Signature[] signatureArr = this.f33993a.getPackageManager().getPackageInfo(this.f33993a.getPackageName(), 64).signatures;
+            Signature[] signatureArr = this.f33025a.getPackageManager().getPackageInfo(this.f33025a.getPackageName(), 64).signatures;
             if (signatureArr == null || signatureArr.length <= 0) {
                 return null;
             }
@@ -65,23 +65,23 @@ public class f {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-            boolean bindService = this.f33993a.bindService(intent, this.f33995c, 1);
-            com.kwad.sdk.core.d.a.b("OppoDeviceIDHelper", "getOAID isBin=" + bindService);
+            boolean bindService = this.f33025a.bindService(intent, this.f33027c, 1);
+            com.kwad.sdk.core.d.a.c("OppoDeviceIDHelper", "getOAID isBin=" + bindService);
             if (bindService) {
                 try {
-                    str = new d.a(this.f33994b.take()).a(this.f33993a.getPackageName(), b(), "OUID");
-                    com.kwad.sdk.core.d.a.b("OppoDeviceIDHelper", "getOAID oaid" + str);
-                    context = this.f33993a;
-                    serviceConnection = this.f33995c;
+                    str = new d.a(this.f33026b.take()).a(this.f33025a.getPackageName(), b(), "OUID");
+                    com.kwad.sdk.core.d.a.c("OppoDeviceIDHelper", "getOAID oaid" + str);
+                    context = this.f33025a;
+                    serviceConnection = this.f33027c;
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
-                    context = this.f33993a;
-                    serviceConnection = this.f33995c;
+                    context = this.f33025a;
+                    serviceConnection = this.f33027c;
                 }
                 context.unbindService(serviceConnection);
             }
         } catch (Exception e3) {
-            com.kwad.sdk.core.d.a.b("OppoDeviceIDHelper", "getOAID service not found");
+            com.kwad.sdk.core.d.a.c("OppoDeviceIDHelper", "getOAID service not found");
             com.kwad.sdk.core.d.a.b(e3);
         }
         return str;

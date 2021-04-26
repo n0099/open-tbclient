@@ -27,8 +27,8 @@ public class SpecialLiveTabInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public SpecialLiveTabInfo[] newArray(int i) {
-            return new SpecialLiveTabInfo[i];
+        public SpecialLiveTabInfo[] newArray(int i2) {
+            return new SpecialLiveTabInfo[i2];
         }
     }
 
@@ -48,8 +48,8 @@ public class SpecialLiveTabInfo implements Parcelable {
         }
         int length = optJSONArray.length();
         this.sortTypeList = new ArrayList(length);
-        for (int i = 0; i < length; i++) {
-            this.sortTypeList.add(optJSONArray.optString(i));
+        for (int i2 = 0; i2 < length; i2++) {
+            this.sortTypeList.add(optJSONArray.optString(i2));
         }
     }
 
@@ -59,7 +59,7 @@ public class SpecialLiveTabInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.tabId);
         parcel.writeString(this.tabName);
         parcel.writeInt(this.tabType);

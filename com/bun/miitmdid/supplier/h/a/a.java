@@ -7,10 +7,10 @@ import android.net.Uri;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f26818a;
+    public Context f27631a;
 
     public a(Context context) {
-        this.f26818a = context;
+        this.f27631a = context;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x003c  */
@@ -18,19 +18,19 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String a(int i, String str) {
+    public String a(int i2, String str) {
         String str2;
         Uri parse;
         Cursor query;
         StringBuilder sb;
         String str3;
-        if (i != 0) {
-            if (i == 1) {
+        if (i2 != 0) {
+            if (i2 == 1) {
                 sb = new StringBuilder();
                 str3 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
-            } else if (i != 2) {
+            } else if (i2 != 2) {
                 parse = null;
-                query = this.f26818a.getContentResolver().query(parse, null, null, null, null);
+                query = this.f27631a.getContentResolver().query(parse, null, null, null, null);
                 if (query == null) {
                     r0 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                     query.close();
@@ -49,7 +49,7 @@ public class a {
             str2 = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
         }
         parse = Uri.parse(str2);
-        query = this.f26818a.getContentResolver().query(parse, null, null, null, null);
+        query = this.f27631a.getContentResolver().query(parse, null, null, null, null);
         if (query == null) {
         }
         return r0;

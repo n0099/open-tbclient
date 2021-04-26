@@ -8,28 +8,28 @@ public final class ULongKt {
     @ExperimentalUnsignedTypes
     @InlineOnly
     public static final long toULong(byte b2) {
-        return ULong.m786constructorimpl(b2);
+        return ULong.m792constructorimpl(b2);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     public static final long toULong(short s) {
-        return ULong.m786constructorimpl(s);
+        return ULong.m792constructorimpl(s);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
-    public static final long toULong(int i) {
-        return ULong.m786constructorimpl(i);
+    public static final long toULong(int i2) {
+        return ULong.m792constructorimpl(i2);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     public static final long toULong(long j) {
-        return ULong.m786constructorimpl(j);
+        return ULong.m792constructorimpl(j);
     }
 
     @SinceKotlin(version = "1.3")

@@ -41,9 +41,9 @@ public interface LiveDataRequest {
         public int page;
         public int pageSize;
 
-        public PageInfo(int i, int i2) {
-            this.page = i;
-            this.pageSize = i2;
+        public PageInfo(int i2, int i3) {
+            this.page = i2;
+            this.pageSize = i3;
         }
 
         public int getPage() {
@@ -54,12 +54,12 @@ public interface LiveDataRequest {
             return this.pageSize;
         }
 
-        public void setPage(int i) {
-            this.page = i;
+        public void setPage(int i2) {
+            this.page = i2;
         }
 
-        public void setPageSize(int i) {
-            this.pageSize = i;
+        public void setPageSize(int i2) {
+            this.pageSize = i2;
         }
     }
 

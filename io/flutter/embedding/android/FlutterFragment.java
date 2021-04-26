@@ -218,8 +218,8 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onActivityResult(int i, int i2, Intent intent) {
-        this.delegate.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        this.delegate.onActivityResult(i2, i3, intent);
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -303,8 +303,8 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
 
     @Override // androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
     @ActivityCallThrough
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        this.delegate.onRequestPermissionsResult(i, strArr, iArr);
+    public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+        this.delegate.onRequestPermissionsResult(i2, strArr, iArr);
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -332,8 +332,8 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
     }
 
     @ActivityCallThrough
-    public void onTrimMemory(int i) {
-        this.delegate.onTrimMemory(i);
+    public void onTrimMemory(int i2) {
+        this.delegate.onTrimMemory(i2);
     }
 
     @ActivityCallThrough

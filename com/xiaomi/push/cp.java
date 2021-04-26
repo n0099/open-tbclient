@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class cp {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40717a;
+    public String f38234a;
 
     /* renamed from: a  reason: collision with other field name */
     public final ArrayList<co> f192a = new ArrayList<>();
@@ -21,14 +21,14 @@ public class cp {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
-        this.f40717a = str;
+        this.f38234a = str;
     }
 
     public synchronized co a() {
         for (int size = this.f192a.size() - 1; size >= 0; size--) {
             co coVar = this.f192a.get(size);
-            if (coVar.m207a()) {
-                cs.a().m217a(coVar.a());
+            if (coVar.m210a()) {
+                cs.a().m220a(coVar.a());
                 return coVar;
             }
         }
@@ -36,51 +36,51 @@ public class cp {
     }
 
     public synchronized cp a(JSONObject jSONObject) {
-        this.f40717a = jSONObject.getString("host");
+        this.f38234a = jSONObject.getString("host");
         JSONArray jSONArray = jSONObject.getJSONArray("fbs");
-        for (int i = 0; i < jSONArray.length(); i++) {
-            this.f192a.add(new co(this.f40717a).a(jSONArray.getJSONObject(i)));
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            this.f192a.add(new co(this.f38234a).a(jSONArray.getJSONObject(i2)));
         }
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m208a() {
-        return this.f40717a;
+    public String m211a() {
+        return this.f38234a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<co> m209a() {
+    public ArrayList<co> m212a() {
         return this.f192a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m210a() {
+    public synchronized JSONObject m213a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
-        jSONObject.put("host", this.f40717a);
+        jSONObject.put("host", this.f38234a);
         JSONArray jSONArray = new JSONArray();
         Iterator<co> it = this.f192a.iterator();
         while (it.hasNext()) {
-            jSONArray.put(it.next().m205a());
+            jSONArray.put(it.next().m208a());
         }
         jSONObject.put("fbs", jSONArray);
         return jSONObject;
     }
 
     public synchronized void a(co coVar) {
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            if (i >= this.f192a.size()) {
+            if (i2 >= this.f192a.size()) {
                 break;
-            } else if (this.f192a.get(i).a(coVar)) {
-                this.f192a.set(i, coVar);
+            } else if (this.f192a.get(i2).a(coVar)) {
+                this.f192a.set(i2, coVar);
                 break;
             } else {
-                i++;
+                i2++;
             }
         }
-        if (i >= this.f192a.size()) {
+        if (i2 >= this.f192a.size()) {
             this.f192a.add(coVar);
         }
     }
@@ -103,7 +103,7 @@ public class cp {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f40717a);
+        sb.append(this.f38234a);
         sb.append("\n");
         Iterator<co> it = this.f192a.iterator();
         while (it.hasNext()) {

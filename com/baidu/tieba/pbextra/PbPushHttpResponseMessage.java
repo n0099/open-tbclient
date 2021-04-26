@@ -9,8 +9,8 @@ import tbclient.PushThread.PushThreadResIdl;
 public class PbPushHttpResponseMessage extends TbHttpResponsedMessage {
     public int mPushType;
 
-    public PbPushHttpResponseMessage(int i) {
-        super(i);
+    public PbPushHttpResponseMessage(int i2) {
+        super(i2);
     }
 
     public int getPushType() {
@@ -19,7 +19,7 @@ public class PbPushHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         PushThreadResIdl pushThreadResIdl = (PushThreadResIdl) new Wire(new Class[0]).parseFrom(bArr, PushThreadResIdl.class);
         Error error = pushThreadResIdl.error;
         if (error != null) {

@@ -13,25 +13,25 @@ public class b {
     public static class a implements ThreadFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final AtomicInteger f37391a = new AtomicInteger(1);
+        public static final AtomicInteger f35113a = new AtomicInteger(1);
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f37392b;
+        public final String f35114b;
 
         /* renamed from: d  reason: collision with root package name */
-        public final AtomicInteger f37394d = new AtomicInteger(1);
+        public final AtomicInteger f35116d = new AtomicInteger(1);
 
         /* renamed from: c  reason: collision with root package name */
-        public final ThreadGroup f37393c = Thread.currentThread().getThreadGroup();
+        public final ThreadGroup f35115c = Thread.currentThread().getThreadGroup();
 
         public a(String str) {
-            this.f37392b = f.i(str);
+            this.f35114b = f.i(str);
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            ThreadGroup threadGroup = this.f37393c;
-            Thread thread = new Thread(threadGroup, runnable, this.f37392b + this.f37394d.getAndIncrement(), 0L);
+            ThreadGroup threadGroup = this.f35115c;
+            Thread thread = new Thread(threadGroup, runnable, this.f35114b + this.f35116d.getAndIncrement(), 0L);
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }
@@ -42,12 +42,12 @@ public class b {
         }
     }
 
-    public static ThreadPoolExecutor a(int i, String str) {
-        return a(i, new LinkedBlockingQueue(), str);
+    public static ThreadPoolExecutor a(int i2, String str) {
+        return a(i2, new LinkedBlockingQueue(), str);
     }
 
-    public static ThreadPoolExecutor a(int i, LinkedBlockingQueue<Runnable> linkedBlockingQueue, String str) {
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 15L, TimeUnit.SECONDS, linkedBlockingQueue, new a(str));
+    public static ThreadPoolExecutor a(int i2, LinkedBlockingQueue<Runnable> linkedBlockingQueue, String str) {
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i2, 15L, TimeUnit.SECONDS, linkedBlockingQueue, new a(str));
         threadPoolExecutor.allowCoreThreadTimeOut(true);
         return threadPoolExecutor;
     }

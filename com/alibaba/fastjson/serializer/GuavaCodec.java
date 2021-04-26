@@ -3,7 +3,7 @@ package com.alibaba.fastjson.serializer;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.google.common.collect.ArrayListMultimap;
-import d.h.c.c.h0;
+import d.g.c.c.h0;
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -41,7 +41,7 @@ public class GuavaCodec implements ObjectSerializer, ObjectDeserializer {
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (obj instanceof h0) {
             jSONSerializer.write(((h0) obj).asMap());

@@ -12,14 +12,14 @@ public class PlayerEventTrigger extends AbsEventTrigger {
         initAttentionArray();
     }
 
-    private boolean filterOnInfoEvent(int i) {
-        return this.mAttentionEventArray.contains(Integer.valueOf(i));
+    private boolean filterOnInfoEvent(int i2) {
+        return this.mAttentionEventArray.contains(Integer.valueOf(i2));
     }
 
     private void initAttentionArray() {
         this.mAttentionEventArray.add(904);
         this.mAttentionEventArray.add(701);
-        this.mAttentionEventArray.add(702);
+        this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_BUFFERING_END));
         this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_EXTEND_VIDEO_CACHE_PROGRESS));
         this.mAttentionEventArray.add(924);
         this.mAttentionEventArray.add(5000);
@@ -29,7 +29,7 @@ public class PlayerEventTrigger extends AbsEventTrigger {
         this.mAttentionEventArray.add(Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_RESTART_PLAYED));
     }
 
-    public void onBufferingUpdate(int i) {
+    public void onBufferingUpdate(int i2) {
         triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_BUFFER_UPDATE));
     }
 
@@ -37,21 +37,21 @@ public class PlayerEventTrigger extends AbsEventTrigger {
         triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_ON_COMPLETE));
     }
 
-    public boolean onError(int i, int i2, Object obj) {
+    public boolean onError(int i2, int i3, Object obj) {
         VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_ON_ERROR);
-        obtainEvent.putExtra(1, Integer.valueOf(i));
-        obtainEvent.putExtra(2, Integer.valueOf(i2));
+        obtainEvent.putExtra(1, Integer.valueOf(i2));
+        obtainEvent.putExtra(2, Integer.valueOf(i3));
         obtainEvent.putExtra(3, obj);
         triggerEvent(obtainEvent);
         return true;
     }
 
-    public boolean onInfo(int i, int i2, Object obj) {
-        BdVideoLog.d("player trigger on info what:" + i);
-        if (filterOnInfoEvent(i)) {
+    public boolean onInfo(int i2, int i3, Object obj) {
+        BdVideoLog.d("player trigger on info what:" + i2);
+        if (filterOnInfoEvent(i2)) {
             VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_ON_INFO);
-            obtainEvent.putExtra(1, Integer.valueOf(i));
-            obtainEvent.putExtra(2, Integer.valueOf(i2));
+            obtainEvent.putExtra(1, Integer.valueOf(i2));
+            obtainEvent.putExtra(2, Integer.valueOf(i3));
             obtainEvent.putExtra(3, obj);
             triggerEvent(obtainEvent);
             return false;
@@ -75,10 +75,10 @@ public class PlayerEventTrigger extends AbsEventTrigger {
         triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_SEEK_COMPLETE));
     }
 
-    public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
+    public void onVideoSizeChanged(int i2, int i3, int i4, int i5) {
         VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_VIDEO_SIZE_CHANGED);
-        obtainEvent.putExtra(5, Integer.valueOf(i));
-        obtainEvent.putExtra(6, Integer.valueOf(i2));
+        obtainEvent.putExtra(5, Integer.valueOf(i2));
+        obtainEvent.putExtra(6, Integer.valueOf(i3));
         triggerEvent(obtainEvent);
     }
 

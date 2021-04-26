@@ -200,8 +200,8 @@ public class ResponseDataProcess {
 
     public static void sendCloudControlUBCData(ICloudControlUBCCallBack iCloudControlUBCCallBack, ResponseDataProcess responseDataProcess) {
         Map<String, PackageInfo> map;
-        int i;
         int i2;
+        int i3;
         String str;
         PackageInfo packageInfo;
         List<PackageInfo> list = null;
@@ -217,20 +217,20 @@ public class ResponseDataProcess {
         int size = list.size();
         JSONArray jSONArray = new JSONArray();
         if (CommonUtils.isEmpty(list)) {
-            i = 0;
             i2 = 0;
+            i3 = 0;
         } else {
-            i = 0;
             i2 = 0;
+            i3 = 0;
             for (PackageInfo packageInfo2 : list) {
                 if (packageInfo2 != null) {
                     try {
                         if (!CommonUtils.isEmpty(map) && (packageInfo = map.get(packageInfo2.packageName)) != null) {
                             if (packageInfo2.updateVersion <= packageInfo.updateVersion) {
-                                i++;
+                                i2++;
                                 str = "2";
                             } else if (packageInfo2.version < packageInfo.version) {
-                                i2++;
+                                i3++;
                                 str = "0";
                             }
                             JSONObject jSONObject = new JSONObject();
@@ -251,10 +251,10 @@ public class ResponseDataProcess {
                 }
             }
         }
-        int i3 = (size - i) - i2;
+        int i4 = (size - i2) - i3;
         JSONObject jSONObject3 = new JSONObject();
         try {
-            jSONObject3.put("count", String.format("%s,%s,%s", Integer.valueOf(size), Integer.valueOf(i3), Integer.valueOf(i)));
+            jSONObject3.put("count", String.format("%s,%s,%s", Integer.valueOf(size), Integer.valueOf(i4), Integer.valueOf(i2)));
             jSONObject3.put("items", jSONArray);
         } catch (JSONException e3) {
             e3.printStackTrace();
@@ -273,21 +273,21 @@ public class ResponseDataProcess {
         return this.mRemoteList;
     }
 
-    public void process() {
+    public void process(String str) {
         if (this.mResponseInfo == null || CommonUtils.isEmpty(this.mChannelList)) {
             return;
         }
         JSONObject serviceData = this.mResponseInfo.getServiceData();
         CloudControlErrorBean cloudControlErrorBean = this.mResponseInfo.getCloudControlErrorBean();
         dispatchInterceptorAndRemove(this.mChannelList, serviceData, cloudControlErrorBean);
-        int i = 2108;
+        int i2 = 2108;
         if (cloudControlErrorBean == null) {
             dispatchFetchError(new ErrorInfo(2108, "errorBean is null"), this.mChannelList);
             return;
         }
         int errorCode = cloudControlErrorBean.getErrorCode();
         if (errorCode == 0) {
-            List<PackageInfo> parseItems = ParseUtils.parseItems(serviceData);
+            List<PackageInfo> parseItems = ParseUtils.parseItems(str, serviceData);
             this.mRemoteList = parseItems;
             if (parseItems == null) {
                 this.mRemoteList = new ArrayList();
@@ -296,13 +296,13 @@ public class ResponseDataProcess {
             return;
         }
         if (errorCode == 1) {
-            i = 2101;
+            i2 = 2101;
         } else if (errorCode == 2) {
-            i = 2105;
+            i2 = 2105;
         } else if (errorCode == 3) {
-            i = 2103;
+            i2 = 2103;
         }
-        dispatchFetchError(new ErrorInfo(i, "server errCode:" + errorCode), this.mChannelList);
+        dispatchFetchError(new ErrorInfo(i2, "server errCode:" + errorCode), this.mChannelList);
     }
 
     public void setChannelList(List<RequestParams.Channel> list) {

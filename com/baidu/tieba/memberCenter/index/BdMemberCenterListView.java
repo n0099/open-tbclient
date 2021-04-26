@@ -28,9 +28,9 @@ public class BdMemberCenterListView extends BdTypeListView {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void a();
+        void a(float f2);
 
-        void b(float f2);
+        void b();
 
         void onRefresh();
     }
@@ -39,18 +39,18 @@ public class BdMemberCenterListView extends BdTypeListView {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f18590a;
+        public int f19006a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f18591b;
+        public int f19007b;
 
-        public b(int i, int i2, int i3, int i4) {
-            this.f18590a = i2;
-            this.f18591b = i4;
+        public b(int i2, int i3, int i4, int i5) {
+            this.f19006a = i3;
+            this.f19007b = i5;
         }
 
         public int a(float f2) {
-            return (int) (this.f18590a + (f2 / 2.5f));
+            return (int) (this.f19006a + (f2 / 2.5f));
         }
     }
 
@@ -66,7 +66,7 @@ public class BdMemberCenterListView extends BdTypeListView {
     }
 
     public final void I(float f2) {
-        this.b0.b(360.0f - ((f2 * 360.0f) / this.a0));
+        this.b0.a(360.0f - ((f2 * 360.0f) / this.a0));
     }
 
     public void J() {
@@ -82,12 +82,12 @@ public class BdMemberCenterListView extends BdTypeListView {
         }
         View view = this.P;
         int height = view == null ? 0 : view.getHeight();
-        if (height >= this.S.f18591b - (this.a0 / 2)) {
+        if (height >= this.S.f19007b - (this.a0 / 2)) {
             J();
         } else {
-            this.b0.a();
+            this.b0.b();
         }
-        this.O.startScroll(0, height, 0, this.S.f18590a - height, 200);
+        this.O.startScroll(0, height, 0, this.S.f19006a - height, 200);
         invalidate();
         this.T = false;
     }
@@ -124,15 +124,15 @@ public class BdMemberCenterListView extends BdTypeListView {
                         if (view != null && view.getParent() == this && this.S != null && this.P.isShown() && this.P.getTop() >= 0 && Math.abs(f4) >= this.W && Math.abs(f3) < this.W) {
                             int a2 = this.S.a(this.R - this.Q);
                             b bVar = this.S;
-                            if (a2 > bVar.f18590a && a2 <= bVar.f18591b) {
+                            if (a2 > bVar.f19006a && a2 <= bVar.f19007b) {
                                 this.T = true;
                                 this.P.setLayoutParams(new AbsListView.LayoutParams(this.P.getWidth(), a2));
-                                I(a2 - this.S.f18590a);
+                                I(a2 - this.S.f19006a);
                             } else {
                                 b bVar2 = this.S;
-                                if (a2 <= bVar2.f18590a) {
+                                if (a2 <= bVar2.f19006a) {
                                     this.T = false;
-                                } else if (a2 > bVar2.f18591b) {
+                                } else if (a2 > bVar2.f19007b) {
                                     this.T = true;
                                 } else {
                                     this.T = false;
@@ -146,7 +146,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                 if (this.T) {
                     K();
                 } else {
-                    this.b0.a();
+                    this.b0.b();
                 }
             } else {
                 View view2 = this.P;
@@ -176,7 +176,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void setExpandView(View view, int i) {
+    public void setExpandView(View view, int i2) {
         this.P = view;
     }
 

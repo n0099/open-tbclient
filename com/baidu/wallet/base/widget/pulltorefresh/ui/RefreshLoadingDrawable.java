@@ -13,62 +13,64 @@ import com.baidu.apollon.utils.ResUtils;
 public class RefreshLoadingDrawable extends Drawable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23846a = "RefreshLoadingView";
+    public static final String f24588a = "RefreshLoadingView";
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23849d;
+    public int f24591d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23850e;
+    public int f24592e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f23851f;
-    public int i;
+    public int f24593f;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f24596i;
     public Context j;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f23847b = new Paint();
+    public Paint f24589b = new Paint();
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f23848c = new Paint();
+    public Paint f24590c = new Paint();
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f23852g = new RectF();
+    public RectF f24594g = new RectF();
 
     /* renamed from: h  reason: collision with root package name */
-    public Path f23853h = new Path();
+    public Path f24595h = new Path();
 
-    public RefreshLoadingDrawable(Context context, int i, int i2) {
-        i = i < 0 ? 0 : i;
-        this.f23849d = i2;
+    public RefreshLoadingDrawable(Context context, int i2, int i3) {
+        i2 = i2 < 0 ? 0 : i2;
+        this.f24591d = i3;
         Context applicationContext = context.getApplicationContext();
         this.j = applicationContext;
         int dip2px = DisplayUtils.dip2px(applicationContext, 1.0f);
-        this.f23850e = dip2px;
-        int i3 = i + (dip2px * 2);
-        this.i = i3;
-        this.f23847b.setAntiAlias(true);
-        this.f23847b.setDither(true);
-        this.f23847b.setColor(this.f23849d);
-        this.f23847b.setStyle(Paint.Style.STROKE);
-        this.f23847b.setStrokeJoin(Paint.Join.ROUND);
-        this.f23847b.setStrokeCap(Paint.Cap.ROUND);
-        this.f23847b.setStrokeWidth(this.f23850e);
-        this.f23848c.set(this.f23847b);
-        RectF rectF = this.f23852g;
-        int i4 = this.f23850e;
-        int i5 = this.i;
-        rectF.set(i4, i4, i5 - i4, i5 - i4);
-        this.f23853h.reset();
-        float f2 = i3;
+        this.f24592e = dip2px;
+        int i4 = i2 + (dip2px * 2);
+        this.f24596i = i4;
+        this.f24589b.setAntiAlias(true);
+        this.f24589b.setDither(true);
+        this.f24589b.setColor(this.f24591d);
+        this.f24589b.setStyle(Paint.Style.STROKE);
+        this.f24589b.setStrokeJoin(Paint.Join.ROUND);
+        this.f24589b.setStrokeCap(Paint.Cap.ROUND);
+        this.f24589b.setStrokeWidth(this.f24592e);
+        this.f24590c.set(this.f24589b);
+        RectF rectF = this.f24594g;
+        int i5 = this.f24592e;
+        int i6 = this.f24596i;
+        rectF.set(i5, i5, i6 - i5, i6 - i5);
+        this.f24595h.reset();
+        float f2 = i4;
         float f3 = 0.5f * f2;
         float f4 = 0.25f * f2;
-        this.f23853h.moveTo(f3, f4);
+        this.f24595h.moveTo(f3, f4);
         float f5 = f2 * 0.75f;
-        this.f23853h.lineTo(f5, f3);
-        this.f23853h.lineTo(f3, f5);
-        this.f23853h.lineTo(f4, f3);
-        this.f23853h.close();
+        this.f24595h.lineTo(f5, f3);
+        this.f24595h.lineTo(f3, f5);
+        this.f24595h.lineTo(f4, f3);
+        this.f24595h.close();
     }
 
     public static RefreshLoadingDrawable newInstanceBlue(Context context) {
@@ -85,21 +87,21 @@ public class RefreshLoadingDrawable extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        canvas.drawArc(this.f23852g, -90.0f, (this.f23851f * 360.0f) / 100.0f, false, this.f23847b);
-        if (this.f23851f >= 100) {
-            this.f23848c.setColor(this.f23849d);
-            canvas.drawPath(this.f23853h, this.f23848c);
+        canvas.drawArc(this.f24594g, -90.0f, (this.f24593f * 360.0f) / 100.0f, false, this.f24589b);
+        if (this.f24593f >= 100) {
+            this.f24590c.setColor(this.f24591d);
+            canvas.drawPath(this.f24595h, this.f24590c);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.i;
+        return this.f24596i;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.i;
+        return this.f24596i;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -108,23 +110,23 @@ public class RefreshLoadingDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
+    public void setAlpha(int i2) {
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
     }
 
-    public void setProgress(int i) {
-        if (i < 0) {
-            i = 0;
+    public void setProgress(int i2) {
+        if (i2 < 0) {
+            i2 = 0;
         }
-        if (i > 100) {
-            i = 100;
+        if (i2 > 100) {
+            i2 = 100;
         }
-        if (this.f23851f == i) {
+        if (this.f24593f == i2) {
             return;
         }
-        this.f23851f = i;
+        this.f24593f = i2;
     }
 }

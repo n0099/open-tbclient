@@ -15,11 +15,11 @@ public final class BankSignFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static BankSignFactory f25151a = new BankSignFactory();
+        public static BankSignFactory f25921a = new BankSignFactory();
     }
 
     public static BankSignFactory getInstance() {
-        return a.f25151a;
+        return a.f25921a;
     }
 
     public BankSignFactory() {
@@ -27,10 +27,10 @@ public final class BankSignFactory implements IBeanFactory {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.apollon.beans.IBeanFactory
-    public BaseBean<?> getBean(Context context, int i, String str) {
+    public BaseBean<?> getBean(Context context, int i2, String str) {
         BaseBean<?> bVar;
         Context applicationContext = context.getApplicationContext();
-        switch (i) {
+        switch (i2) {
             case 768:
                 bVar = new b(applicationContext);
                 break;

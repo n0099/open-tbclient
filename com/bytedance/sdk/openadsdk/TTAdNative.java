@@ -14,7 +14,7 @@ public interface TTAdNative {
 
         @Override // com.bytedance.sdk.openadsdk.a.b
         @MainThread
-        void onError(int i, String str);
+        void onError(int i2, String str);
     }
 
     /* loaded from: classes5.dex */
@@ -24,14 +24,14 @@ public interface TTAdNative {
 
         @Override // com.bytedance.sdk.openadsdk.a.b
         @MainThread
-        void onError(int i, String str);
+        void onError(int i2, String str);
     }
 
     /* loaded from: classes5.dex */
     public interface FeedAdListener extends b {
         @Override // com.bytedance.sdk.openadsdk.a.b
         @MainThread
-        void onError(int i, String str);
+        void onError(int i2, String str);
 
         @MainThread
         void onFeedAdLoad(List<TTFeedAd> list);
@@ -41,7 +41,7 @@ public interface TTAdNative {
     public interface FullScreenVideoAdListener extends b {
         @Override // com.bytedance.sdk.openadsdk.a.b
         @MainThread
-        void onError(int i, String str);
+        void onError(int i2, String str);
 
         @MainThread
         void onFullScreenVideoAdLoad(TTFullScreenVideoAd tTFullScreenVideoAd);
@@ -53,7 +53,7 @@ public interface TTAdNative {
     public interface InteractionAdListener extends b {
         @Override // com.bytedance.sdk.openadsdk.a.b
         @MainThread
-        void onError(int i, String str);
+        void onError(int i2, String str);
 
         @MainThread
         void onInteractionAdLoad(TTInteractionAd tTInteractionAd);
@@ -63,7 +63,7 @@ public interface TTAdNative {
     public interface NativeAdListener extends b {
         @Override // com.bytedance.sdk.openadsdk.a.b
         @MainThread
-        void onError(int i, String str);
+        void onError(int i2, String str);
 
         @MainThread
         void onNativeAdLoad(List<TTNativeAd> list);
@@ -73,7 +73,7 @@ public interface TTAdNative {
     public interface NativeExpressAdListener extends b {
         @Override // com.bytedance.sdk.openadsdk.a.b
         @MainThread
-        void onError(int i, String str);
+        void onError(int i2, String str);
 
         @MainThread
         void onNativeExpressAdLoad(List<TTNativeExpressAd> list);
@@ -83,7 +83,7 @@ public interface TTAdNative {
     public interface RewardVideoAdListener extends b {
         @Override // com.bytedance.sdk.openadsdk.a.b
         @MainThread
-        void onError(int i, String str);
+        void onError(int i2, String str);
 
         @MainThread
         void onRewardVideoAdLoad(TTRewardVideoAd tTRewardVideoAd);
@@ -95,7 +95,7 @@ public interface TTAdNative {
     public interface SplashAdListener extends b {
         @Override // com.bytedance.sdk.openadsdk.a.b
         @MainThread
-        void onError(int i, String str);
+        void onError(int i2, String str);
 
         @MainThread
         void onSplashAdLoad(TTSplashAd tTSplashAd);
@@ -127,7 +127,7 @@ public interface TTAdNative {
 
     void loadSplashAd(AdSlot adSlot, @NonNull SplashAdListener splashAdListener);
 
-    void loadSplashAd(AdSlot adSlot, @NonNull SplashAdListener splashAdListener, int i);
+    void loadSplashAd(AdSlot adSlot, @NonNull SplashAdListener splashAdListener, int i2);
 
     void loadStream(AdSlot adSlot, @NonNull FeedAdListener feedAdListener);
 }

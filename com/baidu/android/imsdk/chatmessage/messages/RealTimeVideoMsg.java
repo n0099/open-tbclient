@@ -16,8 +16,8 @@ public class RealTimeVideoMsg extends RealTimeMsg implements Parcelable, NoProGu
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public RealTimeVideoMsg[] newArray(int i) {
-            return new RealTimeVideoMsg[i];
+        public RealTimeVideoMsg[] newArray(int i2) {
+            return new RealTimeVideoMsg[i2];
         }
     };
 

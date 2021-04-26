@@ -32,11 +32,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
-import d.b.c.a.b;
-import d.b.i0.a.c;
-import d.b.i0.a.f;
-import d.b.i0.a.v;
-import d.b.j0.d3.h0.m;
+import d.a.c.a.b;
+import d.a.i0.a.c;
+import d.a.i0.a.f;
+import d.a.i0.a.v;
+import d.a.j0.d3.h0.m;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
@@ -48,7 +48,7 @@ public class SchemaRouteActivity extends BaseActivity {
         public a() {
         }
 
-        @Override // d.b.i0.a.f.b
+        @Override // d.a.i0.a.f.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             if (hashMap != null && (hashMap.get(f.v) instanceof String)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(SchemaRouteActivity.this.getActivity(), null, (String) hashMap.get(f.v), true);
@@ -132,7 +132,7 @@ public class SchemaRouteActivity extends BaseActivity {
             c.y().L(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(f.f50304b + f.k)) {
+                if (dataString.contains(f.f47854b + f.k)) {
                     Uri parse = Uri.parse(dataString);
                     String queryParameter = parse.getQueryParameter(f.E);
                     String queryParameter2 = parse.getQueryParameter(f.F);

@@ -2,6 +2,7 @@ package com.baidu.sso.q;
 
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
+import com.google.android.material.internal.ManufacturerUtils;
 /* loaded from: classes2.dex */
 public enum b {
     UNSUPPORT(-1, "unsupport"),
@@ -12,16 +13,16 @@ public enum b {
     MOTO(4, "motorola"),
     LENOVO(5, "lenovo"),
     ASUS(6, "asus"),
-    SAMSUNG(7, "samsung"),
-    MEIZU(8, RomUtils.MANUFACTURER_MEIZU),
+    SAMSUNG(7, ManufacturerUtils.SAMSUNG),
+    MEIZU(8, "meizu"),
     ALPS(9, "alps"),
     NUBIA(10, "nubia");
     
     public int n;
     public String o;
 
-    b(int i, String str) {
-        this.n = i;
+    b(int i2, String str) {
+        this.n = i2;
         this.o = str;
     }
 

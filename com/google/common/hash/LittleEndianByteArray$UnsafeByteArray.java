@@ -9,24 +9,24 @@ import sun.misc.Unsafe;
 public enum LittleEndianByteArray$UnsafeByteArray {
     UNSAFE_LITTLE_ENDIAN { // from class: com.google.common.hash.LittleEndianByteArray$UnsafeByteArray.1
         @Override // com.google.common.hash.LittleEndianByteArray$UnsafeByteArray
-        public long getLongLittleEndian(byte[] bArr, int i) {
-            return LittleEndianByteArray$UnsafeByteArray.theUnsafe.getLong(bArr, i + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET);
+        public long getLongLittleEndian(byte[] bArr, int i2) {
+            return LittleEndianByteArray$UnsafeByteArray.theUnsafe.getLong(bArr, i2 + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET);
         }
 
         @Override // com.google.common.hash.LittleEndianByteArray$UnsafeByteArray
-        public void putLongLittleEndian(byte[] bArr, int i, long j) {
-            LittleEndianByteArray$UnsafeByteArray.theUnsafe.putLong(bArr, i + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET, j);
+        public void putLongLittleEndian(byte[] bArr, int i2, long j) {
+            LittleEndianByteArray$UnsafeByteArray.theUnsafe.putLong(bArr, i2 + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET, j);
         }
     },
     UNSAFE_BIG_ENDIAN { // from class: com.google.common.hash.LittleEndianByteArray$UnsafeByteArray.2
         @Override // com.google.common.hash.LittleEndianByteArray$UnsafeByteArray
-        public long getLongLittleEndian(byte[] bArr, int i) {
-            return Long.reverseBytes(LittleEndianByteArray$UnsafeByteArray.theUnsafe.getLong(bArr, i + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET));
+        public long getLongLittleEndian(byte[] bArr, int i2) {
+            return Long.reverseBytes(LittleEndianByteArray$UnsafeByteArray.theUnsafe.getLong(bArr, i2 + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET));
         }
 
         @Override // com.google.common.hash.LittleEndianByteArray$UnsafeByteArray
-        public void putLongLittleEndian(byte[] bArr, int i, long j) {
-            LittleEndianByteArray$UnsafeByteArray.theUnsafe.putLong(bArr, i + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET, Long.reverseBytes(j));
+        public void putLongLittleEndian(byte[] bArr, int i2, long j) {
+            LittleEndianByteArray$UnsafeByteArray.theUnsafe.putLong(bArr, i2 + LittleEndianByteArray$UnsafeByteArray.BYTE_ARRAY_BASE_OFFSET, Long.reverseBytes(j));
         }
     };
     
@@ -72,7 +72,7 @@ public enum LittleEndianByteArray$UnsafeByteArray {
         }
     }
 
-    public abstract /* synthetic */ long getLongLittleEndian(byte[] bArr, int i);
+    public abstract /* synthetic */ long getLongLittleEndian(byte[] bArr, int i2);
 
-    public abstract /* synthetic */ void putLongLittleEndian(byte[] bArr, int i, long j);
+    public abstract /* synthetic */ void putLongLittleEndian(byte[] bArr, int i2, long j);
 }

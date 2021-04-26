@@ -28,10 +28,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveModel;
-import d.b.c.j.e.n;
-import d.b.i0.r.f0.f;
-import d.b.i0.r.q.a2;
-import d.b.j0.q0.r0;
+import d.a.c.j.e.n;
+import d.a.i0.r.f0.f;
+import d.a.i0.r.q.a2;
+import d.a.j0.q0.r0;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -40,18 +40,20 @@ import java.util.List;
 public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquareRefreshHandler, r0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f14638e;
+    public String f14713e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f14639f;
+    public String f14714f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14640g;
+    public String f14715g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14641h;
-    public AlaFrsLiveModel i;
-    public d.b.j0.t.e.c.c j;
+    public boolean f14716h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public AlaFrsLiveModel f14717i;
+    public d.a.j0.t.e.c.c j;
     public AlaSquareRefreshManager n;
     public int p;
     public int k = 1;
@@ -59,15 +61,15 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     public boolean m = false;
     public CustomMessageListener o = new a(0);
     public AlaFrsLiveModel.b q = new b();
-    public d.b.j0.t.c r = new c();
+    public d.a.j0.t.c r = new c();
     public f.g s = new d();
     public BdMultiColumnListView.OnScrollToBottomListener t = new e();
-    public d.b.j0.t.e.c.d u = new f();
+    public d.a.j0.t.e.c.d u = new f();
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -80,10 +82,10 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             if (split.length != 2) {
                 return;
             }
-            if ("FrsGameLive".equals(split[0]) && 9 == d.b.c.e.m.b.d(split[1], 0)) {
-                AlaFrsLiveFragment.this.E();
-            } else if ("FrsGameLiveLive".equals(split[0]) && 2 == d.b.c.e.m.b.d(split[1], 0)) {
-                AlaFrsLiveFragment.this.E();
+            if ("FrsGameLive".equals(split[0]) && 9 == d.a.c.e.m.b.d(split[1], 0)) {
+                AlaFrsLiveFragment.this.t();
+            } else if ("FrsGameLiveLive".equals(split[0]) && 2 == d.a.c.e.m.b.d(split[1], 0)) {
+                AlaFrsLiveFragment.this.t();
             }
         }
     }
@@ -94,13 +96,13 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         }
 
         @Override // com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveModel.b
-        public void a(int i, String str) {
+        public void a(int i2, String str) {
             if (AlaFrsLiveFragment.this.j != null) {
                 AlaFrsLiveFragment alaFrsLiveFragment = AlaFrsLiveFragment.this;
                 alaFrsLiveFragment.hideLoadingView(alaFrsLiveFragment.j.k());
                 AlaFrsLiveFragment.this.j.g();
             }
-            if (ListUtils.getCount(AlaFrsLiveFragment.this.i.getData()) <= 0 || AlaFrsLiveFragment.this.j == null) {
+            if (ListUtils.getCount(AlaFrsLiveFragment.this.f14717i.getData()) <= 0 || AlaFrsLiveFragment.this.j == null) {
                 AlaFrsLiveFragment.this.l = true;
                 if (AlaFrsLiveFragment.this.j != null) {
                     AlaFrsLiveFragment alaFrsLiveFragment2 = AlaFrsLiveFragment.this;
@@ -120,9 +122,9 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             AlaFrsLiveFragment alaFrsLiveFragment = AlaFrsLiveFragment.this;
             alaFrsLiveFragment.hideLoadingView(alaFrsLiveFragment.j.k());
             AlaFrsLiveFragment.this.j.g();
-            AlaFrsLiveFragment.this.j.w(AlaFrsLiveFragment.this.i.getData(), z, AlaFrsLiveFragment.this.i.G());
-            AlaFrsLiveFragment.this.j.t(AlaFrsLiveFragment.this.i.D());
-            if (ListUtils.getCount(AlaFrsLiveFragment.this.i.getData()) == 0) {
+            AlaFrsLiveFragment.this.j.w(AlaFrsLiveFragment.this.f14717i.getData(), z, AlaFrsLiveFragment.this.f14717i.G());
+            AlaFrsLiveFragment.this.j.t(AlaFrsLiveFragment.this.f14717i.D());
+            if (ListUtils.getCount(AlaFrsLiveFragment.this.f14717i.getData()) == 0) {
                 if (AlaFrsLiveFragment.this.k == 1) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001621));
                 }
@@ -137,11 +139,11 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     /* loaded from: classes4.dex */
-    public class c implements d.b.j0.t.c {
+    public class c implements d.a.j0.t.c {
         public c() {
         }
 
-        @Override // d.b.j0.t.c
+        @Override // d.a.j0.t.c
         public void a(a2 a2Var) {
             AlaFrsLiveFragment alaFrsLiveFragment = AlaFrsLiveFragment.this;
             alaFrsLiveFragment.M0(alaFrsLiveFragment.getPageContext(), a2Var);
@@ -153,10 +155,10 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         public d() {
         }
 
-        @Override // d.b.i0.r.f0.f.g
+        @Override // d.a.i0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
-            if (AlaFrsLiveFragment.this.i != null) {
-                AlaFrsLiveFragment.this.i.J();
+            if (AlaFrsLiveFragment.this.f14717i != null) {
+                AlaFrsLiveFragment.this.f14717i.J();
             }
         }
     }
@@ -168,7 +170,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
 
         @Override // com.baidu.ala.widget.multicolumn.BdMultiColumnListView.OnScrollToBottomListener
         public void onScrollToBottom() {
-            boolean I = AlaFrsLiveFragment.this.i != null ? AlaFrsLiveFragment.this.i.I() : false;
+            boolean I = AlaFrsLiveFragment.this.f14717i != null ? AlaFrsLiveFragment.this.f14717i.I() : false;
             if (AlaFrsLiveFragment.this.j != null) {
                 if (I) {
                     AlaFrsLiveFragment.this.j.B();
@@ -180,31 +182,24 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     /* loaded from: classes4.dex */
-    public class f implements d.b.j0.t.e.c.d {
+    public class f implements d.a.j0.t.e.c.d {
         public f() {
         }
 
-        @Override // d.b.j0.t.e.c.d
-        public void a(int i) {
-            if (AlaFrsLiveFragment.this.i == null || AlaFrsLiveFragment.this.i.E() == i) {
+        @Override // d.a.j0.t.e.c.d
+        public void a(int i2) {
+            if (AlaFrsLiveFragment.this.f14717i == null || AlaFrsLiveFragment.this.f14717i.E() == i2) {
                 return;
             }
             StatisticItem statisticItem = new StatisticItem("c12572");
-            statisticItem.param("fid", AlaFrsLiveFragment.this.f14638e);
-            statisticItem.param("obj_type", i);
+            statisticItem.param("fid", AlaFrsLiveFragment.this.f14713e);
+            statisticItem.param("obj_type", i2);
             TiebaStatic.log(statisticItem);
-            AlaFrsLiveFragment.this.i.setSortType(i);
-            AlaFrsLiveFragment.this.i.clearData();
+            AlaFrsLiveFragment.this.f14717i.setSortType(i2);
+            AlaFrsLiveFragment.this.f14717i.clearData();
             if (AlaFrsLiveFragment.this.j != null) {
                 AlaFrsLiveFragment.this.j.i().startPullRefresh();
             }
-        }
-    }
-
-    public final void E() {
-        d.b.j0.t.e.c.c cVar = this.j;
-        if (cVar != null) {
-            cVar.h();
         }
     }
 
@@ -216,7 +211,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c12571");
-        statisticItem.param("fid", this.f14638e);
+        statisticItem.param("fid", this.f14713e);
         statisticItem.param("obj_type", a2Var.q1().live_type);
         TiebaStatic.log(statisticItem);
         if (TbadkCoreApplication.getCurrentAccount() != null) {
@@ -232,8 +227,8 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         alaLiveInfoCoreData.fillWithInfoData(a2Var.q1());
         AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
         alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-        for (n nVar : this.i.getData()) {
-            if (nVar != null && (nVar instanceof d.b.j0.t.e.b.c) && (a2Var2 = ((d.b.j0.t.e.b.c) nVar).f62671e) != null) {
+        for (n nVar : this.f14717i.getData()) {
+            if (nVar != null && (nVar instanceof d.a.j0.t.e.b.c) && (a2Var2 = ((d.a.j0.t.e.b.c) nVar).f60859e) != null) {
                 alaLiveInfoListCoreData.mLiveInfoList.add(N0(a2Var2));
             }
         }
@@ -248,28 +243,23 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     public void O0(String str) {
-        this.f14640g = str;
+        this.f14715g = str;
     }
 
     public void P0(String str) {
-        this.f14638e = str;
-    }
-
-    @Override // d.b.j0.q0.r0
-    public NavigationBar Q() {
-        return this.j.j();
+        this.f14713e = str;
     }
 
     public void Q0(String str) {
-        this.f14639f = str;
+        this.f14714f = str;
     }
 
-    public void R0(int i) {
-        this.k = i;
+    public void R0(int i2) {
+        this.k = i2;
     }
 
     public void S0(boolean z) {
-        this.f14641h = z;
+        this.f14716h = z;
     }
 
     public void T0(boolean z) {
@@ -277,24 +267,29 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     public final void U0() {
-        d.b.j0.t.e.c.c cVar = this.j;
+        d.a.j0.t.e.c.c cVar = this.j;
         if (cVar == null || cVar.j() == null) {
             return;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(UtilHelper.getFixedBarText(this.f14639f, 5, true, true) + getResources().getString(R.string.forum));
+        sb.append(UtilHelper.getFixedBarText(this.f14714f, 5, true, true) + getResources().getString(R.string.forum));
         this.j.j().setCenterTextTitle(sb.toString());
+    }
+
+    @Override // d.a.j0.q0.r0
+    public NavigationBar e0() {
+        return this.j.j();
     }
 
     @Override // com.baidu.ala.refresh.AlaAutoRefreshFragment
     public List<Long> getCurrentLiveIds() {
         a2 a2Var;
-        AlaFrsLiveModel alaFrsLiveModel = this.i;
+        AlaFrsLiveModel alaFrsLiveModel = this.f14717i;
         if (alaFrsLiveModel == null || ListUtils.isEmpty(alaFrsLiveModel.getData())) {
             return null;
         }
         LinkedList linkedList = new LinkedList();
-        for (n nVar : this.i.getData()) {
+        for (n nVar : this.f14717i.getData()) {
             if ((nVar instanceof a2) && (a2Var = (a2) nVar) != null && a2Var.q1() != null) {
                 linkedList.add(Long.valueOf(a2Var.q1().live_id));
             }
@@ -303,15 +298,15 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     @Override // com.baidu.ala.refresh.ISquareRefreshHandler
-    public boolean isForeGround(int i) {
+    public boolean isForeGround(int i2) {
         return isAdded() && isPrimary();
     }
 
     @Override // com.baidu.ala.refresh.ISquareRefreshHandler
-    public void markDataLoaded(int i) {
+    public void markDataLoaded(int i2) {
         AlaSquareRefreshManager alaSquareRefreshManager = this.n;
         if (alaSquareRefreshManager != null) {
-            alaSquareRefreshManager.reset(i);
+            alaSquareRefreshManager.reset(i2);
         }
     }
 
@@ -325,12 +320,12 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.p = i;
-        d.b.j0.t.e.c.c cVar = this.j;
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.p = i2;
+        d.a.j0.t.e.c.c cVar = this.j;
         if (cVar != null) {
-            cVar.q(i);
+            cVar.q(i2);
         }
     }
 
@@ -342,7 +337,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        d.b.j0.t.e.c.c cVar = new d.b.j0.t.e.c.c(getPageContext(), this.f14641h, getPageContext().getOrignalPage().getUniqueId(), this.f14638e, this.m);
+        d.a.j0.t.e.c.c cVar = new d.a.j0.t.e.c.c(getPageContext(), this.f14716h, getPageContext().getOrignalPage().getUniqueId(), this.f14713e, this.m);
         this.j = cVar;
         cVar.o();
         this.j.u(1);
@@ -371,7 +366,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             MessageManager.getInstance().sendMessage(new CustomMessage((int) AlaCmdConfigCustom.CMD_ALA_ALL_LIVE_SIMPLE, new IntentConfig(getPageContext().getPageActivity())));
             return;
         }
-        AlaFrsLiveModel alaFrsLiveModel = this.i;
+        AlaFrsLiveModel alaFrsLiveModel = this.f14717i;
         if (alaFrsLiveModel != null) {
             alaFrsLiveModel.J();
         }
@@ -390,15 +385,15 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            if (this.i == null) {
+            if (this.f14717i == null) {
                 AlaFrsLiveModel alaFrsLiveModel = new AlaFrsLiveModel(getPageContext());
-                this.i = alaFrsLiveModel;
+                this.f14717i = alaFrsLiveModel;
                 alaFrsLiveModel.L(this.q);
-                this.i.setForumId(this.f14638e);
-                this.i.setForumGameLabel(this.f14640g);
-                this.i.K(this.k);
-                this.i.J();
-                d.b.j0.t.e.c.c cVar = this.j;
+                this.f14717i.setForumId(this.f14713e);
+                this.f14717i.setForumGameLabel(this.f14715g);
+                this.f14717i.K(this.k);
+                this.f14717i.J();
+                d.a.j0.t.e.c.c cVar = this.j;
                 if (cVar != null) {
                     showLoadingView(cVar.k(), false, getResources().getDimensionPixelSize(R.dimen.ds270));
                 }
@@ -433,11 +428,11 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     public void processCloseLives(List<Long> list) {
         AlaFrsLiveModel alaFrsLiveModel;
         a2 a2Var;
-        if (ListUtils.isEmpty(list) || (alaFrsLiveModel = this.i) == null || ListUtils.isEmpty(alaFrsLiveModel.getData())) {
+        if (ListUtils.isEmpty(list) || (alaFrsLiveModel = this.f14717i) == null || ListUtils.isEmpty(alaFrsLiveModel.getData())) {
             return;
         }
         LinkedList linkedList = new LinkedList();
-        for (n nVar : this.i.getData()) {
+        for (n nVar : this.f14717i.getData()) {
             if ((nVar instanceof a2) && (a2Var = (a2) nVar) != null && a2Var.q1() != null) {
                 Long l = null;
                 Iterator<Long> it = list.iterator();
@@ -460,15 +455,22 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         if (linkedList.isEmpty()) {
             return;
         }
-        this.i.getData().removeAll(linkedList);
+        this.f14717i.getData().removeAll(linkedList);
         AlaFrsLiveModel.b bVar = this.q;
         if (bVar != null) {
-            bVar.b(this.i.F());
+            bVar.b(this.f14717i.F());
         }
     }
 
     @Override // com.baidu.ala.refresh.ISquareRefreshHandler
-    public void startRefresh(int i) {
+    public void startRefresh(int i2) {
         refreshCurrentPage();
+    }
+
+    public final void t() {
+        d.a.j0.t.e.c.c cVar = this.j;
+        if (cVar != null) {
+            cVar.h();
+        }
     }
 }

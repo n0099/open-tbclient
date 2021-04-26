@@ -8,7 +8,7 @@ public class YoungsterIntroduceActivityConfig extends IntentConfig {
         super(context);
     }
 
-    public void setKeyYoungsterPasswordFrom(int i) {
-        getIntent().putExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_FROM, i);
+    public void setKeyYoungsterPasswordFrom(int i2) {
+        getIntent().putExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_FROM, i2);
     }
 }

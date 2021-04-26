@@ -1,10 +1,10 @@
 package com.google.common.collect;
 
 import com.google.common.collect.ImmutableCollection;
-import d.h.c.a.n;
-import d.h.c.c.c1;
-import d.h.c.c.i0;
-import d.h.c.c.k0;
+import d.g.c.a.n;
+import d.g.c.c.c1;
+import d.g.c.c.i0;
+import d.g.c.c.k0;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
@@ -57,8 +57,8 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.IndexedImmutableSet
-        public i0.a<E> get(int i) {
-            return ImmutableMultiset.this.getEntry(i);
+        public i0.a<E> get(int i2) {
+            return ImmutableMultiset.this.getEntry(i2);
         }
     }
 
@@ -79,32 +79,32 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
     public class a extends c1<E> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f30911e;
+        public int f31870e;
 
         /* renamed from: f  reason: collision with root package name */
-        public E f30912f;
+        public E f31871f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Iterator f30913g;
+        public final /* synthetic */ Iterator f31872g;
 
         public a(ImmutableMultiset immutableMultiset, Iterator it) {
-            this.f30913g = it;
+            this.f31872g = it;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f30911e > 0 || this.f30913g.hasNext();
+            return this.f31870e > 0 || this.f31872g.hasNext();
         }
 
         @Override // java.util.Iterator
         public E next() {
-            if (this.f30911e <= 0) {
-                i0.a aVar = (i0.a) this.f30913g.next();
-                this.f30912f = (E) aVar.getElement();
-                this.f30911e = aVar.getCount();
+            if (this.f31870e <= 0) {
+                i0.a aVar = (i0.a) this.f31872g.next();
+                this.f31871f = (E) aVar.getElement();
+                this.f31870e = aVar.getCount();
             }
-            this.f30911e--;
-            return this.f30912f;
+            this.f31870e--;
+            return this.f31871f;
         }
     }
 
@@ -112,20 +112,20 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
     public static class b<E> extends ImmutableCollection.b<E> {
 
         /* renamed from: a  reason: collision with root package name */
-        public k0<E> f30914a;
+        public k0<E> f31873a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f30915b;
+        public boolean f31874b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f30916c;
+        public boolean f31875c;
 
         public b() {
             this(4);
         }
 
-        /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: d.h.c.c.k0<E>, d.h.c.c.k0<T> */
-        /* JADX DEBUG: Type inference failed for r1v5. Raw type applied. Possible types: d.h.c.c.k0<E>, d.h.c.c.k0<T> */
+        /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: d.g.c.c.k0<E>, d.g.c.c.k0<T> */
+        /* JADX DEBUG: Type inference failed for r1v5. Raw type applied. Possible types: d.g.c.c.k0<E>, d.g.c.c.k0<T> */
         public static <T> k0<T> l(Iterable<T> iterable) {
             if (iterable instanceof RegularImmutableMultiset) {
                 return (k0<E>) ((RegularImmutableMultiset) iterable).contents;
@@ -155,14 +155,14 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
                 i0 d2 = Multisets.d(iterable);
                 k0 l = l(d2);
                 if (l != null) {
-                    k0<E> k0Var = this.f30914a;
+                    k0<E> k0Var = this.f31873a;
                     k0Var.d(Math.max(k0Var.C(), l.C()));
                     for (int e2 = l.e(); e2 >= 0; e2 = l.s(e2)) {
                         j(l.i(e2), l.k(e2));
                     }
                 } else {
                     Set<i0.a<E>> entrySet = d2.entrySet();
-                    k0<E> k0Var2 = this.f30914a;
+                    k0<E> k0Var2 = this.f31873a;
                     k0Var2.d(Math.max(k0Var2.C(), entrySet.size()));
                     for (i0.a<E> aVar : d2.entrySet()) {
                         j(aVar.getElement(), aVar.getCount());
@@ -179,43 +179,43 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
             return this;
         }
 
-        public b<E> j(E e2, int i) {
-            if (i == 0) {
+        public b<E> j(E e2, int i2) {
+            if (i2 == 0) {
                 return this;
             }
-            if (this.f30915b) {
-                this.f30914a = new k0<>((k0<? extends E>) this.f30914a);
-                this.f30916c = false;
+            if (this.f31874b) {
+                this.f31873a = new k0<>((k0<? extends E>) this.f31873a);
+                this.f31875c = false;
             }
-            this.f30915b = false;
+            this.f31874b = false;
             n.p(e2);
-            k0<E> k0Var = this.f30914a;
-            k0Var.u(e2, i + k0Var.f(e2));
+            k0<E> k0Var = this.f31873a;
+            k0Var.u(e2, i2 + k0Var.f(e2));
             return this;
         }
 
         public ImmutableMultiset<E> k() {
-            if (this.f30914a.C() == 0) {
+            if (this.f31873a.C() == 0) {
                 return ImmutableMultiset.of();
             }
-            if (this.f30916c) {
-                this.f30914a = new k0<>((k0<? extends E>) this.f30914a);
-                this.f30916c = false;
+            if (this.f31875c) {
+                this.f31873a = new k0<>((k0<? extends E>) this.f31873a);
+                this.f31875c = false;
             }
-            this.f30915b = true;
-            return new RegularImmutableMultiset(this.f30914a);
+            this.f31874b = true;
+            return new RegularImmutableMultiset(this.f31873a);
         }
 
-        public b(int i) {
-            this.f30915b = false;
-            this.f30916c = false;
-            this.f30914a = k0.c(i);
+        public b(int i2) {
+            this.f31874b = false;
+            this.f31875c = false;
+            this.f31873a = k0.c(i2);
         }
 
         public b(boolean z) {
-            this.f30915b = false;
-            this.f30916c = false;
-            this.f30914a = null;
+            this.f31874b = false;
+            this.f31875c = false;
+            this.f31873a = null;
         }
     }
 
@@ -249,9 +249,9 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
         return RegularImmutableMultiset.EMPTY;
     }
 
-    @Override // d.h.c.c.i0
+    @Override // d.g.c.c.i0
     @Deprecated
-    public final int add(E e2, int i) {
+    public final int add(E e2, int i2) {
         throw new UnsupportedOperationException();
     }
 
@@ -272,43 +272,43 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
     }
 
     @Override // com.google.common.collect.ImmutableCollection
-    public int copyIntoArray(Object[] objArr, int i) {
+    public int copyIntoArray(Object[] objArr, int i2) {
         c1<i0.a<E>> it = entrySet().iterator();
         while (it.hasNext()) {
             i0.a<E> next = it.next();
-            Arrays.fill(objArr, i, next.getCount() + i, next.getElement());
-            i += next.getCount();
+            Arrays.fill(objArr, i2, next.getCount() + i2, next.getElement());
+            i2 += next.getCount();
         }
-        return i;
+        return i2;
     }
 
     public abstract /* synthetic */ int count(Object obj);
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.h.c.c.i0
+    @Override // d.g.c.c.i0
     public abstract ImmutableSet<E> elementSet();
 
-    @Override // java.util.Collection, d.h.c.c.i0
+    @Override // java.util.Collection, d.g.c.c.i0
     public boolean equals(Object obj) {
         return Multisets.f(this, obj);
     }
 
-    public abstract i0.a<E> getEntry(int i);
+    public abstract i0.a<E> getEntry(int i2);
 
-    @Override // java.util.Collection, d.h.c.c.i0
+    @Override // java.util.Collection, d.g.c.c.i0
     public int hashCode() {
         return Sets.b(entrySet());
     }
 
-    @Override // d.h.c.c.i0
+    @Override // d.g.c.c.i0
     @Deprecated
-    public final int remove(Object obj, int i) {
+    public final int remove(Object obj, int i2) {
         throw new UnsupportedOperationException();
     }
 
-    @Override // d.h.c.c.i0
+    @Override // d.g.c.c.i0
     @Deprecated
-    public final int setCount(E e2, int i) {
+    public final int setCount(E e2, int i2) {
         throw new UnsupportedOperationException();
     }
 
@@ -337,7 +337,7 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.h.c.c.i0
+    @Override // d.g.c.c.i0
     public ImmutableSet<i0.a<E>> entrySet() {
         ImmutableSet<i0.a<E>> immutableSet = this.entrySet;
         if (immutableSet == null) {
@@ -354,9 +354,9 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
         return new a(this, entrySet().iterator());
     }
 
-    @Override // d.h.c.c.i0
+    @Override // d.g.c.c.i0
     @Deprecated
-    public final boolean setCount(E e2, int i, int i2) {
+    public final boolean setCount(E e2, int i2, int i3) {
         throw new UnsupportedOperationException();
     }
 

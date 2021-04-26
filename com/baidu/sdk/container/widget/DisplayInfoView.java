@@ -9,17 +9,19 @@ import android.widget.TextView;
 public class DisplayInfoView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public double f11246e;
+    public double f11061e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f11247f;
+    public double f11062f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11248g;
+    public int f11063g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f11249h;
-    public String i;
+    public String f11064h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f11065i;
     public final Context j;
     public d k;
 
@@ -53,10 +55,10 @@ public class DisplayInfoView extends LinearLayout {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public DisplayInfoView f11252a;
+        public DisplayInfoView f11068a;
 
         public c(Context context) {
-            this.f11252a = new DisplayInfoView(context, null);
+            this.f11068a = new DisplayInfoView(context, null);
         }
 
         public c a(String str, String str2) {
@@ -64,23 +66,23 @@ public class DisplayInfoView extends LinearLayout {
             if (str.indexOf("版本") == -1) {
                 str = str3;
             }
-            this.f11252a.i = str;
-            this.f11252a.f11249h = str2;
+            this.f11068a.f11065i = str;
+            this.f11068a.f11064h = str2;
             return this;
         }
 
         public c b(d dVar) {
-            this.f11252a.k = dVar;
+            this.f11068a.k = dVar;
             return this;
         }
 
-        public c c(int i) {
-            this.f11252a.f11248g = i;
+        public c c(int i2) {
+            this.f11068a.f11063g = i2;
             return this;
         }
 
         public DisplayInfoView d() {
-            return this.f11252a;
+            return this.f11068a;
         }
     }
 
@@ -99,23 +101,23 @@ public class DisplayInfoView extends LinearLayout {
         TextView textView = new TextView(this.j);
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         textView.setText(str);
-        textView.setTextColor(this.f11248g);
-        textView.setTextSize(1, (int) ((this.f11246e * displayMetrics.widthPixels) / displayMetrics.density));
-        addView(textView, g(this.f11247f));
+        textView.setTextColor(this.f11063g);
+        textView.setTextSize(1, (int) ((this.f11061e * displayMetrics.widthPixels) / displayMetrics.density));
+        addView(textView, g(this.f11062f));
         return textView;
     }
 
     public final LinearLayout.LayoutParams g(double d2) {
-        int i = (int) (d2 * getResources().getDisplayMetrics().widthPixels);
+        int i2 = (int) (d2 * getResources().getDisplayMetrics().widthPixels);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.setMargins(i, 0, i, 0);
+        layoutParams.setMargins(i2, 0, i2, 0);
         layoutParams.gravity = 17;
         return layoutParams;
     }
 
     public final void h() {
-        f(this.i);
-        f(this.f11249h);
+        f(this.f11065i);
+        f(this.f11064h);
         f(com.baidu.mobads.container.widget.DisplayInfoView.PRI_TEXT).setOnClickListener(new a());
         f(com.baidu.mobads.container.widget.DisplayInfoView.AUTH_TEXT).setOnClickListener(new b());
     }
@@ -128,9 +130,9 @@ public class DisplayInfoView extends LinearLayout {
 
     public DisplayInfoView(Context context) {
         super(context);
-        this.f11246e = 0.027777777777777776d;
-        this.f11247f = 0.0196078431372549d;
-        this.f11248g = -1728053248;
+        this.f11061e = 0.027777777777777776d;
+        this.f11062f = 0.0196078431372549d;
+        this.f11063g = -1728053248;
         setOrientation(0);
         this.j = context;
         removeAllViews();

@@ -17,11 +17,11 @@ public final class ByQuadrantReader implements Reader {
         this.delegate = reader;
     }
 
-    public static void makeAbsolute(ResultPoint[] resultPointArr, int i, int i2) {
+    public static void makeAbsolute(ResultPoint[] resultPointArr, int i2, int i3) {
         if (resultPointArr != null) {
-            for (int i3 = 0; i3 < resultPointArr.length; i3++) {
-                ResultPoint resultPoint = resultPointArr[i3];
-                resultPointArr[i3] = new ResultPoint(resultPoint.getX() + i, resultPoint.getY() + i2);
+            for (int i4 = 0; i4 < resultPointArr.length; i4++) {
+                ResultPoint resultPoint = resultPointArr[i4];
+                resultPointArr[i4] = new ResultPoint(resultPoint.getX() + i2, resultPoint.getY() + i3);
             }
         }
     }
@@ -46,10 +46,10 @@ public final class ByQuadrantReader implements Reader {
                     try {
                         return this.delegate.decode(binaryBitmap.crop(0, 0, width, height), map);
                     } catch (NotFoundException unused) {
-                        int i = width / 2;
-                        int i2 = height / 2;
-                        Result decode = this.delegate.decode(binaryBitmap.crop(i, i2, width, height), map);
-                        makeAbsolute(decode.getResultPoints(), i, i2);
+                        int i2 = width / 2;
+                        int i3 = height / 2;
+                        Result decode = this.delegate.decode(binaryBitmap.crop(i2, i3, width, height), map);
+                        makeAbsolute(decode.getResultPoints(), i2, i3);
                         return decode;
                     }
                 } catch (NotFoundException unused2) {

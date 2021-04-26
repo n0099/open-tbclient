@@ -22,9 +22,9 @@ public class NativeActionBar extends RelativeLayout {
         public int frontColor;
         public Paint mArrowPaint;
 
-        public GoBackButtonView(Context context, int i) {
+        public GoBackButtonView(Context context, int i2) {
             super(context);
-            this.frontColor = i;
+            this.frontColor = i2;
         }
 
         private Paint getArrowPaint() {

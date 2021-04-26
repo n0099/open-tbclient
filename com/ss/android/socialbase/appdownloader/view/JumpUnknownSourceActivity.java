@@ -8,30 +8,30 @@ import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
-import d.p.a.e.a.d;
-import d.p.a.e.a.e;
-import d.p.a.e.a.k;
-import d.p.a.e.a.l;
+import d.o.a.e.a.d;
+import d.o.a.e.a.e;
+import d.o.a.e.a.k;
+import d.o.a.e.a.l;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class JumpUnknownSourceActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.m f39093a;
+    public d.m f36679a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f39094b;
+    public Intent f36680b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public Intent f39095c;
+    public Intent f36681c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39096d;
+    public int f36682d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f39097e;
+    public JSONObject f36683e;
 
     /* loaded from: classes6.dex */
     public class a implements DialogInterface.OnCancelListener {
@@ -40,11 +40,11 @@ public class JumpUnknownSourceActivity extends Activity {
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
-            if (JumpUnknownSourceActivity.this.f39095c != null) {
+            if (JumpUnknownSourceActivity.this.f36681c != null) {
                 JumpUnknownSourceActivity jumpUnknownSourceActivity = JumpUnknownSourceActivity.this;
-                d.p.a.e.a.c.p(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f39095c, true);
+                d.o.a.e.a.c.p(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f36681c, true);
             }
-            d.p.a.e.a.c.B(JumpUnknownSourceActivity.this.f39096d, JumpUnknownSourceActivity.this.f39097e);
+            d.o.a.e.a.c.B(JumpUnknownSourceActivity.this.f36682d, JumpUnknownSourceActivity.this.f36683e);
             JumpUnknownSourceActivity.this.finish();
         }
     }
@@ -55,12 +55,12 @@ public class JumpUnknownSourceActivity extends Activity {
         }
 
         @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            if (JumpUnknownSourceActivity.this.f39095c != null) {
+        public void onClick(DialogInterface dialogInterface, int i2) {
+            if (JumpUnknownSourceActivity.this.f36681c != null) {
                 JumpUnknownSourceActivity jumpUnknownSourceActivity = JumpUnknownSourceActivity.this;
-                d.p.a.e.a.c.p(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f39095c, true);
+                d.o.a.e.a.c.p(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f36681c, true);
             }
-            d.p.a.e.a.c.B(JumpUnknownSourceActivity.this.f39096d, JumpUnknownSourceActivity.this.f39097e);
+            d.o.a.e.a.c.B(JumpUnknownSourceActivity.this.f36682d, JumpUnknownSourceActivity.this.f36683e);
             JumpUnknownSourceActivity.this.finish();
         }
     }
@@ -71,15 +71,15 @@ public class JumpUnknownSourceActivity extends Activity {
         }
 
         @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
+        public void onClick(DialogInterface dialogInterface, int i2) {
             JumpUnknownSourceActivity jumpUnknownSourceActivity = JumpUnknownSourceActivity.this;
-            if (d.p.a.e.a.c.n(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f39095c, JumpUnknownSourceActivity.this.f39096d, JumpUnknownSourceActivity.this.f39097e)) {
-                d.p.a.e.a.c.I(JumpUnknownSourceActivity.this.f39096d, JumpUnknownSourceActivity.this.f39097e);
+            if (d.o.a.e.a.c.n(jumpUnknownSourceActivity, jumpUnknownSourceActivity.f36681c, JumpUnknownSourceActivity.this.f36682d, JumpUnknownSourceActivity.this.f36683e)) {
+                d.o.a.e.a.c.I(JumpUnknownSourceActivity.this.f36682d, JumpUnknownSourceActivity.this.f36683e);
             } else {
                 JumpUnknownSourceActivity jumpUnknownSourceActivity2 = JumpUnknownSourceActivity.this;
-                d.p.a.e.a.c.p(jumpUnknownSourceActivity2, jumpUnknownSourceActivity2.f39095c, true);
+                d.o.a.e.a.c.p(jumpUnknownSourceActivity2, jumpUnknownSourceActivity2.f36681c, true);
             }
-            d.p.a.e.a.c.f(JumpUnknownSourceActivity.this.f39096d, JumpUnknownSourceActivity.this.f39097e);
+            d.o.a.e.a.c.f(JumpUnknownSourceActivity.this.f36682d, JumpUnknownSourceActivity.this.f36683e);
             JumpUnknownSourceActivity.this.finish();
         }
     }
@@ -102,21 +102,21 @@ public class JumpUnknownSourceActivity extends Activity {
     public void onResume() {
         super.onResume();
         Intent intent = getIntent();
-        this.f39094b = intent;
+        this.f36680b = intent;
         if (intent != null) {
-            this.f39095c = (Intent) intent.getParcelableExtra("intent");
-            this.f39096d = intent.getIntExtra("id", -1);
+            this.f36681c = (Intent) intent.getParcelableExtra("intent");
+            this.f36682d = intent.getIntExtra("id", -1);
             try {
-                this.f39097e = new JSONObject(intent.getStringExtra("config"));
+                this.f36683e = new JSONObject(intent.getStringExtra("config"));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
         }
         b();
-        d.m mVar = this.f39093a;
+        d.m mVar = this.f36679a;
         if (mVar != null && !mVar.b()) {
-            this.f39093a.a();
-        } else if (this.f39093a == null) {
+            this.f36679a.a();
+        } else if (this.f36679a == null) {
             finish();
         }
     }
@@ -129,24 +129,24 @@ public class JumpUnknownSourceActivity extends Activity {
     }
 
     private void b() {
-        if (this.f39093a != null || this.f39094b == null) {
+        if (this.f36679a != null || this.f36680b == null) {
             return;
         }
         try {
             d.e b2 = e.F().b();
             d.n a2 = b2 != null ? b2.a(this) : null;
             if (a2 == null) {
-                a2 = new e.C1880e(this);
+                a2 = new e.C1815e(this);
             }
             int a3 = l.a(this, "tt_appdownloader_tip");
             int a4 = l.a(this, "tt_appdownloader_label_ok");
             int a5 = l.a(this, "tt_appdownloader_label_cancel");
-            String optString = this.f39097e.optString("jump_unknown_source_tips");
+            String optString = this.f36683e.optString("jump_unknown_source_tips");
             if (TextUtils.isEmpty(optString)) {
                 optString = getString(l.a(this, "tt_appdownloader_jump_unknown_source_tips"));
             }
             a2.a(a3).a(optString).b(a4, new c()).a(a5, new b()).c(new a()).a(false);
-            this.f39093a = a2.a();
+            this.f36679a = a2.a();
         } catch (Exception e2) {
             e2.printStackTrace();
         }

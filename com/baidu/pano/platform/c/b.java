@@ -17,38 +17,38 @@ import java.util.Scanner;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8989a;
+    public static String f9319a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f8990b;
+    public static String f9320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f8991c;
+    public static String f9321c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f8992d;
+    public static int f9322d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f8993e;
+    public static int f9323e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f8994f;
+    public static int f9324f;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile b f8995h;
+    public static volatile b f9325h;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f8996g = false;
+    public boolean f9326g = false;
 
     public static b a() {
-        if (f8995h == null) {
+        if (f9325h == null) {
             synchronized (b.class) {
-                if (f8995h == null) {
-                    f8995h = new b();
+                if (f9325h == null) {
+                    f9325h = new b();
                 }
             }
         }
-        return f8995h;
+        return f9325h;
     }
 
     private boolean a(long j) {
@@ -75,15 +75,15 @@ public final class b {
                     if (str != null && str.length() > 0 && "mounted".equals(method2.invoke(storageManager, str)) && b(str)) {
                         arrayList.add(str);
                         if (a(a(str))) {
-                            f8989a = str;
+                            f9319a = str;
                             return;
                         }
                     }
                 }
                 if (Build.VERSION.SDK_INT >= 19) {
                     File[] externalFilesDirs = context.getExternalFilesDirs(null);
-                    for (int i = 0; i < externalFilesDirs.length && externalFilesDirs[i] != null; i++) {
-                        String absolutePath = externalFilesDirs[i].getAbsolutePath();
+                    for (int i2 = 0; i2 < externalFilesDirs.length && externalFilesDirs[i2] != null; i2++) {
+                        String absolutePath = externalFilesDirs[i2].getAbsolutePath();
                         Iterator it = arrayList.iterator();
                         while (true) {
                             if (it.hasNext()) {
@@ -97,7 +97,7 @@ public final class b {
                             }
                         }
                         if (!z && b(absolutePath) && a(a(absolutePath))) {
-                            f8989a = absolutePath;
+                            f9319a = absolutePath;
                             return;
                         }
                     }
@@ -163,14 +163,14 @@ public final class b {
                 }
                 String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
                 if (a(a(absolutePath))) {
-                    f8989a = absolutePath;
+                    f9319a = absolutePath;
                     return;
                 }
                 for (String str2 : arrayList) {
                     if (arrayList2.contains(str2) && !str2.equals(absolutePath)) {
                         File file3 = new File(str2);
                         if (file3.exists() && file3.isDirectory() && file3.canWrite() && a(a(absolutePath))) {
-                            f8989a = absolutePath;
+                            f9319a = absolutePath;
                             return;
                         }
                     }
@@ -184,10 +184,10 @@ public final class b {
     }
 
     public void a(Context context) {
-        if (this.f8996g) {
+        if (this.f9326g) {
             return;
         }
-        this.f8996g = true;
+        this.f9326g = true;
         try {
             if (Build.VERSION.SDK_INT >= 14) {
                 b(context);
@@ -197,28 +197,28 @@ public final class b {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        String str = f8989a;
+        String str = f9319a;
         if (str != null && !str.equals("")) {
-            f8990b = f8989a + File.separator + "BaiduPanoSDK" + File.separator + SapiOptions.q;
-            f8991c = context.getCacheDir().getAbsolutePath();
-            f8992d = 20971520;
-            f8993e = 52428800;
-            f8994f = 5242880;
+            f9320b = f9319a + File.separator + "BaiduPanoSDK" + File.separator + SapiOptions.KEY_CACHE;
+            f9321c = context.getCacheDir().getAbsolutePath();
+            f9322d = 20971520;
+            f9323e = 52428800;
+            f9324f = 5242880;
             return;
         }
         if (context.getCacheDir() != null) {
-            f8990b = context.getCacheDir().getAbsolutePath();
+            f9320b = context.getCacheDir().getAbsolutePath();
         } else {
-            f8990b = "";
+            f9320b = "";
         }
-        f8991c = "";
-        f8992d = 10485760;
-        f8993e = 10485760;
-        f8994f = 5242880;
+        f9321c = "";
+        f9322d = 10485760;
+        f9323e = 10485760;
+        f9324f = 5242880;
     }
 
     public static String b() {
-        return f8990b + File.separator + "cacheNet";
+        return f9320b + File.separator + "cacheNet";
     }
 
     @SuppressLint({"NewApi"})

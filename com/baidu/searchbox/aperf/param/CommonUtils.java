@@ -10,7 +10,7 @@ import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.searchbox.aperf.param.util.CpuInfoUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import d.b.l.c.e;
+import d.a.l.c.f;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.UUID;
@@ -83,7 +83,7 @@ public class CommonUtils {
     }
 
     public static String getNetwork() {
-        return new e().b();
+        return new f().b();
     }
 
     public static String getOSVersion() {

@@ -14,24 +14,24 @@ public abstract class AndroidMessage<M extends Message<M, B>, B extends Message.
     public static final class a<M> implements Parcelable.Creator<M> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ProtoAdapter<M> f38991a;
+        public final ProtoAdapter<M> f36576a;
 
         public a(ProtoAdapter<M> protoAdapter) {
-            this.f38991a = protoAdapter;
+            this.f36576a = protoAdapter;
         }
 
         @Override // android.os.Parcelable.Creator
         public M createFromParcel(Parcel parcel) {
             try {
-                return this.f38991a.decode(parcel.createByteArray());
+                return this.f36576a.decode(parcel.createByteArray());
             } catch (IOException e2) {
                 throw new RuntimeException(e2);
             }
         }
 
         @Override // android.os.Parcelable.Creator
-        public M[] newArray(int i) {
-            return (M[]) ((Object[]) Array.newInstance(this.f38991a.javaType, i));
+        public M[] newArray(int i2) {
+            return (M[]) ((Object[]) Array.newInstance(this.f36576a.javaType, i2));
         }
     }
 
@@ -49,7 +49,7 @@ public abstract class AndroidMessage<M extends Message<M, B>, B extends Message.
     }
 
     @Override // android.os.Parcelable
-    public final void writeToParcel(Parcel parcel, int i) {
+    public final void writeToParcel(Parcel parcel, int i2) {
         parcel.writeByteArray(encode());
     }
 }

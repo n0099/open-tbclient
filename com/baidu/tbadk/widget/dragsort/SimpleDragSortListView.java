@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
-import d.b.i0.b1.e.c;
-import d.b.i0.b1.e.d;
+import d.a.i0.b1.e.c;
+import d.a.i0.b1.e.d;
 /* loaded from: classes3.dex */
 public class SimpleDragSortListView extends BdListView {
     public c K;
@@ -19,49 +19,49 @@ public class SimpleDragSortListView extends BdListView {
         public a() {
         }
 
-        @Override // d.b.i0.b1.e.d
+        @Override // d.a.i0.b1.e.d
         public void a() {
             SimpleDragSortListView.super.layoutChildren();
         }
 
-        @Override // d.b.i0.b1.e.d
+        @Override // d.a.i0.b1.e.d
         public void b(Canvas canvas) {
             SimpleDragSortListView.super.dispatchDraw(canvas);
         }
 
-        @Override // d.b.i0.b1.e.d
-        public void c(ListAdapter listAdapter) {
-            SimpleDragSortListView.super.setAdapter(listAdapter);
-        }
-
-        @Override // d.b.i0.b1.e.d
+        @Override // d.a.i0.b1.e.d
         public void onDraw(Canvas canvas) {
             SimpleDragSortListView.super.onDraw(canvas);
         }
 
-        @Override // d.b.i0.b1.e.d
+        @Override // d.a.i0.b1.e.d
         public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
             return SimpleDragSortListView.super.onInterceptTouchEvent(motionEvent);
         }
 
-        @Override // d.b.i0.b1.e.d
-        public void onMeasure(int i, int i2) {
-            SimpleDragSortListView.super.onMeasure(i, i2);
+        @Override // d.a.i0.b1.e.d
+        public void onMeasure(int i2, int i3) {
+            SimpleDragSortListView.super.onMeasure(i2, i3);
         }
 
-        @Override // d.b.i0.b1.e.d
-        public void onSizeChanged(int i, int i2, int i3, int i4) {
-            SimpleDragSortListView.super.onSizeChanged(i, i2, i3, i4);
+        @Override // d.a.i0.b1.e.d
+        public void onSizeChanged(int i2, int i3, int i4, int i5) {
+            SimpleDragSortListView.super.onSizeChanged(i2, i3, i4, i5);
         }
 
-        @Override // d.b.i0.b1.e.d
+        @Override // d.a.i0.b1.e.d
         public boolean onTouchEvent(MotionEvent motionEvent) {
             return SimpleDragSortListView.super.onTouchEvent(motionEvent);
         }
 
-        @Override // d.b.i0.b1.e.d
+        @Override // d.a.i0.b1.e.d
         public void requestLayout() {
             SimpleDragSortListView.super.requestLayout();
+        }
+
+        @Override // d.a.i0.b1.e.d
+        public void setAdapter(ListAdapter listAdapter) {
+            SimpleDragSortListView.super.setAdapter(listAdapter);
         }
     }
 
@@ -115,22 +115,22 @@ public class SimpleDragSortListView extends BdListView {
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView, android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         c cVar = this.K;
         if (cVar != null) {
-            cVar.onMeasure(i, i2);
+            cVar.onMeasure(i2, i3);
         } else {
-            super.onMeasure(i, i2);
+            super.onMeasure(i2, i3);
         }
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
         c cVar = this.K;
         if (cVar != null) {
-            cVar.onSizeChanged(i, i2, i3, i4);
+            cVar.onSizeChanged(i2, i3, i4, i5);
         } else {
-            super.onSizeChanged(i, i2, i3, i4);
+            super.onSizeChanged(i2, i3, i4, i5);
         }
     }
 
@@ -155,7 +155,7 @@ public class SimpleDragSortListView extends BdListView {
 
     public void setDragSortViewEventDelegate(c cVar) {
         this.K = cVar;
-        cVar.d(this, getContext(), this.L);
+        cVar.c(this, getContext(), this.L);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -163,7 +163,7 @@ public class SimpleDragSortListView extends BdListView {
     public void setAdapter(ListAdapter listAdapter) {
         c cVar = this.K;
         if (cVar != null) {
-            cVar.c(listAdapter);
+            cVar.setAdapter(listAdapter);
         } else {
             super.setAdapter(listAdapter);
         }

@@ -14,8 +14,8 @@ public class IterativeBoxBlurPostProcessor extends BasePostprocessor {
     public CacheKey mCacheKey;
     public final int mIterations;
 
-    public IterativeBoxBlurPostProcessor(int i) {
-        this(3, i);
+    public IterativeBoxBlurPostProcessor(int i2) {
+        this(3, i2);
     }
 
     @Override // com.facebook.imagepipeline.request.BasePostprocessor, com.facebook.imagepipeline.request.Postprocessor
@@ -32,10 +32,10 @@ public class IterativeBoxBlurPostProcessor extends BasePostprocessor {
         NativeBlurFilter.iterativeBoxBlur(bitmap, this.mIterations, this.mBlurRadius);
     }
 
-    public IterativeBoxBlurPostProcessor(int i, int i2) {
-        Preconditions.checkArgument(i > 0);
+    public IterativeBoxBlurPostProcessor(int i2, int i3) {
         Preconditions.checkArgument(i2 > 0);
-        this.mIterations = i;
-        this.mBlurRadius = i2;
+        Preconditions.checkArgument(i3 > 0);
+        this.mIterations = i2;
+        this.mBlurRadius = i3;
     }
 }

@@ -50,9 +50,9 @@ public abstract class VideoPlayer {
     public interface VideoPlayerListener {
         void onEnded();
 
-        void onError(int i);
+        void onError(int i2);
 
-        void onInfo(int i, Object obj);
+        void onInfo(int i2, Object obj);
 
         void onPaused();
 
@@ -87,7 +87,7 @@ public abstract class VideoPlayer {
         return false;
     }
 
-    public abstract void notify(int i, Object obj);
+    public abstract void notify(int i2, Object obj);
 
     public abstract void pause();
 
@@ -99,7 +99,7 @@ public abstract class VideoPlayer {
 
     public abstract void resume();
 
-    public abstract void seekTo(int i);
+    public abstract void seekTo(int i2);
 
     public abstract void setDataSource(HashMap<Integer, String> hashMap);
 

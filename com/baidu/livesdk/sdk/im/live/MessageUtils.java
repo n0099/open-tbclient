@@ -11,31 +11,31 @@ public class MessageUtils {
         if (liveMessageBean == null) {
             return false;
         }
-        int i = -1;
+        int i2 = -1;
         try {
-            i = Integer.parseInt(liveMessageBean.message_type);
+            i2 = Integer.parseInt(liveMessageBean.message_type);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        return i == 0 || i == 2 || i == 3;
+        return i2 == 0 || i2 == 2 || i2 == 3;
     }
 
     public static String convertToText(Context context, LiveMessageBean liveMessageBean) {
-        int i;
+        int i2;
         LiveMessageBean.Txt txt;
         LiveMessageBean.Txt txt2;
         try {
-            i = Integer.parseInt(liveMessageBean.message_type);
+            i2 = Integer.parseInt(liveMessageBean.message_type);
         } catch (NumberFormatException e2) {
             e2.printStackTrace();
-            i = -1;
+            i2 = -1;
         }
         String str = "";
-        if (i != 0) {
-            if (i != 1 && i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
-                        if (i != 5) {
+        if (i2 != 0) {
+            if (i2 != 1 && i2 != 2) {
+                if (i2 != 3) {
+                    if (i2 != 4) {
+                        if (i2 != 5) {
                             return "" + context.getString(R.string.livesdk_not_support_msg_type);
                         }
                         return "" + context.getString(R.string.livesdk_voice);
@@ -76,22 +76,22 @@ public class MessageUtils {
 
     public static int halfSearch(List<LiveMessageBean> list, boolean z, long j) {
         int size = list.size() - 1;
-        int i = 0;
-        while (i <= size) {
-            int i2 = (i + size) / 2;
-            if (j < list.get(i2).msgId) {
+        int i2 = 0;
+        while (i2 <= size) {
+            int i3 = (i2 + size) / 2;
+            if (j < list.get(i3).msgId) {
                 if (z) {
-                    size = i2 - 1;
+                    size = i3 - 1;
                 } else {
-                    i = i2 + 1;
+                    i2 = i3 + 1;
                 }
-            } else if (j <= list.get(i2).msgId) {
-                return i2;
+            } else if (j <= list.get(i3).msgId) {
+                return i3;
             } else {
                 if (z) {
-                    i = i2 + 1;
+                    i2 = i3 + 1;
                 } else {
-                    size = i2 - 1;
+                    size = i3 - 1;
                 }
             }
         }

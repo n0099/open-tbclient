@@ -14,12 +14,12 @@ import com.baidu.sofire.ac.FH;
 @SuppressLint({"InlinedApi", "NewApi"})
 /* loaded from: classes2.dex */
 public final class PassBioGlobalUtils {
-    public static String getZid(Context context, String str, int i) {
-        String gzfi = FH.gzfi(context, str, i);
+    public static String getZid(Context context, String str, int i2) {
+        String gzfi = FH.gzfi(context, str, i2);
         return TextUtils.isEmpty(gzfi) ? "NoZidYet" : gzfi;
     }
 
-    public static void toast(Context context, CharSequence charSequence, int i, int i2) {
+    public static void toast(Context context, CharSequence charSequence, int i2, int i3) {
         View inflate;
         TextView textView;
         if (context.getApplicationContext() != null) {
@@ -30,18 +30,18 @@ public final class PassBioGlobalUtils {
         }
         textView.setText(charSequence);
         ImageView imageView = (ImageView) inflate.findViewById(R.id.rim_base_toast_icon);
-        if (imageView != null && i > 0) {
-            imageView.setImageResource(i);
+        if (imageView != null && i2 > 0) {
+            imageView.setImageResource(i2);
             imageView.setVisibility(0);
         }
         Toast toast = new Toast(context);
         toast.setGravity(17, 0, 0);
-        toast.setDuration(i2);
+        toast.setDuration(i3);
         toast.setView(inflate);
         toast.show();
     }
 
-    public static void toastWithText(Context context, CharSequence charSequence, int i) {
-        toast(context, charSequence, -1, i);
+    public static void toastWithText(Context context, CharSequence charSequence, int i2) {
+        toast(context, charSequence, -1, i2);
     }
 }

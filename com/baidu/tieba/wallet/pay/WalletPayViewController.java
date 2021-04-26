@@ -17,8 +17,9 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import com.baidu.tieba.wallet.pay.data.PayChannelInfo;
-import d.b.c.e.p.j;
+import d.a.c.e.p.j;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -95,7 +96,7 @@ public class WalletPayViewController {
 
         public void setData(PayChannelInfo payChannelInfo) {
             this.curChannel = payChannelInfo.channel;
-            this.iconImg.W(payChannelInfo.iconUrl, 10, false);
+            this.iconImg.V(payChannelInfo.iconUrl, 10, false);
             this.titleTv.setText(payChannelInfo.title);
             if (!StringUtils.isNull(payChannelInfo.prompt)) {
                 this.promptTv.setVisibility(0);
@@ -229,8 +230,8 @@ public class WalletPayViewController {
         this.mChannelList = (LinearLayout) this.mRootView.findViewById(R.id.pay_channel_list_layout);
         this.mUnfoldTv = (TextView) this.mRootView.findViewById(R.id.pay_channel_unfold_tv);
         Drawable drawable = this.mContext.getResources().getDrawable(R.drawable.icon_common_arrow20_down);
-        int i = tbds32;
-        drawable.setBounds(0, 0, i, i);
+        int i2 = tbds32;
+        drawable.setBounds(0, 0, i2, i2);
         this.mUnfoldTv.setCompoundDrawables(null, null, drawable, null);
         this.mUnfoldTv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.wallet.pay.WalletPayViewController.3
             @Override // android.view.View.OnClickListener
@@ -276,8 +277,8 @@ public class WalletPayViewController {
         if (optJSONArray != null && optJSONArray.length() > 0) {
             int length = optJSONArray.length();
             this.mCommonList = new ArrayList(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
                     PayChannelInfo payChannelInfo = new PayChannelInfo();
                     payChannelInfo.parserJson(optJSONObject);
@@ -291,8 +292,8 @@ public class WalletPayViewController {
         }
         int length2 = optJSONArray2.length();
         this.mFoldList = new ArrayList(length2);
-        for (int i2 = 0; i2 < length2; i2++) {
-            JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
+        for (int i3 = 0; i3 < length2; i3++) {
+            JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
             if (optJSONObject2 != null) {
                 PayChannelInfo payChannelInfo2 = new PayChannelInfo();
                 payChannelInfo2.parserJson(optJSONObject2);
@@ -322,22 +323,22 @@ public class WalletPayViewController {
             this.mGoodDesc.setVisibility(0);
             this.mGoodCount.setVisibility(0);
             this.mGoodDivider.setVisibility(0);
-            Drawable drawable = this.mContext.getResources().getDrawable(R.drawable.icon_huobi_tdou);
-            drawable.setBounds(0, 0, tbds29, tbds26);
-            this.mGoodCount.setCompoundDrawables(drawable, null, null, null);
+            Drawable normalSkinMoneyIcon = CurrencySwitchUtil.getNormalSkinMoneyIcon();
+            normalSkinMoneyIcon.setBounds(0, 0, tbds29, tbds26);
+            this.mGoodCount.setCompoundDrawables(normalSkinMoneyIcon, null, null, null);
             TextView textView = this.mGoodCount;
             textView.setText(this.mPayConfig.getTBeanNum() + "");
         }
         String str = this.mDataRes.title;
         if (z && !StringUtils.isNull(str)) {
-            int i = -1;
+            int i2 = -1;
             if (str.contains("（")) {
-                i = str.indexOf("（");
+                i2 = str.indexOf("（");
             } else if (str.contains("(")) {
-                i = str.indexOf("(");
+                i2 = str.indexOf("(");
             }
-            if (i > 0 && i <= str.length() - 1) {
-                str = (String) str.subSequence(0, i);
+            if (i2 > 0 && i2 <= str.length() - 1) {
+                str = (String) str.subSequence(0, i2);
             }
         }
         this.mGoodName.setText(str);

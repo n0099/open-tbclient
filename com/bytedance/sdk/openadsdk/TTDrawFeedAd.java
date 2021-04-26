@@ -15,5 +15,5 @@ public interface TTDrawFeedAd extends TTFeedAd {
 
     void setDrawVideoListener(DrawVideoListener drawVideoListener);
 
-    void setPauseIcon(Bitmap bitmap, int i);
+    void setPauseIcon(Bitmap bitmap, int i2);
 }

@@ -56,20 +56,20 @@ public class OAdURLConnection {
 
     /* loaded from: classes2.dex */
     public interface OnAdRequestListener {
-        void onFail(String str, int i);
+        void onFail(String str, int i2);
 
         void onSuccess(String str, String str2);
     }
 
     /* loaded from: classes2.dex */
     public interface OnImageRequestListener {
-        void onFail(String str, int i);
+        void onFail(String str, int i2);
 
         void onSuccess(InputStream inputStream, String str);
     }
 
-    public OAdURLConnection(int i, String str) {
-        this(i, str, "GET");
+    public OAdURLConnection(int i2, String str) {
+        this(i2, str, "GET");
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
@@ -292,16 +292,16 @@ public class OAdURLConnection {
         }
     }
 
-    public void setConnectTimeout(int i) {
-        this.mConnectTimeOut = i;
+    public void setConnectTimeout(int i2) {
+        this.mConnectTimeOut = i2;
     }
 
     public void setContentType(String str) {
         this.mContentType = str;
     }
 
-    public void setReadTimeout(int i) {
-        this.mReadTimeOut = i;
+    public void setReadTimeout(int i2) {
+        this.mReadTimeOut = i2;
     }
 
     public void setRequestProperty(Map<String, String> map) {
@@ -344,7 +344,7 @@ public class OAdURLConnection {
         return null;
     }
 
-    public OAdURLConnection(int i, String str, String str2) {
+    public OAdURLConnection(int i2, String str, String str2) {
         this.mAdLogger = RemoteXAdLogger.getInstance();
         this.mAdRequestListener = null;
         this.mImageRequestListener = null;
@@ -353,7 +353,7 @@ public class OAdURLConnection {
         this.mReadTimeOut = 10000;
         this.mUseCaches = false;
         this.mUriBuilder = null;
-        this.mPriority = i;
+        this.mPriority = i2;
         this.mRequestUrl = str;
         this.mRequestMethod = str2;
     }

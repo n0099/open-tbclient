@@ -25,8 +25,8 @@ public class DuPaBInfoMsg extends ChatMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public DuPaBInfoMsg[] newArray(int i) {
-            return new DuPaBInfoMsg[i];
+        public DuPaBInfoMsg[] newArray(int i2) {
+            return new DuPaBInfoMsg[i2];
         }
     };
     public static final String TAG = "DuPaBInfoMsg";
@@ -65,8 +65,8 @@ public class DuPaBInfoMsg extends ChatMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.addr);
         parcel.writeLong(this.time);
         parcel.writeString(this.longitude);
@@ -75,7 +75,7 @@ public class DuPaBInfoMsg extends ChatMsg {
         parcel.writeInt(this.action);
     }
 
-    public DuPaBInfoMsg(String str, long j, String str2, String str3, String str4, int i) {
+    public DuPaBInfoMsg(String str, long j, String str2, String str3, String str4, int i2) {
         setMsgType(31);
         setCategory(7);
         setChatType(7);
@@ -84,7 +84,7 @@ public class DuPaBInfoMsg extends ChatMsg {
         this.longitude = str2;
         this.latitude = str3;
         this.ip = str4;
-        this.action = i;
+        this.action = i2;
         setMsgContent(getBInfoContentJson());
     }
 

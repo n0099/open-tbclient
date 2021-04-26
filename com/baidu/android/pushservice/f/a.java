@@ -13,11 +13,11 @@ public class a implements b {
     }
 
     @Override // com.baidu.android.pushservice.f.b
-    public void a(Context context, ComponentName componentName, int i) {
+    public void a(Context context, ComponentName componentName, int i2) {
         Bundle bundle = new Bundle();
         bundle.putString("package", context.getPackageName());
         bundle.putString(DealIntentService.KEY_CLASS, componentName.getClassName());
-        bundle.putInt("badgenumber", i);
+        bundle.putInt("badgenumber", i2);
         try {
             context.getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", (String) null, bundle);
         } catch (Exception unused) {

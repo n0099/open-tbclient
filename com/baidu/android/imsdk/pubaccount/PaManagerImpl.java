@@ -36,7 +36,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import d.b.r.a;
+import d.a.r.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -53,17 +53,17 @@ public class PaManagerImpl {
     public Timer mTimer = null;
     public Dispatcher.MsgListener userSettingPaListener = new Dispatcher.MsgListener() { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.2
         /* JADX INFO: Access modifiers changed from: private */
-        public void sendPaSettingChangeBoradCast(int i, long j, boolean z) {
+        public void sendPaSettingChangeBoradCast(int i2, long j, boolean z) {
             Intent intent = new Intent(IMConstants.PA_SETTING_CHANGE_ACTION);
             intent.setPackage(PaManagerImpl.mContext.getPackageName());
-            intent.putExtra("type", i);
+            intent.putExtra("type", i2);
             intent.putExtra("paId", j);
             intent.putExtra("status", z);
             PaManagerImpl.mContext.sendBroadcast(intent);
         }
 
         @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-        public void dealMessage(int i, ChatMsg chatMsg) {
+        public void dealMessage(int i2, ChatMsg chatMsg) {
             String str;
             String str2 = PaManagerImpl.TAG;
             StringBuilder sb = new StringBuilder();
@@ -89,19 +89,19 @@ public class PaManagerImpl {
                 }
                 getChatObjectInfoForRecordHandler.getChatObjectInfo(paId, new CallBack() { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.2.1
                     @Override // com.baidu.android.imsdk.CallBack
-                    public void onError(int i2, int i3, long j) {
+                    public void onError(int i3, int i4, long j) {
                     }
 
                     @Override // com.baidu.android.imsdk.CallBack
-                    public void onSuccess(int i2, int i3, Object obj) {
-                        if (i2 == 1) {
+                    public void onSuccess(int i3, int i4, Object obj) {
+                        if (i3 == 1) {
                             PaInfoDBManager.getInstance(PaManagerImpl.mContext).acceptPaPush(paId, z);
                         }
-                        sendPaSettingChangeBoradCast(i2, paId, z);
+                        sendPaSettingChangeBoradCast(i3, paId, z);
                         synchronized (PaManagerImpl.mAcceptMsgChangeListeners) {
                             Iterator it = PaManagerImpl.mAcceptMsgChangeListeners.iterator();
                             while (it.hasNext()) {
-                                ((IAcceptMsgChangeListener) it.next()).onAcceptMsgChange(i2, paId, z);
+                                ((IAcceptMsgChangeListener) it.next()).onAcceptMsgChange(i3, paId, z);
                             }
                         }
                     }
@@ -110,7 +110,7 @@ public class PaManagerImpl {
         }
 
         @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-        public void dealMessage(int i, ArrayList<ChatMsg> arrayList) {
+        public void dealMessage(int i2, ArrayList<ChatMsg> arrayList) {
         }
     };
     public static ArrayList<IPaSubscriptionChangeListener> mPaSubscriptionChangeListeners = new ArrayList<>();
@@ -120,12 +120,12 @@ public class PaManagerImpl {
     public PaManagerImpl() {
         Class<?>[] clsArr = {IMPaAcceptPushMsg.class, IMPaSearchListMsg.class, IMPaSubscribedListMsg.class, IMPaSubscribedMsg.class, IMPaSubscribeMsg.class, IMPaUnsubscribeMsg.class};
         int[] iArr = {105, 103, 104, 109, 100, 101};
-        for (int i = 0; i < 6; i++) {
-            MessageFactory.getInstance().addType(iArr[i], clsArr[i]);
+        for (int i2 = 0; i2 < 6; i2++) {
+            MessageFactory.getInstance().addType(iArr[i2], clsArr[i2]);
         }
         this.listener = new Dispatcher.MsgListener() { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.1
             @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-            public void dealMessage(int i2, ChatMsg chatMsg) {
+            public void dealMessage(int i3, ChatMsg chatMsg) {
                 String str;
                 String str2 = PaManagerImpl.TAG;
                 StringBuilder sb = new StringBuilder();
@@ -152,11 +152,11 @@ public class PaManagerImpl {
                         }
                         getChatObjectInfoForRecordHandler.getChatObjectInfo(optLong, new CallBack() { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.1.1
                             @Override // com.baidu.android.imsdk.CallBack
-                            public void onError(int i3, int i4, long j) {
+                            public void onError(int i4, int i5, long j) {
                             }
 
                             @Override // com.baidu.android.imsdk.CallBack
-                            public void onSuccess(int i3, int i4, Object obj) {
+                            public void onSuccess(int i4, int i5, Object obj) {
                                 if (PaManagerImpl.mPaSubscriptionChangeListeners != null) {
                                     Iterator it = PaManagerImpl.mPaSubscriptionChangeListeners.iterator();
                                     while (it.hasNext()) {
@@ -170,7 +170,7 @@ public class PaManagerImpl {
                                         while (it2.hasNext()) {
                                             ISubscriptionChangeListener iSubscriptionChangeListener = (ISubscriptionChangeListener) it2.next();
                                             if (iSubscriptionChangeListener != null) {
-                                                iSubscriptionChangeListener.onSubscriptionResult(i3, optLong, obj);
+                                                iSubscriptionChangeListener.onSubscriptionResult(i4, optLong, obj);
                                             }
                                         }
                                     }
@@ -203,7 +203,7 @@ public class PaManagerImpl {
             }
 
             @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-            public void dealMessage(int i2, ArrayList<ChatMsg> arrayList) {
+            public void dealMessage(int i3, ArrayList<ChatMsg> arrayList) {
             }
         };
         Dispatcher.Event event = new Dispatcher.Event();
@@ -262,13 +262,13 @@ public class PaManagerImpl {
         }
     }
 
-    public void delPaLocalInfosByPaType(final int i) {
+    public void delPaLocalInfosByPaType(final int i2) {
         TaskManager.getInstance(mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.3
             @Override // java.lang.Runnable
             public void run() {
                 String str = PaManagerImpl.TAG;
-                LogUtils.d(str, "---delPaLocalInfosByPaType---paType = " + i);
-                ChatMessageDBManager.getInstance(PaManagerImpl.mContext).delPaLocalInfosByPaType(i);
+                LogUtils.d(str, "---delPaLocalInfosByPaType---paType = " + i2);
+                ChatMessageDBManager.getInstance(PaManagerImpl.mContext).delPaLocalInfosByPaType(i2);
             }
         });
     }
@@ -290,15 +290,15 @@ public class PaManagerImpl {
                 size++;
             }
             GetPaInfoSliceListener getPaInfoSliceListener = new GetPaInfoSliceListener(iGetPaInfosListener, size);
-            int i = 0;
-            while (i < size) {
-                int i2 = i + 1;
-                int i3 = i2 * 20;
-                if (i3 > arrayList.size()) {
-                    i3 = arrayList.size();
+            int i2 = 0;
+            while (i2 < size) {
+                int i3 = i2 + 1;
+                int i4 = i3 * 20;
+                if (i4 > arrayList.size()) {
+                    i4 = arrayList.size();
                 }
-                requestPaInfos(arrayList.subList(i * 20, i3), appid, uk, getPaInfoSliceListener);
-                i = i2;
+                requestPaInfos(arrayList.subList(i2 * 20, i4), appid, uk, getPaInfoSliceListener);
+                i2 = i3;
             }
         } else {
             iGetPaInfosListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
@@ -360,89 +360,89 @@ public class PaManagerImpl {
         onIsSubscribedResult(addListener, 1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, j, false);
     }
 
-    public void onAcceptPaPushResult(String str, int i, String str2, long j) {
+    public void onAcceptPaPushResult(String str, int i2, String str2, long j) {
         String str3 = TAG;
-        LogUtils.d(str3, "onAcceptPaPushResult----errorCode: " + i + " msg: " + str2);
+        LogUtils.d(str3, "onAcceptPaPushResult----errorCode: " + i2 + " msg: " + str2);
         IAcceptPaPushListener iAcceptPaPushListener = (IAcceptPaPushListener) ListenerManager.getInstance().removeListener(str);
         if (iAcceptPaPushListener != null) {
-            iAcceptPaPushListener.onAcceptPaPushResult(i, str2, j);
+            iAcceptPaPushListener.onAcceptPaPushResult(i2, str2, j);
         } else {
             LogUtils.d(TAG, "IAcceptPaPushListener is null");
         }
     }
 
-    public void onGetPaInfoResult(String str, int i, String str2, PaInfo paInfo) {
+    public void onGetPaInfoResult(String str, int i2, String str2, PaInfo paInfo) {
         String str3 = TAG;
-        LogUtils.d(str3, "onGetPaInfoResult----errorCode: " + i + " msg: " + str2);
+        LogUtils.d(str3, "onGetPaInfoResult----errorCode: " + i2 + " msg: " + str2);
         IGetPaInfoListener iGetPaInfoListener = (IGetPaInfoListener) ListenerManager.getInstance().removeListener(str);
         if (iGetPaInfoListener != null) {
-            iGetPaInfoListener.onGetPaInfoResult(i, str2, paInfo);
+            iGetPaInfoListener.onGetPaInfoResult(i2, str2, paInfo);
         } else {
             LogUtils.d(TAG, "IGetPaInfoListener is null");
         }
     }
 
-    public void onGetPaTypeResult(String str, int i, String str2, long j, int i2) {
+    public void onGetPaTypeResult(String str, int i2, String str2, long j, int i3) {
         String str3 = TAG;
-        LogUtils.d(str3, "onGETPaTypeResult----errorCode: " + i + " msg: " + str2);
+        LogUtils.d(str3, "onGETPaTypeResult----errorCode: " + i2 + " msg: " + str2);
         IGetPaTypeListener iGetPaTypeListener = (IGetPaTypeListener) ListenerManager.getInstance().removeListener(str);
         if (iGetPaTypeListener != null) {
-            iGetPaTypeListener.onGetPaType(i, str2, j, i2);
+            iGetPaTypeListener.onGetPaType(i2, str2, j, i3);
         } else {
             LogUtils.d(TAG, "IGetPaTypeListener is null!");
         }
     }
 
-    public void onIsSubscribedResult(String str, int i, String str2, long j, boolean z) {
+    public void onIsSubscribedResult(String str, int i2, String str2, long j, boolean z) {
         String str3 = TAG;
-        LogUtils.d(str3, "onIsSubscribedResult----errorCode: " + i + " msg: " + str2);
+        LogUtils.d(str3, "onIsSubscribedResult----errorCode: " + i2 + " msg: " + str2);
         IIsSubscribedListener iIsSubscribedListener = (IIsSubscribedListener) ListenerManager.getInstance().removeListener(str);
         if (iIsSubscribedListener != null) {
-            iIsSubscribedListener.onIsSubscribedResult(i, str2, j, z);
+            iIsSubscribedListener.onIsSubscribedResult(i2, str2, j, z);
         } else {
             LogUtils.d(TAG, "IIsSubscribedListener is null");
         }
     }
 
-    public void onQueryScribedPaListResult(String str, int i, String str2, List<PaInfo> list) {
+    public void onQueryScribedPaListResult(String str, int i2, String str2, List<PaInfo> list) {
         String str3 = TAG;
-        LogUtils.d(str3, "onQueryScribedPaListResult----errorCode: " + i + " msg: " + str2);
+        LogUtils.d(str3, "onQueryScribedPaListResult----errorCode: " + i2 + " msg: " + str2);
         IQuerySubscribedPaListListener iQuerySubscribedPaListListener = (IQuerySubscribedPaListListener) ListenerManager.getInstance().removeListener(str);
         if (iQuerySubscribedPaListListener != null) {
-            iQuerySubscribedPaListListener.onQuerySubscribedPaResult(i, str2, list);
+            iQuerySubscribedPaListListener.onQuerySubscribedPaResult(i2, str2, list);
         } else {
             LogUtils.d(TAG, "IQuerySubscribePaListListener is null");
         }
     }
 
-    public void onSearchPaListResult(String str, int i, String str2, List<PaInfo> list) {
+    public void onSearchPaListResult(String str, int i2, String str2, List<PaInfo> list) {
         String str3 = TAG;
-        LogUtils.d(str3, "onSearchPaResult----errorCode: " + i + " msg: " + str2);
+        LogUtils.d(str3, "onSearchPaResult----errorCode: " + i2 + " msg: " + str2);
         ISearchPaListListener iSearchPaListListener = (ISearchPaListListener) ListenerManager.getInstance().removeListener(str);
         if (iSearchPaListListener != null) {
-            iSearchPaListListener.onSearchPaListResult(i, str2, list);
+            iSearchPaListListener.onSearchPaListResult(i2, str2, list);
         } else {
             LogUtils.d(TAG, "ISearchPaListListener is null");
         }
     }
 
-    public void onSubscribePaResult(String str, int i, String str2, long j) {
+    public void onSubscribePaResult(String str, int i2, String str2, long j) {
         String str3 = TAG;
-        LogUtils.d(str3, "onSubscribePaResult----errorCode: " + i + " msg: " + str2);
+        LogUtils.d(str3, "onSubscribePaResult----errorCode: " + i2 + " msg: " + str2);
         ISubscribePaListener iSubscribePaListener = (ISubscribePaListener) ListenerManager.getInstance().removeListener(str);
         if (iSubscribePaListener != null) {
-            iSubscribePaListener.onSubsribePaResult(i, str2, j);
+            iSubscribePaListener.onSubsribePaResult(i2, str2, j);
         } else {
             LogUtils.d(TAG, "ISubscribePaListener is null");
         }
     }
 
-    public void onUnsubscribePaResult(String str, int i, String str2, long j) {
+    public void onUnsubscribePaResult(String str, int i2, String str2, long j) {
         String str3 = TAG;
-        LogUtils.d(str3, "onUnscribePaResult----errorCode: " + i + " msg: " + str2);
+        LogUtils.d(str3, "onUnscribePaResult----errorCode: " + i2 + " msg: " + str2);
         ISubscribePaListener iSubscribePaListener = (ISubscribePaListener) ListenerManager.getInstance().removeListener(str);
         if (iSubscribePaListener != null) {
-            iSubscribePaListener.onUnsubsribePaResult(i, str2, j);
+            iSubscribePaListener.onUnsubsribePaResult(i2, str2, j);
         } else {
             LogUtils.d(TAG, "ISubscribePaListener is null");
         }
@@ -541,8 +541,8 @@ public class PaManagerImpl {
         if (AccountManager.isLogin(mContext)) {
             getPaInfo(j, new IGetPaInfoListener() { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.4
                 @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfoListener
-                public void onGetPaInfoResult(int i, String str, PaInfo paInfo) {
-                    if (i == 0) {
+                public void onGetPaInfoResult(int i2, String str, PaInfo paInfo) {
+                    if (i2 == 0) {
                         Intent creatMethodIntent = Utility.creatMethodIntent(PaManagerImpl.mContext, 100);
                         creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                         creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, j);
@@ -557,7 +557,7 @@ public class PaManagerImpl {
                             return;
                         }
                     }
-                    PaManagerImpl.this.onSubscribePaResult(addListener, i, str, j);
+                    PaManagerImpl.this.onSubscribePaResult(addListener, i2, str, j);
                 }
             });
         } else {
@@ -585,8 +585,8 @@ public class PaManagerImpl {
                     LogUtils.d(str2, "syncAllPainfo> paidlist = " + queryPaidList.toString());
                     PaManagerImpl.this.getPaInfos(queryPaidList, new IGetPaInfosListener() { // from class: com.baidu.android.imsdk.pubaccount.PaManagerImpl.5.1
                         @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
-                        public void onResult(int i, String str3, ArrayList<PaInfo> arrayList) {
-                            if (i == 0) {
+                        public void onResult(int i2, String str3, ArrayList<PaInfo> arrayList) {
+                            if (i2 == 0) {
                                 Iterator<PaInfo> it = arrayList.iterator();
                                 while (it.hasNext()) {
                                     PaInfo next = it.next();

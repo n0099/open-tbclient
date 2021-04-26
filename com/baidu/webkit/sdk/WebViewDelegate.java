@@ -14,8 +14,8 @@ public class WebViewDelegate {
         return this.mWebView.canGoBack();
     }
 
-    public boolean canGoBackOrForward(int i) {
-        return this.mWebView.canGoBackOrForward(i);
+    public boolean canGoBackOrForward(int i2) {
+        return this.mWebView.canGoBackOrForward(i2);
     }
 
     public boolean canGoForward() {
@@ -46,8 +46,8 @@ public class WebViewDelegate {
         this.mWebView.goBack();
     }
 
-    public void goBackOrForward(int i) {
-        this.mWebView.goBackOrForward(i);
+    public void goBackOrForward(int i2) {
+        this.mWebView.goBackOrForward(i2);
     }
 
     public void goForward() {
@@ -62,12 +62,12 @@ public class WebViewDelegate {
         return false;
     }
 
-    public void onOverScrolled(int i, int i2, boolean z, boolean z2) {
-        this.mWebView.onOverScrolledSuper(i, i2, z, z2);
+    public void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
+        this.mWebView.onOverScrolledSuper(i2, i3, z, z2);
     }
 
-    public void onScrollChanged(int i, int i2, int i3, int i4) {
-        this.mWebView.onScrollChangedSuper(i, i2, i3, i4);
+    public void onScrollChanged(int i2, int i3, int i4, int i5) {
+        this.mWebView.onScrollChangedSuper(i2, i3, i4, i5);
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {

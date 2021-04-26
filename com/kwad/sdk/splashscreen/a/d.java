@@ -1,144 +1,80 @@
 package com.kwad.sdk.splashscreen.a;
 
-import android.annotation.SuppressLint;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.kwad.sdk.R;
-import com.kwad.sdk.api.KsSplashScreenAd;
-import com.kwad.sdk.core.page.widget.webview.KsAdWebView;
-import com.kwad.sdk.core.view.AdBaseFrameLayout;
-import com.kwad.sdk.core.webview.a.g;
-import com.kwad.sdk.core.webview.jshandler.a;
+import android.content.Context;
+import android.widget.Toast;
+import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.mvp.Presenter;
-import com.kwad.sdk.utils.ar;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d extends Presenter {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.splashscreen.c f37005a;
+    public com.kwad.sdk.splashscreen.c f34769a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsAdWebView f37006b;
+    public com.kwad.sdk.core.download.b.c f34770b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a f37007c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public g f37008d;
-
-    private void a(g gVar) {
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.d());
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.f37007c, this.f37005a.f37047f, new a.b() { // from class: com.kwad.sdk.splashscreen.a.d.2
-            @Override // com.kwad.sdk.core.webview.jshandler.a.b
-            public void a() {
-                KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener = d.this.f37005a.f37042a;
-                if (splashScreenAdInteractionListener != null) {
-                    splashScreenAdInteractionListener.onAdClicked();
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    if (d.this.f37005a != null && d.this.f37005a.f37046e != null) {
-                        jSONObject.put("duration", d.this.f37005a.f37046e.c());
-                    }
-                } catch (JSONException e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
-                }
-                com.kwad.sdk.core.report.b.a(d.this.f37005a.f37044c, jSONObject, (String) null);
-            }
-        }));
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.e(this.f37007c));
-    }
-
-    private void g() {
-        com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
-        this.f37007c = aVar;
-        com.kwad.sdk.splashscreen.c cVar = this.f37005a;
-        aVar.f34670b = cVar.f37044c;
-        aVar.f34669a = 0;
-        AdBaseFrameLayout adBaseFrameLayout = cVar.f37045d;
-        aVar.f34671c = adBaseFrameLayout;
-        aVar.f34673e = adBaseFrameLayout;
-        aVar.f34674f = this.f37006b;
-        aVar.f34672d = null;
-    }
-
-    @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
-    private void h() {
-        p();
-        ar.a(this.f37006b).setAllowFileAccess(true);
-        g gVar = new g(this.f37006b);
-        this.f37008d = gVar;
-        a(gVar);
-        this.f37006b.addJavascriptInterface(this.f37008d, "KwaiAd");
-    }
-
-    private void p() {
-        g gVar = this.f37008d;
-        if (gVar != null) {
-            gVar.a();
-            this.f37008d = null;
+    public static String b(Context context) {
+        try {
+            return context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return null;
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.splashscreen.c cVar = (com.kwad.sdk.splashscreen.c) n();
-        this.f37005a = cVar;
-        KsAdWebView ksAdWebView = (KsAdWebView) cVar.f37045d.findViewById(R.id.ksad_splash_web_card_webView);
-        this.f37006b = ksAdWebView;
-        ksAdWebView.setBackgroundColor(0);
-        this.f37006b.getBackground().setAlpha(0);
-        this.f37006b.setVisibility(0);
-        f();
+        this.f34769a = (com.kwad.sdk.splashscreen.c) k();
+        com.kwad.sdk.core.download.b.c cVar = new com.kwad.sdk.core.download.b.c() { // from class: com.kwad.sdk.splashscreen.a.d.1
+            @Override // com.kwad.sdk.api.KsAppDownloadListener
+            public void onDownloadFailed() {
+            }
+
+            @Override // com.kwad.sdk.api.KsAppDownloadListener
+            public void onDownloadFinished() {
+            }
+
+            @Override // com.kwad.sdk.core.download.b.c, com.kwad.sdk.api.KsAppDownloadListener
+            public void onDownloadStarted() {
+                String str;
+                super.onDownloadStarted();
+                Context l = d.this.l();
+                if (d.this.l() instanceof ResContext) {
+                    l = ((ResContext) d.this.l()).getDelegatedContext();
+                }
+                if (l != null) {
+                    String b2 = d.b(l);
+                    if (b2 != null) {
+                        str = b2 + ":已开始下载";
+                    } else {
+                        str = "已开始下载";
+                    }
+                    Toast.makeText(l, str, 0).show();
+                }
+            }
+
+            @Override // com.kwad.sdk.api.KsAppDownloadListener
+            public void onIdle() {
+            }
+
+            @Override // com.kwad.sdk.api.KsAppDownloadListener
+            public void onInstalled() {
+            }
+
+            @Override // com.kwad.sdk.api.KsAppDownloadListener
+            public void onProgressUpdate(int i2) {
+            }
+        };
+        this.f34770b = cVar;
+        this.f34769a.f34816f.a(cVar);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public void b_() {
-        super.b_();
-        p();
-    }
-
-    public String e() {
-        if (o() != null) {
-            File d2 = com.kwad.sdk.core.config.c.d(o());
-            if (d2.exists()) {
-                return Uri.fromFile(d2).toString();
-            }
-            if (com.kwad.sdk.core.config.c.b() != null) {
-                return com.kwad.sdk.core.config.c.b().h5Url;
-            }
-            return null;
+    public void c() {
+        com.kwad.sdk.core.download.b.c cVar = this.f34770b;
+        if (cVar != null) {
+            this.f34769a.f34816f.b(cVar);
         }
-        return null;
-    }
-
-    public void f() {
-        String e2 = e();
-        if (TextUtils.isEmpty(e2)) {
-            this.f37006b.setVisibility(8);
-            return;
-        }
-        this.f37006b.setVisibility(0);
-        g();
-        h();
-        this.f37006b.loadUrl(e2);
-        this.f37006b.setHttpErrorListener(new KsAdWebView.d() { // from class: com.kwad.sdk.splashscreen.a.d.1
-            @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
-            public void a() {
-            }
-
-            @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
-            public void a(int i, String str, String str2) {
-                d.this.f37006b.setVisibility(8);
-            }
-
-            @Override // com.kwad.sdk.core.page.widget.webview.KsAdWebView.d
-            public void b() {
-            }
-        });
     }
 }

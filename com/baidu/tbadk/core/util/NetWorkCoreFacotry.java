@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.httpNet.HttpNetContext;
-import d.b.c.e.p.j;
+import d.a.c.e.p.j;
 /* loaded from: classes3.dex */
 public class NetWorkCoreFacotry {
     public static int INTERVAL_TIME = 300000;
@@ -70,8 +70,8 @@ public class NetWorkCoreFacotry {
         }
     }
 
-    public static void setNetType(int i) {
-        currentType = i;
+    public static void setNetType(int i2) {
+        currentType = i2;
     }
 
     public INetWorkCore createINetWorkCore(HttpNetContext httpNetContext) {

@@ -36,7 +36,7 @@ public class DrawerArrowDrawable extends Drawable {
     public int mDirection = 2;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface ArrowDirection {
     }
@@ -66,9 +66,9 @@ public class DrawerArrowDrawable extends Drawable {
     public void draw(Canvas canvas) {
         float f2;
         Rect bounds = getBounds();
-        int i = this.mDirection;
+        int i2 = this.mDirection;
         boolean z = false;
-        if (i != 0 && (i == 1 || (i == 3 ? DrawableCompat.getLayoutDirection(this) == 0 : DrawableCompat.getLayoutDirection(this) == 1))) {
+        if (i2 != 0 && (i2 == 1 || (i2 == 3 ? DrawableCompat.getLayoutDirection(this) == 0 : DrawableCompat.getLayoutDirection(this) == 1))) {
             z = true;
         }
         float f3 = this.mArrowHeadLength;
@@ -163,9 +163,9 @@ public class DrawerArrowDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        if (i != this.mPaint.getAlpha()) {
-            this.mPaint.setAlpha(i);
+    public void setAlpha(int i2) {
+        if (i2 != this.mPaint.getAlpha()) {
+            this.mPaint.setAlpha(i2);
             invalidateSelf();
         }
     }
@@ -199,9 +199,9 @@ public class DrawerArrowDrawable extends Drawable {
         }
     }
 
-    public void setColor(@ColorInt int i) {
-        if (i != this.mPaint.getColor()) {
-            this.mPaint.setColor(i);
+    public void setColor(@ColorInt int i2) {
+        if (i2 != this.mPaint.getColor()) {
+            this.mPaint.setColor(i2);
             invalidateSelf();
         }
     }
@@ -212,9 +212,9 @@ public class DrawerArrowDrawable extends Drawable {
         invalidateSelf();
     }
 
-    public void setDirection(int i) {
-        if (i != this.mDirection) {
-            this.mDirection = i;
+    public void setDirection(int i2) {
+        if (i2 != this.mDirection) {
+            this.mDirection = i2;
             invalidateSelf();
         }
     }

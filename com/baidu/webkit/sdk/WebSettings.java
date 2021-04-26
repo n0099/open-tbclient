@@ -120,8 +120,8 @@ public abstract class WebSettings implements Observer {
         
         public int value;
 
-        TextSize(int i) {
-            this.value = i;
+        TextSize(int i2) {
+            this.value = i2;
         }
     }
 
@@ -133,8 +133,8 @@ public abstract class WebSettings implements Observer {
         
         public int value;
 
-        ZoomDensity(int i) {
-            this.value = i;
+        ZoomDensity(int i2) {
+            this.value = i2;
         }
 
         public final int getValue() {
@@ -201,8 +201,8 @@ public abstract class WebSettings implements Observer {
         WebSettingsGlobalBlink.setFreeFlow(z);
     }
 
-    public static void setVideoPlayerMode(int i) {
-        WebSettingsGlobalBlink.setVideoPlayerMode(i);
+    public static void setVideoPlayerMode(int i2) {
+        WebSettingsGlobalBlink.setVideoPlayerMode(i2);
     }
 
     @Deprecated
@@ -408,15 +408,15 @@ public abstract class WebSettings implements Observer {
             textZoom = getTextZoom();
         }
         TextSize textSize = null;
-        int i = Integer.MAX_VALUE;
+        int i2 = Integer.MAX_VALUE;
         for (TextSize textSize2 : TextSize.values()) {
             int abs = Math.abs(textZoom - textSize2.value);
             if (abs == 0) {
                 return textSize2;
             }
-            if (abs < i) {
+            if (abs < i2) {
                 textSize = textSize2;
-                i = abs;
+                i2 = abs;
             }
         }
         return textSize != null ? textSize : TextSize.NORMAL;
@@ -501,7 +501,7 @@ public abstract class WebSettings implements Observer {
 
     public abstract void setBuiltInZoomControls(boolean z);
 
-    public abstract void setCacheMode(int i);
+    public abstract void setCacheMode(int i2);
 
     public void setCodeCacheSetting(CodeCacheSetting codeCacheSetting) {
     }
@@ -519,20 +519,20 @@ public abstract class WebSettings implements Observer {
     @Deprecated
     public abstract void setDatabasePath(String str);
 
-    public abstract void setDefaultFixedFontSize(int i);
+    public abstract void setDefaultFixedFontSize(int i2);
 
-    public abstract void setDefaultFontSize(int i);
+    public abstract void setDefaultFontSize(int i2);
 
     public abstract void setDefaultTextEncodingName(String str);
 
     @Deprecated
     public abstract void setDefaultZoom(ZoomDensity zoomDensity);
 
-    public abstract void setDisabledActionModeMenuItems(int i);
+    public abstract void setDisabledActionModeMenuItems(int i2);
 
     public abstract void setDisplayZoomControls(boolean z);
 
-    public void setDomParserOptType(int i) {
+    public void setDomParserOptType(int i2) {
     }
 
     public abstract void setDomStorageEnabled(boolean z);
@@ -555,7 +555,7 @@ public abstract class WebSettings implements Observer {
     public void setEnableVendorSpecifiedFont(boolean z) {
     }
 
-    public void setEyeShieldMode(int i) {
+    public void setEyeShieldMode(int i2) {
     }
 
     public abstract void setFantasyFontFamily(String str);
@@ -596,7 +596,7 @@ public abstract class WebSettings implements Observer {
     public void setHtml5VideoEnabled(boolean z) {
     }
 
-    public void setImageMaxWidth(int i) {
+    public void setImageMaxWidth(int i2) {
     }
 
     public void setImagesEnabled(boolean z) {
@@ -644,11 +644,11 @@ public abstract class WebSettings implements Observer {
 
     public abstract void setMediaPlaybackRequiresUserGesture(boolean z);
 
-    public abstract void setMinimumFontSize(int i);
+    public abstract void setMinimumFontSize(int i2);
 
-    public abstract void setMinimumLogicalFontSize(int i);
+    public abstract void setMinimumLogicalFontSize(int i2);
 
-    public abstract void setMixedContentMode(int i);
+    public abstract void setMixedContentMode(int i2);
 
     public void setMultiScaleEnableTextWrap(boolean z) {
     }
@@ -660,7 +660,7 @@ public abstract class WebSettings implements Observer {
 
     public abstract void setOffscreenPreRaster(boolean z);
 
-    public void setPageCacheCapacity(int i) {
+    public void setPageCacheCapacity(int i2) {
     }
 
     public void setPageFreezeDisable(boolean z) {
@@ -701,7 +701,7 @@ public abstract class WebSettings implements Observer {
     @Deprecated
     public abstract void setSavePassword(boolean z);
 
-    public void setScrollSpeed(int i) {
+    public void setScrollSpeed(int i2) {
     }
 
     public abstract void setSerifFontFamily(String str);
@@ -734,7 +734,7 @@ public abstract class WebSettings implements Observer {
         }
     }
 
-    public abstract void setTextZoom(int i);
+    public abstract void setTextZoom(int i2);
 
     public void setUrlSecurityCheckEnabled(boolean z) {
     }
@@ -767,7 +767,7 @@ public abstract class WebSettings implements Observer {
 
     public abstract void setWebViewFrameName(String str);
 
-    public void setWiseSearchFirstScreenOptType(int i) {
+    public void setWiseSearchFirstScreenOptType(int i2) {
     }
 
     public void setWorkersEnabled(boolean z) {

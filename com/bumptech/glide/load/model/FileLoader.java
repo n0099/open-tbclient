@@ -164,7 +164,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<Data> buildLoadData(@NonNull File file, int i, int i2, @NonNull Options options) {
+    public ModelLoader.LoadData<Data> buildLoadData(@NonNull File file, int i2, int i3, @NonNull Options options) {
         return new ModelLoader.LoadData<>(new ObjectKey(file), new FileFetcher(file, this.fileOpener));
     }
 }

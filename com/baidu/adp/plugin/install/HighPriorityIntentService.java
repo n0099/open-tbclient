@@ -53,16 +53,16 @@ public abstract class HighPriorityIntentService extends Service {
     public abstract void onHandleIntent(Intent intent);
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
+    public void onStart(Intent intent, int i2) {
         Message obtainMessage = this.mServiceHandler.obtainMessage();
-        obtainMessage.arg1 = i;
+        obtainMessage.arg1 = i2;
         obtainMessage.obj = intent;
         this.mServiceHandler.sendMessage(obtainMessage);
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
-        onStart(intent, i2);
+    public int onStartCommand(Intent intent, int i2, int i3) {
+        onStart(intent, i3);
         return this.mRedelivery ? 3 : 2;
     }
 

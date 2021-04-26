@@ -4,7 +4,7 @@ import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public interface PoolBackend<T> {
     @Nullable
-    T get(int i);
+    T get(int i2);
 
     int getSize(T t);
 

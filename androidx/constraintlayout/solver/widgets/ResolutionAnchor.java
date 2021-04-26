@@ -40,10 +40,10 @@ public class ResolutionAnchor extends ResolutionNode {
         }
     }
 
-    public void dependsOn(int i, ResolutionAnchor resolutionAnchor, int i2) {
-        this.type = i;
+    public void dependsOn(int i2, ResolutionAnchor resolutionAnchor, int i3) {
+        this.type = i2;
         this.target = resolutionAnchor;
-        this.offset = i2;
+        this.offset = i3;
         resolutionAnchor.addDependent(this);
     }
 
@@ -92,8 +92,8 @@ public class ResolutionAnchor extends ResolutionNode {
         }
     }
 
-    public String sType(int i) {
-        return i == 1 ? VideoFreeFlowConfigManager.DIRECT : i == 2 ? "CENTER" : i == 3 ? "MATCH" : i == 4 ? "CHAIN" : i == 5 ? "BARRIER" : "UNCONNECTED";
+    public String sType(int i2) {
+        return i2 == 1 ? VideoFreeFlowConfigManager.DIRECT : i2 == 2 ? "CENTER" : i2 == 3 ? "MATCH" : i2 == 4 ? "CHAIN" : i2 == 5 ? "BARRIER" : "UNCONNECTED";
     }
 
     public void setOpposite(ResolutionAnchor resolutionAnchor, float f2) {
@@ -101,8 +101,8 @@ public class ResolutionAnchor extends ResolutionNode {
         this.oppositeOffset = f2;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 
     public String toString() {
@@ -132,15 +132,15 @@ public class ResolutionAnchor extends ResolutionNode {
         dependsOn(target.getResolutionNode(), margin);
     }
 
-    public void setOpposite(ResolutionAnchor resolutionAnchor, int i, ResolutionDimension resolutionDimension) {
+    public void setOpposite(ResolutionAnchor resolutionAnchor, int i2, ResolutionDimension resolutionDimension) {
         this.opposite = resolutionAnchor;
         this.oppositeDimension = resolutionDimension;
-        this.oppositeDimensionMultiplier = i;
+        this.oppositeDimensionMultiplier = i2;
     }
 
-    public void dependsOn(ResolutionAnchor resolutionAnchor, int i) {
+    public void dependsOn(ResolutionAnchor resolutionAnchor, int i2) {
         this.target = resolutionAnchor;
-        this.offset = i;
+        this.offset = i2;
         resolutionAnchor.addDependent(this);
     }
 
@@ -194,7 +194,7 @@ public class ResolutionAnchor extends ResolutionNode {
             ResolutionAnchor resolutionAnchor9 = this.opposite;
             resolutionAnchor9.resolvedTarget = resolutionAnchor9.target.resolvedTarget;
             ConstraintAnchor.Type type = this.myAnchor.mType;
-            int i = 0;
+            int i2 = 0;
             if (type != ConstraintAnchor.Type.RIGHT && type != ConstraintAnchor.Type.BOTTOM) {
                 z = false;
             }
@@ -220,9 +220,9 @@ public class ResolutionAnchor extends ResolutionNode {
                 f4 = 0.5f;
                 margin2 = 0;
             } else {
-                i = margin;
+                i2 = margin;
             }
-            float f6 = i;
+            float f6 = i2;
             float f7 = margin2;
             float f8 = (width - f6) - f7;
             if (z) {
@@ -254,11 +254,11 @@ public class ResolutionAnchor extends ResolutionNode {
         }
     }
 
-    public void dependsOn(ResolutionAnchor resolutionAnchor, int i, ResolutionDimension resolutionDimension) {
+    public void dependsOn(ResolutionAnchor resolutionAnchor, int i2, ResolutionDimension resolutionDimension) {
         this.target = resolutionAnchor;
         resolutionAnchor.addDependent(this);
         this.dimension = resolutionDimension;
-        this.dimensionMultiplier = i;
+        this.dimensionMultiplier = i2;
         resolutionDimension.addDependent(this);
     }
 }

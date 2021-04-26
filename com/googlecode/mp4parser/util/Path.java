@@ -36,16 +36,16 @@ public class Path {
 
     public static String createPath(Box box, String str) {
         Container parent = box.getParent();
-        int i = 0;
+        int i2 = 0;
         for (Box box2 : parent.getBoxes()) {
             if (box2.getType().equals(box.getType())) {
                 if (box2 == box) {
                     break;
                 }
-                i++;
+                i2++;
             }
         }
-        String str2 = String.valueOf(String.format("/%s[%d]", box.getType(), Integer.valueOf(i))) + str;
+        String str2 = String.valueOf(String.format("/%s[%d]", box.getType(), Integer.valueOf(i2))) + str;
         return parent instanceof Box ? createPath((Box) parent, str2) : str2;
     }
 
@@ -100,7 +100,7 @@ public class Path {
             }
             throw new RuntimeException("Result of path expression seems to be the root container. This is not allowed!");
         }
-        int i = 0;
+        int i2 = 0;
         if (str.contains("/")) {
             str2 = str.substring(str.indexOf(47) + 1);
             str = str.substring(0, str.indexOf(47));
@@ -120,10 +120,10 @@ public class Path {
                 LinkedList linkedList = new LinkedList();
                 for (Box box : ((Container) obj).getBoxes()) {
                     if (box.getType().matches(group)) {
-                        if (parseInt == -1 || parseInt == i) {
+                        if (parseInt == -1 || parseInt == i2) {
                             linkedList.addAll(getPaths(box, str2, z));
                         }
-                        i++;
+                        i2++;
                     }
                     if (z || parseInt >= 0) {
                         if (!linkedList.isEmpty()) {

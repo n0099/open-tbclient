@@ -15,9 +15,9 @@ public class ExtensionRegistryLite {
         public final int number;
         public final Object object;
 
-        public ObjectIntPair(Object obj, int i) {
+        public ObjectIntPair(Object obj, int i2) {
             this.object = obj;
-            this.number = i;
+            this.number = i2;
         }
 
         public boolean equals(Object obj) {
@@ -57,8 +57,8 @@ public class ExtensionRegistryLite {
         this.extensionsByNumber.put(new ObjectIntPair(generatedExtension.getContainingTypeDefaultInstance(), generatedExtension.getNumber()), generatedExtension);
     }
 
-    public <ContainingType extends MessageLite> GeneratedMessageLite.GeneratedExtension<ContainingType, ?> findLiteExtensionByNumber(ContainingType containingtype, int i) {
-        return (GeneratedMessageLite.GeneratedExtension<ContainingType, ?>) this.extensionsByNumber.get(new ObjectIntPair(containingtype, i));
+    public <ContainingType extends MessageLite> GeneratedMessageLite.GeneratedExtension<ContainingType, ?> findLiteExtensionByNumber(ContainingType containingtype, int i2) {
+        return (GeneratedMessageLite.GeneratedExtension<ContainingType, ?>) this.extensionsByNumber.get(new ObjectIntPair(containingtype, i2));
     }
 
     public ExtensionRegistryLite getUnmodifiable() {

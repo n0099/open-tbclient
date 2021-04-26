@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.tieba.memberCenter.bubble.BubbleListModel;
-import d.b.c.e.p.l;
-import d.b.j0.r1.a.c;
+import d.a.c.e.p.l;
+import d.a.j0.r1.a.c;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
-    public d.b.j0.r1.a.b mBubbleChooseView;
+    public d.a.j0.r1.a.b mBubbleChooseView;
     public BubbleListModel mBubbleModel;
     public final int PAGE_NUM = 0;
     public final int PAGE_LENGTH = 50;
@@ -43,7 +43,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         @Override // com.baidu.tieba.memberCenter.bubble.BubbleListModel.c
         public void a(BubbleListData bubbleListData) {
             BubbleChooseActivity.this.mBubbleChooseView.h();
-            BubbleChooseActivity.this.mBubbleChooseView.i(null, false);
+            BubbleChooseActivity.this.mBubbleChooseView.j(null, false);
             if (bubbleListData != null) {
                 if (!bubbleListData.getError_code().equals("0")) {
                     if (!TextUtils.isEmpty(bubbleListData.getError_msg())) {
@@ -67,7 +67,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             if (bubbleListData == null) {
                 return;
             }
-            BubbleChooseActivity.this.mBubbleChooseView.i(bubbleListData.getB_info(), BubbleListModel.u(bubbleListData.getB_info()));
+            BubbleChooseActivity.this.mBubbleChooseView.j(bubbleListData.getB_info(), BubbleListModel.u(bubbleListData.getB_info()));
             if (BubbleChooseActivity.this.mBubbleModel.w() <= 0 || (b_info = bubbleListData.getB_info()) == null || b_info.size() == 0) {
                 return;
             }
@@ -93,7 +93,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         public void a(SetBubbleResultData setBubbleResultData) {
             BubbleChooseActivity.this.mBubbleChooseView.h();
             int v = BubbleChooseActivity.this.mBubbleModel.v();
-            d.b.j0.r1.a.a d2 = BubbleChooseActivity.this.mBubbleChooseView.d();
+            d.a.j0.r1.a.a d2 = BubbleChooseActivity.this.mBubbleChooseView.d();
             if (v == 0) {
                 d2.d(true);
                 for (BubbleListData.BubbleData bubbleData : d2.b()) {
@@ -142,13 +142,13 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         public c() {
         }
 
-        @Override // d.b.j0.r1.a.c.e
-        public void a(int i) {
-            BubbleChooseActivity.this.useBubble(i);
+        @Override // d.a.j0.r1.a.c.e
+        public void a(int i2) {
+            BubbleChooseActivity.this.useBubble(i2);
             BubbleChooseActivity.this.mBubbleChooseView.k();
         }
 
-        @Override // d.b.j0.r1.a.c.e
+        @Override // d.a.j0.r1.a.c.e
         public void b() {
         }
     }
@@ -158,24 +158,24 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         public d() {
         }
 
-        @Override // d.b.j0.r1.a.c.e
-        public void a(int i) {
+        @Override // d.a.j0.r1.a.c.e
+        public void a(int i2) {
             TiebaStatic.eventStat(BubbleChooseActivity.this.getPageContext().getPageActivity(), "consume_19", PrefetchEvent.STATE_CLICK);
-            BubbleChooseActivity.this.mBubbleModel.D(i);
+            BubbleChooseActivity.this.mBubbleModel.D(i2);
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) BubbleChooseActivity.this.getPageContext().getPageActivity(), true, 23004, "pop_unable", 7);
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_ALL_BUBBLE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
         }
 
-        @Override // d.b.j0.r1.a.c.e
+        @Override // d.a.j0.r1.a.c.e
         public void b() {
         }
     }
 
     /* loaded from: classes3.dex */
     public class e extends CustomMessageListener {
-        public e(int i) {
-            super(i);
+        public e(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -195,7 +195,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     }
 
     private void initView() {
-        d.b.j0.r1.a.b bVar = new d.b.j0.r1.a.b(getPageContext());
+        d.a.j0.r1.a.b bVar = new d.a.j0.r1.a.b(getPageContext());
         this.mBubbleChooseView = bVar;
         bVar.f().setOnItemClickListener(this);
         this.mBubbleChooseView.k();
@@ -212,23 +212,23 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void useBubble(int i) {
-        this.mBubbleModel.B(i, l.k(getPageContext().getPageActivity()), l.i(getPageContext().getPageActivity()));
-        this.mBubbleModel.C(i);
+    public void useBubble(int i2) {
+        this.mBubbleModel.B(i2, l.k(getPageContext().getPageActivity()), l.i(getPageContext().getPageActivity()));
+        this.mBubbleModel.C(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i2 == -1 && i == 23004) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i3 == -1 && i2 == 23004) {
             loadData();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mBubbleChooseView.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mBubbleChooseView.onChangeSkinType(i2);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
@@ -237,7 +237,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
         if (view == this.mBubbleChooseView.e()) {
             Activity pageActivity = getPageContext().getPageActivity();
             String string = getPageContext().getString(R.string.web_title_bubble_explain);
-            d.b.i0.l.a.o(pageActivity, string, TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion(), true, true, true);
+            d.a.i0.l.a.o(pageActivity, string, TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion(), true, true, true);
         }
     }
 
@@ -260,18 +260,18 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
         BubbleListData.BubbleData g2;
-        super.onItemClick(adapterView, view, i, j);
-        if (adapterView != this.mBubbleChooseView.f() || view == null || !(view instanceof BubbleView) || (g2 = this.mBubbleChooseView.g(i)) == null) {
+        super.onItemClick(adapterView, view, i2, j);
+        if (adapterView != this.mBubbleChooseView.f() || view == null || !(view instanceof BubbleView) || (g2 = this.mBubbleChooseView.g(i2)) == null) {
             return;
         }
         if (g2.getBcode() != 0 && !g2.canUse()) {
             if (g2.isFree()) {
-                d.b.j0.r1.a.c.a(getPageContext(), g2, this.mFreeBubbleTipDialogCallback);
+                d.a.j0.r1.a.c.a(getPageContext(), g2, this.mFreeBubbleTipDialogCallback);
                 return;
             } else {
-                d.b.j0.r1.a.c.b(getPageContext(), g2, this.mPayBubbleTipDialogCallback);
+                d.a.j0.r1.a.c.b(getPageContext(), g2, this.mPayBubbleTipDialogCallback);
                 return;
             }
         }

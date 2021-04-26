@@ -7,13 +7,13 @@ public final class EvictingDeque<E> {
     public int mCapacity;
     public final LinkedList<E> mDelegate = new LinkedList<>();
 
-    public EvictingDeque(int i) {
-        this.mCapacity = i;
+    public EvictingDeque(int i2) {
+        this.mCapacity = i2;
     }
 
-    public static <E> EvictingDeque<E> create(int i) {
-        if (i >= 0) {
-            return new EvictingDeque<>(i);
+    public static <E> EvictingDeque<E> create(int i2) {
+        if (i2 >= 0) {
+            return new EvictingDeque<>(i2);
         }
         throw new IllegalArgumentException("capacity should not < 0");
     }
@@ -44,9 +44,9 @@ public final class EvictingDeque<E> {
         return this.mDelegate.peekLast();
     }
 
-    public void setCapacity(int i) {
-        if (i >= 0) {
-            this.mCapacity = i;
+    public void setCapacity(int i2) {
+        if (i2 >= 0) {
+            this.mCapacity = i2;
             return;
         }
         throw new IllegalArgumentException("capacity should not < 0");

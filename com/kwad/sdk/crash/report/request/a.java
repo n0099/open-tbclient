@@ -11,6 +11,6 @@ public class a extends d {
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public String a() {
-        return com.kwad.sdk.d.q();
+        return com.kwad.sdk.d.f();
     }
 }

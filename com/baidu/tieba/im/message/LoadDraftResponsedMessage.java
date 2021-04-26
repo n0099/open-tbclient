@@ -8,10 +8,10 @@ public class LoadDraftResponsedMessage extends CustomResponsedMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17724a;
+        public String f18050a;
     }
 
-    public LoadDraftResponsedMessage(int i) {
-        super(i);
+    public LoadDraftResponsedMessage(int i2) {
+        super(i2);
     }
 }

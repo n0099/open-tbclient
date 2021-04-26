@@ -20,7 +20,7 @@ import java.security.NoSuchAlgorithmException;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f26709a;
+    public static String f27519a;
 
     public static int a(String str) {
         String[] split = str.split("_");
@@ -31,7 +31,7 @@ public final class c {
     }
 
     public static String a() {
-        if (TextUtils.isEmpty(f26709a)) {
+        if (TextUtils.isEmpty(f27519a)) {
             Context d2 = com.baidu.webkit.logsdk.a.b.d();
             if (d2 == null || d2.getFilesDir() == null) {
                 return "";
@@ -40,16 +40,16 @@ public final class c {
             if (str.endsWith(File.separator)) {
                 str = str.substring(0, str.length() - 1);
             }
-            f26709a = str;
-            new File(f26709a).mkdirs();
-            e("BdLogSDK", "Workspace = " + f26709a);
-            return f26709a;
+            f27519a = str;
+            new File(f27519a).mkdirs();
+            e("BdLogSDK", "Workspace = " + f27519a);
+            return f27519a;
         }
-        return f26709a;
+        return f27519a;
     }
 
     public static String a(com.baidu.webkit.logsdk.b.b bVar, String str) {
-        String str2 = bVar.f26688e.get(str);
+        String str2 = bVar.f27498e.get(str);
         if (TextUtils.isEmpty(str2)) {
             com.baidu.webkit.logsdk.b c2 = com.baidu.webkit.logsdk.a.b.a().c();
             d(com.baidu.webkit.logsdk.b.b.e());
@@ -57,7 +57,7 @@ public final class c {
             d(com.baidu.webkit.logsdk.b.b.g());
             String a2 = c2.a(d2);
             if (!TextUtils.isEmpty(a2) && !TextUtils.isEmpty(a2)) {
-                bVar.f26688e.put(str, a2);
+                bVar.f27498e.put(str, a2);
             }
             return a2;
         }
@@ -179,8 +179,8 @@ public final class c {
     }
 
     public static void a(String str, String str2, String str3) {
-        if (!com.baidu.webkit.logsdk.a.f26650b || TextUtils.isEmpty(str3)) {
-            if (com.baidu.webkit.logsdk.a.f26649a) {
+        if (!com.baidu.webkit.logsdk.a.f27458b || TextUtils.isEmpty(str3)) {
+            if (com.baidu.webkit.logsdk.a.f27457a) {
                 Log.i(str, str2);
                 return;
             }
@@ -191,7 +191,7 @@ public final class c {
 
     public static void a(Throwable th) {
         th.printStackTrace();
-        if (com.baidu.webkit.logsdk.a.f26650b) {
+        if (com.baidu.webkit.logsdk.a.f27458b) {
             System.exit(0);
         }
     }
@@ -327,11 +327,11 @@ public final class c {
             byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"));
             StringBuilder sb = new StringBuilder(digest.length * 2);
             for (byte b2 : digest) {
-                int i = b2 & 255;
-                if (i < 16) {
+                int i2 = b2 & 255;
+                if (i2 < 16) {
                     sb.append("0");
                 }
-                sb.append(Integer.toHexString(i));
+                sb.append(Integer.toHexString(i2));
             }
             return sb.toString();
         } catch (UnsupportedEncodingException e2) {
@@ -362,7 +362,7 @@ public final class c {
     }
 
     public static void e(String str, String str2) {
-        if (com.baidu.webkit.logsdk.a.f26649a) {
+        if (com.baidu.webkit.logsdk.a.f27457a) {
             Log.w(str, str2);
         }
     }

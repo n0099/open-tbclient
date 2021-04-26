@@ -8,7 +8,7 @@ import com.baidu.down.common.TaskManagerConfiguration;
 import com.baidu.down.common.TaskObserver;
 import com.baidu.down.request.taskmanager.BinaryTaskMng;
 import com.baidu.down.request.taskmanager.TaskFacade;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DownloadWrapperImpl implements IDownloadWrapper {
     public static final boolean DEBUG = false;
     public static final String TAG = "DownloadWrapperImpl";
@@ -45,8 +45,8 @@ public class DownloadWrapperImpl implements IDownloadWrapper {
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper
-    public void setMaxDownloadThread(int i) {
-        this.mTaskManager.setMaxDownloadThread(i);
+    public void setMaxDownloadThread(int i2) {
+        this.mTaskManager.setMaxDownloadThread(i2);
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper

@@ -12,7 +12,7 @@ public class ResponseHttpMajorResidueMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         if (jSONObject == null || jSONObject.optInt("error_code", -1) != 0 || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
             return;

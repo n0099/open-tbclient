@@ -2,10 +2,10 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.h2.a;
+import d.a.j0.h2.a;
 import tbclient.Error;
 import tbclient.HistorySwan.HistorySwanResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SmartAppBrowseHistorySocketResponsedMessage extends SocketResponsedMessage {
     public a mData;
 
@@ -19,7 +19,7 @@ public class SmartAppBrowseHistorySocketResponsedMessage extends SocketResponsed
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         HistorySwanResIdl historySwanResIdl = (HistorySwanResIdl) new Wire(new Class[0]).parseFrom(bArr, HistorySwanResIdl.class);
         if (historySwanResIdl == null) {
             return;

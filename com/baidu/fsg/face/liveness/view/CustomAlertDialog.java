@@ -14,28 +14,28 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class CustomAlertDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewSwitcher f6084a;
+    public ViewSwitcher f6257a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f6085b;
+    public TextView f6258b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f6086c;
+    public TextView f6259c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f6087d;
+    public Button f6260d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f6088e;
+    public Button f6261e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f6089f;
+    public TextView f6262f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f6090g;
+    public LinearLayout f6263g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Spinner f6091h;
+    public Spinner f6264h;
 
     public CustomAlertDialog(Context context) {
         super(context, R.style.BeautyDialog);
@@ -45,64 +45,64 @@ public class CustomAlertDialog extends Dialog {
     private void a() {
         setContentView(R.layout.layout_sapi_liveness_dialog_alert);
         setCanceledOnTouchOutside(false);
-        this.f6084a = (ViewSwitcher) findViewById(R.id.view_switcher);
-        this.f6085b = (TextView) findViewById(R.id.dialog_title);
-        this.f6086c = (TextView) findViewById(R.id.msg_text);
-        this.f6087d = (Button) findViewById(R.id.positive_btn);
-        this.f6088e = (Button) findViewById(R.id.negative_btn);
-        this.f6089f = (TextView) findViewById(R.id.neutral_btn);
+        this.f6257a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.f6258b = (TextView) findViewById(R.id.dialog_title);
+        this.f6259c = (TextView) findViewById(R.id.msg_text);
+        this.f6260d = (Button) findViewById(R.id.positive_btn);
+        this.f6261e = (Button) findViewById(R.id.negative_btn);
+        this.f6262f = (TextView) findViewById(R.id.neutral_btn);
     }
 
-    public void setBtnCount(int i) {
-        if (i < 1) {
-            i = 1;
-        } else if (i > 2) {
-            i = 2;
+    public void setBtnCount(int i2) {
+        if (i2 < 1) {
+            i2 = 1;
+        } else if (i2 > 2) {
+            i2 = 2;
         }
-        if (i == 2) {
-            this.f6084a.setDisplayedChild(0);
+        if (i2 == 2) {
+            this.f6257a.setDisplayedChild(0);
         } else {
-            this.f6084a.setDisplayedChild(1);
+            this.f6257a.setDisplayedChild(1);
         }
     }
 
-    public void setMessageIcon(int i) {
-        this.f6086c.setText(i);
+    public void setMessageIcon(int i2) {
+        this.f6259c.setText(i2);
     }
 
     public void setMessageText(String str) {
-        this.f6086c.setText(str);
+        this.f6259c.setText(str);
     }
 
     public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
-        this.f6088e.setText(str);
-        this.f6088e.setOnClickListener(onClickListener);
+        this.f6261e.setText(str);
+        this.f6261e.setOnClickListener(onClickListener);
     }
 
     public void setNeutralBtn(String str, View.OnClickListener onClickListener) {
-        this.f6089f.setText(str);
-        this.f6089f.setOnClickListener(onClickListener);
+        this.f6262f.setText(str);
+        this.f6262f.setOnClickListener(onClickListener);
     }
 
     public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
-        this.f6087d.setText(str);
-        this.f6087d.setOnClickListener(onClickListener);
+        this.f6260d.setText(str);
+        this.f6260d.setOnClickListener(onClickListener);
     }
 
     public void setTitleMsg(String str) {
-        this.f6085b.setText(str);
+        this.f6258b.setText(str);
     }
 
     public void setTitleVisible(boolean z) {
         if (z) {
-            this.f6085b.setVisibility(0);
+            this.f6258b.setVisibility(0);
         } else {
-            this.f6085b.setVisibility(8);
+            this.f6258b.setVisibility(8);
         }
     }
 
-    public CustomAlertDialog(Context context, int i) {
-        super(context, i);
+    public CustomAlertDialog(Context context, int i2) {
+        super(context, i2);
         a();
     }
 

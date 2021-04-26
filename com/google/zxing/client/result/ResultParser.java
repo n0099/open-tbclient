@@ -25,12 +25,12 @@ public abstract class ResultParser {
         }
     }
 
-    public static int countPrecedingBackslashes(CharSequence charSequence, int i) {
-        int i2 = 0;
-        for (int i3 = i - 1; i3 >= 0 && charSequence.charAt(i3) == '\\'; i3--) {
-            i2++;
+    public static int countPrecedingBackslashes(CharSequence charSequence, int i2) {
+        int i3 = 0;
+        for (int i4 = i2 - 1; i4 >= 0 && charSequence.charAt(i4) == '\\'; i4--) {
+            i3++;
         }
-        return i2;
+        return i3;
     }
 
     public static String getMassagedText(Result result) {
@@ -38,34 +38,34 @@ public abstract class ResultParser {
         return text.startsWith(BYTE_ORDER_MARK) ? text.substring(1) : text;
     }
 
-    public static boolean isStringOfDigits(CharSequence charSequence, int i) {
-        return charSequence != null && i > 0 && i == charSequence.length() && DIGITS.matcher(charSequence).matches();
+    public static boolean isStringOfDigits(CharSequence charSequence, int i2) {
+        return charSequence != null && i2 > 0 && i2 == charSequence.length() && DIGITS.matcher(charSequence).matches();
     }
 
-    public static boolean isSubstringOfDigits(CharSequence charSequence, int i, int i2) {
-        int i3;
-        return charSequence != null && i2 > 0 && charSequence.length() >= (i3 = i2 + i) && DIGITS.matcher(charSequence.subSequence(i, i3)).matches();
+    public static boolean isSubstringOfDigits(CharSequence charSequence, int i2, int i3) {
+        int i4;
+        return charSequence != null && i3 > 0 && charSequence.length() >= (i4 = i3 + i2) && DIGITS.matcher(charSequence.subSequence(i2, i4)).matches();
     }
 
     public static String[] matchPrefixedField(String str, String str2, char c2, boolean z) {
         int length = str2.length();
         ArrayList arrayList = null;
-        int i = 0;
-        while (i < length) {
-            int indexOf = str2.indexOf(str, i);
+        int i2 = 0;
+        while (i2 < length) {
+            int indexOf = str2.indexOf(str, i2);
             if (indexOf < 0) {
                 break;
             }
             int length2 = indexOf + str.length();
             ArrayList arrayList2 = arrayList;
             boolean z2 = true;
-            int i2 = length2;
+            int i3 = length2;
             while (z2) {
-                int indexOf2 = str2.indexOf(c2, i2);
+                int indexOf2 = str2.indexOf(c2, i3);
                 if (indexOf2 < 0) {
-                    i2 = str2.length();
+                    i3 = str2.length();
                 } else if (countPrecedingBackslashes(str2, indexOf2) % 2 != 0) {
-                    i2 = indexOf2 + 1;
+                    i3 = indexOf2 + 1;
                 } else {
                     if (arrayList2 == null) {
                         arrayList2 = new ArrayList(3);
@@ -77,11 +77,11 @@ public abstract class ResultParser {
                     if (!unescapeBackslash.isEmpty()) {
                         arrayList2.add(unescapeBackslash);
                     }
-                    i2 = indexOf2 + 1;
+                    i3 = indexOf2 + 1;
                 }
                 z2 = false;
             }
-            i = i2;
+            i2 = i3;
             arrayList = arrayList2;
         }
         if (arrayList == null || arrayList.isEmpty()) {

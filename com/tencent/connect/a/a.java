@@ -8,25 +8,25 @@ import java.lang.reflect.Method;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class<?> f39397a = null;
+    public static Class<?> f36991a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f39398b = null;
+    public static Class<?> f36992b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Method f39399c = null;
+    public static Method f36993c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Method f39400d = null;
+    public static Method f36994d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Method f39401e = null;
+    public static Method f36995e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Method f39402f = null;
+    public static Method f36996f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f39403g = false;
+    public static boolean f36997g = false;
 
     public static boolean a(Context context, QQToken qQToken) {
         return f.a(context, qQToken.getAppId()).b("Common_ta_enable");
@@ -35,9 +35,9 @@ public class a {
     public static void b(Context context, QQToken qQToken) {
         try {
             if (a(context, qQToken)) {
-                f39402f.invoke(f39397a, Boolean.TRUE);
+                f36996f.invoke(f36991a, Boolean.TRUE);
             } else {
-                f39402f.invoke(f39397a, Boolean.FALSE);
+                f36996f.invoke(f36991a, Boolean.FALSE);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -47,32 +47,32 @@ public class a {
     public static void c(Context context, QQToken qQToken) {
         String str = "Aqc" + qQToken.getAppId();
         try {
-            f39397a = Class.forName("com.tencent.stat.StatConfig");
+            f36991a = Class.forName("com.tencent.stat.StatConfig");
             Class<?> cls = Class.forName("com.tencent.stat.StatService");
-            f39398b = cls;
-            f39399c = cls.getMethod("reportQQ", Context.class, String.class);
-            f39400d = f39398b.getMethod("trackCustomEvent", Context.class, String.class, String[].class);
-            f39401e = f39398b.getMethod("commitEvents", Context.class, Integer.TYPE);
-            f39402f = f39397a.getMethod("setEnableStatService", Boolean.TYPE);
+            f36992b = cls;
+            f36993c = cls.getMethod("reportQQ", Context.class, String.class);
+            f36994d = f36992b.getMethod("trackCustomEvent", Context.class, String.class, String[].class);
+            f36995e = f36992b.getMethod("commitEvents", Context.class, Integer.TYPE);
+            f36996f = f36991a.getMethod("setEnableStatService", Boolean.TYPE);
             b(context, qQToken);
-            f39397a.getMethod("setAutoExceptionCaught", Boolean.TYPE).invoke(f39397a, Boolean.FALSE);
-            f39397a.getMethod("setEnableSmartReporting", Boolean.TYPE).invoke(f39397a, Boolean.TRUE);
-            f39397a.getMethod("setSendPeriodMinutes", Integer.TYPE).invoke(f39397a, 1440);
+            f36991a.getMethod("setAutoExceptionCaught", Boolean.TYPE).invoke(f36991a, Boolean.FALSE);
+            f36991a.getMethod("setEnableSmartReporting", Boolean.TYPE).invoke(f36991a, Boolean.TRUE);
+            f36991a.getMethod("setSendPeriodMinutes", Integer.TYPE).invoke(f36991a, 1440);
             Class<?> cls2 = Class.forName("com.tencent.stat.StatReportStrategy");
-            f39397a.getMethod("setStatSendStrategy", cls2).invoke(f39397a, cls2.getField("PERIOD").get(null));
-            f39398b.getMethod("startStatService", Context.class, String.class, String.class).invoke(f39398b, context, str, Class.forName("com.tencent.stat.common.StatConstants").getField("VERSION").get(null));
-            f39403g = true;
+            f36991a.getMethod("setStatSendStrategy", cls2).invoke(f36991a, cls2.getField("PERIOD").get(null));
+            f36992b.getMethod("startStatService", Context.class, String.class, String.class).invoke(f36992b, context, str, Class.forName("com.tencent.stat.common.StatConstants").getField("VERSION").get(null));
+            f36997g = true;
         } catch (Exception e2) {
             e2.printStackTrace();
         }
     }
 
     public static void d(Context context, QQToken qQToken) {
-        if (f39403g) {
+        if (f36997g) {
             b(context, qQToken);
             if (qQToken.getOpenId() != null) {
                 try {
-                    f39399c.invoke(f39398b, context, qQToken.getOpenId());
+                    f36993c.invoke(f36992b, context, qQToken.getOpenId());
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -81,10 +81,10 @@ public class a {
     }
 
     public static void a(Context context, QQToken qQToken, String str, String... strArr) {
-        if (f39403g) {
+        if (f36997g) {
             b(context, qQToken);
             try {
-                f39400d.invoke(f39398b, context, str, strArr);
+                f36994d.invoke(f36992b, context, str, strArr);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

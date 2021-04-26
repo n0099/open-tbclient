@@ -8,8 +8,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
-import d.p.a.e.b.d.c;
-import d.p.a.e.b.g.d;
+import d.o.a.e.b.d.c;
+import d.o.a.e.b.g.d;
 /* loaded from: classes6.dex */
 public class a extends Fragment {
     public static Intent d() {
@@ -31,9 +31,9 @@ public class a extends Fragment {
         intent.putExtra("package", packageName);
         intent.putExtra("android.provider.extra.APP_PACKAGE", packageName);
         intent.putExtra("app_package", packageName);
-        int i = e2.getApplicationInfo().uid;
-        intent.putExtra("uid", i);
-        intent.putExtra("app_uid", i);
+        int i2 = e2.getApplicationInfo().uid;
+        intent.putExtra("uid", i2);
+        intent.putExtra("app_uid", i2);
         return intent;
     }
 
@@ -61,7 +61,7 @@ public class a extends Fragment {
         String packageName = e2.getPackageName();
         if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
             String lowerCase = Build.MANUFACTURER.toLowerCase();
-            if (lowerCase.contains(c.f68095c)) {
+            if (lowerCase.contains(c.f66451c)) {
                 Intent intent = new Intent();
                 intent.putExtra("packageName", packageName);
                 intent.setComponent(new ComponentName("com.color.safecenter", "com.color.safecenter.permission.PermissionManagerActivity"));
@@ -75,7 +75,7 @@ public class a extends Fragment {
                     intent2.setComponent(new ComponentName("com.iqoo.secure", "com.iqoo.secure.safeguard.SoftPermissionDetailActivity"));
                 }
                 return intent2;
-            } else if (lowerCase.contains(RomUtils.MANUFACTURER_MEIZU) && Build.VERSION.SDK_INT < 25) {
+            } else if (lowerCase.contains("meizu") && Build.VERSION.SDK_INT < 25) {
                 Intent intent3 = new Intent("com.meizu.safe.security.SHOW_APPSEC");
                 intent3.putExtra("packageName", packageName);
                 intent3.setComponent(new ComponentName("com.meizu.safe", "com.meizu.safe.security.AppSecActivity"));
@@ -94,12 +94,12 @@ public class a extends Fragment {
     }
 
     @Override // android.app.Fragment
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (d.p.a.e.a.f.c.d()) {
-            d.p.a.e.a.f.c.c(true);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (d.o.a.e.a.f.c.d()) {
+            d.o.a.e.a.f.c.c(true);
         } else {
-            d.p.a.e.a.f.c.c(false);
+            d.o.a.e.a.f.c.c(false);
         }
     }
 }

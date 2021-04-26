@@ -5,24 +5,26 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
-import d.b.h0.m.a.a.j;
-import d.b.h0.m.a.a.l;
+import d.a.h0.m.a.a.j;
+import d.a.h0.m.a.a.l;
 /* loaded from: classes3.dex */
 public final class FragmentState implements Parcelable {
     public static final Parcelable.Creator<FragmentState> CREATOR = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f12713e;
+    public final String f12621e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f12714f;
+    public final int f12622f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f12715g;
+    public final boolean f12623g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f12716h;
-    public final int i;
+    public final int f12624h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final int f12625i;
     public final String j;
     public final boolean k;
     public final boolean l;
@@ -42,17 +44,17 @@ public final class FragmentState implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public FragmentState[] newArray(int i) {
-            return new FragmentState[i];
+        public FragmentState[] newArray(int i2) {
+            return new FragmentState[i2];
         }
     }
 
     public FragmentState(Fragment fragment) {
-        this.f12713e = fragment.getClass().getName();
-        this.f12714f = fragment.j;
-        this.f12715g = fragment.s;
-        this.f12716h = fragment.A;
-        this.i = fragment.B;
+        this.f12621e = fragment.getClass().getName();
+        this.f12622f = fragment.j;
+        this.f12623g = fragment.s;
+        this.f12624h = fragment.A;
+        this.f12625i = fragment.B;
         this.j = fragment.C;
         this.k = fragment.F;
         this.l = fragment.E;
@@ -69,22 +71,22 @@ public final class FragmentState implements Parcelable {
         if (bundle != null) {
             bundle.setClassLoader(h2.getClassLoader());
         }
-        this.o = Fragment.g0(h2, this.f12713e, this.m);
+        this.o = Fragment.T(h2, this.f12621e, this.m);
         Bundle bundle2 = this.n;
         if (bundle2 != null) {
             bundle2.setClassLoader(h2.getClassLoader());
-            this.o.f12703h = this.n;
+            this.o.f12609h = this.n;
         }
-        this.o.e1(this.f12714f, fragment);
+        this.o.d1(this.f12622f, fragment);
         Fragment fragment3 = this.o;
-        fragment3.s = this.f12715g;
+        fragment3.s = this.f12623g;
         fragment3.u = true;
-        fragment3.A = this.f12716h;
-        fragment3.B = this.i;
+        fragment3.A = this.f12624h;
+        fragment3.B = this.f12625i;
         fragment3.C = this.j;
         fragment3.F = this.k;
         fragment3.E = this.l;
-        fragment3.w = jVar.f49818d;
+        fragment3.w = jVar.f47336d;
         if (l.x) {
             Log.v("FragmentManager", "Instantiated fragment " + this.o);
         }
@@ -97,12 +99,12 @@ public final class FragmentState implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f12713e);
-        parcel.writeInt(this.f12714f);
-        parcel.writeInt(this.f12715g ? 1 : 0);
-        parcel.writeInt(this.f12716h);
-        parcel.writeInt(this.i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeString(this.f12621e);
+        parcel.writeInt(this.f12622f);
+        parcel.writeInt(this.f12623g ? 1 : 0);
+        parcel.writeInt(this.f12624h);
+        parcel.writeInt(this.f12625i);
         parcel.writeString(this.j);
         parcel.writeInt(this.k ? 1 : 0);
         parcel.writeInt(this.l ? 1 : 0);
@@ -111,11 +113,11 @@ public final class FragmentState implements Parcelable {
     }
 
     public FragmentState(Parcel parcel) {
-        this.f12713e = parcel.readString();
-        this.f12714f = parcel.readInt();
-        this.f12715g = parcel.readInt() != 0;
-        this.f12716h = parcel.readInt();
-        this.i = parcel.readInt();
+        this.f12621e = parcel.readString();
+        this.f12622f = parcel.readInt();
+        this.f12623g = parcel.readInt() != 0;
+        this.f12624h = parcel.readInt();
+        this.f12625i = parcel.readInt();
         this.j = parcel.readString();
         this.k = parcel.readInt() != 0;
         this.l = parcel.readInt() != 0;

@@ -22,25 +22,25 @@ public class HSFJSONUtils {
         JSONLexerBase jSONLexerBase = (JSONLexerBase) defaultJSONParser.getLexer();
         Object[] objArr = null;
         ParseContext context = defaultJSONParser.setContext(null, null);
-        int i = jSONLexerBase.token();
-        int i2 = 0;
-        if (i != 12) {
-            if (i == 14) {
+        int i2 = jSONLexerBase.token();
+        int i3 = 0;
+        if (i2 != 12) {
+            if (i2 == 14) {
                 String[] scanFieldStringArray = jSONLexerBase.scanFieldStringArray(null, -1, typeSymbolTable);
                 jSONLexerBase.skipWhitespace();
                 char current = jSONLexerBase.getCurrent();
                 if (current == ']') {
                     Type[] genericParameterTypes = methodLocator.findMethod(null).getGenericParameterTypes();
                     Object[] objArr2 = new Object[scanFieldStringArray.length];
-                    while (i2 < scanFieldStringArray.length) {
-                        Type type = genericParameterTypes[i2];
-                        String str2 = scanFieldStringArray[i2];
+                    while (i3 < scanFieldStringArray.length) {
+                        Type type = genericParameterTypes[i3];
+                        String str2 = scanFieldStringArray[i3];
                         if (type != String.class) {
-                            objArr2[i2] = TypeUtils.cast(str2, type, defaultJSONParser.getConfig());
+                            objArr2[i3] = TypeUtils.cast(str2, type, defaultJSONParser.getConfig());
                         } else {
-                            objArr2[i2] = str2;
+                            objArr2[i3] = str2;
                         }
-                        i2++;
+                        i3++;
                     }
                     return objArr2;
                 }
@@ -70,9 +70,9 @@ public class HSFJSONUtils {
             }
             Type[] genericParameterTypes2 = findMethod2.getGenericParameterTypes();
             Object[] objArr3 = new Object[genericParameterTypes2.length];
-            while (i2 < genericParameterTypes2.length) {
-                objArr3[i2] = jSONArray.getObject(i2, genericParameterTypes2[i2]);
-                i2++;
+            while (i3 < genericParameterTypes2.length) {
+                objArr3[i3] = jSONArray.getObject(i3, genericParameterTypes2[i3]);
+                i3++;
             }
             return objArr3;
         }

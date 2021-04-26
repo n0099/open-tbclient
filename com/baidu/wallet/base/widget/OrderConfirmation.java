@@ -14,29 +14,31 @@ import com.baidu.apollon.utils.ResUtils;
 public class OrderConfirmation extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f23569a;
+    public NetImageView f24299a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NetImageView f23570b;
+    public NetImageView f24300b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f23571c;
+    public View f24301c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f23572d;
+    public TextView f24302d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f23573e;
+    public ImageView f24303e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f23574f;
+    public View f24304f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f23575g;
+    public TextView f24305g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f23576h;
-    public TextView i;
+    public View f24306h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f24307i;
     public View j;
     public TextView k;
     public TextView l;
@@ -46,11 +48,11 @@ public class OrderConfirmation extends LinearLayout {
 
     public OrderConfirmation(Context context) {
         super(context);
-        this.f23571c = null;
-        this.f23572d = null;
-        this.f23573e = null;
-        this.f23574f = null;
-        this.f23575g = null;
+        this.f24301c = null;
+        this.f24302d = null;
+        this.f24303e = null;
+        this.f24304f = null;
+        this.f24305g = null;
         this.j = null;
         this.k = null;
         this.l = null;
@@ -62,9 +64,9 @@ public class OrderConfirmation extends LinearLayout {
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_orderconfirmation"), this);
-        this.f23569a = (NetImageView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_back"));
-        this.f23570b = (NetImageView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_title"));
-        this.f23570b.setImageResource(ResUtils.drawable(getContext(), "wallet_cashdesk_logo"));
+        this.f24299a = (NetImageView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_back"));
+        this.f24300b = (NetImageView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_title"));
+        this.f24300b.setImageResource(ResUtils.drawable(getContext(), "wallet_cashdesk_logo"));
         TextView textView = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_pay_title"));
         this.n = textView;
         if (textView != null) {
@@ -75,13 +77,13 @@ public class OrderConfirmation extends LinearLayout {
         if (textView2 != null) {
             textView2.setText("");
         }
-        this.f23571c = findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_ebpay_account_layout"));
-        this.f23573e = (ImageView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_ebpay_account_icon"));
-        this.f23572d = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_ebpay_account"));
-        this.f23574f = findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_account"));
-        this.f23575g = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_account_value"));
-        this.f23576h = findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_sp_name"));
-        this.i = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_spname_value"));
+        this.f24301c = findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_ebpay_account_layout"));
+        this.f24303e = (ImageView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_ebpay_account_icon"));
+        this.f24302d = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_ebpay_account"));
+        this.f24304f = findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_account"));
+        this.f24305g = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_account_value"));
+        this.f24306h = findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_sp_name"));
+        this.f24307i = (TextView) findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_spname_value"));
         View findViewById = findViewById(ResUtils.id(getContext(), "bd_wallet_id_base_order_goods"));
         this.j = findViewById;
         if (findViewById != null) {
@@ -106,15 +108,15 @@ public class OrderConfirmation extends LinearLayout {
 
     private void b() {
         if (this.n != null) {
-            View view = this.f23571c;
-            int i = (view == null || view.getVisibility() != 0) ? 0 : 1;
-            if (this.f23571c != null && this.f23574f.getVisibility() == 0) {
-                i++;
+            View view = this.f24301c;
+            int i2 = (view == null || view.getVisibility() != 0) ? 0 : 1;
+            if (this.f24301c != null && this.f24304f.getVisibility() == 0) {
+                i2++;
             }
-            if (this.f23571c != null && this.j.getVisibility() == 0) {
-                i++;
+            if (this.f24301c != null && this.j.getVisibility() == 0) {
+                i2++;
             }
-            if (i >= 3) {
+            if (i2 >= 3) {
                 this.n.setVisibility(8);
             } else {
                 this.n.setVisibility(0);
@@ -123,7 +125,7 @@ public class OrderConfirmation extends LinearLayout {
     }
 
     public View getBackButton() {
-        return this.f23569a;
+        return this.f24299a;
     }
 
     public View getCouponInfoView() {
@@ -131,20 +133,20 @@ public class OrderConfirmation extends LinearLayout {
     }
 
     public void setAccountInfo(String str, View.OnClickListener onClickListener) {
-        if (this.f23571c != null) {
+        if (this.f24301c != null) {
             if (!TextUtils.isEmpty(str)) {
-                this.f23571c.setVisibility(0);
+                this.f24301c.setVisibility(0);
                 if (onClickListener != null) {
-                    this.f23571c.setOnClickListener(onClickListener);
-                    this.f23573e.setVisibility(0);
+                    this.f24301c.setOnClickListener(onClickListener);
+                    this.f24303e.setVisibility(0);
                 } else {
-                    this.f23573e.setVisibility(4);
+                    this.f24303e.setVisibility(4);
                 }
-                this.f23572d.setText(str);
+                this.f24302d.setText(str);
                 b();
                 return;
             }
-            this.f23571c.setVisibility(8);
+            this.f24301c.setVisibility(8);
         }
     }
 
@@ -187,17 +189,17 @@ public class OrderConfirmation extends LinearLayout {
     }
 
     public void setOrderInfo(CharSequence charSequence) {
-        View view = this.f23574f;
+        View view = this.f24304f;
         if (view == null) {
             return;
         }
-        if (this.f23575g == null) {
+        if (this.f24305g == null) {
             view.setVisibility(8);
         } else if (!TextUtils.isEmpty(charSequence)) {
-            this.f23574f.setVisibility(0);
-            this.f23575g.setText(charSequence);
+            this.f24304f.setVisibility(0);
+            this.f24305g.setText(charSequence);
         } else {
-            this.f23574f.setVisibility(8);
+            this.f24304f.setVisibility(8);
         }
     }
 
@@ -211,17 +213,17 @@ public class OrderConfirmation extends LinearLayout {
     }
 
     public void setSpNameValue(CharSequence charSequence) {
-        View view = this.f23576h;
+        View view = this.f24306h;
         if (view == null) {
             return;
         }
-        if (this.i == null) {
+        if (this.f24307i == null) {
             view.setVisibility(8);
         } else if (!TextUtils.isEmpty(charSequence)) {
-            this.f23576h.setVisibility(0);
-            this.i.setText(charSequence);
+            this.f24306h.setVisibility(0);
+            this.f24307i.setText(charSequence);
         } else {
-            this.f23576h.setVisibility(8);
+            this.f24306h.setVisibility(8);
         }
     }
 
@@ -229,16 +231,16 @@ public class OrderConfirmation extends LinearLayout {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f23570b.setImageUrl(str);
+        this.f24300b.setImageUrl(str);
     }
 
     public OrderConfirmation(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23571c = null;
-        this.f23572d = null;
-        this.f23573e = null;
-        this.f23574f = null;
-        this.f23575g = null;
+        this.f24301c = null;
+        this.f24302d = null;
+        this.f24303e = null;
+        this.f24304f = null;
+        this.f24305g = null;
         this.j = null;
         this.k = null;
         this.l = null;

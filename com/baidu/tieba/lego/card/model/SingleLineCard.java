@@ -4,8 +4,8 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import d.b.j0.j1.o.j.c;
-import d.b.j0.j1.o.k.b;
+import d.a.j0.j1.o.j.c;
+import d.a.j0.j1.o.k.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -61,8 +61,8 @@ public class SingleLineCard extends BaseCardInfo {
         JSONArray optJSONArray = jSONObject.optJSONArray("params");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         this.params = new ArrayList(length);
-        for (int i = 0; i < length; i++) {
-            this.params.add(optJSONArray.optString(i));
+        for (int i2 = 0; i2 < length; i2++) {
+            this.params.add(optJSONArray.optString(i2));
         }
         this.paramColor = b.b(jSONObject.optString("pColor", ""));
         this.paramColorNight = b.b(jSONObject.optString("pColorNight", ""));

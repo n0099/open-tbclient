@@ -78,13 +78,13 @@ public final class BitmapUtil {
     }
 
     public static int getPixelSizeForBitmapConfig(Bitmap.Config config) {
-        int i = AnonymousClass1.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
-        if (i != 1) {
-            if (i != 2) {
-                if (i == 3 || i == 4) {
+        int i2 = AnonymousClass1.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 == 3 || i2 == 4) {
                     return 2;
                 }
-                if (i == 5) {
+                if (i2 == 5) {
                     return 8;
                 }
                 throw new UnsupportedOperationException("The provided Bitmap.Config is not supported");
@@ -94,8 +94,8 @@ public final class BitmapUtil {
         return 4;
     }
 
-    public static int getSizeInByteForBitmap(int i, int i2, Bitmap.Config config) {
-        return i * i2 * getPixelSizeForBitmapConfig(config);
+    public static int getSizeInByteForBitmap(int i2, int i3, Bitmap.Config config) {
+        return i2 * i3 * getPixelSizeForBitmapConfig(config);
     }
 
     @SuppressLint({"NewApi"})

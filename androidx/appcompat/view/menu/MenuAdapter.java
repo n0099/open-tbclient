@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuView;
 import java.util.ArrayList;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class MenuAdapter extends BaseAdapter {
     public MenuBuilder mAdapterMenu;
@@ -17,11 +17,11 @@ public class MenuAdapter extends BaseAdapter {
     public final int mItemLayoutRes;
     public final boolean mOverflowOnly;
 
-    public MenuAdapter(MenuBuilder menuBuilder, LayoutInflater layoutInflater, boolean z, int i) {
+    public MenuAdapter(MenuBuilder menuBuilder, LayoutInflater layoutInflater, boolean z, int i2) {
         this.mOverflowOnly = z;
         this.mInflater = layoutInflater;
         this.mAdapterMenu = menuBuilder;
-        this.mItemLayoutRes = i;
+        this.mItemLayoutRes = i2;
         findExpandedIndex();
     }
 
@@ -30,9 +30,9 @@ public class MenuAdapter extends BaseAdapter {
         if (expandedItem != null) {
             ArrayList<MenuItemImpl> nonActionItems = this.mAdapterMenu.getNonActionItems();
             int size = nonActionItems.size();
-            for (int i = 0; i < size; i++) {
-                if (nonActionItems.get(i) == expandedItem) {
-                    this.mExpandedIndex = i;
+            for (int i2 = 0; i2 < size; i2++) {
+                if (nonActionItems.get(i2) == expandedItem) {
+                    this.mExpandedIndex = i2;
                     return;
                 }
             }
@@ -58,24 +58,24 @@ public class MenuAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
+    public long getItemId(int i2) {
+        return i2;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i2, View view, ViewGroup viewGroup) {
         if (view == null) {
             view = this.mInflater.inflate(this.mItemLayoutRes, viewGroup, false);
         }
-        int groupId = getItem(i).getGroupId();
-        int i2 = i - 1;
+        int groupId = getItem(i2).getGroupId();
+        int i3 = i2 - 1;
         ListMenuItemView listMenuItemView = (ListMenuItemView) view;
-        listMenuItemView.setGroupDividerEnabled(this.mAdapterMenu.isGroupDividerEnabled() && groupId != (i2 >= 0 ? getItem(i2).getGroupId() : groupId));
+        listMenuItemView.setGroupDividerEnabled(this.mAdapterMenu.isGroupDividerEnabled() && groupId != (i3 >= 0 ? getItem(i3).getGroupId() : groupId));
         MenuView.ItemView itemView = (MenuView.ItemView) view;
         if (this.mForceShowIcon) {
             listMenuItemView.setForceShowIcon(true);
         }
-        itemView.initialize(getItem(i), 0);
+        itemView.initialize(getItem(i2), 0);
         return view;
     }
 
@@ -91,12 +91,12 @@ public class MenuAdapter extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    public MenuItemImpl getItem(int i) {
+    public MenuItemImpl getItem(int i2) {
         ArrayList<MenuItemImpl> nonActionItems = this.mOverflowOnly ? this.mAdapterMenu.getNonActionItems() : this.mAdapterMenu.getVisibleItems();
-        int i2 = this.mExpandedIndex;
-        if (i2 >= 0 && i >= i2) {
-            i++;
+        int i3 = this.mExpandedIndex;
+        if (i3 >= 0 && i2 >= i3) {
+            i2++;
         }
-        return nonActionItems.get(i);
+        return nonActionItems.get(i2);
     }
 }

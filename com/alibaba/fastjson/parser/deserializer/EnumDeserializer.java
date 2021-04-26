@@ -26,19 +26,19 @@ public class EnumDeserializer implements ObjectDeserializer {
     */
     public EnumDeserializer(Class<?> cls) {
         JSONField jSONField;
-        int i;
+        int i2;
         long j;
         long j2;
         this.enumClass = cls;
         this.ordinalEnums = (Enum[]) cls.getEnumConstants();
         HashMap hashMap = new HashMap();
-        int i2 = 0;
+        int i3 = 0;
         while (true) {
             Enum[] enumArr = this.ordinalEnums;
-            if (i2 >= enumArr.length) {
+            if (i3 >= enumArr.length) {
                 break;
             }
-            Enum r5 = enumArr[i2];
+            Enum r5 = enumArr[i3];
             String name = r5.name();
             JSONField jSONField2 = null;
             try {
@@ -52,32 +52,32 @@ public class EnumDeserializer implements ObjectDeserializer {
                     } catch (Exception unused) {
                         jSONField2 = jSONField;
                         jSONField = jSONField2;
-                        i = 0;
+                        i2 = 0;
                         j = -3750763034362895579L;
                         j2 = -3750763034362895579L;
-                        while (i < name.length()) {
+                        while (i2 < name.length()) {
                         }
                         hashMap.put(Long.valueOf(j), r5);
                         if (j != j2) {
                         }
                         if (jSONField == null) {
                         }
-                        i2++;
+                        i3++;
                     }
                 }
             } catch (Exception unused2) {
             }
-            i = 0;
+            i2 = 0;
             j = -3750763034362895579L;
             j2 = -3750763034362895579L;
-            while (i < name.length()) {
-                int charAt = name.charAt(i);
+            while (i2 < name.length()) {
+                int charAt = name.charAt(i2);
                 long j3 = charAt ^ j;
                 if (charAt >= 65 && charAt <= 90) {
                     charAt += 32;
                 }
                 j2 = (charAt ^ j2) * 1099511628211L;
-                i++;
+                i2++;
                 j = j3 * 1099511628211L;
             }
             hashMap.put(Long.valueOf(j), r5);
@@ -87,42 +87,42 @@ public class EnumDeserializer implements ObjectDeserializer {
             if (jSONField == null) {
                 String[] alternateNames = jSONField.alternateNames();
                 int length = alternateNames.length;
-                int i3 = 0;
-                while (i3 < length) {
-                    String str = alternateNames[i3];
-                    int i4 = 0;
+                int i4 = 0;
+                while (i4 < length) {
+                    String str = alternateNames[i4];
+                    int i5 = 0;
                     long j4 = -3750763034362895579L;
-                    while (i4 < str.length()) {
-                        j4 = (j4 ^ str.charAt(i4)) * 1099511628211L;
-                        i4++;
-                        i2 = i2;
+                    while (i5 < str.length()) {
+                        j4 = (j4 ^ str.charAt(i5)) * 1099511628211L;
+                        i5++;
+                        i3 = i3;
                     }
-                    int i5 = i2;
+                    int i6 = i3;
                     if (j4 != j && j4 != j2) {
                         hashMap.put(Long.valueOf(j4), r5);
                     }
-                    i3++;
-                    i2 = i5;
+                    i4++;
+                    i3 = i6;
                 }
             }
-            i2++;
+            i3++;
         }
         this.enumNameHashCodes = new long[hashMap.size()];
-        int i6 = 0;
+        int i7 = 0;
         for (Long l : hashMap.keySet()) {
-            this.enumNameHashCodes[i6] = l.longValue();
-            i6++;
+            this.enumNameHashCodes[i7] = l.longValue();
+            i7++;
         }
         Arrays.sort(this.enumNameHashCodes);
         this.enums = new Enum[this.enumNameHashCodes.length];
-        int i7 = 0;
+        int i8 = 0;
         while (true) {
             long[] jArr = this.enumNameHashCodes;
-            if (i7 >= jArr.length) {
+            if (i8 >= jArr.length) {
                 return;
             }
-            this.enums[i7] = (Enum) hashMap.get(Long.valueOf(jArr[i7]));
-            i7++;
+            this.enums[i8] = (Enum) hashMap.get(Long.valueOf(jArr[i8]));
+            i8++;
         }
     }
 
@@ -130,15 +130,15 @@ public class EnumDeserializer implements ObjectDeserializer {
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
         try {
             JSONLexer jSONLexer = defaultJSONParser.lexer;
-            int i = jSONLexer.token();
-            if (i == 2) {
+            int i2 = jSONLexer.token();
+            if (i2 == 2) {
                 int intValue = jSONLexer.intValue();
                 jSONLexer.nextToken(16);
                 if (intValue >= 0 && intValue < this.ordinalEnums.length) {
                     return (T) this.ordinalEnums[intValue];
                 }
                 throw new JSONException("parse enum " + this.enumClass.getName() + " error, value : " + intValue);
-            } else if (i == 4) {
+            } else if (i2 == 4) {
                 String stringVal = jSONLexer.stringVal();
                 jSONLexer.nextToken(16);
                 if (stringVal.length() == 0) {
@@ -146,8 +146,8 @@ public class EnumDeserializer implements ObjectDeserializer {
                 }
                 long j = -3750763034362895579L;
                 long j2 = -3750763034362895579L;
-                for (int i2 = 0; i2 < stringVal.length(); i2++) {
-                    int charAt = stringVal.charAt(i2);
+                for (int i3 = 0; i3 < stringVal.length(); i3++) {
+                    int charAt = stringVal.charAt(i3);
                     long j3 = j ^ charAt;
                     if (charAt >= 65 && charAt <= 90) {
                         charAt += 32;
@@ -164,7 +164,7 @@ public class EnumDeserializer implements ObjectDeserializer {
                 }
                 return t;
             } else {
-                if (i == 8) {
+                if (i2 == 8) {
                     jSONLexer.nextToken(16);
                     return null;
                 }
@@ -190,7 +190,7 @@ public class EnumDeserializer implements ObjectDeserializer {
         return 2;
     }
 
-    public Enum<?> valueOf(int i) {
-        return this.ordinalEnums[i];
+    public Enum<?> valueOf(int i2) {
+        return this.ordinalEnums[i2];
     }
 }

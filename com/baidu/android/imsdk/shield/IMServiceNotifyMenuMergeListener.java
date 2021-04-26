@@ -9,9 +9,9 @@ public class IMServiceNotifyMenuMergeListener implements IGetSubscriptionListene
     public GetShieldAndTopResult mShieldResult = null;
     public GetSubscriptionResult mSubscriptionResult = null;
 
-    public IMServiceNotifyMenuMergeListener(int i, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
+    public IMServiceNotifyMenuMergeListener(int i2, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
         this.mListener = iGetServiceNotifyMenuListener;
-        this.mCategory = i;
+        this.mCategory = i2;
     }
 
     @Override // com.baidu.android.imsdk.shield.IGetShieldAndTopListener

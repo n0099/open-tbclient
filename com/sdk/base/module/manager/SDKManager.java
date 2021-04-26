@@ -62,11 +62,11 @@ public abstract class SDKManager {
     }
 
     public static void setDebug(boolean z) {
-        f.f38904b = z;
+        f.f36488b = z;
     }
 
     public static void setDebugHead(boolean z) {
-        f.f38906d = z;
+        f.f36490d = z;
     }
 
     public static void setIsStrong(boolean z) {
@@ -93,9 +93,9 @@ public abstract class SDKManager {
         userAgent = str;
     }
 
-    public static <T> void toFailed(CallBack<T> callBack, int i, String str) {
+    public static <T> void toFailed(CallBack<T> callBack, int i2, String str) {
         if (callBack != null) {
-            callBack.onFailed(1, i, str, null);
+            callBack.onFailed(1, i2, str, null);
         }
     }
 

@@ -7,11 +7,11 @@ import okhttp3.ResponseBody;
 public abstract class StringResponseCallback extends ResponseCallback<String> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.callback.ResponseCallback
-    public String parseResponse(Response response, int i) throws Exception {
+    public String parseResponse(Response response, int i2) throws Exception {
         ResponseBody body = response.body();
         if (body != null) {
             return body.string();
         }
-        throw new IOException("not get response body, status is " + i);
+        throw new IOException("not get response body, status is " + i2);
     }
 }

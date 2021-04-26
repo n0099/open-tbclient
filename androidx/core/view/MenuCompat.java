@@ -17,7 +17,7 @@ public final class MenuCompat {
     }
 
     @Deprecated
-    public static void setShowAsAction(MenuItem menuItem, int i) {
-        menuItem.setShowAsAction(i);
+    public static void setShowAsAction(MenuItem menuItem, int i2) {
+        menuItem.setShowAsAction(i2);
     }
 }

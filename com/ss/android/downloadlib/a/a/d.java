@@ -13,8 +13,8 @@ public class d extends Intent {
     }
 
     @Override // android.content.Intent, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         a(parcel);
-        super.writeToParcel(parcel, i);
+        super.writeToParcel(parcel, i2);
     }
 }

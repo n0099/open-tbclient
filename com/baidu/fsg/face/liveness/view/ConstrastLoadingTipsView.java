@@ -15,29 +15,31 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class ConstrastLoadingTipsView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f6071a;
+    public TextView f6243a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f6072b;
+    public LinearLayout f6244b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f6073c;
+    public b f6245c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f6074d;
+    public TextView f6246d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f6075e;
+    public TextView f6247e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f6076f;
+    public ImageView f6248f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f6077g;
+    public TextView f6249g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f6078h;
-    public a i;
+    public TextView f6250h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public a f6251i;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -54,13 +56,13 @@ public class ConstrastLoadingTipsView extends LinearLayout {
 
         @Override // android.os.CountDownTimer
         public void onFinish() {
-            ConstrastLoadingTipsView.this.f6071a.setVisibility(8);
-            ConstrastLoadingTipsView.this.f6072b.setVisibility(0);
+            ConstrastLoadingTipsView.this.f6243a.setVisibility(8);
+            ConstrastLoadingTipsView.this.f6244b.setVisibility(0);
         }
 
         @Override // android.os.CountDownTimer
         public void onTick(long j) {
-            TextView textView = ConstrastLoadingTipsView.this.f6071a;
+            TextView textView = ConstrastLoadingTipsView.this.f6243a;
             textView.setText((j / 1000) + "");
         }
     }
@@ -76,61 +78,61 @@ public class ConstrastLoadingTipsView extends LinearLayout {
             confirmBean.tips_sec = 5;
         }
         b bVar = new b((confirmBean.tips_sec * 1000) + 1000, 1000L);
-        this.f6073c = bVar;
+        this.f6245c = bVar;
         bVar.start();
         if (!TextUtils.isEmpty(confirmBean.confirm_msg)) {
-            this.f6074d.setText(confirmBean.confirm_msg);
+            this.f6246d.setText(confirmBean.confirm_msg);
         }
         if (!TextUtils.isEmpty(confirmBean.cancel_msg)) {
-            this.f6075e.setText(confirmBean.cancel_msg);
+            this.f6247e.setText(confirmBean.cancel_msg);
         }
-        TextView textView = this.f6071a;
+        TextView textView = this.f6243a;
         textView.setText(confirmBean.tips_sec + "");
         if (!uploadContrastPortraitModel.isContrastPass()) {
-            this.f6076f.setVisibility(8);
+            this.f6248f.setVisibility(8);
         }
         if (!TextUtils.isEmpty(confirmBean.tip_msg)) {
-            this.f6078h.setText(confirmBean.tip_msg);
+            this.f6250h.setText(confirmBean.tip_msg);
         }
         if (TextUtils.isEmpty(confirmBean.title_tips)) {
             return;
         }
-        this.f6077g.setText(confirmBean.title_tips);
+        this.f6249g.setText(confirmBean.title_tips);
     }
 
     public void setOnClickListener(a aVar) {
-        this.i = aVar;
+        this.f6251i = aVar;
     }
 
     @Override // android.view.View
-    public void setVisibility(int i) {
-        super.setVisibility(i);
-        if (i == 0) {
-            this.f6073c.start();
+    public void setVisibility(int i2) {
+        super.setVisibility(i2);
+        if (i2 == 0) {
+            this.f6245c.start();
         }
     }
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.rim_face_result_tips_pages, this);
-        this.f6071a = (TextView) findViewById(R.id.rim_face_result_tips_time_tv);
-        this.f6072b = (LinearLayout) findViewById(R.id.rim_face_result_tips_btn_ll);
-        this.f6074d = (TextView) findViewById(R.id.rim_face_result_tips_confirm);
-        this.f6075e = (TextView) findViewById(R.id.rim_face_result_tips_cancel);
-        this.f6076f = (ImageView) findViewById(R.id.rim_face_result_tips_pages_img);
-        this.f6078h = (TextView) findViewById(R.id.rim_face_result_tips_pages_tips_msg);
-        this.f6077g = (TextView) findViewById(R.id.rim_face_result_tips_pages_tips_title);
-        this.f6071a.setVisibility(0);
-        this.f6072b.setVisibility(8);
-        this.f6074d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.ConstrastLoadingTipsView.1
+        this.f6243a = (TextView) findViewById(R.id.rim_face_result_tips_time_tv);
+        this.f6244b = (LinearLayout) findViewById(R.id.rim_face_result_tips_btn_ll);
+        this.f6246d = (TextView) findViewById(R.id.rim_face_result_tips_confirm);
+        this.f6247e = (TextView) findViewById(R.id.rim_face_result_tips_cancel);
+        this.f6248f = (ImageView) findViewById(R.id.rim_face_result_tips_pages_img);
+        this.f6250h = (TextView) findViewById(R.id.rim_face_result_tips_pages_tips_msg);
+        this.f6249g = (TextView) findViewById(R.id.rim_face_result_tips_pages_tips_title);
+        this.f6243a.setVisibility(0);
+        this.f6244b.setVisibility(8);
+        this.f6246d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.ConstrastLoadingTipsView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ConstrastLoadingTipsView.this.i.a();
+                ConstrastLoadingTipsView.this.f6251i.a();
             }
         });
-        this.f6075e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.ConstrastLoadingTipsView.2
+        this.f6247e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.fsg.face.liveness.view.ConstrastLoadingTipsView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ConstrastLoadingTipsView.this.i.b();
+                ConstrastLoadingTipsView.this.f6251i.b();
             }
         });
     }

@@ -1,12 +1,14 @@
 package g.a.b.b;
 /* loaded from: classes7.dex */
 public abstract class a extends d implements g.a.a.b {
-    public Class[] i;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Class[] f67549i;
     public Class[] j;
 
-    public a(int i, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2) {
-        super(i, str, cls);
-        this.i = clsArr;
+    public a(int i2, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2) {
+        super(i2, str, cls);
+        this.f67549i = clsArr;
         this.j = clsArr2;
     }
 
@@ -18,9 +20,9 @@ public abstract class a extends d implements g.a.a.b {
     }
 
     public Class[] m() {
-        if (this.i == null) {
-            this.i = e(3);
+        if (this.f67549i == null) {
+            this.f67549i = e(3);
         }
-        return this.i;
+        return this.f67549i;
     }
 }

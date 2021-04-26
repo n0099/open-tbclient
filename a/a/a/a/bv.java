@@ -5,14 +5,14 @@ import com.baidu.cloudbase.audiofilter.AudioFilter;
 public class bv implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ AudioFilter f1012a;
+    public final /* synthetic */ AudioFilter f1006a;
 
     public bv(AudioFilter audioFilter) {
-        this.f1012a = audioFilter;
+        this.f1006a = audioFilter;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1012a.a();
+        this.f1006a.a();
     }
 }

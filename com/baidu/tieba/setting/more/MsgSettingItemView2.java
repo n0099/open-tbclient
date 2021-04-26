@@ -8,11 +8,11 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MsgSettingItemView2 extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public CheckBox f20732e;
+    public CheckBox f21289e;
 
     public MsgSettingItemView2(Context context) {
         super(context);
@@ -22,11 +22,11 @@ public class MsgSettingItemView2 extends LinearLayout {
     public void a(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.msg_setting_item_view2, (ViewGroup) this, true);
-        this.f20732e = (CheckBox) findViewById(R.id.setting_check_view);
+        this.f21289e = (CheckBox) findViewById(R.id.setting_check_view);
     }
 
     public CheckBox getSwitchView() {
-        return this.f20732e;
+        return this.f21289e;
     }
 
     @Deprecated
@@ -37,7 +37,7 @@ public class MsgSettingItemView2 extends LinearLayout {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.f20732e.setText(str);
+        this.f21289e.setText(str);
     }
 
     public MsgSettingItemView2(Context context, AttributeSet attributeSet) {
@@ -45,9 +45,9 @@ public class MsgSettingItemView2 extends LinearLayout {
         a(context);
     }
 
-    public void setText(int i) {
-        if (i != 0) {
-            this.f20732e.setText(i);
+    public void setText(int i2) {
+        if (i2 != 0) {
+            this.f21289e.setText(i2);
         }
     }
 }

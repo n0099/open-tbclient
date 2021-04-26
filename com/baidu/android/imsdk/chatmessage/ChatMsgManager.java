@@ -33,17 +33,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ChatMsgManager extends BaseManager {
-    public static void asyncUploadImgToBos(Context context, String str, String str2, int i, int i2, int i3, IUploadTransferListener iUploadTransferListener) {
+    public static void asyncUploadImgToBos(Context context, String str, String str2, int i2, int i3, int i4, IUploadTransferListener iUploadTransferListener) {
         if (context != null && !TextUtils.isEmpty(str)) {
-            ChatMsgManagerImpl.getInstance(context).asyncUploadImgToBos(str, str2, i, i2, i3, iUploadTransferListener);
+            ChatMsgManagerImpl.getInstance(context).asyncUploadImgToBos(str, str2, i2, i3, i4, iUploadTransferListener);
         } else if (iUploadTransferListener != null) {
             iUploadTransferListener.onFailed(1005, 1, str);
         }
     }
 
-    public static void audioTrans(Context context, String str, String str2, String str3, int i, BIMValueCallBack bIMValueCallBack) {
+    public static void audioTrans(Context context, String str, String str2, String str3, int i2, BIMValueCallBack bIMValueCallBack) {
         if (context != null && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            ChatMsgManagerImpl.getInstance(context).audioTrans(str, str2, str3, i, bIMValueCallBack);
+            ChatMsgManagerImpl.getInstance(context).audioTrans(str, str2, str3, i2, bIMValueCallBack);
         } else if (bIMValueCallBack != null) {
             bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
         }
@@ -56,12 +56,12 @@ public class ChatMsgManager extends BaseManager {
         ChatMsgManagerImpl.getInstance(context).clearKillOutListener();
     }
 
-    public static void createChatSession(Context context, ChatObject chatObject, String str, int i, String str2, int i2, String str3, String str4, int i3, int i4, long j, int i5, long j2, String str5, String str6, String str7) {
-        ChatSessionManagerImpl.getInstance(context).createChatSession(chatObject, str, i, str2, i2, str3, str4, i3, i4, j, i5, j2, str5, str6, str7);
+    public static void createChatSession(Context context, ChatObject chatObject, String str, int i2, String str2, int i3, String str3, String str4, int i4, int i5, long j, int i6, long j2, String str5, String str6, String str7) {
+        ChatSessionManagerImpl.getInstance(context).createChatSession(chatObject, str, i2, str2, i3, str3, str4, i4, i5, j, i6, j2, str5, str6, str7);
     }
 
-    public static boolean deleteAllMsgs(Context context, int i, long j) {
-        return context != null && Utility.isCategoryCorrect(i) && Utility.isContacterCorrect(j) && ChatMsgManagerImpl.getInstance(context).deleteAllMsgs(i, j, false) >= 0;
+    public static boolean deleteAllMsgs(Context context, int i2, long j) {
+        return context != null && Utility.isCategoryCorrect(i2) && Utility.isContacterCorrect(j) && ChatMsgManagerImpl.getInstance(context).deleteAllMsgs(i2, j, false) >= 0;
     }
 
     public static boolean deleteChatSession(Context context, ChatSession chatSession) {
@@ -71,11 +71,11 @@ public class ChatMsgManager extends BaseManager {
         return ChatSessionManagerImpl.getInstance(context).deleteChatSession(chatSession);
     }
 
-    public static int deleteDraftMsg(Context context, int i, long j) {
+    public static int deleteDraftMsg(Context context, int i2, long j) {
         if (context == null) {
             return -1005;
         }
-        return ChatMsgManagerImpl.getInstance(context).deleteDraftMsg(i, j);
+        return ChatMsgManagerImpl.getInstance(context).deleteDraftMsg(i2, j);
     }
 
     public static int deleteMsg(Context context, ChatMsg chatMsg) {
@@ -85,27 +85,27 @@ public class ChatMsgManager extends BaseManager {
         return ChatMsgManagerImpl.getInstance(context).deleteMsgs(chatMsg);
     }
 
-    public static ArrayList<ChatMsg> fetchGroupNotifyMsgsSync(Context context, int i, long j, int i2, ChatMsg chatMsg) {
+    public static ArrayList<ChatMsg> fetchGroupNotifyMsgsSync(Context context, int i2, long j, int i3, ChatMsg chatMsg) {
         if (BaseManager.isNullContext(context)) {
             return null;
         }
-        return ChatMsgManagerImpl.getInstance(context.getApplicationContext()).fetchGroupNotifyMsgsSync(i, j, i2, false, chatMsg);
+        return ChatMsgManagerImpl.getInstance(context.getApplicationContext()).fetchGroupNotifyMsgsSync(i2, j, i3, false, chatMsg);
     }
 
     @Deprecated
-    public static ArrayList<ChatMsg> fetchMessageSync(Context context, int i, long j, long j2, int i2) {
+    public static ArrayList<ChatMsg> fetchMessageSync(Context context, int i2, long j, long j2, int i3) {
         if (BaseManager.isNullContext(context)) {
             return null;
         }
-        return ChatMsgManagerImpl.getInstance(context).fetchMessageSync(i, j, j2, i2);
+        return ChatMsgManagerImpl.getInstance(context).fetchMessageSync(i2, j, j2, i3);
     }
 
     @Deprecated
-    public static Pair<Integer, ArrayList<ChatMsg>> fetchMessageSyncWithState(Context context, int i, long j, long j2, int i2) {
+    public static Pair<Integer, ArrayList<ChatMsg>> fetchMessageSyncWithState(Context context, int i2, long j, long j2, int i3) {
         if (BaseManager.isNullContext(context)) {
             return null;
         }
-        ArrayList<ChatMsg> fetchMessageSync = ChatMsgManagerImpl.getInstance(context).fetchMessageSync(i, j, j2, i2);
+        ArrayList<ChatMsg> fetchMessageSync = ChatMsgManagerImpl.getInstance(context).fetchMessageSync(i2, j, j2, i3);
         ArrayList arrayList = new ArrayList();
         if (fetchMessageSync != null) {
             Iterator<ChatMsg> it = fetchMessageSync.iterator();
@@ -119,23 +119,23 @@ public class ChatMsgManager extends BaseManager {
         return new Pair<>(Integer.valueOf(SyncAllMessage.getInstance(context).getState()), arrayList);
     }
 
-    public static void fetchMsgByHostRequst(Context context, long j, int i, long j2, long j3, long j4, int i2, IFetchMsgByIdListener iFetchMsgByIdListener) {
-        fetchMsgByHostRequst(context, j, i, j2, j3, j4, i2, iFetchMsgByIdListener, false);
+    public static void fetchMsgByHostRequst(Context context, long j, int i2, long j2, long j3, long j4, int i3, IFetchMsgByIdListener iFetchMsgByIdListener) {
+        fetchMsgByHostRequst(context, j, i2, j2, j3, j4, i3, iFetchMsgByIdListener, false);
     }
 
-    public static void fetchMsgRequst(Context context, long j, long j2, int i, long j3, long j4, long j5, int i2, IFetchMsgByIdListener iFetchMsgByIdListener) {
-        fetchMsgRequst(context, j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener, false);
+    public static void fetchMsgRequst(Context context, long j, long j2, int i2, long j3, long j4, long j5, int i3, IFetchMsgByIdListener iFetchMsgByIdListener) {
+        fetchMsgRequst(context, j, j2, i2, j3, j4, j5, i3, iFetchMsgByIdListener, false);
     }
 
-    public static void fetchMsgidByMsgid(Context context, int i, long j, long j2, long j3, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener) {
-        ChatMsgManagerImpl.getInstance(context).fetchMsgidByMsgid(context, i, j, j2, j3, i2, i3, 0, iFetchMsgByIdListener);
+    public static void fetchMsgidByMsgid(Context context, int i2, long j, long j2, long j3, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener) {
+        ChatMsgManagerImpl.getInstance(context).fetchMsgidByMsgid(context, i2, j, j2, j3, i3, i4, 0, iFetchMsgByIdListener);
     }
 
-    public static void fetchPaChatMsgs(Context context, int i, int i2, long j, long j2, long j3, int i3, IFetchMessageListener iFetchMessageListener) {
-        ChatMsgManagerImpl.getInstance(context).fetchPaChatMsgs(i, i2, j, j2, j3, i3, iFetchMessageListener);
+    public static void fetchPaChatMsgs(Context context, int i2, int i3, long j, long j2, long j3, int i4, IFetchMessageListener iFetchMessageListener) {
+        ChatMsgManagerImpl.getInstance(context).fetchPaChatMsgs(i2, i3, j, j2, j3, i4, iFetchMessageListener);
     }
 
-    public static void forwardMessage(final Context context, String str, int i, final ChatMsg chatMsg, final ISendMessageListener iSendMessageListener) {
+    public static void forwardMessage(final Context context, String str, int i2, final ChatMsg chatMsg, final ISendMessageListener iSendMessageListener) {
         long j;
         long j2;
         if (context == null) {
@@ -154,7 +154,7 @@ public class ChatMsgManager extends BaseManager {
                 if (iSendMessageListener != null) {
                     iSendMessageListener.onSendMessageResult(1005, chatMsg);
                 }
-            } else if (i == 0) {
+            } else if (i2 == 0) {
                 chatMsg.setRowId(-1L);
                 chatMsg.setCategory(0);
                 chatMsg.setFromUser(AccountManager.getUK(context));
@@ -168,8 +168,8 @@ public class ChatMsgManager extends BaseManager {
                 arrayList.add(Long.valueOf(j));
                 ChatUserManagerImpl.getInstance(context).updateUserIdentity(arrayList, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManager.1
                     @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-                    public void onGetUserIdentityResult(int i2, List<ChatUser> list) {
-                        if (i2 != 0 || list == null) {
+                    public void onGetUserIdentityResult(int i3, List<ChatUser> list) {
+                        if (i3 != 0 || list == null) {
                             return;
                         }
                         ChatMsg.this.setContacter(list.get(0).getUk());
@@ -177,7 +177,7 @@ public class ChatMsgManager extends BaseManager {
                         ChatMsgManager.sendMessage(context, ChatMsg.this, iSendMessageListener);
                     }
                 });
-            } else if (i == 1) {
+            } else if (i2 == 1) {
                 try {
                     j2 = Long.valueOf(str).longValue();
                 } catch (NumberFormatException e3) {
@@ -186,14 +186,14 @@ public class ChatMsgManager extends BaseManager {
                     j2 = -1;
                 }
                 chatMsg.setRowId(-1L);
-                chatMsg.setCategory(i);
+                chatMsg.setCategory(i2);
                 chatMsg.setContacter(j2);
                 chatMsg.setFromUser(AccountManager.getUK(context));
                 chatMsg.setStatus(1);
                 chatMsg.setSenderUid(AccountManager.getUid(context));
                 chatMsg.setChatType(3);
                 chatMsg.setMsgTime(System.currentTimeMillis());
-                chatMsg.parseForwardmessage(i);
+                chatMsg.parseForwardmessage(i2);
                 sendMessage(context, chatMsg, iSendMessageListener);
             }
         } else {
@@ -204,9 +204,9 @@ public class ChatMsgManager extends BaseManager {
         }
     }
 
-    public static void genBosObjectUrl(Context context, String str, String str2, String str3, int i, int i2, int i3, IGenBosObjectUrlListener iGenBosObjectUrlListener) {
+    public static void genBosObjectUrl(Context context, String str, String str2, String str3, int i2, int i3, int i4, IGenBosObjectUrlListener iGenBosObjectUrlListener) {
         if (context != null && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            ChatMsgManagerImpl.getInstance(context).genBosObjectUrl(str, str2, str3, i, i2, i3, iGenBosObjectUrlListener);
+            ChatMsgManagerImpl.getInstance(context).genBosObjectUrl(str, str2, str3, i2, i3, i4, iGenBosObjectUrlListener);
         } else if (iGenBosObjectUrlListener != null) {
             iGenBosObjectUrlListener.onGenBosObjectUrlListener(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null, null, null);
         }
@@ -231,15 +231,15 @@ public class ChatMsgManager extends BaseManager {
         return ChatSessionManagerImpl.getInstance(context).getChatRecordsByClass(0L, 0L, list);
     }
 
-    public static ChatSession getChatSession(Context context, int i, long j) {
-        return ChatSessionManagerImpl.getInstance(context).getChatRecord(i, j);
+    public static ChatSession getChatSession(Context context, int i2, long j) {
+        return ChatSessionManagerImpl.getInstance(context).getChatRecord(i2, j);
     }
 
-    public static ChatMsg getDraftMsg(Context context, int i, long j) {
+    public static ChatMsg getDraftMsg(Context context, int i2, long j) {
         if (context == null) {
             return null;
         }
-        return ChatMsgManagerImpl.getInstance(context).getDraftMsg(i, j);
+        return ChatMsgManagerImpl.getInstance(context).getDraftMsg(i2, j);
     }
 
     public static List<ChatSession> getGroupSession(Context context) {
@@ -261,33 +261,33 @@ public class ChatMsgManager extends BaseManager {
     }
 
     @Deprecated
-    public static long getNewMsgNum(Context context, int i, long j) {
+    public static long getNewMsgNum(Context context, int i2, long j) {
         if (BaseManager.isNullContext(context)) {
             return -1L;
         }
-        return ChatMsgManagerImpl.getInstance(context).getNewMsgNum(i, j);
+        return ChatMsgManagerImpl.getInstance(context).getNewMsgNum(i2, j);
     }
 
-    public static void getNotificationMsgDataList(Context context, SparseArray<List<Integer>> sparseArray, long j, int i, IFetchNotificationDataListener iFetchNotificationDataListener) {
-        ChatMsgManagerImpl.getInstance(context).getNotificationMsgDataList(sparseArray, j, i, iFetchNotificationDataListener);
+    public static void getNotificationMsgDataList(Context context, SparseArray<List<Integer>> sparseArray, long j, int i2, IFetchNotificationDataListener iFetchNotificationDataListener) {
+        ChatMsgManagerImpl.getInstance(context).getNotificationMsgDataList(sparseArray, j, i2, iFetchNotificationDataListener);
     }
 
-    public static List<ChatMsg> getPaMsgByChatType(Context context, int i, int i2) {
+    public static List<ChatMsg> getPaMsgByChatType(Context context, int i2, int i3) {
         if (BaseManager.isNullContext(context)) {
             return null;
         }
-        return ChatMsgManagerImpl.getInstance(context).getPaMsgByChatType(i, i2);
+        return ChatMsgManagerImpl.getInstance(context).getPaMsgByChatType(i2, i3);
     }
 
-    public static void getPaMsgByChatTypeAndPaidList(Context context, List<Integer> list, List<Long> list2, long j, int i, IFetchNotificationDataListener iFetchNotificationDataListener) {
+    public static void getPaMsgByChatTypeAndPaidList(Context context, List<Integer> list, List<Long> list2, long j, int i2, IFetchNotificationDataListener iFetchNotificationDataListener) {
         if (BaseManager.isNullContext(context)) {
             return;
         }
-        ChatMsgManagerImpl.getInstance(context).getPaMsgByChatTypeAndPaidList(list, list2, j, i, iFetchNotificationDataListener);
+        ChatMsgManagerImpl.getInstance(context).getPaMsgByChatTypeAndPaidList(list, list2, j, i2, iFetchNotificationDataListener);
     }
 
-    public static void getPaNewMsgCount(Context context, int i, int i2, long j, IGetNewMsgCountListener iGetNewMsgCountListener) {
-        ChatMsgManagerImpl.getInstance(context).getPaNewMsgCount(i, i2, j, iGetNewMsgCountListener);
+    public static void getPaNewMsgCount(Context context, int i2, int i3, long j, IGetNewMsgCountListener iGetNewMsgCountListener) {
+        ChatMsgManagerImpl.getInstance(context).getPaNewMsgCount(i2, i3, j, iGetNewMsgCountListener);
     }
 
     @Deprecated
@@ -299,11 +299,11 @@ public class ChatMsgManager extends BaseManager {
     }
 
     @Deprecated
-    public static long getUnReadMsgCount(Context context, int i, long j) {
+    public static long getUnReadMsgCount(Context context, int i2, long j) {
         if (BaseManager.isNullContext(context)) {
             return -1L;
         }
-        return ChatMsgManagerImpl.getInstance(context).getNewMsgNum(i, j);
+        return ChatMsgManagerImpl.getInstance(context).getNewMsgNum(i2, j);
     }
 
     public static int getUnReadMsgCountByPaid(Context context, long j) {
@@ -332,8 +332,8 @@ public class ChatMsgManager extends BaseManager {
         return ChatMsgManagerImpl.getInstance(context).markMessageClicked(chatMsg);
     }
 
-    public static void mediaContactorSetting(Context context, long j, int i, IMediaContactorSettingListener iMediaContactorSettingListener) {
-        ChatSessionManagerImpl.getInstance(context).mediaContactorSetting(j, i, iMediaContactorSettingListener);
+    public static void mediaContactorSetting(Context context, long j, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatSessionManagerImpl.getInstance(context).mediaContactorSetting(j, i2, iMediaContactorSettingListener);
     }
 
     public static void mediaDeleteChatMsg(Context context, long j, long j2, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
@@ -347,23 +347,23 @@ public class ChatMsgManager extends BaseManager {
         ChatSessionManagerImpl.getInstance(context).mediaDeleteChatSession(j, j2, iMediaDeleteChatSessionListener);
     }
 
-    public static void mediaFetchChatMsgs(Context context, long j, long j2, long j3, int i, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
-        ChatMsgManagerImpl.getInstance(context).mediaFetchChatMsgs(context, j, j2, j3, i, iMediaFetchChatMsgsListener);
+    public static void mediaFetchChatMsgs(Context context, long j, long j2, long j3, int i2, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
+        ChatMsgManagerImpl.getInstance(context).mediaFetchChatMsgs(context, j, j2, j3, i2, iMediaFetchChatMsgsListener);
     }
 
-    public static void mediaGetChatSessions(Context context, long j, int i, long j2, String str, long j3, int i2, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+    public static void mediaGetChatSessions(Context context, long j, int i2, long j2, String str, long j3, int i3, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
         if (BaseManager.isNullContext(context)) {
             return;
         }
-        ChatSessionManagerImpl.getInstance(context).mediaGetChatSessions(j, i, j2, str, j3, i2, iMediaGetChatSessionListener);
+        ChatSessionManagerImpl.getInstance(context).mediaGetChatSessions(j, i2, j2, str, j3, i3, iMediaGetChatSessionListener);
     }
 
     public static void mediaGetContactorPauid(Context context, long j, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
         ChatSessionManagerImpl.getInstance(context).mediaGetContactorPauid(j, iMediaGetContactorPauidListener);
     }
 
-    public static void mediaGetContactorSetting(Context context, long j, int i, IMediaContactorSettingListener iMediaContactorSettingListener) {
-        ChatSessionManagerImpl.getInstance(context).mediaGetContactorSetting(j, i, iMediaContactorSettingListener);
+    public static void mediaGetContactorSetting(Context context, long j, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatSessionManagerImpl.getInstance(context).mediaGetContactorSetting(j, i2, iMediaContactorSettingListener);
     }
 
     public static void mediaRegisterChatMsgChangedListener(Context context, IMediaChatMsgChangedListener iMediaChatMsgChangedListener) {
@@ -410,8 +410,8 @@ public class ChatMsgManager extends BaseManager {
         ChatMsgManagerImpl.getInstance(context).registerStudioUsePaReceivePaMsg(iLiveMsgReceiveListener);
     }
 
-    public static void resendMsg(Context context, String str, String str2, int i, ISendMessageListener iSendMessageListener) {
-        ChatMsgManagerImpl.getInstance(context).resendMsg(str, str2, i, iSendMessageListener);
+    public static void resendMsg(Context context, String str, String str2, int i2, ISendMessageListener iSendMessageListener) {
+        ChatMsgManagerImpl.getInstance(context).resendMsg(str, str2, i2, iSendMessageListener);
     }
 
     public static int saveAsDraftMsg(Context context, ChatMsg chatMsg) {
@@ -439,30 +439,30 @@ public class ChatMsgManager extends BaseManager {
         }
     }
 
-    public static void sendPaChatMsg(Context context, int i, int i2, long j, int i3, String str, ISendMessageListener iSendMessageListener) {
-        ChatMsgManagerImpl.getInstance(context).sendPaChatMsg(i, i2, j, i3, str, iSendMessageListener);
+    public static void sendPaChatMsg(Context context, int i2, int i3, long j, int i4, String str, ISendMessageListener iSendMessageListener) {
+        ChatMsgManagerImpl.getInstance(context).sendPaChatMsg(i2, i3, j, i4, str, iSendMessageListener);
     }
 
-    public static boolean setAllMsgRead(Context context, int i, long j, boolean z) {
+    public static boolean setAllMsgRead(Context context, int i2, long j, boolean z) {
         if (BaseManager.isNullContext(context)) {
             return false;
         }
-        return ChatMsgManagerImpl.getInstance(context).setAllMsgRead(i, j, z);
+        return ChatMsgManagerImpl.getInstance(context).setAllMsgRead(i2, j, z);
     }
 
-    public static void setInterActiveMsgStatus(Context context, long j, long j2, int i, int i2) {
-        ChatMsgManagerImpl.getInstance(context).setInterActiveMsgStatus(j, j2, i, i2);
+    public static void setInterActiveMsgStatus(Context context, long j, long j2, int i2, int i3) {
+        ChatMsgManagerImpl.getInstance(context).setInterActiveMsgStatus(j, j2, i2, i3);
     }
 
     public static void setMediaAllSessionRead(Context context, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
         mediaSetSessionRead(context, -1L, -1, -1L, "", System.currentTimeMillis(), iMediaSetSessionReadListener);
     }
 
-    public static boolean setMsgRead(Context context, int i, long j, long j2, boolean z) {
+    public static boolean setMsgRead(Context context, int i2, long j, long j2, boolean z) {
         if (BaseManager.isNullContext(context)) {
             return false;
         }
-        return ChatMsgManagerImpl.getInstance(context).setMsgRead(i, j, j2, z);
+        return ChatMsgManagerImpl.getInstance(context).setMsgRead(i2, j, j2, z);
     }
 
     public static boolean setMsgReadByChatTpyes(Context context, List<Integer> list, long j) {
@@ -473,10 +473,10 @@ public class ChatMsgManager extends BaseManager {
         return ChatMsgManagerImpl.getInstance(context).setMsgReadByChatTypeAndSubType(sparseArray, j, iSetMessageReadListener);
     }
 
-    public static boolean setMsgReadByMsgId(Context context, long j, int i) {
-        if (i != 1 && i != 0) {
+    public static boolean setMsgReadByMsgId(Context context, long j, int i2) {
+        if (i2 != 1 && i2 != 0) {
             String str = BaseManager.TAG;
-            LogUtils.d(str, "return!!! for setMsgReadByMsgId...setType=" + i);
+            LogUtils.d(str, "return!!! for setMsgReadByMsgId...setType=" + i2);
             return false;
         }
         ChatMsg msgByMsgId = getMsgByMsgId(context, j);
@@ -489,10 +489,10 @@ public class ChatMsgManager extends BaseManager {
             }
             long contacter = msgByMsgId.getContacter();
             boolean isZhida = msgByMsgId.isZhida();
-            if (i == 0) {
+            if (i2 == 0) {
                 return setAllMsgRead(context, category, contacter, isZhida);
             }
-            if (i == 1) {
+            if (i2 == 1) {
                 return setMsgRead(context, category, contacter, j, isZhida);
             }
         }
@@ -500,8 +500,8 @@ public class ChatMsgManager extends BaseManager {
         return false;
     }
 
-    public static void setPaMsgsRead(Context context, int i, int i2, long j, long j2, long j3) {
-        ChatMsgManagerImpl.getInstance(context).setPaMsgsRead(i, i2, j, j2, j3);
+    public static void setPaMsgsRead(Context context, int i2, int i3, long j, long j2, long j3) {
+        ChatMsgManagerImpl.getInstance(context).setPaMsgsRead(i2, i3, j, j2, j3);
     }
 
     public static void unregisterChatSessionListener(Context context, IChatSessionChangeListener iChatSessionChangeListener) {
@@ -534,68 +534,68 @@ public class ChatMsgManager extends BaseManager {
         }
     }
 
-    public static void fetchMsgByHostRequst(Context context, long j, int i, long j2, long j3, long j4, int i2, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
-        ChatMsgManagerImpl.getInstance(context).fetchMsgByHostRequst(j, i, j2, j3, j4, i2, iFetchMsgByIdListener, z);
+    public static void fetchMsgByHostRequst(Context context, long j, int i2, long j2, long j3, long j4, int i3, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
+        ChatMsgManagerImpl.getInstance(context).fetchMsgByHostRequst(j, i2, j2, j3, j4, i3, iFetchMsgByIdListener, z);
     }
 
-    public static void fetchMsgRequst(Context context, long j, long j2, int i, long j3, long j4, long j5, int i2, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
-        ChatMsgManagerImpl.getInstance(context).fetchMsgRequst(j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener, z);
+    public static void fetchMsgRequst(Context context, long j, long j2, int i2, long j3, long j4, long j5, int i3, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
+        ChatMsgManagerImpl.getInstance(context).fetchMsgRequst(j, j2, i2, j3, j4, j5, i3, iFetchMsgByIdListener, z);
     }
 
-    public static ChatSession getChatSession(Context context, int i, long j, long j2) {
-        return ChatSessionManagerImpl.getInstance(context).getChatRecord(i, j, j2);
+    public static ChatSession getChatSession(Context context, int i2, long j, long j2) {
+        return ChatSessionManagerImpl.getInstance(context).getChatRecord(i2, j, j2);
     }
 
-    public static void mediaDeleteChatMsg(Context context, long j, int i, long j2, String str, long j3, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
-        ChatMsgManagerImpl.getInstance(context).mediaDeleteChatMsg(j, i, j2, str, j3, list, iMediaDeleteChatMsgListener);
+    public static void mediaDeleteChatMsg(Context context, long j, int i2, long j2, String str, long j3, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+        ChatMsgManagerImpl.getInstance(context).mediaDeleteChatMsg(j, i2, j2, str, j3, list, iMediaDeleteChatMsgListener);
     }
 
-    public static void mediaFetchChatMsgs(Context context, long j, int i, long j2, String str, long j3, long j4, int i2, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
-        ChatMsgManagerImpl.getInstance(context).mediaFetchChatMsgs(context, j, i, j2, str, j3, j4, i2, iMediaFetchChatMsgsListener);
+    public static void mediaFetchChatMsgs(Context context, long j, int i2, long j2, String str, long j3, long j4, int i3, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
+        ChatMsgManagerImpl.getInstance(context).mediaFetchChatMsgs(context, j, i2, j2, str, j3, j4, i3, iMediaFetchChatMsgsListener);
     }
 
-    public static void mediaSendChatMsg(Context context, long j, int i, long j2, String str, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
-        ChatMsgManagerImpl.getInstance(context).mediaSendChatMsg(j, i, j2, str, chatMsg, iMediaSendChatMsgListener);
+    public static void mediaSendChatMsg(Context context, long j, int i2, long j2, String str, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
+        ChatMsgManagerImpl.getInstance(context).mediaSendChatMsg(j, i2, j2, str, chatMsg, iMediaSendChatMsgListener);
     }
 
-    public static ArrayList<ChatMsg> fetchMessageSync(Context context, int i, long j, int i2, ChatMsg chatMsg) {
+    public static ArrayList<ChatMsg> fetchMessageSync(Context context, int i2, long j, int i3, ChatMsg chatMsg) {
         if (BaseManager.isNullContext(context)) {
             return null;
         }
-        return ChatMsgManagerImpl.getInstance(context).fetchMessageSync(i, j, i2, chatMsg);
+        return ChatMsgManagerImpl.getInstance(context).fetchMessageSync(i2, j, i3, chatMsg);
     }
 
-    public static List<ChatMsg> getPaMsgByChatType(Context context, List<Integer> list, int i) {
+    public static List<ChatMsg> getPaMsgByChatType(Context context, List<Integer> list, int i2) {
         if (BaseManager.isNullContext(context)) {
             return null;
         }
-        return ChatMsgManagerImpl.getInstance(context).getPaMsgByChatType(list, i);
+        return ChatMsgManagerImpl.getInstance(context).getPaMsgByChatType(list, i2);
     }
 
-    public static void mediaContactorSetting(Context context, long j, int i, long j2, String str, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
-        ChatSessionManagerImpl.getInstance(context).mediaContactorSetting(j, i, j2, str, i2, iMediaContactorSettingListener);
+    public static void mediaContactorSetting(Context context, long j, int i2, long j2, String str, int i3, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatSessionManagerImpl.getInstance(context).mediaContactorSetting(j, i2, j2, str, i3, iMediaContactorSettingListener);
     }
 
-    public static void mediaGetChatSessions(Context context, long j, long j2, int i, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+    public static void mediaGetChatSessions(Context context, long j, long j2, int i2, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
         if (BaseManager.isNullContext(context)) {
             return;
         }
-        ChatSessionManagerImpl.getInstance(context).mediaGetChatSessions(j, j2, i, iMediaGetChatSessionListener);
+        ChatSessionManagerImpl.getInstance(context).mediaGetChatSessions(j, j2, i2, iMediaGetChatSessionListener);
     }
 
-    public static void mediaGetContactorPauid(Context context, long j, int i, long j2, String str, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
-        ChatSessionManagerImpl.getInstance(context).mediaGetContactorPauid(j, i, j2, str, iMediaGetContactorPauidListener);
+    public static void mediaGetContactorPauid(Context context, long j, int i2, long j2, String str, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
+        ChatSessionManagerImpl.getInstance(context).mediaGetContactorPauid(j, i2, j2, str, iMediaGetContactorPauidListener);
     }
 
-    public static void mediaGetContactorSetting(Context context, long j, int i, long j2, String str, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
-        ChatSessionManagerImpl.getInstance(context).mediaGetContactorSetting(j, i, j2, str, i2, iMediaContactorSettingListener);
+    public static void mediaGetContactorSetting(Context context, long j, int i2, long j2, String str, int i3, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatSessionManagerImpl.getInstance(context).mediaGetContactorSetting(j, i2, j2, str, i3, iMediaContactorSettingListener);
     }
 
-    public static void mediaSetSessionRead(Context context, long j, int i, long j2, String str, long j3, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
+    public static void mediaSetSessionRead(Context context, long j, int i2, long j2, String str, long j3, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
         if (BaseManager.isNullContext(context)) {
             return;
         }
-        ChatSessionManagerImpl.getInstance(context).mediaSetSessionRead(j, i, j2, str, j3, iMediaSetSessionReadListener);
+        ChatSessionManagerImpl.getInstance(context).mediaSetSessionRead(j, i2, j2, str, j3, iMediaSetSessionReadListener);
     }
 
     public static ArrayList<ChatSession> getChatRecords(Context context) {
@@ -605,11 +605,11 @@ public class ChatMsgManager extends BaseManager {
         return ChatSessionManagerImpl.getInstance(context).getChatRecords(0L, 0L);
     }
 
-    public static void mediaDeleteChatSession(Context context, long j, int i, long j2, String str, long j3, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
+    public static void mediaDeleteChatSession(Context context, long j, int i2, long j2, String str, long j3, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
         if (BaseManager.isNullContext(context)) {
             return;
         }
-        ChatSessionManagerImpl.getInstance(context).mediaDeleteChatSession(j, i, j2, str, j3, iMediaDeleteChatSessionListener);
+        ChatSessionManagerImpl.getInstance(context).mediaDeleteChatSession(j, i2, j2, str, j3, iMediaDeleteChatSessionListener);
     }
 
     public static ArrayList<ChatSession> getChatRecords(Context context, List<Integer> list) {
@@ -619,26 +619,26 @@ public class ChatMsgManager extends BaseManager {
         return ChatSessionManagerImpl.getInstance(context).getChatRecords(0L, 0L, list);
     }
 
-    public static Pair<Integer, ArrayList<ChatMsg>> fetchMessageSyncWithState(Context context, int i, long j, int i2, ChatMsg chatMsg) {
+    public static Pair<Integer, ArrayList<ChatMsg>> fetchMessageSyncWithState(Context context, int i2, long j, int i3, ChatMsg chatMsg) {
         ArrayList<ChatMsg> fetchMessageSync;
         int state;
         if (BaseManager.isNullContext(context)) {
             return null;
         }
         boolean z = true;
-        if (i == 1) {
+        if (i2 == 1) {
             long[] jArr = {1007, 1004};
             ArrayList arrayList = new ArrayList();
             arrayList.add(String.valueOf(j));
             ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(context, arrayList);
             if ((groupInfo == null || groupInfo.size() <= 0 || groupInfo.get(0).getType() != 2) ? false : false) {
-                fetchMessageSync = ChatMsgManagerImpl.getInstance(context).fetchMessageSync(i, j, i2, chatMsg, jArr);
+                fetchMessageSync = ChatMsgManagerImpl.getInstance(context).fetchMessageSync(i2, j, i3, chatMsg, jArr);
             } else {
-                fetchMessageSync = ChatMsgManagerImpl.getInstance(context).fetchMessageSync(i, j, i2, chatMsg);
+                fetchMessageSync = ChatMsgManagerImpl.getInstance(context).fetchMessageSync(i2, j, i3, chatMsg);
             }
             state = SyncGroupMessageService.getInstance().getState(context, j);
         } else {
-            fetchMessageSync = ChatMsgManagerImpl.getInstance(context).fetchMessageSync(i, j, i2, chatMsg);
+            fetchMessageSync = ChatMsgManagerImpl.getInstance(context).fetchMessageSync(i2, j, i3, chatMsg);
             state = SyncAllMessage.getInstance(context).getState();
         }
         if (fetchMessageSync != null) {

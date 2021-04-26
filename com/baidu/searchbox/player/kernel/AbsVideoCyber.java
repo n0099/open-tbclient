@@ -124,12 +124,12 @@ public abstract class AbsVideoCyber extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void seekTo(int i) {
-        this.mPlayer.seekTo(i);
+    public void seekTo(int i2) {
+        this.mPlayer.seekTo(i2);
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setDecodeMode(int i) {
+    public void setDecodeMode(int i2) {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
@@ -173,11 +173,11 @@ public abstract class AbsVideoCyber extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setVideoRotation(int i) {
+    public void setVideoRotation(int i2) {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setVideoScalingMode(int i) {
+    public void setVideoScalingMode(int i2) {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel

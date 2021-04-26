@@ -1,7 +1,6 @@
 package com.baidu.mobads.container.util;
 
 import android.text.TextUtils;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.webkit.internal.utils.UtilsBlink;
@@ -11,14 +10,14 @@ public class Base64 {
     public static final byte[] DECODING_TABLE = new byte[128];
 
     static {
-        int i = 0;
+        int i2 = 0;
         while (true) {
             byte[] bArr = ENCODING_TABLE;
-            if (i >= bArr.length) {
+            if (i2 >= bArr.length) {
                 return;
             }
-            DECODING_TABLE[bArr[i]] = (byte) i;
-            i++;
+            DECODING_TABLE[bArr[i2]] = (byte) i2;
+            i2++;
         }
     }
 
@@ -26,8 +25,8 @@ public class Base64 {
         if (str == null) {
             return true;
         }
-        for (int i = 0; i < str.length(); i++) {
-            if (!isValidBase64Byte((byte) str.charAt(i))) {
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            if (!isValidBase64Byte((byte) str.charAt(i2))) {
                 return true;
             }
         }
@@ -46,18 +45,18 @@ public class Base64 {
         } else {
             bArr = new byte[(str.length() / 4) * 3];
         }
-        int i = 0;
         int i2 = 0;
-        while (i < str.length() - 4) {
-            byte b2 = DECODING_TABLE[str.charAt(i)];
-            byte b3 = DECODING_TABLE[str.charAt(i + 1)];
-            byte b4 = DECODING_TABLE[str.charAt(i + 2)];
-            byte b5 = DECODING_TABLE[str.charAt(i + 3)];
-            bArr[i2] = (byte) ((b2 << 2) | (b3 >> 4));
-            bArr[i2 + 1] = (byte) ((b3 << 4) | (b4 >> 2));
-            bArr[i2 + 2] = (byte) ((b4 << 6) | b5);
-            i += 4;
-            i2 += 3;
+        int i3 = 0;
+        while (i2 < str.length() - 4) {
+            byte b2 = DECODING_TABLE[str.charAt(i2)];
+            byte b3 = DECODING_TABLE[str.charAt(i2 + 1)];
+            byte b4 = DECODING_TABLE[str.charAt(i2 + 2)];
+            byte b5 = DECODING_TABLE[str.charAt(i2 + 3)];
+            bArr[i3] = (byte) ((b2 << 2) | (b3 >> 4));
+            bArr[i3 + 1] = (byte) ((b3 << 4) | (b4 >> 2));
+            bArr[i3 + 2] = (byte) ((b4 << 6) | b5);
+            i2 += 4;
+            i3 += 3;
         }
         if (str.charAt(str.length() - 2) == '$') {
             byte b6 = DECODING_TABLE[str.charAt(str.length() - 4)];
@@ -104,18 +103,18 @@ public class Base64 {
         }
         byte[] bytes = str.getBytes();
         byte[] bArr = new byte[(bytes.length / 3) * 4];
-        int i = 0;
         int i2 = 0;
-        while (i < bytes.length) {
+        int i3 = 0;
+        while (i2 < bytes.length) {
             byte[] bArr2 = ENCODING_TABLE;
-            bArr[i2] = bArr2[(bytes[i] & 252) >> 2];
-            int i3 = i + 1;
-            bArr[i2 + 1] = bArr2[((bytes[i] & 3) << 4) + ((bytes[i3] & 240) >> 4)];
-            int i4 = i + 2;
-            bArr[i2 + 2] = bArr2[((bytes[i3] & 15) << 2) + ((bytes[i4] & ExifInterface.MARKER_SOF0) >> 6)];
-            bArr[i2 + 3] = bArr2[bytes[i4] & 63];
-            i += 3;
-            i2 += 4;
+            bArr[i3] = bArr2[(bytes[i2] & 252) >> 2];
+            int i4 = i2 + 1;
+            bArr[i3 + 1] = bArr2[((bytes[i2] & 3) << 4) + ((bytes[i4] & 240) >> 4)];
+            int i5 = i2 + 2;
+            bArr[i3 + 2] = bArr2[((bytes[i4] & 15) << 2) + ((bytes[i5] & 192) >> 6)];
+            bArr[i3 + 3] = bArr2[bytes[i5] & 63];
+            i2 += 3;
+            i3 += 4;
         }
         return new String(bArr);
     }

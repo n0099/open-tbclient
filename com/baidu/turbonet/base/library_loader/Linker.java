@@ -36,8 +36,8 @@ public abstract class Linker {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             /* renamed from: b */
-            public LibInfo[] newArray(int i) {
-                return new LibInfo[i];
+            public LibInfo[] newArray(int i2) {
+                return new LibInfo[i2];
             }
         }
 
@@ -59,7 +59,7 @@ public abstract class Linker {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             if (this.mRelroFd >= 0) {
                 parcel.writeLong(this.mLoadAddress);
                 parcel.writeLong(this.mLoadSize);
@@ -70,7 +70,7 @@ public abstract class Linker {
                     fromFd.writeToParcel(parcel, 0);
                     fromFd.close();
                 } catch (IOException e2) {
-                    d.b.k0.a.a.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e2);
+                    d.a.k0.a.a.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e2);
                 }
             }
         }

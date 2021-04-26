@@ -19,8 +19,8 @@ public class UnmodifiableLazyStringList extends AbstractList<String> implements 
     }
 
     @Override // com.google.protobuf.LazyStringList
-    public ByteString getByteString(int i) {
-        return this.list.getByteString(i);
+    public ByteString getByteString(int i2) {
+        return this.list.getByteString(i2);
     }
 
     @Override // com.google.protobuf.LazyStringList
@@ -56,12 +56,12 @@ public class UnmodifiableLazyStringList extends AbstractList<String> implements 
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public ListIterator<String> listIterator(final int i) {
+    public ListIterator<String> listIterator(final int i2) {
         return new ListIterator<String>() { // from class: com.google.protobuf.UnmodifiableLazyStringList.1
             public ListIterator<String> iter;
 
             {
-                this.iter = UnmodifiableLazyStringList.this.list.listIterator(i);
+                this.iter = UnmodifiableLazyStringList.this.list.listIterator(i2);
             }
 
             @Override // java.util.ListIterator, java.util.Iterator
@@ -122,7 +122,7 @@ public class UnmodifiableLazyStringList extends AbstractList<String> implements 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
-    public String get(int i) {
-        return this.list.get(i);
+    public String get(int i2) {
+        return this.list.get(i2);
     }
 }

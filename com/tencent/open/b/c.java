@@ -13,23 +13,23 @@ import android.view.WindowManager;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import java.util.Locale;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39611a;
+    public static String f37212a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f39612b;
+    public static String f37213b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f39613c;
+    public static String f37214c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f39614d;
+    public static String f37215d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f39615e;
+    public static String f37216e;
 
     public static String a() {
         WifiManager wifiManager;
@@ -48,42 +48,42 @@ public class c {
     }
 
     public static String c(Context context) {
-        String str = f39612b;
+        String str = f37213b;
         if (str == null || str.length() <= 0) {
             if (context == null) {
                 return "";
             }
             try {
                 String simSerialNumber = ((TelephonyManager) context.getSystemService("phone")).getSimSerialNumber();
-                f39612b = simSerialNumber;
+                f37213b = simSerialNumber;
                 return simSerialNumber;
             } catch (Exception unused) {
                 return "";
             }
         }
-        return f39612b;
+        return f37213b;
     }
 
     public static String d(Context context) {
-        String str = f39613c;
+        String str = f37214c;
         if (str == null || str.length() <= 0) {
             if (context == null) {
                 return "";
             }
             try {
                 String string = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
-                f39613c = string;
+                f37214c = string;
                 return string;
             } catch (Exception unused) {
                 return "";
             }
         }
-        return f39613c;
+        return f37214c;
     }
 
     public static String e(Context context) {
         try {
-            if (f39615e == null) {
+            if (f37216e == null) {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 StringBuilder sb = new StringBuilder();
@@ -119,45 +119,45 @@ public class c {
                 sb.append("&");
                 sb.append("wifi=");
                 sb.append(a.e(context));
-                f39615e = sb.toString();
+                f37216e = sb.toString();
             }
-            return f39615e;
+            return f37216e;
         } catch (Exception unused) {
             return null;
         }
     }
 
     public static String b(Context context) {
-        String str = f39611a;
+        String str = f37212a;
         if (str == null || str.length() <= 0) {
             if (context == null) {
                 return "";
             }
             try {
                 String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-                f39611a = deviceId;
+                f37212a = deviceId;
                 return deviceId;
             } catch (Exception unused) {
                 return "";
             }
         }
-        return f39611a;
+        return f37212a;
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f39614d)) {
+        if (TextUtils.isEmpty(f37215d)) {
             if (context == null) {
                 return "";
             }
-            f39614d = "";
+            f37215d = "";
             WindowManager windowManager = (WindowManager) context.getSystemService("window");
             if (windowManager != null) {
                 int width = windowManager.getDefaultDisplay().getWidth();
                 int height = windowManager.getDefaultDisplay().getHeight();
-                f39614d = width + "x" + height;
+                f37215d = width + "x" + height;
             }
-            return f39614d;
+            return f37215d;
         }
-        return f39614d;
+        return f37215d;
     }
 }

@@ -21,8 +21,8 @@ public class ImageObject extends BaseMediaObject {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public ImageObject[] newArray(int i) {
-            return new ImageObject[i];
+        public ImageObject[] newArray(int i2) {
+            return new ImageObject[i2];
         }
     };
     public static final int DATA_SIZE = 2097152;
@@ -127,7 +127,7 @@ public class ImageObject extends BaseMediaObject {
     }
 
     @Override // com.sina.weibo.sdk.api.BaseMediaObject, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeByteArray(this.imageData);
         parcel.writeString(this.imagePath);
     }

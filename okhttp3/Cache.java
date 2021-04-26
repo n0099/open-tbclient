@@ -438,7 +438,7 @@ public final class Cache implements Closeable, Flushable {
                 this.requestMethod = buffer.readUtf8LineStrict();
                 Headers.Builder builder = new Headers.Builder();
                 int readInt = Cache.readInt(buffer);
-                for (int i = 0; i < readInt; i++) {
+                for (int i2 = 0; i2 < readInt; i2++) {
                     builder.addLenient(buffer.readUtf8LineStrict());
                 }
                 this.varyHeaders = builder.build();
@@ -448,7 +448,7 @@ public final class Cache implements Closeable, Flushable {
                 this.message = parse.message;
                 Headers.Builder builder2 = new Headers.Builder();
                 int readInt2 = Cache.readInt(buffer);
-                for (int i2 = 0; i2 < readInt2; i2++) {
+                for (int i3 = 0; i3 < readInt2; i3++) {
                     builder2.addLenient(buffer.readUtf8LineStrict());
                 }
                 String str = builder2.get(SENT_MILLIS);
@@ -493,7 +493,7 @@ public final class Cache implements Closeable, Flushable {
             try {
                 CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
                 ArrayList arrayList = new ArrayList(readInt);
-                for (int i = 0; i < readInt; i++) {
+                for (int i2 = 0; i2 < readInt; i2++) {
                     String readUtf8LineStrict = bufferedSource.readUtf8LineStrict();
                     Buffer buffer = new Buffer();
                     buffer.write(ByteString.decodeBase64(readUtf8LineStrict));
@@ -509,8 +509,8 @@ public final class Cache implements Closeable, Flushable {
             try {
                 bufferedSink.writeDecimalLong(list.size()).writeByte(10);
                 int size = list.size();
-                for (int i = 0; i < size; i++) {
-                    bufferedSink.writeUtf8(ByteString.of(list.get(i).getEncoded()).base64()).writeByte(10);
+                for (int i2 = 0; i2 < size; i2++) {
+                    bufferedSink.writeUtf8(ByteString.of(list.get(i2).getEncoded()).base64()).writeByte(10);
                 }
             } catch (CertificateEncodingException e2) {
                 throw new IOException(e2.getMessage());
@@ -533,14 +533,14 @@ public final class Cache implements Closeable, Flushable {
             buffer.writeUtf8(this.requestMethod).writeByte(10);
             buffer.writeDecimalLong(this.varyHeaders.size()).writeByte(10);
             int size = this.varyHeaders.size();
-            for (int i = 0; i < size; i++) {
-                buffer.writeUtf8(this.varyHeaders.name(i)).writeUtf8(": ").writeUtf8(this.varyHeaders.value(i)).writeByte(10);
+            for (int i2 = 0; i2 < size; i2++) {
+                buffer.writeUtf8(this.varyHeaders.name(i2)).writeUtf8(": ").writeUtf8(this.varyHeaders.value(i2)).writeByte(10);
             }
             buffer.writeUtf8(new StatusLine(this.protocol, this.code, this.message).toString()).writeByte(10);
             buffer.writeDecimalLong(this.responseHeaders.size() + 2).writeByte(10);
             int size2 = this.responseHeaders.size();
-            for (int i2 = 0; i2 < size2; i2++) {
-                buffer.writeUtf8(this.responseHeaders.name(i2)).writeUtf8(": ").writeUtf8(this.responseHeaders.value(i2)).writeByte(10);
+            for (int i3 = 0; i3 < size2; i3++) {
+                buffer.writeUtf8(this.responseHeaders.name(i3)).writeUtf8(": ").writeUtf8(this.responseHeaders.value(i3)).writeByte(10);
             }
             buffer.writeUtf8(SENT_MILLIS).writeUtf8(": ").writeDecimalLong(this.sentRequestMillis).writeByte(10);
             buffer.writeUtf8(RECEIVED_MILLIS).writeUtf8(": ").writeDecimalLong(this.receivedResponseMillis).writeByte(10);

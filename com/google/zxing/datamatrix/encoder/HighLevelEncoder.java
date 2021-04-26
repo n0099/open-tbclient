@@ -28,48 +28,48 @@ public final class HighLevelEncoder {
     public static final int X12_ENCODATION = 3;
     public static final char X12_UNLATCH = 254;
 
-    public static int determineConsecutiveDigitCount(CharSequence charSequence, int i) {
+    public static int determineConsecutiveDigitCount(CharSequence charSequence, int i2) {
         int length = charSequence.length();
-        int i2 = 0;
-        if (i < length) {
-            char charAt = charSequence.charAt(i);
-            while (isDigit(charAt) && i < length) {
+        int i3 = 0;
+        if (i2 < length) {
+            char charAt = charSequence.charAt(i2);
+            while (isDigit(charAt) && i2 < length) {
+                i3++;
                 i2++;
-                i++;
-                if (i < length) {
-                    charAt = charSequence.charAt(i);
+                if (i2 < length) {
+                    charAt = charSequence.charAt(i2);
                 }
             }
         }
-        return i2;
+        return i3;
     }
 
     public static String encodeHighLevel(String str) {
         return encodeHighLevel(str, SymbolShapeHint.FORCE_NONE, null, null);
     }
 
-    public static int findMinimums(float[] fArr, int[] iArr, int i, byte[] bArr) {
+    public static int findMinimums(float[] fArr, int[] iArr, int i2, byte[] bArr) {
         Arrays.fill(bArr, (byte) 0);
-        for (int i2 = 0; i2 < 6; i2++) {
-            iArr[i2] = (int) Math.ceil(fArr[i2]);
-            int i3 = iArr[i2];
-            if (i > i3) {
+        for (int i3 = 0; i3 < 6; i3++) {
+            iArr[i3] = (int) Math.ceil(fArr[i3]);
+            int i4 = iArr[i3];
+            if (i2 > i4) {
                 Arrays.fill(bArr, (byte) 0);
-                i = i3;
+                i2 = i4;
             }
-            if (i == i3) {
-                bArr[i2] = (byte) (bArr[i2] + 1);
+            if (i2 == i4) {
+                bArr[i3] = (byte) (bArr[i3] + 1);
             }
         }
-        return i;
+        return i2;
     }
 
     public static int getMinimumCount(byte[] bArr) {
-        int i = 0;
-        for (int i2 = 0; i2 < 6; i2++) {
-            i += bArr[i2];
+        int i2 = 0;
+        for (int i3 = 0; i3 < 6; i3++) {
+            i2 += bArr[i3];
         }
-        return i;
+        return i2;
     }
 
     public static void illegalCharacter(char c2) {
@@ -127,22 +127,22 @@ public final class HighLevelEncoder {
         return c2 == '\r' || c2 == '*' || c2 == '>';
     }
 
-    public static int lookAheadTest(CharSequence charSequence, int i, int i2) {
+    public static int lookAheadTest(CharSequence charSequence, int i2, int i3) {
         float[] fArr;
         char c2;
-        if (i >= charSequence.length()) {
-            return i2;
+        if (i2 >= charSequence.length()) {
+            return i3;
         }
-        if (i2 == 0) {
+        if (i3 == 0) {
             fArr = new float[]{0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.25f};
         } else {
             fArr = new float[]{1.0f, 2.0f, 2.0f, 2.0f, 2.0f, 2.25f};
-            fArr[i2] = 0.0f;
+            fArr[i3] = 0.0f;
         }
-        int i3 = 0;
+        int i4 = 0;
         while (true) {
-            int i4 = i + i3;
-            if (i4 == charSequence.length()) {
+            int i5 = i2 + i4;
+            if (i5 == charSequence.length()) {
                 byte[] bArr = new byte[6];
                 int[] iArr = new int[6];
                 int findMinimums = findMinimums(fArr, iArr, Integer.MAX_VALUE, bArr);
@@ -161,8 +161,8 @@ public final class HighLevelEncoder {
                 }
                 return 5;
             }
-            char charAt = charSequence.charAt(i4);
-            i3++;
+            char charAt = charSequence.charAt(i5);
+            i4++;
             if (isDigit(charAt)) {
                 fArr[0] = fArr[0] + 0.5f;
             } else if (isExtendedASCII(charAt)) {
@@ -207,7 +207,7 @@ public final class HighLevelEncoder {
                 c2 = 5;
                 fArr[5] = fArr[5] + 1.0f;
             }
-            if (i3 >= 4) {
+            if (i4 >= 4) {
                 int[] iArr2 = new int[6];
                 byte[] bArr2 = new byte[6];
                 findMinimums(fArr, iArr2, Integer.MAX_VALUE, bArr2);
@@ -232,8 +232,8 @@ public final class HighLevelEncoder {
                         return 1;
                     }
                     if (iArr2[1] == iArr2[3]) {
-                        for (int i5 = i + i3 + 1; i5 < charSequence.length(); i5++) {
-                            char charAt2 = charSequence.charAt(i5);
+                        for (int i6 = i2 + i4 + 1; i6 < charSequence.length(); i6++) {
+                            char charAt2 = charSequence.charAt(i6);
                             if (isX12TermSep(charAt2)) {
                                 return 3;
                             }
@@ -248,16 +248,16 @@ public final class HighLevelEncoder {
         }
     }
 
-    public static char randomize253State(char c2, int i) {
-        int i2 = c2 + ((i * Opcodes.FCMPL) % GDiffPatcher.COPY_INT_USHORT) + 1;
-        if (i2 > 254) {
-            i2 += UIMsg.m_AppUI.V_WM_LISTLISTUPDATE;
+    public static char randomize253State(char c2, int i2) {
+        int i3 = c2 + ((i2 * Opcodes.FCMPL) % GDiffPatcher.COPY_INT_USHORT) + 1;
+        if (i3 > 254) {
+            i3 += UIMsg.m_AppUI.V_WM_LISTLISTUPDATE;
         }
-        return (char) i2;
+        return (char) i3;
     }
 
     public static String encodeHighLevel(String str, SymbolShapeHint symbolShapeHint, Dimension dimension, Dimension dimension2) {
-        int i = 0;
+        int i2 = 0;
         Encoder[] encoderArr = {new ASCIIEncoder(), new C40Encoder(), new TextEncoder(), new X12Encoder(), new EdifactEncoder(), new Base256Encoder()};
         EncoderContext encoderContext = new EncoderContext(str);
         encoderContext.setSymbolShape(symbolShapeHint);
@@ -272,16 +272,16 @@ public final class HighLevelEncoder {
             encoderContext.pos += 7;
         }
         while (encoderContext.hasMoreCharacters()) {
-            encoderArr[i].encode(encoderContext);
+            encoderArr[i2].encode(encoderContext);
             if (encoderContext.getNewEncoding() >= 0) {
-                i = encoderContext.getNewEncoding();
+                i2 = encoderContext.getNewEncoding();
                 encoderContext.resetEncoderSignal();
             }
         }
         int codewordCount = encoderContext.getCodewordCount();
         encoderContext.updateSymbolInfo();
         int dataCapacity = encoderContext.getSymbolInfo().getDataCapacity();
-        if (codewordCount < dataCapacity && i != 0 && i != 5) {
+        if (codewordCount < dataCapacity && i2 != 0 && i2 != 5) {
             encoderContext.writeCodeword((char) 254);
         }
         StringBuilder codewords = encoderContext.getCodewords();

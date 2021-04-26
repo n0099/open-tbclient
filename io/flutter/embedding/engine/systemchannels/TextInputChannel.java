@@ -281,10 +281,10 @@ public class TextInputChannel {
         @NonNull
         public final String text;
 
-        public TextEditState(@NonNull String str, int i, int i2) {
+        public TextEditState(@NonNull String str, int i2, int i3) {
             this.text = str;
-            this.selectionStart = i;
-            this.selectionEnd = i2;
+            this.selectionStart = i2;
+            this.selectionEnd = i3;
         }
 
         public static TextEditState fromJson(@NonNull JSONObject jSONObject) throws JSONException {
@@ -298,11 +298,11 @@ public class TextInputChannel {
 
         void hide();
 
-        void setClient(int i, @NonNull Configuration configuration);
+        void setClient(int i2, @NonNull Configuration configuration);
 
         void setEditingState(@NonNull TextEditState textEditState);
 
-        void setPlatformViewClient(int i);
+        void setPlatformViewClient(int i2);
 
         void show();
     }
@@ -342,62 +342,62 @@ public class TextInputChannel {
         methodChannel.setMethodCallHandler(this.parsingMethodHandler);
     }
 
-    public void done(int i) {
+    public void done(int i2) {
         Log.v(TAG, "Sending 'done' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i), "TextInputAction.done"));
+        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.done"));
     }
 
-    public void go(int i) {
+    public void go(int i2) {
         Log.v(TAG, "Sending 'go' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i), "TextInputAction.go"));
+        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.go"));
     }
 
-    public void newline(int i) {
+    public void newline(int i2) {
         Log.v(TAG, "Sending 'newline' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i), "TextInputAction.newline"));
+        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.newline"));
     }
 
-    public void next(int i) {
+    public void next(int i2) {
         Log.v(TAG, "Sending 'next' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i), "TextInputAction.next"));
+        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.next"));
     }
 
-    public void previous(int i) {
+    public void previous(int i2) {
         Log.v(TAG, "Sending 'previous' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i), "TextInputAction.previous"));
+        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.previous"));
     }
 
     public void requestExistingInputState() {
         this.channel.invokeMethod("TextInputClient.requestExistingInputState", null);
     }
 
-    public void search(int i) {
+    public void search(int i2) {
         Log.v(TAG, "Sending 'search' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i), "TextInputAction.search"));
+        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.search"));
     }
 
-    public void send(int i) {
+    public void send(int i2) {
         Log.v(TAG, "Sending 'send' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i), "TextInputAction.send"));
+        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.send"));
     }
 
     public void setTextInputMethodHandler(@Nullable TextInputMethodHandler textInputMethodHandler) {
         this.textInputMethodHandler = textInputMethodHandler;
     }
 
-    public void unspecifiedAction(int i) {
+    public void unspecifiedAction(int i2) {
         Log.v(TAG, "Sending 'unspecified' message.");
-        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i), "TextInputAction.unspecified"));
+        this.channel.invokeMethod("TextInputClient.performAction", Arrays.asList(Integer.valueOf(i2), "TextInputAction.unspecified"));
     }
 
-    public void updateEditingState(int i, String str, int i2, int i3, int i4, int i5) {
-        Log.v(TAG, "Sending message to update editing state: \nText: " + str + "\nSelection start: " + i2 + "\nSelection end: " + i3 + "\nComposing start: " + i4 + "\nComposing end: " + i5);
+    public void updateEditingState(int i2, String str, int i3, int i4, int i5, int i6) {
+        Log.v(TAG, "Sending message to update editing state: \nText: " + str + "\nSelection start: " + i3 + "\nSelection end: " + i4 + "\nComposing start: " + i5 + "\nComposing end: " + i6);
         HashMap hashMap = new HashMap();
         hashMap.put("text", str);
-        hashMap.put("selectionBase", Integer.valueOf(i2));
-        hashMap.put("selectionExtent", Integer.valueOf(i3));
-        hashMap.put("composingBase", Integer.valueOf(i4));
-        hashMap.put("composingExtent", Integer.valueOf(i5));
-        this.channel.invokeMethod("TextInputClient.updateEditingState", Arrays.asList(Integer.valueOf(i), hashMap));
+        hashMap.put("selectionBase", Integer.valueOf(i3));
+        hashMap.put("selectionExtent", Integer.valueOf(i4));
+        hashMap.put("composingBase", Integer.valueOf(i5));
+        hashMap.put("composingExtent", Integer.valueOf(i6));
+        this.channel.invokeMethod("TextInputClient.updateEditingState", Arrays.asList(Integer.valueOf(i2), hashMap));
     }
 }

@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
-import d.b.c.h.j.g.d;
+import d.a.c.h.j.g.d;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class Static {
 
     /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -48,15 +48,15 @@ public class Static {
                 String[] split = M.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 if (split.length != 0 && split.length != 3) {
                     String str = "";
-                    for (int i = 0; i < split.length && i < 3; i++) {
-                        str = str + split[i] + ".";
+                    for (int i2 = 0; i2 < split.length && i2 < 3; i2++) {
+                        str = str + split[i2] + ".";
                     }
                     M = str.substring(0, str.length() - 1);
                 }
                 if (Util.c(string, M) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
                     PluginNetConfigInfos.PluginConfig pluginConfig = parse.getConfigs().get(0);
                     PluginNetConfigInfos.PluginConfig R = PluginPackageManager.O().R(pluginConfig.package_name);
-                    d.b.c.h.j.f.d.c().d().addOrUpdateConfig(pluginConfig);
+                    d.a.c.h.j.f.d.c().d().addOrUpdateConfig(pluginConfig);
                     if (R == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000987, pluginConfig));
                         return;
@@ -65,15 +65,15 @@ public class Static {
                         R.enable = 1;
                         int[] iArr = pluginConfig.enable_version_code;
                         int length = iArr.length;
-                        int i2 = 0;
+                        int i3 = 0;
                         while (true) {
-                            if (i2 >= length) {
+                            if (i3 >= length) {
                                 break;
-                            } else if (iArr[i2] == R.version_code) {
+                            } else if (iArr[i3] == R.version_code) {
                                 R.enable = 0;
                                 break;
                             } else {
-                                i2++;
+                                i3++;
                             }
                         }
                     }

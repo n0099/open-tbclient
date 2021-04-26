@@ -36,8 +36,8 @@ public class ListMultipartUploadsRequest extends GenericBucketRequest {
         this.keyMarker = str;
     }
 
-    public void setMaxUploads(int i) {
-        this.maxUploads = i;
+    public void setMaxUploads(int i2) {
+        this.maxUploads = i2;
     }
 
     public void setPrefix(String str) {
@@ -54,8 +54,8 @@ public class ListMultipartUploadsRequest extends GenericBucketRequest {
         return this;
     }
 
-    public ListMultipartUploadsRequest withMaxUploads(int i) {
-        this.maxUploads = i;
+    public ListMultipartUploadsRequest withMaxUploads(int i2) {
+        this.maxUploads = i2;
         return this;
     }
 

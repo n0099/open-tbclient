@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.tab;
 
-import d.b.j0.q0.k2.d;
+import d.a.j0.q0.k2.d;
 import java.util.Collection;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
@@ -17,9 +17,9 @@ public class TabData extends LinkedList<d> {
         try {
             LinkedList linkedList = (LinkedList) collection;
             int size = size();
-            for (int i = 0; i < size; i++) {
-                d dVar = get(i);
-                if (dVar == null || !dVar.equals(linkedList.get(i))) {
+            for (int i2 = 0; i2 < size; i2++) {
+                d dVar = get(i2);
+                if (dVar == null || !dVar.equals(linkedList.get(i2))) {
                     return false;
                 }
             }

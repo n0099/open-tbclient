@@ -7,31 +7,31 @@ import okio.BufferedSource;
 public interface PushObserver {
     public static final PushObserver CANCEL = new PushObserver() { // from class: okhttp3.internal.http2.PushObserver.1
         @Override // okhttp3.internal.http2.PushObserver
-        public boolean onData(int i, BufferedSource bufferedSource, int i2, boolean z) throws IOException {
-            bufferedSource.skip(i2);
+        public boolean onData(int i2, BufferedSource bufferedSource, int i3, boolean z) throws IOException {
+            bufferedSource.skip(i3);
             return true;
         }
 
         @Override // okhttp3.internal.http2.PushObserver
-        public boolean onHeaders(int i, List<Header> list, boolean z) {
+        public boolean onHeaders(int i2, List<Header> list, boolean z) {
             return true;
         }
 
         @Override // okhttp3.internal.http2.PushObserver
-        public boolean onRequest(int i, List<Header> list) {
+        public boolean onRequest(int i2, List<Header> list) {
             return true;
         }
 
         @Override // okhttp3.internal.http2.PushObserver
-        public void onReset(int i, ErrorCode errorCode) {
+        public void onReset(int i2, ErrorCode errorCode) {
         }
     };
 
-    boolean onData(int i, BufferedSource bufferedSource, int i2, boolean z) throws IOException;
+    boolean onData(int i2, BufferedSource bufferedSource, int i3, boolean z) throws IOException;
 
-    boolean onHeaders(int i, List<Header> list, boolean z);
+    boolean onHeaders(int i2, List<Header> list, boolean z);
 
-    boolean onRequest(int i, List<Header> list);
+    boolean onRequest(int i2, List<Header> list);
 
-    void onReset(int i, ErrorCode errorCode);
+    void onReset(int i2, ErrorCode errorCode);
 }

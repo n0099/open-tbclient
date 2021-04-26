@@ -1,115 +1,104 @@
 package h.o.d;
 
-import h.g;
-import h.h;
+import h.k;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class h<T> extends h.h<T> {
+public final class h implements k {
 
-    /* renamed from: b  reason: collision with root package name */
-    public final T f69095b;
+    /* renamed from: e  reason: collision with root package name */
+    public List<k> f67961e;
 
-    /* loaded from: classes7.dex */
-    public class a implements h.d<T> {
+    /* renamed from: f  reason: collision with root package name */
+    public volatile boolean f67962f;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Object f69096e;
-
-        public a(Object obj) {
-            this.f69096e = obj;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // h.n.b
-        /* renamed from: a */
-        public void call(h.i<? super T> iVar) {
-            iVar.c((Object) this.f69096e);
-        }
+    public h() {
     }
 
-    /* loaded from: classes7.dex */
-    public static final class b<T> implements h.d<T> {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final h.o.c.b f69097e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final T f69098f;
-
-        public b(h.o.c.b bVar, T t) {
-            this.f69097e = bVar;
-            this.f69098f = t;
+    public static void c(Collection<k> collection) {
+        if (collection == null) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // h.n.b
-        /* renamed from: a */
-        public void call(h.i<? super T> iVar) {
-            iVar.a(this.f69097e.a(new d(iVar, this.f69098f)));
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class c<T> implements h.d<T> {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final h.g f69099e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final T f69100f;
-
-        public c(h.g gVar, T t) {
-            this.f69099e = gVar;
-            this.f69100f = t;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // h.n.b
-        /* renamed from: a */
-        public void call(h.i<? super T> iVar) {
-            g.a createWorker = this.f69099e.createWorker();
-            iVar.a(createWorker);
-            createWorker.b(new d(iVar, this.f69100f));
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class d<T> implements h.n.a {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final h.i<? super T> f69101e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final T f69102f;
-
-        public d(h.i<? super T> iVar, T t) {
-            this.f69101e = iVar;
-            this.f69102f = t;
-        }
-
-        /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
-        @Override // h.n.a
-        public void call() {
+        ArrayList arrayList = null;
+        for (k kVar : collection) {
             try {
-                this.f69101e.c((T) this.f69102f);
+                kVar.unsubscribe();
             } catch (Throwable th) {
-                this.f69101e.b(th);
+                if (arrayList == null) {
+                    arrayList = new ArrayList();
+                }
+                arrayList.add(th);
+            }
+        }
+        h.m.a.d(arrayList);
+    }
+
+    public void a(k kVar) {
+        if (kVar.isUnsubscribed()) {
+            return;
+        }
+        if (!this.f67962f) {
+            synchronized (this) {
+                if (!this.f67962f) {
+                    List list = this.f67961e;
+                    if (list == null) {
+                        list = new LinkedList();
+                        this.f67961e = list;
+                    }
+                    list.add(kVar);
+                    return;
+                }
+            }
+        }
+        kVar.unsubscribe();
+    }
+
+    public void b(k kVar) {
+        if (this.f67962f) {
+            return;
+        }
+        synchronized (this) {
+            List<k> list = this.f67961e;
+            if (!this.f67962f && list != null) {
+                boolean remove = list.remove(kVar);
+                if (remove) {
+                    kVar.unsubscribe();
+                }
             }
         }
     }
 
-    public h(T t) {
-        super(new a(t));
-        this.f69095b = t;
+    @Override // h.k
+    public boolean isUnsubscribed() {
+        return this.f67962f;
     }
 
-    public static <T> h<T> n(T t) {
-        return new h<>(t);
-    }
-
-    public h.h<T> o(h.g gVar) {
-        if (gVar instanceof h.o.c.b) {
-            return h.h.b(new b((h.o.c.b) gVar, this.f69095b));
+    @Override // h.k
+    public void unsubscribe() {
+        if (this.f67962f) {
+            return;
         }
-        return h.h.b(new c(gVar, this.f69095b));
+        synchronized (this) {
+            if (this.f67962f) {
+                return;
+            }
+            this.f67962f = true;
+            List<k> list = this.f67961e;
+            this.f67961e = null;
+            c(list);
+        }
+    }
+
+    public h(k... kVarArr) {
+        this.f67961e = new LinkedList(Arrays.asList(kVarArr));
+    }
+
+    public h(k kVar) {
+        LinkedList linkedList = new LinkedList();
+        this.f67961e = linkedList;
+        linkedList.add(kVar);
     }
 }

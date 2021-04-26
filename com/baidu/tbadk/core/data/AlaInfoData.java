@@ -7,7 +7,8 @@ import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.webkit.internal.ETAG;
-import d.b.i0.r.q.f;
+import d.a.c.e.p.k;
+import d.a.i0.r.q.f;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -42,6 +43,8 @@ public class AlaInfoData implements Serializable {
     public int live_status;
     public int live_type;
     public AlaChallengeInfoData mChallengeInfoData;
+    public String mCoverWide;
+    public YyExtData mYyExtData;
     public String media_id;
     public String media_pic;
     public String media_subtitle;
@@ -62,6 +65,11 @@ public class AlaInfoData implements Serializable {
     public String thirdRoomId;
     public long thread_id;
     public AlaUserInfoData user_info;
+
+    public boolean isLegalYYLiveData() {
+        YyExtData yyExtData = this.mYyExtData;
+        return (yyExtData == null || k.isEmpty(yyExtData.mSid) || k.isEmpty(this.mYyExtData.mSsid)) ? false : true;
+    }
 
     public void parserJson(String str) {
         try {
@@ -107,8 +115,8 @@ public class AlaInfoData implements Serializable {
                     this.dislikeInfo = new SparseArray<>();
                 }
                 this.dislikeInfo.clear();
-                for (int i = 0; i < alaLiveInfo.stage_dislike_info.size(); i++) {
-                    AlaStageDislikeInfo alaStageDislikeInfo = alaLiveInfo.stage_dislike_info.get(i);
+                for (int i2 = 0; i2 < alaLiveInfo.stage_dislike_info.size(); i2++) {
+                    AlaStageDislikeInfo alaStageDislikeInfo = alaLiveInfo.stage_dislike_info.get(i2);
                     if (alaStageDislikeInfo != null) {
                         this.dislikeInfo.put(alaStageDislikeInfo.dislike_id.intValue(), alaStageDislikeInfo.dislike_reason);
                     }
@@ -133,6 +141,12 @@ public class AlaInfoData implements Serializable {
             this.friendRoomStatus = alaLiveInfo.room_status.intValue();
             this.friendRoomName = alaLiveInfo.room_name;
             this.forumUserLiveMsg = alaLiveInfo.forum_user_live_msg;
+            this.mCoverWide = alaLiveInfo.cover_wide;
+            if (alaLiveInfo.yy_ext != null) {
+                YyExtData yyExtData = new YyExtData();
+                this.mYyExtData = yyExtData;
+                yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
+            }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -181,8 +195,8 @@ public class AlaInfoData implements Serializable {
                     this.dislikeInfo = new SparseArray<>();
                 }
                 this.dislikeInfo.clear();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    if (optJSONArray.optJSONObject(i) != null) {
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    if (optJSONArray.optJSONObject(i2) != null) {
                         this.dislikeInfo.put(jSONObject.optInt("dislike_id"), jSONObject.optString("dislike_reason"));
                     }
                 }
@@ -211,6 +225,13 @@ public class AlaInfoData implements Serializable {
             this.friendRoomStatus = jSONObject.optInt("room_status");
             this.friendRoomName = jSONObject.optString(DpStatConstants.KEY_ROOM_NAME);
             this.forumUserLiveMsg = jSONObject.optString("forum_user_live_msg");
+            this.mCoverWide = jSONObject.optString("cover_wide");
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("yy_ext");
+            if (optJSONObject3 != null) {
+                YyExtData yyExtData = new YyExtData();
+                this.mYyExtData = yyExtData;
+                yyExtData.parserJson(optJSONObject3);
+            }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

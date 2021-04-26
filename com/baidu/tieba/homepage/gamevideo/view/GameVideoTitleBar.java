@@ -24,7 +24,7 @@ public class GameVideoTitleBar extends FrameLayout {
         super(context, attributeSet);
     }
 
-    public GameVideoTitleBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public GameVideoTitleBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

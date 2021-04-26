@@ -3,5 +3,5 @@ package com.baidu.nps.main.install;
 public interface IInstallCallback {
     void onProgress(long j, long j2);
 
-    void onResult(int i, String str);
+    void onResult(int i2, String str);
 }

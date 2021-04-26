@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.quickWebView.QuickWebView;
-import d.b.c.e.p.j;
-import d.b.i0.z0.f0;
-import d.b.i0.z0.h0;
-import d.b.i0.z0.n;
-import d.b.i0.z0.n0;
+import d.a.c.e.p.j;
+import d.a.i0.z0.f0;
+import d.a.i0.z0.h0;
+import d.a.i0.z0.n;
+import d.a.i0.z0.n0;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -30,22 +30,22 @@ import org.json.JSONObject;
 public class SearchHistoryViewController {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f18528a;
+    public TbPageContext f18895a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.j0.o1.i.b f18529b;
+    public d.a.j0.o1.i.b f18896b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.b.j0.o1.i.c f18530c;
+    public d.a.j0.o1.i.c f18897c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<String> f18531d = new ArrayList();
+    public List<String> f18898d = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f18532e;
+    public boolean f18899e;
 
     /* loaded from: classes3.dex */
-    public class SearchJsBridge implements d.b.j0.d3.l0.b {
+    public class SearchJsBridge implements d.a.j0.d3.l0.b {
         public static final String INTERFACE_NAME = "CommonJSBridge";
         public static final String METHOD_DELETE_ALL_SEARCH_HISTORY = "deleteAllSearchHistory";
         public static final String METHOD_DELETE_SEARCH_HISTORY = "deleteSearchHistory";
@@ -58,18 +58,18 @@ public class SearchHistoryViewController {
         public class a extends f0<String> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f18533a;
+            public final /* synthetic */ String f18900a;
 
             public a(SearchJsBridge searchJsBridge, String str) {
-                this.f18533a = str;
+                this.f18900a = str;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.f0
+            @Override // d.a.i0.z0.f0
             /* renamed from: a */
             public String doInBackground() {
-                d.b.j0.d3.n0.a.h(this.f18533a);
-                return this.f18533a;
+                d.a.j0.d3.n0.a.h(this.f18900a);
+                return this.f18900a;
             }
         }
 
@@ -79,10 +79,10 @@ public class SearchHistoryViewController {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.n
+            @Override // d.a.i0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(String str) {
-                SearchHistoryViewController.this.f18531d.remove(str);
+                SearchHistoryViewController.this.f18898d.remove(str);
             }
         }
 
@@ -91,9 +91,9 @@ public class SearchHistoryViewController {
             public c(SearchJsBridge searchJsBridge) {
             }
 
-            @Override // d.b.i0.z0.f0
+            @Override // d.a.i0.z0.f0
             public Object doInBackground() {
-                d.b.j0.d3.n0.a.b();
+                d.a.j0.d3.n0.a.b();
                 return null;
             }
         }
@@ -103,9 +103,9 @@ public class SearchHistoryViewController {
             public d() {
             }
 
-            @Override // d.b.i0.z0.n
+            @Override // d.a.i0.z0.n
             public void onReturnDataInUI(Object obj) {
-                SearchHistoryViewController.this.f18531d.clear();
+                SearchHistoryViewController.this.f18898d.clear();
             }
         }
 
@@ -129,8 +129,8 @@ public class SearchHistoryViewController {
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString("query");
                 int optInt = jSONObject.optInt("sub_type");
-                if (SearchHistoryViewController.this.f18529b != null) {
-                    SearchHistoryViewController.this.f18529b.a(optString, true, optInt);
+                if (SearchHistoryViewController.this.f18896b != null) {
+                    SearchHistoryViewController.this.f18896b.a(optString, true, optInt);
                     TiebaStatic.log(new StatisticItem("c12034"));
                 }
             } catch (Exception e2) {
@@ -138,12 +138,12 @@ public class SearchHistoryViewController {
             }
         }
 
-        @Override // d.b.j0.d3.l0.b
+        @Override // d.a.j0.d3.l0.b
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if ("CommonJSBridge".equals(str)) {
                 if (METHOD_GET_SEARCH_HISTORY.equals(str2)) {
                     jsPromptResult.confirm(SearchHistoryViewController.this.k());
-                    SearchHistoryViewController.this.f18532e = true;
+                    SearchHistoryViewController.this.f18899e = true;
                     return true;
                 } else if (METHOD_DELETE_SEARCH_HISTORY.equals(str2)) {
                     deleteSearchHistory(str3);
@@ -181,8 +181,8 @@ public class SearchHistoryViewController {
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.h
-        public void a(WebView webView, int i, String str, String str2) {
-            if (webView == SearchHistoryViewController.this.f18530c.e()) {
+        public void a(WebView webView, int i2, String str, String str2) {
+            if (webView == SearchHistoryViewController.this.f18897c.e()) {
                 SearchHistoryViewController.this.n(false);
             }
         }
@@ -205,10 +205,10 @@ public class SearchHistoryViewController {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.f0
+        @Override // d.a.i0.z0.f0
         /* renamed from: a */
         public List<String> doInBackground() {
-            return d.b.j0.d3.n0.a.k();
+            return d.a.j0.d3.n0.a.k();
         }
     }
 
@@ -218,31 +218,31 @@ public class SearchHistoryViewController {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.n
+        @Override // d.a.i0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(List<String> list) {
             if (ListUtils.isEmpty(list)) {
                 return;
             }
-            SearchHistoryViewController.this.f18531d = list;
+            SearchHistoryViewController.this.f18898d = list;
         }
     }
 
-    public SearchHistoryViewController(BaseActivity baseActivity, d.b.j0.o1.i.b bVar, d.b.j0.o1.i.c cVar) {
-        this.f18528a = baseActivity.getPageContext();
-        this.f18529b = bVar;
-        this.f18530c = cVar;
+    public SearchHistoryViewController(BaseActivity baseActivity, d.a.j0.o1.i.b bVar, d.a.j0.o1.i.c cVar) {
+        this.f18895a = baseActivity.getPageContext();
+        this.f18896b = bVar;
+        this.f18897c = cVar;
         l();
         j();
     }
 
     public void i(String str) {
         List<String> list;
-        if (StringUtils.isNull(str) || (list = this.f18531d) == null) {
+        if (StringUtils.isNull(str) || (list = this.f18898d) == null) {
             return;
         }
         list.remove(str);
-        this.f18531d.add(0, str);
+        this.f18898d.add(0, str);
     }
 
     public final void j() {
@@ -250,13 +250,13 @@ public class SearchHistoryViewController {
     }
 
     public final String k() {
-        int count = ListUtils.getCount(this.f18531d);
+        int count = ListUtils.getCount(this.f18898d);
         if (count == 0) {
             return "";
         }
         JSONArray jSONArray = new JSONArray();
-        for (int i = 0; i < count; i++) {
-            jSONArray.put(this.f18531d.get(i));
+        for (int i2 = 0; i2 < count; i2++) {
+            jSONArray.put(this.f18898d.get(i2));
         }
         return jSONArray.toString();
     }
@@ -265,7 +265,7 @@ public class SearchHistoryViewController {
         a aVar = new a(this);
         b bVar = new b();
         c cVar = new c();
-        QuickWebView e2 = this.f18530c.e();
+        QuickWebView e2 = this.f18897c.e();
         if (e2 != null) {
             e2.h(new SearchJsBridge());
             e2.setOnPageFinishedListener(aVar);
@@ -277,8 +277,8 @@ public class SearchHistoryViewController {
     public final boolean m(String str) {
         if (!str.startsWith("http://tieba.baidu.com/mo/q/hotMessage?topic_id=") && !str.startsWith(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW) && !str.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC2) && !str.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC_NEW)) {
             if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_LIST_NEW) || str.startsWith("https://tieba.baidu.com/mo/q/hotMessage/list")) {
-                if (!d.b.i0.p0.b.b(this.f18528a)) {
-                    new HotRanklistActivityConfig(this.f18528a.getPageActivity()).createNormalConfig("hotforum", "all").start();
+                if (!d.a.i0.p0.b.b(this.f18895a)) {
+                    new HotRanklistActivityConfig(this.f18895a.getPageActivity()).createNormalConfig("hotforum", "all").start();
                 }
                 return true;
             }
@@ -286,8 +286,8 @@ public class SearchHistoryViewController {
         }
         String c2 = n0.c(str, "topic_id=");
         String c3 = n0.c(str, "topic_name=");
-        if (!d.b.i0.p0.b.b(this.f18528a) && !StringUtils.isNull(c2) && !StringUtils.isNull(c3, true)) {
-            this.f18528a.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.f18528a.getPageActivity()).createNormalConfig(c2, c3, "4")));
+        if (!d.a.i0.p0.b.b(this.f18895a) && !StringUtils.isNull(c2) && !StringUtils.isNull(c3, true)) {
+            this.f18895a.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.f18895a.getPageActivity()).createNormalConfig(c2, c3, "4")));
         }
         TiebaStatic.log(new StatisticItem("c10363").param("obj_name", c3));
         return true;
@@ -296,30 +296,30 @@ public class SearchHistoryViewController {
     public final void n(boolean z) {
         NoDataViewFactory.e a2;
         if (!z) {
-            this.f18530c.w();
+            this.f18897c.w();
             if (j.z()) {
                 a2 = NoDataViewFactory.e.a(R.string.text_no_search_record);
             } else {
                 a2 = NoDataViewFactory.e.a(R.string.neterror);
             }
-            this.f18530c.v(a2);
+            this.f18897c.v(a2);
             return;
         }
-        this.f18530c.s();
+        this.f18897c.s();
     }
 
     public void o() {
-        this.f18530c.s();
-        if (this.f18532e) {
+        this.f18897c.s();
+        if (this.f18899e) {
             String k = k();
             if (StringUtils.isNull(k)) {
                 return;
             }
-            QuickWebView e2 = this.f18530c.e();
+            QuickWebView e2 = this.f18897c.e();
             e2.loadUrl("javascript:setSearchHistory('" + k + "')");
             return;
         }
-        QuickWebView e3 = this.f18530c.e();
+        QuickWebView e3 = this.f18897c.e();
         e3.loadUrl(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "mo/q/hybrid/searchHistory");
     }
 }

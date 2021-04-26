@@ -6,14 +6,14 @@ import com.baidu.adp.framework.FrameHelper;
 public class CustomMessage<T> extends Message<T> {
     public T mData;
 
-    public CustomMessage(int i) {
-        super(i);
+    public CustomMessage(int i2) {
+        super(i2);
         this.mData = null;
     }
 
     @Override // com.baidu.adp.framework.message.Message
-    public boolean checkCmd(int i) {
-        return FrameHelper.a(i);
+    public boolean checkCmd(int i2) {
+        return FrameHelper.a(i2);
     }
 
     @Override // com.baidu.adp.framework.message.Message
@@ -29,14 +29,14 @@ public class CustomMessage<T> extends Message<T> {
         this.mData = t;
     }
 
-    public CustomMessage(int i, T t) {
-        super(i);
+    public CustomMessage(int i2, T t) {
+        super(i2);
         this.mData = null;
         this.mData = t;
     }
 
-    public CustomMessage(int i, BdUniqueId bdUniqueId) {
-        super(i, bdUniqueId);
+    public CustomMessage(int i2, BdUniqueId bdUniqueId) {
+        super(i2, bdUniqueId);
         this.mData = null;
     }
 }

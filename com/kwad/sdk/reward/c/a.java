@@ -4,10 +4,10 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.api.KsVideoPlayConfig;
 import com.kwad.sdk.contentalliance.detail.video.DetailVideoView;
-import com.kwad.sdk.contentalliance.detail.video.d;
-import com.kwad.sdk.contentalliance.detail.video.f;
-import com.kwad.sdk.core.report.e;
+import com.kwad.sdk.contentalliance.detail.video.c;
+import com.kwad.sdk.contentalliance.detail.video.e;
 import com.kwad.sdk.core.response.b.c;
+import com.kwad.sdk.core.response.b.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.VideoPlayerStatus;
 import com.kwad.sdk.core.video.a.c;
@@ -20,34 +20,37 @@ import java.util.List;
 public class a implements com.kwad.sdk.reward.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f36830a;
+    public String f34581a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f36831b;
+    public AdTemplate f34582b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f36832c;
+    public long f34583c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.a f36833d;
+    public long f34584d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KsVideoPlayConfig f36834e;
+    public com.kwad.sdk.contentalliance.detail.video.a f34585e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VideoPlayerStatus f36835f;
+    public KsVideoPlayConfig f34586f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f36836g;
+    public VideoPlayerStatus f34587g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f36837h;
-    public final List<g.a> i = new ArrayList();
-    public g.a j = new g.a() { // from class: com.kwad.sdk.reward.c.a.1
+    public e f34588h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f34589i;
+    public final List<g.a> j = new ArrayList();
+    public g.a k = new g.a() { // from class: com.kwad.sdk.reward.c.a.1
         @Override // com.kwad.sdk.utils.g.a
         public void a() {
-            synchronized (a.this.i) {
-                for (g.a aVar : a.this.i) {
+            synchronized (a.this.j) {
+                for (g.a aVar : a.this.j) {
                     aVar.a();
                 }
             }
@@ -55,8 +58,8 @@ public class a implements com.kwad.sdk.reward.a.a {
 
         @Override // com.kwad.sdk.utils.g.a
         public void b() {
-            synchronized (a.this.i) {
-                for (g.a aVar : a.this.i) {
+            synchronized (a.this.j) {
+                for (g.a aVar : a.this.j) {
                     aVar.b();
                 }
             }
@@ -64,95 +67,96 @@ public class a implements com.kwad.sdk.reward.a.a {
     };
 
     public a(@NonNull final AdTemplate adTemplate, @NonNull DetailVideoView detailVideoView, KsVideoPlayConfig ksVideoPlayConfig) {
-        this.f36832c = -1L;
-        this.f36834e = ksVideoPlayConfig;
-        this.f36835f = adTemplate.mVideoPlayerStatus;
-        String a2 = com.kwad.sdk.core.response.b.a.a(c.j(adTemplate));
-        this.f36831b = com.kwad.sdk.core.response.b.a.k(c.j(adTemplate));
-        this.f36832c = adTemplate.mKsPlayerClickTimeParam;
-        int v = com.kwad.sdk.core.config.c.v();
-        if (v < 0) {
+        this.f34584d = -1L;
+        this.f34586f = ksVideoPlayConfig;
+        this.f34582b = adTemplate;
+        this.f34587g = adTemplate.mVideoPlayerStatus;
+        String a2 = com.kwad.sdk.core.response.b.a.a(c.g(adTemplate));
+        this.f34583c = com.kwad.sdk.core.response.b.a.i(c.g(adTemplate));
+        this.f34584d = adTemplate.mKsPlayerClickTimeParam;
+        int i2 = com.kwad.sdk.core.config.c.i();
+        if (i2 < 0) {
             File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(a2);
             if (b2 != null && b2.exists()) {
                 a2 = b2.getAbsolutePath();
             }
-            this.f36833d = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
+            this.f34585e = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
             k();
-            f fVar = new f() { // from class: com.kwad.sdk.reward.c.a.2
-                @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-                public void a(int i, int i2) {
-                    super.a(i, i2);
-                    e.b(adTemplate, i, i2);
+            e eVar = new e() { // from class: com.kwad.sdk.reward.c.a.2
+                @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
+                public void a(int i3, int i4) {
+                    super.a(i3, i4);
+                    com.kwad.sdk.core.report.e.a(adTemplate, i3, i4);
                 }
             };
-            this.f36836g = fVar;
-            this.f36833d.a(fVar);
-            this.f36833d.a(new c.e() { // from class: com.kwad.sdk.reward.c.a.3
+            this.f34588h = eVar;
+            this.f34585e.a(eVar);
+            this.f34585e.a(new c.e() { // from class: com.kwad.sdk.reward.c.a.3
                 @Override // com.kwad.sdk.core.video.a.c.e
                 public void a(com.kwad.sdk.core.video.a.c cVar) {
-                    a.this.f36833d.f();
+                    a.this.f34585e.e();
                 }
             });
-            b.a().a(this.j);
-        } else if (v != 0) {
+            b.a().a(this.k);
+        } else if (i2 != 0) {
             a2 = com.kwad.sdk.core.videocache.c.a.a(detailVideoView.getContext()).a(a2);
         }
-        this.f36830a = a2;
-        this.f36833d = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
+        this.f34581a = a2;
+        this.f34585e = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
         k();
-        f fVar2 = new f() { // from class: com.kwad.sdk.reward.c.a.2
-            @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-            public void a(int i, int i2) {
-                super.a(i, i2);
-                e.b(adTemplate, i, i2);
+        e eVar2 = new e() { // from class: com.kwad.sdk.reward.c.a.2
+            @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
+            public void a(int i3, int i4) {
+                super.a(i3, i4);
+                com.kwad.sdk.core.report.e.a(adTemplate, i3, i4);
             }
         };
-        this.f36836g = fVar2;
-        this.f36833d.a(fVar2);
-        this.f36833d.a(new c.e() { // from class: com.kwad.sdk.reward.c.a.3
+        this.f34588h = eVar2;
+        this.f34585e.a(eVar2);
+        this.f34585e.a(new c.e() { // from class: com.kwad.sdk.reward.c.a.3
             @Override // com.kwad.sdk.core.video.a.c.e
             public void a(com.kwad.sdk.core.video.a.c cVar) {
-                a.this.f36833d.f();
+                a.this.f34585e.e();
             }
         });
-        b.a().a(this.j);
+        b.a().a(this.k);
     }
 
     private void k() {
-        this.f36833d.a(new d.a().a(this.f36830a).a(this.f36835f).a(new com.kwad.sdk.contentalliance.detail.video.c(this.f36831b, this.f36832c)).a());
-        KsVideoPlayConfig ksVideoPlayConfig = this.f36834e;
+        this.f34585e.a(new c.a().a(this.f34581a).b(d.b(com.kwad.sdk.core.response.b.c.h(this.f34582b))).a(this.f34587g).a(new com.kwad.sdk.contentalliance.detail.video.b(this.f34583c, this.f34584d)).a());
+        KsVideoPlayConfig ksVideoPlayConfig = this.f34586f;
         if (ksVideoPlayConfig != null) {
             a(ksVideoPlayConfig.isVideoSoundEnable(), false);
         }
-        this.f36833d.e();
+        this.f34585e.d();
     }
 
     @Override // com.kwad.sdk.reward.a.a
     public void a() {
-        if (this.f36833d.a() == null) {
+        if (this.f34585e.a() == null) {
             k();
         }
     }
 
     @MainThread
-    public void a(com.kwad.sdk.contentalliance.detail.video.e eVar) {
-        if (eVar == null) {
+    public void a(com.kwad.sdk.contentalliance.detail.video.d dVar) {
+        if (dVar == null) {
             return;
         }
-        this.f36833d.a(eVar);
+        this.f34585e.a(dVar);
     }
 
     public void a(g.a aVar) {
-        this.i.add(aVar);
+        this.j.add(aVar);
     }
 
     public void a(boolean z, boolean z2) {
-        this.f36837h = z;
+        this.f34589i = z;
         if (!z) {
-            this.f36833d.a(0.0f, 0.0f);
+            this.f34585e.a(0.0f, 0.0f);
             return;
         }
-        this.f36833d.a(1.0f, 1.0f);
+        this.f34585e.a(1.0f, 1.0f);
         if (z2) {
             b.a().a(true);
         }
@@ -161,25 +165,25 @@ public class a implements com.kwad.sdk.reward.a.a {
     @Override // com.kwad.sdk.reward.a.a
     public void b() {
         e();
-        if (this.f36837h) {
+        if (this.f34589i) {
             b.a().a(false);
             if (b.a().b()) {
-                this.f36837h = false;
+                this.f34589i = false;
                 a(false, false);
             }
         }
     }
 
     @MainThread
-    public void b(com.kwad.sdk.contentalliance.detail.video.e eVar) {
-        if (eVar == null) {
+    public void b(com.kwad.sdk.contentalliance.detail.video.d dVar) {
+        if (dVar == null) {
             return;
         }
-        this.f36833d.b(eVar);
+        this.f34585e.b(dVar);
     }
 
     public void b(g.a aVar) {
-        this.i.remove(aVar);
+        this.j.remove(aVar);
     }
 
     @Override // com.kwad.sdk.reward.a.a
@@ -189,10 +193,10 @@ public class a implements com.kwad.sdk.reward.a.a {
 
     @Override // com.kwad.sdk.reward.a.a
     public void d() {
-        com.kwad.sdk.contentalliance.detail.video.a aVar = this.f36833d;
+        com.kwad.sdk.contentalliance.detail.video.a aVar = this.f34585e;
         if (aVar != null) {
-            aVar.b(this.f36836g);
-            this.f36833d.k();
+            aVar.b(this.f34588h);
+            this.f34585e.h();
         }
     }
 
@@ -200,36 +204,36 @@ public class a implements com.kwad.sdk.reward.a.a {
         if (com.kwad.sdk.reward.e.a()) {
             return;
         }
-        this.f36833d.h();
+        this.f34585e.f();
     }
 
     public void f() {
         if (com.kwad.sdk.reward.e.a()) {
             return;
         }
-        this.f36833d.j();
+        this.f34585e.g();
     }
 
     public void g() {
-        this.f36833d.a(9);
-        this.f36833d.k();
+        this.f34585e.a(9);
+        this.f34585e.h();
     }
 
     @MainThread
     public void h() {
-        com.kwad.sdk.contentalliance.detail.video.a aVar = this.f36833d;
+        com.kwad.sdk.contentalliance.detail.video.a aVar = this.f34585e;
         if (aVar != null) {
-            aVar.p();
-            this.f36833d.k();
+            aVar.m();
+            this.f34585e.h();
         }
-        b.a().b(this.j);
+        b.a().b(this.k);
     }
 
     public int i() {
-        return this.f36833d.l();
+        return this.f34585e.i();
     }
 
     public int j() {
-        return this.f36833d.m();
+        return this.f34585e.j();
     }
 }

@@ -1,7 +1,7 @@
 package com.google.common.collect;
 
-import d.h.c.a.n;
-import d.h.c.c.y0;
+import d.g.c.a.n;
+import d.g.c.c.y0;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -41,8 +41,8 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.IndexedImmutableSet
-        public y0.a<R, C, V> get(int i) {
-            return RegularImmutableTable.this.getCell(i);
+        public y0.a<R, C, V> get(int i2) {
+            return RegularImmutableTable.this.getCell(i2);
         }
     }
 
@@ -52,8 +52,8 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
         }
 
         @Override // java.util.List
-        public V get(int i) {
-            return (V) RegularImmutableTable.this.getValue(i);
+        public V get(int i2) {
+            return (V) RegularImmutableTable.this.getValue(i2);
         }
 
         @Override // com.google.common.collect.ImmutableCollection
@@ -75,26 +75,26 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
     public static class a implements Comparator<y0.a<R, C, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Comparator f31101e;
+        public final /* synthetic */ Comparator f32070e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Comparator f31102f;
+        public final /* synthetic */ Comparator f32071f;
 
         public a(Comparator comparator, Comparator comparator2) {
-            this.f31101e = comparator;
-            this.f31102f = comparator2;
+            this.f32070e = comparator;
+            this.f32071f = comparator2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(y0.a<R, C, V> aVar, y0.a<R, C, V> aVar2) {
-            Comparator comparator = this.f31101e;
+            Comparator comparator = this.f32070e;
             int compare = comparator == null ? 0 : comparator.compare(aVar.getRowKey(), aVar2.getRowKey());
             if (compare != 0) {
                 return compare;
             }
-            Comparator comparator2 = this.f31102f;
+            Comparator comparator2 = this.f32071f;
             if (comparator2 == null) {
                 return 0;
             }
@@ -141,21 +141,21 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
         n.m(v == null, "Duplicate key: (row=%s, column=%s), values: [%s, %s].", r, c2, v2, v);
     }
 
-    public abstract y0.a<R, C, V> getCell(int i);
+    public abstract y0.a<R, C, V> getCell(int i2);
 
-    public abstract V getValue(int i);
+    public abstract V getValue(int i2);
 
-    @Override // com.google.common.collect.ImmutableTable, d.h.c.c.y0
+    @Override // com.google.common.collect.ImmutableTable, d.g.c.c.y0
     public abstract /* synthetic */ int size();
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableTable, d.h.c.c.i
+    @Override // com.google.common.collect.ImmutableTable, d.g.c.c.i
     public final ImmutableSet<y0.a<R, C, V>> createCellSet() {
         return isEmpty() ? ImmutableSet.of() : new CellSet(this, null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableTable, d.h.c.c.i
+    @Override // com.google.common.collect.ImmutableTable, d.g.c.c.i
     public final ImmutableCollection<V> createValues() {
         return isEmpty() ? ImmutableList.of() : new Values(this, null);
     }

@@ -114,17 +114,17 @@ public class EglBase10 implements EglBase {
     }
 
     @Override // org.webrtc.EglBase
-    public void createPbufferSurface(int i, int i2) {
+    public void createPbufferSurface(int i2, int i3) {
         checkIsNotReleased();
         if (this.eglSurface != EGL10.EGL_NO_SURFACE) {
             throw new RuntimeException("Already has an EGLSurface");
         }
-        EGLSurface eglCreatePbufferSurface = this.egl.eglCreatePbufferSurface(this.eglDisplay, this.eglConfig, new int[]{12375, i, 12374, i2, 12344});
+        EGLSurface eglCreatePbufferSurface = this.egl.eglCreatePbufferSurface(this.eglDisplay, this.eglConfig, new int[]{12375, i2, 12374, i3, 12344});
         this.eglSurface = eglCreatePbufferSurface;
         if (eglCreatePbufferSurface != EGL10.EGL_NO_SURFACE) {
             return;
         }
-        throw new RuntimeException("Failed to create pixel buffer surface with size " + i + "x" + i2 + ": 0x" + Integer.toHexString(this.egl.eglGetError()));
+        throw new RuntimeException("Failed to create pixel buffer surface with size " + i2 + "x" + i3 + ": 0x" + Integer.toHexString(this.egl.eglGetError()));
     }
 
     @Override // org.webrtc.EglBase
@@ -178,11 +178,11 @@ public class EglBase10 implements EglBase {
             }
 
             @Override // android.view.SurfaceHolder
-            public void setFixedSize(int i, int i2) {
+            public void setFixedSize(int i2, int i3) {
             }
 
             @Override // android.view.SurfaceHolder
-            public void setFormat(int i) {
+            public void setFormat(int i2) {
             }
 
             @Override // android.view.SurfaceHolder
@@ -195,7 +195,7 @@ public class EglBase10 implements EglBase {
 
             @Override // android.view.SurfaceHolder
             @Deprecated
-            public void setType(int i) {
+            public void setType(int i2) {
             }
 
             @Override // android.view.SurfaceHolder

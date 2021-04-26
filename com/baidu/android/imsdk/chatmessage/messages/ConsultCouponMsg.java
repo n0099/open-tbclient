@@ -20,8 +20,8 @@ public class ConsultCouponMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public ConsultCouponMsg[] newArray(int i) {
-            return new ConsultCouponMsg[i];
+        public ConsultCouponMsg[] newArray(int i2) {
+            return new ConsultCouponMsg[i2];
         }
     };
     public int mCouponStatus;
@@ -75,8 +75,8 @@ public class ConsultCouponMsg extends NormalMsg {
         }
     }
 
-    public void setCouponStatus(int i) {
-        this.mCouponStatus = i;
+    public void setCouponStatus(int i2) {
+        this.mCouponStatus = i2;
     }
 
     public void setDesc(String str) {
@@ -95,12 +95,12 @@ public class ConsultCouponMsg extends NormalMsg {
         this.mUrl = str;
     }
 
-    public boolean updateStatus(Context context, int i) {
-        this.mCouponStatus = i;
+    public boolean updateStatus(Context context, int i2) {
+        this.mCouponStatus = i2;
         try {
             JSONObject jSONObject = new JSONObject(getMsgContent());
             if (jSONObject.has("status")) {
-                jSONObject.put("status", i);
+                jSONObject.put("status", i2);
             }
             setMsgContentFromServer(jSONObject.toString());
             return ChatMsgManager.updateChatMsg(context, this);
@@ -111,8 +111,8 @@ public class ConsultCouponMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.mImg);
         parcel.writeString(this.mTitle);
         parcel.writeString(this.mDesc);

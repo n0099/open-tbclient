@@ -2,7 +2,7 @@ package com.baidu.tieba.gift.giftTab;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.GetGiftListByCategoryId.DataReq;
 import tbclient.GetGiftListByCategoryId.GetGiftListByCategoryIdReqIdl;
 /* loaded from: classes4.dex */
@@ -29,7 +29,7 @@ public class CategoryGiftListRequest extends NetMessage {
         return this.categoryId;
     }
 
-    public void setCategoryId(int i) {
-        this.categoryId = i;
+    public void setCategoryId(int i2) {
+        this.categoryId = i2;
     }
 }

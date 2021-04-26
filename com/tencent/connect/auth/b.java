@@ -6,44 +6,44 @@ import java.util.HashMap;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f39466a;
+    public static b f37061a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ boolean f39467d = !b.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f37062d = !b.class.desiredAssertionStatus();
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f39468e = 0;
+    public static int f37063e = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, a> f39469b = new HashMap<>();
+    public HashMap<String, a> f37064b = new HashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f39470c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    public final String f37065c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public IUiListener f39471a;
+        public IUiListener f37066a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.tencent.connect.auth.a f39472b;
+        public com.tencent.connect.auth.a f37067b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f39473c;
+        public String f37068c;
     }
 
     public static b a() {
-        if (f39466a == null) {
-            f39466a = new b();
+        if (f37061a == null) {
+            f37061a = new b();
         }
-        return f39466a;
+        return f37061a;
     }
 
     public static int b() {
-        int i = f39468e + 1;
-        f39468e = i;
-        return i;
+        int i2 = f37063e + 1;
+        f37063e = i2;
+        return i2;
     }
 
     public String c() {
@@ -51,7 +51,7 @@ public class b {
         char[] charArray = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
         int length = charArray.length;
         StringBuffer stringBuffer = new StringBuffer();
-        for (int i = 0; i < ceil; i++) {
+        for (int i2 = 0; i2 < ceil; i2++) {
             stringBuffer.append(charArray[(int) (Math.random() * length)]);
         }
         return stringBuffer.toString();
@@ -60,7 +60,7 @@ public class b {
     public String a(a aVar) {
         int b2 = b();
         try {
-            HashMap<String, a> hashMap = this.f39469b;
+            HashMap<String, a> hashMap = this.f37064b;
             hashMap.put("" + b2, aVar);
         } catch (Throwable th) {
             th.printStackTrace();

@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.BaseGroupData;
 import com.squareup.wire.Wire;
-import d.b.c.e.d.l;
+import d.a.c.e.d.l;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Obje
         this.cacheList = new ArrayList();
     }
 
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         SearchGroupResIdl searchGroupResIdl = (SearchGroupResIdl) new Wire(new Class[0]).parseFrom(bArr, SearchGroupResIdl.class);
         setError(searchGroupResIdl.error.errorno.intValue());
         setErrorString(searchGroupResIdl.error.usermsg);
@@ -79,8 +79,8 @@ public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Obje
         this.searchResult = list;
     }
 
-    public ResponseSearchGroupLocalMessage(int i) {
-        super(i);
+    public ResponseSearchGroupLocalMessage(int i2) {
+        super(i2);
         this.searchResult = new ArrayList();
         this.cacheList = new ArrayList();
     }

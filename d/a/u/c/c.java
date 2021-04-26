@@ -1,0 +1,13 @@
+package d.a.u.c;
+/* loaded from: classes2.dex */
+public interface c {
+    void onError(int i2);
+
+    void onPause();
+
+    void onResume();
+
+    void onStart();
+
+    void z(int i2, String str);
+}

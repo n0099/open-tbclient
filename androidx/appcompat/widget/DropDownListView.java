@@ -65,9 +65,9 @@ public class DropDownListView extends ListView {
         }
 
         @Override // androidx.appcompat.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
-        public void setHotspotBounds(int i, int i2, int i3, int i4) {
+        public void setHotspotBounds(int i2, int i3, int i4, int i5) {
             if (this.mEnabled) {
-                super.setHotspotBounds(i, i2, i3, i4);
+                super.setHotspotBounds(i2, i3, i4, i5);
             }
         }
 
@@ -111,7 +111,7 @@ public class DropDownListView extends ListView {
         }
     }
 
-    public DropDownListView(Context context, boolean z) {
+    public DropDownListView(@NonNull Context context, boolean z) {
         super(context, null, R.attr.dropDownListViewStyle);
         this.mSelectorRect = new Rect();
         this.mSelectionLeftPadding = 0;
@@ -144,8 +144,8 @@ public class DropDownListView extends ListView {
         }
     }
 
-    private void clickPressedItem(View view, int i) {
-        performItemClick(view, i, getItemIdAtPosition(i));
+    private void clickPressedItem(View view, int i2) {
+        performItemClick(view, i2, getItemIdAtPosition(i2));
     }
 
     private void drawSelectorCompat(Canvas canvas) {
@@ -157,7 +157,7 @@ public class DropDownListView extends ListView {
         selector.draw(canvas);
     }
 
-    private void positionSelectorCompat(int i, View view) {
+    private void positionSelectorCompat(int i2, View view) {
         Rect rect = this.mSelectorRect;
         rect.set(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
         rect.left -= this.mSelectionLeftPadding;
@@ -168,7 +168,7 @@ public class DropDownListView extends ListView {
             boolean z = this.mIsChildViewEnabled.getBoolean(this);
             if (view.isEnabled() != z) {
                 this.mIsChildViewEnabled.set(this, Boolean.valueOf(!z));
-                if (i != -1) {
+                if (i2 != -1) {
                     refreshDrawableState();
                 }
             }
@@ -177,13 +177,13 @@ public class DropDownListView extends ListView {
         }
     }
 
-    private void positionSelectorLikeFocusCompat(int i, View view) {
+    private void positionSelectorLikeFocusCompat(int i2, View view) {
         Drawable selector = getSelector();
-        boolean z = (selector == null || i == -1) ? false : true;
+        boolean z = (selector == null || i2 == -1) ? false : true;
         if (z) {
             selector.setVisible(false, false);
         }
-        positionSelectorCompat(i, view);
+        positionSelectorCompat(i2, view);
         if (z) {
             Rect rect = this.mSelectorRect;
             float exactCenterX = rect.exactCenterX();
@@ -193,16 +193,16 @@ public class DropDownListView extends ListView {
         }
     }
 
-    private void positionSelectorLikeTouchCompat(int i, View view, float f2, float f3) {
-        positionSelectorLikeFocusCompat(i, view);
+    private void positionSelectorLikeTouchCompat(int i2, View view, float f2, float f3) {
+        positionSelectorLikeFocusCompat(i2, view);
         Drawable selector = getSelector();
-        if (selector == null || i == -1) {
+        if (selector == null || i2 == -1) {
             return;
         }
         DrawableCompat.setHotspot(selector, f2, f3);
     }
 
-    private void setPressedItem(View view, int i, float f2, float f3) {
+    private void setPressedItem(View view, int i2, float f2, float f3) {
         View childAt;
         this.mDrawsInPressedState = true;
         if (Build.VERSION.SDK_INT >= 21) {
@@ -212,11 +212,11 @@ public class DropDownListView extends ListView {
             setPressed(true);
         }
         layoutChildren();
-        int i2 = this.mMotionPosition;
-        if (i2 != -1 && (childAt = getChildAt(i2 - getFirstVisiblePosition())) != null && childAt != view && childAt.isPressed()) {
+        int i3 = this.mMotionPosition;
+        if (i3 != -1 && (childAt = getChildAt(i3 - getFirstVisiblePosition())) != null && childAt != view && childAt.isPressed()) {
             childAt.setPressed(false);
         }
-        this.mMotionPosition = i;
+        this.mMotionPosition = i2;
         float left = f2 - view.getLeft();
         float top = f3 - view.getTop();
         if (Build.VERSION.SDK_INT >= 21) {
@@ -225,7 +225,7 @@ public class DropDownListView extends ListView {
         if (!view.isPressed()) {
             view.setPressed(true);
         }
-        positionSelectorLikeTouchCompat(i, view, f2, f3);
+        positionSelectorLikeTouchCompat(i2, view, f2, f3);
         setSelectorEnabled(false);
         refreshDrawableState();
     }
@@ -284,19 +284,19 @@ public class DropDownListView extends ListView {
         return (this.mHijackFocus && this.mListSelectionHidden) || super.isInTouchMode();
     }
 
-    public int lookForSelectablePosition(int i, boolean z) {
+    public int lookForSelectablePosition(int i2, boolean z) {
         int min;
         ListAdapter adapter = getAdapter();
         if (adapter != null && !isInTouchMode()) {
             int count = adapter.getCount();
             if (!getAdapter().areAllItemsEnabled()) {
                 if (z) {
-                    min = Math.max(0, i);
+                    min = Math.max(0, i2);
                     while (min < count && !adapter.isEnabled(min)) {
                         min++;
                     }
                 } else {
-                    min = Math.min(i, count - 1);
+                    min = Math.min(i2, count - 1);
                     while (min >= 0 && !adapter.isEnabled(min)) {
                         min--;
                     }
@@ -305,65 +305,63 @@ public class DropDownListView extends ListView {
                     return -1;
                 }
                 return min;
-            } else if (i >= 0 && i < count) {
-                return i;
+            } else if (i2 >= 0 && i2 < count) {
+                return i2;
             }
         }
         return -1;
     }
 
-    public int measureHeightOfChildrenCompat(int i, int i2, int i3, int i4, int i5) {
+    public int measureHeightOfChildrenCompat(int i2, int i3, int i4, int i5, int i6) {
         int makeMeasureSpec;
         int listPaddingTop = getListPaddingTop();
         int listPaddingBottom = getListPaddingBottom();
-        getListPaddingLeft();
-        getListPaddingRight();
         int dividerHeight = getDividerHeight();
         Drawable divider = getDivider();
         ListAdapter adapter = getAdapter();
         if (adapter == null) {
             return listPaddingTop + listPaddingBottom;
         }
-        int i6 = listPaddingTop + listPaddingBottom;
+        int i7 = listPaddingTop + listPaddingBottom;
         dividerHeight = (dividerHeight <= 0 || divider == null) ? 0 : 0;
         int count = adapter.getCount();
         View view = null;
-        int i7 = 0;
         int i8 = 0;
         int i9 = 0;
-        while (i7 < count) {
-            int itemViewType = adapter.getItemViewType(i7);
-            if (itemViewType != i8) {
+        int i10 = 0;
+        while (i8 < count) {
+            int itemViewType = adapter.getItemViewType(i8);
+            if (itemViewType != i9) {
                 view = null;
-                i8 = itemViewType;
+                i9 = itemViewType;
             }
-            view = adapter.getView(i7, view, this);
+            view = adapter.getView(i8, view, this);
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = generateDefaultLayoutParams();
                 view.setLayoutParams(layoutParams);
             }
-            int i10 = layoutParams.height;
-            if (i10 > 0) {
-                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i10, 1073741824);
+            int i11 = layoutParams.height;
+            if (i11 > 0) {
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i11, 1073741824);
             } else {
                 makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
             }
-            view.measure(i, makeMeasureSpec);
+            view.measure(i2, makeMeasureSpec);
             view.forceLayout();
-            if (i7 > 0) {
-                i6 += dividerHeight;
+            if (i8 > 0) {
+                i7 += dividerHeight;
             }
-            i6 += view.getMeasuredHeight();
-            if (i6 >= i4) {
-                return (i5 < 0 || i7 <= i5 || i9 <= 0 || i6 == i4) ? i4 : i9;
+            i7 += view.getMeasuredHeight();
+            if (i7 >= i5) {
+                return (i6 < 0 || i8 <= i6 || i10 <= 0 || i7 == i5) ? i5 : i10;
             }
-            if (i5 >= 0 && i7 >= i5) {
-                i9 = i6;
+            if (i6 >= 0 && i8 >= i6) {
+                i10 = i7;
             }
-            i7++;
+            i8++;
         }
-        return i6;
+        return i7;
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
@@ -381,7 +379,7 @@ public class DropDownListView extends ListView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean onForwardedEvent(MotionEvent motionEvent, int i) {
+    public boolean onForwardedEvent(MotionEvent motionEvent, int i2) {
         boolean z;
         boolean z2;
         int actionMasked = motionEvent.getActionMasked();
@@ -390,7 +388,7 @@ public class DropDownListView extends ListView {
         } else if (actionMasked == 2) {
             z = true;
         }
-        int findPointerIndex = motionEvent.findPointerIndex(i);
+        int findPointerIndex = motionEvent.findPointerIndex(i2);
         if (findPointerIndex >= 0) {
             int x = (int) motionEvent.getX(findPointerIndex);
             int y = (int) motionEvent.getY(findPointerIndex);

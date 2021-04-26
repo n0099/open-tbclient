@@ -28,7 +28,7 @@ public class BasicHttpResponse extends AbstractHttpMessage implements HttpRespon
         throw new RuntimeException("Stub!");
     }
 
-    public String getReason(int i) {
+    public String getReason(int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -53,7 +53,7 @@ public class BasicHttpResponse extends AbstractHttpMessage implements HttpRespon
     }
 
     @Override // org.apache.http.HttpResponse
-    public void setStatusCode(int i) {
+    public void setStatusCode(int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -67,16 +67,16 @@ public class BasicHttpResponse extends AbstractHttpMessage implements HttpRespon
     }
 
     @Override // org.apache.http.HttpResponse
-    public void setStatusLine(ProtocolVersion protocolVersion, int i) {
+    public void setStatusLine(ProtocolVersion protocolVersion, int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public BasicHttpResponse(ProtocolVersion protocolVersion, int i, String str) {
+    public BasicHttpResponse(ProtocolVersion protocolVersion, int i2, String str) {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpResponse
-    public void setStatusLine(ProtocolVersion protocolVersion, int i, String str) {
+    public void setStatusLine(ProtocolVersion protocolVersion, int i2, String str) {
         throw new RuntimeException("Stub!");
     }
 }

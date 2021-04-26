@@ -10,7 +10,7 @@ public class WeightedLatLng extends n.a {
     public static final double DEFAULT_INTENSITY = 1.0d;
 
     /* renamed from: a  reason: collision with root package name */
-    public Point f7097a;
+    public Point f7352a;
     public final double intensity;
     public final LatLng latLng;
 
@@ -24,7 +24,7 @@ public class WeightedLatLng extends n.a {
         }
         this.latLng = latLng;
         GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
-        this.f7097a = new Point((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6());
+        this.f7352a = new Point((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6());
         if (d2 > 0.0d) {
             this.intensity = d2;
         } else {
@@ -34,6 +34,6 @@ public class WeightedLatLng extends n.a {
 
     @Override // com.baidu.mapapi.map.n.a
     public Point a() {
-        return this.f7097a;
+        return this.f7352a;
     }
 }

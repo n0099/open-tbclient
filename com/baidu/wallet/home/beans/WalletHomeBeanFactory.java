@@ -13,11 +13,11 @@ public final class WalletHomeBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static WalletHomeBeanFactory f24223a = new WalletHomeBeanFactory();
+        public static WalletHomeBeanFactory f24975a = new WalletHomeBeanFactory();
     }
 
     public static WalletHomeBeanFactory getInstance() {
-        return a.f24223a;
+        return a.f24975a;
     }
 
     public WalletHomeBeanFactory() {
@@ -25,9 +25,9 @@ public final class WalletHomeBeanFactory implements IBeanFactory {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.apollon.beans.IBeanFactory
-    public BaseBean<?> getBean(Context context, int i, String str) {
+    public BaseBean<?> getBean(Context context, int i2, String str) {
         BaseBean<?> homeCfgBean;
-        switch (i) {
+        switch (i2) {
             case BEAN_ID_HOME_CFG /* 49157 */:
                 homeCfgBean = new HomeCfgBean(context);
                 break;

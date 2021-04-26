@@ -13,9 +13,9 @@ public class PluginDownloadActivityConfig extends IntentConfig {
         getIntent().putExtra(PLUGIN_CONFIG, pluginConfig);
     }
 
-    public PluginDownloadActivityConfig(Context context, PluginNetConfigInfos.PluginConfig pluginConfig, int i) {
+    public PluginDownloadActivityConfig(Context context, PluginNetConfigInfos.PluginConfig pluginConfig, int i2) {
         this(context, pluginConfig);
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i);
+        setRequestCode(i2);
     }
 }

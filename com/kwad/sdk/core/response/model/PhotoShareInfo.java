@@ -12,20 +12,15 @@ public class PhotoShareInfo extends BaseResultData implements com.kwad.sdk.core.
     public ShareUrlInfo data = new ShareUrlInfo();
 
     /* loaded from: classes6.dex */
-    public static class ShareUrlInfo implements com.kwad.sdk.core.b, Serializable {
+    public static class ShareUrlInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static final long serialVersionUID = -7887599282226106153L;
+        public String mediaShareItem;
         public String shareUrl;
+    }
 
-        public void parseJson(@Nullable JSONObject jSONObject) {
-            this.shareUrl = jSONObject.optString("shareUrl");
-        }
-
-        @Override // com.kwad.sdk.core.b
-        public JSONObject toJson() {
-            JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, "shareUrl", this.shareUrl);
-            return jSONObject;
-        }
+    public String getMediaShareItem() {
+        ShareUrlInfo shareUrlInfo = this.data;
+        return shareUrlInfo != null ? shareUrlInfo.mediaShareItem : "";
     }
 
     public String getShareUrl() {

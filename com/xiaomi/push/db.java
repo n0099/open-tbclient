@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class db {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile db f40732a;
+    public static volatile db f38249a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f214a;
@@ -38,7 +38,7 @@ public class db {
     public class b extends al.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f40734a = System.currentTimeMillis();
+        public long f38251a = System.currentTimeMillis();
 
         public b() {
         }
@@ -54,7 +54,7 @@ public class db {
 
         @Override // com.xiaomi.push.al.b
         public final boolean b() {
-            return System.currentTimeMillis() - this.f40734a > 172800000;
+            return System.currentTimeMillis() - this.f38251a > 172800000;
         }
     }
 
@@ -62,7 +62,7 @@ public class db {
     public class c extends b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40736a;
+        public int f38253a;
 
         /* renamed from: a  reason: collision with other field name */
         public File f217a;
@@ -74,7 +74,7 @@ public class db {
         public boolean f219a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40737b;
+        public String f38254b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f220b;
@@ -82,35 +82,35 @@ public class db {
         public c(String str, String str2, File file, boolean z) {
             super();
             this.f218a = str;
-            this.f40737b = str2;
+            this.f38254b = str2;
             this.f217a = file;
             this.f220b = z;
         }
 
         private boolean c() {
-            int i;
-            int i2 = 0;
+            int i2;
+            int i3 = 0;
             SharedPreferences sharedPreferences = db.this.f214a.getSharedPreferences("log.timestamp", 0);
             String string = sharedPreferences.getString("log.requst", "");
             long currentTimeMillis = System.currentTimeMillis();
             try {
                 JSONObject jSONObject = new JSONObject(string);
                 currentTimeMillis = jSONObject.getLong("time");
-                i = jSONObject.getInt("times");
+                i2 = jSONObject.getInt("times");
             } catch (JSONException unused) {
-                i = 0;
+                i2 = 0;
             }
             if (System.currentTimeMillis() - currentTimeMillis >= 86400000) {
                 currentTimeMillis = System.currentTimeMillis();
-            } else if (i > 10) {
+            } else if (i2 > 10) {
                 return false;
             } else {
-                i2 = i;
+                i3 = i2;
             }
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("time", currentTimeMillis);
-                jSONObject2.put("times", i2 + 1);
+                jSONObject2.put("times", i3 + 1);
                 sharedPreferences.edit().putString("log.requst", jSONObject2.toString()).commit();
             } catch (JSONException e2) {
                 com.xiaomi.channel.commonutils.logger.b.c("JSONException on put " + e2.getMessage());
@@ -128,9 +128,9 @@ public class db {
             try {
                 if (c()) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("uid", com.xiaomi.push.service.bi.m597a());
-                    hashMap.put("token", this.f40737b);
-                    hashMap.put("net", bg.m157a(db.this.f214a));
+                    hashMap.put("uid", com.xiaomi.push.service.bi.m600a());
+                    hashMap.put("token", this.f38254b);
+                    hashMap.put("net", bg.m160a(db.this.f214a));
                     bg.a(this.f218a, hashMap, this.f217a, "file");
                 }
                 this.f219a = true;
@@ -140,18 +140,18 @@ public class db {
 
         @Override // com.xiaomi.push.al.b
         /* renamed from: c  reason: collision with other method in class */
-        public void mo227c() {
+        public void mo230c() {
             if (!this.f219a) {
-                int i = this.f40736a + 1;
-                this.f40736a = i;
-                if (i < 3) {
+                int i2 = this.f38253a + 1;
+                this.f38253a = i2;
+                if (i2 < 3) {
                     db.this.f215a.add(this);
                 }
             }
-            if (this.f219a || this.f40736a >= 3) {
+            if (this.f219a || this.f38253a >= 3) {
                 this.f217a.delete();
             }
-            db.this.a((1 << this.f40736a) * 1000);
+            db.this.a((1 << this.f38253a) * 1000);
         }
     }
 
@@ -164,15 +164,15 @@ public class db {
     }
 
     public static db a(Context context) {
-        if (f40732a == null) {
+        if (f38249a == null) {
             synchronized (db.class) {
-                if (f40732a == null) {
-                    f40732a = new db(context);
+                if (f38249a == null) {
+                    f38249a = new db(context);
                 }
             }
         }
-        f40732a.f214a = context;
-        return f40732a;
+        f38249a.f214a = context;
+        return f38249a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -186,7 +186,7 @@ public class db {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (aa.b() || aa.m123a()) {
+        if (aa.b() || aa.m126a()) {
             return;
         }
         try {
@@ -225,8 +225,8 @@ public class db {
         a(0L);
     }
 
-    public void a(String str, String str2, Date date, Date date2, int i, boolean z) {
-        this.f215a.add(new dc(this, i, date, date2, str, str2, z));
+    public void a(String str, String str2, Date date, Date date2, int i2, boolean z) {
+        this.f215a.add(new dc(this, i2, date, date2, str, str2, z));
         b(0L);
     }
 }

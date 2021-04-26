@@ -5,10 +5,10 @@ import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class WXPreloadMiniProgram {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class Req extends BaseReq {
         public static final String TAG = "MicroMsg.SDK.WXPreloadMiniProgram.Req";
         public String userName;
@@ -22,8 +22,8 @@ public class WXPreloadMiniProgram {
             if (d.b(this.userName)) {
                 str = "userName is null";
             } else {
-                int i = this.miniprogramType;
-                if (i >= 0 && i <= 2) {
+                int i2 = this.miniprogramType;
+                if (i2 >= 0 && i2 <= 2) {
                     return true;
                 }
                 str = "miniprogram type should between MINIPTOGRAM_TYPE_RELEASE and MINIPROGRAM_TYPE_PREVIEW";
@@ -47,7 +47,7 @@ public class WXPreloadMiniProgram {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class Resp extends BaseResp {
         public String extMsg;
 

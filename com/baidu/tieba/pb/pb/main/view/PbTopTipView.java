@@ -14,23 +14,25 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.j0.f0.a;
+import d.a.j0.f0.a;
 /* loaded from: classes3.dex */
 public class PbTopTipView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19538e;
+    public int f20015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19539f;
+    public boolean f20016f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f19540g;
+    public Animation f20017g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Animation f19541h;
-    public Runnable i;
-    public d.b.j0.f0.b j;
+    public Animation f20018h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Runnable f20019i;
+    public d.a.j0.f0.b j;
     public a.b k;
     public Runnable l;
 
@@ -50,23 +52,23 @@ public class PbTopTipView extends TextView {
         public b() {
         }
 
-        @Override // d.b.j0.f0.a.b
-        public void a(int i, int i2) {
-        }
-
-        @Override // d.b.j0.f0.a.b
-        public void b(int i, int i2) {
-            if (e(i2) && PbTopTipView.this.f19539f) {
+        @Override // d.a.j0.f0.a.b
+        public void a(int i2, int i3) {
+            if (e(i3) && PbTopTipView.this.f20016f) {
                 PbTopTipView.this.h();
             }
         }
 
-        @Override // d.b.j0.f0.a.b
-        public void c(int i, int i2) {
+        @Override // d.a.j0.f0.a.b
+        public void b(int i2, int i3) {
         }
 
-        @Override // d.b.j0.f0.a.b
-        public void d(int i, int i2) {
+        @Override // d.a.j0.f0.a.b
+        public void c(int i2, int i3) {
+        }
+
+        @Override // d.a.j0.f0.a.b
+        public void d(int i2, int i3) {
         }
 
         public final boolean e(float f2) {
@@ -94,7 +96,7 @@ public class PbTopTipView extends TextView {
         public void onAnimationEnd(Animation animation) {
             PbTopTipView.this.k();
             PbTopTipView.this.setVisibility(8);
-            d.b.c.e.m.e.a().postDelayed(PbTopTipView.this.l, 600L);
+            d.a.c.e.m.e.a().postDelayed(PbTopTipView.this.l, 600L);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -113,9 +115,9 @@ public class PbTopTipView extends TextView {
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            if (PbTopTipView.this.f19538e > 0) {
+            if (PbTopTipView.this.f20015e > 0) {
                 PbTopTipView pbTopTipView = PbTopTipView.this;
-                pbTopTipView.postDelayed(pbTopTipView.i, PbTopTipView.this.f19538e);
+                pbTopTipView.postDelayed(pbTopTipView.f20019i, PbTopTipView.this.f20015e);
             }
         }
 
@@ -144,15 +146,15 @@ public class PbTopTipView extends TextView {
 
     public PbTopTipView(Context context) {
         super(context);
-        this.f19538e = 3000;
-        this.i = new a();
+        this.f20015e = 3000;
+        this.f20019i = new a();
         this.k = new b();
         this.l = new f();
         i();
     }
 
     public void g() {
-        this.f19539f = false;
+        this.f20016f = false;
         k();
         ViewGroup viewGroup = (ViewGroup) getParent();
         if (viewGroup != null) {
@@ -161,40 +163,40 @@ public class PbTopTipView extends TextView {
     }
 
     public final void h() {
-        this.f19539f = false;
-        removeCallbacks(this.i);
+        this.f20016f = false;
+        removeCallbacks(this.f20019i);
         if (getParent() != null) {
             clearAnimation();
-            startAnimation(this.f19540g);
+            startAnimation(this.f20017g);
         }
     }
 
     public final void i() {
-        d.b.j0.f0.b bVar = new d.b.j0.f0.b(getContext());
+        d.a.j0.f0.b bVar = new d.a.j0.f0.b(getContext());
         this.j = bVar;
         bVar.d(this.k);
         setOnTouchListener(new c());
         setupPaddings();
-        this.f19541h = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_in);
-        this.f19540g = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_out);
+        this.f20018h = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_in);
+        this.f20017g = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_out);
         setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.fontsize30));
-        this.f19540g.setAnimationListener(new d());
-        this.f19541h.setDuration(400L);
-        this.f19541h.setAnimationListener(new e());
+        this.f20017g.setAnimationListener(new d());
+        this.f20018h.setDuration(400L);
+        this.f20018h.setAnimationListener(new e());
     }
 
-    public void j(int i) {
-        SkinManager.setBackgroundResource(this, R.color.cp_link_tip_a_alpha95, i);
-        SkinManager.setViewTextColor(this, R.color.CAM_X0101, 1, i);
+    public void j(int i2) {
+        SkinManager.setBackgroundResource(this, R.color.cp_link_tip_a_alpha95, i2);
+        SkinManager.setViewTextColor(this, R.color.CAM_X0101, 1, i2);
     }
 
     public void k() {
-        removeCallbacks(this.i);
+        removeCallbacks(this.f20019i);
         clearAnimation();
-        d.b.c.e.m.e.a().removeCallbacks(this.l);
+        d.a.c.e.m.e.a().removeCallbacks(this.l);
     }
 
-    public void l(RelativeLayout relativeLayout, int i) {
+    public void l(RelativeLayout relativeLayout, int i2) {
         if (relativeLayout == null) {
             return;
         }
@@ -205,9 +207,9 @@ public class PbTopTipView extends TextView {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(10);
         relativeLayout.addView(this, layoutParams);
-        j(i);
-        startAnimation(this.f19541h);
-        this.f19539f = true;
+        j(i2);
+        startAnimation(this.f20018h);
+        this.f20016f = true;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -216,8 +218,8 @@ public class PbTopTipView extends TextView {
         setupPaddings();
     }
 
-    public void setDuration(int i) {
-        this.f19538e = i;
+    public void setDuration(int i2) {
+        this.f20015e = i2;
     }
 
     public void setupPaddings() {
@@ -229,17 +231,17 @@ public class PbTopTipView extends TextView {
 
     public PbTopTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19538e = 3000;
-        this.i = new a();
+        this.f20015e = 3000;
+        this.f20019i = new a();
         this.k = new b();
         this.l = new f();
         i();
     }
 
-    public PbTopTipView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f19538e = 3000;
-        this.i = new a();
+    public PbTopTipView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f20015e = 3000;
+        this.f20019i = new a();
         this.k = new b();
         this.l = new f();
         i();

@@ -7,17 +7,17 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.setting.more.MoreActivity;
-import d.b.i0.r.k;
-/* loaded from: classes4.dex */
+import d.a.i0.r.k;
+/* loaded from: classes5.dex */
 public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f20695e;
+    public HttpMessageListener f21251e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
-        public a(GetImageWatermarkTypeModel getImageWatermarkTypeModel, int i) {
-            super(i);
+        public a(GetImageWatermarkTypeModel getImageWatermarkTypeModel, int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
     public GetImageWatermarkTypeModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
         a aVar = new a(this, CmdConfigHttp.CMD_GET_IMAGE_WATERMARK_TYPE);
-        this.f20695e = aVar;
+        this.f21251e = aVar;
         registerListener(aVar);
         LoadData();
     }

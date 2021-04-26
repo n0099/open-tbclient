@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ForwardingImageOriginListener implements ImageOriginListener {
     public static final String TAG = "ForwardingImageOriginListener";
     public final List<ImageOriginListener> mImageOriginListeners;
@@ -19,13 +19,13 @@ public class ForwardingImageOriginListener implements ImageOriginListener {
     }
 
     @Override // com.facebook.drawee.backends.pipeline.info.ImageOriginListener
-    public synchronized void onImageLoaded(String str, int i, boolean z) {
+    public synchronized void onImageLoaded(String str, int i2, boolean z) {
         int size = this.mImageOriginListeners.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            ImageOriginListener imageOriginListener = this.mImageOriginListeners.get(i2);
+        for (int i3 = 0; i3 < size; i3++) {
+            ImageOriginListener imageOriginListener = this.mImageOriginListeners.get(i3);
             if (imageOriginListener != null) {
                 try {
-                    imageOriginListener.onImageLoaded(str, i, z);
+                    imageOriginListener.onImageLoaded(str, i2, z);
                 } catch (Exception e2) {
                     FLog.e(TAG, "InternalListener exception in onImageLoaded", e2);
                 }

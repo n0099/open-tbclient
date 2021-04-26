@@ -7,8 +7,8 @@ public enum RedirectType {
     
     public int value;
 
-    RedirectType(int i) {
-        this.value = i;
+    RedirectType(int i2) {
+        this.value = i2;
     }
 
     public int getValue() {

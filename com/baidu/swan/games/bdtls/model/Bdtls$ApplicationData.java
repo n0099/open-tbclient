@@ -39,10 +39,10 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$ApplicationData, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12487e;
+        public int f12375e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ByteString f12488f = ByteString.EMPTY;
+        public ByteString f12376f = ByteString.EMPTY;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -88,16 +88,16 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         /* renamed from: n */
         public Bdtls$ApplicationData buildPartial() {
             Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this);
-            int i = (this.f12487e & 1) != 1 ? 0 : 1;
-            bdtls$ApplicationData.sKR_ = this.f12488f;
-            bdtls$ApplicationData.bitField0_ = i;
+            int i2 = (this.f12375e & 1) != 1 ? 0 : 1;
+            bdtls$ApplicationData.sKR_ = this.f12376f;
+            bdtls$ApplicationData.bitField0_ = i2;
             return bdtls$ApplicationData;
         }
 
         public b o() {
             super.clear();
-            this.f12488f = ByteString.EMPTY;
-            this.f12487e &= -2;
+            this.f12376f = ByteString.EMPTY;
+            this.f12375e &= -2;
             return this;
         }
 
@@ -118,7 +118,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
 
         public boolean s() {
-            return (this.f12487e & 1) == 1;
+            return (this.f12375e & 1) == 1;
         }
 
         public b t(Bdtls$ApplicationData bdtls$ApplicationData) {
@@ -164,8 +164,8 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
 
         public b v(ByteString byteString) {
             if (byteString != null) {
-                this.f12487e |= 1;
-                this.f12488f = byteString;
+                this.f12375e |= 1;
+                this.f12376f = byteString;
                 return this;
             }
             throw null;
@@ -229,9 +229,9 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
 
     @Override // com.google.protobuf.MessageLite
     public int getSerializedSize() {
-        int i = this.memoizedSerializedSize;
-        if (i != -1) {
-            return i;
+        int i2 = this.memoizedSerializedSize;
+        if (i2 != -1) {
+            return i2;
         }
         int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, this.sKR_) : 0;
         this.memoizedSerializedSize = computeBytesSize;

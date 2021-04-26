@@ -60,18 +60,18 @@ public class VideoSystemHelper {
 
     public static int getStatusBarHeight() {
         Context appContext = BDPlayerConfig.getAppContext();
-        int i = 0;
+        int i2 = 0;
         if (appContext == null) {
             return 0;
         }
         int identifier = appContext.getResources().getIdentifier("status_bar_height", "dimen", "android");
         if (identifier > 0) {
             try {
-                i = appContext.getResources().getDimensionPixelSize(identifier);
+                i2 = appContext.getResources().getDimensionPixelSize(identifier);
             } catch (Exception unused) {
             }
         }
-        return i == 0 ? (int) (getDensity() * 25.0f) : i;
+        return i2 == 0 ? (int) (getDensity() * 25.0f) : i2;
     }
 
     @PublicMethod

@@ -10,20 +10,20 @@ public enum Config$PlaneFindingMode {
     
     public final int nativeCode;
 
-    Config$PlaneFindingMode(int i) {
-        this.nativeCode = i;
+    Config$PlaneFindingMode(int i2) {
+        this.nativeCode = i2;
     }
 
-    public static Config$PlaneFindingMode forNumber(int i) {
+    public static Config$PlaneFindingMode forNumber(int i2) {
         Config$PlaneFindingMode[] values;
         for (Config$PlaneFindingMode config$PlaneFindingMode : values()) {
-            if (config$PlaneFindingMode.nativeCode == i) {
+            if (config$PlaneFindingMode.nativeCode == i2) {
                 return config$PlaneFindingMode;
             }
         }
         StringBuilder sb = new StringBuilder(63);
         sb.append("Unexpected value for native PlaneFindingMode, value=");
-        sb.append(i);
+        sb.append(i2);
         throw new FatalException(sb.toString());
     }
 }

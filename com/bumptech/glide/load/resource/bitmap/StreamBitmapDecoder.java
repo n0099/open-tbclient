@@ -51,7 +51,7 @@ public class StreamBitmapDecoder implements ResourceDecoder<InputStream, Bitmap>
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource<Bitmap> decode(@NonNull InputStream inputStream, int i, int i2, @NonNull Options options) throws IOException {
+    public Resource<Bitmap> decode(@NonNull InputStream inputStream, int i2, int i3, @NonNull Options options) throws IOException {
         RecyclableBufferedInputStream recyclableBufferedInputStream;
         boolean z;
         if (inputStream instanceof RecyclableBufferedInputStream) {
@@ -63,7 +63,7 @@ public class StreamBitmapDecoder implements ResourceDecoder<InputStream, Bitmap>
         }
         ExceptionCatchingInputStream obtain = ExceptionCatchingInputStream.obtain(recyclableBufferedInputStream);
         try {
-            return this.downsampler.decode(new MarkEnforcingInputStream(obtain), i, i2, options, new UntrustedCallbacks(recyclableBufferedInputStream, obtain));
+            return this.downsampler.decode(new MarkEnforcingInputStream(obtain), i2, i3, options, new UntrustedCallbacks(recyclableBufferedInputStream, obtain));
         } finally {
             obtain.release();
             if (z) {

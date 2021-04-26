@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes5.dex */
 public final class InputStreamRewinder implements DataRewinder<InputStream> {
-    public static final int MARK_READ_LIMIT = 5242880;
+    public static final int MARK_LIMIT = 5242880;
     public final RecyclableBufferedInputStream bufferedStream;
 
     /* loaded from: classes5.dex */
@@ -42,10 +42,6 @@ public final class InputStreamRewinder implements DataRewinder<InputStream> {
     @Override // com.bumptech.glide.load.data.DataRewinder
     public void cleanup() {
         this.bufferedStream.release();
-    }
-
-    public void fixMarkLimits() {
-        this.bufferedStream.fixMarkLimit();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

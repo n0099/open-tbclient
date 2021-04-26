@@ -1,15 +1,14 @@
 package com.bytedance.tea.crash.upload;
 
-import android.support.v4.media.session.PlaybackStateCompat;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidubce.AbstractBceClient;
 import com.bytedance.embedapplog.util.TTEncryptUtils;
-import d.c.d.b.l;
-import d.c.d.b.m;
-import d.c.d.b.n.d;
-import d.c.d.b.n.e;
+import d.b.d.b.l;
+import d.b.d.b.m;
+import d.b.d.b.n.d;
+import d.b.d.b.n.e;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -29,10 +28,10 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f30206a = false;
+    public static boolean f31125a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d.c.d.b.n.b f30207b;
+    public static d.b.d.b.n.b f31126b;
 
     /* loaded from: classes5.dex */
     public enum a {
@@ -42,16 +41,16 @@ public class b {
         
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f30212d;
+        public final int f31131d;
 
-        a(int i) {
-            this.f30212d = i;
+        a(int i2) {
+            this.f31131d = i2;
         }
     }
 
     /* renamed from: com.bytedance.tea.crash.upload.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public enum EnumC0343b {
+    public enum EnumC0336b {
         NONE(0),
         MOBILE(1),
         MOBILE_2G(2),
@@ -61,10 +60,10 @@ public class b {
         
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f30220g;
+        public final int f31139g;
 
-        EnumC0343b(int i) {
-            this.f30220g = i;
+        EnumC0336b(int i2) {
+            this.f31139g = i2;
         }
     }
 
@@ -136,7 +135,7 @@ public class b {
     public static e d(String str, String str2, boolean z) {
         try {
             if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
-                return a(PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE, str, str2.getBytes(), a.GZIP, AbstractBceClient.DEFAULT_CONTENT_TYPE, z);
+                return a(2097152L, str, str2.getBytes(), a.GZIP, AbstractBceClient.DEFAULT_CONTENT_TYPE, z);
             }
             return new e(201);
         } catch (Throwable th) {
@@ -158,12 +157,12 @@ public class b {
         HttpURLConnection httpURLConnection = null;
         GZIPInputStream gZIPInputStream2 = null;
         try {
-            if (f30207b != null) {
-                str = f30207b.a(str, bArr);
+            if (f31126b != null) {
+                str = f31126b.a(str, bArr);
             }
             LinkedList<Pair> linkedList = new LinkedList();
             if (z2) {
-                url = new URL(d.c.d.a.a.a.a.c(str, linkedList));
+                url = new URL(d.b.d.a.a.a.a.c(str, linkedList));
             } else {
                 url = new URL(str);
             }

@@ -3,19 +3,19 @@ package com.baidu.tieba.sharewrite;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForumPrefixResponsedMessage extends JsonHttpResponsedMessage {
     public PostPrefixData data;
     public boolean hasPostpre;
 
-    public ForumPrefixResponsedMessage(int i) {
-        super(i);
+    public ForumPrefixResponsedMessage(int i2) {
+        super(i2);
         this.data = new PostPrefixData();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i, jSONObject);
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        super.decodeLogicInBackGround(i2, jSONObject);
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {

@@ -166,20 +166,20 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
         this.address = str;
     }
 
-    public void setCheckinNum(int i) {
-        this.checkinNum = i;
+    public void setCheckinNum(int i2) {
+        this.checkinNum = i2;
     }
 
-    public void setCommentNum(int i) {
-        this.commentNum = i;
+    public void setCommentNum(int i2) {
+        this.commentNum = i2;
     }
 
     public void setDetailUrl(String str) {
         this.detailUrl = str;
     }
 
-    public void setDiscountNum(int i) {
-        this.discountNum = i;
+    public void setDiscountNum(int i2) {
+        this.discountNum = i2;
     }
 
     public void setEnvironmentRating(double d2) {
@@ -190,20 +190,20 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
         this.facilityRating = d2;
     }
 
-    public void setFavoriteNum(int i) {
-        this.favoriteNum = i;
+    public void setFavoriteNum(int i2) {
+        this.favoriteNum = i2;
     }
 
-    public void setGrouponNum(int i) {
-        this.grouponNum = i;
+    public void setGrouponNum(int i2) {
+        this.grouponNum = i2;
     }
 
     public void setHygieneRating(double d2) {
         this.hygieneRating = d2;
     }
 
-    public void setImageNum(int i) {
-        this.imageNum = i;
+    public void setImageNum(int i2) {
+        this.imageNum = i2;
     }
 
     public void setLocation(LatLng latLng) {
@@ -255,10 +255,10 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.name);
-        parcel.writeParcelable(this.location, i);
+        parcel.writeParcelable(this.location, i2);
         parcel.writeString(this.address);
         parcel.writeString(this.telephone);
         parcel.writeString(this.uid);

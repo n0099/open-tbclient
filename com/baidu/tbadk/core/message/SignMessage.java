@@ -12,7 +12,7 @@ public class SignMessage extends CustomResponsedMessage {
     public String mSignErrorString;
     public SignData signData;
 
-    public SignMessage(int i, Object obj) {
+    public SignMessage(int i2, Object obj) {
         super(2001425, obj);
     }
 
@@ -35,7 +35,7 @@ public class SignMessage extends CustomResponsedMessage {
         this.mSignErrorString = netWork.getErrorString();
     }
 
-    public SignMessage(int i) {
+    public SignMessage(int i2) {
         super(2001425);
     }
 

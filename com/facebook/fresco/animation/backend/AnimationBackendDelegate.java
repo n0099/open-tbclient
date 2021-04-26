@@ -7,12 +7,11 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.IntRange;
 import com.facebook.fresco.animation.backend.AnimationBackend;
-import com.kwai.video.player.KsMediaMeta;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AnimationBackendDelegate<T extends AnimationBackend> implements AnimationBackend {
     public static final int ALPHA_UNSET = -1;
-    @IntRange(from = -1, to = KsMediaMeta.AV_CH_LAYOUT_7POINT1_WIDE_BACK)
+    @IntRange(from = -1, to = 255)
     public int mAlpha = -1;
     @Nullable
     public T mAnimationBackend;
@@ -31,9 +30,9 @@ public class AnimationBackendDelegate<T extends AnimationBackend> implements Ani
         if (rect != null) {
             animationBackend.setBounds(rect);
         }
-        int i = this.mAlpha;
-        if (i >= 0 && i <= 255) {
-            animationBackend.setAlpha(i);
+        int i2 = this.mAlpha;
+        if (i2 >= 0 && i2 <= 255) {
+            animationBackend.setAlpha(i2);
         }
         ColorFilter colorFilter = this.mColorFilter;
         if (colorFilter != null) {
@@ -50,9 +49,9 @@ public class AnimationBackendDelegate<T extends AnimationBackend> implements Ani
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public boolean drawFrame(Drawable drawable, Canvas canvas, int i) {
+    public boolean drawFrame(Drawable drawable, Canvas canvas, int i2) {
         T t = this.mAnimationBackend;
-        return t != null && t.drawFrame(drawable, canvas, i);
+        return t != null && t.drawFrame(drawable, canvas, i2);
     }
 
     @Nullable
@@ -70,12 +69,12 @@ public class AnimationBackendDelegate<T extends AnimationBackend> implements Ani
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationInformation
-    public int getFrameDurationMs(int i) {
+    public int getFrameDurationMs(int i2) {
         T t = this.mAnimationBackend;
         if (t == null) {
             return 0;
         }
-        return t.getFrameDurationMs(i);
+        return t.getFrameDurationMs(i2);
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
@@ -115,12 +114,12 @@ public class AnimationBackendDelegate<T extends AnimationBackend> implements Ani
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public void setAlpha(@IntRange(from = 0, to = 255) int i) {
+    public void setAlpha(@IntRange(from = 0, to = 255) int i2) {
         T t = this.mAnimationBackend;
         if (t != null) {
-            t.setAlpha(i);
+            t.setAlpha(i2);
         }
-        this.mAlpha = i;
+        this.mAlpha = i2;
     }
 
     public void setAnimationBackend(@Nullable T t) {

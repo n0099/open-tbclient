@@ -13,24 +13,24 @@ import java.util.List;
 public class BCouponPagerAdapter extends PagerAdapter implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f26363a;
+    public Context f27169a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<View> f26364b;
+    public List<View> f27170b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f26365c = 0;
+    public int f27171c = 0;
 
     public BCouponPagerAdapter(Context context, List<View> list) {
-        this.f26364b = new ArrayList();
-        this.f26363a = context;
-        this.f26364b = list;
+        this.f27170b = new ArrayList();
+        this.f27169a = context;
+        this.f27170b = list;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(View view, int i, Object obj) {
-        List<View> list = this.f26364b;
-        View view2 = list.get(i % list.size());
+    public void destroyItem(View view, int i2, Object obj) {
+        List<View> list = this.f27170b;
+        View view2 = list.get(i2 % list.size());
         if (view2.getParent() == null) {
             ((ViewPager) view).removeView(view2);
         }
@@ -38,23 +38,23 @@ public class BCouponPagerAdapter extends PagerAdapter implements NoProguard {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return this.f26364b.size();
+        return this.f27170b.size();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getItemPosition(Object obj) {
-        int i = this.f26365c;
-        if (i > 0) {
-            this.f26365c = i - 1;
+        int i2 = this.f27171c;
+        if (i2 > 0) {
+            this.f27171c = i2 - 1;
             return -2;
         }
         return super.getItemPosition(obj);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public Object instantiateItem(View view, int i) {
-        List<View> list = this.f26364b;
-        View view2 = list.get(i % list.size());
+    public Object instantiateItem(View view, int i2) {
+        List<View> list = this.f27170b;
+        View view2 = list.get(i2 % list.size());
         ViewParent parent = view2.getParent();
         if (parent != null) {
             ((ViewGroup) parent).removeView(view2);
@@ -70,7 +70,7 @@ public class BCouponPagerAdapter extends PagerAdapter implements NoProguard {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void notifyDataSetChanged() {
-        this.f26365c = getCount();
+        this.f27171c = getCount();
         super.notifyDataSetChanged();
     }
 }

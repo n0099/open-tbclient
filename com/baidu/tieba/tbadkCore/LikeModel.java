@@ -16,24 +16,26 @@ import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import d.b.i0.z0.f;
-import d.b.j0.d3.q0.e;
-import d.b.j0.d3.w;
+import d.a.i0.z0.f;
+import d.a.j0.d3.q0.e;
+import d.a.j0.d3.w;
 /* loaded from: classes5.dex */
 public class LikeModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f21013e;
+    public String f21595e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f21014f;
+    public String f21596f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f21015g;
+    public String f21597g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f21016h;
-    public String i;
+    public String f21598h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f21599i;
     public String j;
     public TbPageContext k;
     public b l;
@@ -43,10 +45,10 @@ public class LikeModel extends BdBaseModel {
     public class b extends BdAsyncTask<Object, Integer, w> {
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile NetWork f21017a;
+        public volatile NetWork f21600a;
 
         public b() {
-            this.f21017a = null;
+            this.f21600a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,36 +56,36 @@ public class LikeModel extends BdBaseModel {
         /* renamed from: b */
         public w doInBackground(Object... objArr) {
             try {
-                this.f21017a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LIKE_ADDRESS);
-                this.f21017a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, LikeModel.this.f21013e);
-                this.f21017a.addPostData("fid", LikeModel.this.f21014f);
-                this.f21017a.addPostData("st_type", LikeModel.this.f21016h);
-                this.f21017a.addPostData("authsid", LikeModel.this.i);
+                this.f21600a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LIKE_ADDRESS);
+                this.f21600a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, LikeModel.this.f21595e);
+                this.f21600a.addPostData("fid", LikeModel.this.f21596f);
+                this.f21600a.addPostData("st_type", LikeModel.this.f21598h);
+                this.f21600a.addPostData("authsid", LikeModel.this.f21599i);
                 if (!StringUtils.isNull(LikeModel.this.j)) {
-                    this.f21017a.addPostData("dev_id", LikeModel.this.j);
+                    this.f21600a.addPostData("dev_id", LikeModel.this.j);
                 }
-                if (!TextUtils.isEmpty(LikeModel.this.f21015g)) {
-                    this.f21017a.addPostData("pagefrom", LikeModel.this.f21015g);
+                if (!TextUtils.isEmpty(LikeModel.this.f21597g)) {
+                    this.f21600a.addPostData("pagefrom", LikeModel.this.f21597g);
                 }
-                this.f21017a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
-                this.f21017a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
-                this.f21017a.addPostData("forum_name", LikeModel.this.f21013e);
-                this.f21017a.getNetContext().getRequest().mIsNeedTbs = true;
-                this.f21017a.setNeedSig(true);
-                String postNetData = this.f21017a.postNetData();
-                int serverErrorCode = this.f21017a.getServerErrorCode();
-                String errorString = this.f21017a.getErrorString();
+                this.f21600a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
+                this.f21600a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                this.f21600a.addPostData("forum_name", LikeModel.this.f21595e);
+                this.f21600a.getNetContext().getRequest().mIsNeedTbs = true;
+                this.f21600a.setNeedSig(true);
+                String postNetData = this.f21600a.postNetData();
+                int serverErrorCode = this.f21600a.getServerErrorCode();
+                String errorString = this.f21600a.getErrorString();
                 LikeModel.this.setErrorCode(serverErrorCode);
                 LikeModel.this.setErrorString(errorString);
                 AuthTokenData.parse(postNetData);
                 if (postNetData != null) {
                     w wVar = new w();
                     wVar.o(postNetData);
-                    if (this.f21017a.getNetContext().getResponse().isRequestSuccess()) {
+                    if (this.f21600a.getNetContext().getResponse().isRequestSuccess()) {
                         wVar.q(null);
                     }
                     LikeModel.this.m = wVar.a();
-                    wVar.s(LikeModel.this.f21014f);
+                    wVar.s(LikeModel.this.f21596f);
                     return wVar;
                 }
             } catch (Exception e2) {
@@ -91,7 +93,7 @@ public class LikeModel extends BdBaseModel {
             }
             w wVar2 = new w();
             wVar2.v(0);
-            wVar2.s(LikeModel.this.f21014f);
+            wVar2.s(LikeModel.this.f21596f);
             return wVar2;
         }
 
@@ -100,21 +102,21 @@ public class LikeModel extends BdBaseModel {
         /* renamed from: c */
         public void onPostExecute(w wVar) {
             LikeModel.this.l = null;
-            if (this.f21017a == null || wVar == null || AntiHelper.a(LikeModel.this.getContext(), LikeModel.this.getErrorCode(), wVar.b())) {
+            if (this.f21600a == null || wVar == null || AntiHelper.a(LikeModel.this.getContext(), LikeModel.this.getErrorCode(), wVar.b())) {
                 return;
             }
             e eVar = new e();
-            eVar.f55459a = d.b.c.e.m.b.f(wVar.g(), 0L);
+            eVar.f53303a = d.a.c.e.m.b.f(wVar.g(), 0L);
             wVar.j();
-            if (wVar != null && this.f21017a.getNetContext().getResponse().isRequestSuccess()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(d.b.c.e.m.b.f(wVar.g(), 0L))));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new f.a(LikeModel.this.f21013e, wVar.k())));
-                TbadkCoreApplication.getInst().addLikeForum(LikeModel.this.f21013e);
-                eVar.f55460b = true;
-                eVar.f55461c = LikeModel.this.getErrorString();
+            if (wVar != null && this.f21600a.getNetContext().getResponse().isRequestSuccess()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(d.a.c.e.m.b.f(wVar.g(), 0L))));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new f.a(LikeModel.this.f21595e, wVar.k())));
+                TbadkCoreApplication.getInst().addLikeForum(LikeModel.this.f21595e);
+                eVar.f53304b = true;
+                eVar.f53305c = LikeModel.this.getErrorString();
             } else {
-                eVar.f55460b = false;
-                eVar.f55461c = LikeModel.this.getErrorString();
+                eVar.f53304b = false;
+                eVar.f53305c = LikeModel.this.getErrorString();
             }
             if (LikeModel.this.mLoadDataCallBack != null) {
                 LikeModel.this.mLoadDataCallBack.c(wVar);
@@ -124,9 +126,9 @@ public class LikeModel extends BdBaseModel {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.f21017a != null) {
-                this.f21017a.cancelNetConnect();
-                this.f21017a = null;
+            if (this.f21600a != null) {
+                this.f21600a.cancelNetConnect();
+                this.f21600a = null;
             }
             LikeModel.this.l = null;
             super.cancel(true);
@@ -138,9 +140,9 @@ public class LikeModel extends BdBaseModel {
 
     public LikeModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f21013e = null;
-        this.f21014f = null;
-        this.f21015g = null;
+        this.f21595e = null;
+        this.f21596f = null;
+        this.f21597g = null;
         this.l = null;
         this.k = tbPageContext;
     }
@@ -165,8 +167,8 @@ public class LikeModel extends BdBaseModel {
         if (str == null || str.length() <= 0 || str2 == null || str2.length() <= 0 || this.l != null) {
             return;
         }
-        this.f21013e = str;
-        this.f21014f = str2;
+        this.f21595e = str;
+        this.f21596f = str2;
         b bVar = new b();
         this.l = bVar;
         bVar.setPriority(2);
@@ -175,7 +177,7 @@ public class LikeModel extends BdBaseModel {
 
     public void I(String str, String str2, String str3) {
         H(str, str2);
-        this.f21015g = str3;
+        this.f21597g = str3;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -197,6 +199,6 @@ public class LikeModel extends BdBaseModel {
     }
 
     public void setFrom(String str) {
-        this.f21016h = str;
+        this.f21598h = str;
     }
 }

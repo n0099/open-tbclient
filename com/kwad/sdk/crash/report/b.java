@@ -8,6 +8,7 @@ import com.kwad.sdk.crash.model.message.MemoryInfo;
 import com.kwad.sdk.crash.model.message.ThreadInfo;
 import com.kwad.sdk.crash.utils.f;
 import com.kwad.sdk.crash.utils.h;
+import io.reactivex.annotations.SchedulerSupport;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -22,10 +23,10 @@ import java.util.Iterator;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f34855a;
+    public c f33822a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34856b = "";
+    public String f33823b = "";
 
     private String a(String str) {
         return (str == null || !str.contains("-")) ? str : str.substring(0, str.lastIndexOf(45));
@@ -34,7 +35,7 @@ public abstract class b {
     public abstract ExceptionMessage a(@NonNull File file, File file2, File file3, String str);
 
     public void a(c cVar) {
-        this.f34855a = cVar;
+        this.f33822a = cVar;
     }
 
     @SuppressLint({"CheckResult"})
@@ -122,7 +123,7 @@ public abstract class b {
         ArrayList<File> arrayList = new ArrayList();
         try {
             ExceptionMessage a3 = a(file, file2, file3, a2);
-            this.f34855a.a(a3);
+            this.f33822a.a(a3);
             f.a(file4);
             ArrayList arrayList2 = new ArrayList();
             Collections.addAll(arrayList2, file3, file4);
@@ -132,7 +133,7 @@ public abstract class b {
                     it.remove();
                 }
             }
-            File file6 = new File(file.getParentFile().getParent(), "custom");
+            File file6 = new File(file.getParentFile().getParent(), SchedulerSupport.CUSTOM);
             if (file6.exists()) {
                 for (File file7 : file6.listFiles()) {
                     if (!file7.isDirectory() && (file7.getName().startsWith(a3.mLogUUID) || file7.getName().startsWith(a(a3.mLogUUID)))) {
@@ -148,7 +149,7 @@ public abstract class b {
                 h.b(file8.getPath());
             }
             h.b(file5.getPath());
-            f.b(com.kwad.sdk.crash.c.b.f34825b);
+            f.b(com.kwad.sdk.crash.c.b.f33791b);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
         }
@@ -242,15 +243,15 @@ public abstract class b {
                     } catch (FileNotFoundException e2) {
                         e = e2;
                         bufferedReader = bufferedReader2;
-                        str = this.f34856b + e + "\n";
-                        this.f34856b = str;
+                        str = this.f33823b + e + "\n";
+                        this.f33823b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (IOException e3) {
                         e = e3;
                         bufferedReader = bufferedReader2;
-                        str = this.f34856b + e + "\n";
-                        this.f34856b = str;
+                        str = this.f33823b + e + "\n";
+                        this.f33823b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (Throwable th) {

@@ -1,6 +1,7 @@
 package androidx.transition;
 
 import android.view.View;
+import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +10,10 @@ public class TransitionValues {
     public View view;
     public final Map<String, Object> values = new HashMap();
     public final ArrayList<Transition> mTargetedTransitions = new ArrayList<>();
+
+    @Deprecated
+    public TransitionValues() {
+    }
 
     public boolean equals(Object obj) {
         if (obj instanceof TransitionValues) {
@@ -28,5 +33,9 @@ public class TransitionValues {
             str = str + "    " + str2 + ": " + this.values.get(str2) + "\n";
         }
         return str;
+    }
+
+    public TransitionValues(@NonNull View view) {
+        this.view = view;
     }
 }

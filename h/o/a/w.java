@@ -1,185 +1,71 @@
 package h.o.a;
 
-import h.d;
-import h.g;
-import java.util.concurrent.TimeoutException;
+import h.h;
+import rx.exceptions.CompositeException;
 /* loaded from: classes7.dex */
-public class w<T> implements d.b<T, T> {
+public final class w<T> implements h.d<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final a<T> f68979e;
+    public final h.h<T> f67841e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final b<T> f68980f;
+    public final h.n.b<? super T> f67842f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final h.d<? extends T> f68981g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final h.g f68982h;
+    public final h.n.b<Throwable> f67843g;
 
     /* loaded from: classes7.dex */
-    public interface a<T> extends h.n.h<c<T>, Long, g.a, h.k> {
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b<T> extends h.n.i<c<T>, Long, T, g.a, h.k> {
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class c<T> extends h.j<T> {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final h.u.d f68983e;
+    public static final class a<T> extends h.i<T> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.q.e<T> f68984f;
+        public final h.i<? super T> f67844f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final b<T> f68985g;
+        public final h.n.b<? super T> f67845g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final h.d<? extends T> f68986h;
-        public final g.a i;
-        public final h.o.b.a j = new h.o.b.a();
-        public boolean k;
-        public long l;
+        public final h.n.b<Throwable> f67846h;
 
-        /* loaded from: classes7.dex */
-        public class a extends h.j<T> {
-            public a() {
-            }
+        public a(h.i<? super T> iVar, h.n.b<? super T> bVar, h.n.b<Throwable> bVar2) {
+            this.f67844f = iVar;
+            this.f67845g = bVar;
+            this.f67846h = bVar2;
+        }
 
-            @Override // h.e
-            public void onCompleted() {
-                c.this.f68984f.onCompleted();
-            }
-
-            @Override // h.e
-            public void onError(Throwable th) {
-                c.this.f68984f.onError(th);
-            }
-
-            @Override // h.e
-            public void onNext(T t) {
-                c.this.f68984f.onNext(t);
-            }
-
-            @Override // h.j
-            public void setProducer(h.f fVar) {
-                c.this.j.c(fVar);
+        @Override // h.i
+        public void b(Throwable th) {
+            try {
+                this.f67846h.call(th);
+                this.f67844f.b(th);
+            } catch (Throwable th2) {
+                h.m.a.e(th2);
+                this.f67844f.b(new CompositeException(th, th2));
             }
         }
 
-        public c(h.q.e<T> eVar, b<T> bVar, h.u.d dVar, h.d<? extends T> dVar2, g.a aVar) {
-            this.f68984f = eVar;
-            this.f68985g = bVar;
-            this.f68983e = dVar;
-            this.f68986h = dVar2;
-            this.i = aVar;
-        }
-
-        public void b(long j) {
-            boolean z;
-            synchronized (this) {
-                z = true;
-                if (j != this.l || this.k) {
-                    z = false;
-                } else {
-                    this.k = true;
-                }
+        @Override // h.i
+        public void c(T t) {
+            try {
+                this.f67845g.call(t);
+                this.f67844f.c(t);
+            } catch (Throwable th) {
+                h.m.a.h(th, this, t);
             }
-            if (z) {
-                if (this.f68986h == null) {
-                    this.f68984f.onError(new TimeoutException());
-                    return;
-                }
-                a aVar = new a();
-                this.f68986h.L(aVar);
-                this.f68983e.a(aVar);
-            }
-        }
-
-        @Override // h.e
-        public void onCompleted() {
-            boolean z;
-            synchronized (this) {
-                z = true;
-                if (this.k) {
-                    z = false;
-                } else {
-                    this.k = true;
-                }
-            }
-            if (z) {
-                this.f68983e.unsubscribe();
-                this.f68984f.onCompleted();
-            }
-        }
-
-        @Override // h.e
-        public void onError(Throwable th) {
-            boolean z;
-            synchronized (this) {
-                z = true;
-                if (this.k) {
-                    z = false;
-                } else {
-                    this.k = true;
-                }
-            }
-            if (z) {
-                this.f68983e.unsubscribe();
-                this.f68984f.onError(th);
-            }
-        }
-
-        @Override // h.e
-        public void onNext(T t) {
-            long j;
-            boolean z;
-            synchronized (this) {
-                if (!this.k) {
-                    j = this.l + 1;
-                    this.l = j;
-                    z = true;
-                } else {
-                    j = this.l;
-                    z = false;
-                }
-            }
-            if (z) {
-                this.f68984f.onNext(t);
-                this.f68983e.a(this.f68985g.a(this, Long.valueOf(j), t, this.i));
-            }
-        }
-
-        @Override // h.j
-        public void setProducer(h.f fVar) {
-            this.j.c(fVar);
         }
     }
 
-    public w(a<T> aVar, b<T> bVar, h.d<? extends T> dVar, h.g gVar) {
-        this.f68979e = aVar;
-        this.f68980f = bVar;
-        this.f68981g = dVar;
-        this.f68982h = gVar;
+    public w(h.h<T> hVar, h.n.b<? super T> bVar, h.n.b<Throwable> bVar2) {
+        this.f67841e = hVar;
+        this.f67842f = bVar;
+        this.f67843g = bVar2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // h.n.f
+    @Override // h.n.b
     /* renamed from: a */
-    public h.j<? super T> call(h.j<? super T> jVar) {
-        g.a createWorker = this.f68982h.createWorker();
-        jVar.add(createWorker);
-        h.q.e eVar = new h.q.e(jVar);
-        h.u.d dVar = new h.u.d();
-        eVar.add(dVar);
-        c cVar = new c(eVar, this.f68980f, dVar, this.f68981g, createWorker);
-        eVar.add(cVar);
-        eVar.setProducer(cVar.j);
-        dVar.a(this.f68979e.a(cVar, 0L, createWorker));
-        return cVar;
+    public void call(h.i<? super T> iVar) {
+        a aVar = new a(iVar, this.f67842f, this.f67843g);
+        iVar.a(aVar);
+        this.f67841e.j(aVar);
     }
 }

@@ -15,21 +15,21 @@ import java.lang.ref.SoftReference;
 public class d extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public e f9949b;
+    public e f10317b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f9950c = null;
+    public a f10318c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public SoftReference<View> f9948a = null;
+    public SoftReference<View> f10316a = null;
 
     public d() {
-        this.f9949b = null;
-        this.f9949b = new e();
+        this.f10317b = null;
+        this.f10317b = new e();
     }
 
     public MapView a() {
-        SoftReference<View> softReference = this.f9948a;
+        SoftReference<View> softReference = this.f10316a;
         if (softReference == null) {
             return null;
         }
@@ -37,7 +37,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void b() {
-        a aVar = this.f9950c;
+        a aVar = this.f10318c;
         if (aVar != null) {
             aVar.b();
         }
@@ -47,7 +47,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean c() {
-        e eVar = this.f9949b;
+        e eVar = this.f10317b;
         if (eVar != null) {
             return eVar.b();
         }
@@ -55,7 +55,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean d() {
-        e eVar = this.f9949b;
+        e eVar = this.f10317b;
         if (eVar != null) {
             return eVar.c();
         }
@@ -63,7 +63,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean e() {
-        e eVar = this.f9949b;
+        e eVar = this.f10317b;
         if (eVar != null) {
             return eVar.d();
         }
@@ -71,7 +71,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean f() {
-        e eVar = this.f9949b;
+        e eVar = this.f10317b;
         if (eVar != null) {
             return eVar.e();
         }
@@ -79,7 +79,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean g() {
-        e eVar = this.f9949b;
+        e eVar = this.f10317b;
         if (eVar != null) {
             return eVar.f();
         }
@@ -87,7 +87,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public float h() {
-        e eVar = this.f9949b;
+        e eVar = this.f10317b;
         if (eVar != null) {
             return eVar.g();
         }
@@ -95,7 +95,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public MapStatus i() {
-        a aVar = this.f9950c;
+        a aVar = this.f10318c;
         if (aVar != null) {
             return aVar.c();
         }
@@ -103,20 +103,20 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public MapStatus j() {
-        MapStatus i = com.baidu.platform.comapi.walknavi.b.a().G().i();
-        if (i != null) {
-            WinRound winRound = i.winRound;
-            int i2 = (winRound.left + winRound.right) / 2;
+        MapStatus i2 = com.baidu.platform.comapi.walknavi.b.a().G().i();
+        if (i2 != null) {
+            WinRound winRound = i2.winRound;
+            int i3 = (winRound.left + winRound.right) / 2;
             int abs = Math.abs(winRound.bottom + winRound.top) / 2;
-            WinRound winRound2 = i.winRound;
-            WinRound winRound3 = i.winRound;
-            return new MapStatus.Builder(i).targetScreen(new Point((winRound2.right + winRound2.left) / 2, ((winRound3.top + winRound3.bottom) / 2) - (0 - ((Math.abs(winRound2.bottom - winRound2.top) * 2) / 10)))).build();
+            WinRound winRound2 = i2.winRound;
+            WinRound winRound3 = i2.winRound;
+            return new MapStatus.Builder(i2).targetScreen(new Point((winRound2.right + winRound2.left) / 2, ((winRound3.top + winRound3.bottom) / 2) - (0 - ((Math.abs(winRound2.bottom - winRound2.top) * 2) / 10)))).build();
         }
-        return i;
+        return i2;
     }
 
     public float k() {
-        a aVar = this.f9950c;
+        a aVar = this.f10318c;
         if (aVar != null) {
             return aVar.d();
         }
@@ -124,7 +124,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void l() {
-        a aVar = this.f9950c;
+        a aVar = this.f10318c;
         if (aVar != null) {
             aVar.e();
         }
@@ -139,31 +139,31 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     @Override // com.baidu.platform.comapi.walknavi.a
     public void release() {
         a(0);
-        e eVar = this.f9949b;
+        e eVar = this.f10317b;
         if (eVar != null) {
             eVar.a();
-            this.f9949b = null;
+            this.f10317b = null;
         }
-        a aVar = this.f9950c;
+        a aVar = this.f10318c;
         if (aVar != null) {
             aVar.a();
-            this.f9950c = null;
+            this.f10318c = null;
         }
     }
 
     public void a(Context context, MapView mapView) {
-        this.f9948a = new SoftReference<>(mapView);
-        a aVar = this.f9950c;
+        this.f10316a = new SoftReference<>(mapView);
+        a aVar = this.f10318c;
         if (aVar == null) {
-            this.f9950c = new a(mapView);
+            this.f10318c = new a(mapView);
         } else {
             aVar.a(mapView);
         }
-        this.f9950c.a(false);
+        this.f10318c.a(false);
     }
 
     public boolean b(int[] iArr, int[] iArr2) {
-        e eVar = this.f9949b;
+        e eVar = this.f10317b;
         if (eVar != null) {
             return eVar.b(iArr, iArr2);
         }
@@ -171,40 +171,40 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public boolean a(boolean z) {
-        e eVar = this.f9949b;
+        e eVar = this.f10317b;
         if (eVar != null) {
             return eVar.a(z);
         }
         return false;
     }
 
-    public void a(int i) {
-        e eVar = this.f9949b;
+    public void a(int i2) {
+        e eVar = this.f10317b;
         if (eVar == null) {
             return;
         }
-        if (i == 0) {
+        if (i2 == 0) {
             eVar.b(0);
-            this.f9949b.b(1);
-            this.f9949b.b(2);
-            this.f9949b.b(3);
-            this.f9949b.b(4);
-        } else if (i != 1) {
+            this.f10317b.b(1);
+            this.f10317b.b(2);
+            this.f10317b.b(3);
+            this.f10317b.b(4);
+        } else if (i2 != 1) {
         } else {
             eVar.a(0);
-            this.f9949b.a(1);
-            this.f9949b.a(2);
+            this.f10317b.a(1);
+            this.f10317b.a(2);
             if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
-                this.f9949b.b(3);
+                this.f10317b.b(3);
             } else if (com.baidu.platform.comapi.wnplatform.a.a().g()) {
-                this.f9949b.a(3);
+                this.f10317b.a(3);
             }
-            this.f9949b.a(4);
+            this.f10317b.a(4);
         }
     }
 
     public boolean a(int[] iArr, int[] iArr2) {
-        e eVar = this.f9949b;
+        e eVar = this.f10317b;
         if (eVar != null) {
             return eVar.a(iArr, iArr2);
         }
@@ -212,41 +212,41 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(MapStatus mapStatus) {
-        a aVar = this.f9950c;
+        a aVar = this.f10318c;
         if (aVar != null) {
             aVar.a(com.baidu.platform.comapi.wnplatform.o.e.a(mapStatus));
         }
     }
 
-    public void a(MapStatus mapStatus, int i) {
-        a aVar = this.f9950c;
+    public void a(MapStatus mapStatus, int i2) {
+        a aVar = this.f10318c;
         if (aVar != null) {
-            aVar.a(mapStatus, i);
+            aVar.a(mapStatus, i2);
         }
     }
 
-    public void a(int i, int i2) {
-        a aVar = this.f9950c;
+    public void a(int i2, int i3) {
+        a aVar = this.f10318c;
         if (aVar != null) {
-            aVar.a(i, i2);
+            aVar.a(i2, i3);
         }
     }
 
-    public float a(MapBound mapBound, int i, int i2) {
+    public float a(MapBound mapBound, int i2, int i3) {
         Bundle bundle = new Bundle();
         bundle.putInt(CustomDialogData.POS_LEFT, mapBound.ptLB.getmPtx());
         bundle.putInt(TipsConfigItem.TipConfigData.BOTTOM, mapBound.ptLB.getmPty());
         bundle.putInt("right", mapBound.ptRT.getmPtx());
         bundle.putInt("top", mapBound.ptRT.getmPty());
-        a aVar = this.f9950c;
+        a aVar = this.f10318c;
         if (aVar != null) {
-            return aVar.a(bundle, i, i2);
+            return aVar.a(bundle, i2, i3);
         }
         return 15.0f;
     }
 
     public void a(f fVar) {
-        a aVar = this.f9950c;
+        a aVar = this.f10318c;
         if (aVar != null) {
             aVar.a(fVar);
         }

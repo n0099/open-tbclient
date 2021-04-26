@@ -10,31 +10,31 @@ public final class GravityCompat {
     public static final int RELATIVE_LAYOUT_DIRECTION = 8388608;
     public static final int START = 8388611;
 
-    public static void apply(int i, int i2, int i3, Rect rect, Rect rect2, int i4) {
+    public static void apply(int i2, int i3, int i4, Rect rect, Rect rect2, int i5) {
         if (Build.VERSION.SDK_INT >= 17) {
-            Gravity.apply(i, i2, i3, rect, rect2, i4);
+            Gravity.apply(i2, i3, i4, rect, rect2, i5);
         } else {
-            Gravity.apply(i, i2, i3, rect, rect2);
+            Gravity.apply(i2, i3, i4, rect, rect2);
         }
     }
 
-    public static void applyDisplay(int i, Rect rect, Rect rect2, int i2) {
+    public static void applyDisplay(int i2, Rect rect, Rect rect2, int i3) {
         if (Build.VERSION.SDK_INT >= 17) {
-            Gravity.applyDisplay(i, rect, rect2, i2);
+            Gravity.applyDisplay(i2, rect, rect2, i3);
         } else {
-            Gravity.applyDisplay(i, rect, rect2);
+            Gravity.applyDisplay(i2, rect, rect2);
         }
     }
 
-    public static int getAbsoluteGravity(int i, int i2) {
-        return Build.VERSION.SDK_INT >= 17 ? Gravity.getAbsoluteGravity(i, i2) : i & (-8388609);
+    public static int getAbsoluteGravity(int i2, int i3) {
+        return Build.VERSION.SDK_INT >= 17 ? Gravity.getAbsoluteGravity(i2, i3) : i2 & (-8388609);
     }
 
-    public static void apply(int i, int i2, int i3, Rect rect, int i4, int i5, Rect rect2, int i6) {
+    public static void apply(int i2, int i3, int i4, Rect rect, int i5, int i6, Rect rect2, int i7) {
         if (Build.VERSION.SDK_INT >= 17) {
-            Gravity.apply(i, i2, i3, rect, i4, i5, rect2, i6);
+            Gravity.apply(i2, i3, i4, rect, i5, i6, rect2, i7);
         } else {
-            Gravity.apply(i, i2, i3, rect, i4, i5, rect2);
+            Gravity.apply(i2, i3, i4, rect, i5, i6, rect2);
         }
     }
 }

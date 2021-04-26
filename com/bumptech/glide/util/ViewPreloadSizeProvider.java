@@ -1,12 +1,11 @@
 package com.bumptech.glide.util;
 
-import android.graphics.drawable.Drawable;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.ListPreloader;
-import com.bumptech.glide.request.target.CustomViewTarget;
 import com.bumptech.glide.request.target.SizeReadyCallback;
+import com.bumptech.glide.request.target.ViewTarget;
 import com.bumptech.glide.request.transition.Transition;
 import java.util.Arrays;
 /* loaded from: classes5.dex */
@@ -15,17 +14,10 @@ public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProv
     public SizeViewTarget viewTarget;
 
     /* loaded from: classes5.dex */
-    public static final class SizeViewTarget extends CustomViewTarget<View, Object> {
-        public SizeViewTarget(@NonNull View view) {
+    public static final class SizeViewTarget extends ViewTarget<View, Object> {
+        public SizeViewTarget(@NonNull View view, @NonNull SizeReadyCallback sizeReadyCallback) {
             super(view);
-        }
-
-        @Override // com.bumptech.glide.request.target.Target
-        public void onLoadFailed(@Nullable Drawable drawable) {
-        }
-
-        @Override // com.bumptech.glide.request.target.CustomViewTarget
-        public void onResourceCleared(@Nullable Drawable drawable) {
+            getSize(sizeReadyCallback);
         }
 
         @Override // com.bumptech.glide.request.target.Target
@@ -38,7 +30,7 @@ public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProv
 
     @Override // com.bumptech.glide.ListPreloader.PreloadSizeProvider
     @Nullable
-    public int[] getPreloadSize(@NonNull T t, int i, int i2) {
+    public int[] getPreloadSize(@NonNull T t, int i2, int i3) {
         int[] iArr = this.size;
         if (iArr == null) {
             return null;
@@ -47,22 +39,18 @@ public class ViewPreloadSizeProvider<T> implements ListPreloader.PreloadSizeProv
     }
 
     @Override // com.bumptech.glide.request.target.SizeReadyCallback
-    public void onSizeReady(int i, int i2) {
-        this.size = new int[]{i, i2};
+    public void onSizeReady(int i2, int i3) {
+        this.size = new int[]{i2, i3};
         this.viewTarget = null;
     }
 
     public void setView(@NonNull View view) {
         if (this.size == null && this.viewTarget == null) {
-            SizeViewTarget sizeViewTarget = new SizeViewTarget(view);
-            this.viewTarget = sizeViewTarget;
-            sizeViewTarget.getSize(this);
+            this.viewTarget = new SizeViewTarget(view, this);
         }
     }
 
     public ViewPreloadSizeProvider(@NonNull View view) {
-        SizeViewTarget sizeViewTarget = new SizeViewTarget(view);
-        this.viewTarget = sizeViewTarget;
-        sizeViewTarget.getSize(this);
+        this.viewTarget = new SizeViewTarget(view, this);
     }
 }

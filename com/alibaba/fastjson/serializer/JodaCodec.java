@@ -66,7 +66,7 @@ public class JodaCodec implements ObjectSerializer, ContextObjectSerializer, Obj
     */
     public LocalDateTime parseDateTime(String str, DateTimeFormatter dateTimeFormatter) {
         DateTimeFormatter dateTimeFormatter2;
-        int i;
+        int i2;
         if (dateTimeFormatter == null) {
             boolean z = false;
             if (str.length() == 19) {
@@ -86,10 +86,10 @@ public class JodaCodec implements ObjectSerializer, ContextObjectSerializer, Obj
                             char charAt9 = str.charAt(3);
                             char charAt10 = str.charAt(5);
                             if (charAt8 == '/' && charAt10 == '/') {
-                                int i2 = ((charAt9 - '0') * 10) + (charAt - '0');
+                                int i3 = ((charAt9 - '0') * 10) + (charAt - '0');
                                 if (((charAt6 - '0') * 10) + (charAt7 - '0') > 12) {
                                     dateTimeFormatter2 = formatter_dt19_eur;
-                                } else if (i2 > 12) {
+                                } else if (i3 > 12) {
                                     dateTimeFormatter2 = formatter_dt19_us;
                                 } else {
                                     String country = Locale.getDefault().getCountry();
@@ -117,17 +117,17 @@ public class JodaCodec implements ObjectSerializer, ContextObjectSerializer, Obj
                                 dateTimeFormatter2 = formatter_dt19_kr;
                             }
                         }
-                        i = 0;
+                        i2 = 0;
                         while (true) {
-                            if (i >= str.length()) {
+                            if (i2 >= str.length()) {
                                 z = true;
                                 break;
                             }
-                            char charAt12 = str.charAt(i);
+                            char charAt12 = str.charAt(i2);
                             if (charAt12 < '0' || charAt12 > '9') {
                                 break;
                             }
-                            i++;
+                            i2++;
                         }
                         if (z && str.length() > 8 && str.length() < 19) {
                             return new LocalDateTime(Long.parseLong(str), DateTimeZone.forTimeZone(JSON.defaultTimeZone));
@@ -140,11 +140,11 @@ public class JodaCodec implements ObjectSerializer, ContextObjectSerializer, Obj
                         }
                         if (str.length() >= 17) {
                         }
-                        i = 0;
+                        i2 = 0;
                         while (true) {
-                            if (i >= str.length()) {
+                            if (i2 >= str.length()) {
                             }
-                            i++;
+                            i2++;
                         }
                         if (z) {
                             return new LocalDateTime(Long.parseLong(str), DateTimeZone.forTimeZone(JSON.defaultTimeZone));
@@ -154,11 +154,11 @@ public class JodaCodec implements ObjectSerializer, ContextObjectSerializer, Obj
                 dateTimeFormatter2 = dateTimeFormatter;
                 if (str.length() >= 17) {
                 }
-                i = 0;
+                i2 = 0;
                 while (true) {
-                    if (i >= str.length()) {
+                    if (i2 >= str.length()) {
                     }
-                    i++;
+                    i2++;
                 }
                 if (z) {
                 }
@@ -174,11 +174,11 @@ public class JodaCodec implements ObjectSerializer, ContextObjectSerializer, Obj
                         dateTimeFormatter2 = defaultFormatter_23;
                         if (str.length() >= 17) {
                         }
-                        i = 0;
+                        i2 = 0;
                         while (true) {
-                            if (i >= str.length()) {
+                            if (i2 >= str.length()) {
                             }
-                            i++;
+                            i2++;
                         }
                         if (z) {
                         }
@@ -187,11 +187,11 @@ public class JodaCodec implements ObjectSerializer, ContextObjectSerializer, Obj
                 dateTimeFormatter2 = dateTimeFormatter;
                 if (str.length() >= 17) {
                 }
-                i = 0;
+                i2 = 0;
                 while (true) {
-                    if (i >= str.length()) {
+                    if (i2 >= str.length()) {
                     }
-                    i++;
+                    i2++;
                 }
                 if (z) {
                 }
@@ -225,10 +225,10 @@ public class JodaCodec implements ObjectSerializer, ContextObjectSerializer, Obj
                 char charAt6 = str.charAt(3);
                 char charAt7 = str.charAt(5);
                 if (charAt5 == '/' && charAt7 == '/') {
-                    int i = ((charAt6 - '0') * 10) + (charAt - '0');
+                    int i2 = ((charAt6 - '0') * 10) + (charAt - '0');
                     if (((charAt3 - '0') * 10) + (charAt4 - '0') > 12) {
                         dateTimeFormatter3 = formatter_d10_eur;
-                    } else if (i > 12) {
+                    } else if (i2 > 12) {
                         dateTimeFormatter3 = formatter_d10_us;
                     } else {
                         String country = Locale.getDefault().getCountry();
@@ -254,17 +254,17 @@ public class JodaCodec implements ObjectSerializer, ContextObjectSerializer, Obj
                 }
                 dateTimeFormatter = dateTimeFormatter2;
             }
-            int i2 = 0;
+            int i3 = 0;
             while (true) {
-                if (i2 >= str.length()) {
+                if (i3 >= str.length()) {
                     z = true;
                     break;
                 }
-                char charAt9 = str.charAt(i2);
+                char charAt9 = str.charAt(i3);
                 if (charAt9 < '0' || charAt9 > '9') {
                     break;
                 }
-                i2++;
+                i3++;
             }
             if (z && str.length() > 8 && str.length() < 19) {
                 return new LocalDateTime(Long.parseLong(str), DateTimeZone.forTimeZone(JSON.defaultTimeZone)).toLocalDate();
@@ -300,10 +300,10 @@ public class JodaCodec implements ObjectSerializer, ContextObjectSerializer, Obj
                         char charAt9 = str.charAt(3);
                         char charAt10 = str.charAt(5);
                         if (charAt8 == '/' && charAt10 == '/') {
-                            int i = ((charAt9 - '0') * 10) + (charAt - '0');
+                            int i2 = ((charAt9 - '0') * 10) + (charAt - '0');
                             if (((charAt6 - '0') * 10) + (charAt7 - '0') > 12) {
                                 dateTimeFormatter = formatter_dt19_eur;
-                            } else if (i > 12) {
+                            } else if (i2 > 12) {
                                 dateTimeFormatter = formatter_dt19_us;
                             } else {
                                 String country = Locale.getDefault().getCountry();
@@ -341,7 +341,7 @@ public class JodaCodec implements ObjectSerializer, ContextObjectSerializer, Obj
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (obj == null) {
             serializeWriter.writeNull();
@@ -355,7 +355,7 @@ public class JodaCodec implements ObjectSerializer, ContextObjectSerializer, Obj
             LocalDateTime localDateTime = (LocalDateTime) obj;
             String dateFormatPattern = jSONSerializer.getDateFormatPattern();
             if (dateFormatPattern == null) {
-                if ((mask & i) != 0 || jSONSerializer.isEnabled(SerializerFeature.UseISO8601DateFormat)) {
+                if ((mask & i2) != 0 || jSONSerializer.isEnabled(SerializerFeature.UseISO8601DateFormat)) {
                     dateFormatPattern = "yyyy-MM-dd'T'HH:mm:ss";
                 } else if (jSONSerializer.isEnabled(SerializerFeature.WriteDateUseDateFormat)) {
                     dateFormatPattern = JSON.DEFFAULT_DATE_FORMAT;
@@ -375,7 +375,7 @@ public class JodaCodec implements ObjectSerializer, ContextObjectSerializer, Obj
     }
 
     /* JADX WARN: Type inference failed for: r8v3, types: [T, org.joda.time.LocalDateTime] */
-    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, String str, int i) {
+    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, String str, int i2) {
         DateTimeFormatter dateTimeFormatter;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         if (jSONLexer.token() == 8) {
@@ -425,17 +425,17 @@ public class JodaCodec implements ObjectSerializer, ContextObjectSerializer, Obj
                 }
                 if (type == Instant.class) {
                     boolean z = false;
-                    int i2 = 0;
+                    int i3 = 0;
                     while (true) {
-                        if (i2 >= stringVal.length()) {
+                        if (i3 >= stringVal.length()) {
                             z = true;
                             break;
                         }
-                        char charAt = stringVal.charAt(i2);
+                        char charAt = stringVal.charAt(i3);
                         if (charAt < '0' || charAt > '9') {
                             break;
                         }
-                        i2++;
+                        i3++;
                     }
                     if (z && stringVal.length() > 8 && stringVal.length() < 19) {
                         return (T) new Instant(Long.parseLong(stringVal));

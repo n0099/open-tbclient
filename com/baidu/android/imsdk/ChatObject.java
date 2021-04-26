@@ -13,14 +13,14 @@ public class ChatObject {
     public long mPaid;
     public int mType;
 
-    public ChatObject(Context context, int i, long j, long j2, int i2) {
+    public ChatObject(Context context, int i2, long j, long j2, int i3) {
         this.mPaid = -1L;
         this.mType = -1;
         this.mContext = context;
-        this.mCategory = i;
+        this.mCategory = i2;
         this.mContacter = j;
         this.mPaid = j2;
-        this.mType = i2;
+        this.mType = i3;
     }
 
     public boolean equals(Object obj) {
@@ -65,8 +65,8 @@ public class ChatObject {
         this.mPaid = j;
     }
 
-    public ChatObject setType(int i) {
-        this.mType = i;
+    public ChatObject setType(int i2) {
+        this.mType = i2;
         return this;
     }
 
@@ -74,11 +74,11 @@ public class ChatObject {
         return getToken();
     }
 
-    public ChatObject(Context context, int i, long j) {
+    public ChatObject(Context context, int i2, long j) {
         this.mPaid = -1L;
         this.mType = -1;
         this.mContext = context;
-        this.mCategory = i;
+        this.mCategory = i2;
         this.mContacter = j;
     }
 }

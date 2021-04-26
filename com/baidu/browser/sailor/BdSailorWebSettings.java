@@ -207,8 +207,8 @@ public class BdSailorWebSettings implements INoProGuard {
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
-        public void setImageMaxWidthExt(int i) {
-            BdSailorWebSettings.this.mWebSettings.setImageMaxWidth(i);
+        public void setImageMaxWidthExt(int i2) {
+            BdSailorWebSettings.this.mWebSettings.setImageMaxWidth(i2);
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
@@ -316,8 +316,8 @@ public class BdSailorWebSettings implements INoProGuard {
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
-        public void setWiseSearchFirstScreenOptTypeEX(int i) {
-            BdSailorWebSettings.this.mWebSettings.setWiseSearchFirstScreenOptType(i);
+        public void setWiseSearchFirstScreenOptTypeEX(int i2) {
+            BdSailorWebSettings.this.mWebSettings.setWiseSearchFirstScreenOptType(i2);
         }
     }
 
@@ -792,8 +792,8 @@ public class BdSailorWebSettings implements INoProGuard {
         }
     }
 
-    public void setCacheMode(int i) {
-        this.mWebSettings.setCacheMode(i);
+    public void setCacheMode(int i2) {
+        this.mWebSettings.setCacheMode(i2);
     }
 
     public synchronized void setCodeCacheSetting(WebSettings.CodeCacheSetting codeCacheSetting) {
@@ -812,14 +812,14 @@ public class BdSailorWebSettings implements INoProGuard {
         this.mWebSettings.setDatabasePath(str);
     }
 
-    public synchronized void setDefaultFixedFontSize(int i) {
+    public synchronized void setDefaultFixedFontSize(int i2) {
         if (this.mWebSettings != null) {
-            this.mWebSettings.setDefaultFontSize(i);
+            this.mWebSettings.setDefaultFontSize(i2);
         }
     }
 
-    public synchronized void setDefaultFontSize(int i) {
-        this.mWebSettings.setDefaultFontSize(i);
+    public synchronized void setDefaultFontSize(int i2) {
+        this.mWebSettings.setDefaultFontSize(i2);
     }
 
     public synchronized void setDefaultTextEncodingName(String str) {
@@ -830,10 +830,10 @@ public class BdSailorWebSettings implements INoProGuard {
         this.mWebSettings.setDefaultZoom(zoomDensity);
     }
 
-    public void setDisabledActionModeMenuItems(int i) {
+    public void setDisabledActionModeMenuItems(int i2) {
         WebSettings webSettings = this.mWebSettings;
         if (webSettings != null) {
-            webSettings.setDisabledActionModeMenuItems(i);
+            webSettings.setDisabledActionModeMenuItems(i2);
         }
     }
 
@@ -914,18 +914,18 @@ public class BdSailorWebSettings implements INoProGuard {
         }
     }
 
-    public synchronized void setMinimumFontSize(int i) {
-        this.mWebSettings.setMinimumFontSize(i);
+    public synchronized void setMinimumFontSize(int i2) {
+        this.mWebSettings.setMinimumFontSize(i2);
     }
 
-    public synchronized void setMinimumLogicalFontSize(int i) {
-        this.mWebSettings.setMinimumLogicalFontSize(i);
+    public synchronized void setMinimumLogicalFontSize(int i2) {
+        this.mWebSettings.setMinimumLogicalFontSize(i2);
     }
 
-    public void setMixedContentMode(int i) {
+    public void setMixedContentMode(int i2) {
         WebSettings webSettings = this.mWebSettings;
         if (webSettings != null) {
-            webSettings.setMixedContentMode(i);
+            webSettings.setMixedContentMode(i2);
         }
     }
 
@@ -933,8 +933,8 @@ public class BdSailorWebSettings implements INoProGuard {
         this.mWebSettings.setNeedInitialFocus(z);
     }
 
-    public synchronized void setPageCacheCapacity(int i) {
-        this.mWebSettings.setPageCacheCapacity(i);
+    public synchronized void setPageCacheCapacity(int i2) {
+        this.mWebSettings.setPageCacheCapacity(i2);
     }
 
     public synchronized void setPluginState(WebSettings.PluginState pluginState) {
@@ -980,8 +980,8 @@ public class BdSailorWebSettings implements INoProGuard {
         }
     }
 
-    public synchronized void setTextZoom(int i) {
-        this.mWebSettings.setTextZoom(i);
+    public synchronized void setTextZoom(int i2) {
+        this.mWebSettings.setTextZoom(i2);
     }
 
     public synchronized void setUseWideViewPort(boolean z) {

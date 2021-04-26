@@ -1,22 +1,25 @@
 package com.win.opensdk;
-/* loaded from: classes7.dex */
-public class z0 implements Runnable {
+
+import java.util.Map;
+import org.json.JSONException;
+/* loaded from: classes6.dex */
+public final class z0 implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ C0 f40501a;
+    public final /* synthetic */ String f38012a;
 
-    public z0(C0 c0) {
-        this.f40501a = c0;
+    public z0(String str) {
+        this.f38012a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        C0 c0 = this.f40501a;
-        if (c0.f40031e) {
-            return;
+        try {
+            z.a(new s0(this.f38012a, "GET", z.a((Map) null)).a(), new R0());
+        } catch (JSONException e2) {
+            e2.getMessage();
+        } catch (Exception e3) {
+            e3.getMessage();
         }
-        c0.a();
-        C0 c02 = this.f40501a;
-        c02.f40032f.postDelayed(this, c02.f40033g);
     }
 }

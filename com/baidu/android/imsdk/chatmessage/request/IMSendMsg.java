@@ -34,12 +34,12 @@ public class IMSendMsg extends Message {
     public long mToUser;
     public int mType;
 
-    public IMSendMsg(Context context, long j, int i, String str, String str2, List<Long> list, List<Long> list2) {
-        LogUtils.d(TAG, "IMSendMsg " + j + " " + i + GlideException.IndentedAppendable.INDENT + str);
+    public IMSendMsg(Context context, long j, int i2, String str, String str2, List<Long> list, List<Long> list2) {
+        LogUtils.d(TAG, "IMSendMsg " + j + " " + i2 + GlideException.IndentedAppendable.INDENT + str);
         this.mContext = context;
         initCommonParameter(context);
         this.mToUser = j;
-        this.mType = i;
+        this.mType = i2;
         this.mContent = str;
         this.mMsgKey = str2;
         this.mAtUsers = list;
@@ -50,7 +50,7 @@ public class IMSendMsg extends Message {
 
     public static IMSendMsg newInstance(Context context, Intent intent) {
         ChatMsg chatMsg;
-        int i;
+        int i2;
         if (!intent.hasExtra(Constants.EXTRA_SEND_MSG) || (chatMsg = (ChatMsg) intent.getParcelableExtra(Constants.EXTRA_SEND_MSG)) == null) {
             return null;
         }
@@ -58,11 +58,11 @@ public class IMSendMsg extends Message {
         int msgType = chatMsg.getMsgType();
         if (chatType == 7 || chatType == 16 || chatType == 25 || msgType == 18) {
             DuzhanUpMsgCreator.reCreateChatMsg(chatType, chatMsg);
-            i = 80;
+            i2 = 80;
         } else {
-            i = msgType;
+            i2 = msgType;
         }
-        IMSendMsg iMSendMsg = new IMSendMsg(context, chatMsg.getContacter(), i, chatMsg.getSendMsgContent(), chatMsg.getMsgKey(), chatMsg.getAtUsers(), chatMsg.getCastids());
+        IMSendMsg iMSendMsg = new IMSendMsg(context, chatMsg.getContacter(), i2, chatMsg.getSendMsgContent(), chatMsg.getMsgKey(), chatMsg.getAtUsers(), chatMsg.getCastids());
         iMSendMsg.setChatMsg(chatMsg);
         return iMSendMsg;
     }
@@ -144,8 +144,8 @@ public class IMSendMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        int i2;
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+        int i3;
         String str2 = "";
         long j = -1;
         boolean z = false;
@@ -162,17 +162,17 @@ public class IMSendMsg extends Message {
             LogUtils.e(TAG, "handle IMSendMsg exception :", e2);
         }
         long j2 = j;
-        if (i != 0 || z) {
-            i2 = i;
+        if (i2 != 0 || z) {
+            i3 = i2;
         } else {
             str = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
-            i2 = 1015;
+            i3 = 1015;
         }
-        super.handleMessageResult(context, jSONObject, i2, str);
-        LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str);
-        getChatMsg().setTipsCode(i2);
+        super.handleMessageResult(context, jSONObject, i3, str);
+        LogUtils.d(TAG, "errorCode:" + i3 + "  strMsg" + str);
+        getChatMsg().setTipsCode(i3);
         getChatMsg().setTips(str2);
-        ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i2, getChatMsg(), j2, getListenerKey());
+        ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i3, getChatMsg(), j2, getListenerKey());
     }
 
     public void setChatMsg(ChatMsg chatMsg) {

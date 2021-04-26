@@ -6,7 +6,7 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import com.vivo.push.sdk.a;
 import com.vivo.push.util.p;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CommandService extends Service {
     public boolean a(String str) {
         return "com.vivo.pushservice.action.RECEIVE".equals(str);
@@ -31,7 +31,7 @@ public class CommandService extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(Intent intent, int i2, int i3) {
         if (intent == null) {
             stopSelf();
             return 2;

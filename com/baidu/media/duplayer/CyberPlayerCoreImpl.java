@@ -14,8 +14,8 @@ import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
 import com.baidu.cyberplayer.sdk.rtc.RTCVideoViewProvider;
 import com.baidu.media.duplayer.monitor.DuplayerQualityMonitorManager;
 import com.baidu.media.recorder.DuAudioRecorder;
-import d.b.w.a.c;
-import d.b.w.b.a;
+import d.a.w.a.c;
+import d.a.w.b.a;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
@@ -30,8 +30,8 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public CaptureManagerProvider createCaptureManager(Context context, int i, int i2, int i3, int i4, int i5) {
-        return a.a(context, i, i2, i3, i4, i5);
+    public CaptureManagerProvider createCaptureManager(Context context, int i2, int i3, int i4, int i5, int i6) {
+        return a.a(context, i2, i3, i4, i5, i6);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -41,12 +41,12 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public ExtractorProvider createCyberExtractor() {
-        return d.b.w.c.a.a();
+        return d.a.w.c.a.a();
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public PlayerProvider createCyberPlayer(int i, CyberPlayerManager.HttpDNS httpDNS) {
-        return CyberPlayerImpl.create(i, httpDNS);
+    public PlayerProvider createCyberPlayer(int i2, CyberPlayerManager.HttpDNS httpDNS) {
+        return CyberPlayerImpl.create(i2, httpDNS);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -65,8 +65,8 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public void duplayerEncrypt(byte[] bArr, int i, byte[] bArr2) {
-        Utils.h(bArr, i, bArr2);
+    public void duplayerEncrypt(byte[] bArr, int i2, byte[] bArr2) {
+        Utils.h(bArr, i2, bArr2);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -85,8 +85,8 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public int getDevicePlayQualityScore(String str, int i, int i2, int i3, Map<String, String> map) {
-        return DuplayerQualityMonitorManager.getInstance().getPlayQualityScore(str, i, i2, i3, map);
+    public int getDevicePlayQualityScore(String str, int i2, int i3, int i4, Map<String, String> map) {
+        return DuplayerQualityMonitorManager.getInstance().getPlayQualityScore(str, i2, i3, i4, map);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -120,18 +120,18 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public boolean isLoaded(int i) {
-        return c.d(i);
+    public boolean isLoaded(int i2) {
+        return c.d(i2);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public void loadlibs(int i, Map<String, String> map) {
-        c.a(i, map);
+    public void loadlibs(int i2, Map<String, String> map) {
+        c.a(i2, map);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public void prefetch(String str, String str2, String str3, int i, int i2, int i3, CyberPlayerManager.HttpDNS httpDNS, String str4) {
-        Prefetch.add(str, str2, str3, i, i2, i3, httpDNS, str4);
+    public void prefetch(String str, String str2, String str3, int i2, int i3, int i4, CyberPlayerManager.HttpDNS httpDNS, String str4) {
+        Prefetch.add(str, str2, str3, i2, i3, i4, httpDNS, str4);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider

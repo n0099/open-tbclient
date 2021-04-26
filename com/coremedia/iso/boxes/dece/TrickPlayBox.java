@@ -9,15 +9,15 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TrickPlayBox extends AbstractFullBox {
     public static final String TYPE = "trik";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
     public List<Entry> entries;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         public int value;
 
@@ -32,22 +32,22 @@ public class TrickPlayBox extends AbstractFullBox {
             return (this.value >> 6) & 3;
         }
 
-        public void setDependencyLevel(int i) {
-            this.value = (i & 63) | this.value;
+        public void setDependencyLevel(int i2) {
+            this.value = (i2 & 63) | this.value;
         }
 
-        public void setPicType(int i) {
-            int i2 = this.value & 31;
-            this.value = i2;
-            this.value = ((i & 3) << 6) | i2;
+        public void setPicType(int i2) {
+            int i3 = this.value & 31;
+            this.value = i3;
+            this.value = ((i2 & 3) << 6) | i3;
         }
 
         public String toString() {
             return "Entry{picType=" + getPicType() + ",dependencyLevel=" + getDependencyLevel() + '}';
         }
 
-        public Entry(int i) {
-            this.value = i;
+        public Entry(int i2) {
+            this.value = i2;
         }
     }
 

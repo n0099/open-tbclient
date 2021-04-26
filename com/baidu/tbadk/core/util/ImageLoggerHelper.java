@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.config.AppConfig;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 import java.net.URL;
 /* loaded from: classes3.dex */
 public class ImageLoggerHelper {
@@ -42,7 +42,7 @@ public class ImageLoggerHelper {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastGetCdnIpTime > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
             int indexOf = str.indexOf("hiphotos.baidu.com");
-            if (indexOf <= 0 || l.B()) {
+            if (indexOf <= 0 || l.C()) {
                 return "";
             }
             this.lastGetCdnIpTime = currentTimeMillis;
@@ -57,7 +57,7 @@ public class ImageLoggerHelper {
     public String getTiebaIp() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastGetTiebaIpTime > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
-            if (l.B()) {
+            if (l.C()) {
                 return "";
             }
             this.lastGetTiebaIpTime = currentTimeMillis;

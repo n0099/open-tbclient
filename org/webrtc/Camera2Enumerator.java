@@ -31,10 +31,10 @@ public class Camera2Enumerator implements CameraEnumerator {
         this.cameraManager = (CameraManager) context.getSystemService(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMERA);
     }
 
-    public static List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates(Range<Integer>[] rangeArr, int i) {
+    public static List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates(Range<Integer>[] rangeArr, int i2) {
         ArrayList arrayList = new ArrayList();
         for (Range<Integer> range : rangeArr) {
-            arrayList.add(new CameraEnumerationAndroid.CaptureFormat.FramerateRange(range.getLower().intValue() * i, range.getUpper().intValue() * i));
+            arrayList.add(new CameraEnumerationAndroid.CaptureFormat.FramerateRange(range.getLower().intValue() * i2, range.getUpper().intValue() * i2));
         }
         return arrayList;
     }
@@ -82,9 +82,9 @@ public class Camera2Enumerator implements CameraEnumerator {
                 Range[] rangeArr = (Range[]) cameraCharacteristics.get(CameraCharacteristics.CONTROL_AE_AVAILABLE_TARGET_FPS_RANGES);
                 List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates = convertFramerates(rangeArr, getFpsUnitFactor(rangeArr));
                 List<Size> supportedSizes = getSupportedSizes(cameraCharacteristics);
-                int i = 0;
+                int i2 = 0;
                 for (CameraEnumerationAndroid.CaptureFormat.FramerateRange framerateRange : convertFramerates) {
-                    i = Math.max(i, framerateRange.max);
+                    i2 = Math.max(i2, framerateRange.max);
                 }
                 ArrayList arrayList = new ArrayList();
                 for (Size size : supportedSizes) {
@@ -93,7 +93,7 @@ public class Camera2Enumerator implements CameraEnumerator {
                     } catch (Exception unused) {
                         j = 0;
                     }
-                    int round = j == 0 ? i : ((int) Math.round(1.0E9d / j)) * 1000;
+                    int round = j == 0 ? i2 : ((int) Math.round(1.0E9d / j)) * 1000;
                     arrayList.add(new CameraEnumerationAndroid.CaptureFormat(size.width, size.height, 0, round));
                     Logging.d(TAG, "Format: " + size.width + "x" + size.height + "@" + round);
                 }

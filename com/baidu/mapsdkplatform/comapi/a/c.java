@@ -8,7 +8,7 @@ import com.baidu.mapapi.map.Marker;
 public abstract class c {
     public abstract void a();
 
-    public abstract void a(int i);
+    public abstract void a(int i2);
 
     public abstract void a(long j);
 
@@ -22,7 +22,7 @@ public abstract class c {
 
     public abstract void b();
 
-    public abstract void b(int i);
+    public abstract void b(int i2);
 
-    public abstract void c(int i);
+    public abstract void c(int i2);
 }

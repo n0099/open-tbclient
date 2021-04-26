@@ -11,28 +11,28 @@ public class ReverseGeoCodeResult extends SearchResult {
     public static final Parcelable.Creator<ReverseGeoCodeResult> CREATOR = new b();
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7237a;
+    public String f7493a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7238b;
+    public String f7494b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AddressComponent f7239c;
+    public AddressComponent f7495c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LatLng f7240d;
+    public LatLng f7496d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7241e;
+    public int f7497e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<PoiInfo> f7242f;
+    public List<PoiInfo> f7498f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f7243g;
+    public String f7499g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<PoiRegionsInfo> f7244h;
+    public List<PoiRegionsInfo> f7500h;
 
     /* loaded from: classes2.dex */
     public static class AddressComponent implements Parcelable {
@@ -96,7 +96,7 @@ public class ReverseGeoCodeResult extends SearchResult {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeString(this.streetNumber);
             parcel.writeString(this.street);
             parcel.writeString(this.town);
@@ -157,7 +157,7 @@ public class ReverseGeoCodeResult extends SearchResult {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeString(this.directionDesc);
             parcel.writeString(this.regionName);
             parcel.writeString(this.regionTag);
@@ -169,13 +169,13 @@ public class ReverseGeoCodeResult extends SearchResult {
 
     public ReverseGeoCodeResult(Parcel parcel) {
         super(parcel);
-        this.f7237a = parcel.readString();
-        this.f7238b = parcel.readString();
-        this.f7239c = (AddressComponent) parcel.readParcelable(AddressComponent.class.getClassLoader());
-        this.f7240d = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f7242f = parcel.createTypedArrayList(PoiInfo.CREATOR);
-        this.f7243g = parcel.readString();
-        this.f7244h = parcel.createTypedArrayList(PoiRegionsInfo.CREATOR);
+        this.f7493a = parcel.readString();
+        this.f7494b = parcel.readString();
+        this.f7495c = (AddressComponent) parcel.readParcelable(AddressComponent.class.getClassLoader());
+        this.f7496d = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f7498f = parcel.createTypedArrayList(PoiInfo.CREATOR);
+        this.f7499g = parcel.readString();
+        this.f7500h = parcel.createTypedArrayList(PoiRegionsInfo.CREATOR);
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -184,118 +184,118 @@ public class ReverseGeoCodeResult extends SearchResult {
     }
 
     public int getAdcode() {
-        return this.f7239c.adcode;
+        return this.f7495c.adcode;
     }
 
     public String getAddress() {
-        return this.f7238b;
+        return this.f7494b;
     }
 
     public AddressComponent getAddressDetail() {
-        return this.f7239c;
+        return this.f7495c;
     }
 
     public String getBusinessCircle() {
-        return this.f7237a;
+        return this.f7493a;
     }
 
     public int getCityCode() {
-        return this.f7241e;
+        return this.f7497e;
     }
 
     public LatLng getLocation() {
-        return this.f7240d;
+        return this.f7496d;
     }
 
     public List<PoiInfo> getPoiList() {
-        return this.f7242f;
+        return this.f7498f;
     }
 
     public List<PoiRegionsInfo> getPoiRegionsInfoList() {
-        return this.f7244h;
+        return this.f7500h;
     }
 
     public String getSematicDescription() {
-        return this.f7243g;
+        return this.f7499g;
     }
 
-    public void setAdcode(int i) {
-        this.f7239c.adcode = i;
+    public void setAdcode(int i2) {
+        this.f7495c.adcode = i2;
     }
 
     public void setAddress(String str) {
-        this.f7238b = str;
+        this.f7494b = str;
     }
 
     public void setAddressDetail(AddressComponent addressComponent) {
-        this.f7239c = addressComponent;
+        this.f7495c = addressComponent;
     }
 
     public void setBusinessCircle(String str) {
-        this.f7237a = str;
+        this.f7493a = str;
     }
 
-    public void setCityCode(int i) {
-        this.f7241e = i;
+    public void setCityCode(int i2) {
+        this.f7497e = i2;
     }
 
     public void setLocation(LatLng latLng) {
-        this.f7240d = latLng;
+        this.f7496d = latLng;
     }
 
     public void setPoiList(List<PoiInfo> list) {
-        this.f7242f = list;
+        this.f7498f = list;
     }
 
     public void setPoiRegionsInfoList(List<PoiRegionsInfo> list) {
-        this.f7244h = list;
+        this.f7500h = list;
     }
 
     public void setSematicDescription(String str) {
-        this.f7243g = str;
+        this.f7499g = str;
     }
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("ReverseGeoCodeResult: \n");
         stringBuffer.append("businessCircle = ");
-        stringBuffer.append(this.f7237a);
+        stringBuffer.append(this.f7493a);
         stringBuffer.append("; address = ");
-        stringBuffer.append(this.f7238b);
+        stringBuffer.append(this.f7494b);
         stringBuffer.append("; location = ");
-        stringBuffer.append(this.f7240d);
+        stringBuffer.append(this.f7496d);
         stringBuffer.append("; sematicDescription = ");
-        stringBuffer.append(this.f7243g);
-        if (this.f7239c != null) {
+        stringBuffer.append(this.f7499g);
+        if (this.f7495c != null) {
             stringBuffer.append("\n#AddressComponent Info BEGIN# \n");
             stringBuffer.append("streetNumber = ");
-            stringBuffer.append(this.f7239c.streetNumber);
+            stringBuffer.append(this.f7495c.streetNumber);
             stringBuffer.append("; street = ");
-            stringBuffer.append(this.f7239c.street);
+            stringBuffer.append(this.f7495c.street);
             stringBuffer.append("; town = ");
-            stringBuffer.append(this.f7239c.town);
+            stringBuffer.append(this.f7495c.town);
             stringBuffer.append("; district = ");
-            stringBuffer.append(this.f7239c.district);
+            stringBuffer.append(this.f7495c.district);
             stringBuffer.append("; city = ");
-            stringBuffer.append(this.f7239c.city);
+            stringBuffer.append(this.f7495c.city);
             stringBuffer.append("; province = ");
-            stringBuffer.append(this.f7239c.province);
+            stringBuffer.append(this.f7495c.province);
             stringBuffer.append("; countryName = ");
-            stringBuffer.append(this.f7239c.countryName);
+            stringBuffer.append(this.f7495c.countryName);
             stringBuffer.append("; countryCode = ");
-            stringBuffer.append(this.f7239c.countryCode);
+            stringBuffer.append(this.f7495c.countryCode);
             stringBuffer.append("; adcode = ");
-            stringBuffer.append(this.f7239c.adcode);
+            stringBuffer.append(this.f7495c.adcode);
             stringBuffer.append("; direction = ");
-            stringBuffer.append(this.f7239c.direction);
+            stringBuffer.append(this.f7495c.direction);
             stringBuffer.append("; distance = ");
-            stringBuffer.append(this.f7239c.distance);
+            stringBuffer.append(this.f7495c.distance);
             stringBuffer.append("\n#AddressComponent Info END# \n");
         }
-        List<PoiRegionsInfo> list = this.f7244h;
+        List<PoiRegionsInfo> list = this.f7500h;
         if (list != null && !list.isEmpty()) {
             stringBuffer.append("\n#PoiRegions Info  BEGIN#");
-            for (int i = 0; i < this.f7244h.size(); i++) {
-                PoiRegionsInfo poiRegionsInfo = this.f7244h.get(i);
+            for (int i2 = 0; i2 < this.f7500h.size(); i2++) {
+                PoiRegionsInfo poiRegionsInfo = this.f7500h.get(i2);
                 if (poiRegionsInfo != null) {
                     stringBuffer.append("\ndirectionDesc = ");
                     stringBuffer.append(poiRegionsInfo.getDirectionDesc());
@@ -307,11 +307,11 @@ public class ReverseGeoCodeResult extends SearchResult {
             }
             stringBuffer.append("\n#PoiRegions Info  END# \n");
         }
-        List<PoiInfo> list2 = this.f7242f;
+        List<PoiInfo> list2 = this.f7498f;
         if (list2 != null && !list2.isEmpty()) {
             stringBuffer.append("\n #PoiList Info  BEGIN#");
-            for (int i2 = 0; i2 < this.f7242f.size(); i2++) {
-                PoiInfo poiInfo = this.f7242f.get(i2);
+            for (int i3 = 0; i3 < this.f7498f.size(); i3++) {
+                PoiInfo poiInfo = this.f7498f.get(i3);
                 if (poiInfo != null) {
                     stringBuffer.append("\n address = ");
                     stringBuffer.append(poiInfo.getAddress());
@@ -355,14 +355,14 @@ public class ReverseGeoCodeResult extends SearchResult {
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
-        parcel.writeString(this.f7237a);
-        parcel.writeString(this.f7238b);
-        parcel.writeParcelable(this.f7239c, 0);
-        parcel.writeValue(this.f7240d);
-        parcel.writeTypedList(this.f7242f);
-        parcel.writeString(this.f7243g);
-        parcel.writeTypedList(this.f7244h);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
+        parcel.writeString(this.f7493a);
+        parcel.writeString(this.f7494b);
+        parcel.writeParcelable(this.f7495c, 0);
+        parcel.writeValue(this.f7496d);
+        parcel.writeTypedList(this.f7498f);
+        parcel.writeString(this.f7499g);
+        parcel.writeTypedList(this.f7500h);
     }
 }

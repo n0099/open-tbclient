@@ -17,19 +17,19 @@ public class Guideline extends View {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         setMeasuredDimension(0, 0);
     }
 
-    public void setGuidelineBegin(int i) {
+    public void setGuidelineBegin(int i2) {
         ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
-        layoutParams.guideBegin = i;
+        layoutParams.guideBegin = i2;
         setLayoutParams(layoutParams);
     }
 
-    public void setGuidelineEnd(int i) {
+    public void setGuidelineEnd(int i2) {
         ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
-        layoutParams.guideEnd = i;
+        layoutParams.guideEnd = i2;
         setLayoutParams(layoutParams);
     }
 
@@ -40,7 +40,7 @@ public class Guideline extends View {
     }
 
     @Override // android.view.View
-    public void setVisibility(int i) {
+    public void setVisibility(int i2) {
     }
 
     public Guideline(Context context, AttributeSet attributeSet) {
@@ -48,13 +48,13 @@ public class Guideline extends View {
         super.setVisibility(8);
     }
 
-    public Guideline(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public Guideline(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         super.setVisibility(8);
     }
 
-    public Guideline(Context context, AttributeSet attributeSet, int i, int i2) {
-        super(context, attributeSet, i);
+    public Guideline(Context context, AttributeSet attributeSet, int i2, int i3) {
+        super(context, attributeSet, i2);
         super.setVisibility(8);
     }
 }

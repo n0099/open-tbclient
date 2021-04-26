@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 /* loaded from: classes3.dex */
 public class BubbleViewWrite extends BubbleView {
-    public BubbleViewWrite(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BubbleViewWrite(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 
     @Override // com.baidu.tieba.memberCenter.bubble.BubbleView

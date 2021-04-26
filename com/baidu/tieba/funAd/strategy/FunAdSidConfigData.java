@@ -1,7 +1,7 @@
 package com.baidu.tieba.funAd.strategy;
 
 import com.baidu.adp.lib.util.BdLog;
-import d.b.i0.r.q.o;
+import d.a.i0.r.q.o;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +41,7 @@ public class FunAdSidConfigData extends o implements Serializable {
         return this.mThreshold;
     }
 
-    @Override // d.b.i0.r.q.o
+    @Override // d.a.i0.r.q.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
@@ -50,8 +50,8 @@ public class FunAdSidConfigData extends o implements Serializable {
             JSONArray optJSONArray = jSONObject.optJSONArray("bear_sid_list");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    this.mBearSidList.add(optJSONArray.getString(i));
+                for (int i2 = 0; i2 < length; i2++) {
+                    this.mBearSidList.add(optJSONArray.getString(i2));
                 }
             }
             this.mThreshold = jSONObject.optInt("threshold", 0);
@@ -72,20 +72,20 @@ public class FunAdSidConfigData extends o implements Serializable {
         this.mExpiryTime = j;
     }
 
-    public void setForce(int i) {
-        this.mForce = i;
+    public void setForce(int i2) {
+        this.mForce = i2;
     }
 
-    public void setRecordNum(int i) {
-        this.mRecordNum = i;
+    public void setRecordNum(int i2) {
+        this.mRecordNum = i2;
     }
 
     public void setSpace(long j) {
         this.mSpace = j;
     }
 
-    public void setThreshold(int i) {
-        this.mThreshold = i;
+    public void setThreshold(int i2) {
+        this.mThreshold = i2;
     }
 
     public JSONObject toJson() {

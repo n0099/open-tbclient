@@ -14,10 +14,10 @@ import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.view.ViewPropertyAnimatorCompat;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public interface DecorToolbar {
-    void animateToVisibility(int i);
+    void animateToVisibility(int i2);
 
     boolean canShowOverflowMenu();
 
@@ -79,25 +79,25 @@ public interface DecorToolbar {
 
     void setCustomView(View view);
 
-    void setDefaultNavigationContentDescription(int i);
+    void setDefaultNavigationContentDescription(int i2);
 
     void setDefaultNavigationIcon(Drawable drawable);
 
-    void setDisplayOptions(int i);
+    void setDisplayOptions(int i2);
 
     void setDropdownParams(SpinnerAdapter spinnerAdapter, AdapterView.OnItemSelectedListener onItemSelectedListener);
 
-    void setDropdownSelectedPosition(int i);
+    void setDropdownSelectedPosition(int i2);
 
     void setEmbeddedTabView(ScrollingTabContainerView scrollingTabContainerView);
 
     void setHomeButtonEnabled(boolean z);
 
-    void setIcon(int i);
+    void setIcon(int i2);
 
     void setIcon(Drawable drawable);
 
-    void setLogo(int i);
+    void setLogo(int i2);
 
     void setLogo(Drawable drawable);
 
@@ -107,27 +107,27 @@ public interface DecorToolbar {
 
     void setMenuPrepared();
 
-    void setNavigationContentDescription(int i);
+    void setNavigationContentDescription(int i2);
 
     void setNavigationContentDescription(CharSequence charSequence);
 
-    void setNavigationIcon(int i);
+    void setNavigationIcon(int i2);
 
     void setNavigationIcon(Drawable drawable);
 
-    void setNavigationMode(int i);
+    void setNavigationMode(int i2);
 
     void setSubtitle(CharSequence charSequence);
 
     void setTitle(CharSequence charSequence);
 
-    void setVisibility(int i);
+    void setVisibility(int i2);
 
     void setWindowCallback(Window.Callback callback);
 
     void setWindowTitle(CharSequence charSequence);
 
-    ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i, long j);
+    ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j);
 
     boolean showOverflowMenu();
 }

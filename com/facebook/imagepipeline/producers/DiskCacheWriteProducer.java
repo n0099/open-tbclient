@@ -33,8 +33,8 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(EncodedImage encodedImage, int i) {
-            if (!BaseConsumer.isNotLast(i) && encodedImage != null && !BaseConsumer.statusHasAnyFlag(i, 10) && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
+        public void onNewResultImpl(EncodedImage encodedImage, int i2) {
+            if (!BaseConsumer.isNotLast(i2) && encodedImage != null && !BaseConsumer.statusHasAnyFlag(i2, 10) && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
                 ImageRequest imageRequest = this.mProducerContext.getImageRequest();
                 CacheKey encodedCacheKey = this.mCacheKeyFactory.getEncodedCacheKey(imageRequest, this.mProducerContext.getCallerContext());
                 if (imageRequest.getCacheChoice() == ImageRequest.CacheChoice.SMALL) {
@@ -42,10 +42,10 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
                 } else {
                     this.mDefaultBufferedDiskCache.put(encodedCacheKey, encodedImage);
                 }
-                getConsumer().onNewResult(encodedImage, i);
+                getConsumer().onNewResult(encodedImage, i2);
                 return;
             }
-            getConsumer().onNewResult(encodedImage, i);
+            getConsumer().onNewResult(encodedImage, i2);
         }
     }
 

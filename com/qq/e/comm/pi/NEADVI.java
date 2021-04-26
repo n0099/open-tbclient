@@ -17,5 +17,5 @@ public interface NEADVI extends ApkDownloadComplianceInterface {
 
     void setAdSize(ADSize aDSize);
 
-    void setBrowserType(int i);
+    void setBrowserType(int i2);
 }

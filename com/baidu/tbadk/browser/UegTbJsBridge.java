@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
-import d.b.e.a.a;
-import d.b.i0.s.c.l;
-import d.b.j0.d3.l0.b;
-import d.b.j0.d3.l0.d.c;
-import d.b.j0.l3.d;
+import d.a.e.a.a;
+import d.a.i0.s.c.l;
+import d.a.j0.d3.l0.b;
+import d.a.j0.d3.l0.d.c;
+import d.a.j0.l3.d;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
@@ -39,7 +39,7 @@ public class UegTbJsBridge implements b {
 
     private void copyToClipboard(String str) {
         try {
-            d.b.c.e.p.a.a(new JSONObject(str).optString("content"));
+            d.a.c.e.p.a.a(new JSONObject(str).optString("content"));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -51,7 +51,7 @@ public class UegTbJsBridge implements b {
         return cVar;
     }
 
-    @Override // d.b.j0.d3.l0.b
+    @Override // d.a.j0.d3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if (METHOD_CALL_NATIVE_SMS.equals(str2)) {
@@ -87,16 +87,16 @@ public class UegTbJsBridge implements b {
         return false;
     }
 
-    public c setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+    public c setBlockPopInfo(int i2, String str, String str2, String str3, String str4, int i3) {
         c cVar = new c();
         try {
             BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
-            builder.can_post = Integer.valueOf(i);
+            builder.can_post = Integer.valueOf(i2);
             builder.block_info = str;
             builder.ahead_info = str2;
             builder.ahead_url = str3;
             builder.ok_info = str4;
-            builder.ahead_type = Integer.valueOf(i2);
+            builder.ahead_type = Integer.valueOf(i3);
             BlockPopInfo build = builder.build(false);
             d.g(build);
             d.f(build);

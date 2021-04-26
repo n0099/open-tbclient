@@ -10,17 +10,17 @@ import com.baidu.tbadk.core.util.FieldBuilder;
 public class dh implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40747a;
+    public Context f38264a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f234a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40748b;
+    public String f38265b;
 
     public dh(Context context, String str) {
         this.f234a = "";
-        this.f40747a = context;
+        this.f38264a = context;
         this.f234a = str;
     }
 
@@ -29,7 +29,7 @@ public class dh implements Application.ActivityLifecycleCallbacks {
         hnVar.a(str);
         hnVar.a(System.currentTimeMillis());
         hnVar.a(hh.ActivityActiveTimeStamp);
-        dq.a(this.f40747a, hnVar);
+        dq.a(this.f38264a, hnVar);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -46,20 +46,20 @@ public class dh implements Application.ActivityLifecycleCallbacks {
         if (TextUtils.isEmpty(this.f234a) || TextUtils.isEmpty(localClassName)) {
             return;
         }
-        this.f40748b = "";
-        if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f40748b, localClassName)) {
+        this.f38265b = "";
+        if (!TextUtils.isEmpty("") && !TextUtils.equals(this.f38265b, localClassName)) {
             this.f234a = "";
             return;
         }
-        a(this.f40747a.getPackageName() + FieldBuilder.SE + localClassName + ":" + this.f234a + "," + String.valueOf(System.currentTimeMillis() / 1000));
+        a(this.f38264a.getPackageName() + FieldBuilder.SE + localClassName + ":" + this.f234a + "," + String.valueOf(System.currentTimeMillis() / 1000));
         this.f234a = "";
-        this.f40748b = "";
+        this.f38265b = "";
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
-        if (TextUtils.isEmpty(this.f40748b)) {
-            this.f40748b = activity.getLocalClassName();
+        if (TextUtils.isEmpty(this.f38265b)) {
+            this.f38265b = activity.getLocalClassName();
         }
         this.f234a = String.valueOf(System.currentTimeMillis() / 1000);
     }

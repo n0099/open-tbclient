@@ -2,6 +2,7 @@ package androidx.core.app;
 
 import android.app.Activity;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
@@ -14,31 +15,46 @@ import android.view.ActionProvider;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ShareActionProvider;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.core.content.IntentCompat;
+import androidx.core.util.Preconditions;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class ShareCompat {
     public static final String EXTRA_CALLING_ACTIVITY = "androidx.core.app.EXTRA_CALLING_ACTIVITY";
+    public static final String EXTRA_CALLING_ACTIVITY_INTEROP = "android.support.v4.app.EXTRA_CALLING_ACTIVITY";
     public static final String EXTRA_CALLING_PACKAGE = "androidx.core.app.EXTRA_CALLING_PACKAGE";
+    public static final String EXTRA_CALLING_PACKAGE_INTEROP = "android.support.v4.app.EXTRA_CALLING_PACKAGE";
     public static final String HISTORY_FILENAME_PREFIX = ".sharecompat_";
 
     /* loaded from: classes.dex */
     public static class IntentBuilder {
-        public Activity mActivity;
+        @Nullable
         public ArrayList<String> mBccAddresses;
+        @Nullable
         public ArrayList<String> mCcAddresses;
+        @Nullable
         public CharSequence mChooserTitle;
-        public Intent mIntent;
+        @NonNull
+        public final Context mContext;
+        @NonNull
+        public final Intent mIntent;
+        @Nullable
         public ArrayList<Uri> mStreams;
+        @Nullable
         public ArrayList<String> mToAddresses;
 
-        public IntentBuilder(Activity activity) {
-            this.mActivity = activity;
+        public IntentBuilder(@NonNull Context context, @Nullable ComponentName componentName) {
+            this.mContext = (Context) Preconditions.checkNotNull(context);
             Intent action = new Intent().setAction("android.intent.action.SEND");
             this.mIntent = action;
-            action.putExtra(ShareCompat.EXTRA_CALLING_PACKAGE, activity.getPackageName());
-            this.mIntent.putExtra(ShareCompat.EXTRA_CALLING_ACTIVITY, activity.getComponentName());
+            action.putExtra(ShareCompat.EXTRA_CALLING_PACKAGE, context.getPackageName());
+            this.mIntent.putExtra(ShareCompat.EXTRA_CALLING_PACKAGE_INTEROP, context.getPackageName());
+            this.mIntent.putExtra(ShareCompat.EXTRA_CALLING_ACTIVITY, componentName);
+            this.mIntent.putExtra(ShareCompat.EXTRA_CALLING_ACTIVITY_INTEROP, componentName);
             this.mIntent.addFlags(524288);
         }
 
@@ -53,11 +69,13 @@ public final class ShareCompat {
             this.mIntent.putExtra(str, strArr);
         }
 
-        public static IntentBuilder from(Activity activity) {
-            return new IntentBuilder(activity);
+        @NonNull
+        public static IntentBuilder from(@NonNull Activity activity) {
+            return from((Context) Preconditions.checkNotNull(activity), activity.getComponentName());
         }
 
-        public IntentBuilder addEmailBcc(String str) {
+        @NonNull
+        public IntentBuilder addEmailBcc(@NonNull String str) {
             if (this.mBccAddresses == null) {
                 this.mBccAddresses = new ArrayList<>();
             }
@@ -65,7 +83,8 @@ public final class ShareCompat {
             return this;
         }
 
-        public IntentBuilder addEmailCc(String str) {
+        @NonNull
+        public IntentBuilder addEmailCc(@NonNull String str) {
             if (this.mCcAddresses == null) {
                 this.mCcAddresses = new ArrayList<>();
             }
@@ -73,7 +92,8 @@ public final class ShareCompat {
             return this;
         }
 
-        public IntentBuilder addEmailTo(String str) {
+        @NonNull
+        public IntentBuilder addEmailTo(@NonNull String str) {
             if (this.mToAddresses == null) {
                 this.mToAddresses = new ArrayList<>();
             }
@@ -81,7 +101,8 @@ public final class ShareCompat {
             return this;
         }
 
-        public IntentBuilder addStream(Uri uri) {
+        @NonNull
+        public IntentBuilder addStream(@NonNull Uri uri) {
             Uri uri2 = (Uri) this.mIntent.getParcelableExtra("android.intent.extra.STREAM");
             if (this.mStreams == null && uri2 == null) {
                 return setStream(uri);
@@ -97,14 +118,17 @@ public final class ShareCompat {
             return this;
         }
 
+        @NonNull
         public Intent createChooserIntent() {
             return Intent.createChooser(getIntent(), this.mChooserTitle);
         }
 
-        public Activity getActivity() {
-            return this.mActivity;
+        @NonNull
+        public Context getContext() {
+            return this.mContext;
         }
 
+        @NonNull
         public Intent getIntent() {
             ArrayList<String> arrayList = this.mToAddresses;
             if (arrayList != null) {
@@ -124,7 +148,7 @@ public final class ShareCompat {
             ArrayList<Uri> arrayList4 = this.mStreams;
             boolean z = true;
             z = (arrayList4 == null || arrayList4.size() <= 1) ? false : false;
-            boolean equals = this.mIntent.getAction().equals("android.intent.action.SEND_MULTIPLE");
+            boolean equals = "android.intent.action.SEND_MULTIPLE".equals(this.mIntent.getAction());
             if (!z && equals) {
                 this.mIntent.setAction("android.intent.action.SEND");
                 ArrayList<Uri> arrayList5 = this.mStreams;
@@ -147,22 +171,26 @@ public final class ShareCompat {
             return this.mIntent;
         }
 
-        public IntentBuilder setChooserTitle(CharSequence charSequence) {
+        @NonNull
+        public IntentBuilder setChooserTitle(@Nullable CharSequence charSequence) {
             this.mChooserTitle = charSequence;
             return this;
         }
 
-        public IntentBuilder setEmailBcc(String[] strArr) {
+        @NonNull
+        public IntentBuilder setEmailBcc(@Nullable String[] strArr) {
             this.mIntent.putExtra("android.intent.extra.BCC", strArr);
             return this;
         }
 
-        public IntentBuilder setEmailCc(String[] strArr) {
+        @NonNull
+        public IntentBuilder setEmailCc(@Nullable String[] strArr) {
             this.mIntent.putExtra("android.intent.extra.CC", strArr);
             return this;
         }
 
-        public IntentBuilder setEmailTo(String[] strArr) {
+        @NonNull
+        public IntentBuilder setEmailTo(@Nullable String[] strArr) {
             if (this.mToAddresses != null) {
                 this.mToAddresses = null;
             }
@@ -170,7 +198,8 @@ public final class ShareCompat {
             return this;
         }
 
-        public IntentBuilder setHtmlText(String str) {
+        @NonNull
+        public IntentBuilder setHtmlText(@Nullable String str) {
             this.mIntent.putExtra(IntentCompat.EXTRA_HTML_TEXT, str);
             if (!this.mIntent.hasExtra("android.intent.extra.TEXT")) {
                 setText(Html.fromHtml(str));
@@ -178,8 +207,9 @@ public final class ShareCompat {
             return this;
         }
 
-        public IntentBuilder setStream(Uri uri) {
-            if (!this.mIntent.getAction().equals("android.intent.action.SEND")) {
+        @NonNull
+        public IntentBuilder setStream(@Nullable Uri uri) {
+            if (!"android.intent.action.SEND".equals(this.mIntent.getAction())) {
                 this.mIntent.setAction("android.intent.action.SEND");
             }
             this.mStreams = null;
@@ -187,45 +217,57 @@ public final class ShareCompat {
             return this;
         }
 
-        public IntentBuilder setSubject(String str) {
+        @NonNull
+        public IntentBuilder setSubject(@Nullable String str) {
             this.mIntent.putExtra("android.intent.extra.SUBJECT", str);
             return this;
         }
 
-        public IntentBuilder setText(CharSequence charSequence) {
+        @NonNull
+        public IntentBuilder setText(@Nullable CharSequence charSequence) {
             this.mIntent.putExtra("android.intent.extra.TEXT", charSequence);
             return this;
         }
 
-        public IntentBuilder setType(String str) {
+        @NonNull
+        public IntentBuilder setType(@Nullable String str) {
             this.mIntent.setType(str);
             return this;
         }
 
         public void startChooser() {
-            this.mActivity.startActivity(createChooserIntent());
+            this.mContext.startActivity(createChooserIntent());
         }
 
-        public IntentBuilder setChooserTitle(@StringRes int i) {
-            return setChooserTitle(this.mActivity.getText(i));
+        @NonNull
+        public static IntentBuilder from(@NonNull Context context, @Nullable ComponentName componentName) {
+            return new IntentBuilder(context, componentName);
         }
 
-        public IntentBuilder addEmailBcc(String[] strArr) {
+        @NonNull
+        public IntentBuilder setChooserTitle(@StringRes int i2) {
+            return setChooserTitle(this.mContext.getText(i2));
+        }
+
+        @NonNull
+        public IntentBuilder addEmailBcc(@NonNull String[] strArr) {
             combineArrayExtra("android.intent.extra.BCC", strArr);
             return this;
         }
 
-        public IntentBuilder addEmailCc(String[] strArr) {
+        @NonNull
+        public IntentBuilder addEmailCc(@NonNull String[] strArr) {
             combineArrayExtra("android.intent.extra.CC", strArr);
             return this;
         }
 
-        public IntentBuilder addEmailTo(String[] strArr) {
+        @NonNull
+        public IntentBuilder addEmailTo(@NonNull String[] strArr) {
             combineArrayExtra("android.intent.extra.EMAIL", strArr);
             return this;
         }
 
-        private void combineArrayExtra(String str, String[] strArr) {
+        private void combineArrayExtra(@Nullable String str, @NonNull String[] strArr) {
             Intent intent = getIntent();
             String[] stringArrayExtra = intent.getStringArrayExtra(str);
             int length = stringArrayExtra != null ? stringArrayExtra.length : 0;
@@ -241,26 +283,32 @@ public final class ShareCompat {
     /* loaded from: classes.dex */
     public static class IntentReader {
         public static final String TAG = "IntentReader";
-        public Activity mActivity;
-        public ComponentName mCallingActivity;
-        public String mCallingPackage;
-        public Intent mIntent;
+        @Nullable
+        public final ComponentName mCallingActivity;
+        @Nullable
+        public final String mCallingPackage;
+        @NonNull
+        public final Context mContext;
+        @NonNull
+        public final Intent mIntent;
+        @Nullable
         public ArrayList<Uri> mStreams;
 
-        public IntentReader(Activity activity) {
-            this.mActivity = activity;
-            this.mIntent = activity.getIntent();
-            this.mCallingPackage = ShareCompat.getCallingPackage(activity);
-            this.mCallingActivity = ShareCompat.getCallingActivity(activity);
+        public IntentReader(@NonNull Context context, @NonNull Intent intent) {
+            this.mContext = (Context) Preconditions.checkNotNull(context);
+            this.mIntent = (Intent) Preconditions.checkNotNull(intent);
+            this.mCallingPackage = ShareCompat.getCallingPackage(intent);
+            this.mCallingActivity = ShareCompat.getCallingActivity(intent);
         }
 
-        public static IntentReader from(Activity activity) {
-            return new IntentReader(activity);
+        @NonNull
+        public static IntentReader from(@NonNull Activity activity) {
+            return from((Context) Preconditions.checkNotNull(activity), activity.getIntent());
         }
 
-        public static void withinStyle(StringBuilder sb, CharSequence charSequence, int i, int i2) {
-            while (i < i2) {
-                char charAt = charSequence.charAt(i);
+        public static void withinStyle(StringBuilder sb, CharSequence charSequence, int i2, int i3) {
+            while (i2 < i3) {
+                char charAt = charSequence.charAt(i2);
                 if (charAt == '<') {
                     sb.append("&lt;");
                 } else if (charAt == '>') {
@@ -268,57 +316,63 @@ public final class ShareCompat {
                 } else if (charAt == '&') {
                     sb.append("&amp;");
                 } else if (charAt > '~' || charAt < ' ') {
-                    sb.append("&#" + ((int) charAt) + ";");
+                    sb.append("&#");
+                    sb.append((int) charAt);
+                    sb.append(";");
                 } else if (charAt == ' ') {
                     while (true) {
-                        int i3 = i + 1;
-                        if (i3 >= i2 || charSequence.charAt(i3) != ' ') {
+                        int i4 = i2 + 1;
+                        if (i4 >= i3 || charSequence.charAt(i4) != ' ') {
                             break;
                         }
                         sb.append("&nbsp;");
-                        i = i3;
+                        i2 = i4;
                     }
                     sb.append(' ');
                 } else {
                     sb.append(charAt);
                 }
-                i++;
+                i2++;
             }
         }
 
+        @Nullable
         public ComponentName getCallingActivity() {
             return this.mCallingActivity;
         }
 
+        @Nullable
         public Drawable getCallingActivityIcon() {
             if (this.mCallingActivity == null) {
                 return null;
             }
             try {
-                return this.mActivity.getPackageManager().getActivityIcon(this.mCallingActivity);
+                return this.mContext.getPackageManager().getActivityIcon(this.mCallingActivity);
             } catch (PackageManager.NameNotFoundException e2) {
                 Log.e(TAG, "Could not retrieve icon for calling activity", e2);
                 return null;
             }
         }
 
+        @Nullable
         public Drawable getCallingApplicationIcon() {
             if (this.mCallingPackage == null) {
                 return null;
             }
             try {
-                return this.mActivity.getPackageManager().getApplicationIcon(this.mCallingPackage);
+                return this.mContext.getPackageManager().getApplicationIcon(this.mCallingPackage);
             } catch (PackageManager.NameNotFoundException e2) {
                 Log.e(TAG, "Could not retrieve icon for calling application", e2);
                 return null;
             }
         }
 
+        @Nullable
         public CharSequence getCallingApplicationLabel() {
             if (this.mCallingPackage == null) {
                 return null;
             }
-            PackageManager packageManager = this.mActivity.getPackageManager();
+            PackageManager packageManager = this.mContext.getPackageManager();
             try {
                 return packageManager.getApplicationLabel(packageManager.getApplicationInfo(this.mCallingPackage, 0));
             } catch (PackageManager.NameNotFoundException e2) {
@@ -327,22 +381,27 @@ public final class ShareCompat {
             }
         }
 
+        @Nullable
         public String getCallingPackage() {
             return this.mCallingPackage;
         }
 
+        @Nullable
         public String[] getEmailBcc() {
             return this.mIntent.getStringArrayExtra("android.intent.extra.BCC");
         }
 
+        @Nullable
         public String[] getEmailCc() {
             return this.mIntent.getStringArrayExtra("android.intent.extra.CC");
         }
 
+        @Nullable
         public String[] getEmailTo() {
             return this.mIntent.getStringArrayExtra("android.intent.extra.EMAIL");
         }
 
+        @Nullable
         public String getHtmlText() {
             String stringExtra = this.mIntent.getStringExtra(IntentCompat.EXTRA_HTML_TEXT);
             if (stringExtra == null) {
@@ -363,6 +422,7 @@ public final class ShareCompat {
             return stringExtra;
         }
 
+        @Nullable
         public Uri getStream() {
             return (Uri) this.mIntent.getParcelableExtra("android.intent.extra.STREAM");
         }
@@ -378,14 +438,17 @@ public final class ShareCompat {
             return this.mIntent.hasExtra("android.intent.extra.STREAM") ? 1 : 0;
         }
 
+        @Nullable
         public String getSubject() {
             return this.mIntent.getStringExtra("android.intent.extra.SUBJECT");
         }
 
+        @Nullable
         public CharSequence getText() {
             return this.mIntent.getCharSequenceExtra("android.intent.extra.TEXT");
         }
 
+        @Nullable
         public String getType() {
             return this.mIntent.getType();
         }
@@ -403,30 +466,36 @@ public final class ShareCompat {
             return "android.intent.action.SEND".equals(this.mIntent.getAction());
         }
 
-        public Uri getStream(int i) {
+        @NonNull
+        public static IntentReader from(@NonNull Context context, @NonNull Intent intent) {
+            return new IntentReader(context, intent);
+        }
+
+        @Nullable
+        public Uri getStream(int i2) {
             if (this.mStreams == null && isMultipleShare()) {
                 this.mStreams = this.mIntent.getParcelableArrayListExtra("android.intent.extra.STREAM");
             }
             ArrayList<Uri> arrayList = this.mStreams;
             if (arrayList != null) {
-                return arrayList.get(i);
+                return arrayList.get(i2);
             }
-            if (i == 0) {
+            if (i2 == 0) {
                 return (Uri) this.mIntent.getParcelableExtra("android.intent.extra.STREAM");
             }
-            throw new IndexOutOfBoundsException("Stream items available: " + getStreamCount() + " index requested: " + i);
+            throw new IndexOutOfBoundsException("Stream items available: " + getStreamCount() + " index requested: " + i2);
         }
     }
 
-    public static void configureMenuItem(MenuItem menuItem, IntentBuilder intentBuilder) {
+    public static void configureMenuItem(@NonNull MenuItem menuItem, @NonNull IntentBuilder intentBuilder) {
         ShareActionProvider shareActionProvider;
         ActionProvider actionProvider = menuItem.getActionProvider();
         if (!(actionProvider instanceof ShareActionProvider)) {
-            shareActionProvider = new ShareActionProvider(intentBuilder.getActivity());
+            shareActionProvider = new ShareActionProvider(intentBuilder.getContext());
         } else {
             shareActionProvider = (ShareActionProvider) actionProvider;
         }
-        shareActionProvider.setShareHistoryFileName(HISTORY_FILENAME_PREFIX + intentBuilder.getActivity().getClass().getName());
+        shareActionProvider.setShareHistoryFileName(HISTORY_FILENAME_PREFIX + intentBuilder.getContext().getClass().getName());
         shareActionProvider.setShareIntent(intentBuilder.getIntent());
         menuItem.setActionProvider(shareActionProvider);
         if (Build.VERSION.SDK_INT >= 16 || menuItem.hasSubMenu()) {
@@ -435,22 +504,38 @@ public final class ShareCompat {
         menuItem.setIntent(intentBuilder.createChooserIntent());
     }
 
-    public static ComponentName getCallingActivity(Activity activity) {
+    @Nullable
+    public static ComponentName getCallingActivity(@NonNull Activity activity) {
+        Intent intent = activity.getIntent();
         ComponentName callingActivity = activity.getCallingActivity();
-        return callingActivity == null ? (ComponentName) activity.getIntent().getParcelableExtra(EXTRA_CALLING_ACTIVITY) : callingActivity;
+        return callingActivity == null ? getCallingActivity(intent) : callingActivity;
     }
 
-    public static String getCallingPackage(Activity activity) {
+    @Nullable
+    public static String getCallingPackage(@NonNull Activity activity) {
+        Intent intent = activity.getIntent();
         String callingPackage = activity.getCallingPackage();
-        return callingPackage == null ? activity.getIntent().getStringExtra(EXTRA_CALLING_PACKAGE) : callingPackage;
+        return (callingPackage != null || intent == null) ? callingPackage : getCallingPackage(intent);
     }
 
-    public static void configureMenuItem(Menu menu, int i, IntentBuilder intentBuilder) {
-        MenuItem findItem = menu.findItem(i);
+    @Nullable
+    public static ComponentName getCallingActivity(@NonNull Intent intent) {
+        ComponentName componentName = (ComponentName) intent.getParcelableExtra(EXTRA_CALLING_ACTIVITY);
+        return componentName == null ? (ComponentName) intent.getParcelableExtra(EXTRA_CALLING_ACTIVITY_INTEROP) : componentName;
+    }
+
+    @Nullable
+    public static String getCallingPackage(@NonNull Intent intent) {
+        String stringExtra = intent.getStringExtra(EXTRA_CALLING_PACKAGE);
+        return stringExtra == null ? intent.getStringExtra(EXTRA_CALLING_PACKAGE_INTEROP) : stringExtra;
+    }
+
+    public static void configureMenuItem(@NonNull Menu menu, @IdRes int i2, @NonNull IntentBuilder intentBuilder) {
+        MenuItem findItem = menu.findItem(i2);
         if (findItem != null) {
             configureMenuItem(findItem, intentBuilder);
             return;
         }
-        throw new IllegalArgumentException("Could not find menu item with id " + i + " in the supplied menu");
+        throw new IllegalArgumentException("Could not find menu item with id " + i2 + " in the supplied menu");
     }
 }

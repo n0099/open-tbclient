@@ -38,14 +38,14 @@ public class BIMAckRtcInfo extends BIMRtcInfo {
         this.mImUK = j;
     }
 
-    public void setSyncAction(int i) {
-        this.mSyncAction = i;
+    public void setSyncAction(int i2) {
+        this.mSyncAction = i2;
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
-        BIMAckRtcInfo bIMAckRtcInfo = new BIMAckRtcInfo(super.toRtcInfo(i, str, str2));
+    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
+        BIMAckRtcInfo bIMAckRtcInfo = new BIMAckRtcInfo(super.toRtcInfo(i2, str, str2));
         try {
             JSONObject jSONObject = new JSONObject(str2);
             bIMAckRtcInfo.setAckSeqId(jSONObject.optLong("ack_seqid"));

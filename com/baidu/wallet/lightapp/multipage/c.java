@@ -9,9 +9,9 @@ import com.baidu.wallet.lightapp.business.LightappBrowserWebView;
 public interface c {
     View a();
 
-    void a(int i, int i2, Intent intent);
+    void a(int i2, int i3, Intent intent);
 
-    void a(int i, @NonNull String[] strArr, @NonNull int[] iArr);
+    void a(int i2, @NonNull String[] strArr, @NonNull int[] iArr);
 
     void a(d dVar, Bundle bundle, String str);
 

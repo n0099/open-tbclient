@@ -45,12 +45,12 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements IPanelCon
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         if (DEBUG) {
             String str = TAG;
-            Log.d(str, "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i2));
+            Log.d(str, "panelLayout onMeasure, height: " + View.MeasureSpec.getSize(i3));
         }
-        int[] processOnMeasure = this.mPanelLayoutHandler.processOnMeasure(i, i2);
+        int[] processOnMeasure = this.mPanelLayoutHandler.processOnMeasure(i2, i3);
         if (DEBUG) {
             String str2 = TAG;
             Log.d(str2, "panelLayout onMeasure after process, height: " + View.MeasureSpec.getSize(processOnMeasure[1]));
@@ -64,24 +64,24 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements IPanelCon
     }
 
     @Override // com.baidu.spswitch.IPanelHeightTarget
-    public void refreshHeight(int i) {
-        this.mPanelLayoutHandler.refreshPanelHeight(i);
+    public void refreshHeight(int i2) {
+        this.mPanelLayoutHandler.refreshPanelHeight(i2);
     }
 
     @Override // android.view.View
-    public void setVisibility(int i) {
-        if (this.mPanelLayoutHandler.filterSetVisibility(i)) {
+    public void setVisibility(int i2) {
+        if (this.mPanelLayoutHandler.filterSetVisibility(i2)) {
             return;
         }
-        super.setVisibility(i);
+        super.setVisibility(i2);
     }
 
     public SPSwitchPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public SPSwitchPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public SPSwitchPanelLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         init();
     }
 }

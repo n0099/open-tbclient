@@ -19,5 +19,5 @@ public interface UBVI extends ApkDownloadComplianceInterface {
 
     void setLoadAdParams(LoadAdParams loadAdParams);
 
-    void setRefresh(int i);
+    void setRefresh(int i2);
 }

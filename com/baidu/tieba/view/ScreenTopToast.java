@@ -15,22 +15,24 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import d.b.c.e.m.e;
+import d.a.c.e.m.e;
 /* loaded from: classes5.dex */
 public class ScreenTopToast extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ShadowLinearLayout f21870e;
+    public ShadowLinearLayout f22532e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f21871f;
+    public TextView f22533f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f21872g;
+    public TextView f22534g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f21873h;
-    public Animation i;
+    public TBSpecificationBtn f22535h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Animation f22536i;
     public Animation j;
     public Runnable k;
     public boolean l;
@@ -84,17 +86,17 @@ public class ScreenTopToast extends LinearLayout {
             setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
         }
         LayoutInflater.from(getContext()).inflate(R.layout.screen_top_toast_layout, this);
-        this.f21870e = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
-        this.f21871f = (TextView) findViewById(R.id.screen_top_toast_title);
-        this.f21872g = (TextView) findViewById(R.id.screen_top_toast_content);
-        this.f21873h = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
-        this.f21873h.setConfig(new d.b.i0.r.f0.m.a());
+        this.f22532e = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
+        this.f22533f = (TextView) findViewById(R.id.screen_top_toast_title);
+        this.f22534g = (TextView) findViewById(R.id.screen_top_toast_content);
+        this.f22535h = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
+        this.f22535h.setConfig(new d.a.i0.r.f0.m.a());
         f();
         h();
     }
 
     public final void f() {
-        this.i = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.f22536i = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
         Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
         this.j = loadAnimation;
         loadAnimation.setAnimationListener(new a());
@@ -106,10 +108,10 @@ public class ScreenTopToast extends LinearLayout {
     }
 
     public void h() {
-        SkinManager.setViewTextColor(this.f21871f, R.color.CAM_X0302);
-        SkinManager.setViewTextColor(this.f21872g, R.color.CAM_X0302);
-        this.f21873h.k();
-        this.f21870e.b();
+        SkinManager.setViewTextColor(this.f22533f, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.f22534g, R.color.CAM_X0302);
+        this.f22535h.k();
+        this.f22532e.b();
     }
 
     public final void i() {
@@ -118,22 +120,22 @@ public class ScreenTopToast extends LinearLayout {
     }
 
     public ScreenTopToast j(View.OnClickListener onClickListener) {
-        this.f21873h.setOnClickListener(onClickListener);
+        this.f22535h.setOnClickListener(onClickListener);
         return this;
     }
 
     public ScreenTopToast k(String str) {
-        this.f21873h.setText(str);
+        this.f22535h.setText(str);
         return this;
     }
 
     public ScreenTopToast l(String str) {
-        this.f21872g.setText(str);
+        this.f22534g.setText(str);
         return this;
     }
 
     public ScreenTopToast m(String str) {
-        this.f21871f.setText(str);
+        this.f22533f.setText(str);
         return this;
     }
 
@@ -145,12 +147,12 @@ public class ScreenTopToast extends LinearLayout {
             ((ViewGroup) getParent()).removeView(this);
         }
         i();
-        if (TextUtils.isEmpty(this.f21872g.getText())) {
-            this.f21872g.setVisibility(8);
+        if (TextUtils.isEmpty(this.f22534g.getText())) {
+            this.f22534g.setVisibility(8);
         }
         viewGroup.addView(this, -1, -2);
         this.l = true;
-        startAnimation(this.i);
+        startAnimation(this.f22536i);
         e.a().postDelayed(this.k, 5000L);
     }
 
@@ -158,8 +160,8 @@ public class ScreenTopToast extends LinearLayout {
         this(context, attributeSet, 0);
     }
 
-    public ScreenTopToast(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ScreenTopToast(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         e();
     }
 }

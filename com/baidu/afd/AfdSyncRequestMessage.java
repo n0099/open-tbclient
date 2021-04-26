@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.TbPatternsCompat;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.advert.sdk.data.SplashHttpRequest;
-import d.b.c.e.p.j;
-import d.b.d.h;
+import d.a.c.e.p.j;
+import d.a.d.h;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,10 +46,10 @@ public class AfdSyncRequestMessage extends HttpMessage {
         setUserAgent("bdtb for Android " + TbConfig.getVersion());
         addParam("pid", "1517888290046");
         addParam("ac", "1");
-        addParam("ft", hVar.b());
+        addParam("ft", hVar.c());
         addParam("ext", getExt(hVar));
-        addParam("flr", String.valueOf(hVar.d()));
-        addParam("fc", String.valueOf(hVar.d()));
+        addParam("flr", String.valueOf(hVar.b()));
+        addParam("fc", String.valueOf(hVar.b()));
     }
 
     private void addCommonParams() {
@@ -93,7 +93,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
 
     public static String getExt(h hVar) {
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : hVar.c().entrySet()) {
+        for (Map.Entry<String, String> entry : hVar.d().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();

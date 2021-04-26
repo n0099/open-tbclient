@@ -55,8 +55,8 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
     }
 
     @Override // com.baidu.rtc.RTCVideoExternalRender
-    public void changeSurfaceSize(int i, int i2) {
-        setLayoutAspect(i / i2);
+    public void changeSurfaceSize(int i2, int i3) {
+        setLayoutAspect(i2 / i3);
     }
 
     @Override // com.baidu.rtc.RTCVideoExternalRender
@@ -129,17 +129,17 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
     }
 
     @Override // org.webrtc.RendererCommon.RendererEvents
-    public void onFrameResolutionChanged(int i, int i2, int i3) {
-        this.videoWidth = i;
-        this.videoHeight = i2;
-        this.videoRotation = i3;
+    public void onFrameResolutionChanged(int i2, int i3, int i4) {
+        this.videoWidth = i2;
+        this.videoHeight = i3;
+        this.videoRotation = i4;
         BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.roomDelegate;
         if (baiduRtcRoomDelegate != null) {
             baiduRtcRoomDelegate.onRoomEventUpdate(500, this.userId, null);
         }
         RendererCommon.RendererEvents rendererEvents = this.rendererEvents;
         if (rendererEvents != null) {
-            rendererEvents.onFrameResolutionChanged(i, i2, i3);
+            rendererEvents.onFrameResolutionChanged(i2, i3, i4);
         }
     }
 
@@ -222,11 +222,11 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
                 }
 
                 @Override // android.view.SurfaceHolder
-                public void setFixedSize(int i, int i2) {
+                public void setFixedSize(int i2, int i3) {
                 }
 
                 @Override // android.view.SurfaceHolder
-                public void setFormat(int i) {
+                public void setFormat(int i2) {
                 }
 
                 @Override // android.view.SurfaceHolder
@@ -238,7 +238,7 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
                 }
 
                 @Override // android.view.SurfaceHolder
-                public void setType(int i) {
+                public void setType(int i2) {
                 }
 
                 @Override // android.view.SurfaceHolder

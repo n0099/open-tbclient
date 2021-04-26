@@ -19,38 +19,38 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class AvcConfigurationBox extends AbstractBox {
     public static final String TYPE = "avcC";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_10 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_11 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_12 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_13 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_14 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_15 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_16 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_17 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_18 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_19 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_20 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_21 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_22 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_23 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_24 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_25 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_26 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_27 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_28 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_8 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_9 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_10 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_11 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_12 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_13 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_14 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_15 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_16 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_17 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_18 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_19 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_20 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_21 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_22 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_23 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_24 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_25 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_26 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_27 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_28 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_9 = null;
     public AVCDecoderConfigurationRecord avcDecoderConfigurationRecord;
 
     static {
@@ -187,34 +187,34 @@ public final class AvcConfigurationBox extends AbstractBox {
         return this.avcDecoderConfigurationRecord.hasExts;
     }
 
-    public void setAvcLevelIndication(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_10, this, this, g.a.b.a.a.e(i)));
-        this.avcDecoderConfigurationRecord.avcLevelIndication = i;
+    public void setAvcLevelIndication(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_10, this, this, g.a.b.a.a.e(i2)));
+        this.avcDecoderConfigurationRecord.avcLevelIndication = i2;
     }
 
-    public void setAvcProfileIndication(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_8, this, this, g.a.b.a.a.e(i)));
-        this.avcDecoderConfigurationRecord.avcProfileIndication = i;
+    public void setAvcProfileIndication(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_8, this, this, g.a.b.a.a.e(i2)));
+        this.avcDecoderConfigurationRecord.avcProfileIndication = i2;
     }
 
-    public void setBitDepthChromaMinus8(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_19, this, this, g.a.b.a.a.e(i)));
-        this.avcDecoderConfigurationRecord.bitDepthChromaMinus8 = i;
+    public void setBitDepthChromaMinus8(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_19, this, this, g.a.b.a.a.e(i2)));
+        this.avcDecoderConfigurationRecord.bitDepthChromaMinus8 = i2;
     }
 
-    public void setBitDepthLumaMinus8(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_17, this, this, g.a.b.a.a.e(i)));
-        this.avcDecoderConfigurationRecord.bitDepthLumaMinus8 = i;
+    public void setBitDepthLumaMinus8(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_17, this, this, g.a.b.a.a.e(i2)));
+        this.avcDecoderConfigurationRecord.bitDepthLumaMinus8 = i2;
     }
 
-    public void setChromaFormat(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_15, this, this, g.a.b.a.a.e(i)));
-        this.avcDecoderConfigurationRecord.chromaFormat = i;
+    public void setChromaFormat(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_15, this, this, g.a.b.a.a.e(i2)));
+        this.avcDecoderConfigurationRecord.chromaFormat = i2;
     }
 
-    public void setConfigurationVersion(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_7, this, this, g.a.b.a.a.e(i)));
-        this.avcDecoderConfigurationRecord.configurationVersion = i;
+    public void setConfigurationVersion(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_7, this, this, g.a.b.a.a.e(i2)));
+        this.avcDecoderConfigurationRecord.configurationVersion = i2;
     }
 
     public void setHasExts(boolean z) {
@@ -222,9 +222,9 @@ public final class AvcConfigurationBox extends AbstractBox {
         this.avcDecoderConfigurationRecord.hasExts = z;
     }
 
-    public void setLengthSizeMinusOne(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_11, this, this, g.a.b.a.a.e(i)));
-        this.avcDecoderConfigurationRecord.lengthSizeMinusOne = i;
+    public void setLengthSizeMinusOne(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_11, this, this, g.a.b.a.a.e(i2)));
+        this.avcDecoderConfigurationRecord.lengthSizeMinusOne = i2;
     }
 
     public void setPictureParameterSets(List<byte[]> list) {
@@ -232,9 +232,9 @@ public final class AvcConfigurationBox extends AbstractBox {
         this.avcDecoderConfigurationRecord.pictureParameterSets = list;
     }
 
-    public void setProfileCompatibility(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_9, this, this, g.a.b.a.a.e(i)));
-        this.avcDecoderConfigurationRecord.profileCompatibility = i;
+    public void setProfileCompatibility(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_9, this, this, g.a.b.a.a.e(i2)));
+        this.avcDecoderConfigurationRecord.profileCompatibility = i2;
     }
 
     public void setSequenceParameterSetExts(List<byte[]> list) {
@@ -247,7 +247,7 @@ public final class AvcConfigurationBox extends AbstractBox {
         this.avcDecoderConfigurationRecord.sequenceParameterSets = list;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class AVCDecoderConfigurationRecord {
         public int avcLevelIndication;
         public int avcProfileIndication;
@@ -302,8 +302,8 @@ public final class AvcConfigurationBox extends AbstractBox {
                 byteBuffer.put(bArr2);
             }
             if (this.hasExts) {
-                int i = this.avcProfileIndication;
-                if (i == 100 || i == 110 || i == 122 || i == 144) {
+                int i2 = this.avcProfileIndication;
+                if (i2 == 100 || i2 == 110 || i2 == 122 || i2 == 144) {
                     BitWriterBuffer bitWriterBuffer2 = new BitWriterBuffer(byteBuffer);
                     bitWriterBuffer2.writeBits(this.chromaFormatPaddingBits, 6);
                     bitWriterBuffer2.writeBits(this.chromaFormat, 2);
@@ -320,7 +320,7 @@ public final class AvcConfigurationBox extends AbstractBox {
         }
 
         public long getContentSize() {
-            int i;
+            int i2;
             long j = 6;
             for (byte[] bArr : this.sequenceParameterSets) {
                 j = j + 2 + bArr.length;
@@ -329,7 +329,7 @@ public final class AvcConfigurationBox extends AbstractBox {
             for (byte[] bArr2 : this.pictureParameterSets) {
                 j2 = j2 + 2 + bArr2.length;
             }
-            if (this.hasExts && ((i = this.avcProfileIndication) == 100 || i == 110 || i == 122 || i == 144)) {
+            if (this.hasExts && ((i2 = this.avcProfileIndication) == 100 || i2 == 110 || i2 == 122 || i2 == 144)) {
                 j2 += 4;
                 for (byte[] bArr3 : this.sequenceParameterSetExts) {
                     j2 = j2 + 2 + bArr3.length;
@@ -389,7 +389,7 @@ public final class AvcConfigurationBox extends AbstractBox {
         }
 
         public AVCDecoderConfigurationRecord(ByteBuffer byteBuffer) {
-            int i;
+            int i2;
             this.sequenceParameterSets = new ArrayList();
             this.pictureParameterSets = new ArrayList();
             this.hasExts = true;
@@ -411,13 +411,13 @@ public final class AvcConfigurationBox extends AbstractBox {
             this.lengthSizeMinusOne = bitReaderBuffer.readBits(2);
             this.numberOfSequenceParameterSetsPaddingBits = bitReaderBuffer.readBits(3);
             int readBits = bitReaderBuffer.readBits(5);
-            for (int i2 = 0; i2 < readBits; i2++) {
+            for (int i3 = 0; i3 < readBits; i3++) {
                 byte[] bArr = new byte[IsoTypeReader.readUInt16(byteBuffer)];
                 byteBuffer.get(bArr);
                 this.sequenceParameterSets.add(bArr);
             }
             long readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-            for (int i3 = 0; i3 < readUInt8; i3++) {
+            for (int i4 = 0; i4 < readUInt8; i4++) {
                 byte[] bArr2 = new byte[IsoTypeReader.readUInt16(byteBuffer)];
                 byteBuffer.get(bArr2);
                 this.pictureParameterSets.add(bArr2);
@@ -425,7 +425,7 @@ public final class AvcConfigurationBox extends AbstractBox {
             if (byteBuffer.remaining() < 4) {
                 this.hasExts = false;
             }
-            if (this.hasExts && ((i = this.avcProfileIndication) == 100 || i == 110 || i == 122 || i == 144)) {
+            if (this.hasExts && ((i2 = this.avcProfileIndication) == 100 || i2 == 110 || i2 == 122 || i2 == 144)) {
                 BitReaderBuffer bitReaderBuffer2 = new BitReaderBuffer(byteBuffer);
                 this.chromaFormatPaddingBits = bitReaderBuffer2.readBits(6);
                 this.chromaFormat = bitReaderBuffer2.readBits(2);
@@ -434,7 +434,7 @@ public final class AvcConfigurationBox extends AbstractBox {
                 this.bitDepthChromaMinus8PaddingBits = bitReaderBuffer2.readBits(5);
                 this.bitDepthChromaMinus8 = bitReaderBuffer2.readBits(3);
                 long readUInt82 = IsoTypeReader.readUInt8(byteBuffer);
-                for (int i4 = 0; i4 < readUInt82; i4++) {
+                for (int i5 = 0; i5 < readUInt82; i5++) {
                     byte[] bArr3 = new byte[IsoTypeReader.readUInt16(byteBuffer)];
                     byteBuffer.get(bArr3);
                     this.sequenceParameterSetExts.add(bArr3);

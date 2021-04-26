@@ -33,10 +33,10 @@ public final class AccessibilityManagerCompat {
             if (this == obj) {
                 return true;
             }
-            if (obj == null || AccessibilityStateChangeListenerWrapper.class != obj.getClass()) {
-                return false;
+            if (obj instanceof AccessibilityStateChangeListenerWrapper) {
+                return this.mListener.equals(((AccessibilityStateChangeListenerWrapper) obj).mListener);
             }
-            return this.mListener.equals(((AccessibilityStateChangeListenerWrapper) obj).mListener);
+            return false;
         }
 
         public int hashCode() {
@@ -56,7 +56,7 @@ public final class AccessibilityManagerCompat {
 
     @RequiresApi(19)
     /* loaded from: classes.dex */
-    public static class TouchExplorationStateChangeListenerWrapper implements AccessibilityManager.TouchExplorationStateChangeListener {
+    public static final class TouchExplorationStateChangeListenerWrapper implements AccessibilityManager.TouchExplorationStateChangeListener {
         public final TouchExplorationStateChangeListener mListener;
 
         public TouchExplorationStateChangeListenerWrapper(@NonNull TouchExplorationStateChangeListener touchExplorationStateChangeListener) {
@@ -67,10 +67,10 @@ public final class AccessibilityManagerCompat {
             if (this == obj) {
                 return true;
             }
-            if (obj == null || TouchExplorationStateChangeListenerWrapper.class != obj.getClass()) {
-                return false;
+            if (obj instanceof TouchExplorationStateChangeListenerWrapper) {
+                return this.mListener.equals(((TouchExplorationStateChangeListenerWrapper) obj).mListener);
             }
-            return this.mListener.equals(((TouchExplorationStateChangeListenerWrapper) obj).mListener);
+            return false;
         }
 
         public int hashCode() {
@@ -99,8 +99,8 @@ public final class AccessibilityManagerCompat {
     }
 
     @Deprecated
-    public static List<AccessibilityServiceInfo> getEnabledAccessibilityServiceList(AccessibilityManager accessibilityManager, int i) {
-        return accessibilityManager.getEnabledAccessibilityServiceList(i);
+    public static List<AccessibilityServiceInfo> getEnabledAccessibilityServiceList(AccessibilityManager accessibilityManager, int i2) {
+        return accessibilityManager.getEnabledAccessibilityServiceList(i2);
     }
 
     @Deprecated

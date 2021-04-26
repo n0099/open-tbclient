@@ -7,7 +7,6 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.walknavi.segmentbrowse.c;
 import com.baidu.platform.comapi.wnplatform.o.e;
-import com.baidu.tbadk.TbConfig;
 /* loaded from: classes2.dex */
 public class RGStateNorth2D extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
@@ -36,19 +35,19 @@ public class RGStateNorth2D extends RGState {
         b.a().Q().o();
         b.a().G().b(true);
         GeoPoint e2 = b.a().D().e();
-        MapStatus i = b.a().G().i();
-        com.baidu.platform.comapi.wnplatform.d.a.b("st", i.toString());
-        if (i != null) {
-            MapStatus.Builder builder = new MapStatus.Builder(i);
+        MapStatus i2 = b.a().G().i();
+        com.baidu.platform.comapi.wnplatform.d.a.b("st", i2.toString());
+        if (i2 != null) {
+            MapStatus.Builder builder = new MapStatus.Builder(i2);
             builder.rotate(0.0f);
             builder.overlook(0.0f);
-            WinRound winRound = i.winRound;
+            WinRound winRound = i2.winRound;
             builder.targetScreen(new Point((winRound.right + winRound.left) / 2, ((winRound.top + winRound.bottom) / 2) - ((int) 0)));
-            if (i.zoom < 19.0f) {
+            if (i2.zoom < 19.0f) {
                 builder.zoom(19.0f);
             }
             builder.target(e.a(e2));
-            b.a().G().a(builder.build(), TbConfig.POST_IMAGE_SMALL);
+            b.a().G().a(builder.build(), 1300);
         }
     }
 

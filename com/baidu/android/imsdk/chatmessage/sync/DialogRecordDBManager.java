@@ -25,8 +25,8 @@ public class DialogRecordDBManager extends DBBase {
         public int count;
         public List<DialogRecord> result = null;
 
-        public Parse(int i) {
-            this.count = i;
+        public Parse(int i2) {
+            this.count = i2;
         }
 
         @Override // com.baidu.android.imsdk.db.CursorParse
@@ -40,17 +40,17 @@ public class DialogRecordDBManager extends DBBase {
             if (cursor2 != null) {
                 this.result = new ArrayList();
                 while (cursor.moveToNext()) {
-                    int i = cursor2.getInt(cursor2.getColumnIndex("category"));
+                    int i2 = cursor2.getInt(cursor2.getColumnIndex("category"));
                     long j = cursor2.getLong(cursor2.getColumnIndex("contacter"));
                     long j2 = cursor2.getLong(cursor2.getColumnIndex(TableDefine.DRColumns.COLUMN_MAXMSGID));
                     long j3 = cursor2.getLong(cursor2.getColumnIndex(TableDefine.DRColumns.COLUMN_DAILOGUE_MSGID));
-                    int i2 = cursor2.getInt(cursor2.getColumnIndex("state"));
+                    int i3 = cursor2.getInt(cursor2.getColumnIndex("state"));
                     long j4 = cursor2.getLong(cursor2.getColumnIndex("update_time"));
-                    int i3 = cursor2.getInt(cursor2.getColumnIndex(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT));
+                    int i4 = cursor2.getInt(cursor2.getColumnIndex(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT));
                     DialogRecord dialogRecord = new DialogRecord();
                     String str = DialogRecordDBManager.TAG;
                     LogUtils.i(str, "parseCursor dialogRecord : " + dialogRecord);
-                    dialogRecord.setCategory(i).setContacter(j).setState(i2).setJumpToRecent(i3).setMaxMsgid(j2).setUpdateTime(j4).setDialogueMsgid(j3);
+                    dialogRecord.setCategory(i2).setContacter(j).setState(i3).setJumpToRecent(i4).setMaxMsgid(j2).setUpdateTime(j4).setDialogueMsgid(j3);
                     this.result.add(dialogRecord);
                     cursor2 = cursor;
                 }
@@ -220,17 +220,17 @@ public class DialogRecordDBManager extends DBBase {
         return j;
     }
 
-    public int delete(int i, long j) {
-        int delete = delete(TableDefine.DB_TABLE_DIALOG_RECORD, "category=? AND contacter=?", new String[]{String.valueOf(i), String.valueOf(j)});
-        LogUtils.d("delete dialog record ", delete + GlideException.IndentedAppendable.INDENT + j + i);
+    public int delete(int i2, long j) {
+        int delete = delete(TableDefine.DB_TABLE_DIALOG_RECORD, "category=? AND contacter=?", new String[]{String.valueOf(i2), String.valueOf(j)});
+        LogUtils.d("delete dialog record ", delete + GlideException.IndentedAppendable.INDENT + j + i2);
         return delete;
     }
 
-    public List<DialogRecord> getDialogRecord(int i) {
-        if (i == 0) {
+    public List<DialogRecord> getDialogRecord(int i2) {
+        if (i2 == 0) {
             return null;
         }
-        Parse parse = new Parse(i);
+        Parse parse = new Parse(i2);
         query(TableDefine.DB_TABLE_DIALOG_RECORD, null, "localmsgid < dialogueMsgid", null, null, null, "update_time desc", parse);
         return (List) parse.getResult();
     }
@@ -285,9 +285,9 @@ public class DialogRecordDBManager extends DBBase {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public int getUnCompleteItemCount() {
-        int i = 0;
+        int i2 = 0;
         Cursor cursor = null;
-        int i2 = -1;
+        int i3 = -1;
         try {
             try {
                 SQLiteDatabase openDatabase = openDatabase();
@@ -299,32 +299,32 @@ public class DialogRecordDBManager extends DBBase {
                 if (cursor != null) {
                     try {
                         if (cursor.moveToNext()) {
-                            i = cursor.getInt(0);
+                            i2 = cursor.getInt(0);
                         }
                     } catch (Exception e2) {
                         e = e2;
-                        i2 = 0;
+                        i3 = 0;
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         LogUtils.e(TAG, "getUnCompleteItemCount:", e);
-                        return i2;
+                        return i3;
                     }
                 } else {
-                    i = -1;
+                    i2 = -1;
                 }
                 try {
                     String str = TAG;
-                    LogUtils.i(str, "getUnCompleteItemCount : " + i);
+                    LogUtils.i(str, "getUnCompleteItemCount : " + i2);
                     if (cursor != null) {
                         cursor.close();
-                        return i;
+                        return i2;
                     }
-                    return i;
+                    return i2;
                 } catch (Exception e3) {
-                    i2 = i;
+                    i3 = i2;
                     e = e3;
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                     LogUtils.e(TAG, "getUnCompleteItemCount:", e);
-                    return i2;
+                    return i3;
                 }
             } catch (Exception e4) {
                 e = e4;
@@ -336,9 +336,9 @@ public class DialogRecordDBManager extends DBBase {
         }
     }
 
-    public DialogRecord getDialogRecord(int i, long j) {
+    public DialogRecord getDialogRecord(int i2, long j) {
         Parse parse = new Parse(1);
-        query(TableDefine.DB_TABLE_DIALOG_RECORD, null, "category=? AND contacter=?", new String[]{String.valueOf(i), String.valueOf(j)}, null, null, null, parse);
+        query(TableDefine.DB_TABLE_DIALOG_RECORD, null, "category=? AND contacter=?", new String[]{String.valueOf(i2), String.valueOf(j)}, null, null, null, parse);
         List list = (List) parse.getResult();
         if (list == null || list.size() == 0) {
             return null;
@@ -356,7 +356,7 @@ public class DialogRecordDBManager extends DBBase {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public int getUnCompleteItemCount(long j) {
-        int i = 0;
+        int i2 = 0;
         Cursor cursor = null;
         try {
             try {
@@ -369,7 +369,7 @@ public class DialogRecordDBManager extends DBBase {
                 if (cursor != null) {
                     try {
                         if (cursor.moveToNext()) {
-                            i = cursor.getInt(0);
+                            i2 = cursor.getInt(0);
                         }
                     } catch (Exception e2) {
                         e = e2;
@@ -377,10 +377,10 @@ public class DialogRecordDBManager extends DBBase {
                         LogUtils.e(TAG, "getUnCompleteItemCount:", e);
                     }
                 } else {
-                    i = -1;
+                    i2 = -1;
                 }
                 String str = TAG;
-                LogUtils.i(str, "getUnCompleteItemCount : " + i);
+                LogUtils.i(str, "getUnCompleteItemCount : " + i2);
             } finally {
                 if (0 != 0) {
                     cursor.close();
@@ -388,7 +388,7 @@ public class DialogRecordDBManager extends DBBase {
             }
         } catch (Exception e3) {
             e = e3;
-            i = -1;
+            i2 = -1;
         }
     }
 }

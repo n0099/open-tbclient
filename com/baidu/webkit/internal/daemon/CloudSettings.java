@@ -43,30 +43,30 @@ public class CloudSettings implements INoProGuard, INetListener {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f26609a;
+        public long f27416a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f26610b = -1;
+        public int f27417b = -1;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f26611c;
+        public boolean f27418c;
 
         public a() {
         }
 
-        public final void a(int i) {
-            Log.w(CloudSettings.LOG_TAG, "setNetRes " + i);
-            this.f26610b = i;
+        public final void a(int i2) {
+            Log.w(CloudSettings.LOG_TAG, "setNetRes " + i2);
+            this.f27417b = i2;
         }
 
         public final void a(long j) {
             Log.w(CloudSettings.LOG_TAG, "setNetTime " + j);
-            this.f26609a = j;
+            this.f27416a = j;
         }
 
         public final void a(boolean z) {
             Log.w(CloudSettings.LOG_TAG, "mCronet " + z);
-            this.f26611c = z;
+            this.f27418c = z;
         }
     }
 
@@ -256,7 +256,7 @@ public class CloudSettings implements INoProGuard, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
+    public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i2) {
         a aVar = new a();
         aVar.a(System.currentTimeMillis() - this.mStartTime);
         aVar.a(0);
@@ -267,11 +267,11 @@ public class CloudSettings implements INoProGuard, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
+    public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i2) {
         if (this.mData == null) {
             this.mData = new ByteArrayOutputStream();
         }
-        this.mData.write(bArr, 0, i);
+        this.mData.write(bArr, 0, i2);
     }
 
     @Override // com.baidu.webkit.net.INetListener
@@ -280,16 +280,16 @@ public class CloudSettings implements INoProGuard, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i) {
+    public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i2) {
         return false;
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i) {
+    public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i2) {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i) {
+    public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i2) {
     }
 
     @Override // com.baidu.webkit.net.INetListener
@@ -341,6 +341,6 @@ public class CloudSettings implements INoProGuard, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i, int i2) {
+    public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i2, int i3) {
     }
 }

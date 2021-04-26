@@ -8,7 +8,7 @@ import tbclient.Unlike.UnlikeResIdl;
 public class UnlikeSocketReponse extends TbSocketReponsedMessage {
     public long threadId;
 
-    public UnlikeSocketReponse(int i) {
+    public UnlikeSocketReponse(int i2) {
         super(307007);
     }
 
@@ -18,7 +18,7 @@ public class UnlikeSocketReponse extends TbSocketReponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         DataRes dataRes;
         Long l;
         UnlikeResIdl unlikeResIdl = (UnlikeResIdl) new Wire(new Class[0]).parseFrom(bArr, UnlikeResIdl.class);

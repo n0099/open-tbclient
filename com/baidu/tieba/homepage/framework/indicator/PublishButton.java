@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.i0.r.f0.m.b;
+import d.a.c.e.p.l;
+import d.a.i0.r.f0.m.b;
 /* loaded from: classes4.dex */
 public class PublishButton extends TBSpecificationBtn {
     public float s;
@@ -45,8 +45,8 @@ public class PublishButton extends TBSpecificationBtn {
         m();
     }
 
-    public PublishButton(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public PublishButton(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.s = 1.0f;
         m();
     }

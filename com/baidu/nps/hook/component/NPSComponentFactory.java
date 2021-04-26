@@ -10,7 +10,7 @@ import android.content.Intent;
 import android.os.Process;
 import android.util.Log;
 import com.baidu.nps.main.manager.NPSManager;
-import d.b.x.h.b;
+import d.a.x.i.b;
 @TargetApi(28)
 /* loaded from: classes2.dex */
 public class NPSComponentFactory extends AppComponentFactory {

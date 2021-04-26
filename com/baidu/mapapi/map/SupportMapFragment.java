@@ -11,19 +11,19 @@ import androidx.fragment.app.Fragment;
 public class SupportMapFragment extends Fragment {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7027a = SupportMapFragment.class.getSimpleName();
+    public static final String f7276a = SupportMapFragment.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public MapView f7028b;
+    public MapView f7277b;
 
     /* renamed from: c  reason: collision with root package name */
-    public BaiduMapOptions f7029c;
+    public BaiduMapOptions f7278c;
 
     public SupportMapFragment() {
     }
 
     public SupportMapFragment(BaiduMapOptions baiduMapOptions) {
-        this.f7029c = baiduMapOptions;
+        this.f7278c = baiduMapOptions;
     }
 
     public static SupportMapFragment newInstance() {
@@ -35,7 +35,7 @@ public class SupportMapFragment extends Fragment {
     }
 
     public BaiduMap getBaiduMap() {
-        MapView mapView = this.f7028b;
+        MapView mapView = this.f7277b;
         if (mapView == null) {
             return null;
         }
@@ -43,7 +43,7 @@ public class SupportMapFragment extends Fragment {
     }
 
     public MapView getMapView() {
-        return this.f7028b;
+        return this.f7277b;
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -68,8 +68,8 @@ public class SupportMapFragment extends Fragment {
 
     @Override // androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        MapView mapView = new MapView(getActivity(), this.f7029c);
-        this.f7028b = mapView;
+        MapView mapView = new MapView(getActivity(), this.f7278c);
+        this.f7277b = mapView;
         return mapView;
     }
 
@@ -81,7 +81,7 @@ public class SupportMapFragment extends Fragment {
     @Override // androidx.fragment.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.f7028b.onDestroy();
+        this.f7277b.onDestroy();
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -92,13 +92,13 @@ public class SupportMapFragment extends Fragment {
     @Override // androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        this.f7028b.onPause();
+        this.f7277b.onPause();
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        this.f7028b.onResume();
+        this.f7277b.onResume();
     }
 
     @Override // androidx.fragment.app.Fragment

@@ -30,12 +30,12 @@ public enum hh {
     /* renamed from: a  reason: collision with other field name */
     public final int f473a;
 
-    hh(int i) {
-        this.f473a = i;
+    hh(int i2) {
+        this.f473a = i2;
     }
 
-    public static hh a(int i) {
-        switch (i) {
+    public static hh a(int i2) {
+        switch (i2) {
             case 1:
                 return DeviceInfo;
             case 2:

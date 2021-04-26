@@ -6,7 +6,7 @@ import com.facebook.fresco.animation.bitmap.BitmapFrameCache;
 import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class KeepLastFrameCache implements BitmapFrameCache {
     public static final int FRAME_NUMBER_UNSET = -1;
     @Nullable
@@ -31,16 +31,16 @@ public class KeepLastFrameCache implements BitmapFrameCache {
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
-    public synchronized boolean contains(int i) {
+    public synchronized boolean contains(int i2) {
         boolean z;
-        if (i == this.mLastFrameNumber) {
+        if (i2 == this.mLastFrameNumber) {
             z = CloseableReference.isValid(this.mLastBitmapReference);
         }
         return z;
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
-    public synchronized CloseableReference<Bitmap> getBitmapToReuseForFrame(int i, int i2, int i3) {
+    public synchronized CloseableReference<Bitmap> getBitmapToReuseForFrame(int i2, int i3, int i4) {
         CloseableReference<Bitmap> cloneOrNull;
         cloneOrNull = CloseableReference.cloneOrNull(this.mLastBitmapReference);
         closeAndResetLastBitmapReference();
@@ -49,8 +49,8 @@ public class KeepLastFrameCache implements BitmapFrameCache {
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
     @Nullable
-    public synchronized CloseableReference<Bitmap> getCachedFrame(int i) {
-        if (this.mLastFrameNumber == i) {
+    public synchronized CloseableReference<Bitmap> getCachedFrame(int i2) {
+        if (this.mLastFrameNumber == i2) {
             return CloseableReference.cloneOrNull(this.mLastBitmapReference);
         }
         return null;
@@ -58,7 +58,7 @@ public class KeepLastFrameCache implements BitmapFrameCache {
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
     @Nullable
-    public synchronized CloseableReference<Bitmap> getFallbackFrame(int i) {
+    public synchronized CloseableReference<Bitmap> getFallbackFrame(int i2) {
         return CloseableReference.cloneOrNull(this.mLastBitmapReference);
     }
 
@@ -68,11 +68,11 @@ public class KeepLastFrameCache implements BitmapFrameCache {
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
-    public void onFramePrepared(int i, CloseableReference<Bitmap> closeableReference, int i2) {
+    public void onFramePrepared(int i2, CloseableReference<Bitmap> closeableReference, int i3) {
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache
-    public synchronized void onFrameRendered(int i, CloseableReference<Bitmap> closeableReference, int i2) {
+    public synchronized void onFrameRendered(int i2, CloseableReference<Bitmap> closeableReference, int i3) {
         if (closeableReference != null) {
             if (this.mLastBitmapReference != null && closeableReference.get().equals(this.mLastBitmapReference.get())) {
                 return;
@@ -84,9 +84,9 @@ public class KeepLastFrameCache implements BitmapFrameCache {
         }
         this.mLastBitmapReference = CloseableReference.cloneOrNull(closeableReference);
         if (this.mFrameCacheListener != null) {
-            this.mFrameCacheListener.onFrameCached(this, i);
+            this.mFrameCacheListener.onFrameCached(this, i2);
         }
-        this.mLastFrameNumber = i;
+        this.mLastFrameNumber = i2;
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameCache

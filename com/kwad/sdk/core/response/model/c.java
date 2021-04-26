@@ -3,37 +3,37 @@ package com.kwad.sdk.core.response.model;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34460a;
+    public String f33448a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34461b;
+    public int f33449b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34462c;
+    public int f33450c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f34463d;
+    public boolean f33451d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f34464e;
+    public boolean f33452e;
 
-    public c(String str, int i, int i2, boolean z, boolean z2) {
-        this.f34460a = str;
-        this.f34461b = i;
-        this.f34462c = i2;
-        this.f34463d = z;
-        this.f34464e = z2;
+    public c(String str, int i2, int i3, boolean z, boolean z2) {
+        this.f33448a = str;
+        this.f33449b = i2;
+        this.f33450c = i3;
+        this.f33451d = z;
+        this.f33452e = z2;
     }
 
     public String a() {
-        return this.f34460a;
+        return this.f33448a;
     }
 
     public int b() {
-        return this.f34462c;
+        return this.f33450c;
     }
 
     public int c() {
-        return this.f34461b;
+        return this.f33449b;
     }
 }

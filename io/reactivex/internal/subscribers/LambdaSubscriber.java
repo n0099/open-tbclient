@@ -1,81 +1,86 @@
 package io.reactivex.internal.subscribers;
 
-import f.b.g;
-import f.b.t.b;
-import f.b.w.a;
-import g.d.d;
+import io.reactivex.FlowableSubscriber;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
+import io.reactivex.exceptions.Exceptions;
+import io.reactivex.functions.Action;
+import io.reactivex.functions.Consumer;
 import io.reactivex.internal.functions.Functions;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
+import io.reactivex.observers.LambdaConsumerIntrospection;
+import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
+import org.reactivestreams.Subscription;
 /* loaded from: classes7.dex */
-public final class LambdaSubscriber<T> extends AtomicReference<d> implements g<T>, d, b {
+public final class LambdaSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription, Disposable, LambdaConsumerIntrospection {
     public static final long serialVersionUID = -7251123623727029452L;
-    public final a onComplete;
-    public final f.b.w.g<? super Throwable> onError;
-    public final f.b.w.g<? super T> onNext;
-    public final f.b.w.g<? super d> onSubscribe;
+    public final Action onComplete;
+    public final Consumer<? super Throwable> onError;
+    public final Consumer<? super T> onNext;
+    public final Consumer<? super Subscription> onSubscribe;
 
-    public LambdaSubscriber(f.b.w.g<? super T> gVar, f.b.w.g<? super Throwable> gVar2, a aVar, f.b.w.g<? super d> gVar3) {
-        this.onNext = gVar;
-        this.onError = gVar2;
-        this.onComplete = aVar;
-        this.onSubscribe = gVar3;
+    public LambdaSubscriber(Consumer<? super T> consumer, Consumer<? super Throwable> consumer2, Action action, Consumer<? super Subscription> consumer3) {
+        this.onNext = consumer;
+        this.onError = consumer2;
+        this.onComplete = action;
+        this.onSubscribe = consumer3;
     }
 
-    @Override // g.d.d
+    @Override // org.reactivestreams.Subscription
     public void cancel() {
         SubscriptionHelper.cancel(this);
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
         cancel();
     }
 
+    @Override // io.reactivex.observers.LambdaConsumerIntrospection
     public boolean hasCustomOnError() {
-        return this.onError != Functions.f69180b;
+        return this.onError != Functions.ON_ERROR_MISSING;
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         return get() == SubscriptionHelper.CANCELLED;
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onComplete() {
-        d dVar = get();
+        Subscription subscription = get();
         SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
-        if (dVar != subscriptionHelper) {
+        if (subscription != subscriptionHelper) {
             lazySet(subscriptionHelper);
             try {
                 this.onComplete.run();
             } catch (Throwable th) {
-                f.b.u.a.a(th);
-                f.b.a0.a.f(th);
+                Exceptions.throwIfFatal(th);
+                RxJavaPlugins.onError(th);
             }
         }
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onError(Throwable th) {
-        d dVar = get();
+        Subscription subscription = get();
         SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
-        if (dVar != subscriptionHelper) {
+        if (subscription != subscriptionHelper) {
             lazySet(subscriptionHelper);
             try {
                 this.onError.accept(th);
                 return;
             } catch (Throwable th2) {
-                f.b.u.a.a(th2);
-                f.b.a0.a.f(new CompositeException(th, th2));
+                Exceptions.throwIfFatal(th2);
+                RxJavaPlugins.onError(new CompositeException(th, th2));
                 return;
             }
         }
-        f.b.a0.a.f(th);
+        RxJavaPlugins.onError(th);
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onNext(T t) {
         if (isDisposed()) {
             return;
@@ -83,26 +88,26 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements g<T
         try {
             this.onNext.accept(t);
         } catch (Throwable th) {
-            f.b.u.a.a(th);
+            Exceptions.throwIfFatal(th);
             get().cancel();
             onError(th);
         }
     }
 
-    @Override // f.b.g, g.d.c
-    public void onSubscribe(d dVar) {
-        if (SubscriptionHelper.setOnce(this, dVar)) {
+    @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
+    public void onSubscribe(Subscription subscription) {
+        if (SubscriptionHelper.setOnce(this, subscription)) {
             try {
                 this.onSubscribe.accept(this);
             } catch (Throwable th) {
-                f.b.u.a.a(th);
-                dVar.cancel();
+                Exceptions.throwIfFatal(th);
+                subscription.cancel();
                 onError(th);
             }
         }
     }
 
-    @Override // g.d.d
+    @Override // org.reactivestreams.Subscription
     public void request(long j) {
         get().request(j);
     }

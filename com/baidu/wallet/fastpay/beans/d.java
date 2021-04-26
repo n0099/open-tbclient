@@ -13,20 +13,20 @@ import java.util.List;
 public class d extends BaseBean<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24052a;
+    public String f24801a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24053b;
+    public String f24802b;
 
     public <T> d(Context context) {
         super(context);
-        this.f24052a = "";
-        this.f24053b = "";
+        this.f24801a = "";
+        this.f24802b = "";
     }
 
     public void a(String str, String str2) {
-        this.f24052a = str;
-        this.f24053b = str2;
+        this.f24801a = str;
+        this.f24802b = str2;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -37,10 +37,10 @@ public class d extends BaseBean<Object> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new RestNameValuePair("mobile_num", PayUtils.encrypt("phone_number", this.f24052a)));
+        arrayList.add(new RestNameValuePair("mobile_num", PayUtils.encrypt("phone_number", this.f24801a)));
         arrayList.add(new RestNameValuePair("cmd", "1067"));
         arrayList.add(new RestNameValuePair("callback", "phonePriceInfo_common"));
-        arrayList.add(new RestNameValuePair("device_token", this.f24053b));
+        arrayList.add(new RestNameValuePair("device_token", this.f24802b));
         return arrayList;
     }
 

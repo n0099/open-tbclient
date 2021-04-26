@@ -123,9 +123,9 @@ public final class MultiDex {
         private Object[] makeDexElements(List<? extends File> list) throws IOException, SecurityException, IllegalArgumentException, InstantiationException, IllegalAccessException, InvocationTargetException {
             int size = list.size();
             Object[] objArr = new Object[size];
-            for (int i = 0; i < size; i++) {
-                File file = list.get(i);
-                objArr[i] = this.elementConstructor.newInstance(file, DexFile.loadDex(file.getPath(), optimizedPathFor(file), 0));
+            for (int i2 = 0; i2 < size; i2++) {
+                File file = list.get(i2);
+                objArr[i2] = this.elementConstructor.newInstance(file, DexFile.loadDex(file.getPath(), optimizedPathFor(file), 0));
             }
             return objArr;
         }
@@ -384,10 +384,10 @@ public final class MultiDex {
         if (list.isEmpty()) {
             return;
         }
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 19) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 19) {
             V19.install(classLoader, list, file);
-        } else if (i >= 14) {
+        } else if (i2 >= 14) {
             V14.install(classLoader, list);
         } else {
             V4.install(classLoader, list);

@@ -16,9 +16,9 @@ public class PluginSettings implements Serializable, Cloneable {
     public List<String> mForbiddenFeaturesList = new ArrayList();
 
     private void insertPluginSettings(PluginSetting pluginSetting, List<PluginSetting> list) {
-        for (int i = 0; i < list.size(); i++) {
-            if (pluginSetting.load_priority < list.get(i).load_priority) {
-                list.add(i, pluginSetting);
+        for (int i2 = 0; i2 < list.size(); i2++) {
+            if (pluginSetting.load_priority < list.get(i2).load_priority) {
+                list.add(i2, pluginSetting);
                 return;
             }
         }
@@ -32,10 +32,10 @@ public class PluginSettings implements Serializable, Cloneable {
         return this.mPlugins.get(str);
     }
 
-    public PluginSetting findPluginSettingByCmd(int i) {
+    public PluginSetting findPluginSettingByCmd(int i2) {
         for (Map.Entry<String, PluginSetting> entry : this.mPlugins.entrySet()) {
             PluginSetting value = entry.getValue();
-            if (value != null && value.isContainCmd(i)) {
+            if (value != null && value.isContainCmd(i2)) {
                 return value;
             }
         }

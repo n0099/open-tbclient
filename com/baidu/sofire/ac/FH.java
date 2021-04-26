@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.app.NotificationCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.c;
 import com.baidu.sofire.core.d;
@@ -29,25 +28,25 @@ public class FH {
         d.a(context, z);
     }
 
-    public static boolean call(int i, String str) {
-        return call(i, str, null);
+    public static boolean call(int i2, String str) {
+        return call(i2, str, null);
     }
 
-    public static Pair<Integer, Object> callSync(int i, String str) {
-        return callSync(i, str, null, new Object[0]);
+    public static Pair<Integer, Object> callSync(int i2, String str) {
+        return callSync(i2, str, null, new Object[0]);
     }
 
     public static String gd(Context context) {
         return "";
     }
 
-    public static Object getPInfo(int i, int i2) {
+    public static Object getPInfo(int i2, int i3) {
         f a2;
         List<ApkInfo> b2;
         try {
-            if (c.f11328b != null && s.a(c.f11328b) && i2 == 1 && i > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
+            if (c.f11148b != null && s.a(c.f11148b) && i3 == 1 && i2 > 0 && (a2 = f.a()) != null && (b2 = a2.b()) != null && b2.size() > 0) {
                 for (ApkInfo apkInfo : b2) {
-                    if (apkInfo.key == i) {
+                    if (apkInfo.key == i2) {
                         return apkInfo.versionName == null ? "" : apkInfo.versionName;
                     }
                 }
@@ -63,24 +62,24 @@ public class FH {
         return "3.5.7.3";
     }
 
-    public static String gt(Context context, String str, String str2, int i, String str3) {
-        return d.a(context, str, str2, i, str3);
+    public static String gt(Context context, String str, String str2, int i2, String str3) {
+        return d.a(context, str, str2, i2, str3);
     }
 
     public static String gz(Context context) {
         return d.a(context);
     }
 
-    public static String gzfi(Context context, String str, int i, String str2) {
-        return d.a(context, str, i, str2);
+    public static String gzfi(Context context, String str, int i2, String str2) {
+        return d.a(context, str, i2, str2);
     }
 
     public static void init(Context context, String str, String str2, int... iArr) {
         d.a(context, 0, str, str2, iArr);
     }
 
-    public static void initDelay(Context context, int i, String str, String str2, int... iArr) {
-        d.a(context, i, str, str2, iArr);
+    public static void initDelay(Context context, int i2, String str, String str2, int... iArr) {
+        d.a(context, i2, str, str2, iArr);
     }
 
     public static Pair<Integer, String> invokeMethod(Context context, String str) {
@@ -96,8 +95,8 @@ public class FH {
                 if (!TextUtils.isEmpty(optString) && !"init".equals(optString) && !"initDelay".equals(optString) && !NotificationCompat.CATEGORY_CALL.equals(optString)) {
                     JSONArray optJSONArray = jSONObject.optJSONArray("p");
                     if (optString.equals("callSync")) {
-                        if (c.f11328b == null && context != null) {
-                            c.f11328b = context.getApplicationContext();
+                        if (c.f11148b == null && context != null) {
+                            c.f11148b = context.getApplicationContext();
                         }
                         if (optJSONArray != null && optJSONArray.length() == 2) {
                             method = FH.class.getMethod("callSync", Integer.TYPE, String.class);
@@ -116,17 +115,17 @@ public class FH {
                         }
                     } else {
                         Method method2 = null;
-                        int i = 0;
+                        int i2 = 0;
                         for (Method method3 : FH.class.getMethods()) {
                             if (optString.equals(method3.getName())) {
                                 if (method2 == null) {
                                     method2 = method3;
                                 }
-                                i++;
+                                i2++;
                             }
                         }
-                        if (i > 0 && method2 != null) {
-                            if (i >= 2) {
+                        if (i2 > 0 && method2 != null) {
+                            if (i2 >= 2) {
                                 return new Pair<>(-5, "");
                             }
                             method = method2;
@@ -165,16 +164,16 @@ public class FH {
         }
     }
 
-    public static boolean isInitSuc(int i) {
-        Context context = c.f11328b;
+    public static boolean isInitSuc(int i2) {
+        Context context = c.f11148b;
         if (context != null && s.a(context)) {
-            return com.baidu.sofire.g.d.a(i);
+            return com.baidu.sofire.g.d.a(i2);
         }
         return false;
     }
 
     public static boolean parseBoolean(String str) throws IllegalArgumentException {
-        if (ExifInterface.GPS_DIRECTION_TRUE.equals(str)) {
+        if ("T".equals(str)) {
             return true;
         }
         if ("F".equals(str)) {
@@ -201,34 +200,34 @@ public class FH {
     public static Class[] parseClassArray(String str) throws IllegalArgumentException {
         int length = str.length();
         Class[] clsArr = new Class[length];
-        for (int i = 0; i < length; i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            char charAt = str.charAt(i2);
             if (charAt == 'F') {
-                clsArr[i] = Float.TYPE;
+                clsArr[i2] = Float.TYPE;
             } else if (charAt == 'Z') {
-                clsArr[i] = Boolean.TYPE;
+                clsArr[i2] = Boolean.TYPE;
             } else if (charAt == 'I') {
-                clsArr[i] = Integer.TYPE;
+                clsArr[i2] = Integer.TYPE;
             } else if (charAt == 'J') {
-                clsArr[i] = Long.TYPE;
+                clsArr[i2] = Long.TYPE;
             } else if (charAt == 'S') {
-                clsArr[i] = Short.TYPE;
+                clsArr[i2] = Short.TYPE;
             } else if (charAt != 'T') {
                 switch (charAt) {
                     case 'B':
-                        clsArr[i] = Byte.TYPE;
+                        clsArr[i2] = Byte.TYPE;
                         continue;
                     case 'C':
-                        clsArr[i] = Character.TYPE;
+                        clsArr[i2] = Character.TYPE;
                         continue;
                     case 'D':
-                        clsArr[i] = Double.TYPE;
+                        clsArr[i2] = Double.TYPE;
                         continue;
                     default:
                         throw new IllegalArgumentException("parse classArray fail");
                 }
             } else {
-                clsArr[i] = String.class;
+                clsArr[i2] = String.class;
             }
         }
         return clsArr;
@@ -254,32 +253,32 @@ public class FH {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Object[] parseParams(String str, Context context, JSONArray jSONArray, int i, Class[] clsArr) throws IllegalArgumentException {
-        int i2;
+    public static Object[] parseParams(String str, Context context, JSONArray jSONArray, int i2, Class[] clsArr) throws IllegalArgumentException {
+        int i3;
         try {
             boolean equals = "callSync".equals(str);
             if (clsArr != null && clsArr.length != 0) {
-                i2 = clsArr.length;
-                Object[] objArr = new Object[i2];
+                i3 = clsArr.length;
+                Object[] objArr = new Object[i3];
                 Class[] clsArr2 = null;
-                for (int i3 = 0; i3 < i2; i3++) {
+                for (int i4 = 0; i4 < i3; i4++) {
                     if (clsArr != null) {
-                        Class cls = clsArr[i3];
+                        Class cls = clsArr[i4];
                         if (cls.equals(Context.class)) {
                             if (context != null) {
-                                objArr[i3] = context;
-                            } else if (c.f11328b != null) {
-                                objArr[i3] = c.f11328b;
+                                objArr[i4] = context;
+                            } else if (c.f11148b != null) {
+                                objArr[i4] = c.f11148b;
                             } else {
                                 throw new IllegalArgumentException("method request context");
                             }
                         } else if (jSONArray != null) {
-                            String optString = jSONArray.optString(i);
+                            String optString = jSONArray.optString(i2);
                             if (!cls.equals(Boolean.TYPE) && !cls.equals(Boolean.class)) {
                                 if (!cls.equals(Byte.TYPE) && !cls.equals(Byte.class)) {
                                     if (cls.equals(Character.TYPE)) {
                                         if (!TextUtils.isEmpty(optString)) {
-                                            objArr[i3] = Character.valueOf(parseChar(optString));
+                                            objArr[i4] = Character.valueOf(parseChar(optString));
                                         } else {
                                             throw new IllegalArgumentException("char not support null String");
                                         }
@@ -290,15 +289,15 @@ public class FH {
                                                     if (!cls.equals(Float.TYPE) && !cls.equals(Float.class)) {
                                                         if (!cls.equals(Double.TYPE) && !cls.equals(Double.class)) {
                                                             if (cls.equals(String.class)) {
-                                                                objArr[i3] = optString;
+                                                                objArr[i4] = optString;
                                                             } else if (cls.equals(Class[].class)) {
                                                                 if (equals) {
                                                                     if (TextUtils.isEmpty(optString)) {
-                                                                        objArr[i3] = null;
+                                                                        objArr[i4] = null;
                                                                         clsArr2 = null;
                                                                     } else {
                                                                         clsArr2 = parseClassArray(optString);
-                                                                        objArr[i3] = clsArr2;
+                                                                        objArr[i4] = clsArr2;
                                                                     }
                                                                 } else {
                                                                     throw new IllegalArgumentException("only callSync support Class[]");
@@ -309,54 +308,54 @@ public class FH {
                                                                 throw new IllegalArgumentException("only callSync support Object[]");
                                                             } else {
                                                                 if (clsArr2 == null) {
-                                                                    objArr[i3] = null;
+                                                                    objArr[i4] = null;
                                                                 } else {
-                                                                    objArr[i3] = parseParams("", context, jSONArray, i, clsArr2);
+                                                                    objArr[i4] = parseParams("", context, jSONArray, i2, clsArr2);
                                                                 }
                                                             }
                                                         }
                                                         if (!TextUtils.isEmpty(optString)) {
-                                                            objArr[i3] = Double.valueOf(parseDouble(optString));
+                                                            objArr[i4] = Double.valueOf(parseDouble(optString));
                                                         } else {
                                                             throw new IllegalArgumentException("double not support null String");
                                                         }
                                                     }
                                                     if (!TextUtils.isEmpty(optString)) {
-                                                        objArr[i3] = Float.valueOf(parseFloat(optString));
+                                                        objArr[i4] = Float.valueOf(parseFloat(optString));
                                                     } else {
                                                         throw new IllegalArgumentException("float not support null String");
                                                     }
                                                 }
                                                 if (!TextUtils.isEmpty(optString)) {
-                                                    objArr[i3] = Long.valueOf(parseLong(optString));
+                                                    objArr[i4] = Long.valueOf(parseLong(optString));
                                                 } else {
                                                     throw new IllegalArgumentException("long not support null String");
                                                 }
                                             }
                                             if (!TextUtils.isEmpty(optString)) {
-                                                objArr[i3] = Integer.valueOf(parseInt(optString));
+                                                objArr[i4] = Integer.valueOf(parseInt(optString));
                                             } else {
                                                 throw new IllegalArgumentException("int not support null String");
                                             }
                                         }
                                         if (!TextUtils.isEmpty(optString)) {
-                                            objArr[i3] = Short.valueOf(parseShort(optString));
+                                            objArr[i4] = Short.valueOf(parseShort(optString));
                                         } else {
                                             throw new IllegalArgumentException("short not support null String");
                                         }
                                     }
-                                    i++;
+                                    i2++;
                                 }
                                 if (!TextUtils.isEmpty(optString)) {
-                                    objArr[i3] = Byte.valueOf(parseByte(optString));
-                                    i++;
+                                    objArr[i4] = Byte.valueOf(parseByte(optString));
+                                    i2++;
                                 } else {
                                     throw new IllegalArgumentException("byte not support null String");
                                 }
                             }
                             if (!TextUtils.isEmpty(optString)) {
-                                objArr[i3] = Boolean.valueOf(parseBoolean(optString));
-                                i++;
+                                objArr[i4] = Boolean.valueOf(parseBoolean(optString));
+                                i2++;
                             } else {
                                 throw new IllegalArgumentException("boolean not support null String");
                             }
@@ -369,10 +368,10 @@ public class FH {
                 }
                 return objArr;
             }
-            i2 = 0;
-            Object[] objArr2 = new Object[i2];
+            i3 = 0;
+            Object[] objArr2 = new Object[i3];
             Class[] clsArr22 = null;
-            while (i3 < i2) {
+            while (i4 < i3) {
             }
             return objArr2;
         } catch (Throwable th) {
@@ -397,23 +396,23 @@ public class FH {
         return d.a(context, str);
     }
 
-    public static boolean call(int i, String str, Callback callback) {
-        return call(i, str, callback, null, new Object[0]);
+    public static boolean call(int i2, String str, Callback callback) {
+        return call(i2, str, callback, null, new Object[0]);
     }
 
-    public static Pair<Integer, Object> callSync(int i, String str, Class<?>[] clsArr, Object... objArr) {
-        return d.a(i, str, clsArr, objArr);
+    public static Pair<Integer, Object> callSync(int i2, String str, Class<?>[] clsArr, Object... objArr) {
+        return d.a(i2, str, clsArr, objArr);
     }
 
-    public static String gzfi(Context context, String str, int i) {
-        return d.a(context, str, i, (String) null);
+    public static String gzfi(Context context, String str, int i2) {
+        return d.a(context, str, i2, (String) null);
     }
 
-    public static boolean call(int i, String str, Class<?>[] clsArr, Object... objArr) {
-        return call(i, str, null, clsArr, objArr);
+    public static boolean call(int i2, String str, Class<?>[] clsArr, Object... objArr) {
+        return call(i2, str, null, clsArr, objArr);
     }
 
-    public static boolean call(int i, String str, Callback callback, Class<?>[] clsArr, Object... objArr) {
-        return d.a(i, str, callback, clsArr, objArr);
+    public static boolean call(int i2, String str, Callback callback, Class<?>[] clsArr, Object... objArr) {
+        return d.a(i2, str, callback, clsArr, objArr);
     }
 }

@@ -1,8 +1,8 @@
 package com.google.common.hash;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.h.c.a.n;
-import d.h.c.d.j;
+import d.g.c.a.n;
+import d.g.c.d.j;
 import java.io.Serializable;
 import java.nio.charset.Charset;
 /* loaded from: classes6.dex */
@@ -20,7 +20,7 @@ public final class Funnels {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.hash.Funnel
         public void funnel(byte[] bArr, j jVar) {
-            jVar.e(bArr);
+            jVar.f(bArr);
         }
     }
 
@@ -36,7 +36,7 @@ public final class Funnels {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.hash.Funnel
         public void funnel(Integer num, j jVar) {
-            jVar.b(num.intValue());
+            jVar.a(num.intValue());
         }
     }
 
@@ -52,7 +52,7 @@ public final class Funnels {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.hash.Funnel
         public void funnel(Long l, j jVar) {
-            jVar.d(l.longValue());
+            jVar.b(l.longValue());
         }
     }
 
@@ -137,7 +137,7 @@ public final class Funnels {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.hash.Funnel
         public void funnel(CharSequence charSequence, j jVar) {
-            jVar.c(charSequence, this.charset);
+            jVar.d(charSequence, this.charset);
         }
     }
 
@@ -153,7 +153,7 @@ public final class Funnels {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.hash.Funnel
         public void funnel(CharSequence charSequence, j jVar) {
-            jVar.a(charSequence);
+            jVar.c(charSequence);
         }
     }
 

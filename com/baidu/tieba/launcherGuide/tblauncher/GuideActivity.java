@@ -86,8 +86,8 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
 
         @Override // com.baidu.tbadk.core.view.BaseViewPager.a
-        public void a(int i) {
-            if (i == 0) {
+        public void a(int i2) {
+            if (i2 == 0) {
                 if (GuideActivity.this.mGuideViewPager != null) {
                     GuideActivity.this.mGuideViewPager.setOnScrollOutListener(null);
                 }
@@ -120,16 +120,16 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i) {
+        public void onPageScrollStateChanged(int i2) {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f2, int i2) {
+        public void onPageScrolled(int i2, float f2, int i3) {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
-            if (i == GuideActivity.this.guideListSize - 1) {
+        public void onPageSelected(int i2) {
+            if (i2 == GuideActivity.this.guideListSize - 1) {
                 GuideActivity.this.setStartButtonBottomMargin(R.dimen.tbds170);
                 GuideActivity.this.mStartButton.setVisibility(0);
                 GuideActivity.this.guide_page_indicator.setVisibility(0);
@@ -141,14 +141,14 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             if (GuideActivity.this.mStartButton.getVisibility() == 0) {
                 GuideActivity.this.mStartButton.requestFocus();
             }
-            GuideActivity.this.guide_page_indicator.setPosition(i);
+            GuideActivity.this.guide_page_indicator.setPosition(i2);
         }
     }
 
     /* loaded from: classes4.dex */
     public class d extends HttpMessageListener {
-        public d(int i) {
-            super(i);
+        public d(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -161,7 +161,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                         return;
                     }
                     GuideActivity.this.isJumpToNewGuide = false;
-                    d.b.i0.r.d0.b.j().t("jump_to_new_user_guide", false);
+                    d.a.i0.r.d0.b.j().t("jump_to_new_user_guide", false);
                     return;
                 }
                 GuideActivity.this.isJumpToNewGuide = false;
@@ -216,7 +216,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
-        public void destroyItem(View view, int i, Object obj) {
+        public void destroyItem(View view, int i2, Object obj) {
             ((ViewPager) view).removeView((View) obj);
         }
 
@@ -226,13 +226,13 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
-        public Object instantiateItem(View view, int i) {
-            if (i < GuideActivity.this.mGuideViews.size()) {
-                ((ViewPager) view).addView((View) GuideActivity.this.mGuideViews.get(i), 0);
-                if (i == GuideActivity.this.mGuideViews.size() - 1) {
-                    ((View) GuideActivity.this.mGuideViews.get(i)).setOnClickListener(GuideActivity.this.startOnClickListener);
+        public Object instantiateItem(View view, int i2) {
+            if (i2 < GuideActivity.this.mGuideViews.size()) {
+                ((ViewPager) view).addView((View) GuideActivity.this.mGuideViews.get(i2), 0);
+                if (i2 == GuideActivity.this.mGuideViews.size() - 1) {
+                    ((View) GuideActivity.this.mGuideViews.get(i2)).setOnClickListener(GuideActivity.this.startOnClickListener);
                 }
-                return GuideActivity.this.mGuideViews.get(i);
+                return GuideActivity.this.mGuideViews.get(i2);
             }
             View view2 = new View(GuideActivity.this.getPageContext().getPageActivity());
             view2.setBackgroundColor(-1);
@@ -246,8 +246,8 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
-        public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
-            super.setPrimaryItem(viewGroup, i, obj);
+        public void setPrimaryItem(ViewGroup viewGroup, int i2, Object obj) {
+            super.setPrimaryItem(viewGroup, i2, obj);
         }
 
         public /* synthetic */ g(GuideActivity guideActivity, a aVar) {
@@ -323,13 +323,13 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     private void initGuideView() {
         this.mGuideViews = new ArrayList<>();
         this.mGuideImages = new ArrayList<>();
-        for (int i = 0; i < this.guideListSize; i++) {
+        for (int i2 = 0; i2 < this.guideListSize; i2++) {
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.guide_page_item, (ViewGroup) null, false);
             ImageView imageView = (ImageView) relativeLayout.findViewById(R.id.guide_item_img);
             imageView.setVisibility(0);
             ((GifView) relativeLayout.findViewById(R.id.view_gif)).setVisibility(8);
-            imageView.setBackgroundResource(this.GUIDE_PIC_LIST[i]);
-            Bitmap imageView2 = setImageView(imageView, this.GUIDE_PIC_LIST[i]);
+            imageView.setBackgroundResource(this.GUIDE_PIC_LIST[i2]);
+            Bitmap imageView2 = setImageView(imageView, this.GUIDE_PIC_LIST[i2]);
             if (imageView2 == null) {
                 endGuide();
                 return;
@@ -340,13 +340,13 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    private Bitmap setImageView(ImageView imageView, int i) {
-        Bitmap logoBitmap = BitmapHelper.getLogoBitmap(getPageContext().getPageActivity(), i);
+    private Bitmap setImageView(ImageView imageView, int i2) {
+        Bitmap logoBitmap = BitmapHelper.getLogoBitmap(getPageContext().getPageActivity(), i2);
         if (logoBitmap == null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inPreferredConfig = TbConfig.BitmapConfig;
             options.inSampleSize = 4;
-            logoBitmap = BitmapHelper.getResBitmap(getPageContext().getPageActivity(), i, options);
+            logoBitmap = BitmapHelper.getResBitmap(getPageContext().getPageActivity(), i2, options);
         }
         if (logoBitmap != null) {
             imageView.setImageBitmap(logoBitmap);
@@ -355,15 +355,15 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setStartButtonBottomMargin(int i) {
-        setViewBottomMargin(this.mStartButton, i);
+    public void setStartButtonBottomMargin(int i2) {
+        setViewBottomMargin(this.mStartButton, i2);
     }
 
-    private void setViewBottomMargin(View view, int i) {
+    private void setViewBottomMargin(View view, int i2) {
         if (view == null) {
             return;
         }
-        int dimensionPixelSize = getResources().getDimensionPixelSize(i);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(i2);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.bottomMargin = dimensionPixelSize;
@@ -420,7 +420,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         try {
             setContentView(R.layout.guide_activity);
             registerHttpTask();
-            boolean g2 = d.b.i0.r.d0.b.j().g("jump_to_new_user_guide", true);
+            boolean g2 = d.a.i0.r.d0.b.j().g("jump_to_new_user_guide", true);
             this.isJumpToNewGuide = g2;
             if (g2) {
                 getJumpInfoFromServer();
@@ -510,9 +510,9 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i != 4) {
-            return super.onKeyDown(i, keyEvent);
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 != 4) {
+            return super.onKeyDown(i2, keyEvent);
         }
         endGuide();
         return true;
@@ -542,8 +542,8 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             baseViewPager.setBackgroundDrawable(null);
         }
         if (this.mGuideImages != null) {
-            for (int i = 0; i < this.mGuideImages.size(); i++) {
-                ImageView imageView = this.mGuideImages.get(i);
+            for (int i2 = 0; i2 < this.mGuideImages.size(); i2++) {
+                ImageView imageView = this.mGuideImages.get(i2);
                 imageView.setBackgroundDrawable(null);
                 imageView.setImageBitmap(null);
             }

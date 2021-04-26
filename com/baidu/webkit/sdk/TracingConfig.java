@@ -34,8 +34,8 @@ public class TracingConfig {
         }
 
         public Builder addCategories(int... iArr) {
-            for (int i : iArr) {
-                this.mPredefinedCategories = i | this.mPredefinedCategories;
+            for (int i2 : iArr) {
+                this.mPredefinedCategories = i2 | this.mPredefinedCategories;
             }
             return this;
         }
@@ -51,8 +51,8 @@ public class TracingConfig {
             return new TracingConfig(this.mPredefinedCategories, this.mCustomIncludedCategories, this.mTracingMode);
         }
 
-        public Builder setTracingMode(int i) {
-            this.mTracingMode = i;
+        public Builder setTracingMode(int i2) {
+            this.mTracingMode = i2;
             return this;
         }
     }
@@ -67,12 +67,12 @@ public class TracingConfig {
     public @interface TracingMode {
     }
 
-    public TracingConfig(int i, @NonNull List<String> list, int i2) {
+    public TracingConfig(int i2, @NonNull List<String> list, int i3) {
         ArrayList arrayList = new ArrayList();
         this.mCustomIncludedCategories = arrayList;
-        this.mPredefinedCategories = i;
+        this.mPredefinedCategories = i2;
         arrayList.addAll(list);
-        this.mTracingMode = i2;
+        this.mTracingMode = i3;
     }
 
     @NonNull

@@ -54,8 +54,8 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
 
     /* loaded from: classes6.dex */
     public class LocalImagesProgressiveDecoder extends ProgressiveDecoder {
-        public LocalImagesProgressiveDecoder(Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext, boolean z, int i) {
-            super(consumer, producerContext, z, i);
+        public LocalImagesProgressiveDecoder(Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext, boolean z, int i2) {
+            super(consumer, producerContext, z, i2);
         }
 
         @Override // com.facebook.imagepipeline.producers.DecodeProducer.ProgressiveDecoder
@@ -69,11 +69,11 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
 
         @Override // com.facebook.imagepipeline.producers.DecodeProducer.ProgressiveDecoder
-        public synchronized boolean updateDecodeJob(EncodedImage encodedImage, int i) {
-            if (BaseConsumer.isNotLast(i)) {
+        public synchronized boolean updateDecodeJob(EncodedImage encodedImage, int i2) {
+            if (BaseConsumer.isNotLast(i2)) {
                 return false;
             }
-            return super.updateDecodeJob(encodedImage, i);
+            return super.updateDecodeJob(encodedImage, i2);
         }
     }
 
@@ -83,8 +83,8 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         public final ProgressiveJpegConfig mProgressiveJpegConfig;
         public final ProgressiveJpegParser mProgressiveJpegParser;
 
-        public NetworkImagesProgressiveDecoder(Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext, ProgressiveJpegParser progressiveJpegParser, ProgressiveJpegConfig progressiveJpegConfig, boolean z, int i) {
-            super(consumer, producerContext, z, i);
+        public NetworkImagesProgressiveDecoder(Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext, ProgressiveJpegParser progressiveJpegParser, ProgressiveJpegConfig progressiveJpegConfig, boolean z, int i2) {
+            super(consumer, producerContext, z, i2);
             this.mProgressiveJpegParser = (ProgressiveJpegParser) Preconditions.checkNotNull(progressiveJpegParser);
             this.mProgressiveJpegConfig = (ProgressiveJpegConfig) Preconditions.checkNotNull(progressiveJpegConfig);
             this.mLastScheduledScanNumber = 0;
@@ -101,9 +101,9 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
 
         @Override // com.facebook.imagepipeline.producers.DecodeProducer.ProgressiveDecoder
-        public synchronized boolean updateDecodeJob(EncodedImage encodedImage, int i) {
-            boolean updateDecodeJob = super.updateDecodeJob(encodedImage, i);
-            if ((BaseConsumer.isNotLast(i) || BaseConsumer.statusHasFlag(i, 8)) && !BaseConsumer.statusHasFlag(i, 4) && EncodedImage.isValid(encodedImage) && encodedImage.getImageFormat() == DefaultImageFormats.JPEG) {
+        public synchronized boolean updateDecodeJob(EncodedImage encodedImage, int i2) {
+            boolean updateDecodeJob = super.updateDecodeJob(encodedImage, i2);
+            if ((BaseConsumer.isNotLast(i2) || BaseConsumer.statusHasFlag(i2, 8)) && !BaseConsumer.statusHasFlag(i2, 4) && EncodedImage.isValid(encodedImage) && encodedImage.getImageFormat() == DefaultImageFormats.JPEG) {
                 if (!this.mProgressiveJpegParser.parseMoreData(encodedImage)) {
                     return false;
                 }
@@ -131,7 +131,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         public final ProducerContext mProducerContext;
         public final ProducerListener mProducerListener;
 
-        public ProgressiveDecoder(Consumer<CloseableReference<CloseableImage>> consumer, final ProducerContext producerContext, final boolean z, final int i) {
+        public ProgressiveDecoder(Consumer<CloseableReference<CloseableImage>> consumer, final ProducerContext producerContext, final boolean z, final int i2) {
             super(consumer);
             this.TAG = "ProgressiveDecoder";
             this.mProducerContext = producerContext;
@@ -140,15 +140,15 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
             this.mIsFinished = false;
             this.mJobScheduler = new JobScheduler(DecodeProducer.this.mExecutor, new JobScheduler.JobRunnable() { // from class: com.facebook.imagepipeline.producers.DecodeProducer.ProgressiveDecoder.1
                 @Override // com.facebook.imagepipeline.producers.JobScheduler.JobRunnable
-                public void run(EncodedImage encodedImage, int i2) {
+                public void run(EncodedImage encodedImage, int i3) {
                     if (encodedImage != null) {
-                        if (DecodeProducer.this.mDownsampleEnabled || !BaseConsumer.statusHasFlag(i2, 16)) {
+                        if (DecodeProducer.this.mDownsampleEnabled || !BaseConsumer.statusHasFlag(i3, 16)) {
                             ImageRequest imageRequest = producerContext.getImageRequest();
                             if (DecodeProducer.this.mDownsampleEnabledForNetwork || !UriUtil.isNetworkUri(imageRequest.getSourceUri())) {
-                                encodedImage.setSampleSize(DownsampleUtil.determineSampleSize(imageRequest.getRotationOptions(), imageRequest.getResizeOptions(), encodedImage, i));
+                                encodedImage.setSampleSize(DownsampleUtil.determineSampleSize(imageRequest.getRotationOptions(), imageRequest.getResizeOptions(), encodedImage, i2));
                             }
                         }
-                        ProgressiveDecoder.this.doDecode(encodedImage, i2);
+                        ProgressiveDecoder.this.doDecode(encodedImage, i3);
                     }
                 }
             }, this.mImageDecodeOptions.minDecodeIntervalMs);
@@ -174,7 +174,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void doDecode(EncodedImage encodedImage, int i) {
+        public void doDecode(EncodedImage encodedImage, int i2) {
             ResizeOptions resizeOptions;
             String str;
             int size;
@@ -182,17 +182,17 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
             QualityInfo qualityInfo2;
             CloseableImage closeableImage;
             CloseableImage decode;
-            int i2 = i;
-            if ((encodedImage.getImageFormat() != DefaultImageFormats.JPEG && BaseConsumer.isNotLast(i)) || isFinished() || !EncodedImage.isValid(encodedImage)) {
+            int i3 = i2;
+            if ((encodedImage.getImageFormat() != DefaultImageFormats.JPEG && BaseConsumer.isNotLast(i2)) || isFinished() || !EncodedImage.isValid(encodedImage)) {
                 return;
             }
             ImageFormat imageFormat = encodedImage.getImageFormat();
             String name = imageFormat != null ? imageFormat.getName() : "unknown";
             String str2 = encodedImage.getWidth() + "x" + encodedImage.getHeight();
             String valueOf = String.valueOf(encodedImage.getSampleSize());
-            boolean isLast = BaseConsumer.isLast(i);
-            boolean z = isLast && !BaseConsumer.statusHasFlag(i2, 8);
-            boolean statusHasFlag = BaseConsumer.statusHasFlag(i2, 4);
+            boolean isLast = BaseConsumer.isLast(i2);
+            boolean z = isLast && !BaseConsumer.statusHasFlag(i3, 8);
+            boolean statusHasFlag = BaseConsumer.statusHasFlag(i3, 4);
             if (this.mProducerContext.getImageRequest().getResizeOptions() != null) {
                 str = resizeOptions.width + "x" + resizeOptions.height;
             } else {
@@ -212,10 +212,10 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
                                     this.mProducerListener.onProducerStart(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME);
                                     decode = DecodeProducer.this.mImageDecoder.decode(encodedImage, size, qualityInfo2, this.mImageDecodeOptions);
                                     if (encodedImage.getSampleSize() != 1) {
-                                        i2 |= 16;
+                                        i3 |= 16;
                                     }
                                     this.mProducerListener.onProducerFinishWithSuccess(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME, getExtraMap(decode, queuedTime, qualityInfo2, isLast, name, str2, str, valueOf));
-                                    handleResult(decode, i2);
+                                    handleResult(decode, i3);
                                     return;
                                 }
                                 qualityInfo = ImmutableQualityInfo.FULL_QUALITY;
@@ -225,7 +225,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
                                 if (encodedImage.getSampleSize() != 1) {
                                 }
                                 this.mProducerListener.onProducerFinishWithSuccess(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME, getExtraMap(decode, queuedTime, qualityInfo2, isLast, name, str2, str, valueOf));
-                                handleResult(decode, i2);
+                                handleResult(decode, i3);
                                 return;
                             }
                             if (!z) {
@@ -236,13 +236,13 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
                                 if (encodedImage.getSampleSize() != 1) {
                                 }
                                 this.mProducerListener.onProducerFinishWithSuccess(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME, getExtraMap(decode, queuedTime, qualityInfo2, isLast, name, str2, str, valueOf));
-                                handleResult(decode, i2);
+                                handleResult(decode, i3);
                                 return;
                             }
                             if (encodedImage.getSampleSize() != 1) {
                             }
                             this.mProducerListener.onProducerFinishWithSuccess(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME, getExtraMap(decode, queuedTime, qualityInfo2, isLast, name, str2, str, valueOf));
-                            handleResult(decode, i2);
+                            handleResult(decode, i3);
                             return;
                         } catch (Exception e2) {
                             e = e2;
@@ -315,11 +315,11 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
             getConsumer().onFailure(th);
         }
 
-        private void handleResult(CloseableImage closeableImage, int i) {
+        private void handleResult(CloseableImage closeableImage, int i2) {
             CloseableReference<CloseableImage> create = DecodeProducer.this.mCloseableReferenceFactory.create(closeableImage);
             try {
-                maybeFinish(BaseConsumer.isLast(i));
-                getConsumer().onNewResult(create, i);
+                maybeFinish(BaseConsumer.isLast(i2));
+                getConsumer().onNewResult(create, i2);
             } finally {
                 CloseableReference.closeSafely(create);
             }
@@ -360,27 +360,27 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
             super.onProgressUpdateImpl(f2 * 0.99f);
         }
 
-        public boolean updateDecodeJob(EncodedImage encodedImage, int i) {
-            return this.mJobScheduler.updateJob(encodedImage, i);
+        public boolean updateDecodeJob(EncodedImage encodedImage, int i2) {
+            return this.mJobScheduler.updateJob(encodedImage, i2);
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(EncodedImage encodedImage, int i) {
+        public void onNewResultImpl(EncodedImage encodedImage, int i2) {
             try {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("DecodeProducer#onNewResultImpl");
                 }
-                boolean isLast = BaseConsumer.isLast(i);
+                boolean isLast = BaseConsumer.isLast(i2);
                 if (isLast && !EncodedImage.isValid(encodedImage)) {
                     handleError(new ExceptionWithNoStacktrace("Encoded image is not valid."));
-                } else if (!updateDecodeJob(encodedImage, i)) {
+                } else if (!updateDecodeJob(encodedImage, i2)) {
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.endSection();
                     }
                 } else {
-                    boolean statusHasFlag = BaseConsumer.statusHasFlag(i, 4);
+                    boolean statusHasFlag = BaseConsumer.statusHasFlag(i2, 4);
                     if (isLast || statusHasFlag || this.mProducerContext.isIntermediateResultExpected()) {
                         this.mJobScheduler.scheduleJob();
                     }
@@ -396,7 +396,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
     }
 
-    public DecodeProducer(ByteArrayPool byteArrayPool, Executor executor, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, Producer<EncodedImage> producer, int i, CloseableReferenceFactory closeableReferenceFactory) {
+    public DecodeProducer(ByteArrayPool byteArrayPool, Executor executor, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, Producer<EncodedImage> producer, int i2, CloseableReferenceFactory closeableReferenceFactory) {
         this.mByteArrayPool = (ByteArrayPool) Preconditions.checkNotNull(byteArrayPool);
         this.mExecutor = (Executor) Preconditions.checkNotNull(executor);
         this.mImageDecoder = (ImageDecoder) Preconditions.checkNotNull(imageDecoder);
@@ -405,7 +405,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         this.mDownsampleEnabledForNetwork = z2;
         this.mInputProducer = (Producer) Preconditions.checkNotNull(producer);
         this.mDecodeCancellationEnabled = z3;
-        this.mMaxBitmapSize = i;
+        this.mMaxBitmapSize = i2;
         this.mCloseableReferenceFactory = closeableReferenceFactory;
     }
 

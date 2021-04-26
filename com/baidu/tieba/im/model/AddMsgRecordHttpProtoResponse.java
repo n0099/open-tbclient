@@ -18,13 +18,13 @@ public class AddMsgRecordHttpProtoResponse extends HttpResponsedMessage {
         return this.mData;
     }
 
-    public AddMsgRecordHttpProtoResponse(int i) {
+    public AddMsgRecordHttpProtoResponse(int i2) {
         super(CmdConfigHttp.CMD_ADD_MSG_RECORD);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         AddMsgRecordResIdl addMsgRecordResIdl = (AddMsgRecordResIdl) new Wire(new Class[0]).parseFrom(bArr, AddMsgRecordResIdl.class);
         if (addMsgRecordResIdl == null) {
             return;

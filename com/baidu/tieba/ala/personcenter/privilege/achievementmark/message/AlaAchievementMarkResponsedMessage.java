@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.data.AlaUserInfoData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.j0.t.j.g.c.c.c;
+import d.a.j0.t.j.g.c.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -20,9 +20,9 @@ public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
-        super.decodeLogicInBackGround(i, jSONObject);
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
             return;
         }
@@ -32,8 +32,8 @@ public class AlaAchievementMarkResponsedMessage extends JsonHttpResponsedMessage
         }
         JSONArray optJSONArray = optJSONObject.optJSONArray("mark_info");
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
+            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i3);
                 if (optJSONObject3 != null) {
                     c cVar = new c();
                     cVar.c(optJSONObject3);

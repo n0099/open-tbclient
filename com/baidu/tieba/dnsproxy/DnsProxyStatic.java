@@ -8,10 +8,10 @@ import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.switchs.DnsProxySwitch;
-import d.b.c.e.j.a.d;
-import d.b.c.e.p.j;
-import d.b.j0.e0.e;
-import d.b.j0.e0.f;
+import d.a.c.e.j.a.d;
+import d.a.c.e.p.j;
+import d.a.j0.e0.e;
+import d.a.j0.e0.f;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -19,14 +19,14 @@ import java.util.List;
 public class DnsProxyStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f14979a;
+    public static int f15095a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f14980b;
+    public static int f15096b;
 
     /* loaded from: classes4.dex */
-    public static class a extends d.b.c.e.j.a.a {
-        @Override // d.b.c.e.j.a.a
+    public static class a extends d.a.c.e.j.a.a {
+        @Override // d.a.c.e.j.a.a
         public String a(String str) {
             if (f.a().c(str)) {
                 try {
@@ -39,8 +39,8 @@ public class DnsProxyStatic {
             return null;
         }
 
-        @Override // d.b.c.e.j.a.a
-        public void c(d.b.c.e.j.a.e eVar) {
+        @Override // d.a.c.e.j.a.a
+        public void c(d.a.c.e.j.a.e eVar) {
             if (eVar != null && j.z()) {
                 d dVar = null;
                 List<d> d2 = eVar.d();
@@ -76,14 +76,14 @@ public class DnsProxyStatic {
             }
         }
 
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.b.c.e.m.e.a().postDelayed(new a(this), 1000L);
+            d.a.c.e.m.e.a().postDelayed(new a(this), 1000L);
         }
     }
 
@@ -92,19 +92,19 @@ public class DnsProxyStatic {
     }
 
     public static final void c() {
-        d.b.c.e.j.a.a.d(null);
+        d.a.c.e.j.a.a.d(null);
         e.i().f();
     }
 
-    public static final void d(d.b.c.e.j.a.e eVar, d dVar) {
+    public static final void d(d.a.c.e.j.a.e eVar, d dVar) {
         if (eVar == null || dVar == null) {
             return;
         }
-        boolean z = eVar.c().f42535b >= 400;
-        if (eVar.c().f42535b < 200) {
+        boolean z = eVar.c().f39733b >= 400;
+        if (eVar.c().f39733b < 200) {
             z = true;
         }
-        byte[] bArr = eVar.c().f42541h;
+        byte[] bArr = eVar.c().f39739h;
         if (bArr == null) {
             z = true;
         }
@@ -114,98 +114,98 @@ public class DnsProxyStatic {
         if (z) {
             try {
                 URL url = new URL(eVar.b().i());
-                d.b.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("workflow", "dnsproxy_unuse");
-                statsItem.c("sucnum", Integer.valueOf(f14980b));
+                statsItem.c("sucnum", Integer.valueOf(f15096b));
                 statsItem.c("failnum", 1);
                 statsItem.b("host", url.getHost());
-                statsItem.b("reason", dVar.f42522h);
+                statsItem.b("reason", dVar.f39719h);
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                f14980b = 0;
+                f15096b = 0;
                 return;
             } catch (Throwable th) {
                 BdLog.detailException(th);
                 return;
             }
         }
-        int i = f14980b + 1;
-        f14980b = i;
-        if (i >= 100) {
+        int i2 = f15096b + 1;
+        f15096b = i2;
+        if (i2 >= 100) {
             g();
         }
     }
 
-    public static final void e(d.b.c.e.j.a.e eVar, d dVar) {
+    public static final void e(d.a.c.e.j.a.e eVar, d dVar) {
         if (eVar == null || dVar == null) {
             return;
         }
-        boolean z = eVar.c().f42535b >= 400;
-        if (eVar.c().f42535b < 200) {
+        boolean z = eVar.c().f39733b >= 400;
+        if (eVar.c().f39733b < 200) {
             z = true;
         }
-        byte[] bArr = eVar.c().f42541h;
+        byte[] bArr = eVar.c().f39739h;
         if (bArr == null) {
             z = true;
         }
         if (bArr != null && bArr.length == 0) {
             z = true;
         }
-        d.b.j0.e0.i.d.m().p(dVar.l, !z);
+        d.a.j0.e0.i.d.m().p(dVar.l, !z);
         if (z) {
             try {
                 URL url = new URL(eVar.b().i());
-                d.b.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("workflow", "dnsproxy_use");
-                statsItem.c("sucnum", Integer.valueOf(f14979a));
+                statsItem.c("sucnum", Integer.valueOf(f15095a));
                 statsItem.c("failnum", 1);
                 statsItem.b("host", url.getHost());
                 statsItem.b("ip", dVar.l);
-                statsItem.b("reason", dVar.f42522h);
+                statsItem.b("reason", dVar.f39719h);
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                f14979a = 0;
+                f15095a = 0;
                 return;
             } catch (Throwable th) {
                 BdLog.detailException(th);
                 return;
             }
         }
-        int i = f14979a + 1;
-        f14979a = i;
-        if (i >= 100) {
+        int i2 = f15095a + 1;
+        f15095a = i2;
+        if (i2 >= 100) {
             h();
         }
     }
 
     public static final void f() {
-        d.b.c.e.j.a.a.d(new a());
+        d.a.c.e.j.a.a.d(new a());
         e.i().n();
     }
 
     public static final void g() {
-        if (f14980b <= 0) {
+        if (f15096b <= 0) {
             return;
         }
         try {
-            d.b.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("workflow", "dnsproxy_unuse");
-            statsItem.c("sucnum", Integer.valueOf(f14980b));
+            statsItem.c("sucnum", Integer.valueOf(f15096b));
             BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-            f14980b = 0;
+            f15096b = 0;
         } catch (Throwable th) {
             BdLog.detailException(th);
         }
     }
 
     public static final void h() {
-        if (f14979a <= 0) {
+        if (f15095a <= 0) {
             return;
         }
         try {
-            d.b.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("workflow", "dnsproxy_use");
-            statsItem.c("sucnum", Integer.valueOf(f14979a));
+            statsItem.c("sucnum", Integer.valueOf(f15095a));
             BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-            f14979a = 0;
+            f15095a = 0;
         } catch (Throwable th) {
             BdLog.detailException(th);
         }

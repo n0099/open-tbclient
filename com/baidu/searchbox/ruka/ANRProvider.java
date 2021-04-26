@@ -18,7 +18,7 @@ public class ANRProvider {
         }
 
         @Override // com.baidu.searchbox.ruka.ioc.IANRMonitor
-        public void startANRMonitor(int i) {
+        public void startANRMonitor(int i2) {
         }
 
         @Override // com.baidu.searchbox.ruka.ioc.IANRMonitor

@@ -7,14 +7,14 @@ public class PraiseResponseMessage extends JsonHttpResponsedMessage {
     public int errCode;
     public String errMsg;
 
-    public PraiseResponseMessage(int i) {
-        super(i);
+    public PraiseResponseMessage(int i2) {
+        super(i2);
         this.errCode = 0;
         this.errMsg = "";
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode != 200 || error < 0 || jSONObject == null) {
@@ -32,8 +32,8 @@ public class PraiseResponseMessage extends JsonHttpResponsedMessage {
         return this.errMsg;
     }
 
-    public void setErrCode(int i) {
-        this.errCode = i;
+    public void setErrCode(int i2) {
+        this.errCode = i2;
     }
 
     public void setErrMsg(String str) {

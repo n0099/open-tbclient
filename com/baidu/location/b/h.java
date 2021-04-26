@@ -16,27 +16,27 @@ import java.util.regex.Pattern;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<ScanResult> f6679a;
+    public List<ScanResult> f6909a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f6680b;
+    public long f6910b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f6681c;
+    public long f6911c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f6682d = false;
+    public boolean f6912d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f6683e;
+    public boolean f6913e;
 
     public h(List<ScanResult> list, long j) {
-        this.f6679a = null;
-        this.f6680b = 0L;
-        this.f6681c = 0L;
-        this.f6680b = j;
-        this.f6679a = list;
-        this.f6681c = System.currentTimeMillis();
+        this.f6909a = null;
+        this.f6910b = 0L;
+        this.f6911c = 0L;
+        this.f6910b = j;
+        this.f6909a = list;
+        this.f6911c = System.currentTimeMillis();
         m();
     }
 
@@ -52,7 +52,7 @@ public class h {
     }
 
     private int l() {
-        List<ScanResult> list = this.f6679a;
+        List<ScanResult> list = this.f6909a;
         if (list == null) {
             return 0;
         }
@@ -73,7 +73,7 @@ public class h {
             if (r0 >= r1) goto L8
             return
         L8:
-            java.util.List<android.net.wifi.ScanResult> r0 = r7.f6679a
+            java.util.List<android.net.wifi.ScanResult> r0 = r7.f6909a
             int r0 = r0.size()
             int r0 = r0 - r1
             r2 = 1
@@ -84,23 +84,23 @@ public class h {
             r3 = 0
         L16:
             if (r2 >= r0) goto L49
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.f6679a
+            java.util.List<android.net.wifi.ScanResult> r4 = r7.f6909a
             java.lang.Object r4 = r4.get(r2)
             android.net.wifi.ScanResult r4 = (android.net.wifi.ScanResult) r4
             int r4 = r4.level
-            java.util.List<android.net.wifi.ScanResult> r5 = r7.f6679a
+            java.util.List<android.net.wifi.ScanResult> r5 = r7.f6909a
             int r6 = r2 + 1
             java.lang.Object r5 = r5.get(r6)
             android.net.wifi.ScanResult r5 = (android.net.wifi.ScanResult) r5
             int r5 = r5.level
             if (r4 >= r5) goto L47
-            java.util.List<android.net.wifi.ScanResult> r3 = r7.f6679a
+            java.util.List<android.net.wifi.ScanResult> r3 = r7.f6909a
             java.lang.Object r3 = r3.get(r6)
             android.net.wifi.ScanResult r3 = (android.net.wifi.ScanResult) r3
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.f6679a
+            java.util.List<android.net.wifi.ScanResult> r4 = r7.f6909a
             java.lang.Object r5 = r4.get(r2)
             r4.set(r6, r5)
-            java.util.List<android.net.wifi.ScanResult> r4 = r7.f6679a
+            java.util.List<android.net.wifi.ScanResult> r4 = r7.f6909a
             r4.set(r2, r3)
             r3 = 1
         L47:
@@ -117,15 +117,15 @@ public class h {
     }
 
     public int a() {
-        List<ScanResult> list = this.f6679a;
+        List<ScanResult> list = this.f6909a;
         if (list == null) {
             return 0;
         }
         return list.size();
     }
 
-    public String a(int i) {
-        return a(i, false, false);
+    public String a(int i2) {
+        return a(i2, false, false);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:102:0x021c A[Catch: Exception -> 0x005c, Error -> 0x0315, TryCatch #2 {Exception -> 0x005c, blocks: (B:17:0x0053, B:31:0x0075, B:38:0x0091, B:99:0x020d, B:48:0x00c3, B:53:0x00d7, B:55:0x00de, B:61:0x0117, B:63:0x0123, B:66:0x0137, B:68:0x0154, B:70:0x015c, B:96:0x01f1, B:57:0x00fc, B:60:0x0103, B:102:0x021c, B:106:0x0237, B:109:0x0251, B:111:0x0257, B:113:0x0268, B:114:0x0280, B:116:0x0286, B:118:0x028e, B:122:0x02ba, B:119:0x0299, B:121:0x02a8, B:123:0x02be, B:125:0x02c7, B:127:0x02e7, B:131:0x02f6, B:133:0x02fb, B:135:0x0307, B:136:0x030e), top: B:149:0x0053 }] */
@@ -144,14 +144,14 @@ public class h {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String a(int i, boolean z, boolean z2) {
+    public String a(int i2, boolean z, boolean z2) {
         String str;
         String str2;
-        int i2;
+        int i3;
         long j;
         boolean z3;
         int size;
-        int i3;
+        int i4;
         boolean z4;
         String str3;
         String str4;
@@ -173,13 +173,13 @@ public class h {
             if (k == null || k.getBSSID() == null) {
                 str = null;
                 str2 = null;
-                i2 = -1;
+                i3 = -1;
             } else {
                 str = k.getBSSID().replace(":", "");
-                i2 = k.getRssi();
+                i3 = k.getRssi();
                 str2 = i.a().m();
-                if (i2 < 0) {
-                    i2 = -i2;
+                if (i3 < 0) {
+                    i3 = -i3;
                 }
             }
             try {
@@ -195,19 +195,19 @@ public class h {
                             if (z3) {
                                 z3 = z3 && z;
                             }
-                            size = this.f6679a.size();
-                            if (size > i) {
-                                size = i;
+                            size = this.f6909a.size();
+                            if (size > i2) {
+                                size = i2;
                             }
-                            i3 = 0;
+                            i4 = 0;
                             StringBuffer stringBuffer2 = null;
                             long j4 = 0;
                             z4 = true;
-                            int i4 = 0;
                             int i5 = 0;
+                            int i6 = 0;
                             char c3 = 0;
-                            while (i3 < size) {
-                                if (this.f6679a.get(i3).level == 0) {
+                            while (i4 < size) {
+                                if (this.f6909a.get(i4).level == 0) {
                                     str6 = str7;
                                     str4 = str2;
                                     j3 = j;
@@ -221,7 +221,7 @@ public class h {
                                             str4 = str2;
                                         }
                                         try {
-                                            j2 = (j - this.f6679a.get(i3).timestamp) / 1000000;
+                                            j2 = (j - this.f6909a.get(i4).timestamp) / 1000000;
                                         } catch (Exception unused3) {
                                             j2 = 0;
                                             arrayList.add(Long.valueOf(j2));
@@ -229,10 +229,10 @@ public class h {
                                             }
                                             if (z4) {
                                             }
-                                            str5 = this.f6679a.get(i3).BSSID;
+                                            str5 = this.f6909a.get(i4).BSSID;
                                             if (str5 == null) {
                                             }
-                                            i3++;
+                                            i4++;
                                             str2 = str4;
                                             str7 = str6;
                                             j = j3;
@@ -249,52 +249,52 @@ public class h {
                                         stringBuffer.append(FieldBuilder.SE);
                                         if (z2 && stringBuffer2 != null) {
                                             stringBuffer2.append(FieldBuilder.SE);
-                                            stringBuffer2.append(b(this.f6679a.get(i3).frequency));
+                                            stringBuffer2.append(b(this.f6909a.get(i4).frequency));
                                         }
                                     } else {
                                         stringBuffer.append("&wf=");
                                         if (z2) {
                                             stringBuffer2 = new StringBuffer();
                                             stringBuffer2.append("&wf_ch=");
-                                            stringBuffer2.append(b(this.f6679a.get(i3).frequency));
+                                            stringBuffer2.append(b(this.f6909a.get(i4).frequency));
                                         }
                                         z4 = false;
                                     }
-                                    str5 = this.f6679a.get(i3).BSSID;
+                                    str5 = this.f6909a.get(i4).BSSID;
                                     if (str5 == null) {
                                         String replace = str5.replace(str7, "");
                                         stringBuffer.append(replace);
-                                        int i6 = this.f6679a.get(i3).level;
-                                        if (i6 < 0) {
-                                            i6 = -i6;
+                                        int i7 = this.f6909a.get(i4).level;
+                                        if (i7 < 0) {
+                                            i7 = -i7;
                                         }
                                         str6 = str7;
                                         j3 = j;
-                                        stringBuffer.append(String.format(Locale.CHINA, ";%d;", Integer.valueOf(i6)));
-                                        i5++;
+                                        stringBuffer.append(String.format(Locale.CHINA, ";%d;", Integer.valueOf(i7)));
+                                        i6++;
                                         if (str3 != null) {
                                             str = str3;
                                             if (str.equals(replace)) {
-                                                this.f6683e = a(this.f6679a.get(i3).capabilities);
-                                                i4 = i5;
+                                                this.f6913e = a(this.f6909a.get(i4).capabilities);
+                                                i5 = i6;
                                                 z5 = true;
                                                 if (z5) {
                                                     c2 = c3;
                                                     if (c2 == 0) {
                                                         try {
-                                                            if (random.nextInt(10) == 2 && this.f6679a.get(i3).SSID != null && this.f6679a.get(i3).SSID.length() < 30) {
-                                                                stringBuffer.append(b(this.f6679a.get(i3).SSID));
+                                                            if (random.nextInt(10) == 2 && this.f6909a.get(i4).SSID != null && this.f6909a.get(i4).SSID.length() < 30) {
+                                                                stringBuffer.append(b(this.f6909a.get(i4).SSID));
                                                                 c3 = 1;
                                                             }
                                                         } catch (Exception unused4) {
                                                         }
-                                                    } else if (c2 == 1 && random.nextInt(20) == 1 && this.f6679a.get(i3).SSID != null && this.f6679a.get(i3).SSID.length() < 30) {
-                                                        stringBuffer.append(b(this.f6679a.get(i3).SSID));
+                                                    } else if (c2 == 1 && random.nextInt(20) == 1 && this.f6909a.get(i4).SSID != null && this.f6909a.get(i4).SSID.length() < 30) {
+                                                        stringBuffer.append(b(this.f6909a.get(i4).SSID));
                                                         c3 = 2;
                                                     }
                                                 } else {
                                                     c2 = c3;
-                                                    stringBuffer.append(b(this.f6679a.get(i3).SSID));
+                                                    stringBuffer.append(b(this.f6909a.get(i4).SSID));
                                                 }
                                                 c3 = c2;
                                             }
@@ -311,7 +311,7 @@ public class h {
                                         str = str3;
                                     }
                                 }
-                                i3++;
+                                i4++;
                                 str2 = str4;
                                 str7 = str6;
                                 j = j3;
@@ -320,11 +320,11 @@ public class h {
                             if (z4) {
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("&wf_n=");
-                                int i7 = i4;
-                                sb.append(i7);
+                                int i8 = i5;
+                                sb.append(i8);
                                 stringBuffer.append(sb.toString());
-                                if (str != null && i2 != -1) {
-                                    stringBuffer.append("&wf_rs=" + i2);
+                                if (str != null && i3 != -1) {
+                                    stringBuffer.append("&wf_rs=" + i3);
                                 }
                                 if (j4 > 10 && arrayList.size() > 0 && ((Long) arrayList.get(0)).longValue() > 0) {
                                     StringBuffer stringBuffer3 = new StringBuffer(128);
@@ -346,15 +346,15 @@ public class h {
                                     stringBuffer.append(stringBuffer3.toString());
                                 }
                                 stringBuffer.append("&wf_st=");
-                                stringBuffer.append(this.f6680b);
+                                stringBuffer.append(this.f6910b);
                                 stringBuffer.append("&wf_et=");
-                                stringBuffer.append(this.f6681c);
+                                stringBuffer.append(this.f6911c);
                                 stringBuffer.append("&wf_vt=");
-                                stringBuffer.append(i.f6684a);
-                                if (i7 > 0) {
-                                    this.f6682d = true;
+                                stringBuffer.append(i.f6914a);
+                                if (i8 > 0) {
+                                    this.f6912d = true;
                                     stringBuffer.append("&wf_en=");
-                                    stringBuffer.append(this.f6683e ? 1 : 0);
+                                    stringBuffer.append(this.f6913e ? 1 : 0);
                                 }
                                 if (str8 != null) {
                                     stringBuffer.append("&wf_gw=");
@@ -373,17 +373,17 @@ public class h {
                 } else {
                     j = 0;
                 }
-                size = this.f6679a.size();
-                if (size > i) {
+                size = this.f6909a.size();
+                if (size > i2) {
                 }
-                i3 = 0;
+                i4 = 0;
                 StringBuffer stringBuffer22 = null;
                 long j42 = 0;
                 z4 = true;
-                int i42 = 0;
                 int i52 = 0;
+                int i62 = 0;
                 char c32 = 0;
-                while (i3 < size) {
+                while (i4 < size) {
                 }
                 String str82 = str2;
                 if (z4) {
@@ -411,7 +411,7 @@ public class h {
         boolean z;
         List<ScanResult> list;
         int size;
-        int i;
+        int i2;
         long j3;
         if (Build.VERSION.SDK_INT >= 17) {
             try {
@@ -421,19 +421,19 @@ public class h {
             }
             if (j2 > 0) {
                 z = true;
-                if (z || (list = this.f6679a) == null || list.size() == 0) {
+                if (z || (list = this.f6909a) == null || list.size() == 0) {
                     return false;
                 }
-                size = this.f6679a.size();
+                size = this.f6909a.size();
                 if (size > 16) {
                     size = 16;
                 }
                 long j4 = 0;
                 long j5 = 0;
-                for (i = 0; i < size; i++) {
-                    if (this.f6679a.get(i).level != 0 && z) {
+                for (i2 = 0; i2 < size; i2++) {
+                    if (this.f6909a.get(i2).level != 0 && z) {
                         try {
-                            j3 = (j2 - this.f6679a.get(i).timestamp) / 1000000;
+                            j3 = (j2 - this.f6909a.get(i2).timestamp) / 1000000;
                         } catch (Error | Exception unused2) {
                             j3 = 0;
                         }
@@ -452,34 +452,34 @@ public class h {
         if (z) {
             return false;
         }
-        size = this.f6679a.size();
+        size = this.f6909a.size();
         if (size > 16) {
         }
         long j42 = 0;
         long j52 = 0;
-        while (i < size) {
+        while (i2 < size) {
         }
         if (j52 * 1000 <= j) {
         }
     }
 
     public boolean a(h hVar) {
-        List<ScanResult> list = this.f6679a;
-        if (list == null || hVar == null || hVar.f6679a == null) {
+        List<ScanResult> list = this.f6909a;
+        if (list == null || hVar == null || hVar.f6909a == null) {
             return false;
         }
-        int size = (list.size() < hVar.f6679a.size() ? this.f6679a : hVar.f6679a).size();
-        for (int i = 0; i < size; i++) {
-            if (!this.f6679a.get(i).BSSID.equals(hVar.f6679a.get(i).BSSID)) {
+        int size = (list.size() < hVar.f6909a.size() ? this.f6909a : hVar.f6909a).size();
+        for (int i2 = 0; i2 < size; i2++) {
+            if (!this.f6909a.get(i2).BSSID.equals(hVar.f6909a.get(i2).BSSID)) {
                 return false;
             }
         }
         return true;
     }
 
-    public int b(int i) {
-        if (i <= 2400 || i >= 2500) {
-            return (i <= 4900 || i >= 5900) ? 0 : 5;
+    public int b(int i2) {
+        if (i2 <= 2400 || i2 >= 2500) {
+            return (i2 <= 4900 || i2 >= 5900) ? 0 : 5;
         }
         return 2;
     }
@@ -493,17 +493,17 @@ public class h {
     }
 
     public boolean b(h hVar) {
-        List<ScanResult> list = this.f6679a;
-        if (list == null || hVar == null || hVar.f6679a == null) {
+        List<ScanResult> list = this.f6909a;
+        if (list == null || hVar == null || hVar.f6909a == null) {
             return false;
         }
-        int size = (list.size() < hVar.f6679a.size() ? this.f6679a : hVar.f6679a).size();
-        for (int i = 0; i < size; i++) {
-            String str = this.f6679a.get(i).BSSID;
-            int i2 = this.f6679a.get(i).level;
-            String str2 = hVar.f6679a.get(i).BSSID;
-            int i3 = hVar.f6679a.get(i).level;
-            if (!str.equals(str2) || i2 != i3) {
+        int size = (list.size() < hVar.f6909a.size() ? this.f6909a : hVar.f6909a).size();
+        for (int i2 = 0; i2 < size; i2++) {
+            String str = this.f6909a.get(i2).BSSID;
+            int i3 = this.f6909a.get(i2).level;
+            String str2 = hVar.f6909a.get(i2).BSSID;
+            int i4 = hVar.f6909a.get(i2).level;
+            if (!str.equals(str2) || i3 != i4) {
                 return false;
             }
         }
@@ -518,28 +518,28 @@ public class h {
         }
     }
 
-    public String c(int i) {
-        if (i != 0) {
-            int i2 = 1;
+    public String c(int i2) {
+        if (i2 != 0) {
+            int i3 = 1;
             if (a() < 1) {
                 return null;
             }
             StringBuffer stringBuffer = new StringBuffer(256);
-            int size = this.f6679a.size();
-            int i3 = com.baidu.location.d.j.O;
-            if (size > i3) {
-                size = i3;
+            int size = this.f6909a.size();
+            int i4 = com.baidu.location.d.j.O;
+            if (size > i4) {
+                size = i4;
             }
-            int i4 = 0;
-            for (int i5 = 0; i5 < size; i5++) {
-                if ((i2 & i) != 0 && this.f6679a.get(i5).BSSID != null) {
-                    stringBuffer.append(i4 == 0 ? "&ssid=" : FieldBuilder.SE);
-                    stringBuffer.append(this.f6679a.get(i5).BSSID.replace(":", ""));
+            int i5 = 0;
+            for (int i6 = 0; i6 < size; i6++) {
+                if ((i3 & i2) != 0 && this.f6909a.get(i6).BSSID != null) {
+                    stringBuffer.append(i5 == 0 ? "&ssid=" : FieldBuilder.SE);
+                    stringBuffer.append(this.f6909a.get(i6).BSSID.replace(":", ""));
                     stringBuffer.append(";");
-                    stringBuffer.append(b(this.f6679a.get(i5).SSID));
-                    i4++;
+                    stringBuffer.append(b(this.f6909a.get(i6).SSID));
+                    i5++;
                 }
-                i2 <<= 1;
+                i3 <<= 1;
             }
             return stringBuffer.toString();
         }
@@ -575,7 +575,7 @@ public class h {
         boolean z;
         int size;
         long j2;
-        List<ScanResult> list = this.f6679a;
+        List<ScanResult> list = this.f6909a;
         if (list == null || list.size() == 0) {
             return 0L;
         }
@@ -587,17 +587,17 @@ public class h {
             }
             if (j > 0) {
                 z = true;
-                size = this.f6679a.size();
+                size = this.f6909a.size();
                 if (size > 16) {
                     size = 16;
                 }
                 long j3 = 0;
                 long j4 = 0;
                 long j5 = 0;
-                for (int i = 0; i < size; i++) {
-                    if (this.f6679a.get(i).level != 0 && z) {
+                for (int i2 = 0; i2 < size; i2++) {
+                    if (this.f6909a.get(i2).level != 0 && z) {
                         try {
-                            j2 = (j - this.f6679a.get(i).timestamp) / 1000000;
+                            j2 = (j - this.f6909a.get(i2).timestamp) / 1000000;
                         } catch (Error | Exception unused2) {
                             j2 = 0;
                         }
@@ -614,41 +614,41 @@ public class h {
             j = 0;
         }
         z = false;
-        size = this.f6679a.size();
+        size = this.f6909a.size();
         if (size > 16) {
         }
         long j32 = 0;
         long j42 = 0;
         long j52 = 0;
-        while (i < size) {
+        while (i2 < size) {
         }
         if (j32 <= 1) {
         }
     }
 
     public int g() {
-        for (int i = 0; i < a(); i++) {
-            int i2 = -this.f6679a.get(i).level;
-            if (i2 > 0) {
-                return i2;
+        for (int i2 = 0; i2 < a(); i2++) {
+            int i3 = -this.f6909a.get(i2).level;
+            if (i3 > 0) {
+                return i3;
             }
         }
         return 0;
     }
 
     public boolean h() {
-        return this.f6682d;
+        return this.f6912d;
     }
 
     public boolean i() {
-        return System.currentTimeMillis() - this.f6681c > 0 && System.currentTimeMillis() - this.f6681c < 5000;
+        return System.currentTimeMillis() - this.f6911c > 0 && System.currentTimeMillis() - this.f6911c < 5000;
     }
 
     public boolean j() {
-        return System.currentTimeMillis() - this.f6681c > 0 && System.currentTimeMillis() - this.f6681c < 5000;
+        return System.currentTimeMillis() - this.f6911c > 0 && System.currentTimeMillis() - this.f6911c < 5000;
     }
 
     public boolean k() {
-        return System.currentTimeMillis() - this.f6681c > 0 && System.currentTimeMillis() - this.f6680b < 5000;
+        return System.currentTimeMillis() - this.f6911c > 0 && System.currentTimeMillis() - this.f6910b < 5000;
     }
 }

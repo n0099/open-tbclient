@@ -15,8 +15,8 @@ public class ParcelableVolumeInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public ParcelableVolumeInfo[] newArray(int i) {
-            return new ParcelableVolumeInfo[i];
+        public ParcelableVolumeInfo[] newArray(int i2) {
+            return new ParcelableVolumeInfo[i2];
         }
     };
     public int audioStream;
@@ -25,12 +25,12 @@ public class ParcelableVolumeInfo implements Parcelable {
     public int maxVolume;
     public int volumeType;
 
-    public ParcelableVolumeInfo(int i, int i2, int i3, int i4, int i5) {
-        this.volumeType = i;
-        this.audioStream = i2;
-        this.controlType = i3;
-        this.maxVolume = i4;
-        this.currentVolume = i5;
+    public ParcelableVolumeInfo(int i2, int i3, int i4, int i5, int i6) {
+        this.volumeType = i2;
+        this.audioStream = i3;
+        this.controlType = i4;
+        this.maxVolume = i5;
+        this.currentVolume = i6;
     }
 
     @Override // android.os.Parcelable
@@ -39,7 +39,7 @@ public class ParcelableVolumeInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.volumeType);
         parcel.writeInt(this.controlType);
         parcel.writeInt(this.maxVolume);

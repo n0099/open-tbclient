@@ -5,79 +5,79 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f29572a;
+    public boolean f30477a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f29573b;
+    public boolean f30478b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f29574c;
+    public boolean f30479c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f29575d;
+    public boolean f30480d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f29576e;
+    public long f30481e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f29577f;
+    public long f30482f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f29578g;
+    public long f30483g;
 
     /* renamed from: com.bytedance.sdk.openadsdk.multipro.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0333a {
+    public interface InterfaceC0326a {
         a e();
 
         boolean g();
     }
 
     public a a(boolean z) {
-        this.f29575d = z;
+        this.f30480d = z;
         return this;
     }
 
     public a b(boolean z) {
-        this.f29572a = z;
+        this.f30477a = z;
         return this;
     }
 
     public a c(boolean z) {
-        this.f29573b = z;
+        this.f30478b = z;
         return this;
     }
 
     public a d(boolean z) {
-        this.f29574c = z;
+        this.f30479c = z;
         return this;
     }
 
     public a a(long j) {
-        this.f29576e = j;
+        this.f30481e = j;
         return this;
     }
 
     public a b(long j) {
-        this.f29577f = j;
+        this.f30482f = j;
         return this;
     }
 
     public a c(long j) {
-        this.f29578g = j;
+        this.f30483g = j;
         return this;
     }
 
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("isCompleted", this.f29572a);
-            jSONObject.put("isFromVideoDetailPage", this.f29573b);
-            jSONObject.put("isFromDetailPage", this.f29574c);
-            jSONObject.put("duration", this.f29576e);
-            jSONObject.put("totalPlayDuration", this.f29577f);
-            jSONObject.put("currentPlayPosition", this.f29578g);
-            jSONObject.put("isAutoPlay", this.f29575d);
+            jSONObject.put("isCompleted", this.f30477a);
+            jSONObject.put("isFromVideoDetailPage", this.f30478b);
+            jSONObject.put("isFromDetailPage", this.f30479c);
+            jSONObject.put("duration", this.f30481e);
+            jSONObject.put("totalPlayDuration", this.f30482f);
+            jSONObject.put("currentPlayPosition", this.f30483g);
+            jSONObject.put("isAutoPlay", this.f30480d);
         } catch (Exception unused) {
         }
         return jSONObject;

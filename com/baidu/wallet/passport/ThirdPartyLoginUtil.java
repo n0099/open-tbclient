@@ -26,57 +26,57 @@ public class ThirdPartyLoginUtil implements NoProguard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static ThirdPartyLoginUtil f25048a = new ThirdPartyLoginUtil();
+        public static ThirdPartyLoginUtil f25815a = new ThirdPartyLoginUtil();
     }
 
     public static ThirdPartyLoginUtil getInstance() {
-        return a.f25048a;
+        return a.f25815a;
     }
 
-    public boolean checkThirdPartyLogin(final Activity activity, int i, String str, final WalletApiExtListener.ThirdPartyLoginListener thirdPartyLoginListener) {
-        int i2;
-        switch (i) {
+    public boolean checkThirdPartyLogin(final Activity activity, int i2, String str, final WalletApiExtListener.ThirdPartyLoginListener thirdPartyLoginListener) {
+        int i3;
+        switch (i2) {
             case StatusCode.ERROR_TURIST_LOGIN_NEED_AUTH /* 5093 */:
             case StatusCode.ERROR_THIRD_LOGIN_NEED_AUTH /* 5095 */:
-                i2 = 3;
+                i3 = 3;
                 break;
             case StatusCode.ERROR_TURIST_LOGIN_NEED_BIND /* 5094 */:
             case StatusCode.ERROR_THIRD_LOGIN_NEED_BIND /* 5096 */:
-                i2 = 2;
+                i3 = 2;
                 break;
             case StatusCode.ERROR_TURIST_LOGIN /* 5097 */:
-                i2 = 1;
+                i3 = 1;
                 break;
             case 5098:
             default:
-                i2 = -1;
+                i3 = -1;
                 break;
             case StatusCode.ERROR_NOT_PASS_LOGIN /* 5099 */:
-                i2 = 0;
+                i3 = 0;
                 break;
         }
-        if (i2 == -1) {
+        if (i3 == -1) {
             return false;
         }
         final PromptDialog promptDialog = new PromptDialog(activity);
-        if (i2 == 0) {
+        if (i3 == 0) {
             promptDialog.setTitleText(ResUtils.getString(activity, "bd_wallet_base_third_login_title"));
         } else {
             promptDialog.hideTitle();
         }
         promptDialog.setMessage(str);
-        final int i3 = i2;
-        promptDialog.setPositiveBtn(ResUtils.getString(activity, POSITIVE_STRS[i2]), new View.OnClickListener() { // from class: com.baidu.wallet.passport.ThirdPartyLoginUtil.2
+        final int i4 = i3;
+        promptDialog.setPositiveBtn(ResUtils.getString(activity, POSITIVE_STRS[i3]), new View.OnClickListener() { // from class: com.baidu.wallet.passport.ThirdPartyLoginUtil.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                int i4 = i3;
-                if (i4 == 0) {
+                int i5 = i4;
+                if (i5 == 0) {
                     ThirdPartyLoginUtil.this.startLogin(activity, thirdPartyLoginListener);
-                } else if (i4 == 1) {
+                } else if (i5 == 1) {
                     ThirdPartyLoginUtil.this.startTuristNormalize(activity, thirdPartyLoginListener);
-                } else if (i4 == 2) {
+                } else if (i5 == 2) {
                     ThirdPartyLoginUtil.this.startBindPhone(activity, thirdPartyLoginListener);
-                } else if (i4 == 3) {
+                } else if (i5 == 3) {
                     ThirdPartyLoginUtil.this.startPassSMSAuth(activity, thirdPartyLoginListener);
                 }
                 try {
@@ -85,7 +85,7 @@ public class ThirdPartyLoginUtil implements NoProguard {
                 }
             }
         });
-        promptDialog.setNegativeBtn(ResUtils.getString(activity, NEGATIVE_STRS[i2]), new View.OnClickListener() { // from class: com.baidu.wallet.passport.ThirdPartyLoginUtil.3
+        promptDialog.setNegativeBtn(ResUtils.getString(activity, NEGATIVE_STRS[i3]), new View.OnClickListener() { // from class: com.baidu.wallet.passport.ThirdPartyLoginUtil.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 try {
@@ -122,8 +122,8 @@ public class ThirdPartyLoginUtil implements NoProguard {
     public void startLogin(Context context, final WalletApiExtListener.ThirdPartyLoginListener thirdPartyLoginListener) {
         this.loginBackListener = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.passport.ThirdPartyLoginUtil.1
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str) {
-                if (i == 603) {
+            public void onFail(int i2, String str) {
+                if (i2 == 603) {
                     WalletLoginHelper.getInstance().onlyLogin(ThirdPartyLoginUtil.this.loginBackListener);
                     return;
                 }
@@ -134,7 +134,7 @@ public class ThirdPartyLoginUtil implements NoProguard {
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str) {
+            public void onSuccess(int i2, String str) {
                 WalletApiExtListener.ThirdPartyLoginListener thirdPartyLoginListener2 = thirdPartyLoginListener;
                 if (thirdPartyLoginListener2 != null) {
                     thirdPartyLoginListener2.onCallSuccess(0, null);

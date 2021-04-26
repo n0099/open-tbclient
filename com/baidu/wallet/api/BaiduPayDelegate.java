@@ -81,40 +81,40 @@ public class BaiduPayDelegate implements IWalletPayFacade {
     public static final int RNAUTH_MEDIUM_GRADE = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23049a = "BaiduPayDelegate";
+    public static final String f23762a = "BaiduPayDelegate";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23050b = f23049a + ".getPayMethod";
+    public static final String f23763b = f23762a + ".getPayMethod";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f23051c = "wallet_interface_unlogindata";
+    public static String f23764c = "wallet_interface_unlogindata";
 
     /* renamed from: d  reason: collision with root package name */
-    public HandlePassLoginResult f23052d;
+    public HandlePassLoginResult f23765d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LoginBackListenerProxy f23053e;
+    public LoginBackListenerProxy f23766e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PayCallBack f23054f;
+    public PayCallBack f23767f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f23055g;
+    public long f23768g;
 
     /* loaded from: classes5.dex */
     public class HandlePassLoginResult extends LoginBackListenerProxy {
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f23140b;
+        public boolean f23853b;
 
         public HandlePassLoginResult(Context context, boolean z, ILoginBackListener iLoginBackListener) {
             super(context, iLoginBackListener);
-            this.f23140b = z;
+            this.f23853b = z;
         }
 
         @Override // com.baidu.wallet.passport.LoginBackListenerProxy, com.baidu.wallet.api.ILoginBackListener
-        public void onFail(int i, String str) {
-            if (this.f23140b) {
+        public void onFail(int i2, String str) {
+            if (this.f23853b) {
                 List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), "0");
                 HashMap hashMap = new HashMap();
                 hashMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, StatHelper.getSpNo());
@@ -126,13 +126,13 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 StatisticManager.onEventWithValues(PayStatServiceEvent.LCL_PASS_RESULT, StatHelper.collectData(StatHelper.getOrderNo(), StatHelper.getSpNo(), "0"));
             }
             StatHelper.cachePassLoginStatus("0");
-            super.onFail(i, str);
+            super.onFail(i2, str);
         }
 
         @Override // com.baidu.wallet.passport.LoginBackListenerProxy, com.baidu.wallet.api.ILoginBackListener
-        public void onSuccess(int i, String str) {
+        public void onSuccess(int i2, String str) {
             if (StatHelper.getPassLoginStatus().equals("0")) {
-                if (this.f23140b) {
+                if (this.f23853b) {
                     List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), "1");
                     HashMap hashMap = new HashMap();
                     hashMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, StatHelper.getSpNo());
@@ -144,7 +144,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     StatisticManager.onEventWithValues(PayStatServiceEvent.LCL_PASS_RESULT, StatHelper.collectData(StatHelper.getOrderNo(), StatHelper.getSpNo(), "1"));
                 }
             }
-            super.onSuccess(i, str);
+            super.onSuccess(i2, str);
         }
     }
 
@@ -152,11 +152,11 @@ public class BaiduPayDelegate implements IWalletPayFacade {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final BaiduPayDelegate f23141a = new BaiduPayDelegate();
+        public static final BaiduPayDelegate f23854a = new BaiduPayDelegate();
     }
 
     public static BaiduPayDelegate getInstance() {
-        return a.f23141a;
+        return a.f23854a;
     }
 
     @Override // com.baidu.wallet.api.IWalletPayFacade
@@ -175,16 +175,16 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             return;
         }
         PayStatisticsUtil.onEventWithValues(StatServiceEvent.ACCESS_WALLET_ENTRY_EVENT, a(walletModuleData));
-        int i = walletModuleData.type;
-        if (i == 1) {
+        int i2 = walletModuleData.type;
+        if (i2 == 1) {
             LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_start").data("url", walletModuleData.link_addr).data("title", null).data("with_anim", Boolean.valueOf(walletModuleData.needAnim())).data("show_share", Boolean.TRUE), new RouterCallback() { // from class: com.baidu.wallet.api.BaiduPayDelegate.9
                 @Override // com.baidu.wallet.router.RouterCallback
-                public void onResult(int i2, HashMap hashMap) {
+                public void onResult(int i3, HashMap hashMap) {
                 }
             });
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             WalletLoginHelper.getInstance().startPage(walletModuleData.link_addr);
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             BaiduWalletServiceController.getInstance().gotoWalletService(context, walletModuleData.link_addr, "", walletModuleData.needAnim());
         }
     }
@@ -222,12 +222,12 @@ public class BaiduPayDelegate implements IWalletPayFacade {
         WalletLoginHelper.getInstance().setOpenBdussErrorCodeShowFlag(false);
         WalletLoginHelper.getInstance().verifyPassLogin(new LoginBackListenerProxy(activity, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.19
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str) {
+            public void onFail(int i2, String str) {
                 PrecashierModifyPayTypeManager.getInstance().getModifyPayType(activity, map);
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str) {
+            public void onSuccess(int i2, String str) {
                 PrecashierModifyPayTypeManager.getInstance().getModifyPayType(activity, map);
             }
         }));
@@ -235,11 +235,11 @@ public class BaiduPayDelegate implements IWalletPayFacade {
 
     @Override // com.baidu.wallet.api.IWalletPayFacade
     public void checkPwd(final Context context, final CheckCallBack checkCallBack) {
-        this.f23053e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.7
+        this.f23766e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.7
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str) {
-                if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23053e);
+            public void onFail(int i2, String str) {
+                if (i2 == 603) {
+                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23766e);
                     return;
                 }
                 CheckCallBack checkCallBack2 = checkCallBack;
@@ -249,19 +249,19 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str) {
+            public void onSuccess(int i2, String str) {
                 BaiduPay.getInstance().checkPwd(context, checkCallBack);
             }
         });
-        WalletLoginHelper.getInstance().login(this.f23053e);
+        WalletLoginHelper.getInstance().login(this.f23766e);
     }
 
     public void checkPwdFromH5(final Context context, final String str, final CheckCallBack checkCallBack) {
-        this.f23053e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.8
+        this.f23766e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.8
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str2) {
-                if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23053e);
+            public void onFail(int i2, String str2) {
+                if (i2 == 603) {
+                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23766e);
                     return;
                 }
                 CheckCallBack checkCallBack2 = checkCallBack;
@@ -271,11 +271,11 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str2) {
+            public void onSuccess(int i2, String str2) {
                 BaiduPay.getInstance().checkPwdFromH5(context, str, checkCallBack);
             }
         });
-        WalletLoginHelper.getInstance().login(this.f23053e);
+        WalletLoginHelper.getInstance().login(this.f23766e);
     }
 
     @Override // com.baidu.wallet.api.IWalletPayFacade
@@ -304,11 +304,11 @@ public class BaiduPayDelegate implements IWalletPayFacade {
         if (!(context instanceof Activity)) {
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
-        this.f23053e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.21
+        this.f23766e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.21
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str2) {
-                if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23053e);
+            public void onFail(int i2, String str2) {
+                if (i2 == 603) {
+                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23766e);
                     return;
                 }
                 bindBack.onBindResult(2, "");
@@ -316,10 +316,10 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str2) {
+            public void onSuccess(int i2, String str2) {
                 BaiduPay.getInstance().bindCardOnCardaddReturn(context, new BindCardEntry.OnReturn() { // from class: com.baidu.wallet.api.BaiduPayDelegate.21.1
                     @Override // com.baidu.wallet.paysdk.api.BindCardEntry.OnReturn
-                    public void onFailed(int i2, String str3) {
+                    public void onFailed(int i3, String str3) {
                     }
 
                     @Override // com.baidu.wallet.paysdk.api.BindCardEntry.OnReturn
@@ -335,16 +335,16 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 }, PayRequestCache.BindCategory.Initiative, 1, null, str);
             }
         });
-        WalletLoginHelper.getInstance().login(this.f23053e);
+        WalletLoginHelper.getInstance().login(this.f23766e);
     }
 
     @Override // com.baidu.wallet.api.IWalletPayFacade
     public void doCheckPwd(final Context context, final Map<String, String> map, final CheckCallBack checkCallBack) {
-        this.f23053e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.6
+        this.f23766e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.6
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str) {
-                if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23053e);
+            public void onFail(int i2, String str) {
+                if (i2 == 603) {
+                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23766e);
                     return;
                 }
                 CheckCallBack checkCallBack2 = checkCallBack;
@@ -354,20 +354,20 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str) {
+            public void onSuccess(int i2, String str) {
                 BaiduPay.getInstance().doCheckPwd(context, map, checkCallBack);
             }
         });
-        WalletLoginHelper.getInstance().login(this.f23053e);
+        WalletLoginHelper.getInstance().login(this.f23766e);
     }
 
     public void doInnerBind(final Context context, final BindBack bindBack, final Map<String, String> map, final String str) {
-        this.f23053e = null;
-        this.f23053e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.14
+        this.f23766e = null;
+        this.f23766e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.14
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str2) {
-                if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23053e);
+            public void onFail(int i2, String str2) {
+                if (i2 == 603) {
+                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23766e);
                 } else if (bindBack != null) {
                     PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_API_ONBINDRESULT);
                     bindBack.onBindResult(-5, null);
@@ -375,11 +375,11 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str2) {
+            public void onSuccess(int i2, String str2) {
                 BaiduPay.getInstance().doBindCardExt(context, bindBack, map, str);
             }
         });
-        WalletLoginHelper.getInstance().login(this.f23053e);
+        WalletLoginHelper.getInstance().login(this.f23766e);
     }
 
     @Override // com.baidu.wallet.api.IWalletPayFacade
@@ -410,20 +410,20 @@ public class BaiduPayDelegate implements IWalletPayFacade {
         PayController.getInstance().setModifyPayTypeCallback(iModifyPayTypeCallback);
         PayDataCache.getInstance().setIsRemotePay(false);
         PayDataCache.getInstance().setFromPreCashier();
-        this.f23053e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.18
+        this.f23766e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.18
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str2) {
-                if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23053e);
+            public void onFail(int i2, String str2) {
+                if (i2 == 603) {
+                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23766e);
                 }
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str2) {
+            public void onSuccess(int i2, String str2) {
                 BaiduPay.getInstance().doPrecashierPay(context, str, payCallBack, map, precashierCreateOrderResponse);
             }
         });
-        WalletLoginHelper.getInstance().login(this.f23053e);
+        WalletLoginHelper.getInstance().login(this.f23766e);
     }
 
     @Override // com.baidu.wallet.api.IWalletPayFacade
@@ -431,11 +431,11 @@ public class BaiduPayDelegate implements IWalletPayFacade {
         if (context == null || map == null) {
             return;
         }
-        this.f23053e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.2
+        this.f23766e = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.2
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str) {
-                if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23053e);
+            public void onFail(int i2, String str) {
+                if (i2 == 603) {
+                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23766e);
                     return;
                 }
                 RNAuthCallBack rNAuthCallBack2 = rNAuthCallBack;
@@ -445,11 +445,11 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str) {
+            public void onSuccess(int i2, String str) {
                 BaiduPay.getInstance().doRNAuth(context, map, rNAuthCallBack);
             }
         });
-        WalletLoginHelper.getInstance().login(this.f23053e);
+        WalletLoginHelper.getInstance().login(this.f23766e);
     }
 
     public void doRemotePay(Context context, String str, PayCallBack payCallBack, Map<String, String> map) {
@@ -476,12 +476,12 @@ public class BaiduPayDelegate implements IWalletPayFacade {
         WalletLoginHelper.getInstance().setOpenBdussErrorCodeShowFlag(false);
         WalletLoginHelper.getInstance().verifyPassLogin(new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.3
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str2) {
+            public void onFail(int i2, String str2) {
                 BaiduPayDelegate.this.a(context, str, iDefaultPayMethodCallback);
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str2) {
+            public void onSuccess(int i2, String str2) {
                 BaiduPayDelegate.this.a(context, str, iDefaultPayMethodCallback);
             }
         }));
@@ -491,12 +491,12 @@ public class BaiduPayDelegate implements IWalletPayFacade {
     public String getWalletOuterInterface(final Context context, final IWalletOuterInterfaceListener iWalletOuterInterfaceListener) {
         WalletLoginHelper.getInstance().verifyPassLogin(new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.10
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str) {
+            public void onFail(int i2, String str) {
                 BaiduPayDelegate.this.a(context, iWalletOuterInterfaceListener);
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str) {
+            public void onSuccess(int i2, String str) {
                 BaiduPayDelegate.this.a(context, iWalletOuterInterfaceListener);
             }
         }));
@@ -516,7 +516,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             }
             return "";
         }
-        String walletInterfaceData2 = PayPreferenceManager.getWalletInterfaceData(context, f23051c, "");
+        String walletInterfaceData2 = PayPreferenceManager.getWalletInterfaceData(context, f23764c, "");
         return !TextUtils.isEmpty(walletInterfaceData2) ? walletInterfaceData2 : "";
     }
 
@@ -538,15 +538,15 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     }
 
                     @Override // com.baidu.android.pay.PayCallBack
-                    public void onPayResult(int i, String str3) {
-                        if (i != 0 && i != 1) {
+                    public void onPayResult(int i2, String str3) {
+                        if (i2 != 0 && i2 != 1) {
                             List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), StatHelper.getHasPwd(), StatHelper.getPayType(), StatHelper.getPayWay());
                             HashMap hashMap = new HashMap();
                             hashMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, StatHelper.getSpNo());
                             hashMap.put(BaiduPay.AMOUNT, StatHelper.getPayAmount());
                             StatisticManager.onEventWithValues(PayStatServiceEvent.PERCASHIER_PAY, collectData, hashMap);
                             StatisticManager.onEventWithValues(PayStatServiceEvent.PERCASHIER_PAY_FAILED, collectData, hashMap);
-                            iPrecashierCallback.onResult(BaiduPayDelegate.this.a(String.valueOf(i), str3));
+                            iPrecashierCallback.onResult(BaiduPayDelegate.this.a(String.valueOf(i2), str3));
                             return;
                         }
                         HashMap hashMap2 = new HashMap();
@@ -583,7 +583,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
         PayCallBack payBack = BaiduPay.getInstance().getPayBack();
         PayRequestCache.getInstance().clearPaySdkRequestCache();
         PayBaseBeanActivity.exitEbpay();
-        String str2 = f23049a;
+        String str2 = f23762a;
         LogUtil.d(str2, "orderinfo=" + str + " ==============callback=" + payBack);
         HashMap hashMap = new HashMap();
         hashMap.put(BaiduPay.PAY_FROM, payFrom);
@@ -613,7 +613,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
     }
 
     public BaiduPayDelegate() {
-        this.f23054f = null;
+        this.f23767f = null;
     }
 
     private IRemoteServiceCallback b() {
@@ -624,20 +624,20 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             }
 
             @Override // com.baidu.wallet.remotepay.IRemoteServiceCallback
-            public void onPayEnd(final int i, final String str) throws RemoteException {
+            public void onPayEnd(final int i2, final String str) throws RemoteException {
                 new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.wallet.api.BaiduPayDelegate.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (BaiduPayDelegate.this.f23054f != null) {
-                            BaiduPayDelegate.this.f23054f.onPayResult(i, str);
-                            BaiduPayDelegate.this.f23054f = null;
+                        if (BaiduPayDelegate.this.f23767f != null) {
+                            BaiduPayDelegate.this.f23767f.onPayResult(i2, str);
+                            BaiduPayDelegate.this.f23767f = null;
                         }
                     }
                 });
             }
 
             @Override // com.baidu.wallet.remotepay.IRemoteServiceCallback
-            public void startActivity(String str, String str2, int i, Bundle bundle) throws RemoteException {
+            public void startActivity(String str, String str2, int i2, Bundle bundle) throws RemoteException {
             }
         };
     }
@@ -658,11 +658,11 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             StatisticManager.onEventWithValues(PayStatServiceEvent.LCL_LOGIN_ENTER, StatHelper.collectData(orderNo2, strArr2));
         }
         StatHelper.cachePassLoginStatus(WalletLoginHelper.getInstance().isPassLogin() ? "1" : "0");
-        this.f23052d = new HandlePassLoginResult(context, false, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.13
+        this.f23765d = new HandlePassLoginResult(context, false, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.13
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str2) {
-                if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23052d);
+            public void onFail(int i2, String str2) {
+                if (i2 == 603) {
+                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23765d);
                     return;
                 }
                 List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), new String[0]);
@@ -691,7 +691,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str2) {
+            public void onSuccess(int i2, String str2) {
                 if (PayDataCache.getInstance().isRemotePay()) {
                     StatisticManager.onEventWithValues(PayStatServiceEvent.RMT_OPENBDUSS_RESULT, StatHelper.collectData(StatHelper.getOrderNo(), StatHelper.getSpNo(), StatHelper.getFromPkg(), "1"));
                 } else {
@@ -713,7 +713,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 }
             }
         });
-        WalletLoginHelper.getInstance().login(this.f23052d);
+        WalletLoginHelper.getInstance().login(this.f23765d);
     }
 
     @Override // com.baidu.wallet.api.IWalletPayFacade
@@ -730,7 +730,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             }
             StatisticManager.onEventWithValues(PayStatServiceEvent.STD_PAY_FAILED, collectData, hashMap);
         } else if (com.baidu.wallet.core.beans.BeanConstants.CHANNEL_ID.equals(BeanConstants.CHANNEL_ID_CHE_LIAN_WANG)) {
-            this.f23054f = payCallBack;
+            this.f23767f = payCallBack;
             Intent intent = new Intent();
             intent.setClassName(context.getPackageName(), "com.baidu.wallet.remotepay.RemotePayEnterActivity");
             intent.putExtra("caller", a(str, (Map<String, String>) null, map));
@@ -767,14 +767,14 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             if (jSONObject.has("requestInfo") && jSONObject.get("requestInfo") != null) {
                 getInstance().getPayMethod(context, jSONObject.getString("requestInfo"), new IDefaultPayMethodCallback() { // from class: com.baidu.wallet.api.BaiduPayDelegate.5
                     @Override // com.baidu.wallet.paysdk.precashier.IDefaultPayMethodCallback
-                    public void onReceived(int i, String str2) {
+                    public void onReceived(int i2, String str2) {
                         String a2;
-                        if (i == 0) {
+                        if (i2 == 0) {
                             HashMap hashMap = new HashMap();
                             hashMap.put("data", Base64Utils.encodeToString(str2.getBytes()));
                             a2 = BaiduPayDelegate.this.a((Map<String, Object>) hashMap, true);
                         } else {
-                            a2 = BaiduPayDelegate.this.a(String.valueOf(i), str2);
+                            a2 = BaiduPayDelegate.this.a(String.valueOf(i2), str2);
                         }
                         iPrecashierCallback.onResult(a2);
                     }
@@ -875,10 +875,10 @@ public class BaiduPayDelegate implements IWalletPayFacade {
 
     private boolean c() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - this.f23055g;
+        long j = currentTimeMillis - this.f23768g;
         com.baidu.apollon.utils.LogUtil.logd("timeD=" + j);
         if (0 >= j || j >= 800) {
-            this.f23055g = currentTimeMillis;
+            this.f23768g = currentTimeMillis;
             return false;
         }
         return true;
@@ -906,11 +906,11 @@ public class BaiduPayDelegate implements IWalletPayFacade {
         strArr[0] = WalletLoginHelper.getInstance().isPassLogin() ? "1" : "0";
         StatisticManager.onEventWithValues(PayStatServiceEvent.PERCASHIER_PAY_LOGIN, StatHelper.collectData(orderNo, strArr), hashMap);
         StatHelper.cachePassLoginStatus(WalletLoginHelper.getInstance().isPassLogin() ? "1" : "0");
-        this.f23052d = new HandlePassLoginResult(context, true, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.16
+        this.f23765d = new HandlePassLoginResult(context, true, new ILoginBackListener() { // from class: com.baidu.wallet.api.BaiduPayDelegate.16
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str3) {
-                if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23052d);
+            public void onFail(int i2, String str3) {
+                if (i2 == 603) {
+                    WalletLoginHelper.getInstance().onlyLogin(BaiduPayDelegate.this.f23765d);
                     return;
                 }
                 if (StatHelper.getPassLoginStatus().equals("1")) {
@@ -923,33 +923,33 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str3) {
+            public void onSuccess(int i2, String str3) {
                 StatisticManager.onEventWithValues(PayStatServiceEvent.PERCASHIER_OPENBDUSS_RESULT, StatHelper.collectData(StatHelper.getOrderNo(), "1"), hashMap);
                 BaiduPay.getInstance().preOrderPay(context, str, sb2, payCallBack, new HashMap());
             }
         });
-        WalletLoginHelper.getInstance().login(this.f23052d);
+        WalletLoginHelper.getInstance().login(this.f23765d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, String str, final IDefaultPayMethodCallback iDefaultPayMethodCallback) {
-        BeanManager.getInstance().removeAllBeans(f23050b);
+        BeanManager.getInstance().removeAllBeans(f23763b);
         new Handler(context.getMainLooper()).removeCallbacksAndMessages(null);
         StatisticManager.onEventStart("getPayMethod");
-        PrecashierDefaultPayTypeBean precashierDefaultPayTypeBean = (PrecashierDefaultPayTypeBean) PrecashierBeanFactory.getInstance().getBean(context, 1, f23050b);
+        PrecashierDefaultPayTypeBean precashierDefaultPayTypeBean = (PrecashierDefaultPayTypeBean) PrecashierBeanFactory.getInstance().getBean(context, 1, f23763b);
         precashierDefaultPayTypeBean.setParams(str);
         precashierDefaultPayTypeBean.setResponseCallback(new IBeanResponseCallback() { // from class: com.baidu.wallet.api.BaiduPayDelegate.4
             @Override // com.baidu.apollon.beans.IBeanResponseCallback
-            public void onBeanExecFailure(int i, int i2, String str2) {
-                StatisticManager.onEventEnd("getPayMethod", i2);
+            public void onBeanExecFailure(int i2, int i3, String str2) {
+                StatisticManager.onEventEnd("getPayMethod", i3);
                 IDefaultPayMethodCallback iDefaultPayMethodCallback2 = iDefaultPayMethodCallback;
                 if (iDefaultPayMethodCallback2 != null) {
-                    iDefaultPayMethodCallback2.onReceived(i2, str2);
+                    iDefaultPayMethodCallback2.onReceived(i3, str2);
                 }
             }
 
             @Override // com.baidu.apollon.beans.IBeanResponseCallback
-            public void onBeanExecSuccess(int i, Object obj, String str2) {
+            public void onBeanExecSuccess(int i2, Object obj, String str2) {
                 if (iDefaultPayMethodCallback == null) {
                     return;
                 }
@@ -970,17 +970,17 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                     } catch (JSONException unused2) {
                     }
                 }
-                int i2 = -1;
+                int i3 = -1;
                 String str4 = "";
                 if (jSONObject != null) {
                     try {
-                        i2 = jSONObject.getInt(Constants.KEYS.RET);
+                        i3 = jSONObject.getInt(Constants.KEYS.RET);
                         str4 = jSONObject.getString("msg");
                     } catch (Exception unused3) {
                     }
                 }
-                StatisticManager.onEventEnd("getPayMethod", i2);
-                iDefaultPayMethodCallback.onReceived(i2, str4);
+                StatisticManager.onEventEnd("getPayMethod", i3);
+                iDefaultPayMethodCallback.onReceived(i3, str4);
             }
         });
         precashierDefaultPayTypeBean.execBean();
@@ -988,28 +988,28 @@ public class BaiduPayDelegate implements IWalletPayFacade {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context, final IWalletOuterInterfaceListener iWalletOuterInterfaceListener) {
-        BeanManager.getInstance().removeAllBeans(f23049a);
+        BeanManager.getInstance().removeAllBeans(f23762a);
         final Handler handler = new Handler(context.getMainLooper());
         handler.removeCallbacksAndMessages(null);
         PayStatisticsUtil.onEventStart(StatServiceEvent.GET_WALLET_OUTER_INTERFACE);
-        w wVar = (w) PayBeanFactory.getInstance().getBean(context, PayBeanFactory.BEAN_ID_GET_WALLET_INTERFACE, f23049a);
+        w wVar = (w) PayBeanFactory.getInstance().getBean(context, PayBeanFactory.BEAN_ID_GET_WALLET_INTERFACE, f23762a);
         wVar.setResponseCallback(new IBeanResponseCallback() { // from class: com.baidu.wallet.api.BaiduPayDelegate.11
             @Override // com.baidu.apollon.beans.IBeanResponseCallback
-            public void onBeanExecFailure(int i, final int i2, final String str) {
-                PayStatisticsUtil.onEventEnd(StatServiceEvent.GET_WALLET_OUTER_INTERFACE, i2);
+            public void onBeanExecFailure(int i2, final int i3, final String str) {
+                PayStatisticsUtil.onEventEnd(StatServiceEvent.GET_WALLET_OUTER_INTERFACE, i3);
                 handler.post(new Runnable() { // from class: com.baidu.wallet.api.BaiduPayDelegate.11.3
                     @Override // java.lang.Runnable
                     public void run() {
                         IWalletOuterInterfaceListener iWalletOuterInterfaceListener2 = iWalletOuterInterfaceListener;
                         if (iWalletOuterInterfaceListener2 != null) {
-                            iWalletOuterInterfaceListener2.onReceived(i2, str);
+                            iWalletOuterInterfaceListener2.onReceived(i3, str);
                         }
                     }
                 });
             }
 
             @Override // com.baidu.apollon.beans.IBeanResponseCallback
-            public void onBeanExecSuccess(int i, Object obj, String str) {
+            public void onBeanExecSuccess(int i2, Object obj, String str) {
                 JSONObject jSONObject;
                 PayStatisticsUtil.onEventEnd(StatServiceEvent.GET_WALLET_OUTER_INTERFACE, 0);
                 WalletInterfaceResponse walletInterfaceResponse = obj instanceof WalletInterfaceResponse ? (WalletInterfaceResponse) obj : null;
@@ -1043,7 +1043,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 if (walletInterfaceResponse == null || walletInterfaceResponse.unlogin_data == null) {
                     return;
                 }
-                PayPreferenceManager.setWalletInterfaceData(context, BaiduPayDelegate.f23051c, walletInterfaceResponse.unlogin_data.toString());
+                PayPreferenceManager.setWalletInterfaceData(context, BaiduPayDelegate.f23764c, walletInterfaceResponse.unlogin_data.toString());
             }
         });
         wVar.execBean();
@@ -1126,7 +1126,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
             jSONObject.put("result", z ? 0 : 1);
             jSONObject.put("cnt", new JSONObject(map));
         } catch (JSONException e2) {
-            LogUtil.e(f23049a, "error", e2);
+            LogUtil.e(f23762a, "error", e2);
         }
         return jSONObject.toString();
     }
@@ -1143,7 +1143,7 @@ public class BaiduPayDelegate implements IWalletPayFacade {
                 jSONObject.put(RouterCallback.KEY_ERROR_CODE, str);
                 jSONObject.put("des", str2);
             } catch (JSONException e2) {
-                LogUtil.e(f23049a, "error", e2);
+                LogUtil.e(f23762a, "error", e2);
             }
         }
         hashMap.put("data", Base64Utils.encodeToString(jSONObject != null ? jSONObject.toString().getBytes() : str2.getBytes()));

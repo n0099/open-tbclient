@@ -3,16 +3,16 @@ package com.alipay.android.phone.mrpc.core;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f1726a;
+    public byte[] f1668a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1727b;
+    public String f1669b;
 
     public final void b(String str) {
-        this.f1727b = str;
+        this.f1669b = str;
     }
 
     public final byte[] b() {
-        return this.f1726a;
+        return this.f1668a;
     }
 }

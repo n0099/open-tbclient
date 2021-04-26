@@ -6,8 +6,8 @@ import com.bumptech.glide.request.transition.ViewPropertyTransition;
 /* loaded from: classes5.dex */
 public final class GenericTransitionOptions<TranscodeType> extends TransitionOptions<GenericTransitionOptions<TranscodeType>, TranscodeType> {
     @NonNull
-    public static <TranscodeType> GenericTransitionOptions<TranscodeType> with(int i) {
-        return new GenericTransitionOptions().transition(i);
+    public static <TranscodeType> GenericTransitionOptions<TranscodeType> with(int i2) {
+        return new GenericTransitionOptions().transition(i2);
     }
 
     @NonNull

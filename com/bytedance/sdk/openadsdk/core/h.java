@@ -3,13 +3,13 @@ package com.bytedance.sdk.openadsdk.core;
 import com.baidu.android.imsdk.IMConstants;
 /* loaded from: classes5.dex */
 public class h {
-    public static String a(int i) {
-        if (i != 201) {
-            if (i != 202) {
-                if (i != 20001) {
-                    if (i != 50001) {
-                        if (i != 60007) {
-                            switch (i) {
+    public static String a(int i2) {
+        if (i2 != 201) {
+            if (i2 != 202) {
+                if (i2 != 20001) {
+                    if (i2 != 50001) {
+                        if (i2 != 60007) {
+                            switch (i2) {
                                 case -14:
                                     return "开屏视频加载失败";
                                 case -13:
@@ -39,7 +39,7 @@ public class h {
                                 case -1:
                                     return "解析失败";
                                 default:
-                                    switch (i) {
+                                    switch (i2) {
                                         case 101:
                                             return "渲染结果数据解析失败";
                                         case 102:
@@ -61,7 +61,7 @@ public class h {
                                         case 110:
                                             return "模板广告请求参数不合法，如传入宽度不大于0";
                                         default:
-                                            switch (i) {
+                                            switch (i2) {
                                                 case 40000:
                                                     return "http conent_type错误";
                                                 case 40001:
@@ -112,7 +112,7 @@ public class h {
                                                 case 40024:
                                                     return "sdk 版本过低不返回广告";
                                                 default:
-                                                    switch (i) {
+                                                    switch (i2) {
                                                         case 60001:
                                                             return "show event处理错误";
                                                         case IMConstants.ERROR_GROUP_NAME_NOT_VALID /* 60002 */:

@@ -21,20 +21,20 @@ public class GroupInfoActivityConfig extends IntentConfig {
     public static final String JOIN_TYPE = "join_type";
     public static final String REQUEST_CODE = "requestCode";
 
-    public GroupInfoActivityConfig(Context context, long j, int i) {
+    public GroupInfoActivityConfig(Context context, long j, int i2) {
         super(context);
         getIntent().putExtra("group_id", j);
-        getIntent().putExtra(ACTION_FROM, i);
+        getIntent().putExtra(ACTION_FROM, i2);
         if (context instanceof Activity) {
             return;
         }
         getIntent().addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
     }
 
-    public GroupInfoActivityConfig(Context context, long j, int i, String str, long j2) {
+    public GroupInfoActivityConfig(Context context, long j, int i2, String str, long j2) {
         super(context);
         getIntent().putExtra("group_id", j);
-        getIntent().putExtra(ACTION_FROM, i);
+        getIntent().putExtra(ACTION_FROM, i2);
         getIntent().putExtra(DEFAULT_INVITE_MSG, str);
         getIntent().putExtra(INVITE_USER_ID, j2);
         getIntent().putExtra(JOIN_TYPE, ApplyJoinGroupActivityConfig.JOINTYPE_INVITE);
@@ -44,11 +44,11 @@ public class GroupInfoActivityConfig extends IntentConfig {
         getIntent().addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
     }
 
-    public GroupInfoActivityConfig(int i, Activity activity, long j, int i2) {
+    public GroupInfoActivityConfig(int i2, Activity activity, long j, int i3) {
         super(activity);
-        getIntent().putExtra("requestCode", i);
+        getIntent().putExtra("requestCode", i2);
         getIntent().putExtra("group_id", j);
-        getIntent().putExtra(ACTION_FROM, i2);
+        getIntent().putExtra(ACTION_FROM, i3);
         if (activity instanceof Activity) {
             return;
         }

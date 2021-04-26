@@ -170,8 +170,8 @@ public class AdVideoView extends RelativeLayout implements IAdVideoView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dispatchPlayerEvent(int i) {
-        switch (i) {
+    public void dispatchPlayerEvent(int i2) {
+        switch (i2) {
             case 256:
                 this.mLastPosition = 0;
                 this.mVideoPlaying = false;
@@ -192,9 +192,9 @@ public class AdVideoView extends RelativeLayout implements IAdVideoView {
                 if (preparedListener != null) {
                     preparedListener.onPrepared();
                 }
-                int i2 = this.mLastPosition;
-                if (i2 > 0) {
-                    this.mMediaPlayer.seekTo(i2);
+                int i3 = this.mLastPosition;
+                if (i3 > 0) {
+                    this.mMediaPlayer.seekTo(i3);
                 }
                 setVideoMute(this.mIsMute);
                 ISurfaceView iSurfaceView = this.mSurfaceView;
@@ -254,8 +254,8 @@ public class AdVideoView extends RelativeLayout implements IAdVideoView {
             this.mMediaPlayer = baseMediaPlayer;
             baseMediaPlayer.setOnPlayStateListener(new OnPlayStateListener() { // from class: com.baidu.mobads.container.widget.player.AdVideoView.1
                 @Override // com.baidu.mobads.container.widget.player.OnPlayStateListener
-                public void playStateChanged(int i) {
-                    AdVideoView.this.dispatchPlayerEvent(i);
+                public void playStateChanged(int i2) {
+                    AdVideoView.this.dispatchPlayerEvent(i2);
                 }
             });
         }
@@ -477,10 +477,10 @@ public class AdVideoView extends RelativeLayout implements IAdVideoView {
     }
 
     @Override // com.baidu.mobads.container.widget.player.IAdVideoView
-    public void seekTo(int i) {
+    public void seekTo(int i2) {
         BaseMediaPlayer baseMediaPlayer = this.mMediaPlayer;
         if (baseMediaPlayer != null) {
-            baseMediaPlayer.seekTo(i);
+            baseMediaPlayer.seekTo(i2);
         }
     }
 
@@ -494,8 +494,8 @@ public class AdVideoView extends RelativeLayout implements IAdVideoView {
         this.mDestroyListener = destroyedListener;
     }
 
-    public void setDisplayMode(int i) {
-        this.mDisplayMode = i;
+    public void setDisplayMode(int i2) {
+        this.mDisplayMode = i2;
     }
 
     @Override // com.baidu.mobads.container.widget.player.IAdVideoView
@@ -511,16 +511,16 @@ public class AdVideoView extends RelativeLayout implements IAdVideoView {
         this.mPreparedListener = preparedListener;
     }
 
-    public void setProgressBar(boolean z, int i, int i2, int i3) {
+    public void setProgressBar(boolean z, int i2, int i3, int i4) {
         this.mShowProgressBar = z;
-        this.mProgressBg = i;
-        this.mProgressColor = i2;
-        this.mProgressHeight = CommonUtils.dip2px(getContext(), i3);
+        this.mProgressBg = i2;
+        this.mProgressColor = i3;
+        this.mProgressHeight = CommonUtils.dip2px(getContext(), i4);
     }
 
-    public void setProgressBarVisibility(int i) {
+    public void setProgressBarVisibility(int i2) {
         if (this.mShowProgressBar) {
-            this.mVideoProgress.setVisibility(i);
+            this.mVideoProgress.setVisibility(i2);
         }
     }
 
@@ -633,8 +633,8 @@ public class AdVideoView extends RelativeLayout implements IAdVideoView {
         init();
     }
 
-    public AdVideoView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public AdVideoView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mProgressColor = -1;
         this.mProgressBg = -16777216;
         this.mShowProgressBar = false;

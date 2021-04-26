@@ -19,7 +19,7 @@ import com.cmic.sso.sdk.d.t;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AuthnHelper {
     public static final int ConcurrentBundle_DEFAULT_SIZE = 64;
     public static final String SDK_VERSION = "quick_login_android_9.2.2";
@@ -33,25 +33,25 @@ public class AuthnHelper {
     public long overTime;
     public String use2048PublicKey;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public com.cmic.sso.sdk.a f30349b;
+        public com.cmic.sso.sdk.a f31274b;
 
         public a(com.cmic.sso.sdk.a aVar) {
-            this.f30349b = aVar;
+            this.f31274b = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             JSONObject a2;
-            if (!t.a(AuthnHelper.this.mContext).a() && this.f30349b.b("doNetworkSwitch", false)) {
+            if (!t.a(AuthnHelper.this.mContext).a() && this.f31274b.b("doNetworkSwitch", false)) {
                 a2 = c.a("102508", "数据网络切换失败");
             } else {
                 a2 = c.a("200023", "登录超时");
             }
-            AuthnHelper.this.callBackResult(a2.optString(MiPushCommandMessage.KEY_RESULT_CODE, "200023"), a2.optString("resultString", "登录超时"), this.f30349b, a2);
+            AuthnHelper.this.callBackResult(a2.optString(MiPushCommandMessage.KEY_RESULT_CODE, "200023"), a2.optString("resultString", "登录超时"), this.f31274b, a2);
         }
     }
 
@@ -82,7 +82,7 @@ public class AuthnHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean commonInit(com.cmic.sso.sdk.a aVar, String str, String str2, String str3, int i, TokenListener tokenListener) {
+    public boolean commonInit(com.cmic.sso.sdk.a aVar, String str, String str2, String str3, int i2, TokenListener tokenListener) {
         boolean a2;
         aVar.a("CLOSE_CERT_VERIFY", q.h());
         aVar.a("use2048PublicKey", "rsa2048".equals(this.use2048PublicKey));
@@ -104,7 +104,7 @@ public class AuthnHelper {
         aVar.a("imsi", b2);
         aVar.a("operatortype", a4);
         aVar.a("iccid", d2);
-        aVar.a("logintype", i);
+        aVar.a("logintype", i2);
         com.cmic.sso.sdk.d.c.b(TAG, "iccid=" + d2);
         com.cmic.sso.sdk.d.c.b(TAG, "imsi=" + b2);
         if (TextUtils.isEmpty(b2)) {
@@ -117,7 +117,7 @@ public class AuthnHelper {
             a2 = h.a(aVar);
             if (a2) {
                 aVar.a("securityphone", k.b("securityphone", ""));
-                if (3 != i && a5 != 0) {
+                if (3 != i2 && a5 != 0) {
                     String a6 = h.a(this.mContext);
                     if (TextUtils.isEmpty(a6)) {
                         a2 = false;

@@ -45,12 +45,12 @@ public final class HttpDate {
         }
         synchronized (BROWSER_COMPATIBLE_DATE_FORMAT_STRINGS) {
             int length = BROWSER_COMPATIBLE_DATE_FORMAT_STRINGS.length;
-            for (int i = 0; i < length; i++) {
-                DateFormat dateFormat = BROWSER_COMPATIBLE_DATE_FORMATS[i];
+            for (int i2 = 0; i2 < length; i2++) {
+                DateFormat dateFormat = BROWSER_COMPATIBLE_DATE_FORMATS[i2];
                 if (dateFormat == null) {
-                    dateFormat = new SimpleDateFormat(BROWSER_COMPATIBLE_DATE_FORMAT_STRINGS[i], Locale.US);
+                    dateFormat = new SimpleDateFormat(BROWSER_COMPATIBLE_DATE_FORMAT_STRINGS[i2], Locale.US);
                     dateFormat.setTimeZone(Util.UTC);
-                    BROWSER_COMPATIBLE_DATE_FORMATS[i] = dateFormat;
+                    BROWSER_COMPATIBLE_DATE_FORMATS[i2] = dateFormat;
                 }
                 parsePosition.setIndex(0);
                 Date parse2 = dateFormat.parse(str, parsePosition);

@@ -7,11 +7,11 @@ import android.widget.ScrollView;
 public class GuideScrollView extends ScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f21813e;
+    public a f22468e;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void onScrollChanged(int i, int i2, int i3, int i4);
+        void onScrollChanged(int i2, int i3, int i4, int i5);
     }
 
     public GuideScrollView(Context context) {
@@ -19,27 +19,27 @@ public class GuideScrollView extends ScrollView {
     }
 
     public a getScrollChangedListener() {
-        return this.f21813e;
+        return this.f22468e;
     }
 
     @Override // android.view.View
-    public void onScrollChanged(int i, int i2, int i3, int i4) {
-        super.onScrollChanged(i, i2, i3, i4);
-        a aVar = this.f21813e;
+    public void onScrollChanged(int i2, int i3, int i4, int i5) {
+        super.onScrollChanged(i2, i3, i4, i5);
+        a aVar = this.f22468e;
         if (aVar != null) {
-            aVar.onScrollChanged(i, i2, i3, i4);
+            aVar.onScrollChanged(i2, i3, i4, i5);
         }
     }
 
     public void setScrollChangedListener(a aVar) {
-        this.f21813e = aVar;
+        this.f22468e = aVar;
     }
 
     public GuideScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 
-    public GuideScrollView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public GuideScrollView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

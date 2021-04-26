@@ -1,7 +1,6 @@
 package com.baidu.crabsdk.c;
 
 import android.util.Base64;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.crabsdk.b.h;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.security.Key;
@@ -63,7 +62,7 @@ public final class d {
     public static String e() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(d(ExifInterface.LONGITUDE_WEST, false));
+        stringBuffer.append(d("W", false));
         stringBuffer.append(d(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, true));
         stringBuffer.append(random.nextInt(1) + 1);
         stringBuffer.append(d("Y", true));
@@ -75,8 +74,8 @@ public final class d {
 
     public static String f() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 1; i < 9; i++) {
-            sb.append(String.valueOf(i));
+        for (int i2 = 1; i2 < 9; i2++) {
+            sb.append(String.valueOf(i2));
         }
         sb.append((CharSequence) sb);
         return sb.toString();

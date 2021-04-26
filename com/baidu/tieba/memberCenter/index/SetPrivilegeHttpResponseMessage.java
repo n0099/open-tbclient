@@ -13,10 +13,10 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f18626a;
+        public int f19048a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18627b = null;
+        public String f19049b = null;
 
         public a(SetPrivilegeHttpResponseMessage setPrivilegeHttpResponseMessage) {
         }
@@ -25,13 +25,13 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            this.f18626a = jSONObject.optInt("error_code");
+            this.f19048a = jSONObject.optInt("error_code");
             jSONObject.optString("error_msg");
-            this.f18627b = jSONObject.optString("field_text");
+            this.f19049b = jSONObject.optString("field_text");
             jSONObject.optString("left_button");
             jSONObject.optString("right_button");
-            if (this.f18626a == 0) {
-                StringUtils.isNull(this.f18627b);
+            if (this.f19048a == 0) {
+                StringUtils.isNull(this.f19049b);
             }
         }
     }
@@ -41,7 +41,7 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }

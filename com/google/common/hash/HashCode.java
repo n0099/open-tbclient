@@ -2,13 +2,13 @@ package com.google.common.hash;
 
 import com.google.common.primitives.Ints;
 import com.google.common.primitives.UnsignedInts;
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public abstract class HashCode {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final char[] f31191e = "0123456789abcdef".toCharArray();
+    public static final char[] f32169e = "0123456789abcdef".toCharArray();
 
     /* loaded from: classes6.dex */
     public static final class BytesHashCode extends HashCode implements Serializable {
@@ -48,15 +48,15 @@ public abstract class HashCode {
             if (this.bytes.length != hashCode.getBytesInternal().length) {
                 return false;
             }
-            int i = 0;
+            int i2 = 0;
             boolean z = true;
             while (true) {
                 byte[] bArr = this.bytes;
-                if (i >= bArr.length) {
+                if (i2 >= bArr.length) {
                     return z;
                 }
-                z &= bArr[i] == hashCode.getBytesInternal()[i];
-                i++;
+                z &= bArr[i2] == hashCode.getBytesInternal()[i2];
+                i2++;
             }
         }
 
@@ -68,15 +68,15 @@ public abstract class HashCode {
         @Override // com.google.common.hash.HashCode
         public long padToLong() {
             long j = this.bytes[0] & 255;
-            for (int i = 1; i < Math.min(this.bytes.length, 8); i++) {
-                j |= (this.bytes[i] & 255) << (i * 8);
+            for (int i2 = 1; i2 < Math.min(this.bytes.length, 8); i2++) {
+                j |= (this.bytes[i2] & 255) << (i2 * 8);
             }
             return j;
         }
 
         @Override // com.google.common.hash.HashCode
-        public void writeBytesToImpl(byte[] bArr, int i, int i2) {
-            System.arraycopy(this.bytes, 0, bArr, i, i2);
+        public void writeBytesToImpl(byte[] bArr, int i2, int i3) {
+            System.arraycopy(this.bytes, 0, bArr, i2, i3);
         }
     }
 
@@ -85,14 +85,14 @@ public abstract class HashCode {
         public static final long serialVersionUID = 0;
         public final int hash;
 
-        public IntHashCode(int i) {
-            this.hash = i;
+        public IntHashCode(int i2) {
+            this.hash = i2;
         }
 
         @Override // com.google.common.hash.HashCode
         public byte[] asBytes() {
-            int i = this.hash;
-            return new byte[]{(byte) i, (byte) (i >> 8), (byte) (i >> 16), (byte) (i >> 24)};
+            int i2 = this.hash;
+            return new byte[]{(byte) i2, (byte) (i2 >> 8), (byte) (i2 >> 16), (byte) (i2 >> 24)};
         }
 
         @Override // com.google.common.hash.HashCode
@@ -121,9 +121,9 @@ public abstract class HashCode {
         }
 
         @Override // com.google.common.hash.HashCode
-        public void writeBytesToImpl(byte[] bArr, int i, int i2) {
-            for (int i3 = 0; i3 < i2; i3++) {
-                bArr[i + i3] = (byte) (this.hash >> (i3 * 8));
+        public void writeBytesToImpl(byte[] bArr, int i2, int i3) {
+            for (int i4 = 0; i4 < i3; i4++) {
+                bArr[i2 + i4] = (byte) (this.hash >> (i4 * 8));
             }
         }
     }
@@ -169,9 +169,9 @@ public abstract class HashCode {
         }
 
         @Override // com.google.common.hash.HashCode
-        public void writeBytesToImpl(byte[] bArr, int i, int i2) {
-            for (int i3 = 0; i3 < i2; i3++) {
-                bArr[i + i3] = (byte) (this.hash >> (i3 * 8));
+        public void writeBytesToImpl(byte[] bArr, int i2, int i3) {
+            for (int i4 = 0; i4 < i3; i4++) {
+                bArr[i2 + i4] = (byte) (this.hash >> (i4 * 8));
             }
         }
     }
@@ -195,8 +195,8 @@ public abstract class HashCode {
         return new BytesHashCode(bArr);
     }
 
-    public static HashCode fromInt(int i) {
-        return new IntHashCode(i);
+    public static HashCode fromInt(int i2) {
+        return new IntHashCode(i2);
     }
 
     public static HashCode fromLong(long j) {
@@ -207,8 +207,8 @@ public abstract class HashCode {
         n.k(str.length() >= 2, "input string (%s) must have at least 2 characters", str);
         n.k(str.length() % 2 == 0, "input string (%s) must have an even number of characters", str);
         byte[] bArr = new byte[str.length() / 2];
-        for (int i = 0; i < str.length(); i += 2) {
-            bArr[i / 2] = (byte) ((a(str.charAt(i)) << 4) + a(str.charAt(i + 1)));
+        for (int i2 = 0; i2 < str.length(); i2 += 2) {
+            bArr[i2 / 2] = (byte) ((a(str.charAt(i2)) << 4) + a(str.charAt(i2 + 1)));
         }
         return fromBytesNoCopy(bArr);
     }
@@ -240,11 +240,11 @@ public abstract class HashCode {
             return asInt();
         }
         byte[] bytesInternal = getBytesInternal();
-        int i = bytesInternal[0] & 255;
-        for (int i2 = 1; i2 < bytesInternal.length; i2++) {
-            i |= (bytesInternal[i2] & 255) << (i2 * 8);
+        int i2 = bytesInternal[0] & 255;
+        for (int i3 = 1; i3 < bytesInternal.length; i3++) {
+            i2 |= (bytesInternal[i3] & 255) << (i3 * 8);
         }
-        return i;
+        return i2;
     }
 
     public abstract long padToLong();
@@ -253,18 +253,18 @@ public abstract class HashCode {
         byte[] bytesInternal = getBytesInternal();
         StringBuilder sb = new StringBuilder(bytesInternal.length * 2);
         for (byte b2 : bytesInternal) {
-            sb.append(f31191e[(b2 >> 4) & 15]);
-            sb.append(f31191e[b2 & 15]);
+            sb.append(f32169e[(b2 >> 4) & 15]);
+            sb.append(f32169e[b2 & 15]);
         }
         return sb.toString();
     }
 
-    public int writeBytesTo(byte[] bArr, int i, int i2) {
-        int i3 = Ints.i(i2, bits() / 8);
-        n.v(i, i + i3, bArr.length);
-        writeBytesToImpl(bArr, i, i3);
-        return i3;
+    public int writeBytesTo(byte[] bArr, int i2, int i3) {
+        int i4 = Ints.i(i3, bits() / 8);
+        n.v(i2, i2 + i4, bArr.length);
+        writeBytesToImpl(bArr, i2, i4);
+        return i4;
     }
 
-    public abstract void writeBytesToImpl(byte[] bArr, int i, int i2);
+    public abstract void writeBytesToImpl(byte[] bArr, int i2, int i3);
 }

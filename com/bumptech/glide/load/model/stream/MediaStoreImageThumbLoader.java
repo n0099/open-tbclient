@@ -40,8 +40,8 @@ public class MediaStoreImageThumbLoader implements ModelLoader<Uri, InputStream>
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<InputStream> buildLoadData(@NonNull Uri uri, int i, int i2, @NonNull Options options) {
-        if (MediaStoreUtil.isThumbnailSize(i, i2)) {
+    public ModelLoader.LoadData<InputStream> buildLoadData(@NonNull Uri uri, int i2, int i3, @NonNull Options options) {
+        if (MediaStoreUtil.isThumbnailSize(i2, i3)) {
             return new ModelLoader.LoadData<>(new ObjectKey(uri), ThumbFetcher.buildImageFetcher(this.context, uri));
         }
         return null;

@@ -26,9 +26,9 @@ public interface NSPVI extends ApkDownloadComplianceInterface {
 
     void setAdListener(ADListener aDListener);
 
-    void setAdLogoMargin(int i, int i2);
+    void setAdLogoMargin(int i2, int i3);
 
-    void setFetchDelay(int i);
+    void setFetchDelay(int i2);
 
     void setFloatView(View view);
 

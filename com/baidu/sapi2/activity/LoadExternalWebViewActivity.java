@@ -18,7 +18,7 @@ import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
 import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.utils.enums.AccountType;
-import d.b.y.a.f;
+import d.a.y.a.f;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class LoadExternalWebViewActivity extends BaseActivity {
@@ -29,14 +29,14 @@ public class LoadExternalWebViewActivity extends BaseActivity {
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";
     public static final String RESULT_BUSINESS_TYPE_ACCOUNT_FREEZE = "business_account_freeze";
     public static final String RESULT_BUSINESS_TYPE_PRE_SET_UNAME = "business_pre_set_username";
-    public static final int t = 2001;
-    public String p;
-    public String q;
-    public String r;
-    public AuthorizationListener s = new AuthorizationListener() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.1
+    public static final int x = 2001;
+    public String t;
+    public String u;
+    public String v;
+    public AuthorizationListener w = new AuthorizationListener() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.1
         @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-        public void onFailed(int i, String str) {
-            if ("business_from_one_key_login".equals(LoadExternalWebViewActivity.this.r)) {
+        public void onFailed(int i2, String str) {
+            if ("business_from_one_key_login".equals(LoadExternalWebViewActivity.this.v)) {
                 new OneKeyLoginSdkCall().loadOneKeyLoginFail(CoreViewRouter.getInstance().getOneKeyLoginCallback(), -103, null);
             }
             LoadExternalWebViewActivity.this.setResult(0);
@@ -45,7 +45,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
 
         @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
         public void onSuccess(AccountType accountType) {
-            if ("business_from_one_key_login".equals(LoadExternalWebViewActivity.this.r)) {
+            if ("business_from_one_key_login".equals(LoadExternalWebViewActivity.this.v)) {
                 OneKeyLoginCallback oneKeyLoginCallback = CoreViewRouter.getInstance().getOneKeyLoginCallback();
                 OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
                 oneKeyLoginResult.setResultCode(0);
@@ -79,19 +79,19 @@ public class LoadExternalWebViewActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
-        this.p = getIntent().getStringExtra(EXTRA_EXTERNAL_TITLE);
-        this.q = getIntent().getStringExtra("extra_external_url");
-        this.r = getIntent().getStringExtra(EXTRA_BUSINESS_FROM);
-        if (TextUtils.isEmpty(this.q)) {
+        this.t = getIntent().getStringExtra(EXTRA_EXTERNAL_TITLE);
+        this.u = getIntent().getStringExtra("extra_external_url");
+        this.v = getIntent().getStringExtra(EXTRA_BUSINESS_FROM);
+        if (TextUtils.isEmpty(this.u)) {
             setResult(0);
             finish();
         }
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i == 2001 && i2 == -1) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i2 == 2001 && i3 == -1) {
             this.loginStatusChange = true;
             setResult(-1, new Intent());
             finish();
@@ -131,15 +131,15 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         }
     }
 
-    @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        super.onRequestPermissionsResult(i, strArr, iArr);
+    @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(i2, strArr, iArr);
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        this.sapiWebView.setAuthorizationListener(this.s);
+        this.sapiWebView.setAuthorizationListener(this.w);
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
@@ -155,8 +155,8 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         });
         this.sapiWebView.setLeftBtnVisibleCallback(new SapiWebView.LeftBtnVisibleCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.4
             @Override // com.baidu.sapi2.SapiWebView.LeftBtnVisibleCallback
-            public void onLeftBtnVisible(int i) {
-                if (i == 0) {
+            public void onLeftBtnVisible(int i2) {
+                if (i2 == 0) {
                     LoadExternalWebViewActivity.this.setBtnVisibility(4, 4, 4);
                 } else {
                     LoadExternalWebViewActivity.this.setBtnVisibility(4, 0, 4);
@@ -178,10 +178,10 @@ public class LoadExternalWebViewActivity extends BaseActivity {
             public void onAccountSwitch(SapiWebView.SwitchAccountCallback.Result result) {
                 Intent intent = new Intent(LoadExternalWebViewActivity.this, LoginActivity.class);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
-                int i = result.switchAccountType;
-                if (i == 1) {
+                int i2 = result.switchAccountType;
+                if (i2 == 1) {
                     intent.putExtra("username", result.userName);
-                } else if (i == 2) {
+                } else if (i2 == 2) {
                     if (result.loginType == 0) {
                         intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME);
                     } else {
@@ -229,7 +229,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         if (webLoginDTO != null && WebLoginDTO.statExtraValid(webLoginDTO.statExtra)) {
             arrayList.add(new PassNameValuePair("extrajson", webLoginDTO.statExtra));
         }
-        this.sapiWebView.loadExternalUrl(this.q, arrayList);
+        this.sapiWebView.loadExternalUrl(this.u, arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

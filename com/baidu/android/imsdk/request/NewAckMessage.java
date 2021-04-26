@@ -42,19 +42,19 @@ public class NewAckMessage extends Message {
         public boolean isReliable = false;
         public String osName = "android";
 
-        public Tripule(long j, String str, long j2, String str2, int i, String str3, long j3, long j4, long j5, int i2, int i3, int i4, String str4, String str5, String str6) {
+        public Tripule(long j, String str, long j2, String str2, int i2, String str3, long j3, long j4, long j5, int i3, int i4, int i5, String str4, String str5, String str6) {
             this.msgid = j;
             this.msgkey = str;
             this.msgReceiveTime = j2;
             this.msgPage = str2;
-            this.contentType = i;
+            this.contentType = i2;
             this.accountType = str3;
             this.ukFromUser = j3;
             this.ukToUser = j4;
             this.paId = j5;
-            this.paType = i2;
-            this.subPaType = i3;
-            this.paClassType = i4;
+            this.paType = i3;
+            this.subPaType = i4;
+            this.paClassType = i5;
             this.msgCategory = str4;
             this.businessSource = str5;
             this.thirdId = str6;
@@ -170,9 +170,9 @@ public class NewAckMessage extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        super.handleMessageResult(context, jSONObject, i, str);
-        if (i == 0) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+        super.handleMessageResult(context, jSONObject, i2, str);
+        if (i2 == 0) {
             DBManager.getInstance(context).deleteCmdMsg(getUUID());
             AckHandlerThread.getInstance(context).mRetryCount.set(0);
         }

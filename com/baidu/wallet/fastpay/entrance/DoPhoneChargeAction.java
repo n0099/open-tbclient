@@ -22,7 +22,7 @@ import java.util.HashMap;
 public class DoPhoneChargeAction implements RouterAction {
 
     /* renamed from: a  reason: collision with root package name */
-    public LoginBackListenerProxy f24058a;
+    public LoginBackListenerProxy f24807a;
 
     @Override // com.baidu.wallet.router.RouterAction
     public void invoke(Context context, HashMap hashMap, RouterCallback routerCallback) {
@@ -53,11 +53,11 @@ public class DoPhoneChargeAction implements RouterAction {
             } else {
                 intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             }
-            this.f24058a = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.fastpay.entrance.DoPhoneChargeAction.1
+            this.f24807a = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.fastpay.entrance.DoPhoneChargeAction.1
                 @Override // com.baidu.wallet.api.ILoginBackListener
-                public void onFail(int i, String str) {
-                    if (i == 603) {
-                        WalletLoginHelper.getInstance().onlyLogin(DoPhoneChargeAction.this.f24058a);
+                public void onFail(int i2, String str) {
+                    if (i2 == 603) {
+                        WalletLoginHelper.getInstance().onlyLogin(DoPhoneChargeAction.this.f24807a);
                         return;
                     }
                     context.startActivity(intent);
@@ -72,7 +72,7 @@ public class DoPhoneChargeAction implements RouterAction {
                 }
 
                 @Override // com.baidu.wallet.api.ILoginBackListener
-                public void onSuccess(int i, String str) {
+                public void onSuccess(int i2, String str) {
                     context.startActivity(intent);
                     Context context2 = context;
                     if (context2 instanceof Activity) {
@@ -84,7 +84,7 @@ public class DoPhoneChargeAction implements RouterAction {
                     }
                 }
             });
-            WalletLoginHelper.getInstance().verifyPassLogin(true, this.f24058a);
+            WalletLoginHelper.getInstance().verifyPassLogin(true, this.f24807a);
         }
     }
 }

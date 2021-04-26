@@ -10,18 +10,18 @@ import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity;
-import d.b.c.e.p.l;
-import d.b.i0.d.b;
-import d.b.i0.d.c;
-import d.b.i0.d.d;
+import d.a.c.e.p.l;
+import d.a.i0.d.c;
+import d.a.i0.d.d;
+import d.a.i0.d.e;
 /* loaded from: classes3.dex */
 public class PersonListActivityStatic {
 
     /* loaded from: classes3.dex */
-    public static class a implements d {
-        @Override // d.b.i0.d.d
+    public static class a implements e {
+        @Override // d.a.i0.d.e
         public View a(Context context) {
-            TextView a2 = c.a(context);
+            TextView a2 = d.a(context);
             if (a2 != null) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
@@ -40,6 +40,6 @@ public class PersonListActivityStatic {
     }
 
     public static void a() {
-        b.b().c(5, new a());
+        c.b().c(5, new a());
     }
 }

@@ -130,11 +130,11 @@ public final class MenuItemCompat {
         return menuItem.setActionView(view);
     }
 
-    public static void setAlphabeticShortcut(MenuItem menuItem, char c2, int i) {
+    public static void setAlphabeticShortcut(MenuItem menuItem, char c2, int i2) {
         if (menuItem instanceof SupportMenuItem) {
-            ((SupportMenuItem) menuItem).setAlphabeticShortcut(c2, i);
+            ((SupportMenuItem) menuItem).setAlphabeticShortcut(c2, i2);
         } else if (Build.VERSION.SDK_INT >= 26) {
-            menuItem.setAlphabeticShortcut(c2, i);
+            menuItem.setAlphabeticShortcut(c2, i2);
         }
     }
 
@@ -162,11 +162,11 @@ public final class MenuItemCompat {
         }
     }
 
-    public static void setNumericShortcut(MenuItem menuItem, char c2, int i) {
+    public static void setNumericShortcut(MenuItem menuItem, char c2, int i2) {
         if (menuItem instanceof SupportMenuItem) {
-            ((SupportMenuItem) menuItem).setNumericShortcut(c2, i);
+            ((SupportMenuItem) menuItem).setNumericShortcut(c2, i2);
         } else if (Build.VERSION.SDK_INT >= 26) {
-            menuItem.setNumericShortcut(c2, i);
+            menuItem.setNumericShortcut(c2, i2);
         }
     }
 
@@ -185,17 +185,17 @@ public final class MenuItemCompat {
         });
     }
 
-    public static void setShortcut(MenuItem menuItem, char c2, char c3, int i, int i2) {
+    public static void setShortcut(MenuItem menuItem, char c2, char c3, int i2, int i3) {
         if (menuItem instanceof SupportMenuItem) {
-            ((SupportMenuItem) menuItem).setShortcut(c2, c3, i, i2);
+            ((SupportMenuItem) menuItem).setShortcut(c2, c3, i2, i3);
         } else if (Build.VERSION.SDK_INT >= 26) {
-            menuItem.setShortcut(c2, c3, i, i2);
+            menuItem.setShortcut(c2, c3, i2, i3);
         }
     }
 
     @Deprecated
-    public static void setShowAsAction(MenuItem menuItem, int i) {
-        menuItem.setShowAsAction(i);
+    public static void setShowAsAction(MenuItem menuItem, int i2) {
+        menuItem.setShowAsAction(i2);
     }
 
     public static void setTooltipText(MenuItem menuItem, CharSequence charSequence) {
@@ -207,7 +207,7 @@ public final class MenuItemCompat {
     }
 
     @Deprecated
-    public static MenuItem setActionView(MenuItem menuItem, int i) {
-        return menuItem.setActionView(i);
+    public static MenuItem setActionView(MenuItem menuItem, int i2) {
+        return menuItem.setActionView(i2);
     }
 }

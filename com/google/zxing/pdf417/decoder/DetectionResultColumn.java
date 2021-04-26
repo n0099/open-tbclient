@@ -16,23 +16,23 @@ public class DetectionResultColumn {
         return this.boundingBox;
     }
 
-    public final Codeword getCodeword(int i) {
-        return this.codewords[imageRowToCodewordIndex(i)];
+    public final Codeword getCodeword(int i2) {
+        return this.codewords[imageRowToCodewordIndex(i2)];
     }
 
-    public final Codeword getCodewordNearby(int i) {
+    public final Codeword getCodewordNearby(int i2) {
         Codeword codeword;
         Codeword codeword2;
-        Codeword codeword3 = getCodeword(i);
+        Codeword codeword3 = getCodeword(i2);
         if (codeword3 != null) {
             return codeword3;
         }
-        for (int i2 = 1; i2 < 5; i2++) {
-            int imageRowToCodewordIndex = imageRowToCodewordIndex(i) - i2;
+        for (int i3 = 1; i3 < 5; i3++) {
+            int imageRowToCodewordIndex = imageRowToCodewordIndex(i2) - i3;
             if (imageRowToCodewordIndex >= 0 && (codeword2 = this.codewords[imageRowToCodewordIndex]) != null) {
                 return codeword2;
             }
-            int imageRowToCodewordIndex2 = imageRowToCodewordIndex(i) + i2;
+            int imageRowToCodewordIndex2 = imageRowToCodewordIndex(i2) + i3;
             Codeword[] codewordArr = this.codewords;
             if (imageRowToCodewordIndex2 < codewordArr.length && (codeword = codewordArr[imageRowToCodewordIndex2]) != null) {
                 return codeword;
@@ -45,25 +45,25 @@ public class DetectionResultColumn {
         return this.codewords;
     }
 
-    public final int imageRowToCodewordIndex(int i) {
-        return i - this.boundingBox.getMinY();
+    public final int imageRowToCodewordIndex(int i2) {
+        return i2 - this.boundingBox.getMinY();
     }
 
-    public final void setCodeword(int i, Codeword codeword) {
-        this.codewords[imageRowToCodewordIndex(i)] = codeword;
+    public final void setCodeword(int i2, Codeword codeword) {
+        this.codewords[imageRowToCodewordIndex(i2)] = codeword;
     }
 
     public String toString() {
         Codeword[] codewordArr;
         Formatter formatter = new Formatter();
-        int i = 0;
+        int i2 = 0;
         for (Codeword codeword : this.codewords) {
             if (codeword == null) {
-                formatter.format("%3d:    |   %n", Integer.valueOf(i));
-                i++;
+                formatter.format("%3d:    |   %n", Integer.valueOf(i2));
+                i2++;
             } else {
-                formatter.format("%3d: %3d|%3d%n", Integer.valueOf(i), Integer.valueOf(codeword.getRowNumber()), Integer.valueOf(codeword.getValue()));
-                i++;
+                formatter.format("%3d: %3d|%3d%n", Integer.valueOf(i2), Integer.valueOf(codeword.getRowNumber()), Integer.valueOf(codeword.getValue()));
+                i2++;
             }
         }
         String formatter2 = formatter.toString();

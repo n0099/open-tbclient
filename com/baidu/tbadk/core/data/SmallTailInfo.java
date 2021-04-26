@@ -31,9 +31,9 @@ public class SmallTailInfo extends OrmObject implements Serializable {
         public SmallTailInfoContent() {
         }
 
-        public SmallTailInfoContent(String str, int i) {
+        public SmallTailInfoContent(String str, int i2) {
             this.text = str;
-            this.type = i;
+            this.type = i2;
         }
     }
 
@@ -61,13 +61,13 @@ public class SmallTailInfo extends OrmObject implements Serializable {
         }
         StringBuilder sb = new StringBuilder();
         for (SmallTailInfoContent smallTailInfoContent : this.content) {
-            int i = smallTailInfoContent.type;
-            if (i == 0) {
+            int i2 = smallTailInfoContent.type;
+            if (i2 == 0) {
                 String str = smallTailInfoContent.text;
                 if (str != null) {
                     sb.append(str);
                 }
-            } else if (i == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
+            } else if (i2 == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
                 String f2 = TbFaceManager.e().f(smallTailInfoContent.text);
                 if (!StringUtils.isNull(f2)) {
                     sb.append(EMOTION_PREFIX + f2 + EMOTION_SUFFIX);

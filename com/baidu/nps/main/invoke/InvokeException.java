@@ -4,8 +4,8 @@ public class InvokeException extends RuntimeException {
     public int mErrCode;
     public String mErrMsg;
 
-    public InvokeException(int i, String str) {
-        this.mErrCode = i;
+    public InvokeException(int i2, String str) {
+        this.mErrCode = i2;
         this.mErrMsg = str;
     }
 

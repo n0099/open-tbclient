@@ -11,10 +11,10 @@ public class EmotionDetailActivityConfig extends IntentConfig {
     public static final String EMOTION_PCK_ID_KEY = "pck_id";
     public static final String EMOTION_PIC_ID_KEY = "pic_id";
 
-    public EmotionDetailActivityConfig(Context context, int i, long j, boolean z) {
+    public EmotionDetailActivityConfig(Context context, int i2, long j, boolean z) {
         super(context);
         Intent intent = getIntent();
-        intent.putExtra("pck_id", i);
+        intent.putExtra("pck_id", i2);
         intent.putExtra(EMOTION_PIC_ID_KEY, j);
         intent.putExtra(EMOTION_IS_GIF_KEY, z);
     }
@@ -24,11 +24,11 @@ public class EmotionDetailActivityConfig extends IntentConfig {
         return this;
     }
 
-    public EmotionDetailActivityConfig(Context context, int i, long j, int i2, boolean z) {
+    public EmotionDetailActivityConfig(Context context, int i2, long j, int i3, boolean z) {
         super(context);
         Intent intent = getIntent();
-        setRequestCode(i2);
-        intent.putExtra("pck_id", i);
+        setRequestCode(i3);
+        intent.putExtra("pck_id", i2);
         intent.putExtra(EMOTION_PIC_ID_KEY, j);
         intent.putExtra(EMOTION_IS_GIF_KEY, z);
         setIntentAction(IntentAction.ActivityForResult);

@@ -16,11 +16,11 @@ public class BasicListHeaderIterator implements HeaderIterator {
         throw new RuntimeException("Stub!");
     }
 
-    public boolean filterHeader(int i) {
+    public boolean filterHeader(int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public int findNext(int i) {
+    public int findNext(int i2) {
         throw new RuntimeException("Stub!");
     }
 

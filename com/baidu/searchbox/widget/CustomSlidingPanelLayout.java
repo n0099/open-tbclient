@@ -136,8 +136,8 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         init();
     }
 
-    public CustomSlidingPanelLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public CustomSlidingPanelLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mCanSlide = true;
         this.mForceActivityTransparent = false;
         this.mSlideRegionFactor = 1.0d;

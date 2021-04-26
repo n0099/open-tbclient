@@ -1,10 +1,9 @@
 package com.bytedance.tea.crash;
 
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.bddownload.core.breakpoint.sqllite.BreakpointSQLiteHelper;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 /* loaded from: classes5.dex */
 public enum c {
-    LAUNCH(Config.LAUNCH),
+    LAUNCH("launch"),
     JAVA("java"),
     NATIVE("native"),
     ANR("anr"),

@@ -8,22 +8,22 @@ import org.json.JSONArray;
 public final class cx implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f22831a;
+    public final /* synthetic */ String f23541a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ JSONArray f22832b;
+    public final /* synthetic */ JSONArray f23542b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f22833c;
+    public final /* synthetic */ int f23543c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ cg f22834d;
+    public final /* synthetic */ cg f23544d;
 
-    public cx(cg cgVar, String str, JSONArray jSONArray, int i) {
-        this.f22834d = cgVar;
-        this.f22831a = str;
-        this.f22832b = jSONArray;
-        this.f22833c = i;
+    public cx(cg cgVar, String str, JSONArray jSONArray, int i2) {
+        this.f23544d = cgVar;
+        this.f23541a = str;
+        this.f23542b = jSONArray;
+        this.f23543c = i2;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x0066: INVOKE  (r1v6 java.lang.Object A[REMOVE]) = 
@@ -42,21 +42,21 @@ public final class cx implements View.OnClickListener {
         JSONArray jSONArray;
         JSONArray jSONArray2;
         com.baidu.ufosdk.f.c.a("点击查看不满意原因");
-        if (!TextUtils.isEmpty(this.f22831a) || ((jSONArray2 = this.f22832b) != null && jSONArray2.length() != 0)) {
-            ((Map) this.f22834d.f22808a.f22715h.get(this.f22833c)).put("isClicked", 1);
+        if (!TextUtils.isEmpty(this.f23541a) || ((jSONArray2 = this.f23542b) != null && jSONArray2.length() != 0)) {
+            ((Map) this.f23544d.f23518a.f23422h.get(this.f23543c)).put("isClicked", 1);
         }
-        this.f22834d.f22808a.aF = this.f22833c;
-        if (((Map) this.f22834d.f22808a.f22715h.get(this.f22833c)).containsKey("chatId")) {
-            FeedbackInputActivity feedbackInputActivity = this.f22834d.f22808a;
+        this.f23544d.f23518a.aF = this.f23543c;
+        if (((Map) this.f23544d.f23518a.f23422h.get(this.f23543c)).containsKey("chatId")) {
+            FeedbackInputActivity feedbackInputActivity = this.f23544d.f23518a;
             StringBuilder sb = new StringBuilder();
-            sb.append(((Map) this.f22834d.f22808a.f22715h.get(this.f22833c)).get("chatId"));
-            feedbackInputActivity.f22713f = sb.toString();
+            sb.append(((Map) this.f23544d.f23518a.f23422h.get(this.f23543c)).get("chatId"));
+            feedbackInputActivity.f23420f = sb.toString();
         }
-        if (TextUtils.isEmpty(this.f22831a) && ((jSONArray = this.f22832b) == null || jSONArray.length() == 0)) {
-            FeedbackInputActivity.a(this.f22834d.f22808a, false, false);
+        if (TextUtils.isEmpty(this.f23541a) && ((jSONArray = this.f23542b) == null || jSONArray.length() == 0)) {
+            FeedbackInputActivity.a(this.f23544d.f23518a, false, false);
         } else {
-            FeedbackInputActivity.a(this.f22834d.f22808a, true, false);
+            FeedbackInputActivity.a(this.f23544d.f23518a, true, false);
         }
-        this.f22834d.f22808a.j.notifyDataSetChanged();
+        this.f23544d.f23518a.j.notifyDataSetChanged();
     }
 }

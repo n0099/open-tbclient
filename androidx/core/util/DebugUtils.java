@@ -2,7 +2,7 @@ package androidx.core.util;
 
 import androidx.annotation.RestrictTo;
 import com.baidu.android.common.others.lang.StringUtil;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class DebugUtils {
     public static void buildShortClassTag(Object obj, StringBuilder sb) {

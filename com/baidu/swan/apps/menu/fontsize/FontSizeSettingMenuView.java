@@ -8,10 +8,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.res.ui.SliderBar;
 import com.baidu.swan.menu.BaseMenuView;
-import d.b.h0.a.c1.c.b;
-import d.b.h0.a.d;
-import d.b.h0.a.g;
-/* loaded from: classes2.dex */
+import d.a.h0.a.c1.c.b;
+import d.a.h0.a.d;
+import d.a.h0.a.g;
+/* loaded from: classes3.dex */
 public class FontSizeSettingMenuView extends BaseMenuView {
     public Context k;
     public SliderBar l;
@@ -42,8 +42,8 @@ public class FontSizeSettingMenuView extends BaseMenuView {
         this(context, attributeSet, 0);
     }
 
-    public FontSizeSettingMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
-        super(context, attributeSet, i);
+    public FontSizeSettingMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i2) {
+        super(context, attributeSet, i2);
         this.k = context.getApplicationContext();
         d();
     }

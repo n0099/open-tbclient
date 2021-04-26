@@ -5,7 +5,7 @@ public interface BitrateAdjuster {
 
     int getCodecConfigFramerate();
 
-    void reportEncodedFrame(int i);
+    void reportEncodedFrame(int i2);
 
-    void setTargets(int i, int i2);
+    void setTargets(int i2, int i3);
 }

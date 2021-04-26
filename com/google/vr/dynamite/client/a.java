@@ -14,8 +14,8 @@ public final class a extends com.google.a.a.a implements ILoadedInstanceCreator 
     public final INativeLibraryLoader newNativeLibraryLoader(IObjectWrapper iObjectWrapper, IObjectWrapper iObjectWrapper2) throws RemoteException {
         INativeLibraryLoader bVar;
         Parcel a2 = a();
-        d.h.a.a.a.b(a2, iObjectWrapper);
-        d.h.a.a.a.b(a2, iObjectWrapper2);
+        d.g.a.a.a.b(a2, iObjectWrapper);
+        d.g.a.a.a.b(a2, iObjectWrapper2);
         Parcel a3 = a(1, a2);
         IBinder readStrongBinder = a3.readStrongBinder();
         if (readStrongBinder == null) {

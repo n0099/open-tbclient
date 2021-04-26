@@ -5,7 +5,7 @@ import com.baidu.down.loopj.android.http.BaseRetryHandler;
 import com.baidu.down.loopj.android.http.HttpResponseException;
 import com.baidu.down.utils.network.NetWorkDetector;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class UrlConnectionRetryHandler extends BaseRetryHandler {
     public UrlConnectionRetryHandler(long[] jArr) {
         super(jArr);
@@ -16,17 +16,17 @@ public class UrlConnectionRetryHandler extends BaseRetryHandler {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean retryRequest(IOException iOException, int i, String str, int i2) {
+    public boolean retryRequest(IOException iOException, int i2, String str, int i3) {
         boolean z;
-        if (i >= 1) {
+        if (i2 >= 1) {
             long[] jArr = this.retryIntervals;
-            if (i <= jArr.length && i2 <= jArr.length * 3 && !isInList(BaseRetryHandler.exceptionBlacklist, iOException)) {
+            if (i2 <= jArr.length && i3 <= jArr.length * 3 && !isInList(BaseRetryHandler.exceptionBlacklist, iOException)) {
                 isInList(BaseRetryHandler.exceptionWhitelist, iOException);
                 z = true;
                 if ((iOException instanceof HttpResponseException) || ((HttpResponseException) iOException).getStatusCode() != 412) {
                     if (!z) {
                         try {
-                            long j = this.retryIntervals[i - 1];
+                            long j = this.retryIntervals[i2 - 1];
                             if (j > 0) {
                                 if (NetWorkDetector.getInstance().sNeedDetect && !TextUtils.isEmpty(str) && !NetWorkDetector.getInstance().isHostReachableCached(str, 5000L)) {
                                     while (true) {

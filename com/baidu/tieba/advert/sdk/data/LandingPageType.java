@@ -8,8 +8,8 @@ public enum LandingPageType {
     
     public int value;
 
-    LandingPageType(int i) {
-        this.value = i;
+    LandingPageType(int i2) {
+        this.value = i2;
     }
 
     public int getValue() {

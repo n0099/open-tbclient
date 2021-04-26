@@ -42,8 +42,8 @@ public enum AdStateCode {
     public int code;
     public String msg;
 
-    AdStateCode(int i, String str) {
-        this.code = i;
+    AdStateCode(int i2, String str) {
+        this.code = i2;
         this.msg = str;
     }
 

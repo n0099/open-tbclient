@@ -60,9 +60,9 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
         File file = new File(this.mFilePath);
         final int chatType = this.mMsg.getChatType();
         if (file.exists()) {
-            int i = this.mType;
-            if (i != 1) {
-                if (i == 2) {
+            int i2 = this.mType;
+            if (i2 != 1) {
+                if (i2 == 2) {
                     this.mContentType = "audio/amr";
                     ChatMsgManager.audioTrans(this.mContext, this.mFilePath, "audio/amr", "amr", DuzhanUpMsgCreator.getReqType(chatType), new BIMValueCallBack() { // from class: com.baidu.android.imsdk.upload.AsyncChatTask.1
                         /* JADX WARN: Removed duplicated region for block: B:38:0x00ca A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -70,12 +70,12 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
                         /*
                             Code decompiled incorrectly, please refer to instructions dump.
                         */
-                        public void onResult(int i2, String str3, Object obj) {
+                        public void onResult(int i3, String str3, Object obj) {
                             Throwable th;
                             FileOutputStream fileOutputStream;
                             Exception e2;
                             IMTrack.CrashBuilder crashBuilder;
-                            if (i2 == 0) {
+                            if (i3 == 0) {
                                 FileOutputStream fileOutputStream2 = null;
                                 try {
                                     try {
@@ -171,23 +171,23 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
     }
 
     @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onFailed(int i, int i2, String str) {
+    public void onFailed(int i2, int i3, String str) {
         IUploadTransferListener iUploadTransferListener = this.mMsgListener;
         if (iUploadTransferListener != null) {
-            iUploadTransferListener.onFailed(i, this.mType, this.mFilePath);
+            iUploadTransferListener.onFailed(i2, this.mType, this.mFilePath);
         }
     }
 
     @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onFinished(int i, String str) {
+    public void onFinished(int i2, String str) {
         IUploadTransferListener iUploadTransferListener = this.mMsgListener;
         if (iUploadTransferListener != null) {
-            iUploadTransferListener.onFinished(i, this.mGetUrl);
+            iUploadTransferListener.onFinished(i2, this.mGetUrl);
         }
     }
 
-    public void onGenBosObjectUrlListener(int i, String str, String str2, Map<String, String> map) {
-        if (i == 0) {
+    public void onGenBosObjectUrlListener(int i2, String str, String str2, Map<String, String> map) {
+        if (i2 == 0) {
             this.mGetUrl = map.get(GET_URL);
             this.mPutUrl = map.get(PUT_URL);
             this.mThumbUrl = map.get("thumb_url");
@@ -199,12 +199,12 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
             LogUtils.i(str5, "authorication:" + str);
             String str6 = TAG;
             LogUtils.i(str6, "xBceData:" + str2);
-            int i2 = this.mType;
-            if (i2 == 1) {
+            int i3 = this.mType;
+            if (i3 == 1) {
                 ((ImageMsg) this.mMsg).setRemoteUrl(this.mGetUrl);
                 ((ImageMsg) this.mMsg).setThumbUrl(this.mThumbUrl);
                 ((ImageMsg) this.mMsg).setContent(this.mGetUrl);
-            } else if (i2 == 2) {
+            } else if (i3 == 2) {
                 ChatMsg chatMsg = this.mMsg;
                 ((AudioMsg) chatMsg).setContent(this.mGetUrl, 1, ((AudioMsg) chatMsg).getDuration());
                 ((AudioMsg) this.mMsg).setRemoteUrl(this.mGetUrl);
@@ -214,20 +214,20 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
         }
         IUploadTransferListener iUploadTransferListener = this.mMsgListener;
         if (iUploadTransferListener != null) {
-            iUploadTransferListener.onFailed(i, this.mType, this.mFilePath);
+            iUploadTransferListener.onFailed(i2, this.mType, this.mFilePath);
         }
     }
 
     @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-    public void onProgress(int i) {
+    public void onProgress(int i2) {
         IUploadTransferListener iUploadTransferListener = this.mMsgListener;
         if (iUploadTransferListener != null) {
-            iUploadTransferListener.onProgress(i);
+            iUploadTransferListener.onProgress(i2);
         }
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
-    public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
-        onGenBosObjectUrlListener(i, str2, str3, map);
+    public void onGenBosObjectUrlListener(int i2, String str, String str2, String str3, Map<String, String> map) {
+        onGenBosObjectUrlListener(i2, str2, str3, map);
     }
 }

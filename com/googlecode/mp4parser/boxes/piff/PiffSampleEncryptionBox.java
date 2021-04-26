@@ -7,12 +7,12 @@ import g.a.a.a;
 import g.a.b.b.b;
 /* loaded from: classes6.dex */
 public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
 
     static {
         ajc$preClinit();
@@ -58,14 +58,14 @@ public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
         return (getFlags() & 1) > 0;
     }
 
-    public void setAlgorithmId(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i)));
-        this.algorithmId = i;
+    public void setAlgorithmId(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i2)));
+        this.algorithmId = i2;
     }
 
-    public void setIvSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i)));
-        this.ivSize = i;
+    public void setIvSize(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i2)));
+        this.ivSize = i2;
     }
 
     public void setKid(byte[] bArr) {

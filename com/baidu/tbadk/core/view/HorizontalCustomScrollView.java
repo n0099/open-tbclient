@@ -8,11 +8,11 @@ import android.widget.HorizontalScrollView;
 public class HorizontalCustomScrollView extends HorizontalScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f13039e;
+    public a f12972e;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void a(int i, int i2);
+        void a(int i2, int i3);
     }
 
     public HorizontalCustomScrollView(Context context) {
@@ -28,23 +28,23 @@ public class HorizontalCustomScrollView extends HorizontalScrollView {
     }
 
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        a aVar = this.f13039e;
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
+        a aVar = this.f12972e;
         if (aVar != null) {
             aVar.a(getMeasuredWidth(), getMeasuredHeight());
         }
     }
 
     public void setOnSizeChangeListener(a aVar) {
-        this.f13039e = aVar;
+        this.f12972e = aVar;
     }
 
     public HorizontalCustomScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 
-    public HorizontalCustomScrollView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public HorizontalCustomScrollView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

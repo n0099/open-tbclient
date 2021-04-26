@@ -46,12 +46,12 @@ public class h {
                 try {
                     try {
                         int length = bArr.length;
-                        for (int i = 0; i < bArr.length; i += a2) {
-                            int i2 = length - i;
-                            if (i2 >= a2) {
-                                i2 = a2;
+                        for (int i2 = 0; i2 < bArr.length; i2 += a2) {
+                            int i3 = length - i2;
+                            if (i3 >= a2) {
+                                i3 = a2;
                             }
-                            byteArrayOutputStream.write(cipher.doFinal(bArr, i, i2));
+                            byteArrayOutputStream.write(cipher.doFinal(bArr, i2, i3));
                         }
                         bArr2 = byteArrayOutputStream.toByteArray();
                         byteArrayOutputStream.close();
@@ -122,12 +122,12 @@ public class h {
             }
             try {
                 int length = bArr.length;
-                for (int i = 0; i < length; i += b2) {
-                    int i2 = length - i;
-                    if (i2 >= b2) {
-                        i2 = b2;
+                for (int i2 = 0; i2 < length; i2 += b2) {
+                    int i3 = length - i2;
+                    if (i3 >= b2) {
+                        i3 = b2;
                     }
-                    byteArrayOutputStream.write(cipher.doFinal(bArr, i, i2));
+                    byteArrayOutputStream.write(cipher.doFinal(bArr, i2, i3));
                 }
                 bArr2 = byteArrayOutputStream.toByteArray();
                 byteArrayOutputStream.close();

@@ -32,8 +32,8 @@ public class BaseImageDecoder implements ImageDecoder {
             this.flipHorizontal = false;
         }
 
-        public ExifInfo(int i, boolean z) {
-            this.rotation = i;
+        public ExifInfo(int i2, boolean z) {
+            this.rotation = i2;
             this.flipHorizontal = z;
         }
     }
@@ -57,11 +57,11 @@ public class BaseImageDecoder implements ImageDecoder {
         return "image/jpeg".equalsIgnoreCase(str2) && ImageDownloader.Scheme.ofUri(str) == ImageDownloader.Scheme.FILE;
     }
 
-    public Bitmap considerExactScaleAndOrientatiton(Bitmap bitmap, ImageDecodingInfo imageDecodingInfo, int i, boolean z) {
+    public Bitmap considerExactScaleAndOrientatiton(Bitmap bitmap, ImageDecodingInfo imageDecodingInfo, int i2, boolean z) {
         Matrix matrix = new Matrix();
         ImageScaleType imageScaleType = imageDecodingInfo.getImageScaleType();
         if (imageScaleType == ImageScaleType.EXACTLY || imageScaleType == ImageScaleType.EXACTLY_STRETCHED) {
-            ImageSize imageSize = new ImageSize(bitmap.getWidth(), bitmap.getHeight(), i);
+            ImageSize imageSize = new ImageSize(bitmap.getWidth(), bitmap.getHeight(), i2);
             float computeImageScale = ImageSizeUtils.computeImageScale(imageSize, imageDecodingInfo.getTargetSize(), imageDecodingInfo.getViewScaleType(), imageScaleType == ImageScaleType.EXACTLY_STRETCHED);
             if (Float.compare(computeImageScale, 1.0f) != 0) {
                 matrix.setScale(computeImageScale, computeImageScale);
@@ -76,10 +76,10 @@ public class BaseImageDecoder implements ImageDecoder {
                 L.d(LOG_FLIP_IMAGE, imageDecodingInfo.getImageKey());
             }
         }
-        if (i != 0) {
-            matrix.postRotate(i);
+        if (i2 != 0) {
+            matrix.postRotate(i2);
             if (this.loggingEnabled) {
-                L.d(LOG_ROTATE_IMAGE, Integer.valueOf(i), imageDecodingInfo.getImageKey());
+                L.d(LOG_ROTATE_IMAGE, Integer.valueOf(i2), imageDecodingInfo.getImageKey());
             }
         }
         Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
@@ -127,13 +127,13 @@ public class BaseImageDecoder implements ImageDecoder {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Multi-variable type inference failed */
     public ExifInfo defineExifOrientation(String str) {
-        int i = 0;
+        int i2 = 0;
         boolean z = 1;
         try {
         } catch (IOException unused) {
             L.w("Can't read EXIF tags from file [%s]", str);
         }
-        switch (new ExifInterface(ImageDownloader.Scheme.FILE.crop(str)).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1)) {
+        switch (new ExifInterface(ImageDownloader.Scheme.FILE.crop(str)).getAttributeInt("Orientation", 1)) {
             case 1:
             default:
                 z = 0;
@@ -141,34 +141,34 @@ public class BaseImageDecoder implements ImageDecoder {
             case 2:
                 break;
             case 3:
-                z = i;
-                i = 180;
+                z = i2;
+                i2 = 180;
                 break;
             case 4:
-                i = 1;
-                z = i;
-                i = 180;
+                i2 = 1;
+                z = i2;
+                i2 = 180;
                 break;
             case 5:
-                i = 1;
-                z = i;
-                i = 270;
+                i2 = 1;
+                z = i2;
+                i2 = 270;
                 break;
             case 6:
-                z = i;
-                i = 90;
+                z = i2;
+                i2 = 90;
                 break;
             case 7:
-                i = 1;
-                z = i;
-                i = 90;
+                i2 = 1;
+                z = i2;
+                i2 = 90;
                 break;
             case 8:
-                z = i;
-                i = 270;
+                z = i2;
+                i2 = 270;
                 break;
         }
-        return new ExifInfo(i, z);
+        return new ExifInfo(i2, z);
     }
 
     public ImageFileInfo defineImageSizeAndRotation(InputStream inputStream, ImageDecodingInfo imageDecodingInfo) {

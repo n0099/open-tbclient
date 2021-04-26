@@ -31,7 +31,7 @@ public class AdVideoProgressBar extends View {
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        int i;
+        int i2;
         getDrawingRect(this.bounds);
         Rect rect = this.bounds;
         this.mPaint.setStyle(Paint.Style.STROKE);
@@ -44,7 +44,7 @@ public class AdVideoProgressBar extends View {
         float f2 = (rect.top + rect.bottom) / 2;
         canvas.drawLine(rect2.left, f2, rect2.right, f2, this.mPaint);
         this.mPaint.setColor(this.mProgressColor);
-        canvas.drawLine(this.bounds.left, f2, i + ((int) (((rect.right - rect.left) * this.mProgress) / 100.0f)), f2, this.mPaint);
+        canvas.drawLine(this.bounds.left, f2, i2 + ((int) (((rect.right - rect.left) * this.mProgress) / 100.0f)), f2, this.mPaint);
     }
 
     public void setProgress(float f2) {
@@ -52,16 +52,16 @@ public class AdVideoProgressBar extends View {
         invalidate();
     }
 
-    public void setProgressBackgroundColor(int i) {
-        this.mProgressBackgroundColor = i;
+    public void setProgressBackgroundColor(int i2) {
+        this.mProgressBackgroundColor = i2;
     }
 
-    public void setProgressColor(int i) {
-        this.mProgressColor = i;
+    public void setProgressColor(int i2) {
+        this.mProgressColor = i2;
     }
 
-    public void setProgressHeight(int i) {
-        this.mProgressHeight = i;
+    public void setProgressHeight(int i2) {
+        this.mProgressHeight = i2;
     }
 
     public AdVideoProgressBar(Context context, AttributeSet attributeSet) {
@@ -73,8 +73,8 @@ public class AdVideoProgressBar extends View {
         this.bounds = new Rect();
     }
 
-    public AdVideoProgressBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public AdVideoProgressBar(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mProgressColor = -7829368;
         this.mProgressBackgroundColor = -16777216;
         this.mProgressHeight = 4;

@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import com.baidu.sapi2.activity.ImageClipActivity;
 import java.io.File;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes6.dex */
 public class FileUtils {
     public static final String IMAGE_FILE_START = "image/";
@@ -105,7 +106,7 @@ public class FileUtils {
                         uri2 = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
                     } else if ("video".equals(str)) {
                         uri2 = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-                    } else if ("audio".equals(str)) {
+                    } else if (MediaStreamTrack.AUDIO_TRACK_KIND.equals(str)) {
                         uri2 = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
                     }
                     return getDataColumn(context, uri2, "_id=?", new String[]{split2[1]});

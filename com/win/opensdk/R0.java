@@ -1,78 +1,33 @@
 package com.win.opensdk;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
-import com.win.opensdk.core.Info;
-import com.win.opensdk.views.MraidLayout;
-/* loaded from: classes7.dex */
-public class R0 implements z2, J0 {
+import com.qq.e.comm.constants.Constants;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class R0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public C0 f40166a;
+    public int f37754a = 101;
 
     /* renamed from: b  reason: collision with root package name */
-    public MraidLayout f40167b;
+    public String f37755b;
 
     /* renamed from: c  reason: collision with root package name */
-    public C2 f40168c;
+    public JSONObject f37756c;
 
-    /* renamed from: d  reason: collision with root package name */
-    public A2 f40169d;
-
-    public R0(Context context, K0 k0) {
-        C0 c0 = new C0(context, null, 0, k0);
-        this.f40166a = c0;
-        c0.a(this);
-        this.f40167b = new MraidLayout(context);
-        this.f40167b.addView(this.f40166a, new FrameLayout.LayoutParams(-1, -1));
-        this.f40166a.setMraidListener(this);
-    }
-
-    @Override // com.win.opensdk.z2
-    public void a() {
-        MraidLayout mraidLayout = this.f40167b;
-        if (mraidLayout != null) {
-            mraidLayout.removeAllViews();
+    public void a(String str) {
+        JSONObject jSONObject = new JSONObject(str);
+        this.f37754a = jSONObject.optInt(Constants.KEYS.RET);
+        this.f37755b = jSONObject.optString("msg");
+        String optString = jSONObject.optString("data");
+        try {
+            optString = z.b(optString);
+        } catch (Exception unused) {
         }
-        C0 c0 = this.f40166a;
-        if (c0 != null) {
-            c0.b();
-            this.f40166a.destroy();
-        }
-    }
-
-    @Override // com.win.opensdk.z2
-    public void a(A2 a2) {
-        this.f40169d = a2;
-    }
-
-    public void a(C2 c2) {
-        this.f40168c = c2;
-    }
-
-    @Override // com.win.opensdk.z2
-    public void a(String str, Info info) {
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        C2 c2 = this.f40168c;
-        if (c2 != null) {
-            c2.a();
-        }
-        if (str.startsWith("http")) {
-            this.f40166a.b(str);
+        if (TextUtils.isEmpty(optString)) {
+            this.f37756c = new JSONObject();
         } else {
-            this.f40166a.a(str);
+            this.f37756c = new JSONObject(optString);
         }
-    }
-
-    @Override // com.win.opensdk.z2
-    public View b() {
-        return this.f40167b;
-    }
-
-    public void c() {
     }
 }

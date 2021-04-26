@@ -19,8 +19,8 @@ public class GroupMemberNameChangeMsg extends NotifyMsg implements Parcelable, N
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public GroupMemberNameChangeMsg[] newArray(int i) {
-            return new GroupMemberNameChangeMsg[i];
+        public GroupMemberNameChangeMsg[] newArray(int i2) {
+            return new GroupMemberNameChangeMsg[i2];
         }
     };
     public String nickname;
@@ -59,8 +59,8 @@ public class GroupMemberNameChangeMsg extends NotifyMsg implements Parcelable, N
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeLong(this.whodo);
         parcel.writeLong(this.wasmodifed);
         parcel.writeString(this.nickname);

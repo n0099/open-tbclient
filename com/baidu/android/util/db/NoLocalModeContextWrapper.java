@@ -14,13 +14,13 @@ public final class NoLocalModeContextWrapper extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     @SuppressLint({"InlinedApi"})
-    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
-        return super.openOrCreateDatabase(str, i | 16, cursorFactory);
+    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory) {
+        return super.openOrCreateDatabase(str, i2 | 16, cursorFactory);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     @SuppressLint({"InlinedApi"})
-    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
-        return super.openOrCreateDatabase(str, i | 16, cursorFactory, databaseErrorHandler);
+    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
+        return super.openOrCreateDatabase(str, i2 | 16, cursorFactory, databaseErrorHandler);
     }
 }

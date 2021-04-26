@@ -26,7 +26,7 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     public static final String TAG = "LivenessVideoLoadingActivity";
 
     /* renamed from: a  reason: collision with root package name */
-    public LoadingDialog f5904a;
+    public LoadingDialog f6065a;
 
     private void a() {
         f.a(this, getResources().getColor(R.color.sapi_liveness_guide_bg_color));
@@ -34,11 +34,11 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     }
 
     private void b() {
-        if (this.f5904a != null) {
-            if (isFinishing() && this.f5904a.isShowing()) {
+        if (this.f6065a != null) {
+            if (isFinishing() && this.f6065a.isShowing()) {
                 return;
             }
-            this.f5904a.dismiss();
+            this.f6065a.dismiss();
             finish();
         }
     }
@@ -50,20 +50,20 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     }
 
     @Override // com.baidu.fsg.base.activity.BeanActivity
-    public void handleFailure(int i, int i2, String str) {
-        if (i != 9) {
-            super.handleFailure(i, i2, str);
+    public void handleFailure(int i2, int i3, String str) {
+        if (i2 != 9) {
+            super.handleFailure(i2, i3, str);
             return;
         }
         if (this.livenessRecogDTO != null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this.livenessRecogDTO.getSpno() + "");
             arrayList.add(TextUtils.isEmpty(this.livenessRecogDTO.processid) ? "" : this.livenessRecogDTO.processid);
-            RimStatisticsUtil.onEventEndWithValues(d.f6013e, i2, arrayList);
+            RimStatisticsUtil.onEventEndWithValues(d.f6179e, i3, arrayList);
         }
         b();
         LivenessRecogResult livenessRecogResult = new LivenessRecogResult();
-        livenessRecogResult.setResultCode(i2);
+        livenessRecogResult.setResultCode(i3);
         livenessRecogResult.setResultMsg(str);
         SapiLivenessRecogManager.getInstance().getLivenessRecogCallback().b(livenessRecogResult);
         RimStatisticsUtil.getInstance().triggerSending();
@@ -71,9 +71,9 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
     }
 
     @Override // com.baidu.fsg.face.liveness.activity.LivenessBaseActivity, com.baidu.fsg.base.activity.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
-        if (i != 9) {
-            super.handleResponse(i, obj, str);
+    public void handleResponse(int i2, Object obj, String str) {
+        if (i2 != 9) {
+            super.handleResponse(i2, obj, str);
             return;
         }
         if (this.livenessRecogDTO != null) {
@@ -127,15 +127,15 @@ public class LivenessVideoLoadingActivity extends LivenessBaseActivity {
 
     private void a(Context context) {
         LoadingDialog loadingDialog;
-        if (this.f5904a == null) {
+        if (this.f6065a == null) {
             LoadingDialog loadingDialog2 = new LoadingDialog(context);
-            this.f5904a = loadingDialog2;
+            this.f6065a = loadingDialog2;
             loadingDialog2.setMessage(context.getString(R.string.sapi_liveness_recog_loading));
-            this.f5904a.setCancelable(false);
+            this.f6065a.setCancelable(false);
         }
-        if (((Activity) context).isFinishing() || (loadingDialog = this.f5904a) == null || loadingDialog.isShowing()) {
+        if (((Activity) context).isFinishing() || (loadingDialog = this.f6065a) == null || loadingDialog.isShowing()) {
             return;
         }
-        this.f5904a.show();
+        this.f6065a.show();
     }
 }

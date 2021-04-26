@@ -65,14 +65,14 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
         }
     }
 
-    private void openRawAudioOutputFile(int i, int i2) {
+    private void openRawAudioOutputFile(int i2, int i3) {
         StringBuilder sb = new StringBuilder();
         sb.append(Environment.getExternalStorageDirectory().getPath());
         sb.append(File.separator);
         sb.append("audio_16bits_");
-        sb.append(String.valueOf(i));
+        sb.append(String.valueOf(i2));
         sb.append("Hz");
-        sb.append(i2 == 1 ? "_mono_" : "_stereo_");
+        sb.append(i3 == 1 ? "_mono_" : "_stereo_");
         sb.append(System.currentTimeMillis());
         sb.append(".pcm");
         String sb2 = sb.toString();

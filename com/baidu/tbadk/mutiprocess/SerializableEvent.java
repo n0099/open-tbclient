@@ -2,7 +2,7 @@ package com.baidu.tbadk.mutiprocess;
 
 import android.os.Process;
 import com.baidu.adp.BdUniqueId;
-import d.b.i0.f0.a;
+import d.a.i0.f0.a;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public abstract class SerializableEvent implements Serializable, a {
@@ -16,36 +16,36 @@ public abstract class SerializableEvent implements Serializable, a {
         this.mPid = Process.myPid();
     }
 
-    @Override // d.b.i0.f0.a
+    @Override // d.a.i0.f0.a
     public int getPid() {
         return this.mPid;
     }
 
-    @Override // d.b.i0.f0.a
+    @Override // d.a.i0.f0.a
     public int getTag() {
         return this.mTag;
     }
 
-    @Override // d.b.i0.f0.a
+    @Override // d.a.i0.f0.a
     public int getType() {
         return this.mType;
     }
 
-    @Override // d.b.i0.f0.a
+    @Override // d.a.i0.f0.a
     public void setTag(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
             this.mTag = bdUniqueId.getId();
         }
     }
 
-    public void setType(int i) {
-        this.mType = i;
+    public void setType(int i2) {
+        this.mType = i2;
     }
 
-    public SerializableEvent(int i) {
+    public SerializableEvent(int i2) {
         this.mTag = 0;
         this.mType = 0;
         this.mPid = Process.myPid();
-        this.mType = i;
+        this.mType = i2;
     }
 }

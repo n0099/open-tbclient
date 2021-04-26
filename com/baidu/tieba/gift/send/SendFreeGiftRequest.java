@@ -2,7 +2,7 @@ package com.baidu.tieba.gift.send;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.SendFreeGift.DataReq;
 import tbclient.SendFreeGift.SendFreeGiftReqIdl;
 /* loaded from: classes4.dex */
@@ -65,8 +65,8 @@ public class SendFreeGiftRequest extends NetMessage {
         return this.toUserName;
     }
 
-    public void setGiftId(int i) {
-        this.giftId = i;
+    public void setGiftId(int i2) {
+        this.giftId = i2;
     }
 
     public void setPostId(long j) {
@@ -77,8 +77,8 @@ public class SendFreeGiftRequest extends NetMessage {
         this.sceneFrom = str;
     }
 
-    public void setSendCount(int i) {
-        this.sendCount = i;
+    public void setSendCount(int i2) {
+        this.sendCount = i2;
     }
 
     public void setThreadId(long j) {

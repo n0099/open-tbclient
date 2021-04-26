@@ -16,50 +16,50 @@ public class PersonGroupActivityConfig extends IntentConfig {
     public static final String KEY_UID = "key_uid";
     public static final String REQUEST_CODE = "tb_request_code";
 
-    public PersonGroupActivityConfig(Context context, String str, int i) {
+    public PersonGroupActivityConfig(Context context, String str, int i2) {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("key_uid", str);
-        intent.putExtra("key_sex", i);
+        intent.putExtra("key_sex", i2);
     }
 
-    public PersonGroupActivityConfig(Context context, String str, int i, int i2) {
+    public PersonGroupActivityConfig(Context context, String str, int i2, int i3) {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("key_uid", str);
-        intent.putExtra("key_sex", i);
-        intent.putExtra("key_current_tab", i2);
+        intent.putExtra("key_sex", i2);
+        intent.putExtra("key_current_tab", i3);
     }
 
-    public PersonGroupActivityConfig(Context context, int i, int i2) {
+    public PersonGroupActivityConfig(Context context, int i2, int i3) {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("key_uid", TbadkCoreApplication.getCurrentAccount());
         intent.putExtra("key_sex", 0);
-        intent.putExtra("key_from_where", i2);
-        intent.putExtra("tb_request_code", i);
-        setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i);
-    }
-
-    public PersonGroupActivityConfig(Context context, int i, int i2, int i3) {
-        super(context);
-        Intent intent = getIntent();
-        intent.putExtra("key_uid", TbadkCoreApplication.getCurrentAccount());
-        intent.putExtra("key_sex", i);
         intent.putExtra("key_from_where", i3);
         intent.putExtra("tb_request_code", i2);
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);
     }
 
-    public PersonGroupActivityConfig(Context context, int i) {
+    public PersonGroupActivityConfig(Context context, int i2, int i3, int i4) {
+        super(context);
+        Intent intent = getIntent();
+        intent.putExtra("key_uid", TbadkCoreApplication.getCurrentAccount());
+        intent.putExtra("key_sex", i2);
+        intent.putExtra("key_from_where", i4);
+        intent.putExtra("tb_request_code", i3);
+        setIntentAction(IntentAction.ActivityForResult);
+        setRequestCode(i3);
+    }
+
+    public PersonGroupActivityConfig(Context context, int i2) {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("key_uid", TbadkCoreApplication.getCurrentAccount());
         intent.putExtra("key_sex", 0);
-        intent.putExtra("tb_request_code", i);
+        intent.putExtra("tb_request_code", i2);
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i);
+        setRequestCode(i2);
     }
 }

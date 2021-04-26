@@ -7,7 +7,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ForwardingControllerListener<INFO> implements ControllerListener<INFO> {
     public static final String TAG = "FdingControllerListener";
     public final List<ControllerListener<? super INFO>> mListeners = new ArrayList(2);
@@ -37,9 +37,9 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
     @Override // com.facebook.drawee.controller.ControllerListener
     public synchronized void onFailure(String str, Throwable th) {
         int size = this.mListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
+                ControllerListener<? super INFO> controllerListener = this.mListeners.get(i2);
                 if (controllerListener != null) {
                     controllerListener.onFailure(str, th);
                 }
@@ -52,9 +52,9 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
     @Override // com.facebook.drawee.controller.ControllerListener
     public synchronized void onFinalImageSet(String str, @Nullable INFO info, @Nullable Animatable animatable) {
         int size = this.mListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
+                ControllerListener<? super INFO> controllerListener = this.mListeners.get(i2);
                 if (controllerListener != null) {
                     controllerListener.onFinalImageSet(str, info, animatable);
                 }
@@ -67,9 +67,9 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
     @Override // com.facebook.drawee.controller.ControllerListener
     public void onIntermediateImageFailed(String str, Throwable th) {
         int size = this.mListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
+                ControllerListener<? super INFO> controllerListener = this.mListeners.get(i2);
                 if (controllerListener != null) {
                     controllerListener.onIntermediateImageFailed(str, th);
                 }
@@ -82,9 +82,9 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
     @Override // com.facebook.drawee.controller.ControllerListener
     public void onIntermediateImageSet(String str, @Nullable INFO info) {
         int size = this.mListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
+                ControllerListener<? super INFO> controllerListener = this.mListeners.get(i2);
                 if (controllerListener != null) {
                     controllerListener.onIntermediateImageSet(str, info);
                 }
@@ -97,9 +97,9 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
     @Override // com.facebook.drawee.controller.ControllerListener
     public synchronized void onRelease(String str) {
         int size = this.mListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
+                ControllerListener<? super INFO> controllerListener = this.mListeners.get(i2);
                 if (controllerListener != null) {
                     controllerListener.onRelease(str);
                 }
@@ -112,9 +112,9 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
     @Override // com.facebook.drawee.controller.ControllerListener
     public synchronized void onSubmit(String str, Object obj) {
         int size = this.mListeners.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
+                ControllerListener<? super INFO> controllerListener = this.mListeners.get(i2);
                 if (controllerListener != null) {
                     controllerListener.onSubmit(str, obj);
                 }

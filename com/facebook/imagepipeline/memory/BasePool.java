@@ -46,20 +46,20 @@ public abstract class BasePool<V> implements Pool<V> {
         public int mCount;
         public int mNumBytes;
 
-        public void decrement(int i) {
-            int i2;
-            int i3 = this.mNumBytes;
-            if (i3 >= i && (i2 = this.mCount) > 0) {
-                this.mCount = i2 - 1;
-                this.mNumBytes = i3 - i;
+        public void decrement(int i2) {
+            int i3;
+            int i4 = this.mNumBytes;
+            if (i4 >= i2 && (i3 = this.mCount) > 0) {
+                this.mCount = i3 - 1;
+                this.mNumBytes = i4 - i2;
                 return;
             }
-            FLog.wtf(TAG, "Unexpected decrement of %d. Current numBytes = %d, count = %d", Integer.valueOf(i), Integer.valueOf(this.mNumBytes), Integer.valueOf(this.mCount));
+            FLog.wtf(TAG, "Unexpected decrement of %d. Current numBytes = %d, count = %d", Integer.valueOf(i2), Integer.valueOf(this.mNumBytes), Integer.valueOf(this.mCount));
         }
 
-        public void increment(int i) {
+        public void increment(int i2) {
             this.mCount++;
-            this.mNumBytes += i;
+            this.mNumBytes += i2;
         }
 
         public void reset() {
@@ -89,8 +89,8 @@ public abstract class BasePool<V> implements Pool<V> {
 
     /* loaded from: classes6.dex */
     public static class PoolSizeViolationException extends RuntimeException {
-        public PoolSizeViolationException(int i, int i2, int i3, int i4) {
-            super("Pool hard cap violation? Hard cap = " + i + " Used size = " + i2 + " Free size = " + i3 + " Request size = " + i4);
+        public PoolSizeViolationException(int i2, int i3, int i4, int i5) {
+            super("Pool hard cap violation? Hard cap = " + i2 + " Used size = " + i3 + " Free size = " + i4 + " Request size = " + i5);
         }
     }
 
@@ -127,14 +127,14 @@ public abstract class BasePool<V> implements Pool<V> {
 
     private void fillBuckets(SparseIntArray sparseIntArray) {
         this.mBuckets.clear();
-        for (int i = 0; i < sparseIntArray.size(); i++) {
-            int keyAt = sparseIntArray.keyAt(i);
-            this.mBuckets.put(keyAt, new Bucket<>(getSizeInBytes(keyAt), sparseIntArray.valueAt(i), 0, this.mPoolParams.fixBucketsReinitialization));
+        for (int i2 = 0; i2 < sparseIntArray.size(); i2++) {
+            int keyAt = sparseIntArray.keyAt(i2);
+            this.mBuckets.put(keyAt, new Bucket<>(getSizeInBytes(keyAt), sparseIntArray.valueAt(i2), 0, this.mPoolParams.fixBucketsReinitialization));
         }
     }
 
-    private synchronized Bucket<V> getBucketIfPresent(int i) {
-        return this.mBuckets.get(i);
+    private synchronized Bucket<V> getBucketIfPresent(int i2) {
+        return this.mBuckets.get(i2);
     }
 
     private synchronized void initBuckets() {
@@ -152,9 +152,9 @@ public abstract class BasePool<V> implements Pool<V> {
         this.mBuckets.clear();
         SparseIntArray sparseIntArray2 = this.mPoolParams.bucketSizes;
         if (sparseIntArray2 != null) {
-            for (int i = 0; i < sparseIntArray2.size(); i++) {
-                int keyAt = sparseIntArray2.keyAt(i);
-                this.mBuckets.put(keyAt, new Bucket<>(getSizeInBytes(keyAt), sparseIntArray2.valueAt(i), sparseIntArray.get(keyAt, 0), this.mPoolParams.fixBucketsReinitialization));
+            for (int i2 = 0; i2 < sparseIntArray2.size(); i2++) {
+                int keyAt = sparseIntArray2.keyAt(i2);
+                this.mBuckets.put(keyAt, new Bucket<>(getSizeInBytes(keyAt), sparseIntArray2.valueAt(i2), sparseIntArray.get(keyAt, 0), this.mPoolParams.fixBucketsReinitialization));
             }
             this.mAllowNewBuckets = false;
         } else {
@@ -172,22 +172,22 @@ public abstract class BasePool<V> implements Pool<V> {
     private List<Bucket<V>> refillBuckets() {
         ArrayList arrayList = new ArrayList(this.mBuckets.size());
         int size = this.mBuckets.size();
-        for (int i = 0; i < size; i++) {
-            Bucket<V> valueAt = this.mBuckets.valueAt(i);
-            int i2 = valueAt.mItemSize;
-            int i3 = valueAt.mMaxLength;
+        for (int i2 = 0; i2 < size; i2++) {
+            Bucket<V> valueAt = this.mBuckets.valueAt(i2);
+            int i3 = valueAt.mItemSize;
+            int i4 = valueAt.mMaxLength;
             int inUseCount = valueAt.getInUseCount();
             if (valueAt.getFreeListSize() > 0) {
                 arrayList.add(valueAt);
             }
-            this.mBuckets.setValueAt(i, new Bucket<>(getSizeInBytes(i2), i3, inUseCount, this.mPoolParams.fixBucketsReinitialization));
+            this.mBuckets.setValueAt(i2, new Bucket<>(getSizeInBytes(i3), i4, inUseCount, this.mPoolParams.fixBucketsReinitialization));
         }
         return arrayList;
     }
 
-    private V retryOnce(int i, int i2, boolean z) {
+    private V retryOnce(int i2, int i3, boolean z) {
         try {
-            V alloc = alloc(i2);
+            V alloc = alloc(i3);
             if (FLog.isLoggable(3)) {
                 FLog.d(this.TAG, "alloc success!!");
             }
@@ -206,7 +206,7 @@ public abstract class BasePool<V> implements Pool<V> {
                     FLog.d(cls, sb.toString());
                 }
                 mOnFailedListener.onFailed();
-                return retryOnce(i, i2, false);
+                return retryOnce(i2, i3, false);
             }
             if (FLog.isLoggable(3)) {
                 Class<?> cls2 = this.TAG;
@@ -217,8 +217,8 @@ public abstract class BasePool<V> implements Pool<V> {
                 FLog.d(cls2, sb2.toString());
             }
             synchronized (this) {
-                this.mUsed.decrement(i);
-                Bucket<V> bucket = getBucket(i2);
+                this.mUsed.decrement(i2);
+                Bucket<V> bucket = getBucket(i3);
                 if (bucket != null) {
                     bucket.decrementInUseCount();
                 }
@@ -232,20 +232,20 @@ public abstract class BasePool<V> implements Pool<V> {
         mOnFailedListener = onFailedListener;
     }
 
-    public abstract V alloc(int i);
+    public abstract V alloc(int i2);
 
     @VisibleForTesting
-    public synchronized boolean canAllocate(int i) {
-        int i2 = this.mPoolParams.maxSizeHardCap;
-        if (i > i2 - this.mUsed.mNumBytes) {
+    public synchronized boolean canAllocate(int i2) {
+        int i3 = this.mPoolParams.maxSizeHardCap;
+        if (i2 > i3 - this.mUsed.mNumBytes) {
             this.mPoolStatsTracker.onHardCapReached();
             return false;
         }
-        int i3 = this.mPoolParams.maxSizeSoftCap;
-        if (i > i3 - (this.mUsed.mNumBytes + this.mFree.mNumBytes)) {
-            trimToSize(i3 - i);
+        int i4 = this.mPoolParams.maxSizeSoftCap;
+        if (i2 > i4 - (this.mUsed.mNumBytes + this.mFree.mNumBytes)) {
+            trimToSize(i4 - i2);
         }
-        if (i > i2 - (this.mUsed.mNumBytes + this.mFree.mNumBytes)) {
+        if (i2 > i3 - (this.mUsed.mNumBytes + this.mFree.mNumBytes)) {
             this.mPoolStatsTracker.onHardCapReached();
             return false;
         }
@@ -256,10 +256,10 @@ public abstract class BasePool<V> implements Pool<V> {
     public abstract void free(V v);
 
     @Override // com.facebook.common.memory.Pool
-    public V get(int i) {
+    public V get(int i2) {
         V value;
         ensurePoolSizeInvariant();
-        int bucketedSize = getBucketedSize(i);
+        int bucketedSize = getBucketedSize(i2);
         synchronized (this) {
             Bucket<V> bucket = getBucket(bucketedSize);
             if (bucket != null && (value = getValue(bucket)) != null) {
@@ -298,31 +298,31 @@ public abstract class BasePool<V> implements Pool<V> {
     }
 
     @VisibleForTesting
-    public synchronized Bucket<V> getBucket(int i) {
-        Bucket<V> bucket = this.mBuckets.get(i);
+    public synchronized Bucket<V> getBucket(int i2) {
+        Bucket<V> bucket = this.mBuckets.get(i2);
         if (bucket == null && this.mAllowNewBuckets) {
             if (FLog.isLoggable(2)) {
-                FLog.v(this.TAG, "creating new bucket %s", Integer.valueOf(i));
+                FLog.v(this.TAG, "creating new bucket %s", Integer.valueOf(i2));
             }
-            Bucket<V> newBucket = newBucket(i);
-            this.mBuckets.put(i, newBucket);
+            Bucket<V> newBucket = newBucket(i2);
+            this.mBuckets.put(i2, newBucket);
             return newBucket;
         }
         return bucket;
     }
 
-    public abstract int getBucketedSize(int i);
+    public abstract int getBucketedSize(int i2);
 
     public abstract int getBucketedSizeForValue(V v);
 
-    public abstract int getSizeInBytes(int i);
+    public abstract int getSizeInBytes(int i2);
 
     public synchronized Map<String, Integer> getStats() {
         HashMap hashMap;
         hashMap = new HashMap();
-        for (int i = 0; i < this.mBuckets.size(); i++) {
-            int keyAt = this.mBuckets.keyAt(i);
-            hashMap.put(PoolStatsTracker.BUCKETS_USED_PREFIX + getSizeInBytes(keyAt), Integer.valueOf(this.mBuckets.valueAt(i).getInUseCount()));
+        for (int i2 = 0; i2 < this.mBuckets.size(); i2++) {
+            int keyAt = this.mBuckets.keyAt(i2);
+            hashMap.put(PoolStatsTracker.BUCKETS_USED_PREFIX + getSizeInBytes(keyAt), Integer.valueOf(this.mBuckets.valueAt(i2).getInUseCount()));
         }
         hashMap.put(PoolStatsTracker.SOFT_CAP, Integer.valueOf(this.mPoolParams.maxSizeSoftCap));
         hashMap.put(PoolStatsTracker.HARD_CAP, Integer.valueOf(this.mPoolParams.maxSizeHardCap));
@@ -358,8 +358,8 @@ public abstract class BasePool<V> implements Pool<V> {
         return true;
     }
 
-    public Bucket<V> newBucket(int i) {
-        return new Bucket<>(getSizeInBytes(i), Integer.MAX_VALUE, 0, this.mPoolParams.fixBucketsReinitialization);
+    public Bucket<V> newBucket(int i2) {
+        return new Bucket<>(getSizeInBytes(i2), Integer.MAX_VALUE, 0, this.mPoolParams.fixBucketsReinitialization);
     }
 
     public void onParamsChanged() {
@@ -412,7 +412,7 @@ public abstract class BasePool<V> implements Pool<V> {
     /* JADX WARN: Multi-variable type inference failed */
     @VisibleForTesting
     public void trimToNothing() {
-        int i;
+        int i2;
         List arrayList;
         synchronized (this) {
             if (this.mPoolParams.fixBucketsReinitialization) {
@@ -420,12 +420,12 @@ public abstract class BasePool<V> implements Pool<V> {
             } else {
                 arrayList = new ArrayList(this.mBuckets.size());
                 SparseIntArray sparseIntArray = new SparseIntArray();
-                for (int i2 = 0; i2 < this.mBuckets.size(); i2++) {
-                    Bucket<V> valueAt = this.mBuckets.valueAt(i2);
+                for (int i3 = 0; i3 < this.mBuckets.size(); i3++) {
+                    Bucket<V> valueAt = this.mBuckets.valueAt(i3);
                     if (valueAt.getFreeListSize() > 0) {
                         arrayList.add(valueAt);
                     }
-                    sparseIntArray.put(this.mBuckets.keyAt(i2), valueAt.getInUseCount());
+                    sparseIntArray.put(this.mBuckets.keyAt(i3), valueAt.getInUseCount());
                 }
                 legacyInitBuckets(sparseIntArray);
             }
@@ -433,8 +433,8 @@ public abstract class BasePool<V> implements Pool<V> {
             logStats();
         }
         onParamsChanged();
-        for (i = 0; i < arrayList.size(); i++) {
-            Bucket bucket = (Bucket) arrayList.get(i);
+        for (i2 = 0; i2 < arrayList.size(); i2++) {
+            Bucket bucket = (Bucket) arrayList.get(i2);
             while (true) {
                 Object pop = bucket.pop();
                 if (pop == null) {
@@ -446,17 +446,17 @@ public abstract class BasePool<V> implements Pool<V> {
     }
 
     @VisibleForTesting
-    public synchronized void trimToSize(int i) {
-        int min = Math.min((this.mUsed.mNumBytes + this.mFree.mNumBytes) - i, this.mFree.mNumBytes);
+    public synchronized void trimToSize(int i2) {
+        int min = Math.min((this.mUsed.mNumBytes + this.mFree.mNumBytes) - i2, this.mFree.mNumBytes);
         if (min <= 0) {
             return;
         }
         if (FLog.isLoggable(2)) {
-            FLog.v(this.TAG, "trimToSize: TargetSize = %d; Initial Size = %d; Bytes to free = %d", Integer.valueOf(i), Integer.valueOf(this.mUsed.mNumBytes + this.mFree.mNumBytes), Integer.valueOf(min));
+            FLog.v(this.TAG, "trimToSize: TargetSize = %d; Initial Size = %d; Bytes to free = %d", Integer.valueOf(i2), Integer.valueOf(this.mUsed.mNumBytes + this.mFree.mNumBytes), Integer.valueOf(min));
         }
         logStats();
-        for (int i2 = 0; i2 < this.mBuckets.size() && min > 0; i2++) {
-            Bucket<V> valueAt = this.mBuckets.valueAt(i2);
+        for (int i3 = 0; i3 < this.mBuckets.size() && min > 0; i3++) {
+            Bucket<V> valueAt = this.mBuckets.valueAt(i3);
             while (min > 0) {
                 V pop = valueAt.pop();
                 if (pop == null) {
@@ -469,7 +469,7 @@ public abstract class BasePool<V> implements Pool<V> {
         }
         logStats();
         if (FLog.isLoggable(2)) {
-            FLog.v(this.TAG, "trimToSize: TargetSize = %d; Final Size = %d", Integer.valueOf(i), Integer.valueOf(this.mUsed.mNumBytes + this.mFree.mNumBytes));
+            FLog.v(this.TAG, "trimToSize: TargetSize = %d; Final Size = %d", Integer.valueOf(i2), Integer.valueOf(this.mUsed.mNumBytes + this.mFree.mNumBytes));
         }
     }
 

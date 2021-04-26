@@ -17,37 +17,37 @@ public class LongSparseArray<E> implements Cloneable {
     }
 
     private void gc() {
-        int i = this.mSize;
+        int i2 = this.mSize;
         long[] jArr = this.mKeys;
         Object[] objArr = this.mValues;
-        int i2 = 0;
-        for (int i3 = 0; i3 < i; i3++) {
-            Object obj = objArr[i3];
+        int i3 = 0;
+        for (int i4 = 0; i4 < i2; i4++) {
+            Object obj = objArr[i4];
             if (obj != DELETED) {
-                if (i3 != i2) {
-                    jArr[i2] = jArr[i3];
-                    objArr[i2] = obj;
-                    objArr[i3] = null;
+                if (i4 != i3) {
+                    jArr[i3] = jArr[i4];
+                    objArr[i3] = obj;
+                    objArr[i4] = null;
                 }
-                i2++;
+                i3++;
             }
         }
         this.mGarbage = false;
-        this.mSize = i2;
+        this.mSize = i3;
     }
 
     public void append(long j, E e2) {
-        int i = this.mSize;
-        if (i != 0 && j <= this.mKeys[i - 1]) {
+        int i2 = this.mSize;
+        if (i2 != 0 && j <= this.mKeys[i2 - 1]) {
             put(j, e2);
             return;
         }
         if (this.mGarbage && this.mSize >= this.mKeys.length) {
             gc();
         }
-        int i2 = this.mSize;
-        if (i2 >= this.mKeys.length) {
-            int idealLongArraySize = ContainerHelpers.idealLongArraySize(i2 + 1);
+        int i3 = this.mSize;
+        if (i3 >= this.mKeys.length) {
+            int idealLongArraySize = ContainerHelpers.idealLongArraySize(i3 + 1);
             long[] jArr = new long[idealLongArraySize];
             Object[] objArr = new Object[idealLongArraySize];
             long[] jArr2 = this.mKeys;
@@ -57,16 +57,16 @@ public class LongSparseArray<E> implements Cloneable {
             this.mKeys = jArr;
             this.mValues = objArr;
         }
-        this.mKeys[i2] = j;
-        this.mValues[i2] = e2;
-        this.mSize = i2 + 1;
+        this.mKeys[i3] = j;
+        this.mValues[i3] = e2;
+        this.mSize = i3 + 1;
     }
 
     public void clear() {
-        int i = this.mSize;
+        int i2 = this.mSize;
         Object[] objArr = this.mValues;
-        for (int i2 = 0; i2 < i; i2++) {
-            objArr[i2] = null;
+        for (int i3 = 0; i3 < i2; i3++) {
+            objArr[i3] = null;
         }
         this.mSize = 0;
         this.mGarbage = false;
@@ -80,17 +80,9 @@ public class LongSparseArray<E> implements Cloneable {
         return indexOfValue(e2) >= 0;
     }
 
+    @Deprecated
     public void delete(long j) {
-        int binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, j);
-        if (binarySearch >= 0) {
-            Object[] objArr = this.mValues;
-            Object obj = objArr[binarySearch];
-            Object obj2 = DELETED;
-            if (obj != obj2) {
-                objArr[binarySearch] = obj2;
-                this.mGarbage = true;
-            }
-        }
+        remove(j);
     }
 
     @Nullable
@@ -109,9 +101,9 @@ public class LongSparseArray<E> implements Cloneable {
         if (this.mGarbage) {
             gc();
         }
-        for (int i = 0; i < this.mSize; i++) {
-            if (this.mValues[i] == e2) {
-                return i;
+        for (int i2 = 0; i2 < this.mSize; i2++) {
+            if (this.mValues[i2] == e2) {
+                return i2;
             }
         }
         return -1;
@@ -121,11 +113,11 @@ public class LongSparseArray<E> implements Cloneable {
         return size() == 0;
     }
 
-    public long keyAt(int i) {
+    public long keyAt(int i2) {
         if (this.mGarbage) {
             gc();
         }
-        return this.mKeys[i];
+        return this.mKeys[i2];
     }
 
     public void put(long j, E e2) {
@@ -134,22 +126,22 @@ public class LongSparseArray<E> implements Cloneable {
             this.mValues[binarySearch] = e2;
             return;
         }
-        int i = ~binarySearch;
-        if (i < this.mSize) {
+        int i2 = ~binarySearch;
+        if (i2 < this.mSize) {
             Object[] objArr = this.mValues;
-            if (objArr[i] == DELETED) {
-                this.mKeys[i] = j;
-                objArr[i] = e2;
+            if (objArr[i2] == DELETED) {
+                this.mKeys[i2] = j;
+                objArr[i2] = e2;
                 return;
             }
         }
         if (this.mGarbage && this.mSize >= this.mKeys.length) {
             gc();
-            i = ~ContainerHelpers.binarySearch(this.mKeys, this.mSize, j);
+            i2 = ~ContainerHelpers.binarySearch(this.mKeys, this.mSize, j);
         }
-        int i2 = this.mSize;
-        if (i2 >= this.mKeys.length) {
-            int idealLongArraySize = ContainerHelpers.idealLongArraySize(i2 + 1);
+        int i3 = this.mSize;
+        if (i3 >= this.mKeys.length) {
+            int idealLongArraySize = ContainerHelpers.idealLongArraySize(i3 + 1);
             long[] jArr = new long[idealLongArraySize];
             Object[] objArr2 = new Object[idealLongArraySize];
             long[] jArr2 = this.mKeys;
@@ -159,45 +151,75 @@ public class LongSparseArray<E> implements Cloneable {
             this.mKeys = jArr;
             this.mValues = objArr2;
         }
-        int i3 = this.mSize;
-        if (i3 - i != 0) {
+        int i4 = this.mSize;
+        if (i4 - i2 != 0) {
             long[] jArr3 = this.mKeys;
-            int i4 = i + 1;
-            System.arraycopy(jArr3, i, jArr3, i4, i3 - i);
+            int i5 = i2 + 1;
+            System.arraycopy(jArr3, i2, jArr3, i5, i4 - i2);
             Object[] objArr4 = this.mValues;
-            System.arraycopy(objArr4, i, objArr4, i4, this.mSize - i);
+            System.arraycopy(objArr4, i2, objArr4, i5, this.mSize - i2);
         }
-        this.mKeys[i] = j;
-        this.mValues[i] = e2;
+        this.mKeys[i2] = j;
+        this.mValues[i2] = e2;
         this.mSize++;
     }
 
     public void putAll(@NonNull LongSparseArray<? extends E> longSparseArray) {
         int size = longSparseArray.size();
-        for (int i = 0; i < size; i++) {
-            put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
+        for (int i2 = 0; i2 < size; i2++) {
+            put(longSparseArray.keyAt(i2), longSparseArray.valueAt(i2));
         }
     }
 
-    public void remove(long j) {
-        delete(j);
+    @Nullable
+    public E putIfAbsent(long j, E e2) {
+        E e3 = get(j);
+        if (e3 == null) {
+            put(j, e2);
+        }
+        return e3;
     }
 
-    public void removeAt(int i) {
+    public void remove(long j) {
+        int binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, j);
+        if (binarySearch >= 0) {
+            Object[] objArr = this.mValues;
+            Object obj = objArr[binarySearch];
+            Object obj2 = DELETED;
+            if (obj != obj2) {
+                objArr[binarySearch] = obj2;
+                this.mGarbage = true;
+            }
+        }
+    }
+
+    public void removeAt(int i2) {
         Object[] objArr = this.mValues;
-        Object obj = objArr[i];
+        Object obj = objArr[i2];
         Object obj2 = DELETED;
         if (obj != obj2) {
-            objArr[i] = obj2;
+            objArr[i2] = obj2;
             this.mGarbage = true;
         }
     }
 
-    public void setValueAt(int i, E e2) {
+    @Nullable
+    public E replace(long j, E e2) {
+        int indexOfKey = indexOfKey(j);
+        if (indexOfKey >= 0) {
+            Object[] objArr = this.mValues;
+            E e3 = (E) objArr[indexOfKey];
+            objArr[indexOfKey] = e2;
+            return e3;
+        }
+        return null;
+    }
+
+    public void setValueAt(int i2, E e2) {
         if (this.mGarbage) {
             gc();
         }
-        this.mValues[i] = e2;
+        this.mValues[i2] = e2;
     }
 
     public int size() {
@@ -213,13 +235,13 @@ public class LongSparseArray<E> implements Cloneable {
         }
         StringBuilder sb = new StringBuilder(this.mSize * 28);
         sb.append('{');
-        for (int i = 0; i < this.mSize; i++) {
-            if (i > 0) {
+        for (int i2 = 0; i2 < this.mSize; i2++) {
+            if (i2 > 0) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
-            sb.append(keyAt(i));
-            sb.append(a.f1922h);
-            E valueAt = valueAt(i);
+            sb.append(keyAt(i2));
+            sb.append(a.f1873h);
+            E valueAt = valueAt(i2);
             if (valueAt != this) {
                 sb.append(valueAt);
             } else {
@@ -230,24 +252,23 @@ public class LongSparseArray<E> implements Cloneable {
         return sb.toString();
     }
 
-    public E valueAt(int i) {
+    public E valueAt(int i2) {
         if (this.mGarbage) {
             gc();
         }
-        return (E) this.mValues[i];
+        return (E) this.mValues[i2];
     }
 
-    public LongSparseArray(int i) {
+    public LongSparseArray(int i2) {
         this.mGarbage = false;
-        if (i == 0) {
+        if (i2 == 0) {
             this.mKeys = ContainerHelpers.EMPTY_LONGS;
             this.mValues = ContainerHelpers.EMPTY_OBJECTS;
-        } else {
-            int idealLongArraySize = ContainerHelpers.idealLongArraySize(i);
-            this.mKeys = new long[idealLongArraySize];
-            this.mValues = new Object[idealLongArraySize];
+            return;
         }
-        this.mSize = 0;
+        int idealLongArraySize = ContainerHelpers.idealLongArraySize(i2);
+        this.mKeys = new long[idealLongArraySize];
+        this.mValues = new Object[idealLongArraySize];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -272,5 +293,31 @@ public class LongSparseArray<E> implements Cloneable {
             }
         }
         return e2;
+    }
+
+    public boolean replace(long j, E e2, E e3) {
+        int indexOfKey = indexOfKey(j);
+        if (indexOfKey >= 0) {
+            Object obj = this.mValues[indexOfKey];
+            if (obj == e2 || (e2 != null && e2.equals(obj))) {
+                this.mValues[indexOfKey] = e3;
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
+    public boolean remove(long j, Object obj) {
+        int indexOfKey = indexOfKey(j);
+        if (indexOfKey >= 0) {
+            E valueAt = valueAt(indexOfKey);
+            if (obj == valueAt || (obj != null && obj.equals(valueAt))) {
+                removeAt(indexOfKey);
+                return true;
+            }
+            return false;
+        }
+        return false;
     }
 }

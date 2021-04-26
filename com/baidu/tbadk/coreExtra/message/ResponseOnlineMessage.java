@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.c0.a;
+import d.a.i0.c0.a;
 import java.util.ArrayList;
 import java.util.List;
 import protobuf.ConfigVersion;
@@ -44,7 +44,7 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         UpdateClientInfoResIdl updateClientInfoResIdl = (UpdateClientInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, UpdateClientInfoResIdl.class);
         setError(updateClientInfoResIdl.error.errorno.intValue());
         setErrorString(updateClientInfoResIdl.error.usermsg);
@@ -58,8 +58,8 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
         if (dataRes != null) {
             List<GroupInfo> list = dataRes.groupInfo;
             int size = list == null ? 0 : list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                GroupInfo groupInfo = updateClientInfoResIdl.data.groupInfo.get(i2);
+            for (int i3 = 0; i3 < size; i3++) {
+                GroupInfo groupInfo = updateClientInfoResIdl.data.groupInfo.get(i3);
                 GroupUpdateMessage groupUpdateMessage = new GroupUpdateMessage();
                 groupUpdateMessage.setGroupId(groupInfo.groupId.longValue());
                 groupUpdateMessage.setGroupType(groupInfo.groupType.intValue());

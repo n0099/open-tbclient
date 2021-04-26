@@ -26,7 +26,7 @@ public abstract class AbstractSessionInputBuffer implements SessionInputBuffer {
         throw new RuntimeException("Stub!");
     }
 
-    public void init(InputStream inputStream, int i, HttpParams httpParams) {
+    public void init(InputStream inputStream, int i2, HttpParams httpParams) {
         throw new RuntimeException("Stub!");
     }
 
@@ -41,7 +41,7 @@ public abstract class AbstractSessionInputBuffer implements SessionInputBuffer {
     }
 
     @Override // org.apache.http.io.SessionInputBuffer
-    public int read(byte[] bArr, int i, int i2) throws IOException {
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
         throw new RuntimeException("Stub!");
     }
 

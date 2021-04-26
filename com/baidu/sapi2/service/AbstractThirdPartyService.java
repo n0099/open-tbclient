@@ -2,6 +2,7 @@ package com.baidu.sapi2.service;
 
 import android.app.Activity;
 import android.content.Context;
+import com.baidu.sapi2.shell.listener.ThirdLoginCallback;
 import com.baidu.sapi2.utils.enums.SocialType;
 /* loaded from: classes2.dex */
 public interface AbstractThirdPartyService {
@@ -17,13 +18,19 @@ public interface AbstractThirdPartyService {
     public static final int RESULT_UNKNOW_ERROR = -1;
     public static final String RESULT_UNKNOW_ERROR_MSG = "未知错误";
 
-    void handleWXLoginResp(Activity activity, String str, String str2, int i);
+    void handleWXLoginResp(Activity activity, String str, String str2, int i2);
 
-    void loadThirdPartyLogin(Context context, SocialType socialType, int i);
+    void loadQQLogin(Context context, int i2);
 
-    void loadThirdPartyLogin(Context context, SocialType socialType, int i, String str);
+    void loadThirdPartyLogin(Context context, SocialType socialType, int i2);
 
-    void loadThirdPartyLogin(Context context, SocialType socialType, int i, String str, boolean z);
+    void loadThirdPartyLogin(Context context, SocialType socialType, int i2, ThirdLoginCallback thirdLoginCallback);
 
-    void socialBind(Activity activity, SocialType socialType, int i, String str);
+    void loadThirdPartyLogin(Context context, SocialType socialType, int i2, String str);
+
+    void loadThirdPartyLogin(Context context, SocialType socialType, int i2, String str, boolean z);
+
+    void loadWechatLogin(Context context, int i2);
+
+    void socialBind(Activity activity, SocialType socialType, int i2, String str);
 }

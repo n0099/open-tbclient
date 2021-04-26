@@ -71,8 +71,8 @@ public final class WireInput {
         return this.limit - this.pos;
     }
 
-    public static int decodeZigZag32(int i) {
-        return (-(i & 1)) ^ (i >>> 1);
+    public static int decodeZigZag32(int i2) {
+        return (-(i2 & 1)) ^ (i2 >>> 1);
     }
 
     public static long decodeZigZag64(long j) {
@@ -83,30 +83,30 @@ public final class WireInput {
         return new WireInput(bArr, 0, bArr.length);
     }
 
-    private void refillBuffer(int i) throws IOException {
-        int i2 = this.pos;
-        if (i2 < this.limit || this.inputStreamAtEof) {
+    private void refillBuffer(int i2) throws IOException {
+        int i3 = this.pos;
+        if (i3 < this.limit || this.inputStreamAtEof) {
             return;
         }
-        this.bufferOffset += i2;
+        this.bufferOffset += i3;
         this.pos = 0;
-        int min = Math.min(i, 1024);
-        int i3 = 0;
-        while (i3 < min) {
-            int read = this.input.read(this.buffer, i3, 1024 - i3);
+        int min = Math.min(i2, 1024);
+        int i4 = 0;
+        while (i4 < min) {
+            int read = this.input.read(this.buffer, i4, 1024 - i4);
             if (read == -1) {
-                this.limit = i3;
+                this.limit = i4;
                 this.inputStreamAtEof = true;
                 return;
             }
-            i3 += read;
+            i4 += read;
         }
-        this.limit = i3;
+        this.limit = i4;
         this.inputStreamAtEof = false;
     }
 
-    private boolean skipField(int i) throws IOException {
-        switch ($SWITCH_TABLE$com$squareup$wire$WireType()[WireType.valueOf(i).ordinal()]) {
+    private boolean skipField(int i2) throws IOException {
+        switch ($SWITCH_TABLE$com$squareup$wire$WireType()[WireType.valueOf(i2).ordinal()]) {
             case 1:
                 readVarint64();
                 return false;
@@ -118,7 +118,7 @@ public final class WireInput {
                 return false;
             case 4:
                 skipGroup();
-                checkLastTagWas((i & (-8)) | WireType.END_GROUP.value());
+                checkLastTagWas((i2 & (-8)) | WireType.END_GROUP.value());
                 return false;
             case 5:
                 return true;
@@ -130,8 +130,8 @@ public final class WireInput {
         }
     }
 
-    public void checkLastTagWas(int i) throws IOException {
-        if (this.lastTag != i) {
+    public void checkLastTagWas(int i2) throws IOException {
+        if (this.lastTag != i2) {
             throw new IOException(PROTOCOL_MESSAGE_END_GROUP_TAG_DID_NOT_MATCH_EXPECTED_TAG);
         }
     }
@@ -148,17 +148,17 @@ public final class WireInput {
         return bytesRemaining() == 0 && this.inputStreamAtEof;
     }
 
-    public void popLimit(int i) {
-        this.currentLimit = i;
+    public void popLimit(int i2) {
+        this.currentLimit = i2;
     }
 
-    public int pushLimit(int i) throws IOException {
-        if (i >= 0) {
-            int i2 = (int) (i + this.bufferOffset + this.pos);
-            int i3 = this.currentLimit;
-            if (i2 <= i3) {
-                this.currentLimit = i2;
-                return i3;
+    public int pushLimit(int i2) throws IOException {
+        if (i2 >= 0) {
+            int i3 = (int) (i2 + this.bufferOffset + this.pos);
+            int i4 = this.currentLimit;
+            if (i3 <= i4) {
+                this.currentLimit = i3;
+                return i4;
             }
             throw new EOFException(INPUT_ENDED_UNEXPECTEDLY);
         }
@@ -183,25 +183,25 @@ public final class WireInput {
         refillBuffer(1);
         if (bytesRemaining() != 0) {
             byte[] bArr = this.buffer;
-            int i = this.pos;
-            this.pos = i + 1;
-            return bArr[i];
+            int i2 = this.pos;
+            this.pos = i2 + 1;
+            return bArr[i2];
         }
         throw new EOFException(INPUT_ENDED_UNEXPECTEDLY);
     }
 
-    public byte[] readRawBytes(int i) throws IOException {
-        if (i >= 0) {
-            byte[] bArr = new byte[i];
-            int i2 = 0;
-            while (i2 < i) {
-                int i3 = i - i2;
-                refillBuffer(i3);
+    public byte[] readRawBytes(int i2) throws IOException {
+        if (i2 >= 0) {
+            byte[] bArr = new byte[i2];
+            int i3 = 0;
+            while (i3 < i2) {
+                int i4 = i2 - i3;
+                refillBuffer(i4);
                 if (bytesRemaining() != 0) {
-                    int min = Math.min(i3, bytesRemaining());
-                    System.arraycopy(this.buffer, this.pos, bArr, i2, min);
+                    int min = Math.min(i4, bytesRemaining());
+                    System.arraycopy(this.buffer, this.pos, bArr, i3, min);
                     this.pos += min;
-                    i2 += min;
+                    i3 += min;
                 } else {
                     throw new EOFException(INPUT_ENDED_UNEXPECTEDLY);
                 }
@@ -235,48 +235,48 @@ public final class WireInput {
     }
 
     public int readVarint32() throws IOException {
-        int i;
+        int i2;
         byte readRawByte = readRawByte();
         if (readRawByte >= 0) {
             return readRawByte;
         }
-        int i2 = readRawByte & ByteCompanionObject.MAX_VALUE;
+        int i3 = readRawByte & ByteCompanionObject.MAX_VALUE;
         byte readRawByte2 = readRawByte();
         if (readRawByte2 >= 0) {
-            i = readRawByte2 << 7;
+            i2 = readRawByte2 << 7;
         } else {
-            i2 |= (readRawByte2 & ByteCompanionObject.MAX_VALUE) << 7;
+            i3 |= (readRawByte2 & ByteCompanionObject.MAX_VALUE) << 7;
             byte readRawByte3 = readRawByte();
             if (readRawByte3 >= 0) {
-                i = readRawByte3 << 14;
+                i2 = readRawByte3 << 14;
             } else {
-                i2 |= (readRawByte3 & ByteCompanionObject.MAX_VALUE) << 14;
+                i3 |= (readRawByte3 & ByteCompanionObject.MAX_VALUE) << 14;
                 byte readRawByte4 = readRawByte();
                 if (readRawByte4 < 0) {
-                    int i3 = i2 | ((readRawByte4 & ByteCompanionObject.MAX_VALUE) << 21);
+                    int i4 = i3 | ((readRawByte4 & ByteCompanionObject.MAX_VALUE) << 21);
                     byte readRawByte5 = readRawByte();
-                    int i4 = i3 | (readRawByte5 << 28);
+                    int i5 = i4 | (readRawByte5 << 28);
                     if (readRawByte5 < 0) {
-                        for (int i5 = 0; i5 < 5; i5++) {
+                        for (int i6 = 0; i6 < 5; i6++) {
                             if (readRawByte() >= 0) {
-                                return i4;
+                                return i5;
                             }
                         }
                         throw new IOException(ENCOUNTERED_A_MALFORMED_VARINT);
                     }
-                    return i4;
+                    return i5;
                 }
-                i = readRawByte4 << 21;
+                i2 = readRawByte4 << 21;
             }
         }
-        return i2 | i;
+        return i3 | i2;
     }
 
     public long readVarint64() throws IOException {
         long j = 0;
-        for (int i = 0; i < 64; i += 7) {
+        for (int i2 = 0; i2 < 64; i2 += 7) {
             byte readRawByte = readRawByte();
-            j |= (readRawByte & ByteCompanionObject.MAX_VALUE) << i;
+            j |= (readRawByte & ByteCompanionObject.MAX_VALUE) << i2;
             if ((readRawByte & ByteCompanionObject.MIN_VALUE) == 0) {
                 return j;
             }
@@ -294,32 +294,32 @@ public final class WireInput {
         } while (!skipField(readTag));
     }
 
-    public static WireInput newInstance(byte[] bArr, int i, int i2) {
-        return new WireInput(bArr, i, i2);
+    public static WireInput newInstance(byte[] bArr, int i2, int i3) {
+        return new WireInput(bArr, i2, i3);
     }
 
     public static WireInput newInstance(InputStream inputStream) {
         return new WireInput(inputStream);
     }
 
-    public ByteString readBytes(int i) throws IOException {
-        if (bytesRemaining() >= i) {
-            ByteString of = ByteString.of(this.buffer, this.pos, i);
-            this.pos += i;
+    public ByteString readBytes(int i2) throws IOException {
+        if (bytesRemaining() >= i2) {
+            ByteString of = ByteString.of(this.buffer, this.pos, i2);
+            this.pos += i2;
             return of;
         }
-        return ByteString.of(readRawBytes(i));
+        return ByteString.of(readRawBytes(i2));
     }
 
-    public WireInput(byte[] bArr, int i, int i2) {
+    public WireInput(byte[] bArr, int i2, int i3) {
         this.bufferOffset = 0L;
         this.pos = 0;
         this.currentLimit = Integer.MAX_VALUE;
         this.input = null;
         this.buffer = bArr;
-        this.bufferOffset = -i;
-        this.pos = i;
-        this.limit = i + i2;
+        this.bufferOffset = -i2;
+        this.pos = i2;
+        this.limit = i2 + i3;
         this.inputStreamAtEof = true;
     }
 }

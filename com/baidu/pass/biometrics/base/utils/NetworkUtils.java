@@ -62,7 +62,7 @@ public final class NetworkUtils {
                     case 12:
                     case 14:
                     case 15:
-                        return g.f3909b;
+                        return g.f3962b;
                     case 13:
                         return "4G";
                     default:

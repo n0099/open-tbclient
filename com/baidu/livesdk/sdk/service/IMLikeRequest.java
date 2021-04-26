@@ -26,7 +26,7 @@ public class IMLikeRequest implements LikeRequest {
     }
 
     @Override // com.baidu.livesdk.api.service.LikeRequest
-    public void like(Context context, String str, String str2, int i, int i2, final SimpleResponseListener simpleResponseListener) {
+    public void like(Context context, String str, String str2, int i2, int i3, final SimpleResponseListener simpleResponseListener) {
         try {
             this.mClickHeartCount++;
             if (needSyncToNet()) {
@@ -37,9 +37,9 @@ public class IMLikeRequest implements LikeRequest {
                 if (conversation != null) {
                     BIMConversation baseConversation = ((BDIMConversation) conversation).getBaseConversation();
                     IMLikeData iMLikeData = new IMLikeData();
-                    iMLikeData.num = i;
+                    iMLikeData.num = i2;
                     iMLikeData.roomId = parseLong;
-                    iMLikeData.callFlag = i2;
+                    iMLikeData.callFlag = i3;
                     iMLikeData.sourceType = 0;
                     Account account = liveSDK.getAccount();
                     if (account != null && account.isLogin() && account.accountInfo() != null) {
@@ -56,10 +56,10 @@ public class IMLikeRequest implements LikeRequest {
                     }
                     baseConversation.sendQuizOpts(parseLong, parseLong2, 1000, iMLikeData.toJson(), new IMcastSetListener() { // from class: com.baidu.livesdk.sdk.service.IMLikeRequest.1
                         @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
-                        public void onResult(int i3, long j, long j2) {
+                        public void onResult(int i4, long j, long j2) {
                             SimpleResponseListener simpleResponseListener2 = simpleResponseListener;
                             if (simpleResponseListener2 != null) {
-                                simpleResponseListener2.onResult(i3, j, j2);
+                                simpleResponseListener2.onResult(i4, j, j2);
                             }
                         }
                     });

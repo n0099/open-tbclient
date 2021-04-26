@@ -81,8 +81,8 @@ public class ShareFromPBMsgData extends ShareBaseMsgData {
         this.threadId = str;
     }
 
-    public void setThreadType(int i) {
-        this.threadType = i;
+    public void setThreadType(int i2) {
+        this.threadType = i2;
     }
 
     public void setTitle(String str) {

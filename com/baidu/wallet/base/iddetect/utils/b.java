@@ -15,13 +15,13 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static com.baidu.wallet.base.iddetect.a f23341a;
+    public static com.baidu.wallet.base.iddetect.a f24061a;
 
-    public static com.baidu.wallet.base.iddetect.a a(Context context, int i, boolean z) {
-        if (f23341a == null || z) {
-            f23341a = a(i, context);
+    public static com.baidu.wallet.base.iddetect.a a(Context context, int i2, boolean z) {
+        if (f24061a == null || z) {
+            f24061a = a(i2, context);
         }
-        return f23341a;
+        return f24061a;
     }
 
     public static Rect a(Context context) {
@@ -34,17 +34,17 @@ public class b {
         return rect;
     }
 
-    public static float a(int i, int i2) {
-        return a((i * 1.0f) / i2);
+    public static float a(int i2, int i3) {
+        return a((i2 * 1.0f) / i3);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x0050  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static com.baidu.wallet.base.iddetect.a a(int i, Context context) {
+    public static com.baidu.wallet.base.iddetect.a a(int i2, Context context) {
         com.baidu.wallet.base.iddetect.a a2;
-        Camera a3 = a(i);
+        Camera a3 = a(i2);
         if (a3 != null) {
             try {
                 if (a3.getParameters() != null) {
@@ -69,12 +69,12 @@ public class b {
         return a2;
     }
 
-    public static Camera a(int i) {
+    public static Camera a(int i2) {
         Camera open;
         try {
             if (Build.VERSION.SDK_INT >= 9) {
                 try {
-                    if (i == 1) {
+                    if (i2 == 1) {
                         open = Camera.open(0);
                     } else {
                         open = Camera.open(1);
@@ -92,38 +92,38 @@ public class b {
 
     public static com.baidu.wallet.base.iddetect.a a(Context context, Rect rect, float f2, List<com.baidu.wallet.base.iddetect.a> list) {
         boolean z;
-        int i;
+        int i2;
         boolean z2 = false;
         com.baidu.wallet.base.iddetect.a aVar = null;
-        int i2 = 0;
+        int i3 = 0;
         while (true) {
-            if (i2 >= list.size()) {
+            if (i3 >= list.size()) {
                 z = false;
                 break;
             }
-            aVar = list.get(i2);
-            float a2 = a(aVar.f23335b, aVar.f23334a);
-            list.get(i2).f23337d = Math.abs(a2 - f2);
-            list.get(i2).f23338e = true;
-            if (a2 == f2 && (i = aVar.f23335b) >= 480 && i <= 720) {
-                aVar.f23336c = 0.6306f;
+            aVar = list.get(i3);
+            float a2 = a(aVar.f24055b, aVar.f24054a);
+            list.get(i3).f24057d = Math.abs(a2 - f2);
+            list.get(i3).f24058e = true;
+            if (a2 == f2 && (i2 = aVar.f24055b) >= 480 && i2 <= 720) {
+                aVar.f24056c = 0.6306f;
                 z = true;
                 break;
             }
-            i2++;
+            i3++;
         }
         if (!z) {
             Collections.sort(list);
-            int i3 = 0;
+            int i4 = 0;
             while (true) {
-                if (i3 < list.size()) {
-                    if (list.get(i3).f23335b >= 480 && list.get(i3).f23335b <= 720 && list.get(i3).f23337d <= 0.1f) {
-                        aVar = list.get(i3);
-                        aVar.f23336c = a(context, rect, aVar);
+                if (i4 < list.size()) {
+                    if (list.get(i4).f24055b >= 480 && list.get(i4).f24055b <= 720 && list.get(i4).f24057d <= 0.1f) {
+                        aVar = list.get(i4);
+                        aVar.f24056c = a(context, rect, aVar);
                         z2 = true;
                         break;
                     }
-                    i3++;
+                    i4++;
                 } else {
                     break;
                 }
@@ -133,24 +133,24 @@ public class b {
             if (aVar == null) {
                 aVar = new com.baidu.wallet.base.iddetect.a(640, 480);
             } else {
-                aVar.f23335b = 480;
-                aVar.f23334a = 640;
+                aVar.f24055b = 480;
+                aVar.f24054a = 640;
             }
-            aVar.f23336c = a(context, rect, aVar);
+            aVar.f24056c = a(context, rect, aVar);
         }
         return aVar;
     }
 
     public static float a(Context context, Rect rect, com.baidu.wallet.base.iddetect.a aVar) {
-        float width = (rect.width() * 1.0f) / aVar.f23335b;
-        float height = (rect.height() * 1.0f) / aVar.f23334a;
+        float width = (rect.width() * 1.0f) / aVar.f24055b;
+        float height = (rect.height() * 1.0f) / aVar.f24054a;
         return width > height ? (width * 0.6306f) / height : (height * 0.6306f) / width;
     }
 
     public static List<com.baidu.wallet.base.iddetect.a> a(List<Camera.Size> list) {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < list.size(); i++) {
-            Camera.Size size = list.get(i);
+        for (int i2 = 0; i2 < list.size(); i2++) {
+            Camera.Size size = list.get(i2);
             arrayList.add(new com.baidu.wallet.base.iddetect.a(size.width, size.height));
         }
         Collections.sort(arrayList);

@@ -10,22 +10,24 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-/* loaded from: classes3.dex */
+import d.a.c.e.p.l;
+/* loaded from: classes4.dex */
 public class VideoLoadingProgressView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f20204e;
+    public float f20731e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20205f;
+    public int f20732f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f20206g;
+    public float f20733g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20207h;
-    public float i;
+    public int f20734h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public float f20735i;
     public int j;
     public RectF k;
     public Paint l;
@@ -42,7 +44,7 @@ public class VideoLoadingProgressView extends View {
     public ValueAnimator.AnimatorUpdateListener w;
     public AnimatorListenerAdapter x;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public a() {
         }
@@ -62,7 +64,7 @@ public class VideoLoadingProgressView extends View {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends AnimatorListenerAdapter {
         public b() {
         }
@@ -78,18 +80,18 @@ public class VideoLoadingProgressView extends View {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void onAnimationEnd();
     }
 
     public VideoLoadingProgressView(Context context) {
         super(context);
-        this.f20204e = 7200.0f;
-        this.f20205f = 10000;
-        this.f20206g = 30.0f;
-        this.f20207h = 50;
-        this.i = 300.0f;
+        this.f20731e = 7200.0f;
+        this.f20732f = 10000;
+        this.f20733g = 30.0f;
+        this.f20734h = 50;
+        this.f20735i = 300.0f;
         this.j = 400;
         this.o = -90.0f;
         this.p = -90.0f;
@@ -134,9 +136,9 @@ public class VideoLoadingProgressView extends View {
         g();
         this.r = 2;
         this.o = this.p;
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(-this.f20206g);
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(-this.f20733g);
         this.u = ofFloat;
-        ofFloat.setDuration(this.f20207h);
+        ofFloat.setDuration(this.f20734h);
         this.u.addListener(this.x);
         this.u.addUpdateListener(this.w);
         this.u.start();
@@ -146,7 +148,7 @@ public class VideoLoadingProgressView extends View {
         g();
         this.r = 3;
         this.o = this.p;
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.i);
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f20735i);
         this.v = ofFloat;
         ofFloat.setDuration(this.j);
         this.v.addListener(this.x);
@@ -159,9 +161,9 @@ public class VideoLoadingProgressView extends View {
         this.r = 1;
         this.p = -90.0f;
         this.o = -90.0f;
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f20204e);
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.f20731e);
         this.t = ofFloat;
-        ofFloat.setDuration(this.f20205f);
+        ofFloat.setDuration(this.f20732f);
         this.t.addListener(this.x);
         this.t.addUpdateListener(this.w);
         this.t.start();
@@ -193,11 +195,11 @@ public class VideoLoadingProgressView extends View {
 
     public VideoLoadingProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20204e = 7200.0f;
-        this.f20205f = 10000;
-        this.f20206g = 30.0f;
-        this.f20207h = 50;
-        this.i = 300.0f;
+        this.f20731e = 7200.0f;
+        this.f20732f = 10000;
+        this.f20733g = 30.0f;
+        this.f20734h = 50;
+        this.f20735i = 300.0f;
         this.j = 400;
         this.o = -90.0f;
         this.p = -90.0f;
@@ -207,13 +209,13 @@ public class VideoLoadingProgressView extends View {
         i();
     }
 
-    public VideoLoadingProgressView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f20204e = 7200.0f;
-        this.f20205f = 10000;
-        this.f20206g = 30.0f;
-        this.f20207h = 50;
-        this.i = 300.0f;
+    public VideoLoadingProgressView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f20731e = 7200.0f;
+        this.f20732f = 10000;
+        this.f20733g = 30.0f;
+        this.f20734h = 50;
+        this.f20735i = 300.0f;
         this.j = 400;
         this.o = -90.0f;
         this.p = -90.0f;

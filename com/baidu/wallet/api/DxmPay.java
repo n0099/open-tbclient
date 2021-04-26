@@ -15,7 +15,7 @@ public class DxmPay {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final DxmPay f23169a = new DxmPay();
+        public static final DxmPay f23882a = new DxmPay();
     }
 
     private void a(Application application) {
@@ -31,7 +31,7 @@ public class DxmPay {
     }
 
     public static DxmPay getInstance() {
-        return a.f23169a;
+        return a.f23882a;
     }
 
     public void initWallet(final Context context) {
@@ -40,8 +40,8 @@ public class DxmPay {
             @Override // java.lang.Runnable
             public void run() {
                 if (SafePay.getInstance().prepareCompleted()) {
-                    d.e.a.a.a.g(context.getApplicationContext(), StatConfig.getInstance(context.getApplicationContext()));
-                    d.e.a.a.a.x(new SensorsSyncHttpImpl());
+                    d.d.a.a.a.g(context.getApplicationContext(), StatConfig.getInstance(context.getApplicationContext()));
+                    d.d.a.a.a.x(new SensorsSyncHttpImpl());
                 }
             }
         }, "DXMPaySDK").start();

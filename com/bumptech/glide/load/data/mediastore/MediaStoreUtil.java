@@ -19,8 +19,8 @@ public final class MediaStoreUtil {
         return isMediaStoreUri(uri) && isVideoUri(uri);
     }
 
-    public static boolean isThumbnailSize(int i, int i2) {
-        return i != Integer.MIN_VALUE && i2 != Integer.MIN_VALUE && i <= 512 && i2 <= 384;
+    public static boolean isThumbnailSize(int i2, int i3) {
+        return i2 != Integer.MIN_VALUE && i3 != Integer.MIN_VALUE && i2 <= 512 && i3 <= 384;
     }
 
     public static boolean isVideoUri(Uri uri) {

@@ -19,8 +19,8 @@ public class GroupMember implements Parcelable, NoProGuard {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public GroupMember[] newArray(int i) {
-            return new GroupMember[i];
+        public GroupMember[] newArray(int i2) {
+            return new GroupMember[i2];
         }
     };
     public static final int ROLECOMMON = 0;
@@ -37,7 +37,7 @@ public class GroupMember implements Parcelable, NoProGuard {
     public int role;
     public int valid;
 
-    public GroupMember(long j, String str, int i) {
+    public GroupMember(long j, String str, int i2) {
         this.mUk = -1L;
         this.mName = "";
         this.role = 0;
@@ -48,7 +48,7 @@ public class GroupMember implements Parcelable, NoProGuard {
         this.mPortrait = "";
         this.mUk = j;
         this.mName = str;
-        this.role = i;
+        this.role = i2;
     }
 
     @Override // android.os.Parcelable
@@ -96,8 +96,8 @@ public class GroupMember implements Parcelable, NoProGuard {
         return this.valid;
     }
 
-    public void setAddStatus(int i) {
-        this.addStatus = i;
+    public void setAddStatus(int i2) {
+        this.addStatus = i2;
     }
 
     public void setBduid(long j) {
@@ -124,12 +124,12 @@ public class GroupMember implements Parcelable, NoProGuard {
         this.mPortrait = str;
     }
 
-    public void setRole(int i) {
-        this.role = i;
+    public void setRole(int i2) {
+        this.role = i2;
     }
 
-    public void setValid(int i) {
-        this.valid = i;
+    public void setValid(int i2) {
+        this.valid = i2;
     }
 
     public String toString() {
@@ -137,7 +137,7 @@ public class GroupMember implements Parcelable, NoProGuard {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeLong(this.mUk);
         parcel.writeString(this.mName);
         parcel.writeInt(this.role);
@@ -147,7 +147,7 @@ public class GroupMember implements Parcelable, NoProGuard {
         parcel.writeString(getPortrait());
     }
 
-    public GroupMember(String str, long j, String str2, long j2, int i, long j3) {
+    public GroupMember(String str, long j, String str2, long j2, int i2, long j3) {
         this.mUk = -1L;
         this.mName = "";
         this.role = 0;
@@ -160,7 +160,7 @@ public class GroupMember implements Parcelable, NoProGuard {
         this.mUk = j;
         this.mName = str2;
         this.mBduid = j2;
-        this.role = i;
+        this.role = i2;
         this.jointime = j3;
     }
 

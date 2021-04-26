@@ -8,19 +8,19 @@ import android.os.Bundle;
 import android.webkit.ConsoleMessage;
 import android.webkit.WebChromeClient;
 import com.tencent.open.a.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class b extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f39606a;
+    public a f37207a;
     @SuppressLint({"NewApi"})
 
     /* renamed from: b  reason: collision with root package name */
-    public final WebChromeClient f39607b;
+    public final WebChromeClient f37208b;
 
-    public b(Context context, int i) {
-        super(context, i);
-        this.f39607b = new WebChromeClient() { // from class: com.tencent.open.b.1
+    public b(Context context, int i2) {
+        super(context, i2);
+        this.f37208b = new WebChromeClient() { // from class: com.tencent.open.b.1
             @Override // android.webkit.WebChromeClient
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
                 if (consoleMessage == null) {
@@ -35,8 +35,8 @@ public abstract class b extends Dialog {
             }
 
             @Override // android.webkit.WebChromeClient
-            public void onConsoleMessage(String str, int i2, String str2) {
-                f.c("openSDK_LOG.JsDialog", "WebChromeClient onConsoleMessage" + str + " -- From 222 line " + i2 + " of " + str2);
+            public void onConsoleMessage(String str, int i3, String str2) {
+                f.c("openSDK_LOG.JsDialog", "WebChromeClient onConsoleMessage" + str + " -- From 222 line " + i3 + " of " + str2);
                 if (Build.VERSION.SDK_INT == 7) {
                     b.this.a(str);
                 }
@@ -49,6 +49,6 @@ public abstract class b extends Dialog {
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f39606a = new a();
+        this.f37207a = new a();
     }
 }

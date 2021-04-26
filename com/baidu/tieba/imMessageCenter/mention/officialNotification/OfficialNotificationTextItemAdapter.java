@@ -7,7 +7,7 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import d.b.j0.f1.b.q.a;
+import d.a.j0.f1.b.q.a;
 /* loaded from: classes4.dex */
 public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a> {
     public TbPageContext t;
@@ -19,15 +19,15 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a>
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.b.c.j.e.a
-    public /* bridge */ /* synthetic */ View X(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        l0(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.a.c.j.e.a
+    public /* bridge */ /* synthetic */ View W(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
+        h0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View l0(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<a> msgViewHolder) {
-        super.X(i, view, viewGroup, chatMessage, msgViewHolder);
+    public View h0(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<a> msgViewHolder) {
+        super.W(i2, view, viewGroup, chatMessage, msgViewHolder);
         a b2 = msgViewHolder.b();
         b2.b();
         if (b2 != null) {
@@ -37,14 +37,14 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.c.j.e.a
-    /* renamed from: r0 */
-    public MsgCommonItemAdapter.MsgViewHolder<a> R(ViewGroup viewGroup) {
+    @Override // d.a.c.j.e.a
+    /* renamed from: q0 */
+    public MsgCommonItemAdapter.MsgViewHolder<a> P(ViewGroup viewGroup) {
         a aVar = new a(this.t, viewGroup, this.u);
         return new MsgCommonItemAdapter.MsgViewHolder<>(aVar.a(), aVar);
     }
 
-    public void s0(View.OnClickListener onClickListener) {
+    public void r0(View.OnClickListener onClickListener) {
         this.u = onClickListener;
     }
 }

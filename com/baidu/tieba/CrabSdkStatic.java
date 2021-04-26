@@ -4,16 +4,16 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import d.b.j0.i3.a;
+import d.a.j0.i3.a;
 /* loaded from: classes4.dex */
 public class CrabSdkStatic {
 
     /* loaded from: classes4.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<a.InterfaceC1378a> {
+    public static class a implements CustomMessageTask.CustomRunnable<a.InterfaceC1317a> {
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<a.InterfaceC1378a> run(CustomMessage<a.InterfaceC1378a> customMessage) {
-            return new CustomResponsedMessage<>(2016565, new d.b.j0.c0.a());
+        public CustomResponsedMessage<a.InterfaceC1317a> run(CustomMessage<a.InterfaceC1317a> customMessage) {
+            return new CustomResponsedMessage<>(2016565, new d.a.j0.c0.a());
         }
     }
 

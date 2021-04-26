@@ -28,8 +28,8 @@ public class ExtensionCore extends SwanAppIPCData {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public ExtensionCore[] newArray(int i) {
-            return new ExtensionCore[i];
+        public ExtensionCore[] newArray(int i2) {
+            return new ExtensionCore[i2];
         }
     }
 
@@ -51,7 +51,7 @@ public class ExtensionCore extends SwanAppIPCData {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.extensionCoreType);
         parcel.writeLong(this.extensionCoreVersionCode);
         parcel.writeString(this.extensionCoreVersionName);

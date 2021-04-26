@@ -16,7 +16,7 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
     public static final jg f639a = new jg("XmPushActionNormalConfig");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f41150a = new iy("", (byte) 15, 1);
+    public static final iy f38686a = new iy("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -24,11 +24,11 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
     public int compareTo(id idVar) {
         int a2;
         if (id.class.equals(idVar.getClass())) {
-            int compareTo = Boolean.valueOf(m448a()).compareTo(Boolean.valueOf(idVar.m448a()));
+            int compareTo = Boolean.valueOf(m451a()).compareTo(Boolean.valueOf(idVar.m451a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m448a() || (a2 = ir.a(this.f640a, idVar.f640a)) == 0) {
+            if (!m451a() || (a2 = ir.a(this.f640a, idVar.f640a)) == 0) {
                 return 0;
             }
             return a2;
@@ -41,7 +41,7 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m447a() {
+    public void m450a() {
         if (this.f640a != null) {
             return;
         }
@@ -50,19 +50,19 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.iq
     public void a(jb jbVar) {
-        jbVar.m509a();
+        jbVar.m512a();
         while (true) {
-            iy m505a = jbVar.m505a();
-            byte b2 = m505a.f41251a;
+            iy m508a = jbVar.m508a();
+            byte b2 = m508a.f38795a;
             if (b2 == 0) {
                 jbVar.f();
-                m447a();
+                m450a();
                 return;
             }
-            if (m505a.f807a == 1 && b2 == 15) {
-                iz m506a = jbVar.m506a();
-                this.f640a = new ArrayList(m506a.f808a);
-                for (int i = 0; i < m506a.f808a; i++) {
+            if (m508a.f807a == 1 && b2 == 15) {
+                iz m509a = jbVar.m509a();
+                this.f640a = new ArrayList(m509a.f808a);
+                for (int i2 = 0; i2 < m509a.f808a; i2++) {
                     ho hoVar = new ho();
                     hoVar.a(jbVar);
                     this.f640a.add(hoVar);
@@ -76,29 +76,29 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m448a() {
+    public boolean m451a() {
         return this.f640a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m449a(id idVar) {
+    public boolean m452a(id idVar) {
         if (idVar == null) {
             return false;
         }
-        boolean m448a = m448a();
-        boolean m448a2 = idVar.m448a();
-        if (m448a || m448a2) {
-            return m448a && m448a2 && this.f640a.equals(idVar.f640a);
+        boolean m451a = m451a();
+        boolean m451a2 = idVar.m451a();
+        if (m451a || m451a2) {
+            return m451a && m451a2 && this.f640a.equals(idVar.f640a);
         }
         return true;
     }
 
     @Override // com.xiaomi.push.iq
     public void b(jb jbVar) {
-        m447a();
+        m450a();
         jbVar.a(f639a);
         if (this.f640a != null) {
-            jbVar.a(f41150a);
+            jbVar.a(f38686a);
             jbVar.a(new iz(StandardMessageCodec.LIST, this.f640a.size()));
             for (ho hoVar : this.f640a) {
                 hoVar.b(jbVar);
@@ -107,12 +107,12 @@ public class id implements iq<id, Object>, Serializable, Cloneable {
             jbVar.b();
         }
         jbVar.c();
-        jbVar.m513a();
+        jbVar.m516a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof id)) {
-            return m449a((id) obj);
+            return m452a((id) obj);
         }
         return false;
     }

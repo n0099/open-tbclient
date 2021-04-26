@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class HttpURLExecutorRunnable implements Runnable {
     public static final boolean DEBUG = false;
     public static final long SLEEP_TIME_WHILE_REQUEST_FAILED = 1000;
@@ -29,7 +29,7 @@ public class HttpURLExecutorRunnable implements Runnable {
     public String mUrl;
     public boolean mUsingDNSProxy;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public interface OnWebRequestListener {
         void onFailed();
 
@@ -76,7 +76,7 @@ public class HttpURLExecutorRunnable implements Runnable {
             }
             return;
         }
-        for (int i = 0; i < this.mTryCount; i++) {
+        for (int i2 = 0; i2 < this.mTryCount; i2++) {
             InputStream inputStream2 = null;
             BufferedReader bufferedReader2 = null;
             inputStream2 = null;
@@ -104,7 +104,7 @@ public class HttpURLExecutorRunnable implements Runnable {
                                 inputStream2 = inputStream;
                                 try {
                                     e.printStackTrace();
-                                    if (i != 0 && URLUtil.isHttpsUrl(this.mUrl)) {
+                                    if (i2 != 0 && URLUtil.isHttpsUrl(this.mUrl)) {
                                         this.mUrl = this.mUrl.replaceFirst("https://", "http://");
                                     } else {
                                         try {
@@ -161,7 +161,7 @@ public class HttpURLExecutorRunnable implements Runnable {
                         bufferedReader = null;
                         inputStream2 = inputStream;
                         e.printStackTrace();
-                        if (i != 0) {
+                        if (i2 != 0) {
                         }
                         Thread.sleep(1000L);
                         if (inputStream2 != null) {
@@ -227,8 +227,8 @@ public class HttpURLExecutorRunnable implements Runnable {
         this.mRequestType = str;
     }
 
-    public HttpURLExecutorRunnable(Context context, boolean z, String str, List<NameValuePair> list, OnWebRequestListener onWebRequestListener, int i) {
+    public HttpURLExecutorRunnable(Context context, boolean z, String str, List<NameValuePair> list, OnWebRequestListener onWebRequestListener, int i2) {
         this(context, z, str, list, onWebRequestListener);
-        this.mTryCount = i;
+        this.mTryCount = i2;
     }
 }

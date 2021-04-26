@@ -7,9 +7,9 @@ public interface NestedScrollingChild {
 
     boolean dispatchNestedPreFling(float f2, float f3);
 
-    boolean dispatchNestedPreScroll(int i, int i2, @Nullable int[] iArr, @Nullable int[] iArr2);
+    boolean dispatchNestedPreScroll(int i2, int i3, @Nullable int[] iArr, @Nullable int[] iArr2);
 
-    boolean dispatchNestedScroll(int i, int i2, int i3, int i4, @Nullable int[] iArr);
+    boolean dispatchNestedScroll(int i2, int i3, int i4, int i5, @Nullable int[] iArr);
 
     boolean hasNestedScrollingParent();
 
@@ -17,7 +17,7 @@ public interface NestedScrollingChild {
 
     void setNestedScrollingEnabled(boolean z);
 
-    boolean startNestedScroll(int i);
+    boolean startNestedScroll(int i2);
 
     void stopNestedScroll();
 }

@@ -4,5 +4,5 @@ import java.util.Locale;
 @Deprecated
 /* loaded from: classes7.dex */
 public interface ReasonPhraseCatalog {
-    String getReason(int i, Locale locale);
+    String getReason(int i2, Locale locale);
 }

@@ -38,17 +38,17 @@ public class ScrollRecyclerView extends RecyclerView {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
+        public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i2) {
             for (RecyclerView.OnScrollListener onScrollListener : new ArrayList(this.scrollListenerList)) {
-                onScrollListener.onScrollStateChanged(recyclerView, i);
+                onScrollListener.onScrollStateChanged(recyclerView, i2);
             }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
-            super.onScrolled(recyclerView, i, i2);
+        public void onScrolled(@NonNull RecyclerView recyclerView, int i2, int i3) {
+            super.onScrolled(recyclerView, i2, i3);
             for (RecyclerView.OnScrollListener onScrollListener : new ArrayList(this.scrollListenerList)) {
-                onScrollListener.onScrolled(recyclerView, i, i2);
+                onScrollListener.onScrolled(recyclerView, i2, i3);
             }
         }
 
@@ -68,7 +68,7 @@ public class ScrollRecyclerView extends RecyclerView {
 
     /* loaded from: classes2.dex */
     public interface RecyclerViewItemClickListener<T> {
-        void onItemClickListener(int i, T t);
+        void onItemClickListener(int i2, T t);
     }
 
     public ScrollRecyclerView(@NonNull Context context) {
@@ -151,8 +151,8 @@ public class ScrollRecyclerView extends RecyclerView {
         });
     }
 
-    public ScrollRecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ScrollRecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         CompositeScrollListener compositeScrollListener = new CompositeScrollListener();
         this.compositeScrollListener = compositeScrollListener;
         super.addOnScrollListener(compositeScrollListener);

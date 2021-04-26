@@ -63,9 +63,9 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
 
     @Override // androidx.media.AudioAttributesImpl
     public int getLegacyStreamType() {
-        int i = this.mLegacyStreamType;
-        if (i != -1) {
-            return i;
+        int i2 = this.mLegacyStreamType;
+        if (i2 != -1) {
+            return i2;
         }
         Method audioAttributesToLegacyStreamTypeMethod = getAudioAttributesToLegacyStreamTypeMethod();
         if (audioAttributesToLegacyStreamTypeMethod == null) {
@@ -107,9 +107,9 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
     public Bundle toBundle() {
         Bundle bundle = new Bundle();
         bundle.putParcelable(AudioAttributesCompat.AUDIO_ATTRIBUTES_FRAMEWORKS, this.mAudioAttributes);
-        int i = this.mLegacyStreamType;
-        if (i != -1) {
-            bundle.putInt(AudioAttributesCompat.AUDIO_ATTRIBUTES_LEGACY_STREAM_TYPE, i);
+        int i2 = this.mLegacyStreamType;
+        if (i2 != -1) {
+            bundle.putInt(AudioAttributesCompat.AUDIO_ATTRIBUTES_LEGACY_STREAM_TYPE, i2);
         }
         return bundle;
     }
@@ -122,9 +122,9 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
         this(audioAttributes, -1);
     }
 
-    public AudioAttributesImplApi21(AudioAttributes audioAttributes, int i) {
+    public AudioAttributesImplApi21(AudioAttributes audioAttributes, int i2) {
         this.mLegacyStreamType = -1;
         this.mAudioAttributes = audioAttributes;
-        this.mLegacyStreamType = i;
+        this.mLegacyStreamType = i2;
     }
 }

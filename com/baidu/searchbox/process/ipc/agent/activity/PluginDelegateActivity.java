@@ -33,9 +33,9 @@ public class PluginDelegateActivity extends ProcessDelegateBaseActivity {
     public void onResume() {
         super.onResume();
         if (this.mFallbackFinish) {
-            int i = this.mResumeCount + 1;
-            this.mResumeCount = i;
-            if (i > 1) {
+            int i2 = this.mResumeCount + 1;
+            this.mResumeCount = i2;
+            if (i2 > 1) {
                 this.mDelegation.onSelfFinish();
                 exit(6, "");
             }

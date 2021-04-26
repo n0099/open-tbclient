@@ -46,12 +46,12 @@ public final class UPCEReader extends UPCEANReader {
         return sb.toString();
     }
 
-    public static void determineNumSysAndCheckDigit(StringBuilder sb, int i) throws NotFoundException {
-        for (int i2 = 0; i2 <= 1; i2++) {
-            for (int i3 = 0; i3 < 10; i3++) {
-                if (i == NUMSYS_AND_CHECK_DIGIT_PATTERNS[i2][i3]) {
-                    sb.insert(0, (char) (i2 + 48));
-                    sb.append((char) (i3 + 48));
+    public static void determineNumSysAndCheckDigit(StringBuilder sb, int i2) throws NotFoundException {
+        for (int i3 = 0; i3 <= 1; i3++) {
+            for (int i4 = 0; i4 < 10; i4++) {
+                if (i2 == NUMSYS_AND_CHECK_DIGIT_PATTERNS[i3][i4]) {
+                    sb.insert(0, (char) (i3 + 48));
+                    sb.append((char) (i4 + 48));
                     return;
                 }
             }
@@ -65,8 +65,8 @@ public final class UPCEReader extends UPCEANReader {
     }
 
     @Override // com.google.zxing.oned.UPCEANReader
-    public int[] decodeEnd(BitArray bitArray, int i) throws NotFoundException {
-        return UPCEANReader.findGuardPattern(bitArray, i, true, MIDDLE_END_PATTERN);
+    public int[] decodeEnd(BitArray bitArray, int i2) throws NotFoundException {
+        return UPCEANReader.findGuardPattern(bitArray, i2, true, MIDDLE_END_PATTERN);
     }
 
     @Override // com.google.zxing.oned.UPCEANReader
@@ -77,20 +77,20 @@ public final class UPCEReader extends UPCEANReader {
         iArr2[2] = 0;
         iArr2[3] = 0;
         int size = bitArray.getSize();
-        int i = iArr[1];
-        int i2 = 0;
-        for (int i3 = 0; i3 < 6 && i < size; i3++) {
-            int decodeDigit = UPCEANReader.decodeDigit(bitArray, iArr2, i, UPCEANReader.L_AND_G_PATTERNS);
+        int i2 = iArr[1];
+        int i3 = 0;
+        for (int i4 = 0; i4 < 6 && i2 < size; i4++) {
+            int decodeDigit = UPCEANReader.decodeDigit(bitArray, iArr2, i2, UPCEANReader.L_AND_G_PATTERNS);
             sb.append((char) ((decodeDigit % 10) + 48));
-            for (int i4 : iArr2) {
-                i += i4;
+            for (int i5 : iArr2) {
+                i2 += i5;
             }
             if (decodeDigit >= 10) {
-                i2 |= 1 << (5 - i3);
+                i3 |= 1 << (5 - i4);
             }
         }
-        determineNumSysAndCheckDigit(sb, i2);
-        return i;
+        determineNumSysAndCheckDigit(sb, i3);
+        return i2;
     }
 
     @Override // com.google.zxing.oned.UPCEANReader

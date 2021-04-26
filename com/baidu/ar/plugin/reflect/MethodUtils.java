@@ -35,12 +35,12 @@ public class MethodUtils {
     public static Method getAccessibleMethodFromInterfaceNest(Class<?> cls, String str, Class<?>... clsArr) {
         while (cls != null) {
             Class<?>[] interfaces = cls.getInterfaces();
-            for (int i = 0; i < interfaces.length; i++) {
-                if (Modifier.isPublic(interfaces[i].getModifiers())) {
+            for (int i2 = 0; i2 < interfaces.length; i2++) {
+                if (Modifier.isPublic(interfaces[i2].getModifiers())) {
                     try {
-                        return interfaces[i].getDeclaredMethod(str, clsArr);
+                        return interfaces[i2].getDeclaredMethod(str, clsArr);
                     } catch (NoSuchMethodException unused) {
-                        Method accessibleMethodFromInterfaceNest = getAccessibleMethodFromInterfaceNest(interfaces[i], str, clsArr);
+                        Method accessibleMethodFromInterfaceNest = getAccessibleMethodFromInterfaceNest(interfaces[i2], str, clsArr);
                         if (accessibleMethodFromInterfaceNest != null) {
                             return accessibleMethodFromInterfaceNest;
                         }

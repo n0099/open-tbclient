@@ -13,11 +13,11 @@ public class IdentityReviewActivityConfig extends IntentConfig {
         getIntent().putExtra("fid", j);
     }
 
-    public IdentityReviewActivityConfig(Context context, long j, int i) {
+    public IdentityReviewActivityConfig(Context context, long j, int i2) {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("fid", j);
         intent.putExtra(KEY_IS_START_FOR_RESULT, true);
-        intent.putExtra("request_code", i);
+        intent.putExtra("request_code", i2);
     }
 }

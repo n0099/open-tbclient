@@ -5,8 +5,8 @@ import GetSugTopic.GetSugTopicResIdl;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.r.r.a;
-import d.b.j0.d1.c;
+import d.a.i0.r.r.a;
+import d.a.j0.d1.c;
 import tbclient.Error;
 /* loaded from: classes4.dex */
 public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
@@ -14,8 +14,8 @@ public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
     public c mSugTopic;
     public c mUserHisTopic;
 
-    public HotSelectHttpResponseMessage(int i) {
-        super(i);
+    public HotSelectHttpResponseMessage(int i2) {
+        super(i2);
     }
 
     public c getBangTopic() {
@@ -32,8 +32,8 @@ public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        super.afterDispatchInBackGround(i, (int) bArr);
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+        super.afterDispatchInBackGround(i2, (int) bArr);
         if (bArr == null || bArr.length <= 0 || getError() != 0) {
             return;
         }
@@ -42,7 +42,7 @@ public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetSugTopicResIdl getSugTopicResIdl = (GetSugTopicResIdl) new Wire(new Class[0]).parseFrom(bArr, GetSugTopicResIdl.class);
         if (getSugTopicResIdl == null) {
             return;

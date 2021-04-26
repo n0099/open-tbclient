@@ -86,8 +86,8 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
 
     public abstract HttpRequest build();
 
-    public T connectionTimeout(int i) {
-        this.connectionTimeout = i;
+    public T connectionTimeout(int i2) {
+        this.connectionTimeout = i2;
         return this;
     }
 
@@ -140,8 +140,8 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         return this;
     }
 
-    public T readTimeout(int i) {
-        this.readTimeout = i;
+    public T readTimeout(int i2) {
+        this.readTimeout = i2;
         return this;
     }
 
@@ -177,13 +177,13 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         return this;
     }
 
-    public T requestFrom(int i) {
-        this.requestFrom = i;
+    public T requestFrom(int i2) {
+        this.requestFrom = i2;
         return this;
     }
 
-    public T requestSubFrom(int i) {
-        this.requestSubFrom = i;
+    public T requestSubFrom(int i2) {
+        this.requestSubFrom = i2;
         return this;
     }
 
@@ -237,8 +237,8 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         return this;
     }
 
-    public T writeTimeout(int i) {
-        this.writeTimeout = i;
+    public T writeTimeout(int i2) {
+        this.writeTimeout = i2;
         return this;
     }
 

@@ -26,8 +26,8 @@ public class BIMCloseRoomRtcInfo extends BIMRtcInfo {
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
-        BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo = new BIMCloseRoomRtcInfo(super.toRtcInfo(i, str, str2));
+    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
+        BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo = new BIMCloseRoomRtcInfo(super.toRtcInfo(i2, str, str2));
         try {
             bIMCloseRoomRtcInfo.setRoomDuration(new JSONObject(str2).optLong("room_duration"));
         } catch (Exception e2) {

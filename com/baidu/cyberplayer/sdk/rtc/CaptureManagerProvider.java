@@ -4,13 +4,13 @@ import android.view.Surface;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.rtc.CyberCaptureManager;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class CaptureManagerProvider {
     public abstract void destroySurface();
 
     public abstract void doAutoFocus();
 
-    public abstract void doFocus(int i, int i2, int i3, int i4);
+    public abstract void doFocus(int i2, int i3, int i4, int i5);
 
     public abstract void enableZoom(boolean z);
 
@@ -44,9 +44,9 @@ public abstract class CaptureManagerProvider {
 
     public abstract void setSurface(Surface surface);
 
-    public abstract void setSurfaceSize(int i, int i2);
+    public abstract void setSurfaceSize(int i2, int i3);
 
     public abstract void switchCamera();
 
-    public abstract void zoom(int i);
+    public abstract void zoom(int i2);
 }

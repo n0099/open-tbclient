@@ -11,32 +11,32 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.c.a.j;
-import d.b.c.e.p.l;
-import d.b.i0.m.c;
-import d.b.i0.r.w.b.b;
-import d.b.i0.r.w.b.e;
+import d.a.c.a.j;
+import d.a.c.e.p.l;
+import d.a.i0.m.c;
+import d.a.i0.r.w.b.b;
+import d.a.i0.r.w.b.e;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AutoBannerView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public CoverFlowView<d.b.j0.g2.e.a> f19961e;
+    public CoverFlowView<d.a.j0.g2.e.a> f20467e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<d.b.j0.g2.e.a> f19962f;
+    public List<d.a.j0.g2.e.a> f20468f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f19963g;
+    public c f20469g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends b {
         public a() {
         }
 
-        @Override // d.b.i0.r.w.b.b, d.b.i0.r.w.a
-        public d.b.i0.r.w.b.c a() {
-            d.b.i0.r.w.b.c cVar = new d.b.i0.r.w.b.c();
+        @Override // d.a.i0.r.w.b.b, d.a.i0.r.w.a
+        public d.a.i0.r.w.b.c a() {
+            d.a.i0.r.w.b.c cVar = new d.a.i0.r.w.b.c();
             cVar.c(R.drawable.icon_banner_gray_n);
             cVar.g(R.drawable.icon_banner_s);
             cVar.d(81);
@@ -45,8 +45,15 @@ public class AutoBannerView extends RelativeLayout {
             return cVar;
         }
 
-        @Override // d.b.i0.r.w.b.b, d.b.i0.r.w.a
-        public TbImageView c(Context context) {
+        @Override // d.a.i0.r.w.b.b, d.a.i0.r.w.a
+        public e c() {
+            e eVar = new e();
+            eVar.a(l.g(AutoBannerView.this.getContext(), R.dimen.tbds209));
+            return eVar;
+        }
+
+        @Override // d.a.i0.r.w.b.b, d.a.i0.r.w.a
+        public TbImageView d(Context context) {
             TbImageView tbImageView = new TbImageView(context);
             tbImageView.setPlaceHolder(2);
             tbImageView.setLongIconSupport(false);
@@ -56,21 +63,14 @@ public class AutoBannerView extends RelativeLayout {
             tbImageView.setRadius(l.g(AutoBannerView.this.getContext(), R.dimen.tbds12));
             return tbImageView;
         }
-
-        @Override // d.b.i0.r.w.b.b, d.b.i0.r.w.a
-        public e d() {
-            e eVar = new e();
-            eVar.a(l.g(AutoBannerView.this.getContext(), R.dimen.tbds209));
-            return eVar;
-        }
     }
 
     public AutoBannerView(Context context) {
         this(context, null);
     }
 
-    public boolean a(int i) {
-        return i > 0 && i <= ListUtils.getCount(this.f19962f);
+    public boolean a(int i2) {
+        return i2 > 0 && i2 <= ListUtils.getCount(this.f20468f);
     }
 
     public void b(String str) {
@@ -85,60 +85,60 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public final void c() {
-        this.f19961e = new CoverFlowView<>(getContext());
+        this.f20467e = new CoverFlowView<>(getContext());
         a aVar = new a();
-        this.f19961e.setIndicatorNoOffet(false);
-        this.f19961e.setDisableParentEvent(false);
-        this.f19961e.setCoverFlowFactory(aVar);
-        this.f19961e.setIndicatorVisible(0);
-        this.f19961e.setIsAutoPlayDragging(false);
-        addView(this.f19961e);
+        this.f20467e.setIndicatorNoOffet(false);
+        this.f20467e.setDisableParentEvent(false);
+        this.f20467e.setCoverFlowFactory(aVar);
+        this.f20467e.setIndicatorVisible(0);
+        this.f20467e.setIsAutoPlayDragging(false);
+        addView(this.f20467e);
     }
 
-    public void d(List<d.b.j0.g2.e.a> list) {
-        this.f19962f = list;
-        this.f19961e.setData(list);
+    public void d(List<d.a.j0.g2.e.a> list) {
+        this.f20468f = list;
+        this.f20467e.setData(list);
     }
 
-    public void e(int i) {
-        CoverFlowView<d.b.j0.g2.e.a> coverFlowView = this.f19961e;
+    public void e(int i2) {
+        CoverFlowView<d.a.j0.g2.e.a> coverFlowView = this.f20467e;
         if (coverFlowView != null) {
             coverFlowView.s();
         }
     }
 
     public void f() {
-        CoverFlowView<d.b.j0.g2.e.a> coverFlowView = this.f19961e;
+        CoverFlowView<d.a.j0.g2.e.a> coverFlowView = this.f20467e;
         if (coverFlowView != null) {
             coverFlowView.w();
         }
     }
 
     public CoverFlowView getCoverFlowView() {
-        return this.f19961e;
+        return this.f20467e;
     }
 
     @Override // android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
-        if (this.f19963g != null) {
-            this.f19963g.a(this, i == 0, null);
+    public void onWindowVisibilityChanged(int i2) {
+        super.onWindowVisibilityChanged(i2);
+        if (this.f20469g != null) {
+            this.f20469g.a(this, i2 == 0, null);
         }
     }
 
     public void setIWindowChangedListener(c cVar) {
-        this.f19963g = cVar;
+        this.f20469g = cVar;
     }
 
-    public void setIndicatorVisible(int i) {
-        CoverFlowView<d.b.j0.g2.e.a> coverFlowView = this.f19961e;
+    public void setIndicatorVisible(int i2) {
+        CoverFlowView<d.a.j0.g2.e.a> coverFlowView = this.f20467e;
         if (coverFlowView != null) {
-            coverFlowView.setIndicatorVisible(i);
+            coverFlowView.setIndicatorVisible(i2);
         }
     }
 
     public void setMarqueenTime(long j) {
-        CoverFlowView<d.b.j0.g2.e.a> coverFlowView = this.f19961e;
+        CoverFlowView<d.a.j0.g2.e.a> coverFlowView = this.f20467e;
         if (coverFlowView != null) {
             coverFlowView.setMarqueenTime(j);
         }
@@ -148,10 +148,10 @@ public class AutoBannerView extends RelativeLayout {
         this(context, attributeSet, 0);
     }
 
-    public AutoBannerView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f19961e = null;
-        this.f19962f = null;
+    public AutoBannerView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f20467e = null;
+        this.f20468f = null;
         c();
     }
 }

@@ -20,8 +20,8 @@ public final class ImmutableList<T> extends AbstractList<T> implements RandomAcc
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public T get(int i) {
-        return this.list.get(i);
+    public T get(int i2) {
+        return this.list.get(i2);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List

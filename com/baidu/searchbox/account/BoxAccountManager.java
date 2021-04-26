@@ -35,7 +35,7 @@ public interface BoxAccountManager {
 
     void checkBdussAndAlert(Activity activity, boolean z, String str, ILoginResultListener iLoginResultListener);
 
-    void combineLogin(Context context, LoginParams loginParams, int i, ILoginResultListener iLoginResultListener);
+    void combineLogin(Context context, LoginParams loginParams, int i2, ILoginResultListener iLoginResultListener);
 
     List<String> getAuthorizedDomains(Context context);
 
@@ -44,7 +44,7 @@ public interface BoxAccountManager {
     BoxAccount getBoxAccount();
 
     @Deprecated
-    BoxAccount getBoxAccount(int i, IGetBoxAccountListener iGetBoxAccountListener);
+    BoxAccount getBoxAccount(int i2, IGetBoxAccountListener iGetBoxAccountListener);
 
     @Deprecated
     String getSession(String str);
@@ -59,9 +59,9 @@ public interface BoxAccountManager {
     @Deprecated
     boolean isLogin();
 
-    boolean isLogin(int i);
+    boolean isLogin(int i2);
 
-    boolean isShow(int i);
+    boolean isShow(int i2);
 
     boolean isWxAppInstalledAndSupported();
 
@@ -91,11 +91,11 @@ public interface BoxAccountManager {
 
     void selectAddress(Context context, boolean z, String str, IAddressManageCallback iAddressManageCallback);
 
-    void setThirdLoginSwitch(int i);
+    void setThirdLoginSwitch(int i2);
 
     void showNickNameGuideDialog(Activity activity, String str);
 
-    void startAccountNickNameActivity(Activity activity, String str, String str2, int i);
+    void startAccountNickNameActivity(Activity activity, String str, String str2, int i2);
 
     void verifyUserFaceId(Context context, String str, IVerifyUserFaceIDListener iVerifyUserFaceIDListener);
 }

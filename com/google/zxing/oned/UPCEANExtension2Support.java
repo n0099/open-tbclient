@@ -20,24 +20,24 @@ public final class UPCEANExtension2Support {
         iArr2[2] = 0;
         iArr2[3] = 0;
         int size = bitArray.getSize();
-        int i = iArr[1];
-        int i2 = 0;
-        for (int i3 = 0; i3 < 2 && i < size; i3++) {
-            int decodeDigit = UPCEANReader.decodeDigit(bitArray, iArr2, i, UPCEANReader.L_AND_G_PATTERNS);
+        int i2 = iArr[1];
+        int i3 = 0;
+        for (int i4 = 0; i4 < 2 && i2 < size; i4++) {
+            int decodeDigit = UPCEANReader.decodeDigit(bitArray, iArr2, i2, UPCEANReader.L_AND_G_PATTERNS);
             sb.append((char) ((decodeDigit % 10) + 48));
-            for (int i4 : iArr2) {
-                i += i4;
+            for (int i5 : iArr2) {
+                i2 += i5;
             }
             if (decodeDigit >= 10) {
-                i2 |= 1 << (1 - i3);
+                i3 |= 1 << (1 - i4);
             }
-            if (i3 != 1) {
-                i = bitArray.getNextUnset(bitArray.getNextSet(i));
+            if (i4 != 1) {
+                i2 = bitArray.getNextUnset(bitArray.getNextSet(i2));
             }
         }
         if (sb.length() == 2) {
-            if (Integer.parseInt(sb.toString()) % 4 == i2) {
-                return i;
+            if (Integer.parseInt(sb.toString()) % 4 == i3) {
+                return i2;
             }
             throw NotFoundException.getNotFoundInstance();
         }
@@ -53,13 +53,13 @@ public final class UPCEANExtension2Support {
         return enumMap;
     }
 
-    public Result decodeRow(int i, BitArray bitArray, int[] iArr) throws NotFoundException {
+    public Result decodeRow(int i2, BitArray bitArray, int[] iArr) throws NotFoundException {
         StringBuilder sb = this.decodeRowStringBuffer;
         sb.setLength(0);
         int decodeMiddle = decodeMiddle(bitArray, iArr, sb);
         String sb2 = sb.toString();
         Map<ResultMetadataType, Object> parseExtensionString = parseExtensionString(sb2);
-        float f2 = i;
+        float f2 = i2;
         Result result = new Result(sb2, null, new ResultPoint[]{new ResultPoint((iArr[0] + iArr[1]) / 2.0f, f2), new ResultPoint(decodeMiddle, f2)}, BarcodeFormat.UPC_EAN_EXTENSION);
         if (parseExtensionString != null) {
             result.putAllMetadata(parseExtensionString);

@@ -2,8 +2,12 @@ package com.kwad.sdk.core.g;
 
 import androidx.annotation.Nullable;
 import com.kwad.sdk.KsAdSDKImpl;
+import com.kwad.sdk.core.g.a.f;
+import com.kwad.sdk.core.g.a.k;
+import com.kwad.sdk.core.g.a.l;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
-import com.kwad.sdk.utils.ae;
+import com.kwad.sdk.utils.af;
+import com.kwad.sdk.utils.o;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -11,21 +15,24 @@ import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.core.network.d {
 
-    /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.g.a.f f34013b;
+    /* renamed from: c  reason: collision with root package name */
+    public f f33045c;
 
-    public a(com.kwad.sdk.core.g.a.f fVar, com.kwad.sdk.core.g.a.l lVar) {
-        this(fVar, null, false, lVar);
-    }
-
-    public a(com.kwad.sdk.core.g.a.f fVar, @Nullable List<String> list, boolean z, com.kwad.sdk.core.g.a.l lVar) {
+    public a(f fVar, @Nullable List<String> list, boolean z, k kVar) {
+        int i2;
         DevelopMangerPlugin.DevelopValue a2;
-        this.f34013b = fVar;
+        try {
+            i2 = fVar.f33068a.getScreenOrientation();
+        } catch (Throwable unused) {
+            i2 = 0;
+        }
+        super.a(i2);
+        this.f33045c = fVar;
         JSONArray jSONArray = new JSONArray();
-        com.kwad.sdk.utils.o.a(jSONArray, fVar.toJson());
+        o.a(jSONArray, fVar.toJson());
         a("impInfo", jSONArray);
-        a("universePhotoInfo", lVar);
-        if (((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_MODIFY_CREATEID") != null) {
+        a("universePhotoInfo", kVar);
+        if (((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_MODIFY_CREATEID") != null) {
             list = new ArrayList<>();
             list.add("creativeId_" + a2.getValue());
         }
@@ -33,7 +40,17 @@ public class a extends com.kwad.sdk.core.network.d {
             a("preloadIdList", new JSONArray((Collection) list));
             a("preloadCheck", z);
         }
-        b("appTag", ae.g(KsAdSDKImpl.get().getContext()));
+        b("appTag", af.c(KsAdSDKImpl.get().getContext()));
+        DevelopMangerPlugin.DevelopValue a3 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_CAMPAIGNTYPE");
+        if (a3 != null) {
+            a("campaignType", ((Integer) a3.getValue()).intValue());
+        }
+        String a4 = this.f33045c.a("thirdUserId");
+        if (a4 != null) {
+            l a5 = l.a();
+            a5.a(a4);
+            a("userInfo", a5);
+        }
     }
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g

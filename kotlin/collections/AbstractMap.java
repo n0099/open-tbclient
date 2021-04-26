@@ -1,6 +1,6 @@
 package kotlin.collections;
 
-import androidx.exifinterface.media.ExifInterface;
+import androidx.lifecycle.SavedStateHandle;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobstat.Config;
@@ -14,7 +14,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.markers.KMappedMarker;
 @SinceKotlin(version = "1.1")
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010&\n\u0000\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0010\u0000\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\"\n\u0002\b\u0002\n\u0002\u0010\u001e\n\u0002\b\u000e\b'\u0018\u0000 2*\u0004\b\u0000\u0010\u0001*\u0006\b\u0001\u0010\u0002 \u00012\u00020\u00032\u00020\u0004:\u00012B\t\b\u0004¢\u0006\u0004\b0\u00101J!\u0010\n\u001a\u00020\u00072\u0010\u0010\u0006\u001a\f\u0012\u0002\b\u0003\u0012\u0002\b\u0003\u0018\u00010\u0005H\u0000¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\f\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00028\u0000H\u0016¢\u0006\u0004\b\f\u0010\rJ\u0017\u0010\u000f\u001a\u00020\u00072\u0006\u0010\u000e\u001a\u00028\u0001H\u0016¢\u0006\u0004\b\u000f\u0010\rJ\u001a\u0010\u0012\u001a\u00020\u00072\b\u0010\u0011\u001a\u0004\u0018\u00010\u0010H\u0096\u0002¢\u0006\u0004\b\u0012\u0010\rJ\u001a\u0010\u0013\u001a\u0004\u0018\u00018\u00012\u0006\u0010\u000b\u001a\u00028\u0000H\u0096\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\u000f\u0010\u0016\u001a\u00020\u0015H\u0016¢\u0006\u0004\b\u0016\u0010\u0017J%\u0010\u0018\u001a\u0010\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u0001\u0018\u00010\u00052\u0006\u0010\u000b\u001a\u00028\u0000H\u0002¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u001a\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u000f\u0010\u001d\u001a\u00020\u001cH\u0016¢\u0006\u0004\b\u001d\u0010\u001eJ\u0019\u0010\u001d\u001a\u00020\u001c2\b\u0010\u001f\u001a\u0004\u0018\u00010\u0010H\u0002¢\u0006\u0004\b\u001d\u0010 J#\u0010\u001d\u001a\u00020\u001c2\u0012\u0010\u0006\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010\u0005H\b¢\u0006\u0004\b\u001d\u0010!R\u001e\u0010#\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\"8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010$R\u001e\u0010&\u001a\n\u0012\u0004\u0012\u00028\u0001\u0018\u00010%8\b@\bX\u0088\u000e¢\u0006\u0006\n\u0004\b&\u0010'R\u001c\u0010*\u001a\b\u0012\u0004\u0012\u00028\u00000\"8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b(\u0010)R\u0016\u0010,\u001a\u00020\u00158V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b+\u0010\u0017R\u001c\u0010/\u001a\b\u0012\u0004\u0012\u00028\u00010%8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b-\u0010.¨\u00063"}, d2 = {"Lkotlin/collections/AbstractMap;", "K", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "Ljava/util/Map;", "Lkotlin/jvm/internal/markers/KMappedMarker;", "", "entry", "", "containsEntry$kotlin_stdlib", "(Ljava/util/Map$Entry;)Z", "containsEntry", "key", "containsKey", "(Ljava/lang/Object;)Z", "value", "containsValue", "", "other", "equals", "get", "(Ljava/lang/Object;)Ljava/lang/Object;", "", "hashCode", "()I", "implFindEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "isEmpty", "()Z", "", "toString", "()Ljava/lang/String;", Config.OS, "(Ljava/lang/Object;)Ljava/lang/String;", "(Ljava/util/Map$Entry;)Ljava/lang/String;", "", "_keys", "Ljava/util/Set;", "", "_values", "Ljava/util/Collection;", "getKeys", "()Ljava/util/Set;", "keys", "getSize", "size", "getValues", "()Ljava/util/Collection;", "values", "<init>", "()V", "Companion", "kotlin-stdlib"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010&\n\u0000\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0010\u0000\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\"\n\u0002\b\u0002\n\u0002\u0010\u001e\n\u0002\b\u000e\b'\u0018\u0000 2*\u0004\b\u0000\u0010\u0001*\u0006\b\u0001\u0010\u0002 \u00012\u00020\u00032\u00020\u0004:\u00012B\t\b\u0004¢\u0006\u0004\b0\u00101J!\u0010\n\u001a\u00020\u00072\u0010\u0010\u0006\u001a\f\u0012\u0002\b\u0003\u0012\u0002\b\u0003\u0018\u00010\u0005H\u0000¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\f\u001a\u00020\u00072\u0006\u0010\u000b\u001a\u00028\u0000H\u0016¢\u0006\u0004\b\f\u0010\rJ\u0017\u0010\u000f\u001a\u00020\u00072\u0006\u0010\u000e\u001a\u00028\u0001H\u0016¢\u0006\u0004\b\u000f\u0010\rJ\u001a\u0010\u0012\u001a\u00020\u00072\b\u0010\u0011\u001a\u0004\u0018\u00010\u0010H\u0096\u0002¢\u0006\u0004\b\u0012\u0010\rJ\u001a\u0010\u0013\u001a\u0004\u0018\u00018\u00012\u0006\u0010\u000b\u001a\u00028\u0000H\u0096\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\u000f\u0010\u0016\u001a\u00020\u0015H\u0016¢\u0006\u0004\b\u0016\u0010\u0017J%\u0010\u0018\u001a\u0010\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u0001\u0018\u00010\u00052\u0006\u0010\u000b\u001a\u00028\u0000H\u0002¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u001a\u001a\u00020\u0007H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u000f\u0010\u001d\u001a\u00020\u001cH\u0016¢\u0006\u0004\b\u001d\u0010\u001eJ\u0019\u0010\u001d\u001a\u00020\u001c2\b\u0010\u001f\u001a\u0004\u0018\u00010\u0010H\u0002¢\u0006\u0004\b\u001d\u0010 J#\u0010\u001d\u001a\u00020\u001c2\u0012\u0010\u0006\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00028\u00010\u0005H\b¢\u0006\u0004\b\u001d\u0010!R\u001e\u0010#\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\"8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010$R\u001e\u0010&\u001a\n\u0012\u0004\u0012\u00028\u0001\u0018\u00010%8\b@\bX\u0088\u000e¢\u0006\u0006\n\u0004\b&\u0010'R\u001c\u0010*\u001a\b\u0012\u0004\u0012\u00028\u00000\"8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b(\u0010)R\u0016\u0010,\u001a\u00020\u00158V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b+\u0010\u0017R\u001c\u0010/\u001a\b\u0012\u0004\u0012\u00028\u00010%8V@\u0016X\u0096\u0004¢\u0006\u0006\u001a\u0004\b-\u0010.¨\u00063"}, d2 = {"Lkotlin/collections/AbstractMap;", "K", "V", "Ljava/util/Map;", "Lkotlin/jvm/internal/markers/KMappedMarker;", "", "entry", "", "containsEntry$kotlin_stdlib", "(Ljava/util/Map$Entry;)Z", "containsEntry", "key", "containsKey", "(Ljava/lang/Object;)Z", "value", "containsValue", "", "other", "equals", "get", "(Ljava/lang/Object;)Ljava/lang/Object;", "", "hashCode", "()I", "implFindEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "isEmpty", "()Z", "", "toString", "()Ljava/lang/String;", Config.OS, "(Ljava/lang/Object;)Ljava/lang/String;", "(Ljava/util/Map$Entry;)Ljava/lang/String;", "", "_keys", "Ljava/util/Set;", "", "_values", "Ljava/util/Collection;", "getKeys", "()Ljava/util/Set;", SavedStateHandle.KEYS, "getSize", "size", "getValues", "()Ljava/util/Collection;", SavedStateHandle.VALUES, "<init>", "()V", "Companion", "kotlin-stdlib"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes7.dex */
 public abstract class AbstractMap<K, V> implements Map<K, V>, KMappedMarker {
     public static final Companion Companion = new Companion(null);
@@ -27,27 +27,30 @@ public abstract class AbstractMap<K, V> implements Map<K, V>, KMappedMarker {
         public Companion() {
         }
 
-        public final boolean entryEquals$kotlin_stdlib(Map.Entry<?, ?> entry, Object obj) {
+        public final boolean entryEquals$kotlin_stdlib(Map.Entry<?, ?> e2, Object obj) {
+            Intrinsics.checkNotNullParameter(e2, "e");
             if (obj instanceof Map.Entry) {
-                Map.Entry entry2 = (Map.Entry) obj;
-                return Intrinsics.areEqual(entry.getKey(), entry2.getKey()) && Intrinsics.areEqual(entry.getValue(), entry2.getValue());
+                Map.Entry entry = (Map.Entry) obj;
+                return Intrinsics.areEqual(e2.getKey(), entry.getKey()) && Intrinsics.areEqual(e2.getValue(), entry.getValue());
             }
             return false;
         }
 
-        public final int entryHashCode$kotlin_stdlib(Map.Entry<?, ?> entry) {
-            Object key = entry.getKey();
+        public final int entryHashCode$kotlin_stdlib(Map.Entry<?, ?> e2) {
+            Intrinsics.checkNotNullParameter(e2, "e");
+            Object key = e2.getKey();
             int hashCode = key != null ? key.hashCode() : 0;
-            Object value = entry.getValue();
+            Object value = e2.getValue();
             return hashCode ^ (value != null ? value.hashCode() : 0);
         }
 
-        /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x0005: INVOKE  (r1v0 java.lang.Object A[REMOVE]) = (r3v0 java.util.Map$Entry<?, ?>) type: INTERFACE call: java.util.Map.Entry.getKey():java.lang.Object), (wrap: char : ?: SGET   com.alipay.sdk.encrypt.a.h char), (wrap: java.lang.Object : 0x0011: INVOKE  (r3v1 java.lang.Object A[REMOVE]) = (r3v0 java.util.Map$Entry<?, ?>) type: INTERFACE call: java.util.Map.Entry.getValue():java.lang.Object)] */
-        public final String entryToString$kotlin_stdlib(Map.Entry<?, ?> entry) {
+        /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x000a: INVOKE  (r1v0 java.lang.Object A[REMOVE]) = (r3v0 'e' java.util.Map$Entry<?, ?>) type: INTERFACE call: java.util.Map.Entry.getKey():java.lang.Object), (wrap: char : ?: SGET   com.alipay.sdk.encrypt.a.h char), (wrap: java.lang.Object : 0x0016: INVOKE  (r3v1 java.lang.Object A[REMOVE]) = (r3v0 'e' java.util.Map$Entry<?, ?>) type: INTERFACE call: java.util.Map.Entry.getValue():java.lang.Object)] */
+        public final String entryToString$kotlin_stdlib(Map.Entry<?, ?> e2) {
+            Intrinsics.checkNotNullParameter(e2, "e");
             StringBuilder sb = new StringBuilder();
-            sb.append(entry.getKey());
-            sb.append(a.f1922h);
-            sb.append(entry.getValue());
+            sb.append(e2.getKey());
+            sb.append(a.f1873h);
+            sb.append(e2.getValue());
             return sb.toString();
         }
 
@@ -155,7 +158,7 @@ public abstract class AbstractMap<K, V> implements Map<K, V>, KMappedMarker {
 
     public abstract Set getEntries();
 
-    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: java.util.Set<? extends K>, java.util.Set<K> */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: java.util.Set<? extends K>, java.lang.Object, java.util.Set<K> */
     public Set<K> getKeys() {
         if (this._keys == null) {
             this._keys = new AbstractSet<K>() { // from class: kotlin.collections.AbstractMap$keys$1
@@ -176,9 +179,7 @@ public abstract class AbstractMap<K, V> implements Map<K, V>, KMappedMarker {
             };
         }
         Set set = (Set<? extends K>) this._keys;
-        if (set == null) {
-            Intrinsics.throwNpe();
-        }
+        Intrinsics.checkNotNull(set);
         return set;
     }
 
@@ -186,7 +187,7 @@ public abstract class AbstractMap<K, V> implements Map<K, V>, KMappedMarker {
         return entrySet().size();
     }
 
-    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: java.util.Collection<? extends V>, java.util.Collection<V> */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: java.util.Collection<? extends V>, java.lang.Object, java.util.Collection<V> */
     public Collection<V> getValues() {
         if (this._values == null) {
             this._values = new AbstractCollection<V>() { // from class: kotlin.collections.AbstractMap$values$1
@@ -207,9 +208,7 @@ public abstract class AbstractMap<K, V> implements Map<K, V>, KMappedMarker {
             };
         }
         Collection collection = (Collection<? extends V>) this._values;
-        if (collection == null) {
-            Intrinsics.throwNpe();
-        }
+        Intrinsics.checkNotNull(collection);
         return collection;
     }
 

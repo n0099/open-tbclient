@@ -5,26 +5,26 @@ import android.content.Context;
 public class aw {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40636a;
+    public static int f38151a;
 
     public static ar a(Context context) {
-        if (av.m137a(context)) {
-            f40636a = 1;
+        if (av.m140a(context)) {
+            f38151a = 1;
             return new av(context);
-        } else if (ap.m133a(context)) {
-            f40636a = 2;
+        } else if (ap.m136a(context)) {
+            f38151a = 2;
             return new ap(context);
         } else if (ay.a(context)) {
-            f40636a = 4;
+            f38151a = 4;
             return new ay(context);
         } else if (bc.a(context)) {
-            f40636a = 5;
+            f38151a = 5;
             return new bc(context);
         } else if (au.a(context)) {
-            f40636a = 3;
+            f38151a = 3;
             return new as(context);
         } else {
-            f40636a = 0;
+            f38151a = 0;
             return new bb();
         }
     }

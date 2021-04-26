@@ -63,8 +63,8 @@ public abstract class AbsLayer implements ILayer {
         if (!isCourierValid() || (subscribeEvent = getSubscribeEvent()) == null || subscribeEvent.length <= 0) {
             return;
         }
-        for (int i : subscribeEvent) {
-            this.mCourier.register(i, this);
+        for (int i2 : subscribeEvent) {
+            this.mCourier.register(i2, this);
         }
     }
 

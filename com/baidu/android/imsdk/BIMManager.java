@@ -64,8 +64,8 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
-import d.b.s.a.b.a;
-import d.b.s.a.g.b;
+import d.a.s.a.b.a;
+import d.a.s.a.g.b;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -98,8 +98,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
         
         public final int value;
 
-        CATEGORY(int i) {
-            this.value = i;
+        CATEGORY(int i2) {
+            this.value = i2;
         }
 
         public int getValue() {
@@ -107,12 +107,12 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
     }
 
-    public static void asyncUploadImgToBos(Context context, String str, String str2, int i, int i2, int i3, IUploadTransferListener iUploadTransferListener) {
-        ChatMsgManager.asyncUploadImgToBos(context, str, str2, i, i2, i3, iUploadTransferListener);
+    public static void asyncUploadImgToBos(Context context, String str, String str2, int i2, int i3, int i4, IUploadTransferListener iUploadTransferListener) {
+        ChatMsgManager.asyncUploadImgToBos(context, str, str2, i2, i3, i4, iUploadTransferListener);
     }
 
-    public static void audioTrans(Context context, String str, String str2, String str3, int i, BIMValueCallBack bIMValueCallBack) {
-        ChatMsgManager.audioTrans(context, str, str2, str3, i, bIMValueCallBack);
+    public static void audioTrans(Context context, String str, String str2, String str3, int i2, BIMValueCallBack bIMValueCallBack) {
+        ChatMsgManager.audioTrans(context, str, str2, str3, i2, bIMValueCallBack);
     }
 
     public static void autoClearCache(Context context) {
@@ -158,9 +158,9 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
     }
 
-    public static void connectStatusNotify(int i) {
+    public static void connectStatusNotify(int i2) {
         String str = BaseManager.TAG;
-        LogUtils.i(str, "connectStatusNotify:" + i);
+        LogUtils.i(str, "connectStatusNotify:" + i2);
         String str2 = BaseManager.TAG;
         LogUtils.i(str2, "IConnectListener size:" + mConnectListeners.size());
         synchronized (mConnectListeners) {
@@ -168,7 +168,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 if (iConnectListener != null) {
                     String str3 = BaseManager.TAG;
                     LogUtils.i(str3, "im connect Status changed，成功回调业务监听, listener :" + iConnectListener.hashCode());
-                    iConnectListener.onResult(i);
+                    iConnectListener.onResult(i2);
                 }
             }
         }
@@ -181,19 +181,19 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return ConversationManagerImpl.getInstance(sContext).deleteConversation(bIMConversation);
     }
 
-    public static int deleteDraftMsg(Context context, int i, long j) {
-        return ChatMsgManager.deleteDraftMsg(context, i, j);
+    public static int deleteDraftMsg(Context context, int i2, long j) {
+        return ChatMsgManager.deleteDraftMsg(context, i2, j);
     }
 
     public static int deleteMsg(Context context, ChatMsg chatMsg) {
         return ChatMsgManager.deleteMsg(context, chatMsg);
     }
 
-    public static long deleteMsgs(Context context, int i, long j, boolean z) {
+    public static long deleteMsgs(Context context, int i2, long j, boolean z) {
         if (BaseManager.isNullContext(context)) {
             return -1L;
         }
-        return ChatMsgManagerImpl.getInstance(context).deleteAllMsgs(i, j, z);
+        return ChatMsgManagerImpl.getInstance(context).deleteAllMsgs(i2, j, z);
     }
 
     public static boolean enableDebugMode(boolean z) {
@@ -201,41 +201,41 @@ public class BIMManager extends BaseManager implements NoProGuard {
             return false;
         }
         try {
-            b.f65623a = z;
+            b.f63947a = z;
         } catch (Throwable unused) {
             LogUtils.e(BaseManager.TAG, "LCPConstants.LOG_DEBUG not found");
         }
         return IMSettings.enableDebugMode(sContext.getApplicationContext(), z);
     }
 
-    public static ArrayList<ChatMsg> fetchMessageSync(Context context, long j, long j2, int i) {
-        return ChatMsgManager.fetchMessageSync(context, 0, j, j2, i);
+    public static ArrayList<ChatMsg> fetchMessageSync(Context context, long j, long j2, int i2) {
+        return ChatMsgManager.fetchMessageSync(context, 0, j, j2, i2);
     }
 
-    public static Pair<Integer, ArrayList<ChatMsg>> fetchMessageSyncWithState(Context context, int i, long j, int i2, ChatMsg chatMsg) {
-        return ChatMsgManager.fetchMessageSyncWithState(context, i, j, i2, chatMsg);
+    public static Pair<Integer, ArrayList<ChatMsg>> fetchMessageSyncWithState(Context context, int i2, long j, int i3, ChatMsg chatMsg) {
+        return ChatMsgManager.fetchMessageSyncWithState(context, i2, j, i3, chatMsg);
     }
 
-    public static void fetchMsgByHostRequest(Context context, long j, int i, long j2, long j3, long j4, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener) {
-        fetchMsgByHostRequest(context, j, i, j2, j3, j4, i2, i3, iFetchMsgByIdListener, false);
+    public static void fetchMsgByHostRequest(Context context, long j, int i2, long j2, long j3, long j4, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener) {
+        fetchMsgByHostRequest(context, j, i2, j2, j3, j4, i3, i4, iFetchMsgByIdListener, false);
     }
 
-    public static void fetchMsgByMsgid(Context context, int i, long j, long j2, long j3, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener) {
-        fetchMsgByMsgid(context, i, j, j2, j3, i2, i3, iFetchMsgByIdListener, false);
+    public static void fetchMsgByMsgid(Context context, int i2, long j, long j2, long j3, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener) {
+        fetchMsgByMsgid(context, i2, j, j2, j3, i3, i4, iFetchMsgByIdListener, false);
     }
 
-    public static void fetchMsgRequest(Context context, long j, long j2, int i, long j3, long j4, long j5, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener) {
-        fetchMsgRequest(context, j, j2, i, j3, j4, j5, i2, i3, iFetchMsgByIdListener, false);
+    public static void fetchMsgRequest(Context context, long j, long j2, int i2, long j3, long j4, long j5, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener) {
+        fetchMsgRequest(context, j, j2, i2, j3, j4, j5, i3, i4, iFetchMsgByIdListener, false);
     }
 
-    public static void fetchPaChatMsgs(Context context, int i, int i2, long j, long j2, long j3, int i3, IFetchMessageListener iFetchMessageListener) {
+    public static void fetchPaChatMsgs(Context context, int i2, int i3, long j, long j2, long j3, int i4, IFetchMessageListener iFetchMessageListener) {
         String str = BaseManager.TAG;
-        LogUtils.d(str, "fetchPaChatMsgs patype = " + i + " subPatype = " + i2 + " paid = " + j + " msgid = " + j2 + " time = " + j3 + " count = " + i3);
-        ChatMsgManager.fetchPaChatMsgs(context, i, i2, j, j2, j3, i3, iFetchMessageListener);
+        LogUtils.d(str, "fetchPaChatMsgs patype = " + i2 + " subPatype = " + i3 + " paid = " + j + " msgid = " + j2 + " time = " + j3 + " count = " + i4);
+        ChatMsgManager.fetchPaChatMsgs(context, i2, i3, j, j2, j3, i4, iFetchMessageListener);
     }
 
-    public static void genBosObjectUrl(Context context, String str, String str2, String str3, int i, int i2, int i3, IGenBosObjectUrlListener iGenBosObjectUrlListener) {
-        ChatMsgManager.genBosObjectUrl(context, str, str2, str3, i, i2, i3, iGenBosObjectUrlListener);
+    public static void genBosObjectUrl(Context context, String str, String str2, String str3, int i2, int i3, int i4, IGenBosObjectUrlListener iGenBosObjectUrlListener) {
+        ChatMsgManager.genBosObjectUrl(context, str, str2, str3, i2, i3, i4, iGenBosObjectUrlListener);
     }
 
     public static String getAllCastIdList(Context context) {
@@ -287,42 +287,42 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return Utility.getDeviceId(context);
     }
 
-    public static void getCuidTokenAndLogin(final String str, final int i, final String str2, final String str3, final ILoginListener iLoginListener) {
+    public static void getCuidTokenAndLogin(final String str, final int i2, final String str2, final String str3, final ILoginListener iLoginListener) {
         Context context = sContext;
         Utility.writeLoginFlag(context, "3N", "getCuidTokenAndLogin accessToken = " + str);
         AccountManagerImpl.getInstance(sContext).getTokenByCuid(AccountManager.getAppid(sContext), str, new IGetTokenByCuidListener() { // from class: com.baidu.android.imsdk.BIMManager.5
             @Override // com.baidu.android.imsdk.account.IGetTokenByCuidListener
-            public void onGetTokenByCuidResult(int i2, String str4, String str5) {
-                if (i2 != 0) {
-                    if (i2 != 70) {
+            public void onGetTokenByCuidResult(int i3, String str4, String str5) {
+                if (i3 != 0) {
+                    if (i3 != 70) {
                         AccountManagerImpl.getInstance(BIMManager.sContext);
                         AccountManagerImpl.mCuidTokenTryTimes++;
-                        LogUtils.d(BaseManager.TAG, "HB> getTokenByCuid, responseCode = " + i2 + ", errMsg = " + str4);
+                        LogUtils.d(BaseManager.TAG, "HB> getTokenByCuid, responseCode = " + i3 + ", errMsg = " + str4);
                         AccountManagerImpl.getInstance(BIMManager.sContext);
                         if (AccountManagerImpl.mCuidTokenTryTimes > 3) {
-                            Utility.writeLoginFlag(BIMManager.sContext, "3N", "genToken retryTime >= 3, errCode = " + i2 + ", errMsg :" + str4);
-                            iLoginListener.onLoginResult(i2, str4);
+                            Utility.writeLoginFlag(BIMManager.sContext, "3N", "genToken retryTime >= 3, errCode = " + i3 + ", errMsg :" + str4);
+                            iLoginListener.onLoginResult(i3, str4);
                             return;
                         }
                         try {
                             Thread.sleep(200L);
                         } catch (Exception e2) {
                             LogUtils.e(BaseManager.TAG, "Exception ", e2);
-                            Utility.writeLoginFlag(BIMManager.sContext, "3N", "gen token retry exception, errCode = " + i2);
+                            Utility.writeLoginFlag(BIMManager.sContext, "3N", "gen token retry exception, errCode = " + i3);
                             new IMTrack.CrashBuilder(BIMManager.sContext).exception(Log.getStackTraceString(e2)).build();
                         }
-                        BIMManager.getCuidTokenAndLogin(str, i, str2, str3, iLoginListener);
+                        BIMManager.getCuidTokenAndLogin(str, i2, str2, str3, iLoginListener);
                         return;
                     }
-                    iLoginListener.onLoginResult(i2, str4);
+                    iLoginListener.onLoginResult(i3, str4);
                 } else if (!TextUtils.isEmpty(str5)) {
                     AccountManagerImpl.getInstance(BIMManager.sContext);
                     AccountManagerImpl.mCuidTokenTryTimes = 0;
                     LogUtils.d(BaseManager.TAG, "HB> getTokenByCuid, token =  " + str5);
                     Utility.writeLoginFlag(BIMManager.sContext, "3Y", "genToken success, token = " + str5);
-                    BIMManager.loginExecutor(i, null, str5, str2, str3, iLoginListener);
+                    BIMManager.loginExecutor(i2, null, str5, str2, str3, iLoginListener);
                 } else {
-                    LogUtils.d(BaseManager.TAG, "HB> getTokenByCuid, token is null,  responseCode = " + i2 + ", errMsg = " + str4);
+                    LogUtils.d(BaseManager.TAG, "HB> getTokenByCuid, token is null,  responseCode = " + i3 + ", errMsg = " + str4);
                     AccountManagerImpl.getInstance(BIMManager.sContext);
                     AccountManagerImpl.mCuidTokenTryTimes = AccountManagerImpl.mCuidTokenTryTimes + 1;
                     AccountManagerImpl.getInstance(BIMManager.sContext);
@@ -335,17 +335,17 @@ public class BIMManager extends BaseManager implements NoProGuard {
                         Thread.sleep(200L);
                     } catch (Exception e3) {
                         LogUtils.e(BaseManager.TAG, "Exception ", e3);
-                        Utility.writeLoginFlag(BIMManager.sContext, "3N", "genToken retry exception, errCode = " + i2);
+                        Utility.writeLoginFlag(BIMManager.sContext, "3N", "genToken retry exception, errCode = " + i3);
                         new IMTrack.CrashBuilder(BIMManager.sContext).exception(Log.getStackTraceString(e3)).build();
                     }
-                    BIMManager.getCuidTokenAndLogin(str, i, str2, str3, iLoginListener);
+                    BIMManager.getCuidTokenAndLogin(str, i2, str2, str3, iLoginListener);
                 }
             }
         });
     }
 
-    public static ChatMsg getDraftMsg(Context context, int i, long j) {
-        return ChatMsgManager.getDraftMsg(context, i, j);
+    public static ChatMsg getDraftMsg(Context context, int i2, long j) {
+        return ChatMsgManager.getDraftMsg(context, i2, j);
     }
 
     public static long getJoinedCastId(Context context) {
@@ -371,10 +371,10 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return ChatMsgManager.getNewMsgCount(context);
     }
 
-    public static void getPaNewMsgCount(Context context, int i, int i2, long j, IGetNewMsgCountListener iGetNewMsgCountListener) {
+    public static void getPaNewMsgCount(Context context, int i2, int i3, long j, IGetNewMsgCountListener iGetNewMsgCountListener) {
         String str = BaseManager.TAG;
-        LogUtils.d(str, "getPaNewMsgCount patype = " + i + " subPatype = " + i2 + " paid = " + j);
-        ChatMsgManager.getPaNewMsgCount(context, i, i2, j, iGetNewMsgCountListener);
+        LogUtils.d(str, "getPaNewMsgCount patype = " + i2 + " subPatype = " + i3 + " paid = " + j);
+        ChatMsgManager.getPaNewMsgCount(context, i2, i3, j, iGetNewMsgCountListener);
     }
 
     public static long getReliableMsgCount(Context context, long j) {
@@ -395,7 +395,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
 
     public static void imLogoutByLcp(Context context) {
         try {
-            d.b.r.a.c(context);
+            d.a.r.a.c(context);
             LoginManager.getInstance(context).onLogoutResultInternal(0, "lcp unconnected");
         } catch (Exception e2) {
             LogUtils.e(BaseManager.TAG, "imLogoutByLcp exception ", e2);
@@ -411,17 +411,17 @@ public class BIMManager extends BaseManager implements NoProGuard {
         });
     }
 
-    public static boolean init(Context context, long j, int i, String str) {
+    public static boolean init(Context context, long j, int i2, String str) {
         if (BaseManager.isNullContext(context) || TextUtils.isEmpty(str)) {
             return false;
         }
         Context applicationContext = context.getApplicationContext();
         sContext = applicationContext;
-        d.b.r.a.f65510e = a.d(applicationContext);
-        if (d.b.r.a.f65510e) {
+        d.a.r.a.f63831e = a.d(applicationContext);
+        if (d.a.r.a.f63831e) {
             try {
-                b.c(applicationContext, i != 0);
-                b.d(applicationContext, i);
+                b.c(applicationContext, i2 != 0);
+                b.d(applicationContext, i2);
             } catch (Throwable unused) {
                 LogUtils.e(BaseManager.TAG, "LCPConstants.setLcpEnv not found");
             }
@@ -442,7 +442,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 }
                 try {
                     BIMManager.initIMServiceImpl(context2);
-                    d.b.r.a.f65508c.removeCallbacks(BIMManager.checkIMLoginState);
+                    d.a.r.a.f63829c.removeCallbacks(BIMManager.checkIMLoginState);
                     if (z) {
                         BIMManager.postCheckRunnable();
                     }
@@ -452,10 +452,10 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 }
             }
         }, intentFilter);
-        Log.d(RetrieveReportRequest.APP_NAME, "set env as " + i + "， appId:" + j + ", cuid :" + str);
+        Log.d(RetrieveReportRequest.APP_NAME, "set env as " + i2 + "， appId:" + j + ", cuid :" + str);
         AccountManagerImpl.getInstance(applicationContext).setAppid(j);
         Utility.setDeviceId(applicationContext, str);
-        Constants.setEnv(applicationContext, i);
+        Constants.setEnv(applicationContext, i2);
         IMManagerImpl.getInstance(applicationContext);
         IMSettings.setContext(applicationContext);
         ConversationManagerImpl.getInstance(applicationContext);
@@ -468,7 +468,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.BIMManager.2
             @Override // java.lang.Runnable
             public void run() {
-                d.b.r.a.e(context);
+                d.a.r.a.e(context);
             }
         });
     }
@@ -477,8 +477,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return LoginManager.getInstance(context).isIMLogined();
     }
 
-    public static boolean isSupportMsgType(int i) {
-        return i == 0 || i == 8 || i == 2 || i == 1 || i == 13 || i == 16 || i == 18 || i == 12 || i == 21 || i == 9 || i == 1002 || i == 1001 || i == 1003 || i == 1004 || i == 1005 || i == 1007 || i == 1008 || i == 1009 || i == 1010 || i == 1011 || i == 2010 || i == 1012 || i == 2001 || i == 80 || i == 31 || i == 32 || i == 33 || i == 20 || i == 22 || i == 25 || i == 26 || i == 24 || i == 2012 || i == 2014 || i == 28 || i == 27 || i == 29 || i == 30;
+    public static boolean isSupportMsgType(int i2) {
+        return i2 == 0 || i2 == 8 || i2 == 2 || i2 == 1 || i2 == 13 || i2 == 16 || i2 == 18 || i2 == 12 || i2 == 21 || i2 == 9 || i2 == 1002 || i2 == 1001 || i2 == 1003 || i2 == 1004 || i2 == 1005 || i2 == 1007 || i2 == 1008 || i2 == 1009 || i2 == 1010 || i2 == 1011 || i2 == 2010 || i2 == 1012 || i2 == 2001 || i2 == 80 || i2 == 31 || i2 == 32 || i2 == 33 || i2 == 20 || i2 == 22 || i2 == 25 || i2 == 26 || i2 == 24 || i2 == 2012 || i2 == 2014 || i2 == 28 || i2 == 27 || i2 == 29 || i2 == 30;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x011c  */
@@ -486,12 +486,12 @@ public class BIMManager extends BaseManager implements NoProGuard {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void login(String str, String str2, int i, String str3, String str4, String str5, String str6, int i2, ILoginListener iLoginListener) {
+    public static void login(String str, String str2, int i2, String str3, String str4, String str5, String str6, int i3, ILoginListener iLoginListener) {
         long j;
         IMTrack.RequestBuilder requestId;
         String str7;
         String str8 = BaseManager.TAG;
-        LogUtils.d(str8, "HB> im in login, uid = " + str + ", cuid = " + str2 + ", loginType = " + i + ", zid = " + str5 + ", vCode = " + str6 + ", openType = " + i2);
+        LogUtils.d(str8, "HB> im in login, uid = " + str + ", cuid = " + str2 + ", loginType = " + i2 + ", zid = " + str5 + ", vCode = " + str6 + ", openType = " + i3);
         if (BaseManager.isNullContext(sContext)) {
             if (iLoginListener != null) {
                 iLoginListener.onLoginResult(1005, "Context is NULL");
@@ -513,8 +513,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
                         Utility.writeLoginCallTime(sContext);
                         Context context = sContext;
                         Utility.writeLoginFlag(context, "1Y", "context is nonnull, accessToken is null -> " + TextUtils.isEmpty(str2));
-                        Utility.writeLoginOpenType(sContext, i2);
-                        AccountManagerImpl.getInstance(sContext).setAppOpenType(i2);
+                        Utility.writeLoginOpenType(sContext, i3);
+                        AccountManagerImpl.getInstance(sContext).setAppOpenType(i3);
                         AccountManagerImpl.getInstance(sContext).pushReStartWork();
                         if (!TextUtils.isEmpty(str2)) {
                         }
@@ -541,8 +541,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
         Utility.writeLoginCallTime(sContext);
         Context context2 = sContext;
         Utility.writeLoginFlag(context2, "1Y", "context is nonnull, accessToken is null -> " + TextUtils.isEmpty(str2));
-        Utility.writeLoginOpenType(sContext, i2);
-        AccountManagerImpl.getInstance(sContext).setAppOpenType(i2);
+        Utility.writeLoginOpenType(sContext, i3);
+        AccountManagerImpl.getInstance(sContext).setAppOpenType(i3);
         AccountManagerImpl.getInstance(sContext).pushReStartWork();
         if (!TextUtils.isEmpty(str2)) {
             Utility.writeLoginFlag(sContext, "2N", "accessToken is null");
@@ -553,7 +553,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
             return;
         }
         Context context3 = sContext;
-        Utility.writeLoginFlag(context3, "2Y", "accessToken is nonnull, loginType = " + i);
+        Utility.writeLoginFlag(context3, "2Y", "accessToken is nonnull, loginType = " + i2);
         if (!TextUtils.isEmpty(str5)) {
             LogUtils.d(BaseManager.TAG, "HB> im in login, zid is not null !");
             AccountManagerImpl.getInstance(sContext).setZid(str5);
@@ -562,22 +562,22 @@ public class BIMManager extends BaseManager implements NoProGuard {
             LogUtils.d(BaseManager.TAG, "HB> im in login, vCode is not null !");
             AccountManagerImpl.getInstance(sContext).setVersionCode(str6);
         }
-        if (i == 6) {
+        if (i2 == 6) {
             AccountManagerImpl.getInstance(sContext).setCuid(str2);
             String token = AccountManagerImpl.getInstance(sContext).getToken();
             if (!TextUtils.isEmpty(token)) {
-                loginExecutor(i, str, token, str3, str4, iLoginListener);
+                loginExecutor(i2, str, token, str3, str4, iLoginListener);
                 return;
             }
             AccountManagerImpl.getInstance(sContext);
             AccountManagerImpl.mCuidTokenTryTimes = 0;
-            getCuidTokenAndLogin(str2, i, str3, str4, iLoginListener);
+            getCuidTokenAndLogin(str2, i2, str3, str4, iLoginListener);
             return;
         }
-        loginExecutor(i, str, str2, str3, str4, iLoginListener);
+        loginExecutor(i2, str, str2, str3, str4, iLoginListener);
     }
 
-    public static void loginExecutor(int i, String str, String str2, String str3, String str4, ILoginListener iLoginListener) {
+    public static void loginExecutor(int i2, String str, String str2, String str3, String str4, ILoginListener iLoginListener) {
         if (BaseManager.isNullContext(sContext)) {
             if (iLoginListener != null) {
                 iLoginListener.onLoginResult(1005, "Context is NULL");
@@ -587,7 +587,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 iLoginListener.onLoginResult(1005, "accessToken is NULL");
             }
         } else {
-            if (i != 6) {
+            if (i2 != 6) {
                 if (TextUtils.isEmpty(str)) {
                     Utility.writeLoginFlag(sContext, "4N", "uid is null");
                     if (iLoginListener != null) {
@@ -598,7 +598,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 }
                 Utility.writeLoginFlag(sContext, "4Y", "uid is nonnull");
             }
-            AccountManagerImpl.getInstance(sContext).login(i, str, str2, str3, str4, iLoginListener);
+            AccountManagerImpl.getInstance(sContext).login(i2, str, str2, str3, str4, iLoginListener);
         }
     }
 
@@ -607,20 +607,20 @@ public class BIMManager extends BaseManager implements NoProGuard {
         if (!BaseManager.isNullContext(sContext)) {
             AccountManagerImpl.getInstance(sContext).logout(1, new ILoginListener() { // from class: com.baidu.android.imsdk.BIMManager.6
                 @Override // com.baidu.android.imsdk.account.ILoginListener
-                public void onLoginResult(int i, String str) {
+                public void onLoginResult(int i2, String str) {
                 }
 
                 @Override // com.baidu.android.imsdk.account.ILoginListener
-                public void onLogoutResult(int i, String str, int i2) {
+                public void onLogoutResult(int i2, String str, int i3) {
                     String str2 = BaseManager.TAG;
-                    LogUtils.i(str2, "onLogoutResult errorCode : " + i + " , errMsg, " + str + " , loginType, " + i2);
-                    if (i != 0) {
+                    LogUtils.i(str2, "onLogoutResult errorCode : " + i2 + " , errMsg, " + str + " , loginType, " + i3);
+                    if (i2 != 0) {
                         Utility.logout(BIMManager.sContext, null);
                     }
                     LoginManager.getInstance(BIMManager.sContext).onLogoutResultInternal(0, str);
                     ILoginListener iLoginListener2 = ILoginListener.this;
                     if (iLoginListener2 != null) {
-                        iLoginListener2.onLogoutResult(0, i != 0 ? "Force logout" : "", i2);
+                        iLoginListener2.onLogoutResult(0, i2 != 0 ? "Force logout" : "", i3);
                     }
                 }
             });
@@ -633,8 +633,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return ChatMsgManager.markMsgClicked(context, chatMsg);
     }
 
-    public static void mediaContactorSetting(Context context, long j, int i, IMediaContactorSettingListener iMediaContactorSettingListener) {
-        ChatMsgManager.mediaContactorSetting(context, j, i, iMediaContactorSettingListener);
+    public static void mediaContactorSetting(Context context, long j, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatMsgManager.mediaContactorSetting(context, j, i2, iMediaContactorSettingListener);
     }
 
     public static void mediaDeleteAllChatMsg(Context context, long j, long j2, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
@@ -649,20 +649,20 @@ public class BIMManager extends BaseManager implements NoProGuard {
         ChatMsgManager.mediaDeleteChatSession(context, j, j2, iMediaDeleteChatSessionListener);
     }
 
-    public static void mediaFetchChatMsgs(Context context, long j, long j2, long j3, int i, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
-        ChatMsgManager.mediaFetchChatMsgs(context, j, j2, j3, i, iMediaFetchChatMsgsListener);
+    public static void mediaFetchChatMsgs(Context context, long j, long j2, long j3, int i2, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
+        ChatMsgManager.mediaFetchChatMsgs(context, j, j2, j3, i2, iMediaFetchChatMsgsListener);
     }
 
-    public static void mediaGetChatSessions(Context context, long j, long j2, int i, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
-        ChatMsgManager.mediaGetChatSessions(context, j, j2, i, iMediaGetChatSessionListener);
+    public static void mediaGetChatSessions(Context context, long j, long j2, int i2, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+        ChatMsgManager.mediaGetChatSessions(context, j, j2, i2, iMediaGetChatSessionListener);
     }
 
     public static void mediaGetContactorPauid(Context context, long j, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
         ChatMsgManager.mediaGetContactorPauid(context, j, iMediaGetContactorPauidListener);
     }
 
-    public static void mediaGetContactorSetting(Context context, long j, int i, IMediaContactorSettingListener iMediaContactorSettingListener) {
-        ChatMsgManager.mediaGetContactorSetting(context, j, i, iMediaContactorSettingListener);
+    public static void mediaGetContactorSetting(Context context, long j, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatMsgManager.mediaGetContactorSetting(context, j, i2, iMediaContactorSettingListener);
     }
 
     public static void mediaRegisterChatMsgChangedListener(Context context, IMediaChatMsgChangedListener iMediaChatMsgChangedListener) {
@@ -696,7 +696,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     public static void postCheckRunnable() {
         try {
             LogUtils.i("BIMManager", "postCheckRunnable after 30s");
-            d.b.r.a.f65508c.postDelayed(checkIMLoginState, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+            d.a.r.a.f63829c.postDelayed(checkIMLoginState, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
         } catch (Exception e2) {
             LogUtils.e(BaseManager.TAG, "postCheckRunnable exception ", e2);
         }
@@ -761,8 +761,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
         ChatMsgManager.registerStudioUsePaReceivePaMsg(context, iLiveMsgReceiveListener);
     }
 
-    public static void removeSessionByClasstype(Context context, int i) {
-        IMBoxManager.removeSessionByClasstype(context, i);
+    public static void removeSessionByClasstype(Context context, int i2) {
+        IMBoxManager.removeSessionByClasstype(context, i2);
     }
 
     public static int saveAsDraftMsg(Context context, ChatMsg chatMsg) {
@@ -788,39 +788,39 @@ public class BIMManager extends BaseManager implements NoProGuard {
         ChatMsgManager.sendMessage(context, chatMsg, iSendMessageListener);
     }
 
-    public static void sendPaChatMsg(Context context, int i, int i2, long j, int i3, String str, ISendMessageListener iSendMessageListener) {
+    public static void sendPaChatMsg(Context context, int i2, int i3, long j, int i4, String str, ISendMessageListener iSendMessageListener) {
         String str2 = BaseManager.TAG;
-        LogUtils.d(str2, "sendPaChatMsg patype = " + i + " subPatype = " + i2 + " paid = " + j + " msgtype = " + i3 + " content = " + str);
-        ChatMsgManager.sendPaChatMsg(context, i, i2, j, i3, str, iSendMessageListener);
+        LogUtils.d(str2, "sendPaChatMsg patype = " + i2 + " subPatype = " + i3 + " paid = " + j + " msgtype = " + i4 + " content = " + str);
+        ChatMsgManager.sendPaChatMsg(context, i2, i3, j, i4, str, iSendMessageListener);
     }
 
-    public static boolean setAllMsgRead(Context context, int i, long j, boolean z) {
-        return ChatMsgManager.setAllMsgRead(context, i, j, z);
+    public static boolean setAllMsgRead(Context context, int i2, long j, boolean z) {
+        return ChatMsgManager.setAllMsgRead(context, i2, j, z);
     }
 
-    public static void setForbid(Context context, long j, long j2, int i, ISetForbidListener iSetForbidListener) {
-        ShieldAndTopManager.getInstance(context).setForbid(j, j2, i, iSetForbidListener);
+    public static void setForbid(Context context, long j, long j2, int i2, ISetForbidListener iSetForbidListener) {
+        ShieldAndTopManager.getInstance(context).setForbid(j, j2, i2, iSetForbidListener);
     }
 
-    public static void setGroupMarkTop(Context context, long j, int i, IStatusListener iStatusListener) {
-        ShieldAndTopManager.getInstance(context).setMarkTop(j, 3, i, iStatusListener);
+    public static void setGroupMarkTop(Context context, long j, int i2, IStatusListener iStatusListener) {
+        ShieldAndTopManager.getInstance(context).setMarkTop(j, 3, i2, iStatusListener);
     }
 
-    public static void setMarkTop(Context context, long j, int i, IStatusListener iStatusListener) {
-        ShieldAndTopManager.getInstance(context).setMarkTop(j, 1, i, iStatusListener);
+    public static void setMarkTop(Context context, long j, int i2, IStatusListener iStatusListener) {
+        ShieldAndTopManager.getInstance(context).setMarkTop(j, 1, i2, iStatusListener);
     }
 
     public static boolean setMsgRead(Context context, long j, long j2, boolean z) {
         return ChatMsgManager.setMsgRead(context, 0, j, j2, z);
     }
 
-    public static void setPaMsgsRead(Context context, int i, int i2, long j, long j2, long j3) {
+    public static void setPaMsgsRead(Context context, int i2, int i3, long j, long j2, long j3) {
         String str = BaseManager.TAG;
-        LogUtils.d(str, "setPaMsgsRead patype = " + i + " subPatype = " + i2 + " paid = " + j + " msgid = " + j2 + " time = " + j3);
-        ChatMsgManager.setPaMsgsRead(context, i, i2, j, j2, j3);
+        LogUtils.d(str, "setPaMsgsRead patype = " + i2 + " subPatype = " + i3 + " paid = " + j + " msgid = " + j2 + " time = " + j3);
+        ChatMsgManager.setPaMsgsRead(context, i2, i3, j, j2, j3);
     }
 
-    public static boolean setProductLine(Context context, int i, String str) {
+    public static boolean setProductLine(Context context, int i2, String str) {
         if (BaseManager.isNullContext(context)) {
             return false;
         }
@@ -832,23 +832,23 @@ public class BIMManager extends BaseManager implements NoProGuard {
             }
         }
         AccountManagerImpl.getInstance(context).setAppVersion(str);
-        return IMManager.init(context, i);
+        return IMManager.init(context, i2);
     }
 
-    public static void setUpdateSwitch(Context context, int i) {
-        AccountManager.setUpdateSwitch(context, i);
+    public static void setUpdateSwitch(Context context, int i2) {
+        AccountManager.setUpdateSwitch(context, i2);
     }
 
-    public static void setUserDisturb(Context context, long j, int i, IUserPrivacyListener iUserPrivacyListener) {
-        IMBoxManager.setUserDisturb(context, j, i, iUserPrivacyListener);
+    public static void setUserDisturb(Context context, long j, int i2, IUserPrivacyListener iUserPrivacyListener) {
+        IMBoxManager.setUserDisturb(context, j, i2, iUserPrivacyListener);
     }
 
-    public static void setUserMarkTop(Context context, long j, int i, IStatusListener iStatusListener) {
-        ShieldAndTopManager.getInstance(context).setMarkTop(j, 0, i, iStatusListener);
+    public static void setUserMarkTop(Context context, long j, int i2, IStatusListener iStatusListener) {
+        ShieldAndTopManager.getInstance(context).setMarkTop(j, 0, i2, iStatusListener);
     }
 
     public static void tryConnection(Context context) {
-        if (d.b.r.a.f65510e) {
+        if (d.a.r.a.f63831e) {
             return;
         }
         AccountManagerImpl.getInstance(context);
@@ -896,16 +896,16 @@ public class BIMManager extends BaseManager implements NoProGuard {
         ChatMsgManager.unregisterStudioUsePaReceivePaMsg(context, iLiveMsgReceiveListener);
     }
 
-    public static void fetchMsgByHostRequest(Context context, long j, int i, long j2, long j3, long j4, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
-        ChatMsgManager.fetchMsgByHostRequst(context, j, i, j2, j3, j4, i2, iFetchMsgByIdListener);
+    public static void fetchMsgByHostRequest(Context context, long j, int i2, long j2, long j3, long j4, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
+        ChatMsgManager.fetchMsgByHostRequst(context, j, i2, j2, j3, j4, i3, iFetchMsgByIdListener);
     }
 
-    public static void fetchMsgByMsgid(Context context, int i, long j, long j2, long j3, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
-        ChatMsgManager.fetchMsgRequst(context, Utility.getAppId(context), Utility.getUK(context), i, j, j2, j3, i2, iFetchMsgByIdListener, z);
+    public static void fetchMsgByMsgid(Context context, int i2, long j, long j2, long j3, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
+        ChatMsgManager.fetchMsgRequst(context, Utility.getAppId(context), Utility.getUK(context), i2, j, j2, j3, i3, iFetchMsgByIdListener, z);
     }
 
-    public static void fetchMsgRequest(Context context, long j, long j2, int i, long j3, long j4, long j5, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
-        ChatMsgManager.fetchMsgRequst(context, j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener, z);
+    public static void fetchMsgRequest(Context context, long j, long j2, int i2, long j3, long j4, long j5, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
+        ChatMsgManager.fetchMsgRequst(context, j, j2, i2, j3, j4, j5, i3, iFetchMsgByIdListener, z);
     }
 
     public static void getChatSession(Context context, List<Integer> list, IGetSessionListener iGetSessionListener) {
@@ -916,44 +916,44 @@ public class BIMManager extends BaseManager implements NoProGuard {
         IMBoxManager.getNewMsgCount(context, list, iGetNewMsgCountListener);
     }
 
-    public static void mediaContactorSetting(Context context, long j, int i, long j2, String str, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
-        ChatMsgManager.mediaContactorSetting(context, j, i, j2, str, i2, iMediaContactorSettingListener);
+    public static void mediaContactorSetting(Context context, long j, int i2, long j2, String str, int i3, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatMsgManager.mediaContactorSetting(context, j, i2, j2, str, i3, iMediaContactorSettingListener);
     }
 
-    public static void mediaDeleteAllChatMsg(Context context, long j, int i, long j2, String str, long j3, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
-        ChatMsgManager.mediaDeleteChatMsg(context, j, i, j2, str, j3, null, iMediaDeleteChatMsgListener);
+    public static void mediaDeleteAllChatMsg(Context context, long j, int i2, long j2, String str, long j3, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+        ChatMsgManager.mediaDeleteChatMsg(context, j, i2, j2, str, j3, null, iMediaDeleteChatMsgListener);
     }
 
-    public static void mediaDeleteChatMsg(Context context, long j, int i, long j2, String str, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
-        ChatMsgManager.mediaDeleteChatMsg(context, j, i, j2, str, -1L, list, iMediaDeleteChatMsgListener);
+    public static void mediaDeleteChatMsg(Context context, long j, int i2, long j2, String str, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+        ChatMsgManager.mediaDeleteChatMsg(context, j, i2, j2, str, -1L, list, iMediaDeleteChatMsgListener);
     }
 
-    public static void mediaDeleteChatSession(Context context, long j, int i, long j2, String str, long j3, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
-        ChatMsgManager.mediaDeleteChatSession(context, j, i, j2, str, j3, iMediaDeleteChatSessionListener);
+    public static void mediaDeleteChatSession(Context context, long j, int i2, long j2, String str, long j3, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
+        ChatMsgManager.mediaDeleteChatSession(context, j, i2, j2, str, j3, iMediaDeleteChatSessionListener);
     }
 
-    public static void mediaFetchChatMsgs(Context context, long j, int i, long j2, String str, long j3, long j4, int i2, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
-        ChatMsgManager.mediaFetchChatMsgs(context, j, i, j2, str, j3, j4, i2, iMediaFetchChatMsgsListener);
+    public static void mediaFetchChatMsgs(Context context, long j, int i2, long j2, String str, long j3, long j4, int i3, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
+        ChatMsgManager.mediaFetchChatMsgs(context, j, i2, j2, str, j3, j4, i3, iMediaFetchChatMsgsListener);
     }
 
-    public static void mediaGetChatSessions(Context context, long j, int i, long j2, String str, long j3, int i2, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
-        ChatMsgManager.mediaGetChatSessions(context, j, i, j2, str, j3, i2, iMediaGetChatSessionListener);
+    public static void mediaGetChatSessions(Context context, long j, int i2, long j2, String str, long j3, int i3, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+        ChatMsgManager.mediaGetChatSessions(context, j, i2, j2, str, j3, i3, iMediaGetChatSessionListener);
     }
 
-    public static void mediaGetContactorPauid(Context context, long j, int i, long j2, String str, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
-        ChatMsgManager.mediaGetContactorPauid(context, j, i, j2, str, iMediaGetContactorPauidListener);
+    public static void mediaGetContactorPauid(Context context, long j, int i2, long j2, String str, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
+        ChatMsgManager.mediaGetContactorPauid(context, j, i2, j2, str, iMediaGetContactorPauidListener);
     }
 
-    public static void mediaGetContactorSetting(Context context, long j, int i, long j2, String str, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
-        ChatMsgManager.mediaGetContactorSetting(context, j, i, j2, str, i2, iMediaContactorSettingListener);
+    public static void mediaGetContactorSetting(Context context, long j, int i2, long j2, String str, int i3, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatMsgManager.mediaGetContactorSetting(context, j, i2, j2, str, i3, iMediaContactorSettingListener);
     }
 
-    public static void mediaSendChatMsg(Context context, long j, int i, long j2, String str, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
-        ChatMsgManager.mediaSendChatMsg(context, j, i, j2, str, chatMsg, iMediaSendChatMsgListener);
+    public static void mediaSendChatMsg(Context context, long j, int i2, long j2, String str, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
+        ChatMsgManager.mediaSendChatMsg(context, j, i2, j2, str, chatMsg, iMediaSendChatMsgListener);
     }
 
-    public static void mediaSetSessionRead(Context context, long j, int i, long j2, String str, long j3, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
-        ChatMsgManager.mediaSetSessionRead(context, j, i, j2, str, j3, iMediaSetSessionReadListener);
+    public static void mediaSetSessionRead(Context context, long j, int i2, long j2, String str, long j3, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
+        ChatMsgManager.mediaSetSessionRead(context, j, i2, j2, str, j3, iMediaSetSessionReadListener);
     }
 
     @Deprecated
@@ -976,28 +976,28 @@ public class BIMManager extends BaseManager implements NoProGuard {
         return ChatMsgManagerImpl.getInstance(context).deleteAllMsgs(0, j, false);
     }
 
-    public static BIMConversation getConversation(Context context, String str, CATEGORY category, String str2, int i) {
-        return getConversation(context, str, false, category, str2, i);
+    public static BIMConversation getConversation(Context context, String str, CATEGORY category, String str2, int i2) {
+        return getConversation(context, str, false, category, str2, i2);
     }
 
-    public static BIMConversation getConversation(Context context, String str, boolean z, CATEGORY category, String str2, int i) {
+    public static BIMConversation getConversation(Context context, String str, boolean z, CATEGORY category, String str2, int i2) {
         if (BaseManager.isNullContext(context)) {
             LogUtils.e(BaseManager.TAG, "GETCONVERSATION context is null");
             return null;
         }
         sContext = context;
         if (CATEGORY.ALL != category && CATEGORY.SYSTEM != category) {
-            return ConversationStudioManImpl.getInstance(sContext).getConversation(category, str, z, str2, i);
+            return ConversationStudioManImpl.getInstance(sContext).getConversation(category, str, z, str2, i2);
         }
         LogUtils.e(LogUtils.TAG, "GETCONVERSATION category should not be ALL or SYSTEM");
         return null;
     }
 
-    public static void login(String str, String str2, int i, String str3, String str4, ILoginListener iLoginListener) {
+    public static void login(String str, String str2, int i2, String str3, String str4, ILoginListener iLoginListener) {
         IMTrack.RequestBuilder requestId;
         String str5;
         String str6 = BaseManager.TAG;
-        LogUtils.d(str6, "HB> im in login, uid = " + str + " ,cuid = " + str2 + ", loginType = " + i);
+        LogUtils.d(str6, "HB> im in login, uid = " + str + " ,cuid = " + str2 + ", loginType = " + i2);
         if (BaseManager.isNullContext(sContext)) {
             if (iLoginListener != null) {
                 iLoginListener.onLoginResult(1005, "Context is NULL");
@@ -1033,20 +1033,20 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 return;
             }
             Context context2 = sContext;
-            Utility.writeLoginFlag(context2, "2Y", "accessToken is nonnull, loginType = " + i);
-            if (i == 6) {
+            Utility.writeLoginFlag(context2, "2Y", "accessToken is nonnull, loginType = " + i2);
+            if (i2 == 6) {
                 AccountManagerImpl.getInstance(sContext).setCuid(str2);
                 String token = AccountManagerImpl.getInstance(sContext).getToken();
                 if (!TextUtils.isEmpty(token)) {
-                    loginExecutor(i, str, token, str3, str4, iLoginListener);
+                    loginExecutor(i2, str, token, str3, str4, iLoginListener);
                     return;
                 }
                 AccountManagerImpl.getInstance(sContext);
                 AccountManagerImpl.mCuidTokenTryTimes = 0;
-                getCuidTokenAndLogin(str2, i, str3, str4, iLoginListener);
+                getCuidTokenAndLogin(str2, i2, str3, str4, iLoginListener);
                 return;
             }
-            loginExecutor(i, str, str2, str3, str4, iLoginListener);
+            loginExecutor(i2, str, str2, str3, str4, iLoginListener);
         } catch (Throwable th) {
             new IMTrack.RequestBuilder(sContext).method(String.valueOf(AccountManagerImpl.getInstance(sContext).getAppOpenType())).requestId("1Y").requestTime(Utility.getLoginCallTime(sContext)).responseTime(j).ext(Utility.getLoginFlagExt(sContext)).aliasId(501100L).build();
             throw th;

@@ -61,7 +61,7 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
     }
 
     private int getRotationAngle(ExifInterface exifInterface) {
-        return JfifUtil.getAutoRotateAngleFromOrientation(Integer.parseInt(exifInterface.getAttribute(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION)));
+        return JfifUtil.getAutoRotateAngleFromOrientation(Integer.parseInt(exifInterface.getAttribute("Orientation")));
     }
 
     @Override // com.facebook.imagepipeline.producers.ThumbnailProducer

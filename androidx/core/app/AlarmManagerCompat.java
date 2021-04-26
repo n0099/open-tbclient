@@ -14,27 +14,27 @@ public final class AlarmManagerCompat {
         }
     }
 
-    public static void setAndAllowWhileIdle(@NonNull AlarmManager alarmManager, int i, long j, @NonNull PendingIntent pendingIntent) {
+    public static void setAndAllowWhileIdle(@NonNull AlarmManager alarmManager, int i2, long j, @NonNull PendingIntent pendingIntent) {
         if (Build.VERSION.SDK_INT >= 23) {
-            alarmManager.setAndAllowWhileIdle(i, j, pendingIntent);
+            alarmManager.setAndAllowWhileIdle(i2, j, pendingIntent);
         } else {
-            alarmManager.set(i, j, pendingIntent);
+            alarmManager.set(i2, j, pendingIntent);
         }
     }
 
-    public static void setExact(@NonNull AlarmManager alarmManager, int i, long j, @NonNull PendingIntent pendingIntent) {
+    public static void setExact(@NonNull AlarmManager alarmManager, int i2, long j, @NonNull PendingIntent pendingIntent) {
         if (Build.VERSION.SDK_INT >= 19) {
-            alarmManager.setExact(i, j, pendingIntent);
+            alarmManager.setExact(i2, j, pendingIntent);
         } else {
-            alarmManager.set(i, j, pendingIntent);
+            alarmManager.set(i2, j, pendingIntent);
         }
     }
 
-    public static void setExactAndAllowWhileIdle(@NonNull AlarmManager alarmManager, int i, long j, @NonNull PendingIntent pendingIntent) {
+    public static void setExactAndAllowWhileIdle(@NonNull AlarmManager alarmManager, int i2, long j, @NonNull PendingIntent pendingIntent) {
         if (Build.VERSION.SDK_INT >= 23) {
-            alarmManager.setExactAndAllowWhileIdle(i, j, pendingIntent);
+            alarmManager.setExactAndAllowWhileIdle(i2, j, pendingIntent);
         } else {
-            setExact(alarmManager, i, j, pendingIntent);
+            setExact(alarmManager, i2, j, pendingIntent);
         }
     }
 }

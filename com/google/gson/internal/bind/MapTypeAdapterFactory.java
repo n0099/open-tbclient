@@ -8,44 +8,36 @@ import com.google.gson.JsonSyntaxException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.internal.C$Gson$Types;
+import com.google.gson.internal.ConstructorConstructor;
+import com.google.gson.internal.JsonReaderInternalAccess;
+import com.google.gson.internal.ObjectConstructor;
+import com.google.gson.internal.Streams;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
-import d.h.d.b.b;
-import d.h.d.b.d;
-import d.h.d.b.e;
-import d.h.d.b.h;
-import d.h.d.d.a;
+import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public final class MapTypeAdapterFactory implements TypeAdapterFactory {
-
-    /* renamed from: e  reason: collision with root package name */
-    public final b f31335e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final boolean f31336f;
+    public final boolean complexMapKeySerialization;
+    public final ConstructorConstructor constructorConstructor;
 
     /* loaded from: classes6.dex */
     public final class Adapter<K, V> extends TypeAdapter<Map<K, V>> {
+        public final ObjectConstructor<? extends Map<K, V>> constructor;
+        public final TypeAdapter<K> keyTypeAdapter;
+        public final TypeAdapter<V> valueTypeAdapter;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final TypeAdapter<K> f31337a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final TypeAdapter<V> f31338b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final e<? extends Map<K, V>> f31339c;
-
-        public Adapter(Gson gson, Type type, TypeAdapter<K> typeAdapter, Type type2, TypeAdapter<V> typeAdapter2, e<? extends Map<K, V>> eVar) {
-            this.f31337a = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
-            this.f31338b = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter2, type2);
-            this.f31339c = eVar;
+        public Adapter(Gson gson, Type type, TypeAdapter<K> typeAdapter, Type type2, TypeAdapter<V> typeAdapter2, ObjectConstructor<? extends Map<K, V>> objectConstructor) {
+            this.keyTypeAdapter = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
+            this.valueTypeAdapter = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter2, type2);
+            this.constructor = objectConstructor;
         }
 
-        public final String a(JsonElement jsonElement) {
+        private String keyToString(JsonElement jsonElement) {
             if (jsonElement.isJsonPrimitive()) {
                 JsonPrimitive asJsonPrimitive = jsonElement.getAsJsonPrimitive();
                 if (asJsonPrimitive.isNumber()) {
@@ -65,112 +57,113 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
             }
         }
 
+        @Override // com.google.gson.TypeAdapter
+        public /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) throws IOException {
+            write(jsonWriter, (Map) ((Map) obj));
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
-        /* renamed from: b */
-        public Map<K, V> read(a aVar) throws IOException {
-            JsonToken M = aVar.M();
-            if (M == JsonToken.NULL) {
-                aVar.I();
+        public Map<K, V> read(JsonReader jsonReader) throws IOException {
+            JsonToken peek = jsonReader.peek();
+            if (peek == JsonToken.NULL) {
+                jsonReader.nextNull();
                 return null;
             }
-            Map<K, V> a2 = this.f31339c.a();
-            if (M == JsonToken.BEGIN_ARRAY) {
-                aVar.n();
-                while (aVar.y()) {
-                    aVar.n();
-                    K read = this.f31337a.read(aVar);
-                    if (a2.put(read, this.f31338b.read(aVar)) == null) {
-                        aVar.t();
+            Map<K, V> construct = this.constructor.construct();
+            if (peek == JsonToken.BEGIN_ARRAY) {
+                jsonReader.beginArray();
+                while (jsonReader.hasNext()) {
+                    jsonReader.beginArray();
+                    K read = this.keyTypeAdapter.read(jsonReader);
+                    if (construct.put(read, this.valueTypeAdapter.read(jsonReader)) == null) {
+                        jsonReader.endArray();
                     } else {
                         throw new JsonSyntaxException("duplicate key: " + read);
                     }
                 }
-                aVar.t();
+                jsonReader.endArray();
             } else {
-                aVar.o();
-                while (aVar.y()) {
-                    d.f67242a.a(aVar);
-                    K read2 = this.f31337a.read(aVar);
-                    if (a2.put(read2, this.f31338b.read(aVar)) != null) {
+                jsonReader.beginObject();
+                while (jsonReader.hasNext()) {
+                    JsonReaderInternalAccess.INSTANCE.promoteNameToValue(jsonReader);
+                    K read2 = this.keyTypeAdapter.read(jsonReader);
+                    if (construct.put(read2, this.valueTypeAdapter.read(jsonReader)) != null) {
                         throw new JsonSyntaxException("duplicate key: " + read2);
                     }
                 }
-                aVar.v();
+                jsonReader.endObject();
             }
-            return a2;
+            return construct;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
         /* JADX DEBUG: Multi-variable search result rejected for r3v5, resolved type: com.google.gson.TypeAdapter<V> */
         /* JADX DEBUG: Multi-variable search result rejected for r3v8, resolved type: com.google.gson.TypeAdapter<V> */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.google.gson.TypeAdapter
-        /* renamed from: c */
-        public void write(d.h.d.d.b bVar, Map<K, V> map) throws IOException {
+        public void write(JsonWriter jsonWriter, Map<K, V> map) throws IOException {
             if (map == null) {
-                bVar.B();
-            } else if (!MapTypeAdapterFactory.this.f31336f) {
-                bVar.r();
+                jsonWriter.nullValue();
+            } else if (!MapTypeAdapterFactory.this.complexMapKeySerialization) {
+                jsonWriter.beginObject();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
-                    bVar.z(String.valueOf(entry.getKey()));
-                    this.f31338b.write(bVar, entry.getValue());
+                    jsonWriter.name(String.valueOf(entry.getKey()));
+                    this.valueTypeAdapter.write(jsonWriter, entry.getValue());
                 }
-                bVar.v();
+                jsonWriter.endObject();
             } else {
                 ArrayList arrayList = new ArrayList(map.size());
                 ArrayList arrayList2 = new ArrayList(map.size());
-                int i = 0;
+                int i2 = 0;
                 boolean z = false;
                 for (Map.Entry<K, V> entry2 : map.entrySet()) {
-                    JsonElement jsonTree = this.f31337a.toJsonTree(entry2.getKey());
+                    JsonElement jsonTree = this.keyTypeAdapter.toJsonTree(entry2.getKey());
                     arrayList.add(jsonTree);
                     arrayList2.add(entry2.getValue());
                     z |= jsonTree.isJsonArray() || jsonTree.isJsonObject();
                 }
                 if (z) {
-                    bVar.q();
+                    jsonWriter.beginArray();
                     int size = arrayList.size();
-                    while (i < size) {
-                        bVar.q();
-                        h.b((JsonElement) arrayList.get(i), bVar);
-                        this.f31338b.write(bVar, arrayList2.get(i));
-                        bVar.t();
-                        i++;
+                    while (i2 < size) {
+                        jsonWriter.beginArray();
+                        Streams.write((JsonElement) arrayList.get(i2), jsonWriter);
+                        this.valueTypeAdapter.write(jsonWriter, arrayList2.get(i2));
+                        jsonWriter.endArray();
+                        i2++;
                     }
-                    bVar.t();
+                    jsonWriter.endArray();
                     return;
                 }
-                bVar.r();
+                jsonWriter.beginObject();
                 int size2 = arrayList.size();
-                while (i < size2) {
-                    bVar.z(a((JsonElement) arrayList.get(i)));
-                    this.f31338b.write(bVar, arrayList2.get(i));
-                    i++;
+                while (i2 < size2) {
+                    jsonWriter.name(keyToString((JsonElement) arrayList.get(i2)));
+                    this.valueTypeAdapter.write(jsonWriter, arrayList2.get(i2));
+                    i2++;
                 }
-                bVar.v();
+                jsonWriter.endObject();
             }
         }
     }
 
-    public MapTypeAdapterFactory(b bVar, boolean z) {
-        this.f31335e = bVar;
-        this.f31336f = z;
+    public MapTypeAdapterFactory(ConstructorConstructor constructorConstructor, boolean z) {
+        this.constructorConstructor = constructorConstructor;
+        this.complexMapKeySerialization = z;
     }
 
-    public final TypeAdapter<?> a(Gson gson, Type type) {
+    private TypeAdapter<?> getKeyAdapter(Gson gson, Type type) {
         if (type != Boolean.TYPE && type != Boolean.class) {
-            return gson.getAdapter(d.h.d.c.a.b(type));
+            return gson.getAdapter(TypeToken.get(type));
         }
-        return TypeAdapters.f31382f;
+        return TypeAdapters.BOOLEAN_AS_STRING;
     }
 
     @Override // com.google.gson.TypeAdapterFactory
-    public <T> TypeAdapter<T> create(Gson gson, d.h.d.c.a<T> aVar) {
-        Type e2 = aVar.e();
-        if (Map.class.isAssignableFrom(aVar.c())) {
-            Type[] j = C$Gson$Types.j(e2, C$Gson$Types.k(e2));
-            return new Adapter(gson, j[0], a(gson, j[0]), j[1], gson.getAdapter(d.h.d.c.a.b(j[1])), this.f31335e.a(aVar));
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+        Type type = typeToken.getType();
+        if (Map.class.isAssignableFrom(typeToken.getRawType())) {
+            Type[] mapKeyAndValueTypes = C$Gson$Types.getMapKeyAndValueTypes(type, C$Gson$Types.getRawType(type));
+            return new Adapter(gson, mapKeyAndValueTypes[0], getKeyAdapter(gson, mapKeyAndValueTypes[0]), mapKeyAndValueTypes[1], gson.getAdapter(TypeToken.get(mapKeyAndValueTypes[1])), this.constructorConstructor.get(typeToken));
         }
         return null;
     }

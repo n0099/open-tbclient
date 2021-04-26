@@ -5,46 +5,46 @@ import android.location.Location;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f6618a;
+    public static long f6844a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static com.baidu.location.b.a f6619b;
+    public static com.baidu.location.b.a f6845b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Location f6620c;
+    public static Location f6846c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f6621d;
+    public static String f6847d;
 
     public static String a() {
-        return f6621d;
+        return f6847d;
     }
 
     public static void a(long j) {
-        f6618a = j;
+        f6844a = j;
     }
 
     public static void a(Location location) {
-        f6620c = location;
+        f6846c = location;
     }
 
     public static void a(com.baidu.location.b.a aVar) {
-        f6619b = aVar;
+        f6845b = aVar;
     }
 
     public static void a(String str) {
-        f6621d = str;
+        f6847d = str;
     }
 
     public static long b() {
-        return f6618a;
+        return f6844a;
     }
 
     public static com.baidu.location.b.a c() {
-        return f6619b;
+        return f6845b;
     }
 
     public static Location d() {
-        return f6620c;
+        return f6846c;
     }
 }

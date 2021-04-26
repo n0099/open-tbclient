@@ -151,22 +151,22 @@ public final class GestureDetectorCompat {
                 this.mVelocityTracker = VelocityTracker.obtain();
             }
             this.mVelocityTracker.addMovement(motionEvent);
-            int i = action & 255;
-            boolean z2 = i == 6;
+            int i2 = action & 255;
+            boolean z2 = i2 == 6;
             int actionIndex = z2 ? motionEvent.getActionIndex() : -1;
             int pointerCount = motionEvent.getPointerCount();
             float f2 = 0.0f;
             float f3 = 0.0f;
-            for (int i2 = 0; i2 < pointerCount; i2++) {
-                if (actionIndex != i2) {
-                    f2 += motionEvent.getX(i2);
-                    f3 += motionEvent.getY(i2);
+            for (int i3 = 0; i3 < pointerCount; i3++) {
+                if (actionIndex != i3) {
+                    f2 += motionEvent.getX(i3);
+                    f3 += motionEvent.getY(i3);
                 }
             }
             float f4 = z2 ? pointerCount - 1 : pointerCount;
             float f5 = f2 / f4;
             float f6 = f3 / f4;
-            if (i == 0) {
+            if (i2 == 0) {
                 if (this.mDoubleTapListener != null) {
                     boolean hasMessages = this.mHandler.hasMessages(3);
                     if (hasMessages) {
@@ -218,7 +218,7 @@ public final class GestureDetectorCompat {
                 this.mHandler.sendEmptyMessageAtTime(1, this.mCurrentDownEvent.getDownTime() + TAP_TIMEOUT);
                 return z | this.mListener.onDown(motionEvent);
             }
-            if (i == 1) {
+            if (i2 == 1) {
                 this.mStillDown = false;
                 MotionEvent obtain = MotionEvent.obtain(motionEvent);
                 if (this.mIsDoubleTapping) {
@@ -259,18 +259,18 @@ public final class GestureDetectorCompat {
                 this.mDeferConfirmSingleTap = false;
                 this.mHandler.removeMessages(1);
                 this.mHandler.removeMessages(2);
-            } else if (i != 2) {
-                if (i == 3) {
+            } else if (i2 != 2) {
+                if (i2 == 3) {
                     cancel();
                     return false;
-                } else if (i == 5) {
+                } else if (i2 == 5) {
                     this.mLastFocusX = f5;
                     this.mDownFocusX = f5;
                     this.mLastFocusY = f6;
                     this.mDownFocusY = f6;
                     cancelTaps();
                     return false;
-                } else if (i != 6) {
+                } else if (i2 != 6) {
                     return false;
                 } else {
                     this.mLastFocusX = f5;
@@ -282,9 +282,9 @@ public final class GestureDetectorCompat {
                     int pointerId2 = motionEvent.getPointerId(actionIndex2);
                     float xVelocity2 = this.mVelocityTracker.getXVelocity(pointerId2);
                     float yVelocity2 = this.mVelocityTracker.getYVelocity(pointerId2);
-                    for (int i3 = 0; i3 < pointerCount; i3++) {
-                        if (i3 != actionIndex2) {
-                            int pointerId3 = motionEvent.getPointerId(i3);
+                    for (int i4 = 0; i4 < pointerCount; i4++) {
+                        if (i4 != actionIndex2) {
+                            int pointerId3 = motionEvent.getPointerId(i4);
                             if ((this.mVelocityTracker.getXVelocity(pointerId3) * xVelocity2) + (this.mVelocityTracker.getYVelocity(pointerId3) * yVelocity2) < 0.0f) {
                                 this.mVelocityTracker.clear();
                                 return false;
@@ -302,10 +302,10 @@ public final class GestureDetectorCompat {
                     return false | this.mDoubleTapListener.onDoubleTapEvent(motionEvent);
                 }
                 if (this.mAlwaysInTapRegion) {
-                    int i4 = (int) (f5 - this.mDownFocusX);
-                    int i5 = (int) (f6 - this.mDownFocusY);
-                    int i6 = (i4 * i4) + (i5 * i5);
-                    if (i6 > this.mTouchSlopSquare) {
+                    int i5 = (int) (f5 - this.mDownFocusX);
+                    int i6 = (int) (f6 - this.mDownFocusY);
+                    int i7 = (i5 * i5) + (i6 * i6);
+                    if (i7 > this.mTouchSlopSquare) {
                         onFling = this.mListener.onScroll(this.mCurrentDownEvent, motionEvent, f7, f8);
                         this.mLastFocusX = f5;
                         this.mLastFocusY = f6;
@@ -316,7 +316,7 @@ public final class GestureDetectorCompat {
                     } else {
                         onFling = false;
                     }
-                    if (i6 > this.mTouchSlopSquare) {
+                    if (i7 > this.mTouchSlopSquare) {
                         this.mAlwaysInBiggerTapRegion = false;
                     }
                 } else if (Math.abs(f7) >= 1.0f || Math.abs(f8) >= 1.0f) {
@@ -348,13 +348,13 @@ public final class GestureDetectorCompat {
 
             @Override // android.os.Handler
             public void handleMessage(Message message) {
-                int i = message.what;
-                if (i == 1) {
+                int i2 = message.what;
+                if (i2 == 1) {
                     GestureDetectorCompatImplBase gestureDetectorCompatImplBase = GestureDetectorCompatImplBase.this;
                     gestureDetectorCompatImplBase.mListener.onShowPress(gestureDetectorCompatImplBase.mCurrentDownEvent);
-                } else if (i == 2) {
+                } else if (i2 == 2) {
                     GestureDetectorCompatImplBase.this.dispatchLongPress();
-                } else if (i == 3) {
+                } else if (i2 == 3) {
                     GestureDetectorCompatImplBase gestureDetectorCompatImplBase2 = GestureDetectorCompatImplBase.this;
                     GestureDetector.OnDoubleTapListener onDoubleTapListener = gestureDetectorCompatImplBase2.mDoubleTapListener;
                     if (onDoubleTapListener != null) {

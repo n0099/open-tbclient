@@ -36,16 +36,16 @@ public class DnsParseResult {
     public int stackType;
     public int type;
 
-    public DnsParseResult(List<String> list, int i, int i2, int i3) {
+    public DnsParseResult(List<String> list, int i2, int i3, int i4) {
         this.stackType = 0;
         if (list != null && !list.isEmpty()) {
             this.m = Collections.unmodifiableList(list);
         } else {
             this.m = null;
         }
-        this.type = i;
-        this.l = i2;
-        this.stackType = i3;
+        this.type = i2;
+        this.l = i3;
+        this.stackType = i4;
     }
 
     public List<String> getIpList() {

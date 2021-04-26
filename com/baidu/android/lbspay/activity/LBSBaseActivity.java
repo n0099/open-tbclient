@@ -39,31 +39,31 @@ public abstract class LBSBaseActivity extends DxmPayBaseActivity implements IBea
         return SDKBaseActivity.BottomBarType.NONE;
     }
 
-    public abstract void handleFailure(int i, int i2, String str);
+    public abstract void handleFailure(int i2, int i3, String str);
 
-    public abstract void handleResponse(int i, Object obj, String str);
+    public abstract void handleResponse(int i2, Object obj, String str);
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecFailure(final int i, final int i2, final String str) {
+    public void onBeanExecFailure(final int i2, final int i3, final String str) {
         getHandler().post(new Runnable() { // from class: com.baidu.android.lbspay.activity.LBSBaseActivity.4
             @Override // java.lang.Runnable
             public void run() {
-                LBSBaseActivity.this.handleFailure(i, i2, str);
+                LBSBaseActivity.this.handleFailure(i2, i3, str);
             }
         });
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecSuccess(final int i, final Object obj, final String str) {
+    public void onBeanExecSuccess(final int i2, final Object obj, final String str) {
         getHandler().post(new Runnable() { // from class: com.baidu.android.lbspay.activity.LBSBaseActivity.3
             @Override // java.lang.Runnable
             public void run() {
-                LBSBaseActivity.this.handleResponse(i, obj, str);
+                LBSBaseActivity.this.handleResponse(i2, obj, str);
             }
         });
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(this.mExitReceiver, new IntentFilter(LBSPayResult.ACTION_EXIT));

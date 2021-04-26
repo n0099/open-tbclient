@@ -44,20 +44,20 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
 
     @Override // androidx.media.AudioAttributesImpl
     public int getFlags() {
-        int i = this.mFlags;
+        int i2 = this.mFlags;
         int legacyStreamType = getLegacyStreamType();
         if (legacyStreamType == 6) {
-            i |= 4;
+            i2 |= 4;
         } else if (legacyStreamType == 7) {
-            i |= 1;
+            i2 |= 1;
         }
-        return i & 273;
+        return i2 & 273;
     }
 
     @Override // androidx.media.AudioAttributesImpl
     public int getLegacyStreamType() {
-        int i = this.mLegacyStream;
-        return i != -1 ? i : AudioAttributesCompat.toVolumeStreamType(false, this.mFlags, this.mUsage);
+        int i2 = this.mLegacyStream;
+        return i2 != -1 ? i2 : AudioAttributesCompat.toVolumeStreamType(false, this.mFlags, this.mUsage);
     }
 
     @Override // androidx.media.AudioAttributesImpl
@@ -86,9 +86,9 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
         bundle.putInt(AudioAttributesCompat.AUDIO_ATTRIBUTES_USAGE, this.mUsage);
         bundle.putInt(AudioAttributesCompat.AUDIO_ATTRIBUTES_CONTENT_TYPE, this.mContentType);
         bundle.putInt(AudioAttributesCompat.AUDIO_ATTRIBUTES_FLAGS, this.mFlags);
-        int i = this.mLegacyStream;
-        if (i != -1) {
-            bundle.putInt(AudioAttributesCompat.AUDIO_ATTRIBUTES_LEGACY_STREAM_TYPE, i);
+        int i2 = this.mLegacyStream;
+        if (i2 != -1) {
+            bundle.putInt(AudioAttributesCompat.AUDIO_ATTRIBUTES_LEGACY_STREAM_TYPE, i2);
         }
         return bundle;
     }
@@ -109,14 +109,14 @@ public class AudioAttributesImplBase implements AudioAttributesImpl {
         return sb.toString();
     }
 
-    public AudioAttributesImplBase(int i, int i2, int i3, int i4) {
+    public AudioAttributesImplBase(int i2, int i3, int i4, int i5) {
         this.mUsage = 0;
         this.mContentType = 0;
         this.mFlags = 0;
         this.mLegacyStream = -1;
-        this.mContentType = i;
-        this.mFlags = i2;
-        this.mUsage = i3;
-        this.mLegacyStream = i4;
+        this.mContentType = i2;
+        this.mFlags = i3;
+        this.mUsage = i4;
+        this.mLegacyStream = i5;
     }
 }

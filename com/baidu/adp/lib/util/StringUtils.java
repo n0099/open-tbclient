@@ -17,7 +17,7 @@ public class StringUtils {
         if (date == null) {
             return null;
         }
-        return new SimpleDateFormat(TIMEFORMAT).format(date);
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date);
     }
 
     public static final void clearStringBuilder(StringBuilder sb) {
@@ -33,7 +33,7 @@ public class StringUtils {
     }
 
     public static Date handleDate(String str) {
-        return handleDate(str, TIMEFORMAT);
+        return handleDate(str, "yyyy-MM-dd HH:mm");
     }
 
     public static boolean isChinese(char c2) {
@@ -89,32 +89,32 @@ public class StringUtils {
         return "";
     }
 
-    public static String translateSecondsToString(int i) {
-        if (i <= 0) {
+    public static String translateSecondsToString(int i2) {
+        if (i2 <= 0) {
             return "00:00";
         }
-        int i2 = i / 60;
-        if (i2 < 60) {
-            return unitFormat(i2) + ":" + unitFormat(i % 60);
-        }
         int i3 = i2 / 60;
-        if (i3 > 99) {
+        if (i3 < 60) {
+            return unitFormat(i3) + ":" + unitFormat(i2 % 60);
+        }
+        int i4 = i3 / 60;
+        if (i4 > 99) {
             return "99:59:59";
         }
-        int i4 = i2 % 60;
-        return unitFormat(i3) + ":" + unitFormat(i4) + ":" + unitFormat((i - (i3 * 3600)) - (i4 * 60));
+        int i5 = i3 % 60;
+        return unitFormat(i4) + ":" + unitFormat(i5) + ":" + unitFormat((i2 - (i4 * 3600)) - (i5 * 60));
     }
 
-    public static String unitFormat(int i) {
-        if (i >= 0 && i < 10) {
-            return "0" + Integer.toString(i);
+    public static String unitFormat(int i2) {
+        if (i2 >= 0 && i2 < 10) {
+            return "0" + Integer.toString(i2);
         }
-        return "" + i;
+        return "" + i2;
     }
 
     public static Date handleDate(String str, String str2) {
         if (str2 == null) {
-            str2 = TIMEFORMAT;
+            str2 = "yyyy-MM-dd HH:mm";
         }
         if (str != null && str.length() != 0) {
             try {
@@ -138,7 +138,7 @@ public class StringUtils {
             return null;
         }
         if (str == null) {
-            str = TIMEFORMAT;
+            str = "yyyy-MM-dd HH:mm";
         }
         return new SimpleDateFormat(str).format(date);
     }

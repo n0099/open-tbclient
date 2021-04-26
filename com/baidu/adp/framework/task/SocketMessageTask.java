@@ -6,19 +6,19 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 public class SocketMessageTask extends MessageTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f2164a;
+    public boolean f2128a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f2165b;
+    public boolean f2129b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f2166c;
+    public boolean f2130c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Class<? extends SocketResponsedMessage> f2167d;
+    public Class<? extends SocketResponsedMessage> f2131d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DupLicateMode f2168e;
+    public DupLicateMode f2132e;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -28,24 +28,24 @@ public class SocketMessageTask extends MessageTask {
         REMOVE_ALL
     }
 
-    public SocketMessageTask(int i) {
-        super(i);
-        this.f2164a = false;
-        this.f2165b = false;
-        this.f2166c = true;
-        this.f2168e = DupLicateMode.NONE;
+    public SocketMessageTask(int i2) {
+        super(i2);
+        this.f2128a = false;
+        this.f2129b = false;
+        this.f2130c = true;
+        this.f2132e = DupLicateMode.NONE;
     }
 
     public DupLicateMode a() {
-        return this.f2168e;
+        return this.f2132e;
     }
 
     public boolean b() {
-        return this.f2164a;
+        return this.f2128a;
     }
 
     public boolean c() {
-        return this.f2165b;
+        return this.f2129b;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
@@ -54,30 +54,30 @@ public class SocketMessageTask extends MessageTask {
     }
 
     public boolean d() {
-        return this.f2166c;
+        return this.f2130c;
     }
 
     public void e(boolean z) {
-        this.f2166c = z;
+        this.f2130c = z;
     }
 
     public void f(DupLicateMode dupLicateMode) {
-        this.f2168e = dupLicateMode;
+        this.f2132e = dupLicateMode;
     }
 
     public void g(boolean z) {
-        this.f2164a = z;
+        this.f2128a = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
-        return this.f2167d;
+        return this.f2131d;
     }
 
     public void h(boolean z) {
-        this.f2165b = z;
+        this.f2129b = z;
     }
 
     public void setResponsedClass(Class<? extends SocketResponsedMessage> cls) {
-        this.f2167d = cls;
+        this.f2131d = cls;
     }
 }

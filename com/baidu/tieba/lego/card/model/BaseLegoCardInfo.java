@@ -3,7 +3,7 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import d.b.j0.a;
+import d.a.j0.a;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -156,7 +156,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         return this.statistics;
     }
 
-    @Override // com.baidu.tieba.lego.card.model.ICardInfo, d.b.c.j.e.n
+    @Override // com.baidu.tieba.lego.card.model.ICardInfo, d.a.c.j.e.n
     public BdUniqueId getType() {
         return this.mBdUniqueId;
     }
@@ -174,7 +174,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.model.ICardInfo
-    public BaseLegoCardInfo getViewItem(int i, int i2) {
+    public BaseLegoCardInfo getViewItem(int i2, int i3) {
         return this;
     }
 
@@ -213,17 +213,17 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         this.mGroupId = str;
     }
 
-    public void setShowLine(int i) {
-        this.showLine = i;
+    public void setShowLine(int i2) {
+        this.showLine = i2;
     }
 
-    public void setShowSpace(int i) {
-        this.showSpace = i;
+    public void setShowSpace(int i2) {
+        this.showSpace = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.model.ICardInfo
-    public final BaseLegoCardInfo getAdapterItem(int i) {
-        return getViewItem(i, 0);
+    public final BaseLegoCardInfo getAdapterItem(int i2) {
+        return getViewItem(i2, 0);
     }
 }

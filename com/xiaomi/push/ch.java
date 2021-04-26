@@ -7,15 +7,15 @@ import java.util.ArrayList;
 public class ch extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cg f40703a;
+    public final /* synthetic */ cg f38219a;
 
     public ch(cg cgVar) {
-        this.f40703a = cgVar;
+        this.f38219a = cgVar;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo169a() {
+    public String mo172a() {
         return "100957";
     }
 
@@ -27,21 +27,21 @@ public class ch extends ai.a {
         ArrayList arrayList4;
         ArrayList arrayList5;
         ArrayList<cg.a> arrayList6;
-        arrayList = this.f40703a.f172a;
+        arrayList = this.f38219a.f172a;
         synchronized (arrayList) {
-            arrayList2 = this.f40703a.f172a;
+            arrayList2 = this.f38219a.f172a;
             if (arrayList2.size() > 0) {
-                arrayList3 = this.f40703a.f172a;
+                arrayList3 = this.f38219a.f172a;
                 if (arrayList3.size() > 1) {
-                    cg cgVar = this.f40703a;
-                    arrayList6 = this.f40703a.f172a;
+                    cg cgVar = this.f38219a;
+                    arrayList6 = this.f38219a.f172a;
                     cgVar.a(arrayList6);
                 } else {
-                    cg cgVar2 = this.f40703a;
-                    arrayList4 = this.f40703a.f172a;
+                    cg cgVar2 = this.f38219a;
+                    arrayList4 = this.f38219a.f172a;
                     cgVar2.b((cg.a) arrayList4.get(0));
                 }
-                arrayList5 = this.f40703a.f172a;
+                arrayList5 = this.f38219a.f172a;
                 arrayList5.clear();
                 System.gc();
             }

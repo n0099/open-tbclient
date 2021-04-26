@@ -88,18 +88,18 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         public int mItemType;
         public BDEmotionBagVerticalLayout mVerticalLayout;
 
-        public BaseViewHolder(View view, Context context, int i, BDEmotionBagVerticalLayout bDEmotionBagVerticalLayout) {
+        public BaseViewHolder(View view, Context context, int i2, BDEmotionBagVerticalLayout bDEmotionBagVerticalLayout) {
             super(view);
             this.mCtx = context;
-            this.mItemType = i;
+            this.mItemType = i2;
             this.mVerticalLayout = bDEmotionBagVerticalLayout;
         }
 
-        public static BaseViewHolder createViewHolder(ViewGroup viewGroup, int i, Context context, BDEmotionBagVerticalLayout bDEmotionBagVerticalLayout) {
+        public static BaseViewHolder createViewHolder(ViewGroup viewGroup, int i2, Context context, BDEmotionBagVerticalLayout bDEmotionBagVerticalLayout) {
             LayoutInflater from = LayoutInflater.from(context);
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
                         return null;
                     }
                     View view = new View(context);
@@ -115,7 +115,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             return this.mItemType;
         }
 
-        public abstract void onBindViewHolder(int i, DATA data);
+        public abstract void onBindViewHolder(int i2, DATA data);
     }
 
     /* loaded from: classes2.dex */
@@ -142,10 +142,10 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             public int sectionType;
             public EmotionType type;
 
-            public StatisticData(EmotionType emotionType, int i, int i2) {
+            public StatisticData(EmotionType emotionType, int i2, int i3) {
                 this.type = emotionType;
-                this.rowIndex = i;
-                this.sectionType = i2;
+                this.rowIndex = i2;
+                this.sectionType = i3;
             }
         }
 
@@ -155,8 +155,8 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             this.mVerticalLayout = bDEmotionBagVerticalLayout;
         }
 
-        private void processAlpha(final ViewGroup viewGroup, final ImageView imageView, final String str, int i) {
-            if (i == 6 && this.mRowType == 1) {
+        private void processAlpha(final ViewGroup viewGroup, final ImageView imageView, final String str, int i2) {
+            if (i2 == 6 && this.mRowType == 1) {
                 if (imageView.getTag() != null && (imageView.getTag() instanceof ViewTreeObserver.OnPreDrawListener)) {
                     imageView.getViewTreeObserver().removeOnPreDrawListener((ViewTreeObserver.OnPreDrawListener) imageView.getTag());
                 }
@@ -188,12 +188,12 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
 
         @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            return i;
+        public long getItemId(int i2) {
+            return i2;
         }
 
         @Override // android.widget.Adapter
-        public View getView(final int i, View view, ViewGroup viewGroup) {
+        public View getView(final int i2, View view, ViewGroup viewGroup) {
             FrameLayout frameLayout;
             if (view == null) {
                 frameLayout = (FrameLayout) this.mInflater.inflate(R.layout.emotion_vertical_grid_item, viewGroup, false);
@@ -207,7 +207,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (view2.isEnabled()) {
-                        GlobalOnItemClickListenerManager.getInstance().verticalOnItemClick(EmotionGridViewAdapter.this.getItem(i), EmotionGridViewAdapter.this.mStatisticData, i);
+                        GlobalOnItemClickListenerManager.getInstance().verticalOnItemClick(EmotionGridViewAdapter.this.getItem(i2), EmotionGridViewAdapter.this.mStatisticData, i2);
                     }
                 }
             });
@@ -232,8 +232,8 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                 }
             });
             ImageView imageView = (ImageView) frameLayout.findViewById(R.id.img_item);
-            processAlpha(frameLayout, imageView, this.mList.get(i), i);
-            Bitmap emotionBitmapByName = EmotionUtils.getInstance().getEmotionBitmapByName(EmotionType.EMOTION_CLASSIC_TYPE, this.mList.get(i));
+            processAlpha(frameLayout, imageView, this.mList.get(i2), i2);
+            Bitmap emotionBitmapByName = EmotionUtils.getInstance().getEmotionBitmapByName(EmotionType.EMOTION_CLASSIC_TYPE, this.mList.get(i2));
             if (emotionBitmapByName != null) {
                 imageView.setImageBitmap(emotionBitmapByName);
             }
@@ -264,9 +264,9 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        public String getItem(int i) {
+        public String getItem(int i2) {
             List<String> list = this.mList;
-            return (list == null || list.isEmpty()) ? "" : this.mList.get(i);
+            return (list == null || list.isEmpty()) ? "" : this.mList.get(i2);
         }
     }
 
@@ -295,12 +295,12 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        public int getItemViewType(int i) {
+        public int getItemViewType(int i2) {
             List<ListMetaData> list = this.mDataList;
             if (list == null || list.isEmpty()) {
                 return -1;
             }
-            return this.mDataList.get(i).itemType;
+            return this.mDataList.get(i2).itemType;
         }
 
         public void setData(List<ListMetaData> list) {
@@ -314,18 +314,18 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        public void onBindViewHolder(BaseViewHolder baseViewHolder, int i) {
+        public void onBindViewHolder(BaseViewHolder baseViewHolder, int i2) {
             List<ListMetaData> list = this.mDataList;
-            if (list == null || list.isEmpty() || this.mDataList.get(i).itemType != baseViewHolder.getItemType()) {
+            if (list == null || list.isEmpty() || this.mDataList.get(i2).itemType != baseViewHolder.getItemType()) {
                 return;
             }
-            baseViewHolder.onBindViewHolder(i, this.mDataList.get(i).data);
+            baseViewHolder.onBindViewHolder(i2, this.mDataList.get(i2).data);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        public BaseViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-            return BaseViewHolder.createViewHolder(viewGroup, i, this.mCtx, this.mVerticalLayout);
+        public BaseViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
+            return BaseViewHolder.createViewHolder(viewGroup, i2, this.mCtx, this.mVerticalLayout);
         }
     }
 
@@ -338,8 +338,8 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
-        public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-            viewGroup.removeView(this.mList.get(i));
+        public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
+            viewGroup.removeView(this.mList.get(i2));
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -348,9 +348,9 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
-        public Object instantiateItem(ViewGroup viewGroup, int i) {
-            viewGroup.addView(this.mList.get(i));
-            return this.mList.get(i);
+        public Object instantiateItem(ViewGroup viewGroup, int i2) {
+            viewGroup.addView(this.mList.get(i2));
+            return this.mList.get(i2);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -425,9 +425,9 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             if ((validLongPressedRect == null || validLongPressedRect.contains((int) f2, (int) f3)) && !this.mVerticalLayout.getPopupEmotionManager().isPostRunning()) {
                 if (this.mIsAnchorInited) {
                     iconRowAndColIndex = this.mVerticalLayout.getIconRowAndColIndex(f2, f3);
-                    int i = iconRowAndColIndex[0];
+                    int i2 = iconRowAndColIndex[0];
                     int[] iArr2 = this.mAnchorRowColBase;
-                    iArr = new int[]{i - iArr2[0], iconRowAndColIndex[1] - iArr2[1]};
+                    iArr = new int[]{i2 - iArr2[0], iconRowAndColIndex[1] - iArr2[1]};
                 } else {
                     this.mIsAnchorInited = true;
                     int[] iArr3 = new int[2];
@@ -450,10 +450,10 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                 showParam.exprCol = iconRowAndColIndex[1];
                 showParam.anchorWidth = this.mPressedView.getWidth();
                 showParam.anchorXpos = this.mAnchorLocationBase[0] + (iArr[1] * BDEmotionBagVerticalLayout.sExpressionWidthWithPadding);
-                int i2 = this.mAnchorLocationBase[1] + (iArr[0] * BDEmotionBagVerticalLayout.sExpressionHeightWithPadding);
-                showParam.anchorYpos = i2;
+                int i3 = this.mAnchorLocationBase[1] + (iArr[0] * BDEmotionBagVerticalLayout.sExpressionHeightWithPadding);
+                showParam.anchorYpos = i3;
                 if (iconRowAndColIndex[0] == 0 && this.mAnchorRowColBase[0] > 0) {
-                    showParam.anchorYpos = i2 - BDEmotionBagVerticalLayout.sExprCrossSectionFixedHeight;
+                    showParam.anchorYpos = i3 - BDEmotionBagVerticalLayout.sExprCrossSectionFixedHeight;
                 } else if (iconRowAndColIndex[0] > 0 && this.mAnchorRowColBase[0] == 0) {
                     showParam.anchorYpos += BDEmotionBagVerticalLayout.sExprCrossSectionFixedHeight;
                 }
@@ -465,7 +465,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout.BaseViewHolder
-        public void onBindViewHolder(int i, final EmotionTemplateData emotionTemplateData) {
+        public void onBindViewHolder(int i2, final EmotionTemplateData emotionTemplateData) {
             EmotionGridViewAdapter emotionGridViewAdapter = new EmotionGridViewAdapter(this.mCtx, this.mVerticalLayout);
             this.mGridViewAdapter = emotionGridViewAdapter;
             emotionGridViewAdapter.setData(emotionTemplateData);
@@ -521,8 +521,8 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         public DATA data;
         public int itemType;
 
-        public ListMetaData(int i, DATA data) {
-            this.itemType = i;
+        public ListMetaData(int i2, DATA data) {
+            this.itemType = i2;
             this.data = data;
         }
     }
@@ -541,8 +541,8 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             if (findFirstVisibleItemPosition < 0 || findFirstVisibleItemPosition >= getItemCount()) {
                 return paddingTop;
             }
-            for (int i = 0; i < findFirstVisibleItemPosition; i++) {
-                View viewForPosition = this.mRecycler.getViewForPosition(i);
+            for (int i2 = 0; i2 < findFirstVisibleItemPosition; i2++) {
+                View viewForPosition = this.mRecycler.getViewForPosition(i2);
                 if (viewForPosition != null) {
                     if (viewForPosition.getMeasuredHeight() <= 0) {
                         measureChildWithMargins(viewForPosition, 0, 0);
@@ -557,8 +557,8 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
-        public void onMeasure(RecyclerView.Recycler recycler, RecyclerView.State state, int i, int i2) {
-            super.onMeasure(recycler, state, i, i2);
+        public void onMeasure(RecyclerView.Recycler recycler, RecyclerView.State state, int i2, int i3) {
+            super.onMeasure(recycler, state, i2, i3);
             this.mRecycler = recycler;
         }
     }
@@ -577,7 +577,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout.BaseViewHolder
-        public void onBindViewHolder(int i, PaddingTemplateData paddingTemplateData) {
+        public void onBindViewHolder(int i2, PaddingTemplateData paddingTemplateData) {
         }
     }
 
@@ -605,14 +605,14 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout.BaseViewHolder
-        public void onBindViewHolder(int i, TitleTemplateData titleTemplateData) {
+        public void onBindViewHolder(int i2, TitleTemplateData titleTemplateData) {
             if (titleTemplateData != null) {
                 this.mTitle.setText(titleTemplateData.sectionTitle);
                 this.mTitle.setTextColor(this.mCtx.getResources().getColor(R.color.GC1));
-                int i2 = titleTemplateData.sectionType;
-                if (i2 == 0) {
+                int i3 = titleTemplateData.sectionType;
+                if (i3 == 0) {
                     this.mTitle.setPadding(0, this.mCommonPaddingTop, 0, 0);
-                } else if (i2 == 1) {
+                } else if (i3 == 1) {
                     this.mTitle.setPadding(0, this.mAllPaddingTop, 0, 0);
                 }
             }
@@ -649,24 +649,24 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String getExpressionName(int i, int i2) {
+    public String getExpressionName(int i2, int i3) {
         List<ListMetaData> dataList;
         ListMetaData listMetaData;
-        int i3;
+        int i4;
         DATA data;
         EmotionListAdapter emotionListAdapter = this.mEmotionListAdapter;
-        if (emotionListAdapter == null || i < 0 || i2 < 0 || (dataList = emotionListAdapter.getDataList()) == null || dataList.isEmpty()) {
+        if (emotionListAdapter == null || i2 < 0 || i3 < 0 || (dataList = emotionListAdapter.getDataList()) == null || dataList.isEmpty()) {
             return null;
         }
-        if (i == 0 && 1 < dataList.size()) {
+        if (i2 == 0 && 1 < dataList.size()) {
             listMetaData = dataList.get(1);
         } else {
-            listMetaData = (i <= 0 || (i3 = (i + 3) - 1) >= dataList.size() - 1) ? null : dataList.get(i3);
+            listMetaData = (i2 <= 0 || (i4 = (i2 + 3) - 1) >= dataList.size() - 1) ? null : dataList.get(i4);
         }
         if (listMetaData == null || (data = listMetaData.data) == 0 || ((EmotionTemplateData) data).iconList == null || ((EmotionTemplateData) data).iconList.isEmpty()) {
             return null;
         }
-        String str = i2 < ((EmotionTemplateData) listMetaData.data).iconList.size() ? ((EmotionTemplateData) listMetaData.data).iconList.get(i2) : null;
+        String str = i3 < ((EmotionTemplateData) listMetaData.data).iconList.size() ? ((EmotionTemplateData) listMetaData.data).iconList.get(i3) : null;
         if (this.mAlphaChangingEmotionSet.contains(str)) {
             return null;
         }
@@ -751,10 +751,10 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
 
     private void init(Context context) {
         this.mCtx = context;
-        int i = context.getResources().getConfiguration().orientation;
-        if (i == 1) {
+        int i2 = context.getResources().getConfiguration().orientation;
+        if (i2 == 1) {
             setPadding(0, 0, 0, 0);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             int dimensionPixelSize = this.mCtx.getResources().getDimensionPixelSize(R.dimen.window_horizontal_padding);
             setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
         }
@@ -832,11 +832,11 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             }
 
             @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+            public void beforeTextChanged(CharSequence charSequence, int i3, int i4, int i5) {
             }
 
             @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+            public void onTextChanged(CharSequence charSequence, int i3, int i4, int i5) {
             }
         });
         this.mEmotionRecyclerView = (RecyclerView) viewGroup.findViewById(R.id.recycler_list);
@@ -848,16 +848,16 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         this.mEmotionRecyclerView.setAdapter(emotionListAdapter);
         this.mEmotionRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() { // from class: com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout.6
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
+            public void onScrollStateChanged(RecyclerView recyclerView, int i3) {
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
+            public void onScrolled(RecyclerView recyclerView, int i3, int i4) {
                 GlobalOnItemClickListenerManager.getInstance().removeLongClickCallback();
                 if (BDEmotionBagVerticalLayout.this.mPopupEmotionManager != null && BDEmotionBagVerticalLayout.this.mPopupEmotionManager.isShowing()) {
                     BDEmotionBagVerticalLayout.this.mPopupEmotionManager.dismiss();
                 }
-                BDEmotionBagVerticalLayout.this.mCurrentScrollY += i3;
+                BDEmotionBagVerticalLayout.this.mCurrentScrollY += i4;
                 if (Math.abs(BDEmotionBagVerticalLayout.this.mCurrentScrollY) >= BDEmotionBagVerticalLayout.sExpressionHeightWithPadding) {
                     BDEmotionBagVerticalLayout.this.mCurrentScrollY = 0;
                     GlobalOnItemClickListenerManager.getInstance().addEmotionShownSlideCount();
@@ -880,13 +880,13 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
     }
 
     @Override // android.view.View
-    public void onVisibilityChanged(@NonNull View view, int i) {
+    public void onVisibilityChanged(@NonNull View view, int i2) {
         List<ListMetaData> dataList;
         ListMetaData listMetaData;
         DATA data;
         PopupEmotionManager popupEmotionManager;
         if (view.getClass() == SPSwitchPanelLinearLayout.class || view.getClass() == BDEmotionBagVerticalLayout.class) {
-            if (i == 0) {
+            if (i2 == 0) {
                 enableIdleAlphaTemporarily();
                 GlobalOnItemClickListenerManager.getInstance().resetEmotionShownData();
             }
@@ -897,7 +897,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             ((EmotionTemplateData) data).iconList = EmotionUtils.getInstance().getPanelOftenEmotionList();
             this.mEmotionListAdapter.notifyDataSetChanged();
         }
-        if (i == 0 || (popupEmotionManager = this.mPopupEmotionManager) == null || !popupEmotionManager.isShowing()) {
+        if (i2 == 0 || (popupEmotionManager = this.mPopupEmotionManager) == null || !popupEmotionManager.isShowing()) {
             return;
         }
         this.mPopupEmotionManager.dismiss();
@@ -921,18 +921,18 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         arrayList.add(new ListMetaData(0, titleTemplateData2));
         if (list != null) {
             int size = (list.size() / 7) + 1;
-            int i = 1;
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if (i2 % 7 == 0) {
+            int i2 = 1;
+            for (int i3 = 0; i3 < list.size(); i3++) {
+                if (i3 % 7 == 0) {
                     emotionTemplateData = new EmotionTemplateData();
                     emotionTemplateData.sectionType = 1;
-                    emotionTemplateData.rowIndex = i;
+                    emotionTemplateData.rowIndex = i2;
                     emotionTemplateData.rowCount = size;
                     emotionTemplateData.iconList = new ArrayList();
                     arrayList.add(new ListMetaData(1, emotionTemplateData));
-                    i++;
+                    i2++;
                 }
-                emotionTemplateData.iconList.add(list.get(i2));
+                emotionTemplateData.iconList.add(list.get(i3));
             }
         }
         arrayList.add(new ListMetaData(2, new PaddingTemplateData()));
@@ -943,8 +943,8 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
         this(context, attributeSet, 0);
     }
 
-    public BDEmotionBagVerticalLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BDEmotionBagVerticalLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mAlphaChangingIconSet = new WeakHashMap();
         this.mAlphaChangingEmotionSet = new HashSet();
         this.mMainHandler = new Handler(Looper.getMainLooper());

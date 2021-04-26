@@ -82,15 +82,15 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
         String str = new String(bArr);
-        LogUtils.e(TAG, "errorCode = " + i + ", result = " + str);
-        AccountManagerImpl.getInstance(this.mContext).onGetTokenByCuidResult(this.mKey, i, str, null);
+        LogUtils.e(TAG, "errorCode = " + i2 + ", result = " + str);
+        AccountManagerImpl.getInstance(this.mContext).onGetTokenByCuidResult(this.mKey, i2, str, null);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
-        int i2;
+    public void onSuccess(int i2, byte[] bArr) {
+        int i3;
         String str;
         String str2 = new String(bArr);
         LogUtils.d(TAG, str2);
@@ -100,25 +100,25 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
             boolean has = jSONObject.has("error_code");
             str = Constants.ERROR_MSG_SUCCESS;
             if (has) {
-                i2 = jSONObject.getInt("error_code");
+                i3 = jSONObject.getInt("error_code");
                 if (jSONObject.has("error_msg")) {
                     str = jSONObject.getString("error_msg");
                 }
-                if (i2 == 0) {
+                if (i3 == 0) {
                     str3 = jSONObject.getString("token");
                     if (!TextUtils.isEmpty(str3)) {
                         Utility.writeCuidAccessToken(this.mContext, str3);
                     }
                 }
             } else {
-                i2 = 0;
+                i3 = 0;
             }
         } catch (JSONException e2) {
             LogUtils.e(TAG, e2.getMessage(), e2);
-            i2 = 1010;
+            i3 = 1010;
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
         }
-        AccountManagerImpl.getInstance(this.mContext).onGetTokenByCuidResult(this.mKey, i2, str, str3);
+        AccountManagerImpl.getInstance(this.mContext).onGetTokenByCuidResult(this.mKey, i3, str, str3);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

@@ -112,8 +112,8 @@ public final class MotionEventCompat {
     public static final int BUTTON_PRIMARY = 1;
 
     @Deprecated
-    public static int findPointerIndex(MotionEvent motionEvent, int i) {
-        return motionEvent.findPointerIndex(i);
+    public static int findPointerIndex(MotionEvent motionEvent, int i2) {
+        return motionEvent.findPointerIndex(i2);
     }
 
     @Deprecated
@@ -127,8 +127,8 @@ public final class MotionEventCompat {
     }
 
     @Deprecated
-    public static float getAxisValue(MotionEvent motionEvent, int i) {
-        return motionEvent.getAxisValue(i);
+    public static float getAxisValue(MotionEvent motionEvent, int i2) {
+        return motionEvent.getAxisValue(i2);
     }
 
     @Deprecated
@@ -142,8 +142,8 @@ public final class MotionEventCompat {
     }
 
     @Deprecated
-    public static int getPointerId(MotionEvent motionEvent, int i) {
-        return motionEvent.getPointerId(i);
+    public static int getPointerId(MotionEvent motionEvent, int i2) {
+        return motionEvent.getPointerId(i2);
     }
 
     @Deprecated
@@ -152,21 +152,21 @@ public final class MotionEventCompat {
     }
 
     @Deprecated
-    public static float getX(MotionEvent motionEvent, int i) {
-        return motionEvent.getX(i);
+    public static float getX(MotionEvent motionEvent, int i2) {
+        return motionEvent.getX(i2);
     }
 
     @Deprecated
-    public static float getY(MotionEvent motionEvent, int i) {
-        return motionEvent.getY(i);
+    public static float getY(MotionEvent motionEvent, int i2) {
+        return motionEvent.getY(i2);
     }
 
-    public static boolean isFromSource(MotionEvent motionEvent, int i) {
-        return (motionEvent.getSource() & i) == i;
+    public static boolean isFromSource(MotionEvent motionEvent, int i2) {
+        return (motionEvent.getSource() & i2) == i2;
     }
 
     @Deprecated
-    public static float getAxisValue(MotionEvent motionEvent, int i, int i2) {
-        return motionEvent.getAxisValue(i, i2);
+    public static float getAxisValue(MotionEvent motionEvent, int i2, int i3) {
+        return motionEvent.getAxisValue(i2, i3);
     }
 }

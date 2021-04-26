@@ -11,9 +11,9 @@ public class MangaCategoryActivityConfig extends IntentConfig {
         super(context);
     }
 
-    public MangaCategoryActivityConfig(Context context, int i, String str) {
+    public MangaCategoryActivityConfig(Context context, int i2, String str) {
         super(context);
-        getIntent().putExtra("category_id", i);
+        getIntent().putExtra("category_id", i2);
         getIntent().putExtra(CATEGORY_NAME, str);
     }
 }

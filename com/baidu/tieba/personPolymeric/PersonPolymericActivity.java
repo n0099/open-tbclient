@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-import d.b.c.a.b;
-import d.b.c.e.p.k;
-/* loaded from: classes3.dex */
+import d.a.c.a.b;
+import d.a.c.e.p.k;
+/* loaded from: classes4.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.j {
     public PersonPolymericFragment mFragment;
     public boolean mIsFromSchema = false;
@@ -36,7 +36,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         super.finish();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.b.i0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.i0.k0.a
     public String getCurrentPageKey() {
         return "a011";
     }
@@ -56,23 +56,23 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
         PersonPolymericFragment personPolymericFragment = this.mFragment;
         if (personPolymericFragment != null) {
-            personPolymericFragment.onActivityResult(i, i2, intent);
+            personPolymericFragment.onActivityResult(i2, i3, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i2) {
         PersonPolymericFragment personPolymericFragment = this.mFragment;
         if (personPolymericFragment != null) {
-            personPolymericFragment.onChangeSkinType(i);
+            personPolymericFragment.onChangeSkinType(i2);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.person_new_fragment_view);

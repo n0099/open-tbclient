@@ -5,7 +5,7 @@ import com.kwad.sdk.pngencrypt.PngjException;
 public class y extends aa {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36552h;
+    public int f34262h;
 
     public y(com.kwad.sdk.pngencrypt.k kVar) {
         super("sRGB", kVar);
@@ -13,8 +13,8 @@ public class y extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        if (dVar.f36524a == 1) {
-            this.f36552h = com.kwad.sdk.pngencrypt.n.a(dVar.f36527d, 0);
+        if (dVar.f34222a == 1) {
+            this.f34262h = com.kwad.sdk.pngencrypt.n.a(dVar.f34225d, 0);
             return;
         }
         throw new PngjException("bad chunk length " + dVar);

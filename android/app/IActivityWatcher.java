@@ -23,11 +23,11 @@ public interface IActivityWatcher extends IInterface {
             }
 
             @Override // android.app.IActivityWatcher
-            public void activityResuming(int i) throws RemoteException {
+            public void activityResuming(int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    obtain.writeInt(i);
+                    obtain.writeInt(i2);
                     this.mRemote.transact(1, obtain, null, 1);
                 } finally {
                     obtain.recycle();
@@ -77,17 +77,17 @@ public interface IActivityWatcher extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 == 1) {
                 parcel.enforceInterface(DESCRIPTOR);
                 activityResuming(parcel.readInt());
                 return true;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 parcel.enforceInterface(DESCRIPTOR);
                 closingSystemDialogs(parcel.readString());
                 return true;
-            } else if (i != 1598968902) {
-                return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 1598968902) {
+                return super.onTransact(i2, parcel, parcel2, i3);
             } else {
                 parcel2.writeString(DESCRIPTOR);
                 return true;
@@ -95,7 +95,7 @@ public interface IActivityWatcher extends IInterface {
         }
     }
 
-    void activityResuming(int i) throws RemoteException;
+    void activityResuming(int i2) throws RemoteException;
 
     void closingSystemDialogs(String str) throws RemoteException;
 }

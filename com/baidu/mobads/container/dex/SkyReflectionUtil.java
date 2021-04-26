@@ -61,8 +61,8 @@ public class SkyReflectionUtil {
         try {
             int length = objArr.length;
             Class<?>[] clsArr = new Class[length];
-            for (int i = 0; i < length; i++) {
-                clsArr[i] = objArr[i].getClass();
+            for (int i2 = 0; i2 < length; i2++) {
+                clsArr[i2] = objArr[i2].getClass();
             }
             return clsArr;
         } catch (Throwable unused) {

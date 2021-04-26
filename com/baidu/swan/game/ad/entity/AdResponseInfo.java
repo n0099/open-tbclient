@@ -29,8 +29,8 @@ public class AdResponseInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public AdResponseInfo[] newArray(int i) {
-            return new AdResponseInfo[i];
+        public AdResponseInfo[] newArray(int i2) {
+            return new AdResponseInfo[i2];
         }
     }
 
@@ -44,9 +44,9 @@ public class AdResponseInfo implements Parcelable {
             JSONObject jSONObject = new JSONObject(str);
             JSONArray jSONArray = jSONObject.getJSONArray("ad");
             if (jSONArray != null) {
-                for (int i = 0; i < jSONArray.length(); i++) {
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     try {
-                        this.mAdInstanceList.add(new AdElementInfo(jSONArray.getJSONObject(i)));
+                        this.mAdInstanceList.add(new AdElementInfo(jSONArray.getJSONObject(i2)));
                     } catch (Exception unused) {
                         this.mAdInstanceList = new ArrayList<>();
                     }
@@ -81,7 +81,7 @@ public class AdResponseInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.mAdsNum);
         parcel.writeString(this.mRequestId);
         parcel.writeString(this.mErrorCode);
@@ -102,8 +102,8 @@ public class AdResponseInfo implements Parcelable {
                 this.mRequestId = optJSONObject.optString("id");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("ads");
                 if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                         if (optJSONObject2 != null) {
                             this.mAdInstanceList.add(new AdElementInfo(optJSONObject2, z));
                         }

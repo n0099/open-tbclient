@@ -17,19 +17,19 @@ import org.json.JSONObject;
 public class SendVideoSuccessShareModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f21389e = new a(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
+    public HttpMessageListener f22006e = new a(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
 
     /* loaded from: classes5.dex */
     public static class SendVideoSuccessShareOriginalThreadInfoResponse extends JsonHttpResponsedMessage {
         public OriginalThreadInfo threadInfo;
 
-        public SendVideoSuccessShareOriginalThreadInfoResponse(int i) {
-            super(i);
+        public SendVideoSuccessShareOriginalThreadInfoResponse(int i2) {
+            super(i2);
         }
 
         @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-        public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-            super.decodeLogicInBackGround(i, jSONObject);
+        public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+            super.decodeLogicInBackGround(i2, jSONObject);
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode != 200 || error < 0 || jSONObject == null) {
@@ -40,9 +40,9 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
             String optString2 = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
             String optString3 = jSONObject.optString("video_id");
             OriginalThreadInfo originalThreadInfo = this.threadInfo;
-            originalThreadInfo.f12882c = optString2;
-            originalThreadInfo.f12880a = 3;
-            originalThreadInfo.f12881b = optString;
+            originalThreadInfo.f12798c = optString2;
+            originalThreadInfo.f12796a = 3;
+            originalThreadInfo.f12797b = optString;
             originalThreadInfo.l = optString3;
         }
 
@@ -53,8 +53,8 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,9 +73,9 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
     public SendVideoSuccessShareModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f21389e.setTag(getUniqueId());
-        this.f21389e.setSelfListener(true);
-        registerListener(this.f21389e);
+        this.f22006e.setTag(getUniqueId());
+        this.f22006e.setSelfListener(true);
+        registerListener(this.f22006e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -85,7 +85,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f21389e);
+        MessageManager.getInstance().unRegisterListener(this.f22006e);
         return false;
     }
 

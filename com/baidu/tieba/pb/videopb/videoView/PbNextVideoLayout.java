@@ -13,23 +13,25 @@ import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.i0.r.q.a2;
+import d.a.c.e.p.l;
+import d.a.i0.r.q.a2;
 /* loaded from: classes3.dex */
 public class PbNextVideoLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19796e;
+    public int f20284e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f19797f;
+    public TbImageView f20285f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f19798g;
+    public TextView f20286g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f19799h;
-    public ImageView i;
+    public TextView f20287h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public ImageView f20288i;
     public ProgressBar j;
     public boolean k;
     public boolean l;
@@ -57,7 +59,7 @@ public class PbNextVideoLayout extends RelativeLayout {
 
     public PbNextVideoLayout(Context context) {
         super(context);
-        this.f19796e = 50;
+        this.f20284e = 50;
         this.k = true;
         this.l = true;
         c(context);
@@ -65,32 +67,32 @@ public class PbNextVideoLayout extends RelativeLayout {
 
     public void b(boolean z, boolean z2) {
         getLayoutParams().height = l.g(getContext(), (!z2 || z) ? R.dimen.tbds156 : R.dimen.tbds267);
-        this.f19797f.getLayoutParams().width = l.g(getContext(), (!z2 || z) ? R.dimen.tbds276 : R.dimen.tbds470);
-        this.f19799h.setTextSize(0, l.g(getContext(), (!z2 || z) ? R.dimen.tbds42 : R.dimen.tbds52));
-        ((LinearLayout.LayoutParams) this.f19799h.getLayoutParams()).topMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds8 : R.dimen.tbds22);
-        ((RelativeLayout.LayoutParams) this.i.getLayoutParams()).topMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds20 : R.dimen.tbds42);
-        ((RelativeLayout.LayoutParams) this.i.getLayoutParams()).rightMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds52);
-        this.f19796e = (!z2 || z) ? 50 : 25;
+        this.f20285f.getLayoutParams().width = l.g(getContext(), (!z2 || z) ? R.dimen.tbds276 : R.dimen.tbds470);
+        this.f20287h.setTextSize(0, l.g(getContext(), (!z2 || z) ? R.dimen.tbds42 : R.dimen.tbds52));
+        ((LinearLayout.LayoutParams) this.f20287h.getLayoutParams()).topMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds8 : R.dimen.tbds22);
+        ((RelativeLayout.LayoutParams) this.f20288i.getLayoutParams()).topMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds20 : R.dimen.tbds42);
+        ((RelativeLayout.LayoutParams) this.f20288i.getLayoutParams()).rightMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds52);
+        this.f20284e = (!z2 || z) ? 50 : 25;
     }
 
     public final void c(Context context) {
         RelativeLayout.inflate(context, R.layout.pb_next_video_layout, this);
-        this.f19797f = (TbImageView) findViewById(R.id.pb_next_video_img);
-        this.f19798g = (TextView) findViewById(R.id.pb_next_video_txt);
-        this.f19799h = (TextView) findViewById(R.id.pb_next_video_title);
-        this.i = (ImageView) findViewById(R.id.pb_next_video_close);
+        this.f20285f = (TbImageView) findViewById(R.id.pb_next_video_img);
+        this.f20286g = (TextView) findViewById(R.id.pb_next_video_txt);
+        this.f20287h = (TextView) findViewById(R.id.pb_next_video_title);
+        this.f20288i = (ImageView) findViewById(R.id.pb_next_video_close);
         this.j = (ProgressBar) findViewById(R.id.pb_next_video_progress_bar);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0622, null);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f20288i, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0622, null);
     }
 
     public final void d() {
         this.k = true;
-        this.f19798g.setText(R.string.pb_video_next_play);
+        this.f20286g.setText(R.string.pb_video_next_play);
         a aVar = this.m;
         if (aVar != null) {
             aVar.cancel();
         }
-        a aVar2 = new a(5000 - this.j.getProgress(), this.f19796e);
+        a aVar2 = new a(5000 - this.j.getProgress(), this.f20284e);
         this.m = aVar2;
         aVar2.start();
     }
@@ -101,7 +103,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         if (aVar != null) {
             aVar.cancel();
         }
-        this.f19798g.setText(R.string.pb_video_next_video);
+        this.f20286g.setText(R.string.pb_video_next_video);
         this.j.setProgress(0);
     }
 
@@ -109,9 +111,9 @@ public class PbNextVideoLayout extends RelativeLayout {
         if (a2Var == null || a2Var.u1() == null) {
             return;
         }
-        this.f19797f.W(a2Var.u1().thumbnail_url, 10, false);
-        this.f19798g.setText(R.string.pb_video_next_play);
-        this.f19799h.setText(a2Var.x1());
+        this.f20285f.V(a2Var.u1().thumbnail_url, 10, false);
+        this.f20286g.setText(R.string.pb_video_next_play);
+        this.f20287h.setText(a2Var.x1());
         this.j.setProgress(0);
     }
 
@@ -131,13 +133,13 @@ public class PbNextVideoLayout extends RelativeLayout {
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
         super.setOnClickListener(onClickListener);
-        this.i.setOnClickListener(onClickListener);
+        this.f20288i.setOnClickListener(onClickListener);
     }
 
     @Override // android.view.View
-    public void setVisibility(int i) {
-        super.setVisibility(i);
-        if (i == 0) {
+    public void setVisibility(int i2) {
+        super.setVisibility(i2);
+        if (i2 == 0) {
             if (this.k) {
                 d();
                 return;
@@ -155,15 +157,15 @@ public class PbNextVideoLayout extends RelativeLayout {
 
     public PbNextVideoLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19796e = 50;
+        this.f20284e = 50;
         this.k = true;
         this.l = true;
         c(context);
     }
 
-    public PbNextVideoLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f19796e = 50;
+    public PbNextVideoLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f20284e = 50;
         this.k = true;
         this.l = true;
         c(context);

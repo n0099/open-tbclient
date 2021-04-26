@@ -14,9 +14,9 @@ import com.baidu.searchbox.pms.db.PackageTable;
 import com.ss.android.socialbase.downloader.constants.f;
 import com.ss.android.socialbase.downloader.constants.h;
 import com.ss.android.socialbase.downloader.exception.BaseException;
-import d.p.a.e.b.f.j;
-import d.p.a.e.b.g.d;
-import d.p.a.e.b.l.e;
+import d.o.a.e.b.f.j;
+import d.o.a.e.b.g.d;
+import d.o.a.e.b.l.e;
 import java.io.File;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
@@ -147,8 +147,8 @@ public class DownloadInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public DownloadInfo[] newArray(int i) {
-            return new DownloadInfo[i];
+        public DownloadInfo[] newArray(int i2) {
+            return new DownloadInfo[i2];
         }
     }
 
@@ -178,8 +178,8 @@ public class DownloadInfo implements Parcelable {
         return this.needDefaultHttpServiceBackUp;
     }
 
-    public void A2(int i) {
-        this.httpStatusCode = i;
+    public void A2(int i2) {
+        this.httpStatusCode = i2;
     }
 
     public int B() {
@@ -200,13 +200,13 @@ public class DownloadInfo implements Parcelable {
 
     public String C() {
         List<String> list;
-        int i;
+        int i2;
         List<String> list2;
         String str = this.url;
         if (H0() == 8 && (list2 = this.forbiddenBackupUrls) != null && !list2.isEmpty() && !this.backUpUrlUsed) {
             return this.forbiddenBackupUrls.get(0);
         }
-        if (!this.backUpUrlUsed || (list = this.backUpUrls) == null || list.size() <= 0 || (i = this.curBackUpUrlIndex) < 0 || i >= this.backUpUrls.size()) {
+        if (!this.backUpUrlUsed || (list = this.backUpUrls) == null || list.size() <= 0 || (i2 = this.curBackUpUrlIndex) < 0 || i2 >= this.backUpUrls.size()) {
             return (!TextUtils.isEmpty(this.url) && this.url.startsWith("https") && this.needHttpsToHttpRetry && this.httpsToHttpRetryUsed) ? this.url.replaceFirst("https", "http") : str;
         }
         String str2 = this.backUpUrls.get(this.curBackUpUrlIndex);
@@ -237,8 +237,8 @@ public class DownloadInfo implements Parcelable {
         return this.needPostProgress;
     }
 
-    public void D2(int i) {
-        this.id = i;
+    public void D2(int i2) {
+        this.id = i2;
     }
 
     public long E() {
@@ -279,13 +279,13 @@ public class DownloadInfo implements Parcelable {
     }
 
     public int G() {
-        int i = this.curRetryTime;
+        int i2 = this.curRetryTime;
         if (this.backUpUrlUsed) {
-            int i2 = i + this.retryCount;
-            int i3 = this.curBackUpUrlIndex;
-            return i3 > 0 ? i2 + (i3 * this.backUpUrlRetryCount) : i2;
+            int i3 = i2 + this.retryCount;
+            int i4 = this.curBackUpUrlIndex;
+            return i4 > 0 ? i3 + (i4 * this.backUpUrlRetryCount) : i3;
         }
-        return i;
+        return i2;
     }
 
     public int G0(String str) {
@@ -323,11 +323,11 @@ public class DownloadInfo implements Parcelable {
     public int H0() {
         AtomicInteger atomicInteger = this.status;
         if (atomicInteger != null) {
-            int i = atomicInteger.get();
-            if (i == -5) {
+            int i2 = atomicInteger.get();
+            if (i2 == -5) {
                 return -2;
             }
-            return i;
+            return i2;
         }
         return 0;
     }
@@ -398,8 +398,8 @@ public class DownloadInfo implements Parcelable {
         return this.onlyWifi;
     }
 
-    public void K2(int i) {
-        c2("link_mode", Integer.valueOf(i));
+    public void K2(int i2) {
+        c2("link_mode", Integer.valueOf(i2));
     }
 
     public double L() {
@@ -494,8 +494,8 @@ public class DownloadInfo implements Parcelable {
         return this.isSaveTempFile;
     }
 
-    public void P2(int i) {
-        this.notificationVisibility = i;
+    public void P2(int i2) {
+        this.notificationVisibility = i2;
     }
 
     public long Q() {
@@ -520,9 +520,9 @@ public class DownloadInfo implements Parcelable {
     }
 
     public int R0() {
-        int i = this.retryCount;
+        int i2 = this.retryCount;
         List<String> list = this.backUpUrls;
-        return (list == null || list.isEmpty()) ? i : i + (this.backUpUrlRetryCount * this.backUpUrls.size());
+        return (list == null || list.isEmpty()) ? i2 : i2 + (this.backUpUrlRetryCount * this.backUpUrls.size());
     }
 
     public boolean R1() {
@@ -580,10 +580,10 @@ public class DownloadInfo implements Parcelable {
         U1();
     }
 
-    public void T2(int i) {
+    public void T2(int i2) {
         n();
         try {
-            this.spData.put("paused_resume_count", i);
+            this.spData.put("paused_resume_count", i2);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -606,14 +606,14 @@ public class DownloadInfo implements Parcelable {
             return;
         }
         this.extraMonitorStatus = new int[optJSONArray.length()];
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            this.extraMonitorStatus[i] = optJSONArray.optInt(i);
+        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            this.extraMonitorStatus[i2] = optJSONArray.optInt(i2);
         }
     }
 
-    public void U2(int i) {
+    public void U2(int i2) {
         m();
-        c2("dbjson_key_preconnect_level", Integer.valueOf(i));
+        c2("dbjson_key_preconnect_level", Integer.valueOf(i2));
     }
 
     public int V() {
@@ -626,7 +626,7 @@ public class DownloadInfo implements Parcelable {
         if (this.tempFileSaveCompleteCallbacks == null) {
             return;
         }
-        d.p.a.e.b.c.a.g(TAG, "handleTempSaveCallback isSuccess " + z + " callback size:" + this.tempFileSaveCompleteCallbacks.size());
+        d.o.a.e.b.c.a.g(TAG, "handleTempSaveCallback isSuccess " + z + " callback size:" + this.tempFileSaveCompleteCallbacks.size());
         for (j jVar : this.tempFileSaveCompleteCallbacks) {
             if (jVar != null) {
                 if (z) {
@@ -644,8 +644,8 @@ public class DownloadInfo implements Parcelable {
         try {
             JSONArray jSONArray = new JSONArray();
             if (this.extraMonitorStatus != null && this.extraMonitorStatus.length > 0) {
-                for (int i = 0; i < this.extraMonitorStatus.length; i++) {
-                    jSONArray.put(this.extraMonitorStatus[i]);
+                for (int i2 = 0; i2 < this.extraMonitorStatus.length; i2++) {
+                    jSONArray.put(this.extraMonitorStatus[i2]);
                 }
             }
             c2("extra_monitor_status", jSONArray);
@@ -668,8 +668,8 @@ public class DownloadInfo implements Parcelable {
             if (!this.backUpUrlUsed) {
                 return true;
             }
-            int i = this.curBackUpUrlIndex;
-            if (i >= 0 && i < this.backUpUrls.size() - 1) {
+            int i2 = this.curBackUpUrlIndex;
+            if (i2 >= 0 && i2 < this.backUpUrls.size() - 1) {
                 return true;
             }
         }
@@ -754,8 +754,8 @@ public class DownloadInfo implements Parcelable {
         U1();
     }
 
-    public void W2(int i) {
-        c2("retry_schedule_count", Integer.valueOf(i));
+    public void W2(int i2) {
+        c2("retry_schedule_count", Integer.valueOf(i2));
     }
 
     public long X() {
@@ -782,8 +782,8 @@ public class DownloadInfo implements Parcelable {
         }
         this.backUpUrlUsed = false;
         this.curBackUpUrlIndex = 0;
-        for (int i = z; i < this.forbiddenBackupUrls.size(); i++) {
-            this.backUpUrls.add(this.forbiddenBackupUrls.get(i));
+        for (int i2 = z; i2 < this.forbiddenBackupUrls.size(); i2++) {
+            this.backUpUrls.add(this.forbiddenBackupUrls.get(i2));
         }
     }
 
@@ -807,7 +807,7 @@ public class DownloadInfo implements Parcelable {
             return;
         }
         try {
-            d.p.a.e.b.c.a.g(TAG, "registerTempFileSaveCallback");
+            d.o.a.e.b.c.a.g(TAG, "registerTempFileSaveCallback");
             if (this.tempFileSaveCompleteCallbacks == null) {
                 this.tempFileSaveCompleteCallbacks = new ArrayList();
             }
@@ -855,168 +855,168 @@ public class DownloadInfo implements Parcelable {
         }
         this.bindValueCount = 0;
         sQLiteStatement.clearBindings();
-        int i = this.bindValueCount + 1;
-        this.bindValueCount = i;
-        sQLiteStatement.bindLong(i, this.id);
         int i2 = this.bindValueCount + 1;
         this.bindValueCount = i2;
+        sQLiteStatement.bindLong(i2, this.id);
+        int i3 = this.bindValueCount + 1;
+        this.bindValueCount = i3;
         String str = this.url;
         if (str == null) {
             str = "";
         }
-        sQLiteStatement.bindString(i2, str);
-        int i3 = this.bindValueCount + 1;
-        this.bindValueCount = i3;
+        sQLiteStatement.bindString(i3, str);
+        int i4 = this.bindValueCount + 1;
+        this.bindValueCount = i4;
         String str2 = this.savePath;
         if (str2 == null) {
             str2 = "";
         }
-        sQLiteStatement.bindString(i3, str2);
-        int i4 = this.bindValueCount + 1;
-        this.bindValueCount = i4;
+        sQLiteStatement.bindString(i4, str2);
+        int i5 = this.bindValueCount + 1;
+        this.bindValueCount = i5;
         String str3 = this.tempPath;
         if (str3 == null) {
             str3 = "";
         }
-        sQLiteStatement.bindString(i4, str3);
-        int i5 = this.bindValueCount + 1;
-        this.bindValueCount = i5;
+        sQLiteStatement.bindString(i5, str3);
+        int i6 = this.bindValueCount + 1;
+        this.bindValueCount = i6;
         String str4 = this.name;
         if (str4 == null) {
             str4 = "";
         }
-        sQLiteStatement.bindString(i5, str4);
-        int i6 = this.bindValueCount + 1;
-        this.bindValueCount = i6;
-        sQLiteStatement.bindLong(i6, this.chunkCount);
+        sQLiteStatement.bindString(i6, str4);
         int i7 = this.bindValueCount + 1;
         this.bindValueCount = i7;
-        sQLiteStatement.bindLong(i7, H0());
+        sQLiteStatement.bindLong(i7, this.chunkCount);
         int i8 = this.bindValueCount + 1;
         this.bindValueCount = i8;
-        sQLiteStatement.bindLong(i8, E());
+        sQLiteStatement.bindLong(i8, H0());
         int i9 = this.bindValueCount + 1;
         this.bindValueCount = i9;
-        sQLiteStatement.bindLong(i9, this.totalBytes);
+        sQLiteStatement.bindLong(i9, E());
         int i10 = this.bindValueCount + 1;
         this.bindValueCount = i10;
+        sQLiteStatement.bindLong(i10, this.totalBytes);
+        int i11 = this.bindValueCount + 1;
+        this.bindValueCount = i11;
         String str5 = this.eTag;
         if (str5 == null) {
             str5 = "";
         }
-        sQLiteStatement.bindString(i10, str5);
-        int i11 = this.bindValueCount + 1;
-        this.bindValueCount = i11;
-        sQLiteStatement.bindLong(i11, this.onlyWifi ? 1L : 0L);
+        sQLiteStatement.bindString(i11, str5);
         int i12 = this.bindValueCount + 1;
         this.bindValueCount = i12;
-        sQLiteStatement.bindLong(i12, this.force ? 1L : 0L);
+        sQLiteStatement.bindLong(i12, this.onlyWifi ? 1L : 0L);
         int i13 = this.bindValueCount + 1;
         this.bindValueCount = i13;
-        sQLiteStatement.bindLong(i13, this.retryCount);
+        sQLiteStatement.bindLong(i13, this.force ? 1L : 0L);
         int i14 = this.bindValueCount + 1;
         this.bindValueCount = i14;
+        sQLiteStatement.bindLong(i14, this.retryCount);
+        int i15 = this.bindValueCount + 1;
+        this.bindValueCount = i15;
         String str6 = this.extra;
         if (str6 == null) {
             str6 = "";
         }
-        sQLiteStatement.bindString(i14, str6);
-        int i15 = this.bindValueCount + 1;
-        this.bindValueCount = i15;
+        sQLiteStatement.bindString(i15, str6);
+        int i16 = this.bindValueCount + 1;
+        this.bindValueCount = i16;
         String str7 = this.mimeType;
         if (str7 == null) {
             str7 = "";
         }
-        sQLiteStatement.bindString(i15, str7);
-        int i16 = this.bindValueCount + 1;
-        this.bindValueCount = i16;
+        sQLiteStatement.bindString(i16, str7);
+        int i17 = this.bindValueCount + 1;
+        this.bindValueCount = i17;
         String str8 = this.title;
         if (str8 == null) {
             str8 = "";
         }
-        sQLiteStatement.bindString(i16, str8);
-        int i17 = this.bindValueCount + 1;
-        this.bindValueCount = i17;
-        sQLiteStatement.bindLong(i17, this.showNotification ? 1L : 0L);
+        sQLiteStatement.bindString(i17, str8);
         int i18 = this.bindValueCount + 1;
         this.bindValueCount = i18;
-        sQLiteStatement.bindLong(i18, this.notificationVisibility);
+        sQLiteStatement.bindLong(i18, this.showNotification ? 1L : 0L);
         int i19 = this.bindValueCount + 1;
         this.bindValueCount = i19;
-        sQLiteStatement.bindLong(i19, this.isFirstDownload ? 1L : 0L);
+        sQLiteStatement.bindLong(i19, this.notificationVisibility);
         int i20 = this.bindValueCount + 1;
         this.bindValueCount = i20;
-        sQLiteStatement.bindLong(i20, this.isFirstSuccess ? 1L : 0L);
+        sQLiteStatement.bindLong(i20, this.isFirstDownload ? 1L : 0L);
         int i21 = this.bindValueCount + 1;
         this.bindValueCount = i21;
-        sQLiteStatement.bindLong(i21, this.needHttpsToHttpRetry ? 1L : 0L);
+        sQLiteStatement.bindLong(i21, this.isFirstSuccess ? 1L : 0L);
         int i22 = this.bindValueCount + 1;
         this.bindValueCount = i22;
-        sQLiteStatement.bindLong(i22, this.downloadTime);
+        sQLiteStatement.bindLong(i22, this.needHttpsToHttpRetry ? 1L : 0L);
         int i23 = this.bindValueCount + 1;
         this.bindValueCount = i23;
+        sQLiteStatement.bindLong(i23, this.downloadTime);
+        int i24 = this.bindValueCount + 1;
+        this.bindValueCount = i24;
         String str9 = this.packageName;
         if (str9 == null) {
             str9 = "";
         }
-        sQLiteStatement.bindString(i23, str9);
-        int i24 = this.bindValueCount + 1;
-        this.bindValueCount = i24;
+        sQLiteStatement.bindString(i24, str9);
+        int i25 = this.bindValueCount + 1;
+        this.bindValueCount = i25;
         String str10 = this.md5;
         if (str10 == null) {
             str10 = "";
         }
-        sQLiteStatement.bindString(i24, str10);
-        int i25 = this.bindValueCount + 1;
-        this.bindValueCount = i25;
-        sQLiteStatement.bindLong(i25, this.needRetryDelay ? 1L : 0L);
+        sQLiteStatement.bindString(i25, str10);
         int i26 = this.bindValueCount + 1;
         this.bindValueCount = i26;
-        sQLiteStatement.bindLong(i26, this.curRetryTime);
+        sQLiteStatement.bindLong(i26, this.needRetryDelay ? 1L : 0L);
         int i27 = this.bindValueCount + 1;
         this.bindValueCount = i27;
-        sQLiteStatement.bindLong(i27, this.retryDelayStatus.ordinal());
+        sQLiteStatement.bindLong(i27, this.curRetryTime);
         int i28 = this.bindValueCount + 1;
         this.bindValueCount = i28;
-        sQLiteStatement.bindLong(i28, this.needDefaultHttpServiceBackUp ? 1L : 0L);
+        sQLiteStatement.bindLong(i28, this.retryDelayStatus.ordinal());
         int i29 = this.bindValueCount + 1;
         this.bindValueCount = i29;
-        sQLiteStatement.bindLong(i29, this.needReuseChunkRunnable ? 1L : 0L);
+        sQLiteStatement.bindLong(i29, this.needDefaultHttpServiceBackUp ? 1L : 0L);
         int i30 = this.bindValueCount + 1;
         this.bindValueCount = i30;
+        sQLiteStatement.bindLong(i30, this.needReuseChunkRunnable ? 1L : 0L);
+        int i31 = this.bindValueCount + 1;
+        this.bindValueCount = i31;
         String str11 = this.retryDelayTimeArray;
         if (str11 == null) {
             str11 = "";
         }
-        sQLiteStatement.bindString(i30, str11);
-        int i31 = this.bindValueCount + 1;
-        this.bindValueCount = i31;
-        sQLiteStatement.bindLong(i31, this.needChunkDowngradeRetry ? 1L : 0L);
+        sQLiteStatement.bindString(i31, str11);
         int i32 = this.bindValueCount + 1;
         this.bindValueCount = i32;
-        sQLiteStatement.bindString(i32, x());
+        sQLiteStatement.bindLong(i32, this.needChunkDowngradeRetry ? 1L : 0L);
         int i33 = this.bindValueCount + 1;
         this.bindValueCount = i33;
-        sQLiteStatement.bindLong(i33, this.backUpUrlRetryCount);
+        sQLiteStatement.bindString(i33, x());
         int i34 = this.bindValueCount + 1;
         this.bindValueCount = i34;
-        sQLiteStatement.bindLong(i34, this.realDownloadTime);
+        sQLiteStatement.bindLong(i34, this.backUpUrlRetryCount);
         int i35 = this.bindValueCount + 1;
         this.bindValueCount = i35;
-        sQLiteStatement.bindLong(i35, this.retryScheduleMinutes);
+        sQLiteStatement.bindLong(i35, this.realDownloadTime);
         int i36 = this.bindValueCount + 1;
         this.bindValueCount = i36;
-        sQLiteStatement.bindLong(i36, this.needIndependentProcess ? 1L : 0L);
+        sQLiteStatement.bindLong(i36, this.retryScheduleMinutes);
         int i37 = this.bindValueCount + 1;
         this.bindValueCount = i37;
-        sQLiteStatement.bindString(i37, H());
+        sQLiteStatement.bindLong(i37, this.needIndependentProcess ? 1L : 0L);
         int i38 = this.bindValueCount + 1;
         this.bindValueCount = i38;
-        String str12 = this.iconUrl;
-        sQLiteStatement.bindString(i38, str12 != null ? str12 : "");
+        sQLiteStatement.bindString(i38, H());
         int i39 = this.bindValueCount + 1;
         this.bindValueCount = i39;
-        sQLiteStatement.bindLong(i39, this.appVersionCode);
+        String str12 = this.iconUrl;
+        sQLiteStatement.bindString(i39, str12 != null ? str12 : "");
+        int i40 = this.bindValueCount + 1;
+        this.bindValueCount = i40;
+        sQLiteStatement.bindLong(i40, this.appVersionCode);
     }
 
     public int a0() {
@@ -1039,12 +1039,12 @@ public class DownloadInfo implements Parcelable {
         this.realDownloadTime = 0L;
     }
 
-    public void a3(int i) {
+    public void a3(int i2) {
         AtomicInteger atomicInteger = this.status;
         if (atomicInteger != null) {
-            atomicInteger.set(i);
+            atomicInteger.set(i2);
         } else {
-            this.status = new AtomicInteger(i);
+            this.status = new AtomicInteger(i2);
         }
     }
 
@@ -1065,8 +1065,8 @@ public class DownloadInfo implements Parcelable {
         this.realStartDownloadTime = 0L;
     }
 
-    public void b3(int i) {
-        this.statusAtDbInit = i;
+    public void b3(int i2) {
+        this.statusAtDbInit = i2;
     }
 
     public boolean c() {
@@ -1122,8 +1122,8 @@ public class DownloadInfo implements Parcelable {
         return this.autoResumed;
     }
 
-    public void d2(int i) {
-        c2("anti_hijack_error_code", Integer.valueOf(i));
+    public void d2(int i2) {
+        c2("anti_hijack_error_code", Integer.valueOf(i2));
     }
 
     public void d3(boolean z) {
@@ -1148,12 +1148,12 @@ public class DownloadInfo implements Parcelable {
         return this.backUpUrlUsed;
     }
 
-    public void e2(int i) {
-        this.appVersionCode = i;
+    public void e2(int i2) {
+        this.appVersionCode = i2;
     }
 
-    public void e3(int i) {
-        c2("ttmd5_check_status", Integer.valueOf(i));
+    public void e3(int i2) {
+        c2("ttmd5_check_status", Integer.valueOf(i2));
     }
 
     public boolean f() {
@@ -1231,7 +1231,7 @@ public class DownloadInfo implements Parcelable {
     }
 
     public boolean h1() {
-        d.p.a.e.b.g.j I0;
+        d.o.a.e.b.g.j I0;
         if (this.chunkCount > 1 && (I0 = d.I0()) != null) {
             List<com.ss.android.socialbase.downloader.model.b> c2 = I0.c(c0());
             if (c2 == null || c2.size() != this.chunkCount) {
@@ -1259,8 +1259,8 @@ public class DownloadInfo implements Parcelable {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    String optString = jSONArray.optString(i);
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    String optString = jSONArray.optString(i2);
                     if (!TextUtils.isEmpty(optString)) {
                         arrayList.add(optString);
                     }
@@ -1272,10 +1272,10 @@ public class DownloadInfo implements Parcelable {
         }
     }
 
-    public void h3(int i) {
+    public void h3(int i2) {
         n();
         try {
-            this.spData.put("unins_resume_count", i);
+            this.spData.put("unins_resume_count", i2);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -1302,10 +1302,10 @@ public class DownloadInfo implements Parcelable {
         this.eTag = str;
     }
 
-    public final void j(int i) {
-        if (i == f.ENQUEUE_HEAD.ordinal()) {
+    public final void j(int i2) {
+        if (i2 == f.ENQUEUE_HEAD.ordinal()) {
             this.enqueueType = f.ENQUEUE_HEAD;
-        } else if (i == f.ENQUEUE_TAIL.ordinal()) {
+        } else if (i2 == f.ENQUEUE_TAIL.ordinal()) {
             this.enqueueType = f.ENQUEUE_TAIL;
         } else {
             this.enqueueType = f.ENQUEUE_NONE;
@@ -1338,12 +1338,12 @@ public class DownloadInfo implements Parcelable {
         }
     }
 
-    public final void k(int i) {
-        if (i == h.DELAY_RETRY_WAITING.ordinal()) {
+    public final void k(int i2) {
+        if (i2 == h.DELAY_RETRY_WAITING.ordinal()) {
             this.retryDelayStatus = h.DELAY_RETRY_WAITING;
-        } else if (i == h.DELAY_RETRY_DOWNLOADING.ordinal()) {
+        } else if (i2 == h.DELAY_RETRY_DOWNLOADING.ordinal()) {
             this.retryDelayStatus = h.DELAY_RETRY_DOWNLOADING;
-        } else if (i == h.DELAY_RETRY_DOWNLOADED.ordinal()) {
+        } else if (i2 == h.DELAY_RETRY_DOWNLOADED.ordinal()) {
             this.retryDelayStatus = h.DELAY_RETRY_DOWNLOADED;
         } else {
             this.retryDelayStatus = h.DELAY_RETRY_NONE;
@@ -1406,8 +1406,8 @@ public class DownloadInfo implements Parcelable {
         return this.mDownloadFromReserveWifi;
     }
 
-    public void l2(int i) {
-        this.chunkCount = i;
+    public void l2(int i2) {
+        this.chunkCount = i2;
     }
 
     public void l3() {
@@ -1438,7 +1438,7 @@ public class DownloadInfo implements Parcelable {
     }
 
     public boolean m1() {
-        return d.p.a.e.b.d.a.a(H0());
+        return d.o.a.e.b.d.a.a(H0());
     }
 
     public void m2(boolean z) {
@@ -1509,11 +1509,11 @@ public class DownloadInfo implements Parcelable {
     }
 
     public long n0(long j) {
-        int i = this.maxProgressCount;
-        if (i <= 0) {
-            i = 100;
+        int i2 = this.maxProgressCount;
+        if (i2 <= 0) {
+            i2 = 100;
         }
-        long j2 = j / (i + 1);
+        long j2 = j / (i2 + 1);
         if (j2 <= 0) {
             return 1048576L;
         }
@@ -1561,11 +1561,11 @@ public class DownloadInfo implements Parcelable {
     }
 
     public int o0() {
-        int i = this.minProgressTimeMsInterval;
-        if (i < 1000) {
+        int i2 = this.minProgressTimeMsInterval;
+        if (i2 < 1000) {
             return 1000;
         }
-        return i;
+        return i2;
     }
 
     public boolean o1() {
@@ -1580,10 +1580,10 @@ public class DownloadInfo implements Parcelable {
         }
     }
 
-    public void o3(int i) {
-        int i2 = (this.backUpUrlUsed ? this.backUpUrlRetryCount : this.retryCount) - i;
-        this.curRetryTime = i2;
-        if (i2 < 0) {
+    public void o3(int i2) {
+        int i3 = (this.backUpUrlUsed ? this.backUpUrlRetryCount : this.retryCount) - i2;
+        this.curRetryTime = i3;
+        if (i3 < 0) {
             this.curRetryTime = 0;
         }
     }
@@ -1692,14 +1692,14 @@ public class DownloadInfo implements Parcelable {
         if (exists && !isDirectory) {
             long length = file.length();
             long E = E();
-            if (d.p.a.e.b.j.a.r().l("fix_file_data_valid")) {
+            if (d.o.a.e.b.j.a.r().l("fix_file_data_valid")) {
                 if (E > 0) {
                     long j = this.totalBytes;
                     if (j > 0 && this.chunkCount > 0 && length >= E && length <= j) {
                         return true;
                     }
                 }
-                d.p.a.e.b.c.a.i(TAG, "isFileDataValid: cur = " + E + ",totalBytes =" + this.totalBytes + ",fileLength=" + length);
+                d.o.a.e.b.c.a.i(TAG, "isFileDataValid: cur = " + E + ",totalBytes =" + this.totalBytes + ",fileLength=" + length);
                 return false;
             }
             if (length > 0 && E > 0) {
@@ -1708,15 +1708,15 @@ public class DownloadInfo implements Parcelable {
                     return true;
                 }
             }
-            d.p.a.e.b.c.a.i(TAG, "isFileDataValid: cur = " + E + ",totalBytes =" + this.totalBytes + ",fileLength=" + length);
+            d.o.a.e.b.c.a.i(TAG, "isFileDataValid: cur = " + E + ",totalBytes =" + this.totalBytes + ",fileLength=" + length);
         }
         return false;
     }
 
-    public void r2(int i) {
+    public void r2(int i2) {
         n();
         try {
-            this.spData.put("failed_resume_count", i);
+            this.spData.put("failed_resume_count", i2);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -1728,9 +1728,9 @@ public class DownloadInfo implements Parcelable {
         }
     }
 
-    public int s(int i) {
+    public int s(int i2) {
         m();
-        return this.dbJsonData.optInt("anti_hijack_error_code", i);
+        return this.dbJsonData.optInt("anti_hijack_error_code", i2);
     }
 
     public int s0() {
@@ -1836,7 +1836,7 @@ public class DownloadInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.id);
         parcel.writeString(this.name);
         parcel.writeString(this.title);
@@ -1898,7 +1898,7 @@ public class DownloadInfo implements Parcelable {
         parcel.writeByte(this.addListenerToSameTask ? (byte) 1 : (byte) 0);
         parcel.writeByte(this.needChunkDowngradeRetry ? (byte) 1 : (byte) 0);
         parcel.writeByte(this.chunkDowngradeRetryUsed ? (byte) 1 : (byte) 0);
-        parcel.writeParcelable(this.failedException, i);
+        parcel.writeParcelable(this.failedException, i2);
         parcel.writeInt(this.retryScheduleMinutes);
         parcel.writeString(H());
         parcel.writeByte(this.supportPartial ? (byte) 1 : (byte) 0);
@@ -2019,29 +2019,31 @@ public class DownloadInfo implements Parcelable {
         public boolean V;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f39306a;
+        public String f36896a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f39307b;
+        public String f36897b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f39308c;
+        public String f36898c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f39309d;
+        public String f36899d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f39310e;
+        public String f36900e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f39311f;
+        public boolean f36901f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f39312g;
+        public String f36902g;
 
         /* renamed from: h  reason: collision with root package name */
-        public List<c> f39313h;
-        public int i;
+        public List<c> f36903h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public int f36904i;
         public String[] j;
         public int[] k;
         public int l;
@@ -2072,7 +2074,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b B(boolean z) {
-            this.f39311f = z;
+            this.f36901f = z;
             return this;
         }
 
@@ -2080,8 +2082,8 @@ public class DownloadInfo implements Parcelable {
             return new DownloadInfo(this, null);
         }
 
-        public b E(int i) {
-            this.l = i;
+        public b E(int i2) {
+            this.l = i2;
             return this;
         }
 
@@ -2091,7 +2093,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b G(String str) {
-            this.f39307b = str;
+            this.f36897b = str;
             return this;
         }
 
@@ -2110,23 +2112,23 @@ public class DownloadInfo implements Parcelable {
             return this;
         }
 
-        public b L(int i) {
-            this.m = i;
+        public b L(int i2) {
+            this.m = i2;
             return this;
         }
 
         public b M(String str) {
-            this.f39308c = str;
+            this.f36898c = str;
             return this;
         }
 
-        public b O(int i) {
-            this.p = i;
+        public b O(int i2) {
+            this.p = i2;
             return this;
         }
 
         public b P(String str) {
-            this.f39309d = str;
+            this.f36899d = str;
             return this;
         }
 
@@ -2135,8 +2137,8 @@ public class DownloadInfo implements Parcelable {
             return this;
         }
 
-        public b S(int i) {
-            this.q = i;
+        public b S(int i2) {
+            this.q = i2;
             return this;
         }
 
@@ -2145,13 +2147,13 @@ public class DownloadInfo implements Parcelable {
             return this;
         }
 
-        public b V(int i) {
-            this.T = i;
+        public b V(int i2) {
+            this.T = i2;
             return this;
         }
 
         public b W(String str) {
-            this.f39312g = str;
+            this.f36902g = str;
             return this;
         }
 
@@ -2241,7 +2243,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b y(String str) {
-            this.f39306a = str;
+            this.f36896a = str;
             return this;
         }
 
@@ -2251,12 +2253,12 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b z(List<c> list) {
-            this.f39313h = list;
+            this.f36903h = list;
             return this;
         }
 
         public b(String str) {
-            this.f39308c = str;
+            this.f36898c = str;
         }
     }
 
@@ -2281,10 +2283,10 @@ public class DownloadInfo implements Parcelable {
         if (bVar == null) {
             return;
         }
-        this.name = bVar.f39306a;
-        this.title = bVar.f39307b;
-        this.url = bVar.f39308c;
-        String str = bVar.f39309d;
+        this.name = bVar.f36896a;
+        this.title = bVar.f36897b;
+        this.url = bVar.f36898c;
+        String str = bVar.f36899d;
         if (TextUtils.isEmpty(str)) {
             try {
                 str = e.E0();
@@ -2293,13 +2295,13 @@ public class DownloadInfo implements Parcelable {
             }
         }
         this.savePath = str;
-        this.tempPath = bVar.f39310e;
+        this.tempPath = bVar.f36900e;
         this.status = new AtomicInteger(0);
         this.curBytes = new AtomicLong(0L);
-        this.extra = bVar.f39312g;
-        this.onlyWifi = bVar.f39311f;
-        this.extraHeaders = bVar.f39313h;
-        this.maxBytes = bVar.i;
+        this.extra = bVar.f36902g;
+        this.onlyWifi = bVar.f36901f;
+        this.extraHeaders = bVar.f36903h;
+        this.maxBytes = bVar.f36904i;
         this.retryCount = bVar.l;
         this.backUpUrlRetryCount = bVar.m;
         this.force = bVar.n;
@@ -2499,12 +2501,12 @@ public class DownloadInfo implements Parcelable {
             }
             int columnIndex27 = cursor.getColumnIndex("retryDelayStatus");
             if (columnIndex27 != -1) {
-                int i = cursor.getInt(columnIndex27);
-                if (i == h.DELAY_RETRY_WAITING.ordinal()) {
+                int i2 = cursor.getInt(columnIndex27);
+                if (i2 == h.DELAY_RETRY_WAITING.ordinal()) {
                     this.retryDelayStatus = h.DELAY_RETRY_WAITING;
-                } else if (i == h.DELAY_RETRY_DOWNLOADING.ordinal()) {
+                } else if (i2 == h.DELAY_RETRY_DOWNLOADING.ordinal()) {
                     this.retryDelayStatus = h.DELAY_RETRY_DOWNLOADING;
-                } else if (i == h.DELAY_RETRY_DOWNLOADED.ordinal()) {
+                } else if (i2 == h.DELAY_RETRY_DOWNLOADED.ordinal()) {
                     this.retryDelayStatus = h.DELAY_RETRY_DOWNLOADED;
                 } else {
                     this.retryDelayStatus = h.DELAY_RETRY_NONE;

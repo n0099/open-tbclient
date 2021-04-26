@@ -192,13 +192,13 @@ public class XFlutterView extends FrameLayout {
 
     public final void init() {
         Log.v("FlutterView", "Initializing FlutterView");
-        int i = AnonymousClass3.$SwitchMap$io$flutter$embedding$android$FlutterView$RenderMode[this.renderMode.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass3.$SwitchMap$io$flutter$embedding$android$FlutterView$RenderMode[this.renderMode.ordinal()];
+        if (i2 == 1) {
             Log.v("FlutterView", "Internally using a FlutterSurfaceView.");
             FlutterSurfaceView flutterSurfaceView = new FlutterSurfaceView(getContext(), this.transparencyMode == FlutterView.TransparencyMode.transparent);
             this.renderSurface = flutterSurfaceView;
             addView(flutterSurfaceView);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             Log.v("FlutterView", "Internally using a FlutterTextureView.");
             XFlutterTextureView xFlutterTextureView = new XFlutterTextureView(getContext());
             this.renderSurface = xFlutterTextureView;
@@ -274,30 +274,30 @@ public class XFlutterView extends FrameLayout {
     }
 
     @Override // android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, @NonNull KeyEvent keyEvent) {
+    public boolean onKeyDown(int i2, @NonNull KeyEvent keyEvent) {
         if (!isAttachedToFlutterEngine()) {
-            return super.onKeyDown(i, keyEvent);
+            return super.onKeyDown(i2, keyEvent);
         }
         this.androidKeyProcessor.onKeyDown(keyEvent);
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i, @NonNull KeyEvent keyEvent) {
+    public boolean onKeyUp(int i2, @NonNull KeyEvent keyEvent) {
         if (!isAttachedToFlutterEngine()) {
-            return super.onKeyUp(i, keyEvent);
+            return super.onKeyUp(i2, keyEvent);
         }
         this.androidKeyProcessor.onKeyUp(keyEvent);
-        return super.onKeyUp(i, keyEvent);
+        return super.onKeyUp(i2, keyEvent);
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        Log.v("FlutterView", "Size changed. Sending Flutter new viewport metrics. FlutterView was " + i3 + " x " + i4 + ", it is now " + i + " x " + i2);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        Log.v("FlutterView", "Size changed. Sending Flutter new viewport metrics. FlutterView was " + i4 + " x " + i5 + ", it is now " + i2 + " x " + i3);
         FlutterRenderer.ViewportMetrics viewportMetrics = this.viewportMetrics;
-        viewportMetrics.width = i;
-        viewportMetrics.height = i2;
+        viewportMetrics.width = i2;
+        viewportMetrics.height = i3;
         sendViewportMetricsToFlutter(2);
     }
 
@@ -341,8 +341,8 @@ public class XFlutterView extends FrameLayout {
         if (Build.VERSION.SDK_INT >= 24) {
             LocaleList locales = configuration.getLocales();
             int size = locales.size();
-            for (int i = 0; i < size; i++) {
-                arrayList.add(locales.get(i));
+            for (int i2 = 0; i2 < size; i2++) {
+                arrayList.add(locales.get(i2));
             }
         } else {
             arrayList.add(configuration.locale);
@@ -362,9 +362,9 @@ public class XFlutterView extends FrameLayout {
         this.flutterEngine.getSettingsChannel().startMessage().setTextScaleFactor(getResources().getConfiguration().fontScale).setUse24HourFormat(DateFormat.is24HourFormat(getContext())).send();
     }
 
-    public final void sendViewportMetricsToFlutter(int i) {
+    public final void sendViewportMetricsToFlutter(int i2) {
         if (!isAttachedToFlutterEngine()) {
-            Log.w("FlutterView", i + " Tried to send viewport metrics from Android to Flutter but this FlutterView was not attached to a FlutterEngine.");
+            Log.w("FlutterView", i2 + " Tried to send viewport metrics from Android to Flutter but this FlutterView was not attached to a FlutterEngine.");
             return;
         }
         FlutterRenderer.ViewportMetrics viewportMetrics = this.viewportMetrics;

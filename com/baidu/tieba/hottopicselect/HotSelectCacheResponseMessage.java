@@ -4,8 +4,8 @@ import GetSugTopic.GetSugTopicResIdl;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
-import d.b.i0.r.r.a;
-import d.b.j0.d1.c;
+import d.a.i0.r.r.a;
+import d.a.j0.d1.c;
 import java.io.IOException;
 /* loaded from: classes4.dex */
 public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object> {
@@ -18,7 +18,7 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
         super(2016491);
     }
 
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null) {
             currentAccount = "";

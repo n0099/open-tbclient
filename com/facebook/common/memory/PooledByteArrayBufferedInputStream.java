@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PooledByteArrayBufferedInputStream extends InputStream {
     public static final String TAG = "PooledByteInputStream";
     public final byte[] mByteArray;
@@ -73,9 +73,9 @@ public class PooledByteArrayBufferedInputStream extends InputStream {
         ensureNotClosed();
         if (ensureDataInBuffer()) {
             byte[] bArr = this.mByteArray;
-            int i = this.mBufferOffset;
-            this.mBufferOffset = i + 1;
-            return bArr[i] & 255;
+            int i2 = this.mBufferOffset;
+            this.mBufferOffset = i2 + 1;
+            return bArr[i2] & 255;
         }
         return -1;
     }
@@ -84,24 +84,24 @@ public class PooledByteArrayBufferedInputStream extends InputStream {
     public long skip(long j) throws IOException {
         Preconditions.checkState(this.mBufferOffset <= this.mBufferedSize);
         ensureNotClosed();
-        int i = this.mBufferedSize;
-        int i2 = this.mBufferOffset;
-        long j2 = i - i2;
+        int i2 = this.mBufferedSize;
+        int i3 = this.mBufferOffset;
+        long j2 = i2 - i3;
         if (j2 >= j) {
-            this.mBufferOffset = (int) (i2 + j);
+            this.mBufferOffset = (int) (i3 + j);
             return j;
         }
-        this.mBufferOffset = i;
+        this.mBufferOffset = i2;
         return j2 + this.mInputStream.skip(j - j2);
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
         Preconditions.checkState(this.mBufferOffset <= this.mBufferedSize);
         ensureNotClosed();
         if (ensureDataInBuffer()) {
-            int min = Math.min(this.mBufferedSize - this.mBufferOffset, i2);
-            System.arraycopy(this.mByteArray, this.mBufferOffset, bArr, i, min);
+            int min = Math.min(this.mBufferedSize - this.mBufferOffset, i3);
+            System.arraycopy(this.mByteArray, this.mBufferOffset, bArr, i2, min);
             this.mBufferOffset += min;
             return min;
         }

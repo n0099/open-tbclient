@@ -14,16 +14,16 @@ import com.baidu.wallet.home.ui.widget.b;
 public class NHCreditMiniItem extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24433a;
+    public NetImageView f25188a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f24434b;
+    public MaskTextView f25189b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f24435c;
+    public MaskTextView f25190c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f24436d;
+    public MaskTextView f25191d;
 
     public NHCreditMiniItem(Context context) {
         super(context);
@@ -36,10 +36,10 @@ public class NHCreditMiniItem extends BaseItemView {
 
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_mini_item"), this);
-        this.f24433a = (NetImageView) findViewById(ResUtils.id(getContext(), "bg_pic"));
-        this.f24434b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_top"));
-        this.f24435c = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_mid"));
-        this.f24436d = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_bottom"));
+        this.f25188a = (NetImageView) findViewById(ResUtils.id(getContext(), "bg_pic"));
+        this.f25189b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_top"));
+        this.f25190c = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_mid"));
+        this.f25191d = (MaskTextView) findViewById(ResUtils.id(getContext(), "title_bottom"));
     }
 
     public void refresh() {
@@ -49,14 +49,14 @@ public class NHCreditMiniItem extends BaseItemView {
         if (getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f24433a, getData().logo);
-        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f24434b) != null) {
+        setNetImageViewUrl(this.f25188a, getData().logo);
+        if (!TextUtils.isEmpty(getData().name) && (maskTextView3 = this.f25189b) != null) {
             maskTextView3.setMaskText(getData().name);
         }
-        if (!TextUtils.isEmpty(getData().value1) && (maskTextView2 = this.f24435c) != null) {
+        if (!TextUtils.isEmpty(getData().value1) && (maskTextView2 = this.f25190c) != null) {
             maskTextView2.setMaskText(getData().value1);
         }
-        if (TextUtils.isEmpty(getData().value2) || (maskTextView = this.f24436d) == null) {
+        if (TextUtils.isEmpty(getData().value2) || (maskTextView = this.f25191d) == null) {
             return;
         }
         maskTextView.setMaskText(getData().value2);

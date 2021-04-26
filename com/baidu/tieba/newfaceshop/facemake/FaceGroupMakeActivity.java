@@ -32,11 +32,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.newfaceshop.BarInformationModel;
 import com.baidu.tieba.newfaceshop.facemake.FaceImageLayout;
-import d.b.c.e.p.j;
-import d.b.c.e.p.l;
-import d.b.i0.r.s.a;
-import d.b.i0.z0.i0;
-import d.b.j0.y1.g.d;
+import d.a.c.e.p.j;
+import d.a.c.e.p.l;
+import d.a.i0.r.s.a;
+import d.a.i0.z0.i0;
+import d.a.j0.y1.g.d;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -53,7 +53,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
     public BazhuInfoData.BaInfo mChoosedData;
     public ArrayList<FaceData> mChoosedImageList;
     public EditText mEditName;
-    public d.b.j0.y1.g.d mEmotionAdapter;
+    public d.a.j0.y1.g.d mEmotionAdapter;
     public GridView mGridView;
     public FaceImageLayout mLayoutImage;
     public LinearLayout mLayoutRoot;
@@ -101,7 +101,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
                         ArrayList arrayList = new ArrayList();
                         arrayList.addAll(FaceGroupMakeActivity.this.mChoosedImageList);
                         arrayList.remove(FaceGroupMakeActivity.this.mAddIconData);
-                        d.b.j0.y1.g.e.l().A(trim, arrayList, null, FaceGroupMakeActivity.this.mChoosedData != null ? FaceGroupMakeActivity.this.mChoosedData.forum_id : 0);
+                        d.a.j0.y1.g.e.l().A(trim, arrayList, null, FaceGroupMakeActivity.this.mChoosedData != null ? FaceGroupMakeActivity.this.mChoosedData.forum_id : 0);
                         Intent intent = new Intent();
                         intent.putExtra("uploading", true);
                         FaceGroupMakeActivity.this.setResult(-1, intent);
@@ -126,7 +126,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
 
         @Override // com.baidu.tieba.newfaceshop.facemake.FaceImageLayout.a
         public void a() {
-            l.w(FaceGroupMakeActivity.this.mActivity, FaceGroupMakeActivity.this.mEditName);
+            l.x(FaceGroupMakeActivity.this.mActivity, FaceGroupMakeActivity.this.mEditName);
         }
     }
 
@@ -146,10 +146,10 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         public e() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             aVar.dismiss();
-            d.b.j0.y1.g.e.l().i();
+            d.a.j0.y1.g.e.l().i();
             FaceGroupMakeActivity.this.finish();
         }
     }
@@ -159,8 +159,8 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         public f() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -169,15 +169,15 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
     public class g implements InputFilter {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f18921e;
+        public int f19366e;
 
-        public g(int i) {
-            this.f18921e = i;
+        public g(int i2) {
+            this.f19366e = i2;
         }
 
         @Override // android.text.InputFilter
-        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-            if (spanned == null || charSequence == null || (i0.b(spanned.toString()) - (i4 - i3)) + i0.b(charSequence.toString()) <= this.f18921e) {
+        public CharSequence filter(CharSequence charSequence, int i2, int i3, Spanned spanned, int i4, int i5) {
+            if (spanned == null || charSequence == null || (i0.b(spanned.toString()) - (i5 - i4)) + i0.b(charSequence.toString()) <= this.f19366e) {
                 return charSequence;
             }
             FaceGroupMakeActivity.this.showToast(R.string.package_add_name_max);
@@ -234,7 +234,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         this.mTvAddPicTip = (TextView) findViewById(R.id.tv_add_pic_tip);
         updateAddPicTip();
         this.mGridView = (GridView) findViewById(R.id.grid_view);
-        d.b.j0.y1.g.d dVar = new d.b.j0.y1.g.d(this.mChoosedImageList);
+        d.a.j0.y1.g.d dVar = new d.a.j0.y1.g.d(this.mChoosedImageList);
         this.mEmotionAdapter = dVar;
         dVar.f(this);
         this.mGridView.setAdapter((ListAdapter) this.mEmotionAdapter);
@@ -262,7 +262,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
     }
 
     private void loadDraft() {
-        FaceGroupDraft k = d.b.j0.y1.g.e.l().k();
+        FaceGroupDraft k = d.a.j0.y1.g.e.l().k();
         if (k != null) {
             if (!TextUtils.isEmpty(k.getName())) {
                 this.mEditName.setText(k.getName());
@@ -280,7 +280,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
     public void onBack() {
         ArrayList<FaceData> arrayList = this.mChoosedImageList;
         if ((arrayList != null && arrayList.size() > 1) || !TextUtils.isEmpty(this.mEditName.getText())) {
-            d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(this.mActivity);
+            d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(this.mActivity);
             aVar.setMessage(getResources().getString(R.string.face_group_make_back_tip));
             aVar.setPositiveButton(R.string.confirm, new e());
             aVar.setNegativeButton(R.string.cancel, new f());
@@ -309,14 +309,14 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
         Parcelable parcelableExtra;
         Serializable serializableExtra;
-        super.onActivityResult(i, i2, intent);
-        if (i2 != -1) {
+        super.onActivityResult(i2, i3, intent);
+        if (i3 != -1) {
             return;
         }
-        if (i == 25022) {
+        if (i2 == 25022) {
             if (intent == null || (serializableExtra = intent.getSerializableExtra(PickFaceTabActivityConfig.CHOOSED_LIST)) == null || !(serializableExtra instanceof List)) {
                 return;
             }
@@ -325,13 +325,13 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
             this.mChoosedImageList.addAll((List) intent.getSerializableExtra(PickFaceTabActivityConfig.CHOOSED_LIST));
             this.mEmotionAdapter.notifyDataSetChanged();
             updateAddPicTip();
-        } else if (i != 25025 || intent == null || (parcelableExtra = intent.getParcelableExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM)) == null || !(parcelableExtra instanceof BazhuInfoData.BaInfo)) {
+        } else if (i2 != 25025 || intent == null || (parcelableExtra = intent.getParcelableExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM)) == null || !(parcelableExtra instanceof BazhuInfoData.BaInfo)) {
         } else {
             handleForumData((BazhuInfoData.BaInfo) parcelableExtra);
         }
     }
 
-    @Override // d.b.j0.y1.g.d.c
+    @Override // d.a.j0.y1.g.d.c
     public void onAdd() {
         ArrayList<FaceData> arrayList = this.mChoosedImageList;
         if (arrayList != null && arrayList.size() - 1 >= 24) {
@@ -353,17 +353,17 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        getLayoutMode().k(i == 1);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        getLayoutMode().k(i2 == 1);
         getLayoutMode().j(this.mLayoutRoot);
         SkinManager.setBackgroundResource(this.mLayoutRoot, R.color.CAM_X0201);
-        this.mNoNetView.c(getPageContext(), i);
+        this.mNoNetView.c(getPageContext(), i2);
         SkinManager.setViewTextColor(this.mPublishTxtTv, R.color.CAM_X0106);
         SkinManager.setViewTextColor(this.mEditName, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.mTvAddPicTip, R.color.CAM_X0109);
-        if (i == 0) {
+        if (i2 == 0) {
             this.mEditName.setHintTextColor(getResources().getColor(R.color.CAM_X0110));
         } else {
             this.mEditName.setHintTextColor(getResources().getColor(R.color.CAM_X0110_1));
@@ -394,7 +394,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         this.mAddIconData = faceData;
         faceData.type = 4;
         this.mChoosedImageList.add(faceData);
-        if (this.isFromBazhu && ((k = d.b.j0.y1.g.e.l().k()) == null || k.getForumId() != 0)) {
+        if (this.isFromBazhu && ((k = d.a.j0.y1.g.e.l().k()) == null || k.getForumId() != 0)) {
             this.isBarEmotion = true;
         }
         initView();
@@ -404,7 +404,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         }
     }
 
-    @Override // d.b.j0.y1.g.d.c
+    @Override // d.a.j0.y1.g.d.c
     public void onDel(FaceData faceData) {
         if (faceData == null) {
             return;
@@ -434,7 +434,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements d.c, BarInfor
         this.mChooseBarTv.setClickable(true);
         this.mChooseBarTv.setText(R.string.face_make_choose_forum);
         SkinManager.setViewTextColor(this.mChooseBarTv, R.color.CAM_X0304);
-        FaceGroupDraft k = d.b.j0.y1.g.e.l().k();
+        FaceGroupDraft k = d.a.j0.y1.g.e.l().k();
         if (k == null || k.getForumId() == 0) {
             return;
         }

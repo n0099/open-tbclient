@@ -26,16 +26,16 @@ public final class Headers {
         if (strArr != null) {
             if (strArr.length % 2 == 0) {
                 String[] strArr2 = (String[]) strArr.clone();
-                for (int i = 0; i < strArr2.length; i++) {
-                    if (strArr2[i] != null) {
-                        strArr2[i] = strArr2[i].trim();
+                for (int i2 = 0; i2 < strArr2.length; i2++) {
+                    if (strArr2[i2] != null) {
+                        strArr2[i2] = strArr2[i2].trim();
                     } else {
                         throw new IllegalArgumentException("Headers cannot be null");
                     }
                 }
-                for (int i2 = 0; i2 < strArr2.length; i2 += 2) {
-                    String str = strArr2[i2];
-                    String str2 = strArr2[i2 + 1];
+                for (int i3 = 0; i3 < strArr2.length; i3 += 2) {
+                    String str = strArr2[i3];
+                    String str2 = strArr2[i3 + 1];
                     if (str.length() == 0 || str.indexOf(0) != -1 || str2.indexOf(0) != -1) {
                         throw new IllegalArgumentException("Unexpected header: " + str + ": " + str2);
                     }
@@ -50,8 +50,8 @@ public final class Headers {
     public long byteCount() {
         String[] strArr = this.namesAndValues;
         long length = strArr.length * 2;
-        for (int i = 0; i < strArr.length; i++) {
-            length += this.namesAndValues[i].length();
+        for (int i2 = 0; i2 < strArr.length; i2++) {
+            length += this.namesAndValues[i2].length();
         }
         return length;
     }
@@ -78,15 +78,15 @@ public final class Headers {
         return Arrays.hashCode(this.namesAndValues);
     }
 
-    public String name(int i) {
-        return this.namesAndValues[i * 2];
+    public String name(int i2) {
+        return this.namesAndValues[i2 * 2];
     }
 
     public Set<String> names() {
         TreeSet treeSet = new TreeSet(String.CASE_INSENSITIVE_ORDER);
         int size = size();
-        for (int i = 0; i < size; i++) {
-            treeSet.add(name(i));
+        for (int i2 = 0; i2 < size; i2++) {
+            treeSet.add(name(i2));
         }
         return Collections.unmodifiableSet(treeSet);
     }
@@ -104,14 +104,14 @@ public final class Headers {
     public Map<String, List<String>> toMultimap() {
         TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
         int size = size();
-        for (int i = 0; i < size; i++) {
-            String lowerCase = name(i).toLowerCase(Locale.US);
+        for (int i2 = 0; i2 < size; i2++) {
+            String lowerCase = name(i2).toLowerCase(Locale.US);
             List list = (List) treeMap.get(lowerCase);
             if (list == null) {
                 list = new ArrayList(2);
                 treeMap.put(lowerCase, list);
             }
-            list.add(value(i));
+            list.add(value(i2));
         }
         return treeMap;
     }
@@ -119,28 +119,28 @@ public final class Headers {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         int size = size();
-        for (int i = 0; i < size; i++) {
-            sb.append(name(i));
+        for (int i2 = 0; i2 < size; i2++) {
+            sb.append(name(i2));
             sb.append(": ");
-            sb.append(value(i));
+            sb.append(value(i2));
             sb.append("\n");
         }
         return sb.toString();
     }
 
-    public String value(int i) {
-        return this.namesAndValues[(i * 2) + 1];
+    public String value(int i2) {
+        return this.namesAndValues[(i2 * 2) + 1];
     }
 
     public List<String> values(String str) {
         int size = size();
         ArrayList arrayList = null;
-        for (int i = 0; i < size; i++) {
-            if (str.equalsIgnoreCase(name(i))) {
+        for (int i2 = 0; i2 < size; i2++) {
+            if (str.equalsIgnoreCase(name(i2))) {
                 if (arrayList == null) {
                     arrayList = new ArrayList(2);
                 }
-                arrayList.add(value(i));
+                arrayList.add(value(i2));
             }
         }
         if (arrayList != null) {
@@ -166,18 +166,18 @@ public final class Headers {
             if (str != null) {
                 if (!str.isEmpty()) {
                     int length = str.length();
-                    for (int i = 0; i < length; i++) {
-                        char charAt = str.charAt(i);
+                    for (int i2 = 0; i2 < length; i2++) {
+                        char charAt = str.charAt(i2);
                         if (charAt <= ' ' || charAt >= 127) {
-                            throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i), str));
+                            throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i2), str));
                         }
                     }
                     if (str2 != null) {
                         int length2 = str2.length();
-                        for (int i2 = 0; i2 < length2; i2++) {
-                            char charAt2 = str2.charAt(i2);
+                        for (int i3 = 0; i3 < length2; i3++) {
+                            char charAt2 = str2.charAt(i3);
                             if ((charAt2 <= 31 && charAt2 != '\t') || charAt2 >= 127) {
-                                throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in %s value: %s", Integer.valueOf(charAt2), Integer.valueOf(i2), str, str2));
+                                throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in %s value: %s", Integer.valueOf(charAt2), Integer.valueOf(i3), str, str2));
                             }
                         }
                         return;
@@ -199,8 +199,8 @@ public final class Headers {
 
         public Builder addAll(Headers headers) {
             int size = headers.size();
-            for (int i = 0; i < size; i++) {
-                addLenient(headers.name(i), headers.value(i));
+            for (int i2 = 0; i2 < size; i2++) {
+                addLenient(headers.name(i2), headers.value(i2));
             }
             return this;
         }
@@ -230,14 +230,14 @@ public final class Headers {
         }
 
         public Builder removeAll(String str) {
-            int i = 0;
-            while (i < this.namesAndValues.size()) {
-                if (str.equalsIgnoreCase(this.namesAndValues.get(i))) {
-                    this.namesAndValues.remove(i);
-                    this.namesAndValues.remove(i);
-                    i -= 2;
+            int i2 = 0;
+            while (i2 < this.namesAndValues.size()) {
+                if (str.equalsIgnoreCase(this.namesAndValues.get(i2))) {
+                    this.namesAndValues.remove(i2);
+                    this.namesAndValues.remove(i2);
+                    i2 -= 2;
                 }
-                i += 2;
+                i2 += 2;
             }
             return this;
         }
@@ -268,15 +268,15 @@ public final class Headers {
     public static Headers of(Map<String, String> map) {
         if (map != null) {
             String[] strArr = new String[map.size() * 2];
-            int i = 0;
+            int i2 = 0;
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 if (entry.getKey() != null && entry.getValue() != null) {
                     String trim = entry.getKey().trim();
                     String trim2 = entry.getValue().trim();
                     if (trim.length() != 0 && trim.indexOf(0) == -1 && trim2.indexOf(0) == -1) {
-                        strArr[i] = trim;
-                        strArr[i + 1] = trim2;
-                        i += 2;
+                        strArr[i2] = trim;
+                        strArr[i2 + 1] = trim2;
+                        i2 += 2;
                     } else {
                         throw new IllegalArgumentException("Unexpected header: " + trim + ": " + trim2);
                     }

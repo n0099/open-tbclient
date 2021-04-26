@@ -21,17 +21,19 @@ import com.baidu.tieba.R;
 public class SearchEditView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public EditText f15237e;
+    public EditText f15375e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f15238f;
+    public ImageView f15376f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f15239g;
+    public ImageView f15377g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f15240h;
-    public d i;
+    public LinearLayout f15378h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public d f15379i;
 
     /* loaded from: classes4.dex */
     public class a implements TextWatcher {
@@ -40,22 +42,22 @@ public class SearchEditView extends RelativeLayout {
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            if (SearchEditView.this.i != null) {
-                SearchEditView.this.i.onTextChanged(editable.toString().trim());
+            if (SearchEditView.this.f15379i != null) {
+                SearchEditView.this.f15379i.onTextChanged(editable.toString().trim());
             }
             if (editable.toString().trim().length() == 0) {
-                SearchEditView.this.f15240h.setVisibility(4);
+                SearchEditView.this.f15378h.setVisibility(4);
             } else {
-                SearchEditView.this.f15240h.setVisibility(0);
+                SearchEditView.this.f15378h.setVisibility(0);
             }
         }
 
         @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
 
         @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
     }
 
@@ -65,13 +67,13 @@ public class SearchEditView extends RelativeLayout {
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
-        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            if (i == 3) {
-                String trim = SearchEditView.this.f15237e.getText().toString().trim();
-                if (TextUtils.isEmpty(trim) || SearchEditView.this.i == null) {
+        public boolean onEditorAction(TextView textView, int i2, KeyEvent keyEvent) {
+            if (i2 == 3) {
+                String trim = SearchEditView.this.f15375e.getText().toString().trim();
+                if (TextUtils.isEmpty(trim) || SearchEditView.this.f15379i == null) {
                     return true;
                 }
-                SearchEditView.this.i.onClickSearch(trim);
+                SearchEditView.this.f15379i.onClickSearch(trim);
                 return true;
             }
             return false;
@@ -85,7 +87,7 @@ public class SearchEditView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            SearchEditView.this.f15237e.setText("");
+            SearchEditView.this.f15375e.setText("");
         }
     }
 
@@ -103,45 +105,45 @@ public class SearchEditView extends RelativeLayout {
 
     public final void d() {
         LayoutInflater.from(getContext()).inflate(R.layout.emotion_search_edit, (ViewGroup) this, true);
-        this.f15237e = (EditText) findViewById(R.id.edit_search);
-        this.f15238f = (ImageView) findViewById(R.id.iv_search);
-        this.f15239g = (ImageView) findViewById(R.id.iv_del_all);
-        this.f15240h = (LinearLayout) findViewById(R.id.iv_del_all_layout);
-        SkinManager.setImageResource(this.f15238f, R.drawable.icon_emotion_search);
-        SkinManager.setImageResource(this.f15239g, R.drawable.del_search_btn);
-        SkinManager.setViewTextColor(this.f15237e, R.color.CAM_X0105);
-        this.f15237e.addTextChangedListener(new a());
-        this.f15237e.setOnEditorActionListener(new b());
-        this.f15240h.setOnClickListener(new c());
+        this.f15375e = (EditText) findViewById(R.id.edit_search);
+        this.f15376f = (ImageView) findViewById(R.id.iv_search);
+        this.f15377g = (ImageView) findViewById(R.id.iv_del_all);
+        this.f15378h = (LinearLayout) findViewById(R.id.iv_del_all_layout);
+        SkinManager.setImageResource(this.f15376f, R.drawable.icon_emotion_search);
+        SkinManager.setImageResource(this.f15377g, R.drawable.del_search_btn);
+        SkinManager.setViewTextColor(this.f15375e, R.color.CAM_X0105);
+        this.f15375e.addTextChangedListener(new a());
+        this.f15375e.setOnEditorActionListener(new b());
+        this.f15378h.setOnClickListener(new c());
         e(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void e(int i) {
-        if (i == 0) {
-            this.f15237e.setHintTextColor(getResources().getColor(R.color.CAM_X0109));
+    public void e(int i2) {
+        if (i2 == 0) {
+            this.f15375e.setHintTextColor(getResources().getColor(R.color.CAM_X0109));
         } else {
-            this.f15237e.setHintTextColor(getResources().getColor(R.color.CAM_X0109_1));
+            this.f15375e.setHintTextColor(getResources().getColor(R.color.CAM_X0109_1));
         }
     }
 
     public boolean f() {
-        return this.f15237e.requestFocus();
+        return this.f15375e.requestFocus();
     }
 
     public void setCallback(d dVar) {
-        this.i = dVar;
+        this.f15379i = dVar;
     }
 
-    public void setSelection(int i) {
-        if (i <= this.f15237e.getText().length()) {
-            this.f15237e.setSelection(i);
+    public void setSelection(int i2) {
+        if (i2 <= this.f15375e.getText().length()) {
+            this.f15375e.setSelection(i2);
         }
     }
 
     public void setText(String str) {
         if (str != null) {
-            this.f15237e.setText(str);
-            this.f15237e.setSelection(str.length());
+            this.f15375e.setText(str);
+            this.f15375e.setSelection(str.length());
         }
     }
 
@@ -150,8 +152,8 @@ public class SearchEditView extends RelativeLayout {
         d();
     }
 
-    public SearchEditView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public SearchEditView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         d();
     }
 }

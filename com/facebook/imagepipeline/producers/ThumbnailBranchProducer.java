@@ -13,10 +13,10 @@ public class ThumbnailBranchProducer implements Producer<EncodedImage> {
         public final int mProducerIndex;
         public final ResizeOptions mResizeOptions;
 
-        public ThumbnailConsumer(Consumer<EncodedImage> consumer, ProducerContext producerContext, int i) {
+        public ThumbnailConsumer(Consumer<EncodedImage> consumer, ProducerContext producerContext, int i2) {
             super(consumer);
             this.mProducerContext = producerContext;
-            this.mProducerIndex = i;
+            this.mProducerIndex = i2;
             this.mResizeOptions = producerContext.getImageRequest().getResizeOptions();
         }
 
@@ -30,10 +30,10 @@ public class ThumbnailBranchProducer implements Producer<EncodedImage> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(EncodedImage encodedImage, int i) {
-            if (encodedImage != null && (BaseConsumer.isNotLast(i) || ThumbnailSizeChecker.isImageBigEnough(encodedImage, this.mResizeOptions))) {
-                getConsumer().onNewResult(encodedImage, i);
-            } else if (BaseConsumer.isLast(i)) {
+        public void onNewResultImpl(EncodedImage encodedImage, int i2) {
+            if (encodedImage != null && (BaseConsumer.isNotLast(i2) || ThumbnailSizeChecker.isImageBigEnough(encodedImage, this.mResizeOptions))) {
+                getConsumer().onNewResult(encodedImage, i2);
+            } else if (BaseConsumer.isLast(i2)) {
                 EncodedImage.closeSafely(encodedImage);
                 if (ThumbnailBranchProducer.this.produceResultsFromThumbnailProducer(this.mProducerIndex + 1, getConsumer(), this.mProducerContext)) {
                     return;
@@ -49,22 +49,22 @@ public class ThumbnailBranchProducer implements Producer<EncodedImage> {
         Preconditions.checkElementIndex(0, thumbnailProducerArr2.length);
     }
 
-    private int findFirstProducerForSize(int i, ResizeOptions resizeOptions) {
+    private int findFirstProducerForSize(int i2, ResizeOptions resizeOptions) {
         while (true) {
             ThumbnailProducer<EncodedImage>[] thumbnailProducerArr = this.mThumbnailProducers;
-            if (i >= thumbnailProducerArr.length) {
+            if (i2 >= thumbnailProducerArr.length) {
                 return -1;
             }
-            if (thumbnailProducerArr[i].canProvideImageForSize(resizeOptions)) {
-                return i;
+            if (thumbnailProducerArr[i2].canProvideImageForSize(resizeOptions)) {
+                return i2;
             }
-            i++;
+            i2++;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean produceResultsFromThumbnailProducer(int i, Consumer<EncodedImage> consumer, ProducerContext producerContext) {
-        int findFirstProducerForSize = findFirstProducerForSize(i, producerContext.getImageRequest().getResizeOptions());
+    public boolean produceResultsFromThumbnailProducer(int i2, Consumer<EncodedImage> consumer, ProducerContext producerContext) {
+        int findFirstProducerForSize = findFirstProducerForSize(i2, producerContext.getImageRequest().getResizeOptions());
         if (findFirstProducerForSize == -1) {
             return false;
         }

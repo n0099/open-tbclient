@@ -14,7 +14,7 @@ public final class f implements Parcelable.Creator<BaiduMapOptions> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public BaiduMapOptions[] newArray(int i) {
-        return new BaiduMapOptions[i];
+    public BaiduMapOptions[] newArray(int i2) {
+        return new BaiduMapOptions[i2];
     }
 }

@@ -119,7 +119,7 @@ public class BdSailorWebChromeClient implements INoProGuard {
     public void onPermissionRequestCanceled(BdSailorWebView bdSailorWebView, PermissionRequest permissionRequest) {
     }
 
-    public void onProgressChanged(BdSailorWebView bdSailorWebView, int i) {
+    public void onProgressChanged(BdSailorWebView bdSailorWebView, int i2) {
     }
 
     public void onReachedMaxAppCacheSize(BdSailorWebView bdSailorWebView, long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
@@ -138,7 +138,7 @@ public class BdSailorWebChromeClient implements INoProGuard {
     public void onRequestFocus(BdSailorWebView bdSailorWebView) {
     }
 
-    public boolean onShowCustomView(BdSailorWebView bdSailorWebView, View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
+    public boolean onShowCustomView(BdSailorWebView bdSailorWebView, View view, int i2, WebChromeClient.CustomViewCallback customViewCallback) {
         return false;
     }
 

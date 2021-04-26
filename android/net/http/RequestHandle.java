@@ -7,7 +7,7 @@ import java.util.Map;
 public class RequestHandle {
     public static final int MAX_REDIRECT_COUNT = 16;
 
-    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map<String, String> map, InputStream inputStream, int i, Request request) {
+    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map<String, String> map, InputStream inputStream, int i2, Request request) {
         throw new RuntimeException("Stub!");
     }
 
@@ -47,7 +47,7 @@ public class RequestHandle {
         throw new RuntimeException("Stub!");
     }
 
-    public void setRedirectCount(int i) {
+    public void setRedirectCount(int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -59,7 +59,7 @@ public class RequestHandle {
         throw new RuntimeException("Stub!");
     }
 
-    public boolean setupRedirect(String str, int i, Map<String, String> map) {
+    public boolean setupRedirect(String str, int i2, Map<String, String> map) {
         throw new RuntimeException("Stub!");
     }
 
@@ -67,7 +67,7 @@ public class RequestHandle {
         throw new RuntimeException("Stub!");
     }
 
-    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map<String, String> map, InputStream inputStream, int i, Request request, Connection connection) {
+    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map<String, String> map, InputStream inputStream, int i2, Request request, Connection connection) {
         throw new RuntimeException("Stub!");
     }
 }

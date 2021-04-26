@@ -79,8 +79,8 @@ public class BdStatSwitchData implements Serializable {
         if (optJSONArray == null || optJSONArray.length() <= 0) {
             return;
         }
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
+        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
             if (bdStatisticsWriteConfigItem != null) {
                 BdStatisticsWriteConfig.BdStatisticsWriteChildItem bdStatisticsWriteChildItem = new BdStatisticsWriteConfig.BdStatisticsWriteChildItem();
                 bdStatisticsWriteChildItem.subType = optJSONObject3.optString("type");
@@ -90,7 +90,7 @@ public class BdStatSwitchData implements Serializable {
                 bdStatistisUploadChilidItem.subType = optJSONObject3.optString("type");
                 bdStatistisUploadChilidItem.isUpload = optJSONObject3.optInt("is_upload", 0) != 0;
                 bdStatistisUploadChilidItem.isWifi = optJSONObject3.optInt("is_only_wifi", 0) != 0;
-                bdStatistisUploadChilidItem.percent = optJSONObject3.optInt(SapiOptions.s);
+                bdStatistisUploadChilidItem.percent = optJSONObject3.optInt(SapiOptions.KEY_CACHE_PERCENT);
                 bdStatisticsUploadConfigItem.childItem.put(bdStatistisUploadChilidItem.subType, bdStatistisUploadChilidItem);
                 arrayList.add(bdStatistisUploadChilidItem.subType);
                 this.mChildTypes.put(bdStatisticsWriteConfigItem.type, arrayList);
@@ -105,16 +105,16 @@ public class BdStatSwitchData implements Serializable {
         }
     }
 
-    public int geUploadCycle(String str, int i) {
-        return this.uploadConfig.geUploadCycle(str, i);
+    public int geUploadCycle(String str, int i2) {
+        return this.uploadConfig.geUploadCycle(str, i2);
     }
 
     public ArrayList<String> getChiledTypes(String str) {
         return this.mChildTypes.get(str);
     }
 
-    public int getMaxAlertCount(String str, int i) {
-        return this.uploadConfig.getMaxAlertCount(str, i);
+    public int getMaxAlertCount(String str, int i2) {
+        return this.uploadConfig.getMaxAlertCount(str, i2);
     }
 
     public BdUploadStatMsgData getTmpSwitchConfData(String str) {

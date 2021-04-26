@@ -1,7 +1,7 @@
 package com.baidu.tieba.addresslist.im.newFriend;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.j0.e1.g.a;
+import d.a.j0.e1.g.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -12,15 +12,15 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
     public int mErrCode;
     public String mErrMsg;
 
-    public RecommendFriendResponseMessage(int i) {
-        super(i);
+    public RecommendFriendResponseMessage(int i2) {
+        super(i2);
         this.mErrCode = 0;
         this.mErrMsg = "";
         this.mDatas = null;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONArray optJSONArray;
         int statusCode = getStatusCode();
         int error = getError();
@@ -32,9 +32,9 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
                 return;
             }
             this.mDatas = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                 a aVar = new a();
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
                 aVar.h(jSONObject2.optLong("user_id"));
                 aVar.j(jSONObject2.optString("user_name"));
                 aVar.k(jSONObject2.optString("portrait"));

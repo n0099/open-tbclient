@@ -37,8 +37,8 @@ public final class BidiFormatter {
         public final CharSequence text;
 
         static {
-            for (int i = 0; i < 1792; i++) {
-                DIR_TYPE_CACHE[i] = Character.getDirectionality(i);
+            for (int i2 = 0; i2 < 1792; i2++) {
+                DIR_TYPE_CACHE[i2] = Character.getDirectionality(i2);
             }
         }
 
@@ -54,22 +54,22 @@ public final class BidiFormatter {
 
         private byte skipEntityBackward() {
             char charAt;
-            int i = this.charIndex;
+            int i2 = this.charIndex;
             do {
-                int i2 = this.charIndex;
-                if (i2 <= 0) {
+                int i3 = this.charIndex;
+                if (i3 <= 0) {
                     break;
                 }
                 CharSequence charSequence = this.text;
-                int i3 = i2 - 1;
-                this.charIndex = i3;
-                charAt = charSequence.charAt(i3);
+                int i4 = i3 - 1;
+                this.charIndex = i4;
+                charAt = charSequence.charAt(i4);
                 this.lastChar = charAt;
                 if (charAt == '&') {
                     return StandardMessageCodec.LIST;
                 }
             } while (charAt != ';');
-            this.charIndex = i;
+            this.charIndex = i2;
             this.lastChar = ';';
             return (byte) 13;
         }
@@ -77,13 +77,13 @@ public final class BidiFormatter {
         private byte skipEntityForward() {
             char charAt;
             do {
-                int i = this.charIndex;
-                if (i >= this.length) {
+                int i2 = this.charIndex;
+                if (i2 >= this.length) {
                     return StandardMessageCodec.LIST;
                 }
                 CharSequence charSequence = this.text;
-                this.charIndex = i + 1;
-                charAt = charSequence.charAt(i);
+                this.charIndex = i2 + 1;
+                charAt = charSequence.charAt(i2);
                 this.lastChar = charAt;
             } while (charAt != ';');
             return StandardMessageCodec.LIST;
@@ -91,16 +91,16 @@ public final class BidiFormatter {
 
         private byte skipTagBackward() {
             char charAt;
-            int i = this.charIndex;
+            int i2 = this.charIndex;
             while (true) {
-                int i2 = this.charIndex;
-                if (i2 <= 0) {
+                int i3 = this.charIndex;
+                if (i3 <= 0) {
                     break;
                 }
                 CharSequence charSequence = this.text;
-                int i3 = i2 - 1;
-                this.charIndex = i3;
-                char charAt2 = charSequence.charAt(i3);
+                int i4 = i3 - 1;
+                this.charIndex = i4;
+                char charAt2 = charSequence.charAt(i4);
                 this.lastChar = charAt2;
                 if (charAt2 == '<') {
                     return StandardMessageCodec.LIST;
@@ -110,31 +110,31 @@ public final class BidiFormatter {
                 } else if (charAt2 == '\"' || charAt2 == '\'') {
                     char c2 = this.lastChar;
                     do {
-                        int i4 = this.charIndex;
-                        if (i4 > 0) {
+                        int i5 = this.charIndex;
+                        if (i5 > 0) {
                             CharSequence charSequence2 = this.text;
-                            int i5 = i4 - 1;
-                            this.charIndex = i5;
-                            charAt = charSequence2.charAt(i5);
+                            int i6 = i5 - 1;
+                            this.charIndex = i6;
+                            charAt = charSequence2.charAt(i6);
                             this.lastChar = charAt;
                         }
                     } while (charAt != c2);
                 }
             }
-            this.charIndex = i;
+            this.charIndex = i2;
             this.lastChar = Typography.greater;
             return (byte) 13;
         }
 
         private byte skipTagForward() {
             char charAt;
-            int i = this.charIndex;
+            int i2 = this.charIndex;
             while (true) {
-                int i2 = this.charIndex;
-                if (i2 < this.length) {
+                int i3 = this.charIndex;
+                if (i3 < this.length) {
                     CharSequence charSequence = this.text;
-                    this.charIndex = i2 + 1;
-                    char charAt2 = charSequence.charAt(i2);
+                    this.charIndex = i3 + 1;
+                    char charAt2 = charSequence.charAt(i3);
                     this.lastChar = charAt2;
                     if (charAt2 == '>') {
                         return StandardMessageCodec.LIST;
@@ -142,17 +142,17 @@ public final class BidiFormatter {
                     if (charAt2 == '\"' || charAt2 == '\'') {
                         char c2 = this.lastChar;
                         do {
-                            int i3 = this.charIndex;
-                            if (i3 < this.length) {
+                            int i4 = this.charIndex;
+                            if (i4 < this.length) {
                                 CharSequence charSequence2 = this.text;
-                                this.charIndex = i3 + 1;
-                                charAt = charSequence2.charAt(i3);
+                                this.charIndex = i4 + 1;
+                                charAt = charSequence2.charAt(i4);
                                 this.lastChar = charAt;
                             }
                         } while (charAt != c2);
                     }
                 } else {
-                    this.charIndex = i;
+                    this.charIndex = i2;
                     this.lastChar = Typography.less;
                     return (byte) 13;
                 }
@@ -201,117 +201,117 @@ public final class BidiFormatter {
 
         public int getEntryDir() {
             this.charIndex = 0;
-            int i = 0;
             int i2 = 0;
             int i3 = 0;
-            while (this.charIndex < this.length && i == 0) {
+            int i4 = 0;
+            while (this.charIndex < this.length && i2 == 0) {
                 byte dirTypeForward = dirTypeForward();
                 if (dirTypeForward != 0) {
                     if (dirTypeForward == 1 || dirTypeForward == 2) {
-                        if (i3 == 0) {
+                        if (i4 == 0) {
                             return 1;
                         }
                     } else if (dirTypeForward != 9) {
                         switch (dirTypeForward) {
                             case 14:
                             case 15:
-                                i3++;
-                                i2 = -1;
+                                i4++;
+                                i3 = -1;
                                 break;
                             case 16:
                             case 17:
-                                i3++;
-                                i2 = 1;
+                                i4++;
+                                i3 = 1;
                                 break;
                             case 18:
-                                i3--;
-                                i2 = 0;
+                                i4--;
+                                i3 = 0;
                                 break;
                         }
                     }
-                } else if (i3 == 0) {
+                } else if (i4 == 0) {
                     return -1;
                 }
-                i = i3;
+                i2 = i4;
             }
-            if (i == 0) {
+            if (i2 == 0) {
                 return 0;
             }
-            if (i2 != 0) {
-                return i2;
+            if (i3 != 0) {
+                return i3;
             }
             while (this.charIndex > 0) {
                 switch (dirTypeBackward()) {
                     case 14:
                     case 15:
-                        if (i == i3) {
+                        if (i2 == i4) {
                             return -1;
                         }
                         break;
                     case 16:
                     case 17:
-                        if (i == i3) {
+                        if (i2 == i4) {
                             return 1;
                         }
                         break;
                     case 18:
-                        i3++;
+                        i4++;
                         continue;
                 }
-                i3--;
+                i4--;
             }
             return 0;
         }
 
         public int getExitDir() {
             this.charIndex = this.length;
-            int i = 0;
             int i2 = 0;
+            int i3 = 0;
             while (this.charIndex > 0) {
                 byte dirTypeBackward = dirTypeBackward();
                 if (dirTypeBackward != 0) {
                     if (dirTypeBackward == 1 || dirTypeBackward == 2) {
-                        if (i == 0) {
+                        if (i2 == 0) {
                             return 1;
                         }
-                        if (i2 == 0) {
-                            i2 = i;
+                        if (i3 == 0) {
+                            i3 = i2;
                         }
                     } else if (dirTypeBackward != 9) {
                         switch (dirTypeBackward) {
                             case 14:
                             case 15:
-                                if (i2 == i) {
+                                if (i3 == i2) {
                                     return -1;
                                 }
-                                i--;
+                                i2--;
                                 break;
                             case 16:
                             case 17:
-                                if (i2 == i) {
+                                if (i3 == i2) {
                                     return 1;
                                 }
-                                i--;
+                                i2--;
                                 break;
                             case 18:
-                                i++;
+                                i2++;
                                 break;
                             default:
-                                if (i2 != 0) {
+                                if (i3 != 0) {
                                     break;
                                 } else {
-                                    i2 = i;
+                                    i3 = i2;
                                     break;
                                 }
                         }
                     } else {
                         continue;
                     }
-                } else if (i == 0) {
+                } else if (i2 == 0) {
                     return -1;
                 } else {
-                    if (i2 == 0) {
-                        i2 = i;
+                    if (i3 == 0) {
+                        i3 = i2;
                     }
                 }
             }
@@ -319,9 +319,9 @@ public final class BidiFormatter {
         }
     }
 
-    public BidiFormatter(boolean z, int i, TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
+    public BidiFormatter(boolean z, int i2, TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
         this.mIsRtlContext = z;
-        this.mFlags = i;
+        this.mFlags = i2;
         this.mDefaultTextDirectionHeuristicCompat = textDirectionHeuristicCompat;
     }
 

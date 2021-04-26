@@ -79,8 +79,8 @@ public class an {
             return true;
         }
         int length = str.length();
-        for (int i = 0; i < length; i++) {
-            if (!Character.isWhitespace(str.charAt(i))) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (!Character.isWhitespace(str.charAt(i2))) {
                 return false;
             }
         }

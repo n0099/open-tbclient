@@ -61,8 +61,8 @@ public class TbRichTextEvaluateItemInfo extends OrmObject implements Serializabl
         this.mScore = d2;
     }
 
-    public void setStar(int i) {
-        this.mStar = i;
+    public void setStar(int i2) {
+        this.mStar = i2;
     }
 
     public void setTags(List<String> list) {

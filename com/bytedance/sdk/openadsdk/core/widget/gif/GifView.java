@@ -28,29 +28,31 @@ import java.io.InputStream;
 public class GifView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    public Movie f28639a;
+    public Movie f29522a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f28640b;
+    public long f29523b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28641c;
+    public int f29524c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AnimatedImageDrawable f28642d;
+    public AnimatedImageDrawable f29525d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f28643e;
+    public boolean f29526e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28644f;
+    public boolean f29527f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f28645g;
+    public float f29528g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f28646h;
-    public float i;
+    public float f29529h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public float f29530i;
     public int j;
     public int k;
     public volatile boolean l;
@@ -58,8 +60,8 @@ public class GifView extends ImageView {
 
     public GifView(Context context) {
         super(context);
-        this.f28643e = Build.VERSION.SDK_INT >= 28;
-        this.f28644f = false;
+        this.f29526e = Build.VERSION.SDK_INT >= 28;
+        this.f29527f = false;
         this.m = true;
         a();
     }
@@ -70,7 +72,7 @@ public class GifView extends ImageView {
         if (bArr == null) {
             return null;
         }
-        if (this.f28644f) {
+        if (this.f29527f) {
             try {
                 source = (ImageDecoder.Source) ImageDecoder.class.getMethod("createSource", Resources.class, InputStream.class).invoke(null, getResources(), new ByteArrayInputStream(bArr));
             } catch (Throwable th) {
@@ -125,17 +127,17 @@ public class GifView extends ImageView {
     }
 
     public void a() {
-        if (!this.f28643e) {
+        if (!this.f29526e) {
             setLayerType(1, null);
             return;
         }
-        this.f28644f = ac.a();
-        u.b("GifView", "android p 反射解锁：exempt result: " + this.f28644f);
+        this.f29527f = ac.a();
+        u.b("GifView", "android p 反射解锁：exempt result: " + this.f29527f);
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.f28639a != null && !this.f28643e) {
+        if (this.f29522a != null && !this.f29526e) {
             try {
                 if (!this.l) {
                     c();
@@ -154,60 +156,60 @@ public class GifView extends ImageView {
     }
 
     @Override // android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        if (this.f28639a != null && !this.f28643e) {
-            this.f28645g = (getWidth() - this.j) / 2.0f;
-            this.f28646h = (getHeight() - this.k) / 2.0f;
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
+        if (this.f29522a != null && !this.f29526e) {
+            this.f29528g = (getWidth() - this.j) / 2.0f;
+            this.f29529h = (getHeight() - this.k) / 2.0f;
         }
         this.m = getVisibility() == 0;
     }
 
     @Override // android.widget.ImageView, android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         Movie movie;
         int size;
         int size2;
-        super.onMeasure(i, i2);
-        if (this.f28643e || (movie = this.f28639a) == null) {
+        super.onMeasure(i2, i3);
+        if (this.f29526e || (movie = this.f29522a) == null) {
             return;
         }
         int width = movie.width();
-        int height = this.f28639a.height();
-        float max = 1.0f / Math.max((View.MeasureSpec.getMode(i) == 0 || width <= (size2 = View.MeasureSpec.getSize(i))) ? 1.0f : width / size2, (View.MeasureSpec.getMode(i2) == 0 || height <= (size = View.MeasureSpec.getSize(i2))) ? 1.0f : height / size);
-        this.i = max;
-        int i3 = (int) (width * max);
-        this.j = i3;
-        int i4 = (int) (height * max);
-        this.k = i4;
-        setMeasuredDimension(i3, i4);
+        int height = this.f29522a.height();
+        float max = 1.0f / Math.max((View.MeasureSpec.getMode(i2) == 0 || width <= (size2 = View.MeasureSpec.getSize(i2))) ? 1.0f : width / size2, (View.MeasureSpec.getMode(i3) == 0 || height <= (size = View.MeasureSpec.getSize(i3))) ? 1.0f : height / size);
+        this.f29530i = max;
+        int i4 = (int) (width * max);
+        this.j = i4;
+        int i5 = (int) (height * max);
+        this.k = i5;
+        setMeasuredDimension(i4, i5);
     }
 
     @Override // android.view.View
     @SuppressLint({"NewApi"})
-    public void onScreenStateChanged(int i) {
-        super.onScreenStateChanged(i);
-        if (this.f28639a != null) {
-            this.m = i == 1;
+    public void onScreenStateChanged(int i2) {
+        super.onScreenStateChanged(i2);
+        if (this.f29522a != null) {
+            this.m = i2 == 1;
             b();
         }
     }
 
     @Override // android.view.View
     @SuppressLint({"NewApi"})
-    public void onVisibilityChanged(View view, int i) {
-        super.onVisibilityChanged(view, i);
-        if (this.f28639a != null) {
-            this.m = i == 0;
+    public void onVisibilityChanged(View view, int i2) {
+        super.onVisibilityChanged(view, i2);
+        if (this.f29522a != null) {
+            this.m = i2 == 0;
             b();
         }
     }
 
     @Override // android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
-        if (this.f28639a != null) {
-            this.m = i == 0;
+    public void onWindowVisibilityChanged(int i2) {
+        super.onWindowVisibilityChanged(i2);
+        if (this.f29522a != null) {
+            this.m = i2 == 0;
             b();
         }
     }
@@ -215,24 +217,24 @@ public class GifView extends ImageView {
     public void a(byte[] bArr, boolean z) {
         this.l = z;
         if (bArr != null) {
-            if (!this.f28643e) {
-                this.f28639a = a(bArr);
+            if (!this.f29526e) {
+                this.f29522a = a(bArr);
             } else {
-                this.f28642d = b(bArr);
+                this.f29525d = b(bArr);
             }
         }
     }
 
     public GifView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f28643e = Build.VERSION.SDK_INT >= 28;
-        this.f28644f = false;
+        this.f29526e = Build.VERSION.SDK_INT >= 28;
+        this.f29527f = false;
         this.m = true;
         a();
     }
 
     private void b() {
-        if (this.f28639a == null || this.f28643e || !this.m) {
+        if (this.f29522a == null || this.f29526e || !this.m) {
             return;
         }
         if (Build.VERSION.SDK_INT >= 16) {
@@ -252,24 +254,24 @@ public class GifView extends ImageView {
     }
 
     private void c() {
-        if (this.f28639a == null) {
+        if (this.f29522a == null) {
             return;
         }
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (this.f28640b == 0) {
-            this.f28640b = uptimeMillis;
+        if (this.f29523b == 0) {
+            this.f29523b = uptimeMillis;
         }
-        int duration = this.f28639a.duration();
+        int duration = this.f29522a.duration();
         if (duration == 0) {
             duration = 1000;
         }
-        this.f28641c = (int) ((uptimeMillis - this.f28640b) % duration);
+        this.f29524c = (int) ((uptimeMillis - this.f29523b) % duration);
     }
 
-    public GifView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f28643e = Build.VERSION.SDK_INT >= 28;
-        this.f28644f = false;
+    public GifView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f29526e = Build.VERSION.SDK_INT >= 28;
+        this.f29527f = false;
         this.m = true;
         a();
     }
@@ -294,10 +296,10 @@ public class GifView extends ImageView {
     }
 
     @RequiresApi(api = 21)
-    public GifView(Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
-        super(context, attributeSet, i, i2);
-        this.f28643e = Build.VERSION.SDK_INT >= 28;
-        this.f28644f = false;
+    public GifView(Context context, @Nullable AttributeSet attributeSet, int i2, int i3) {
+        super(context, attributeSet, i2, i3);
+        this.f29526e = Build.VERSION.SDK_INT >= 28;
+        this.f29527f = false;
         this.m = true;
         a();
     }
@@ -310,17 +312,17 @@ public class GifView extends ImageView {
     }
 
     private void a(Canvas canvas) {
-        Movie movie = this.f28639a;
+        Movie movie = this.f29522a;
         if (movie == null) {
             return;
         }
-        movie.setTime(this.f28641c);
-        float f2 = this.i;
+        movie.setTime(this.f29524c);
+        float f2 = this.f29530i;
         canvas.scale(f2, f2);
-        Movie movie2 = this.f28639a;
-        float f3 = this.f28645g;
-        float f4 = this.i;
-        movie2.draw(canvas, f3 / f4, this.f28646h / f4);
+        Movie movie2 = this.f29522a;
+        float f3 = this.f29528g;
+        float f4 = this.f29530i;
+        movie2.draw(canvas, f3 / f4, this.f29529h / f4);
         canvas.restore();
     }
 }

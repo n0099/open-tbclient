@@ -34,12 +34,12 @@ public class YuvConverter {
         }
 
         @Override // org.webrtc.GlGenericDrawer.ShaderCallbacks
-        public void onPrepareShader(GlShader glShader, float[] fArr, int i, int i2, int i3, int i4) {
+        public void onPrepareShader(GlShader glShader, float[] fArr, int i2, int i3, int i4, int i5) {
             GLES20.glUniform4fv(this.coeffsLoc, 1, this.coeffs, 0);
-            int i5 = this.xUnitLoc;
+            int i6 = this.xUnitLoc;
             float f2 = this.stepSize;
-            float f3 = i;
-            GLES20.glUniform2f(i5, (fArr[0] * f2) / f3, (f2 * fArr[1]) / f3);
+            float f3 = i2;
+            GLES20.glUniform2f(i6, (fArr[0] * f2) / f3, (f2 * fArr[1]) / f3);
         }
 
         public void setPlaneU() {
@@ -66,41 +66,41 @@ public class YuvConverter {
         this.threadChecker.checkIsOnValidThread();
         int width = textureBuffer.getWidth();
         int height = textureBuffer.getHeight();
-        int i = ((width + 7) / 8) * 8;
-        int i2 = (height + 1) / 2;
-        int i3 = height + i2;
-        final ByteBuffer nativeAllocateByteBuffer = JniCommon.nativeAllocateByteBuffer(i * i3);
-        int i4 = i / 4;
+        int i2 = ((width + 7) / 8) * 8;
+        int i3 = (height + 1) / 2;
+        int i4 = height + i3;
+        final ByteBuffer nativeAllocateByteBuffer = JniCommon.nativeAllocateByteBuffer(i2 * i4);
+        int i5 = i2 / 4;
         Matrix matrix = new Matrix();
         matrix.preTranslate(0.5f, 0.5f);
         matrix.preScale(1.0f, -1.0f);
         matrix.preTranslate(-0.5f, -0.5f);
-        this.i420TextureFrameBuffer.setSize(i4, i3);
+        this.i420TextureFrameBuffer.setSize(i5, i4);
         GLES20.glBindFramebuffer(36160, this.i420TextureFrameBuffer.getFrameBufferId());
         GlUtil.checkNoGLES2Error("glBindFramebuffer");
         this.shaderCallbacks.setPlaneY();
-        VideoFrameDrawer.drawTexture(this.drawer, textureBuffer, matrix, width, height, 0, 0, i4, height);
+        VideoFrameDrawer.drawTexture(this.drawer, textureBuffer, matrix, width, height, 0, 0, i5, height);
         this.shaderCallbacks.setPlaneU();
-        int i5 = i4 / 2;
-        VideoFrameDrawer.drawTexture(this.drawer, textureBuffer, matrix, width, height, 0, height, i5, i2);
+        int i6 = i5 / 2;
+        VideoFrameDrawer.drawTexture(this.drawer, textureBuffer, matrix, width, height, 0, height, i6, i3);
         this.shaderCallbacks.setPlaneV();
-        VideoFrameDrawer.drawTexture(this.drawer, textureBuffer, matrix, width, height, i5, height, i5, i2);
+        VideoFrameDrawer.drawTexture(this.drawer, textureBuffer, matrix, width, height, i6, height, i6, i3);
         GLES20.glReadPixels(0, 0, this.i420TextureFrameBuffer.getWidth(), this.i420TextureFrameBuffer.getHeight(), 6408, 5121, nativeAllocateByteBuffer);
         GlUtil.checkNoGLES2Error("YuvConverter.convert");
         GLES20.glBindFramebuffer(36160, 0);
-        int i6 = (i * height) + 0;
-        int i7 = i / 2;
-        int i8 = i6 + i7;
+        int i7 = (i2 * height) + 0;
+        int i8 = i2 / 2;
+        int i9 = i7 + i8;
         nativeAllocateByteBuffer.position(0);
-        nativeAllocateByteBuffer.limit(i6);
+        nativeAllocateByteBuffer.limit(i7);
         ByteBuffer slice = nativeAllocateByteBuffer.slice();
-        nativeAllocateByteBuffer.position(i6);
-        int i9 = ((i2 - 1) * i) + i7;
-        nativeAllocateByteBuffer.limit(i6 + i9);
+        nativeAllocateByteBuffer.position(i7);
+        int i10 = ((i3 - 1) * i2) + i8;
+        nativeAllocateByteBuffer.limit(i7 + i10);
         ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
-        nativeAllocateByteBuffer.position(i8);
-        nativeAllocateByteBuffer.limit(i8 + i9);
-        return JavaI420Buffer.wrap(width, height, slice, i, slice2, i, nativeAllocateByteBuffer.slice(), i, new Runnable() { // from class: org.webrtc._$$Lambda$YuvConverter$7X4NRtBwZ8S7c3AW7UqovfxQVrk
+        nativeAllocateByteBuffer.position(i9);
+        nativeAllocateByteBuffer.limit(i9 + i10);
+        return JavaI420Buffer.wrap(width, height, slice, i2, slice2, i2, nativeAllocateByteBuffer.slice(), i2, new Runnable() { // from class: org.webrtc._$$Lambda$YuvConverter$7X4NRtBwZ8S7c3AW7UqovfxQVrk
             @Override // java.lang.Runnable
             public final void run() {
                 JniCommon.nativeFreeByteBuffer(nativeAllocateByteBuffer);

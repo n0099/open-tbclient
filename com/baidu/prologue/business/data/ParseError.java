@@ -7,8 +7,8 @@ public class ParseError extends Exception {
     public final int errorCode;
     public final String errorMessage;
 
-    public ParseError(int i, String str) {
-        this.errorCode = i;
+    public ParseError(int i2, String str) {
+        this.errorCode = i2;
         this.errorMessage = str;
     }
 }

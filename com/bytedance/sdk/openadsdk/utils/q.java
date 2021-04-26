@@ -90,9 +90,9 @@ public class q {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < list.size(); i++) {
-            sb.append(list.get(i));
-            if (i != list.size() - 1) {
+        for (int i2 = 0; i2 < list.size(); i2++) {
+            sb.append(list.get(i2));
+            if (i2 != list.size() - 1) {
                 sb.append(",");
             }
         }
@@ -137,17 +137,17 @@ public class q {
         return a(file, file.lastModified(), 0);
     }
 
-    public static long a(File file, long j, int i) {
+    public static long a(File file, long j, int i2) {
         File[] listFiles;
         if (file != null && file.exists()) {
             j = Math.max(j, file.lastModified());
-            int i2 = i + 1;
-            if (i2 >= 50) {
+            int i3 = i2 + 1;
+            if (i3 >= 50) {
                 return j;
             }
             if (file.isDirectory() && (listFiles = file.listFiles()) != null) {
                 for (File file2 : listFiles) {
-                    j = Math.max(j, a(file2, j, i2));
+                    j = Math.max(j, a(file2, j, i3));
                 }
             }
         }

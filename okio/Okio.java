@@ -132,12 +132,12 @@ public final class Okio {
                             Segment segment = buffer.head;
                             int min = (int) Math.min(j, segment.limit - segment.pos);
                             outputStream.write(segment.data, segment.pos, min);
-                            int i = segment.pos + min;
-                            segment.pos = i;
+                            int i2 = segment.pos + min;
+                            segment.pos = i2;
                             long j2 = min;
                             j -= j2;
                             buffer.size -= j2;
-                            if (i == segment.limit) {
+                            if (i2 == segment.limit) {
                                 buffer.head = segment.pop();
                                 SegmentPool.recycle(segment);
                             }
@@ -161,10 +161,10 @@ public final class Okio {
 
                     @Override // okio.Source
                     public long read(Buffer buffer, long j) throws IOException {
-                        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                        if (i < 0) {
+                        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                        if (i2 < 0) {
                             throw new IllegalArgumentException("byteCount < 0: " + j);
-                        } else if (i == 0) {
+                        } else if (i2 == 0) {
                             return 0L;
                         } else {
                             try {

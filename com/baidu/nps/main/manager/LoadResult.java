@@ -5,8 +5,8 @@ public class LoadResult {
     public Class retClass;
     public int retCode;
 
-    public void setRet(int i, String str, Class cls) {
-        this.retCode = i;
+    public void setRet(int i2, String str, Class cls) {
+        this.retCode = i2;
         this.errMsg = str;
         this.retClass = cls;
     }

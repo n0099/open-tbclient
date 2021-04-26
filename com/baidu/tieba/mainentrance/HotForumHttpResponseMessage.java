@@ -3,8 +3,8 @@ package com.baidu.tieba.mainentrance;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.squareup.wire.Wire;
-import d.b.j0.o1.b;
-import d.b.j0.o1.c;
+import d.a.j0.o1.b;
+import d.a.j0.o1.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
@@ -18,8 +18,8 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
     public List<c> mTopicInfoList;
     public String mTopicInfoTitle;
 
-    public HotForumHttpResponseMessage(int i) {
-        super(i);
+    public HotForumHttpResponseMessage(int i2) {
+        super(i2);
     }
 
     public List<b> getForumInfoList() {
@@ -40,7 +40,7 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         HotForumResIdl hotForumResIdl = (HotForumResIdl) new Wire(new Class[0]).parseFrom(bArr, HotForumResIdl.class);
         if (hotForumResIdl == null) {
             return;

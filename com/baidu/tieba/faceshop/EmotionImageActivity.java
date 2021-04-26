@@ -15,22 +15,24 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.i0.z0.o;
+import d.a.i0.z0.o;
 /* loaded from: classes4.dex */
 public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f15244e;
+    public NavigationBar f15383e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GifView f15245f;
+    public GifView f15384f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f15246g;
+    public TbImageView f15385g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15247h;
-    public TextView i;
+    public TextView f15386h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f15387i;
     public String j;
     public String k;
     public String l;
@@ -61,15 +63,15 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            int i = EmotionImageActivity.this.t;
-            EmotionImageActivity.this.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(EmotionImageActivity.this.getPageContext().getPageActivity(), EmotionImageActivity.this.j, false, i != 1 ? i != 2 ? i != 3 ? "emotion_image" : "faceshop_from_gchat_detail" : "faceshop_from_pchat_detail" : "faceshop_from_forum_detail")));
+            int i2 = EmotionImageActivity.this.t;
+            EmotionImageActivity.this.sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(EmotionImageActivity.this.getPageContext().getPageActivity(), EmotionImageActivity.this.j, false, i2 != 1 ? i2 != 2 ? i2 != 3 ? "emotion_image" : "faceshop_from_gchat_detail" : "faceshop_from_pchat_detail" : "faceshop_from_forum_detail")));
         }
     }
 
     public final void h(Bundle bundle) {
-        int i = (getResources().getDisplayMetrics().density > 1.5d ? 1 : (getResources().getDisplayMetrics().density == 1.5d ? 0 : -1));
-        this.r = i < 0 ? 160 : 240;
-        this.s = i >= 0 ? 240 : 160;
+        int i2 = (getResources().getDisplayMetrics().density > 1.5d ? 1 : (getResources().getDisplayMetrics().density == 1.5d ? 0 : -1));
+        this.r = i2 < 0 ? 160 : 240;
+        this.s = i2 >= 0 ? 240 : 160;
         if (bundle != null) {
             this.j = bundle.getString("pid");
             this.k = bundle.getString("panme");
@@ -96,16 +98,16 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
     public final void i() {
         FrameLayout.LayoutParams layoutParams;
         NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-        this.f15244e = navigationBar;
+        this.f15383e = navigationBar;
         navigationBar.setTitleText(getString(R.string.emotion_image_title));
-        this.f15244e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a());
-        this.f15245f = (GifView) findViewById(R.id.gifview);
+        this.f15383e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a());
+        this.f15384f = (GifView) findViewById(R.id.gifview);
         if (this.p != 0 && this.q != 0) {
             layoutParams = new FrameLayout.LayoutParams(this.p, this.q, 17);
         } else {
             layoutParams = new FrameLayout.LayoutParams(this.r, this.s, 17);
         }
-        this.f15245f.setLayoutParams(layoutParams);
+        this.f15384f.setLayoutParams(layoutParams);
         boolean f2 = o.f();
         GifInfo gifInfo = new GifInfo();
         gifInfo.mSharpText = this.o;
@@ -117,30 +119,30 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
         } else {
             gifInfo.mStaticUrl = this.n;
         }
-        this.f15245f.w0(gifInfo);
-        this.f15246g = (TbImageView) findViewById(R.id.emotion_icon);
+        this.f15384f.w0(gifInfo);
+        this.f15385g = (TbImageView) findViewById(R.id.emotion_icon);
         if (!TextUtils.isEmpty(this.l)) {
-            this.f15246g.W(this.l, 10, false);
+            this.f15385g.V(this.l, 10, false);
         } else {
-            Bitmap f3 = d.b.j0.l0.b.f(this.j, "panel.png");
+            Bitmap f3 = d.a.j0.l0.b.f(this.j, "panel.png");
             if (f3 != null) {
-                new d.b.c.j.d.a(f3, false).h(this.f15246g);
+                new d.a.c.j.d.a(f3, false).h(this.f15385g);
             }
         }
         TextView textView = (TextView) findViewById(R.id.emotion_pname);
-        this.f15247h = textView;
+        this.f15386h = textView;
         textView.setText(this.k);
         TextView textView2 = (TextView) findViewById(R.id.emotion_detail);
-        this.i = textView2;
+        this.f15387i = textView2;
         textView2.setOnClickListener(new b());
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        getLayoutMode().k(i == 1);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        getLayoutMode().k(i2 == 1);
         getLayoutMode().j(findViewById(R.id.emotion_image_root));
-        this.f15244e.onChangeSkinType(getPageContext(), i);
+        this.f15383e.onChangeSkinType(getPageContext(), i2);
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity

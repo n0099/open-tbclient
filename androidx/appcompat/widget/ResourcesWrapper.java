@@ -26,23 +26,23 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
-    public XmlResourceParser getAnimation(int i) throws Resources.NotFoundException {
-        return this.mResources.getAnimation(i);
+    public XmlResourceParser getAnimation(int i2) throws Resources.NotFoundException {
+        return this.mResources.getAnimation(i2);
     }
 
     @Override // android.content.res.Resources
-    public boolean getBoolean(int i) throws Resources.NotFoundException {
-        return this.mResources.getBoolean(i);
+    public boolean getBoolean(int i2) throws Resources.NotFoundException {
+        return this.mResources.getBoolean(i2);
     }
 
     @Override // android.content.res.Resources
-    public int getColor(int i) throws Resources.NotFoundException {
-        return this.mResources.getColor(i);
+    public int getColor(int i2) throws Resources.NotFoundException {
+        return this.mResources.getColor(i2);
     }
 
     @Override // android.content.res.Resources
-    public ColorStateList getColorStateList(int i) throws Resources.NotFoundException {
-        return this.mResources.getColorStateList(i);
+    public ColorStateList getColorStateList(int i2) throws Resources.NotFoundException {
+        return this.mResources.getColorStateList(i2);
     }
 
     @Override // android.content.res.Resources
@@ -51,18 +51,18 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
-    public float getDimension(int i) throws Resources.NotFoundException {
-        return this.mResources.getDimension(i);
+    public float getDimension(int i2) throws Resources.NotFoundException {
+        return this.mResources.getDimension(i2);
     }
 
     @Override // android.content.res.Resources
-    public int getDimensionPixelOffset(int i) throws Resources.NotFoundException {
-        return this.mResources.getDimensionPixelOffset(i);
+    public int getDimensionPixelOffset(int i2) throws Resources.NotFoundException {
+        return this.mResources.getDimensionPixelOffset(i2);
     }
 
     @Override // android.content.res.Resources
-    public int getDimensionPixelSize(int i) throws Resources.NotFoundException {
-        return this.mResources.getDimensionPixelSize(i);
+    public int getDimensionPixelSize(int i2) throws Resources.NotFoundException {
+        return this.mResources.getDimensionPixelSize(i2);
     }
 
     @Override // android.content.res.Resources
@@ -71,19 +71,19 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
-    public Drawable getDrawable(int i) throws Resources.NotFoundException {
-        return this.mResources.getDrawable(i);
+    public Drawable getDrawable(int i2) throws Resources.NotFoundException {
+        return this.mResources.getDrawable(i2);
     }
 
     @Override // android.content.res.Resources
     @RequiresApi(15)
-    public Drawable getDrawableForDensity(int i, int i2) throws Resources.NotFoundException {
-        return this.mResources.getDrawableForDensity(i, i2);
+    public Drawable getDrawableForDensity(int i2, int i3) throws Resources.NotFoundException {
+        return this.mResources.getDrawableForDensity(i2, i3);
     }
 
     @Override // android.content.res.Resources
-    public float getFraction(int i, int i2, int i3) {
-        return this.mResources.getFraction(i, i2, i3);
+    public float getFraction(int i2, int i3, int i4) {
+        return this.mResources.getFraction(i2, i3, i4);
     }
 
     @Override // android.content.res.Resources
@@ -92,89 +92,89 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
-    public int[] getIntArray(int i) throws Resources.NotFoundException {
-        return this.mResources.getIntArray(i);
+    public int[] getIntArray(int i2) throws Resources.NotFoundException {
+        return this.mResources.getIntArray(i2);
     }
 
     @Override // android.content.res.Resources
-    public int getInteger(int i) throws Resources.NotFoundException {
-        return this.mResources.getInteger(i);
+    public int getInteger(int i2) throws Resources.NotFoundException {
+        return this.mResources.getInteger(i2);
     }
 
     @Override // android.content.res.Resources
-    public XmlResourceParser getLayout(int i) throws Resources.NotFoundException {
-        return this.mResources.getLayout(i);
+    public XmlResourceParser getLayout(int i2) throws Resources.NotFoundException {
+        return this.mResources.getLayout(i2);
     }
 
     @Override // android.content.res.Resources
-    public Movie getMovie(int i) throws Resources.NotFoundException {
-        return this.mResources.getMovie(i);
+    public Movie getMovie(int i2) throws Resources.NotFoundException {
+        return this.mResources.getMovie(i2);
     }
 
     @Override // android.content.res.Resources
-    public String getQuantityString(int i, int i2, Object... objArr) throws Resources.NotFoundException {
-        return this.mResources.getQuantityString(i, i2, objArr);
+    public String getQuantityString(int i2, int i3, Object... objArr) throws Resources.NotFoundException {
+        return this.mResources.getQuantityString(i2, i3, objArr);
     }
 
     @Override // android.content.res.Resources
-    public CharSequence getQuantityText(int i, int i2) throws Resources.NotFoundException {
-        return this.mResources.getQuantityText(i, i2);
+    public CharSequence getQuantityText(int i2, int i3) throws Resources.NotFoundException {
+        return this.mResources.getQuantityText(i2, i3);
     }
 
     @Override // android.content.res.Resources
-    public String getResourceEntryName(int i) throws Resources.NotFoundException {
-        return this.mResources.getResourceEntryName(i);
+    public String getResourceEntryName(int i2) throws Resources.NotFoundException {
+        return this.mResources.getResourceEntryName(i2);
     }
 
     @Override // android.content.res.Resources
-    public String getResourceName(int i) throws Resources.NotFoundException {
-        return this.mResources.getResourceName(i);
+    public String getResourceName(int i2) throws Resources.NotFoundException {
+        return this.mResources.getResourceName(i2);
     }
 
     @Override // android.content.res.Resources
-    public String getResourcePackageName(int i) throws Resources.NotFoundException {
-        return this.mResources.getResourcePackageName(i);
+    public String getResourcePackageName(int i2) throws Resources.NotFoundException {
+        return this.mResources.getResourcePackageName(i2);
     }
 
     @Override // android.content.res.Resources
-    public String getResourceTypeName(int i) throws Resources.NotFoundException {
-        return this.mResources.getResourceTypeName(i);
+    public String getResourceTypeName(int i2) throws Resources.NotFoundException {
+        return this.mResources.getResourceTypeName(i2);
     }
 
     @Override // android.content.res.Resources
-    public String getString(int i) throws Resources.NotFoundException {
-        return this.mResources.getString(i);
+    public String getString(int i2) throws Resources.NotFoundException {
+        return this.mResources.getString(i2);
     }
 
     @Override // android.content.res.Resources
-    public String[] getStringArray(int i) throws Resources.NotFoundException {
-        return this.mResources.getStringArray(i);
+    public String[] getStringArray(int i2) throws Resources.NotFoundException {
+        return this.mResources.getStringArray(i2);
     }
 
     @Override // android.content.res.Resources
-    public CharSequence getText(int i) throws Resources.NotFoundException {
-        return this.mResources.getText(i);
+    public CharSequence getText(int i2) throws Resources.NotFoundException {
+        return this.mResources.getText(i2);
     }
 
     @Override // android.content.res.Resources
-    public CharSequence[] getTextArray(int i) throws Resources.NotFoundException {
-        return this.mResources.getTextArray(i);
+    public CharSequence[] getTextArray(int i2) throws Resources.NotFoundException {
+        return this.mResources.getTextArray(i2);
     }
 
     @Override // android.content.res.Resources
-    public void getValue(int i, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
-        this.mResources.getValue(i, typedValue, z);
+    public void getValue(int i2, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
+        this.mResources.getValue(i2, typedValue, z);
     }
 
     @Override // android.content.res.Resources
     @RequiresApi(15)
-    public void getValueForDensity(int i, int i2, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
-        this.mResources.getValueForDensity(i, i2, typedValue, z);
+    public void getValueForDensity(int i2, int i3, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
+        this.mResources.getValueForDensity(i2, i3, typedValue, z);
     }
 
     @Override // android.content.res.Resources
-    public XmlResourceParser getXml(int i) throws Resources.NotFoundException {
-        return this.mResources.getXml(i);
+    public XmlResourceParser getXml(int i2) throws Resources.NotFoundException {
+        return this.mResources.getXml(i2);
     }
 
     @Override // android.content.res.Resources
@@ -183,18 +183,18 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
-    public TypedArray obtainTypedArray(int i) throws Resources.NotFoundException {
-        return this.mResources.obtainTypedArray(i);
+    public TypedArray obtainTypedArray(int i2) throws Resources.NotFoundException {
+        return this.mResources.obtainTypedArray(i2);
     }
 
     @Override // android.content.res.Resources
-    public InputStream openRawResource(int i) throws Resources.NotFoundException {
-        return this.mResources.openRawResource(i);
+    public InputStream openRawResource(int i2) throws Resources.NotFoundException {
+        return this.mResources.openRawResource(i2);
     }
 
     @Override // android.content.res.Resources
-    public AssetFileDescriptor openRawResourceFd(int i) throws Resources.NotFoundException {
-        return this.mResources.openRawResourceFd(i);
+    public AssetFileDescriptor openRawResourceFd(int i2) throws Resources.NotFoundException {
+        return this.mResources.openRawResourceFd(i2);
     }
 
     @Override // android.content.res.Resources
@@ -218,29 +218,29 @@ public class ResourcesWrapper extends Resources {
 
     @Override // android.content.res.Resources
     @RequiresApi(21)
-    public Drawable getDrawable(int i, Resources.Theme theme) throws Resources.NotFoundException {
-        return this.mResources.getDrawable(i, theme);
+    public Drawable getDrawable(int i2, Resources.Theme theme) throws Resources.NotFoundException {
+        return this.mResources.getDrawable(i2, theme);
     }
 
     @Override // android.content.res.Resources
     @RequiresApi(21)
-    public Drawable getDrawableForDensity(int i, int i2, Resources.Theme theme) {
-        return this.mResources.getDrawableForDensity(i, i2, theme);
+    public Drawable getDrawableForDensity(int i2, int i3, Resources.Theme theme) {
+        return this.mResources.getDrawableForDensity(i2, i3, theme);
     }
 
     @Override // android.content.res.Resources
-    public String getQuantityString(int i, int i2) throws Resources.NotFoundException {
-        return this.mResources.getQuantityString(i, i2);
+    public String getQuantityString(int i2, int i3) throws Resources.NotFoundException {
+        return this.mResources.getQuantityString(i2, i3);
     }
 
     @Override // android.content.res.Resources
-    public String getString(int i, Object... objArr) throws Resources.NotFoundException {
-        return this.mResources.getString(i, objArr);
+    public String getString(int i2, Object... objArr) throws Resources.NotFoundException {
+        return this.mResources.getString(i2, objArr);
     }
 
     @Override // android.content.res.Resources
-    public CharSequence getText(int i, CharSequence charSequence) {
-        return this.mResources.getText(i, charSequence);
+    public CharSequence getText(int i2, CharSequence charSequence) {
+        return this.mResources.getText(i2, charSequence);
     }
 
     @Override // android.content.res.Resources
@@ -249,7 +249,7 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
-    public InputStream openRawResource(int i, TypedValue typedValue) throws Resources.NotFoundException {
-        return this.mResources.openRawResource(i, typedValue);
+    public InputStream openRawResource(int i2, TypedValue typedValue) throws Resources.NotFoundException {
+        return this.mResources.openRawResource(i2, typedValue);
     }
 }

@@ -6,30 +6,30 @@ import java.util.Hashtable;
 public class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f6373a;
+    public final /* synthetic */ int f6558a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ boolean f6374b;
+    public final /* synthetic */ boolean f6559b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f6375c;
+    public final /* synthetic */ String f6560c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f6376d;
+    public final /* synthetic */ String f6561d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Hashtable f6377e;
+    public final /* synthetic */ Hashtable f6562e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ LBSAuthManager f6378f;
+    public final /* synthetic */ LBSAuthManager f6563f;
 
-    public j(LBSAuthManager lBSAuthManager, int i, boolean z, String str, String str2, Hashtable hashtable) {
-        this.f6378f = lBSAuthManager;
-        this.f6373a = i;
-        this.f6374b = z;
-        this.f6375c = str;
-        this.f6376d = str2;
-        this.f6377e = hashtable;
+    public j(LBSAuthManager lBSAuthManager, int i2, boolean z, String str, String str2, Hashtable hashtable) {
+        this.f6563f = lBSAuthManager;
+        this.f6558a = i2;
+        this.f6559b = z;
+        this.f6560c = str;
+        this.f6561d = str2;
+        this.f6562e = hashtable;
     }
 
     @Override // java.lang.Runnable
@@ -39,52 +39,52 @@ public class j implements Runnable {
         m mVar;
         m mVar2;
         boolean b3;
-        if (a.f6357a) {
+        if (a.f6542a) {
             StringBuilder sb = new StringBuilder();
             sb.append("status = ");
-            sb.append(this.f6373a);
+            sb.append(this.f6558a);
             sb.append("; forced = ");
-            sb.append(this.f6374b);
+            sb.append(this.f6559b);
             sb.append("checkAK = ");
-            b3 = this.f6378f.b(this.f6375c);
+            b3 = this.f6563f.b(this.f6560c);
             sb.append(b3);
             a.a(sb.toString());
         }
-        int i = this.f6373a;
-        if (i != 601 && !this.f6374b && i != -1) {
-            b2 = this.f6378f.b(this.f6375c);
+        int i2 = this.f6558a;
+        if (i2 != 601 && !this.f6559b && i2 != -1) {
+            b2 = this.f6563f.b(this.f6560c);
             if (!b2) {
-                if (602 == this.f6373a) {
-                    if (a.f6357a) {
+                if (602 == this.f6558a) {
+                    if (a.f6542a) {
                         a.a("authenticate wait  ");
                     }
-                    mVar = LBSAuthManager.f6350d;
+                    mVar = LBSAuthManager.f6535d;
                     if (mVar != null) {
-                        mVar2 = LBSAuthManager.f6350d;
+                        mVar2 = LBSAuthManager.f6535d;
                         mVar2.b();
                     }
-                } else if (a.f6357a) {
+                } else if (a.f6542a) {
                     a.a("authenticate else  ");
                 }
-                this.f6378f.a((String) null, this.f6375c);
+                this.f6563f.a((String) null, this.f6560c);
                 return;
             }
         }
-        if (a.f6357a) {
+        if (a.f6542a) {
             a.a("authenticate sendAuthRequest");
         }
-        context = LBSAuthManager.f6349a;
+        context = LBSAuthManager.f6534a;
         String[] b4 = b.b(context);
-        if (a.f6357a) {
+        if (a.f6542a) {
             a.a("authStrings.length:" + b4.length);
         }
         if (b4 == null || b4.length <= 1) {
-            this.f6378f.a(this.f6374b, this.f6376d, this.f6377e, this.f6375c);
+            this.f6563f.a(this.f6559b, this.f6561d, this.f6562e, this.f6560c);
             return;
         }
-        if (a.f6357a) {
+        if (a.f6542a) {
             a.a("more sha1 auth");
         }
-        this.f6378f.a(this.f6374b, this.f6376d, this.f6377e, b4, this.f6375c);
+        this.f6563f.a(this.f6559b, this.f6561d, this.f6562e, b4, this.f6560c);
     }
 }

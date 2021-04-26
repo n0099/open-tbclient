@@ -15,9 +15,9 @@ public class IMTrackManager {
     public static int retryCount;
 
     public static /* synthetic */ int access$208() {
-        int i = retryCount;
-        retryCount = i + 1;
-        return i;
+        int i2 = retryCount;
+        retryCount = i2 + 1;
+        return i2;
     }
 
     public static void clearIMTrack(Context context, IMPbGenerator iMPbGenerator) {
@@ -33,9 +33,9 @@ public class IMTrackManager {
         }
         IMPushUploadManager.getInstance(context).requestUpload(null, generateIMRealClient, "", new IMPushUploadResponseListener() { // from class: com.baidu.android.imsdk.upload.action.IMTrackManager.4
             @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
-            public void uploadResponse(int i, String str) {
-                LogUtils.d(IMTrackManager.TAG, "uploadIMRealAction response :" + i + ", msg :" + str);
-                if (i != 0) {
+            public void uploadResponse(int i2, String str) {
+                LogUtils.d(IMTrackManager.TAG, "uploadIMRealAction response :" + i2 + ", msg :" + str);
+                if (i2 != 0) {
                     IMPushUploadManager.getInstance(context).requestUpload(null, generateIMRealClient, "", null);
                 }
             }
@@ -48,15 +48,15 @@ public class IMTrackManager {
         if (generateIMClient != null && generateIMClient.length < 307200) {
             IMPushUploadManager.getInstance(context).requestUpload(null, generateIMClient, "", new IMPushUploadResponseListener() { // from class: com.baidu.android.imsdk.upload.action.IMTrackManager.2
                 @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
-                public void uploadResponse(int i, String str) {
-                    LogUtils.d(IMTrackManager.TAG, "uploadIMData response :" + i + ", msg :" + str);
+                public void uploadResponse(int i2, String str) {
+                    LogUtils.d(IMTrackManager.TAG, "uploadIMData response :" + i2 + ", msg :" + str);
                     Utility.setIMTrackTime(context);
-                    if (i == 0) {
+                    if (i2 == 0) {
                         IMTrackManager.clearIMTrack(context, iMPbGenerator);
                         int unused = IMTrackManager.retryCount = 0;
                         return;
                     }
-                    int i2 = 1;
+                    int i3 = 1;
                     if (IMTrackManager.retryCount < 1) {
                         IMTrackManager.requestUpload(context);
                         IMTrackManager.access$208();
@@ -67,9 +67,9 @@ public class IMTrackManager {
                     if (iMTrackFailCount >= 3) {
                         IMTrackManager.clearIMTrack(context, iMPbGenerator);
                     } else {
-                        i2 = 1 + iMTrackFailCount;
+                        i3 = 1 + iMTrackFailCount;
                     }
-                    Utility.setIMTrackFailCount(context, i2);
+                    Utility.setIMTrackFailCount(context, i3);
                 }
             });
             return;

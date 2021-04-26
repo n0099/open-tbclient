@@ -17,10 +17,11 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.c.e.p.k;
-import d.b.c.e.q.h;
-import d.b.i0.s.d.b;
-import d.b.i0.s.d.d;
+import d.a.c.e.p.k;
+import d.a.c.e.q.h;
+import d.a.i0.s.d.b;
+import d.a.i0.s.d.d;
+import org.webrtc.MediaStreamTrack;
 /* loaded from: classes3.dex */
 public class NotificationHelper {
     public static boolean IS_SUPPORT_PROGRESS_NOTIFICATION = true;
@@ -53,22 +54,22 @@ public class NotificationHelper {
         }
     }
 
-    public static boolean cancelNotification(Context context, int i) {
+    public static boolean cancelNotification(Context context, int i2) {
         if (context == null) {
             return false;
         }
         try {
-            ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(context.getPackageName(), i);
+            ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(context.getPackageName(), i2);
             return true;
         } catch (Exception unused) {
             return false;
         }
     }
 
-    public static boolean cancelNotificationExceptSpecific(Context context, int i, int i2) {
-        if (context != null && i != i2) {
+    public static boolean cancelNotificationExceptSpecific(Context context, int i2, int i3) {
+        if (context != null && i2 != i3) {
             try {
-                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(context.getPackageName(), i);
+                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(context.getPackageName(), i2);
                 return true;
             } catch (Exception unused) {
             }
@@ -76,17 +77,17 @@ public class NotificationHelper {
         return false;
     }
 
-    public static Notification createNotificationByAPI(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z, RemoteViews remoteViews, boolean z2) {
+    public static Notification createNotificationByAPI(Context context, int i2, String str, int i3, String str2, String str3, PendingIntent pendingIntent, boolean z, RemoteViews remoteViews, boolean z2) {
         try {
             if (Build.VERSION.SDK_INT < 26) {
                 if (PROGRESS_BUILDER == null) {
                     PROGRESS_BUILDER = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL);
                 }
-                if (i != lastProgressNotifiyId) {
+                if (i2 != lastProgressNotifiyId) {
                     PROGRESS_BUILDER.setWhen(System.currentTimeMillis());
                 }
-                lastProgressNotifiyId = i;
-                PROGRESS_BUILDER.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i2, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.tb_launcher_icon)).getBitmap());
+                lastProgressNotifiyId = i2;
+                PROGRESS_BUILDER.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i3, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.tb_launcher_icon)).getBitmap());
                 PROGRESS_BUILDER.setContent(remoteViews);
                 Notification build = PROGRESS_BUILDER.build();
                 build.contentIntent = pendingIntent;
@@ -95,11 +96,11 @@ public class NotificationHelper {
             if (PROGRESS_BUILDER_2 == null) {
                 PROGRESS_BUILDER_2 = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL_2);
             }
-            if (i != lastProgressNotifiyId) {
+            if (i2 != lastProgressNotifiyId) {
                 PROGRESS_BUILDER_2.setWhen(System.currentTimeMillis());
             }
-            lastProgressNotifiyId = i;
-            PROGRESS_BUILDER_2.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i2, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.tb_launcher_icon)).getBitmap());
+            lastProgressNotifiyId = i2;
+            PROGRESS_BUILDER_2.setContentTitle(str3).setSmallIcon(17301633).setContentInfo(str2).setTicker(str).setProgress(100, i3, false).setLargeIcon(((BitmapDrawable) TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.tb_launcher_icon)).getBitmap());
             PROGRESS_BUILDER_2.setContent(remoteViews);
             Notification build2 = PROGRESS_BUILDER_2.build();
             build2.contentIntent = pendingIntent;
@@ -114,7 +115,7 @@ public class NotificationHelper {
         if (!b.M() && b.R()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
-                AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+                AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
                 if (d.d().u()) {
@@ -152,7 +153,7 @@ public class NotificationHelper {
         return builder.build();
     }
 
-    public static boolean processNotification(Context context, int i, Notification notification) {
+    public static boolean processNotification(Context context, int i2, Notification notification) {
         try {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
             if (Build.VERSION.SDK_INT >= 26) {
@@ -166,7 +167,7 @@ public class NotificationHelper {
             if (notification == null || notificationManager == null) {
                 return false;
             }
-            notificationManager.notify(context.getPackageName(), i, notification);
+            notificationManager.notify(context.getPackageName(), i2, notification);
             return true;
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
@@ -185,7 +186,7 @@ public class NotificationHelper {
         }
     }
 
-    public static boolean processNotificationWithSoundAndVibration(Context context, int i, Notification notification, SwitchData switchData) {
+    public static boolean processNotificationWithSoundAndVibration(Context context, int i2, Notification notification, SwitchData switchData) {
         try {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
             if (Build.VERSION.SDK_INT >= 26) {
@@ -202,7 +203,7 @@ public class NotificationHelper {
             if (notification == null || notificationManager == null) {
                 return false;
             }
-            notificationManager.notify(context.getPackageName(), i, notification);
+            notificationManager.notify(context.getPackageName(), i2, notification);
             return true;
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
@@ -210,7 +211,7 @@ public class NotificationHelper {
         }
     }
 
-    public static boolean showBaseNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, RemoteViews remoteViews, Bitmap bitmap, boolean z) {
+    public static boolean showBaseNotification(Context context, int i2, String str, String str2, String str3, PendingIntent pendingIntent, RemoteViews remoteViews, Bitmap bitmap, boolean z) {
         Notification notif_excption;
         NotificationCompat.Builder builder;
         if (pendingIntent == null) {
@@ -263,36 +264,36 @@ public class NotificationHelper {
             notif_excption.ledOffMS = 700;
             notif_excption.flags = 1 | notif_excption.flags;
         }
-        return processNotificationWithSoundAndVibration(context, i, notif_excption, switchData);
+        return processNotificationWithSoundAndVibration(context, i2, notif_excption, switchData);
     }
 
-    public static boolean showCustomViewNotification(Context context, int i, String str, String str2, PendingIntent pendingIntent, RemoteViews remoteViews, boolean z) {
-        return showBaseNotification(context, i, str, null, str2, pendingIntent, remoteViews, null, z);
+    public static boolean showCustomViewNotification(Context context, int i2, String str, String str2, PendingIntent pendingIntent, RemoteViews remoteViews, boolean z) {
+        return showBaseNotification(context, i2, str, null, str2, pendingIntent, remoteViews, null, z);
     }
 
-    public static boolean showLargeIconNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, Bitmap bitmap, boolean z) {
-        return showBaseNotification(context, i, str, str2, str3, pendingIntent, null, bitmap, z);
+    public static boolean showLargeIconNotification(Context context, int i2, String str, String str2, String str3, PendingIntent pendingIntent, Bitmap bitmap, boolean z) {
+        return showBaseNotification(context, i2, str, str2, str3, pendingIntent, null, bitmap, z);
     }
 
-    public static boolean showNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, boolean z) {
-        return showBaseNotification(context, i, str, str2, str3, pendingIntent, null, null, z);
+    public static boolean showNotification(Context context, int i2, String str, String str2, String str3, PendingIntent pendingIntent, boolean z) {
+        return showBaseNotification(context, i2, str, str2, str3, pendingIntent, null, null, z);
     }
 
-    public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z) {
+    public static synchronized boolean showProgressNotification(Context context, int i2, String str, int i3, String str2, String str3, PendingIntent pendingIntent, boolean z) {
         boolean showProgressNotification;
         synchronized (NotificationHelper.class) {
-            showProgressNotification = showProgressNotification(context, i, str, i2, str2, str3, pendingIntent, z, null, true);
+            showProgressNotification = showProgressNotification(context, i2, str, i3, str2, str3, pendingIntent, z, null, true);
         }
         return showProgressNotification;
     }
 
-    public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z, RemoteViews remoteViews, boolean z2) {
+    public static synchronized boolean showProgressNotification(Context context, int i2, String str, int i3, String str2, String str3, PendingIntent pendingIntent, boolean z, RemoteViews remoteViews, boolean z2) {
         synchronized (NotificationHelper.class) {
             PendingIntent activity = pendingIntent == null ? PendingIntent.getActivity(context, 0, new Intent(), 0) : pendingIntent;
             if (!IS_SUPPORT_PROGRESS_NOTIFICATION) {
-                return showNotification(context, i, str3, str3, str, activity, z);
+                return showNotification(context, i2, str3, str3, str, activity, z);
             }
-            Notification createNotificationByAPI = createNotificationByAPI(context, i, str, i2, str2, str3, activity, z, remoteViews, z2);
+            Notification createNotificationByAPI = createNotificationByAPI(context, i2, str, i3, str2, str3, activity, z, remoteViews, z2);
             if (createNotificationByAPI == null) {
                 return false;
             }
@@ -303,14 +304,14 @@ public class NotificationHelper {
                     createNotificationByAPI.flags = 2;
                 }
             }
-            return processNotification(context, i, createNotificationByAPI);
+            return processNotification(context, i2, createNotificationByAPI);
         }
     }
 
-    public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, boolean z) {
+    public static synchronized boolean showProgressNotification(Context context, int i2, String str, int i3, String str2, String str3, boolean z) {
         boolean showProgressNotification;
         synchronized (NotificationHelper.class) {
-            showProgressNotification = showProgressNotification(context, i, str, i2, str2, str3, null, z);
+            showProgressNotification = showProgressNotification(context, i2, str, i3, str2, str3, null, z);
         }
         return showProgressNotification;
     }

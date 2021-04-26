@@ -6,7 +6,7 @@ public enum PMSConstants$CustomerService {
     
     public int type;
 
-    PMSConstants$CustomerService(int i) {
-        this.type = i;
+    PMSConstants$CustomerService(int i2) {
+        this.type = i2;
     }
 }

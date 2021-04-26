@@ -11,19 +11,19 @@ import java.util.List;
 public abstract class cd {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f8732a = 1000;
+    public static int f9045a = 1000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f8733b = 64;
+    public static int f9046b = 64;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f8734c = dc.a("<policy-file-request/>\u0000");
+    public static final byte[] f9047c = dc.a("<policy-file-request/>\u0000");
 
     /* renamed from: d  reason: collision with root package name */
-    public by.b f8735d = null;
+    public by.b f9048d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public cq.a f8736e = null;
+    public cq.a f9049e = null;
 
     /* loaded from: classes2.dex */
     public enum a {
@@ -80,7 +80,7 @@ public abstract class cd {
     public abstract List<cq> c(ByteBuffer byteBuffer) throws ch;
 
     public cx d(ByteBuffer byteBuffer) throws cj {
-        return a(byteBuffer, this.f8735d);
+        return a(byteBuffer, this.f9048d);
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -159,14 +159,14 @@ public abstract class cd {
         return Collections.singletonList(allocate);
     }
 
-    public int a(int i) throws ck, ch {
-        if (i >= 0) {
-            return i;
+    public int a(int i2) throws ck, ch {
+        if (i2 >= 0) {
+            return i2;
         }
         throw new ch(1002, "Negative count");
     }
 
     public void a(by.b bVar) {
-        this.f8735d = bVar;
+        this.f9048d = bVar;
     }
 }

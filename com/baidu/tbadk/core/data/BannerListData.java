@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.tbadkCore.data.AppData;
-import d.b.c.e.m.b;
-import d.b.j0.s2.v;
-import d.b.j0.x.e0.n;
+import d.a.c.e.m.b;
+import d.a.j0.s2.w;
+import d.a.j0.x.e0.n;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -52,10 +52,10 @@ public class BannerListData implements Serializable {
         }
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
-        for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).E3)) {
-                sb.append(this.advertAppList.get(i).E3);
-                if (i != size - 1) {
+        for (int i2 = 0; i2 < size; i2++) {
+            if (!TextUtils.isEmpty(this.advertAppList.get(i2).E3)) {
+                sb.append(this.advertAppList.get(i2).E3);
+                if (i2 != size - 1) {
                     sb.append(",");
                 }
             }
@@ -76,34 +76,34 @@ public class BannerListData implements Serializable {
     }
 
     public void parserProtobuf(BannerList bannerList) {
-        List<AppData> o = v.p().o();
-        if (o != null) {
-            o.clear();
+        List<AppData> j = w.p().j();
+        if (j != null) {
+            j.clear();
         }
         if (bannerList == null) {
             return;
         }
         List<App> list = bannerList.app;
         if (list != null && list.size() > 0) {
-            for (int i = 0; i < list.size(); i++) {
-                if (list.get(i) != null) {
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                if (list.get(i2) != null) {
                     AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-                    advertAppInfo.H4(list.get(i));
+                    advertAppInfo.H4(list.get(i2));
                     this.advertAppList.add(advertAppInfo);
-                    if (o != null) {
-                        o.add(advertAppInfo.e4);
+                    if (j != null) {
+                        j.add(advertAppInfo.e4);
                     }
                 }
             }
         }
-        v.p().n();
+        w.p().i();
         Collections.sort(this.advertAppList, new a(this));
         List<FeedForumInfo> list2 = bannerList.feed_forum;
         if (list2 != null && list2.size() > 0) {
-            for (int i2 = 0; i2 < list2.size(); i2++) {
-                if (list2.get(i2) != null) {
+            for (int i3 = 0; i3 < list2.size(); i3++) {
+                if (list2.get(i3) != null) {
                     FeedForumData feedForumData = new FeedForumData();
-                    feedForumData.parseFromFeedForumInfo(list2.get(i2));
+                    feedForumData.parseFromFeedForumInfo(list2.get(i3));
                     this.feedForumList.add(feedForumData);
                 }
             }
@@ -115,7 +115,7 @@ public class BannerListData implements Serializable {
         }
     }
 
-    public void setFeedForumLiked(String str, int i) {
+    public void setFeedForumLiked(String str, int i2) {
         ArrayList<FeedForumData> arrayList = this.feedForumList;
         if (arrayList == null || str == null) {
             return;
@@ -124,7 +124,7 @@ public class BannerListData implements Serializable {
         while (it.hasNext()) {
             FeedForumData next = it.next();
             if (next != null && next.getForumId() != null && next.getForumId().equals(str)) {
-                next.setIsLike(i);
+                next.setIsLike(i2);
                 return;
             }
         }
@@ -139,7 +139,7 @@ public class BannerListData implements Serializable {
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return;
             }
-            for (int i = 0; i < optJSONArray.length(); i++) {
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());

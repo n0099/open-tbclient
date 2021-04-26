@@ -1,66 +1,67 @@
 package io.reactivex.internal.util;
 
-import f.b.a0.a;
-import f.b.b;
-import f.b.g;
-import f.b.i;
-import f.b.o;
-import f.b.r;
-import g.d.c;
-import g.d.d;
+import io.reactivex.CompletableObserver;
+import io.reactivex.FlowableSubscriber;
+import io.reactivex.MaybeObserver;
+import io.reactivex.Observer;
+import io.reactivex.SingleObserver;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.plugins.RxJavaPlugins;
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
 /* loaded from: classes7.dex */
-public enum EmptyComponent implements g<Object>, o<Object>, i<Object>, r<Object>, b, d, f.b.t.b {
+public enum EmptyComponent implements FlowableSubscriber<Object>, Observer<Object>, MaybeObserver<Object>, SingleObserver<Object>, CompletableObserver, Subscription, Disposable {
     INSTANCE;
 
-    public static <T> o<T> asObserver() {
+    public static <T> Observer<T> asObserver() {
         return INSTANCE;
     }
 
-    public static <T> c<T> asSubscriber() {
+    public static <T> Subscriber<T> asSubscriber() {
         return INSTANCE;
     }
 
-    @Override // g.d.d
+    @Override // org.reactivestreams.Subscription
     public void cancel() {
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         return true;
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onComplete() {
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onError(Throwable th) {
-        a.f(th);
+        RxJavaPlugins.onError(th);
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onNext(Object obj) {
     }
 
-    @Override // f.b.o
-    public void onSubscribe(f.b.t.b bVar) {
-        bVar.dispose();
+    @Override // io.reactivex.Observer
+    public void onSubscribe(Disposable disposable) {
+        disposable.dispose();
     }
 
-    @Override // f.b.i
+    @Override // io.reactivex.MaybeObserver
     public void onSuccess(Object obj) {
     }
 
-    @Override // g.d.d
+    @Override // org.reactivestreams.Subscription
     public void request(long j) {
     }
 
-    @Override // f.b.g, g.d.c
-    public void onSubscribe(d dVar) {
-        dVar.cancel();
+    @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
+    public void onSubscribe(Subscription subscription) {
+        subscription.cancel();
     }
 }

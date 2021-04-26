@@ -9,10 +9,10 @@ public class a extends com.baidu.searchbox.dns.d.b.a {
     public c G;
     public int H;
 
-    public a(boolean z, String str, int i) {
+    public a(boolean z, String str, int i2) {
         this.E = z;
         this.F = str;
-        this.H = i;
+        this.H = i2;
     }
 
     private void a(com.baidu.searchbox.dns.d.a.b bVar) {

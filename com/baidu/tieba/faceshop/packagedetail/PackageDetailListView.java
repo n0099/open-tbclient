@@ -49,8 +49,8 @@ public class PackageDetailListView extends BdListView {
         this.L = false;
     }
 
-    public PackageDetailListView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public PackageDetailListView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.L = false;
     }
 }

@@ -24,7 +24,7 @@ import com.baidu.sapi2.utils.enums.QrLoginAction;
 import com.baidu.sapi2.views.LoadingDialog;
 import com.baidu.sapi2.views.ViewUtility;
 import com.sina.weibo.sdk.constant.WBConstants;
-import d.b.y.a.f;
+import d.a.y.a.f;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,63 +32,63 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class OauthActivity extends BaseActivity {
-    public static final String A = "extra_calling_app_id";
-    public static final String B = "extra_oauth_result_json";
-    public static final String C = "extra_redirect_url";
-    public static final String D = "extra_scope";
-    public static final String E = "extra_oauth_type";
-    public static final String F = "extra_qr_code_url";
-    public static final String G = "extra_oauth_sdk_version";
-    public static final String H = "extra_pass_sdk_version";
-    public static final String I = "extra_oauth_state";
-    public static final String J = "2.0.0";
-    public static final int K = -201;
-    public static final int L = -202;
-    public static final int M = -204;
-    public static final int N = -205;
-    public static final int O = -208;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
+    public static final String E = "extra_calling_app_id";
+    public static final String F = "extra_oauth_result_json";
+    public static final String G = "extra_redirect_url";
+    public static final String H = "extra_scope";
+    public static final String I = "extra_oauth_type";
+    public static final String J = "extra_qr_code_url";
+    public static final String K = "extra_oauth_sdk_version";
+    public static final String L = "extra_pass_sdk_version";
+    public static final String M = "extra_oauth_state";
+    public static final String N = "2.0.0";
+    public static final int O = -201;
+    public static final int P = -202;
+    public static final int Q = -204;
+    public static final int R = -205;
+    public static final int S = -208;
+    public Dialog A;
+    public int B = 0;
+    public String C;
+    public boolean D;
     public String t;
     public String u;
     public String v;
-    public Dialog w;
-    public int x = 0;
+    public String w;
+    public String x;
     public String y;
-    public boolean z;
+    public String z;
 
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
-        this.p = getCallingPackage();
+        this.t = getCallingPackage();
         Intent intent = getIntent();
-        this.q = intent.getStringExtra(A);
-        this.r = intent.getStringExtra(C);
-        this.s = intent.getStringExtra(D);
-        this.x = intent.getIntExtra(E, 0);
-        this.y = intent.getStringExtra(F);
-        this.t = intent.getStringExtra(I);
-        this.u = intent.getStringExtra(G);
-        if (TextUtils.isEmpty(this.p) || TextUtils.isEmpty(this.q) || TextUtils.isEmpty(this.r) || TextUtils.isEmpty(this.s)) {
+        this.u = intent.getStringExtra(E);
+        this.v = intent.getStringExtra(G);
+        this.w = intent.getStringExtra(H);
+        this.B = intent.getIntExtra(I, 0);
+        this.C = intent.getStringExtra(J);
+        this.x = intent.getStringExtra(M);
+        this.y = intent.getStringExtra(K);
+        if (TextUtils.isEmpty(this.t) || TextUtils.isEmpty(this.u) || TextUtils.isEmpty(this.v) || TextUtils.isEmpty(this.w)) {
             setResult(0, a(-202));
             finish();
-            this.z = true;
+            this.D = true;
         }
-        if (!TextUtils.isEmpty(this.y) && !a(this.y)) {
+        if (!TextUtils.isEmpty(this.C) && !a(this.C)) {
             setResult(0, a(-202));
             finish();
-            this.z = true;
+            this.D = true;
         }
-        String stringExtra = intent.getStringExtra(H);
-        this.v = stringExtra;
-        if (TextUtils.isEmpty(stringExtra) || SapiUtils.versionCompareTo(this.v, "9.2.9.8") <= 0) {
+        String stringExtra = intent.getStringExtra(L);
+        this.z = stringExtra;
+        if (TextUtils.isEmpty(stringExtra) || SapiUtils.versionCompareTo(this.z, "9.3.1") <= 0) {
             return;
         }
-        setResult(0, a(O));
+        setResult(0, a(S));
         finish();
-        this.z = true;
+        this.D = true;
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
@@ -98,7 +98,7 @@ public class OauthActivity extends BaseActivity {
             setContentView(f.layout_sapi_sdk_webview_with_title_bar);
             if (b()) {
                 init();
-                if (this.z) {
+                if (this.D) {
                     return;
                 }
                 setupViews();
@@ -111,7 +111,7 @@ public class OauthActivity extends BaseActivity {
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
-        if (this.x == 1) {
+        if (this.B == 1) {
             SapiAccountManager.getInstance().getAccountService().qrAppLogin(new SapiCallback<QrAppLoginResult>() { // from class: com.baidu.sapi2.activity.OauthActivity.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.sapi2.callback.SapiCallback
@@ -130,7 +130,7 @@ public class OauthActivity extends BaseActivity {
                 @Override // com.baidu.sapi2.callback.SapiCallback
                 public void onSuccess(QrAppLoginResult qrAppLoginResult) {
                 }
-            }, this.y, QrLoginAction.CANCEL.getName());
+            }, this.C, QrLoginAction.CANCEL.getName());
         }
         a();
     }
@@ -155,7 +155,7 @@ public class OauthActivity extends BaseActivity {
         });
         this.sapiWebView.setAuthorizationListener(new AuthorizationListener() { // from class: com.baidu.sapi2.activity.OauthActivity.4
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-            public void onFailed(int i, String str) {
+            public void onFailed(int i2, String str) {
             }
 
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
@@ -168,7 +168,7 @@ public class OauthActivity extends BaseActivity {
             @Override // com.baidu.sapi2.SapiJsCallBacks.BdOauthCallback
             public void onCallback(String str) {
                 Intent intent = new Intent();
-                if (OauthActivity.this.x == 0) {
+                if (OauthActivity.this.B == 0) {
                     Map<String, String> urlParamsToMap = SapiUtils.urlParamsToMap(str.substring(str.indexOf("#") + 1, str.length()));
                     if (urlParamsToMap.containsKey("error")) {
                         OauthActivity oauthActivity = OauthActivity.this;
@@ -183,7 +183,7 @@ public class OauthActivity extends BaseActivity {
                             jSONObject.put("extra", urlParamsToMap.get("extra"));
                             jSONObject.put("code", urlParamsToMap.get("code"));
                             jSONObject.put("state", urlParamsToMap.get("state"));
-                            intent.putExtra(OauthActivity.B, jSONObject.toString());
+                            intent.putExtra(OauthActivity.F, jSONObject.toString());
                             OauthActivity.this.setResult(-1, intent);
                         } catch (JSONException e2) {
                             Log.e(e2);
@@ -202,10 +202,10 @@ public class OauthActivity extends BaseActivity {
                                 jSONObject3.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, jSONObject2.optString("access_token"));
                                 jSONObject3.put("openid", jSONObject2.optString("openid"));
                                 jSONObject3.put("expiresIn", jSONObject2.optString("expires_in"));
-                                jSONObject3.put("scope", OauthActivity.this.s);
+                                jSONObject3.put("scope", OauthActivity.this.w);
                                 jSONObject3.put("code", jSONObject2.optString("authorization_code"));
                                 jSONObject2.put("state", jSONObject2.optString("state"));
-                                intent.putExtra(OauthActivity.B, jSONObject3.toString());
+                                intent.putExtra(OauthActivity.F, jSONObject3.toString());
                                 OauthActivity.this.setResult(-1, intent);
                             }
                             OauthActivity.this.d();
@@ -224,9 +224,9 @@ public class OauthActivity extends BaseActivity {
             }
         };
         SapiJsCallBacks.BdOauthLoginParams bdOauthLoginParams = new SapiJsCallBacks.BdOauthLoginParams();
-        bdOauthLoginParams.callingPkg = this.p;
-        bdOauthLoginParams.callingAppId = this.q;
-        bdOauthLoginParams.redirectUrl = this.r;
+        bdOauthLoginParams.callingPkg = this.t;
+        bdOauthLoginParams.callingAppId = this.u;
+        bdOauthLoginParams.redirectUrl = this.v;
         bdOauthLoginParams.callback = bdOauthCallback;
         this.sapiWebView.setBdOauthLoginParams(bdOauthLoginParams);
         if (SapiAccountManager.getInstance().isLogin() && !TextUtils.isEmpty(SapiUtils.getCookiePtoken())) {
@@ -254,17 +254,17 @@ public class OauthActivity extends BaseActivity {
             @Override // com.baidu.sapi2.callback.SsoHashCallback, com.baidu.sapi2.callback.SapiCallback
             public void onFinish() {
                 OauthActivity oauthActivity = OauthActivity.this;
-                ViewUtility.dismissDialog(oauthActivity, oauthActivity.w);
+                ViewUtility.dismissDialog(oauthActivity, oauthActivity.A);
             }
 
             @Override // com.baidu.sapi2.callback.SsoHashCallback, com.baidu.sapi2.callback.SapiCallback
             public void onStart() {
                 OauthActivity oauthActivity = OauthActivity.this;
-                oauthActivity.w = new LoadingDialog.Builder(oauthActivity).setMessage("正在加载中...").setCancelable(false).setCancelOutside(false).createDialog();
-                if (OauthActivity.this.isFinishing() || OauthActivity.this.w.isShowing()) {
+                oauthActivity.A = new LoadingDialog.Builder(oauthActivity).setMessage("正在加载中...").setCancelable(false).setCancelOutside(false).createDialog();
+                if (OauthActivity.this.isFinishing() || OauthActivity.this.A.isShowing()) {
                     return;
                 }
-                OauthActivity.this.w.show();
+                OauthActivity.this.A.show();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -275,32 +275,32 @@ public class OauthActivity extends BaseActivity {
                 hashMap.put("client", "android");
                 hashMap.put("clientfrom", "native");
                 hashMap.put("suppcheck", "1");
-                if (OauthActivity.this.x == 0) {
-                    if (SapiUtils.versionCompareTo(OauthActivity.this.u, OauthActivity.J) >= 0) {
+                if (OauthActivity.this.B == 0) {
+                    if (SapiUtils.versionCompareTo(OauthActivity.this.y, OauthActivity.N) >= 0) {
                         hashMap.put(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "sso_auth_code");
-                        hashMap.put("state", OauthActivity.this.t);
+                        hashMap.put("state", OauthActivity.this.x);
                     } else {
                         hashMap.put(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "sso_token");
                     }
                     hashMap.put("display", "mobile");
-                    hashMap.put("scope", OauthActivity.this.s);
+                    hashMap.put("scope", OauthActivity.this.w);
                     hashMap.put("sso_hash", ssoHashResult.ssoHash);
-                    hashMap.put("client_id", OauthActivity.this.q);
-                    hashMap.put(WBConstants.AUTH_PARAMS_REDIRECT_URL, OauthActivity.this.r);
+                    hashMap.put("client_id", OauthActivity.this.u);
+                    hashMap.put(WBConstants.AUTH_PARAMS_REDIRECT_URL, OauthActivity.this.v);
                     str = (SapiAccountManager.getInstance().getConfignation().environment.getDeviceUrl() + "/oauth/2.0/authorize") + SapiUtils.mapToUrlParams(hashMap, false);
                 } else {
                     hashMap.put("oauth_sso_hash", ssoHashResult.ssoHash);
-                    hashMap.put("oauth_redirect_uri", OauthActivity.this.r);
-                    if (SapiUtils.versionCompareTo(OauthActivity.this.u, OauthActivity.J) >= 0) {
+                    hashMap.put("oauth_redirect_uri", OauthActivity.this.v);
+                    if (SapiUtils.versionCompareTo(OauthActivity.this.y, OauthActivity.N) >= 0) {
                         hashMap.put("getauthorizationcode", "1");
                     } else {
                         hashMap.put("getaccesstoken", "1");
                     }
-                    str = OauthActivity.this.y + SapiUtils.mapToUrlParams(hashMap, true);
+                    str = OauthActivity.this.C + SapiUtils.mapToUrlParams(hashMap, true);
                 }
                 OauthActivity.this.sapiWebView.loadUrl(str);
             }
-        }, this.p, this.q);
+        }, this.t, this.u);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -354,8 +354,8 @@ public class OauthActivity extends BaseActivity {
         Uri parse = Uri.parse(str);
         parse.getHost();
         String[] strArr = {Uri.decode(parse.getQueryParameter("sign")), Uri.decode(parse.getQueryParameter("client_id")), Uri.decode(parse.getQueryParameter("cmd")), Uri.decode(parse.getQueryParameter("tpl"))};
-        for (int i = 0; i < 4; i++) {
-            if (TextUtils.isEmpty(strArr[i])) {
+        for (int i2 = 0; i2 < 4; i2++) {
+            if (TextUtils.isEmpty(strArr[i2])) {
                 return false;
             }
         }
@@ -379,23 +379,23 @@ public class OauthActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Intent a(int i, String str) {
+    public Intent a(int i2, String str) {
         Intent intent = new Intent();
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("code", i);
+            jSONObject.put("code", i2);
             if (!TextUtils.isEmpty(str)) {
                 jSONObject.put("msg", str);
             }
         } catch (JSONException e2) {
             Log.e(e2);
         }
-        intent.putExtra(B, jSONObject.toString());
+        intent.putExtra(F, jSONObject.toString());
         return intent;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Intent a(int i) {
-        return a(i, "");
+    public Intent a(int i2) {
+        return a(i2, "");
     }
 }

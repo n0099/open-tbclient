@@ -19,8 +19,8 @@ public class AppIconSetting implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public AppIconSetting[] newArray(int i) {
-            return new AppIconSetting[i];
+        public AppIconSetting[] newArray(int i2) {
+            return new AppIconSetting[i2];
         }
     };
     public static final String DEFAULT_LARGE_ICON = "di";
@@ -45,7 +45,7 @@ public class AppIconSetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                d.k.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                d.j.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -70,7 +70,7 @@ public class AppIconSetting implements Parcelable {
             return appIconSetting;
         }
         str = "no such tag app_icon_setting";
-        d.k.a.a.a.b(TAG, str);
+        d.j.a.a.a.b(TAG, str);
         return appIconSetting;
     }
 
@@ -100,7 +100,7 @@ public class AppIconSetting implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeByte(this.defaultLargeIcon ? (byte) 1 : (byte) 0);
         parcel.writeString(this.largeIconUrl);
     }

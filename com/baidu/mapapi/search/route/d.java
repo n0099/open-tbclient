@@ -14,7 +14,7 @@ public final class d implements Parcelable.Creator<DrivingRouteLine> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public DrivingRouteLine[] newArray(int i) {
-        return new DrivingRouteLine[i];
+    public DrivingRouteLine[] newArray(int i2) {
+        return new DrivingRouteLine[i2];
     }
 }

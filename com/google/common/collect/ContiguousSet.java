@@ -1,7 +1,7 @@
 package com.google.common.collect;
 
 import com.google.common.collect.ImmutableSortedSet;
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.lang.Comparable;
 import java.util.NavigableSet;
 import java.util.NoSuchElementException;
@@ -20,12 +20,12 @@ public abstract class ContiguousSet<C extends Comparable> extends ImmutableSorte
         throw new UnsupportedOperationException();
     }
 
-    public static ContiguousSet<Integer> closed(int i, int i2) {
-        return create(Range.closed(Integer.valueOf(i), Integer.valueOf(i2)), DiscreteDomain.integers());
+    public static ContiguousSet<Integer> closed(int i2, int i3) {
+        return create(Range.closed(Integer.valueOf(i2), Integer.valueOf(i3)), DiscreteDomain.integers());
     }
 
-    public static ContiguousSet<Integer> closedOpen(int i, int i2) {
-        return create(Range.closedOpen(Integer.valueOf(i), Integer.valueOf(i2)), DiscreteDomain.integers());
+    public static ContiguousSet<Integer> closedOpen(int i2, int i3) {
+        return create(Range.closedOpen(Integer.valueOf(i2), Integer.valueOf(i3)), DiscreteDomain.integers());
     }
 
     public static <C extends Comparable> ContiguousSet<C> create(Range<C> range, DiscreteDomain<C> discreteDomain) {

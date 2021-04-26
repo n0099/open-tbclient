@@ -2,7 +2,7 @@ package com.facebook.fresco.animation.frame;
 
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.fresco.animation.backend.AnimationInformation;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DropFramesFrameScheduler implements FrameScheduler {
     public static final int UNSET = -1;
     public final AnimationInformation mAnimationInformation;
@@ -22,13 +22,13 @@ public class DropFramesFrameScheduler implements FrameScheduler {
 
     @VisibleForTesting
     public int getFrameNumberWithinLoop(long j) {
-        int i = 0;
+        int i2 = 0;
         long j2 = 0;
         do {
-            j2 += this.mAnimationInformation.getFrameDurationMs(i);
-            i++;
+            j2 += this.mAnimationInformation.getFrameDurationMs(i2);
+            i2++;
         } while (j >= j2);
-        return i - 1;
+        return i2 - 1;
     }
 
     @Override // com.facebook.fresco.animation.frame.FrameScheduler
@@ -39,8 +39,8 @@ public class DropFramesFrameScheduler implements FrameScheduler {
         }
         this.mLoopDurationMs = 0L;
         int frameCount = this.mAnimationInformation.getFrameCount();
-        for (int i = 0; i < frameCount; i++) {
-            this.mLoopDurationMs += this.mAnimationInformation.getFrameDurationMs(i);
+        for (int i2 = 0; i2 < frameCount; i2++) {
+            this.mLoopDurationMs += this.mAnimationInformation.getFrameDurationMs(i2);
         }
         return this.mLoopDurationMs;
     }
@@ -55,8 +55,8 @@ public class DropFramesFrameScheduler implements FrameScheduler {
         if (isInfiniteAnimation() || j / getLoopDurationMs() < this.mAnimationInformation.getLoopCount()) {
             long j3 = j % loopDurationMs;
             int frameCount = this.mAnimationInformation.getFrameCount();
-            for (int i = 0; i < frameCount && j2 <= j3; i++) {
-                j2 += this.mAnimationInformation.getFrameDurationMs(i);
+            for (int i2 = 0; i2 < frameCount && j2 <= j3; i2++) {
+                j2 += this.mAnimationInformation.getFrameDurationMs(i2);
             }
             return j + (j2 - j3);
         }
@@ -64,10 +64,10 @@ public class DropFramesFrameScheduler implements FrameScheduler {
     }
 
     @Override // com.facebook.fresco.animation.frame.FrameScheduler
-    public long getTargetRenderTimeMs(int i) {
+    public long getTargetRenderTimeMs(int i2) {
         long j = 0;
-        for (int i2 = 0; i2 < i; i2++) {
-            j += this.mAnimationInformation.getFrameDurationMs(i);
+        for (int i3 = 0; i3 < i2; i3++) {
+            j += this.mAnimationInformation.getFrameDurationMs(i2);
         }
         return j;
     }

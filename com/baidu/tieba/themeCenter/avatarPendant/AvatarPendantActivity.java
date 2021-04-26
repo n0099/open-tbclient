@@ -20,9 +20,9 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel;
 import com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel;
 import com.baidu.tieba.themeCenter.background.DressItemData;
-import d.b.i0.t.n;
-import d.b.j0.j3.d.c;
-import d.b.j0.j3.h.e;
+import d.a.i0.t.n;
+import d.a.j0.j3.d.c;
+import d.a.j0.j3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvatarPendantModel.b, View.OnClickListener {
@@ -40,14 +40,14 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         }
 
         @Override // com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.b
-        public void a(int i, String str, e eVar, List<d.b.j0.j3.d.a> list) {
+        public void a(int i2, String str, e eVar, List<d.a.j0.j3.d.a> list) {
             AvatarPendantActivity avatarPendantActivity = AvatarPendantActivity.this;
-            avatarPendantActivity.hideLoadingView(avatarPendantActivity.mView.h());
-            if (i == 0) {
-                AvatarPendantActivity.this.mView.q(eVar, list);
+            avatarPendantActivity.hideLoadingView(avatarPendantActivity.mView.g());
+            if (i2 == 0) {
+                AvatarPendantActivity.this.mView.o(eVar, list);
             } else {
                 AvatarPendantActivity.this.showToast(str);
-                AvatarPendantActivity.this.mView.o();
+                AvatarPendantActivity.this.mView.n();
             }
             AvatarPendantActivity.this.mHasListData = !ListUtils.isEmpty(list);
         }
@@ -60,7 +60,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void b(boolean z) {
-            BdListViewHelper.c(AvatarPendantActivity.this.mView.i(), BdListViewHelper.HeadType.DEFAULT, z);
+            BdListViewHelper.c(AvatarPendantActivity.this.mView.h(), BdListViewHelper.HeadType.DEFAULT, z);
         }
     }
 
@@ -78,23 +78,23 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         if (dressItemData == null) {
             return "";
         }
-        List<d.b.j0.j3.d.a> x = this.mModel.x();
+        List<d.a.j0.j3.d.a> x = this.mModel.x();
         if (x != null && x.size() > 0) {
             int size = x.size();
-            for (int i = 0; i < size; i++) {
-                if (x.get(i) != null && !ListUtils.isEmpty(x.get(i).b())) {
-                    List<DressItemData> b2 = x.get(i).b();
+            for (int i2 = 0; i2 < size; i2++) {
+                if (x.get(i2) != null && !ListUtils.isEmpty(x.get(i2).b())) {
+                    List<DressItemData> b2 = x.get(i2).b();
                     int size2 = b2.size();
-                    int i2 = 0;
+                    int i3 = 0;
                     while (true) {
-                        if (i2 >= size2) {
+                        if (i3 >= size2) {
                             break;
                         }
-                        if (b2.get(i2) != null && dressItemData.getPropsId() == b2.get(i2).getPropsId()) {
-                            str = x.get(i).a();
+                        if (b2.get(i3) != null && dressItemData.getPropsId() == b2.get(i3).getPropsId()) {
+                            str = x.get(i2).a();
                             break;
                         }
-                        i2++;
+                        i3++;
                     }
                 }
             }
@@ -115,20 +115,20 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         c cVar = new c(this);
         this.mView = cVar;
         cVar.d(this.mNetListener);
-        this.mView.n(this);
+        this.mView.m(this);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i2 == -1 && i == 11041) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i3 == -1 && i2 == 11041) {
             this.mModel.LoadData();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        this.mView.k();
+    public void onChangeSkinType(int i2) {
+        this.mView.j();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
@@ -146,7 +146,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         super.onCreate(bundle);
         initUI();
         initData();
-        showLoadingView(this.mView.h());
+        showLoadingView(this.mView.g());
         this.mModel.LoadData();
     }
 
@@ -157,7 +157,7 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         this.mModel.y();
     }
 
-    @Override // d.b.j0.j3.d.c.a
+    @Override // d.a.j0.j3.d.c.a
     public void onItemClick(DressItemData dressItemData) {
         if (checkLogin() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.mHasListData) {
             this.mCurrentCategory = getCurrentCategory(dressItemData);
@@ -172,37 +172,37 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         if (this.mModel == null || (cVar = this.mView) == null) {
             return;
         }
-        showLoadingView(cVar.h());
+        showLoadingView(cVar.g());
         this.mModel.LoadData();
     }
 
     @Override // com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel.b
-    public void onSetPendantCallback(boolean z, long j, int i, String str, int i2) {
+    public void onSetPendantCallback(boolean z, long j, int i2, String str, int i3) {
         if (!z) {
-            showErrorDialog(i2, str, i);
+            showErrorDialog(i3, str, i2);
             return;
         }
-        List<d.b.j0.j3.d.a> x = this.mModel.x();
+        List<d.a.j0.j3.d.a> x = this.mModel.x();
         if (x == null || x.size() <= 0) {
             return;
         }
-        if (i == 0) {
+        if (i2 == 0) {
             TiebaStatic.log("c11681");
         } else {
             TiebaStatic.log("c11682");
         }
         int size = x.size();
         String str2 = "";
-        for (int i3 = 0; i3 < size; i3++) {
-            if (x.get(i3) != null && !ListUtils.isEmpty(x.get(i3).b())) {
-                List<DressItemData> b2 = x.get(i3).b();
+        for (int i4 = 0; i4 < size; i4++) {
+            if (x.get(i4) != null && !ListUtils.isEmpty(x.get(i4).b())) {
+                List<DressItemData> b2 = x.get(i4).b();
                 int size2 = b2.size();
-                for (int i4 = 0; i4 < size2; i4++) {
-                    if (b2.get(i4) != null && j == b2.get(i4).getPropsId()) {
-                        b2.get(i4).setInUse(true);
-                        str2 = b2.get(i4).getExampleImgUrl();
+                for (int i5 = 0; i5 < size2; i5++) {
+                    if (b2.get(i5) != null && j == b2.get(i5).getPropsId()) {
+                        b2.get(i5).setInUse(true);
+                        str2 = b2.get(i5).getExampleImgUrl();
                     } else {
-                        b2.get(i4).setInUse(false);
+                        b2.get(i5).setInUse(false);
                     }
                 }
             }
@@ -210,19 +210,19 @@ public class AvatarPendantActivity extends BaseActivity implements c.a, SetAvata
         n nVar = new n();
         nVar.e(j);
         nVar.d(str2);
-        this.mView.l(this.mModel.x());
+        this.mView.k(this.mModel.x());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016485, nVar));
     }
 
-    public void showErrorDialog(int i, String str, int i2) {
-        int i3 = i2 == 101 ? 9 : 0;
+    public void showErrorDialog(int i2, String str, int i3) {
+        int i4 = i3 == 101 ? 9 : 0;
         if (StringUtils.isNull(str)) {
             return;
         }
-        if (i == d.b.j0.j3.c.f58087a) {
-            d.b.j0.j3.b.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-        } else if (i == d.b.j0.j3.c.f58088b) {
-            d.b.j0.j3.b.c(getPageContext(), 7, str, i3);
+        if (i2 == d.a.j0.j3.c.f56070a) {
+            d.a.j0.j3.b.d(getPageContext(), 7, str, i4, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+        } else if (i2 == d.a.j0.j3.c.f56071b) {
+            d.a.j0.j3.b.c(getPageContext(), 7, str, i4);
         }
     }
 }

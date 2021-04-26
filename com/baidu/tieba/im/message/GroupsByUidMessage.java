@@ -10,10 +10,10 @@ public class GroupsByUidMessage extends TbSocketMessage {
     public int isFriend;
     public int width;
 
-    public GroupsByUidMessage(int i, int i2) {
+    public GroupsByUidMessage(int i2, int i3) {
         super(103003);
-        this.width = i;
-        this.height = i2;
+        this.width = i2;
+        this.height = i3;
         this.friendUid = 0L;
         this.isFriend = 0;
     }
@@ -52,22 +52,22 @@ public class GroupsByUidMessage extends TbSocketMessage {
         this.friendUid = j;
     }
 
-    public void setHeight(int i) {
-        this.height = i;
-    }
-
-    public void setIsGuest(int i) {
-        this.isFriend = i;
-    }
-
-    public void setWidth(int i) {
-        this.width = i;
-    }
-
-    public GroupsByUidMessage(long j, int i, int i2) {
-        super(103003);
-        this.width = i;
+    public void setHeight(int i2) {
         this.height = i2;
+    }
+
+    public void setIsGuest(int i2) {
+        this.isFriend = i2;
+    }
+
+    public void setWidth(int i2) {
+        this.width = i2;
+    }
+
+    public GroupsByUidMessage(long j, int i2, int i3) {
+        super(103003);
+        this.width = i2;
+        this.height = i3;
         this.friendUid = j;
         this.isFriend = 1;
     }

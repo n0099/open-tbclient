@@ -7,12 +7,12 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.logging.Logger;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractBoxParser implements BoxParser {
     public static Logger LOG = Logger.getLogger(AbstractBoxParser.class.getName());
     public ThreadLocal<ByteBuffer> header = new a(this);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends ThreadLocal<ByteBuffer> {
         public a(AbstractBoxParser abstractBoxParser) {
         }
@@ -32,10 +32,10 @@ public abstract class AbstractBoxParser implements BoxParser {
         long j;
         long j2;
         this.header.get().rewind().limit(8);
-        int i = 0;
+        int i2 = 0;
         do {
-            i += dataSource.read(this.header.get());
-            if (i == 8) {
+            i2 += dataSource.read(this.header.get());
+            if (i2 == 8) {
                 this.header.get().rewind();
                 long readUInt32 = IsoTypeReader.readUInt32(this.header.get());
                 byte[] bArr = null;
@@ -80,7 +80,7 @@ public abstract class AbstractBoxParser implements BoxParser {
                 createBox.parse(dataSource, this.header.get(), j2, this);
                 return createBox;
             }
-        } while (i >= 0);
+        } while (i2 >= 0);
         throw new EOFException();
     }
 }

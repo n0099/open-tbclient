@@ -36,11 +36,11 @@ public class BIMGroupManager extends BaseManager {
         }
     }
 
-    public static void createGroup(Context context, int i, String str, ArrayList<String> arrayList, BIMValueCallBack<CreateResultInfo> bIMValueCallBack) {
+    public static void createGroup(Context context, int i2, String str, ArrayList<String> arrayList, BIMValueCallBack<CreateResultInfo> bIMValueCallBack) {
         if (BaseManager.isNullContext(context)) {
             return;
         }
-        GroupManagerImpl.getInstance(context).createGroup(i, str, arrayList, bIMValueCallBack);
+        GroupManagerImpl.getInstance(context).createGroup(i2, str, arrayList, bIMValueCallBack);
     }
 
     public static void delGroupMember(Context context, String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<String>> bIMValueCallBack) {
@@ -111,11 +111,11 @@ public class BIMGroupManager extends BaseManager {
         GroupManagerImpl.getInstance(context);
     }
 
-    public static void joinGroup(Context context, String str, String str2, int i, String str3, BIMValueCallBack<String> bIMValueCallBack) {
+    public static void joinGroup(Context context, String str, String str2, int i2, String str3, BIMValueCallBack<String> bIMValueCallBack) {
         if (BaseManager.isNullContext(context)) {
             return;
         }
-        GroupManagerImpl.getInstance(context).joinGroup(str, str2, i, str3, bIMValueCallBack);
+        GroupManagerImpl.getInstance(context).joinGroup(str, str2, i2, str3, bIMValueCallBack);
     }
 
     public static void joinStarGroup(Context context, String str, BIMValueCallBack<String> bIMValueCallBack) {
@@ -150,11 +150,11 @@ public class BIMGroupManager extends BaseManager {
         GroupManagerImpl.getInstance(context).updateGroupName(str, str2, bIMValueCallBack);
     }
 
-    public static void getGroupList(Context context, BIMValueCallBack<ArrayList<String>> bIMValueCallBack, int i, int i2) {
+    public static void getGroupList(Context context, BIMValueCallBack<ArrayList<String>> bIMValueCallBack, int i2, int i3) {
         if (BaseManager.isNullContext(context)) {
             return;
         }
-        GroupManagerImpl.getInstance(context).getGroupList(bIMValueCallBack, i, i2);
+        GroupManagerImpl.getInstance(context).getGroupList(bIMValueCallBack, i2, i3);
     }
 
     public static ArrayList<GroupMember> getNickName(Context context, String str) {
@@ -164,12 +164,12 @@ public class BIMGroupManager extends BaseManager {
         return GroupManagerImpl.getInstance(context).getNickName(str);
     }
 
-    public static ArrayList<GroupMember> getGroupMember(Context context, String str, int i) {
+    public static ArrayList<GroupMember> getGroupMember(Context context, String str, int i2) {
         if (BaseManager.isNullContext(context)) {
             return null;
         }
-        ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(context, str, null, i);
-        if (i == 0 || groupMember == null || (groupMember != null && groupMember.size() > 0)) {
+        ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(context, str, null, i2);
+        if (i2 == 0 || groupMember == null || (groupMember != null && groupMember.size() > 0)) {
             GroupManagerImpl.getInstance(context).getGroupMember(1, str, null, null);
         }
         return groupMember;

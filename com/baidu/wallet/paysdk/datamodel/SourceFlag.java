@@ -8,8 +8,8 @@ public enum SourceFlag {
     
     public String mSourceFlag;
 
-    SourceFlag(int i) {
-        this.mSourceFlag = Integer.toString(i);
+    SourceFlag(int i2) {
+        this.mSourceFlag = Integer.toString(i2);
     }
 
     public String value() {

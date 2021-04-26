@@ -22,7 +22,7 @@ public class NativeCapturerObserver implements CapturerObserver {
 
     public static native void nativeCapturerStopped(long j);
 
-    public static native void nativeOnFrameCaptured(long j, int i, int i2, int i3, long j2, VideoFrame.Buffer buffer);
+    public static native void nativeOnFrameCaptured(long j, int i2, int i3, int i4, long j2, VideoFrame.Buffer buffer);
 
     public static void setMyHookSink(VideoSink videoSink) {
         myHookSink = videoSink;

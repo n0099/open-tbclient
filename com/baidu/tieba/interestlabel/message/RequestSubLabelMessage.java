@@ -3,7 +3,7 @@ package com.baidu.tieba.interestlabel.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.CommonReq;
@@ -13,7 +13,7 @@ import tbclient.SubTagList.SubTagListReqIdl;
 public class RequestSubLabelMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f18169common;
+    public CommonReq f18517common;
     public List<Integer> labelList;
 
     public RequestSubLabelMessage() {
@@ -23,7 +23,7 @@ public class RequestSubLabelMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f69788common = this.f18169common;
+        builder.f68835common = this.f18517common;
         builder.arr_tag_id = this.labelList;
         if (z) {
             w.a(builder, true);
@@ -34,7 +34,7 @@ public class RequestSubLabelMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f18169common = commonReq;
+        this.f18517common = commonReq;
     }
 
     public void setLabelList(List<Integer> list) {

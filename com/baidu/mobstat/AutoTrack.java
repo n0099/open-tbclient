@@ -13,10 +13,10 @@ public class AutoTrack {
     public static class MyActivityLifeCallback implements ActivityLifeObserver.IActivityLifeCallback {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f8217a;
+        public int f8510a;
 
-        public MyActivityLifeCallback(int i) {
-            this.f8217a = i;
+        public MyActivityLifeCallback(int i2) {
+            this.f8510a = i2;
         }
 
         @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
@@ -30,10 +30,10 @@ public class AutoTrack {
         @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
         public void onActivityPaused(Activity activity) {
             Context applicationContext = activity.getApplicationContext();
-            int i = this.f8217a;
-            if (i == 1) {
+            int i2 = this.f8510a;
+            if (i2 == 1) {
                 BDStatCore.instance().autoTrackSessionEndTime(applicationContext);
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 BDStatCore.instance().doSendLogCheck(applicationContext);
             }
         }
@@ -41,10 +41,10 @@ public class AutoTrack {
         @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
         public void onActivityResumed(Activity activity) {
             Context applicationContext = activity.getApplicationContext();
-            int i = this.f8217a;
-            if (i == 1) {
+            int i2 = this.f8510a;
+            if (i2 == 1) {
                 BDStatCore.instance().autoTrackSessionStartTime(applicationContext);
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 BDStatCore.instance().cancelSendLogCheck();
             }
         }

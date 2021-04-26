@@ -28,46 +28,46 @@ public class BaiduWalletServiceController {
     public static final String H5CHECKPWDCB = "H5CheckPwd";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f23025b = "BaiduWalletServiceController";
+    public static final String f23738b = "BaiduWalletServiceController";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f23026c = new Object();
+    public static final Object f23739c = new Object();
 
     /* renamed from: d  reason: collision with root package name */
-    public static LoginBackListenerProxy f23027d;
+    public static LoginBackListenerProxy f23740d;
 
     /* renamed from: a  reason: collision with root package name */
-    public ILightappInvokerCallback f23028a;
+    public ILightappInvokerCallback f23741a;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f23029e;
+    public long f23742e;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduWalletServiceController f23047a = new BaiduWalletServiceController();
+        public static BaiduWalletServiceController f23760a = new BaiduWalletServiceController();
     }
 
     private boolean b() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - this.f23029e;
+        long j = currentTimeMillis - this.f23742e;
         LogUtil.logd("timeD=" + j);
         if (0 >= j || j >= 800) {
-            this.f23029e = currentTimeMillis;
+            this.f23742e = currentTimeMillis;
             return false;
         }
         return true;
     }
 
     public static BaiduWalletServiceController getInstance() {
-        return a.f23047a;
+        return a.f23760a;
     }
 
     public static void getOpenBdussFirst(final Context context, final Intent intent, final boolean z, boolean z2) {
         WalletLoginHelper.getInstance().verifyPassLogin(z2, new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.BaiduWalletServiceController.6
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str) {
+            public void onFail(int i2, String str) {
                 context.startActivity(intent);
                 Context context2 = context;
                 if (context2 instanceof Activity) {
@@ -80,7 +80,7 @@ public class BaiduWalletServiceController {
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str) {
+            public void onSuccess(int i2, String str) {
                 context.startActivity(intent);
                 Context context2 = context;
                 if (context2 instanceof Activity) {
@@ -96,20 +96,20 @@ public class BaiduWalletServiceController {
 
     public static void loginFirst(final Context context, final Intent intent, final boolean z) {
         if (context instanceof Activity) {
-            com.baidu.wallet.core.utils.LogUtil.d(f23025b, "context is activity!");
+            com.baidu.wallet.core.utils.LogUtil.d(f23738b, "context is activity!");
         } else {
             intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
-        f23027d = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.BaiduWalletServiceController.1
+        f23740d = new LoginBackListenerProxy(context, new ILoginBackListener() { // from class: com.baidu.wallet.BaiduWalletServiceController.1
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onFail(int i, String str) {
-                if (i == 603) {
-                    WalletLoginHelper.getInstance().onlyLogin(BaiduWalletServiceController.f23027d);
+            public void onFail(int i2, String str) {
+                if (i2 == 603) {
+                    WalletLoginHelper.getInstance().onlyLogin(BaiduWalletServiceController.f23740d);
                 }
             }
 
             @Override // com.baidu.wallet.api.ILoginBackListener
-            public void onSuccess(int i, String str) {
+            public void onSuccess(int i2, String str) {
                 intent.putExtra("with_anim", z);
                 context.startActivity(intent);
                 Context context2 = context;
@@ -122,19 +122,19 @@ public class BaiduWalletServiceController {
                 }
             }
         });
-        WalletLoginHelper.getInstance().login(f23027d);
+        WalletLoginHelper.getInstance().login(f23740d);
     }
 
     public void accessBusCardChargeNFC(Context context, Parcelable parcelable) {
         LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_NFC).action("nfchome").data("android.nfc.extra.TAG", parcelable), new RouterCallback() { // from class: com.baidu.wallet.BaiduWalletServiceController.5
             @Override // com.baidu.wallet.router.RouterCallback
-            public void onResult(int i, HashMap hashMap) {
-                if (i == 5) {
+            public void onResult(int i2, HashMap hashMap) {
+                if (i2 == 5) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("provider", BaiduWalletServiceProviderMap.PLUGIN_NFC);
                     hashMap2.put("action", "nfchome");
-                    DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap2.values());
-                    PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap2.values());
+                    DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
+                    PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
                 }
             }
         });
@@ -143,13 +143,13 @@ public class BaiduWalletServiceController {
     public boolean enterTransConfirm(BaseActivity baseActivity, JSONObject jSONObject, String str) {
         LocalRouter.getInstance(baseActivity).route(baseActivity, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_TRNASFER).action("entertransferconfirm").data("params", jSONObject.toString()).data("url", str), new RouterCallback() { // from class: com.baidu.wallet.BaiduWalletServiceController.3
             @Override // com.baidu.wallet.router.RouterCallback
-            public void onResult(int i, HashMap hashMap) {
-                if (i == 5) {
+            public void onResult(int i2, HashMap hashMap) {
+                if (i2 == 5) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("provider", BaiduWalletServiceProviderMap.PLUGIN_TRNASFER);
                     hashMap2.put("action", "entertransferconfirm");
-                    DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap2.values());
-                    PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap2.values());
+                    DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
+                    PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
                 }
             }
         });
@@ -170,13 +170,13 @@ public class BaiduWalletServiceController {
     public boolean startWallet(Context context, boolean z, boolean z2) {
         LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_WALLETHOME).action("wallethome").data("withAnim", Boolean.toString(z)).data("pageType", Boolean.toString(z2)), new RouterCallback() { // from class: com.baidu.wallet.BaiduWalletServiceController.4
             @Override // com.baidu.wallet.router.RouterCallback
-            public void onResult(int i, HashMap hashMap) {
-                if (i == 5) {
+            public void onResult(int i2, HashMap hashMap) {
+                if (i2 == 5) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("provider", BaiduWalletServiceProviderMap.PLUGIN_WALLETHOME);
                     hashMap2.put("action", "wallethome");
-                    DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap2.values());
-                    PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap2.values());
+                    DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
+                    PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
                 }
             }
         });
@@ -184,19 +184,19 @@ public class BaiduWalletServiceController {
     }
 
     public BaiduWalletServiceController() {
-        this.f23028a = null;
+        this.f23741a = null;
     }
 
     private void a(Context context, boolean z) {
         LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_FASTPAY).action("doPhoneCharge").data("withAnim", String.valueOf(z)), new RouterCallback() { // from class: com.baidu.wallet.BaiduWalletServiceController.7
             @Override // com.baidu.wallet.router.RouterCallback
-            public void onResult(int i, HashMap hashMap) {
-                if (i == 5) {
+            public void onResult(int i2, HashMap hashMap) {
+                if (i2 == 5) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("provider", BaiduWalletServiceProviderMap.PLUGIN_FASTPAY);
                     hashMap2.put("action", "doPhoneCharge");
-                    DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap2.values());
-                    PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap2.values());
+                    DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
+                    PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
                 }
             }
         });
@@ -208,7 +208,7 @@ public class BaiduWalletServiceController {
 
     public void gotoWalletService(Context context, String str, String str2, ILightappInvokerCallback iLightappInvokerCallback) {
         if (iLightappInvokerCallback != null) {
-            this.f23028a = iLightappInvokerCallback;
+            this.f23741a = iLightappInvokerCallback;
             gotoWalletService(context, str, str2, true);
         }
     }
@@ -219,13 +219,13 @@ public class BaiduWalletServiceController {
         hashMap.put("withAnim", Boolean.toString(z));
         LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_PERSONAL).action("entercoupon").data(hashMap), new RouterCallback() { // from class: com.baidu.wallet.BaiduWalletServiceController.8
             @Override // com.baidu.wallet.router.RouterCallback
-            public void onResult(int i, HashMap hashMap2) {
-                if (i == 5) {
+            public void onResult(int i2, HashMap hashMap2) {
+                if (i2 == 5) {
                     HashMap hashMap3 = new HashMap();
                     hashMap3.put("provider", BaiduWalletServiceProviderMap.PLUGIN_PERSONAL);
                     hashMap3.put("action", "entercoupon");
-                    DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());
-                    PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());
+                    DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap3.values());
+                    PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap3.values());
                 }
             }
         });
@@ -252,13 +252,13 @@ public class BaiduWalletServiceController {
             hashMap.put("withAnim", Boolean.toString(z));
             LocalRouter.getInstance(context).route(context, new RouterRequest().provider("dxmPay").action("gotoWalletService").data(hashMap), new RouterCallback() { // from class: com.baidu.wallet.BaiduWalletServiceController.2
                 @Override // com.baidu.wallet.router.RouterCallback
-                public void onResult(int i, HashMap hashMap2) {
-                    if (i == 5) {
+                public void onResult(int i2, HashMap hashMap2) {
+                    if (i2 == 5) {
                         HashMap hashMap3 = new HashMap();
                         hashMap3.put("provider", "dxmPay");
                         hashMap3.put("action", "gotoWalletService");
-                        DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());
-                        PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());
+                        DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap3.values());
+                        PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap3.values());
                     }
                 }
             });
@@ -274,13 +274,13 @@ public class BaiduWalletServiceController {
             PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_API_SUPERACCOUNTTRANS);
             LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_TRNASFER).action("entertransfer").data("withAnim", Boolean.toString(z)), new RouterCallback() { // from class: com.baidu.wallet.BaiduWalletServiceController.9
                 @Override // com.baidu.wallet.router.RouterCallback
-                public void onResult(int i, HashMap hashMap2) {
-                    if (i == 5) {
+                public void onResult(int i2, HashMap hashMap2) {
+                    if (i2 == 5) {
                         HashMap hashMap3 = new HashMap();
                         hashMap3.put("provider", BaiduWalletServiceProviderMap.PLUGIN_TRNASFER);
                         hashMap3.put("action", "entertransfer");
-                        DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());
-                        PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());
+                        DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap3.values());
+                        PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap3.values());
                     }
                 }
             });
@@ -288,13 +288,13 @@ public class BaiduWalletServiceController {
             PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_API_NFCCHARGE);
             LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_NFC).action("nfchome").data("withAnim", Boolean.toString(z)), new RouterCallback() { // from class: com.baidu.wallet.BaiduWalletServiceController.10
                 @Override // com.baidu.wallet.router.RouterCallback
-                public void onResult(int i, HashMap hashMap2) {
-                    if (i == 5) {
+                public void onResult(int i2, HashMap hashMap2) {
+                    if (i2 == 5) {
                         HashMap hashMap3 = new HashMap();
                         hashMap3.put("provider", BaiduWalletServiceProviderMap.PLUGIN_NFC);
                         hashMap3.put("action", "nfchome");
-                        DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());
-                        PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());
+                        DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap3.values());
+                        PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap3.values());
                     }
                 }
             });
@@ -311,13 +311,13 @@ public class BaiduWalletServiceController {
             PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_API_START_WALLET_FINANCE);
             LocalRouter.getInstance(context).route(context, new RouterRequest().provider("tab").action("startWalletFinance").data("withAnim", Boolean.toString(z)), new RouterCallback() { // from class: com.baidu.wallet.BaiduWalletServiceController.11
                 @Override // com.baidu.wallet.router.RouterCallback
-                public void onResult(int i, HashMap hashMap2) {
-                    if (i == 5) {
+                public void onResult(int i2, HashMap hashMap2) {
+                    if (i2 == 5) {
                         HashMap hashMap3 = new HashMap();
                         hashMap3.put("provider", "tab");
                         hashMap3.put("action", "startWalletFinance");
-                        DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());
-                        PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());
+                        DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap3.values());
+                        PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap3.values());
                     }
                 }
             });
@@ -326,26 +326,26 @@ public class BaiduWalletServiceController {
             PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_API_OWNERSCANCODE);
             LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_QRCODESCANNER).action("qrcodescanner").data("withAnim", Boolean.toString(z)).data("showQrCodeBtns", Boolean.valueOf("showQrCodeBtns".equals(str))), new RouterCallback() { // from class: com.baidu.wallet.BaiduWalletServiceController.12
                 @Override // com.baidu.wallet.router.RouterCallback
-                public void onResult(int i, HashMap hashMap2) {
-                    if (i == 5) {
+                public void onResult(int i2, HashMap hashMap2) {
+                    if (i2 == 5) {
                         HashMap hashMap3 = new HashMap();
                         hashMap3.put("provider", BaiduWalletServiceProviderMap.PLUGIN_QRCODESCANNER);
                         hashMap3.put("action", "qrcodescanner");
-                        DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());
-                        PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());
+                        DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap3.values());
+                        PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap3.values());
                     }
                 }
             });
         } else if (j == WalletServiceBeanConst.SERVICE_ID_WALLET_NFC_BUS_CARD_SETTING) {
             LocalRouter.getInstance(context).route(context, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_NFC).action("nfcsetting").data("withAnim", Boolean.toString(z)), new RouterCallback() { // from class: com.baidu.wallet.BaiduWalletServiceController.13
                 @Override // com.baidu.wallet.router.RouterCallback
-                public void onResult(int i, HashMap hashMap2) {
-                    if (i == 5) {
+                public void onResult(int i2, HashMap hashMap2) {
+                    if (i2 == 5) {
                         HashMap hashMap3 = new HashMap();
                         hashMap3.put("provider", BaiduWalletServiceProviderMap.PLUGIN_NFC);
                         hashMap3.put("action", "nfcsetting");
-                        DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());
-                        PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap3.values());
+                        DXMSdkSAUtils.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap3.values());
+                        PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap3.values());
                     }
                 }
             });

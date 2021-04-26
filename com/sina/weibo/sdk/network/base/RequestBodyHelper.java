@@ -135,8 +135,8 @@ public class RequestBodyHelper {
 
     public static String getBoundry() {
         StringBuffer stringBuffer = new StringBuffer();
-        for (int i = 1; i < 12; i++) {
-            long currentTimeMillis = System.currentTimeMillis() + i;
+        for (int i2 = 1; i2 < 12; i2++) {
+            long currentTimeMillis = System.currentTimeMillis() + i2;
             long j = currentTimeMillis % 3;
             if (j == 0) {
                 stringBuffer.append(((char) currentTimeMillis) % '\t');

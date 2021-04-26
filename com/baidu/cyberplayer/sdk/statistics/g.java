@@ -5,27 +5,27 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f5116a = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
+    public c f5245a = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
 
     /* renamed from: b  reason: collision with root package name */
-    public List<f> f5117b = new ArrayList();
+    public List<f> f5246b = new ArrayList();
 
     public JSONObject a() throws JSONException {
         JSONObject jSONObject = new JSONObject();
-        c cVar = this.f5116a;
+        c cVar = this.f5245a;
         if (cVar != null) {
             cVar.a(jSONObject);
         }
-        if (this.f5117b != null) {
+        if (this.f5246b != null) {
             JSONArray jSONArray = new JSONArray();
-            for (int i = 0; i < this.f5117b.size(); i++) {
+            for (int i2 = 0; i2 < this.f5246b.size(); i2++) {
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("type", this.f5117b.get(i).a());
-                if (this.f5117b.get(i).a(jSONObject2) != null) {
+                jSONObject2.put("type", this.f5246b.get(i2).a());
+                if (this.f5246b.get(i2).a(jSONObject2) != null) {
                     jSONArray.put(jSONObject2);
                 }
             }
@@ -36,31 +36,31 @@ public class g {
         return jSONObject;
     }
 
-    public void a(int i, String str, String str2) {
-        c cVar = this.f5116a;
-        if (cVar != null && i == 24322) {
-            cVar.a(new e(i, str, str2));
-        } else if (this.f5117b != null) {
-            e eVar = new e(i, str, str2);
-            for (int i2 = 0; i2 < this.f5117b.size(); i2++) {
-                f fVar = this.f5117b.get(i2);
-                if (fVar.a() == i) {
+    public void a(int i2, String str, String str2) {
+        c cVar = this.f5245a;
+        if (cVar != null && i2 == 24322) {
+            cVar.a(new e(i2, str, str2));
+        } else if (this.f5246b != null) {
+            e eVar = new e(i2, str, str2);
+            for (int i3 = 0; i3 < this.f5246b.size(); i3++) {
+                f fVar = this.f5246b.get(i3);
+                if (fVar.a() == i2) {
                     fVar.a(eVar);
                     return;
                 }
             }
-            f fVar2 = new f(i);
+            f fVar2 = new f(i2);
             fVar2.a(eVar);
-            this.f5117b.add(fVar2);
+            this.f5246b.add(fVar2);
         }
     }
 
     public void b() {
-        c cVar = this.f5116a;
+        c cVar = this.f5245a;
         if (cVar != null) {
             cVar.b();
         }
-        List<f> list = this.f5117b;
+        List<f> list = this.f5246b;
         if (list != null) {
             list.clear();
         }

@@ -26,10 +26,10 @@ import java.util.ArrayList;
 public class CouponListActivity extends HalfScreenBaseActivity implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f25726a;
+    public ViewGroup f26507a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f25727b;
+    public View f26508b;
     public CouponListContract.Presenter mPresenter;
 
     @Override // com.baidu.wallet.paysdk.ui.HalfScreenBaseActivity
@@ -39,8 +39,8 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
         this.mHalfScreenContainer.addView(viewGroup);
     }
 
-    public void dismissLoading(int i) {
-        WalletGlobalUtils.safeDismissDialog(this, i);
+    public void dismissLoading(int i2) {
+        WalletGlobalUtils.safeDismissDialog(this, i2);
     }
 
     public void initData() {
@@ -56,10 +56,10 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
         this.mTitle = textView;
         textView.setBackgroundColor(ResUtils.getColor(this.mAct, "ebpay_white"));
         this.mTitle.setText(ResUtils.getString(getActivity(), "ebpay_select_coupon"));
-        this.f25726a = (ViewGroup) findViewById(ResUtils.id(this.mAct, "bd_wallet_coupon_container"));
+        this.f26507a = (ViewGroup) findViewById(ResUtils.id(this.mAct, "bd_wallet_coupon_container"));
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         if (this.mHalfScreenContainer.isClickable()) {
             EventBus eventBus = EventBus.getInstance();
@@ -77,7 +77,7 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.HalfScreenBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.HalfScreenBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         CouponListPresenter couponListPresenter = new CouponListPresenter(this);
@@ -97,7 +97,7 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         CouponListContract.Presenter presenter = this.mPresenter;
         if (presenter != null) {
@@ -111,23 +111,23 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
     }
 
     public void revertItemView() {
-        View view = this.f25727b;
+        View view = this.f26508b;
         if (view != null) {
-            a((ProgressBar) view.findViewById(ResUtils.id(this, "ebpay_mini_progress_bar")), (ImageView) this.f25727b.findViewById(ResUtils.id(this, "coupon_select")), false);
+            a((ProgressBar) view.findViewById(ResUtils.id(this, "ebpay_mini_progress_bar")), (ImageView) this.f26508b.findViewById(ResUtils.id(this, "coupon_select")), false);
         }
-        this.f25727b = null;
+        this.f26508b = null;
     }
 
     public void setPageClickable(boolean z) {
         this.mHalfScreenContainer.setClickable(z);
     }
 
-    public void showLoading(int i) {
-        WalletGlobalUtils.safeShowDialog(this, i, "");
+    public void showLoading(int i2) {
+        WalletGlobalUtils.safeShowDialog(this, i2, "");
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity
-    public void showPaySuccessPage(boolean z, PayResultContent payResultContent, int i) {
+    public void showPaySuccessPage(boolean z, PayResultContent payResultContent, int i2) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -135,18 +135,18 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
         if (arrayList == null) {
             return;
         }
-        this.f25727b = null;
+        this.f26508b = null;
         setPageClickable(true);
-        this.f25726a.removeAllViews();
+        this.f26507a.removeAllViews();
         int dimension = (int) ResUtils.getDimension(this.mAct, "bd_wallet_coupon_height");
-        for (int i = 0; i < arrayList.size(); i++) {
-            View a2 = a(arrayList.get(i));
+        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+            View a2 = a(arrayList.get(i2));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, dimension);
-            if (i == arrayList.size() - 1) {
+            if (i2 == arrayList.size() - 1) {
                 layoutParams.bottomMargin = DisplayUtils.dip2px(this, 5.0f);
             }
             a2.setLayoutParams(layoutParams);
-            this.f25726a.addView(a2);
+            this.f26507a.addView(a2);
         }
     }
 
@@ -173,30 +173,30 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
         inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.CouponListActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                CouponListActivity.this.f25727b = inflate;
+                CouponListActivity.this.f26508b = inflate;
                 CouponListPresenter.a aVar2 = (CouponListPresenter.a) view.getTag();
-                if (aVar2.f25420g) {
+                if (aVar2.f26194g) {
                     PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_CLICK_COUPON);
                     CouponListActivity.this.a(progressBar, imageView, true);
                     CouponListActivity.this.mPresenter.calcPayamount(aVar2);
                     return;
                 }
-                GlobalUtils.toast(CouponListActivity.this, aVar2.f25419f);
+                GlobalUtils.toast(CouponListActivity.this, aVar2.f26193f);
             }
         });
         a(progressBar, imageView, false);
-        ((NetImageView) inflate.findViewById(ResUtils.id(this, "ebpay_coupon_logo"))).setImageUrl(aVar.f25414a);
-        ((TextView) inflate.findViewById(ResUtils.id(this, "coupon_dicount_name"))).setText(aVar.f25417d);
-        ((TextView) inflate.findViewById(ResUtils.id(this, "coupon_dicount_tip"))).setText(aVar.f25418e);
+        ((NetImageView) inflate.findViewById(ResUtils.id(this, "ebpay_coupon_logo"))).setImageUrl(aVar.f26188a);
+        ((TextView) inflate.findViewById(ResUtils.id(this, "coupon_dicount_name"))).setText(aVar.f26191d);
+        ((TextView) inflate.findViewById(ResUtils.id(this, "coupon_dicount_tip"))).setText(aVar.f26192e);
         TextView textView = (TextView) inflate.findViewById(ResUtils.id(this, "coupon_disable_reason"));
-        if (!TextUtils.isEmpty(aVar.f25419f)) {
+        if (!TextUtils.isEmpty(aVar.f26193f)) {
             textView.setVisibility(0);
-            textView.setText(aVar.f25419f);
+            textView.setText(aVar.f26193f);
         } else {
             textView.setVisibility(8);
         }
-        if (aVar.f25420g) {
-            imageView.setSelected(aVar.f25421h);
+        if (aVar.f26194g) {
+            imageView.setSelected(aVar.f26195h);
             inflate.setTag(aVar);
             a(inflate, true);
         } else {

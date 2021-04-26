@@ -24,13 +24,13 @@ public class MD5 {
             messageDigest.update(bArr);
             byte[] digest = messageDigest.digest();
             char[] cArr = new char[32];
-            int i = 0;
-            for (int i2 = 0; i2 < 16; i2++) {
-                byte b2 = digest[i2];
-                int i3 = i + 1;
-                cArr[i] = hexDigits[(b2 >>> 4) & 15];
-                i = i3 + 1;
-                cArr[i3] = hexDigits[b2 & 15];
+            int i2 = 0;
+            for (int i3 = 0; i3 < 16; i3++) {
+                byte b2 = digest[i3];
+                int i4 = i2 + 1;
+                cArr[i2] = hexDigits[(b2 >>> 4) & 15];
+                i2 = i4 + 1;
+                cArr[i4] = hexDigits[b2 & 15];
             }
             return new String(cArr);
         } catch (Exception e2) {

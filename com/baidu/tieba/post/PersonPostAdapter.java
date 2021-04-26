@@ -4,17 +4,17 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonPostAdapter extends FragmentPagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f20267a;
+    public int[] f20799a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PersonThreadFragment f20268b;
+    public PersonThreadFragment f20800b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PersonReplyFragment f20269c;
+    public PersonReplyFragment f20801c;
 
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
@@ -23,15 +23,23 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
         bundle.putString(PersonPostActivity.KEY_EMPTYVIEW_TXT, personPostActivity.getEmptyViewText());
         PersonReplyFragment personReplyFragment = new PersonReplyFragment();
-        this.f20269c = personReplyFragment;
+        this.f20801c = personReplyFragment;
         personReplyFragment.setArguments(bundle);
-        this.f20269c.V0(personPostActivity);
+        this.f20801c.V0(personPostActivity);
         PersonThreadFragment personThreadFragment = new PersonThreadFragment();
-        this.f20268b = personThreadFragment;
+        this.f20800b = personThreadFragment;
         personThreadFragment.setArguments(bundle);
-        this.f20268b.U0(personPostActivity);
-        this.f20268b.T0(personPostActivity);
-        this.f20267a = new int[]{0, 1};
+        this.f20800b.U0(personPostActivity);
+        this.f20800b.T0(personPostActivity);
+        this.f20799a = new int[]{0, 1};
+    }
+
+    public int b(int i2) {
+        return this.f20799a[i2];
+    }
+
+    public PersonThreadFragment c() {
+        return this.f20800b;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -40,21 +48,13 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        if (i != 0) {
-            if (i != 1) {
+    public Fragment getItem(int i2) {
+        if (i2 != 0) {
+            if (i2 != 1) {
                 return null;
             }
-            return this.f20269c;
+            return this.f20801c;
         }
-        return this.f20268b;
-    }
-
-    public int i(int i) {
-        return this.f20267a[i];
-    }
-
-    public PersonThreadFragment j() {
-        return this.f20268b;
+        return this.f20800b;
     }
 }

@@ -13,7 +13,7 @@ public class DoubleSerializer implements ObjectSerializer {
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (obj == null) {
             serializeWriter.writeNull(SerializerFeature.WriteNullNumberAsZero);

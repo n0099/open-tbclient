@@ -19,58 +19,60 @@ public class b {
     public static boolean j = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f26757b;
-    public AsyncTask i;
+    public Context f27568b;
+
+    /* renamed from: i  reason: collision with root package name */
+    public AsyncTask f27575i;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26756a = null;
+    public String f27567a = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f26758c = null;
+    public a f27569c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f26759d = null;
+    public Object f27570d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, String> f26760e = new HashMap();
+    public Map<String, String> f27571e = new HashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, String> f26761f = new HashMap();
+    public Map<String, String> f27572f = new HashMap();
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, String> f26762g = new HashMap();
+    public Map<String, String> f27573g = new HashMap();
 
     /* renamed from: h  reason: collision with root package name */
-    public String f26763h = "GET";
+    public String f27574h = "GET";
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(Exception exc, int i, String str);
+        void a(Exception exc, int i2, String str);
     }
 
     /* renamed from: com.bun.miitmdid.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0293b {
+    public class C0286b {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f26767b;
+        public String f27579b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f26768c;
+        public int f27580c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Exception f26769d;
+        public Exception f27581d;
 
-        public C0293b(String str, Exception exc, int i) {
-            this.f26767b = str;
-            this.f26769d = exc;
-            this.f26768c = i;
+        public C0286b(String str, Exception exc, int i2) {
+            this.f27579b = str;
+            this.f27581d = exc;
+            this.f27580c = i2;
         }
     }
 
     public b(Context context) {
-        this.f26757b = null;
-        this.f26757b = context;
+        this.f27568b = null;
+        this.f27568b = context;
     }
 
     public static b a(@NonNull Context context) {
@@ -86,26 +88,26 @@ public class b {
     }
 
     private String b() {
-        if (this.f26756a != null) {
+        if (this.f27567a != null) {
             StringBuilder sb = new StringBuilder("");
             try {
-                if (this.f26756a.trim().endsWith("?")) {
+                if (this.f27567a.trim().endsWith("?")) {
                     sb.append("&");
                 } else {
                     sb.append("?");
                 }
-                for (String str : this.f26762g.keySet()) {
+                for (String str : this.f27573g.keySet()) {
                     if (!str.isEmpty()) {
                         sb.append(str.trim());
                         sb.append("=");
-                        sb.append(URLEncoder.encode(this.f26762g.get(str), "UTF-8"));
+                        sb.append(URLEncoder.encode(this.f27573g.get(str), "UTF-8"));
                         sb.append("&");
                     }
                 }
             } catch (Exception unused) {
             }
             String substring = sb.toString().contains("&") ? sb.substring(0, sb.lastIndexOf("&")) : sb.toString();
-            return this.f26756a + substring;
+            return this.f27567a + substring;
         }
         throw new NullPointerException("URL IS NULL");
     }
@@ -115,7 +117,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0293b c() {
+    public C0286b c() {
         try {
             String b2 = b();
             if (j) {
@@ -125,14 +127,14 @@ public class b {
             a(httpURLConnection);
             httpURLConnection.setRequestMethod("GET");
             httpURLConnection.setRequestProperty("User-Agent", com.bun.miitmdid.b.a.a());
-            for (String str : this.f26760e.keySet()) {
+            for (String str : this.f27571e.keySet()) {
                 if (!str.isEmpty()) {
-                    httpURLConnection.setRequestProperty(str, this.f26760e.get(str));
+                    httpURLConnection.setRequestProperty(str, this.f27571e.get(str));
                 }
             }
             int responseCode = httpURLConnection.getResponseCode();
             PrintStream printStream = System.out;
-            printStream.println("\nSending 'GET' request to URL : " + this.f26756a);
+            printStream.println("\nSending 'GET' request to URL : " + this.f27567a);
             PrintStream printStream2 = System.out;
             printStream2.println("Response Code : " + responseCode);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
@@ -141,7 +143,7 @@ public class b {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
                     bufferedReader.close();
-                    return new C0293b(sb.toString(), null, responseCode);
+                    return new C0286b(sb.toString(), null, responseCode);
                 }
                 sb.append(readLine);
             }
@@ -149,12 +151,12 @@ public class b {
             if (j) {
                 e2.printStackTrace();
             }
-            return new C0293b(null, e2, -1);
+            return new C0286b(null, e2, -1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0293b d() {
+    public C0286b d() {
         String obj;
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(b()).openConnection();
@@ -163,26 +165,26 @@ public class b {
             httpURLConnection.setRequestProperty("User-Agent", com.bun.miitmdid.b.a.a());
             httpURLConnection.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
             StringBuilder sb = new StringBuilder("");
-            if (!this.f26761f.isEmpty()) {
-                for (String str : this.f26761f.keySet()) {
+            if (!this.f27572f.isEmpty()) {
+                for (String str : this.f27572f.keySet()) {
                     sb.append(str);
                     sb.append("=");
-                    sb.append(URLEncoder.encode(this.f26761f.get(str), "UTF-8"));
+                    sb.append(URLEncoder.encode(this.f27572f.get(str), "UTF-8"));
                     sb.append("&");
                 }
-            } else if (this.f26759d != null) {
-                if (!(this.f26759d instanceof JSONObject) && !(this.f26759d instanceof JSONArray)) {
-                    if (this.f26759d instanceof String) {
-                        obj = (String) this.f26759d;
+            } else if (this.f27570d != null) {
+                if (!(this.f27570d instanceof JSONObject) && !(this.f27570d instanceof JSONArray)) {
+                    if (this.f27570d instanceof String) {
+                        obj = (String) this.f27570d;
                         sb.append(obj);
                     }
                 }
-                obj = this.f26759d.toString();
+                obj = this.f27570d.toString();
                 sb.append(obj);
             }
-            for (String str2 : this.f26760e.keySet()) {
+            for (String str2 : this.f27571e.keySet()) {
                 if (!str2.isEmpty()) {
-                    httpURLConnection.setRequestProperty(str2, this.f26760e.get(str2));
+                    httpURLConnection.setRequestProperty(str2, this.f27571e.get(str2));
                 }
             }
             String sb2 = sb.toString();
@@ -193,7 +195,7 @@ public class b {
             dataOutputStream.close();
             int responseCode = httpURLConnection.getResponseCode();
             if (j) {
-                b("\nSending 'POST' request to URL : " + this.f26756a);
+                b("\nSending 'POST' request to URL : " + this.f27567a);
                 b("Post parameters : " + sb2);
                 b("Response Code : " + responseCode);
             }
@@ -205,7 +207,7 @@ public class b {
                     bufferedReader.close();
                     String sb4 = sb3.toString();
                     b("\nPOST RESPONSE : " + sb4);
-                    return new C0293b(sb4, null, responseCode);
+                    return new C0286b(sb4, null, responseCode);
                 }
                 sb3.append(readLine);
             }
@@ -213,48 +215,48 @@ public class b {
             if (j) {
                 e2.printStackTrace();
             }
-            return new C0293b(null, e2, -1);
+            return new C0286b(null, e2, -1);
         }
     }
 
     public b a() {
-        this.i = new AsyncTask<Void, Void, C0293b>() { // from class: com.bun.miitmdid.b.b.1
+        this.f27575i = new AsyncTask<Void, Void, C0286b>() { // from class: com.bun.miitmdid.b.b.1
 
             /* renamed from: a  reason: collision with root package name */
-            public b f26764a;
+            public b f27576a;
 
             {
-                this.f26764a = b.this;
+                this.f27576a = b.this;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.AsyncTask
             /* renamed from: a */
-            public C0293b doInBackground(Void... voidArr) {
-                return this.f26764a.f26763h.equalsIgnoreCase("GET") ? b.this.c() : b.this.d();
+            public C0286b doInBackground(Void... voidArr) {
+                return this.f27576a.f27574h.equalsIgnoreCase("GET") ? b.this.c() : b.this.d();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.AsyncTask
             /* renamed from: a */
-            public void onPostExecute(C0293b c0293b) {
+            public void onPostExecute(C0286b c0286b) {
                 a aVar;
-                super.onPostExecute(c0293b);
-                if (b.this.f26758c != null) {
-                    if (c0293b == null) {
-                        b.this.f26758c.a(new Exception("Unknown Error"), -1, null);
+                super.onPostExecute(c0286b);
+                if (b.this.f27569c != null) {
+                    if (c0286b == null) {
+                        b.this.f27569c.a(new Exception("Unknown Error"), -1, null);
                         return;
                     }
-                    if (c0293b.f26769d != null) {
-                        aVar = b.this.f26758c;
-                        e = c0293b.f26769d;
+                    if (c0286b.f27581d != null) {
+                        aVar = b.this.f27569c;
+                        e = c0286b.f27581d;
                     } else {
                         try {
-                            b.this.f26758c.a(null, c0293b.f26768c, c0293b.f26767b);
+                            b.this.f27569c.a(null, c0286b.f27580c, c0286b.f27579b);
                             return;
                         } catch (Exception e2) {
                             e = e2;
-                            aVar = b.this.f26758c;
+                            aVar = b.this.f27569c;
                         }
                     }
                     aVar.a(e, -1, null);
@@ -265,29 +267,29 @@ public class b {
     }
 
     public b a(a aVar) {
-        this.f26758c = aVar;
+        this.f27569c = aVar;
         return this;
     }
 
     public b a(Object obj) {
-        this.f26759d = obj;
+        this.f27570d = obj;
         return this;
     }
 
     public b a(@NonNull String str) {
-        this.f26756a = str;
-        this.f26763h = "POST";
+        this.f27567a = str;
+        this.f27574h = "POST";
         return this;
     }
 
     public b a(@NonNull String str, @NonNull String str2) {
-        this.f26762g.put(str, str2);
+        this.f27573g.put(str, str2);
         return this;
     }
 
     public b a(Map<String, String> map) {
         if (map != null && !map.isEmpty()) {
-            this.f26762g.putAll(map);
+            this.f27573g.putAll(map);
         }
         return this;
     }

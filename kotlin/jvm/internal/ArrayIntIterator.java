@@ -9,8 +9,9 @@ public final class ArrayIntIterator extends IntIterator {
     public final int[] array;
     public int index;
 
-    public ArrayIntIterator(int[] iArr) {
-        this.array = iArr;
+    public ArrayIntIterator(int[] array) {
+        Intrinsics.checkNotNullParameter(array, "array");
+        this.array = array;
     }
 
     @Override // java.util.Iterator
@@ -22,9 +23,9 @@ public final class ArrayIntIterator extends IntIterator {
     public int nextInt() {
         try {
             int[] iArr = this.array;
-            int i = this.index;
-            this.index = i + 1;
-            return iArr[i];
+            int i2 = this.index;
+            this.index = i2 + 1;
+            return iArr[i2];
         } catch (ArrayIndexOutOfBoundsException e2) {
             this.index--;
             throw new NoSuchElementException(e2.getMessage());

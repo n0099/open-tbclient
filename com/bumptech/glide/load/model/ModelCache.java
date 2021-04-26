@@ -19,7 +19,7 @@ public class ModelCache<A, B> {
         public A model;
         public int width;
 
-        public static <A> ModelKey<A> get(A a2, int i, int i2) {
+        public static <A> ModelKey<A> get(A a2, int i2, int i3) {
             ModelKey<A> modelKey;
             synchronized (KEY_QUEUE) {
                 modelKey = (ModelKey<A>) KEY_QUEUE.poll();
@@ -27,14 +27,14 @@ public class ModelCache<A, B> {
             if (modelKey == null) {
                 modelKey = new ModelKey<>();
             }
-            modelKey.init(a2, i, i2);
+            modelKey.init(a2, i2, i3);
             return modelKey;
         }
 
-        private void init(A a2, int i, int i2) {
+        private void init(A a2, int i2, int i3) {
             this.model = a2;
-            this.width = i;
-            this.height = i2;
+            this.width = i2;
+            this.height = i3;
         }
 
         public boolean equals(Object obj) {
@@ -65,15 +65,15 @@ public class ModelCache<A, B> {
     }
 
     @Nullable
-    public B get(A a2, int i, int i2) {
-        ModelKey<A> modelKey = ModelKey.get(a2, i, i2);
+    public B get(A a2, int i2, int i3) {
+        ModelKey<A> modelKey = ModelKey.get(a2, i2, i3);
         B b2 = this.cache.get(modelKey);
         modelKey.release();
         return b2;
     }
 
-    public void put(A a2, int i, int i2, B b2) {
-        this.cache.put(ModelKey.get(a2, i, i2), b2);
+    public void put(A a2, int i2, int i3, B b2) {
+        this.cache.put(ModelKey.get(a2, i2, i3), b2);
     }
 
     public ModelCache(long j) {

@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class CloseableReference<T> implements Cloneable, Closeable {
     @GuardedBy("this")
     public boolean mIsClosed = false;
@@ -36,7 +36,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
         }
     };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface LeakHandler {
         void reportLeak(SharedReference<Object> sharedReference);
     }
@@ -61,7 +61,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
     @Nullable
     public synchronized CloseableReference<T> cloneOrNull() {
         if (isValid()) {
-            return m34clone();
+            return m35clone();
         }
         return null;
     }
@@ -134,7 +134,7 @@ public final class CloseableReference<T> implements Cloneable, Closeable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public synchronized CloseableReference<T> m34clone() {
+    public synchronized CloseableReference<T> m35clone() {
         Preconditions.checkState(isValid());
         return new CloseableReference<>(this.mSharedReference, this.mLeakHandler);
     }

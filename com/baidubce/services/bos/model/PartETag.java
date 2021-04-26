@@ -43,8 +43,8 @@ public class PartETag {
         this.eTag = str;
     }
 
-    public void setPartNumber(int i) {
-        this.partNumber = i;
+    public void setPartNumber(int i2) {
+        this.partNumber = i2;
     }
 
     public String toString() {
@@ -56,13 +56,13 @@ public class PartETag {
         return this;
     }
 
-    public PartETag withPartNumber(int i) {
-        setPartNumber(i);
+    public PartETag withPartNumber(int i2) {
+        setPartNumber(i2);
         return this;
     }
 
-    public PartETag(int i, String str) {
-        setPartNumber(i);
+    public PartETag(int i2, String str) {
+        setPartNumber(i2);
         setETag(str);
     }
 }

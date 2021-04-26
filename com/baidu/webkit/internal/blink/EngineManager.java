@@ -82,13 +82,13 @@ public class EngineManager implements INoProGuard {
                 return;
             }
             Log.i(LOG_TAG, "BlinkEngineInstaller.installAsync");
-            if (cVar.f26575b != null && WebKitFactory.getContext() != null) {
+            if (cVar.f27382b != null && WebKitFactory.getContext() != null) {
                 HandlerThread handlerThread = new HandlerThread("T7@ZeusInstaller");
                 handlerThread.start();
                 new Handler(handlerThread.getLooper()).post(new b(cVar, handlerThread));
                 return;
             }
-            WebKitFactory.WebkitInstallListener webkitInstallListener2 = cVar.f26574a;
+            WebKitFactory.WebkitInstallListener webkitInstallListener2 = cVar.f27381a;
             if (webkitInstallListener2 != null) {
                 webkitInstallListener2.onInstallFinish(13, null);
             }
@@ -233,8 +233,8 @@ public class EngineManager implements INoProGuard {
         String[] strArr = {"zeus/libs/com.baidu.zeus2.dex", "zeus/libs/com.baidu.zeus2.jar", "zeus/libs/libbaiduwebviewchromium.so", "pagecache.log"};
         File filesDir = context.getFilesDir();
         if (filesDir != null) {
-            for (int i = 0; i < 4; i++) {
-                new File(filesDir, strArr[i]).delete();
+            for (int i2 = 0; i2 < 4; i2++) {
+                new File(filesDir, strArr[i2]).delete();
             }
         }
     }

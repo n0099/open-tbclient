@@ -24,22 +24,22 @@ import org.json.JSONObject;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8820a;
+    public static String f9135a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static s f8821b;
+    public static s f9136b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f8822c;
+    public Handler f9137c;
 
     static {
-        f8820a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
+        f9135a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
     }
 
     public s() {
-        HandlerThread handlerThread = new HandlerThread(com.baidu.fsg.base.statistics.l.f5359a);
+        HandlerThread handlerThread = new HandlerThread(com.baidu.fsg.base.statistics.l.f5497a);
         handlerThread.start();
-        this.f8822c = new Handler(handlerThread.getLooper());
+        this.f9137c = new Handler(handlerThread.getLooper());
     }
 
     private boolean b(Context context, String str) {
@@ -48,7 +48,7 @@ public class s {
                 return true;
             }
             try {
-                a(context, f8820a, str);
+                a(context, f9135a, str);
                 return true;
             } catch (Exception e2) {
                 bb.c().c(e2);
@@ -58,14 +58,14 @@ public class s {
     }
 
     public static s a() {
-        if (f8821b == null) {
+        if (f9136b == null) {
             synchronized (s.class) {
-                if (f8821b == null) {
-                    f8821b = new s();
+                if (f9136b == null) {
+                    f9136b = new s();
                 }
             }
         }
-        return f8821b;
+        return f9136b;
     }
 
     public void a(final Context context, final String str) {
@@ -74,7 +74,7 @@ public class s {
         if (str == null || "".equals(str)) {
             return;
         }
-        this.f8822c.post(new Runnable() { // from class: com.baidu.mobstat.s.1
+        this.f9137c.post(new Runnable() { // from class: com.baidu.mobstat.s.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
@@ -115,7 +115,7 @@ public class s {
             } catch (Exception e2) {
                 bb.c().b(e2);
             }
-            int i = 0;
+            int i2 = 0;
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
                     String name = file2.getName();
@@ -124,11 +124,11 @@ public class s {
                         String b2 = bo.b(str);
                         if (b(context, b2)) {
                             bo.c(str);
-                            i = 0;
+                            i2 = 0;
                         } else {
                             a(b2, str);
-                            i++;
-                            if (i >= 5) {
+                            i2++;
+                            if (i2 >= 5) {
                                 return;
                             }
                         }
@@ -228,10 +228,10 @@ public class s {
         }
     }
 
-    public static byte[] a(long j, int i) {
-        byte[] bArr = new byte[i];
-        for (int i2 = 0; i2 < i; i2++) {
-            bArr[(i - i2) - 1] = (byte) (255 & j);
+    public static byte[] a(long j, int i2) {
+        byte[] bArr = new byte[i2];
+        for (int i3 = 0; i3 < i2; i3++) {
+            bArr[(i2 - i3) - 1] = (byte) (255 & j);
             j >>= 8;
         }
         return bArr;

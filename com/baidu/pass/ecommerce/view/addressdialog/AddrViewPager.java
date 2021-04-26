@@ -48,12 +48,12 @@ public class AddrViewPager extends ViewPager {
     }
 
     @Override // androidx.viewpager.widget.ViewPager
-    public void setCurrentItem(int i) {
-        super.setCurrentItem(i, false);
+    public void setCurrentItem(int i2) {
+        super.setCurrentItem(i2, false);
     }
 
-    public void setRealPagerNumber(int i) {
-        this.mRealPagerNum = i;
+    public void setRealPagerNumber(int i2) {
+        this.mRealPagerNum = i2;
     }
 
     public AddrViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {

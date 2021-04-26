@@ -72,9 +72,9 @@ public class CpuLpVideoLayout extends RelativeLayout {
             public void run() {
                 int duration = CpuLpVideoLayout.this.mAdVideoView.getDuration();
                 int currentPosition = CpuLpVideoLayout.this.mAdVideoView.getCurrentPosition();
-                int i = (duration - currentPosition) / 1000;
+                int i2 = (duration - currentPosition) / 1000;
                 CpuLpVideoLayout.this.mCpuLpVideoControllerView.upDateVideoTime(currentPosition, duration);
-                if (i == 5 && CpuLpVideoLayout.this.mOnlyNotifyUser) {
+                if (i2 == 5 && CpuLpVideoLayout.this.mOnlyNotifyUser) {
                     CpuLpVideoLayout.this.mOnlyNotifyUser = false;
                     CpuLpVideoLayout cpuLpVideoLayout = CpuLpVideoLayout.this;
                     cpuLpVideoLayout.mOnVideoStatusListener.fiveSecondsLeft(cpuLpVideoLayout.mJsWithPlayerData);
@@ -193,8 +193,8 @@ public class CpuLpVideoLayout extends RelativeLayout {
         this.mCpuLpVideoControllerView.setAdData(jsWithPlayerData);
     }
 
-    public void changePlayProgress(int i) {
-        this.mAdVideoView.seekTo(i);
+    public void changePlayProgress(int i2) {
+        this.mAdVideoView.seekTo(i2);
     }
 
     public void changeVideoSound(boolean z) {
@@ -299,9 +299,9 @@ public class CpuLpVideoLayout extends RelativeLayout {
     }
 
     @Override // android.view.View
-    public void onVisibilityChanged(View view, int i) {
-        super.onVisibilityChanged(view, i);
-        if (i == 8) {
+    public void onVisibilityChanged(View view, int i2) {
+        super.onVisibilityChanged(view, i2);
+        if (i2 == 8) {
             this.mAdVideoView.stopAndRelease();
             OnVideoStatusListener onVideoStatusListener = this.mOnVideoStatusListener;
             if (onVideoStatusListener != null) {

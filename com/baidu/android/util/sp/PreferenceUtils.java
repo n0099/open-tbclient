@@ -25,8 +25,8 @@ public final class PreferenceUtils {
         return getPreference().getFloat(str, f2);
     }
 
-    public static int getInt(String str, int i) {
-        return getPreference().getInt(str, i);
+    public static int getInt(String str, int i2) {
+        return getPreference().getInt(str, i2);
     }
 
     public static long getLong(String str, long j) {
@@ -68,9 +68,9 @@ public final class PreferenceUtils {
         edit.apply();
     }
 
-    public static void setInt(String str, int i) {
+    public static void setInt(String str, int i2) {
         SharedPreferences.Editor edit = getPreference().edit();
-        edit.putInt(str, i);
+        edit.putInt(str, i2);
         edit.apply();
     }
 

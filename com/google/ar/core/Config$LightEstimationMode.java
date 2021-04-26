@@ -8,20 +8,20 @@ public enum Config$LightEstimationMode {
     
     public final int nativeCode;
 
-    Config$LightEstimationMode(int i) {
-        this.nativeCode = i;
+    Config$LightEstimationMode(int i2) {
+        this.nativeCode = i2;
     }
 
-    public static Config$LightEstimationMode forNumber(int i) {
+    public static Config$LightEstimationMode forNumber(int i2) {
         Config$LightEstimationMode[] values;
         for (Config$LightEstimationMode config$LightEstimationMode : values()) {
-            if (config$LightEstimationMode.nativeCode == i) {
+            if (config$LightEstimationMode.nativeCode == i2) {
                 return config$LightEstimationMode;
             }
         }
         StringBuilder sb = new StringBuilder(66);
         sb.append("Unexpected value for native LightEstimationMode, value=");
-        sb.append(i);
+        sb.append(i2);
         throw new FatalException(sb.toString());
     }
 }

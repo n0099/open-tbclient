@@ -17,26 +17,26 @@ public class OrientationHelper extends OrientationEventListener {
 
     /* loaded from: classes2.dex */
     public interface IOrientationChange {
-        void onOrientationChanged(int i);
+        void onOrientationChanged(int i2);
     }
 
     public OrientationHelper(Context context) {
         this(context, 3);
     }
 
-    public static boolean isLandscape(int i) {
-        return Math.abs(i + (-90)) <= 23 || Math.abs(i + (-270)) <= 23;
+    public static boolean isLandscape(int i2) {
+        return Math.abs(i2 + (-90)) <= 23 || Math.abs(i2 + (-270)) <= 23;
     }
 
-    public static boolean isPortrait(int i) {
-        if (i < 0 || i > 23) {
-            return (337 <= i && i < 360) || Math.abs(i + (-180)) <= 23;
+    public static boolean isPortrait(int i2) {
+        if (i2 < 0 || i2 > 23) {
+            return (337 <= i2 && i2 < 360) || Math.abs(i2 + (-180)) <= 23;
         }
         return true;
     }
 
-    public static boolean isReverseLandscape(int i) {
-        return Math.abs(i + (-90)) <= 23;
+    public static boolean isReverseLandscape(int i2) {
+        return Math.abs(i2 + (-90)) <= 23;
     }
 
     public static boolean isSystemOrientationLocked(Context context) {
@@ -58,20 +58,20 @@ public class OrientationHelper extends OrientationEventListener {
     }
 
     @Override // android.view.OrientationEventListener
-    public void onOrientationChanged(int i) {
+    public void onOrientationChanged(int i2) {
         IOrientationChange iOrientationChange;
-        this.mLastOrientation = i;
-        if (i == -1 || (iOrientationChange = this.mListener) == null) {
+        this.mLastOrientation = i2;
+        if (i2 == -1 || (iOrientationChange = this.mListener) == null) {
             return;
         }
-        iOrientationChange.onOrientationChanged(i);
+        iOrientationChange.onOrientationChanged(i2);
     }
 
     public void setListener(IOrientationChange iOrientationChange) {
         this.mListener = iOrientationChange;
     }
 
-    public OrientationHelper(Context context, int i) {
-        super(context, i);
+    public OrientationHelper(Context context, int i2) {
+        super(context, i2);
     }
 }

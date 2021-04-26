@@ -1,21 +1,21 @@
 package io.reactivex.internal.subscribers;
 
-import f.b.g;
-import g.d.c;
-import g.d.d;
+import io.reactivex.FlowableSubscriber;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
 /* loaded from: classes7.dex */
-public abstract class DeferredScalarSubscriber<T, R> extends DeferredScalarSubscription<R> implements g<T> {
+public abstract class DeferredScalarSubscriber<T, R> extends DeferredScalarSubscription<R> implements FlowableSubscriber<T> {
     public static final long serialVersionUID = 2984505488220891551L;
     public boolean hasValue;
-    public d s;
+    public Subscription s;
 
-    public DeferredScalarSubscriber(c<? super R> cVar) {
-        super(cVar);
+    public DeferredScalarSubscriber(Subscriber<? super R> subscriber) {
+        super(subscriber);
     }
 
-    @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, io.reactivex.internal.subscriptions.BasicIntQueueSubscription, g.d.d
+    @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.reactivestreams.Subscription
     public void cancel() {
         super.cancel();
         this.s.cancel();
@@ -34,13 +34,11 @@ public abstract class DeferredScalarSubscriber<T, R> extends DeferredScalarSubsc
         this.actual.onError(th);
     }
 
-    public abstract /* synthetic */ void onNext(T t);
-
-    public void onSubscribe(d dVar) {
-        if (SubscriptionHelper.validate(this.s, dVar)) {
-            this.s = dVar;
+    public void onSubscribe(Subscription subscription) {
+        if (SubscriptionHelper.validate(this.s, subscription)) {
+            this.s = subscription;
             this.actual.onSubscribe(this);
-            dVar.request(Long.MAX_VALUE);
+            subscription.request(Long.MAX_VALUE);
         }
     }
 }

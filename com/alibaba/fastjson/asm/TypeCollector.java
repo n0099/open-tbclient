@@ -1,6 +1,5 @@
 package com.alibaba.fastjson.asm;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.annotation.JSONType;
 import com.alibaba.fastjson.util.ASMUtils;
 import java.lang.reflect.Modifier;
@@ -15,7 +14,7 @@ public class TypeCollector {
             put("boolean", "Z");
             put("byte", "B");
             put("char", "C");
-            put("short", ExifInterface.LATITUDE_SOUTH);
+            put("short", "S");
             put("float", "F");
             put("long", "J");
             put("double", "D");
@@ -71,25 +70,25 @@ public class TypeCollector {
         }
     }
 
-    public MethodCollector visitMethod(int i, String str, String str2) {
+    public MethodCollector visitMethod(int i2, String str, String str2) {
         if (this.collector == null && str.equals(this.methodName)) {
             Type[] argumentTypes = Type.getArgumentTypes(str2);
-            int i2 = 0;
+            int i3 = 0;
             for (Type type : argumentTypes) {
                 String className = type.getClassName();
                 if (className.equals("long") || className.equals("double")) {
-                    i2++;
+                    i3++;
                 }
             }
             if (argumentTypes.length != this.parameterTypes.length) {
                 return null;
             }
-            for (int i3 = 0; i3 < argumentTypes.length; i3++) {
-                if (!correctTypeName(argumentTypes[i3], this.parameterTypes[i3].getName())) {
+            for (int i4 = 0; i4 < argumentTypes.length; i4++) {
+                if (!correctTypeName(argumentTypes[i4], this.parameterTypes[i4].getName())) {
                     return null;
                 }
             }
-            MethodCollector methodCollector = new MethodCollector(!Modifier.isStatic(i) ? 1 : 0, argumentTypes.length + i2);
+            MethodCollector methodCollector = new MethodCollector(!Modifier.isStatic(i2) ? 1 : 0, argumentTypes.length + i3);
             this.collector = methodCollector;
             return methodCollector;
         }

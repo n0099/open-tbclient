@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.AppData;
-import d.b.c.e.p.a;
-import d.b.j0.s2.f0.g;
-import d.b.j0.s2.v;
+import d.a.c.e.p.a;
+import d.a.j0.s2.h0.g;
+import d.a.j0.s2.w;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements View.OnClickListener {
     public static final String KEY_GOODS = "goods";
     public static final String KEY_LEGO = "lego_card";
@@ -41,16 +41,16 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
             this.mItemContainer.addView(initItemView, new LinearLayout.LayoutParams(-1, -1, 1.0f));
             return;
         }
-        for (int i = 0; i != this.mAdDatas.size(); i++) {
+        for (int i2 = 0; i2 != this.mAdDatas.size(); i2++) {
             TextView initItemView2 = initItemView();
-            initItemView2.setText("AD" + i);
-            AppData appData = this.mAdDatas.get(i);
+            initItemView2.setText("AD" + i2);
+            AppData appData = this.mAdDatas.get(i2);
             if (appData.mDiscardReason > 0) {
                 SkinManager.setBackgroundResource(initItemView2, R.drawable.btn_all_red);
             } else {
                 SkinManager.setBackgroundResource(initItemView2, R.drawable.btn_all_green);
             }
-            if (i == 0) {
+            if (i2 == 0) {
                 updateContent(appData);
                 this.mTitle.setText("AD0");
             }
@@ -68,7 +68,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
             try {
                 String str = new String();
                 if (appData.mDiscardReason > 0) {
-                    String str2 = g.f62111a.get(Integer.valueOf(appData.mDiscardReason));
+                    String str2 = g.f60312a.get(Integer.valueOf(appData.mDiscardReason));
                     if (TextUtils.isEmpty(str2)) {
                         str2 = "未知原因";
                     }
@@ -113,7 +113,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
         ((TextView) findViewById(R.id.ad_debug_copy)).setOnClickListener(this);
         this.mContent.setMovementMethod(new ScrollingMovementMethod());
         this.mContent.setText("没刷到广告~ 换个姿势试试！");
-        this.mAdDatas = v.p().o();
+        this.mAdDatas = w.p().j();
         initLayout();
     }
 }

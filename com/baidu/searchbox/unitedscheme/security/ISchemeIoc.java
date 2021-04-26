@@ -17,6 +17,10 @@ public interface ISchemeIoc {
         }
 
         @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+        public void processSchemeFromMobsdk(UnitedSchemeEntity unitedSchemeEntity, int i2) {
+        }
+
+        @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
         public void showConfirmDialog(Context context, UnitedSchemeBaseDispatcher.ConfirmDialogCallback confirmDialogCallback) {
         }
 
@@ -28,6 +32,8 @@ public interface ISchemeIoc {
     void doStatistic(String str, String str2);
 
     boolean needShowConfirmWindow(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
+
+    void processSchemeFromMobsdk(UnitedSchemeEntity unitedSchemeEntity, int i2);
 
     void showConfirmDialog(Context context, UnitedSchemeBaseDispatcher.ConfirmDialogCallback confirmDialogCallback);
 

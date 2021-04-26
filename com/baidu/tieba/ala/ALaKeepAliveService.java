@@ -14,7 +14,7 @@ public class ALaKeepAliveService extends BdBaseService {
     public static final String KEY_NOTIFICATION_ID = "notification_id";
     public static final String KEY_TICKER = "ticker";
 
-    public static void startService(Context context, String str, String str2, String str3, int i) {
+    public static void startService(Context context, String str, String str2, String str3, int i2) {
         if (context == null) {
             return;
         }
@@ -23,8 +23,8 @@ public class ALaKeepAliveService extends BdBaseService {
         intent.putExtra(KEY_CONTENT_TITLE, str);
         intent.putExtra(KEY_CONTENT_TEXT, str2);
         intent.putExtra(KEY_TICKER, str3);
-        if (i != 0) {
-            intent.putExtra(KEY_NOTIFICATION_ID, i);
+        if (i2 != 0) {
+            intent.putExtra(KEY_NOTIFICATION_ID, i2);
         }
         context.startService(intent);
     }
@@ -40,7 +40,7 @@ public class ALaKeepAliveService extends BdBaseService {
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(Intent intent, int i2, int i3) {
         if (intent == null) {
             startForeground(Integer.MAX_VALUE, new Notification());
         } else {
@@ -52,6 +52,6 @@ public class ALaKeepAliveService extends BdBaseService {
             builder.setContentTitle(stringExtra).setContentText(stringExtra2).setSmallIcon(R.drawable.ic_icon_foreground).setTicker(stringExtra3);
             startForeground(intExtra, builder.build());
         }
-        return super.onStartCommand(intent, i, i2);
+        return super.onStartCommand(intent, i2, i3);
     }
 }

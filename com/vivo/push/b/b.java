@@ -1,18 +1,18 @@
 package com.vivo.push.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class b extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39752a;
+    public String f37355a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39753b;
+    public String f37356b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39754c;
+    public String f37357c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39755d;
+    public String f37358d;
 
     public b(boolean z, String str) {
         super(z ? 2006 : 2007, null, str);
@@ -21,19 +21,19 @@ public final class b extends c {
     @Override // com.vivo.push.b.c, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("sdk_clients", this.f39752a);
+        aVar.a("sdk_clients", this.f37355a);
         aVar.a("sdk_version", 293L);
-        aVar.a("BaseAppCommand.EXTRA_APPID", this.f39754c);
-        aVar.a("BaseAppCommand.EXTRA_APPKEY", this.f39753b);
-        aVar.a("PUSH_REGID", this.f39755d);
+        aVar.a("BaseAppCommand.EXTRA_APPID", this.f37357c);
+        aVar.a("BaseAppCommand.EXTRA_APPKEY", this.f37356b);
+        aVar.a("PUSH_REGID", this.f37358d);
     }
 
     public final void d() {
-        this.f39754c = null;
+        this.f37357c = null;
     }
 
     public final void e() {
-        this.f39753b = null;
+        this.f37356b = null;
     }
 
     @Override // com.vivo.push.b.c, com.vivo.push.y
@@ -44,9 +44,9 @@ public final class b extends c {
     @Override // com.vivo.push.b.c, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.f39752a = aVar.a("sdk_clients");
-        this.f39754c = aVar.a("BaseAppCommand.EXTRA_APPID");
-        this.f39753b = aVar.a("BaseAppCommand.EXTRA_APPKEY");
-        this.f39755d = aVar.a("PUSH_REGID");
+        this.f37355a = aVar.a("sdk_clients");
+        this.f37357c = aVar.a("BaseAppCommand.EXTRA_APPID");
+        this.f37356b = aVar.a("BaseAppCommand.EXTRA_APPKEY");
+        this.f37358d = aVar.a("PUSH_REGID");
     }
 }

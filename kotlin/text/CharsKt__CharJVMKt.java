@@ -8,15 +8,15 @@ import kotlin.ranges.IntRange;
 /* loaded from: classes7.dex */
 public class CharsKt__CharJVMKt {
     @PublishedApi
-    public static final int checkRadix(int i) {
-        if (2 > i || 36 < i) {
-            throw new IllegalArgumentException("radix " + i + " was not in valid range " + new IntRange(2, 36));
+    public static final int checkRadix(int i2) {
+        if (2 > i2 || 36 < i2) {
+            throw new IllegalArgumentException("radix " + i2 + " was not in valid range " + new IntRange(2, 36));
         }
-        return i;
+        return i2;
     }
 
-    public static final int digitOf(char c2, int i) {
-        return Character.digit((int) c2, i);
+    public static final int digitOf(char c2, int i2) {
+        return Character.digit((int) c2, i2);
     }
 
     public static final CharCategory getCategory(char c2) {

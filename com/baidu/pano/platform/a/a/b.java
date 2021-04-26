@@ -9,57 +9,57 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Comparator<byte[]> f8877a = new c();
+    public static final Comparator<byte[]> f9205a = new c();
 
     /* renamed from: b  reason: collision with root package name */
-    public List<byte[]> f8878b = new LinkedList();
+    public List<byte[]> f9206b = new LinkedList();
 
     /* renamed from: c  reason: collision with root package name */
-    public List<byte[]> f8879c = new ArrayList(64);
+    public List<byte[]> f9207c = new ArrayList(64);
 
     /* renamed from: d  reason: collision with root package name */
-    public int f8880d = 0;
+    public int f9208d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f8881e;
+    public final int f9209e;
 
-    public b(int i) {
-        this.f8881e = i;
+    public b(int i2) {
+        this.f9209e = i2;
     }
 
-    public synchronized byte[] a(int i) {
-        for (int i2 = 0; i2 < this.f8879c.size(); i2++) {
-            byte[] bArr = this.f8879c.get(i2);
-            if (bArr.length >= i) {
-                this.f8880d -= bArr.length;
-                this.f8879c.remove(i2);
-                this.f8878b.remove(bArr);
+    public synchronized byte[] a(int i2) {
+        for (int i3 = 0; i3 < this.f9207c.size(); i3++) {
+            byte[] bArr = this.f9207c.get(i3);
+            if (bArr.length >= i2) {
+                this.f9208d -= bArr.length;
+                this.f9207c.remove(i3);
+                this.f9206b.remove(bArr);
                 return bArr;
             }
         }
-        return new byte[i];
+        return new byte[i2];
     }
 
     public synchronized void a(byte[] bArr) {
         if (bArr != null) {
-            if (bArr.length <= this.f8881e) {
-                this.f8878b.add(bArr);
-                int binarySearch = Collections.binarySearch(this.f8879c, bArr, f8877a);
+            if (bArr.length <= this.f9209e) {
+                this.f9206b.add(bArr);
+                int binarySearch = Collections.binarySearch(this.f9207c, bArr, f9205a);
                 if (binarySearch < 0) {
                     binarySearch = (-binarySearch) - 1;
                 }
-                this.f8879c.add(binarySearch, bArr);
-                this.f8880d += bArr.length;
+                this.f9207c.add(binarySearch, bArr);
+                this.f9208d += bArr.length;
                 a();
             }
         }
     }
 
     private synchronized void a() {
-        while (this.f8880d > this.f8881e) {
-            byte[] remove = this.f8878b.remove(0);
-            this.f8879c.remove(remove);
-            this.f8880d -= remove.length;
+        while (this.f9208d > this.f9209e) {
+            byte[] remove = this.f9206b.remove(0);
+            this.f9207c.remove(remove);
+            this.f9208d -= remove.length;
         }
     }
 }

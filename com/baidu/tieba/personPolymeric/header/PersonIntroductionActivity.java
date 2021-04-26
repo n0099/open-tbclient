@@ -10,8 +10,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import d.b.c.e.p.k;
-/* loaded from: classes3.dex */
+import d.a.c.e.p.k;
+/* loaded from: classes4.dex */
 public class PersonIntroductionActivity extends BaseActivity {
     public static final String PERSON_INTRODUCTION = "person_introduction";
     public ImageView mBackImg;
@@ -20,7 +20,7 @@ public class PersonIntroductionActivity extends BaseActivity {
     public NavigationBar mNavigationBar;
     public View mRootView;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -42,11 +42,11 @@ public class PersonIntroductionActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        SkinManager.setViewTextColor(this.mIntroView, R.color.CAM_X0105, 1, i);
-        SkinManager.setBackgroundResource(this.mRootView, R.color.CAM_X0201, i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        SkinManager.setViewTextColor(this.mIntroView, R.color.CAM_X0105, 1, i2);
+        SkinManager.setBackgroundResource(this.mRootView, R.color.CAM_X0201, i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

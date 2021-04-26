@@ -7,7 +7,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewParent;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.ShowableListMenu;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public abstract class ForwardingListener implements View.OnTouchListener, View.OnAttachStateChangeListener {
     public int mActivePointerId;

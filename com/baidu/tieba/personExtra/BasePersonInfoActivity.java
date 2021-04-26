@@ -23,10 +23,10 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import d.b.c.e.p.k;
-import d.b.c.e.p.l;
-import d.b.i0.r.l.f;
-/* loaded from: classes3.dex */
+import d.a.c.e.p.k;
+import d.a.c.e.p.l;
+import d.a.i0.r.l.f;
+/* loaded from: classes4.dex */
 public abstract class BasePersonInfoActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
     public static final String CURRTABINDEX = "CurrTabIndex";
     public static final String KEY_PAGE_TYPE = "page_type";
@@ -54,7 +54,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     public String mSelectedBarId = "";
     public HttpMessageListener privacySetttingListenter = new c(CmdConfigHttp.SET_PRIVATE_CMD);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -64,13 +64,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             BasePersonInfoActivity basePersonInfoActivity = BasePersonInfoActivity.this;
             if (basePersonInfoActivity.mIsChooseBarMode && basePersonInfoActivity.requestCode != 23011) {
                 MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(Boolean.FALSE));
-                d.b.i0.r.a0.b.g(BasePersonInfoActivity.this.getPageContext().getPageActivity(), 200, false);
+                d.a.i0.r.a0.b.g(BasePersonInfoActivity.this.getPageContext().getPageActivity(), 200, false);
             }
             BasePersonInfoActivity.this.finish();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -88,10 +88,10 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends HttpMessageListener {
-        public c(int i) {
-            super(i);
+        public c(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -113,34 +113,34 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         }
     }
 
-    private void createAndAddTabSpec(Fragment fragment, int i, String str) {
+    private void createAndAddTabSpec(Fragment fragment, int i2, String str) {
         if (fragment == null) {
             return;
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12982c = fragment;
-        bVar.f12980a = i;
+        bVar.f12907c = fragment;
+        bVar.f12905a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
         fragmentTabIndicator.setMinimumHeight(l.g(getActivity(), R.dimen.ds88));
-        bVar.f12981b = fragmentTabIndicator;
+        bVar.f12906b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
     private void initTabSpec() {
         if (this.mAdapter != null) {
-            int i = this.mIsHost ? 1 : 2;
-            for (int i2 = 0; i2 < i; i2++) {
-                Fragment item = this.mAdapter.getItem(i2);
-                int i3 = this.mAdapter.i(i2);
+            int i2 = this.mIsHost ? 1 : 2;
+            for (int i3 = 0; i3 < i2; i3++) {
+                Fragment item = this.mAdapter.getItem(i3);
+                int c2 = this.mAdapter.c(i3);
                 String noPersonalTabTitle = getNoPersonalTabTitle();
-                if (i3 == 1) {
+                if (c2 == 1) {
                     noPersonalTabTitle = getNoCommonTabTitle();
                 }
                 if (item != null) {
-                    createAndAddTabSpec(item, i3, noPersonalTabTitle);
+                    createAndAddTabSpec(item, c2, noPersonalTabTitle);
                 }
             }
             this.mTabHost.k(3);
@@ -233,20 +233,20 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.mTabHost.o(i);
+    public void onChangeSkinType(int i2) {
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        this.mTabHost.o(i2);
         if (this.mAdapter != null) {
-            for (int i2 = 0; i2 < this.mAdapter.getCount(); i2++) {
-                Fragment item = this.mAdapter.getItem(i2);
+            for (int i3 = 0; i3 < this.mAdapter.getCount(); i3++) {
+                Fragment item = this.mAdapter.getItem(i3);
                 if (item != null && (item instanceof BaseFragment)) {
-                    ((BaseFragment) item).onChangeSkinType(i);
+                    ((BaseFragment) item).onChangeSkinType(i2);
                 }
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_base_person_info);
@@ -279,10 +279,10 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             this.mIsHost = true;
         } else {
             this.mIsHost = false;
-            int i = this.mSex;
-            if (i == 1) {
+            int i2 = this.mSex;
+            if (i2 == 1) {
                 this.mUtype = getPageContext().getString(R.string.he);
-            } else if (i != 2) {
+            } else if (i2 != 2) {
                 this.mUtype = getPageContext().getString(R.string.ta);
             } else {
                 this.mUtype = getPageContext().getString(R.string.she);
@@ -297,38 +297,38 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4 && keyEvent.getRepeatCount() == 0) {
             if (this.mIsChooseBarMode && this.requestCode != 23011) {
-                d.b.i0.r.a0.b.g(getPageContext().getPageActivity(), 200, false);
+                d.a.i0.r.a0.b.g(getPageContext().getPageActivity(), 200, false);
             }
             finish();
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    public void onPageScrollStateChanged(int i2) {
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f2, int i2) {
+    public void onPageScrolled(int i2, float f2, int i3) {
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        if (i < 0 || i >= 2 || i == this.mCurrTabIndex) {
+    public void onPageSelected(int i2) {
+        if (i2 < 0 || i2 >= 2 || i2 == this.mCurrTabIndex) {
             return;
         }
-        this.mCurrTabIndex = i;
-        if (this.mIsHost || this.mTypes[i] != 1) {
+        this.mCurrTabIndex = i2;
+        if (this.mIsHost || this.mTypes[i2] != 1) {
             return;
         }
         TiebaStatic.eventStat(getPageContext().getContext(), getHisCommonEventText(), PrefetchEvent.STATE_CLICK, 1, new Object[0]);
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         bundle.putInt("CurrTabIndex", this.mCurrTabIndex);
         bundle.putInt(PersonBarActivityConfig.LIKE_BARS_COUNT, this.likeBarCount);
@@ -339,25 +339,25 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         super.onSaveInstanceState(bundle);
     }
 
-    public void setLikeBarCount(int i) {
-        this.likeBarCount = i;
+    public void setLikeBarCount(int i2) {
+        this.likeBarCount = i2;
     }
 
-    public void updateTabTitle(int i, int i2) {
+    public void updateTabTitle(int i2, int i3) {
         if (this.mIsHost || this.mAdapter == null) {
             return;
         }
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.g(0).f12981b;
-        if (i <= 0) {
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.g(0).f12906b;
+        if (i2 <= 0) {
             fragmentTabIndicator.setText(getNoPersonalTabTitle());
         } else {
-            fragmentTabIndicator.setText(String.format(getPersonalTabTitle(), Integer.valueOf(i)));
+            fragmentTabIndicator.setText(String.format(getPersonalTabTitle(), Integer.valueOf(i2)));
         }
-        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.g(1).f12981b;
-        if (i2 <= 0) {
+        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.g(1).f12906b;
+        if (i3 <= 0) {
             fragmentTabIndicator2.setText(getNoCommonTabTitle());
         } else {
-            fragmentTabIndicator2.setText(String.format(getCommonTabTitle(), Integer.valueOf(i2)));
+            fragmentTabIndicator2.setText(String.format(getCommonTabTitle(), Integer.valueOf(i3)));
         }
     }
 }

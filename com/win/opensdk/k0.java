@@ -1,24 +1,32 @@
 package com.win.opensdk;
 
-import android.view.View;
-/* loaded from: classes7.dex */
-public class k0 implements Runnable {
+import android.view.ViewTreeObserver;
+/* loaded from: classes6.dex */
+public class k0 implements ViewTreeObserver.OnScrollChangedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ l0 f40346a;
+    public final /* synthetic */ l0 f37902a;
 
-    public k0(l0 l0Var) {
-        this.f40346a = l0Var;
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ m0 f37903b;
+
+    public k0(m0 m0Var, l0 l0Var) {
+        this.f37903b = m0Var;
+        this.f37902a = l0Var;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // android.view.ViewTreeObserver.OnScrollChangedListener
+    public void onScrollChanged() {
         try {
-            View rootView = this.f40346a.f40351a.getRootView();
-            if (rootView == null || rootView.getVisibility() != 0) {
+            if (this.f37903b.f37907b || !this.f37903b.a(this.f37903b.f37906a)) {
                 return;
             }
-            a1.a(this.f40346a.f40352b.f40389a).a(new b1(this.f40346a.f40352b.f40391c), this.f40346a.f40351a.getWidth(), this.f40346a.f40351a.getHeight()).a();
+            this.f37903b.f37910e.removeMessages(1101);
+            this.f37903b.f37906a.getViewTreeObserver().removeOnScrollChangedListener(this);
+            if (this.f37902a != null) {
+                this.f37902a.a();
+            }
+            this.f37903b.f37907b = true;
         } catch (Exception e2) {
             e2.printStackTrace();
         }

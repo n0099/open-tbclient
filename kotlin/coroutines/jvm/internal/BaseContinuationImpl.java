@@ -19,7 +19,8 @@ public abstract class BaseContinuationImpl implements Continuation<Object>, Coro
         this.completion = continuation;
     }
 
-    public Continuation<Unit> create(Continuation<?> continuation) {
+    public Continuation<Unit> create(Continuation<?> completion) {
+        Intrinsics.checkNotNullParameter(completion, "completion");
         throw new UnsupportedOperationException("create(Continuation) has not been overridden");
     }
 
@@ -53,20 +54,18 @@ public abstract class BaseContinuationImpl implements Continuation<Object>, Coro
         while (true) {
             DebugProbesKt.probeCoroutineResumed(baseContinuationImpl);
             Continuation<Object> continuation = baseContinuationImpl.completion;
-            if (continuation == null) {
-                Intrinsics.throwNpe();
-            }
+            Intrinsics.checkNotNull(continuation);
             try {
                 invokeSuspend = baseContinuationImpl.invokeSuspend(obj);
             } catch (Throwable th) {
                 Result.Companion companion = Result.Companion;
-                obj = Result.m632constructorimpl(ResultKt.createFailure(th));
+                obj = Result.m636constructorimpl(ResultKt.createFailure(th));
             }
             if (invokeSuspend == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                 return;
             }
             Result.Companion companion2 = Result.Companion;
-            obj = Result.m632constructorimpl(invokeSuspend);
+            obj = Result.m636constructorimpl(invokeSuspend);
             baseContinuationImpl.releaseIntercepted();
             if (continuation instanceof BaseContinuationImpl) {
                 baseContinuationImpl = (BaseContinuationImpl) continuation;
@@ -88,7 +87,8 @@ public abstract class BaseContinuationImpl implements Continuation<Object>, Coro
         return sb.toString();
     }
 
-    public Continuation<Unit> create(Object obj, Continuation<?> continuation) {
+    public Continuation<Unit> create(Object obj, Continuation<?> completion) {
+        Intrinsics.checkNotNullParameter(completion, "completion");
         throw new UnsupportedOperationException("create(Any?;Continuation) has not been overridden");
     }
 }

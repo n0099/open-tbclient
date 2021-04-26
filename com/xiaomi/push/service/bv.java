@@ -8,10 +8,10 @@ import android.os.Message;
 public class bv extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f41400a;
+    public final /* synthetic */ XMPushService f38946a;
 
     public bv(XMPushService xMPushService) {
-        this.f41400a = xMPushService;
+        this.f38946a = xMPushService;
     }
 
     @Override // android.os.Handler
@@ -20,19 +20,19 @@ public class bv extends Handler {
         super.handleMessage(message);
         if (message != null) {
             try {
-                int i = message.what;
-                if (i != 17) {
-                    if (i == 18) {
+                int i2 = message.what;
+                if (i2 != 17) {
+                    if (i2 == 18) {
                         Message obtain = Message.obtain((Handler) null, 0);
                         obtain.what = 18;
                         Bundle bundle = new Bundle();
-                        str = this.f41400a.f850a;
+                        str = this.f38946a.f850a;
                         bundle.putString("xmsf_region", str);
                         obtain.setData(bundle);
                         message.replyTo.send(obtain);
                     }
                 } else if (message.obj != null) {
-                    this.f41400a.onStart((Intent) message.obj, 1);
+                    this.f38946a.onStart((Intent) message.obj, 1);
                 }
             } catch (Throwable unused) {
             }

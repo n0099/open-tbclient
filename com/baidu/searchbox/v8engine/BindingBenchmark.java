@@ -19,12 +19,12 @@ public class BindingBenchmark {
         @V8JavascriptField
         public JSEvent mJSEvent = new JSEvent("test");
 
-        public JavaObject(int i) {
-            this.mInt = i;
+        public JavaObject(int i2) {
+            this.mInt = i2;
         }
 
         @JavascriptInterface
-        public void function(int i, double d2, String str, Object obj, JSEvent jSEvent) {
+        public void function(int i2, double d2, String str, Object obj, JSEvent jSEvent) {
         }
     }
 
@@ -54,11 +54,11 @@ public class BindingBenchmark {
             return 0L;
         }
         Object[] objArr = new Object[1000];
-        int i = 0;
-        while (i < 1000) {
-            int i2 = i + 1;
-            objArr[i] = new JsArrayBuffer(new byte[i2], i2);
-            i = i2;
+        int i2 = 0;
+        while (i2 < 1000) {
+            int i3 = i2 + 1;
+            objArr[i2] = new JsArrayBuffer(new byte[i3], i3);
+            i2 = i3;
         }
         jsFunction.setReleaseMode(false);
         long currentTimeMillis = System.currentTimeMillis();
@@ -91,8 +91,8 @@ public class BindingBenchmark {
             return 0L;
         }
         Object[] objArr = new Object[1000];
-        for (int i = 0; i < 1000; i++) {
-            objArr[i] = new JavaObject(i);
+        for (int i2 = 0; i2 < 1000; i2++) {
+            objArr[i2] = new JavaObject(i2);
         }
         jsFunction.setReleaseMode(false);
         long currentTimeMillis = System.currentTimeMillis();
@@ -110,8 +110,8 @@ public class BindingBenchmark {
             return 0L;
         }
         String[] strArr = new String[1000];
-        for (int i = 0; i < 1000; i++) {
-            strArr[i] = i + "";
+        for (int i2 = 0; i2 < 1000; i2++) {
+            strArr[i2] = i2 + "";
         }
         jsFunction.setReleaseMode(false);
         long currentTimeMillis = System.currentTimeMillis();
@@ -167,7 +167,7 @@ public class BindingBenchmark {
     }
 
     @JavascriptInterface
-    public void testInt(int i) {
+    public void testInt(int i2) {
     }
 
     @JavascriptInterface

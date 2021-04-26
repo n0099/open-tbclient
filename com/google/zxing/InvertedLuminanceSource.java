@@ -9,8 +9,8 @@ public final class InvertedLuminanceSource extends LuminanceSource {
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public LuminanceSource crop(int i, int i2, int i3, int i4) {
-        return new InvertedLuminanceSource(this.delegate.crop(i, i2, i3, i4));
+    public LuminanceSource crop(int i2, int i3, int i4, int i5) {
+        return new InvertedLuminanceSource(this.delegate.crop(i2, i3, i4, i5));
     }
 
     @Override // com.google.zxing.LuminanceSource
@@ -18,18 +18,18 @@ public final class InvertedLuminanceSource extends LuminanceSource {
         byte[] matrix = this.delegate.getMatrix();
         int width = getWidth() * getHeight();
         byte[] bArr = new byte[width];
-        for (int i = 0; i < width; i++) {
-            bArr[i] = (byte) (255 - (matrix[i] & 255));
+        for (int i2 = 0; i2 < width; i2++) {
+            bArr[i2] = (byte) (255 - (matrix[i2] & 255));
         }
         return bArr;
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public byte[] getRow(int i, byte[] bArr) {
-        byte[] row = this.delegate.getRow(i, bArr);
+    public byte[] getRow(int i2, byte[] bArr) {
+        byte[] row = this.delegate.getRow(i2, bArr);
         int width = getWidth();
-        for (int i2 = 0; i2 < width; i2++) {
-            row[i2] = (byte) (255 - (row[i2] & 255));
+        for (int i3 = 0; i3 < width; i3++) {
+            row[i3] = (byte) (255 - (row[i3] & 255));
         }
         return row;
     }

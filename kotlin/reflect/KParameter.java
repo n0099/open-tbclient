@@ -6,7 +6,7 @@ import kotlin.SinceKotlin;
 /* loaded from: classes7.dex */
 public interface KParameter extends KAnnotatedElement {
 
-    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
     /* loaded from: classes7.dex */
     public static final class DefaultImpls {
         @SinceKotlin(version = "1.1")

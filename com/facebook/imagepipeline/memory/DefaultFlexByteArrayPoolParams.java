@@ -7,17 +7,17 @@ public class DefaultFlexByteArrayPoolParams {
     public static final int DEFAULT_MAX_NUM_THREADS = Runtime.getRuntime().availableProcessors();
     public static final int DEFAULT_MIN_BYTE_ARRAY_SIZE = 131072;
 
-    public static SparseIntArray generateBuckets(int i, int i2, int i3) {
+    public static SparseIntArray generateBuckets(int i2, int i3, int i4) {
         SparseIntArray sparseIntArray = new SparseIntArray();
-        while (i <= i2) {
-            sparseIntArray.put(i, i3);
-            i *= 2;
+        while (i2 <= i3) {
+            sparseIntArray.put(i2, i4);
+            i2 *= 2;
         }
         return sparseIntArray;
     }
 
     public static PoolParams get() {
-        int i = DEFAULT_MAX_NUM_THREADS;
-        return new PoolParams(4194304, i * 4194304, generateBuckets(131072, 4194304, i), 131072, 4194304, DEFAULT_MAX_NUM_THREADS);
+        int i2 = DEFAULT_MAX_NUM_THREADS;
+        return new PoolParams(4194304, i2 * 4194304, generateBuckets(131072, 4194304, i2), 131072, 4194304, DEFAULT_MAX_NUM_THREADS);
     }
 }

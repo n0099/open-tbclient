@@ -15,8 +15,8 @@ public class ViewUtil {
         View view2 = null;
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
-            for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                View childAt = viewGroup.getChildAt(i);
+            for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
+                View childAt = viewGroup.getChildAt(i2);
                 if (childAt instanceof SPSwitchRootLinearLayout) {
                     view2 = childAt;
                 }
@@ -53,18 +53,18 @@ public class ViewUtil {
         return (activity.getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) != 0;
     }
 
-    public static boolean refreshHeight(View view, int i) {
-        if (view.getHeight() == i) {
+    public static boolean refreshHeight(View view, int i2) {
+        if (view.getHeight() == i2) {
             return false;
         }
         if (DEBUG) {
-            Log.d(TAG, "refreshHeight, originalHeight: " + view.getHeight() + ", aimHeight: " + i);
+            Log.d(TAG, "refreshHeight, originalHeight: " + view.getHeight() + ", aimHeight: " + i2);
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams == null) {
-            view.setLayoutParams(new ViewGroup.LayoutParams(-1, i));
+            view.setLayoutParams(new ViewGroup.LayoutParams(-1, i2));
         } else {
-            layoutParams.height = i;
+            layoutParams.height = i2;
             view.requestLayout();
         }
         if (DEBUG) {

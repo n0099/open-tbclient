@@ -59,8 +59,8 @@ public class InterestFrsData extends OrmObject implements Serializable {
             return this.slogan;
         }
 
-        public void setIs_like(int i) {
-            this.is_like = i;
+        public void setIs_like(int i2) {
+            this.is_like = i2;
         }
     }
 
@@ -120,7 +120,7 @@ public class InterestFrsData extends OrmObject implements Serializable {
         this.errmsg = str;
     }
 
-    public void setErrno(int i) {
-        this.errno = i;
+    public void setErrno(int i2) {
+        this.errno = i2;
     }
 }

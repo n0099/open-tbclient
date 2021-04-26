@@ -67,8 +67,8 @@ public class XSecurityDexLoader implements Observer {
                 while (new DigestInputStream(fileInputStream2, messageDigest).read(new byte[4096]) != -1) {
                 }
                 String str = "";
-                for (int i = 0; i < messageDigest.digest().length; i++) {
-                    str = str + Integer.toString((digest[i] & 255) + 256, 16).substring(1);
+                for (int i2 = 0; i2 < messageDigest.digest().length; i2++) {
+                    str = str + Integer.toString((digest[i2] & 255) + 256, 16).substring(1);
                 }
                 try {
                     fileInputStream2.close();

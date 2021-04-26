@@ -15,8 +15,8 @@ public class MsgUtility {
     public static JSONArray listToJsonArray(List<Long> list) {
         JSONArray jSONArray = new JSONArray();
         if (list != null && list.size() > 0) {
-            for (int i = 0; i < list.size(); i++) {
-                jSONArray.put(list.get(i));
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                jSONArray.put(list.get(i2));
             }
         }
         return jSONArray;

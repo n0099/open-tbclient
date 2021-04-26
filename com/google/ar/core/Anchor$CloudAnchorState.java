@@ -18,20 +18,20 @@ public enum Anchor$CloudAnchorState {
     
     public final int nativeCode;
 
-    Anchor$CloudAnchorState(int i) {
-        this.nativeCode = i;
+    Anchor$CloudAnchorState(int i2) {
+        this.nativeCode = i2;
     }
 
-    public static Anchor$CloudAnchorState forNumber(int i) {
+    public static Anchor$CloudAnchorState forNumber(int i2) {
         Anchor$CloudAnchorState[] values;
         for (Anchor$CloudAnchorState anchor$CloudAnchorState : values()) {
-            if (anchor$CloudAnchorState.nativeCode == i) {
+            if (anchor$CloudAnchorState.nativeCode == i2) {
                 return anchor$CloudAnchorState;
             }
         }
         StringBuilder sb = new StringBuilder(63);
         sb.append("Unexpected value for native CloudAnchorState, value=");
-        sb.append(i);
+        sb.append(i2);
         throw new FatalException(sb.toString());
     }
 

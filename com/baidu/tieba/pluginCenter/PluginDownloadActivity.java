@@ -16,33 +16,33 @@ import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInf
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
 import com.baidu.tieba.R;
-import d.b.c.e.m.g;
-import d.b.c.e.p.j;
+import d.a.c.e.m.g;
+import d.a.c.e.p.j;
 import java.util.Date;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity> {
     public c mDialog;
     public boolean mFinished;
     public PluginNetConfigInfos.PluginConfig mPluginConfig;
     public boolean mStarting;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements DialogInterface.OnKeyListener {
         public a() {
         }
 
         @Override // android.content.DialogInterface.OnKeyListener
-        public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+        public boolean onKey(DialogInterface dialogInterface, int i2, KeyEvent keyEvent) {
             if (!PluginDownloadActivity.this.mStarting) {
                 g.b(PluginDownloadActivity.this.mDialog, PluginDownloadActivity.this.getPageContext());
                 return true;
-            } else if (i == 4 && keyEvent.getAction() == 1) {
+            } else if (i2 == 4 && keyEvent.getAction() == 1) {
                 if (PluginDownloadActivity.this.mDialog.l.getVisibility() == 0) {
                     PluginDownloadActivity.this.mDialog.l.setVisibility(8);
-                    PluginDownloadActivity.this.mDialog.f20251e.setVisibility(0);
+                    PluginDownloadActivity.this.mDialog.f20781e.setVisibility(0);
                 } else {
                     PluginDownloadActivity.this.mDialog.l.setVisibility(0);
-                    PluginDownloadActivity.this.mDialog.f20251e.setVisibility(8);
+                    PluginDownloadActivity.this.mDialog.f20781e.setVisibility(8);
                 }
                 return true;
             } else {
@@ -51,7 +51,7 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements DialogInterface.OnDismissListener {
         public b() {
         }
@@ -63,21 +63,23 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends Dialog {
 
         /* renamed from: e  reason: collision with root package name */
-        public LinearLayout f20251e;
+        public LinearLayout f20781e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f20252f;
+        public TextView f20782f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f20253g;
+        public TextView f20783g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f20254h;
-        public TextView i;
+        public TextView f20784h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public TextView f20785i;
         public TextView j;
         public TextView k;
         public LinearLayout l;
@@ -86,7 +88,7 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
         public TextView o;
         public TextView p;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
             public a() {
             }
@@ -98,7 +100,7 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class b implements View.OnClickListener {
             public b() {
             }
@@ -106,23 +108,43 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 c.this.l.setVisibility(8);
-                c.this.f20251e.setVisibility(0);
+                c.this.f20781e.setVisibility(0);
             }
         }
 
         /* renamed from: com.baidu.tieba.pluginCenter.PluginDownloadActivity$c$c  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0225c implements View.OnClickListener {
+        /* loaded from: classes4.dex */
+        public class View$OnClickListenerC0221c implements View.OnClickListener {
 
             /* renamed from: com.baidu.tieba.pluginCenter.PluginDownloadActivity$c$c$a */
-            /* loaded from: classes3.dex */
-            public class a implements d.b.c.h.j.d {
+            /* loaded from: classes4.dex */
+            public class a implements d.a.c.h.j.d {
                 public a() {
                 }
 
-                @Override // d.b.c.h.j.d
-                public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
-                    if (i == 0) {
+                @Override // d.a.c.h.j.d
+                public void a(BdFileDownloadData bdFileDownloadData) {
+                    if (bdFileDownloadData == null || !bdFileDownloadData.getId().equals(PluginDownloadActivity.this.mPluginConfig.package_name)) {
+                        return;
+                    }
+                    PluginDownloadActivity.this.mDialog.j.setText(PluginDownloadActivity.this.getPageContext().getString(R.string.plugin_download_finished));
+                    PluginDownloadActivity.this.mDialog.j.setEnabled(false);
+                    PluginDownloadActivity.this.mFinished = true;
+                }
+
+                @Override // d.a.c.h.j.d
+                public void b(BdFileDownloadData bdFileDownloadData) {
+                    if (bdFileDownloadData == null || !bdFileDownloadData.getId().equals(PluginDownloadActivity.this.mPluginConfig.package_name)) {
+                        return;
+                    }
+                    PluginDownloadActivity.this.showToast(bdFileDownloadData.getStatusMsg());
+                    PluginDownloadActivity.this.mFinished = true;
+                    g.b(PluginDownloadActivity.this.mDialog, PluginDownloadActivity.this.getPageContext());
+                }
+
+                @Override // d.a.c.h.j.d
+                public void c(BdFileDownloadData bdFileDownloadData, int i2, String str) {
+                    if (i2 == 0) {
                         PluginDownloadActivity pluginDownloadActivity = PluginDownloadActivity.this;
                         pluginDownloadActivity.showToast(pluginDownloadActivity.getPageContext().getString(R.string.plugin_installation_finished));
                         PluginDownloadActivity.this.setResult(-1);
@@ -137,45 +159,25 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
                     PluginDownloadActivity.this.finish();
                 }
 
-                @Override // d.b.c.h.j.d
-                public void b(BdFileDownloadData bdFileDownloadData) {
+                @Override // d.a.c.h.j.d
+                public void d(BdFileDownloadData bdFileDownloadData) {
                     if (bdFileDownloadData == null || !bdFileDownloadData.getId().equals(PluginDownloadActivity.this.mPluginConfig.package_name) || PluginDownloadActivity.this.mFinished) {
                         return;
                     }
                     PluginDownloadActivity.this.mDialog.j.setText(String.format("正在下载插件：%d%%", Long.valueOf((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize())));
                     PluginDownloadActivity.this.mDialog.j.setEnabled(false);
                 }
-
-                @Override // d.b.c.h.j.d
-                public void c(BdFileDownloadData bdFileDownloadData) {
-                    if (bdFileDownloadData == null || !bdFileDownloadData.getId().equals(PluginDownloadActivity.this.mPluginConfig.package_name)) {
-                        return;
-                    }
-                    PluginDownloadActivity.this.mDialog.j.setText(PluginDownloadActivity.this.getPageContext().getString(R.string.plugin_download_finished));
-                    PluginDownloadActivity.this.mDialog.j.setEnabled(false);
-                    PluginDownloadActivity.this.mFinished = true;
-                }
-
-                @Override // d.b.c.h.j.d
-                public void d(BdFileDownloadData bdFileDownloadData) {
-                    if (bdFileDownloadData == null || !bdFileDownloadData.getId().equals(PluginDownloadActivity.this.mPluginConfig.package_name)) {
-                        return;
-                    }
-                    PluginDownloadActivity.this.showToast(bdFileDownloadData.getStatusMsg());
-                    PluginDownloadActivity.this.mFinished = true;
-                    g.b(PluginDownloadActivity.this.mDialog, PluginDownloadActivity.this.getPageContext());
-                }
             }
 
-            public View$OnClickListenerC0225c() {
+            public View$OnClickListenerC0221c() {
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (j.z()) {
                     PluginDownloadActivity.this.mStarting = true;
-                    c.this.f20254h.setVisibility(8);
-                    c.this.i.setVisibility(8);
+                    c.this.f20784h.setVisibility(8);
+                    c.this.f20785i.setVisibility(8);
                     c.this.j.setVisibility(0);
                     PluginPackageManager.O().x0(PluginDownloadActivity.this.mPluginConfig, new a());
                     return;
@@ -184,7 +186,7 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class d implements View.OnClickListener {
             public d() {
             }
@@ -193,13 +195,13 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             public void onClick(View view) {
                 PluginDownloadActivity.this.setResult(0);
                 PluginDownloadActivity.this.finish();
-                d.b.i0.r.d0.b.j().t("install_plugin_dialog_closed", true);
-                d.b.i0.r.d0.b.j().w("install_plugin_dialog_shown_time", new Date().getTime());
+                d.a.i0.r.d0.b.j().t("install_plugin_dialog_closed", true);
+                d.a.i0.r.d0.b.j().w("install_plugin_dialog_shown_time", new Date().getTime());
             }
         }
 
-        public c(Context context, int i) {
-            super(context, i);
+        public c(Context context, int i2) {
+            super(context, i2);
         }
 
         @Override // android.app.Dialog
@@ -209,14 +211,14 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             findViewById(R.id.warning).setVisibility(8);
             findViewById(R.id.incremental_button).setVisibility(8);
             findViewById(R.id.incremental_size).setVisibility(8);
-            this.f20251e = (LinearLayout) findViewById(R.id.down_dialog);
+            this.f20781e = (LinearLayout) findViewById(R.id.down_dialog);
             this.o = (TextView) findViewById(R.id.update_tip);
-            this.f20252f = (TextView) findViewById(R.id.newversion);
-            this.f20253g = (TextView) findViewById(R.id.desc);
+            this.f20782f = (TextView) findViewById(R.id.newversion);
+            this.f20783g = (TextView) findViewById(R.id.desc);
             TextView textView = (TextView) findViewById(R.id.update_button);
-            this.f20254h = textView;
+            this.f20784h = textView;
             textView.setText(PluginDownloadActivity.this.getPageContext().getString(R.string.install_app));
-            this.i = (TextView) findViewById(R.id.update_cancel);
+            this.f20785i = (TextView) findViewById(R.id.update_cancel);
             this.j = (TextView) findViewById(R.id.downloading);
             TextView textView2 = (TextView) findViewById(R.id.otherApp);
             this.p = textView2;
@@ -234,15 +236,15 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             }
             if (PluginDownloadActivity.this.mPluginConfig.newest != null) {
                 if (TextUtils.isEmpty(PluginDownloadActivity.this.mPluginConfig.newest.version)) {
-                    this.f20252f.setText("");
+                    this.f20782f.setText("");
                 } else {
-                    TextView textView3 = this.f20252f;
+                    TextView textView3 = this.f20782f;
                     textView3.setText("版本：" + PluginDownloadActivity.this.mPluginConfig.newest.version);
                 }
                 if (!TextUtils.isEmpty(PluginDownloadActivity.this.mPluginConfig.newest.change_log)) {
-                    this.f20253g.setText(PluginDownloadActivity.this.mPluginConfig.newest.change_log);
+                    this.f20783g.setText(PluginDownloadActivity.this.mPluginConfig.newest.change_log);
                 } else {
-                    this.f20253g.setText("");
+                    this.f20783g.setText("");
                 }
                 String valueOf = String.valueOf(PluginDownloadActivity.this.mPluginConfig.newest.size / 1024);
                 if (valueOf != null && !"".equals(valueOf)) {
@@ -253,19 +255,19 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
                     this.k.setVisibility(8);
                 }
             } else {
-                this.f20252f.setText("");
-                this.f20253g.setText("");
+                this.f20782f.setText("");
+                this.f20783g.setText("");
                 this.k.setText("");
             }
-            this.f20254h.setOnClickListener(new View$OnClickListenerC0225c());
-            this.i.setOnClickListener(new d());
+            this.f20784h.setOnClickListener(new View$OnClickListenerC0221c());
+            this.f20785i.setOnClickListener(new d());
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        getLayoutMode().k(i == 1);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        getLayoutMode().k(i2 == 1);
         getLayoutMode().j(this.mDialog.findViewById(R.id.dialog_layout));
     }
 

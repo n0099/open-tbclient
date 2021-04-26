@@ -15,23 +15,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CyberClassLoader extends BaseDexClassLoader {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class f5010a;
+    public static Class f5136a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Class f5011b;
+    public static Class f5137b;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static void b(ClassLoader classLoader, File file) throws Throwable {
             CyberClassLoader.b(CyberClassLoader.b(classLoader, "pathList").get(classLoader), "nativeLibraryDirectories", new File[]{file});
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class b {
         public static void b(ClassLoader classLoader, File file) throws Throwable {
             Object obj = CyberClassLoader.b(classLoader, "pathList").get(classLoader);
@@ -47,7 +47,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class c {
         public static void b(ClassLoader classLoader, File file) throws Throwable {
             Object obj = CyberClassLoader.b(classLoader, "pathList").get(classLoader);
@@ -62,7 +62,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class d {
         public static void b(ClassLoader classLoader, File file) throws Throwable {
             String path = file.getPath();
@@ -99,24 +99,24 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     public static void a() throws Exception {
-        if (f5010a == null || f5011b == null) {
+        if (f5136a == null || f5137b == null) {
             Class<?> cls = Class.forName("dalvik.system.DexPathList");
-            f5010a = cls;
+            f5136a = cls;
             Class<?>[] declaredClasses = cls.getDeclaredClasses();
             int length = declaredClasses.length;
-            int i = 0;
+            int i2 = 0;
             while (true) {
-                if (i >= length) {
+                if (i2 >= length) {
                     break;
                 }
-                Class<?> cls2 = declaredClasses[i];
+                Class<?> cls2 = declaredClasses[i2];
                 if (cls2.getSimpleName().equals("Element")) {
-                    f5011b = cls2;
+                    f5137b = cls2;
                     break;
                 }
-                i++;
+                i2++;
             }
-            if (f5011b == null) {
+            if (f5137b == null) {
                 throw new AndroidRuntimeException("DexPathList$Element not found!");
             }
         }
@@ -131,24 +131,24 @@ public class CyberClassLoader extends BaseDexClassLoader {
     }
 
     public static void a(ClassLoader classLoader, File file) throws Throwable {
-        int i;
+        int i2;
         if (file == null || !file.exists()) {
             CyberLog.e("CyberClassLoader", "installNativeLibraryPath, folder (" + file + ") is illegal");
-        } else if ((Build.VERSION.SDK_INT == 25 && Build.VERSION.PREVIEW_SDK_INT != 0) || (i = Build.VERSION.SDK_INT) > 25) {
+        } else if ((Build.VERSION.SDK_INT == 25 && Build.VERSION.PREVIEW_SDK_INT != 0) || (i2 = Build.VERSION.SDK_INT) > 25) {
             try {
                 c.b(classLoader, file);
             } catch (Throwable th) {
                 CyberLog.e("CyberClassLoader", "installNativeLibraryPath, v25 fail, sdk: " + Build.VERSION.SDK_INT + ", error: " + th.getMessage() + ", try to fallback to V23");
             }
         } else {
-            if (i >= 23) {
+            if (i2 >= 23) {
                 try {
                     b.b(classLoader, file);
                     return;
                 } catch (Throwable th2) {
                     CyberLog.e("CyberClassLoader", "installNativeLibraryPath, v23 fail, sdk: " + Build.VERSION.SDK_INT + ", error: " + th2.getMessage() + ", try to fallback to V14");
                 }
-            } else if (i < 14) {
+            } else if (i2 < 14) {
                 d.b(classLoader, file);
                 return;
             }
@@ -162,7 +162,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
             a();
             String replace = new File(str).getName().replace(".so", ".dex");
             DexFile loadDex = DexFile.loadDex(str, file.getAbsolutePath() + File.separator + replace, 0);
-            Constructor<?> constructor = f5011b.getConstructors()[0];
+            Constructor<?> constructor = f5137b.getConstructors()[0];
             int length = constructor.getParameterTypes().length;
             if (length == 4) {
                 newInstance = constructor.newInstance(new File(str), Boolean.FALSE, null, loadDex);
@@ -171,12 +171,12 @@ public class CyberClassLoader extends BaseDexClassLoader {
             } else {
                 newInstance = constructor.newInstance(new File(str), null, loadDex);
             }
-            Object newInstance2 = Array.newInstance(f5011b, 1);
+            Object newInstance2 = Array.newInstance(f5137b, 1);
             Array.set(newInstance2, 0, newInstance);
             Object a2 = a(BaseDexClassLoader.class, this, "pathList");
-            a(f5010a, a2, "dexElements", newInstance2);
+            a(f5136a, a2, "dexElements", newInstance2);
             if (Build.VERSION.SDK_INT >= 19) {
-                a(f5010a, a2, "dexElementsSuppressedExceptions", (Object) null);
+                a(f5136a, a2, "dexElementsSuppressedExceptions", (Object) null);
             }
         } catch (Exception e2) {
             e2.printStackTrace();

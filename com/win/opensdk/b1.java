@@ -1,19 +1,61 @@
 package com.win.opensdk;
 
-import com.win.opensdk.core.Info;
-/* loaded from: classes7.dex */
-public class b1 {
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Build;
+import android.os.Looper;
+import android.os.Process;
+import android.text.TextUtils;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+/* loaded from: classes6.dex */
+public class b1 implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40271a;
+    public final /* synthetic */ Context f37833a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Info f40272b;
+    public b1(c1 c1Var, Context context) {
+        this.f37833a = context;
+    }
 
-    public b1(Info info) {
-        this.f40272b = info;
-        if (info != null) {
-            this.f40271a = info.getPid();
+    @Override // java.lang.Runnable
+    public void run() {
+        String str;
+        String userAgentString;
+        Context context = this.f37833a;
+        try {
+            if (Build.VERSION.SDK_INT >= 28) {
+                try {
+                    Process.myPid();
+                    if (context != null) {
+                        try {
+                            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                                if (runningAppProcessInfo.pid == Process.myPid()) {
+                                    str = runningAppProcessInfo.processName;
+                                    break;
+                                }
+                            }
+                        } catch (Exception unused) {
+                        }
+                    }
+                    str = null;
+                    if (!TextUtils.equals(context.getPackageName(), str)) {
+                        WebView.setDataDirectorySuffix(str);
+                    }
+                } catch (Exception unused2) {
+                }
+            }
+            x1.f38002a = System.getProperty("http.agent");
+            if (Build.VERSION.SDK_INT >= 17) {
+                userAgentString = WebSettings.getDefaultUserAgent(context);
+            } else if (Looper.myLooper() != Looper.getMainLooper()) {
+                v1.f37961a.post(new w1(context));
+                return;
+            } else {
+                userAgentString = new WebView(context).getSettings().getUserAgentString();
+            }
+            x1.f38002a = userAgentString;
+        } catch (Exception unused3) {
         }
     }
 }

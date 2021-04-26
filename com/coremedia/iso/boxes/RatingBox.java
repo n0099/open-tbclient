@@ -6,22 +6,21 @@ import com.coremedia.iso.IsoTypeWriter;
 import com.coremedia.iso.Utf8;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
-import com.kwai.video.player.KsMediaMeta;
 import g.a.a.a;
 import g.a.b.b.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RatingBox extends AbstractFullBox {
     public static final String TYPE = "rtng";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_8 = null;
     public String language;
     public String ratingCriteria;
     public String ratingEntity;
@@ -39,7 +38,7 @@ public class RatingBox extends AbstractFullBox {
         b bVar = new b("RatingBox.java", RatingBox.class);
         ajc$tjp_0 = bVar.g("method-execution", bVar.f("1", "setRatingEntity", "com.coremedia.iso.boxes.RatingBox", "java.lang.String", "ratingEntity", "", "void"), 46);
         ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "setRatingCriteria", "com.coremedia.iso.boxes.RatingBox", "java.lang.String", "ratingCriteria", "", "void"), 50);
-        ajc$tjp_2 = bVar.g("method-execution", bVar.f("1", "setLanguage", "com.coremedia.iso.boxes.RatingBox", "java.lang.String", KsMediaMeta.KSM_KEY_LANGUAGE, "", "void"), 54);
+        ajc$tjp_2 = bVar.g("method-execution", bVar.f("1", "setLanguage", "com.coremedia.iso.boxes.RatingBox", "java.lang.String", "language", "", "void"), 54);
         ajc$tjp_3 = bVar.g("method-execution", bVar.f("1", "setRatingInfo", "com.coremedia.iso.boxes.RatingBox", "java.lang.String", "ratingInfo", "", "void"), 58);
         ajc$tjp_4 = bVar.g("method-execution", bVar.f("1", "getLanguage", "com.coremedia.iso.boxes.RatingBox", "", "", "", "java.lang.String"), 62);
         ajc$tjp_5 = bVar.g("method-execution", bVar.f("1", "getRatingEntity", "com.coremedia.iso.boxes.RatingBox", "", "", "", "java.lang.String"), 73);

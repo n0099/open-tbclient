@@ -16,8 +16,8 @@ public class VideoSourceObject extends BaseMediaObject {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public VideoSourceObject[] newArray(int i) {
-            return new VideoSourceObject[i];
+        public VideoSourceObject[] newArray(int i2) {
+            return new VideoSourceObject[i2];
         }
     };
     public Uri coverPath;
@@ -48,10 +48,10 @@ public class VideoSourceObject extends BaseMediaObject {
     }
 
     @Override // com.sina.weibo.sdk.api.BaseMediaObject, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
-        parcel.writeParcelable(this.coverPath, i);
-        parcel.writeParcelable(this.videoPath, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
+        parcel.writeParcelable(this.coverPath, i2);
+        parcel.writeParcelable(this.videoPath, i2);
         parcel.writeLong(this.during);
     }
 

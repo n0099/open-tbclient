@@ -11,22 +11,24 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.data.ShareFromTopicMsgData;
-import d.b.c.e.p.k;
+import d.a.c.e.p.k;
 /* loaded from: classes4.dex */
 public class ShareCardView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f17358e;
+    public LinearLayout f17661e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditText f17359f;
+    public EditText f17662f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f17360g;
+    public TbImageView f17663g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17361h;
-    public TextView i;
+    public TextView f17664h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public TextView f17665i;
     public ShareFromTopicMsgData j;
 
     public ShareCardView(Context context, AttributeSet attributeSet) {
@@ -35,48 +37,48 @@ public class ShareCardView extends LinearLayout {
     }
 
     public void a() {
-        this.f17358e.setFocusable(true);
-        this.f17358e.setFocusableInTouchMode(true);
-        this.f17358e.requestFocus();
+        this.f17661e.setFocusable(true);
+        this.f17661e.setFocusableInTouchMode(true);
+        this.f17661e.requestFocus();
     }
 
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.thread_to_group_share_view, this);
         setOrientation(1);
-        this.f17358e = (LinearLayout) findViewById(R.id.share_content);
-        this.i = (TextView) findViewById(R.id.share_title_view);
-        this.f17359f = (EditText) findViewById(R.id.chat_msg);
-        this.f17360g = (TbImageView) findViewById(R.id.chat_group_img);
-        this.f17361h = (TextView) findViewById(R.id.chat_group_desc);
-        SkinManager.setViewTextColor(this.i, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(this.f17359f, R.color.CAM_X0105, 2);
-        SkinManager.setViewTextColor(this.f17361h, R.color.CAM_X0106, 1);
-        this.f17359f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-        this.f17359f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        this.f17661e = (LinearLayout) findViewById(R.id.share_content);
+        this.f17665i = (TextView) findViewById(R.id.share_title_view);
+        this.f17662f = (EditText) findViewById(R.id.chat_msg);
+        this.f17663g = (TbImageView) findViewById(R.id.chat_group_img);
+        this.f17664h = (TextView) findViewById(R.id.chat_group_desc);
+        SkinManager.setViewTextColor(this.f17665i, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.f17662f, R.color.CAM_X0105, 2);
+        SkinManager.setViewTextColor(this.f17664h, R.color.CAM_X0106, 1);
+        this.f17662f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        this.f17662f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
         a();
     }
 
     public void c(String str, boolean z) {
-        TbImageView tbImageView = this.f17360g;
+        TbImageView tbImageView = this.f17663g;
         if (tbImageView != null) {
-            tbImageView.W(str, z ? 17 : 18, false);
+            tbImageView.V(str, z ? 17 : 18, false);
         }
     }
 
     public final void d() {
-        this.i.setText(this.j.getTitle());
+        this.f17665i.setText(this.j.getTitle());
         BdLog.e("mData.getImageUrl()的图片URL" + this.j.getImageUrl());
-        this.f17360g.setTag(this.j.getImageUrl());
+        this.f17663g.setTag(this.j.getImageUrl());
         BdLog.e("mData.getContent()的Content" + this.j.getContent());
-        this.f17361h.setText(this.j.getContent());
+        this.f17664h.setText(this.j.getContent());
     }
 
     public EditText getChatMsgView() {
-        return this.f17359f;
+        return this.f17662f;
     }
 
     public String getLeaveMsg() {
-        EditText editText = this.f17359f;
+        EditText editText = this.f17662f;
         if (editText != null) {
             return k.charSequence2String(editText.getText(), null);
         }

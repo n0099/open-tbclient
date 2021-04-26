@@ -10,7 +10,7 @@ import com.facebook.imagepipeline.producers.LocalContentUriThumbnailFetchProduce
 import com.facebook.imagepipeline.producers.LocalFileFetchProducer;
 import com.facebook.imagepipeline.producers.LocalResourceFetchProducer;
 import com.facebook.imagepipeline.producers.NetworkFetchProducer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ImageOriginUtils {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static int mapProducerNameToImageOrigin(String str) {
@@ -119,7 +119,7 @@ public class ImageOriginUtils {
         }
     }
 
-    public static String toString(int i) {
-        return i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 6 ? "unknown" : "local" : "memory_bitmap" : "memory_encoded" : "disk" : "network";
+    public static String toString(int i2) {
+        return i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? i2 != 6 ? "unknown" : "local" : "memory_bitmap" : "memory_encoded" : "disk" : "network";
     }
 }

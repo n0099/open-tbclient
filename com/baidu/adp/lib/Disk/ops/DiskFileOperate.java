@@ -1,9 +1,9 @@
 package com.baidu.adp.lib.Disk.ops;
 
 import com.baidu.adp.lib.util.BdLog;
-import d.b.c.e.a.d;
-import d.b.c.e.a.e;
-import d.b.c.e.m.a;
+import d.a.c.e.a.d;
+import d.a.c.e.a.e;
+import d.a.c.e.m.a;
 import java.io.File;
 import java.io.OutputStream;
 /* loaded from: classes.dex */
@@ -80,11 +80,11 @@ public class DiskFileOperate {
             if (hashCode < 0) {
                 hashCode *= -1;
             }
-            int i = (hashCode % 100) + 1;
+            int i2 = (hashCode % 100) + 1;
             if (this.mDesPath == null) {
-                return String.valueOf(i);
+                return String.valueOf(i2);
             }
-            return this.mDesPath + "/" + i;
+            return this.mDesPath + "/" + i2;
         }
         return this.mDesPath;
     }
@@ -100,11 +100,11 @@ public class DiskFileOperate {
             if (hashCode < 0) {
                 hashCode *= -1;
             }
-            int i = (hashCode % 100) + 1;
+            int i2 = (hashCode % 100) + 1;
             if (this.mPath == null) {
-                return String.valueOf(i);
+                return String.valueOf(i2);
             }
-            return this.mPath + "/" + i;
+            return this.mPath + "/" + i2;
         }
         return this.mPath;
     }
@@ -263,8 +263,8 @@ public class DiskFileOperate {
         this.mIsSuccess = z;
     }
 
-    public void setTrySuccessWeight(int i) {
-        this.mTrySuccessWeight = i;
+    public void setTrySuccessWeight(int i2) {
+        this.mTrySuccessWeight = i2;
     }
 
     public void startLog() {

@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.interfaces.ISelector;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
-import d.b.j0.d3.c;
+import d.a.j0.d3.c;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes3.dex */
@@ -172,9 +172,9 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return new DrawableSelector();
     }
 
-    private GradientDrawable makeItemShapeDrawable(int i, int i2, int i3, int i4) {
+    private GradientDrawable makeItemShapeDrawable(int i2, int i3, int i4, int i5) {
         GradientDrawable gradientDrawable;
-        int i5;
+        int i6;
         int[] iArr;
         if (this.isGradient && (iArr = this.gradientColors) != null && iArr.length > 1) {
             gradientDrawable = new GradientDrawable(createGradientOrientation(), this.gradientColors);
@@ -185,18 +185,18 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         } else {
             gradientDrawable = new GradientDrawable();
         }
-        gradientDrawable.setShape(i);
+        gradientDrawable.setShape(i2);
         if (this.isSolid) {
-            gradientDrawable.setColor(i2);
+            gradientDrawable.setColor(i3);
         }
         if (this.isStroke) {
-            gradientDrawable.setStroke(this.mStrokeWidth, i3);
+            gradientDrawable.setStroke(this.mStrokeWidth, i4);
         } else if (this.isDashLine) {
-            gradientDrawable.setStroke(this.dashLineWidth, i4, this.dashWidth, this.dashGap);
+            gradientDrawable.setStroke(this.dashLineWidth, i5, this.dashWidth, this.dashGap);
         }
-        int i6 = this.mCornerRadius;
-        if (i6 > 0) {
-            gradientDrawable.setCornerRadius(i6);
+        int i7 = this.mCornerRadius;
+        if (i7 > 0) {
+            gradientDrawable.setCornerRadius(i7);
         } else if (this.isRadius) {
             float f2 = this.topLeftRadius;
             float f3 = this.topRightRadius;
@@ -204,9 +204,9 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
             float f5 = this.bottomLeftRadius;
             gradientDrawable.setCornerRadii(new float[]{f2, f2, f3, f3, f4, f4, f5, f5});
         }
-        int i7 = this.width;
-        if (i7 > 0 && (i5 = this.height) > 0) {
-            gradientDrawable.setSize(i7, i5);
+        int i8 = this.width;
+        if (i8 > 0 && (i6 = this.height) > 0) {
+            gradientDrawable.setSize(i8, i6);
         }
         if (this.centerX > 0.0f || this.centerY > 0.0f) {
             gradientDrawable.setGradientCenter(this.centerX, this.centerY);
@@ -215,10 +215,10 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return gradientDrawable;
     }
 
-    public DrawableSelector autoGradient(@ColorRes int i) {
+    public DrawableSelector autoGradient(@ColorRes int i2) {
         this.isGradient = true;
         this.gradientColors = r1;
-        int[] iArr = {0, SelectorHelper.getColor(i)};
+        int[] iArr = {0, SelectorHelper.getColor(i2)};
         int[] iArr2 = this.gradientColors;
         iArr2[0] = c.b(iArr2[1]);
         this.gradientType = 0;
@@ -238,8 +238,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return this;
     }
 
-    public DrawableSelector cornerRadius(int i) {
-        this.mCornerRadius = i;
+    public DrawableSelector cornerRadius(int i2) {
+        this.mCornerRadius = i2;
         return this;
     }
 
@@ -271,17 +271,17 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return stateListDrawable;
     }
 
-    public DrawableSelector dashLine(@ColorRes int i, int i2, float f2, float f3) {
+    public DrawableSelector dashLine(@ColorRes int i2, int i3, float f2, float f3) {
         this.isDashLine = true;
-        this.dashLineWidth = i2;
+        this.dashLineWidth = i3;
         this.dashWidth = f2;
         this.dashGap = f3;
-        this.dashLineColor = SelectorHelper.getColor(i);
+        this.dashLineColor = SelectorHelper.getColor(i2);
         return this;
     }
 
-    public DrawableSelector defaultColor(@ColorRes int i) {
-        int color = SelectorHelper.getColor(i);
+    public DrawableSelector defaultColor(@ColorRes int i2) {
+        int color = SelectorHelper.getColor(i2);
         this.mDefaultBgColor = color;
         this.isSolid = true;
         if (!this.hasSetDisabledBgColor) {
@@ -299,8 +299,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return this;
     }
 
-    public DrawableSelector defaultColorNotAutoChangeSkinType(@ColorRes int i) {
-        int color = TbadkCoreApplication.getInst().getApp().getResources().getColor(i);
+    public DrawableSelector defaultColorNotAutoChangeSkinType(@ColorRes int i2) {
+        int color = TbadkCoreApplication.getInst().getApp().getResources().getColor(i2);
         this.mDefaultBgColor = color;
         this.isSolid = true;
         if (!this.hasSetDisabledBgColor) {
@@ -318,38 +318,38 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return this;
     }
 
-    public DrawableSelector defaultColorValue(int i) {
-        this.mDefaultBgColor = i;
+    public DrawableSelector defaultColorValue(int i2) {
+        this.mDefaultBgColor = i2;
         this.isSolid = true;
         if (!this.hasSetDisabledBgColor) {
-            this.mDisabledBgColor = i;
+            this.mDisabledBgColor = i2;
         }
         if (!this.hasSetPressedBgColor) {
-            this.mPressedBgColor = i;
+            this.mPressedBgColor = i2;
         }
         if (!this.hasSetSelectedBgColor) {
-            this.mSelectedBgColor = i;
+            this.mSelectedBgColor = i2;
         }
         if (!this.hasSetFocusedBgColor) {
-            this.mFocusedBgColor = i;
+            this.mFocusedBgColor = i2;
         }
         return this;
     }
 
-    public DrawableSelector defaultColorValueNotAutoChangeSkinType(int i) {
-        this.mDefaultBgColor = i;
+    public DrawableSelector defaultColorValueNotAutoChangeSkinType(int i2) {
+        this.mDefaultBgColor = i2;
         this.isSolid = true;
         if (!this.hasSetDisabledBgColor) {
-            this.mDisabledBgColor = i;
+            this.mDisabledBgColor = i2;
         }
         if (!this.hasSetPressedBgColor) {
-            this.mPressedBgColor = i;
+            this.mPressedBgColor = i2;
         }
         if (!this.hasSetSelectedBgColor) {
-            this.mSelectedBgColor = i;
+            this.mSelectedBgColor = i2;
         }
         if (!this.hasSetFocusedBgColor) {
-            this.mFocusedBgColor = i;
+            this.mFocusedBgColor = i2;
         }
         return this;
     }
@@ -371,8 +371,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return this;
     }
 
-    public DrawableSelector defaultStrokeColor(@ColorRes int i) {
-        int color = SelectorHelper.getColor(i);
+    public DrawableSelector defaultStrokeColor(@ColorRes int i2) {
+        int color = SelectorHelper.getColor(i2);
         this.mDefaultStrokeColor = color;
         this.isStroke = true;
         if (!this.hasSetDisabledStrokeColor) {
@@ -390,8 +390,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return this;
     }
 
-    public DrawableSelector disabledColor(@ColorRes int i) {
-        this.mDisabledBgColor = SelectorHelper.getColor(i);
+    public DrawableSelector disabledColor(@ColorRes int i2) {
+        this.mDisabledBgColor = SelectorHelper.getColor(i2);
         this.hasSetDisabledBgColor = true;
         this.isSolid = true;
         return this;
@@ -403,15 +403,15 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return this;
     }
 
-    public DrawableSelector disabledStrokeColor(@ColorRes int i) {
-        this.mDisabledStrokeColor = SelectorHelper.getColor(i);
+    public DrawableSelector disabledStrokeColor(@ColorRes int i2) {
+        this.mDisabledStrokeColor = SelectorHelper.getColor(i2);
         this.hasSetDisabledStrokeColor = true;
         this.isStroke = true;
         return this;
     }
 
-    public DrawableSelector focusedColor(@ColorRes int i) {
-        this.mFocusedBgColor = SelectorHelper.getColor(i);
+    public DrawableSelector focusedColor(@ColorRes int i2) {
+        this.mFocusedBgColor = SelectorHelper.getColor(i2);
         this.isSolid = true;
         this.hasSetPressedBgColor = true;
         return this;
@@ -423,18 +423,18 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return this;
     }
 
-    public DrawableSelector focusedStrokeColor(@ColorRes int i) {
-        this.mFocusedStrokeColor = SelectorHelper.getColor(i);
+    public DrawableSelector focusedStrokeColor(@ColorRes int i2) {
+        this.mFocusedStrokeColor = SelectorHelper.getColor(i2);
         this.hasSetFocusedStrokeColor = true;
         this.isStroke = true;
         return this;
     }
 
-    public DrawableSelector gradient(@ColorRes int i, @ColorRes int i2) {
+    public DrawableSelector gradient(@ColorRes int i2, @ColorRes int i3) {
         this.isGradient = true;
         this.gradientColors = r1;
-        int[] iArr = {SelectorHelper.getColor(i)};
-        this.gradientColors[1] = SelectorHelper.getColor(i2);
+        int[] iArr = {SelectorHelper.getColor(i2)};
+        this.gradientColors[1] = SelectorHelper.getColor(i3);
         this.gradientType = 0;
         this.gradientOrientation = TOP_BOTTOM;
         return this;
@@ -446,8 +446,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         this.gradientOrientation = TOP_BOTTOM;
         if (iArr.length > 1) {
             this.gradientColors = new int[iArr.length];
-            for (int i = 0; i < iArr.length; i++) {
-                this.gradientColors[i] = SelectorHelper.getColor(iArr[i]);
+            for (int i2 = 0; i2 < iArr.length; i2++) {
+                this.gradientColors[i2] = SelectorHelper.getColor(iArr[i2]);
             }
             return this;
         }
@@ -460,8 +460,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         this.gradientOrientation = TOP_BOTTOM;
         if (iArr.length > 1) {
             this.gradientColors = new int[iArr.length];
-            for (int i = 0; i < iArr.length; i++) {
-                this.gradientColors[i] = TbadkCoreApplication.getInst().getApp().getResources().getColor(iArr[i]);
+            for (int i2 = 0; i2 < iArr.length; i2++) {
+                this.gradientColors[i2] = TbadkCoreApplication.getInst().getApp().getResources().getColor(iArr[i2]);
             }
             return this;
         }
@@ -474,8 +474,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         this.radialRadius = f2;
         if (iArr.length > 1) {
             this.gradientColors = new int[iArr.length];
-            for (int i = 0; i < iArr.length; i++) {
-                this.gradientColors[i] = SelectorHelper.getColor(iArr[i]);
+            for (int i2 = 0; i2 < iArr.length; i2++) {
+                this.gradientColors[i2] = SelectorHelper.getColor(iArr[i2]);
             }
             return this;
         }
@@ -487,8 +487,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         this.gradientType = 2;
         if (iArr.length > 1) {
             this.gradientColors = new int[iArr.length];
-            for (int i = 0; i < iArr.length; i++) {
-                this.gradientColors[i] = SelectorHelper.getColor(iArr[i]);
+            for (int i2 = 0; i2 < iArr.length; i2++) {
+                this.gradientColors[i2] = SelectorHelper.getColor(iArr[i2]);
             }
             return this;
         }
@@ -501,12 +501,12 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
             return;
         }
         build();
-        int i = this.mType;
-        if (i == 2) {
+        int i2 = this.mType;
+        if (i2 == 2) {
             if (view instanceof ImageView) {
                 ((ImageView) view).setImageDrawable(this.mStateListDrawable);
             }
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             view.setBackgroundDrawable(this.mStateListDrawable);
         }
     }
@@ -542,8 +542,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return this.hasSetSelectedDrawable ? drawable : (this.hasSetSelectedBgColor || this.hasSetSelectedStrokeColor) ? makeItemShapeDrawable(this.mShape, this.mSelectedBgColor, this.mSelectedStrokeColor, this.dashLineColor) : drawable;
     }
 
-    public DrawableSelector pressedColor(@ColorRes int i) {
-        this.mPressedBgColor = SelectorHelper.getColor(i);
+    public DrawableSelector pressedColor(@ColorRes int i2) {
+        this.mPressedBgColor = SelectorHelper.getColor(i2);
         this.hasSetPressedBgColor = true;
         this.isSolid = true;
         return this;
@@ -555,8 +555,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return this;
     }
 
-    public DrawableSelector pressedStrokeColor(@ColorRes int i) {
-        this.mPressedStrokeColor = SelectorHelper.getColor(i);
+    public DrawableSelector pressedStrokeColor(@ColorRes int i2) {
+        this.mPressedStrokeColor = SelectorHelper.getColor(i2);
         this.hasSetPressedStrokeColor = true;
         this.isStroke = true;
         return this;
@@ -571,8 +571,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return this;
     }
 
-    public DrawableSelector selectedColor(@ColorRes int i) {
-        this.mSelectedBgColor = SelectorHelper.getColor(i);
+    public DrawableSelector selectedColor(@ColorRes int i2) {
+        this.mSelectedBgColor = SelectorHelper.getColor(i2);
         this.hasSetSelectedBgColor = true;
         this.isSolid = true;
         return this;
@@ -584,15 +584,15 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return this;
     }
 
-    public DrawableSelector selectedStrokeColor(@ColorRes int i) {
-        this.mSelectedStrokeColor = SelectorHelper.getColor(i);
+    public DrawableSelector selectedStrokeColor(@ColorRes int i2) {
+        this.mSelectedStrokeColor = SelectorHelper.getColor(i2);
         this.hasSetSelectedStrokeColor = true;
         this.isStroke = true;
         return this;
     }
 
-    public DrawableSelector setAlpha(@IntRange(from = 0, to = 255) int i) {
-        this.mAlpha = i;
+    public DrawableSelector setAlpha(@IntRange(from = 0, to = 255) int i2) {
+        this.mAlpha = i2;
         this.hasSetAlpha = true;
         return this;
     }
@@ -603,29 +603,29 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return this;
     }
 
-    public DrawableSelector setShape(@Shape int i) {
-        this.mShape = i;
+    public DrawableSelector setShape(@Shape int i2) {
+        this.mShape = i2;
         return this;
     }
 
-    public DrawableSelector setSize(int i, int i2) {
-        this.width = i;
-        this.height = i2;
+    public DrawableSelector setSize(int i2, int i3) {
+        this.width = i2;
+        this.height = i3;
         return this;
     }
 
-    public DrawableSelector setType(int i) {
-        this.mType = i;
+    public DrawableSelector setType(int i2) {
+        this.mType = i2;
         return this;
     }
 
-    public DrawableSelector strokeWidth(int i) {
-        this.mStrokeWidth = i;
+    public DrawableSelector strokeWidth(int i2) {
+        this.mStrokeWidth = i2;
         return this;
     }
 
-    public DrawableSelector strokeWidthDimenId(@DimenRes int i) {
-        this.mStrokeWidth = SelectorHelper.getDimens(i);
+    public DrawableSelector strokeWidthDimenId(@DimenRes int i2) {
+        this.mStrokeWidth = SelectorHelper.getDimens(i2);
         return this;
     }
 
@@ -650,24 +650,24 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return create;
     }
 
-    public DrawableSelector disabledDrawable(@DrawableRes int i) {
-        return disabledDrawable(SelectorHelper.getDrawable(i));
+    public DrawableSelector disabledDrawable(@DrawableRes int i2) {
+        return disabledDrawable(SelectorHelper.getDrawable(i2));
     }
 
-    public DrawableSelector focusedDrawable(@DrawableRes int i) {
-        return focusedDrawable(SelectorHelper.getDrawable(i));
+    public DrawableSelector focusedDrawable(@DrawableRes int i2) {
+        return focusedDrawable(SelectorHelper.getDrawable(i2));
     }
 
-    public DrawableSelector pressedDrawable(@DrawableRes int i) {
-        return pressedDrawable(SelectorHelper.getDrawable(i));
+    public DrawableSelector pressedDrawable(@DrawableRes int i2) {
+        return pressedDrawable(SelectorHelper.getDrawable(i2));
     }
 
-    public DrawableSelector selectedDrawable(@DrawableRes int i) {
-        return selectedDrawable(SelectorHelper.getDrawable(i));
+    public DrawableSelector selectedDrawable(@DrawableRes int i2) {
+        return selectedDrawable(SelectorHelper.getDrawable(i2));
     }
 
-    public DrawableSelector disabledColor(@ColorRes int i, float f2) {
-        this.mDisabledBgColor = SelectorHelper.getColor(i, f2);
+    public DrawableSelector disabledColor(@ColorRes int i2, float f2) {
+        this.mDisabledBgColor = SelectorHelper.getColor(i2, f2);
         this.hasSetDisabledBgColor = true;
         this.isSolid = true;
         return this;
@@ -694,8 +694,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return this;
     }
 
-    public DrawableSelector pressedColor(@ColorRes int i, float f2) {
-        this.mPressedBgColor = SelectorHelper.getColor(i, f2);
+    public DrawableSelector pressedColor(@ColorRes int i2, float f2) {
+        this.mPressedBgColor = SelectorHelper.getColor(i2, f2);
         this.hasSetPressedBgColor = true;
         this.isSolid = true;
         return this;
@@ -722,9 +722,9 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return this;
     }
 
-    public DrawableSelector dashLine(String str, int i, float f2, float f3) {
+    public DrawableSelector dashLine(String str, int i2, float f2, float f3) {
         this.isDashLine = true;
-        this.dashLineWidth = i;
+        this.dashLineWidth = i2;
         this.dashWidth = f2;
         this.dashGap = f3;
         this.dashLineColor = SelectorHelper.parseColor(str);
@@ -760,8 +760,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         this.gradientType = 2;
         if (strArr.length > 1) {
             this.gradientColors = new int[strArr.length];
-            for (int i = 0; i < strArr.length; i++) {
-                this.gradientColors[i] = SelectorHelper.parseColor(strArr[i]);
+            for (int i2 = 0; i2 < strArr.length; i2++) {
+                this.gradientColors[i2] = SelectorHelper.parseColor(strArr[i2]);
             }
             return this;
         }
@@ -774,8 +774,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         this.gradientOrientation = TOP_BOTTOM;
         if (strArr.length > 1) {
             this.gradientColors = new int[strArr.length];
-            for (int i = 0; i < strArr.length; i++) {
-                this.gradientColors[i] = SelectorHelper.parseColor(strArr[i]);
+            for (int i2 = 0; i2 < strArr.length; i2++) {
+                this.gradientColors[i2] = SelectorHelper.parseColor(strArr[i2]);
             }
             return this;
         }
@@ -788,20 +788,20 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         this.radialRadius = f2;
         if (strArr.length > 1) {
             this.gradientColors = new int[strArr.length];
-            for (int i = 0; i < strArr.length; i++) {
-                this.gradientColors[i] = SelectorHelper.parseColor(strArr[i]);
+            for (int i2 = 0; i2 < strArr.length; i2++) {
+                this.gradientColors[i2] = SelectorHelper.parseColor(strArr[i2]);
             }
             return this;
         }
         throw new ExceptionInInitializerError("渐变颜色数组至少需要两个颜色");
     }
 
-    public DrawableSelector defaultDrawable(@DrawableRes int i) {
-        return defaultDrawable(SelectorHelper.getDrawable(i));
+    public DrawableSelector defaultDrawable(@DrawableRes int i2) {
+        return defaultDrawable(SelectorHelper.getDrawable(i2));
     }
 
-    public DrawableSelector defaultColor(@ColorRes int i, int i2) {
-        int color = SkinManager.getColor(i2, i);
+    public DrawableSelector defaultColor(@ColorRes int i2, int i3) {
+        int color = SkinManager.getColor(i3, i2);
         this.mDefaultBgColor = color;
         this.isSolid = true;
         if (!this.hasSetDisabledBgColor) {
@@ -844,8 +844,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         this.gradientOrientation = str;
         if (iArr.length > 1) {
             this.gradientColors = new int[iArr.length];
-            for (int i = 0; i < iArr.length; i++) {
-                this.gradientColors[i] = SelectorHelper.getColor(iArr[i]);
+            for (int i2 = 0; i2 < iArr.length; i2++) {
+                this.gradientColors[i2] = SelectorHelper.getColor(iArr[i2]);
             }
             return this;
         }
@@ -877,8 +877,8 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         this.gradientOrientation = str;
         if (strArr.length > 1) {
             this.gradientColors = new int[strArr.length];
-            for (int i = 0; i < strArr.length; i++) {
-                this.gradientColors[i] = SelectorHelper.parseColor(strArr[i]);
+            for (int i2 = 0; i2 < strArr.length; i2++) {
+                this.gradientColors[i2] = SelectorHelper.parseColor(strArr[i2]);
             }
             return this;
         }

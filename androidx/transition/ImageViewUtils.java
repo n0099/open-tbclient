@@ -1,80 +1,83 @@
 package androidx.transition;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
+import android.annotation.SuppressLint;
 import android.graphics.Matrix;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.util.Log;
 import android.widget.ImageView;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class ImageViewUtils {
-    public static final String TAG = "ImageViewUtils";
-    public static Method sAnimateTransformMethod;
-    public static boolean sAnimateTransformMethodFetched;
+    public static Field sDrawMatrixField = null;
+    public static boolean sDrawMatrixFieldFetched = false;
+    public static boolean sTryHiddenAnimateTransform = true;
 
-    public static void animateTransform(ImageView imageView, Matrix matrix) {
-        if (Build.VERSION.SDK_INT < 21) {
-            imageView.setImageMatrix(matrix);
-            return;
-        }
-        fetchAnimateTransformMethod();
-        Method method = sAnimateTransformMethod;
-        if (method != null) {
-            try {
-                method.invoke(imageView, matrix);
-            } catch (IllegalAccessException unused) {
-            } catch (InvocationTargetException e2) {
-                throw new RuntimeException(e2.getCause());
+    public static void animateTransform(@NonNull ImageView imageView, @Nullable Matrix matrix) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 29) {
+            imageView.animateTransform(matrix);
+        } else if (matrix == null) {
+            Drawable drawable = imageView.getDrawable();
+            if (drawable != null) {
+                drawable.setBounds(0, 0, (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight(), (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom());
+                imageView.invalidate();
+            }
+        } else if (i2 >= 21) {
+            hiddenAnimateTransform(imageView, matrix);
+        } else {
+            Drawable drawable2 = imageView.getDrawable();
+            if (drawable2 != null) {
+                drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+                Matrix matrix2 = null;
+                fetchDrawMatrixField();
+                Field field = sDrawMatrixField;
+                if (field != null) {
+                    try {
+                        Matrix matrix3 = (Matrix) field.get(imageView);
+                        if (matrix3 == null) {
+                            try {
+                                matrix2 = new Matrix();
+                                sDrawMatrixField.set(imageView, matrix2);
+                            } catch (IllegalAccessException unused) {
+                            }
+                        }
+                        matrix2 = matrix3;
+                    } catch (IllegalAccessException unused2) {
+                    }
+                }
+                if (matrix2 != null) {
+                    matrix2.set(matrix);
+                }
+                imageView.invalidate();
             }
         }
     }
 
-    public static void fetchAnimateTransformMethod() {
-        if (sAnimateTransformMethodFetched) {
+    public static void fetchDrawMatrixField() {
+        if (sDrawMatrixFieldFetched) {
             return;
         }
         try {
-            Method declaredMethod = ImageView.class.getDeclaredMethod("animateTransform", Matrix.class);
-            sAnimateTransformMethod = declaredMethod;
-            declaredMethod.setAccessible(true);
-        } catch (NoSuchMethodException e2) {
-            Log.i(TAG, "Failed to retrieve animateTransform method", e2);
+            Field declaredField = ImageView.class.getDeclaredField("mDrawMatrix");
+            sDrawMatrixField = declaredField;
+            declaredField.setAccessible(true);
+        } catch (NoSuchFieldException unused) {
         }
-        sAnimateTransformMethodFetched = true;
+        sDrawMatrixFieldFetched = true;
     }
 
-    public static void reserveEndAnimateTransform(final ImageView imageView, Animator animator) {
-        if (Build.VERSION.SDK_INT < 21) {
-            animator.addListener(new AnimatorListenerAdapter() { // from class: androidx.transition.ImageViewUtils.1
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator2) {
-                    ImageView.ScaleType scaleType = (ImageView.ScaleType) imageView.getTag(R.id.save_scale_type);
-                    imageView.setScaleType(scaleType);
-                    imageView.setTag(R.id.save_scale_type, null);
-                    if (scaleType == ImageView.ScaleType.MATRIX) {
-                        ImageView imageView2 = imageView;
-                        imageView2.setImageMatrix((Matrix) imageView2.getTag(R.id.save_image_matrix));
-                        imageView.setTag(R.id.save_image_matrix, null);
-                    }
-                    animator2.removeListener(this);
-                }
-            });
-        }
-    }
-
-    public static void startAnimateTransform(ImageView imageView) {
-        if (Build.VERSION.SDK_INT < 21) {
-            ImageView.ScaleType scaleType = imageView.getScaleType();
-            imageView.setTag(R.id.save_scale_type, scaleType);
-            ImageView.ScaleType scaleType2 = ImageView.ScaleType.MATRIX;
-            if (scaleType == scaleType2) {
-                imageView.setTag(R.id.save_image_matrix, imageView.getImageMatrix());
-            } else {
-                imageView.setScaleType(scaleType2);
+    @RequiresApi(21)
+    @SuppressLint({"NewApi"})
+    public static void hiddenAnimateTransform(@NonNull ImageView imageView, @Nullable Matrix matrix) {
+        if (sTryHiddenAnimateTransform) {
+            try {
+                imageView.animateTransform(matrix);
+            } catch (NoSuchMethodError unused) {
+                sTryHiddenAnimateTransform = false;
             }
-            imageView.setImageMatrix(MatrixUtils.IDENTITY_MATRIX);
         }
     }
 }

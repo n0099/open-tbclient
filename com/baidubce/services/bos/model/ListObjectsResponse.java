@@ -70,8 +70,8 @@ public class ListObjectsResponse extends BosResponse {
         this.marker = str;
     }
 
-    public void setMaxKeys(int i) {
-        this.maxKeys = i;
+    public void setMaxKeys(int i2) {
+        this.maxKeys = i2;
     }
 
     public void setNextMarker(String str) {

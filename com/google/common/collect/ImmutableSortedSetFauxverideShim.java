@@ -9,7 +9,7 @@ public abstract class ImmutableSortedSetFauxverideShim<E> extends ImmutableSet<E
     }
 
     @Deprecated
-    public static <E> ImmutableSortedSet.a<E> builderWithExpectedSize(int i) {
+    public static <E> ImmutableSortedSet.a<E> builderWithExpectedSize(int i2) {
         throw new UnsupportedOperationException();
     }
 

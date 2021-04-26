@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class MangaVipMaskActivityConfig extends IntentConfig {
     public static final String MEMBER_TYPE = "member_type";
 
-    public MangaVipMaskActivityConfig(Context context, int i) {
+    public MangaVipMaskActivityConfig(Context context, int i2) {
         super(context);
-        getIntent().putExtra("member_type", i);
+        getIntent().putExtra("member_type", i2);
     }
 }

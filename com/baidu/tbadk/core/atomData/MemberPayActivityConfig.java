@@ -43,23 +43,23 @@ public class MemberPayActivityConfig extends IntentConfig {
     public static final String SCENE_ID = "scene_id";
     public static final String ST_TYPE = "st_type";
 
-    public MemberPayActivityConfig(Context context, int i) {
+    public MemberPayActivityConfig(Context context, int i2) {
         super(context);
-        getIntent().putExtra("member_type", i);
+        getIntent().putExtra("member_type", i2);
     }
 
     public void setClose(boolean z) {
         getIntent().putExtra(IntentConfig.CLOSE, z);
     }
 
-    public void setFrom(int i) {
-        if (i > 0) {
-            getIntent().putExtra("from", i);
+    public void setFrom(int i2) {
+        if (i2 > 0) {
+            getIntent().putExtra("from", i2);
         }
     }
 
-    public void setFromScence(int i) {
-        getIntent().putExtra(FROM_SCENE, i);
+    public void setFromScence(int i2) {
+        getIntent().putExtra(FROM_SCENE, i2);
     }
 
     public void setReferPageClickZone(String str, String str2) {
@@ -80,66 +80,66 @@ public class MemberPayActivityConfig extends IntentConfig {
         getIntent().putExtra("st_type", str);
     }
 
-    public MemberPayActivityConfig(Context context, int i, boolean z, int i2) {
+    public MemberPayActivityConfig(Context context, int i2, boolean z, int i3) {
         super(context);
-        getIntent().putExtra("member_type", i);
+        getIntent().putExtra("member_type", i2);
         getIntent().putExtra(IntentConfig.CLOSE, z);
-        getIntent().putExtra("from", i2);
+        getIntent().putExtra("from", i3);
     }
 
-    public MemberPayActivityConfig(Context context, int i, boolean z, int i2, int i3) {
+    public MemberPayActivityConfig(Context context, int i2, boolean z, int i3, int i4) {
         super(context);
-        getIntent().putExtra("member_type", i);
+        getIntent().putExtra("member_type", i2);
         getIntent().putExtra(IntentConfig.CLOSE, z);
-        getIntent().putExtra("from", i2);
-        getIntent().putExtra(FROM_SCENE, i3);
+        getIntent().putExtra("from", i3);
+        getIntent().putExtra(FROM_SCENE, i4);
     }
 
-    public MemberPayActivityConfig(Context context, int i, String str, int i2) {
+    public MemberPayActivityConfig(Context context, int i2, String str, int i3) {
         super(context);
-        getIntent().putExtra("member_type", i);
+        getIntent().putExtra("member_type", i2);
         getIntent().putExtra("st_type", str);
-        getIntent().putExtra("from", i2);
+        getIntent().putExtra("from", i3);
     }
 
-    public MemberPayActivityConfig(Context context, int i, String str, int i2, int i3, String str2) {
+    public MemberPayActivityConfig(Context context, int i2, String str, int i3, int i4, String str2) {
         super(context);
-        getIntent().putExtra("member_type", i);
+        getIntent().putExtra("member_type", i2);
         getIntent().putExtra("st_type", str);
-        getIntent().putExtra("from", i2);
+        getIntent().putExtra("from", i3);
         getIntent().putExtra("scene_id", str2);
-        getIntent().putExtra("pay_type", i3);
+        getIntent().putExtra("pay_type", i4);
     }
 
-    public MemberPayActivityConfig(Context context, boolean z, int i, String str) {
+    public MemberPayActivityConfig(Context context, boolean z, int i2, String str) {
         super(context);
         if (str != null) {
             getIntent().putExtra("st_type", str);
         }
         if (z) {
             setIntentAction(IntentAction.ActivityForResult);
-            setRequestCode(i);
+            setRequestCode(i2);
         }
     }
 
-    public MemberPayActivityConfig(Context context, boolean z, int i, String str, int i2) {
+    public MemberPayActivityConfig(Context context, boolean z, int i2, String str, int i3) {
         super(context);
         if (str != null) {
             getIntent().putExtra("st_type", str);
         }
         if (z) {
             setIntentAction(IntentAction.ActivityForResult);
-            setRequestCode(i);
+            setRequestCode(i2);
         }
-        if (i2 > 0) {
-            getIntent().putExtra("from", i2);
+        if (i3 > 0) {
+            getIntent().putExtra("from", i3);
         }
     }
 
-    public MemberPayActivityConfig(Context context, int i, int i2, int i3) {
+    public MemberPayActivityConfig(Context context, int i2, int i3, int i4) {
         super(context);
-        getIntent().putExtra("member_type", i);
-        getIntent().putExtra(IS_WRITE, i3);
-        getIntent().putExtra("from", i2);
+        getIntent().putExtra("member_type", i2);
+        getIntent().putExtra(IS_WRITE, i4);
+        getIntent().putExtra("from", i3);
     }
 }

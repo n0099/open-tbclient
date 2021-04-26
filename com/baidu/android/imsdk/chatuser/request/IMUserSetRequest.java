@@ -20,12 +20,12 @@ public class IMUserSetRequest extends IMUserBaseHttpRequest {
     public String mKey;
     public long mUserUk;
 
-    public IMUserSetRequest(Context context, String str, long j, long j2, int i, int i2) {
+    public IMUserSetRequest(Context context, String str, long j, long j2, int i2, int i3) {
         this.mContext = context;
         this.mUserUk = j;
         this.mKey = str;
-        this.mDisturb = i;
-        this.mBlack = i2;
+        this.mDisturb = i2;
+        this.mBlack = i3;
         this.mAppid = j2;
     }
 
@@ -60,35 +60,35 @@ public class IMUserSetRequest extends IMUserBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         ChatUserManagerImpl.getInstance(this.mContext).onSetPrivacyResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mUserUk, this.mDisturb, this.mBlack);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str;
-        int i2;
         int i3;
+        int i4;
         String optString;
         try {
             JSONObject jSONObject = new JSONObject(new String(bArr));
             if (jSONObject.has("response_params")) {
-                i3 = jSONObject.getJSONObject("response_params").getInt("error_code");
+                i4 = jSONObject.getJSONObject("response_params").getInt("error_code");
                 optString = jSONObject.optString("error_msg", Constants.ERROR_MSG_SUCCESS);
             } else {
-                i3 = jSONObject.getInt("error_code");
+                i4 = jSONObject.getInt("error_code");
                 optString = jSONObject.optString("error_msg", "");
             }
-            i2 = i3;
+            i3 = i4;
             str = optString;
         } catch (JSONException e2) {
             LogUtils.e("IMUserSetRequest", "JSONException", e2);
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-            i2 = 1010;
+            i3 = 1010;
         }
-        ChatUserManagerImpl.getInstance(this.mContext).onSetPrivacyResult(this.mKey, i2, str, this.mUserUk, this.mDisturb, this.mBlack);
+        ChatUserManagerImpl.getInstance(this.mContext).onSetPrivacyResult(this.mKey, i3, str, this.mUserUk, this.mDisturb, this.mBlack);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

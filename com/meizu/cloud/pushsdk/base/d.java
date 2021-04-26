@@ -3,43 +3,43 @@ package com.meizu.cloud.pushsdk.base;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f38037a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+    public static final char[] f35589a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char f38038b = (char) Integer.parseInt("00000011", 2);
+    public static final char f35590b = (char) Integer.parseInt("00000011", 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char f38039c = (char) Integer.parseInt("00001111", 2);
+    public static final char f35591c = (char) Integer.parseInt("00001111", 2);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final char f38040d = (char) Integer.parseInt("00111111", 2);
+    public static final char f35592d = (char) Integer.parseInt("00111111", 2);
 
     /* renamed from: e  reason: collision with root package name */
-    public String f38041e;
+    public String f35593e;
 
     /* renamed from: f  reason: collision with root package name */
-    public char[] f38042f;
+    public char[] f35594f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38043g = 0;
+    public int f35595g = 0;
 
     public d(String str) {
-        this.f38041e = str;
+        this.f35593e = str;
         a();
     }
 
     private void a() {
-        char[] cArr = new char[f38037a.length];
-        int i = 0;
-        this.f38043g = this.f38041e.charAt(0) % '\r';
+        char[] cArr = new char[f35589a.length];
+        int i2 = 0;
+        this.f35595g = this.f35593e.charAt(0) % '\r';
         while (true) {
-            char[] cArr2 = f38037a;
-            if (i >= cArr2.length) {
-                this.f38042f = cArr;
+            char[] cArr2 = f35589a;
+            if (i2 >= cArr2.length) {
+                this.f35594f = cArr;
                 return;
             } else {
-                cArr[i] = cArr2[(this.f38043g + i) % cArr2.length];
-                i++;
+                cArr[i2] = cArr2[(this.f35595g + i2) % cArr2.length];
+                i2++;
             }
         }
     }
@@ -50,31 +50,31 @@ public class d {
             return null;
         }
         StringBuilder sb = new StringBuilder(((bArr.length + 2) / 3) * 4);
-        int i = 0;
+        int i2 = 0;
         int length = bArr.length;
-        while (i < length) {
-            int i2 = i + 1;
-            int i3 = bArr[i] & 255;
-            if (i2 == length) {
-                sb.append(this.f38042f[i3 >>> 2]);
-                sb.append(this.f38042f[(i3 & f38038b) << 4]);
+        while (i2 < length) {
+            int i3 = i2 + 1;
+            int i4 = bArr[i2] & 255;
+            if (i3 == length) {
+                sb.append(this.f35594f[i4 >>> 2]);
+                sb.append(this.f35594f[(i4 & f35590b) << 4]);
                 str = "==";
             } else {
-                int i4 = i2 + 1;
-                int i5 = bArr[i2] & 255;
-                if (i4 == length) {
-                    sb.append(this.f38042f[i3 >>> 2]);
-                    sb.append(this.f38042f[((i3 & f38038b) << 4) | (i5 >>> 4)]);
-                    sb.append(this.f38042f[(f38039c & i5) << 2]);
+                int i5 = i3 + 1;
+                int i6 = bArr[i3] & 255;
+                if (i5 == length) {
+                    sb.append(this.f35594f[i4 >>> 2]);
+                    sb.append(this.f35594f[((i4 & f35590b) << 4) | (i6 >>> 4)]);
+                    sb.append(this.f35594f[(f35591c & i6) << 2]);
                     str = "=";
                 } else {
-                    int i6 = i4 + 1;
-                    int i7 = bArr[i4] & 255;
-                    sb.append(this.f38042f[i3 >>> 2]);
-                    sb.append(this.f38042f[((i3 & f38038b) << 4) | (i5 >>> 4)]);
-                    sb.append(this.f38042f[((i5 & f38039c) << 2) | (i7 >>> 6)]);
-                    sb.append(this.f38042f[f38040d & i7]);
-                    i = i6;
+                    int i7 = i5 + 1;
+                    int i8 = bArr[i5] & 255;
+                    sb.append(this.f35594f[i4 >>> 2]);
+                    sb.append(this.f35594f[((i4 & f35590b) << 4) | (i6 >>> 4)]);
+                    sb.append(this.f35594f[((i6 & f35591c) << 2) | (i8 >>> 6)]);
+                    sb.append(this.f35594f[f35592d & i8]);
+                    i2 = i7;
                 }
             }
             sb.append(str);

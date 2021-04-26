@@ -9,9 +9,9 @@ public class SSSurfaceView extends SurfaceView {
     }
 
     @Override // android.view.SurfaceView, android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        if (i == 0) {
-            super.onWindowVisibilityChanged(i);
+    public void onWindowVisibilityChanged(int i2) {
+        if (i2 == 0) {
+            super.onWindowVisibilityChanged(i2);
         }
     }
 }

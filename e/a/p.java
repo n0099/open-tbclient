@@ -11,32 +11,32 @@ import java.util.concurrent.FutureTask;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f68579a = Executors.newSingleThreadExecutor();
+    public final Executor f67530a = Executors.newSingleThreadExecutor();
 
     /* loaded from: classes7.dex */
     public static class a implements Callable<SharedPreferences> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Context f68580e;
+        public final Context f67531e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f68581f;
+        public final String f67532f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final b f68582g;
+        public final b f67533g;
 
         public a(Context context, String str, b bVar) {
-            this.f68580e = context;
-            this.f68581f = str;
-            this.f68582g = bVar;
+            this.f67531e = context;
+            this.f67532f = str;
+            this.f67533g = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public SharedPreferences call() {
-            SharedPreferences sharedPreferences = this.f68580e.getSharedPreferences(this.f68581f, 0);
-            b bVar = this.f68582g;
+            SharedPreferences sharedPreferences = this.f67531e.getSharedPreferences(this.f67532f, 0);
+            b bVar = this.f67533g;
             if (bVar != null) {
                 bVar.a(sharedPreferences);
             }
@@ -51,7 +51,7 @@ public class p {
 
     public Future<SharedPreferences> a(Context context, String str, b bVar) {
         FutureTask futureTask = new FutureTask(new a(context, str, bVar));
-        this.f68579a.execute(futureTask);
+        this.f67530a.execute(futureTask);
         return futureTask;
     }
 }

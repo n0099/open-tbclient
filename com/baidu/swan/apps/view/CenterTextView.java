@@ -11,10 +11,10 @@ import android.widget.TextView;
 public class CenterTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public StaticLayout f12343e;
+    public StaticLayout f12217e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextPaint f12344f;
+    public TextPaint f12218f;
 
     public CenterTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -22,23 +22,23 @@ public class CenterTextView extends TextView {
 
     public final void a() {
         TextPaint textPaint = new TextPaint(1);
-        this.f12344f = textPaint;
+        this.f12218f = textPaint;
         textPaint.setTextSize(getTextSize());
-        this.f12344f.setColor(getCurrentTextColor());
-        this.f12343e = new StaticLayout(getText(), this.f12344f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+        this.f12218f.setColor(getCurrentTextColor());
+        this.f12217e = new StaticLayout(getText(), this.f12218f, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onDraw(Canvas canvas) {
-        StaticLayout staticLayout = this.f12343e;
+        StaticLayout staticLayout = this.f12217e;
         if (staticLayout != null) {
             staticLayout.draw(canvas);
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
         a();
     }
 }

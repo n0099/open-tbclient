@@ -22,17 +22,17 @@ public final class FormatToDecimalsKt {
         decimalFormatSymbols2.setExponentSeparator("e+");
         rootPositiveExpFormatSymbols = decimalFormatSymbols2;
         ThreadLocal<DecimalFormat>[] threadLocalArr = new ThreadLocal[4];
-        for (int i = 0; i < 4; i++) {
-            threadLocalArr[i] = new ThreadLocal<>();
+        for (int i2 = 0; i2 < 4; i2++) {
+            threadLocalArr[i2] = new ThreadLocal<>();
         }
         precisionFormats = threadLocalArr;
         scientificFormat = new ThreadLocal<>();
     }
 
-    public static final DecimalFormat createFormatForDecimals(int i) {
+    public static final DecimalFormat createFormatForDecimals(int i2) {
         DecimalFormat decimalFormat = new DecimalFormat("0", rootNegativeExpFormatSymbols);
-        if (i > 0) {
-            decimalFormat.setMinimumFractionDigits(i);
+        if (i2 > 0) {
+            decimalFormat.setMinimumFractionDigits(i2);
         }
         decimalFormat.setRoundingMode(RoundingMode.HALF_UP);
         return decimalFormat;
@@ -49,34 +49,34 @@ public final class FormatToDecimalsKt {
         DecimalFormat decimalFormat2 = decimalFormat;
         decimalFormat2.setDecimalFormatSymbols((d2 >= ((double) 1) || d2 <= ((double) (-1))) ? rootPositiveExpFormatSymbols : rootNegativeExpFormatSymbols);
         String format = decimalFormat2.format(d2);
-        Intrinsics.checkExpressionValueIsNotNull(format, "scientificFormat.getOrSe… }\n        .format(value)");
+        Intrinsics.checkNotNullExpressionValue(format, "scientificFormat.getOrSe… }\n        .format(value)");
         return format;
     }
 
-    public static final String formatToExactDecimals(double d2, int i) {
+    public static final String formatToExactDecimals(double d2, int i2) {
         DecimalFormat createFormatForDecimals;
         ThreadLocal<DecimalFormat>[] threadLocalArr = precisionFormats;
-        if (i < threadLocalArr.length) {
-            ThreadLocal<DecimalFormat> threadLocal = threadLocalArr[i];
+        if (i2 < threadLocalArr.length) {
+            ThreadLocal<DecimalFormat> threadLocal = threadLocalArr[i2];
             DecimalFormat decimalFormat = threadLocal.get();
             if (decimalFormat == null) {
-                decimalFormat = createFormatForDecimals(i);
+                decimalFormat = createFormatForDecimals(i2);
                 threadLocal.set(decimalFormat);
             }
             createFormatForDecimals = decimalFormat;
         } else {
-            createFormatForDecimals = createFormatForDecimals(i);
+            createFormatForDecimals = createFormatForDecimals(i2);
         }
         String format = createFormatForDecimals.format(d2);
-        Intrinsics.checkExpressionValueIsNotNull(format, "format.format(value)");
+        Intrinsics.checkNotNullExpressionValue(format, "format.format(value)");
         return format;
     }
 
-    public static final String formatUpToDecimals(double d2, int i) {
+    public static final String formatUpToDecimals(double d2, int i2) {
         DecimalFormat createFormatForDecimals = createFormatForDecimals(0);
-        createFormatForDecimals.setMaximumFractionDigits(i);
+        createFormatForDecimals.setMaximumFractionDigits(i2);
         String format = createFormatForDecimals.format(d2);
-        Intrinsics.checkExpressionValueIsNotNull(format, "createFormatForDecimals(… }\n        .format(value)");
+        Intrinsics.checkNotNullExpressionValue(format, "createFormatForDecimals(… }\n        .format(value)");
         return format;
     }
 }

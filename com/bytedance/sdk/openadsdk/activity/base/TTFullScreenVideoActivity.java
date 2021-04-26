@@ -99,7 +99,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                 }
             });
         }
-        TopProxyLayout topProxyLayout = this.f27022c;
+        TopProxyLayout topProxyLayout = this.f27842c;
         if (topProxyLayout != null) {
             topProxyLayout.setListener(new b() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTFullScreenVideoActivity.3
                 @Override // com.bytedance.sdk.openadsdk.component.reward.top.b
@@ -118,7 +118,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                     hashMap.put("play_type", Integer.valueOf(ak.a(tTFullScreenVideoActivity.D, tTFullScreenVideoActivity.z)));
                     TTFullScreenVideoActivity.this.a("fullscreen_interstitial_ad", "feed_break", hashMap);
                     TTFullScreenVideoActivity.this.a("fullscreen_interstitial_ad", FreeSpaceBox.TYPE, (Map<String, Object>) null);
-                    TTFullScreenVideoActivity.this.f27022c.setShowSkip(false);
+                    TTFullScreenVideoActivity.this.f27842c.setShowSkip(false);
                     if (!com.bytedance.sdk.openadsdk.multipro.b.b()) {
                         if (TTFullScreenVideoActivity.this.aV != null) {
                             TTFullScreenVideoActivity.this.aV.onSkippedVideo();
@@ -161,10 +161,10 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
     }
 
     private void T() {
-        TopProxyLayout topProxyLayout = this.f27022c;
+        TopProxyLayout topProxyLayout = this.f27842c;
         if (topProxyLayout != null) {
             topProxyLayout.a((CharSequence) null, "跳过");
-            this.f27022c.setSkipEnable(true);
+            this.f27842c.setSkipEnable(true);
         }
     }
 
@@ -175,22 +175,22 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
         if (lVar != null && lVar.C() && this.s.i() == 1) {
             hashMap.put("duration", Long.valueOf(System.currentTimeMillis() - this.ax));
         }
-        d.g(this.f27024e, this.s, "fullscreen_interstitial_ad", "click_close", hashMap);
+        d.g(this.f27844e, this.s, "fullscreen_interstitial_ad", "click_close", hashMap);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aa() {
         Bitmap b2;
         l lVar = this.s;
-        if (lVar == null || this.f27025f == null || !lVar.C() || (b2 = al.b((WebView) this.f27025f)) == null) {
+        if (lVar == null || this.f27845f == null || !lVar.C() || (b2 = al.b((WebView) this.f27845f)) == null) {
             return;
         }
         al.a(p.a(), this.s, "fullscreen_interstitial_ad", "playable_show_status", b2, false, 1);
     }
 
-    private void d(int i) {
-        if (this.f27022c != null) {
-            this.f27022c.a((CharSequence) null, new SpannableStringBuilder(i + "s后可跳过"));
+    private void d(int i2) {
+        if (this.f27842c != null) {
+            this.f27842c.a((CharSequence) null, new SpannableStringBuilder(i2 + "s后可跳过"));
         }
     }
 
@@ -280,8 +280,8 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.b
-    public void f(int i) {
-        if (i == 10002) {
+    public void f(int i2) {
+        if (i2 == 10002) {
             Y();
         }
     }
@@ -403,7 +403,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
         return new com.bytedance.sdk.openadsdk.c.p(l.b(this.s) ? 3 : 2, "fullscreen_interstitial_ad", this.s);
     }
 
-    public void e(int i) {
+    public void e(int i2) {
         TopProxyLayout topProxyLayout;
         TopProxyLayout topProxyLayout2;
         int e2 = p.h().e(this.T);
@@ -412,27 +412,27 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
             aU = 5;
         }
         if (!p.h().b(String.valueOf(this.T))) {
-            if (i >= aU) {
-                if (!this.W.getAndSet(true) && (topProxyLayout2 = this.f27022c) != null) {
+            if (i2 >= aU) {
+                if (!this.W.getAndSet(true) && (topProxyLayout2 = this.f27842c) != null) {
                     topProxyLayout2.setShowSkip(true);
                 }
                 T();
                 return;
             }
-            TopProxyLayout topProxyLayout3 = this.f27022c;
+            TopProxyLayout topProxyLayout3 = this.f27842c;
             if (topProxyLayout3 != null) {
                 topProxyLayout3.setSkipEnable(false);
                 return;
             }
             return;
         }
-        if (!this.W.getAndSet(true) && (topProxyLayout = this.f27022c) != null) {
+        if (!this.W.getAndSet(true) && (topProxyLayout = this.f27842c) != null) {
             topProxyLayout.setShowSkip(true);
         }
-        int i2 = aU;
-        if (i <= i2) {
-            d(i2 - i);
-            TopProxyLayout topProxyLayout4 = this.f27022c;
+        int i3 = aU;
+        if (i2 <= i3) {
+            d(i3 - i2);
+            TopProxyLayout topProxyLayout4 = this.f27842c;
             if (topProxyLayout4 != null) {
                 topProxyLayout4.setSkipEnable(false);
                 return;
@@ -459,7 +459,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
             }
             l lVar2 = this.s;
             if (lVar2 != null && lVar2.Z() == 4) {
-                this.E = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27024e, this.s, "fullscreen_interstitial_ad");
+                this.E = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27844e, this.s, "fullscreen_interstitial_ad");
             }
         } else {
             this.s = com.bytedance.sdk.openadsdk.core.u.a().c();
@@ -482,15 +482,15 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                 this.s = com.bytedance.sdk.openadsdk.core.c.a(new JSONObject(string));
                 this.W.set(bundle.getBoolean("has_show_skip_btn"));
                 if (this.W.get()) {
-                    if (this.f27022c != null) {
-                        this.f27022c.setShowSkip(true);
+                    if (this.f27842c != null) {
+                        this.f27842c.setShowSkip(true);
                     }
                     T();
                 }
             } catch (Throwable unused) {
             }
             if (this.E == null && (lVar = this.s) != null && lVar.Z() == 4) {
-                this.E = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27024e, this.s, "fullscreen_interstitial_ad");
+                this.E = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27844e, this.s, "fullscreen_interstitial_ad");
             }
         }
         com.bytedance.sdk.openadsdk.core.e.a().a(this.s);
@@ -512,7 +512,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
     public boolean a(long j, boolean z) {
         HashMap hashMap;
         if (this.D == null) {
-            this.D = new com.bytedance.sdk.openadsdk.component.reward.b(this.f27024e, this.o, this.s);
+            this.D = new com.bytedance.sdk.openadsdk.component.reward.b(this.f27844e, this.o, this.s);
         }
         if (TextUtils.isEmpty(this.af)) {
             hashMap = null;
@@ -523,7 +523,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
         this.D.a(hashMap);
         this.D.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTFullScreenVideoActivity.4
             @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
-            public void a(long j2, int i) {
+            public void a(long j2, int i2) {
                 am amVar = TTFullScreenVideoActivity.this.I;
                 if (amVar != null) {
                     amVar.removeMessages(300);
@@ -538,7 +538,7 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
-            public void b(long j2, int i) {
+            public void b(long j2, int i2) {
                 am amVar = TTFullScreenVideoActivity.this.I;
                 if (amVar != null) {
                     amVar.removeMessages(300);
@@ -602,10 +602,10 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                 tTFullScreenVideoActivity2.Q = (int) (tTFullScreenVideoActivity2.L() - j4);
                 TTFullScreenVideoActivity.this.e((int) j4);
                 TTFullScreenVideoActivity tTFullScreenVideoActivity3 = TTFullScreenVideoActivity.this;
-                if (tTFullScreenVideoActivity3.Q >= 0 && (topProxyLayout = tTFullScreenVideoActivity3.f27022c) != null) {
+                if (tTFullScreenVideoActivity3.Q >= 0 && (topProxyLayout = tTFullScreenVideoActivity3.f27842c) != null) {
                     topProxyLayout.setShowCountDown(true);
                     TTFullScreenVideoActivity tTFullScreenVideoActivity4 = TTFullScreenVideoActivity.this;
-                    tTFullScreenVideoActivity4.f27022c.a(String.valueOf(tTFullScreenVideoActivity4.Q), (CharSequence) null);
+                    tTFullScreenVideoActivity4.f27842c.a(String.valueOf(tTFullScreenVideoActivity4.Q), (CharSequence) null);
                 }
                 if (TTFullScreenVideoActivity.this.Q <= 0) {
                     u.b("TTFullScreenVideoActivity", "onProgressUpdate、、、、、、、、");
@@ -620,15 +620,15 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
                 }
             }
         });
-        String i = this.s.X() != null ? this.s.X().i() : null;
+        String i2 = this.s.X() != null ? this.s.X().i() : null;
         if (this.x != null) {
             File file = new File(this.x);
             if (file.exists() && file.length() > 0) {
-                i = this.x;
+                i2 = this.x;
                 this.z = true;
             }
         }
-        String str = i;
+        String str = i2;
         u.f("wzj", "videoUrl:" + str);
         if (this.D == null) {
             return false;
@@ -640,14 +640,14 @@ public class TTFullScreenVideoActivity extends TTBaseVideoActivity {
         boolean a2 = this.D.a(str, this.s.am(), this.o.getWidth(), this.o.getHeight(), null, this.s.ap(), j, this.P);
         if (a2 && !z) {
             u.e("AdEvent", "pangolin ad show " + ak.a(this.s, (View) null));
-            d.a(this.f27024e, this.s, "fullscreen_interstitial_ad", hashMap);
+            d.a(this.f27844e, this.s, "fullscreen_interstitial_ad", hashMap);
             U();
         }
         return a2;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.b
-    public void a(View view, int i, int i2, int i3, int i4) {
+    public void a(View view, int i2, int i3, int i4, int i5) {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             e("onAdVideoBarClick");
             return;

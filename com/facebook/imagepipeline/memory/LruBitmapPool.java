@@ -13,9 +13,9 @@ public class LruBitmapPool implements BitmapPool {
     public final PoolStatsTracker mPoolStatsTracker;
     public final PoolBackend<Bitmap> mStrategy = new BitmapPoolBackend();
 
-    public LruBitmapPool(int i, int i2, PoolStatsTracker poolStatsTracker, @Nullable MemoryTrimmableRegistry memoryTrimmableRegistry) {
-        this.mMaxPoolSize = i;
-        this.mMaxBitmapSize = i2;
+    public LruBitmapPool(int i2, int i3, PoolStatsTracker poolStatsTracker, @Nullable MemoryTrimmableRegistry memoryTrimmableRegistry) {
+        this.mMaxPoolSize = i2;
+        this.mMaxBitmapSize = i3;
         this.mPoolStatsTracker = poolStatsTracker;
         if (memoryTrimmableRegistry != null) {
             memoryTrimmableRegistry.registerMemoryTrimmable(this);
@@ -23,14 +23,14 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     @VisibleForTesting
-    private Bitmap alloc(int i) {
-        this.mPoolStatsTracker.onAlloc(i);
-        return Bitmap.createBitmap(1, i, Bitmap.Config.ALPHA_8);
+    private Bitmap alloc(int i2) {
+        this.mPoolStatsTracker.onAlloc(i2);
+        return Bitmap.createBitmap(1, i2, Bitmap.Config.ALPHA_8);
     }
 
-    private synchronized void trimTo(int i) {
+    private synchronized void trimTo(int i2) {
         Bitmap pop;
-        while (this.mCurrentSize > i && (pop = this.mStrategy.pop()) != null) {
+        while (this.mCurrentSize > i2 && (pop = this.mStrategy.pop()) != null) {
             int size = this.mStrategy.getSize(pop);
             this.mCurrentSize -= size;
             this.mPoolStatsTracker.onFree(size);
@@ -45,18 +45,18 @@ public class LruBitmapPool implements BitmapPool {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.common.memory.Pool
-    public synchronized Bitmap get(int i) {
+    public synchronized Bitmap get(int i2) {
         if (this.mCurrentSize > this.mMaxPoolSize) {
             trimTo(this.mMaxPoolSize);
         }
-        Bitmap bitmap = this.mStrategy.get(i);
+        Bitmap bitmap = this.mStrategy.get(i2);
         if (bitmap != null) {
             int size = this.mStrategy.getSize(bitmap);
             this.mCurrentSize -= size;
             this.mPoolStatsTracker.onValueReuse(size);
             return bitmap;
         }
-        return alloc(i);
+        return alloc(i2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

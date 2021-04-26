@@ -17,45 +17,47 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f28006a = "AppEnvironment";
+    public static String f28862a = "AppEnvironment";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile e f28007b = null;
+    public static volatile e f28863b = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f28008d = "ad_style";
+    public static String f28864d = "ad_style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f28009e = "ad_id";
+    public static String f28865e = "ad_id";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f28010f = "rit";
+    public static String f28866f = "rit";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f28011g = "request_id";
+    public static String f28867g = "request_id";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f28012h = "ad_slot_type";
-    public static String i = "net_type";
+    public static String f28868h = "ad_slot_type";
+
+    /* renamed from: i  reason: collision with root package name */
+    public static String f28869i = "net_type";
     public static String j = "low_memory";
     public static String k = "total_max_memory_rate";
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f28013c;
+    public Map<String, String> f28870c;
     public long l;
     public boolean m;
 
     public e() {
         HashMap hashMap = new HashMap();
-        this.f28013c = hashMap;
-        hashMap.put(f28008d, "default");
-        this.f28013c.put(f28009e, "default");
-        this.f28013c.put(f28010f, "default");
-        this.f28013c.put(f28011g, "default");
-        this.f28013c.put(f28012h, "default");
-        this.f28013c.put(i, "default");
-        this.f28013c.put(j, "default");
-        this.f28013c.put(k, "default");
+        this.f28870c = hashMap;
+        hashMap.put(f28864d, "default");
+        this.f28870c.put(f28865e, "default");
+        this.f28870c.put(f28866f, "default");
+        this.f28870c.put(f28867g, "default");
+        this.f28870c.put(f28868h, "default");
+        this.f28870c.put(f28869i, "default");
+        this.f28870c.put(j, "default");
+        this.f28870c.put(k, "default");
         this.l = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sp_app_env", "last_app_env_time", 0L);
         this.m = false;
     }
@@ -66,19 +68,19 @@ public class e {
         float f2 = (float) ((runtime.totalMemory() * 1.0d) / 1048576.0d);
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
         ((ActivityManager) p.a().getSystemService("activity")).getMemoryInfo(memoryInfo);
-        String str = f28006a;
+        String str = f28862a;
         com.bytedance.sdk.openadsdk.utils.u.f(str, "系统是否处于低内存运行：" + memoryInfo.lowMemory);
-        String str2 = f28006a;
+        String str2 = f28862a;
         com.bytedance.sdk.openadsdk.utils.u.f(str2, "maxMemory: " + maxMemory);
-        String str3 = f28006a;
+        String str3 = f28862a;
         com.bytedance.sdk.openadsdk.utils.u.f(str3, "totalMemory: " + f2);
-        String str4 = f28006a;
+        String str4 = f28862a;
         com.bytedance.sdk.openadsdk.utils.u.f(str4, "freeMemory: " + ((float) ((runtime.freeMemory() * 1.0d) / 1048576.0d)));
         int i2 = (int) ((f2 / maxMemory) * 100.0f);
-        String str5 = f28006a;
+        String str5 = f28862a;
         com.bytedance.sdk.openadsdk.utils.u.f(str5, "totalMaxRate: " + i2);
-        this.f28013c.put(j, String.valueOf(memoryInfo.lowMemory));
-        this.f28013c.put(k, String.valueOf(i2));
+        this.f28870c.put(j, String.valueOf(memoryInfo.lowMemory));
+        this.f28870c.put(k, String.valueOf(i2));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -144,7 +146,7 @@ public class e {
     }
 
     public Map<String, String> b() {
-        return this.f28013c;
+        return this.f28870c;
     }
 
     public void c() {
@@ -168,31 +170,31 @@ public class e {
     }
 
     public static e a() {
-        if (f28007b == null) {
+        if (f28863b == null) {
             synchronized (e.class) {
-                if (f28007b == null) {
-                    f28007b = new e();
+                if (f28863b == null) {
+                    f28863b = new e();
                 }
             }
         }
-        return f28007b;
+        return f28863b;
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.d.l lVar) {
         if (lVar == null) {
             return;
         }
-        this.f28013c.put(f28009e, lVar.am());
-        Map<String, String> map = this.f28013c;
-        String str = f28010f;
+        this.f28870c.put(f28865e, lVar.am());
+        Map<String, String> map = this.f28870c;
+        String str = f28866f;
         map.put(str, "" + ak.d(lVar.ap()));
-        this.f28013c.put(f28011g, ak.h(lVar.ap()));
-        Map<String, String> map2 = this.f28013c;
-        String str2 = f28012h;
+        this.f28870c.put(f28867g, ak.h(lVar.ap()));
+        Map<String, String> map2 = this.f28870c;
+        String str2 = f28868h;
         map2.put(str2, "" + ak.c(lVar.ap()));
-        this.f28013c.put(i, com.bytedance.sdk.openadsdk.utils.x.f(p.a()));
+        this.f28870c.put(f28869i, com.bytedance.sdk.openadsdk.utils.x.f(p.a()));
         if (lVar.C()) {
-            this.f28013c.put(f28008d, "is_playable");
+            this.f28870c.put(f28864d, "is_playable");
         }
         d();
     }

@@ -16,9 +16,9 @@ public class CloudControlUBCData {
     public JSONObject serviceJsonObject = new JSONObject();
     public JSONObject controlJsonObject = new JSONObject();
 
-    public void collectDegradegInfo(int i, int i2, int i3, JSONArray jSONArray) {
+    public void collectDegradegInfo(int i2, int i3, int i4, JSONArray jSONArray) {
         try {
-            this.controlJsonObject.put("count", i + "," + i2 + "," + i3);
+            this.controlJsonObject.put("count", i2 + "," + i3 + "," + i4);
             this.controlJsonObject.put("items", jSONArray);
         } catch (JSONException e2) {
             if (AppConfig.isDebug()) {

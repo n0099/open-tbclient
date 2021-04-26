@@ -11,8 +11,8 @@ public enum MaterialLoadErrorCode {
     public int code;
     public String msg;
 
-    MaterialLoadErrorCode(int i, String str) {
-        this.code = i;
+    MaterialLoadErrorCode(int i2, String str) {
+        this.code = i2;
         this.msg = str;
     }
 

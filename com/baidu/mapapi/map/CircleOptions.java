@@ -6,105 +6,105 @@ import com.baidu.mapapi.model.LatLng;
 public final class CircleOptions extends OverlayOptions {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f6865d = "CircleOptions";
+    public static final String f7104d = "CircleOptions";
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6866a;
+    public int f7105a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bundle f6868c;
+    public Bundle f7107c;
 
     /* renamed from: e  reason: collision with root package name */
-    public LatLng f6869e;
+    public LatLng f7108e;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6871g;
+    public int f7110g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Stroke f6872h;
+    public Stroke f7111h;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6870f = -16777216;
+    public int f7109f = -16777216;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6867b = true;
+    public boolean f7106b = true;
 
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Circle circle = new Circle();
-        circle.x = this.f6867b;
-        circle.w = this.f6866a;
-        circle.y = this.f6868c;
-        circle.f6862b = this.f6870f;
-        circle.f6861a = this.f6869e;
-        circle.f6863c = this.f6871g;
-        circle.f6864d = this.f6872h;
+        circle.x = this.f7106b;
+        circle.w = this.f7105a;
+        circle.y = this.f7107c;
+        circle.f7101b = this.f7109f;
+        circle.f7100a = this.f7108e;
+        circle.f7102c = this.f7110g;
+        circle.f7103d = this.f7111h;
         return circle;
     }
 
     public CircleOptions center(LatLng latLng) {
         if (latLng != null) {
-            this.f6869e = latLng;
+            this.f7108e = latLng;
             return this;
         }
         throw new IllegalArgumentException("circle center can not be null");
     }
 
     public CircleOptions extraInfo(Bundle bundle) {
-        this.f6868c = bundle;
+        this.f7107c = bundle;
         return this;
     }
 
-    public CircleOptions fillColor(int i) {
-        this.f6870f = i;
+    public CircleOptions fillColor(int i2) {
+        this.f7109f = i2;
         return this;
     }
 
     public LatLng getCenter() {
-        return this.f6869e;
+        return this.f7108e;
     }
 
     public Bundle getExtraInfo() {
-        return this.f6868c;
+        return this.f7107c;
     }
 
     public int getFillColor() {
-        return this.f6870f;
+        return this.f7109f;
     }
 
     public int getRadius() {
-        return this.f6871g;
+        return this.f7110g;
     }
 
     public Stroke getStroke() {
-        return this.f6872h;
+        return this.f7111h;
     }
 
     public int getZIndex() {
-        return this.f6866a;
+        return this.f7105a;
     }
 
     public boolean isVisible() {
-        return this.f6867b;
+        return this.f7106b;
     }
 
-    public CircleOptions radius(int i) {
-        this.f6871g = i;
+    public CircleOptions radius(int i2) {
+        this.f7110g = i2;
         return this;
     }
 
     public CircleOptions stroke(Stroke stroke) {
-        this.f6872h = stroke;
+        this.f7111h = stroke;
         return this;
     }
 
     public CircleOptions visible(boolean z) {
-        this.f6867b = z;
+        this.f7106b = z;
         return this;
     }
 
-    public CircleOptions zIndex(int i) {
-        this.f6866a = i;
+    public CircleOptions zIndex(int i2) {
+        this.f7105a = i2;
         return this;
     }
 }

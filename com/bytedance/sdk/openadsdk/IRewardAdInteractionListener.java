@@ -32,7 +32,7 @@ public interface IRewardAdInteractionListener extends IInterface {
         }
 
         @Override // com.bytedance.sdk.openadsdk.IRewardAdInteractionListener
-        public void onRewardVerify(boolean z, int i, String str, int i2, String str2) throws RemoteException {
+        public void onRewardVerify(boolean z, int i2, String str, int i3, String str2) throws RemoteException {
         }
 
         @Override // com.bytedance.sdk.openadsdk.IRewardAdInteractionListener
@@ -55,18 +55,18 @@ public interface IRewardAdInteractionListener extends IInterface {
         public static class a implements IRewardAdInteractionListener {
 
             /* renamed from: a  reason: collision with root package name */
-            public static IRewardAdInteractionListener f26969a;
+            public static IRewardAdInteractionListener f27787a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f26970b;
+            public IBinder f27788b;
 
             public a(IBinder iBinder) {
-                this.f26970b = iBinder;
+                this.f27788b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f26970b;
+                return this.f27788b;
             }
 
             @Override // com.bytedance.sdk.openadsdk.IRewardAdInteractionListener
@@ -75,7 +75,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                    if (!this.f26970b.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27788b.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onAdClose();
                     } else {
                         obtain2.readException();
@@ -92,7 +92,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                    if (!this.f26970b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27788b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onAdShow();
                     } else {
                         obtain2.readException();
@@ -109,7 +109,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                    if (!this.f26970b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27788b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onAdVideoBarClick();
                     } else {
                         obtain2.readException();
@@ -126,7 +126,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                    if (!this.f26970b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27788b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onDestroy();
                     } else {
                         obtain2.readException();
@@ -138,18 +138,18 @@ public interface IRewardAdInteractionListener extends IInterface {
             }
 
             @Override // com.bytedance.sdk.openadsdk.IRewardAdInteractionListener
-            public void onRewardVerify(boolean z, int i, String str, int i2, String str2) throws RemoteException {
+            public void onRewardVerify(boolean z, int i2, String str, int i3, String str2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
                     obtain.writeInt(z ? 1 : 0);
-                    obtain.writeInt(i);
-                    obtain.writeString(str);
                     obtain.writeInt(i2);
+                    obtain.writeString(str);
+                    obtain.writeInt(i3);
                     obtain.writeString(str2);
-                    if (!this.f26970b.transact(7, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                        Stub.getDefaultImpl().onRewardVerify(z, i, str, i2, str2);
+                    if (!this.f27788b.transact(7, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onRewardVerify(z, i2, str, i3, str2);
                     } else {
                         obtain2.readException();
                     }
@@ -165,7 +165,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                    if (!this.f26970b.transact(8, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27788b.transact(8, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onSkippedVideo();
                     } else {
                         obtain2.readException();
@@ -182,7 +182,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                    if (!this.f26970b.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27788b.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onVideoComplete();
                     } else {
                         obtain2.readException();
@@ -199,7 +199,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
-                    if (!this.f26970b.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f27788b.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onVideoError();
                     } else {
                         obtain2.readException();
@@ -227,14 +227,14 @@ public interface IRewardAdInteractionListener extends IInterface {
         }
 
         public static IRewardAdInteractionListener getDefaultImpl() {
-            return a.f26969a;
+            return a.f27787a;
         }
 
         public static boolean setDefaultImpl(IRewardAdInteractionListener iRewardAdInteractionListener) {
-            if (a.f26969a != null || iRewardAdInteractionListener == null) {
+            if (a.f27787a != null || iRewardAdInteractionListener == null) {
                 return false;
             }
-            a.f26969a = iRewardAdInteractionListener;
+            a.f27787a = iRewardAdInteractionListener;
             return true;
         }
 
@@ -244,9 +244,9 @@ public interface IRewardAdInteractionListener extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i != 1598968902) {
-                switch (i) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 != 1598968902) {
+                switch (i2) {
                     case 1:
                         parcel.enforceInterface("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
                         onDestroy();
@@ -288,7 +288,7 @@ public interface IRewardAdInteractionListener extends IInterface {
                         parcel2.writeNoException();
                         return true;
                     default:
-                        return super.onTransact(i, parcel, parcel2, i2);
+                        return super.onTransact(i2, parcel, parcel2, i3);
                 }
             }
             parcel2.writeString("com.bytedance.sdk.openadsdk.IRewardAdInteractionListener");
@@ -304,7 +304,7 @@ public interface IRewardAdInteractionListener extends IInterface {
 
     void onDestroy() throws RemoteException;
 
-    void onRewardVerify(boolean z, int i, String str, int i2, String str2) throws RemoteException;
+    void onRewardVerify(boolean z, int i2, String str, int i3, String str2) throws RemoteException;
 
     void onSkippedVideo() throws RemoteException;
 

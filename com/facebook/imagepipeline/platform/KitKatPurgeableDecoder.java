@@ -3,7 +3,6 @@ package com.facebook.imagepipeline.platform;
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import androidx.exifinterface.media.ExifInterface;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.references.CloseableReference;
@@ -20,9 +19,9 @@ public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
         this.mFlexByteArrayPool = flexByteArrayPool;
     }
 
-    public static void putEOI(byte[] bArr, int i) {
-        bArr[i] = -1;
-        bArr[i + 1] = ExifInterface.MARKER_EOI;
+    public static void putEOI(byte[] bArr, int i2) {
+        bArr[i2] = -1;
+        bArr[i2 + 1] = -39;
     }
 
     @Override // com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder
@@ -40,20 +39,20 @@ public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
     }
 
     @Override // com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder
-    public Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i, BitmapFactory.Options options) {
-        byte[] bArr = DalvikPurgeableDecoder.endsWithEOI(closeableReference, i) ? null : DalvikPurgeableDecoder.EOI;
+    public Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i2, BitmapFactory.Options options) {
+        byte[] bArr = DalvikPurgeableDecoder.endsWithEOI(closeableReference, i2) ? null : DalvikPurgeableDecoder.EOI;
         PooledByteBuffer pooledByteBuffer = closeableReference.get();
-        Preconditions.checkArgument(i <= pooledByteBuffer.size());
-        int i2 = i + 2;
-        CloseableReference<byte[]> closeableReference2 = this.mFlexByteArrayPool.get(i2);
+        Preconditions.checkArgument(i2 <= pooledByteBuffer.size());
+        int i3 = i2 + 2;
+        CloseableReference<byte[]> closeableReference2 = this.mFlexByteArrayPool.get(i3);
         try {
             byte[] bArr2 = closeableReference2.get();
-            pooledByteBuffer.read(0, bArr2, 0, i);
+            pooledByteBuffer.read(0, bArr2, 0, i2);
             if (bArr != null) {
-                putEOI(bArr2, i);
-                i = i2;
+                putEOI(bArr2, i2);
+                i2 = i3;
             }
-            return (Bitmap) Preconditions.checkNotNull(BitmapFactory.decodeByteArray(bArr2, 0, i, options), "BitmapFactory returned null");
+            return (Bitmap) Preconditions.checkNotNull(BitmapFactory.decodeByteArray(bArr2, 0, i2, options), "BitmapFactory returned null");
         } finally {
             CloseableReference.closeSafely((CloseableReference<?>) closeableReference2);
         }

@@ -4,8 +4,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.i0.r.q.a2;
-import d.b.j0.t.d.c.f.b.b;
+import d.a.i0.r.q.a2;
+import d.a.j0.t.d.c.f.b.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -30,9 +30,9 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
-        super.decodeLogicInBackGround(i, jSONObject);
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
             return;
         }
@@ -43,8 +43,8 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
         this.totalFollowCount = optJSONObject.optInt("total_follow_num");
         JSONArray optJSONArray = optJSONObject.optJSONArray("follow_list");
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
+            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                 if (optJSONObject2 != null) {
                     a2 a2Var = new a2();
                     a2Var.Q2(optJSONObject2);
@@ -54,19 +54,19 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
         }
         JSONArray optJSONArray2 = optJSONObject.optJSONArray("follow_close_list");
         if (optJSONArray2 != null) {
-            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
+            for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
+                JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i4);
                 if (optJSONObject3 != null) {
                     b bVar = new b();
-                    bVar.g(optJSONObject3);
+                    bVar.h(optJSONObject3);
                     this.followCloseList.add(bVar);
                 }
             }
         }
         JSONArray optJSONArray3 = optJSONObject.optJSONArray("recommend_list");
         if (optJSONArray3 != null) {
-            for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
-                JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i4);
+            for (int i5 = 0; i5 < optJSONArray3.length(); i5++) {
+                JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i5);
                 if (optJSONObject4 != null) {
                     a2 a2Var2 = new a2();
                     a2Var2.Q2(optJSONObject4);

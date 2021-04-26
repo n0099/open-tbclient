@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.interfaces.sharechennel;
 /* loaded from: classes2.dex */
 public interface IShareChannel {
-    void shareToChannel(ShareEntity shareEntity, int i, IShareCallback iShareCallback);
+    void shareToChannel(ShareEntity shareEntity, int i2, IShareCallback iShareCallback);
 }

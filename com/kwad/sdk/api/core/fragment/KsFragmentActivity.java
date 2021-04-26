@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
-import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
@@ -47,19 +46,18 @@ public class KsFragmentActivity extends FragmentActivity {
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        ComponentDestroyer.destroyActivity(this);
     }
 
     @Override // androidx.fragment.app.FragmentActivity
     @Keep
-    public final void startActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i) {
-        super.startActivityFromFragment(fragment, intent, i);
+    public final void startActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i2) {
+        super.startActivityFromFragment(fragment, intent, i2);
     }
 
     @Override // androidx.fragment.app.FragmentActivity
     @Keep
-    public final void startActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i, @Nullable Bundle bundle) {
-        super.startActivityFromFragment(fragment, intent, i, bundle);
+    public final void startActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i2, @Nullable Bundle bundle) {
+        super.startActivityFromFragment(fragment, intent, i2, bundle);
     }
 
     @Override // androidx.fragment.app.FragmentActivity

@@ -27,8 +27,8 @@ public class NavigationMenuView extends RecyclerView implements MenuView {
         this(context, attributeSet, 0);
     }
 
-    public NavigationMenuView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public NavigationMenuView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         setLayoutManager(new LinearLayoutManager(context, 1, false));
     }
 }

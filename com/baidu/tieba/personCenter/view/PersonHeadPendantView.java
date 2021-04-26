@@ -8,13 +8,13 @@ import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonHeadPendantView extends HeadPendantView {
     public int q;
     public View r;
 
-    public PersonHeadPendantView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public PersonHeadPendantView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.q = 0;
     }
 
@@ -30,8 +30,8 @@ public class PersonHeadPendantView extends HeadPendantView {
     }
 
     @Override // com.baidu.tbadk.core.view.HeadPendantView, android.widget.RelativeLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.r.getLayoutParams();
         int measuredWidth = ((int) (getMeasuredWidth() * 0.13f)) - this.q;
         layoutParams.leftMargin = measuredWidth;
@@ -45,13 +45,13 @@ public class PersonHeadPendantView extends HeadPendantView {
         this.r.setBackgroundDrawable(drawable);
     }
 
-    public void setBorderColor(int i) {
-        TBSelector.makeDrawableSelector().setShape(1).defaultColor(i).into(this.r);
+    public void setBorderColor(int i2) {
+        TBSelector.makeDrawableSelector().setShape(1).defaultColor(i2).into(this.r);
     }
 
-    public void setBorderWidth(int i) {
+    public void setBorderWidth(int i2) {
         getHeadView().setBorderWidth(0);
-        this.q = i;
+        this.q = i2;
     }
 
     public PersonHeadPendantView(Context context, AttributeSet attributeSet) {

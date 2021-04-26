@@ -75,9 +75,9 @@ public class SVProgressDefaultView extends LinearLayout {
         this.ivBigLoading.startAnimation(this.mRotateAnimation);
     }
 
-    public void showBaseStatus(int i, String str) {
+    public void showBaseStatus(int i2, String str) {
         clearAnimations();
-        this.ivSmallLoading.setImageResource(i);
+        this.ivSmallLoading.setImageResource(i2);
         this.tvMsg.setText(str);
         this.ivBigLoading.setVisibility(8);
         this.circleProgressBar.setVisibility(8);

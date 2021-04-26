@@ -4,16 +4,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.pb.data.ContriInfo;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AddExperiencedResponseMessage extends JsonHttpResponsedMessage {
     public ContriInfo mContriInfo;
 
-    public AddExperiencedResponseMessage(int i) {
+    public AddExperiencedResponseMessage(int i2) {
         super(CmdConfigHttp.CMD_ADD_EXPERIENCED);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("info")) == null) {
             return;

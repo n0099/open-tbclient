@@ -17,88 +17,88 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.frs.forumRule.model.ForumRulesShowModel;
 import com.baidu.tieba.view.BdTopToast;
-import d.b.i0.b1.m.f;
-import d.b.j0.q0.q1.f.c;
+import d.a.i0.b1.m.f;
+import d.a.j0.q0.q1.f.c;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity> implements Object {
     public String mFrom;
     public ForumRulesShowModel mModel;
     public c mView;
-    public d.b.j0.q0.q1.b.a callback = new a();
+    public d.a.j0.q0.q1.b.a callback = new a();
     public CustomMessageListener richTextIntentClickListener = new b(2001332);
 
     /* loaded from: classes4.dex */
-    public class a implements d.b.j0.q0.q1.b.a {
+    public class a implements d.a.j0.q0.q1.b.a {
         public a() {
         }
 
-        @Override // d.b.j0.q0.q1.b.a
+        @Override // d.a.j0.q0.q1.b.a
         public void a() {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.m();
-                ForumRulesShowActivity.this.mView.z();
+                ForumRulesShowActivity.this.mView.x();
                 ForumRulesShowActivity forumRulesShowActivity = ForumRulesShowActivity.this;
                 forumRulesShowActivity.showNetRefreshView(forumRulesShowActivity.mView.k(), "");
             }
         }
 
-        @Override // d.b.j0.q0.q1.b.a
-        public void b(boolean z, String str) {
-            if (ForumRulesShowActivity.this.mView == null) {
-                return;
-            }
-            if (z) {
-                ForumRulesShowActivity.this.mView.B(str);
-            } else {
-                ForumRulesShowActivity.this.mView.q();
-            }
-        }
-
-        @Override // d.b.j0.q0.q1.b.a
-        public void c(d.b.j0.q0.q1.c.b bVar) {
-            if (ForumRulesShowActivity.this.mView != null) {
-                ForumRulesShowActivity.this.mView.e(bVar);
-            }
-        }
-
-        @Override // d.b.j0.q0.q1.b.a
-        public void d(d.b.j0.q0.q1.c.a aVar) {
+        @Override // d.a.j0.q0.q1.b.a
+        public void b(d.a.j0.q0.q1.c.a aVar) {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.f(aVar);
             }
         }
 
-        @Override // d.b.j0.q0.q1.b.a
-        public void e(List<d.b.j0.q0.q1.c.c> list) {
+        @Override // d.a.j0.q0.q1.b.a
+        public void c(List<d.a.j0.q0.q1.c.c> list) {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.g(list);
             }
         }
 
-        @Override // d.b.j0.q0.q1.b.a
+        @Override // d.a.j0.q0.q1.b.a
+        public void d(boolean z, String str) {
+            if (ForumRulesShowActivity.this.mView == null) {
+                return;
+            }
+            if (z) {
+                ForumRulesShowActivity.this.mView.z(str);
+            } else {
+                ForumRulesShowActivity.this.mView.p();
+            }
+        }
+
+        @Override // d.a.j0.q0.q1.b.a
+        public void e(d.a.j0.q0.q1.c.b bVar) {
+            if (ForumRulesShowActivity.this.mView != null) {
+                ForumRulesShowActivity.this.mView.e(bVar);
+            }
+        }
+
+        @Override // d.a.j0.q0.q1.b.a
         public void f(String str) {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity.this.mView.h(str);
             }
         }
 
-        @Override // d.b.j0.q0.q1.b.a
+        @Override // d.a.j0.q0.q1.b.a
         public void finish() {
             if (ForumRulesShowActivity.this.mView != null) {
                 ForumRulesShowActivity forumRulesShowActivity = ForumRulesShowActivity.this;
                 forumRulesShowActivity.hideNetRefreshView(forumRulesShowActivity.mView.k());
                 ForumRulesShowActivity.this.mView.n();
-                ForumRulesShowActivity.this.mView.y();
-                ForumRulesShowActivity.this.mView.v();
+                ForumRulesShowActivity.this.mView.w();
+                ForumRulesShowActivity.this.mView.t();
             }
         }
     }
 
     /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -108,7 +108,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
                 return;
             }
             f.a aVar = (f.a) customResponsedMessage.getData();
-            f.b(ForumRulesShowActivity.this.getPageContext(), aVar.f50708a, aVar.f50709b, aVar.f50710c);
+            f.b(ForumRulesShowActivity.this.getPageContext(), aVar.f48276a, aVar.f48277b, aVar.f48278c);
         }
     }
 
@@ -123,18 +123,18 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         }
         c cVar = new c(this, this.mFrom);
         this.mView = cVar;
-        cVar.w(getRefreshView());
+        cVar.u(getRefreshView());
     }
 
     private void setModelCallback() {
         this.mModel.E(this.callback);
     }
 
-    public d.b.c.e.k.b<GifView> getGifViewPool() {
+    public d.a.c.e.k.b<GifView> getGifViewPool() {
         return null;
     }
 
-    public d.b.c.e.k.b<ImageView> getImageViewPool() {
+    public d.a.c.e.k.b<ImageView> getImageViewPool() {
         return null;
     }
 
@@ -142,7 +142,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         return null;
     }
 
-    public d.b.c.e.k.b<RelativeLayout> getRelativeLayoutPool() {
+    public d.a.c.e.k.b<RelativeLayout> getRelativeLayoutPool() {
         return null;
     }
 
@@ -150,11 +150,11 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         return 0;
     }
 
-    public d.b.c.e.k.b<TextView> getTextViewPool() {
+    public d.a.c.e.k.b<TextView> getTextViewPool() {
         return null;
     }
 
-    public d.b.c.e.k.b<LinearLayout> getTextVoiceViewPool() {
+    public d.a.c.e.k.b<LinearLayout> getTextVoiceViewPool() {
         return null;
     }
 
@@ -162,17 +162,17 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         return this.mView;
     }
 
-    public d.b.c.e.k.b<View> getVoiceViewPool() {
+    public d.a.c.e.k.b<View> getVoiceViewPool() {
         return null;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i2 == -1 && i == 25053) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i3 == -1 && i2 == 25053) {
             String stringExtra = intent.getStringExtra("group_name");
             if (!intent.getBooleanExtra("from", true)) {
-                this.mView.u();
+                this.mView.s();
                 this.mView.r.clear();
                 this.mModel.D();
             }
@@ -187,11 +187,11 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         c cVar = this.mView;
         if (cVar != null) {
-            cVar.onChangeSkinType(i);
+            cVar.onChangeSkinType(i2);
         }
     }
 
@@ -212,7 +212,7 @@ public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity>
         }
         c cVar = this.mView;
         if (cVar != null) {
-            cVar.i();
+            cVar.j();
         }
     }
 

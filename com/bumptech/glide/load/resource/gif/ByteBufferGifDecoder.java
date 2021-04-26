@@ -39,8 +39,8 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
     @VisibleForTesting
     /* loaded from: classes5.dex */
     public static class GifDecoderFactory {
-        public GifDecoder build(GifDecoder.BitmapProvider bitmapProvider, GifHeader gifHeader, ByteBuffer byteBuffer, int i) {
-            return new StandardGifDecoder(bitmapProvider, gifHeader, byteBuffer, i);
+        public GifDecoder build(GifDecoder.BitmapProvider bitmapProvider, GifHeader gifHeader, ByteBuffer byteBuffer, int i2) {
+            return new StandardGifDecoder(bitmapProvider, gifHeader, byteBuffer, i2);
         }
     }
 
@@ -68,21 +68,21 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
         this(context, Glide.get(context).getRegistry().getImageHeaderParsers(), Glide.get(context).getBitmapPool(), Glide.get(context).getArrayPool());
     }
 
-    public static int getSampleSize(GifHeader gifHeader, int i, int i2) {
-        int min = Math.min(gifHeader.getHeight() / i2, gifHeader.getWidth() / i);
+    public static int getSampleSize(GifHeader gifHeader, int i2, int i3) {
+        int min = Math.min(gifHeader.getHeight() / i3, gifHeader.getWidth() / i2);
         int max = Math.max(1, min == 0 ? 0 : Integer.highestOneBit(min));
         if (Log.isLoggable(TAG, 2) && max > 1) {
-            Log.v(TAG, "Downsampling GIF, sampleSize: " + max + ", target dimens: [" + i + "x" + i2 + "], actual dimens: [" + gifHeader.getWidth() + "x" + gifHeader.getHeight() + "]");
+            Log.v(TAG, "Downsampling GIF, sampleSize: " + max + ", target dimens: [" + i2 + "x" + i3 + "], actual dimens: [" + gifHeader.getWidth() + "x" + gifHeader.getHeight() + "]");
         }
         return max;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public GifDrawableResource decode(@NonNull ByteBuffer byteBuffer, int i, int i2, @NonNull Options options) {
+    public GifDrawableResource decode(@NonNull ByteBuffer byteBuffer, int i2, int i3, @NonNull Options options) {
         GifHeaderParser obtain = this.parserPool.obtain(byteBuffer);
         try {
-            return decode(byteBuffer, i, i2, obtain, options);
+            return decode(byteBuffer, i2, i3, obtain, options);
         } finally {
             this.parserPool.release(obtain);
         }
@@ -98,27 +98,31 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
         this(context, list, bitmapPool, arrayPool, PARSER_POOL, GIF_DECODER_FACTORY);
     }
 
+    @VisibleForTesting
+    public ByteBufferGifDecoder(Context context, List<ImageHeaderParser> list, BitmapPool bitmapPool, ArrayPool arrayPool, GifHeaderParserPool gifHeaderParserPool, GifDecoderFactory gifDecoderFactory) {
+        this.context = context.getApplicationContext();
+        this.parsers = list;
+        this.gifDecoderFactory = gifDecoderFactory;
+        this.provider = new GifBitmapProvider(bitmapPool, arrayPool);
+        this.parserPool = gifHeaderParserPool;
+    }
+
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, INVOKE, INVOKE, IF] complete} */
     @Nullable
-    private GifDrawableResource decode(ByteBuffer byteBuffer, int i, int i2, GifHeaderParser gifHeaderParser, Options options) {
-        Bitmap.Config config;
+    private GifDrawableResource decode(ByteBuffer byteBuffer, int i2, int i3, GifHeaderParser gifHeaderParser, Options options) {
         long logTime = LogTime.getLogTime();
         try {
             GifHeader parseHeader = gifHeaderParser.parseHeader();
             if (parseHeader.getNumFrames() > 0 && parseHeader.getStatus() == 0) {
-                if (options.get(GifOptions.DECODE_FORMAT) == DecodeFormat.PREFER_RGB_565) {
-                    config = Bitmap.Config.RGB_565;
-                } else {
-                    config = Bitmap.Config.ARGB_8888;
-                }
-                GifDecoder build = this.gifDecoderFactory.build(this.provider, parseHeader, byteBuffer, getSampleSize(parseHeader, i, i2));
+                Bitmap.Config config = options.get(GifOptions.DECODE_FORMAT) == DecodeFormat.PREFER_RGB_565 ? Bitmap.Config.RGB_565 : Bitmap.Config.ARGB_8888;
+                GifDecoder build = this.gifDecoderFactory.build(this.provider, parseHeader, byteBuffer, getSampleSize(parseHeader, i2, i3));
                 build.setDefaultBitmapConfig(config);
                 build.advance();
                 Bitmap nextFrame = build.getNextFrame();
                 if (nextFrame == null) {
                     return null;
                 }
-                GifDrawableResource gifDrawableResource = new GifDrawableResource(new GifDrawable(this.context, build, UnitTransformation.get(), i, i2, nextFrame));
+                GifDrawableResource gifDrawableResource = new GifDrawableResource(new GifDrawable(this.context, build, UnitTransformation.get(), i2, i3, nextFrame));
                 if (Log.isLoggable(TAG, 2)) {
                     Log.v(TAG, "Decoded GIF from stream in " + LogTime.getElapsedMillis(logTime));
                 }
@@ -133,14 +137,5 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
                 Log.v(TAG, "Decoded GIF from stream in " + LogTime.getElapsedMillis(logTime));
             }
         }
-    }
-
-    @VisibleForTesting
-    public ByteBufferGifDecoder(Context context, List<ImageHeaderParser> list, BitmapPool bitmapPool, ArrayPool arrayPool, GifHeaderParserPool gifHeaderParserPool, GifDecoderFactory gifDecoderFactory) {
-        this.context = context.getApplicationContext();
-        this.parsers = list;
-        this.gifDecoderFactory = gifDecoderFactory;
-        this.provider = new GifBitmapProvider(bitmapPool, arrayPool);
-        this.parserPool = gifHeaderParserPool;
     }
 }

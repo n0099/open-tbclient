@@ -42,9 +42,9 @@ public class ShieldAndTopManager {
     }
 
     public static /* synthetic */ int access$208() {
-        int i = mMsgUpdateCount;
-        mMsgUpdateCount = i + 1;
-        return i;
+        int i2 = mMsgUpdateCount;
+        mMsgUpdateCount = i2 + 1;
+        return i2;
     }
 
     public static ShieldAndTopManager getInstance(Context context) {
@@ -58,18 +58,18 @@ public class ShieldAndTopManager {
         return mInstance;
     }
 
-    private List<ChatSession> getShieldListFromDB(int i) {
+    private List<ChatSession> getShieldListFromDB(int i2) {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
-        if (i == 2) {
+        if (i2 == 2) {
             arrayList2.add(1);
             arrayList2.add(5);
             arrayList2.add(17);
             arrayList2.add(19);
             arrayList2.add(29);
             arrayList2.add(26);
-            for (int i2 = 32; i2 <= 56; i2++) {
-                arrayList2.add(Integer.valueOf(i2));
+            for (int i3 = 32; i3 <= 56; i3++) {
+                arrayList2.add(Integer.valueOf(i3));
             }
             arrayList.addAll(PaInfoDBManager.getInstance(this.mContext).getShieldUsers(arrayList2));
         } else {
@@ -81,12 +81,12 @@ public class ShieldAndTopManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onCallBack(int i, String str, @NonNull List<ChatSession> list, String str2) {
+    public void onCallBack(int i2, String str, @NonNull List<ChatSession> list, String str2) {
         IGetUserShieldListener iGetUserShieldListener;
         if (TextUtils.isEmpty(str2) || (iGetUserShieldListener = (IGetUserShieldListener) ListenerManager.getInstance().removeListener(str2)) == null) {
             return;
         }
-        LogUtils.d(TAG, "onMsgShieldListResult size :" + list.size() + ", errCode :" + i + ", errMsg :" + str);
+        LogUtils.d(TAG, "onMsgShieldListResult size :" + list.size() + ", errCode :" + i2 + ", errMsg :" + str);
         Collections.sort(list, new Comparator<ChatSession>() { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
@@ -94,7 +94,7 @@ public class ShieldAndTopManager {
                 return Long.valueOf(chatSession.getShieldTime()).compareTo(Long.valueOf(chatSession2.getShieldTime()));
             }
         });
-        iGetUserShieldListener.onResult(i, str, list);
+        iGetUserShieldListener.onResult(i2, str, list);
     }
 
     public void getGroupAndStrangerDisturbList(IGetDisturbListListener iGetDisturbListListener) {
@@ -106,11 +106,11 @@ public class ShieldAndTopManager {
         HttpHelper.executor(this.mContext, iMGetOneShieldAndTopRequest, iMGetOneShieldAndTopRequest);
     }
 
-    public void getServiceNotifyMenuStatus(long j, List<Long> list, List<String> list2, String str, int i, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
-        IMServiceNotifyMenuMergeListener iMServiceNotifyMenuMergeListener = new IMServiceNotifyMenuMergeListener(i, iGetServiceNotifyMenuListener);
-        if (i == 0) {
+    public void getServiceNotifyMenuStatus(long j, List<Long> list, List<String> list2, String str, int i2, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
+        IMServiceNotifyMenuMergeListener iMServiceNotifyMenuMergeListener = new IMServiceNotifyMenuMergeListener(i2, iGetServiceNotifyMenuListener);
+        if (i2 == 0) {
             getOneShieldAndTopRequest(j, iMServiceNotifyMenuMergeListener);
-        } else if (i != 1) {
+        } else if (i2 != 1) {
             getOneShieldAndTopRequest(j, iMServiceNotifyMenuMergeListener);
             getSubscription(j, list, list2, str, iMServiceNotifyMenuMergeListener);
         } else {
@@ -118,8 +118,8 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void getSingleContacterSetting(long j, int i, IGetShieldAndTopListener iGetShieldAndTopListener) {
-        IMGetOneShieldAndTopRequest iMGetOneShieldAndTopRequest = new IMGetOneShieldAndTopRequest(this.mContext, j, i, iGetShieldAndTopListener != null ? ListenerManager.getInstance().addListener(iGetShieldAndTopListener) : "");
+    public void getSingleContacterSetting(long j, int i2, IGetShieldAndTopListener iGetShieldAndTopListener) {
+        IMGetOneShieldAndTopRequest iMGetOneShieldAndTopRequest = new IMGetOneShieldAndTopRequest(this.mContext, j, i2, iGetShieldAndTopListener != null ? ListenerManager.getInstance().addListener(iGetShieldAndTopListener) : "");
         HttpHelper.executor(this.mContext, iMGetOneShieldAndTopRequest, iMGetOneShieldAndTopRequest);
     }
 
@@ -135,36 +135,36 @@ public class ShieldAndTopManager {
         iGetSubscriptionListener.onResult(getSubscriptionResult);
     }
 
-    public void getUserShieldListToShow(int i, IGetUserShieldListener iGetUserShieldListener) {
+    public void getUserShieldListToShow(int i2, IGetUserShieldListener iGetUserShieldListener) {
         String addListener = iGetUserShieldListener != null ? ListenerManager.getInstance().addListener(iGetUserShieldListener) : "";
         if (!Utility.isNeedSync(this.mContext, Constants.KEY_SYNC_MSG_TAB_TIME)) {
-            onCallBack(0, "ok", getShieldListFromDB(i), addListener);
+            onCallBack(0, "ok", getShieldListFromDB(i2), addListener);
         } else {
-            requestSubbusinessContacterList(i, 1, addListener);
+            requestSubbusinessContacterList(i2, 1, addListener);
         }
     }
 
-    public void onForbidResult(int i, String str, boolean z, String str2, String str3) {
+    public void onForbidResult(int i2, String str, boolean z, String str2, String str3) {
         ISetForbidListener iSetForbidListener;
         if (TextUtils.isEmpty(str3) || (iSetForbidListener = (ISetForbidListener) ListenerManager.getInstance().removeListener(str3)) == null) {
             return;
         }
-        iSetForbidListener.onResult(i, str, z, str2);
+        iSetForbidListener.onResult(i2, str, z, str2);
     }
 
-    public void onGroupMarkTopResult(int i, String str, @NonNull ChatSession chatSession, String str2) {
-        if (i == 0) {
+    public void onGroupMarkTopResult(int i2, String str, @NonNull ChatSession chatSession, String str2) {
+        if (i2 == 0) {
             GroupInfoDAOImpl.updateGroupMarkTop(this.mContext, chatSession.getContacter(), chatSession.getMarkTop(), chatSession.getMarkTopTime());
         }
         IStatusListener iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(str2);
         if (iStatusListener != null) {
-            iStatusListener.onResult(i, str, chatSession.getMarkTop(), chatSession.getContacter());
+            iStatusListener.onResult(i2, str, chatSession.getMarkTop(), chatSession.getContacter());
         }
     }
 
-    public void onMsgMarkTopListResult(int i, String str, List<ChatSession> list, List<ChatSession> list2, List<ChatSession> list3) {
+    public void onMsgMarkTopListResult(int i2, String str, List<ChatSession> list, List<ChatSession> list2, List<ChatSession> list3) {
         if (list != null) {
-            if (!(list.size() == 0 && ((list2 == null || list2.size() == 0) && (list3 == null || list3.size() == 0))) && i == 0) {
+            if (!(list.size() == 0 && ((list2 == null || list2.size() == 0) && (list3 == null || list3.size() == 0))) && i2 == 0) {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("marktop", (Integer) 0);
                 ChatMessageDBManager.getInstance(this.mContext).updateChatSession("marktop=?", new String[]{String.valueOf(1)}, contentValues);
@@ -175,13 +175,13 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void onMsgShieldListResult(final int i, final String str, @NonNull List<ChatSession> list, @NonNull List<ChatSession> list2, final String str2) {
+    public void onMsgShieldListResult(final int i2, final String str, @NonNull List<ChatSession> list, @NonNull List<ChatSession> list2, final String str2) {
         final ArrayList arrayList = new ArrayList();
-        LogUtils.d(TAG, "onMsgShieldListResult errorCode :" + i + ", cUsers: " + list.size() + ", pa :" + list2.size());
-        if (i != 0) {
-            onCallBack(i, str, getShieldListFromDB(1), str2);
+        LogUtils.d(TAG, "onMsgShieldListResult errorCode :" + i2 + ", cUsers: " + list.size() + ", pa :" + list2.size());
+        if (i2 != 0) {
+            onCallBack(i2, str, getShieldListFromDB(1), str2);
         } else if (list.size() == 0 && list2.size() == 0) {
-            onCallBack(i, str, arrayList, str2);
+            onCallBack(i2, str, arrayList, str2);
         } else {
             if (list.size() > 0 && list2.size() > 0) {
                 MSG_UPDATE_MAX_COUNT = 2;
@@ -191,14 +191,14 @@ public class ShieldAndTopManager {
             if (list.size() > 0) {
                 ChatUserDBManager.getInstance(this.mContext).getShieldUserByUids(list, !TextUtils.isEmpty(str2), new IGetUserShieldListener() { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.4
                     @Override // com.baidu.android.imsdk.shield.IGetUserShieldListener
-                    public void onResult(int i2, String str3, List<ChatSession> list3) {
+                    public void onResult(int i3, String str3, List<ChatSession> list3) {
                         ShieldAndTopManager.access$208();
                         if (list3 != null && list3.size() > 0) {
                             List list4 = arrayList;
                             list4.addAll(list4.size(), list3);
                         }
                         if (ShieldAndTopManager.mMsgUpdateCount >= ShieldAndTopManager.MSG_UPDATE_MAX_COUNT) {
-                            ShieldAndTopManager.this.onCallBack(i, str, arrayList, str2);
+                            ShieldAndTopManager.this.onCallBack(i2, str, arrayList, str2);
                         }
                     }
                 });
@@ -206,14 +206,14 @@ public class ShieldAndTopManager {
             if (list2.size() > 0) {
                 PaInfoDBManager.getInstance(this.mContext).getShieldUserByPaId(list2, true ^ TextUtils.isEmpty(str2), new IGetUserShieldListener() { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.5
                     @Override // com.baidu.android.imsdk.shield.IGetUserShieldListener
-                    public void onResult(int i2, String str3, List<ChatSession> list3) {
+                    public void onResult(int i3, String str3, List<ChatSession> list3) {
                         ShieldAndTopManager.access$208();
                         if (list3 != null && list3.size() > 0) {
                             List list4 = arrayList;
                             list4.addAll(list4.size(), list3);
                         }
                         if (ShieldAndTopManager.mMsgUpdateCount >= ShieldAndTopManager.MSG_UPDATE_MAX_COUNT) {
-                            ShieldAndTopManager.this.onCallBack(i, str, arrayList, str2);
+                            ShieldAndTopManager.this.onCallBack(i2, str, arrayList, str2);
                         }
                     }
                 });
@@ -221,35 +221,35 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void onNotifyShieldListResult(int i, String str, List<ChatSession> list, final String str2) {
-        if (i != 0) {
-            onCallBack(i, str, getShieldListFromDB(2), str2);
+    public void onNotifyShieldListResult(int i2, String str, List<ChatSession> list, final String str2) {
+        if (i2 != 0) {
+            onCallBack(i2, str, getShieldListFromDB(2), str2);
             return;
         }
         final ArrayList arrayList = new ArrayList();
         if (list == null || list.size() == 0) {
-            onCallBack(i, str, arrayList, str2);
-        } else if (i == 0) {
+            onCallBack(i2, str, arrayList, str2);
+        } else if (i2 == 0) {
             PaInfoDBManager.getInstance(this.mContext).getShieldUserByPaId(list, !TextUtils.isEmpty(str2), new IGetUserShieldListener() { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.3
                 @Override // com.baidu.android.imsdk.shield.IGetUserShieldListener
-                public void onResult(int i2, String str3, List<ChatSession> list2) {
-                    if (i2 == 0) {
+                public void onResult(int i3, String str3, List<ChatSession> list2) {
+                    if (i3 == 0) {
                         if (list2 != null) {
                             arrayList.addAll(list2);
                         }
-                        ShieldAndTopManager.this.onCallBack(i2, str3, arrayList, str2);
+                        ShieldAndTopManager.this.onCallBack(i3, str3, arrayList, str2);
                     }
                 }
             });
         }
     }
 
-    public void onPaMarkTopResult(int i, String str, @NonNull final ChatSession chatSession, String str2) {
+    public void onPaMarkTopResult(int i2, String str, @NonNull final ChatSession chatSession, String str2) {
         IStatusListener iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(str2);
         if (iStatusListener != null) {
-            iStatusListener.onResult(i, str, chatSession.getMarkTop(), chatSession.getContacter());
+            iStatusListener.onResult(i2, str, chatSession.getMarkTop(), chatSession.getContacter());
         }
-        if (i == 0) {
+        if (i2 == 0) {
             TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.7
                 @Override // java.lang.Runnable
                 public void run() {
@@ -259,8 +259,8 @@ public class ShieldAndTopManager {
         }
     }
 
-    public void onPaShieldResult(int i, String str, @NonNull final ChatSession chatSession, String str2) {
-        if (i == 0) {
+    public void onPaShieldResult(int i2, String str, @NonNull final ChatSession chatSession, String str2) {
+        if (i2 == 0) {
             TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -270,16 +270,16 @@ public class ShieldAndTopManager {
         }
         IStatusListener iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(str2);
         if (iStatusListener != null) {
-            iStatusListener.onResult(i, str, chatSession.getShield(), chatSession.getContacter());
+            iStatusListener.onResult(i2, str, chatSession.getShield(), chatSession.getContacter());
         }
     }
 
-    public void onUserMarkTopResult(int i, String str, @NonNull final ChatSession chatSession, String str2) {
+    public void onUserMarkTopResult(int i2, String str, @NonNull final ChatSession chatSession, String str2) {
         IStatusListener iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(str2);
         if (iStatusListener != null) {
-            iStatusListener.onResult(i, str, chatSession.getMarkTop(), chatSession.getContacter());
+            iStatusListener.onResult(i2, str, chatSession.getMarkTop(), chatSession.getContacter());
         }
-        if (i == 0) {
+        if (i2 == 0) {
             TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.8
                 @Override // java.lang.Runnable
                 public void run() {
@@ -310,8 +310,8 @@ public class ShieldAndTopManager {
         iGetShieldAndTopListener.onResult(getShieldAndTopResult);
     }
 
-    public void onUserShieldResult(int i, String str, @NonNull final ChatSession chatSession, String str2) {
-        if (i == 0) {
+    public void onUserShieldResult(int i2, String str, @NonNull final ChatSession chatSession, String str2) {
+        if (i2 == 0) {
             TaskManager.getInstance(this.mContext).submitForLocalOperation(new Runnable() { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.2
                 @Override // java.lang.Runnable
                 public void run() {
@@ -321,12 +321,12 @@ public class ShieldAndTopManager {
         }
         IStatusListener iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(str2);
         if (iStatusListener != null) {
-            iStatusListener.onResult(i, str, chatSession.getShield(), chatSession.getContacter());
+            iStatusListener.onResult(i2, str, chatSession.getShield(), chatSession.getContacter());
         }
     }
 
-    public void requestDisturbAndRemind(long j, int i, int i2, int i3, IStatusListener iStatusListener) {
-        IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, i, i2, i3);
+    public void requestDisturbAndRemind(long j, int i2, int i3, int i4, IStatusListener iStatusListener) {
+        IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, i2, i3, i4);
         HttpHelper.executor(this.mContext, iMSetShieldAndTopRequest, iMSetShieldAndTopRequest);
     }
 
@@ -335,12 +335,12 @@ public class ShieldAndTopManager {
         HttpHelper.executor(this.mContext, iMGetShieldAndTopListRequest, iMGetShieldAndTopListRequest);
     }
 
-    public void requestSubbusinessContacterList(int i, int i2, String str) {
-        IMGetShieldAndTopListRequest iMGetShieldAndTopListRequest = new IMGetShieldAndTopListRequest(this.mContext, str, i2, i);
+    public void requestSubbusinessContacterList(int i2, int i3, String str) {
+        IMGetShieldAndTopListRequest iMGetShieldAndTopListRequest = new IMGetShieldAndTopListRequest(this.mContext, str, i3, i2);
         HttpHelper.executor(this.mContext, iMGetShieldAndTopListRequest, iMGetShieldAndTopListRequest);
     }
 
-    public void setForbid(final long j, final long j2, final int i, final ISetForbidListener iSetForbidListener) {
+    public void setForbid(final long j, final long j2, final int i2, final ISetForbidListener iSetForbidListener) {
         Context context = this.mContext;
         if (context == null) {
             iSetForbidListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, true, "");
@@ -354,26 +354,26 @@ public class ShieldAndTopManager {
                     arrayList.add(1);
                     arrayList.add(2);
                     arrayList.add(8);
-                    IMForbidRequest iMForbidRequest = new IMForbidRequest(ShieldAndTopManager.this.mContext, j, j2, i, ChatMessageDBManager.getInstance(ShieldAndTopManager.this.mContext).fetchMsgsByMsgTypes(new ChatObject(ShieldAndTopManager.this.mContext, i, j), 0L, 5L, arrayList), addListener);
+                    IMForbidRequest iMForbidRequest = new IMForbidRequest(ShieldAndTopManager.this.mContext, j, j2, i2, ChatMessageDBManager.getInstance(ShieldAndTopManager.this.mContext).fetchMsgsByMsgTypes(new ChatObject(ShieldAndTopManager.this.mContext, i2, j), 0L, 5L, arrayList), addListener);
                     HttpHelper.executor(ShieldAndTopManager.this.mContext, iMForbidRequest, iMForbidRequest);
                 }
             });
         }
     }
 
-    public void setMarkTop(long j, int i, int i2, IStatusListener iStatusListener) {
-        IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, 2, i, i2);
+    public void setMarkTop(long j, int i2, int i3, IStatusListener iStatusListener) {
+        IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, 2, i2, i3);
         HttpHelper.executor(this.mContext, iMSetShieldAndTopRequest, iMSetShieldAndTopRequest);
     }
 
-    public void setShield(long j, int i, int i2, IStatusListener iStatusListener) {
-        IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, 1, i, i2);
+    public void setShield(long j, int i2, int i3, IStatusListener iStatusListener) {
+        IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, 1, i2, i3);
         HttpHelper.executor(this.mContext, iMSetShieldAndTopRequest, iMSetShieldAndTopRequest);
     }
 
-    public void setSubscription(long j, List<Long> list, List<String> list2, int i, String str, ISetSubscriptionListener iSetSubscriptionListener) {
+    public void setSubscription(long j, List<Long> list, List<String> list2, int i2, String str, ISetSubscriptionListener iSetSubscriptionListener) {
         if ((list != null && list.size() > 0) || (list2 != null && list2.size() > 0)) {
-            IMSetSubscriptionRequest iMSetSubscriptionRequest = new IMSetSubscriptionRequest(this.mContext, i, j, list, list2, str, iSetSubscriptionListener != null ? ListenerManager.getInstance().addListener(iSetSubscriptionListener) : "");
+            IMSetSubscriptionRequest iMSetSubscriptionRequest = new IMSetSubscriptionRequest(this.mContext, i2, j, list, list2, str, iSetSubscriptionListener != null ? ListenerManager.getInstance().addListener(iSetSubscriptionListener) : "");
             HttpHelper.executor(this.mContext, iMSetSubscriptionRequest, iMSetSubscriptionRequest);
             return;
         }

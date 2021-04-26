@@ -7,7 +7,7 @@ import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface b {
-    b a(int i);
+    b a(int i2);
 
     b a(p pVar);
 

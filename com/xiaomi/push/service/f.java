@@ -21,9 +21,9 @@ public class f implements gi {
         if (xmlPullParser.getAttributeCount() > 0) {
             String[] strArr3 = new String[xmlPullParser.getAttributeCount()];
             String[] strArr4 = new String[xmlPullParser.getAttributeCount()];
-            for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
-                strArr3[i] = xmlPullParser.getAttributeName(i);
-                strArr4[i] = gn.b(xmlPullParser.getAttributeValue(i));
+            for (int i2 = 0; i2 < xmlPullParser.getAttributeCount(); i2++) {
+                strArr3[i2] = xmlPullParser.getAttributeName(i2);
+                strArr4[i2] = gn.b(xmlPullParser.getAttributeValue(i2));
             }
             strArr = strArr3;
             str = null;

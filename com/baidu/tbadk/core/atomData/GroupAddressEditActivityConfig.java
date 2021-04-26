@@ -10,16 +10,16 @@ public class GroupAddressEditActivityConfig extends IntentConfig {
     public static final String INTENT_GROUP_ADRESS_LIST = "GroupAdressList";
     public static final String INTENT_GROUP_SELECTEDINDEX = "IntentSelectedIndex";
 
-    public GroupAddressEditActivityConfig(Context context, int i, List<String> list, int i2, boolean z) {
+    public GroupAddressEditActivityConfig(Context context, int i2, List<String> list, int i3, boolean z) {
         super(context);
         String[] strArr = new String[list.size()];
-        for (int i3 = 0; i3 < list.size(); i3++) {
-            strArr[i3] = list.get(i3);
+        for (int i4 = 0; i4 < list.size(); i4++) {
+            strArr[i4] = list.get(i4);
         }
         getIntent().putExtra(INTENT_GROUP_ADRESS_LIST, strArr);
         getIntent().putExtra(INTENT_GROUP_ADDRESS_ISHIDDEN, z);
-        getIntent().putExtra(INTENT_GROUP_SELECTEDINDEX, i2);
-        setRequestCode(i);
+        getIntent().putExtra(INTENT_GROUP_SELECTEDINDEX, i3);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

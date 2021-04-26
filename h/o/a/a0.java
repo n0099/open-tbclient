@@ -1,23 +1,23 @@
 package h.o.a;
 
-import rx.internal.producers.SingleProducer;
+import h.d;
+import h.h;
 /* loaded from: classes7.dex */
-public final class a0<T> extends h.i<T> {
+public final class a0<T> implements d.a<T> {
 
-    /* renamed from: f  reason: collision with root package name */
-    public final h.j<? super T> f68857f;
+    /* renamed from: e  reason: collision with root package name */
+    public final h.d<T> f67720e;
 
-    public a0(h.j<? super T> jVar) {
-        this.f68857f = jVar;
+    public a0(h.d<T> dVar) {
+        this.f67720e = dVar;
     }
 
-    @Override // h.i
-    public void b(Throwable th) {
-        this.f68857f.onError(th);
-    }
-
-    @Override // h.i
-    public void c(T t) {
-        this.f68857f.setProducer(new SingleProducer(this.f68857f, t));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // h.n.b
+    /* renamed from: a */
+    public void call(h.j<? super T> jVar) {
+        y yVar = new y(jVar);
+        jVar.add(yVar);
+        this.f67720e.call(yVar);
     }
 }

@@ -16,116 +16,116 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.PullRefreshFrameLayout;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.l.c;
-import d.b.c.e.l.d;
-import d.b.c.e.p.k;
+import d.a.c.e.l.c;
+import d.a.c.e.l.d;
+import d.a.c.e.p.k;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonHeaderBackgroundController {
 
     /* renamed from: a  reason: collision with root package name */
-    public TbPageContext f20117a;
+    public TbPageContext f20630a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TbImageView f20118b;
+    public TbImageView f20631b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f20119c;
+    public View f20632c;
 
     /* renamed from: d  reason: collision with root package name */
-    public UserData f20120d;
+    public UserData f20633d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f20121e;
+    public boolean f20634e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20122f;
+    public int f20635f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f20123g = new b();
+    public View.OnClickListener f20636g = new b();
 
-    /* loaded from: classes3.dex */
-    public class a extends c<d.b.c.j.d.a> {
+    /* loaded from: classes4.dex */
+    public class a extends c<d.a.c.j.d.a> {
         public a() {
         }
 
-        @Override // d.b.c.e.l.c
+        @Override // d.a.c.e.l.c
         public void onCancelled(String str) {
             super.onCancelled(str);
         }
 
-        @Override // d.b.c.e.l.c
+        @Override // d.a.c.e.l.c
         public void onProgressUpdate(Object... objArr) {
             super.onProgressUpdate(objArr);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.c.e.l.c
-        public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
-            super.onLoaded((a) aVar, str, i);
+        @Override // d.a.c.e.l.c
+        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+            super.onLoaded((a) aVar, str, i2);
             if (aVar != null) {
-                aVar.h(PersonHeaderBackgroundController.this.f20118b);
+                aVar.h(PersonHeaderBackgroundController.this.f20631b);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            int i;
-            if (PersonHeaderBackgroundController.this.f20121e) {
-                if (PersonHeaderBackgroundController.this.f20120d == null || !PersonHeaderBackgroundController.this.f20120d.isBaijiahaoUser()) {
+            int i2;
+            if (PersonHeaderBackgroundController.this.f20634e) {
+                if (PersonHeaderBackgroundController.this.f20633d == null || !PersonHeaderBackgroundController.this.f20633d.isBaijiahaoUser()) {
                     TiebaStatic.log(new StatisticItem("c12502").param("obj_locate", "3"));
-                    String userId = PersonHeaderBackgroundController.this.f20120d.getUserId();
-                    String bg_pic = PersonHeaderBackgroundController.this.f20120d.getBg_pic();
+                    String userId = PersonHeaderBackgroundController.this.f20633d.getUserId();
+                    String bg_pic = PersonHeaderBackgroundController.this.f20633d.getBg_pic();
                     try {
-                        i = d.b.c.e.m.b.d((String) PersonHeaderBackgroundController.this.f(bg_pic).get("props_id"), -1);
+                        i2 = d.a.c.e.m.b.d((String) PersonHeaderBackgroundController.this.f(bg_pic).get("props_id"), -1);
                     } catch (URISyntaxException unused) {
-                        i = -1;
+                        i2 = -1;
                     }
-                    if (i != -1 && !userId.equals(TbadkCoreApplication.getCurrentAccount())) {
+                    if (i2 != -1 && !userId.equals(TbadkCoreApplication.getCurrentAccount())) {
                         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-                        int i2 = 0;
+                        int i3 = 0;
                         if (currentAccountInfo != null && !StringUtils.isNull(bg_pic) && !StringUtils.isNull(currentAccountInfo.getPersonalBgUrl()) && bg_pic.equalsIgnoreCase(currentAccountInfo.getPersonalBgUrl())) {
-                            i2 = 1;
+                            i3 = 1;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(PersonHeaderBackgroundController.this.f20118b.getContext(), i, i2)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackgroundPreviewActivityConfig(PersonHeaderBackgroundController.this.f20631b.getContext(), i2, i3)));
                         return;
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(PersonHeaderBackgroundController.this.f20118b.getContext())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropGroupActivityConfig(PersonHeaderBackgroundController.this.f20631b.getContext())));
                 }
             }
         }
     }
 
     public PersonHeaderBackgroundController(TbPageContext tbPageContext, TbImageView tbImageView, View view, boolean z) {
-        this.f20117a = tbPageContext;
-        this.f20118b = tbImageView;
-        this.f20121e = z;
+        this.f20630a = tbPageContext;
+        this.f20631b = tbImageView;
+        this.f20634e = z;
         tbImageView.setDefaultBgResource(R.drawable.bg_pic_mine);
-        this.f20119c = view;
-        view.setOnClickListener(this.f20123g);
+        this.f20632c = view;
+        view.setOnClickListener(this.f20636g);
     }
 
     public void e(UserData userData) {
         if (userData == null) {
             return;
         }
-        this.f20120d = userData;
+        this.f20633d = userData;
         String bg_pic = userData.getBg_pic();
         if (k.isEmpty(bg_pic)) {
             return;
         }
-        d.h().k(bg_pic, 10, new a(), 0, 0, this.f20117a.getUniqueId(), new Object[0]);
+        d.h().k(bg_pic, 10, new a(), 0, 0, this.f20630a.getUniqueId(), new Object[0]);
     }
 
     public final Map<String, String> f(final String str) throws URISyntaxException {
@@ -139,7 +139,7 @@ public class PersonHeaderBackgroundController {
     }
 
     public int g() {
-        ViewGroup.LayoutParams layoutParams = this.f20118b.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.f20631b.getLayoutParams();
         if (layoutParams != null) {
             return layoutParams.height;
         }
@@ -147,28 +147,28 @@ public class PersonHeaderBackgroundController {
     }
 
     public void h(double d2) {
-        int i = (int) (this.f20122f + (PullRefreshFrameLayout.D * d2));
-        ViewGroup.LayoutParams layoutParams = this.f20118b.getLayoutParams();
+        int i2 = (int) (this.f20635f + (PullRefreshFrameLayout.D * d2));
+        ViewGroup.LayoutParams layoutParams = this.f20631b.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.height = i;
-            this.f20118b.setLayoutParams(layoutParams);
+            layoutParams.height = i2;
+            this.f20631b.setLayoutParams(layoutParams);
         }
     }
 
-    public void i(int i) {
-        this.f20122f = i;
-        ViewGroup.LayoutParams layoutParams = this.f20118b.getLayoutParams();
+    public void i(int i2) {
+        this.f20635f = i2;
+        ViewGroup.LayoutParams layoutParams = this.f20631b.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.height = this.f20122f;
-            this.f20118b.setLayoutParams(layoutParams);
+            layoutParams.height = this.f20635f;
+            this.f20631b.setLayoutParams(layoutParams);
         }
     }
 
-    public void j(int i) {
-        ViewGroup.LayoutParams layoutParams = this.f20118b.getLayoutParams();
+    public void j(int i2) {
+        ViewGroup.LayoutParams layoutParams = this.f20631b.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.height = i;
-            this.f20118b.setLayoutParams(layoutParams);
+            layoutParams.height = i2;
+            this.f20631b.setLayoutParams(layoutParams);
         }
     }
 }

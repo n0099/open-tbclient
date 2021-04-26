@@ -52,8 +52,8 @@ public class BoxConfig extends DefaultConfig {
     }
 
     @Override // com.baidu.android.imsdk.internal.DefaultConfig, com.baidu.android.imsdk.internal.IIMConfig
-    public boolean isMsgTypeSupported(int i) {
-        return BIMManager.isSupportMsgType(i);
+    public boolean isMsgTypeSupported(int i2) {
+        return BIMManager.isSupportMsgType(i2);
     }
 
     @Override // com.baidu.android.imsdk.internal.DefaultConfig, com.baidu.android.imsdk.internal.IIMConfig

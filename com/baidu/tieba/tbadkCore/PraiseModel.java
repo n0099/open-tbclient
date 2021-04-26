@@ -14,21 +14,21 @@ public class PraiseModel extends BdBaseModel {
     public static final int UN_LIKE = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f21022g;
+    public static final String f21605g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f21023h;
+    public static TbHttpMessageTask f21606h;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f21024e;
+    public b f21607e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f21025f;
+    public final HttpMessageListener f21608f;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -39,17 +39,17 @@ public class PraiseModel extends BdBaseModel {
             }
             int statusCode = httpResponsedMessage.getStatusCode();
             if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                if (PraiseModel.this.f21024e != null) {
-                    PraiseModel.this.f21024e.b(statusCode, null);
+                if (PraiseModel.this.f21607e != null) {
+                    PraiseModel.this.f21607e.b(statusCode, null);
                     return;
                 }
                 return;
             }
             PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
             if (praiseResponseMessage.getError() == 0) {
-                PraiseModel.this.f21024e.a(praiseResponseMessage.getErrMsg());
-            } else if (PraiseModel.this.f21024e != null) {
-                PraiseModel.this.f21024e.b(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                PraiseModel.this.f21607e.a(praiseResponseMessage.getErrMsg());
+            } else if (PraiseModel.this.f21607e != null) {
+                PraiseModel.this.f21607e.b(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
             }
         }
     }
@@ -58,23 +58,23 @@ public class PraiseModel extends BdBaseModel {
     public interface b {
         void a(String str);
 
-        void b(int i, String str);
+        void b(int i2, String str);
     }
 
     static {
         String str = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
-        f21022g = str;
+        f21605g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, str);
-        f21023h = tbHttpMessageTask;
+        f21606h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PraiseResponseMessage.class);
-        MessageManager.getInstance().registerTask(f21023h);
+        MessageManager.getInstance().registerTask(f21606h);
     }
 
     public PraiseModel(TbPageContext tbPageContext, b bVar) {
         super(tbPageContext);
-        this.f21024e = null;
-        this.f21025f = new a(CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
-        this.f21024e = bVar;
+        this.f21607e = null;
+        this.f21608f = new a(CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.f21607e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -88,8 +88,8 @@ public class PraiseModel extends BdBaseModel {
     }
 
     public void registerListener() {
-        this.f21025f.setSelfListener(true);
-        this.f21025f.setTag(getUniqueId());
-        registerListener(this.f21025f);
+        this.f21608f.setSelfListener(true);
+        this.f21608f.setTag(getUniqueId());
+        registerListener(this.f21608f);
     }
 }

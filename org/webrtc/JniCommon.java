@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 public class JniCommon {
     public static native void nativeAddRef(long j);
 
-    public static native ByteBuffer nativeAllocateByteBuffer(int i);
+    public static native ByteBuffer nativeAllocateByteBuffer(int i2);
 
     public static native void nativeFreeByteBuffer(ByteBuffer byteBuffer);
 

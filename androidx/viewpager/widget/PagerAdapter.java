@@ -14,8 +14,8 @@ public abstract class PagerAdapter {
     public final DataSetObservable mObservable = new DataSetObservable();
     public DataSetObserver mViewPagerObserver;
 
-    public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
-        destroyItem((View) viewGroup, i, obj);
+    public void destroyItem(@NonNull ViewGroup viewGroup, int i2, @NonNull Object obj) {
+        destroyItem((View) viewGroup, i2, obj);
     }
 
     @Deprecated
@@ -33,17 +33,17 @@ public abstract class PagerAdapter {
     }
 
     @Nullable
-    public CharSequence getPageTitle(int i) {
+    public CharSequence getPageTitle(int i2) {
         return null;
     }
 
-    public float getPageWidth(int i) {
+    public float getPageWidth(int i2) {
         return 1.0f;
     }
 
     @NonNull
-    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
-        return instantiateItem((View) viewGroup, i);
+    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i2) {
+        return instantiateItem((View) viewGroup, i2);
     }
 
     public abstract boolean isViewFromObject(@NonNull View view, @NonNull Object obj);
@@ -70,11 +70,11 @@ public abstract class PagerAdapter {
     }
 
     @Deprecated
-    public void setPrimaryItem(@NonNull View view, int i, @NonNull Object obj) {
+    public void setPrimaryItem(@NonNull View view, int i2, @NonNull Object obj) {
     }
 
-    public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
-        setPrimaryItem((View) viewGroup, i, obj);
+    public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i2, @NonNull Object obj) {
+        setPrimaryItem((View) viewGroup, i2, obj);
     }
 
     public void setViewPagerObserver(DataSetObserver dataSetObserver) {
@@ -96,13 +96,13 @@ public abstract class PagerAdapter {
     }
 
     @Deprecated
-    public void destroyItem(@NonNull View view, int i, @NonNull Object obj) {
+    public void destroyItem(@NonNull View view, int i2, @NonNull Object obj) {
         throw new UnsupportedOperationException("Required method destroyItem was not overridden");
     }
 
     @NonNull
     @Deprecated
-    public Object instantiateItem(@NonNull View view, int i) {
+    public Object instantiateItem(@NonNull View view, int i2) {
         throw new UnsupportedOperationException("Required method instantiateItem was not overridden");
     }
 }

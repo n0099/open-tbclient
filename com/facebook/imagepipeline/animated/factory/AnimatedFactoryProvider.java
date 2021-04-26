@@ -5,7 +5,7 @@ import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
 import com.facebook.imagepipeline.cache.CountingMemoryCache;
 import com.facebook.imagepipeline.core.ExecutorSupplier;
 import com.facebook.imagepipeline.image.CloseableImage;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AnimatedFactoryProvider {
     public static AnimatedFactory sImpl;
     public static boolean sImplLoaded;

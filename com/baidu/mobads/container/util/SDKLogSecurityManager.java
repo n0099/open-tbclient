@@ -20,9 +20,9 @@ public class SDKLogSecurityManager {
         public int mLevel;
         public String mName;
 
-        LogTypeLevel(String str, int i) {
+        LogTypeLevel(String str, int i2) {
             this.mName = str;
-            this.mLevel = i;
+            this.mLevel = i2;
         }
 
         public int getLevel() {
@@ -42,14 +42,14 @@ public class SDKLogSecurityManager {
         }
     }
 
-    public static int getLogTypeLevel(int i) {
-        if (isListContainsType(TYPE_LIST_UNDEFINED, i)) {
+    public static int getLogTypeLevel(int i2) {
+        if (isListContainsType(TYPE_LIST_UNDEFINED, i2)) {
             return LogTypeLevel.UNDEFINED.getLevel();
         }
-        if (isListContainsType(TYPE_LIST_SECRET, i)) {
+        if (isListContainsType(TYPE_LIST_SECRET, i2)) {
             return LogTypeLevel.SECRET.getLevel();
         }
-        if (isListContainsType(TYPE_LIST_DANGER, i)) {
+        if (isListContainsType(TYPE_LIST_DANGER, i2)) {
             return LogTypeLevel.DANGER.getLevel();
         }
         return LogTypeLevel.NORMAL.getLevel();
@@ -60,10 +60,10 @@ public class SDKLogSecurityManager {
         return networkRequestFilterManager.isAdbDebugConnected() || networkRequestFilterManager.isProxyRunning() || networkRequestFilterManager.isRooted();
     }
 
-    public static boolean isListContainsType(int[] iArr, int i) {
+    public static boolean isListContainsType(int[] iArr, int i2) {
         if (iArr != null && iArr.length > 0) {
-            for (int i2 : iArr) {
-                if (i == i2) {
+            for (int i3 : iArr) {
+                if (i2 == i3) {
                     return true;
                 }
             }
@@ -71,11 +71,11 @@ public class SDKLogSecurityManager {
         return false;
     }
 
-    public static boolean isLogTypeEnable(int i, boolean z) {
+    public static boolean isLogTypeEnable(int i2, boolean z) {
         if (XAdSDKRemoteConfig.DEBUG_MODE) {
             return true;
         }
-        int logTypeLevel = getLogTypeLevel(i);
+        int logTypeLevel = getLogTypeLevel(i2);
         if (logTypeLevel == LogTypeLevel.UNDEFINED.getLevel()) {
             return false;
         }

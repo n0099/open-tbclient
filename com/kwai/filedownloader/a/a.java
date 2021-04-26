@@ -5,7 +5,7 @@ import com.kwai.filedownloader.f.c;
 /* loaded from: classes6.dex */
 public class a implements c.a {
     @Override // com.kwai.filedownloader.f.c.a
-    public int a(int i, String str, String str2, long j) {
+    public int a(int i2, String str, String str2, long j) {
         if (j < 1048576) {
             return 1;
         }

@@ -118,9 +118,9 @@ public class SurfaceTextureHelper {
         }
     }
 
-    public static /* synthetic */ void lambda$setTextureSize$2(SurfaceTextureHelper surfaceTextureHelper, int i, int i2) {
-        surfaceTextureHelper.textureWidth = i;
-        surfaceTextureHelper.textureHeight = i2;
+    public static /* synthetic */ void lambda$setTextureSize$2(SurfaceTextureHelper surfaceTextureHelper, int i2, int i3) {
+        surfaceTextureHelper.textureWidth = i2;
+        surfaceTextureHelper.textureHeight = i3;
     }
 
     public static /* synthetic */ void lambda$stopListening$1(SurfaceTextureHelper surfaceTextureHelper) {
@@ -166,7 +166,7 @@ public class SurfaceTextureHelper {
     }
 
     private void tryDeliverTextureFrame() {
-        int i;
+        int i2;
         if (this.handler.getLooper().getThread() != Thread.currentThread()) {
             throw new IllegalStateException("Wrong thread.");
         }
@@ -183,11 +183,11 @@ public class SurfaceTextureHelper {
         if (timestampAligner != null) {
             timestamp = timestampAligner.translateTimestamp(timestamp);
         }
-        int i2 = this.textureWidth;
-        if (i2 == 0 || (i = this.textureHeight) == 0) {
+        int i3 = this.textureWidth;
+        if (i3 == 0 || (i2 = this.textureHeight) == 0) {
             throw new RuntimeException("Texture size has not been set.");
         }
-        VideoFrame videoFrame = new VideoFrame(new TextureBufferImpl(i2, i, VideoFrame.TextureBuffer.Type.OES, this.oesTextureId, RendererCommon.convertMatrixToAndroidGraphicsMatrix(fArr), this.handler, this.yuvConverter, new Runnable() { // from class: org.webrtc._$$Lambda$SurfaceTextureHelper$f5MmHIrjRN2jF8_ug65BMPrG30U
+        VideoFrame videoFrame = new VideoFrame(new TextureBufferImpl(i3, i2, VideoFrame.TextureBuffer.Type.OES, this.oesTextureId, RendererCommon.convertMatrixToAndroidGraphicsMatrix(fArr), this.handler, this.yuvConverter, new Runnable() { // from class: org.webrtc._$$Lambda$SurfaceTextureHelper$f5MmHIrjRN2jF8_ug65BMPrG30U
             @Override // java.lang.Runnable
             public final void run() {
                 SurfaceTextureHelper.this.returnTextureFrame();
@@ -226,28 +226,28 @@ public class SurfaceTextureHelper {
         return this.isTextureInUse;
     }
 
-    public void setFrameRotation(final int i) {
+    public void setFrameRotation(final int i2) {
         this.handler.post(new Runnable() { // from class: org.webrtc._$$Lambda$SurfaceTextureHelper$8I9BGYh1ysN70toph_WhdCfZCQ4
             @Override // java.lang.Runnable
             public final void run() {
-                SurfaceTextureHelper.this.frameRotation = i;
+                SurfaceTextureHelper.this.frameRotation = i2;
             }
         });
     }
 
-    public void setTextureSize(final int i, final int i2) {
-        if (i <= 0) {
-            throw new IllegalArgumentException("Texture width must be positive, but was " + i);
-        } else if (i2 > 0) {
-            this.surfaceTexture.setDefaultBufferSize(i, i2);
+    public void setTextureSize(final int i2, final int i3) {
+        if (i2 <= 0) {
+            throw new IllegalArgumentException("Texture width must be positive, but was " + i2);
+        } else if (i3 > 0) {
+            this.surfaceTexture.setDefaultBufferSize(i2, i3);
             this.handler.post(new Runnable() { // from class: org.webrtc._$$Lambda$SurfaceTextureHelper$zvo_pspqaGa7qu1SNsn_kRedNVk
                 @Override // java.lang.Runnable
                 public final void run() {
-                    SurfaceTextureHelper.lambda$setTextureSize$2(SurfaceTextureHelper.this, i, i2);
+                    SurfaceTextureHelper.lambda$setTextureSize$2(SurfaceTextureHelper.this, i2, i3);
                 }
             });
         } else {
-            throw new IllegalArgumentException("Texture height must be positive, but was " + i2);
+            throw new IllegalArgumentException("Texture height must be positive, but was " + i3);
         }
     }
 

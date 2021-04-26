@@ -29,14 +29,14 @@ public class NoDataViewFactory {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public View.OnClickListener f13074a;
+        public View.OnClickListener f13012a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f13075b;
+        public String f13013b;
 
         public b(String str, View.OnClickListener onClickListener) {
-            this.f13075b = str;
-            this.f13074a = onClickListener;
+            this.f13013b = str;
+            this.f13012a = onClickListener;
         }
     }
 
@@ -44,28 +44,28 @@ public class NoDataViewFactory {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final b f13076a;
+        public final b f13014a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final b f13077b;
+        public final b f13015b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f13078c;
+        public final int f13016c;
 
         /* loaded from: classes3.dex */
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public b f13079a = null;
+            public b f13017a = null;
 
             /* renamed from: b  reason: collision with root package name */
-            public b f13080b = null;
+            public b f13018b = null;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f13081c = -1;
+            public int f13019c = -1;
 
-            public a d(int i) {
-                this.f13081c = i;
+            public a d(int i2) {
+                this.f13019c = i2;
                 return this;
             }
 
@@ -74,7 +74,7 @@ public class NoDataViewFactory {
             }
 
             public a f(b bVar) {
-                this.f13079a = bVar;
+                this.f13017a = bVar;
                 return this;
             }
         }
@@ -85,17 +85,17 @@ public class NoDataViewFactory {
             return aVar.e();
         }
 
-        public static c b(b bVar, int i) {
+        public static c b(b bVar, int i2) {
             a aVar = new a();
             aVar.f(bVar);
-            aVar.d(i);
+            aVar.d(i2);
             return aVar.e();
         }
 
         public c(a aVar) {
-            this.f13076a = aVar.f13079a;
-            this.f13077b = aVar.f13080b;
-            this.f13078c = aVar.f13081c;
+            this.f13014a = aVar.f13017a;
+            this.f13015b = aVar.f13018b;
+            this.f13016c = aVar.f13019c;
         }
     }
 
@@ -103,64 +103,64 @@ public class NoDataViewFactory {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ImgType f13082a;
+        public final ImgType f13020a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f13083b;
+        public final int f13021b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f13084c;
+        public final int f13022c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f13085d;
+        public final int f13023d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f13086e;
+        public final int f13024e;
 
         /* loaded from: classes3.dex */
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public ImgType f13087a = ImgType.NONE;
+            public ImgType f13025a = ImgType.NONE;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f13088b = -1;
+            public int f13026b = -1;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f13089c = -1;
+            public int f13027c = -1;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f13090d = -1;
+            public int f13028d = -1;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f13091e = -1;
+            public int f13029e = -1;
 
             public d f() {
                 return new d(this);
             }
 
-            public a g(int i) {
-                this.f13090d = i;
+            public a g(int i2) {
+                this.f13028d = i2;
                 return this;
             }
 
-            public a h(int i) {
-                this.f13089c = i;
+            public a h(int i2) {
+                this.f13027c = i2;
                 return this;
             }
 
             public a i(ImgType imgType) {
-                this.f13087a = imgType;
+                this.f13025a = imgType;
                 return this;
             }
 
-            public a j(int i) {
-                this.f13088b = i;
+            public a j(int i2) {
+                this.f13026b = i2;
                 return this;
             }
 
-            public a k(int i) {
-                this.f13091e = i;
+            public a k(int i2) {
+                this.f13029e = i2;
                 return this;
             }
         }
@@ -171,29 +171,29 @@ public class NoDataViewFactory {
             return aVar.f();
         }
 
-        public static d b(ImgType imgType, int i) {
+        public static d b(ImgType imgType, int i2) {
             a aVar = new a();
             aVar.i(imgType);
-            aVar.j(i);
+            aVar.j(i2);
             return aVar.f();
         }
 
-        public static d c(ImgType imgType, int i, int i2, int i3, int i4) {
+        public static d c(ImgType imgType, int i2, int i3, int i4, int i5) {
             a aVar = new a();
             aVar.i(imgType);
-            aVar.h(i);
-            aVar.j(i2);
-            aVar.g(i3);
-            aVar.k(i4);
+            aVar.h(i2);
+            aVar.j(i3);
+            aVar.g(i4);
+            aVar.k(i5);
             return aVar.f();
         }
 
         public d(a aVar) {
-            this.f13082a = aVar.f13087a;
-            this.f13083b = aVar.f13088b;
-            this.f13084c = aVar.f13089c;
-            this.f13085d = aVar.f13090d;
-            this.f13086e = aVar.f13091e;
+            this.f13020a = aVar.f13025a;
+            this.f13021b = aVar.f13026b;
+            this.f13022c = aVar.f13027c;
+            this.f13023d = aVar.f13028d;
+            this.f13024e = aVar.f13029e;
         }
     }
 
@@ -201,64 +201,64 @@ public class NoDataViewFactory {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f13092a;
+        public final String f13030a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f13093b;
+        public final String f13031b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f13094c;
+        public final String f13032c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f13095d;
+        public final int f13033d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f13096e;
+        public final int f13034e;
 
         /* loaded from: classes3.dex */
         public static class a {
 
             /* renamed from: a  reason: collision with root package name */
-            public String f13097a = null;
+            public String f13035a = null;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f13098b = null;
+            public String f13036b = null;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f13099c = null;
+            public String f13037c = null;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f13100d = -1;
+            public int f13038d = -1;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f13101e = 0;
+            public int f13039e = 0;
 
             public e f() {
                 return new e(this);
             }
 
             public a g(String str) {
-                this.f13098b = str;
+                this.f13036b = str;
                 return this;
             }
 
             public a h(String str) {
-                this.f13097a = str;
+                this.f13035a = str;
                 return this;
             }
 
-            public a i(int i) {
-                this.f13100d = i;
+            public a i(int i2) {
+                this.f13038d = i2;
                 return this;
             }
         }
 
-        public static e a(int i) {
-            return c(TbadkCoreApplication.getInst().getResources().getString(i));
+        public static e a(int i2) {
+            return c(TbadkCoreApplication.getInst().getResources().getString(i2));
         }
 
-        public static e b(int i, int i2) {
-            return d(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
+        public static e b(int i2, int i3) {
+            return d(TbadkCoreApplication.getInst().getResources().getString(i2), TbadkCoreApplication.getInst().getResources().getString(i3));
         }
 
         public static e c(String str) {
@@ -274,19 +274,19 @@ public class NoDataViewFactory {
             return aVar.f();
         }
 
-        public static e e(int i, int i2) {
+        public static e e(int i2, int i3) {
             a aVar = new a();
-            aVar.g(TbadkCoreApplication.getInst().getResources().getString(i));
-            aVar.i(i2);
+            aVar.g(TbadkCoreApplication.getInst().getResources().getString(i2));
+            aVar.i(i3);
             return aVar.f();
         }
 
         public e(a aVar) {
-            this.f13092a = aVar.f13097a;
-            this.f13093b = aVar.f13098b;
-            this.f13094c = aVar.f13099c;
-            this.f13095d = aVar.f13100d;
-            this.f13096e = aVar.f13101e;
+            this.f13030a = aVar.f13035a;
+            this.f13031b = aVar.f13036b;
+            this.f13032c = aVar.f13037c;
+            this.f13033d = aVar.f13038d;
+            this.f13034e = aVar.f13039e;
         }
     }
 

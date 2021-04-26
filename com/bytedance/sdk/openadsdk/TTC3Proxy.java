@@ -29,7 +29,7 @@ public class TTC3Proxy {
         h.a(context).a(adSlot, new e(rewardVideoAdListener));
     }
 
-    public static void verityPlayable(String str, int i, String str2, String str3, String str4) {
-        d.a(str, i, str2, str3, str4);
+    public static void verityPlayable(String str, int i2, String str2, String str3, String str4) {
+        d.a(str, i2, str2, str3, str4);
     }
 }

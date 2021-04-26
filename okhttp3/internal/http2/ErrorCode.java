@@ -15,14 +15,14 @@ public enum ErrorCode {
     
     public final int httpCode;
 
-    ErrorCode(int i) {
-        this.httpCode = i;
+    ErrorCode(int i2) {
+        this.httpCode = i2;
     }
 
-    public static ErrorCode fromHttp2(int i) {
+    public static ErrorCode fromHttp2(int i2) {
         ErrorCode[] values;
         for (ErrorCode errorCode : values()) {
-            if (errorCode.httpCode == i) {
+            if (errorCode.httpCode == i2) {
                 return errorCode;
             }
         }

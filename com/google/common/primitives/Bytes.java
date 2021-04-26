@@ -1,7 +1,7 @@
 package com.google.common.primitives;
 
 import com.baidu.android.common.others.lang.StringUtil;
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.Arrays;
@@ -38,8 +38,8 @@ public final class Bytes {
                 if (byteArrayAsList.size() != size) {
                     return false;
                 }
-                for (int i = 0; i < size; i++) {
-                    if (this.array[this.start + i] != byteArrayAsList.array[byteArrayAsList.start + i]) {
+                for (int i2 = 0; i2 < size; i2++) {
+                    if (this.array[this.start + i2] != byteArrayAsList.array[byteArrayAsList.start + i2]) {
                         return false;
                     }
                 }
@@ -50,13 +50,13 @@ public final class Bytes {
 
         @Override // java.util.AbstractList, java.util.Collection, java.util.List
         public int hashCode() {
-            int i = 1;
-            for (int i2 = this.start; i2 < this.end; i2++) {
-                byte b2 = this.array[i2];
+            int i2 = 1;
+            for (int i3 = this.start; i3 < this.end; i3++) {
+                byte b2 = this.array[i3];
                 Bytes.c(b2);
-                i = (i * 31) + b2;
+                i2 = (i2 * 31) + b2;
             }
-            return i;
+            return i2;
         }
 
         @Override // java.util.AbstractList, java.util.List
@@ -88,14 +88,14 @@ public final class Bytes {
         }
 
         @Override // java.util.AbstractList, java.util.List
-        public List<Byte> subList(int i, int i2) {
-            n.v(i, i2, size());
-            if (i == i2) {
+        public List<Byte> subList(int i2, int i3) {
+            n.v(i2, i3, size());
+            if (i2 == i3) {
                 return Collections.emptyList();
             }
             byte[] bArr = this.array;
-            int i3 = this.start;
-            return new ByteArrayAsList(bArr, i + i3, i3 + i2);
+            int i4 = this.start;
+            return new ByteArrayAsList(bArr, i2 + i4, i4 + i3);
         }
 
         public byte[] toByteArray() {
@@ -107,12 +107,12 @@ public final class Bytes {
             StringBuilder sb = new StringBuilder(size() * 5);
             sb.append('[');
             sb.append((int) this.array[this.start]);
-            int i = this.start;
+            int i2 = this.start;
             while (true) {
-                i++;
-                if (i < this.end) {
+                i2++;
+                if (i2 < this.end) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append((int) this.array[i]);
+                    sb.append((int) this.array[i2]);
                 } else {
                     sb.append(']');
                     return sb.toString();
@@ -120,28 +120,28 @@ public final class Bytes {
             }
         }
 
-        public ByteArrayAsList(byte[] bArr, int i, int i2) {
+        public ByteArrayAsList(byte[] bArr, int i2, int i3) {
             this.array = bArr;
-            this.start = i;
-            this.end = i2;
+            this.start = i2;
+            this.end = i3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Byte get(int i) {
-            n.n(i, size());
-            return Byte.valueOf(this.array[this.start + i]);
+        public Byte get(int i2) {
+            n.n(i2, size());
+            return Byte.valueOf(this.array[this.start + i2]);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Byte set(int i, Byte b2) {
-            n.n(i, size());
+        public Byte set(int i2, Byte b2) {
+            n.n(i2, size());
             byte[] bArr = this.array;
-            int i2 = this.start;
-            byte b3 = bArr[i2 + i];
+            int i3 = this.start;
+            byte b3 = bArr[i3 + i2];
             n.p(b2);
-            bArr[i2 + i] = b2.byteValue();
+            bArr[i3 + i2] = b2.byteValue();
             return Byte.valueOf(b3);
         }
     }
@@ -150,20 +150,20 @@ public final class Bytes {
         return b2;
     }
 
-    public static int d(byte[] bArr, byte b2, int i, int i2) {
-        while (i < i2) {
-            if (bArr[i] == b2) {
-                return i;
+    public static int d(byte[] bArr, byte b2, int i2, int i3) {
+        while (i2 < i3) {
+            if (bArr[i2] == b2) {
+                return i2;
             }
-            i++;
+            i2++;
         }
         return -1;
     }
 
-    public static int e(byte[] bArr, byte b2, int i, int i2) {
-        for (int i3 = i2 - 1; i3 >= i; i3--) {
-            if (bArr[i3] == b2) {
-                return i3;
+    public static int e(byte[] bArr, byte b2, int i2, int i3) {
+        for (int i4 = i3 - 1; i4 >= i2; i4--) {
+            if (bArr[i4] == b2) {
+                return i4;
             }
         }
         return -1;

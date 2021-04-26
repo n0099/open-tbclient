@@ -2,33 +2,33 @@ package com.facebook.common.internal;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class Preconditions {
-    public static String badElementIndex(int i, int i2, @Nullable String str) {
-        if (i < 0) {
-            return format("%s (%s) must not be negative", str, Integer.valueOf(i));
+    public static String badElementIndex(int i2, int i3, @Nullable String str) {
+        if (i2 < 0) {
+            return format("%s (%s) must not be negative", str, Integer.valueOf(i2));
         }
-        if (i2 >= 0) {
-            return format("%s (%s) must be less than size (%s)", str, Integer.valueOf(i), Integer.valueOf(i2));
+        if (i3 >= 0) {
+            return format("%s (%s) must be less than size (%s)", str, Integer.valueOf(i2), Integer.valueOf(i3));
         }
-        throw new IllegalArgumentException("negative size: " + i2);
+        throw new IllegalArgumentException("negative size: " + i3);
     }
 
-    public static String badPositionIndex(int i, int i2, @Nullable String str) {
-        if (i < 0) {
-            return format("%s (%s) must not be negative", str, Integer.valueOf(i));
+    public static String badPositionIndex(int i2, int i3, @Nullable String str) {
+        if (i2 < 0) {
+            return format("%s (%s) must not be negative", str, Integer.valueOf(i2));
         }
-        if (i2 >= 0) {
-            return format("%s (%s) must not be greater than size (%s)", str, Integer.valueOf(i), Integer.valueOf(i2));
+        if (i3 >= 0) {
+            return format("%s (%s) must not be greater than size (%s)", str, Integer.valueOf(i2), Integer.valueOf(i3));
         }
-        throw new IllegalArgumentException("negative size: " + i2);
+        throw new IllegalArgumentException("negative size: " + i3);
     }
 
-    public static String badPositionIndexes(int i, int i2, int i3) {
-        if (i < 0 || i > i3) {
-            return badPositionIndex(i, i3, "start index");
+    public static String badPositionIndexes(int i2, int i3, int i4) {
+        if (i2 < 0 || i2 > i4) {
+            return badPositionIndex(i2, i4, "start index");
         }
-        return (i2 < 0 || i2 > i3) ? badPositionIndex(i2, i3, "end index") : format("end index (%s) must not be less than start index (%s)", Integer.valueOf(i2), Integer.valueOf(i));
+        return (i3 < 0 || i3 > i4) ? badPositionIndex(i3, i4, "end index") : format("end index (%s) must not be less than start index (%s)", Integer.valueOf(i3), Integer.valueOf(i2));
     }
 
     public static void checkArgument(boolean z) {
@@ -37,8 +37,8 @@ public final class Preconditions {
         }
     }
 
-    public static int checkElementIndex(int i, int i2) {
-        return checkElementIndex(i, i2, "index");
+    public static int checkElementIndex(int i2, int i3) {
+        return checkElementIndex(i2, i3, "index");
     }
 
     public static <T> T checkNotNull(T t) {
@@ -48,13 +48,13 @@ public final class Preconditions {
         throw null;
     }
 
-    public static int checkPositionIndex(int i, int i2) {
-        return checkPositionIndex(i, i2, "index");
+    public static int checkPositionIndex(int i2, int i3) {
+        return checkPositionIndex(i2, i3, "index");
     }
 
-    public static void checkPositionIndexes(int i, int i2, int i3) {
-        if (i < 0 || i2 < i || i2 > i3) {
-            throw new IndexOutOfBoundsException(badPositionIndexes(i, i2, i3));
+    public static void checkPositionIndexes(int i2, int i3, int i4) {
+        if (i2 < 0 || i3 < i2 || i3 > i4) {
+            throw new IndexOutOfBoundsException(badPositionIndexes(i2, i3, i4));
         }
     }
 
@@ -68,21 +68,21 @@ public final class Preconditions {
         int indexOf;
         String valueOf = String.valueOf(str);
         StringBuilder sb = new StringBuilder(valueOf.length() + (objArr.length * 16));
-        int i = 0;
         int i2 = 0;
-        while (i < objArr.length && (indexOf = valueOf.indexOf("%s", i2)) != -1) {
-            sb.append(valueOf.substring(i2, indexOf));
-            sb.append(objArr[i]);
-            i2 = indexOf + 2;
-            i++;
+        int i3 = 0;
+        while (i2 < objArr.length && (indexOf = valueOf.indexOf("%s", i3)) != -1) {
+            sb.append(valueOf.substring(i3, indexOf));
+            sb.append(objArr[i2]);
+            i3 = indexOf + 2;
+            i2++;
         }
-        sb.append(valueOf.substring(i2));
-        if (i < objArr.length) {
+        sb.append(valueOf.substring(i3));
+        if (i2 < objArr.length) {
             sb.append(" [");
-            sb.append(objArr[i]);
-            for (int i3 = i + 1; i3 < objArr.length; i3++) {
+            sb.append(objArr[i2]);
+            for (int i4 = i2 + 1; i4 < objArr.length; i4++) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                sb.append(objArr[i3]);
+                sb.append(objArr[i4]);
             }
             sb.append(']');
         }
@@ -95,11 +95,11 @@ public final class Preconditions {
         }
     }
 
-    public static int checkElementIndex(int i, int i2, @Nullable String str) {
-        if (i < 0 || i >= i2) {
-            throw new IndexOutOfBoundsException(badElementIndex(i, i2, str));
+    public static int checkElementIndex(int i2, int i3, @Nullable String str) {
+        if (i2 < 0 || i2 >= i3) {
+            throw new IndexOutOfBoundsException(badElementIndex(i2, i3, str));
         }
-        return i;
+        return i2;
     }
 
     public static <T> T checkNotNull(T t, @Nullable Object obj) {
@@ -109,11 +109,11 @@ public final class Preconditions {
         throw new NullPointerException(String.valueOf(obj));
     }
 
-    public static int checkPositionIndex(int i, int i2, @Nullable String str) {
-        if (i < 0 || i > i2) {
-            throw new IndexOutOfBoundsException(badPositionIndex(i, i2, str));
+    public static int checkPositionIndex(int i2, int i3, @Nullable String str) {
+        if (i2 < 0 || i2 > i3) {
+            throw new IndexOutOfBoundsException(badPositionIndex(i2, i3, str));
         }
-        return i;
+        return i2;
     }
 
     public static void checkState(boolean z, @Nullable Object obj) {

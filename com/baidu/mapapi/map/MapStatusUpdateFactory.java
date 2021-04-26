@@ -10,7 +10,7 @@ public final class MapStatusUpdateFactory {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(2);
-        mapStatusUpdate.f6949c = latLng;
+        mapStatusUpdate.f7192c = latLng;
         return mapStatusUpdate;
     }
 
@@ -19,31 +19,31 @@ public final class MapStatusUpdateFactory {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(3);
-        mapStatusUpdate.f6950d = latLngBounds;
+        mapStatusUpdate.f7193d = latLngBounds;
         return mapStatusUpdate;
     }
 
-    public static MapStatusUpdate newLatLngBounds(LatLngBounds latLngBounds, int i, int i2) {
-        if (latLngBounds == null || i <= 0 || i2 <= 0) {
+    public static MapStatusUpdate newLatLngBounds(LatLngBounds latLngBounds, int i2, int i3) {
+        if (latLngBounds == null || i2 <= 0 || i3 <= 0) {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(9);
-        mapStatusUpdate.f6950d = latLngBounds;
-        mapStatusUpdate.f6951e = i;
-        mapStatusUpdate.f6952f = i2;
+        mapStatusUpdate.f7193d = latLngBounds;
+        mapStatusUpdate.f7194e = i2;
+        mapStatusUpdate.f7195f = i3;
         return mapStatusUpdate;
     }
 
-    public static MapStatusUpdate newLatLngBounds(LatLngBounds latLngBounds, int i, int i2, int i3, int i4) {
+    public static MapStatusUpdate newLatLngBounds(LatLngBounds latLngBounds, int i2, int i3, int i4, int i5) {
         if (latLngBounds == null) {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(10);
-        mapStatusUpdate.f6950d = latLngBounds;
-        mapStatusUpdate.l = i;
-        mapStatusUpdate.m = i2;
-        mapStatusUpdate.n = i3;
-        mapStatusUpdate.o = i4;
+        mapStatusUpdate.f7193d = latLngBounds;
+        mapStatusUpdate.l = i2;
+        mapStatusUpdate.m = i3;
+        mapStatusUpdate.n = i4;
+        mapStatusUpdate.o = i5;
         return mapStatusUpdate;
     }
 
@@ -52,8 +52,8 @@ public final class MapStatusUpdateFactory {
         if (latLng == null) {
             return null;
         }
-        mapStatusUpdate.f6949c = latLng;
-        mapStatusUpdate.f6953g = f2;
+        mapStatusUpdate.f7192c = latLng;
+        mapStatusUpdate.f7196g = f2;
         return mapStatusUpdate;
     }
 
@@ -62,14 +62,14 @@ public final class MapStatusUpdateFactory {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(1);
-        mapStatusUpdate.f6948b = mapStatus;
+        mapStatusUpdate.f7191b = mapStatus;
         return mapStatusUpdate;
     }
 
-    public static MapStatusUpdate scrollBy(int i, int i2) {
+    public static MapStatusUpdate scrollBy(int i2, int i3) {
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(5);
-        mapStatusUpdate.f6954h = i;
-        mapStatusUpdate.i = i2;
+        mapStatusUpdate.f7197h = i2;
+        mapStatusUpdate.f7198i = i3;
         return mapStatusUpdate;
     }
 
@@ -103,7 +103,7 @@ public final class MapStatusUpdateFactory {
 
     public static MapStatusUpdate zoomTo(float f2) {
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(8);
-        mapStatusUpdate.f6953g = f2;
+        mapStatusUpdate.f7196g = f2;
         return mapStatusUpdate;
     }
 }

@@ -93,11 +93,11 @@ public abstract class PlayerProxy implements IPlayer {
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(int i) {
+    public void setLoopSection(int i2) {
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(int i, int i2) {
+    public void setLoopSection(int i2, int i3) {
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer

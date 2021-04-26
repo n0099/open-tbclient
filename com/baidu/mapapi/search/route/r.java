@@ -14,7 +14,7 @@ public final class r implements Parcelable.Creator<WalkingRouteLine> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public WalkingRouteLine[] newArray(int i) {
-        return new WalkingRouteLine[i];
+    public WalkingRouteLine[] newArray(int i2) {
+        return new WalkingRouteLine[i2];
     }
 }

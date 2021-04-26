@@ -1,6 +1,6 @@
 package com.bytedance.embedapplog.util;
 
-import d.c.b.r0;
+import d.b.b.r0;
 /* loaded from: classes5.dex */
 public class TTEncryptUtils {
     static {
@@ -11,13 +11,13 @@ public class TTEncryptUtils {
         }
     }
 
-    public static byte[] a(byte[] bArr, int i) {
+    public static byte[] a(byte[] bArr, int i2) {
         try {
-            return ttEncrypt(bArr, i);
+            return ttEncrypt(bArr, i2);
         } catch (Throwable unused) {
             return null;
         }
     }
 
-    public static native byte[] ttEncrypt(byte[] bArr, int i);
+    public static native byte[] ttEncrypt(byte[] bArr, int i2);
 }

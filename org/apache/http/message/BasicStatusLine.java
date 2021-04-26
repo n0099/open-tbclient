@@ -5,7 +5,7 @@ import org.apache.http.StatusLine;
 @Deprecated
 /* loaded from: classes7.dex */
 public class BasicStatusLine implements StatusLine {
-    public BasicStatusLine(ProtocolVersion protocolVersion, int i, String str) {
+    public BasicStatusLine(ProtocolVersion protocolVersion, int i2, String str) {
         throw new RuntimeException("Stub!");
     }
 

@@ -2,24 +2,27 @@ package com.baidu.sapi2;
 
 import android.graphics.drawable.Drawable;
 import com.baidu.sapi2.callback.TitleBtnCallback;
+import d.a.y.a.b;
+import d.a.y.a.c;
+import d.a.y.a.d;
 /* loaded from: classes2.dex */
 public class PassportViewManager implements NoProguard {
 
     /* renamed from: c  reason: collision with root package name */
-    public static SapiConfiguration f10150c;
+    public static SapiConfiguration f10528c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static PassportViewManager f10151d;
+    public static PassportViewManager f10529d;
 
     /* renamed from: a  reason: collision with root package name */
-    public TitleBtnCallback f10152a;
+    public TitleBtnCallback f10530a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TitleViewModule f10153b = null;
+    public TitleViewModule f10531b = null;
 
     /* loaded from: classes2.dex */
     public static class TitleViewModule implements NoProguard {
-        public static final int DEFAULT_TEXT_COLOR = PassportViewManager.f10150c.context.getResources().getColor(d.b.y.a.b.sapi_sdk_edit_text_color);
+        public static final int DEFAULT_TEXT_COLOR = PassportViewManager.f10528c.context.getResources().getColor(b.sapi_sdk_edit_text_color);
         public int bgColor = Integer.MAX_VALUE;
         public int bgHeight = Integer.MAX_VALUE;
         public int leftBtnImgResId = Integer.MAX_VALUE;
@@ -27,7 +30,7 @@ public class PassportViewManager implements NoProguard {
         public int leftBtnTextColor = DEFAULT_TEXT_COLOR;
         public String leftBtnText = null;
         public int leftBtnTextVisible = 4;
-        public float leftBtnTextSize = PassportViewManager.f10150c.context.getResources().getDimension(d.b.y.a.c.sapi_sdk_title_left_btn_text_size);
+        public float leftBtnTextSize = PassportViewManager.f10528c.context.getResources().getDimension(c.sapi_sdk_title_left_btn_text_size);
         public Drawable leftBtnDrawableLeft = null;
         public Drawable leftBtnDrawableTop = null;
         public Drawable leftBtnDrawableRight = null;
@@ -35,7 +38,7 @@ public class PassportViewManager implements NoProguard {
         public int titleTextColor = DEFAULT_TEXT_COLOR;
         public String titleText = null;
         public int titleVisible = 0;
-        public float titleTextSize = PassportViewManager.f10150c.context.getResources().getDimension(d.b.y.a.c.sapi_sdk_title_text_size);
+        public float titleTextSize = PassportViewManager.f10528c.context.getResources().getDimension(c.sapi_sdk_title_text_size);
         public boolean titleTextBold = false;
         public boolean useWebviewTitle = true;
         public Drawable titleDrawableLeft = null;
@@ -45,50 +48,50 @@ public class PassportViewManager implements NoProguard {
         public int rightBtnTextColor = DEFAULT_TEXT_COLOR;
         public String rightBtnText = null;
         public int rightBtnVisible = 4;
-        public float rightBtnTextSize = PassportViewManager.f10150c.context.getResources().getDimension(d.b.y.a.c.sapi_sdk_title_right_btn_text_size);
+        public float rightBtnTextSize = PassportViewManager.f10528c.context.getResources().getDimension(c.sapi_sdk_title_right_btn_text_size);
         public int dividerLineVisible = 0;
     }
 
     public PassportViewManager() {
-        f10150c = SapiAccountManager.getInstance().getSapiConfiguration();
+        f10528c = SapiAccountManager.getInstance().getSapiConfiguration();
     }
 
     public static synchronized PassportViewManager getInstance() {
         PassportViewManager passportViewManager;
         synchronized (PassportViewManager.class) {
-            if (f10151d == null) {
-                f10151d = new PassportViewManager();
+            if (f10529d == null) {
+                f10529d = new PassportViewManager();
             }
-            passportViewManager = f10151d;
+            passportViewManager = f10529d;
         }
         return passportViewManager;
     }
 
     public void configTitle(TitleViewModule titleViewModule) {
-        this.f10153b = titleViewModule;
+        this.f10531b = titleViewModule;
         if (titleViewModule.bgColor == Integer.MAX_VALUE) {
             titleViewModule.bgColor = -1;
         }
         if (titleViewModule.leftBtnImgResId == Integer.MAX_VALUE) {
-            titleViewModule.leftBtnImgResId = d.b.y.a.d.sapi_sdk_btn_back;
+            titleViewModule.leftBtnImgResId = d.sapi_sdk_btn_back;
         }
     }
 
     public TitleBtnCallback getTitleBtnCallback() {
-        return this.f10152a;
+        return this.f10530a;
     }
 
     public TitleViewModule getTitleViewModule() {
-        return this.f10153b;
+        return this.f10531b;
     }
 
     public void release() {
-        this.f10152a = null;
-        this.f10153b = null;
+        this.f10530a = null;
+        this.f10531b = null;
         SapiWebView.statLoadLogin = null;
     }
 
     public void setTitleBtnCallback(TitleBtnCallback titleBtnCallback) {
-        this.f10152a = titleBtnCallback;
+        this.f10530a = titleBtnCallback;
     }
 }

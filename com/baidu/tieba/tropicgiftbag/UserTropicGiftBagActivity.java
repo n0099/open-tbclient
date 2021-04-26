@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes5.dex */
 public class UserTropicGiftBagActivity extends BaseActivity {
     public TbImageView mClose;
@@ -70,10 +70,10 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendStatisticLog(int i) {
+    public void sendStatisticLog(int i2) {
         StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_BACK_USER);
         statisticItem.param("obj_name", getResources().getString(R.string.static_item));
-        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_type", i2);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
         TiebaStatic.log(statisticItem);
     }
@@ -89,22 +89,22 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         SkinManager.setImageResource(this.mVipPic, R.drawable.icon_tropic);
         boolean z = false;
-        this.mVipPic.setIsNight(i == 4 || i == 1);
+        this.mVipPic.setIsNight(i2 == 4 || i2 == 1);
         SkinManager.setImageResource(this.mLineTropicLeft, R.drawable.icon_tropic_left);
-        this.mLineTropicRight.setIsNight(i == 4 || i == 1);
+        this.mLineTropicRight.setIsNight(i2 == 4 || i2 == 1);
         SkinManager.setImageResource(this.mLineTropicRight, R.drawable.icon_tropic_right);
-        this.mLineTropicRight.setIsNight(i == 4 || i == 1);
+        this.mLineTropicRight.setIsNight(i2 == 4 || i2 == 1);
         SkinManager.setBackgroundColor(this.mRoundCornerLayout, R.color.CAM_X0205);
         SkinManager.setViewTextColor(this.mTropicGreetings, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.mSevenDayVip, R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.mSevenDayVipDec, R.color.CAM_X0109);
         SkinManager.setViewTextColorSelector(this.mKnow, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
         SkinManager.setImageResource(this.mClose, R.drawable.icon_popup_close);
-        this.mClose.setIsNight((i == 4 || i == 1) ? true : true);
+        this.mClose.setIsNight((i2 == 4 || i2 == 1) ? true : true);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

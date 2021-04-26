@@ -27,8 +27,8 @@ public class SwanCoreVersion extends SwanAppIPCData {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public SwanCoreVersion[] newArray(int i) {
-            return new SwanCoreVersion[i];
+        public SwanCoreVersion[] newArray(int i2) {
+            return new SwanCoreVersion[i2];
         }
     }
 
@@ -55,7 +55,7 @@ public class SwanCoreVersion extends SwanAppIPCData {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.swanCoreType);
         parcel.writeLong(this.swanCoreVersion);
         parcel.writeString(this.swanCorePath);

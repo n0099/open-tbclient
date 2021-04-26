@@ -20,16 +20,16 @@ public abstract class DownloadTaskProgressListener implements DownloadListener, 
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void connectEnd(@NonNull DownloadTask downloadTask, int i, int i2, @NonNull Map<String, List<String>> map) {
+    public void connectEnd(@NonNull DownloadTask downloadTask, int i2, int i3, @NonNull Map<String, List<String>> map) {
         this.assist.connectEnd(downloadTask);
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void connectStart(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
+    public void connectStart(@NonNull DownloadTask downloadTask, int i2, @NonNull Map<String, List<String>> map) {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void connectTrialEnd(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
+    public void connectTrialEnd(@NonNull DownloadTask downloadTask, int i2, @NonNull Map<String, List<String>> map) {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
@@ -47,16 +47,16 @@ public abstract class DownloadTaskProgressListener implements DownloadListener, 
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchEnd(@NonNull DownloadTask downloadTask, int i, long j) {
+    public void fetchEnd(@NonNull DownloadTask downloadTask, int i2, long j) {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchProgress(@NonNull DownloadTask downloadTask, int i, long j) {
+    public void fetchProgress(@NonNull DownloadTask downloadTask, int i2, long j) {
         this.assist.fetchProgress(downloadTask, j);
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchStart(@NonNull DownloadTask downloadTask, int i, long j) {
+    public void fetchStart(@NonNull DownloadTask downloadTask, int i2, long j) {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerAssist

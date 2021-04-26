@@ -66,7 +66,7 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
     }
 
     @Override // com.alibaba.fastjson.parser.deserializer.ContextObjectDeserializer
-    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, String str, int i) {
+    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, String str, int i2) {
         DateTimeFormatter dateTimeFormatter;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         if (jSONLexer.token() == 8) {
@@ -103,8 +103,8 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
                         LocalDateTime parse2 = LocalDateTime.parse(stringVal);
                         return (T) LocalTime.of(parse2.getHour(), parse2.getMinute(), parse2.getSecond(), parse2.getNano());
                     }
-                    for (int i2 = 0; i2 < stringVal.length(); i2++) {
-                        char charAt = stringVal.charAt(i2);
+                    for (int i3 = 0; i3 < stringVal.length(); i3++) {
+                        char charAt = stringVal.charAt(i3);
                         if (charAt < '0' || charAt > '9') {
                             z = false;
                             break;
@@ -143,8 +143,8 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
                         return (T) Duration.parse(stringVal);
                     }
                     if (type == Instant.class) {
-                        for (int i3 = 0; i3 < stringVal.length(); i3++) {
-                            char charAt2 = stringVal.charAt(i3);
+                        for (int i4 = 0; i4 < stringVal.length(); i4++) {
+                            char charAt2 = stringVal.charAt(i4);
                             if (charAt2 < '0' || charAt2 > '9') {
                                 z = false;
                                 break;
@@ -164,14 +164,14 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
             if ("unixtime".equals(str)) {
                 longValue *= 1000;
             } else if ("yyyyMMddHHmmss".equals(str)) {
-                int i4 = (int) (longValue / 10000000000L);
-                int i5 = (int) ((longValue / 100000000) % 100);
-                int i6 = (int) ((longValue / 1000000) % 100);
-                int i7 = (int) ((longValue / 10000) % 100);
-                int i8 = (int) ((longValue / 100) % 100);
-                int i9 = (int) (longValue % 100);
+                int i5 = (int) (longValue / 10000000000L);
+                int i6 = (int) ((longValue / 100000000) % 100);
+                int i7 = (int) ((longValue / 1000000) % 100);
+                int i8 = (int) ((longValue / 10000) % 100);
+                int i9 = (int) ((longValue / 100) % 100);
+                int i10 = (int) (longValue % 100);
                 if (type == LocalDateTime.class) {
-                    return (T) LocalDateTime.of(i4, i5, i6, i7, i8, i9);
+                    return (T) LocalDateTime.of(i5, i6, i7, i8, i9, i10);
                 }
             }
             if (type == LocalDateTime.class) {
@@ -226,10 +226,10 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
                         char charAt9 = str.charAt(3);
                         char charAt10 = str.charAt(5);
                         if (charAt8 == '/' && charAt10 == '/') {
-                            int i = ((charAt9 - '0') * 10) + (charAt - '0');
+                            int i2 = ((charAt9 - '0') * 10) + (charAt - '0');
                             if (((charAt6 - '0') * 10) + (charAt7 - '0') > 12) {
                                 dateTimeFormatter2 = formatter_dt19_eur;
-                            } else if (i > 12) {
+                            } else if (i2 > 12) {
                                 dateTimeFormatter2 = formatter_dt19_us;
                             } else {
                                 String country = Locale.getDefault().getCountry();
@@ -293,8 +293,8 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
             if (jSONScanner.scanISO8601DateIfMatch(false)) {
                 return LocalDateTime.ofInstant(jSONScanner.getCalendar().toInstant(), ZoneId.systemDefault());
             }
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                char charAt18 = str.charAt(i2);
+            for (int i3 = 0; i3 < str.length(); i3++) {
+                char charAt18 = str.charAt(i3);
                 if (charAt18 < '0' || charAt18 > '9') {
                     z = false;
                     break;
@@ -330,10 +330,10 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
                 char charAt6 = str.charAt(3);
                 char charAt7 = str.charAt(5);
                 if (charAt5 == '/' && charAt7 == '/') {
-                    int i = ((charAt6 - '0') * 10) + (charAt - '0');
+                    int i2 = ((charAt6 - '0') * 10) + (charAt - '0');
                     if (((charAt3 - '0') * 10) + (charAt4 - '0') > 12) {
                         dateTimeFormatter3 = formatter_d10_eur;
-                    } else if (i > 12) {
+                    } else if (i2 > 12) {
                         dateTimeFormatter3 = formatter_d10_us;
                     } else {
                         String country = Locale.getDefault().getCountry();
@@ -359,17 +359,17 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
                 }
                 dateTimeFormatter = dateTimeFormatter2;
             }
-            int i2 = 0;
+            int i3 = 0;
             while (true) {
-                if (i2 >= str.length()) {
+                if (i3 >= str.length()) {
                     z = true;
                     break;
                 }
-                char charAt9 = str.charAt(i2);
+                char charAt9 = str.charAt(i3);
                 if (charAt9 < '0' || charAt9 > '9') {
                     break;
                 }
-                i2++;
+                i3++;
             }
             if (z && str.length() > 8 && str.length() < 19) {
                 return LocalDateTime.ofInstant(Instant.ofEpochMilli(Long.parseLong(str)), JSON.defaultTimeZone.toZoneId()).toLocalDate();
@@ -390,7 +390,7 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
     */
     public ZonedDateTime parseZonedDateTime(String str, DateTimeFormatter dateTimeFormatter) {
         DateTimeFormatter dateTimeFormatter2;
-        int i;
+        int i2;
         if (dateTimeFormatter == null) {
             boolean z = false;
             if (str.length() == 19) {
@@ -410,10 +410,10 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
                             char charAt9 = str.charAt(3);
                             char charAt10 = str.charAt(5);
                             if (charAt8 == '/' && charAt10 == '/') {
-                                int i2 = ((charAt9 - '0') * 10) + (charAt - '0');
+                                int i3 = ((charAt9 - '0') * 10) + (charAt - '0');
                                 if (((charAt6 - '0') * 10) + (charAt7 - '0') > 12) {
                                     dateTimeFormatter2 = formatter_dt19_eur;
-                                } else if (i2 > 12) {
+                                } else if (i3 > 12) {
                                     dateTimeFormatter2 = formatter_dt19_us;
                                 } else {
                                     String country = Locale.getDefault().getCountry();
@@ -441,17 +441,17 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
                                 dateTimeFormatter2 = formatter_dt19_kr;
                             }
                         }
-                        i = 0;
+                        i2 = 0;
                         while (true) {
-                            if (i >= str.length()) {
+                            if (i2 >= str.length()) {
                                 z = true;
                                 break;
                             }
-                            char charAt12 = str.charAt(i);
+                            char charAt12 = str.charAt(i2);
                             if (charAt12 < '0' || charAt12 > '9') {
                                 break;
                             }
-                            i++;
+                            i2++;
                         }
                         if (z && str.length() > 8 && str.length() < 19) {
                             return ZonedDateTime.ofInstant(Instant.ofEpochMilli(Long.parseLong(str)), JSON.defaultTimeZone.toZoneId());
@@ -464,11 +464,11 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
                         }
                         if (str.length() >= 17) {
                         }
-                        i = 0;
+                        i2 = 0;
                         while (true) {
-                            if (i >= str.length()) {
+                            if (i2 >= str.length()) {
                             }
-                            i++;
+                            i2++;
                         }
                         if (z) {
                             return ZonedDateTime.ofInstant(Instant.ofEpochMilli(Long.parseLong(str)), JSON.defaultTimeZone.toZoneId());
@@ -479,11 +479,11 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
             dateTimeFormatter2 = dateTimeFormatter;
             if (str.length() >= 17) {
             }
-            i = 0;
+            i2 = 0;
             while (true) {
-                if (i >= str.length()) {
+                if (i2 >= str.length()) {
                 }
-                i++;
+                i2++;
             }
             if (z) {
             }
@@ -497,7 +497,7 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (obj == null) {
             serializeWriter.writeNull();
@@ -511,7 +511,7 @@ public class Jdk8DateCodec extends ContextObjectDeserializer implements ObjectSe
             LocalDateTime localDateTime = (LocalDateTime) obj;
             String dateFormatPattern = jSONSerializer.getDateFormatPattern();
             if (dateFormatPattern == null) {
-                if ((mask & i) == 0 && !jSONSerializer.isEnabled(SerializerFeature.UseISO8601DateFormat)) {
+                if ((mask & i2) == 0 && !jSONSerializer.isEnabled(SerializerFeature.UseISO8601DateFormat)) {
                     if (jSONSerializer.isEnabled(SerializerFeature.WriteDateUseDateFormat)) {
                         dateFormatPattern = JSON.DEFFAULT_DATE_FORMAT;
                     } else {

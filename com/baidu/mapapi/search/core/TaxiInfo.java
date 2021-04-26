@@ -7,33 +7,33 @@ public class TaxiInfo implements Parcelable {
     public static final Parcelable.Creator<TaxiInfo> CREATOR = new m();
 
     /* renamed from: a  reason: collision with root package name */
-    public float f7201a;
+    public float f7457a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7202b;
+    public String f7458b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f7203c;
+    public int f7459c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7204d;
+    public int f7460d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f7205e;
+    public float f7461e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f7206f;
+    public float f7462f;
 
     public TaxiInfo() {
     }
 
     public TaxiInfo(Parcel parcel) {
-        this.f7201a = parcel.readFloat();
-        this.f7202b = parcel.readString();
-        this.f7203c = parcel.readInt();
-        this.f7204d = parcel.readInt();
-        this.f7205e = parcel.readFloat();
-        this.f7206f = parcel.readFloat();
+        this.f7457a = parcel.readFloat();
+        this.f7458b = parcel.readString();
+        this.f7459c = parcel.readInt();
+        this.f7460d = parcel.readInt();
+        this.f7461e = parcel.readFloat();
+        this.f7462f = parcel.readFloat();
     }
 
     @Override // android.os.Parcelable
@@ -42,60 +42,60 @@ public class TaxiInfo implements Parcelable {
     }
 
     public String getDesc() {
-        return this.f7202b;
+        return this.f7458b;
     }
 
     public int getDistance() {
-        return this.f7203c;
+        return this.f7459c;
     }
 
     public int getDuration() {
-        return this.f7204d;
+        return this.f7460d;
     }
 
     public float getPerKMPrice() {
-        return this.f7205e;
+        return this.f7461e;
     }
 
     public float getStartPrice() {
-        return this.f7206f;
+        return this.f7462f;
     }
 
     public float getTotalPrice() {
-        return this.f7201a;
+        return this.f7457a;
     }
 
     public void setDesc(String str) {
-        this.f7202b = str;
+        this.f7458b = str;
     }
 
-    public void setDistance(int i) {
-        this.f7203c = i;
+    public void setDistance(int i2) {
+        this.f7459c = i2;
     }
 
-    public void setDuration(int i) {
-        this.f7204d = i;
+    public void setDuration(int i2) {
+        this.f7460d = i2;
     }
 
     public void setPerKMPrice(float f2) {
-        this.f7205e = f2;
+        this.f7461e = f2;
     }
 
     public void setStartPrice(float f2) {
-        this.f7206f = f2;
+        this.f7462f = f2;
     }
 
     public void setTotalPrice(float f2) {
-        this.f7201a = f2;
+        this.f7457a = f2;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeFloat(this.f7201a);
-        parcel.writeString(this.f7202b);
-        parcel.writeInt(this.f7203c);
-        parcel.writeInt(this.f7204d);
-        parcel.writeFloat(this.f7205e);
-        parcel.writeFloat(this.f7206f);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeFloat(this.f7457a);
+        parcel.writeString(this.f7458b);
+        parcel.writeInt(this.f7459c);
+        parcel.writeInt(this.f7460d);
+        parcel.writeFloat(this.f7461e);
+        parcel.writeFloat(this.f7462f);
     }
 }

@@ -33,14 +33,14 @@ public final class CachedHashCodeArrayMap<K, V> extends ArrayMap<K, V> {
     }
 
     @Override // androidx.collection.SimpleArrayMap
-    public V removeAt(int i) {
+    public V removeAt(int i2) {
         this.hashCode = 0;
-        return (V) super.removeAt(i);
+        return (V) super.removeAt(i2);
     }
 
     @Override // androidx.collection.SimpleArrayMap
-    public V setValueAt(int i, V v) {
+    public V setValueAt(int i2, V v) {
         this.hashCode = 0;
-        return (V) super.setValueAt(i, v);
+        return (V) super.setValueAt(i2, v);
     }
 }

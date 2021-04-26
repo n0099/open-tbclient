@@ -4,8 +4,8 @@ public class IncompleteHandshakeException extends RuntimeException {
     public static final long serialVersionUID = 7906596804233893092L;
     public int preferedSize;
 
-    public IncompleteHandshakeException(int i) {
-        this.preferedSize = i;
+    public IncompleteHandshakeException(int i2) {
+        this.preferedSize = i2;
     }
 
     public int getPreferedSize() {

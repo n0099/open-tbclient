@@ -16,22 +16,24 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import d.b.i0.r.u.c;
+import d.a.i0.r.u.c;
 /* loaded from: classes5.dex */
 public class ForumSelectedView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22055e;
+    public int f22736e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f22056f;
+    public ImageView f22737f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f22057g;
+    public TextView f22738g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f22058h;
-    public ImageView i;
+    public TextView f22739h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public ImageView f22740i;
     public View j;
 
     public ForumSelectedView(Context context) {
@@ -40,10 +42,10 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
 
     public final void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.cell_forum_selected_layout, (ViewGroup) this, true);
-        this.f22056f = (ImageView) findViewById(R.id.cell_forum_selected_icon);
-        this.f22057g = (TextView) findViewById(R.id.cell_forum_selected_name);
-        this.f22058h = (TextView) findViewById(R.id.cell_forum_selected_tip);
-        this.i = (ImageView) findViewById(R.id.cell_forum_selected_arrow);
+        this.f22737f = (ImageView) findViewById(R.id.cell_forum_selected_icon);
+        this.f22738g = (TextView) findViewById(R.id.cell_forum_selected_name);
+        this.f22739h = (TextView) findViewById(R.id.cell_forum_selected_tip);
+        this.f22740i = (ImageView) findViewById(R.id.cell_forum_selected_arrow);
         this.j = findViewById(R.id.cell_forum_selected_line);
         setOnClickListener(this);
         b();
@@ -51,18 +53,18 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
 
     public void b() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f22055e) {
+        if (skinType == this.f22736e) {
             return;
         }
-        this.f22055e = skinType;
+        this.f22736e = skinType;
         SkinManager.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
-        this.f22056f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
-        SkinManager.setViewTextColor(this.f22057g, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f22058h, R.color.CAM_X0109);
-        c d2 = c.d(this.f22058h);
+        this.f22737f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setViewTextColor(this.f22738g, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f22739h, R.color.CAM_X0109);
+        c d2 = c.d(this.f22739h);
         d2.k(R.string.J_X06);
         d2.f(R.color.CAM_X0206);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f22740i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setBackgroundColor(this.j, R.color.CAM_X0210);
     }
 
@@ -72,17 +74,17 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
     }
 
     public void setSelectedForum(String str) {
-        this.f22058h.setVisibility(8);
-        this.f22057g.setText(str);
+        this.f22739h.setVisibility(8);
+        this.f22738g.setText(str);
     }
 
     public ForumSelectedView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public ForumSelectedView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f22055e = 3;
+    public ForumSelectedView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f22736e = 3;
         a();
     }
 }

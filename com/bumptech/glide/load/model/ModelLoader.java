@@ -29,7 +29,7 @@ public interface ModelLoader<Model, Data> {
     }
 
     @Nullable
-    LoadData<Data> buildLoadData(@NonNull Model model, int i, int i2, @NonNull Options options);
+    LoadData<Data> buildLoadData(@NonNull Model model, int i2, int i3, @NonNull Options options);
 
     boolean handles(@NonNull Model model);
 }

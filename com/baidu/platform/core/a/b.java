@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public class b extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9963b = false;
+    public boolean f10331b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9964c = null;
+    public String f10332c = null;
 
     private boolean a(String str, DistrictResult districtResult) {
         JSONObject optJSONObject;
@@ -29,7 +29,7 @@ public class b extends com.baidu.platform.base.d {
         int length;
         JSONArray jSONArray2;
         JSONArray jSONArray3;
-        int i;
+        int i2;
         if (str == null || "".equals(str) || districtResult == null) {
             return false;
         }
@@ -44,39 +44,39 @@ public class b extends com.baidu.platform.base.d {
                 JSONObject optJSONObject4 = optJSONObject.optJSONObject("sgeo");
                 if (optJSONObject4 != null && (optJSONArray = optJSONObject4.optJSONArray("geo_elements")) != null && optJSONArray.length() > 0) {
                     ArrayList arrayList = new ArrayList();
-                    int i2 = 0;
-                    while (i2 < optJSONArray.length()) {
-                        JSONObject optJSONObject5 = optJSONArray.optJSONObject(i2);
+                    int i3 = 0;
+                    while (i3 < optJSONArray.length()) {
+                        JSONObject optJSONObject5 = optJSONArray.optJSONObject(i3);
                         if (optJSONObject5 == null || (optJSONArray2 = optJSONObject5.optJSONArray(Config.EVENT_HEAT_POINT)) == null || (length = optJSONArray2.length()) <= 0) {
                             jSONArray = optJSONArray;
                         } else {
                             ArrayList arrayList2 = new ArrayList();
-                            int i3 = 0;
                             int i4 = 0;
                             int i5 = 0;
-                            while (i3 < length) {
-                                int optInt = optJSONArray2.optInt(i3);
-                                if (i3 % 2 == 0) {
+                            int i6 = 0;
+                            while (i4 < length) {
+                                int optInt = optJSONArray2.optInt(i4);
+                                if (i4 % 2 == 0) {
+                                    i6 += optInt;
+                                    jSONArray2 = optJSONArray;
+                                    jSONArray3 = optJSONArray2;
+                                    i2 = length;
+                                } else {
                                     i5 += optInt;
                                     jSONArray2 = optJSONArray;
                                     jSONArray3 = optJSONArray2;
-                                    i = length;
-                                } else {
-                                    i4 += optInt;
-                                    jSONArray2 = optJSONArray;
-                                    jSONArray3 = optJSONArray2;
-                                    i = length;
-                                    arrayList2.add(CoordUtil.mc2ll(new GeoPoint(i4, i5)));
+                                    i2 = length;
+                                    arrayList2.add(CoordUtil.mc2ll(new GeoPoint(i5, i6)));
                                 }
-                                i3++;
+                                i4++;
                                 optJSONArray = jSONArray2;
                                 optJSONArray2 = jSONArray3;
-                                length = i;
+                                length = i2;
                             }
                             jSONArray = optJSONArray;
                             arrayList.add(arrayList2);
                         }
-                        i2++;
+                        i3++;
                         optJSONArray = jSONArray;
                     }
                     if (arrayList.size() > 0) {
@@ -89,7 +89,7 @@ public class b extends com.baidu.platform.base.d {
                     }
                 }
                 districtResult.setCityName(optJSONObject.optString("uid"));
-                this.f9964c = optJSONObject.optString("cname");
+                this.f10332c = optJSONObject.optString("cname");
                 districtResult.setCenterPt(CoordUtil.decodeLocation(optJSONObject.optString("geo")));
                 districtResult.setCityCode(optJSONObject.optInt("code"));
                 return false;
@@ -117,7 +117,7 @@ public class b extends com.baidu.platform.base.d {
                     return false;
                 }
                 ArrayList arrayList = new ArrayList();
-                if (this.f9964c != null) {
+                if (this.f10332c != null) {
                     try {
                         decodeLocationList2D = CoordUtil.decodeLocationList2D(optJSONObject2.optString("geo"));
                     } catch (Exception e2) {
@@ -135,9 +135,9 @@ public class b extends com.baidu.platform.base.d {
                     if (arrayList.size() > 0) {
                         districtResult.setPolylines(arrayList);
                     }
-                    districtResult.setCityName(this.f9964c);
+                    districtResult.setCityName(this.f10332c);
                     districtResult.error = SearchResult.ERRORNO.NO_ERROR;
-                    this.f9964c = null;
+                    this.f10332c = null;
                     return true;
                 }
                 decodeLocationList2D = null;
@@ -145,9 +145,9 @@ public class b extends com.baidu.platform.base.d {
                 }
                 if (arrayList.size() > 0) {
                 }
-                districtResult.setCityName(this.f9964c);
+                districtResult.setCityName(this.f10332c);
                 districtResult.error = SearchResult.ERRORNO.NO_ERROR;
-                this.f9964c = null;
+                this.f10332c = null;
                 return true;
             } catch (JSONException e3) {
                 e3.printStackTrace();
@@ -174,7 +174,7 @@ public class b extends com.baidu.platform.base.d {
                     }
                 }
                 if (!a(str, districtResult, false)) {
-                    if (this.f9963b) {
+                    if (this.f10331b) {
                         b(str, districtResult);
                     } else if (!a(str, districtResult)) {
                         districtResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
@@ -197,6 +197,6 @@ public class b extends com.baidu.platform.base.d {
     }
 
     public void a(boolean z) {
-        this.f9963b = z;
+        this.f10331b = z;
     }
 }

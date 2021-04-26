@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.gamelist.message;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.b.i0.r.q.a2;
+import d.a.i0.r.q.a2;
 import java.util.LinkedList;
 import tbclient.LiveLabelInfo;
 import tbclient.LiveTabliveSubTab.LiveTabliveSubTabResIdl;
@@ -32,7 +32,7 @@ public class AlaSubListGameLiveHttpResponseMessage extends HttpResponsedMessage 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         LiveTabliveSubTabResIdl liveTabliveSubTabResIdl = (LiveTabliveSubTabResIdl) new Wire(new Class[0]).parseFrom(bArr, LiveTabliveSubTabResIdl.class);
         setError(liveTabliveSubTabResIdl.error.errorno.intValue());
         setErrorString(liveTabliveSubTabResIdl.error.usermsg);

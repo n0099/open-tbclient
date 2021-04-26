@@ -5,16 +5,16 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface OpenDeviceIdentifierService extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Stub extends Binder implements OpenDeviceIdentifierService {
         public static final String DESCRIPTOR = "com.uodis.opendevice.aidl.OpenDeviceIdentifierService";
         public static final int TRANSACTION_getOaid = 1;
         public static final int TRANSACTION_isOaidTrackLimited = 2;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static class Proxy implements OpenDeviceIdentifierService {
             public IBinder mRemote;
 
@@ -83,16 +83,16 @@ public interface OpenDeviceIdentifierService extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 == 1) {
                 parcel.enforceInterface(DESCRIPTOR);
                 String oaid = getOaid();
                 parcel2.writeNoException();
                 parcel2.writeString(oaid);
                 return true;
-            } else if (i != 2) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 2) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString(DESCRIPTOR);
                 return true;

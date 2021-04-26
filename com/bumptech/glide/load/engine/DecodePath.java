@@ -35,24 +35,24 @@ public class DecodePath<DataType, ResourceType, Transcode> {
     }
 
     @NonNull
-    private Resource<ResourceType> decodeResource(DataRewinder<DataType> dataRewinder, int i, int i2, @NonNull Options options) throws GlideException {
+    private Resource<ResourceType> decodeResource(DataRewinder<DataType> dataRewinder, int i2, int i3, @NonNull Options options) throws GlideException {
         List<Throwable> list = (List) Preconditions.checkNotNull(this.listPool.acquire());
         try {
-            return decodeResourceWithList(dataRewinder, i, i2, options, list);
+            return decodeResourceWithList(dataRewinder, i2, i3, options, list);
         } finally {
             this.listPool.release(list);
         }
     }
 
     @NonNull
-    private Resource<ResourceType> decodeResourceWithList(DataRewinder<DataType> dataRewinder, int i, int i2, @NonNull Options options, List<Throwable> list) throws GlideException {
+    private Resource<ResourceType> decodeResourceWithList(DataRewinder<DataType> dataRewinder, int i2, int i3, @NonNull Options options, List<Throwable> list) throws GlideException {
         int size = this.decoders.size();
         Resource<ResourceType> resource = null;
-        for (int i3 = 0; i3 < size; i3++) {
-            ResourceDecoder<DataType, ResourceType> resourceDecoder = this.decoders.get(i3);
+        for (int i4 = 0; i4 < size; i4++) {
+            ResourceDecoder<DataType, ResourceType> resourceDecoder = this.decoders.get(i4);
             try {
                 if (resourceDecoder.handles(dataRewinder.rewindAndGet(), options)) {
-                    resource = resourceDecoder.decode(dataRewinder.rewindAndGet(), i, i2, options);
+                    resource = resourceDecoder.decode(dataRewinder.rewindAndGet(), i2, i3, options);
                 }
             } catch (IOException | OutOfMemoryError | RuntimeException e2) {
                 if (Log.isLoggable(TAG, 2)) {
@@ -70,8 +70,8 @@ public class DecodePath<DataType, ResourceType, Transcode> {
         throw new GlideException(this.failureMessage, new ArrayList(list));
     }
 
-    public Resource<Transcode> decode(DataRewinder<DataType> dataRewinder, int i, int i2, @NonNull Options options, DecodeCallback<ResourceType> decodeCallback) throws GlideException {
-        return this.transcoder.transcode(decodeCallback.onResourceDecoded(decodeResource(dataRewinder, i, i2, options)), options);
+    public Resource<Transcode> decode(DataRewinder<DataType> dataRewinder, int i2, int i3, @NonNull Options options, DecodeCallback<ResourceType> decodeCallback) throws GlideException {
+        return this.transcoder.transcode(decodeCallback.onResourceDecoded(decodeResource(dataRewinder, i2, i3, options)), options);
     }
 
     public String toString() {

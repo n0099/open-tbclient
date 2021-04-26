@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.util.UrlManager;
-import d.b.c.e.m.b;
+import d.a.c.e.m.b;
 /* loaded from: classes3.dex */
 public class RecommendsStatic {
 

@@ -15,8 +15,8 @@ public class PassNameValuePair implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public PassNameValuePair[] newArray(int i) {
-            return new PassNameValuePair[i];
+        public PassNameValuePair[] newArray(int i2) {
+            return new PassNameValuePair[i2];
         }
     };
     public String name;
@@ -65,7 +65,7 @@ public class PassNameValuePair implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.name);
         parcel.writeString(this.value);
     }

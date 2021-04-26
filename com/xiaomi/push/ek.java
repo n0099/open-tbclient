@@ -13,7 +13,7 @@ import java.util.Map;
 public class ek {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f40828a;
+    public static a f38347a;
 
     /* renamed from: a  reason: collision with other field name */
     public static Map<String, hp> f317a;
@@ -23,9 +23,9 @@ public class ek {
         void uploader(Context context, hj hjVar);
     }
 
-    public static int a(int i) {
-        if (i > 0) {
-            return i + 1000;
+    public static int a(int i2) {
+        if (i2 > 0) {
+            return i2 + 1000;
         }
         return -1;
     }
@@ -52,10 +52,10 @@ public class ek {
         return Config.getBuilder().setEventUploadSwitchOpen(a3).setEventUploadFrequency(com.xiaomi.push.service.aq.a(context).a(hk.EventUploadFrequency.a(), 86400)).setPerfUploadSwitchOpen(a2).setPerfUploadFrequency(a4).build(context);
     }
 
-    public static EventClientReport a(Context context, String str, String str2, int i, long j, String str3) {
+    public static EventClientReport a(Context context, String str, String str2, int i2, long j, String str3) {
         EventClientReport a2 = a(str);
         a2.eventId = str2;
-        a2.eventType = i;
+        a2.eventType = i2;
         a2.eventTime = j;
         a2.eventContent = str3;
         return a2;
@@ -77,9 +77,9 @@ public class ek {
         return perfClientReport;
     }
 
-    public static PerfClientReport a(Context context, int i, long j, long j2) {
+    public static PerfClientReport a(Context context, int i2, long j, long j2) {
         PerfClientReport a2 = a();
-        a2.code = i;
+        a2.code = i2;
         a2.perfCounts = j;
         a2.perfLatencies = j2;
         return a2;
@@ -104,7 +104,7 @@ public class ek {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hp m270a(String str) {
+    public static hp m273a(String str) {
         hp[] values;
         if (f317a == null) {
             synchronized (hp.class) {
@@ -121,12 +121,12 @@ public class ek {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m271a(int i) {
-        return i == 1000 ? "E100000" : i == 3000 ? "E100002" : i == 2000 ? "E100001" : i == 6000 ? "E100003" : "";
+    public static String m274a(int i2) {
+        return i2 == 1000 ? "E100000" : i2 == 3000 ? "E100002" : i2 == 2000 ? "E100001" : i2 == 6000 ? "E100003" : "";
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m272a(Context context) {
+    public static void m275a(Context context) {
         ClientReportClient.updateConfig(context, a(context));
     }
 
@@ -135,11 +135,11 @@ public class ek {
     }
 
     public static void a(Context context, hj hjVar) {
-        if (m273a(context.getApplicationContext())) {
+        if (m276a(context.getApplicationContext())) {
             com.xiaomi.push.service.bn.a(context.getApplicationContext(), hjVar);
             return;
         }
-        a aVar = f40828a;
+        a aVar = f38347a;
         if (aVar != null) {
             aVar.uploader(context, hjVar);
         }
@@ -162,11 +162,11 @@ public class ek {
     }
 
     public static void a(a aVar) {
-        f40828a = aVar;
+        f38347a = aVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m273a(Context context) {
+    public static boolean m276a(Context context) {
         return (context == null || TextUtils.isEmpty(context.getPackageName()) || !"com.xiaomi.xmsf".equals(context.getPackageName())) ? false : true;
     }
 }

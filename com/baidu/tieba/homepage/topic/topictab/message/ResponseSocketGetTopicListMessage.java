@@ -5,9 +5,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.squareup.wire.Wire;
-import d.b.c.j.e.n;
-import d.b.j0.a1.j.b.c.a;
-import d.b.j0.a1.j.b.c.c;
+import d.a.c.j.e.n;
+import d.a.j0.a1.j.b.c.a;
+import d.a.j0.a1.j.b.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicList.DataRes;
@@ -27,7 +27,7 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         DataRes dataRes;
         NewTopicListResIdl newTopicListResIdl = (NewTopicListResIdl) new Wire(new Class[0]).parseFrom(bArr, NewTopicListResIdl.class);
         if (newTopicListResIdl == null) {
@@ -39,21 +39,21 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
             return;
         }
         this.mTopicDataList = new ArrayList();
-        int i2 = 1;
+        int i3 = 1;
         for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
             if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
                 a aVar = new a();
-                aVar.S = i2;
+                aVar.S = i3;
                 aVar.a0(newTopicList);
                 this.mTopicDataList.add(aVar);
                 c cVar = new c();
-                cVar.f53407e = R.dimen.tbds1;
-                cVar.f53408f = R.color.CAM_X0203;
+                cVar.f51132e = R.dimen.tbds1;
+                cVar.f51133f = R.color.CAM_X0203;
                 this.mTopicDataList.add(cVar);
-                i2++;
+                i3++;
             }
         }
         List<n> list = this.mTopicDataList;
-        ((c) ListUtils.getItem(list, list.size() - 1)).f53407e = 0;
+        ((c) ListUtils.getItem(list, list.size() - 1)).f51132e = 0;
     }
 }

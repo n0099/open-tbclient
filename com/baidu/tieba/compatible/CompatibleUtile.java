@@ -94,7 +94,7 @@ public class CompatibleUtile {
         }
 
         @Override // android.webkit.WebChromeClient
-        public void onShowCustomView(View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
+        public void onShowCustomView(View view, int i2, WebChromeClient.CustomViewCallback customViewCallback) {
             if (this.mCustomView != null) {
                 customViewCallback.onCustomViewHidden();
                 return;
@@ -107,8 +107,8 @@ public class CompatibleUtile {
             this.mCustomView = view;
             setFullscreen(true);
             this.mCustomViewCallback = customViewCallback;
-            this.mActivity.setRequestedOrientation(i);
-            super.onShowCustomView(view, i, customViewCallback);
+            this.mActivity.setRequestedOrientation(i2);
+            super.onShowCustomView(view, i2, customViewCallback);
         }
     }
 
@@ -185,12 +185,12 @@ public class CompatibleUtile {
         public Object8() {
         }
 
-        public long getUidRxBytes(int i) {
-            return TrafficStats.getUidRxBytes(i);
+        public long getUidRxBytes(int i2) {
+            return TrafficStats.getUidRxBytes(i2);
         }
 
-        public long getUidTxBytes(int i) {
-            return TrafficStats.getUidTxBytes(i);
+        public long getUidTxBytes(int i2) {
+            return TrafficStats.getUidTxBytes(i2);
         }
 
         public boolean isAutoBrightness(Context context) {
@@ -211,11 +211,11 @@ public class CompatibleUtile {
             webView.loadUrl(str, hashMap);
         }
 
-        public void setCameraDisplayOrientation(Camera camera, int i) {
+        public void setCameraDisplayOrientation(Camera camera, int i2) {
             if (camera == null) {
                 return;
             }
-            camera.setDisplayOrientation(i);
+            camera.setDisplayOrientation(i2);
         }
 
         public /* synthetic */ Object8(CompatibleUtile compatibleUtile, Object8 object8) {
@@ -233,17 +233,17 @@ public class CompatibleUtile {
             if (numberOfCameras == 0) {
                 return null;
             }
-            int i = 0;
-            while (i < numberOfCameras) {
+            int i2 = 0;
+            while (i2 < numberOfCameras) {
                 Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(i, cameraInfo);
+                Camera.getCameraInfo(i2, cameraInfo);
                 if (cameraInfo.facing == 0) {
                     break;
                 }
-                i++;
+                i2++;
             }
-            if (i < numberOfCameras) {
-                return Camera.open(i);
+            if (i2 < numberOfCameras) {
+                return Camera.open(i2);
             }
             return Camera.open(0);
         }
@@ -328,23 +328,23 @@ public class CompatibleUtile {
         return mObject9;
     }
 
-    public static void scrollListViewBy(ListView listView, int i, int i2) {
+    public static void scrollListViewBy(ListView listView, int i2, int i3) {
         if (Build.VERSION.SDK_INT >= 8) {
-            listView.smoothScrollBy(i, i2);
+            listView.smoothScrollBy(i2, i3);
         }
     }
 
-    public static void scrollListViewTo(ListView listView, int i) {
+    public static void scrollListViewTo(ListView listView, int i2) {
         if (Build.VERSION.SDK_INT >= 8) {
-            listView.smoothScrollToPosition(i);
+            listView.smoothScrollToPosition(i2);
         } else {
-            listView.setSelection(i);
+            listView.setSelection(i2);
         }
     }
 
-    public static void setAnim(Activity activity, int i, int i2) {
+    public static void setAnim(Activity activity, int i2, int i3) {
         if (Build.VERSION.SDK_INT >= 5) {
-            activity.overridePendingTransition(i, i2);
+            activity.overridePendingTransition(i2, i3);
         }
     }
 
@@ -413,16 +413,16 @@ public class CompatibleUtile {
         return 0;
     }
 
-    public long getUidRxBytes(int i) {
+    public long getUidRxBytes(int i2) {
         if (getObject8() != null) {
-            return getObject8().getUidRxBytes(i);
+            return getObject8().getUidRxBytes(i2);
         }
         return 0L;
     }
 
-    public long getUidTxBytes(int i) {
+    public long getUidTxBytes(int i2) {
         if (getObject8() != null) {
-            return getObject8().getUidTxBytes(i);
+            return getObject8().getUidTxBytes(i2);
         }
         return 0L;
     }
@@ -487,9 +487,9 @@ public class CompatibleUtile {
         }
     }
 
-    public void setCameraDisplayOrientation(Camera camera, int i) {
+    public void setCameraDisplayOrientation(Camera camera, int i2) {
         if (getObject8() != null) {
-            getObject8().setCameraDisplayOrientation(camera, i);
+            getObject8().setCameraDisplayOrientation(camera, i2);
         }
     }
 

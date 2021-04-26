@@ -10,7 +10,7 @@ import java.security.MessageDigest;
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f11454a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "a", "b", "c", "d", "e", "f"};
+    public static final String[] f11278a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "a", "b", "c", "d", "e", "f"};
 
     public static String a(String str) {
         String str2 = null;
@@ -44,11 +44,11 @@ public final class n {
 
     public static String c(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();
-        for (int i : bArr) {
-            if (i < 0) {
-                i += 256;
+        for (int i2 : bArr) {
+            if (i2 < 0) {
+                i2 += 256;
             }
-            stringBuffer.append(f11454a[i / 16] + f11454a[i % 16]);
+            stringBuffer.append(f11278a[i2 / 16] + f11278a[i2 % 16]);
         }
         return stringBuffer.toString();
     }
@@ -56,11 +56,11 @@ public final class n {
     public static String d(byte[] bArr) {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         char[] cArr2 = new char[bArr.length * 2];
-        for (int i = 0; i < bArr.length; i++) {
-            byte b2 = bArr[i];
-            int i2 = i * 2;
-            cArr2[i2] = cArr[(b2 >>> 4) & 15];
-            cArr2[i2 + 1] = cArr[b2 & 15];
+        for (int i2 = 0; i2 < bArr.length; i2++) {
+            byte b2 = bArr[i2];
+            int i3 = i2 * 2;
+            cArr2[i3] = cArr[(b2 >>> 4) & 15];
+            cArr2[i3 + 1] = cArr[b2 & 15];
         }
         return new String(cArr2);
     }

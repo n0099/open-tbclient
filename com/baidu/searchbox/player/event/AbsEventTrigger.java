@@ -22,9 +22,9 @@ public abstract class AbsEventTrigger implements IEventTrigger {
     @PublicMethod
     public void triggerEvent(@NonNull VideoEvent videoEvent) {
         int size = this.mNotifyList.size();
-        for (int i = 0; i < size; i++) {
-            IMessenger iMessenger = this.mNotifyList.get(i);
-            if (i == 0) {
+        for (int i2 = 0; i2 < size; i2++) {
+            IMessenger iMessenger = this.mNotifyList.get(i2);
+            if (i2 == 0) {
                 iMessenger.notifyEvent(videoEvent);
             } else {
                 iMessenger.notifyEvent(VideoEvent.copy(videoEvent));

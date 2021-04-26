@@ -1,7 +1,8 @@
 package io.reactivex.internal.observers;
 
-import f.b.a0.a;
-import f.b.o;
+import io.reactivex.Observer;
+import io.reactivex.annotations.Nullable;
+import io.reactivex.plugins.RxJavaPlugins;
 /* loaded from: classes7.dex */
 public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
     public static final int DISPOSED = 4;
@@ -10,38 +11,39 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
     public static final int FUSED_READY = 16;
     public static final int TERMINATED = 2;
     public static final long serialVersionUID = -5502432239815349361L;
-    public final o<? super T> actual;
+    public final Observer<? super T> actual;
     public T value;
 
-    public DeferredScalarDisposable(o<? super T> oVar) {
-        this.actual = oVar;
+    public DeferredScalarDisposable(Observer<? super T> observer) {
+        this.actual = observer;
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.f
+    @Override // io.reactivex.internal.fuseable.SimpleQueue
     public final void clear() {
         lazySet(32);
         this.value = null;
     }
 
     public final void complete(T t) {
-        int i = get();
-        if ((i & 54) != 0) {
+        int i2 = get();
+        if ((i2 & 54) != 0) {
             return;
         }
-        if (i == 8) {
+        Observer<? super T> observer = this.actual;
+        if (i2 == 8) {
             this.value = t;
             lazySet(16);
+            observer.onNext(null);
         } else {
             lazySet(2);
+            observer.onNext(t);
         }
-        o<? super T> oVar = this.actual;
-        oVar.onNext(t);
         if (get() != 4) {
-            oVar.onComplete();
+            observer.onComplete();
         }
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
         set(4);
         this.value = null;
@@ -49,24 +51,25 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
 
     public final void error(Throwable th) {
         if ((get() & 54) != 0) {
-            a.f(th);
+            RxJavaPlugins.onError(th);
             return;
         }
         lazySet(2);
         this.actual.onError(th);
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public final boolean isDisposed() {
         return get() == 4;
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.f
+    @Override // io.reactivex.internal.fuseable.SimpleQueue
     public final boolean isEmpty() {
         return get() != 16;
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.f
+    @Override // io.reactivex.internal.fuseable.SimpleQueue
+    @Nullable
     public final T poll() throws Exception {
         if (get() == 16) {
             T t = this.value;
@@ -77,9 +80,9 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
         return null;
     }
 
-    @Override // io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.x.c.c
-    public final int requestFusion(int i) {
-        if ((i & 2) != 0) {
+    @Override // io.reactivex.internal.fuseable.QueueFuseable
+    public final int requestFusion(int i2) {
+        if ((i2 & 2) != 0) {
             lazySet(8);
             return 2;
         }

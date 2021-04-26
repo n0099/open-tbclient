@@ -3,6 +3,7 @@ package com.baidu.apollon.statistics;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
+import androidx.lifecycle.SavedStateHandle;
 import java.lang.reflect.Field;
 import java.util.List;
 import org.json.JSONArray;
@@ -12,73 +13,73 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3883a = "c";
+    public static final String f3935a = "c";
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f3884b;
+    public JSONArray f3936b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3885c;
+    public int f3937c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f3886d;
+    public byte[] f3938d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f3887e;
+    public byte[] f3939e;
 
     /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f3888a;
+        public int f3940a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f3889b;
+        public String f3941b;
     }
 
     /* loaded from: classes.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static c f3890a = new c();
+        public static c f3942a = new c();
     }
 
     public static c a() {
-        return b.f3890a;
+        return b.f3942a;
     }
 
     @SuppressLint({"NewApi"})
     private void d() {
-        int i = this.f3885c;
-        if (i <= 0) {
+        int i2 = this.f3937c;
+        if (i2 <= 0) {
             return;
         }
         if (Build.VERSION.SDK_INT >= 19) {
             while (true) {
-                int i2 = i - 1;
-                if (i > 0) {
-                    this.f3884b.remove(0);
-                    i = i2;
+                int i3 = i2 - 1;
+                if (i2 > 0) {
+                    this.f3936b.remove(0);
+                    i2 = i3;
                 } else {
-                    this.f3885c = 0;
+                    this.f3937c = 0;
                     return;
                 }
             }
         } else {
             try {
-                Field declaredField = JSONArray.class.getDeclaredField("values");
+                Field declaredField = JSONArray.class.getDeclaredField(SavedStateHandle.VALUES);
                 declaredField.setAccessible(true);
-                List list = (List) declaredField.get(this.f3884b);
-                int i3 = this.f3885c;
+                List list = (List) declaredField.get(this.f3936b);
+                int i4 = this.f3937c;
                 while (true) {
-                    int i4 = i3 - 1;
-                    if (i3 > 0) {
+                    int i5 = i4 - 1;
+                    if (i4 > 0) {
                         if (list.size() > 0) {
                             list.remove(0);
                         }
-                        i3 = i4;
+                        i4 = i5;
                     } else {
-                        this.f3885c = 0;
+                        this.f3937c = 0;
                         return;
                     }
                 }
@@ -95,8 +96,8 @@ public class c {
                 return;
             }
             try {
-                synchronized (this.f3886d) {
-                    this.f3884b = new JSONArray(a2);
+                synchronized (this.f3938d) {
+                    this.f3936b = new JSONArray(a2);
                 }
             } catch (JSONException unused) {
             }
@@ -105,29 +106,29 @@ public class c {
 
     public boolean c() {
         boolean z;
-        synchronized (this.f3886d) {
-            z = this.f3884b.length() == 0;
+        synchronized (this.f3938d) {
+            z = this.f3936b.length() == 0;
         }
         return z;
     }
 
     public c() {
-        this.f3884b = new JSONArray();
-        this.f3885c = 0;
-        this.f3886d = new byte[0];
-        this.f3887e = new byte[0];
+        this.f3936b = new JSONArray();
+        this.f3937c = 0;
+        this.f3938d = new byte[0];
+        this.f3939e = new byte[0];
     }
 
     public void a(e eVar) {
         if (eVar == null) {
             return;
         }
-        synchronized (this.f3886d) {
+        synchronized (this.f3938d) {
             try {
-                this.f3884b.put(this.f3884b.length(), eVar.a());
+                this.f3936b.put(this.f3936b.length(), eVar.a());
             } catch (JSONException unused) {
             }
-            a(g.a().a(eVar.f3905h));
+            a(g.a().a(eVar.f3957h));
             if (CustomerService.getInstance().isEnabled()) {
                 CustomerService.getInstance().enqueEvent(eVar);
             }
@@ -136,7 +137,7 @@ public class c {
 
     public void b(String str) {
         if ("normal_log".equals(str)) {
-            synchronized (this.f3886d) {
+            synchronized (this.f3938d) {
                 d();
             }
             a(false);
@@ -144,29 +145,29 @@ public class c {
     }
 
     private void a(boolean z) {
-        int i;
-        synchronized (this.f3886d) {
-            if (this.f3884b.length() == 0) {
+        int i2;
+        synchronized (this.f3938d) {
+            if (this.f3936b.length() == 0) {
                 com.baidu.apollon.statistics.a.a(false, PayStatisticsUtil.c(), Config.v, "", false);
                 return;
             }
-            String jSONArray = this.f3884b.toString();
+            String jSONArray = this.f3936b.toString();
             try {
-                i = jSONArray.getBytes().length;
+                i2 = jSONArray.getBytes().length;
             } catch (Throwable th) {
                 if (th instanceof OutOfMemoryError) {
                     System.gc();
                     return;
                 }
-                i = 0;
+                i2 = 0;
             }
-            if (i == 0) {
+            if (i2 == 0) {
                 return;
             }
-            if (204800 > i) {
+            if (204800 > i2) {
                 com.baidu.apollon.statistics.a.a(false, PayStatisticsUtil.c(), Config.v, jSONArray, false);
             }
-            if (i >= 204800 || z) {
+            if (i2 >= 204800 || z) {
                 LogSender.getInstance().triggerSending("normal_log");
             }
         }
@@ -175,7 +176,7 @@ public class c {
     public a a(String str) {
         JSONObject jSONObject;
         a aVar = new a();
-        synchronized (this.f3887e) {
+        synchronized (this.f3939e) {
             try {
                 StatisticsSettings a2 = PayStatisticsUtil.getInstance().a();
                 jSONObject = a2 != null ? new JSONObject(a2.getCommonHeader()) : null;
@@ -186,20 +187,20 @@ public class c {
         if (jSONObject == null) {
             return aVar;
         }
-        synchronized (this.f3886d) {
+        synchronized (this.f3938d) {
             try {
-                jSONObject.put("array", this.f3884b);
-                aVar.f3888a = this.f3884b.length();
-                aVar.f3889b = jSONObject.toString();
+                jSONObject.put("array", this.f3936b);
+                aVar.f3940a = this.f3936b.length();
+                aVar.f3941b = jSONObject.toString();
             } catch (JSONException unused2) {
             }
         }
         return aVar;
     }
 
-    public void a(int i, String str) {
+    public void a(int i2, String str) {
         if ("normal_log".equals(str)) {
-            this.f3885c = i;
+            this.f3937c = i2;
         }
     }
 }

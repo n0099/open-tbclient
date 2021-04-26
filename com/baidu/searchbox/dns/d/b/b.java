@@ -38,13 +38,13 @@ public abstract class b {
     }
 
     private int c(a aVar) {
-        int i = 0;
+        int i2 = 0;
         for (a aVar2 : this.ac) {
             if (aVar2.n().equals(aVar.n())) {
-                i++;
+                i2++;
             }
         }
-        return i;
+        return i2;
     }
 
     public abstract Queue<a> E();

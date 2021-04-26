@@ -1,10 +1,10 @@
 package com.google.common.collect;
 
 import com.baidu.android.common.others.IStringUtil;
-import d.h.c.a.g;
-import d.h.c.a.n;
-import d.h.c.a.o;
-import d.h.c.c.f0;
+import d.g.c.a.g;
+import d.g.c.a.n;
+import d.g.c.a.o;
+import d.g.c.c.f0;
 import java.io.Serializable;
 import java.lang.Comparable;
 import java.util.Comparator;
@@ -25,7 +25,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.Ordering, java.util.Comparator
         public int compare(Range<?> range, Range<?> range2) {
-            return d.h.c.c.o.f().d(range.lowerBound, range2.lowerBound).d(range.upperBound, range2.upperBound).e();
+            return d.g.c.c.o.f().d(range.lowerBound, range2.lowerBound).d(range.upperBound, range2.upperBound).e();
         }
     }
 
@@ -33,17 +33,17 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31069a;
+        public static final /* synthetic */ int[] f32038a;
 
         static {
             int[] iArr = new int[BoundType.values().length];
-            f31069a = iArr;
+            f32038a = iArr;
             try {
                 iArr[BoundType.OPEN.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31069a[BoundType.CLOSED.ordinal()] = 2;
+                f32038a[BoundType.CLOSED.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -53,10 +53,10 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     public static class b implements g<Range, Cut> {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f31070e = new b();
+        public static final b f32039e = new b();
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.h.c.a.g
+        @Override // d.g.c.a.g
         /* renamed from: a */
         public Cut apply(Range range) {
             return range.lowerBound;
@@ -67,10 +67,10 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     public static class c implements g<Range, Cut> {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final c f31071e = new c();
+        public static final c f32040e = new c();
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.h.c.a.g
+        @Override // d.g.c.a.g
         /* renamed from: a */
         public Cut apply(Range range) {
             return range.upperBound;
@@ -120,9 +120,9 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     }
 
     public static <C extends Comparable<?>> Range<C> downTo(C c2, BoundType boundType) {
-        int i = a.f31069a[boundType.ordinal()];
-        if (i != 1) {
-            if (i == 2) {
+        int i2 = a.f32038a[boundType.ordinal()];
+        if (i2 != 1) {
+            if (i2 == 2) {
                 return atLeast(c2);
             }
             throw new AssertionError();
@@ -163,7 +163,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     }
 
     public static <C extends Comparable<?>> g<Range<C>, Cut<C>> lowerBoundFn() {
-        return b.f31070e;
+        return b.f32039e;
     }
 
     public static <C extends Comparable<?>> Range<C> open(C c2, C c3) {
@@ -189,9 +189,9 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     }
 
     public static <C extends Comparable<?>> Range<C> upTo(C c2, BoundType boundType) {
-        int i = a.f31069a[boundType.ordinal()];
-        if (i != 1) {
-            if (i == 2) {
+        int i2 = a.f32038a[boundType.ordinal()];
+        if (i2 != 1) {
+            if (i2 == 2) {
                 return atMost(c2);
             }
             throw new AssertionError();
@@ -200,12 +200,12 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     }
 
     public static <C extends Comparable<?>> g<Range<C>, Cut<C>> upperBoundFn() {
-        return c.f31071e;
+        return c.f32040e;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.common.collect.Range<C extends java.lang.Comparable> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.h.c.a.o
+    @Override // d.g.c.a.o
     @Deprecated
     public /* bridge */ /* synthetic */ boolean apply(Object obj) {
         return apply((Range<C>) ((Comparable) obj));
@@ -248,7 +248,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
         return this.lowerBound.compareTo((Cut) range.lowerBound) <= 0 && this.upperBound.compareTo((Cut) range.upperBound) >= 0;
     }
 
-    @Override // d.h.c.a.o
+    @Override // d.g.c.a.o
     public boolean equals(Object obj) {
         if (obj instanceof Range) {
             Range range = (Range) obj;

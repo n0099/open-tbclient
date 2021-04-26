@@ -11,7 +11,7 @@ import com.vivo.push.util.p;
 import com.vivo.push.util.s;
 import com.vivo.push.y;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static void a(Context context, String str, y yVar) {
         boolean c2 = yVar.c();

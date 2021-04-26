@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class ScanQRActivityConfig extends IntentConfig {
     public static final String SCAN_RESULT_STRING = "result_String";
 
-    public ScanQRActivityConfig(Context context, int i) {
+    public ScanQRActivityConfig(Context context, int i2) {
         super(context);
-        getIntent().putExtra("request_code", i);
-        setRequestCode(i);
+        getIntent().putExtra("request_code", i2);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

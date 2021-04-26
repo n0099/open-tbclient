@@ -1,17 +1,17 @@
 package com.google.common.collect;
 
-import d.h.c.a.g;
-import d.h.c.a.n;
-import d.h.c.c.a1;
-import d.h.c.c.g0;
-import d.h.c.c.h0;
-import d.h.c.c.i0;
-import d.h.c.c.j0;
-import d.h.c.c.k;
-import d.h.c.c.s0;
-import d.h.c.c.v;
-import d.h.c.c.x0;
-import d.h.c.c.y0;
+import d.g.c.a.g;
+import d.g.c.a.n;
+import d.g.c.c.a1;
+import d.g.c.c.g0;
+import d.g.c.c.h0;
+import d.g.c.c.i0;
+import d.g.c.c.j0;
+import d.g.c.c.k;
+import d.g.c.c.s0;
+import d.g.c.c.v;
+import d.g.c.c.x0;
+import d.g.c.c.y0;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -94,7 +94,7 @@ public final class Synchronized {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.h.c.c.a1
+            @Override // d.g.c.c.a1
             /* renamed from: b */
             public Collection<V> a(Collection<V> collection) {
                 return Synchronized.q(collection, SynchronizedAsMapValues.this.mutex);
@@ -116,12 +116,12 @@ public final class Synchronized {
         public static final long serialVersionUID = 0;
 
         /* renamed from: e  reason: collision with root package name */
-        public transient Set<V> f31138e;
+        public transient Set<V> f32110e;
 
         /* renamed from: f  reason: collision with root package name */
-        public transient k<V, K> f31139f;
+        public transient k<V, K> f32111f;
 
-        @Override // d.h.c.c.k
+        @Override // d.g.c.c.k
         public V forcePut(K k, V v) {
             V forcePut;
             synchronized (this.mutex) {
@@ -130,21 +130,21 @@ public final class Synchronized {
             return forcePut;
         }
 
-        @Override // d.h.c.c.k
+        @Override // d.g.c.c.k
         public k<V, K> inverse() {
             k<V, K> kVar;
             synchronized (this.mutex) {
-                if (this.f31139f == null) {
-                    this.f31139f = new SynchronizedBiMap(delegate().inverse(), this.mutex, this);
+                if (this.f32111f == null) {
+                    this.f32111f = new SynchronizedBiMap(delegate().inverse(), this.mutex, this);
                 }
-                kVar = this.f31139f;
+                kVar = this.f32111f;
             }
             return kVar;
         }
 
         public SynchronizedBiMap(k<K, V> kVar, Object obj, k<V, K> kVar2) {
             super(kVar, obj);
-            this.f31139f = kVar2;
+            this.f32111f = kVar2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -152,10 +152,10 @@ public final class Synchronized {
         public Set<V> values() {
             Set<V> set;
             synchronized (this.mutex) {
-                if (this.f31138e == null) {
-                    this.f31138e = Synchronized.n(delegate().values(), this.mutex);
+                if (this.f32110e == null) {
+                    this.f32110e = Synchronized.n(delegate().values(), this.mutex);
                 }
-                set = this.f31138e;
+                set = this.f32110e;
             }
             return set;
         }
@@ -354,17 +354,17 @@ public final class Synchronized {
         }
 
         @Override // java.util.List
-        public void add(int i, E e2) {
+        public void add(int i2, E e2) {
             synchronized (this.mutex) {
-                delegate().add(i, e2);
+                delegate().add(i2, e2);
             }
         }
 
         @Override // java.util.List
-        public boolean addAll(int i, Collection<? extends E> collection) {
+        public boolean addAll(int i2, Collection<? extends E> collection) {
             boolean addAll;
             synchronized (this.mutex) {
-                addAll = delegate().addAll(i, collection);
+                addAll = delegate().addAll(i2, collection);
             }
             return addAll;
         }
@@ -382,10 +382,10 @@ public final class Synchronized {
         }
 
         @Override // java.util.List
-        public E get(int i) {
+        public E get(int i2) {
             E e2;
             synchronized (this.mutex) {
-                e2 = delegate().get(i);
+                e2 = delegate().get(i2);
             }
             return e2;
         }
@@ -423,35 +423,35 @@ public final class Synchronized {
         }
 
         @Override // java.util.List
-        public E remove(int i) {
+        public E remove(int i2) {
             E remove;
             synchronized (this.mutex) {
-                remove = delegate().remove(i);
+                remove = delegate().remove(i2);
             }
             return remove;
         }
 
         @Override // java.util.List
-        public E set(int i, E e2) {
+        public E set(int i2, E e2) {
             E e3;
             synchronized (this.mutex) {
-                e3 = delegate().set(i, e2);
+                e3 = delegate().set(i2, e2);
             }
             return e3;
         }
 
         @Override // java.util.List
-        public List<E> subList(int i, int i2) {
+        public List<E> subList(int i2, int i3) {
             List<E> h2;
             synchronized (this.mutex) {
-                h2 = Synchronized.h(delegate().subList(i, i2), this.mutex);
+                h2 = Synchronized.h(delegate().subList(i2, i3), this.mutex);
             }
             return h2;
         }
 
         @Override // java.util.List
-        public ListIterator<E> listIterator(int i) {
-            return delegate().listIterator(i);
+        public ListIterator<E> listIterator(int i2) {
+            return delegate().listIterator(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -471,19 +471,19 @@ public final class Synchronized {
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public /* bridge */ /* synthetic */ Collection get(Object obj) {
             return get((SynchronizedListMultimap<K, V>) obj);
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public /* bridge */ /* synthetic */ Collection replaceValues(Object obj, Iterable iterable) {
             return replaceValues((SynchronizedListMultimap<K, V>) obj, iterable);
         }
 
-        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public List<V> get(K k) {
             List<V> h2;
             synchronized (this.mutex) {
@@ -493,7 +493,7 @@ public final class Synchronized {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public List<V> removeAll(Object obj) {
             List<V> removeAll;
             synchronized (this.mutex) {
@@ -502,7 +502,7 @@ public final class Synchronized {
             return removeAll;
         }
 
-        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public List<V> replaceValues(K k, Iterable<? extends V> iterable) {
             List<V> replaceValues;
             synchronized (this.mutex) {
@@ -679,7 +679,7 @@ public final class Synchronized {
             super(h0Var, obj);
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public Map<K, Collection<V>> asMap() {
             Map<K, Collection<V>> map;
             synchronized (this.mutex) {
@@ -691,14 +691,14 @@ public final class Synchronized {
             return map;
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public void clear() {
             synchronized (this.mutex) {
                 delegate().clear();
             }
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public boolean containsEntry(Object obj, Object obj2) {
             boolean containsEntry;
             synchronized (this.mutex) {
@@ -707,7 +707,7 @@ public final class Synchronized {
             return containsEntry;
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public boolean containsKey(Object obj) {
             boolean containsKey;
             synchronized (this.mutex) {
@@ -716,7 +716,7 @@ public final class Synchronized {
             return containsKey;
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public boolean containsValue(Object obj) {
             boolean containsValue;
             synchronized (this.mutex) {
@@ -725,7 +725,7 @@ public final class Synchronized {
             return containsValue;
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public Collection<Map.Entry<K, V>> entries() {
             Collection<Map.Entry<K, V>> collection;
             synchronized (this.mutex) {
@@ -737,7 +737,7 @@ public final class Synchronized {
             return collection;
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public boolean equals(Object obj) {
             boolean equals;
             if (obj == this) {
@@ -757,7 +757,7 @@ public final class Synchronized {
             return q;
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public int hashCode() {
             int hashCode;
             synchronized (this.mutex) {
@@ -766,7 +766,7 @@ public final class Synchronized {
             return hashCode;
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public boolean isEmpty() {
             boolean isEmpty;
             synchronized (this.mutex) {
@@ -775,7 +775,7 @@ public final class Synchronized {
             return isEmpty;
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public Set<K> keySet() {
             Set<K> set;
             synchronized (this.mutex) {
@@ -787,7 +787,7 @@ public final class Synchronized {
             return set;
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public i0<K> keys() {
             i0<K> i0Var;
             synchronized (this.mutex) {
@@ -799,7 +799,7 @@ public final class Synchronized {
             return i0Var;
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public boolean put(K k, V v) {
             boolean put;
             synchronized (this.mutex) {
@@ -808,7 +808,7 @@ public final class Synchronized {
             return put;
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public boolean putAll(K k, Iterable<? extends V> iterable) {
             boolean putAll;
             synchronized (this.mutex) {
@@ -817,7 +817,7 @@ public final class Synchronized {
             return putAll;
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public boolean remove(Object obj, Object obj2) {
             boolean remove;
             synchronized (this.mutex) {
@@ -842,7 +842,7 @@ public final class Synchronized {
             return replaceValues;
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public int size() {
             int size;
             synchronized (this.mutex) {
@@ -851,7 +851,7 @@ public final class Synchronized {
             return size;
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public Collection<V> values() {
             Collection<V> collection;
             synchronized (this.mutex) {
@@ -869,7 +869,7 @@ public final class Synchronized {
             return (h0) super.delegate();
         }
 
-        @Override // d.h.c.c.h0
+        @Override // d.g.c.c.h0
         public boolean putAll(h0<? extends K, ? extends V> h0Var) {
             boolean putAll;
             synchronized (this.mutex) {
@@ -930,20 +930,20 @@ public final class Synchronized {
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public /* bridge */ /* synthetic */ Collection get(Object obj) {
             return get((SynchronizedSetMultimap<K, V>) obj);
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public /* bridge */ /* synthetic */ Collection replaceValues(Object obj, Iterable iterable) {
             return replaceValues((SynchronizedSetMultimap<K, V>) obj, iterable);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0
+        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0
         public Set<Map.Entry<K, V>> entries() {
             Set<Map.Entry<K, V>> set;
             synchronized (this.mutex) {
@@ -955,7 +955,7 @@ public final class Synchronized {
             return set;
         }
 
-        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public Set<V> get(K k) {
             Set<V> n;
             synchronized (this.mutex) {
@@ -965,7 +965,7 @@ public final class Synchronized {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public Set<V> removeAll(Object obj) {
             Set<V> removeAll;
             synchronized (this.mutex) {
@@ -974,7 +974,7 @@ public final class Synchronized {
             return removeAll;
         }
 
-        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public Set<V> replaceValues(K k, Iterable<? extends V> iterable) {
             Set<V> replaceValues;
             synchronized (this.mutex) {
@@ -1000,19 +1000,19 @@ public final class Synchronized {
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public /* bridge */ /* synthetic */ Collection get(Object obj) {
             return get((SynchronizedSortedSetMultimap<K, V>) obj);
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public /* bridge */ /* synthetic */ Collection replaceValues(Object obj, Iterable iterable) {
             return replaceValues((SynchronizedSortedSetMultimap<K, V>) obj, iterable);
         }
 
-        @Override // d.h.c.c.x0
+        @Override // d.g.c.c.x0
         public Comparator<? super V> valueComparator() {
             Comparator<? super V> valueComparator;
             synchronized (this.mutex) {
@@ -1023,19 +1023,19 @@ public final class Synchronized {
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public /* bridge */ /* synthetic */ Set get(Object obj) {
             return get((SynchronizedSortedSetMultimap<K, V>) obj);
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public /* bridge */ /* synthetic */ Set replaceValues(Object obj, Iterable iterable) {
             return replaceValues((SynchronizedSortedSetMultimap<K, V>) obj, iterable);
         }
 
-        @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public SortedSet<V> get(K k) {
             SortedSet<V> p;
             synchronized (this.mutex) {
@@ -1045,7 +1045,7 @@ public final class Synchronized {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public SortedSet<V> removeAll(Object obj) {
             SortedSet<V> removeAll;
             synchronized (this.mutex) {
@@ -1054,7 +1054,7 @@ public final class Synchronized {
             return removeAll;
         }
 
-        @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, d.h.c.c.h0, d.h.c.c.g0
+        @Override // com.google.common.collect.Synchronized.SynchronizedSetMultimap, com.google.common.collect.Synchronized.SynchronizedMultimap, d.g.c.c.h0, d.g.c.c.g0
         public SortedSet<V> replaceValues(K k, Iterable<? extends V> iterable) {
             SortedSet<V> replaceValues;
             synchronized (this.mutex) {
@@ -1079,7 +1079,7 @@ public final class Synchronized {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.h.c.a.g
+            @Override // d.g.c.a.g
             /* renamed from: a */
             public Map<C, V> apply(Map<C, V> map) {
                 return Synchronized.i(map, SynchronizedTable.this.mutex);
@@ -1092,7 +1092,7 @@ public final class Synchronized {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.h.c.a.g
+            @Override // d.g.c.a.g
             /* renamed from: a */
             public Map<R, V> apply(Map<R, V> map) {
                 return Synchronized.i(map, SynchronizedTable.this.mutex);
@@ -1103,7 +1103,7 @@ public final class Synchronized {
             super(y0Var, obj);
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public Set<y0.a<R, C, V>> cellSet() {
             Set<y0.a<R, C, V>> n;
             synchronized (this.mutex) {
@@ -1112,23 +1112,23 @@ public final class Synchronized {
             return n;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public void clear() {
             synchronized (this.mutex) {
                 delegate().clear();
             }
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public Map<R, V> column(C c2) {
-            Map<R, V> i;
+            Map<R, V> i2;
             synchronized (this.mutex) {
-                i = Synchronized.i(delegate().column(c2), this.mutex);
+                i2 = Synchronized.i(delegate().column(c2), this.mutex);
             }
-            return i;
+            return i2;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public Set<C> columnKeySet() {
             Set<C> n;
             synchronized (this.mutex) {
@@ -1137,16 +1137,16 @@ public final class Synchronized {
             return n;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public Map<C, Map<R, V>> columnMap() {
-            Map<C, Map<R, V>> i;
+            Map<C, Map<R, V>> i2;
             synchronized (this.mutex) {
-                i = Synchronized.i(Maps.D(delegate().columnMap(), new b()), this.mutex);
+                i2 = Synchronized.i(Maps.D(delegate().columnMap(), new b()), this.mutex);
             }
-            return i;
+            return i2;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public boolean contains(Object obj, Object obj2) {
             boolean contains;
             synchronized (this.mutex) {
@@ -1155,7 +1155,7 @@ public final class Synchronized {
             return contains;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public boolean containsColumn(Object obj) {
             boolean containsColumn;
             synchronized (this.mutex) {
@@ -1164,7 +1164,7 @@ public final class Synchronized {
             return containsColumn;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public boolean containsRow(Object obj) {
             boolean containsRow;
             synchronized (this.mutex) {
@@ -1173,7 +1173,7 @@ public final class Synchronized {
             return containsRow;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public boolean containsValue(Object obj) {
             boolean containsValue;
             synchronized (this.mutex) {
@@ -1182,7 +1182,7 @@ public final class Synchronized {
             return containsValue;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public boolean equals(Object obj) {
             boolean equals;
             if (this == obj) {
@@ -1194,7 +1194,7 @@ public final class Synchronized {
             return equals;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public V get(Object obj, Object obj2) {
             V v;
             synchronized (this.mutex) {
@@ -1203,7 +1203,7 @@ public final class Synchronized {
             return v;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public int hashCode() {
             int hashCode;
             synchronized (this.mutex) {
@@ -1212,7 +1212,7 @@ public final class Synchronized {
             return hashCode;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public boolean isEmpty() {
             boolean isEmpty;
             synchronized (this.mutex) {
@@ -1221,7 +1221,7 @@ public final class Synchronized {
             return isEmpty;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public V put(R r, C c2, V v) {
             V put;
             synchronized (this.mutex) {
@@ -1230,14 +1230,14 @@ public final class Synchronized {
             return put;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public void putAll(y0<? extends R, ? extends C, ? extends V> y0Var) {
             synchronized (this.mutex) {
                 delegate().putAll(y0Var);
             }
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public V remove(Object obj, Object obj2) {
             V remove;
             synchronized (this.mutex) {
@@ -1246,16 +1246,16 @@ public final class Synchronized {
             return remove;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public Map<C, V> row(R r) {
-            Map<C, V> i;
+            Map<C, V> i2;
             synchronized (this.mutex) {
-                i = Synchronized.i(delegate().row(r), this.mutex);
+                i2 = Synchronized.i(delegate().row(r), this.mutex);
             }
-            return i;
+            return i2;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public Set<R> rowKeySet() {
             Set<R> n;
             synchronized (this.mutex) {
@@ -1264,16 +1264,16 @@ public final class Synchronized {
             return n;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public Map<R, Map<C, V>> rowMap() {
-            Map<R, Map<C, V>> i;
+            Map<R, Map<C, V>> i2;
             synchronized (this.mutex) {
-                i = Synchronized.i(Maps.D(delegate().rowMap(), new a()), this.mutex);
+                i2 = Synchronized.i(Maps.D(delegate().rowMap(), new a()), this.mutex);
             }
-            return i;
+            return i2;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public int size() {
             int size;
             synchronized (this.mutex) {
@@ -1282,7 +1282,7 @@ public final class Synchronized {
             return size;
         }
 
-        @Override // d.h.c.c.y0
+        @Override // d.g.c.c.y0
         public Collection<V> values() {
             Collection<V> g2;
             synchronized (this.mutex) {
@@ -1371,16 +1371,16 @@ public final class Synchronized {
             super(i0Var, obj);
         }
 
-        @Override // d.h.c.c.i0
-        public int add(E e2, int i) {
+        @Override // d.g.c.c.i0
+        public int add(E e2, int i2) {
             int add;
             synchronized (this.mutex) {
-                add = delegate().add(e2, i);
+                add = delegate().add(e2, i2);
             }
             return add;
         }
 
-        @Override // d.h.c.c.i0
+        @Override // d.g.c.c.i0
         public int count(Object obj) {
             int count;
             synchronized (this.mutex) {
@@ -1389,7 +1389,7 @@ public final class Synchronized {
             return count;
         }
 
-        @Override // d.h.c.c.i0
+        @Override // d.g.c.c.i0
         public Set<E> elementSet() {
             Set<E> set;
             synchronized (this.mutex) {
@@ -1401,7 +1401,7 @@ public final class Synchronized {
             return set;
         }
 
-        @Override // d.h.c.c.i0
+        @Override // d.g.c.c.i0
         public Set<i0.a<E>> entrySet() {
             Set<i0.a<E>> set;
             synchronized (this.mutex) {
@@ -1413,7 +1413,7 @@ public final class Synchronized {
             return set;
         }
 
-        @Override // java.util.Collection, d.h.c.c.i0
+        @Override // java.util.Collection, d.g.c.c.i0
         public boolean equals(Object obj) {
             boolean equals;
             if (obj == this) {
@@ -1425,7 +1425,7 @@ public final class Synchronized {
             return equals;
         }
 
-        @Override // java.util.Collection, d.h.c.c.i0
+        @Override // java.util.Collection, d.g.c.c.i0
         public int hashCode() {
             int hashCode;
             synchronized (this.mutex) {
@@ -1434,20 +1434,20 @@ public final class Synchronized {
             return hashCode;
         }
 
-        @Override // d.h.c.c.i0
-        public int remove(Object obj, int i) {
+        @Override // d.g.c.c.i0
+        public int remove(Object obj, int i2) {
             int remove;
             synchronized (this.mutex) {
-                remove = delegate().remove(obj, i);
+                remove = delegate().remove(obj, i2);
             }
             return remove;
         }
 
-        @Override // d.h.c.c.i0
-        public int setCount(E e2, int i) {
+        @Override // d.g.c.c.i0
+        public int setCount(E e2, int i2) {
             int count;
             synchronized (this.mutex) {
-                count = delegate().setCount(e2, i);
+                count = delegate().setCount(e2, i2);
             }
             return count;
         }
@@ -1458,11 +1458,11 @@ public final class Synchronized {
             return (i0) super.delegate();
         }
 
-        @Override // d.h.c.c.i0
-        public boolean setCount(E e2, int i, int i2) {
+        @Override // d.g.c.c.i0
+        public boolean setCount(E e2, int i2, int i3) {
             boolean count;
             synchronized (this.mutex) {
-                count = delegate().setCount(e2, i, i2);
+                count = delegate().setCount(e2, i2, i3);
             }
             return count;
         }
@@ -1638,27 +1638,27 @@ public final class Synchronized {
 
             /* renamed from: com.google.common.collect.Synchronized$SynchronizedAsMapEntries$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0363a extends v<K, Collection<V>> {
+            public class C0357a extends v<K, Collection<V>> {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Map.Entry f31135e;
+                public final /* synthetic */ Map.Entry f32107e;
 
-                public C0363a(Map.Entry entry) {
-                    this.f31135e = entry;
+                public C0357a(Map.Entry entry) {
+                    this.f32107e = entry;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // d.h.c.c.y
+                @Override // d.g.c.c.y
                 /* renamed from: b */
                 public Map.Entry<K, Collection<V>> delegate() {
-                    return this.f31135e;
+                    return this.f32107e;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // d.h.c.c.v, java.util.Map.Entry
+                @Override // d.g.c.c.v, java.util.Map.Entry
                 /* renamed from: c */
                 public Collection<V> getValue() {
-                    return Synchronized.q((Collection) this.f31135e.getValue(), SynchronizedAsMapEntries.this.mutex);
+                    return Synchronized.q((Collection) this.f32107e.getValue(), SynchronizedAsMapEntries.this.mutex);
                 }
             }
 
@@ -1667,10 +1667,10 @@ public final class Synchronized {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.h.c.c.a1
+            @Override // d.g.c.c.a1
             /* renamed from: b */
             public Map.Entry<K, Collection<V>> a(Map.Entry<K, Collection<V>> entry) {
-                return new C0363a(entry);
+                return new C0357a(entry);
             }
         }
 
@@ -1691,7 +1691,7 @@ public final class Synchronized {
         public boolean containsAll(Collection<?> collection) {
             boolean b2;
             synchronized (this.mutex) {
-                b2 = d.h.c.c.n.b(delegate(), collection);
+                b2 = d.g.c.c.n.b(delegate(), collection);
             }
             return b2;
         }

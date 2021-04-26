@@ -20,8 +20,8 @@ public class ActVideoSetting implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public ActVideoSetting[] newArray(int i) {
-            return new ActVideoSetting[i];
+        public ActVideoSetting[] newArray(int i2) {
+            return new ActVideoSetting[i2];
         }
     };
     public static final String TAG = "ActVideoSetting";
@@ -43,7 +43,7 @@ public class ActVideoSetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                d.k.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                d.j.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -68,7 +68,7 @@ public class ActVideoSetting implements Parcelable {
             return actVideoSetting;
         }
         str = "no such tag ActVideoSetting";
-        d.k.a.a.a.b(TAG, str);
+        d.j.a.a.a.b(TAG, str);
         return actVideoSetting;
     }
 
@@ -98,7 +98,7 @@ public class ActVideoSetting implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeByte(this.wifiDisplay ? (byte) 1 : (byte) 0);
         parcel.writeString(this.actUrl);
     }

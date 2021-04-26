@@ -3,46 +3,48 @@ package com.kwad.sdk.pngencrypt;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final k f36558a;
+    public final k f34269a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36559b;
+    public int f34270b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36560c;
+    public int f34271c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36561d;
+    public int f34272d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36562e;
+    public int f34273e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36563f;
+    public int f34274f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f36564g;
+    public int f34275g;
     public int j;
     public int k;
     public boolean o;
-    public int i = 0;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f34277i = 0;
     public int l = -1;
     public int m = -1;
     public int n = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36565h = 0;
+    public int f34276h = 0;
 
     public e(k kVar) {
         this.o = false;
-        this.f36558a = kVar;
+        this.f34269a = kVar;
         this.o = false;
         a(1);
         c(0);
     }
 
-    public static byte[] b(int i) {
-        switch (i) {
+    public static byte[] b(int i2) {
+        switch (i2) {
             case 1:
                 return new byte[]{8, 8, 0, 0};
             case 2:
@@ -58,70 +60,70 @@ public class e {
             case 7:
                 return new byte[]{1, 2, 0, 1};
             default:
-                throw new PngjException("bad interlace pass" + i);
+                throw new PngjException("bad interlace pass" + i2);
         }
     }
 
-    private void c(int i) {
-        this.l = i;
-        int i2 = (i * this.f36559b) + this.f36561d;
-        this.m = i2;
-        if (i2 < 0 || i2 >= this.f36558a.f36570b) {
+    private void c(int i2) {
+        this.l = i2;
+        int i3 = (i2 * this.f34270b) + this.f34272d;
+        this.m = i3;
+        if (i3 < 0 || i3 >= this.f34269a.f34283b) {
             throw new PngjException("bad row - this should not happen");
         }
     }
 
-    public void a(int i) {
-        int i2;
-        if (this.i == i) {
+    public void a(int i2) {
+        int i3;
+        if (this.f34277i == i2) {
             return;
         }
-        this.i = i;
-        byte[] b2 = b(i);
-        this.f36560c = b2[0];
+        this.f34277i = i2;
+        byte[] b2 = b(i2);
+        this.f34271c = b2[0];
         byte b3 = b2[1];
-        this.f36559b = b3;
-        this.f36562e = b2[2];
+        this.f34270b = b3;
+        this.f34273e = b2[2];
         byte b4 = b2[3];
-        this.f36561d = b4;
-        int i3 = this.f36558a.f36570b;
-        this.j = i3 > b4 ? (((i3 + b3) - 1) - b4) / b3 : 0;
-        int i4 = this.f36558a.f36569a;
-        int i5 = this.f36562e;
-        if (i4 > i5) {
-            int i6 = this.f36560c;
-            i2 = (((i4 + i6) - 1) - i5) / i6;
+        this.f34272d = b4;
+        int i4 = this.f34269a.f34283b;
+        this.j = i4 > b4 ? (((i4 + b3) - 1) - b4) / b3 : 0;
+        int i5 = this.f34269a.f34282a;
+        int i6 = this.f34273e;
+        if (i5 > i6) {
+            int i7 = this.f34271c;
+            i3 = (((i5 + i7) - 1) - i6) / i7;
         } else {
-            i2 = 0;
+            i3 = 0;
         }
-        this.k = i2;
-        if (i2 == 0) {
+        this.k = i3;
+        if (i3 == 0) {
             this.j = 0;
         }
-        int i7 = this.f36560c;
-        int i8 = this.f36558a.f36572d;
-        this.f36564g = i7 * i8;
-        this.f36563f = this.f36562e * i8;
+        int i8 = this.f34271c;
+        int i9 = this.f34269a.f34285d;
+        this.f34275g = i8 * i9;
+        this.f34274f = this.f34273e * i9;
     }
 
     public boolean a() {
-        int i;
+        int i2;
         this.n++;
-        int i2 = this.j;
-        if (i2 == 0 || (i = this.l) >= i2 - 1) {
-            int i3 = this.i;
-            if (i3 == 7) {
+        int i3 = this.j;
+        if (i3 == 0 || (i2 = this.l) >= i3 - 1) {
+            int i4 = this.f34277i;
+            if (i4 == 7) {
                 this.o = true;
                 return false;
             }
-            a(i3 + 1);
+            a(i4 + 1);
             if (this.j == 0) {
                 this.n--;
                 return a();
             }
             c(0);
         } else {
-            c(i + 1);
+            c(i2 + 1);
         }
         return true;
     }
@@ -135,7 +137,7 @@ public class e {
     }
 
     public int d() {
-        return this.i;
+        return this.f34277i;
     }
 
     public int e() {
@@ -151,6 +153,6 @@ public class e {
     }
 
     public int h() {
-        return ((this.f36558a.i * g()) + 7) / 8;
+        return ((this.f34269a.f34290i * g()) + 7) / 8;
     }
 }

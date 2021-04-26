@@ -19,10 +19,10 @@ public class UrlRequestException extends IOException {
     public final int mCronetInternalErrorCode;
     public final int mErrorCode;
 
-    public UrlRequestException(String str, int i, int i2) {
+    public UrlRequestException(String str, int i2, int i3) {
         super(str, null);
-        this.mErrorCode = i;
-        this.mCronetInternalErrorCode = i2;
+        this.mErrorCode = i2;
+        this.mCronetInternalErrorCode = i3;
     }
 
     public int getCronetInternalErrorCode() {
@@ -34,8 +34,8 @@ public class UrlRequestException extends IOException {
     }
 
     public boolean immediatelyRetryable() {
-        int i = this.mErrorCode;
-        return i == 3 || i == 4 || i == 5 || i == 6 || i == 8 || i == 10;
+        int i2 = this.mErrorCode;
+        return i2 == 3 || i2 == 4 || i2 == 5 || i2 == 6 || i2 == 8 || i2 == 10;
     }
 
     public UrlRequestException(String str, Throwable th) {

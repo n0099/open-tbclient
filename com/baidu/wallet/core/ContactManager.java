@@ -46,12 +46,12 @@ public final class ContactManager implements NoProguard {
         }
 
         @Override // com.baidu.wallet.api.internal.IContacts
-        public boolean pickContactsByContactsContentUri(@NonNull Activity activity, int i) {
+        public boolean pickContactsByContactsContentUri(@NonNull Activity activity, int i2) {
             return false;
         }
 
         @Override // com.baidu.wallet.api.internal.IContacts
-        public boolean pickContactsByPhoneContentType(@NonNull Activity activity, int i) {
+        public boolean pickContactsByPhoneContentType(@NonNull Activity activity, int i2) {
             return false;
         }
     }

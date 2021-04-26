@@ -28,10 +28,10 @@ public class CardView extends FrameLayout {
     public int mUserSetMinWidth;
 
     static {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 21) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 21) {
             IMPL = new CardViewApi21Impl();
-        } else if (i >= 17) {
+        } else if (i2 >= 17) {
             IMPL = new CardViewApi17Impl();
         } else {
             IMPL = new CardViewBaseImpl();
@@ -89,32 +89,32 @@ public class CardView extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         if (!(IMPL instanceof CardViewApi21Impl)) {
-            int mode = View.MeasureSpec.getMode(i);
+            int mode = View.MeasureSpec.getMode(i2);
             if (mode == Integer.MIN_VALUE || mode == 1073741824) {
-                i = View.MeasureSpec.makeMeasureSpec(Math.max((int) Math.ceil(IMPL.getMinWidth(this.mCardViewDelegate)), View.MeasureSpec.getSize(i)), mode);
+                i2 = View.MeasureSpec.makeMeasureSpec(Math.max((int) Math.ceil(IMPL.getMinWidth(this.mCardViewDelegate)), View.MeasureSpec.getSize(i2)), mode);
             }
-            int mode2 = View.MeasureSpec.getMode(i2);
+            int mode2 = View.MeasureSpec.getMode(i3);
             if (mode2 == Integer.MIN_VALUE || mode2 == 1073741824) {
-                i2 = View.MeasureSpec.makeMeasureSpec(Math.max((int) Math.ceil(IMPL.getMinHeight(this.mCardViewDelegate)), View.MeasureSpec.getSize(i2)), mode2);
+                i3 = View.MeasureSpec.makeMeasureSpec(Math.max((int) Math.ceil(IMPL.getMinHeight(this.mCardViewDelegate)), View.MeasureSpec.getSize(i3)), mode2);
             }
-            super.onMeasure(i, i2);
+            super.onMeasure(i2, i3);
             return;
         }
-        super.onMeasure(i, i2);
+        super.onMeasure(i2, i3);
     }
 
-    public void setCardBackgroundColor(@ColorInt int i) {
-        IMPL.setBackgroundColor(this.mCardViewDelegate, ColorStateList.valueOf(i));
+    public void setCardBackgroundColor(@ColorInt int i2) {
+        IMPL.setBackgroundColor(this.mCardViewDelegate, ColorStateList.valueOf(i2));
     }
 
     public void setCardElevation(float f2) {
         IMPL.setElevation(this.mCardViewDelegate, f2);
     }
 
-    public void setContentPadding(@Px int i, @Px int i2, @Px int i3, @Px int i4) {
-        this.mContentPadding.set(i, i2, i3, i4);
+    public void setContentPadding(@Px int i2, @Px int i3, @Px int i4, @Px int i5) {
+        this.mContentPadding.set(i2, i3, i4, i5);
         IMPL.updatePadding(this.mCardViewDelegate);
     }
 
@@ -123,23 +123,23 @@ public class CardView extends FrameLayout {
     }
 
     @Override // android.view.View
-    public void setMinimumHeight(int i) {
-        this.mUserSetMinHeight = i;
-        super.setMinimumHeight(i);
+    public void setMinimumHeight(int i2) {
+        this.mUserSetMinHeight = i2;
+        super.setMinimumHeight(i2);
     }
 
     @Override // android.view.View
-    public void setMinimumWidth(int i) {
-        this.mUserSetMinWidth = i;
-        super.setMinimumWidth(i);
+    public void setMinimumWidth(int i2) {
+        this.mUserSetMinWidth = i2;
+        super.setMinimumWidth(i2);
     }
 
     @Override // android.view.View
-    public void setPadding(int i, int i2, int i3, int i4) {
+    public void setPadding(int i2, int i3, int i4, int i5) {
     }
 
     @Override // android.view.View
-    public void setPaddingRelative(int i, int i2, int i3, int i4) {
+    public void setPaddingRelative(int i2, int i3, int i4, int i5) {
     }
 
     public void setPreventCornerOverlap(boolean z) {
@@ -168,8 +168,8 @@ public class CardView extends FrameLayout {
         IMPL.setBackgroundColor(this.mCardViewDelegate, colorStateList);
     }
 
-    public CardView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public CardView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         int color;
         ColorStateList valueOf;
         this.mContentPadding = new Rect();
@@ -204,26 +204,26 @@ public class CardView extends FrameLayout {
             }
 
             @Override // androidx.cardview.widget.CardViewDelegate
-            public void setMinWidthHeightInternal(int i2, int i3) {
+            public void setMinWidthHeightInternal(int i3, int i4) {
                 CardView cardView = CardView.this;
-                if (i2 > cardView.mUserSetMinWidth) {
-                    CardView.super.setMinimumWidth(i2);
+                if (i3 > cardView.mUserSetMinWidth) {
+                    CardView.super.setMinimumWidth(i3);
                 }
                 CardView cardView2 = CardView.this;
-                if (i3 > cardView2.mUserSetMinHeight) {
-                    CardView.super.setMinimumHeight(i3);
+                if (i4 > cardView2.mUserSetMinHeight) {
+                    CardView.super.setMinimumHeight(i4);
                 }
             }
 
             @Override // androidx.cardview.widget.CardViewDelegate
-            public void setShadowPadding(int i2, int i3, int i4, int i5) {
-                CardView.this.mShadowBounds.set(i2, i3, i4, i5);
+            public void setShadowPadding(int i3, int i4, int i5, int i6) {
+                CardView.this.mShadowBounds.set(i3, i4, i5, i6);
                 CardView cardView = CardView.this;
                 Rect rect = cardView.mContentPadding;
-                CardView.super.setPadding(i2 + rect.left, i3 + rect.top, i4 + rect.right, i5 + rect.bottom);
+                CardView.super.setPadding(i3 + rect.left, i4 + rect.top, i5 + rect.right, i6 + rect.bottom);
             }
         };
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.CardView, i, R.style.CardView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.CardView, i2, R.style.CardView);
         if (obtainStyledAttributes.hasValue(R.styleable.CardView_cardBackgroundColor)) {
             valueOf = obtainStyledAttributes.getColorStateList(R.styleable.CardView_cardBackgroundColor);
         } else {

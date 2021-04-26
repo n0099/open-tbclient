@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.c.e.m.b;
-import d.b.i0.m.d;
-import d.b.i0.r.q.a2;
+import d.a.c.e.m.b;
+import d.a.i0.m.d;
+import d.a.i0.r.q.a2;
 /* loaded from: classes3.dex */
 public class ClickableHeaderImageView extends HeadImageView {
     public a2 W0;
@@ -78,15 +78,15 @@ public class ClickableHeaderImageView extends HeadImageView {
         setContentDescription(T.getName_show() + getContext().getString(R.string.somebodys_portrait));
         setUserId(T.getUserId());
         setUserName(T.getUserName());
-        if (a2Var.q1() != null && this.W0.s1() == 49) {
+        if (a2Var.q1() != null && (this.W0.s1() == 49 || this.W0.s1() == 69)) {
             setUrl(a2Var.T().getAvater());
-            W(a2Var.T().getAvater(), 28, false);
+            V(a2Var.T().getAvater(), 28, false);
         } else {
             setUrl(T.getAvater());
             if (!StringUtils.isNull(T.getAvater()) && T.getAvater().contains("http")) {
-                W(T.getAvater(), 10, false);
+                V(T.getAvater(), 10, false);
             } else {
-                W(T.getAvater(), 28, false);
+                V(T.getAvater(), 28, false);
             }
         }
         UtilHelper.showHeadImageViewBigV(this, T);

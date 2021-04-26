@@ -2,25 +2,25 @@ package com.baidu.swan.apps.commonsync;
 
 import com.alipay.sdk.cons.b;
 import com.baidu.searchbox.NoProGuard;
-import d.h.d.a.c;
+import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class CommonSyncServerData implements Serializable, NoProGuard {
-    @c("items")
+    @SerializedName("items")
     public List<MetaItemInfo> metaItems;
 
     /* loaded from: classes2.dex */
     public class MetaData implements NoProGuard {
-        @c("logo_url")
+        @SerializedName("logo_url")
         public String logoUrl;
-        @c("data")
+        @SerializedName("data")
         public OtherData otherData;
-        @c("mut_plat_conf")
+        @SerializedName("mut_plat_conf")
         public PlatConf platConf;
-        @c("sub_id")
+        @SerializedName("sub_id")
         public String subId;
-        @c("title")
+        @SerializedName("title")
         public String title;
 
         public MetaData() {
@@ -29,7 +29,7 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
 
     /* loaded from: classes2.dex */
     public class MetaItemInfo implements NoProGuard {
-        @c("meta")
+        @SerializedName("meta")
         public MetaData metaData;
 
         public MetaItemInfo() {
@@ -38,9 +38,9 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
 
     /* loaded from: classes2.dex */
     public class OtherData implements NoProGuard {
-        @c(b.f1883h)
+        @SerializedName(b.f1831h)
         public String appKey;
-        @c("frame_type")
+        @SerializedName("frame_type")
         public int frameType = -1;
 
         public OtherData() {
@@ -49,7 +49,7 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
 
     /* loaded from: classes2.dex */
     public class PlatConf implements NoProGuard {
-        @c("h5")
+        @SerializedName("h5")
         public PlatH5 platH5;
 
         public PlatConf() {
@@ -58,7 +58,7 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
 
     /* loaded from: classes2.dex */
     public class PlatH5 implements NoProGuard {
-        @c("url")
+        @SerializedName("url")
         public String url;
 
         public PlatH5() {

@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes4.dex */
 public class LegoTbImageView extends TbImageView {
-    public LegoTbImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public LegoTbImageView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         G();
     }
 

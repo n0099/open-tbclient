@@ -71,7 +71,7 @@ public class LogInterceptor implements Interceptor {
         try {
             Buffer buffer2 = new Buffer();
             buffer.copyTo(buffer2, 0L, buffer.size() < 64 ? buffer.size() : 64L);
-            for (int i = 0; i < 16; i++) {
+            for (int i2 = 0; i2 < 16; i2++) {
                 if (buffer2.exhausted()) {
                     return true;
                 }
@@ -114,18 +114,18 @@ public class LogInterceptor implements Interceptor {
                 }
                 Headers headers2 = request.headers();
                 int size = headers2.size();
-                int i = 0;
-                while (i < size) {
-                    String name = headers2.name(i);
-                    int i2 = size;
+                int i2 = 0;
+                while (i2 < size) {
+                    String name = headers2.name(i2);
+                    int i3 = size;
                     if ("Content-Type".equalsIgnoreCase(name) || "Content-Length".equalsIgnoreCase(name)) {
                         z2 = z4;
                     } else {
                         z2 = z4;
-                        this.logger.log(name + ": " + headers2.value(i));
+                        this.logger.log(name + ": " + headers2.value(i2));
                     }
-                    i++;
-                    size = i2;
+                    i2++;
+                    size = i3;
                     z4 = z2;
                 }
                 z = z4;
@@ -176,8 +176,8 @@ public class LogInterceptor implements Interceptor {
             logger.log(sb.toString());
             if (z) {
                 int size2 = proceed.headers().size();
-                for (int i3 = 0; i3 < size2; i3++) {
-                    this.logger.log(headers.name(i3) + ": " + headers.value(i3));
+                for (int i4 = 0; i4 < size2; i4++) {
+                    this.logger.log(headers.name(i4) + ": " + headers.value(i4));
                 }
                 if (z3 && HttpHeaders.hasBody(proceed)) {
                     if (bodyEncoded(proceed.headers())) {

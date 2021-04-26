@@ -1,93 +1,55 @@
 package com.win.opensdk;
 
 import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Message;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import com.win.opensdk.core.Info;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
-public class A1 implements View.OnClickListener, View.OnTouchListener {
+/* loaded from: classes6.dex */
+public class A1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40000a;
+    public Context f37608a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40001b;
+    public Info f37609b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f40002c;
+    public Handler f37610c = new y1(this);
 
-    /* renamed from: d  reason: collision with root package name */
-    public int f40003d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f40004e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f40005f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ B1 f40006g;
-
-    public A1(B1 b1) {
-        this.f40006g = b1;
+    public static boolean a(Uri uri) {
+        return "appmarket".equalsIgnoreCase(uri.getScheme());
     }
 
-    public HashMap a() {
-        HashMap hashMap = new HashMap();
-        hashMap.put("dx", Integer.valueOf(this.f40000a));
-        hashMap.put("dy", Integer.valueOf(this.f40001b));
-        hashMap.put("dts", Long.valueOf(this.f40002c));
-        hashMap.put("ux", Integer.valueOf(this.f40003d));
-        hashMap.put("uy", Integer.valueOf(this.f40004e));
-        hashMap.put("uts", Long.valueOf(this.f40005f));
-        B1 b1 = this.f40006g;
-        G.a(hashMap, b1.p, b1.q, b1.r, b1.s, b1.t, b1.u);
-        return hashMap;
+    public static boolean b(Uri uri) {
+        String scheme = uri.getScheme();
+        String host = uri.getHost();
+        return "market".equalsIgnoreCase(scheme) || "market.android.com".equalsIgnoreCase(host) || "play.google.com".equalsIgnoreCase(host);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        int action = motionEvent.getAction();
-        if (action == 0) {
-            this.f40000a = (int) motionEvent.getRawX();
-            this.f40001b = (int) motionEvent.getRawY();
-            this.f40002c = System.currentTimeMillis();
-            this.f40006g.p = (int) motionEvent.getX();
-            this.f40006g.q = (int) motionEvent.getY();
-            B1.a(this.f40006g, view);
-            return false;
-        } else if (action != 1) {
-            return false;
-        } else {
-            this.f40003d = (int) motionEvent.getRawX();
-            this.f40004e = (int) motionEvent.getRawY();
-            this.f40005f = System.currentTimeMillis();
-            this.f40006g.r = (int) motionEvent.getX();
-            this.f40006g.s = (int) motionEvent.getY();
-            B1 b1 = this.f40006g;
-            Info info = b1.f40011c;
-            if (info == null || !R1.a(info, b1.f40016h)) {
-                return false;
-            }
-            this.f40006g.f40016h = System.currentTimeMillis();
-            B1 b12 = this.f40006g;
-            Context context = b12.f40009a;
-            String open = b12.f40011c.getOpen();
-            B1 b13 = this.f40006g;
-            R1.a(context, open, b13.f40011c, b13.f40015g, a().toString());
-            a1.a(this.f40006g.f40009a).a(new b1(this.f40006g.f40011c), (String) null).a("desc", a().toString()).a();
-            G.a(this.f40006g.f40011c, a().toString());
-            r rVar = this.f40006g.f40014f;
-            if (rVar != null) {
-                rVar.onClicked();
-                return false;
-            }
-            return false;
+    public void a(Context context, String str, Info info) {
+        this.f37608a = context;
+        this.f37609b = info;
+        WebView webView = new WebView(context);
+        WebSettings settings = webView.getSettings();
+        settings.setAllowContentAccess(true);
+        settings.setJavaScriptEnabled(true);
+        if (Build.VERSION.SDK_INT >= 11) {
+            webView.removeJavascriptInterface("searchBoxJavaBridge_");
+            webView.removeJavascriptInterface("accessibility");
+            webView.removeJavascriptInterface("accessibilityTraversal");
         }
+        webView.setWebViewClient(new z1(this, context, info, str));
+        HashMap hashMap = new HashMap();
+        hashMap.put("X-Requested-With", "");
+        webView.loadUrl(str, hashMap);
+        Message obtain = Message.obtain();
+        obtain.what = 11;
+        obtain.obj = str;
+        this.f37610c.sendMessageDelayed(obtain, 5000L);
     }
 }

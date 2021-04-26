@@ -14,7 +14,7 @@ public final class a implements Parcelable.Creator<BDLocation> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // android.os.Parcelable.Creator
-    public BDLocation[] newArray(int i) {
-        return new BDLocation[i];
+    public BDLocation[] newArray(int i2) {
+        return new BDLocation[i2];
     }
 }

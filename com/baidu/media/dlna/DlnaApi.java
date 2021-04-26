@@ -20,10 +20,10 @@ import java.util.Map;
 public class DlnaApi {
 
     /* renamed from: a  reason: collision with root package name */
-    public static DlnaProvider.DlnaSearchListener f7967a;
+    public static DlnaProvider.DlnaSearchListener f8255a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f7968b = new a(Looper.getMainLooper());
+    public static Handler f8256b = new a(Looper.getMainLooper());
 
     /* loaded from: classes2.dex */
     public static class a extends Handler {
@@ -33,19 +33,19 @@ public class DlnaApi {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            int i = message.what;
+            int i2 = message.what;
             try {
-                if (i == 1) {
+                if (i2 == 1) {
                     Map<String, Object> map = (Map) message.obj;
                     synchronized (DlnaApi.class) {
-                        if (DlnaApi.f7967a != null && map != null) {
-                            DlnaApi.f7967a.onDeviceChangeNotification(map);
+                        if (DlnaApi.f8255a != null && map != null) {
+                            DlnaApi.f8255a.onDeviceChangeNotification(map);
                         }
                     }
-                } else if (i == 2) {
+                } else if (i2 == 2) {
                     synchronized (DlnaApi.class) {
-                        if (DlnaApi.f7967a != null) {
-                            DlnaApi.f7967a.onRefreshFinishNotification(message.arg1, message.arg2);
+                        if (DlnaApi.f8255a != null) {
+                            DlnaApi.f8255a.onRefreshFinishNotification(message.arg1, message.arg2);
                         }
                     }
                 }
@@ -115,7 +115,7 @@ public class DlnaApi {
         HashMap hashMap = new HashMap();
         hashMap.put("friendlyName", str);
         hashMap.put("uuid", str2);
-        Message.obtain(f7968b, 1, hashMap).sendToTarget();
+        Message.obtain(f8256b, 1, hashMap).sendToTarget();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0075, code lost:
@@ -137,7 +137,7 @@ public class DlnaApi {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String onFindFilePath(int i) {
+    public static String onFindFilePath(int i2) {
         Context applicationContext = CyberPlayerManager.getApplicationContext();
         if (applicationContext == null) {
             return null;
@@ -147,10 +147,10 @@ public class DlnaApi {
         if (externalStorageCacheDirectory != null) {
             externalStorageCacheDirectory = externalStorageCacheDirectory + File.separator + applicationContext.getPackageName() + File.separator + ".video_statistic" + File.separator + "duplayer";
         }
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
+        if (i2 != 0) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 == 3) {
                         if (externalStorageCacheDirectory != null) {
                         }
                     }
@@ -167,21 +167,21 @@ public class DlnaApi {
     }
 
     @Keep
-    public static void onRefreshFinished(int i, int i2) {
-        Message obtain = Message.obtain(f7968b, 2);
-        obtain.arg1 = i;
-        obtain.arg2 = i2;
+    public static void onRefreshFinished(int i2, int i3) {
+        Message obtain = Message.obtain(f8256b, 2);
+        obtain.arg1 = i2;
+        obtain.arg2 = i3;
         obtain.sendToTarget();
     }
 
     public static void search(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
-        f7967a = dlnaSearchListener;
+        f8255a = dlnaSearchListener;
         nativeSearch();
     }
 
     public static void stop() {
         synchronized (DlnaApi.class) {
-            f7967a = null;
+            f8255a = null;
         }
         nativeStop();
     }

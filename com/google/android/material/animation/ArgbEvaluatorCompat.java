@@ -1,16 +1,19 @@
 package com.google.android.material.animation;
 
 import android.animation.TypeEvaluator;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public class ArgbEvaluatorCompat implements TypeEvaluator<Integer> {
     public static final ArgbEvaluatorCompat instance = new ArgbEvaluatorCompat();
 
+    @NonNull
     public static ArgbEvaluatorCompat getInstance() {
         return instance;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.TypeEvaluator
+    @NonNull
     public Integer evaluate(float f2, Integer num, Integer num2) {
         int intValue = num.intValue();
         float f3 = ((intValue >> 24) & 255) / 255.0f;

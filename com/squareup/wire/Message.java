@@ -43,20 +43,20 @@ public abstract class Message {
             return this.unknownFieldMap;
         }
 
-        public void addFixed32(int i, int i2) {
-            ensureUnknownFieldMap().addFixed32(i, Integer.valueOf(i2));
+        public void addFixed32(int i2, int i3) {
+            ensureUnknownFieldMap().addFixed32(i2, Integer.valueOf(i3));
         }
 
-        public void addFixed64(int i, long j) {
-            ensureUnknownFieldMap().addFixed64(i, Long.valueOf(j));
+        public void addFixed64(int i2, long j) {
+            ensureUnknownFieldMap().addFixed64(i2, Long.valueOf(j));
         }
 
-        public void addLengthDelimited(int i, ByteString byteString) {
-            ensureUnknownFieldMap().addLengthDelimited(i, byteString);
+        public void addLengthDelimited(int i2, ByteString byteString) {
+            ensureUnknownFieldMap().addLengthDelimited(i2, byteString);
         }
 
-        public void addVarint(int i, long j) {
-            ensureUnknownFieldMap().addVarint(i, Long.valueOf(j));
+        public void addVarint(int i2, long j) {
+            ensureUnknownFieldMap().addVarint(i2, Long.valueOf(j));
         }
 
         public abstract T build(boolean z);
@@ -204,8 +204,8 @@ public abstract class Message {
             TYPES_BY_NAME.put("double", DOUBLE);
         }
 
-        Datatype(int i) {
-            this.value = i;
+        Datatype(int i2) {
+            this.value = i2;
         }
 
         public static Datatype of(String str) {
@@ -271,8 +271,8 @@ public abstract class Message {
         };
         public final int value;
 
-        Label(int i) {
-            this.value = i;
+        Label(int i2) {
+            this.value = i2;
         }
 
         /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
@@ -316,8 +316,8 @@ public abstract class Message {
         return new ArrayList(list);
     }
 
-    public static <E extends Enum & ProtoEnum> E enumFromInt(Class<E> cls, int i) {
-        return (E) ((Enum) WIRE.enumAdapter(cls).fromInt(i));
+    public static <E extends Enum & ProtoEnum> E enumFromInt(Class<E> cls, int i2) {
+        return (E) ((Enum) WIRE.enumAdapter(cls).fromInt(i2));
     }
 
     public static <T> List<T> immutableCopyOf(List<T> list) {
@@ -399,7 +399,7 @@ public abstract class Message {
         return true;
     }
 
-    public void writeTo(byte[] bArr, int i, int i2) {
-        write(WireOutput.newInstance(bArr, i, i2));
+    public void writeTo(byte[] bArr, int i2, int i3) {
+        write(WireOutput.newInstance(bArr, i2, i3));
     }
 }

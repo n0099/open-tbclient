@@ -4,15 +4,15 @@ import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.comm.constants.LoadAdParams;
 /* loaded from: classes6.dex */
 public interface NEADI extends ADI {
-    void loadAd(int i);
+    void loadAd(int i2);
 
-    void loadAd(int i, LoadAdParams loadAdParams);
+    void loadAd(int i2, LoadAdParams loadAdParams);
 
-    void setMaxVideoDuration(int i);
+    void setMaxVideoDuration(int i2);
 
-    void setMinVideoDuration(int i);
+    void setMinVideoDuration(int i2);
 
     void setVideoOption(VideoOption videoOption);
 
-    void setVideoPlayPolicy(int i);
+    void setVideoPlayPolicy(int i2);
 }

@@ -26,11 +26,11 @@ public class DefaultPoolExecutor {
         MAX_CORE_POOL_SIZE = availableProcessors + 1;
     }
 
-    public static ThreadPoolExecutor newDefaultPoolExecutor(int i) {
-        if (i == 0) {
+    public static ThreadPoolExecutor newDefaultPoolExecutor(int i2) {
+        if (i2 == 0) {
             return null;
         }
-        int min = Math.min(i, MAX_CORE_POOL_SIZE);
+        int min = Math.min(i2, MAX_CORE_POOL_SIZE);
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(min, min, 30L, TimeUnit.SECONDS, new ArrayBlockingQueue(64), sThreadFactory);
         executor = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(true);

@@ -16,15 +16,15 @@ public class ResponseGetStickersMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         JSONArray optJSONArray;
-        super.decodeLogicInBackGround(i, jSONObject);
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (getError() != 0 || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("list")) == null || optJSONArray.length() <= 0) {
             return;
         }
-        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-            StickerItem stickerItem = (StickerItem) OrmObject.objectWithJsonStr(optJSONArray.getString(i2), StickerItem.class);
+        for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+            StickerItem stickerItem = (StickerItem) OrmObject.objectWithJsonStr(optJSONArray.getString(i3), StickerItem.class);
             if (this.mStickerItems == null) {
                 this.mStickerItems = new ArrayList();
             }

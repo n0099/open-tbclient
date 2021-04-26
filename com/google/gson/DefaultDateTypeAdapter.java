@@ -1,11 +1,12 @@
 package com.google.gson;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.google.gson.internal.JavaVersion;
+import com.google.gson.internal.PreJava9DateFormatProvider;
+import com.google.gson.internal.bind.util.ISO8601Utils;
+import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
-import d.h.d.b.c;
-import d.h.d.b.f;
-import d.h.d.b.j.c.a;
-import d.h.d.d.b;
+import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.DateFormat;
@@ -29,8 +30,8 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2));
         }
-        if (c.e()) {
-            this.dateFormats.add(f.e(2, 2));
+        if (JavaVersion.isJava9OrLater()) {
+            this.dateFormats.add(PreJava9DateFormatProvider.getUSDateTimeFormat(2, 2));
         }
     }
 
@@ -43,7 +44,7 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
                 }
             }
             try {
-                return a.c(str, new ParsePosition(0));
+                return ISO8601Utils.parse(str, new ParsePosition(0));
             } catch (ParseException e2) {
                 throw new JsonSyntaxException(str, e2);
             }
@@ -67,12 +68,12 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
-    public Date read(d.h.d.d.a aVar) throws IOException {
-        if (aVar.M() == JsonToken.NULL) {
-            aVar.I();
+    public Date read(JsonReader jsonReader) throws IOException {
+        if (jsonReader.peek() == JsonToken.NULL) {
+            jsonReader.nextNull();
             return null;
         }
-        Date deserializeToDate = deserializeToDate(aVar.K());
+        Date deserializeToDate = deserializeToDate(jsonReader.nextString());
         Class<? extends Date> cls = this.dateType;
         if (cls == Date.class) {
             return deserializeToDate;
@@ -88,13 +89,13 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
-    public void write(b bVar, Date date) throws IOException {
+    public void write(JsonWriter jsonWriter, Date date) throws IOException {
         if (date == null) {
-            bVar.B();
+            jsonWriter.nullValue();
             return;
         }
         synchronized (this.dateFormats) {
-            bVar.O(this.dateFormats.get(0).format(date));
+            jsonWriter.value(this.dateFormats.get(0).format(date));
         }
     }
 
@@ -108,31 +109,31 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         this.dateFormats.add(new SimpleDateFormat(str));
     }
 
-    public DefaultDateTypeAdapter(Class<? extends Date> cls, int i) {
+    public DefaultDateTypeAdapter(Class<? extends Date> cls, int i2) {
         this.dateFormats = new ArrayList();
         this.dateType = verifyDateType(cls);
-        this.dateFormats.add(DateFormat.getDateInstance(i, Locale.US));
+        this.dateFormats.add(DateFormat.getDateInstance(i2, Locale.US));
         if (!Locale.getDefault().equals(Locale.US)) {
-            this.dateFormats.add(DateFormat.getDateInstance(i));
+            this.dateFormats.add(DateFormat.getDateInstance(i2));
         }
-        if (c.e()) {
-            this.dateFormats.add(f.d(i));
+        if (JavaVersion.isJava9OrLater()) {
+            this.dateFormats.add(PreJava9DateFormatProvider.getUSDateFormat(i2));
         }
     }
 
-    public DefaultDateTypeAdapter(int i, int i2) {
-        this(Date.class, i, i2);
+    public DefaultDateTypeAdapter(int i2, int i3) {
+        this(Date.class, i2, i3);
     }
 
-    public DefaultDateTypeAdapter(Class<? extends Date> cls, int i, int i2) {
+    public DefaultDateTypeAdapter(Class<? extends Date> cls, int i2, int i3) {
         this.dateFormats = new ArrayList();
         this.dateType = verifyDateType(cls);
-        this.dateFormats.add(DateFormat.getDateTimeInstance(i, i2, Locale.US));
+        this.dateFormats.add(DateFormat.getDateTimeInstance(i2, i3, Locale.US));
         if (!Locale.getDefault().equals(Locale.US)) {
-            this.dateFormats.add(DateFormat.getDateTimeInstance(i, i2));
+            this.dateFormats.add(DateFormat.getDateTimeInstance(i2, i3));
         }
-        if (c.e()) {
-            this.dateFormats.add(f.e(i, i2));
+        if (JavaVersion.isJava9OrLater()) {
+            this.dateFormats.add(PreJava9DateFormatProvider.getUSDateTimeFormat(i2, i3));
         }
     }
 }

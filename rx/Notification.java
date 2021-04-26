@@ -3,16 +3,16 @@ package rx;
 public final class Notification<T> {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Notification<Void> f69292d = new Notification<>(Kind.OnCompleted, null, null);
+    public static final Notification<Void> f68329d = new Notification<>(Kind.OnCompleted, null, null);
 
     /* renamed from: a  reason: collision with root package name */
-    public final Kind f69293a;
+    public final Kind f68330a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Throwable f69294b;
+    public final Throwable f68331b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final T f69295c;
+    public final T f68332c;
 
     /* loaded from: classes7.dex */
     public enum Kind {
@@ -22,13 +22,13 @@ public final class Notification<T> {
     }
 
     public Notification(Kind kind, T t, Throwable th) {
-        this.f69295c = t;
-        this.f69294b = th;
-        this.f69293a = kind;
+        this.f68332c = t;
+        this.f68331b = th;
+        this.f68330a = kind;
     }
 
     public static <T> Notification<T> a() {
-        return (Notification<T>) f69292d;
+        return (Notification<T>) f68329d;
     }
 
     public static <T> Notification<T> b(Throwable th) {
@@ -40,11 +40,11 @@ public final class Notification<T> {
     }
 
     public Kind d() {
-        return this.f69293a;
+        return this.f68330a;
     }
 
     public Throwable e() {
-        return this.f69294b;
+        return this.f68331b;
     }
 
     public boolean equals(Object obj) {
@@ -59,11 +59,11 @@ public final class Notification<T> {
         }
         Notification notification = (Notification) obj;
         if (notification.d() == d()) {
-            T t = this.f69295c;
-            T t2 = notification.f69295c;
+            T t = this.f68332c;
+            T t2 = notification.f68332c;
             if (t == t2 || (t != null && t.equals(t2))) {
-                Throwable th = this.f69294b;
-                Throwable th2 = notification.f69294b;
+                Throwable th = this.f68331b;
+                Throwable th2 = notification.f68331b;
                 return th == th2 || (th != null && th.equals(th2));
             }
             return false;
@@ -72,15 +72,15 @@ public final class Notification<T> {
     }
 
     public T f() {
-        return this.f69295c;
+        return this.f68332c;
     }
 
     public boolean g() {
-        return j() && this.f69294b != null;
+        return j() && this.f68331b != null;
     }
 
     public boolean h() {
-        return k() && this.f69295c != null;
+        return k() && this.f68332c != null;
     }
 
     public int hashCode() {

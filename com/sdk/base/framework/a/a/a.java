@@ -9,31 +9,31 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38790a = "a";
+    public static final String f36371a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f38791b = Boolean.valueOf(f.f38904b);
+    public static Boolean f36372b = Boolean.valueOf(f.f36488b);
 
-    public static String a(int i, String str) {
+    public static String a(int i2, String str) {
         String a2 = com.sdk.base.framework.f.d.a.a();
         if (c.b(a2).booleanValue()) {
-            return "accessCode" + i + str + a2;
+            return "accessCode" + i2 + str + a2;
         }
         return null;
     }
 
-    public static String a(Context context, int i, String str) {
+    public static String a(Context context, int i2, String str) {
         if (SDKManager.useCache()) {
-            String a2 = a(i, str);
+            String a2 = a(i2, str);
             if (c.b(a2).booleanValue()) {
                 String b2 = com.sdk.base.framework.f.b.a.b(context, a2);
                 if (c.b(b2).booleanValue()) {
                     String b3 = b(b2);
                     String a3 = com.sdk.base.framework.f.k.a.a(context, a(b2));
                     if (!com.sdk.base.framework.f.k.a.a(a3)) {
-                        c.a(f38790a, "can use cache", f38791b);
+                        c.a(f36371a, "can use cache", f36372b);
                         JSONObject jSONObject = new JSONObject(a3);
-                        if (i == 1) {
+                        if (i2 == 1) {
                             jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
                         }
                         StringBuilder sb = new StringBuilder();
@@ -42,7 +42,7 @@ public class a {
                         sb.append(b3);
                         return sb.toString();
                     }
-                    c.a(f38790a, "OutDate cache invalid", f38791b);
+                    c.a(f36371a, "OutDate cache invalid", f36372b);
                 }
             }
             return null;
@@ -59,13 +59,13 @@ public class a {
     }
 
     public static void a(Context context) {
-        c.a(f38790a, "cache clear", f38791b);
+        c.a(f36371a, "cache clear", f36372b);
         com.sdk.base.framework.f.b.a.d(context, "accessCode");
     }
 
-    public static void a(Context context, int i, String str, String str2) {
+    public static void a(Context context, int i2, String str, String str2) {
         if (SDKManager.useCache() && c.b(str).booleanValue()) {
-            String a2 = a(i, str2);
+            String a2 = a(i2, str2);
             if (c.b(a2).booleanValue()) {
                 com.sdk.base.framework.f.b.a.b(context, a2, str);
             }
@@ -77,7 +77,7 @@ public class a {
     }
 
     public static void b(Context context) {
-        c.a(f38790a, "oauth cache clear", f38791b);
+        c.a(f36371a, "oauth cache clear", f36372b);
         com.sdk.base.framework.f.b.a.d(context, "accessCode1");
     }
 }

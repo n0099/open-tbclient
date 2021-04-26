@@ -13,53 +13,53 @@ import java.util.List;
 public class d extends BaseBean<CouponListResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ boolean f26253a = !d.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean f27057a = !d.class.desiredAssertionStatus();
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26254b;
+    public String f27058b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26255c;
+    public String f27059c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26256d;
+    public String f27060d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26257e;
+    public String f27061e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f26258f;
+    public String f27062f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26259g;
+    public String f27063g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f26260h;
+    public String f27064h;
 
     public d(Context context) {
         super(context);
-        this.f26254b = "";
-        this.f26255c = "0";
-        this.f26260h = "1";
+        this.f27058b = "";
+        this.f27059c = "0";
+        this.f27064h = "1";
     }
 
     public void a(String str) {
-        this.f26254b = str;
+        this.f27058b = str;
     }
 
     public void a(String str, String str2, String str3, String str4) {
-        this.f26256d = str;
-        this.f26257e = str2;
-        this.f26258f = str3;
-        this.f26259g = str4;
+        this.f27060d = str;
+        this.f27061e = str2;
+        this.f27062f = str3;
+        this.f27063g = str4;
     }
 
     public void b(String str) {
-        this.f26255c = str;
+        this.f27059c = str;
     }
 
     public void c(String str) {
-        this.f26260h = str;
+        this.f27064h = str;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -70,25 +70,25 @@ public class d extends BaseBean<CouponListResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList;
-        if (TextUtils.isEmpty(this.f26254b)) {
+        if (TextUtils.isEmpty(this.f27058b)) {
             arrayList = null;
         } else {
             arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("page_index", this.f26254b));
-            arrayList.add(new RestNameValuePair("filter_status", this.f26260h));
-            if (TextUtils.isEmpty(this.f26255c)) {
-                this.f26255c = "0";
+            arrayList.add(new RestNameValuePair("page_index", this.f27058b));
+            arrayList.add(new RestNameValuePair("filter_status", this.f27064h));
+            if (TextUtils.isEmpty(this.f27059c)) {
+                this.f27059c = "0";
             }
-            arrayList.add(new RestNameValuePair("is_from_new_promot", this.f26255c));
+            arrayList.add(new RestNameValuePair("is_from_new_promot", this.f27059c));
         }
-        if (!TextUtils.isEmpty(this.f26256d) && !TextUtils.isEmpty(this.f26257e) && !TextUtils.isEmpty(this.f26258f) && !TextUtils.isEmpty(this.f26259g)) {
-            if (!f26253a && arrayList == null) {
+        if (!TextUtils.isEmpty(this.f27060d) && !TextUtils.isEmpty(this.f27061e) && !TextUtils.isEmpty(this.f27062f) && !TextUtils.isEmpty(this.f27063g)) {
+            if (!f27057a && arrayList == null) {
                 throw new AssertionError();
             }
-            arrayList.add(new RestNameValuePair("activity_id", this.f26256d));
-            arrayList.add(new RestNameValuePair(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE, this.f26257e));
-            arrayList.add(new RestNameValuePair("coupon_num", this.f26258f));
-            arrayList.add(new RestNameValuePair("coupon_expire_time", this.f26259g));
+            arrayList.add(new RestNameValuePair("activity_id", this.f27060d));
+            arrayList.add(new RestNameValuePair(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE, this.f27061e));
+            arrayList.add(new RestNameValuePair("coupon_num", this.f27062f));
+            arrayList.add(new RestNameValuePair("coupon_expire_time", this.f27063g));
         }
         return arrayList;
     }

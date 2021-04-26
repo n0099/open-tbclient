@@ -26,7 +26,7 @@ public class ContentLengthInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
         throw new RuntimeException("Stub!");
     }
 

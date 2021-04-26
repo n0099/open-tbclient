@@ -17,11 +17,11 @@ import java.util.List;
 public class b extends PayBaseBean<OpenFingerprintResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public PwdRequest f25333a;
+    public PwdRequest f26104a;
 
     public b(Context context) {
         super(context);
-        this.f25333a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.f26104a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -32,11 +32,11 @@ public class b extends PayBaseBean<OpenFingerprintResponse> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        PwdRequest pwdRequest = this.f25333a;
+        PwdRequest pwdRequest = this.f26104a;
         if (pwdRequest != null && !TextUtils.isEmpty(pwdRequest.mPayPass)) {
             String seed = PasswordController.getSeed();
             String encryptProxy = SafePay.getInstance().encryptProxy(seed);
-            arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f25333a.mPayPass, seed)));
+            arrayList.add(new RestNameValuePair("mobile_pwd", PasswordController.handlePwd(this.f26104a.mPayPass, seed)));
             arrayList.add(new RestNameValuePair("seed", encryptProxy));
         }
         return arrayList;

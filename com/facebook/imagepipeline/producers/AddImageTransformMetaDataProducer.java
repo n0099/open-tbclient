@@ -13,15 +13,15 @@ public class AddImageTransformMetaDataProducer implements Producer<EncodedImage>
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(EncodedImage encodedImage, int i) {
+        public void onNewResultImpl(EncodedImage encodedImage, int i2) {
             if (encodedImage == null) {
-                getConsumer().onNewResult(null, i);
+                getConsumer().onNewResult(null, i2);
                 return;
             }
             if (!EncodedImage.isMetaDataAvailable(encodedImage)) {
                 encodedImage.parseMetaData();
             }
-            getConsumer().onNewResult(encodedImage, i);
+            getConsumer().onNewResult(encodedImage, i2);
         }
     }
 

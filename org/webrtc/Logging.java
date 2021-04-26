@@ -68,8 +68,8 @@ public class Logging {
         
         public final int level;
 
-        TraceLevel(int i) {
-            this.level = i;
+        TraceLevel(int i2) {
+            this.level = i2;
         }
     }
 
@@ -147,8 +147,8 @@ public class Logging {
         } else if (loggingEnabled) {
             nativeLog(severity.ordinal(), str, str2);
         } else {
-            int i = AnonymousClass1.$SwitchMap$org$webrtc$Logging$Severity[severity.ordinal()];
-            Level level = i != 1 ? i != 2 ? i != 3 ? Level.FINE : Level.INFO : Level.WARNING : Level.SEVERE;
+            int i2 = AnonymousClass1.$SwitchMap$org$webrtc$Logging$Severity[severity.ordinal()];
+            Level level = i2 != 1 ? i2 != 2 ? i2 != 3 ? Level.FINE : Level.INFO : Level.WARNING : Level.SEVERE;
             Logger logger = fallbackLogger;
             logger.log(level, str + ": " + str2);
         }
@@ -158,9 +158,9 @@ public class Logging {
 
     public static native void nativeEnableLogTimeStamps();
 
-    public static native void nativeEnableLogToDebugOutput(int i);
+    public static native void nativeEnableLogToDebugOutput(int i2);
 
-    public static native void nativeLog(int i, String str, String str2);
+    public static native void nativeLog(int i2, String str, String str2);
 
     public static void v(String str, String str2) {
         log(Severity.LS_VERBOSE, str, str2);

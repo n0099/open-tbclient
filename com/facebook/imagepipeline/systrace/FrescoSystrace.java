@@ -11,7 +11,7 @@ public class FrescoSystrace {
     public interface ArgsBuilder {
         ArgsBuilder arg(String str, double d2);
 
-        ArgsBuilder arg(String str, int i);
+        ArgsBuilder arg(String str, int i2);
 
         ArgsBuilder arg(String str, long j);
 
@@ -31,7 +31,7 @@ public class FrescoSystrace {
         }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
-        public ArgsBuilder arg(String str, int i) {
+        public ArgsBuilder arg(String str, int i2) {
             return this;
         }
 

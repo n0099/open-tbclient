@@ -9,11 +9,11 @@ public class EncryptorUtil {
         }
     }
 
-    public static byte[] a(byte[] bArr, int i) {
-        if (bArr != null && i > 0) {
+    public static byte[] a(byte[] bArr, int i2) {
+        if (bArr != null && i2 > 0) {
             try {
-                if (bArr.length == i) {
-                    return ttEncrypt(bArr, i);
+                if (bArr.length == i2) {
+                    return ttEncrypt(bArr, i2);
                 }
             } catch (Throwable unused) {
             }
@@ -21,5 +21,5 @@ public class EncryptorUtil {
         return null;
     }
 
-    public static native byte[] ttEncrypt(byte[] bArr, int i);
+    public static native byte[] ttEncrypt(byte[] bArr, int i2);
 }

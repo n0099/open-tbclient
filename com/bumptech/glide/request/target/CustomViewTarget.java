@@ -29,6 +29,8 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     public View.OnAttachStateChangeListener attachStateListener;
     public boolean isAttachStateListenerAdded;
     public boolean isClearedByUs;
+    @IdRes
+    public int overrideTag;
     public final SizeDeterminer sizeDeterminer;
     public final T view;
 
@@ -81,19 +83,19 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
             return maxDisplayLength.intValue();
         }
 
-        private int getTargetDimen(int i, int i2, int i3) {
-            int i4 = i2 - i3;
-            if (i4 > 0) {
-                return i4;
+        private int getTargetDimen(int i2, int i3, int i4) {
+            int i5 = i3 - i4;
+            if (i5 > 0) {
+                return i5;
             }
             if (this.waitForLayout && this.view.isLayoutRequested()) {
                 return 0;
             }
-            int i5 = i - i3;
-            if (i5 > 0) {
-                return i5;
+            int i6 = i2 - i4;
+            if (i6 > 0) {
+                return i6;
             }
-            if (this.view.isLayoutRequested() || i2 != -2) {
+            if (this.view.isLayoutRequested() || i3 != -2) {
                 return 0;
             }
             if (Log.isLoggable(CustomViewTarget.TAG, 4)) {
@@ -114,18 +116,18 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
             return getTargetDimen(this.view.getWidth(), layoutParams != null ? layoutParams.width : 0, paddingLeft);
         }
 
-        private boolean isDimensionValid(int i) {
-            return i > 0 || i == Integer.MIN_VALUE;
+        private boolean isDimensionValid(int i2) {
+            return i2 > 0 || i2 == Integer.MIN_VALUE;
         }
 
-        private boolean isViewStateAndSizeValid(int i, int i2) {
-            return isDimensionValid(i) && isDimensionValid(i2);
+        private boolean isViewStateAndSizeValid(int i2, int i3) {
+            return isDimensionValid(i2) && isDimensionValid(i3);
         }
 
-        private void notifyCbs(int i, int i2) {
+        private void notifyCbs(int i2, int i3) {
             Iterator it = new ArrayList(this.cbs).iterator();
             while (it.hasNext()) {
-                ((SizeReadyCallback) it.next()).onSizeReady(i, i2);
+                ((SizeReadyCallback) it.next()).onSizeReady(i2, i3);
             }
         }
 
@@ -180,7 +182,12 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
 
     @Nullable
     private Object getTag() {
-        return this.view.getTag(VIEW_TAG_ID);
+        T t = this.view;
+        int i2 = this.overrideTag;
+        if (i2 == 0) {
+            i2 = VIEW_TAG_ID;
+        }
+        return t.getTag(i2);
     }
 
     private void maybeAddAttachStateListener() {
@@ -202,7 +209,12 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     }
 
     private void setTag(@Nullable Object obj) {
-        this.view.setTag(VIEW_TAG_ID, obj);
+        T t = this.view;
+        int i2 = this.overrideTag;
+        if (i2 == 0) {
+            i2 = VIEW_TAG_ID;
+        }
+        t.setTag(i2, obj);
     }
 
     @NonNull
@@ -312,9 +324,12 @@ public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
         return "Target for: " + this.view;
     }
 
-    @Deprecated
-    public final CustomViewTarget<T, Z> useTagId(@IdRes int i) {
-        return this;
+    public final CustomViewTarget<T, Z> useTagId(@IdRes int i2) {
+        if (this.overrideTag == 0) {
+            this.overrideTag = i2;
+            return this;
+        }
+        throw new IllegalArgumentException("You cannot change the tag id once it has been set.");
     }
 
     @NonNull

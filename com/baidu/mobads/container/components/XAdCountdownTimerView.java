@@ -13,7 +13,7 @@ public class XAdCountdownTimerView extends TextView {
         setTextSize(12.0f);
     }
 
-    public void setRemainTime(int i, int i2) {
-        setText("" + (i2 - i));
+    public void setRemainTime(int i2, int i3) {
+        setText("" + (i3 - i2));
     }
 }

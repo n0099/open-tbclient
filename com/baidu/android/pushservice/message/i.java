@@ -11,29 +11,31 @@ import org.json.JSONObject;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3507a;
+    public String f3544a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3508b;
+    public String f3545b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f3509c;
+    public String f3546c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3510d;
+    public String f3547d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3511e;
+    public String f3548e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f3512f;
+    public String f3549f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3513g;
+    public String f3550g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f3514h;
-    public String i;
+    public String f3551h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f3552i;
     public String j;
     public int k;
     public String l;
@@ -44,17 +46,17 @@ public class i {
         PublicMsg publicMsg = new PublicMsg();
         try {
             publicMsg.mMsgId = this.j;
-            publicMsg.mAppId = this.i;
-            if (TextUtils.isEmpty(this.f3513g) && TextUtils.isEmpty(this.f3514h)) {
-                publicMsg.mTitle = this.f3511e;
-                publicMsg.mDescription = this.f3512f;
-                publicMsg.mUrl = this.f3507a;
-                str = this.f3509c;
+            publicMsg.mAppId = this.f3552i;
+            if (TextUtils.isEmpty(this.f3550g) && TextUtils.isEmpty(this.f3551h)) {
+                publicMsg.mTitle = this.f3548e;
+                publicMsg.mDescription = this.f3549f;
+                publicMsg.mUrl = this.f3544a;
+                str = this.f3546c;
             } else {
-                publicMsg.mTitle = this.f3513g;
-                publicMsg.mDescription = this.f3514h;
-                publicMsg.mUrl = this.f3508b;
-                str = this.f3510d;
+                publicMsg.mTitle = this.f3550g;
+                publicMsg.mDescription = this.f3551h;
+                publicMsg.mUrl = this.f3545b;
+                str = this.f3547d;
             }
             publicMsg.mPkgContent = str;
             return publicMsg;
@@ -92,11 +94,11 @@ public class i {
     }
 
     public void a(Context context, JSONArray jSONArray) {
-        for (int i = 0; i < jSONArray.length(); i++) {
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             try {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                JSONObject jSONObject = jSONArray.getJSONObject(i2);
                 if (!jSONObject.isNull("Appid")) {
-                    this.i = jSONObject.getString("Appid");
+                    this.f3552i = jSONObject.getString("Appid");
                 }
                 if (!jSONObject.isNull("Msgid")) {
                     this.j = jSONObject.getString("Msgid");

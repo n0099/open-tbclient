@@ -42,26 +42,26 @@ public class SharedByteArray implements MemoryTrimmable {
         memoryTrimmableRegistry.registerMemoryTrimmable(this);
     }
 
-    private synchronized byte[] allocateByteArray(int i) {
+    private synchronized byte[] allocateByteArray(int i2) {
         byte[] bArr;
         this.mByteArraySoftRef.clear();
-        bArr = new byte[i];
+        bArr = new byte[i2];
         this.mByteArraySoftRef.set(bArr);
         return bArr;
     }
 
-    private byte[] getByteArray(int i) {
-        int bucketedSize = getBucketedSize(i);
+    private byte[] getByteArray(int i2) {
+        int bucketedSize = getBucketedSize(i2);
         byte[] bArr = this.mByteArraySoftRef.get();
         return (bArr == null || bArr.length < bucketedSize) ? allocateByteArray(bucketedSize) : bArr;
     }
 
-    public CloseableReference<byte[]> get(int i) {
-        Preconditions.checkArgument(i > 0, "Size must be greater than zero");
-        Preconditions.checkArgument(i <= this.mMaxByteArraySize, "Requested size is too big");
+    public CloseableReference<byte[]> get(int i2) {
+        Preconditions.checkArgument(i2 > 0, "Size must be greater than zero");
+        Preconditions.checkArgument(i2 <= this.mMaxByteArraySize, "Requested size is too big");
         this.mSemaphore.acquireUninterruptibly();
         try {
-            return CloseableReference.of(getByteArray(i), this.mResourceReleaser);
+            return CloseableReference.of(getByteArray(i2), this.mResourceReleaser);
         } catch (Throwable th) {
             this.mSemaphore.release();
             throw Throwables.propagate(th);
@@ -69,8 +69,8 @@ public class SharedByteArray implements MemoryTrimmable {
     }
 
     @VisibleForTesting
-    public int getBucketedSize(int i) {
-        return Integer.highestOneBit(Math.max(i, this.mMinByteArraySize) - 1) * 2;
+    public int getBucketedSize(int i2) {
+        return Integer.highestOneBit(Math.max(i2, this.mMinByteArraySize) - 1) * 2;
     }
 
     @Override // com.facebook.common.memory.MemoryTrimmable

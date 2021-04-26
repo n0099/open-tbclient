@@ -13,7 +13,9 @@ import kotlin.reflect.KProperty0;
 import kotlin.reflect.KProperty1;
 import kotlin.reflect.KProperty2;
 import kotlin.reflect.KType;
+import kotlin.reflect.KTypeParameter;
 import kotlin.reflect.KTypeProjection;
+import kotlin.reflect.KVariance;
 /* loaded from: classes7.dex */
 public class ReflectionFactory {
     public static final String KOTLIN_JVM_FUNCTIONS = "kotlin.jvm.functions.";
@@ -64,8 +66,18 @@ public class ReflectionFactory {
     }
 
     @SinceKotlin(version = "1.4")
+    public void setUpperBounds(KTypeParameter kTypeParameter, List<KType> list) {
+        ((TypeParameterReference) kTypeParameter).setUpperBounds(list);
+    }
+
+    @SinceKotlin(version = "1.4")
     public KType typeOf(KClassifier kClassifier, List<KTypeProjection> list, boolean z) {
         return new TypeReference(kClassifier, list, z);
+    }
+
+    @SinceKotlin(version = "1.4")
+    public KTypeParameter typeParameter(Object obj, String str, KVariance kVariance, boolean z) {
+        return new TypeParameterReference(obj, str, kVariance, z);
     }
 
     public KClass createKotlinClass(Class cls, String str) {

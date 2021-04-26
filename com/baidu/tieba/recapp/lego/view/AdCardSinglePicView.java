@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import d.b.j0.s2.c0.c.a;
-/* loaded from: classes4.dex */
+import d.a.j0.s2.e0.c.a;
+/* loaded from: classes3.dex */
 public class AdCardSinglePicView extends AdCardBaseView {
     public XfremodeRoundLayout m0;
     public TbImageView n0;
@@ -27,11 +27,11 @@ public class AdCardSinglePicView extends AdCardBaseView {
         AdvertAppInfo.a aVar;
         AdCard.d[] dVarArr = adCard.threadPicList;
         if (dVarArr != null && dVarArr.length >= 1) {
-            String str = dVarArr[0].f20407a;
+            String str = dVarArr[0].f20950a;
             boolean d1 = d1(this.n0, adCard);
             if (!TextUtils.isEmpty(str) && d1) {
                 this.t.setVisibility(0);
-                this.n0.W(str, 17, false);
+                this.n0.V(str, 17, false);
                 AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
                 if (!StringUtils.isNull(adCard.adSource, true)) {
                     this.p0.setText(adCard.adSource);
@@ -42,7 +42,7 @@ public class AdCardSinglePicView extends AdCardBaseView {
                 } else {
                     this.o0.setVisibility(8);
                 }
-                Y0(this.n0, adCard.threadPicList[0].f20409c);
+                Y0(this.n0, adCard.threadPicList[0].f20952c);
                 return;
             }
             this.t.setVisibility(8);
@@ -67,7 +67,7 @@ public class AdCardSinglePicView extends AdCardBaseView {
     }
 
     public boolean d1(TbImageView tbImageView, AdCard adCard) {
-        int i;
+        int i2;
         if (adCard == null || tbImageView == null) {
             return false;
         }
@@ -75,37 +75,37 @@ public class AdCardSinglePicView extends AdCardBaseView {
         if (d2 <= 0.0d || d2 >= 1.0d) {
             d2 = 1.0d;
         }
-        int i2 = (int) (this.G * d2);
-        int b2 = (int) (a.b(i) * d2);
+        int i3 = (int) (this.G * d2);
+        int b2 = (int) (a.b(i2) * d2);
         if (!adCard.needResize) {
-            e1(tbImageView, b2, i2);
+            e1(tbImageView, b2, i3);
             return true;
         }
-        int i3 = adCard.height;
-        int i4 = adCard.width;
-        if (i2 > 0 && i3 > 0 && i4 > 0) {
-            int i5 = (i3 * i2) / i4;
-            if (i5 > i2) {
+        int i4 = adCard.height;
+        int i5 = adCard.width;
+        if (i3 > 0 && i4 > 0 && i5 > 0) {
+            int i6 = (i4 * i3) / i5;
+            if (i6 > i3) {
                 return false;
             }
-            e1(tbImageView, i5, i2);
+            e1(tbImageView, i6, i3);
             return true;
         }
-        int i6 = this.G;
-        e1(tbImageView, i6, (int) (i6 * 0.0f));
+        int i7 = this.G;
+        e1(tbImageView, i7, (int) (i7 * 0.0f));
         return true;
     }
 
-    public void e1(TbImageView tbImageView, int i, int i2) {
+    public void e1(TbImageView tbImageView, int i2, int i3) {
         if (tbImageView == null) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
         if (layoutParams == null) {
-            layoutParams = new ViewGroup.LayoutParams(i2, i);
+            layoutParams = new ViewGroup.LayoutParams(i3, i2);
         } else {
-            layoutParams.height = i;
-            layoutParams.width = i2;
+            layoutParams.height = i2;
+            layoutParams.width = i3;
         }
         this.m0.setLayoutParams(layoutParams);
         tbImageView.setLayoutParams(layoutParams);

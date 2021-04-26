@@ -3,10 +3,10 @@ package com.baidu.fsg.base.statistics;
 public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f5324a;
+    public final /* synthetic */ d f5459a;
 
     public e(d dVar) {
-        this.f5324a = dVar;
+        this.f5459a = dVar;
     }
 
     @Override // java.lang.Runnable

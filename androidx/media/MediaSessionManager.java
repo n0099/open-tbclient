@@ -35,10 +35,10 @@ public final class MediaSessionManager {
     }
 
     public MediaSessionManager(Context context) {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 28) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 28) {
             this.mImpl = new MediaSessionManagerImplApi28(context);
-        } else if (i >= 21) {
+        } else if (i2 >= 21) {
             this.mImpl = new MediaSessionManagerImplApi21(context);
         } else {
             this.mImpl = new MediaSessionManagerImplBase(context);
@@ -76,11 +76,11 @@ public final class MediaSessionManager {
         public static final String LEGACY_CONTROLLER = "android.media.session.MediaController";
         public RemoteUserInfoImpl mImpl;
 
-        public RemoteUserInfo(@NonNull String str, int i, int i2) {
+        public RemoteUserInfo(@NonNull String str, int i2, int i3) {
             if (Build.VERSION.SDK_INT >= 28) {
-                this.mImpl = new MediaSessionManagerImplApi28.RemoteUserInfoImplApi28(str, i, i2);
+                this.mImpl = new MediaSessionManagerImplApi28.RemoteUserInfoImplApi28(str, i2, i3);
             } else {
-                this.mImpl = new MediaSessionManagerImplBase.RemoteUserInfoImplBase(str, i, i2);
+                this.mImpl = new MediaSessionManagerImplBase.RemoteUserInfoImplBase(str, i2, i3);
             }
         }
 

@@ -84,8 +84,8 @@ public class o implements Serializable {
         return this.icon;
     }
 
-    public void i(int i) {
-        this._d = i;
+    public void i(int i2) {
+        this._d = i2;
     }
 
     public void l(String str) {

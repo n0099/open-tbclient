@@ -23,36 +23,38 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import d.b.c.e.p.j;
-import d.b.c.e.p.l;
-import d.b.i0.r.f0.f;
-import d.b.i0.r.f0.g;
-import d.b.j0.q0.i1.i;
+import d.a.c.e.p.j;
+import d.a.c.e.p.l;
+import d.a.i0.r.f0.f;
+import d.a.i0.r.f0.g;
+import d.a.j0.q0.i1.i;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class VideoAggregationFragment extends BaseFragment implements View.OnClickListener, d.b.j0.q0.i1.d {
+public class VideoAggregationFragment extends BaseFragment implements View.OnClickListener, d.a.j0.q0.i1.d {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f15819e;
+    public String f16001e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15820f;
+    public String f16002f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15821g;
+    public String f16003g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f15822h;
-    public BdTypeListView i;
+    public String f16004h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public BdTypeListView f16005i;
     public g j;
     public PbListView k;
-    public d.b.j0.q0.i1.f l;
+    public d.a.j0.q0.i1.f l;
     public i m;
     public NavigationBar n;
     public FrameLayout o;
     public NoNetworkView p;
     public NoDataView q;
-    public List<d.b.j0.q0.i1.g> r = null;
+    public List<d.a.j0.q0.i1.g> r = null;
     public CustomMessageListener s = new e(2000994);
     public CustomMessageListener t = new f(2001115);
 
@@ -61,7 +63,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         public a() {
         }
 
-        @Override // d.b.i0.r.f0.f.g
+        @Override // d.a.i0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             VideoAggregationFragment.this.m.e();
         }
@@ -73,17 +75,17 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
-        public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
             if (VideoAggregationFragment.this.l != null) {
-                if (i > VideoAggregationFragment.this.l.c() || i + i2 < VideoAggregationFragment.this.l.c()) {
+                if (i2 > VideoAggregationFragment.this.l.c() || i2 + i3 < VideoAggregationFragment.this.l.c()) {
                     VideoAggregationFragment.this.l.b();
                 }
             }
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
-        public void onScrollStateChanged(AbsListView absListView, int i) {
-            if (i != 0 || absListView.getLastVisiblePosition() <= absListView.getCount() - 2 || absListView.getFirstVisiblePosition() == 0) {
+        public void onScrollStateChanged(AbsListView absListView, int i2) {
+            if (i2 != 0 || absListView.getLastVisiblePosition() <= absListView.getCount() - 2 || absListView.getFirstVisiblePosition() == 0) {
                 return;
             }
             VideoAggregationFragment.this.m.d();
@@ -118,8 +120,8 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
 
     /* loaded from: classes4.dex */
     public class e extends CustomMessageListener {
-        public e(int i) {
-            super(i);
+        public e(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -137,18 +139,18 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
 
     /* loaded from: classes4.dex */
     public class f extends CustomMessageListener {
-        public f(int i) {
-            super(i);
+        public f(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage.a data;
-            if (!(customResponsedMessage instanceof UpdateAttentionMessage) || VideoAggregationFragment.this.l == null || (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) == null || !data.f13362a) {
+            if (!(customResponsedMessage instanceof UpdateAttentionMessage) || VideoAggregationFragment.this.l == null || (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) == null || !data.f13330a) {
                 return;
             }
-            VideoAggregationFragment.this.l.f(data.f13364c, data.f13365d);
+            VideoAggregationFragment.this.l.f(data.f13332c, data.f13333d);
         }
     }
 
@@ -169,11 +171,11 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             return;
         }
         this.q.setVisibility(8);
-        this.i.setVisibility(0);
+        this.f16005i.setVisibility(0);
     }
 
     public final void K0() {
-        if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.f15820f)) {
+        if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.f16002f)) {
             this.n.setCenterTextTitle(getPageContext().getString(R.string.video_aggregation_title));
         } else {
             this.n.setCenterTextTitle(getPageContext().getString(R.string.video_middle_page_title));
@@ -181,25 +183,25 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         this.n.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d());
     }
 
-    public void L0(int i) {
-        d.b.j0.q0.i1.f fVar;
-        if (this.i == null || (fVar = this.l) == null) {
+    public void L0(int i2) {
+        d.a.j0.q0.i1.f fVar;
+        if (this.f16005i == null || (fVar = this.l) == null) {
             return;
         }
-        if (i == 1 && fVar.e()) {
+        if (i2 == 1 && fVar.e()) {
             this.l.k();
         }
-        if (i == 2) {
+        if (i2 == 2) {
             this.l.n();
         }
     }
 
-    public boolean M0(int i) {
-        d.b.j0.q0.i1.f fVar = this.l;
+    public boolean M0(int i2) {
+        d.a.j0.q0.i1.f fVar = this.l;
         if (fVar == null) {
             return false;
         }
-        return fVar.j(i);
+        return fVar.j(i2);
     }
 
     public void N0() {
@@ -220,11 +222,15 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         }
         this.q.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.q.setVisibility(0);
-        this.i.setVisibility(8);
+        this.f16005i.setVisibility(8);
     }
 
-    @Override // d.b.j0.q0.i1.d
-    public void a(List<d.b.j0.q0.i1.g> list, boolean z, boolean z2) {
+    @Override // d.a.j0.q0.i1.d
+    public void c(String str) {
+    }
+
+    @Override // d.a.j0.q0.i1.d
+    public void d(List<d.a.j0.q0.i1.g> list, boolean z, boolean z2) {
         if (list == null) {
             return;
         }
@@ -249,24 +255,20 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         }
     }
 
-    @Override // d.b.j0.q0.i1.d
-    public void c(String str) {
-    }
-
-    @Override // d.b.j0.q0.i1.d
+    @Override // d.a.j0.q0.i1.d
     public void n() {
         if (this.o == null) {
             return;
         }
-        this.i.A(0L);
+        this.f16005i.A(0L);
         hideLoadingView(this.o);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.n.onChangeSkinType(getPageContext(), i);
-        this.p.c(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.n.onChangeSkinType(getPageContext(), i2);
+        this.p.c(getPageContext(), i2);
         SkinManager.setBackgroundColor(this.o, R.color.CAM_X0111);
     }
 
@@ -278,7 +280,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         } else {
             this.n.setVisibility(0);
         }
-        d.b.j0.q0.i1.f fVar = this.l;
+        d.a.j0.q0.i1.f fVar = this.l;
         if (fVar != null) {
             fVar.h(configuration);
         }
@@ -289,17 +291,17 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         super.onCreate(bundle);
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.f15819e = arguments.getString("PARAM_FID");
-            this.f15820f = arguments.getString("PARAM_FROM");
-            this.f15821g = arguments.getString("st_type");
-            this.f15822h = arguments.getString("yuelaou_locate");
+            this.f16001e = arguments.getString("PARAM_FID");
+            this.f16002f = arguments.getString("PARAM_FROM");
+            this.f16003g = arguments.getString("st_type");
+            this.f16004h = arguments.getString("yuelaou_locate");
         }
         i iVar = new i(getPageContext(), this);
         this.m = iVar;
-        iVar.g(this.f15819e);
-        this.m.f(this.f15820f);
-        this.m.i(this.f15821g);
-        this.m.h(this.f15822h);
+        iVar.g(this.f16001e);
+        this.m.f(this.f16002f);
+        this.m.i(this.f16003g);
+        this.m.h(this.f16004h);
         this.m.e();
         registerListener(this.s);
         registerListener(this.t);
@@ -317,13 +319,13 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         if (iVar != null) {
             iVar.c();
         }
-        d.b.j0.q0.i1.f fVar = this.l;
+        d.a.j0.q0.i1.f fVar = this.l;
         if (fVar != null) {
             fVar.i();
         }
     }
 
-    @Override // d.b.j0.q0.i1.d
+    @Override // d.a.j0.q0.i1.d
     public void onLoadFail() {
         if (ListUtils.isEmpty(this.r)) {
             O0(this.o, true);
@@ -352,22 +354,22 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         if (!j.z()) {
             this.p.setVisibility(0);
         }
-        this.i = (BdTypeListView) view.findViewById(R.id.listView);
+        this.f16005i = (BdTypeListView) view.findViewById(R.id.listView);
         g gVar = new g(getPageContext());
         this.j = gVar;
         gVar.n();
-        this.j.b(new a());
+        this.j.a(new a());
         this.j.Z(getUniqueId());
-        this.i.setPullRefresh(this.j);
+        this.f16005i.setPullRefresh(this.j);
         PbListView pbListView = new PbListView(getPageContext().getPageActivity());
         this.k = pbListView;
         pbListView.a();
         this.k.x();
         this.k.A(getResources().getString(R.string.list_has_no_more));
         this.k.O();
-        this.i.setNextPage(this.k);
-        this.i.setOnScrollListener(new b());
-        this.l = new d.b.j0.q0.i1.f(getPageContext(), this.i, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.f15820f));
+        this.f16005i.setNextPage(this.k);
+        this.f16005i.setOnScrollListener(new b());
+        this.l = new d.a.j0.q0.i1.f(getPageContext(), this.f16005i, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.f16002f));
         N0();
     }
 }

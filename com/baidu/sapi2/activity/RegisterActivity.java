@@ -10,11 +10,11 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
-import d.b.y.a.f;
-import d.b.y.a.g;
+import d.a.y.a.f;
+import d.a.y.a.g;
 /* loaded from: classes2.dex */
 public class RegisterActivity extends BaseActivity {
-    public WebAuthResult p = new WebAuthResult() { // from class: com.baidu.sapi2.activity.RegisterActivity.1
+    public WebAuthResult t = new WebAuthResult() { // from class: com.baidu.sapi2.activity.RegisterActivity.1
         @Override // com.baidu.sapi2.shell.result.WebAuthResult
         public void finishActivity() {
             super.finishActivity();
@@ -31,7 +31,7 @@ public class RegisterActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
-        this.p.activity = this;
+        this.t.activity = this;
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
@@ -43,10 +43,10 @@ public class RegisterActivity extends BaseActivity {
     public void onClose() {
         super.onClose();
         WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
-        this.p.setResultCode(-301);
-        this.p.setResultMsg("您已取消操作");
+        this.t.setResultCode(-301);
+        this.t.setResultMsg("您已取消操作");
         if (webAuthListener != null) {
-            webAuthListener.onFailure(this.p);
+            webAuthListener.onFailure(this.t);
         }
         finish();
         CoreViewRouter.getInstance().release();
@@ -63,9 +63,9 @@ public class RegisterActivity extends BaseActivity {
             reportWebviewError(th);
             WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
             if (webAuthListener != null) {
-                this.p.setResultCode(-202);
-                this.p.setResultMsg("网络连接失败，请检查网络设置");
-                webAuthListener.onFailure(this.p);
+                this.t.setResultCode(-202);
+                this.t.setResultMsg("网络连接失败，请检查网络设置");
+                webAuthListener.onFailure(this.t);
             }
             finish();
             CoreViewRouter.getInstance().release();
@@ -102,12 +102,12 @@ public class RegisterActivity extends BaseActivity {
             }
 
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-            public void onFailed(int i, String str) {
-                RegisterActivity.this.p.setResultCode(i);
-                RegisterActivity.this.p.setResultMsg(str);
+            public void onFailed(int i2, String str) {
+                RegisterActivity.this.t.setResultCode(i2);
+                RegisterActivity.this.t.setResultMsg(str);
                 WebAuthListener webAuthListener2 = webAuthListener;
                 if (webAuthListener2 != null) {
-                    webAuthListener2.onFailure(RegisterActivity.this.p);
+                    webAuthListener2.onFailure(RegisterActivity.this.t);
                 }
                 RegisterActivity.this.finish();
                 CoreViewRouter.getInstance().release();
@@ -116,11 +116,11 @@ public class RegisterActivity extends BaseActivity {
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
             public void onSuccess(AccountType accountType) {
                 super.onSuccess(accountType);
-                RegisterActivity.this.p.accountType = accountType;
-                RegisterActivity.this.p.setResultCode(0);
+                RegisterActivity.this.t.accountType = accountType;
+                RegisterActivity.this.t.setResultCode(0);
                 WebAuthListener webAuthListener2 = webAuthListener;
                 if (webAuthListener2 != null) {
-                    webAuthListener2.onSuccess(RegisterActivity.this.p);
+                    webAuthListener2.onSuccess(RegisterActivity.this.t);
                 }
                 WebRegDTO webRegDTO = CoreViewRouter.getInstance().getWebRegDTO();
                 if (webRegDTO == null || !webRegDTO.finishActivityAfterSuc) {

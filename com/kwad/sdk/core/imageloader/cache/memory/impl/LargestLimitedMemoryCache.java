@@ -12,8 +12,8 @@ import java.util.Set;
 public class LargestLimitedMemoryCache extends LimitedMemoryCache {
     public final Map<DecodedResult, Integer> valueSizes;
 
-    public LargestLimitedMemoryCache(int i) {
-        super(i);
+    public LargestLimitedMemoryCache(int i2) {
+        super(i2);
         this.valueSizes = Collections.synchronizedMap(new HashMap());
     }
 

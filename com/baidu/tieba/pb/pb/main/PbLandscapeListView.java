@@ -8,7 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class PbLandscapeListView extends BdTypeListView {
     public final int N;
@@ -37,7 +37,7 @@ public class PbLandscapeListView extends BdTypeListView {
                     return false;
                 }
                 if (PbLandscapeListView.this.S != null) {
-                    PbLandscapeListView.this.S.a(dVar.f19393a, dVar.f19394b, dVar.f19395c, dVar.f19397e, dVar.f19396d, dVar.f19398f);
+                    PbLandscapeListView.this.S.a(dVar.f19858a, dVar.f19859b, dVar.f19860c, dVar.f19862e, dVar.f19861d, dVar.f19863f);
                     return true;
                 }
                 return true;
@@ -53,29 +53,29 @@ public class PbLandscapeListView extends BdTypeListView {
 
     /* loaded from: classes3.dex */
     public interface c {
-        void a(int i, int i2, float f2, float f3, float f4, float f5);
+        void a(int i2, int i3, float f2, float f3, float f4, float f5);
     }
 
     /* loaded from: classes3.dex */
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f19393a;
+        public int f19858a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f19394b;
+        public int f19859b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f19395c;
+        public float f19860c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f19396d;
+        public float f19861d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f19397e;
+        public float f19862e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f19398f;
+        public float f19863f;
     }
 
     public PbLandscapeListView(Context context) {
@@ -93,7 +93,7 @@ public class PbLandscapeListView extends BdTypeListView {
         return this.a0;
     }
 
-    public final void K(int i, int i2, float f2, float f3, float f4, float f5) {
+    public final void K(int i2, int i3, float f2, float f3, float f4, float f5) {
         this.U.removeMessages(0);
         if (this.U.hasMessages(0)) {
             return;
@@ -101,12 +101,12 @@ public class PbLandscapeListView extends BdTypeListView {
         Message message = new Message();
         message.what = 0;
         d dVar = new d();
-        dVar.f19393a = i;
-        dVar.f19394b = i2;
-        dVar.f19395c = f2;
-        dVar.f19396d = f3;
-        dVar.f19397e = f4;
-        dVar.f19398f = f5;
+        dVar.f19858a = i2;
+        dVar.f19859b = i3;
+        dVar.f19860c = f2;
+        dVar.f19861d = f3;
+        dVar.f19862e = f4;
+        dVar.f19863f = f5;
         message.obj = dVar;
         this.U.sendMessageDelayed(message, 60L);
     }
@@ -123,11 +123,11 @@ public class PbLandscapeListView extends BdTypeListView {
             float rawX = motionEvent.getRawX();
             float rawY = motionEvent.getRawY();
             if (!this.W && this.S != null) {
-                int i = (int) (rawX - this.Q);
-                int i2 = (int) (rawY - this.R);
-                int abs = Math.abs(i);
-                if (abs > this.N && abs > Math.abs(i2)) {
-                    K(i, i2, this.Q, this.R, rawX, rawY);
+                int i2 = (int) (rawX - this.Q);
+                int i3 = (int) (rawY - this.R);
+                int abs = Math.abs(i2);
+                if (abs > this.N && abs > Math.abs(i3)) {
+                    K(i2, i3, this.Q, this.R, rawX, rawY);
                     this.a0 = true;
                     return false;
                 }
@@ -147,8 +147,8 @@ public class PbLandscapeListView extends BdTypeListView {
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
         b bVar = this.P;
         if (bVar != null) {
             bVar.onLayout();
@@ -203,8 +203,8 @@ public class PbLandscapeListView extends BdTypeListView {
         this.a0 = false;
     }
 
-    public PbLandscapeListView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public PbLandscapeListView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.N = l.k(TbadkCoreApplication.getInst().getContext()) / 8;
         this.O = false;
         this.T = new a();

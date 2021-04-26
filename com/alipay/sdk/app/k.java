@@ -14,29 +14,31 @@ public enum k {
     
 
     /* renamed from: h  reason: collision with root package name */
-    public int f1855h;
-    public String i;
+    public int f1800h;
 
-    k(int i, String str) {
-        this.f1855h = i;
-        this.i = str;
+    /* renamed from: i  reason: collision with root package name */
+    public String f1801i;
+
+    k(int i2, String str) {
+        this.f1800h = i2;
+        this.f1801i = str;
     }
 
-    public void a(int i) {
-        this.f1855h = i;
+    public void a(int i2) {
+        this.f1800h = i2;
     }
 
     public String b() {
-        return this.i;
+        return this.f1801i;
     }
 
-    public static k b(int i) {
-        if (i != 4001) {
-            if (i != 5000) {
-                if (i != 8000) {
-                    if (i != 9000) {
-                        if (i != 6001) {
-                            if (i != 6002) {
+    public static k b(int i2) {
+        if (i2 != 4001) {
+            if (i2 != 5000) {
+                if (i2 != 8000) {
+                    if (i2 != 9000) {
+                        if (i2 != 6001) {
+                            if (i2 != 6002) {
                                 return FAILED;
                             }
                             return NETWORK_ERROR;
@@ -53,10 +55,10 @@ public enum k {
     }
 
     public int a() {
-        return this.f1855h;
+        return this.f1800h;
     }
 
     public void a(String str) {
-        this.i = str;
+        this.f1801i = str;
     }
 }

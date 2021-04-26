@@ -48,15 +48,15 @@ public abstract class AbstractBox implements Box {
     }
 
     private boolean isSmallBox() {
-        int i = "uuid".equals(getType()) ? 24 : 8;
+        int i2 = "uuid".equals(getType()) ? 24 : 8;
         if (!this.isRead) {
-            return this.memMapSize + ((long) i) < 4294967296L;
+            return this.memMapSize + ((long) i2) < 4294967296L;
         } else if (!this.isParsed) {
-            return ((long) (this.content.limit() + i)) < 4294967296L;
+            return ((long) (this.content.limit() + i2)) < 4294967296L;
         } else {
             long contentSize = getContentSize();
             ByteBuffer byteBuffer = this.deadBytes;
-            return (contentSize + ((long) (byteBuffer != null ? byteBuffer.limit() : 0))) + ((long) i) < 4294967296L;
+            return (contentSize + ((long) (byteBuffer != null ? byteBuffer.limit() : 0))) + ((long) i2) < 4294967296L;
         }
     }
 

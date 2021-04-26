@@ -32,7 +32,7 @@ import com.facebook.imagepipeline.image.CloseableAnimatedImage;
 import com.facebook.imagepipeline.image.CloseableImage;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFactory {
     public static final int CACHING_STRATEGY_FRESCO_CACHE = 1;
     public static final int CACHING_STRATEGY_FRESCO_CACHE_NO_REUSING = 2;
@@ -47,13 +47,13 @@ public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFacto
     public final PlatformBitmapFactory mPlatformBitmapFactory;
     public final ScheduledExecutorService mScheduledExecutorServiceForUiThread;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class AnimationFrameCacheKey implements CacheKey {
         public static final String URI_PREFIX = "anim://";
         public final String mAnimationUriString;
 
-        public AnimationFrameCacheKey(int i) {
-            this.mAnimationUriString = URI_PREFIX + i;
+        public AnimationFrameCacheKey(int i2) {
+            this.mAnimationUriString = URI_PREFIX + i2;
         }
 
         @Override // com.facebook.cache.common.CacheKey

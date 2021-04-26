@@ -210,14 +210,14 @@ public interface IRemoteUBCService extends IInterface {
             }
 
             @Override // com.baidu.swan.ubc.IRemoteUBCService
-            public Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException {
+            public Flow ubcBeginFlow(String str, String str2, int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    obtain.writeInt(i);
+                    obtain.writeInt(i2);
                     this.mRemote.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? Flow.CREATOR.createFromParcel(obtain2) : null;
@@ -228,14 +228,14 @@ public interface IRemoteUBCService extends IInterface {
             }
 
             @Override // com.baidu.swan.ubc.IRemoteUBCService
-            public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
+            public void ubcOnEvent(String str, String str2, int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    obtain.writeInt(i);
+                    obtain.writeInt(i2);
                     this.mRemote.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
@@ -266,9 +266,9 @@ public interface IRemoteUBCService extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i != 1598968902) {
-                switch (i) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 != 1598968902) {
+                switch (i2) {
                     case 1:
                         parcel.enforceInterface(DESCRIPTOR);
                         ubcOnEvent(parcel.readString(), parcel.readString(), parcel.readInt());
@@ -326,7 +326,7 @@ public interface IRemoteUBCService extends IInterface {
                         parcel2.writeNoException();
                         return true;
                     default:
-                        return super.onTransact(i, parcel, parcel2, i2);
+                        return super.onTransact(i2, parcel, parcel2, i3);
                 }
             }
             parcel2.writeString(DESCRIPTOR);
@@ -350,7 +350,7 @@ public interface IRemoteUBCService extends IInterface {
 
     void flowStartSlot(Flow flow, String str, String str2) throws RemoteException;
 
-    Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException;
+    Flow ubcBeginFlow(String str, String str2, int i2) throws RemoteException;
 
-    void ubcOnEvent(String str, String str2, int i) throws RemoteException;
+    void ubcOnEvent(String str, String str2, int i2) throws RemoteException;
 }

@@ -1,6 +1,7 @@
 package com.baidu.sapi2;
 
 import android.text.TextUtils;
+import com.baidu.sapi2.scheme.SapiScheme;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -16,470 +17,323 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class SapiOptions implements NoProguard {
-    public static final String A = "share_inter_storage_gray";
-    public static final String B = "share_livinguname_enabled";
-    public static final String C = "di_except_index";
-    public static final String D = "share_common_storage_enable";
-    public static final String E = "join_qr_login_prompt";
-    public static final String F = "extrajson_limit_len";
-    public static final String G = "open_bduss_tpls";
-    public static final String H = "open_bduss_domains";
-    public static final String I = "can_get_bduss";
-    public static final String J = "pass_httpclient_async_cookie";
-    public static final String K = "reset_file_exec_per";
-    public static final String L = "gray";
-    public static final int M = 1000000;
-    public static final String N = "tid";
-    public static final String O = "登录后%s将获得百度帐号的公开信息（用户名、头像）";
-    public static final String k = "global_share_strategy";
-    public static final String l = "specific_share_strategy";
-    public static final String m = "default_https_enabled";
-    public static final String n = "address_use_web";
-    public static final String o = "authorized_domains";
-    public static final String p = "cuid_authorized_domains";
-    public static final String q = "cache";
-    public static final String r = "cache_gray";
-    public static final String s = "percent";
-    public static final String t = "enabled";
-    public static final String u = "version";
-    public static final String v = "modules";
-    public static final String w = "id";
-    public static final String x = "download_url";
-    public static final String y = "hash";
-    public static final String z = "login_cookie_di_keys";
-
-    /* renamed from: b  reason: collision with root package name */
-    public LoginShareStrategy f10375b;
+    public static final int DEFAULT_GRAY = 1000000;
+    public static final String KEY_ADDRESS_USE_WEB = "address_use_web";
+    public static final String KEY_AUTHORIZED_DOMAINS = "authorized_domains";
+    public static final String KEY_CACHE = "cache";
+    public static final String KEY_CACHE_ENABLED = "enabled";
+    public static final String KEY_CACHE_GRAY = "cache_gray";
+    public static final String KEY_CACHE_MODULES = "modules";
+    public static final String KEY_CACHE_MODULE_DOWNLOAD_URL = "download_url";
+    public static final String KEY_CACHE_MODULE_HASH = "hash";
+    public static final String KEY_CACHE_MODULE_ID = "id";
+    public static final String KEY_CACHE_PERCENT = "percent";
+    public static final String KEY_CACHE_VERSION = "version";
+    public static final String KEY_CUID_AUTHORIZED_DOMAINS = "cuid_authorized_domains";
+    public static final String KEY_DEFAULT_HTTPS_ENABLED = "default_https_enabled";
+    public static final String KEY_DI_EXCEPT_INDEX = "di_except_index";
+    public static final String KEY_GLOBAL_SHARE_STRATEGY = "global_share_strategy";
+    public static final String KEY_GRAY = "gray";
+    public static final String KEY_JOIN_QR_LOGIN_PROMPT = "join_qr_login_prompt";
+    public static final String KEY_LOGIN_COOKIE_DI_KEYS = "login_cookie_di_keys";
+    public static final String KEY_LOGIN_STAT_EXTRA_LIMIT_LENGTH = "extrajson_limit_len";
+    public static final String KEY_OPEN_BDUSS_CAN_GET_BDUSS = "can_get_bduss";
+    public static final String KEY_OPEN_BDUSS_TPLS = "open_bduss_tpls";
+    public static final String KEY_OPTN_BDUSS_DOMAINS = "open_bduss_domains";
+    public static final String KEY_PASSHTTP_CLIENT_ASYNC_COOKIE = "pass_httpclient_async_cookie";
+    public static final String KEY_RESET_FILE_EXEC_PER = "reset_file_exec_per";
+    public static final String KEY_SHARE_COMMOM_STORAGE_ENABLE = "share_common_storage_enable";
+    public static final String KEY_SHARE_INTERNAL_STORAGE = "share_inter_storage_gray";
+    public static final String KEY_SHARE_LIVINGUNAME_ENABLE = "share_livinguname_enabled";
+    public static final String KEY_SPECIFIC_SHARE_STRATEGY = "specific_share_strategy";
+    public static final String KEY_TID = "tid";
+    public static final String defaultJoinQrLoginPrompt = "登录后%s将获得百度帐号的公开信息（用户名、头像）";
+    public LoginShareStrategy globalShareStrategy;
     public boolean httpClientAsyncCookie;
     public int loginStatExtraLimitLen;
     public boolean resetFileExecPer;
     public boolean shareCommonStorageEnable;
     public boolean shareLivingunameEnabled;
     public String tid;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f10376c = true;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f10377d = false;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Map<String, LoginShareStrategy> f10378e = new HashMap();
-
-    /* renamed from: f  reason: collision with root package name */
-    public List<String> f10379f = new ArrayList();
-
-    /* renamed from: g  reason: collision with root package name */
-    public List<String> f10380g = new ArrayList();
-
-    /* renamed from: h  reason: collision with root package name */
-    public List<String> f10381h = new ArrayList();
+    public boolean defaultHttpsEnabled = true;
+    public boolean addressUseWeb = false;
+    public Map<String, LoginShareStrategy> specificShareStrategy = new HashMap();
+    public List<String> authorizedDomains = new ArrayList();
+    public List<String> cuidAuthorizedDomains = new ArrayList();
+    public List<String> loginCookieDiKeys = new ArrayList();
     public List<Integer> diExceptIndex = new ArrayList();
-    public List<String> i = new ArrayList();
-    public List<String> j = new ArrayList();
+    public List<String> openBdussTpls = new ArrayList();
+    public List<String> openBdussDomains = new ArrayList();
     public boolean canGetBduss = true;
     public int shareInterGray = 100;
-    public String joinQrLoginPrompt = O;
-
-    /* renamed from: a  reason: collision with root package name */
-    public a f10374a = new a();
+    public String joinQrLoginPrompt = defaultJoinQrLoginPrompt;
+    public Cache cache = new Cache();
     public Gray gray = new Gray();
 
     /* loaded from: classes2.dex */
-    public static class a {
+    public static class Cache {
+        public static final String EXTERNAL_CACHE_DIR = ".BD_SAPI_CACHE";
+        public String version;
+        public List<Module> modules = new ArrayList();
+        public boolean enabled = true;
 
-        /* renamed from: d  reason: collision with root package name */
-        public static final String f10392d = ".BD_SAPI_CACHE";
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f10394b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public List<C0136a> f10395c = new ArrayList();
-
-        /* renamed from: a  reason: collision with root package name */
-        public boolean f10393a = true;
-
-        public String b() {
-            return this.f10394b;
-        }
-
-        public boolean c() {
-            return this.f10393a;
-        }
-
-        public JSONObject d() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(SapiOptions.t, this.f10393a);
-                jSONObject.put("version", this.f10394b);
-                JSONArray jSONArray = new JSONArray();
-                for (C0136a c0136a : a()) {
-                    jSONArray.put(c0136a.a());
-                }
-                jSONObject.put(SapiOptions.v, jSONArray);
-                return jSONObject;
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-
-        public List<C0136a> a() {
-            return this.f10395c;
-        }
-
-        public static a a(JSONObject jSONObject) {
-            a aVar = new a();
-            if (jSONObject != null) {
-                try {
-                    aVar.f10393a = jSONObject.optBoolean(SapiOptions.t, true);
-                    aVar.f10394b = jSONObject.optLong("version") + "";
-                    JSONArray optJSONArray = jSONObject.optJSONArray(SapiOptions.v);
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        aVar.a().add(C0136a.a(optJSONArray.getJSONObject(i)));
-                    }
-                } catch (Throwable unused) {
-                }
-            }
-            return aVar;
-        }
-
-        /* renamed from: com.baidu.sapi2.SapiOptions$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0136a {
+        public static class Module {
+            public String downloadUrl;
+            public String hash;
+            public String id;
 
-            /* renamed from: a  reason: collision with root package name */
-            public String f10396a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public String f10397b;
-
-            /* renamed from: c  reason: collision with root package name */
-            public String f10398c;
-
-            public static String b(String str) {
-                return ShareStorage.f10912d + a(str);
+            public static Module fromJSON(JSONObject jSONObject) {
+                Module module = new Module();
+                module.id = jSONObject.optString("id");
+                module.downloadUrl = jSONObject.optString("download_url");
+                module.hash = jSONObject.optString("hash");
+                return module;
             }
 
-            public static String c(String str) {
-                return a(str).replace('/', '-');
+            public static String getAssetFile(String str) {
+                return str.replace(':', '/');
             }
 
-            public JSONObject a() {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("id", this.f10396a);
-                    jSONObject.put("download_url", this.f10397b);
-                    jSONObject.put("hash", this.f10398c);
-                    return jSONObject;
-                } catch (Throwable unused) {
-                    return null;
-                }
+            public static String getExternalFile(String str) {
+                return ShareStorage.SP_FILE_PATH + getAssetFile(str);
+            }
+
+            public static String getInternalFile(String str) {
+                return getAssetFile(str).replace('/', '-');
             }
 
             public boolean equals(Object obj) {
                 if (this == obj) {
                     return true;
                 }
-                if (obj == null || C0136a.class != obj.getClass()) {
+                if (obj == null || Module.class != obj.getClass()) {
                     return false;
                 }
-                return this.f10396a.equals(((C0136a) obj).f10396a);
+                return this.id.equals(((Module) obj).id);
             }
 
             public int hashCode() {
-                return this.f10396a.hashCode();
+                return this.id.hashCode();
             }
 
-            public static C0136a a(JSONObject jSONObject) {
-                C0136a c0136a = new C0136a();
-                c0136a.f10396a = jSONObject.optString("id");
-                c0136a.f10397b = jSONObject.optString("download_url");
-                c0136a.f10398c = jSONObject.optString("hash");
-                return c0136a;
+            public JSONObject toJSON() {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("id", this.id);
+                    jSONObject.put("download_url", this.downloadUrl);
+                    jSONObject.put("hash", this.hash);
+                    return jSONObject;
+                } catch (Throwable unused) {
+                    return null;
+                }
             }
-
-            public static String a(String str) {
-                return str.replace(':', '/');
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static class b {
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f10399a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public List<a.C0136a> f10400b = new ArrayList();
-
-        public String b() {
-            return this.f10399a;
         }
 
-        public List<a.C0136a> a() {
-            return this.f10400b;
-        }
-
-        public static b a(JSONObject jSONObject) {
-            b bVar = new b();
+        public static Cache fromJSON(JSONObject jSONObject) {
+            Cache cache = new Cache();
             if (jSONObject != null) {
                 try {
-                    bVar.f10399a = jSONObject.optString(SapiOptions.s);
-                    JSONArray optJSONArray = jSONObject.optJSONArray(SapiOptions.v);
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        bVar.a().add(a.C0136a.a(optJSONArray.getJSONObject(i)));
+                    cache.enabled = jSONObject.optBoolean(SapiOptions.KEY_CACHE_ENABLED, true);
+                    cache.version = jSONObject.optLong("version") + "";
+                    JSONArray optJSONArray = jSONObject.optJSONArray(SapiOptions.KEY_CACHE_MODULES);
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        cache.getModules().add(Module.fromJSON(optJSONArray.getJSONObject(i2)));
                     }
                 } catch (Throwable unused) {
                 }
             }
-            return bVar;
+            return cache;
         }
-    }
 
-    public static void b(JSONObject jSONObject, String str, Map<String, String> map) throws JSONException {
-        JSONObject jSONObject2 = new JSONObject();
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            jSONObject2.put(entry.getKey(), entry.getValue());
+        public List<Module> getModules() {
+            return this.modules;
         }
-        jSONObject.put(str, jSONObject2);
-    }
 
-    public static List<String> e() {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("baidu.com");
-        arrayList.add("hao123.com");
-        arrayList.add("nuomi.com");
-        arrayList.add("baifubao.com");
-        return arrayList;
-    }
-
-    public static List<String> f() {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("nsclick.baidu.com");
-        arrayList.add("passport.baidu.com");
-        arrayList.add("wappass.baidu.com");
-        return arrayList;
-    }
-
-    public static SapiOptions fromJSON(JSONObject jSONObject) {
-        SapiOptions sapiOptions = new SapiOptions();
-        sapiOptions.f10374a = a.a(jSONObject.optJSONObject(q));
-        if (jSONObject.has(r)) {
-            a(jSONObject, sapiOptions);
+        public String getVersion() {
+            return this.version;
         }
-        sapiOptions.shareLivingunameEnabled = jSONObject.optBoolean(B);
-        sapiOptions.shareCommonStorageEnable = jSONObject.optBoolean(D);
-        sapiOptions.f10376c = jSONObject.optBoolean(m, true);
-        sapiOptions.f10377d = jSONObject.optBoolean(n);
-        sapiOptions.shareInterGray = jSONObject.optInt(A, 0);
-        String optString = jSONObject.optString(k);
-        if (!TextUtils.isEmpty(optString)) {
-            sapiOptions.f10375b = LoginShareStrategy.mapStrToValue(optString);
+
+        public boolean isEnabled() {
+            return this.enabled;
         }
-        JSONObject optJSONObject = jSONObject.optJSONObject(l);
-        if (optJSONObject != null) {
-            Iterator<String> keys = optJSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                sapiOptions.f10378e.put(next, LoginShareStrategy.mapStrToValue(optJSONObject.optString(next)));
+
+        public JSONObject toJSON() {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(SapiOptions.KEY_CACHE_ENABLED, this.enabled);
+                jSONObject.put("version", this.version);
+                JSONArray jSONArray = new JSONArray();
+                for (Module module : getModules()) {
+                    jSONArray.put(module.toJSON());
+                }
+                jSONObject.put(SapiOptions.KEY_CACHE_MODULES, jSONArray);
+                return jSONObject;
+            } catch (Throwable unused) {
+                return null;
             }
-        }
-        a(jSONObject.optJSONArray(o), sapiOptions.f10379f);
-        a(jSONObject.optJSONArray(p), sapiOptions.f10380g);
-        a(jSONObject.optJSONArray(z), sapiOptions.f10381h);
-        a(jSONObject.optJSONArray(G), sapiOptions.i);
-        a(jSONObject.optJSONArray(H), sapiOptions.j);
-        JSONArray optJSONArray = jSONObject.optJSONArray(C);
-        if (optJSONArray != null) {
-            int length = optJSONArray.length();
-            for (int i = 0; i < length; i++) {
-                sapiOptions.diExceptIndex.add(Integer.valueOf(optJSONArray.optInt(i)));
-            }
-        }
-        sapiOptions.loginStatExtraLimitLen = jSONObject.optInt(F, 100);
-        sapiOptions.httpClientAsyncCookie = jSONObject.optBoolean(J, false);
-        sapiOptions.resetFileExecPer = jSONObject.optBoolean(K, false);
-        sapiOptions.joinQrLoginPrompt = jSONObject.optString(E, O);
-        sapiOptions.gray = Gray.a(jSONObject);
-        sapiOptions.canGetBduss = jSONObject.optBoolean(I, true);
-        sapiOptions.tid = jSONObject.optString("tid");
-        return sapiOptions;
-    }
-
-    public static List<String> g() {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("com.baidu.BaiduMap(.*)");
-        arrayList.add("cn.opda.a.phonoalbumshoushou(.*)");
-        return arrayList;
-    }
-
-    public static List<String> getInitialCachePackagesWhiteList() {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("com.baidu.(.*)input(.*)");
-        arrayList.add("com.baidu.browser.(.+)");
-        return arrayList;
-    }
-
-    public List<String> c() {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(com.baidu.sapi2.f.a.f10809g);
-        return arrayList;
-    }
-
-    public Map<String, Integer> d() {
-        HashMap hashMap = new HashMap();
-        hashMap.put("com.baidu.wallet", 1);
-        hashMap.put("com.nuomi", 2);
-        hashMap.put("com.baidu.lbs.waimai", 3);
-        hashMap.put("com.baidu.searchbox(.*)", 4);
-        hashMap.put("com.baidu.BaiduMap(.*)", 5);
-        hashMap.put("com.baidu.tieba(.*)", 6);
-        hashMap.put("com.baidu.netdisk(.*)", 7);
-        hashMap.put("com.baidu.appsearch", 8);
-        return hashMap;
-    }
-
-    public boolean getAddressUseWeb() {
-        return this.f10377d;
-    }
-
-    public List<String> getAuthorizedDomains() {
-        if (!this.f10379f.isEmpty()) {
-            return this.f10379f;
-        }
-        return e();
-    }
-
-    public a getCache() {
-        return this.f10374a;
-    }
-
-    public List<String> getCuidAuthorizedDomains() {
-        if (!this.f10380g.isEmpty()) {
-            return this.f10380g;
-        }
-        return f();
-    }
-
-    public boolean getDefaultHttpsEnabled() {
-        return this.f10376c;
-    }
-
-    public LoginShareStrategy getGlobalShareStrategy() {
-        return this.f10375b;
-    }
-
-    public boolean getHttpAsyncCookie() {
-        return this.httpClientAsyncCookie;
-    }
-
-    public List<String> getLoginCookieDiKeys() {
-        return this.f10381h;
-    }
-
-    public List<String> getOpenBdussDomains() {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("baifubao.com");
-        arrayList.add("duxiaoman.com");
-        arrayList.add("dxmpay.com");
-        arrayList.add("baiyingfund.com");
-        arrayList.add("dxmbaoxian.com");
-        arrayList.add("duxiaomanfund.com");
-        arrayList.add("baidu.com");
-        if (!this.j.isEmpty()) {
-            arrayList.addAll(this.j);
-        }
-        return arrayList;
-    }
-
-    public List<String> getOpenBdussTpls() {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("licai");
-        arrayList.add("baidugushitong");
-        arrayList.add("walletloan");
-        arrayList.add("baiduwalletapp");
-        arrayList.add("umoney_ios");
-        arrayList.add("walletloan_lite");
-        arrayList.add("bdwalletsdk");
-        if (!this.i.isEmpty()) {
-            arrayList.addAll(this.i);
-        }
-        return arrayList;
-    }
-
-    public Map<String, LoginShareStrategy> getSpecificShareStrategy() {
-        return this.f10378e;
-    }
-
-    public void setCache(a aVar) {
-        this.f10374a = aVar;
-    }
-
-    public String toJSON() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put(q, this.f10374a.d());
-            jSONObject.put(B, this.shareLivingunameEnabled);
-            jSONObject.put(D, this.shareCommonStorageEnable);
-            jSONObject.put(A, this.shareInterGray);
-            if (this.f10375b != null) {
-                jSONObject.put(k, this.f10375b.getStrValue());
-            }
-            jSONObject.put(m, this.f10376c);
-            jSONObject.put(n, this.f10377d);
-            JSONObject jSONObject2 = new JSONObject();
-            for (Map.Entry<String, LoginShareStrategy> entry : this.f10378e.entrySet()) {
-                jSONObject2.put(entry.getKey(), entry.getValue().getStrValue());
-            }
-            jSONObject.put(l, jSONObject2);
-            a(jSONObject, o, this.f10379f);
-            a(jSONObject, p, this.f10380g);
-            a(jSONObject, z, this.f10381h);
-            a(jSONObject, G, this.i);
-            a(jSONObject, H, this.j);
-            JSONArray jSONArray = new JSONArray();
-            for (Integer num : this.diExceptIndex) {
-                jSONArray.put(num);
-            }
-            jSONObject.put(C, jSONArray);
-            jSONObject.put(F, this.loginStatExtraLimitLen);
-            jSONObject.put(J, this.httpClientAsyncCookie);
-            jSONObject.put(K, this.resetFileExecPer);
-            jSONObject.put(E, this.joinQrLoginPrompt);
-            jSONObject.put("gray", this.gray.a());
-            jSONObject.put(I, this.canGetBduss);
-            jSONObject.put("tid", this.tid);
-            return jSONObject.toString();
-        } catch (Throwable unused) {
-            return null;
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class c {
+    public static class CacheGray {
+        public List<Cache.Module> modules = new ArrayList();
+        public String percent;
 
-        /* renamed from: c  reason: collision with root package name */
-        public static final String f10401c = "authorized_packages";
-
-        /* renamed from: d  reason: collision with root package name */
-        public static final String f10402d = "sc_authorized_packages";
-
-        /* renamed from: a  reason: collision with root package name */
-        public Map<String, String> f10403a = new HashMap();
-
-        /* renamed from: b  reason: collision with root package name */
-        public Map<String, String> f10404b = new HashMap();
-
-        public static c a(JSONObject jSONObject) {
-            c cVar = new c();
-            SapiOptions.b(jSONObject.optJSONObject(f10401c), cVar.f10403a);
-            SapiOptions.b(jSONObject.optJSONObject(f10402d), cVar.f10404b);
-            return cVar;
+        public static CacheGray fromJSON(JSONObject jSONObject) {
+            CacheGray cacheGray = new CacheGray();
+            if (jSONObject != null) {
+                try {
+                    cacheGray.percent = jSONObject.optString(SapiOptions.KEY_CACHE_PERCENT);
+                    JSONArray optJSONArray = jSONObject.optJSONArray(SapiOptions.KEY_CACHE_MODULES);
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        cacheGray.getModules().add(Cache.Module.fromJSON(optJSONArray.getJSONObject(i2)));
+                    }
+                } catch (Throwable unused) {
+                }
+            }
+            return cacheGray;
         }
 
-        public Map<String, String> b() {
+        public List<Cache.Module> getModules() {
+            return this.modules;
+        }
+
+        public String getPercent() {
+            return this.percent;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class Gray implements NoProguard {
+        public static final String FUN_NAME_ADDRESS_NA_MAP = "addrmap";
+        public static final String FUN_NAME_CHINA_MOBILE_OAUTH = "cm_oauth";
+        public static final String FUN_NAME_CHINA_TELECOM_OAUTH = "ct_oauth";
+        public static final String FUN_NAME_CHINA_UNICOM_OAUTH = "cu_oauth";
+        public static final String FUN_NAME_CLIPBOARD_ADDR = "clipboard_addr";
+        public static final String FUN_NAME_GINGER = "finger";
+        public static final String FUN_NAME_NUOMI_ADDR = "nuomi_addr";
+        public static final String FUN_NAME_SHARE_V3 = "share_v3";
+        public static final String FUN_NAME_VALIDATE_SP_COMMIT = "validate_sp_commit";
+        public static final String FUN_SHARE_MODEL_FROM_SERVER = "share_model_from_server";
+        public static final String FUN_SHARE_V3_EXTERNAL_RECOVERY = "share_v3_external_recovery";
+        public static String KEY_GRAY_EX = "ex";
+        public static String KEY_GRAY_MEET = "meet";
+        public static String KEY_GRAY_MIN_VERSION = "v";
+        public static String KEY_GRAY_PERCENT = "p";
+        public static String KEY_GRAY_TPLS = "t";
+        public Map<String, GrayModule> grayModuleMap = new HashMap();
+
+        /* loaded from: classes2.dex */
+        public static class GrayModule implements NoProguard {
+            public String extraParams;
+            public boolean meetGray;
+            public String minVersion;
+            public long percent;
+
+            public static GrayModule fromJSON(String str, JSONObject jSONObject) {
+                SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
+                GrayModule grayModule = new GrayModule();
+                JSONObject optJSONObject = jSONObject.has(Gray.KEY_GRAY_TPLS) ? jSONObject.optJSONObject(Gray.KEY_GRAY_TPLS).optJSONObject(confignation.tpl) : new JSONObject();
+                if (optJSONObject == null) {
+                    optJSONObject = new JSONObject();
+                }
+                grayModule.minVersion = optJSONObject.has(Gray.KEY_GRAY_MIN_VERSION) ? optJSONObject.optString(Gray.KEY_GRAY_MIN_VERSION) : jSONObject.optString(Gray.KEY_GRAY_MIN_VERSION);
+                grayModule.percent = optJSONObject.has(Gray.KEY_GRAY_PERCENT) ? optJSONObject.optLong(Gray.KEY_GRAY_PERCENT) : jSONObject.optLong(Gray.KEY_GRAY_PERCENT);
+                grayModule.extraParams = optJSONObject.has(Gray.KEY_GRAY_EX) ? optJSONObject.optString(Gray.KEY_GRAY_EX) : jSONObject.optString(Gray.KEY_GRAY_EX);
+                long j = SapiContext.getInstance().getLong(str, -1L);
+                if (j == -1) {
+                    Random random = new Random();
+                    random.setSeed(System.currentTimeMillis());
+                    j = random.nextInt(1000000);
+                    SapiContext.getInstance().put(str, j);
+                }
+                grayModule.meetGray = grayModule.percent >= j;
+                if (!TextUtils.isEmpty(grayModule.minVersion) && SapiUtils.versionCompareTo(ServiceManager.getInstance().getIsAccountManager().getVersionName(), grayModule.minVersion) < 0) {
+                    grayModule.meetGray = false;
+                }
+                return grayModule;
+            }
+
+            public boolean isMeetGray() {
+                return this.meetGray;
+            }
+
+            public JSONObject toJSON() {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put(Gray.KEY_GRAY_MIN_VERSION, this.minVersion);
+                    jSONObject.put(Gray.KEY_GRAY_PERCENT, this.percent);
+                    jSONObject.put(Gray.KEY_GRAY_EX, this.extraParams);
+                    jSONObject.put(Gray.KEY_GRAY_MEET, this.meetGray);
+                    return jSONObject;
+                } catch (Throwable unused) {
+                    return null;
+                }
+            }
+        }
+
+        public static Gray fromJSON(JSONObject jSONObject) {
+            Gray gray = new Gray();
+            JSONObject optJSONObject = jSONObject.optJSONObject("gray");
+            if (optJSONObject == null) {
+                return gray;
+            }
+            Iterator<String> keys = optJSONObject.keys();
+            while (keys.hasNext()) {
+                String obj = keys.next().toString();
+                if (obj != null && !"".equals(obj)) {
+                    gray.grayModuleMap.put(obj, GrayModule.fromJSON(obj, optJSONObject.optJSONObject(obj)));
+                }
+            }
+            return gray;
+        }
+
+        public GrayModule getGrayModuleByFunName(String str) {
+            GrayModule grayModule = this.grayModuleMap.get(str);
+            if (grayModule == null) {
+                GrayModule grayModule2 = new GrayModule();
+                grayModule2.meetGray = true;
+                return grayModule2;
+            }
+            return grayModule;
+        }
+
+        public JSONObject toJSON() {
+            JSONObject jSONObject = new JSONObject();
+            for (String str : this.grayModuleMap.keySet()) {
+                try {
+                    jSONObject.put(str, this.grayModuleMap.get(str).toJSON());
+                } catch (JSONException e2) {
+                    Log.e(e2);
+                }
+            }
+            return jSONObject;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public static class PkgSigns {
+        public static final String KEY_AUTHORIZED_PACKAGES = "authorized_packages";
+        public static final String KEY_SC_AUTHORIZED_PACKAGES = "sc_authorized_packages";
+        public Map<String, String> authorizedPackages = new HashMap();
+        public Map<String, String> scAuthorizedPackages = new HashMap();
+
+        public static PkgSigns fromJSON(JSONObject jSONObject) {
+            PkgSigns pkgSigns = new PkgSigns();
+            SapiOptions.setJsonToMap(jSONObject.optJSONObject(KEY_AUTHORIZED_PACKAGES), pkgSigns.authorizedPackages);
+            SapiOptions.setJsonToMap(jSONObject.optJSONObject(KEY_SC_AUTHORIZED_PACKAGES), pkgSigns.scAuthorizedPackages);
+            return pkgSigns;
+        }
+
+        public Map<String, String> getAuthorizedPackages() {
+            if (!this.authorizedPackages.isEmpty()) {
+                return this.authorizedPackages;
+            }
+            return getInitialAuthorizedPackages();
+        }
+
+        public Map<String, String> getInitialAuthorizedPackages() {
             HashMap hashMap = new HashMap();
             hashMap.put("com.baidu.sapi2.(.*)", "de308d7973b5171883333a97253327e4");
             hashMap.put("com.baidu.tieba(.*)", "673004cf2f6efdec2385c8116c1e8c14");
@@ -499,7 +353,7 @@ public final class SapiOptions implements NoProguard {
             hashMap.put("com.baidu.hao123(.*)", "7fd3727852d29eb6f4283988dc0d6150");
             hashMap.put("com.baidu.netdisk(.*)", "ae5821440fab5e1a61a025f014bd8972");
             hashMap.put("com.hiapk.marketpho", "d46053ef4381d35cb774eb632d8e8aec");
-            hashMap.put(com.baidu.sapi2.f.a.f10809g, "db97d206640d7aca6d75975b3c1f6e87");
+            hashMap.put(SapiScheme.SC_APP_PACKAGENAME, "db97d206640d7aca6d75975b3c1f6e87");
             hashMap.put("com.nuomi", "59215ee95c063ff2c56226581a62130a");
             hashMap.put("cn.jingling.motu.photowonder", "6930f0bd9fa461c2cd65e216acee0118");
             hashMap.put("cn.opda.a.phonoalbumshoushou", "310a4f78e839b86df7731c2f48fcadae");
@@ -547,7 +401,7 @@ public final class SapiOptions implements NoProguard {
             return hashMap;
         }
 
-        public Map<String, String> c() {
+        public Map<String, String> getInitialSCAuthorizedPackages() {
             HashMap hashMap = new HashMap();
             hashMap.put("com.baidu.(.*)input(.*)", "c2b0b497d0389e6de1505e7fd8f4d539");
             hashMap.put("com.nuomi.merchant", "59215ee95c063ff2c56226581a62130a");
@@ -577,169 +431,138 @@ public final class SapiOptions implements NoProguard {
             return hashMap;
         }
 
-        public Map<String, String> d() {
-            if (!this.f10404b.isEmpty()) {
-                return this.f10404b;
+        public Map<String, String> getSCAuthorizedPackages() {
+            if (!this.scAuthorizedPackages.isEmpty()) {
+                return this.scAuthorizedPackages;
             }
-            return c();
+            return getInitialSCAuthorizedPackages();
         }
 
-        public String e() {
+        public String toJSON() {
             JSONObject jSONObject = new JSONObject();
             try {
-                SapiOptions.b(jSONObject, f10401c, this.f10403a);
-                SapiOptions.b(jSONObject, f10402d, this.f10404b);
+                SapiOptions.setMapToJson(jSONObject, KEY_AUTHORIZED_PACKAGES, this.authorizedPackages);
+                SapiOptions.setMapToJson(jSONObject, KEY_SC_AUTHORIZED_PACKAGES, this.scAuthorizedPackages);
             } catch (JSONException e2) {
                 Log.e(e2);
             }
             return jSONObject.toString();
         }
+    }
 
-        public Map<String, String> a() {
-            if (!this.f10403a.isEmpty()) {
-                return this.f10403a;
+    public static void cacheGrayTest(JSONObject jSONObject, SapiOptions sapiOptions) {
+        SapiContext sapiContext = SapiContext.getInstance();
+        int i2 = sapiContext.getInt(KEY_CACHE_GRAY, -1);
+        if (i2 == -1) {
+            i2 = new Random().nextInt(100);
+            sapiContext.put(KEY_CACHE_GRAY, i2);
+        }
+        CacheGray fromJSON = CacheGray.fromJSON(jSONObject.optJSONObject(KEY_CACHE_GRAY));
+        String percent = fromJSON.getPercent();
+        if (TextUtils.isEmpty(percent)) {
+            return;
+        }
+        String[] split = percent.split("_");
+        int length = split.length;
+        int i3 = 0;
+        for (int i4 = 0; i4 < length; i4++) {
+            i3 += Integer.valueOf(split[i4]).intValue();
+            if (i2 <= i3) {
+                sapiOptions.cache.modules.clear();
+                sapiOptions.cache.modules.add(fromJSON.modules.get(i4));
+                return;
             }
-            return b();
         }
     }
 
-    public static void a(JSONObject jSONObject, String str, List<String> list) throws JSONException {
-        JSONArray jSONArray = new JSONArray();
-        for (String str2 : list) {
-            jSONArray.put(str2);
+    public static SapiOptions fromJSON(JSONObject jSONObject) {
+        SapiOptions sapiOptions = new SapiOptions();
+        sapiOptions.cache = Cache.fromJSON(jSONObject.optJSONObject(KEY_CACHE));
+        if (jSONObject.has(KEY_CACHE_GRAY)) {
+            cacheGrayTest(jSONObject, sapiOptions);
         }
-        jSONObject.put(str, jSONArray);
-    }
-
-    /* loaded from: classes2.dex */
-    public static class Gray implements NoProguard {
-        public static final String FUN_NAME_ADDRESS_NA_MAP = "addrmap";
-        public static final String FUN_NAME_CHINA_MOBILE_OAUTH = "cm_oauth";
-        public static final String FUN_NAME_CHINA_TELECOM_OAUTH = "ct_oauth";
-        public static final String FUN_NAME_CHINA_UNICOM_OAUTH = "cu_oauth";
-        public static final String FUN_NAME_CLIPBOARD_ADDR = "clipboard_addr";
-        public static final String FUN_NAME_GINGER = "finger";
-        public static final String FUN_NAME_NUOMI_ADDR = "nuomi_addr";
-        public static final String FUN_NAME_SHARE_V3 = "share_v3";
-        public static final String FUN_NAME_VALIDATE_SP_COMMIT = "validate_sp_commit";
-        public static final String FUN_SHARE_MODEL_FROM_SERVER = "share_model_from_server";
-        public static final String FUN_SHARE_V3_EXTERNAL_RECOVERY = "share_v3_external_recovery";
-
-        /* renamed from: b  reason: collision with root package name */
-        public static String f10382b = "v";
-
-        /* renamed from: c  reason: collision with root package name */
-        public static String f10383c = "p";
-
-        /* renamed from: d  reason: collision with root package name */
-        public static String f10384d = "ex";
-
-        /* renamed from: e  reason: collision with root package name */
-        public static String f10385e = "meet";
-
-        /* renamed from: f  reason: collision with root package name */
-        public static String f10386f = "t";
-
-        /* renamed from: a  reason: collision with root package name */
-        public Map<String, GrayModule> f10387a = new HashMap();
-
-        public static Gray a(JSONObject jSONObject) {
-            Gray gray = new Gray();
-            JSONObject optJSONObject = jSONObject.optJSONObject("gray");
-            if (optJSONObject == null) {
-                return gray;
-            }
+        sapiOptions.shareLivingunameEnabled = jSONObject.optBoolean(KEY_SHARE_LIVINGUNAME_ENABLE);
+        sapiOptions.shareCommonStorageEnable = jSONObject.optBoolean(KEY_SHARE_COMMOM_STORAGE_ENABLE);
+        sapiOptions.defaultHttpsEnabled = jSONObject.optBoolean(KEY_DEFAULT_HTTPS_ENABLED, true);
+        sapiOptions.addressUseWeb = jSONObject.optBoolean(KEY_ADDRESS_USE_WEB);
+        sapiOptions.shareInterGray = jSONObject.optInt(KEY_SHARE_INTERNAL_STORAGE, 0);
+        String optString = jSONObject.optString(KEY_GLOBAL_SHARE_STRATEGY);
+        if (!TextUtils.isEmpty(optString)) {
+            sapiOptions.globalShareStrategy = LoginShareStrategy.mapStrToValue(optString);
+        }
+        JSONObject optJSONObject = jSONObject.optJSONObject(KEY_SPECIFIC_SHARE_STRATEGY);
+        if (optJSONObject != null) {
             Iterator<String> keys = optJSONObject.keys();
             while (keys.hasNext()) {
-                String obj = keys.next().toString();
-                if (obj != null && !"".equals(obj)) {
-                    gray.f10387a.put(obj, GrayModule.a(obj, optJSONObject.optJSONObject(obj)));
-                }
-            }
-            return gray;
-        }
-
-        public GrayModule getGrayModuleByFunName(String str) {
-            GrayModule grayModule = this.f10387a.get(str);
-            if (grayModule == null) {
-                GrayModule grayModule2 = new GrayModule();
-                grayModule2.f10390c = true;
-                return grayModule2;
-            }
-            return grayModule;
-        }
-
-        /* loaded from: classes2.dex */
-        public static class GrayModule implements NoProguard {
-
-            /* renamed from: a  reason: collision with root package name */
-            public String f10388a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public long f10389b;
-
-            /* renamed from: c  reason: collision with root package name */
-            public boolean f10390c;
-
-            /* renamed from: d  reason: collision with root package name */
-            public String f10391d;
-
-            public JSONObject a() {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put(Gray.f10382b, this.f10388a);
-                    jSONObject.put(Gray.f10383c, this.f10389b);
-                    jSONObject.put(Gray.f10384d, this.f10391d);
-                    jSONObject.put(Gray.f10385e, this.f10390c);
-                    return jSONObject;
-                } catch (Throwable unused) {
-                    return null;
-                }
-            }
-
-            public boolean isMeetGray() {
-                return this.f10390c;
-            }
-
-            public static GrayModule a(String str, JSONObject jSONObject) {
-                SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
-                GrayModule grayModule = new GrayModule();
-                JSONObject optJSONObject = jSONObject.has(Gray.f10386f) ? jSONObject.optJSONObject(Gray.f10386f).optJSONObject(confignation.tpl) : new JSONObject();
-                if (optJSONObject == null) {
-                    optJSONObject = new JSONObject();
-                }
-                grayModule.f10388a = optJSONObject.has(Gray.f10382b) ? optJSONObject.optString(Gray.f10382b) : jSONObject.optString(Gray.f10382b);
-                grayModule.f10389b = optJSONObject.has(Gray.f10383c) ? optJSONObject.optLong(Gray.f10383c) : jSONObject.optLong(Gray.f10383c);
-                grayModule.f10391d = optJSONObject.has(Gray.f10384d) ? optJSONObject.optString(Gray.f10384d) : jSONObject.optString(Gray.f10384d);
-                long j = SapiContext.getInstance().getLong(str, -1L);
-                if (j == -1) {
-                    Random random = new Random();
-                    random.setSeed(System.currentTimeMillis());
-                    j = random.nextInt(1000000);
-                    SapiContext.getInstance().put(str, j);
-                }
-                grayModule.f10390c = grayModule.f10389b >= j;
-                if (!TextUtils.isEmpty(grayModule.f10388a) && SapiUtils.versionCompareTo(ServiceManager.getInstance().getIsAccountManager().getVersionName(), grayModule.f10388a) < 0) {
-                    grayModule.f10390c = false;
-                }
-                return grayModule;
+                String next = keys.next();
+                sapiOptions.specificShareStrategy.put(next, LoginShareStrategy.mapStrToValue(optJSONObject.optString(next)));
             }
         }
+        setJsonArrayToList(jSONObject.optJSONArray(KEY_AUTHORIZED_DOMAINS), sapiOptions.authorizedDomains);
+        setJsonArrayToList(jSONObject.optJSONArray(KEY_CUID_AUTHORIZED_DOMAINS), sapiOptions.cuidAuthorizedDomains);
+        setJsonArrayToList(jSONObject.optJSONArray(KEY_LOGIN_COOKIE_DI_KEYS), sapiOptions.loginCookieDiKeys);
+        setJsonArrayToList(jSONObject.optJSONArray(KEY_OPEN_BDUSS_TPLS), sapiOptions.openBdussTpls);
+        setJsonArrayToList(jSONObject.optJSONArray(KEY_OPTN_BDUSS_DOMAINS), sapiOptions.openBdussDomains);
+        JSONArray optJSONArray = jSONObject.optJSONArray(KEY_DI_EXCEPT_INDEX);
+        if (optJSONArray != null) {
+            int length = optJSONArray.length();
+            for (int i2 = 0; i2 < length; i2++) {
+                sapiOptions.diExceptIndex.add(Integer.valueOf(optJSONArray.optInt(i2)));
+            }
+        }
+        sapiOptions.loginStatExtraLimitLen = jSONObject.optInt(KEY_LOGIN_STAT_EXTRA_LIMIT_LENGTH, 100);
+        sapiOptions.httpClientAsyncCookie = jSONObject.optBoolean(KEY_PASSHTTP_CLIENT_ASYNC_COOKIE, false);
+        sapiOptions.resetFileExecPer = jSONObject.optBoolean(KEY_RESET_FILE_EXEC_PER, false);
+        sapiOptions.joinQrLoginPrompt = jSONObject.optString(KEY_JOIN_QR_LOGIN_PROMPT, defaultJoinQrLoginPrompt);
+        sapiOptions.gray = Gray.fromJSON(jSONObject);
+        sapiOptions.canGetBduss = jSONObject.optBoolean(KEY_OPEN_BDUSS_CAN_GET_BDUSS, true);
+        sapiOptions.tid = jSONObject.optString("tid");
+        return sapiOptions;
+    }
 
-        public JSONObject a() {
-            JSONObject jSONObject = new JSONObject();
-            for (String str : this.f10387a.keySet()) {
-                try {
-                    jSONObject.put(str, this.f10387a.get(str).a());
-                } catch (JSONException e2) {
-                    Log.e(e2);
+    public static List<String> getInitialAuthorizedDomains() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("baidu.com");
+        arrayList.add("hao123.com");
+        arrayList.add("nuomi.com");
+        arrayList.add("baifubao.com");
+        return arrayList;
+    }
+
+    public static List<String> getInitialCachePackagesWhiteList() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("com.baidu.(.*)input(.*)");
+        arrayList.add("com.baidu.browser.(.+)");
+        return arrayList;
+    }
+
+    public static List<String> getInitialCuidAuthorizedDomains() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("nsclick.baidu.com");
+        arrayList.add("passport.baidu.com");
+        arrayList.add("wappass.baidu.com");
+        return arrayList;
+    }
+
+    public static List<String> getInitialProcessNameWhiteList() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("com.baidu.BaiduMap(.*)");
+        arrayList.add("cn.opda.a.phonoalbumshoushou(.*)");
+        return arrayList;
+    }
+
+    public static void setJsonArrayToList(JSONArray jSONArray, List<String> list) {
+        if (jSONArray != null) {
+            int length = jSONArray.length();
+            for (int i2 = 0; i2 < length; i2++) {
+                if (!TextUtils.isEmpty(jSONArray.optString(i2))) {
+                    list.add(jSONArray.optString(i2));
                 }
             }
-            return jSONObject;
         }
     }
 
-    public static void b(JSONObject jSONObject, Map<String, String> map) {
+    public static void setJsonToMap(JSONObject jSONObject, Map<String, String> map) {
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
@@ -752,51 +575,34 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    public static void a(JSONObject jSONObject, SapiOptions sapiOptions) {
-        SapiContext sapiContext = SapiContext.getInstance();
-        int i = sapiContext.getInt(r, -1);
-        if (i == -1) {
-            i = new Random().nextInt(100);
-            sapiContext.put(r, i);
+    public static void setListToJsonArray(JSONObject jSONObject, String str, List<String> list) throws JSONException {
+        JSONArray jSONArray = new JSONArray();
+        for (String str2 : list) {
+            jSONArray.put(str2);
         }
-        b a2 = b.a(jSONObject.optJSONObject(r));
-        String b2 = a2.b();
-        if (TextUtils.isEmpty(b2)) {
-            return;
-        }
-        String[] split = b2.split("_");
-        int length = split.length;
-        int i2 = 0;
-        for (int i3 = 0; i3 < length; i3++) {
-            i2 += Integer.valueOf(split[i3]).intValue();
-            if (i <= i2) {
-                sapiOptions.f10374a.f10395c.clear();
-                sapiOptions.f10374a.f10395c.add(a2.f10400b.get(i3));
-                return;
-            }
-        }
+        jSONObject.put(str, jSONArray);
     }
 
-    public List<String> b() {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("com.baidu.searchbox(.*)");
-        arrayList.add("com.baidu.browser.(.+)");
-        arrayList.add(com.baidu.sapi2.f.a.f10809g);
-        return arrayList;
-    }
-
-    public static void a(JSONArray jSONArray, List<String> list) {
-        if (jSONArray != null) {
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                if (!TextUtils.isEmpty(jSONArray.optString(i))) {
-                    list.add(jSONArray.optString(i));
-                }
-            }
+    public static void setMapToJson(JSONObject jSONObject, String str, Map<String, String> map) throws JSONException {
+        JSONObject jSONObject2 = new JSONObject();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            jSONObject2.put(entry.getKey(), entry.getValue());
         }
+        jSONObject.put(str, jSONObject2);
     }
 
-    public List<String> a() {
+    public boolean getAddressUseWeb() {
+        return this.addressUseWeb;
+    }
+
+    public List<String> getAuthorizedDomains() {
+        if (!this.authorizedDomains.isEmpty()) {
+            return this.authorizedDomains;
+        }
+        return getInitialAuthorizedDomains();
+    }
+
+    public List<String> getAuthorizedDomainsForPtoken() {
         ArrayList arrayList = new ArrayList();
         SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
         String replaceAll = confignation.environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
@@ -804,5 +610,137 @@ public final class SapiOptions implements NoProguard {
         arrayList.add(replaceAll);
         arrayList.add(replaceAll2);
         return arrayList;
+    }
+
+    public List<String> getAuthorizedPackagesForPtoken() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("com.baidu.searchbox(.*)");
+        arrayList.add("com.baidu.browser.(.+)");
+        arrayList.add(SapiScheme.SC_APP_PACKAGENAME);
+        return arrayList;
+    }
+
+    public List<String> getAuthorizedPackagesForUA() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(SapiScheme.SC_APP_PACKAGENAME);
+        return arrayList;
+    }
+
+    public Cache getCache() {
+        return this.cache;
+    }
+
+    public List<String> getCuidAuthorizedDomains() {
+        if (!this.cuidAuthorizedDomains.isEmpty()) {
+            return this.cuidAuthorizedDomains;
+        }
+        return getInitialCuidAuthorizedDomains();
+    }
+
+    public boolean getDefaultHttpsEnabled() {
+        return this.defaultHttpsEnabled;
+    }
+
+    public LoginShareStrategy getGlobalShareStrategy() {
+        return this.globalShareStrategy;
+    }
+
+    public boolean getHttpAsyncCookie() {
+        return this.httpClientAsyncCookie;
+    }
+
+    public List<String> getLoginCookieDiKeys() {
+        return this.loginCookieDiKeys;
+    }
+
+    public List<String> getOpenBdussDomains() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("baifubao.com");
+        arrayList.add("duxiaoman.com");
+        arrayList.add("dxmpay.com");
+        arrayList.add("baiyingfund.com");
+        arrayList.add("dxmbaoxian.com");
+        arrayList.add("duxiaomanfund.com");
+        arrayList.add("baidu.com");
+        if (!this.openBdussDomains.isEmpty()) {
+            arrayList.addAll(this.openBdussDomains);
+        }
+        return arrayList;
+    }
+
+    public List<String> getOpenBdussTpls() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("licai");
+        arrayList.add("baidugushitong");
+        arrayList.add("walletloan");
+        arrayList.add("baiduwalletapp");
+        arrayList.add("umoney_ios");
+        arrayList.add("walletloan_lite");
+        arrayList.add("bdwalletsdk");
+        if (!this.openBdussTpls.isEmpty()) {
+            arrayList.addAll(this.openBdussTpls);
+        }
+        return arrayList;
+    }
+
+    public Map<String, Integer> getOrderAuthorizedPackages() {
+        HashMap hashMap = new HashMap();
+        hashMap.put("com.baidu.wallet", 1);
+        hashMap.put("com.nuomi", 2);
+        hashMap.put("com.baidu.lbs.waimai", 3);
+        hashMap.put("com.baidu.searchbox(.*)", 4);
+        hashMap.put("com.baidu.BaiduMap(.*)", 5);
+        hashMap.put("com.baidu.tieba(.*)", 6);
+        hashMap.put("com.baidu.netdisk(.*)", 7);
+        hashMap.put("com.baidu.appsearch", 8);
+        return hashMap;
+    }
+
+    public Map<String, LoginShareStrategy> getSpecificShareStrategy() {
+        return this.specificShareStrategy;
+    }
+
+    public void setCache(Cache cache) {
+        this.cache = cache;
+    }
+
+    public String toJSON() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(KEY_CACHE, this.cache.toJSON());
+            jSONObject.put(KEY_SHARE_LIVINGUNAME_ENABLE, this.shareLivingunameEnabled);
+            jSONObject.put(KEY_SHARE_COMMOM_STORAGE_ENABLE, this.shareCommonStorageEnable);
+            jSONObject.put(KEY_SHARE_INTERNAL_STORAGE, this.shareInterGray);
+            if (this.globalShareStrategy != null) {
+                jSONObject.put(KEY_GLOBAL_SHARE_STRATEGY, this.globalShareStrategy.getStrValue());
+            }
+            jSONObject.put(KEY_DEFAULT_HTTPS_ENABLED, this.defaultHttpsEnabled);
+            jSONObject.put(KEY_ADDRESS_USE_WEB, this.addressUseWeb);
+            JSONObject jSONObject2 = new JSONObject();
+            for (Map.Entry<String, LoginShareStrategy> entry : this.specificShareStrategy.entrySet()) {
+                jSONObject2.put(entry.getKey(), entry.getValue().getStrValue());
+            }
+            jSONObject.put(KEY_SPECIFIC_SHARE_STRATEGY, jSONObject2);
+            setListToJsonArray(jSONObject, KEY_AUTHORIZED_DOMAINS, this.authorizedDomains);
+            setListToJsonArray(jSONObject, KEY_CUID_AUTHORIZED_DOMAINS, this.cuidAuthorizedDomains);
+            setListToJsonArray(jSONObject, KEY_LOGIN_COOKIE_DI_KEYS, this.loginCookieDiKeys);
+            setListToJsonArray(jSONObject, KEY_OPEN_BDUSS_TPLS, this.openBdussTpls);
+            setListToJsonArray(jSONObject, KEY_OPTN_BDUSS_DOMAINS, this.openBdussDomains);
+            JSONArray jSONArray = new JSONArray();
+            for (Integer num : this.diExceptIndex) {
+                jSONArray.put(num);
+            }
+            jSONObject.put(KEY_DI_EXCEPT_INDEX, jSONArray);
+            jSONObject.put(KEY_LOGIN_STAT_EXTRA_LIMIT_LENGTH, this.loginStatExtraLimitLen);
+            jSONObject.put(KEY_PASSHTTP_CLIENT_ASYNC_COOKIE, this.httpClientAsyncCookie);
+            jSONObject.put(KEY_RESET_FILE_EXEC_PER, this.resetFileExecPer);
+            jSONObject.put(KEY_JOIN_QR_LOGIN_PROMPT, this.joinQrLoginPrompt);
+            jSONObject.put("gray", this.gray.toJSON());
+            jSONObject.put(KEY_OPEN_BDUSS_CAN_GET_BDUSS, this.canGetBduss);
+            jSONObject.put("tid", this.tid);
+            return jSONObject.toString();
+        } catch (Throwable unused) {
+            return null;
+        }
     }
 }

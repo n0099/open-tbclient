@@ -135,19 +135,19 @@ public class DownloadDispatcher {
     }
 
     private synchronized void filterReadyCalls(DownloadCall downloadCall) {
-        int i = Integer.MAX_VALUE;
+        int i2 = Integer.MAX_VALUE;
         ArrayList arrayList = new ArrayList();
         for (DownloadCall downloadCall2 : this.runningAsyncCalls) {
             if (!downloadCall2.isCanceled()) {
                 if (downloadCall2.task.getLastSeconds() >= this.cancleSecondsFromRunning) {
                     arrayList.add(downloadCall2);
                 }
-                if (downloadCall2.getPriority() <= i) {
-                    i = downloadCall2.getPriority();
+                if (downloadCall2.getPriority() <= i2) {
+                    i2 = downloadCall2.getPriority();
                 }
             }
         }
-        if (downloadCall.getPriority() > i) {
+        if (downloadCall.getPriority() > i2) {
             Collections.sort(arrayList);
             if (arrayList.size() > 0) {
                 DownloadCall downloadCall3 = (DownloadCall) arrayList.get(arrayList.size() - 1);
@@ -238,10 +238,10 @@ public class DownloadDispatcher {
         return this.runningAsyncCalls.size() - this.flyingCanceledAsyncCallCount.get();
     }
 
-    public static void setMaxParallelRunningCount(int i) {
+    public static void setMaxParallelRunningCount(int i2) {
         DownloadDispatcher downloadDispatcher = BdDownload.with().downloadDispatcher();
         if (downloadDispatcher.getClass() == DownloadDispatcher.class) {
-            downloadDispatcher.maxParallelRunningCount = Math.max(1, i);
+            downloadDispatcher.maxParallelRunningCount = Math.max(1, i2);
             return;
         }
         throw new IllegalStateException("The current dispatcher is " + downloadDispatcher + " not DownloadDispatcher exactly!");
@@ -507,9 +507,9 @@ public class DownloadDispatcher {
         return false;
     }
 
-    public boolean cancel(int i) {
+    public boolean cancel(int i2) {
         this.skipProceedCallCount.incrementAndGet();
-        boolean cancelLocked = cancelLocked(DownloadTask.mockTaskForCompare(i));
+        boolean cancelLocked = cancelLocked(DownloadTask.mockTaskForCompare(i2));
         this.skipProceedCallCount.decrementAndGet();
         processCalls();
         return cancelLocked;

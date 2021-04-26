@@ -182,11 +182,11 @@ public class CacheEngine {
         }
     }
 
-    public CacheEngine(Context context, int i, int i2) {
+    public CacheEngine(Context context, int i2, int i3) {
         String storagePath = SdcardUtils.getStoragePath(context);
         this.mPicDir = storagePath + MaterialLoader.IMAGE_CACHE_PATH;
-        this.memoryCache = new LruCache<>(i);
-        this.diskCache = LruDiskCache.open(this.mPicDir, i2);
+        this.memoryCache = new LruCache<>(i2);
+        this.diskCache = LruDiskCache.open(this.mPicDir, i3);
     }
 
     private <T> T retrieveDataForKey(String str, Parser<T> parser) {

@@ -42,7 +42,7 @@ public interface KsFeedAd {
 
     @KsAdSdkApi
     @Keep
-    void setBidEcpm(int i);
+    void setBidEcpm(int i2);
 
     @KsAdSdkApi
     @Keep

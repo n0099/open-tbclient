@@ -7,8 +7,8 @@ import com.baidu.wallet.personal.ui.BankCardListActivity;
 /* loaded from: classes5.dex */
 public class CardListResponseHandler extends ResponsePrecallback {
     @Override // com.baidu.wallet.core.beans.ResponsePrecallback
-    public void handleResponse(int i, Object obj, String str) {
-        CardListCache.getInstance().updateCardList(i, (CardListResponse) obj);
+    public void handleResponse(int i2, Object obj, String str) {
+        CardListCache.getInstance().updateCardList(i2, (CardListResponse) obj);
     }
 
     @Override // com.baidu.wallet.core.beans.ResponsePrecallback

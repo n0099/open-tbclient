@@ -2,7 +2,7 @@ package com.vivo.push.c;
 
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.mapapi.UIMsg;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ai {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Removed duplicated region for block: B:25:0x006d  */

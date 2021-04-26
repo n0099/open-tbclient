@@ -15,65 +15,65 @@ import java.util.List;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Activity f4758a;
+    public static Activity f4871a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f4761d;
+    public static long f4874d;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b<List> f4759b = new b<>(com.baidu.crabsdk.lite.a.f4752c);
+    public static b<List> f4872b = new b<>(com.baidu.crabsdk.lite.a.f4864c);
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f4760c = true;
+    public static boolean f4873c = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f4762e = 0;
+    public static int f4875e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f4763f = 0;
+    public static int f4876f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f4764g = 0;
+    public static int f4877g = 0;
 
     public static long a() {
-        return f4761d;
+        return f4874d;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:7:0x005c, code lost:
-        if ((((java.util.Date) com.baidu.crabsdk.lite.a.a.f4759b.get(r5 - 1).get(1)).getTime() - ((java.util.Date) r3.get(2)).getTime()) > com.baidu.crabsdk.lite.a.f4755f) goto L10;
+        if ((((java.util.Date) com.baidu.crabsdk.lite.a.a.f4872b.get(r5 - 1).get(1)).getTime() - ((java.util.Date) r3.get(2)).getTime()) > com.baidu.crabsdk.lite.a.f4867f) goto L10;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void b(Activity activity) {
-        f4758a = activity;
+        f4871a = activity;
         ArrayList arrayList = new ArrayList(3);
         arrayList.add(activity.getClass().getName());
         arrayList.add(new Date());
-        f4759b.add(arrayList);
-        int size = f4759b.size();
+        f4872b.add(arrayList);
+        int size = f4872b.size();
         if (size >= 2) {
-            List list = f4759b.get(size - 2);
+            List list = f4872b.get(size - 2);
             if (list.size() == 3) {
             }
-            f4763f = (f4763f + 1) % 100;
+            f4876f = (f4876f + 1) % 100;
         }
-        f4762e++;
-        f4763f = (f4763f + 1) % 100;
+        f4875e++;
+        f4876f = (f4876f + 1) % 100;
     }
 
     @SuppressLint({"NewApi"})
     public static void c(String str, Context context) {
-        if (f4760c) {
-            f4760c = false;
-            f4761d = System.currentTimeMillis();
+        if (f4873c) {
+            f4873c = false;
+            f4874d = System.currentTimeMillis();
             if (com.baidu.crabsdk.lite.b.c.g() >= 14) {
                 if (!(context instanceof Application)) {
                     com.baidu.crabsdk.lite.b.a.g(str, "传入的不是一个Application对象!");
                     return;
                 }
                 com.baidu.crabsdk.lite.b.a.c(str, "传入的是一个Application对象");
-                ((Application) context).registerActivityLifecycleCallbacks(new d.b.m.c.a.a());
+                ((Application) context).registerActivityLifecycleCallbacks(new d.a.m.c.a.a());
             }
         }
     }
@@ -81,9 +81,9 @@ public final class a {
     public static String d() {
         String str;
         StringBuilder sb = new StringBuilder();
-        int size = f4759b.size();
-        for (int i = 0; i < size; i++) {
-            List list = f4759b.get((size - i) - 1);
+        int size = f4872b.size();
+        for (int i2 = 0; i2 < size; i2++) {
+            List list = f4872b.get((size - i2) - 1);
             if (list.size() == 3) {
                 sb.append((String) list.get(0));
                 sb.append(" from ");
@@ -103,46 +103,46 @@ public final class a {
     }
 
     public static /* synthetic */ void e(Activity activity) {
-        Activity activity2 = f4758a;
+        Activity activity2 = f4871a;
         if (activity2 != null && activity != null && activity2.hashCode() == activity.hashCode()) {
-            f4758a = null;
+            f4871a = null;
         }
-        int i = f4763f - f4764g;
-        int size = f4759b.size();
-        if (i < 0) {
-            i += 100;
+        int i2 = f4876f - f4877g;
+        int size = f4872b.size();
+        if (i2 < 0) {
+            i2 += 100;
         }
-        if (i > 0 && size >= i) {
-            List list = f4759b.get(size - i);
+        if (i2 > 0 && size >= i2) {
+            List list = f4872b.get(size - i2);
             if (list.size() == 2) {
                 list.add(new Date());
             }
         }
-        f4764g = (f4764g + 1) % 100;
+        f4877g = (f4877g + 1) % 100;
     }
 
     public static String f() {
-        Activity activity = f4758a;
+        Activity activity = f4871a;
         return activity == null ? "N/A" : activity.getClass().getName();
     }
 
     public static byte[] g(String str) {
-        if (f4758a == null) {
+        if (f4871a == null) {
             return new byte[0];
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            View decorView = f4758a.getWindow().getDecorView();
+            View decorView = f4871a.getWindow().getDecorView();
             decorView.setDrawingCacheEnabled(true);
             Bitmap drawingCache = decorView.getDrawingCache();
             if (drawingCache != null) {
                 drawingCache.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
             } else {
-                com.baidu.crabsdk.lite.b.a.f(str, "getScreenshot failed, curActivity " + f4758a.getClass().getName());
+                com.baidu.crabsdk.lite.b.a.f(str, "getScreenshot failed, curActivity " + f4871a.getClass().getName());
             }
             decorView.setDrawingCacheEnabled(false);
         } catch (RuntimeException e2) {
-            com.baidu.crabsdk.lite.b.a.e(str, "getScreenshot failed, curActivity " + f4758a.getClass().getName(), e2);
+            com.baidu.crabsdk.lite.b.a.e(str, "getScreenshot failed, curActivity " + f4871a.getClass().getName(), e2);
         }
         return byteArrayOutputStream.toByteArray();
     }

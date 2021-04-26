@@ -16,12 +16,12 @@ import java.io.OutputStream;
 /* loaded from: classes5.dex */
 public final class a {
     public static int a(BitmapFactory.Options options, float f2, float f3) {
-        int i = options.outHeight;
-        int i2 = options.outWidth;
-        float f4 = i;
-        if (f4 > f3 || i2 > f2) {
+        int i2 = options.outHeight;
+        int i3 = options.outWidth;
+        float f4 = i2;
+        if (f4 > f3 || i3 > f2) {
             int round = Math.round(f4 / f3);
-            int round2 = Math.round(i2 / f2);
+            int round2 = Math.round(i3 / f2);
             return round < round2 ? round : round2;
         }
         return 1;
@@ -41,7 +41,7 @@ public final class a {
         return ((long) statFs.getBlockSize()) * (((long) statFs.getAvailableBlocks()) - 4) < 5242880;
     }
 
-    public static boolean a(Context context, Bitmap bitmap, String str, Bitmap.CompressFormat compressFormat, int i) {
+    public static boolean a(Context context, Bitmap bitmap, String str, Bitmap.CompressFormat compressFormat, int i2) {
         FileOutputStream fileOutputStream;
         if (a()) {
             return false;
@@ -63,7 +63,7 @@ public final class a {
             th = th;
         }
         try {
-            bitmap.compress(compressFormat, i, fileOutputStream);
+            bitmap.compress(compressFormat, i2, fileOutputStream);
             fileOutputStream.close();
             a(context, str);
             c.a((OutputStream) fileOutputStream);

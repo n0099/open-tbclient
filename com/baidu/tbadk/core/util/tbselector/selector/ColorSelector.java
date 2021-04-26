@@ -40,8 +40,8 @@ public class ColorSelector implements ISelector<ColorStateList, TextView> {
         return new ColorSelector();
     }
 
-    public ColorSelector defaultColor(@ColorRes int i) {
-        int color = SelectorHelper.getColor(i);
+    public ColorSelector defaultColor(@ColorRes int i2) {
+        int color = SelectorHelper.getColor(i2);
         this.normalColor = color;
         if (!this.hasSetDisabledColor) {
             this.disabledColor = color;
@@ -58,39 +58,39 @@ public class ColorSelector implements ISelector<ColorStateList, TextView> {
         return this;
     }
 
-    public ColorSelector disabledColor(@ColorRes int i) {
-        this.disabledColor = SelectorHelper.getColor(i);
+    public ColorSelector disabledColor(@ColorRes int i2) {
+        this.disabledColor = SelectorHelper.getColor(i2);
         this.hasSetDisabledColor = true;
         return this;
     }
 
-    public ColorSelector focusedColor(@ColorRes int i) {
-        this.focusedColor = SelectorHelper.getColor(i);
+    public ColorSelector focusedColor(@ColorRes int i2) {
+        this.focusedColor = SelectorHelper.getColor(i2);
         this.hasSetFocusedColor = true;
         return this;
     }
 
-    public ColorSelector pressedColor(@ColorRes int i) {
-        this.pressedColor = SelectorHelper.getColor(i);
+    public ColorSelector pressedColor(@ColorRes int i2) {
+        this.pressedColor = SelectorHelper.getColor(i2);
         this.hasSetPressedColor = true;
         return this;
     }
 
-    public ColorSelector selectedColor(@ColorRes int i) {
-        this.selectedColor = SelectorHelper.getColor(i);
+    public ColorSelector selectedColor(@ColorRes int i2) {
+        this.selectedColor = SelectorHelper.getColor(i2);
         this.hasSetSelectedColor = true;
         return this;
     }
 
-    public ColorSelector selectorColor(@ColorRes int i, @ColorRes int i2) {
-        this.pressedColor = i;
-        this.normalColor = i2;
+    public ColorSelector selectorColor(@ColorRes int i2, @ColorRes int i3) {
+        this.pressedColor = i2;
+        this.normalColor = i3;
         this.hasSetPressedColor = true;
         return this;
     }
 
-    public ColorSelector textType(int i) {
-        this.textType = i;
+    public ColorSelector textType(int i2) {
+        this.textType = i2;
         return this;
     }
 

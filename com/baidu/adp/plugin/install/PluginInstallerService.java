@@ -10,7 +10,7 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.c.h.g.d;
+import d.a.c.h.g.d;
 /* loaded from: classes.dex */
 public class PluginInstallerService extends HighPriorityIntentService {
     public static final String ACTION_INSTALL = "com.baidu.adp.plugin.action.install";
@@ -72,13 +72,13 @@ public class PluginInstallerService extends HighPriorityIntentService {
     }
 
     @Override // com.baidu.adp.plugin.install.HighPriorityIntentService, android.app.Service
-    public void onStart(Intent intent, int i) {
-        super.onStart(intent, i);
+    public void onStart(Intent intent, int i2) {
+        super.onStart(intent, i2);
     }
 
     @Override // com.baidu.adp.plugin.install.HighPriorityIntentService, android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
-        super.onStartCommand(intent, i, i2);
+    public int onStartCommand(Intent intent, int i2, int i3) {
+        super.onStartCommand(intent, i2, i3);
         return 2;
     }
 }

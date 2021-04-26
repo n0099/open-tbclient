@@ -1,5 +1,9 @@
 package h.o.a;
+
+import rx.internal.operators.OperatorPublish$InnerProducer;
 /* loaded from: classes7.dex */
-public final class r<T> extends h.j<T> {
-    public abstract void b(long j);
+public final class r<T> extends h.j<T> implements h.k {
+    public abstract void b();
+
+    public abstract void c(OperatorPublish$InnerProducer<T> operatorPublish$InnerProducer);
 }

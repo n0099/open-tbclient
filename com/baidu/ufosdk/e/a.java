@@ -34,19 +34,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class a {
-    public static void a(int i, int i2, Handler handler) {
+    public static void a(int i2, int i3, Handler handler) {
         c.d("postUrl is https://ufosdk.baidu.com/?m=Index&a=getProductType");
-        c.d("getTitleAndHint (*^o^*) success!! product_type = " + i);
+        c.d("getTitleAndHint (*^o^*) success!! product_type = " + i2);
         c.d("getTitleAndHint (*^o^*) success!! appid = " + UfoSDK.appid);
-        c.d("getTitleAndHint (*^o^*) success!! extend_feedback_channel = " + i2);
+        c.d("getTitleAndHint (*^o^*) success!! extend_feedback_channel = " + i3);
         HashMap hashMap = new HashMap();
         hashMap.put("appid", UfoSDK.appid);
         hashMap.put("sdkvn", "2.9.10");
-        if (i != 0) {
-            hashMap.put("product_type", Integer.valueOf(i));
+        if (i2 != 0) {
+            hashMap.put("product_type", Integer.valueOf(i2));
         }
-        if (i2 != -1) {
-            hashMap.put("extend_feedback_channel", Integer.valueOf(i2));
+        if (i3 != -1) {
+            hashMap.put("extend_feedback_channel", Integer.valueOf(i3));
         }
         String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
         try {
@@ -70,7 +70,7 @@ public final class a {
         }
     }
 
-    public static void a(Context context, int i, int i2, int i3, int i4, boolean z) {
+    public static void a(Context context, int i2, int i3, int i4, int i5, boolean z) {
         SharedPreferences.Editor edit;
         String str;
         String str2;
@@ -85,7 +85,7 @@ public final class a {
             return;
         }
         com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(context);
-        String format = String.format("https://ufosdk.baidu.com/?m=hide&a=behavior&editFeedbackView=%d&editFeedbackWord=%d&editFeedbackPicture=%d&myFeedback=%d&appid=%s&editFeedbackViewUV=%d&editFeedbackViewFromRobotUV=%d&editFeedbackViewFromFaqUV=%d&robotUv=%d", Integer.valueOf(dVar.a()), Integer.valueOf(dVar.b()), Integer.valueOf(dVar.c()), Integer.valueOf(dVar.d()), UfoSDK.appid, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4));
+        String format = String.format("https://ufosdk.baidu.com/?m=hide&a=behavior&editFeedbackView=%d&editFeedbackWord=%d&editFeedbackPicture=%d&myFeedback=%d&appid=%s&editFeedbackViewUV=%d&editFeedbackViewFromRobotUV=%d&editFeedbackViewFromFaqUV=%d&robotUv=%d", Integer.valueOf(dVar.a()), Integer.valueOf(dVar.b()), Integer.valueOf(dVar.c()), Integer.valueOf(dVar.d()), UfoSDK.appid, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5));
         StringBuilder sb = new StringBuilder("--FeedbackChatSender:1517--getURL is : ");
         sb.append(format);
         c.c(sb.toString());
@@ -195,12 +195,12 @@ public final class a {
         hashMap.put("totalspace", String.valueOf(j));
         hashMap.put("phonetime", String.valueOf(System.currentTimeMillis()));
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        int i = displayMetrics.widthPixels;
-        int i2 = displayMetrics.heightPixels;
-        if (i == 0 && i2 == 0) {
+        int i2 = displayMetrics.widthPixels;
+        int i3 = displayMetrics.heightPixels;
+        if (i2 == 0 && i3 == 0) {
             str = null;
         } else {
-            str = String.valueOf(i) + "*" + String.valueOf(i2);
+            str = String.valueOf(i2) + "*" + String.valueOf(i3);
         }
         hashMap.put("screensize", str);
         hashMap.put("sdkvn", "2.9.10");
@@ -274,7 +274,7 @@ public final class a {
         String str7;
         Intent intent3;
         String string;
-        int i;
+        int i2;
         JSONArray jSONArray;
         String str8 = context;
         Context context2 = str;
@@ -351,9 +351,9 @@ public final class a {
                             str5 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
                             try {
                                 c.a("getFeedbackChatBack --> msgArray : \n" + jSONArray2.toString());
-                                int i2 = 0;
+                                int i3 = 0;
                                 str8 = str8;
-                                while (i2 < jSONArray2.length()) {
+                                while (i3 < jSONArray2.length()) {
                                     String str14 = str13;
                                     try {
                                         try {
@@ -361,10 +361,10 @@ public final class a {
                                             hashMap2.put(str12, context2);
                                             hashMap2.put("toggle", "no");
                                             String str15 = null;
-                                            String string2 = jSONArray2.getJSONObject(i2).has(str11) ? jSONArray2.getJSONObject(i2).getString(str11) : null;
-                                            if (jSONArray2.getJSONObject(i2).has(str12)) {
+                                            String string2 = jSONArray2.getJSONObject(i3).has(str11) ? jSONArray2.getJSONObject(i3).getString(str11) : null;
+                                            if (jSONArray2.getJSONObject(i3).has(str12)) {
                                                 str7 = str11;
-                                                hashMap2.put("chatId", Integer.valueOf(jSONArray2.getJSONObject(i2).getInt(str12)));
+                                                hashMap2.put("chatId", Integer.valueOf(jSONArray2.getJSONObject(i3).getInt(str12)));
                                             } else {
                                                 str7 = str11;
                                             }
@@ -372,20 +372,20 @@ public final class a {
                                             JSONObject jSONObject3 = jSONObject2;
                                             if (string2 == null || string2.length() == 0) {
                                                 intent3 = intent4;
-                                                if (!jSONArray2.getJSONObject(i2).has("evaluation") || jSONArray2.getJSONObject(i2).getInt("evaluation") == 0) {
+                                                if (!jSONArray2.getJSONObject(i3).has("evaluation") || jSONArray2.getJSONObject(i3).getInt("evaluation") == 0) {
                                                     hashMap2.put("toggle", "no");
                                                 } else {
                                                     hashMap2.put("toggle", "yes");
                                                 }
                                                 hashMap2.put("flagRobot", 0);
-                                                string = jSONArray2.getJSONObject(i2).getString("content");
+                                                string = jSONArray2.getJSONObject(i3).getString("content");
                                             } else {
                                                 JSONObject jSONObject4 = new JSONObject(string2);
-                                                int i3 = jSONObject4.getInt("flagRobot");
+                                                int i4 = jSONObject4.getInt("flagRobot");
                                                 intent3 = intent4;
-                                                hashMap2.put("flagRobot", Integer.valueOf(i3));
-                                                if (i3 == 0) {
-                                                    string = jSONArray2.getJSONObject(i2).getString("content");
+                                                hashMap2.put("flagRobot", Integer.valueOf(i4));
+                                                if (i4 == 0) {
+                                                    string = jSONArray2.getJSONObject(i3).getString("content");
                                                 } else {
                                                     try {
                                                     } catch (Exception e5) {
@@ -400,7 +400,7 @@ public final class a {
                                                             }
                                                             if (str15 != null || str15.length() <= 0) {
                                                                 hashMap2.put("flagRobot", 0);
-                                                                string = jSONArray2.getJSONObject(i2).getString("content");
+                                                                string = jSONArray2.getJSONObject(i3).getString("content");
                                                             } else {
                                                                 hashMap2.put("toggle", "yes");
                                                                 hashMap2.put("flagRobot", 0);
@@ -419,12 +419,12 @@ public final class a {
                                                     if (str15 != null) {
                                                     }
                                                     hashMap2.put("flagRobot", 0);
-                                                    string = jSONArray2.getJSONObject(i2).getString("content");
+                                                    string = jSONArray2.getJSONObject(i3).getString("content");
                                                 }
                                             }
                                             hashMap2.put("content", string);
-                                            hashMap2.put("time", jSONArray2.getJSONObject(i2).getString("time"));
-                                            int intValue2 = jSONArray2.getJSONObject(i2).has("evaluation") ? ((Integer) jSONArray2.getJSONObject(i2).get("evaluation")).intValue() : 0;
+                                            hashMap2.put("time", jSONArray2.getJSONObject(i3).getString("time"));
+                                            int intValue2 = jSONArray2.getJSONObject(i3).has("evaluation") ? ((Integer) jSONArray2.getJSONObject(i3).get("evaluation")).intValue() : 0;
                                             hashMap2.put("evaluation", Integer.valueOf(intValue2));
                                             if (intValue2 == 0) {
                                                 hashMap2.put("ask", 0);
@@ -434,15 +434,15 @@ public final class a {
                                                 hashMap2.put("toggle", "yes");
                                             } else {
                                                 if (intValue2 <= 9) {
-                                                    i = 9;
+                                                    i2 = 9;
                                                 } else if (intValue2 >= 11) {
-                                                    i = 11;
+                                                    i2 = 11;
                                                 }
-                                                hashMap2.put("ask", i);
+                                                hashMap2.put("ask", i2);
                                             }
                                             arrayList.add(hashMap2);
                                             c.b("^^^^^^^^getFeedbackChat^^^^^^^^^" + arrayList.toString());
-                                            i2++;
+                                            i3++;
                                             str8 = context;
                                             context2 = str;
                                             str13 = str14;
@@ -561,13 +561,13 @@ public final class a {
         }
     }
 
-    public static boolean a(String str, int i) {
+    public static boolean a(String str, int i2) {
         c.c("FeedbackChatSender --> sendSolvedResult:https://ufosdk.baidu.com/?m=Index&a=recordEvaluation");
         HashMap hashMap = new HashMap();
         hashMap.put("appid", UfoSDK.appid);
         hashMap.put("id", str);
         hashMap.put("sdkvn", "2.9.10");
-        hashMap.put("evaluation", Integer.valueOf(i));
+        hashMap.put("evaluation", Integer.valueOf(i2));
         String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
         try {
             try {
@@ -595,9 +595,9 @@ public final class a {
         hashMap.put("clientid", UfoSDK.clientid);
         hashMap.put("appid", UfoSDK.appid);
         hashMap.put("devid", UfoSDK.devid);
-        hashMap.put("uid", com.baidu.ufosdk.b.f22598d);
-        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22598d);
-        hashMap.put("username", com.baidu.ufosdk.b.f22596b);
+        hashMap.put("uid", com.baidu.ufosdk.b.f23300d);
+        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23300d);
+        hashMap.put("username", com.baidu.ufosdk.b.f23298b);
         hashMap.put(IAdRequestParam.OS, "android");
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("output_style", 1);
@@ -635,15 +635,15 @@ public final class a {
                     edit.commit();
                     ArrayList arrayList = new ArrayList();
                     JSONArray jSONArray = jSONObject.getJSONArray("msg");
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        c.c("#################### " + i + " msgArray.getJSONObject(i)--> " + jSONArray.getJSONObject(i).toString());
+                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                        c.c("#################### " + i2 + " msgArray.getJSONObject(i)--> " + jSONArray.getJSONObject(i2).toString());
                         HashMap hashMap2 = new HashMap();
-                        hashMap2.put("id", jSONArray.getJSONObject(i).getString("id"));
-                        hashMap2.put("content", jSONArray.getJSONObject(i).getString("content"));
-                        hashMap2.put("time", jSONArray.getJSONObject(i).getString("time"));
-                        hashMap2.put("newmsg", jSONArray.getJSONObject(i).getString("newmsg"));
-                        hashMap2.put("replied", jSONArray.getJSONObject(i).getString("replied"));
-                        hashMap2.put("lastmsg", jSONArray.getJSONObject(i).getString("lastmsg"));
+                        hashMap2.put("id", jSONArray.getJSONObject(i2).getString("id"));
+                        hashMap2.put("content", jSONArray.getJSONObject(i2).getString("content"));
+                        hashMap2.put("time", jSONArray.getJSONObject(i2).getString("time"));
+                        hashMap2.put("newmsg", jSONArray.getJSONObject(i2).getString("newmsg"));
+                        hashMap2.put("replied", jSONArray.getJSONObject(i2).getString("replied"));
+                        hashMap2.put("lastmsg", jSONArray.getJSONObject(i2).getString("lastmsg"));
                         arrayList.add(hashMap2);
                     }
                     intent3.putExtra("msgList", arrayList);
@@ -751,17 +751,17 @@ public final class a {
                                 try {
                                     try {
                                         c.a("getFeedbackChat --> msgArray : \n" + jSONArray.toString());
-                                        int i = 0;
-                                        while (i < jSONArray.length()) {
+                                        int i2 = 0;
+                                        while (i2 < jSONArray.length()) {
                                             String str15 = str14;
                                             HashMap hashMap2 = new HashMap();
                                             hashMap2.put(str13, str10);
                                             hashMap2.put("toggle", "no");
                                             String str16 = null;
-                                            String string2 = jSONArray.getJSONObject(i).has(str12) ? jSONArray.getJSONObject(i).getString(str12) : null;
-                                            if (jSONArray.getJSONObject(i).has(str13)) {
+                                            String string2 = jSONArray.getJSONObject(i2).has(str12) ? jSONArray.getJSONObject(i2).getString(str12) : null;
+                                            if (jSONArray.getJSONObject(i2).has(str13)) {
                                                 str8 = str12;
-                                                hashMap2.put("chatId", Integer.valueOf(jSONArray.getJSONObject(i).getInt(str13)));
+                                                hashMap2.put("chatId", Integer.valueOf(jSONArray.getJSONObject(i2).getInt(str13)));
                                             } else {
                                                 str8 = str12;
                                             }
@@ -770,15 +770,15 @@ public final class a {
                                                 jSONObject2 = jSONObject3;
                                                 hashMap2.put("toggle", "no");
                                                 hashMap2.put("flagRobot", 0);
-                                                string = jSONArray.getJSONObject(i).getString("content");
+                                                string = jSONArray.getJSONObject(i2).getString("content");
                                             } else {
                                                 str9 = str13;
                                                 JSONObject jSONObject4 = new JSONObject(string2);
-                                                int i2 = jSONObject4.getInt("flagRobot");
+                                                int i3 = jSONObject4.getInt("flagRobot");
                                                 jSONObject2 = jSONObject3;
-                                                hashMap2.put("flagRobot", Integer.valueOf(i2));
-                                                if (i2 == 0) {
-                                                    string = jSONArray.getJSONObject(i).getString("content");
+                                                hashMap2.put("flagRobot", Integer.valueOf(i3));
+                                                if (i3 == 0) {
+                                                    string = jSONArray.getJSONObject(i2).getString("content");
                                                 } else {
                                                     try {
                                                     } catch (Exception e3) {
@@ -793,7 +793,7 @@ public final class a {
                                                             }
                                                             if (str16 != null || str16.length() <= 0) {
                                                                 hashMap2.put("flagRobot", 0);
-                                                                string = jSONArray.getJSONObject(i).getString("content");
+                                                                string = jSONArray.getJSONObject(i2).getString("content");
                                                             } else {
                                                                 hashMap2.put("toggle", "yes");
                                                                 hashMap2.put("flagRobot", 0);
@@ -812,14 +812,14 @@ public final class a {
                                                     if (str16 != null) {
                                                     }
                                                     hashMap2.put("flagRobot", 0);
-                                                    string = jSONArray.getJSONObject(i).getString("content");
+                                                    string = jSONArray.getJSONObject(i2).getString("content");
                                                 }
                                             }
                                             hashMap2.put("content", string);
-                                            hashMap2.put("time", jSONArray.getJSONObject(i).getString("time"));
+                                            hashMap2.put("time", jSONArray.getJSONObject(i2).getString("time"));
                                             arrayList.add(hashMap2);
                                             c.c("^^^^^^^^getFeedbackChat^^^^^^^^^" + arrayList.toString());
-                                            i++;
+                                            i2++;
                                             str10 = str;
                                             str14 = str15;
                                             str12 = str8;
@@ -937,9 +937,9 @@ public final class a {
         hashMap.put("clientid", UfoSDK.clientid);
         hashMap.put("appid", UfoSDK.appid);
         hashMap.put("devid", UfoSDK.devid);
-        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22598d);
-        hashMap.put("uid", com.baidu.ufosdk.b.f22598d);
-        hashMap.put("username", com.baidu.ufosdk.b.f22596b);
+        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23300d);
+        hashMap.put("uid", com.baidu.ufosdk.b.f23300d);
+        hashMap.put("username", com.baidu.ufosdk.b.f23298b);
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("output_style", 1);
         hashMap.put("interval", String.valueOf(com.baidu.ufosdk.b.ai));
@@ -1011,20 +1011,20 @@ public final class a {
         HashMap hashMap = new HashMap();
         hashMap.put("appid", str2);
         hashMap.put("appvn", e.b());
-        hashMap.put("baiducuid", com.baidu.ufosdk.b.f22597c);
+        hashMap.put("baiducuid", com.baidu.ufosdk.b.f23299c);
         hashMap.put("clientid", UfoSDK.clientid);
         hashMap.put("devid", UfoSDK.devid);
         String str9 = "extra";
-        hashMap.put("extra", com.baidu.ufosdk.b.f22600f);
+        hashMap.put("extra", com.baidu.ufosdk.b.f23302f);
         String str10 = "id";
         hashMap.put("id", context2);
         hashMap.put("interval", String.valueOf(com.baidu.ufosdk.b.ah));
         hashMap.put("model", Build.MODEL);
         hashMap.put(IAdRequestParam.OS, "android");
         hashMap.put("sdkvn", "2.9.10");
-        hashMap.put("uid", com.baidu.ufosdk.b.f22598d);
-        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22598d);
-        hashMap.put("username", com.baidu.ufosdk.b.f22596b);
+        hashMap.put("uid", com.baidu.ufosdk.b.f23300d);
+        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23300d);
+        hashMap.put("username", com.baidu.ufosdk.b.f23298b);
         hashMap.put("output_style", 1);
         String a3 = k.a(com.baidu.ufosdk.c.a.a(hashMap));
         try {
@@ -1056,18 +1056,18 @@ public final class a {
                     str5 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
                     try {
                         c.a("getFeedbackAnswer2 --> msgArray : \n" + jSONArray2.toString());
-                        int i = 0;
+                        int i2 = 0;
                         str8 = str8;
-                        while (i < jSONArray2.length()) {
+                        while (i2 < jSONArray2.length()) {
                             try {
                                 try {
                                     HashMap hashMap2 = new HashMap();
                                     hashMap2.put(str10, context2);
                                     hashMap2.put("toggle", "no");
-                                    if (jSONArray2.getJSONObject(i).has(str10)) {
-                                        hashMap2.put("chatId", Integer.valueOf(jSONArray2.getJSONObject(i).getInt(str10)));
+                                    if (jSONArray2.getJSONObject(i2).has(str10)) {
+                                        hashMap2.put("chatId", Integer.valueOf(jSONArray2.getJSONObject(i2).getInt(str10)));
                                     }
-                                    String string2 = jSONArray2.getJSONObject(i).has(str9) ? jSONArray2.getJSONObject(i).getString(str9) : null;
+                                    String string2 = jSONArray2.getJSONObject(i2).has(str9) ? jSONArray2.getJSONObject(i2).getString(str9) : null;
                                     String str11 = str10;
                                     String str12 = str9;
                                     if (string2 == null || string2.length() == 0) {
@@ -1075,15 +1075,15 @@ public final class a {
                                         intent2 = intent3;
                                         hashMap2.put("toggle", "no");
                                         hashMap2.put("flagRobot", 0);
-                                        string = jSONArray2.getJSONObject(i).getString("content");
+                                        string = jSONArray2.getJSONObject(i2).getString("content");
                                     } else {
                                         intent2 = intent3;
                                         JSONObject jSONObject2 = new JSONObject(string2);
-                                        int i2 = jSONObject2.getInt("flagRobot");
+                                        int i3 = jSONObject2.getInt("flagRobot");
                                         arrayList = arrayList2;
-                                        hashMap2.put("flagRobot", Integer.valueOf(i2));
-                                        if (i2 == 0) {
-                                            string = jSONArray2.getJSONObject(i).getString("content");
+                                        hashMap2.put("flagRobot", Integer.valueOf(i3));
+                                        if (i3 == 0) {
+                                            string = jSONArray2.getJSONObject(i2).getString("content");
                                         } else {
                                             try {
                                                 jSONArray = jSONObject2.has("robot") ? (JSONArray) jSONObject2.get("robot") : null;
@@ -1101,14 +1101,14 @@ public final class a {
                                                     if (str7 != null) {
                                                     }
                                                     hashMap2.put("flagRobot", 0);
-                                                    hashMap2.put("content", jSONArray2.getJSONObject(i).getString("content"));
+                                                    hashMap2.put("content", jSONArray2.getJSONObject(i2).getString("content"));
                                                     hashMap2.put("toggle", "yes");
-                                                    hashMap2.put("time", jSONArray2.getJSONObject(i).getString("time"));
-                                                    if (jSONArray2.getJSONObject(i).has("evaluation")) {
+                                                    hashMap2.put("time", jSONArray2.getJSONObject(i2).getString("time"));
+                                                    if (jSONArray2.getJSONObject(i2).has("evaluation")) {
                                                     }
                                                     ArrayList<? extends Parcelable> arrayList3 = arrayList;
                                                     arrayList3.add(hashMap2);
-                                                    i++;
+                                                    i2++;
                                                     str8 = context;
                                                     arrayList2 = arrayList3;
                                                     str10 = str11;
@@ -1128,7 +1128,7 @@ public final class a {
                                                         str7 = jSONObject2.getString("answer");
                                                         if (str7 != null || str7.length() <= 0) {
                                                             hashMap2.put("flagRobot", 0);
-                                                            hashMap2.put("content", jSONArray2.getJSONObject(i).getString("content"));
+                                                            hashMap2.put("content", jSONArray2.getJSONObject(i2).getString("content"));
                                                             hashMap2.put("toggle", "yes");
                                                         } else {
                                                             hashMap2.put("toggle", "yes");
@@ -1140,7 +1140,7 @@ public final class a {
                                                     if (str7 != null) {
                                                     }
                                                     hashMap2.put("flagRobot", 0);
-                                                    hashMap2.put("content", jSONArray2.getJSONObject(i).getString("content"));
+                                                    hashMap2.put("content", jSONArray2.getJSONObject(i2).getString("content"));
                                                     hashMap2.put("toggle", "yes");
                                                 } else {
                                                     hashMap2.put("content", jSONArray.toString());
@@ -1149,19 +1149,19 @@ public final class a {
                                                         hashMap2.put("tip", str6);
                                                     }
                                                 }
-                                                hashMap2.put("time", jSONArray2.getJSONObject(i).getString("time"));
-                                                if (jSONArray2.getJSONObject(i).has("evaluation")) {
-                                                    int i3 = jSONArray2.getJSONObject(i).getInt("evaluation");
-                                                    if (i3 == 0) {
+                                                hashMap2.put("time", jSONArray2.getJSONObject(i2).getString("time"));
+                                                if (jSONArray2.getJSONObject(i2).has("evaluation")) {
+                                                    int i4 = jSONArray2.getJSONObject(i2).getInt("evaluation");
+                                                    if (i4 == 0) {
                                                         hashMap2.put("toggle", "no");
                                                     }
-                                                    if (i3 == 10) {
+                                                    if (i4 == 10) {
                                                         hashMap2.put("toggle", "yes");
                                                     }
                                                 }
                                                 ArrayList<? extends Parcelable> arrayList32 = arrayList;
                                                 arrayList32.add(hashMap2);
-                                                i++;
+                                                i2++;
                                                 str8 = context;
                                                 arrayList2 = arrayList32;
                                                 str10 = str11;
@@ -1179,14 +1179,14 @@ public final class a {
                                             if (str7 != null) {
                                             }
                                             hashMap2.put("flagRobot", 0);
-                                            hashMap2.put("content", jSONArray2.getJSONObject(i).getString("content"));
+                                            hashMap2.put("content", jSONArray2.getJSONObject(i2).getString("content"));
                                             hashMap2.put("toggle", "yes");
-                                            hashMap2.put("time", jSONArray2.getJSONObject(i).getString("time"));
-                                            if (jSONArray2.getJSONObject(i).has("evaluation")) {
+                                            hashMap2.put("time", jSONArray2.getJSONObject(i2).getString("time"));
+                                            if (jSONArray2.getJSONObject(i2).has("evaluation")) {
                                             }
                                             ArrayList<? extends Parcelable> arrayList322 = arrayList;
                                             arrayList322.add(hashMap2);
-                                            i++;
+                                            i2++;
                                             str8 = context;
                                             arrayList2 = arrayList322;
                                             str10 = str11;
@@ -1196,12 +1196,12 @@ public final class a {
                                         }
                                     }
                                     hashMap2.put("content", string);
-                                    hashMap2.put("time", jSONArray2.getJSONObject(i).getString("time"));
-                                    if (jSONArray2.getJSONObject(i).has("evaluation")) {
+                                    hashMap2.put("time", jSONArray2.getJSONObject(i2).getString("time"));
+                                    if (jSONArray2.getJSONObject(i2).has("evaluation")) {
                                     }
                                     ArrayList<? extends Parcelable> arrayList3222 = arrayList;
                                     arrayList3222.add(hashMap2);
-                                    i++;
+                                    i2++;
                                     str8 = context;
                                     arrayList2 = arrayList3222;
                                     str10 = str11;
@@ -1351,9 +1351,9 @@ public final class a {
         }
         hashMap.put("appid", str2);
         hashMap.put("devid", UfoSDK.devid);
-        hashMap.put("uid", com.baidu.ufosdk.b.f22598d);
-        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22598d);
-        hashMap.put("username", com.baidu.ufosdk.b.f22596b);
+        hashMap.put("uid", com.baidu.ufosdk.b.f23300d);
+        hashMap.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f23300d);
+        hashMap.put("username", com.baidu.ufosdk.b.f23298b);
         hashMap.put("sdkvn", "2.9.10");
         hashMap.put("id", str);
         String a2 = k.a(com.baidu.ufosdk.c.a.a(hashMap));

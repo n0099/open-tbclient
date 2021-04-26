@@ -10,8 +10,8 @@ public abstract class BaseMvpActivity<P extends IPresenter> extends BaseOptionAc
     public abstract P createPresenter();
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public final void doFailure(int i, String str) {
-        doFailure(Integer.MIN_VALUE, i, str);
+    public final void doFailure(int i2, String str) {
+        doFailure(Integer.MIN_VALUE, i2, str);
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
@@ -19,7 +19,7 @@ public abstract class BaseMvpActivity<P extends IPresenter> extends BaseOptionAc
         doResult(Integer.MIN_VALUE, obj);
     }
 
-    @Override // com.baidu.sapi2.activity.BaseOptionActivity, com.baidu.sapi2.activity.NaSlideActiviy, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.sapi2.activity.BaseOptionActivity, com.baidu.sapi2.activity.NaSlideActiviy, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         P createPresenter = createPresenter();
@@ -37,16 +37,16 @@ public abstract class BaseMvpActivity<P extends IPresenter> extends BaseOptionAc
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void showLoading(int i) {
+    public void showLoading(int i2) {
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public final void doFailure(int i, int i2, String str) {
-        doFailure(i, i2, str, null);
+    public final void doFailure(int i2, int i3, String str) {
+        doFailure(i2, i3, str, null);
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public final void doResult(int i, Object obj) {
-        doResult(i, obj, null);
+    public final void doResult(int i2, Object obj) {
+        doResult(i2, obj, null);
     }
 }

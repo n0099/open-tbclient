@@ -17,8 +17,8 @@ public class ResponseGetNaniVideoMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i, jSONObject);
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (getError() != 0) {
             return;
         }
@@ -28,9 +28,9 @@ public class ResponseGetNaniVideoMessage extends JsonHttpResponsedMessage {
             return;
         }
         this.mVideoItemDatas = new ArrayList();
-        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+        for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
             VideoItemData videoItemData = new VideoItemData();
-            videoItemData.parseJson(optJSONArray.optString(i2));
+            videoItemData.parseJson(optJSONArray.optString(i3));
             this.mVideoItemDatas.add(videoItemData);
         }
     }

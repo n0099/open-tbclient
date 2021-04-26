@@ -75,16 +75,16 @@ public class GifHeaderParser {
         int read = read();
         this.blockSize = read;
         if (read > 0) {
-            int i = 0;
             int i2 = 0;
-            while (i < this.blockSize) {
+            int i3 = 0;
+            while (i2 < this.blockSize) {
                 try {
-                    i2 = this.blockSize - i;
-                    this.rawData.get(this.block, i, i2);
-                    i += i2;
+                    i3 = this.blockSize - i2;
+                    this.rawData.get(this.block, i2, i3);
+                    i2 += i3;
                 } catch (Exception e2) {
                     if (Log.isLoggable(TAG, 3)) {
-                        Log.d(TAG, "Error Reading Block n: " + i + " count: " + i2 + " blockSize: " + this.blockSize, e2);
+                        Log.d(TAG, "Error Reading Block n: " + i2 + " count: " + i3 + " blockSize: " + this.blockSize, e2);
                     }
                     this.header.status = 1;
                     return;
@@ -94,22 +94,22 @@ public class GifHeaderParser {
     }
 
     @Nullable
-    private int[] readColorTable(int i) {
-        byte[] bArr = new byte[i * 3];
+    private int[] readColorTable(int i2) {
+        byte[] bArr = new byte[i2 * 3];
         int[] iArr = null;
         try {
             this.rawData.get(bArr);
             iArr = new int[256];
-            int i2 = 0;
             int i3 = 0;
-            while (i2 < i) {
-                int i4 = i3 + 1;
+            int i4 = 0;
+            while (i3 < i2) {
                 int i5 = i4 + 1;
                 int i6 = i5 + 1;
-                int i7 = i2 + 1;
-                iArr[i2] = ((bArr[i3] & 255) << 16) | (-16777216) | ((bArr[i4] & 255) << 8) | (bArr[i5] & 255);
-                i3 = i6;
-                i2 = i7;
+                int i7 = i6 + 1;
+                int i8 = i3 + 1;
+                iArr[i3] = ((bArr[i4] & 255) << 16) | (-16777216) | ((bArr[i5] & 255) << 8) | (bArr[i6] & 255);
+                i4 = i7;
+                i3 = i8;
             }
         } catch (BufferUnderflowException e2) {
             if (Log.isLoggable(TAG, 3)) {
@@ -128,9 +128,9 @@ public class GifHeaderParser {
         read();
         int read = read();
         GifFrame gifFrame = this.header.currentFrame;
-        int i = (read & 28) >> 2;
-        gifFrame.dispose = i;
-        if (i == 0) {
+        int i2 = (read & 28) >> 2;
+        gifFrame.dispose = i2;
+        if (i2 == 0) {
             gifFrame.dispose = 1;
         }
         this.header.currentFrame.transparency = (read & 1) != 0;
@@ -146,7 +146,7 @@ public class GifHeaderParser {
 
     private void readHeader() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < 6; i++) {
+        for (int i2 = 0; i2 < 6; i2++) {
             sb.append((char) read());
         }
         if (!sb.toString().startsWith("GIF")) {
@@ -251,9 +251,9 @@ public class GifHeaderParser {
         return this;
     }
 
-    private void readContents(int i) {
+    private void readContents(int i2) {
         boolean z = false;
-        while (!z && !err() && this.header.frameCount <= i) {
+        while (!z && !err() && this.header.frameCount <= i2) {
             int read = read();
             if (read == 33) {
                 int read2 = read();
@@ -269,8 +269,8 @@ public class GifHeaderParser {
                 } else {
                     readBlock();
                     StringBuilder sb = new StringBuilder();
-                    for (int i2 = 0; i2 < 11; i2++) {
-                        sb.append((char) this.block[i2]);
+                    for (int i3 = 0; i3 < 11; i3++) {
+                        sb.append((char) this.block[i3]);
                     }
                     if (sb.toString().equals("NETSCAPE2.0")) {
                         readNetscapeExt();

@@ -24,7 +24,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchState> {
     public static final String DEFAULT_USER_AGENT = "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36";
     public static final String FETCH_TIME = "fetch_time";
@@ -37,7 +37,7 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
     public volatile Executor mCancellationExecutor;
     public Context mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class OkHttpNetworkFetchState extends FetchState {
         public long fetchCompleteTime;
         public long responseTime;
@@ -167,18 +167,18 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.BaseNetworkFetcher, com.facebook.imagepipeline.producers.NetworkFetcher
-    public Map<String, String> getExtraMap(OkHttpNetworkFetchState okHttpNetworkFetchState, int i) {
+    public Map<String, String> getExtraMap(OkHttpNetworkFetchState okHttpNetworkFetchState, int i2) {
         HashMap hashMap = new HashMap(4);
         hashMap.put(QUEUE_TIME, Long.toString(okHttpNetworkFetchState.responseTime - okHttpNetworkFetchState.submitTime));
         hashMap.put(FETCH_TIME, Long.toString(okHttpNetworkFetchState.fetchCompleteTime - okHttpNetworkFetchState.responseTime));
         hashMap.put(TOTAL_TIME, Long.toString(okHttpNetworkFetchState.fetchCompleteTime - okHttpNetworkFetchState.submitTime));
-        hashMap.put(IMAGE_SIZE, Integer.toString(i));
+        hashMap.put(IMAGE_SIZE, Integer.toString(i2));
         return hashMap;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.BaseNetworkFetcher, com.facebook.imagepipeline.producers.NetworkFetcher
-    public void onFetchCompletion(OkHttpNetworkFetchState okHttpNetworkFetchState, int i) {
+    public void onFetchCompletion(OkHttpNetworkFetchState okHttpNetworkFetchState, int i2) {
         okHttpNetworkFetchState.fetchCompleteTime = SystemClock.elapsedRealtime();
     }
 

@@ -1,12 +1,12 @@
 package com.google.common.collect;
 
 import com.baidu.mobstat.Config;
-import d.h.c.a.g;
-import d.h.c.a.n;
-import d.h.c.c.f0;
-import d.h.c.c.m;
-import d.h.c.c.n0;
-import d.h.c.c.z0;
+import d.g.c.a.g;
+import d.g.c.a.n;
+import d.g.c.c.f0;
+import d.g.c.c.m;
+import d.g.c.c.n0;
+import d.g.c.c.z0;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -37,22 +37,22 @@ public abstract class Ordering<T> implements Comparator<T> {
     public static class a extends Ordering<Object> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f31066e = new AtomicInteger(0);
+        public final AtomicInteger f32035e = new AtomicInteger(0);
 
         /* renamed from: f  reason: collision with root package name */
-        public final ConcurrentMap<Object, Integer> f31067f;
+        public final ConcurrentMap<Object, Integer> f32036f;
 
         public a() {
             MapMaker mapMaker = new MapMaker();
             n0.i(mapMaker);
-            this.f31067f = mapMaker.i();
+            this.f32036f = mapMaker.i();
         }
 
         public final Integer a(Object obj) {
-            Integer num = this.f31067f.get(obj);
+            Integer num = this.f32036f.get(obj);
             if (num == null) {
-                Integer valueOf = Integer.valueOf(this.f31066e.getAndIncrement());
-                Integer putIfAbsent = this.f31067f.putIfAbsent(obj, valueOf);
+                Integer valueOf = Integer.valueOf(this.f32035e.getAndIncrement());
+                Integer putIfAbsent = this.f32036f.putIfAbsent(obj, valueOf);
                 return putIfAbsent != null ? putIfAbsent : valueOf;
             }
             return num;
@@ -94,7 +94,7 @@ public abstract class Ordering<T> implements Comparator<T> {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Ordering<Object> f31068a = new a();
+        public static final Ordering<Object> f32037a = new a();
     }
 
     public static Ordering<Object> allEqual() {
@@ -102,7 +102,7 @@ public abstract class Ordering<T> implements Comparator<T> {
     }
 
     public static Ordering<Object> arbitrary() {
-        return b.f31068a;
+        return b.f32037a;
     }
 
     public static <T> Ordering<T> explicit(List<T> list) {
@@ -134,8 +134,8 @@ public abstract class Ordering<T> implements Comparator<T> {
         return new CompoundOrdering(this, comparator);
     }
 
-    public <E extends T> List<E> greatestOf(Iterable<E> iterable, int i) {
-        return reverse().leastOf(iterable, i);
+    public <E extends T> List<E> greatestOf(Iterable<E> iterable, int i2) {
+        return reverse().leastOf(iterable, i2);
     }
 
     public <E extends T> ImmutableList<E> immutableSortedCopy(Iterable<E> iterable) {
@@ -174,19 +174,19 @@ public abstract class Ordering<T> implements Comparator<T> {
         return true;
     }
 
-    public <E extends T> List<E> leastOf(Iterable<E> iterable, int i) {
+    public <E extends T> List<E> leastOf(Iterable<E> iterable, int i2) {
         if (iterable instanceof Collection) {
             Collection collection = (Collection) iterable;
-            if (collection.size() <= i * 2) {
+            if (collection.size() <= i2 * 2) {
                 Object[] array = collection.toArray();
                 Arrays.sort(array, this);
-                if (array.length > i) {
-                    array = Arrays.copyOf(array, i);
+                if (array.length > i2) {
+                    array = Arrays.copyOf(array, i2);
                 }
                 return Collections.unmodifiableList(Arrays.asList(array));
             }
         }
-        return leastOf(iterable.iterator(), i);
+        return leastOf(iterable.iterator(), i2);
     }
 
     public <S extends T> Ordering<Iterable<S>> lexicographical() {
@@ -249,8 +249,8 @@ public abstract class Ordering<T> implements Comparator<T> {
         return ordering;
     }
 
-    public <E extends T> List<E> greatestOf(Iterator<E> it, int i) {
-        return reverse().leastOf(it, i);
+    public <E extends T> List<E> greatestOf(Iterator<E> it, int i2) {
+        return reverse().leastOf(it, i2);
     }
 
     public <E extends T> E max(Iterable<E> iterable) {
@@ -291,22 +291,22 @@ public abstract class Ordering<T> implements Comparator<T> {
         return e5;
     }
 
-    public <E extends T> List<E> leastOf(Iterator<E> it, int i) {
+    public <E extends T> List<E> leastOf(Iterator<E> it, int i2) {
         n.p(it);
-        m.b(i, Config.APP_KEY);
-        if (i == 0 || !it.hasNext()) {
+        m.b(i2, Config.APP_KEY);
+        if (i2 == 0 || !it.hasNext()) {
             return Collections.emptyList();
         }
-        if (i >= 1073741823) {
+        if (i2 >= 1073741823) {
             ArrayList k = Lists.k(it);
             Collections.sort(k, this);
-            if (k.size() > i) {
-                k.subList(i, k.size()).clear();
+            if (k.size() > i2) {
+                k.subList(i2, k.size()).clear();
             }
             k.trimToSize();
             return Collections.unmodifiableList(k);
         }
-        z0 a2 = z0.a(i, this);
+        z0 a2 = z0.a(i2, this);
         a2.c(it);
         return a2.f();
     }

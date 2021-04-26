@@ -12,14 +12,14 @@ public class HomeApkBannerData extends com.kwad.sdk.core.response.a.a implements
     public long mTimeStamp;
 
     public static HomeApkBannerData convertAdTemplateToHomeApkBannerData(AdTemplate adTemplate) {
-        if (adTemplate == null || !c.c(adTemplate)) {
+        if (adTemplate == null || !c.a(adTemplate)) {
             return null;
         }
         HomeApkBannerData homeApkBannerData = new HomeApkBannerData();
         homeApkBannerData.mTimeStamp = System.currentTimeMillis();
         homeApkBannerData.mAdTemplateUniqueId = adTemplate.mUniqueId;
-        homeApkBannerData.mDownloadFilePath = c.j(adTemplate).downloadFilePath;
-        homeApkBannerData.appPackageName = com.kwad.sdk.core.response.b.a.s(c.j(adTemplate));
+        homeApkBannerData.mDownloadFilePath = c.g(adTemplate).downloadFilePath;
+        homeApkBannerData.appPackageName = com.kwad.sdk.core.response.b.a.q(c.g(adTemplate));
         return homeApkBannerData;
     }
 }

@@ -10,8 +10,8 @@ import android.os.IBinder;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import d.b.c.c.e.c.k.c;
-import d.b.c.e.m.f;
+import d.a.c.c.e.c.k.c;
+import d.a.c.e.m.f;
 /* loaded from: classes.dex */
 public class BdSocketDaemonService extends BdBaseService {
     public static c sCallBack;
@@ -67,7 +67,7 @@ public class BdSocketDaemonService extends BdBaseService {
             try {
                 startForeground(2147483646, new Notification());
             } catch (Exception unused) {
-                d.b.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("loc", BdSocketDaemonService.class.getName() + "-onCreate-startForeground");
                 BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
             }
@@ -81,7 +81,7 @@ public class BdSocketDaemonService extends BdBaseService {
         try {
             unbindService(this.conn);
         } catch (Exception unused) {
-            d.b.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            d.a.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.b("loc", BdSocketDaemonService.class.getName() + "-onDestroy-unbindService");
             BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem);
         }
@@ -90,14 +90,14 @@ public class BdSocketDaemonService extends BdBaseService {
         try {
             startService(intent);
         } catch (Exception unused2) {
-            d.b.c.e.n.a statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
+            d.a.c.e.n.a statsItem2 = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem2.b("loc", BdSocketDaemonService.class.getName() + "-onDestroy-startService");
             BdStatisticsManager.getInstance().debug("PARCEL_NULLPOINT", statsItem2);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(Intent intent, int i2, int i3) {
         return 1;
     }
 }

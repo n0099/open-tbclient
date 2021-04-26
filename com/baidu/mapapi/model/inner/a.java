@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7154a;
+    public int f7409a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Point f7155b;
+    public Point f7410b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f7156c;
+    public Point f7411c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<ArrayList<Point>> f7157d;
+    public ArrayList<ArrayList<Point>> f7412d;
 }

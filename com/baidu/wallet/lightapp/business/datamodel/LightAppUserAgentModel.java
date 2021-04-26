@@ -20,8 +20,8 @@ public class LightAppUserAgentModel implements NoProguard {
         return JsonUtils.toJson(this);
     }
 
-    public LightAppUserAgentModel(int i) {
+    public LightAppUserAgentModel(int i2) {
         this();
-        this.result = i;
+        this.result = i2;
     }
 }

@@ -15,7 +15,7 @@ public class JNIFavorite {
 
     public native boolean IsExist(long j, String str);
 
-    public native boolean Load(long j, String str, String str2, String str3, int i, int i2, int i3);
+    public native boolean Load(long j, String str, String str2, String str3, int i2, int i3, int i4);
 
     public native int Release(long j);
 
@@ -23,7 +23,7 @@ public class JNIFavorite {
 
     public native boolean SaveCache(long j);
 
-    public native boolean SetType(long j, int i);
+    public native boolean SetType(long j, int i2);
 
     public native boolean Update(long j, String str, String str2);
 }

@@ -22,51 +22,53 @@ public class BDStatCore {
     public static final int INVOKE_FRAG = 2;
 
     /* renamed from: a  reason: collision with root package name */
-    public static BDStatCore f8218a;
+    public static BDStatCore f8511a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f8219b;
+    public Handler f8512b;
 
     /* renamed from: d  reason: collision with root package name */
-    public SessionAnalysis f8221d;
+    public SessionAnalysis f8514d;
 
     /* renamed from: e  reason: collision with root package name */
-    public EventAnalysis f8222e;
+    public EventAnalysis f8515e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f8223f;
-    public Handler i;
+    public Runnable f8516f;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Handler f8519i;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f8220c = false;
+    public volatile boolean f8513c = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f8224g = 0;
+    public long f8517g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f8225h = false;
+    public volatile boolean f8518h = false;
 
     public BDStatCore() {
         HandlerThread handlerThread = new HandlerThread("BDStatCore", 10);
         handlerThread.start();
-        this.f8219b = new Handler(handlerThread.getLooper());
-        this.f8221d = new SessionAnalysis();
-        this.f8222e = new EventAnalysis();
+        this.f8512b = new Handler(handlerThread.getLooper());
+        this.f8514d = new SessionAnalysis();
+        this.f8515e = new EventAnalysis();
         HandlerThread handlerThread2 = new HandlerThread("dataAnalyzeThread");
         handlerThread2.start();
         handlerThread2.setPriority(10);
-        this.i = new Handler(handlerThread2.getLooper());
+        this.f8519i = new Handler(handlerThread2.getLooper());
     }
 
     public static BDStatCore instance() {
-        if (f8218a == null) {
+        if (f8511a == null) {
             synchronized (BDStatCore.class) {
-                if (f8218a == null) {
-                    f8218a = new BDStatCore();
+                if (f8511a == null) {
+                    f8511a = new BDStatCore();
                 }
             }
         }
-        return f8218a;
+        return f8511a;
     }
 
     public void autoTrackLaunchInfo(Context context, final LaunchInfo launchInfo, final boolean z) {
@@ -74,14 +76,14 @@ public class BDStatCore {
             return;
         }
         if (z) {
-            this.f8221d.autoTrackLaunchInfo(launchInfo, z);
+            this.f8514d.autoTrackLaunchInfo(launchInfo, z);
             return;
         }
         init(context);
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.17
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.17
             @Override // java.lang.Runnable
             public void run() {
-                BDStatCore.this.f8221d.autoTrackLaunchInfo(launchInfo, z);
+                BDStatCore.this.f8514d.autoTrackLaunchInfo(launchInfo, z);
             }
         });
     }
@@ -92,10 +94,10 @@ public class BDStatCore {
         }
         init(context);
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.19
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.19
             @Override // java.lang.Runnable
             public void run() {
-                BDStatCore.this.f8221d.autoTrackSessionEndTime(context, currentTimeMillis);
+                BDStatCore.this.f8514d.autoTrackSessionEndTime(context, currentTimeMillis);
             }
         });
     }
@@ -106,93 +108,93 @@ public class BDStatCore {
         }
         init(context);
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.18
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.18
             @Override // java.lang.Runnable
             public void run() {
-                BDStatCore.this.f8221d.autoTrackSessionStartTime(context, currentTimeMillis);
+                BDStatCore.this.f8514d.autoTrackSessionStartTime(context, currentTimeMillis);
             }
         });
     }
 
     public void cancelSendLogCheck() {
-        Runnable runnable = this.f8223f;
+        Runnable runnable = this.f8516f;
         if (runnable != null) {
-            this.f8219b.removeCallbacks(runnable);
+            this.f8512b.removeCallbacks(runnable);
         }
-        this.f8223f = null;
+        this.f8516f = null;
     }
 
     public void doSendLogCheck(final Context context) {
         if (context == null) {
             return;
         }
-        int sessionTimeOut = this.f8221d.getSessionTimeOut();
+        int sessionTimeOut = this.f8514d.getSessionTimeOut();
         Runnable runnable = new Runnable() { // from class: com.baidu.mobstat.BDStatCore.20
             @Override // java.lang.Runnable
             public void run() {
-                BDStatCore.this.f8221d.doSendLogCheck(context, System.currentTimeMillis());
+                BDStatCore.this.f8514d.doSendLogCheck(context, System.currentTimeMillis());
             }
         };
-        this.f8223f = runnable;
-        this.f8219b.postDelayed(runnable, sessionTimeOut);
+        this.f8516f = runnable;
+        this.f8512b.postDelayed(runnable, sessionTimeOut);
     }
 
     public JSONObject getPageSessionHead() {
-        return this.f8221d.getPageSessionHead();
+        return this.f8514d.getPageSessionHead();
     }
 
     public int getSessionSize() {
-        return this.f8221d.getSessionSize();
+        return this.f8514d.getSessionSize();
     }
 
     public long getSessionStartTime() {
-        return this.f8221d.getSessionStartTime();
+        return this.f8514d.getSessionStartTime();
     }
 
     public void init(final Context context) {
         a(context);
-        if (this.f8220c) {
+        if (this.f8513c) {
             return;
         }
         ActivityLifeTask.registerActivityLifeCallback(context);
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.1
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.1
             @Override // java.lang.Runnable
             public void run() {
-                if (BDStatCore.this.f8220c) {
+                if (BDStatCore.this.f8513c) {
                     return;
                 }
                 PrefOperate.loadMetaDataConfig(context);
-                BDStatCore.this.f8220c = true;
+                BDStatCore.this.f8513c = true;
             }
         });
     }
 
     public void onErised(final Context context, String str, final String str2, final String str3) {
-        if (this.f8221d.isSessionStart()) {
+        if (this.f8514d.isSessionStart()) {
             return;
         }
         init(context);
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.15
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.15
             @Override // java.lang.Runnable
             public void run() {
                 DataCore.instance().init(context);
-                EventAnalysis eventAnalysis = BDStatCore.this.f8222e;
+                EventAnalysis eventAnalysis = BDStatCore.this.f8515e;
                 Context context2 = context;
                 long j = currentTimeMillis;
                 eventAnalysis.onEvent(context2, j, str2, str3, 1, j, null, null, false);
                 DataCore.instance().saveLogData(context, true, false, currentTimeMillis, false);
-                if (currentTimeMillis - BDStatCore.this.f8224g <= StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD || !bw.q(context)) {
+                if (currentTimeMillis - BDStatCore.this.f8517g <= StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD || !bw.q(context)) {
                     return;
                 }
                 LogSender.instance().onSend(context);
-                BDStatCore.this.f8224g = currentTimeMillis;
+                BDStatCore.this.f8517g = currentTimeMillis;
             }
         });
     }
 
-    public void onEvent(Context context, String str, String str2, int i, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
-        onEvent(context, str, str2, i, extraInfo, map, z, false);
+    public void onEvent(Context context, String str, String str2, int i2, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
+        onEvent(context, str, str2, i2, extraInfo, map, z, false);
     }
 
     public void onEventDuration(Context context, String str, String str2, long j, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
@@ -210,16 +212,16 @@ public class BDStatCore {
         init(context);
         b(context);
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.10
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.10
             @Override // java.lang.Runnable
             public void run() {
                 String str3 = str2;
                 if (TextUtils.isEmpty(str3)) {
                     str3 = "";
                 }
-                BDStatCore.this.f8221d.onSessionStart(context, currentTimeMillis, z);
+                BDStatCore.this.f8514d.onSessionStart(context, currentTimeMillis, z);
                 bc.c().a("Start event" + BDStatCore.this.a(str, str3, 1, -1L, null, null));
-                BDStatCore.this.f8222e.onEventStart(context, str, str3, currentTimeMillis);
+                BDStatCore.this.f8515e.onEventStart(context, str, str3, currentTimeMillis);
             }
         });
     }
@@ -236,12 +238,12 @@ public class BDStatCore {
         b(context);
         final int a2 = a();
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.21
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.21
             @Override // java.lang.Runnable
             public void run() {
                 bc c2 = bc.c();
                 c2.a("Start page view " + str);
-                BDStatCore.this.f8221d.onPageStart(context, str, a2, currentTimeMillis);
+                BDStatCore.this.f8514d.onPageStart(context, str, a2, currentTimeMillis);
             }
         });
     }
@@ -253,7 +255,7 @@ public class BDStatCore {
         }
         init(applicationContext);
         final WeakReference weakReference = new WeakReference(activity);
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.4
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.4
             @Override // java.lang.Runnable
             public void run() {
                 Class<?> cls;
@@ -269,7 +271,7 @@ public class BDStatCore {
                     bc c2 = bc.c();
                     c2.a("End page view " + cls.getSimpleName());
                 }
-                BDStatCore.this.f8221d.onPageEndAct(applicationContext, name, simpleName, charSequence, System.currentTimeMillis(), z, extraInfo);
+                BDStatCore.this.f8514d.onPageEndAct(applicationContext, name, simpleName, charSequence, System.currentTimeMillis(), z, extraInfo);
             }
         });
     }
@@ -282,7 +284,7 @@ public class BDStatCore {
         init(applicationContext);
         b(applicationContext);
         final WeakReference weakReference = new WeakReference(activity);
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.23
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.23
             @Override // java.lang.Runnable
             public void run() {
                 Class<?> cls;
@@ -296,7 +298,7 @@ public class BDStatCore {
                     bc c2 = bc.c();
                     c2.a("Start page view " + cls.getSimpleName());
                 }
-                BDStatCore.this.f8221d.onPageStartAct(applicationContext, name, currentTimeMillis, z);
+                BDStatCore.this.f8514d.onPageStartAct(applicationContext, name, currentTimeMillis, z);
             }
         });
     }
@@ -308,19 +310,19 @@ public class BDStatCore {
         init(context);
         b(context);
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.12
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.12
             @Override // java.lang.Runnable
             public void run() {
-                BDStatCore.this.f8221d.onSessionStart(context, currentTimeMillis, z);
+                BDStatCore.this.f8514d.onSessionStart(context, currentTimeMillis, z);
             }
         });
     }
 
     public void onStat(final Context context, final String str) {
-        if (this.f8221d.isSessionStart()) {
+        if (this.f8514d.isSessionStart()) {
             return;
         }
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.14
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.14
             @Override // java.lang.Runnable
             public void run() {
                 LogSender.instance().sendEmptyLogData(context, str);
@@ -328,26 +330,26 @@ public class BDStatCore {
         });
     }
 
-    public void setSessionTimeOut(int i) {
-        this.f8221d.setSessionTimeOut(i);
+    public void setSessionTimeOut(int i2) {
+        this.f8514d.setSessionTimeOut(i2);
     }
 
-    public void onEvent(final Context context, final String str, final String str2, final int i, final ExtraInfo extraInfo, final Map<String, String> map, final boolean z, final boolean z2) {
+    public void onEvent(final Context context, final String str, final String str2, final int i2, final ExtraInfo extraInfo, final Map<String, String> map, final boolean z, final boolean z2) {
         if (context == null) {
             return;
         }
         init(context);
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.7
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.7
             @Override // java.lang.Runnable
             public void run() {
                 String str3 = str2;
                 if (TextUtils.isEmpty(str3)) {
                     str3 = "";
                 }
-                BDStatCore.this.f8221d.onSessionStart(context, currentTimeMillis, z);
-                bc.c().a("Put event" + BDStatCore.this.a(str, str3, i, 0L, map, extraInfo));
-                BDStatCore.this.f8222e.onEvent(context, BDStatCore.this.f8221d.getSessionStartTime(), str, str3, i, currentTimeMillis, extraInfo, map, z2);
+                BDStatCore.this.f8514d.onSessionStart(context, currentTimeMillis, z);
+                bc.c().a("Put event" + BDStatCore.this.a(str, str3, i2, 0L, map, extraInfo));
+                BDStatCore.this.f8515e.onEvent(context, BDStatCore.this.f8514d.getSessionStartTime(), str, str3, i2, currentTimeMillis, extraInfo, map, z2);
             }
         });
     }
@@ -359,16 +361,16 @@ public class BDStatCore {
         init(context);
         b(context);
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.13
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.13
             @Override // java.lang.Runnable
             public void run() {
                 String str3 = str2;
                 if (TextUtils.isEmpty(str3)) {
                     str3 = "";
                 }
-                BDStatCore.this.f8221d.onSessionStart(context, currentTimeMillis, z);
+                BDStatCore.this.f8514d.onSessionStart(context, currentTimeMillis, z);
                 bc.c().a("Put event" + BDStatCore.this.a(str, str3, 1, j, map, extraInfo));
-                BDStatCore.this.f8222e.onEventDuration(context, BDStatCore.this.f8221d.getSessionStartTime(), str, str3, currentTimeMillis, j, extraInfo, map, z2);
+                BDStatCore.this.f8515e.onEventDuration(context, BDStatCore.this.f8514d.getSessionStartTime(), str, str3, currentTimeMillis, j, extraInfo, map, z2);
             }
         });
     }
@@ -379,16 +381,16 @@ public class BDStatCore {
         }
         init(context);
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.11
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.11
             @Override // java.lang.Runnable
             public void run() {
                 String str3 = str2;
                 if (TextUtils.isEmpty(str3)) {
                     str3 = "";
                 }
-                long sessionStartTime = BDStatCore.this.f8221d.getSessionStartTime();
+                long sessionStartTime = BDStatCore.this.f8514d.getSessionStartTime();
                 bc.c().a("End event" + BDStatCore.this.a(str, str3, 1, -1L, map, extraInfo));
-                BDStatCore.this.f8222e.onEventEnd(context, sessionStartTime, str, str3, currentTimeMillis, extraInfo, map, z);
+                BDStatCore.this.f8515e.onEventEnd(context, sessionStartTime, str, str3, currentTimeMillis, extraInfo, map, z);
             }
         });
     }
@@ -400,12 +402,12 @@ public class BDStatCore {
         init(context);
         final String b2 = b();
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.22
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.22
             @Override // java.lang.Runnable
             public void run() {
                 bc c2 = bc.c();
                 c2.a("End page view " + str);
-                SessionAnalysis sessionAnalysis = BDStatCore.this.f8221d;
+                SessionAnalysis sessionAnalysis = BDStatCore.this.f8514d;
                 Context context2 = context;
                 String str2 = str;
                 sessionAnalysis.onPageEnd(context2, str2, str2, b2, currentTimeMillis, extraInfo, z);
@@ -438,23 +440,23 @@ public class BDStatCore {
         av.a(appKey);
     }
 
-    public void onEvent(final Context context, final String str, final String str2, final int i, final String str3, final String str4, final int i2, final boolean z) {
+    public void onEvent(final Context context, final String str, final String str2, final int i2, final String str3, final String str4, final int i3, final boolean z) {
         if (context == null) {
             return;
         }
         init(context);
         b(context);
         final long currentTimeMillis = System.currentTimeMillis();
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.8
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.8
             @Override // java.lang.Runnable
             public void run() {
                 String str5 = str2;
                 if (TextUtils.isEmpty(str5)) {
                     str5 = "";
                 }
-                BDStatCore.this.f8221d.onSessionStart(context, currentTimeMillis, false);
-                bc.c().a("Put event" + BDStatCore.this.a(str, str5, i, 0L, null, null));
-                BDStatCore.this.f8222e.onEvent(context, BDStatCore.this.f8221d.getSessionStartTime(), str, str5, i, currentTimeMillis, str3, str4, i2, z);
+                BDStatCore.this.f8514d.onSessionStart(context, currentTimeMillis, false);
+                bc.c().a("Put event" + BDStatCore.this.a(str, str5, i2, 0L, null, null));
+                BDStatCore.this.f8515e.onEvent(context, BDStatCore.this.f8514d.getSessionStartTime(), str, str5, i2, currentTimeMillis, str3, str4, i3, z);
             }
         });
     }
@@ -467,7 +469,7 @@ public class BDStatCore {
         }
         init(applicationContext);
         final WeakReference weakReference = new WeakReference(fragment);
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.5
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.5
             @Override // java.lang.Runnable
             public void run() {
                 Fragment fragment2 = (Fragment) weakReference.get();
@@ -480,7 +482,7 @@ public class BDStatCore {
                 String charSequence = title == null ? "" : title.toString();
                 bc c2 = bc.c();
                 c2.a("End page view " + simpleName);
-                BDStatCore.this.f8221d.onPageEndFrag(applicationContext, name, simpleName, charSequence, System.currentTimeMillis());
+                BDStatCore.this.f8514d.onPageEndFrag(applicationContext, name, simpleName, charSequence, System.currentTimeMillis());
             }
         });
     }
@@ -494,7 +496,7 @@ public class BDStatCore {
         init(applicationContext);
         b(applicationContext);
         final WeakReference weakReference = new WeakReference(fragment);
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.2
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.2
             @Override // java.lang.Runnable
             public void run() {
                 Class<?> cls;
@@ -506,7 +508,7 @@ public class BDStatCore {
                 long currentTimeMillis = System.currentTimeMillis();
                 bc c2 = bc.c();
                 c2.a("Start page view " + cls.getSimpleName());
-                BDStatCore.this.f8221d.onPageStartFrag(applicationContext, name, currentTimeMillis);
+                BDStatCore.this.f8514d.onPageStartFrag(applicationContext, name, currentTimeMillis);
             }
         });
     }
@@ -526,9 +528,9 @@ public class BDStatCore {
             cls2 = null;
         }
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-        for (int i = 0; stackTrace != null && i < stackTrace.length; i++) {
-            String className = stackTrace[i].getClassName();
-            if (!TextUtils.isEmpty(className) && MissionEvent.MESSAGE_RESUME.equals(stackTrace[i].getMethodName())) {
+        for (int i2 = 0; stackTrace != null && i2 < stackTrace.length; i2++) {
+            String className = stackTrace[i2].getClassName();
+            if (!TextUtils.isEmpty(className) && MissionEvent.MESSAGE_RESUME.equals(stackTrace[i2].getMethodName())) {
                 try {
                     cls3 = Class.forName(className);
                 } catch (Throwable unused3) {
@@ -551,13 +553,13 @@ public class BDStatCore {
         return 3;
     }
 
-    public void onEvent(Context context, String str, String str2, int i, long j, JSONArray jSONArray, JSONArray jSONArray2, String str3, String str4, String str5, Map<String, String> map) {
-        onEvent(context, str, str2, i, j, jSONArray, jSONArray2, str3, str4, str5, map, false);
+    public void onEvent(Context context, String str, String str2, int i2, long j, JSONArray jSONArray, JSONArray jSONArray2, String str3, String str4, String str5, Map<String, String> map) {
+        onEvent(context, str, str2, i2, j, jSONArray, jSONArray2, str3, str4, str5, map, false);
     }
 
     private void b(final Context context) {
         Handler handler;
-        if (this.f8225h || context == null || (handler = this.i) == null) {
+        if (this.f8518h || context == null || (handler = this.f8519i) == null) {
             return;
         }
         handler.postDelayed(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.16
@@ -569,28 +571,28 @@ public class BDStatCore {
                     }
                 } catch (Throwable unused) {
                 }
-                BDStatCore.this.f8225h = false;
+                BDStatCore.this.f8518h = false;
             }
         }, 5000L);
-        this.f8225h = true;
+        this.f8518h = true;
     }
 
-    public void onEvent(final Context context, final String str, final String str2, final int i, final long j, final JSONArray jSONArray, final JSONArray jSONArray2, final String str3, final String str4, final String str5, final Map<String, String> map, final boolean z) {
+    public void onEvent(final Context context, final String str, final String str2, final int i2, final long j, final JSONArray jSONArray, final JSONArray jSONArray2, final String str3, final String str4, final String str5, final Map<String, String> map, final boolean z) {
         if (context == null) {
             return;
         }
         init(context);
         b(context);
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.9
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.9
             @Override // java.lang.Runnable
             public void run() {
                 String str6 = str2;
                 if (TextUtils.isEmpty(str6)) {
                     str6 = "";
                 }
-                BDStatCore.this.f8221d.onSessionStart(context, j, false);
-                bc.c().a("Put event" + BDStatCore.this.a(str, str6, i, 0L, map, null));
-                BDStatCore.this.f8222e.onEvent(context, BDStatCore.this.f8221d.getSessionStartTime(), str, str6, i, j, jSONArray, jSONArray2, str3, str4, str5, map, z);
+                BDStatCore.this.f8514d.onSessionStart(context, j, false);
+                bc.c().a("Put event" + BDStatCore.this.a(str, str6, i2, 0L, map, null));
+                BDStatCore.this.f8515e.onEvent(context, BDStatCore.this.f8514d.getSessionStartTime(), str, str6, i2, j, jSONArray, jSONArray2, str3, str4, str5, map, z);
             }
         });
     }
@@ -604,7 +606,7 @@ public class BDStatCore {
         }
         init(applicationContext);
         final WeakReference weakReference = new WeakReference(fragment);
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.6
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.6
             @Override // java.lang.Runnable
             public void run() {
                 android.app.Fragment fragment2 = (android.app.Fragment) weakReference.get();
@@ -617,7 +619,7 @@ public class BDStatCore {
                 String charSequence = title == null ? "" : title.toString();
                 bc c2 = bc.c();
                 c2.a("End page view " + simpleName);
-                BDStatCore.this.f8221d.onPageEndFrag(applicationContext, name, simpleName, charSequence, System.currentTimeMillis());
+                BDStatCore.this.f8514d.onPageEndFrag(applicationContext, name, simpleName, charSequence, System.currentTimeMillis());
             }
         });
     }
@@ -632,7 +634,7 @@ public class BDStatCore {
         init(applicationContext);
         b(applicationContext);
         final WeakReference weakReference = new WeakReference(fragment);
-        this.f8219b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.3
+        this.f8512b.post(new Runnable() { // from class: com.baidu.mobstat.BDStatCore.3
             @Override // java.lang.Runnable
             public void run() {
                 Class<?> cls;
@@ -644,7 +646,7 @@ public class BDStatCore {
                 long currentTimeMillis = System.currentTimeMillis();
                 bc c2 = bc.c();
                 c2.a("Start page view " + cls.getSimpleName());
-                BDStatCore.this.f8221d.onPageStartFrag(applicationContext, name, currentTimeMillis);
+                BDStatCore.this.f8514d.onPageStartFrag(applicationContext, name, currentTimeMillis);
             }
         });
     }
@@ -655,7 +657,7 @@ public class BDStatCore {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String a(String str, String str2, int i, long j, Map<String, String> map, ExtraInfo extraInfo) {
+    public String a(String str, String str2, int i2, long j, Map<String, String> map, ExtraInfo extraInfo) {
         JSONObject jSONObject;
         JSONObject dumpToJson;
         StringBuilder sb = new StringBuilder();
@@ -665,7 +667,7 @@ public class BDStatCore {
             } catch (Exception unused) {
             }
             dumpToJson = extraInfo != null ? extraInfo.dumpToJson() : null;
-            sb.append(" eventId " + str + ", with eventLabel " + str2 + ", with acc " + i);
+            sb.append(" eventId " + str + ", with eventLabel " + str2 + ", with acc " + i2);
             if (j > 0) {
                 sb.append(", with duration " + j);
             }
@@ -680,7 +682,7 @@ public class BDStatCore {
         jSONObject = null;
         if (extraInfo != null) {
         }
-        sb.append(" eventId " + str + ", with eventLabel " + str2 + ", with acc " + i);
+        sb.append(" eventId " + str + ", with eventLabel " + str2 + ", with acc " + i2);
         if (j > 0) {
         }
         if (jSONObject != null) {

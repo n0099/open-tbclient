@@ -6,9 +6,9 @@ public final class Stroke {
     public final int color;
     public final int strokeWidth;
 
-    public Stroke(int i, int i2) {
-        this.strokeWidth = i <= 0 ? 5 : i;
-        this.color = i2;
+    public Stroke(int i2, int i3) {
+        this.strokeWidth = i2 <= 0 ? 5 : i2;
+        this.color = i3;
     }
 
     public Bundle a(Bundle bundle) {

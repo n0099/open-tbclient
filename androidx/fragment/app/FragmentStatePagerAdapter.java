@@ -6,68 +6,88 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
 import androidx.viewpager.widget.PagerAdapter;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public abstract class FragmentStatePagerAdapter extends PagerAdapter {
+    public static final int BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT = 1;
+    @Deprecated
+    public static final int BEHAVIOR_SET_USER_VISIBLE_HINT = 0;
     public static final boolean DEBUG = false;
     public static final String TAG = "FragmentStatePagerAdapt";
+    public final int mBehavior;
+    public FragmentTransaction mCurTransaction;
+    public Fragment mCurrentPrimaryItem;
     public final FragmentManager mFragmentManager;
-    public FragmentTransaction mCurTransaction = null;
-    public ArrayList<Fragment.SavedState> mSavedState = new ArrayList<>();
-    public ArrayList<Fragment> mFragments = new ArrayList<>();
-    public Fragment mCurrentPrimaryItem = null;
+    public ArrayList<Fragment> mFragments;
+    public ArrayList<Fragment.SavedState> mSavedState;
 
-    public FragmentStatePagerAdapter(FragmentManager fragmentManager) {
-        this.mFragmentManager = fragmentManager;
+    @Deprecated
+    public FragmentStatePagerAdapter(@NonNull FragmentManager fragmentManager) {
+        this(fragmentManager, 0);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
+    public void destroyItem(@NonNull ViewGroup viewGroup, int i2, @NonNull Object obj) {
         Fragment fragment = (Fragment) obj;
         if (this.mCurTransaction == null) {
             this.mCurTransaction = this.mFragmentManager.beginTransaction();
         }
-        while (this.mSavedState.size() <= i) {
+        while (this.mSavedState.size() <= i2) {
             this.mSavedState.add(null);
         }
-        this.mSavedState.set(i, fragment.isAdded() ? this.mFragmentManager.saveFragmentInstanceState(fragment) : null);
-        this.mFragments.set(i, null);
+        this.mSavedState.set(i2, fragment.isAdded() ? this.mFragmentManager.saveFragmentInstanceState(fragment) : null);
+        this.mFragments.set(i2, null);
         this.mCurTransaction.remove(fragment);
+        if (fragment.equals(this.mCurrentPrimaryItem)) {
+            this.mCurrentPrimaryItem = null;
+        }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void finishUpdate(@NonNull ViewGroup viewGroup) {
         FragmentTransaction fragmentTransaction = this.mCurTransaction;
         if (fragmentTransaction != null) {
-            fragmentTransaction.commitNowAllowingStateLoss();
+            try {
+                fragmentTransaction.commitNowAllowingStateLoss();
+            } catch (IllegalStateException unused) {
+                this.mCurTransaction.commitAllowingStateLoss();
+            }
             this.mCurTransaction = null;
         }
     }
 
-    public abstract Fragment getItem(int i);
+    @NonNull
+    public abstract Fragment getItem(int i2);
 
     @Override // androidx.viewpager.widget.PagerAdapter
     @NonNull
-    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
+    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i2) {
         Fragment.SavedState savedState;
         Fragment fragment;
-        if (this.mFragments.size() <= i || (fragment = this.mFragments.get(i)) == null) {
+        if (this.mFragments.size() <= i2 || (fragment = this.mFragments.get(i2)) == null) {
             if (this.mCurTransaction == null) {
                 this.mCurTransaction = this.mFragmentManager.beginTransaction();
             }
-            Fragment item = getItem(i);
-            if (this.mSavedState.size() > i && (savedState = this.mSavedState.get(i)) != null) {
+            Fragment item = getItem(i2);
+            if (this.mSavedState.size() > i2 && (savedState = this.mSavedState.get(i2)) != null) {
                 item.setInitialSavedState(savedState);
             }
-            while (this.mFragments.size() <= i) {
+            while (this.mFragments.size() <= i2) {
                 this.mFragments.add(null);
             }
             item.setMenuVisibility(false);
-            item.setUserVisibleHint(false);
-            this.mFragments.set(i, item);
+            if (this.mBehavior == 0) {
+                item.setUserVisibleHint(false);
+            }
+            this.mFragments.set(i2, item);
             this.mCurTransaction.add(viewGroup.getId(), item);
+            if (this.mBehavior == 1) {
+                this.mCurTransaction.setMaxLifecycle(item, Lifecycle.State.STARTED);
+            }
             return item;
         }
         return fragment;
@@ -79,7 +99,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void restoreState(Parcelable parcelable, ClassLoader classLoader) {
+    public void restoreState(@Nullable Parcelable parcelable, @Nullable ClassLoader classLoader) {
         if (parcelable != null) {
             Bundle bundle = (Bundle) parcelable;
             bundle.setClassLoader(classLoader);
@@ -110,6 +130,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
+    @Nullable
     public Parcelable saveState() {
         Bundle bundle;
         if (this.mSavedState.size() > 0) {
@@ -120,29 +141,43 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
         } else {
             bundle = null;
         }
-        for (int i = 0; i < this.mFragments.size(); i++) {
-            Fragment fragment = this.mFragments.get(i);
+        for (int i2 = 0; i2 < this.mFragments.size(); i2++) {
+            Fragment fragment = this.mFragments.get(i2);
             if (fragment != null && fragment.isAdded()) {
                 if (bundle == null) {
                     bundle = new Bundle();
                 }
-                this.mFragmentManager.putFragment(bundle, "f" + i, fragment);
+                this.mFragmentManager.putFragment(bundle, "f" + i2, fragment);
             }
         }
         return bundle;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
+    public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i2, @NonNull Object obj) {
         Fragment fragment = (Fragment) obj;
         Fragment fragment2 = this.mCurrentPrimaryItem;
         if (fragment != fragment2) {
             if (fragment2 != null) {
                 fragment2.setMenuVisibility(false);
-                this.mCurrentPrimaryItem.setUserVisibleHint(false);
+                if (this.mBehavior == 1) {
+                    if (this.mCurTransaction == null) {
+                        this.mCurTransaction = this.mFragmentManager.beginTransaction();
+                    }
+                    this.mCurTransaction.setMaxLifecycle(this.mCurrentPrimaryItem, Lifecycle.State.STARTED);
+                } else {
+                    this.mCurrentPrimaryItem.setUserVisibleHint(false);
+                }
             }
             fragment.setMenuVisibility(true);
-            fragment.setUserVisibleHint(true);
+            if (this.mBehavior == 1) {
+                if (this.mCurTransaction == null) {
+                    this.mCurTransaction = this.mFragmentManager.beginTransaction();
+                }
+                this.mCurTransaction.setMaxLifecycle(fragment, Lifecycle.State.RESUMED);
+            } else {
+                fragment.setUserVisibleHint(true);
+            }
             this.mCurrentPrimaryItem = fragment;
         }
     }
@@ -153,5 +188,14 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
             return;
         }
         throw new IllegalStateException("ViewPager with adapter " + this + " requires a view id");
+    }
+
+    public FragmentStatePagerAdapter(@NonNull FragmentManager fragmentManager, int i2) {
+        this.mCurTransaction = null;
+        this.mSavedState = new ArrayList<>();
+        this.mFragments = new ArrayList<>();
+        this.mCurrentPrimaryItem = null;
+        this.mFragmentManager = fragmentManager;
+        this.mBehavior = i2;
     }
 }

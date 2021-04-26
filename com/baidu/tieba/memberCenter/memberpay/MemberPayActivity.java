@@ -28,7 +28,7 @@ import com.baidu.tbadk.pay.PayConfigModel;
 import com.baidu.tbadk.pay.ResponseGetPayinfoMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import d.b.i0.s.c.u;
+import d.a.i0.s.c.u;
 /* loaded from: classes3.dex */
 public class MemberPayActivity extends BaseActivity<MemberPayActivity> implements RadioGroup.OnCheckedChangeListener {
     public static String AUTO_PAY_AGREEMENT_JUMP_URL = "https://tieba.baidu.com/tb/viprenew_eula_mobile.html";
@@ -56,8 +56,8 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +78,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                         MemberPayActivity.this.addPaySussStats();
                         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001194, Integer.valueOf(MemberPayActivity.this.mCurrentShowType)));
                         MemberPayActivity.this.setResult(-1);
-                        d.b.i0.r.d0.b.j().t("show_member_deid_line", true);
+                        d.a.i0.r.d0.b.j().t("show_member_deid_line", true);
                         if (MemberPayActivity.this.mIsClose) {
                             MemberPayActivity.this.closeActivity();
                         } else {
@@ -92,8 +92,8 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
 
     /* loaded from: classes3.dex */
     public class b extends HttpMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -122,8 +122,8 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
 
     /* loaded from: classes3.dex */
     public class c extends CustomMessageListener {
-        public c(int i) {
-            super(i);
+        public c(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -138,23 +138,23 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
     }
 
     /* loaded from: classes3.dex */
-    public class d implements d.b.i0.l0.a {
+    public class d implements d.a.i0.l0.a {
         public d() {
         }
 
-        @Override // d.b.i0.l0.a
+        @Override // d.a.i0.l0.a
         public void a() {
-            d.b.i0.l0.c c2 = d.b.i0.l0.c.c();
+            d.a.i0.l0.d c2 = d.a.i0.l0.d.c();
             c2.b("http://tieba.baidu.com/mo/q/tbeantshow?refer_page=" + MemberPayActivity.this.mReferPage + "&click_zone=" + MemberPayActivity.this.mClickZone, MemberPayActivity.this.getPageContext());
             MemberPayActivity.this.finish();
         }
 
-        @Override // d.b.i0.l0.a
+        @Override // d.a.i0.l0.a
         public void b() {
             MemberPayActivity.this.requestMemberPayInfo();
         }
 
-        @Override // d.b.i0.l0.a
+        @Override // d.a.i0.l0.a
         public void onError(String str) {
             MemberPayActivity.this.requestMemberPayInfo();
         }
@@ -175,80 +175,80 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
     }
 
     private void addClickPayBtnStats() {
-        int i = this.mFrom;
-        if (i == 2) {
+        int i2 = this.mFrom;
+        if (i2 == 2) {
             TiebaStatic.log(TbadkCoreStatisticKey.FRS_EXPERIENCE_SPEED_BUY_MEMBER);
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             addStat("consume_4");
-        } else if (i == 7) {
+        } else if (i2 == 7) {
             TiebaStatic.log(TbadkCoreStatisticKey.BUBBLE_PAY_MEMBER_CLICK);
-        } else if (i == 6) {
+        } else if (i2 == 6) {
             TiebaStatic.log("consume_25");
-        } else if (i == 8) {
+        } else if (i2 == 8) {
             TiebaStatic.log("c10216");
-        } else if (i == 9) {
+        } else if (i2 == 9) {
             TiebaStatic.log("c10217");
-        } else if (i == 10) {
+        } else if (i2 == 10) {
             TiebaStatic.log("c10218");
-        } else if (i == 11) {
+        } else if (i2 == 11) {
             TiebaStatic.log("c10219");
-        } else if (i == 12) {
+        } else if (i2 == 12) {
             TiebaStatic.log("c10222");
-        } else if (i == 13) {
+        } else if (i2 == 13) {
             TiebaStatic.log("c10223");
-        } else if (i == 14) {
+        } else if (i2 == 14) {
             TiebaStatic.log("c10224");
-        } else if (i == 16) {
+        } else if (i2 == 16) {
             addStat("c10476");
-        } else if (i == 15) {
+        } else if (i2 == 15) {
             addStat("c10440");
-        } else if (i == 21) {
+        } else if (i2 == 21) {
             TiebaStatic.log(new StatisticItem("c11216").param("uid", TbadkCoreApplication.getCurrentAccount()));
-        } else if (i == 4) {
+        } else if (i2 == 4) {
             TiebaStatic.log("c10763");
-        } else if (i == 5) {
+        } else if (i2 == 5) {
             TiebaStatic.log("c10753");
-        } else if (i == 18) {
+        } else if (i2 == 18) {
             TiebaStatic.log("c10766");
-        } else if (i == 19) {
+        } else if (i2 == 19) {
             TiebaStatic.log("c10765");
-        } else if (i == 20) {
+        } else if (i2 == 20) {
             TiebaStatic.log("c11142");
-        } else if (i != 0 || StringUtils.isNull(this.mStType)) {
+        } else if (i2 != 0 || StringUtils.isNull(this.mStType)) {
         } else {
             TiebaStatic.log(this.mStType);
         }
     }
 
     private void addOpenPageStats() {
-        int i = this.mFrom;
-        if (i == 6) {
+        int i2 = this.mFrom;
+        if (i2 == 6) {
             TiebaStatic.log("consume_24");
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             TiebaStatic.log(TbadkCoreStatisticKey.FRS_EXPERIENCE_SPEED);
-        } else if (i == 4) {
+        } else if (i2 == 4) {
             TiebaStatic.log("c10751");
-        } else if (i == 5) {
+        } else if (i2 == 5) {
             TiebaStatic.log("c10750");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void addPaySussStats() {
-        int i = this.mFrom;
-        if (i == 2) {
+        int i2 = this.mFrom;
+        if (i2 == 2) {
             addStat("consume_10");
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             addStat("consume_5");
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             addStat("consume_35");
-        } else if (i == 4) {
+        } else if (i2 == 4) {
             TiebaStatic.log("c10032");
-        } else if (i == 5) {
+        } else if (i2 == 5) {
             TiebaStatic.log("c10039");
-        } else if (i == 6) {
+        } else if (i2 == 6) {
             TiebaStatic.log(TbadkCoreStatisticKey.TAIL_PAY_MEMBER_SUCCESS);
-        } else if (i == 7) {
+        } else if (i2 == 7) {
             TiebaStatic.log(TbadkCoreStatisticKey.BUBBLE_PAY_MEMBER_SUCCESS);
         }
     }
@@ -266,10 +266,10 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
             this.fromScene = getIntent().getExtras().getInt(MemberPayActivityConfig.FROM_SCENE, 0);
             this.mSceneId = getIntent().getExtras().getString("scene_id");
         }
-        int i = this.fromScene;
-        if (i == 3) {
+        int i2 = this.fromScene;
+        if (i2 == 3) {
             this.mSceneId = "4001001001";
-        } else if (i == 4) {
+        } else if (i2 == 4) {
             this.mSceneId = "4001001002";
         }
         if (StringUtils.isNull(this.mSceneId)) {
@@ -324,7 +324,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
         return this.mClickZone;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
     public String getCurrentPageKey() {
         return "b001";
     }
@@ -334,10 +334,10 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public d.b.i0.k0.d getPageStayDurationItem() {
-        d.b.i0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
+    public d.a.i0.k0.d getPageStayDurationItem() {
+        d.a.i0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50982a = true;
+            pageStayDurationItem.f48564a = true;
         }
         return pageStayDurationItem;
     }
@@ -347,23 +347,23 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         MemberPayView memberPayView = this.mMemberPayView;
         if (memberPayView != null) {
-            memberPayView.f(i);
+            memberPayView.f(i2);
         }
     }
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+    public void onCheckedChanged(RadioGroup radioGroup, int i2) {
         MemberPayView memberPayView = this.mMemberPayView;
         if (memberPayView == null) {
             return;
         }
-        if (i == R.id.btn_mem1) {
+        if (i2 == R.id.btn_mem1) {
             memberPayView.k(2);
-        } else if (i == R.id.btn_mem2) {
+        } else if (i2 == R.id.btn_mem2) {
             memberPayView.k(1);
         }
     }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.consumptionRecords;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.j0.a0.a;
-import d.b.j0.a0.b;
+import d.a.j0.a0.a;
+import d.a.j0.a0.b;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -12,8 +12,8 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
     public ArrayList<a> orderList;
     public b recommendData;
 
-    public GetUserOrderHttpResponseMessage(int i) {
-        super(i);
+    public GetUserOrderHttpResponseMessage(int i2) {
+        super(i2);
         this.hasMore = false;
         this.orderList = new ArrayList<>();
     }
@@ -22,17 +22,17 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
         if (jSONArray == null) {
             return;
         }
-        for (int i = 0; i < jSONArray.length(); i++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i);
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i2);
             a aVar = new a();
-            aVar.l(optJSONObject);
+            aVar.n(optJSONObject);
             this.orderList.add(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i, jSONObject);
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        super.decodeLogicInBackGround(i2, jSONObject);
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {

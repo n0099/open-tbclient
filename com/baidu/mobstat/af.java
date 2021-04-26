@@ -10,10 +10,10 @@ import org.json.JSONArray;
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f8462a = true;
+    public static volatile boolean f8764a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f8463b = false;
+    public static volatile boolean f8765b = false;
 
     /* loaded from: classes2.dex */
     public static class a implements ActivityLifeObserver.IActivityLifeCallback {
@@ -79,11 +79,11 @@ public class af {
     }
 
     public static boolean a() {
-        return f8463b;
+        return f8765b;
     }
 
     public static boolean b() {
-        return f8462a;
+        return f8764a;
     }
 
     public static JSONArray c() {
@@ -91,7 +91,7 @@ public class af {
     }
 
     public static void a(String str) {
-        f8463b = true;
+        f8765b = true;
         am.a().a(str);
     }
 

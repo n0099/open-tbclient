@@ -133,7 +133,7 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
     }
 
     @Deprecated
-    public Retrofit2ConverterFactory setParserFeatureValues(int i) {
+    public Retrofit2ConverterFactory setParserFeatureValues(int i2) {
         return this;
     }
 

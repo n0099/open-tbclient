@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 /* loaded from: classes2.dex */
 public class AppRuntime {
-    public static Application sApplication;
+    public static volatile Application sApplication;
 
     public static Context getAppContext() {
         return sApplication;

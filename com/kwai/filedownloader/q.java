@@ -10,30 +10,30 @@ import java.util.List;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f37476a = new Object();
+    public static final Object f35198a = new Object();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f37477c = new Object();
+    public static final Object f35199c = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public v f37478b;
+    public v f35200b;
 
     /* renamed from: d  reason: collision with root package name */
-    public u f37479d;
+    public u f35201d;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final q f37480a = new q();
+        public static final q f35202a = new q();
     }
 
     public static q a() {
-        return a.f37480a;
+        return a.f35202a;
     }
 
     public static void a(Context context, c.a aVar) {
-        if (com.kwai.filedownloader.f.d.f37396a) {
+        if (com.kwai.filedownloader.f.d.f35118a) {
             com.kwai.filedownloader.f.d.c(q.class, "init Downloader with params: %s %s", context, aVar);
         }
         if (context == null) {
@@ -43,10 +43,10 @@ public class q {
         com.kwai.filedownloader.download.b.a().a(aVar);
     }
 
-    public int a(int i) {
-        List<a.b> c2 = h.a().c(i);
+    public int a(int i2) {
+        List<a.b> c2 = h.a().c(i2);
         if (c2 == null || c2.isEmpty()) {
-            com.kwai.filedownloader.f.d.d(this, "request pause but not exist %d", Integer.valueOf(i));
+            com.kwai.filedownloader.f.d.d(this, "request pause but not exist %d", Integer.valueOf(i2));
             return 0;
         }
         for (a.b bVar : c2) {
@@ -63,9 +63,9 @@ public class q {
         f.a().a("event.service.connect.changed", eVar);
     }
 
-    public boolean a(int i, String str) {
-        a(i);
-        if (m.a().c(i)) {
+    public boolean a(int i2, String str) {
+        a(i2);
+        if (m.a().c(i2)) {
             if (TextUtils.isEmpty(str)) {
                 return true;
             }
@@ -94,26 +94,26 @@ public class q {
     }
 
     public v d() {
-        if (this.f37478b == null) {
-            synchronized (f37476a) {
-                if (this.f37478b == null) {
-                    this.f37478b = new aa();
+        if (this.f35200b == null) {
+            synchronized (f35198a) {
+                if (this.f35200b == null) {
+                    this.f35200b = new aa();
                 }
             }
         }
-        return this.f37478b;
+        return this.f35200b;
     }
 
     public u e() {
-        if (this.f37479d == null) {
-            synchronized (f37477c) {
-                if (this.f37479d == null) {
+        if (this.f35201d == null) {
+            synchronized (f35199c) {
+                if (this.f35201d == null) {
                     y yVar = new y();
-                    this.f37479d = yVar;
+                    this.f35201d = yVar;
                     a(yVar);
                 }
             }
         }
-        return this.f37479d;
+        return this.f35201d;
     }
 }

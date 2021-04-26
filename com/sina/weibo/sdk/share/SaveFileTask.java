@@ -19,14 +19,14 @@ public class SaveFileTask extends AsyncTask<StoryMessage, Object, StoryObject> {
         this.mCallback = transResourceCallback;
     }
 
-    private StoryObject copyFileToWeiboTem(Context context, Uri uri, int i) {
-        String copyFileToWeiboTem = ShareUtils.copyFileToWeiboTem(context, uri, i);
+    private StoryObject copyFileToWeiboTem(Context context, Uri uri, int i2) {
+        String copyFileToWeiboTem = ShareUtils.copyFileToWeiboTem(context, uri, i2);
         if (TextUtils.isEmpty(copyFileToWeiboTem)) {
             return null;
         }
         StoryObject storyObject = new StoryObject();
         storyObject.sourcePath = copyFileToWeiboTem;
-        storyObject.sourceType = i;
+        storyObject.sourceType = i2;
         storyObject.appId = WbSdk.getAuthInfo().getAppKey();
         storyObject.appPackage = context.getPackageName();
         return storyObject;

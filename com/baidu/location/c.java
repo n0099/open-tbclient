@@ -5,10 +5,10 @@ import android.content.Context;
 public class c extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ LocationClient f6696a;
+    public final /* synthetic */ LocationClient f6927a;
 
     public c(LocationClient locationClient) {
-        this.f6696a = locationClient;
+        this.f6927a = locationClient;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -18,16 +18,16 @@ public class c extends Thread {
         com.baidu.location.a.c cVar3;
         Context context;
         LocationClientOption locationClientOption;
-        cVar = this.f6696a.C;
+        cVar = this.f6927a.C;
         if (cVar == null) {
-            LocationClient locationClient = this.f6696a;
-            context = this.f6696a.f6477f;
-            locationClientOption = this.f6696a.f6475d;
-            locationClient.C = new com.baidu.location.a.c(context, locationClientOption, this.f6696a);
+            LocationClient locationClient = this.f6927a;
+            context = this.f6927a.f6693f;
+            locationClientOption = this.f6927a.f6691d;
+            locationClient.C = new com.baidu.location.a.c(context, locationClientOption, this.f6927a);
         }
-        cVar2 = this.f6696a.C;
+        cVar2 = this.f6927a.C;
         if (cVar2 != null) {
-            cVar3 = this.f6696a.C;
+            cVar3 = this.f6927a.C;
             cVar3.c();
         }
     }

@@ -5,9 +5,9 @@ public class IMImageSize {
     public boolean isWH;
     public int width;
 
-    public IMImageSize(int i, int i2, boolean z) {
-        this.width = i;
-        this.height = i2;
+    public IMImageSize(int i2, int i3, boolean z) {
+        this.width = i2;
+        this.height = i3;
         this.isWH = z;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.dynamic;
 
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import d.b.j0.q0.m1.a;
+import d.a.j0.q0.m1.a;
 import tbclient.Error;
 import tbclient.StarTrends.StarTrendsResIdl;
 /* loaded from: classes4.dex */
@@ -19,18 +19,18 @@ public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         Error error;
         a aVar = new a();
         this.responseData = aVar;
-        StarTrendsResIdl b2 = aVar.b(bArr);
-        if (b2 != null && (error = b2.error) != null) {
+        StarTrendsResIdl a2 = aVar.a(bArr);
+        if (a2 != null && (error = a2.error) != null) {
             Integer num = error.errorno;
             if (num != null) {
                 setError(num.intValue());
-                this.responseData.f59936h = b2.error.errorno.intValue();
+                this.responseData.f58014h = a2.error.errorno.intValue();
             }
-            setErrorString(b2.error.usermsg);
+            setErrorString(a2.error.usermsg);
         }
         setData(this.responseData);
     }

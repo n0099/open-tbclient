@@ -8,11 +8,11 @@ import androidx.annotation.Nullable;
 public final class CursorWindowCompat {
     @NonNull
     public static CursorWindow create(@Nullable String str, long j) {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 28) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 28) {
             return new CursorWindow(str, j);
         }
-        if (i >= 15) {
+        if (i2 >= 15) {
             return new CursorWindow(str);
         }
         return new CursorWindow(false);

@@ -11,62 +11,88 @@ import com.baidu.sapi2.utils.enums.SocialType;
 import com.xiaomi.account.openauth.XiaomiOAuthFuture;
 import com.xiaomi.account.openauth.XiaomiOAuthResults;
 import com.xiaomi.account.openauth.XiaomiOAuthorize;
-import d.b.y.a.j.a;
 /* loaded from: classes2.dex */
 public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
-    public boolean isCancle;
-    public XiaoMiCallback xiaoMiCallback;
-    public Thread xiaoMiThread;
+    public Thread n;
+    public boolean o;
+    public c p;
 
     /* loaded from: classes2.dex */
-    public interface XiaoMiCallback {
-        void onFailure();
+    public class b implements Runnable {
 
-        void onSuccess(String str, String str2, String str3);
-    }
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ XiaomiOAuthFuture f10816a;
 
-    private void getXiaoMiSSOToken() {
-        final XiaomiOAuthFuture startGetAccessToken = new XiaomiOAuthorize().setAppId(this.configuration.xiaomiAppID.longValue()).setUseSystemAccountLogin(true).setScope(new int[]{1, 3}).setRedirectUrl(this.configuration.xiaomiRedirectUri).startGetAccessToken(this);
-        Thread thread = new Thread(new Runnable() { // from class: com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity.2
+        /* loaded from: classes2.dex */
+        public class a implements Runnable {
+            public a() {
+            }
+
             @Override // java.lang.Runnable
             public void run() {
-                try {
-                    XiaomiOAuthResults xiaomiOAuthResults = (XiaomiOAuthResults) startGetAccessToken.getResult();
-                    if (xiaomiOAuthResults.hasError()) {
-                        new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity.2.1
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                XiaomiSSOLoginActivity.this.xiaoMiCallback.onFailure();
-                            }
-                        });
-                    } else {
-                        final String accessToken = xiaomiOAuthResults.getAccessToken();
-                        final String macKey = xiaomiOAuthResults.getMacKey();
-                        final String macAlgorithm = xiaomiOAuthResults.getMacAlgorithm();
-                        new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity.2.2
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                XiaomiSSOLoginActivity.this.xiaoMiCallback.onSuccess(accessToken, macKey, macAlgorithm);
-                            }
-                        });
-                    }
-                } catch (Exception e2) {
-                    Log.e(e2);
-                }
+                XiaomiSSOLoginActivity.this.p.a();
             }
-        });
-        this.xiaoMiThread = thread;
-        thread.start();
+        }
+
+        /* renamed from: com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity$b$b  reason: collision with other inner class name */
+        /* loaded from: classes2.dex */
+        public class RunnableC0137b implements Runnable {
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ String f10819a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ String f10820b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public final /* synthetic */ String f10821c;
+
+            public RunnableC0137b(String str, String str2, String str3) {
+                this.f10819a = str;
+                this.f10820b = str2;
+                this.f10821c = str3;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                XiaomiSSOLoginActivity.this.p.a(this.f10819a, this.f10820b, this.f10821c);
+            }
+        }
+
+        public b(XiaomiOAuthFuture xiaomiOAuthFuture) {
+            this.f10816a = xiaomiOAuthFuture;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            try {
+                XiaomiOAuthResults xiaomiOAuthResults = (XiaomiOAuthResults) this.f10816a.getResult();
+                if (xiaomiOAuthResults.hasError()) {
+                    new Handler(Looper.getMainLooper()).post(new a());
+                } else {
+                    new Handler(Looper.getMainLooper()).post(new RunnableC0137b(xiaomiOAuthResults.getAccessToken(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()));
+                }
+            } catch (Exception e2) {
+                Log.e(e2);
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public interface c {
+        void a();
+
+        void a(String str, String str2, String str3);
     }
 
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void finish() {
         super.finish();
-        Thread thread = this.xiaoMiThread;
+        Thread thread = this.n;
         if (thread == null || !thread.isAlive()) {
             return;
         }
-        this.xiaoMiThread.interrupt();
+        this.n.interrupt();
     }
 
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
@@ -78,37 +104,49 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.isCancle) {
-            this.xiaoMiCallback.onFailure();
+        if (this.o) {
+            this.p.a();
         }
-        this.isCancle = true;
+        this.o = true;
     }
 
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(a.sapi_sdk_title_login_xiaomi);
+        setTitleText(d.a.y.a.j.a.sapi_sdk_title_login_xiaomi);
         RelativeLayout relativeLayout = this.rootView;
         if (relativeLayout != null) {
             relativeLayout.setVisibility(4);
         }
-        this.xiaoMiCallback = new XiaoMiCallback() { // from class: com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity.1
-            @Override // com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity.XiaoMiCallback
-            public void onFailure() {
-                XiaomiSSOLoginActivity xiaomiSSOLoginActivity = XiaomiSSOLoginActivity.this;
-                xiaomiSSOLoginActivity.handleBack(xiaomiSSOLoginActivity.businessFrom);
-            }
+        this.p = new a();
+        d();
+    }
 
-            @Override // com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity.XiaoMiCallback
-            public void onSuccess(String str, String str2, String str3) {
-                if (XiaomiSSOLoginActivity.this.sapiWebView != null) {
-                    SapiConfiguration sapiConfiguration = XiaomiSSOLoginActivity.this.configuration;
-                    SocialType socialType = SocialType.XIAOMI;
-                    XiaomiSSOLoginActivity.this.loadLoginInNA(ParamsUtil.getUrlBind(sapiConfiguration, socialType, str, str2, XiaomiSSOLoginActivity.this.configuration.xiaomiAppID + ""), "小米授权登录中");
-                    XiaomiSSOLoginActivity.this.isCancle = false;
-                }
+    private void d() {
+        Thread thread = new Thread(new b(new XiaomiOAuthorize().setAppId(this.configuration.xiaomiAppID.longValue()).setUseSystemAccountLogin(true).setScope(new int[]{1, 3}).setRedirectUrl(this.configuration.xiaomiRedirectUri).startGetAccessToken(this)));
+        this.n = thread;
+        thread.start();
+    }
+
+    /* loaded from: classes2.dex */
+    public class a implements c {
+        public a() {
+        }
+
+        @Override // com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity.c
+        public void a(String str, String str2, String str3) {
+            if (XiaomiSSOLoginActivity.this.sapiWebView != null) {
+                SapiConfiguration sapiConfiguration = XiaomiSSOLoginActivity.this.configuration;
+                SocialType socialType = SocialType.XIAOMI;
+                XiaomiSSOLoginActivity.this.a(ParamsUtil.getUrlBind(sapiConfiguration, socialType, str, str2, XiaomiSSOLoginActivity.this.configuration.xiaomiAppID + ""), "小米授权登录中");
+                XiaomiSSOLoginActivity.this.o = false;
             }
-        };
-        getXiaoMiSSOToken();
+        }
+
+        @Override // com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity.c
+        public void a() {
+            XiaomiSSOLoginActivity xiaomiSSOLoginActivity = XiaomiSSOLoginActivity.this;
+            xiaomiSSOLoginActivity.a(((BaseSSOLoginActivity) xiaomiSSOLoginActivity).f10791g);
+        }
     }
 }

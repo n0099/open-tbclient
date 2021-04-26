@@ -15,7 +15,7 @@ import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService2;
 import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService3;
 import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService4;
 import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService5;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum SwanAppProcessInfo {
     UNKNOWN(-2, false, false, null, null),
     SERVICE(-1, true, false, null, null),
@@ -38,16 +38,16 @@ public enum SwanAppProcessInfo {
     public final boolean isSwanService;
     public final Class<? extends SwanAppLocalService> service;
 
-    SwanAppProcessInfo(int i, boolean z, boolean z2, Class cls, Class cls2) {
-        this.index = i;
+    SwanAppProcessInfo(int i2, boolean z, boolean z2, Class cls, Class cls2) {
+        this.index = i2;
         this.activity = cls;
         this.service = cls2;
         this.isSwanService = z;
         this.isSwanClient = z2;
     }
 
-    public static boolean checkProcessId(int i) {
-        return i >= 0 && i <= 5;
+    public static boolean checkProcessId(int i2) {
+        return i2 >= 0 && i2 <= 5;
     }
 
     @NonNull
@@ -55,33 +55,33 @@ public enum SwanAppProcessInfo {
         return (isInited() || !ProcessUtils.isMainProcess()) ? sCurrent : init(SERVICE);
     }
 
-    public static SwanAppProcessInfo indexOf(int i) {
-        return indices()[i];
+    public static SwanAppProcessInfo indexOf(int i2) {
+        return indices()[i2];
     }
 
     public static SwanAppProcessInfo[] indices() {
-        int i;
+        int i2;
         if (sIndices == null) {
             SwanAppProcessInfo[] values = values();
             sIndices = new SwanAppProcessInfo[values.length];
-            int i2 = 0;
+            int i3 = 0;
             for (SwanAppProcessInfo swanAppProcessInfo : values) {
-                if (swanAppProcessInfo != null && (i = swanAppProcessInfo.index) >= 0) {
+                if (swanAppProcessInfo != null && (i2 = swanAppProcessInfo.index) >= 0) {
                     SwanAppProcessInfo[] swanAppProcessInfoArr = sIndices;
-                    if (i < swanAppProcessInfoArr.length && swanAppProcessInfoArr[i] == null) {
-                        swanAppProcessInfoArr[i] = swanAppProcessInfo;
+                    if (i2 < swanAppProcessInfoArr.length && swanAppProcessInfoArr[i2] == null) {
+                        swanAppProcessInfoArr[i2] = swanAppProcessInfo;
                     }
                 }
             }
             while (true) {
                 SwanAppProcessInfo[] swanAppProcessInfoArr2 = sIndices;
-                if (i2 >= swanAppProcessInfoArr2.length) {
+                if (i3 >= swanAppProcessInfoArr2.length) {
                     break;
                 }
-                if (swanAppProcessInfoArr2[i2] == null) {
-                    swanAppProcessInfoArr2[i2] = UNKNOWN;
+                if (swanAppProcessInfoArr2[i3] == null) {
+                    swanAppProcessInfoArr2[i3] = UNKNOWN;
                 }
-                i2++;
+                i3++;
             }
         }
         return sIndices;

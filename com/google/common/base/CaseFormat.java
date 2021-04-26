@@ -1,9 +1,9 @@
 package com.google.common.base;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.h.c.a.a;
-import d.h.c.a.b;
-import d.h.c.a.n;
+import d.g.c.a.a;
+import d.g.c.a.b;
+import d.g.c.a.n;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public enum CaseFormat {
@@ -92,7 +92,7 @@ public enum CaseFormat {
             this.targetFormat = caseFormat2;
         }
 
-        @Override // com.google.common.base.Converter, d.h.c.a.g
+        @Override // com.google.common.base.Converter, d.g.c.a.g
         public boolean equals(Object obj) {
             if (obj instanceof StringConverter) {
                 StringConverter stringConverter = (StringConverter) obj;
@@ -131,26 +131,26 @@ public enum CaseFormat {
 
     public String convert(CaseFormat caseFormat, String str) {
         StringBuilder sb = null;
-        int i = 0;
-        int i2 = -1;
+        int i2 = 0;
+        int i3 = -1;
         while (true) {
-            i2 = this.wordBoundary.d(str, i2 + 1);
-            if (i2 == -1) {
+            i3 = this.wordBoundary.d(str, i3 + 1);
+            if (i3 == -1) {
                 break;
             }
-            if (i == 0) {
+            if (i2 == 0) {
                 sb = new StringBuilder(str.length() + (this.wordSeparator.length() * 4));
-                sb.append(caseFormat.normalizeFirstWord(str.substring(i, i2)));
+                sb.append(caseFormat.normalizeFirstWord(str.substring(i2, i3)));
             } else {
-                sb.append(caseFormat.normalizeWord(str.substring(i, i2)));
+                sb.append(caseFormat.normalizeWord(str.substring(i2, i3)));
             }
             sb.append(caseFormat.wordSeparator);
-            i = this.wordSeparator.length() + i2;
+            i2 = this.wordSeparator.length() + i3;
         }
-        if (i == 0) {
+        if (i2 == 0) {
             return caseFormat.normalizeFirstWord(str);
         }
-        sb.append(caseFormat.normalizeWord(str.substring(i)));
+        sb.append(caseFormat.normalizeWord(str.substring(i2)));
         return sb.toString();
     }
 

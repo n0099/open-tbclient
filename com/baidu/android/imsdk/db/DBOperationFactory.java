@@ -54,8 +54,8 @@ public class DBOperationFactory {
         }
         long uk = AccountManagerImpl.getInstance(context).getUK();
         long appid = AccountManagerImpl.getInstance(context).getAppid();
-        int i = (0L > uk ? 1 : (0L == uk ? 0 : -1));
-        if (i != 0 && -1 != appid) {
+        int i2 = (0L > uk ? 1 : (0L == uk ? 0 : -1));
+        if (i2 != 0 && -1 != appid) {
             long j = sAppid;
             if (j == -1 || j == appid) {
                 long j2 = sUk;
@@ -71,7 +71,7 @@ public class DBOperationFactory {
             return getDbOperation(context, context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + uk + "_" + appid + ".db").getPath());
         }
         LogUtils.d(TAG, "UK OR appid Not initialize!");
-        if (i == 0) {
+        if (i2 == 0) {
             LogUtils.d(TAG, "mUid Not initialize!");
         }
         if (-1 == appid) {

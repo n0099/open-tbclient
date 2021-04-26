@@ -55,12 +55,12 @@ public abstract class BaseWebViewRequestParam {
         BaseWebViewRequestData baseWebViewRequestData = this.baseData;
         if (baseWebViewRequestData != null) {
             bundle.putSerializable(SchemeCollecter.CLASSIFY_BASE, baseWebViewRequestData);
-            int i = AnonymousClass1.$SwitchMap$com$sina$weibo$sdk$web$WebRequestType[this.baseData.getType().ordinal()];
-            if (i == 1) {
+            int i2 = AnonymousClass1.$SwitchMap$com$sina$weibo$sdk$web$WebRequestType[this.baseData.getType().ordinal()];
+            if (i2 == 1) {
                 bundle.putInt("type", 0);
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 bundle.putInt("type", 1);
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 bundle.putInt("type", 2);
             }
             bundle.putString(WBConstants.TRAN, this.transaction);
@@ -102,8 +102,8 @@ public abstract class BaseWebViewRequestParam {
         this(authInfo, webRequestType, str, 0, str2, str3, context);
     }
 
-    public BaseWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, int i, String str2, String str3, Context context) {
-        this.baseData = new BaseWebViewRequestData(authInfo, webRequestType, str, i, str2, str3);
+    public BaseWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, int i2, String str2, String str3, Context context) {
+        this.baseData = new BaseWebViewRequestData(authInfo, webRequestType, str, i2, str2, str3);
         this.context = context;
         this.transaction = String.valueOf(System.currentTimeMillis());
     }

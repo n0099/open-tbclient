@@ -26,7 +26,7 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBuilder<PipelineDraweeControllerBuilder, ImageRequest, CloseableReference<CloseableImage>, ImageInfo> {
     @Nullable
     public ImmutableList<DrawableFactory> mCustomDrawableFactories;
@@ -38,7 +38,7 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
     public final PipelineDraweeControllerFactory mPipelineDraweeControllerFactory;
 
     /* renamed from: com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$drawee$controller$AbstractDraweeControllerBuilder$CacheLevel;
 
@@ -67,10 +67,10 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
     }
 
     public static ImageRequest.RequestLevel convertCacheLevelToRequestLevel(AbstractDraweeControllerBuilder.CacheLevel cacheLevel) {
-        int i = AnonymousClass1.$SwitchMap$com$facebook$drawee$controller$AbstractDraweeControllerBuilder$CacheLevel[cacheLevel.ordinal()];
-        if (i != 1) {
-            if (i != 2) {
-                if (i == 3) {
+        int i2 = AnonymousClass1.$SwitchMap$com$facebook$drawee$controller$AbstractDraweeControllerBuilder$CacheLevel[cacheLevel.ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 == 3) {
                     return ImageRequest.RequestLevel.BITMAP_MEMORY_CACHE;
                 }
                 throw new RuntimeException("Cache level" + cacheLevel + "is not supported. ");

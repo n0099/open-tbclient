@@ -2,9 +2,7 @@ package com.bumptech.glide.load.engine.executor;
 
 import android.os.Process;
 import android.os.StrictMode;
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import java.util.Collection;
@@ -21,64 +19,16 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes5.dex */
 public final class GlideExecutor implements ExecutorService {
-    public static final String DEFAULT_ANIMATION_EXECUTOR_NAME = "animation";
+    public static final String ANIMATION_EXECUTOR_NAME = "animation";
     public static final String DEFAULT_DISK_CACHE_EXECUTOR_NAME = "disk-cache";
     public static final int DEFAULT_DISK_CACHE_EXECUTOR_THREADS = 1;
     public static final String DEFAULT_SOURCE_EXECUTOR_NAME = "source";
-    public static final String DEFAULT_SOURCE_UNLIMITED_EXECUTOR_NAME = "source-unlimited";
     public static final long KEEP_ALIVE_TIME_MS = TimeUnit.SECONDS.toMillis(10);
     public static final int MAXIMUM_AUTOMATIC_THREAD_COUNT = 4;
+    public static final String SOURCE_UNLIMITED_EXECUTOR_NAME = "source-unlimited";
     public static final String TAG = "GlideExecutor";
     public static volatile int bestThreadCount;
     public final ExecutorService delegate;
-
-    /* loaded from: classes5.dex */
-    public static final class Builder {
-        public static final long NO_THREAD_TIMEOUT = 0;
-        public int corePoolSize;
-        public int maximumPoolSize;
-        public String name;
-        public final boolean preventNetworkOperations;
-        public long threadTimeoutMillis;
-        @NonNull
-        public UncaughtThrowableStrategy uncaughtThrowableStrategy = UncaughtThrowableStrategy.DEFAULT;
-
-        public Builder(boolean z) {
-            this.preventNetworkOperations = z;
-        }
-
-        public GlideExecutor build() {
-            if (!TextUtils.isEmpty(this.name)) {
-                ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(this.corePoolSize, this.maximumPoolSize, this.threadTimeoutMillis, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new DefaultThreadFactory(this.name, this.uncaughtThrowableStrategy, this.preventNetworkOperations));
-                if (this.threadTimeoutMillis != 0) {
-                    threadPoolExecutor.allowCoreThreadTimeOut(true);
-                }
-                return new GlideExecutor(threadPoolExecutor);
-            }
-            throw new IllegalArgumentException("Name must be non-null and non-empty, but given: " + this.name);
-        }
-
-        public Builder setName(String str) {
-            this.name = str;
-            return this;
-        }
-
-        public Builder setThreadCount(@IntRange(from = 1) int i) {
-            this.corePoolSize = i;
-            this.maximumPoolSize = i;
-            return this;
-        }
-
-        public Builder setThreadTimeoutMillis(long j) {
-            this.threadTimeoutMillis = j;
-            return this;
-        }
-
-        public Builder setUncaughtThrowableStrategy(@NonNull UncaughtThrowableStrategy uncaughtThrowableStrategy) {
-            this.uncaughtThrowableStrategy = uncaughtThrowableStrategy;
-            return this;
-        }
-    }
 
     /* loaded from: classes5.dex */
     public static final class DefaultThreadFactory implements ThreadFactory {
@@ -157,32 +107,20 @@ public final class GlideExecutor implements ExecutorService {
         return bestThreadCount;
     }
 
-    public static Builder newAnimationBuilder() {
-        return new Builder(true).setThreadCount(calculateBestThreadCount() >= 4 ? 2 : 1).setName("animation");
-    }
-
     public static GlideExecutor newAnimationExecutor() {
-        return newAnimationBuilder().build();
-    }
-
-    public static Builder newDiskCacheBuilder() {
-        return new Builder(true).setThreadCount(1).setName(DEFAULT_DISK_CACHE_EXECUTOR_NAME);
+        return newAnimationExecutor(calculateBestThreadCount() >= 4 ? 2 : 1, UncaughtThrowableStrategy.DEFAULT);
     }
 
     public static GlideExecutor newDiskCacheExecutor() {
-        return newDiskCacheBuilder().build();
-    }
-
-    public static Builder newSourceBuilder() {
-        return new Builder(false).setThreadCount(calculateBestThreadCount()).setName("source");
+        return newDiskCacheExecutor(1, DEFAULT_DISK_CACHE_EXECUTOR_NAME, UncaughtThrowableStrategy.DEFAULT);
     }
 
     public static GlideExecutor newSourceExecutor() {
-        return newSourceBuilder().build();
+        return newSourceExecutor(calculateBestThreadCount(), "source", UncaughtThrowableStrategy.DEFAULT);
     }
 
     public static GlideExecutor newUnlimitedSourceExecutor() {
-        return new GlideExecutor(new ThreadPoolExecutor(0, Integer.MAX_VALUE, KEEP_ALIVE_TIME_MS, TimeUnit.MILLISECONDS, new SynchronousQueue(), new DefaultThreadFactory(DEFAULT_SOURCE_UNLIMITED_EXECUTOR_NAME, UncaughtThrowableStrategy.DEFAULT, false)));
+        return new GlideExecutor(new ThreadPoolExecutor(0, Integer.MAX_VALUE, KEEP_ALIVE_TIME_MS, TimeUnit.MILLISECONDS, new SynchronousQueue(), new DefaultThreadFactory(SOURCE_UNLIMITED_EXECUTOR_NAME, UncaughtThrowableStrategy.DEFAULT, false)));
     }
 
     @Override // java.util.concurrent.ExecutorService
@@ -238,19 +176,8 @@ public final class GlideExecutor implements ExecutorService {
         return this.delegate.toString();
     }
 
-    @Deprecated
-    public static GlideExecutor newAnimationExecutor(int i, UncaughtThrowableStrategy uncaughtThrowableStrategy) {
-        return newAnimationBuilder().setThreadCount(i).setUncaughtThrowableStrategy(uncaughtThrowableStrategy).build();
-    }
-
-    @Deprecated
     public static GlideExecutor newDiskCacheExecutor(UncaughtThrowableStrategy uncaughtThrowableStrategy) {
-        return newDiskCacheBuilder().setUncaughtThrowableStrategy(uncaughtThrowableStrategy).build();
-    }
-
-    @Deprecated
-    public static GlideExecutor newSourceExecutor(UncaughtThrowableStrategy uncaughtThrowableStrategy) {
-        return newSourceBuilder().setUncaughtThrowableStrategy(uncaughtThrowableStrategy).build();
+        return newDiskCacheExecutor(1, DEFAULT_DISK_CACHE_EXECUTOR_NAME, uncaughtThrowableStrategy);
     }
 
     @Override // java.util.concurrent.ExecutorService
@@ -270,18 +197,24 @@ public final class GlideExecutor implements ExecutorService {
         return this.delegate.submit(runnable, t);
     }
 
-    @Deprecated
-    public static GlideExecutor newDiskCacheExecutor(int i, String str, UncaughtThrowableStrategy uncaughtThrowableStrategy) {
-        return newDiskCacheBuilder().setThreadCount(i).setName(str).setUncaughtThrowableStrategy(uncaughtThrowableStrategy).build();
+    public static GlideExecutor newAnimationExecutor(int i2, UncaughtThrowableStrategy uncaughtThrowableStrategy) {
+        return new GlideExecutor(new ThreadPoolExecutor(0, i2, KEEP_ALIVE_TIME_MS, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new DefaultThreadFactory("animation", uncaughtThrowableStrategy, true)));
     }
 
-    @Deprecated
-    public static GlideExecutor newSourceExecutor(int i, String str, UncaughtThrowableStrategy uncaughtThrowableStrategy) {
-        return newSourceBuilder().setThreadCount(i).setName(str).setUncaughtThrowableStrategy(uncaughtThrowableStrategy).build();
+    public static GlideExecutor newDiskCacheExecutor(int i2, String str, UncaughtThrowableStrategy uncaughtThrowableStrategy) {
+        return new GlideExecutor(new ThreadPoolExecutor(i2, i2, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new DefaultThreadFactory(str, uncaughtThrowableStrategy, true)));
+    }
+
+    public static GlideExecutor newSourceExecutor(UncaughtThrowableStrategy uncaughtThrowableStrategy) {
+        return newSourceExecutor(calculateBestThreadCount(), "source", uncaughtThrowableStrategy);
     }
 
     @Override // java.util.concurrent.ExecutorService
     public <T> Future<T> submit(@NonNull Callable<T> callable) {
         return this.delegate.submit(callable);
+    }
+
+    public static GlideExecutor newSourceExecutor(int i2, String str, UncaughtThrowableStrategy uncaughtThrowableStrategy) {
+        return new GlideExecutor(new ThreadPoolExecutor(i2, i2, 0L, TimeUnit.MILLISECONDS, new PriorityBlockingQueue(), new DefaultThreadFactory(str, uncaughtThrowableStrategy, false)));
     }
 }

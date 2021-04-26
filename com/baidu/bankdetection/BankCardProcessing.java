@@ -32,7 +32,7 @@ public class BankCardProcessing {
         mAuthorityStatus = 256;
     }
 
-    private native BCResult BankCardProcess(byte[] bArr, int i, int i2, int i3, int i4, int i5, int i6, int i7, boolean z);
+    private native BCResult BankCardProcess(byte[] bArr, int i2, int i3, int i4, int i5, int i6, int i7, int i8, boolean z);
 
     public static synchronized BankCardProcessing getInstance() {
         BankCardProcessing bankCardProcessing;
@@ -57,18 +57,18 @@ public class BankCardProcessing {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         long currentTimeMillis = System.currentTimeMillis();
-        int i = width * height;
-        int[] iArr = new int[i];
+        int i2 = width * height;
+        int[] iArr = new int[i2];
         bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
         long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
         long currentTimeMillis3 = System.currentTimeMillis();
-        byte[] bArr = new byte[i * 3];
-        for (int i2 = 0; i2 < i; i2++) {
-            int i3 = iArr[i2];
-            int i4 = i2 * 3;
-            bArr[i4 + 0] = (byte) ((i3 >> 16) & 255);
-            bArr[i4 + 1] = (byte) ((i3 >> 8) & 255);
-            bArr[i4 + 2] = (byte) (i3 & 255);
+        byte[] bArr = new byte[i2 * 3];
+        for (int i3 = 0; i3 < i2; i3++) {
+            int i4 = iArr[i3];
+            int i5 = i3 * 3;
+            bArr[i5 + 0] = (byte) ((i4 >> 16) & 255);
+            bArr[i5 + 1] = (byte) ((i4 >> 8) & 255);
+            bArr[i5 + 2] = (byte) (i4 & 255);
         }
         long currentTimeMillis4 = System.currentTimeMillis() - currentTimeMillis3;
         Log.w(TAG, "getPixelsTime = " + currentTimeMillis2 + " ms");
@@ -114,24 +114,24 @@ public class BankCardProcessing {
         return 0;
     }
 
-    public Bitmap resize(Bitmap bitmap, int i) {
-        if (bitmap.getHeight() != i) {
-            int width = (bitmap.getWidth() * i) / bitmap.getHeight();
-            if (width <= i) {
-                width = i;
+    public Bitmap resize(Bitmap bitmap, int i2) {
+        if (bitmap.getHeight() != i2) {
+            int width = (bitmap.getWidth() * i2) / bitmap.getHeight();
+            if (width <= i2) {
+                width = i2;
             }
-            return Bitmap.createScaledBitmap(bitmap, width, i, false);
+            return Bitmap.createScaledBitmap(bitmap, width, i2, false);
         }
         return bitmap;
     }
 
-    public BCResult runBankCardProcess(byte[] bArr, int i, int i2, int i3, int i4, int i5, int i6, int i7, boolean z) throws AlgorithmOnMainThreadException, IDLAuthorityException {
+    public BCResult runBankCardProcess(byte[] bArr, int i2, int i3, int i4, int i5, int i6, int i7, int i8, boolean z) throws AlgorithmOnMainThreadException, IDLAuthorityException {
         if (!UIThread.isUITread()) {
             if (mAuthorityStatus <= 48) {
                 Log.i(TAG, "[In runBankCardProcess] number of tasks is " + this.mNumberOfTasks.get());
                 if (this.mNumberOfTasks.get() >= 1) {
                     this.mNumberOfTasks.incrementAndGet();
-                    BCResult BankCardProcess = BankCardProcess(bArr, i, i2, i3, i4, i5, i6, i7, z);
+                    BCResult BankCardProcess = BankCardProcess(bArr, i2, i3, i4, i5, i6, i7, i8, z);
                     this.mNumberOfTasks.decrementAndGet();
                     return BankCardProcess;
                 }
@@ -143,22 +143,22 @@ public class BankCardProcessing {
         throw new AlgorithmOnMainThreadException();
     }
 
-    public BCResult runBankCardProcessing(AssetManager assetManager, String str, String str2, String str3, String str4, Bitmap bitmap, int i, boolean z) {
-        return runBankCardProcessing(assetManager, str, null, str2, null, str3, null, str4, bitmap, i, z);
+    public BCResult runBankCardProcessing(AssetManager assetManager, String str, String str2, String str3, String str4, Bitmap bitmap, int i2, boolean z) {
+        return runBankCardProcessing(assetManager, str, null, str2, null, str3, null, str4, bitmap, i2, z);
     }
 
     public void saveBCRImage(BCResult bCResult) {
         saveRGBDataToJPG(bCResult.pbDstImg, bCResult.nDstWidth, bCResult.nDstHeight);
     }
 
-    public void saveRGBDataToJPG(byte[] bArr, int i, int i2) {
-        int i3 = i * i2;
-        int[] iArr = new int[i3];
-        for (int i4 = 0; i4 < i3; i4++) {
-            int i5 = i4 * 3;
-            iArr[i4] = (bArr[i5 + 2] & 255) | ((bArr[i5] & 255) << 16) | (-16777216) | ((bArr[i5 + 1] & 255) << 8);
+    public void saveRGBDataToJPG(byte[] bArr, int i2, int i3) {
+        int i4 = i2 * i3;
+        int[] iArr = new int[i4];
+        for (int i5 = 0; i5 < i4; i5++) {
+            int i6 = i5 * 3;
+            iArr[i5] = (bArr[i6 + 2] & 255) | ((bArr[i6] & 255) << 16) | (-16777216) | ((bArr[i6 + 1] & 255) << 8);
         }
-        Bitmap createBitmap = Bitmap.createBitmap(iArr, i, i2, Bitmap.Config.ARGB_8888);
+        Bitmap createBitmap = Bitmap.createBitmap(iArr, i2, i3, Bitmap.Config.ARGB_8888);
         String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
         try {
             createBitmap.compress(Bitmap.CompressFormat.JPEG, 90, new FileOutputStream(new File(absolutePath + "/bankcard/card.jpg")));
@@ -167,7 +167,7 @@ public class BankCardProcessing {
         }
     }
 
-    public BCResult runBankCardProcessing(AssetManager assetManager, String str, String str2, String str3, String str4, String str5, String str6, String str7, Bitmap bitmap, int i, boolean z) {
+    public BCResult runBankCardProcessing(AssetManager assetManager, String str, String str2, String str3, String str4, String str5, String str6, String str7, Bitmap bitmap, int i2, boolean z) {
         if (!UIThread.isUITread()) {
             if (mAuthorityStatus <= 48) {
                 if (bitmap == null) {
@@ -183,7 +183,7 @@ public class BankCardProcessing {
                 } else {
                     int height = bitmap.getHeight();
                     int width = bitmap.getWidth();
-                    BCResult runBankCardProcess = runBankCardProcess(getRGBImageData(bitmap), height, width, 1, 1, width - 1, height - 1, i, z);
+                    BCResult runBankCardProcess = runBankCardProcess(getRGBImageData(bitmap), height, width, 1, 1, width - 1, height - 1, i2, z);
                     if (runBankCardProcess != null) {
                         String cardNumberToString = runBankCardProcess.cardNumberToString();
                         this.mCardNumber = cardNumberToString;
@@ -201,7 +201,7 @@ public class BankCardProcessing {
     }
 
     public static synchronized int init(String str) throws AlgorithmOnMainThreadException, IDLAuthorityException {
-        int i;
+        int i2;
         synchronized (BankCardProcessing.class) {
             if (!UIThread.isUITread()) {
                 tokenString = str;
@@ -210,20 +210,20 @@ public class BankCardProcessing {
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                i = mAuthorityStatus;
+                i2 = mAuthorityStatus;
             } else {
                 throw new AlgorithmOnMainThreadException();
             }
         }
-        return i;
+        return i2;
     }
 
-    public BCResult runBankCardProcess(byte[] bArr, int i, int i2, int i3, int i4, int i5, int i6) throws AlgorithmOnMainThreadException, IDLAuthorityException {
-        return runBankCardProcess(bArr, i, i2, i3, i4, i5, i6, 2, true);
+    public BCResult runBankCardProcess(byte[] bArr, int i2, int i3, int i4, int i5, int i6, int i7) throws AlgorithmOnMainThreadException, IDLAuthorityException {
+        return runBankCardProcess(bArr, i2, i3, i4, i5, i6, i7, 2, true);
     }
 
     public static synchronized int init(Context context, String str) throws AlgorithmOnMainThreadException, IDLAuthorityException {
-        int i;
+        int i2;
         synchronized (BankCardProcessing.class) {
             if (!UIThread.isUITread()) {
                 mApiKey = str;
@@ -232,12 +232,12 @@ public class BankCardProcessing {
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                i = mAuthorityStatus;
+                i2 = mAuthorityStatus;
             } else {
                 throw new AlgorithmOnMainThreadException();
             }
         }
-        return i;
+        return i2;
     }
 
     public BCResult runBankCardProcessing(AssetManager assetManager, String str, String str2, String str3, String str4, Bitmap bitmap) {

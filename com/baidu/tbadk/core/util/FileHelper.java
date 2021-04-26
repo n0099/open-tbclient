@@ -19,13 +19,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.c.e.m.a;
-import d.b.c.e.m.e;
-import d.b.c.e.p.d;
-import d.b.c.e.p.f;
-import d.b.c.e.p.k;
-import d.b.c.e.p.l;
-import d.b.c.e.p.m;
+import d.a.c.e.m.a;
+import d.a.c.e.m.e;
+import d.a.c.e.p.d;
+import d.a.c.e.p.f;
+import d.a.c.e.p.k;
+import d.a.c.e.p.l;
+import d.a.c.e.p.m;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -68,11 +68,11 @@ public class FileHelper {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             public int compare(File file, File file2) {
-                int i = ((file.lastModified() - file2.lastModified()) > 0L ? 1 : ((file.lastModified() - file2.lastModified()) == 0L ? 0 : -1));
-                if (i > 0) {
+                int i2 = ((file.lastModified() - file2.lastModified()) > 0L ? 1 : ((file.lastModified() - file2.lastModified()) == 0L ? 0 : -1));
+                if (i2 > 0) {
                     return 1;
                 }
-                return i == 0 ? 0 : -1;
+                return i2 == 0 ? 0 : -1;
             }
         }
 
@@ -123,11 +123,11 @@ public class FileHelper {
                     if (file.isDirectory()) {
                         File[] listFiles = file.listFiles();
                         int length = listFiles.length;
-                        for (int i = 0; i < length; i++) {
-                            if (listFiles[i].isFile()) {
-                                listFiles[i].delete();
+                        for (int i2 = 0; i2 < length; i2++) {
+                            if (listFiles[i2].isFile()) {
+                                listFiles[i2].delete();
                             } else {
-                                deleteFileOrDir(listFiles[i]);
+                                deleteFileOrDir(listFiles[i2]);
                             }
                         }
                     }
@@ -147,10 +147,10 @@ public class FileHelper {
                     File[] listFiles = file.listFiles();
                     long j = 0;
                     int length = listFiles.length;
-                    for (int i = 0; i < length; i++) {
-                        if (j > listFiles[i].lastModified()) {
-                            j = listFiles[i].lastModified();
-                            str2 = listFiles[i].getName();
+                    for (int i2 = 0; i2 < length; i2++) {
+                        if (j > listFiles[i2].lastModified()) {
+                            j = listFiles[i2].lastModified();
+                            str2 = listFiles[i2].getName();
                         }
                     }
                 }
@@ -517,7 +517,7 @@ public class FileHelper {
         return statFs.getAvailableBlocks() * statFs.getBlockSize();
     }
 
-    public static String SaveFile(String str, String str2, Bitmap bitmap, int i) {
+    public static String SaveFile(String str, String str2, Bitmap bitmap, int i2) {
         String str3;
         if (bitmap == null) {
             return null;
@@ -532,7 +532,7 @@ public class FileHelper {
             try {
                 if ((!file.exists() || file.delete()) && file.createNewFile()) {
                     FileOutputStream fileOutputStream = new FileOutputStream(file);
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream);
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, i2, fileOutputStream);
                     fileOutputStream.flush();
                     fileOutputStream.close();
                     return file.getPath();
@@ -618,18 +618,18 @@ public class FileHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String SaveTempFile(int i, String str, byte[] bArr) {
+    public static String SaveTempFile(int i2, String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
         FileOutputStream fileOutputStream2 = null;
         if (str == null || bArr == null || bArr.length == 0) {
             return null;
         }
-        String tempFilePath = getTempFilePath(i, str, true);
+        String tempFilePath = getTempFilePath(i2, str, true);
         if (tempFilePath != null) {
             return tempFilePath;
         }
         try {
-            File createTempFile = File.createTempFile(getPrefixByType(i), str, CACHE_DIR);
+            File createTempFile = File.createTempFile(getPrefixByType(i2), str, CACHE_DIR);
             if (createTempFile == null) {
                 return null;
             }
@@ -766,7 +766,7 @@ public class FileHelper {
         deleteCacheDirFiles(new File(CACHE_DIR + "/" + str));
     }
 
-    public static String compressBitmapToFile(String str, Bitmap bitmap, float f2, int i) {
+    public static String compressBitmapToFile(String str, Bitmap bitmap, float f2, int i2) {
         File dataDirectory;
         if (bitmap == null) {
             return null;
@@ -786,11 +786,11 @@ public class FileHelper {
         try {
             if ((!file.exists() || file.delete()) && file.createNewFile()) {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
                 while (byteArrayOutputStream.toByteArray().length > f2) {
                     byteArrayOutputStream.reset();
-                    i -= 5;
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
+                    i2 -= 5;
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
                 }
                 FileOutputStream fileOutputStream = new FileOutputStream(file);
                 fileOutputStream.write(byteArrayOutputStream.toByteArray());
@@ -900,7 +900,7 @@ public class FileHelper {
                     return -1;
                 }
                 String str4 = nameMd5FromUrl + str3;
-                for (int i = 0; CheckFile(str4) && i < 10000; i++) {
+                for (int i2 = 0; CheckFile(str4) && i2 < 10000; i2++) {
                     str4 = nameMd5FromUrl + Math.round(Math.random() * 9.9999999E7d) + str3;
                 }
                 String str5 = getCacheDir() + str4;
@@ -943,11 +943,11 @@ public class FileHelper {
                 if (file.isDirectory()) {
                     File[] listFiles = file.listFiles();
                     int length = listFiles.length;
-                    for (int i = 0; i < length; i++) {
-                        if (listFiles[i].isFile()) {
-                            listFiles[i].delete();
+                    for (int i2 = 0; i2 < length; i2++) {
+                        if (listFiles[i2].isFile()) {
+                            listFiles[i2].delete();
                         } else {
-                            deleteFileOrDir(listFiles[i]);
+                            deleteFileOrDir(listFiles[i2]);
                         }
                     }
                 }
@@ -1053,13 +1053,13 @@ public class FileHelper {
         return EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + str;
     }
 
-    public static String getFilePath(String str, int i, boolean z) {
+    public static String getFilePath(String str, int i2, boolean z) {
         if (checkSD()) {
             StringBuilder sb = new StringBuilder();
             if (z) {
                 sb.append(getCacheDir());
             }
-            sb.append(getPrefixByType(i));
+            sb.append(getPrefixByType(i2));
             sb.append(File.separator);
             sb.append(str);
             return sb.toString();
@@ -1192,8 +1192,8 @@ public class FileHelper {
         }
     }
 
-    public static String getPrefixByType(int i) {
-        return i != 1 ? i != 2 ? i != 3 ? "" : FILE_CACHE_BUBBLE : FILE_CACHE_EMOTION_PACKAGE : "voice";
+    public static String getPrefixByType(int i2) {
+        return i2 != 1 ? i2 != 2 ? i2 != 3 ? "" : FILE_CACHE_BUBBLE : FILE_CACHE_EMOTION_PACKAGE : "voice";
     }
 
     public static String getPrefixPath(String str, boolean z) {
@@ -1214,21 +1214,21 @@ public class FileHelper {
         return TbadkCoreApplication.getInst().getApp().getString(R.string.error_no_sdcard);
     }
 
-    public static String getStoreFile(String str, int i) {
+    public static String getStoreFile(String str, int i2) {
         if (str == null) {
             return null;
         }
         if (checkSD()) {
-            if (CheckFile(getFilePath(str, i, false))) {
-                return getFilePath(str, i, true);
+            if (CheckFile(getFilePath(str, i2, false))) {
+                return getFilePath(str, i2, true);
             }
             return null;
         }
         return getTempFilePath(1, str);
     }
 
-    public static String getTempFilePath(int i, String str) {
-        return getTempFilePath(i, str, false);
+    public static String getTempFilePath(int i2, String str) {
+        return getTempFilePath(i2, str, false);
     }
 
     public static String getVideoTmpDir() {
@@ -1267,7 +1267,7 @@ public class FileHelper {
         try {
             try {
                 byte[] bArr = new byte[7];
-                z = fileInputStream.read(bArr, 0, 6) == 6 ? l.A(bArr) : false;
+                z = fileInputStream.read(bArr, 0, 6) == 6 ? l.B(bArr) : false;
             } catch (Throwable th3) {
                 th = th3;
                 fileInputStream2 = fileInputStream;
@@ -1361,9 +1361,9 @@ public class FileHelper {
             try {
                 byte[] bArr = new byte[7];
                 if (x.read(bArr, 0, 6) == 6) {
-                    boolean A = l.A(bArr);
+                    boolean B = l.B(bArr);
                     a.c(x);
-                    return A;
+                    return B;
                 }
             } catch (IOException unused) {
             } catch (Throwable th) {
@@ -1431,7 +1431,7 @@ public class FileHelper {
         return null;
     }
 
-    public static String saveFile(String str, String str2, Bitmap bitmap, int i) {
+    public static String saveFile(String str, String str2, Bitmap bitmap, int i2) {
         if (bitmap != null && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
             File file = new File(str);
             if (file.exists() && !file.isDirectory()) {
@@ -1444,7 +1444,7 @@ public class FileHelper {
             try {
                 if ((!file2.exists() || file2.delete()) && file2.createNewFile()) {
                     FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream);
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, i2, fileOutputStream);
                     fileOutputStream.flush();
                     fileOutputStream.close();
                     return file2.getAbsolutePath();
@@ -1458,17 +1458,17 @@ public class FileHelper {
         return null;
     }
 
-    public static String saveFileAsPNG(String str, String str2, Bitmap bitmap, int i) {
-        return saveFileAsPic(str, str2, bitmap, i, Bitmap.CompressFormat.PNG);
+    public static String saveFileAsPNG(String str, String str2, Bitmap bitmap, int i2) {
+        return saveFileAsPic(str, str2, bitmap, i2, Bitmap.CompressFormat.PNG);
     }
 
-    public static String saveFileAsPic(String str, String str2, Bitmap bitmap, int i, Bitmap.CompressFormat compressFormat) {
+    public static String saveFileAsPic(String str, String str2, Bitmap bitmap, int i2, Bitmap.CompressFormat compressFormat) {
         if (bitmap != null && CheckTempDir(str) && bitmap != null) {
             File file = new File(str + str2);
             try {
                 if ((!file.exists() || file.delete()) && file.createNewFile()) {
                     FileOutputStream fileOutputStream = new FileOutputStream(file);
-                    bitmap.compress(compressFormat, i, fileOutputStream);
+                    bitmap.compress(compressFormat, i2, fileOutputStream);
                     fileOutputStream.flush();
                     fileOutputStream.close();
                     return file.getPath();
@@ -1528,7 +1528,7 @@ public class FileHelper {
         }
     }
 
-    public static String saveFileToSDOrMemory(String str, Bitmap bitmap, int i) {
+    public static String saveFileToSDOrMemory(String str, Bitmap bitmap, int i2) {
         String absolutePath;
         if (bitmap == null) {
             return null;
@@ -1538,15 +1538,15 @@ public class FileHelper {
         } else {
             absolutePath = Environment.getDataDirectory().getAbsolutePath();
         }
-        return saveFile(absolutePath, str, bitmap, i);
+        return saveFile(absolutePath, str, bitmap, i2);
     }
 
     public static int saveImageFileByUser(String str, byte[] bArr, Context context) {
         Bitmap decodeByteArray;
         if (bArr != null && str != null && str.length() != 0 && context != null) {
             try {
-                String str2 = l.A(bArr) ? ".gif" : ".jpg";
-                if (l.y(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
+                String str2 = l.B(bArr) ? ".gif" : ".jpg";
+                if (l.z(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
                     bArr = d.d().a(decodeByteArray, 100);
                     decodeByteArray.recycle();
                 }
@@ -1555,7 +1555,7 @@ public class FileHelper {
                     return -1;
                 }
                 String str3 = nameMd5FromUrl + str2;
-                for (int i = 0; CheckFile(str3) && i < 10000; i++) {
+                for (int i2 = 0; CheckFile(str3) && i2 < 10000; i2++) {
                     str3 = nameMd5FromUrl + Math.round(Math.random() * 9.9999999E7d) + str2;
                 }
                 String SaveFile = SaveFile(str3, bArr);
@@ -1637,31 +1637,31 @@ public class FileHelper {
         if (listFiles == null) {
             return 0L;
         }
-        for (int i = 0; i < listFiles.length; i++) {
-            if (listFiles[i].isDirectory() && !z) {
-                length = getDirectorySize(listFiles[i], false);
+        for (int i2 = 0; i2 < listFiles.length; i2++) {
+            if (listFiles[i2].isDirectory() && !z) {
+                length = getDirectorySize(listFiles[i2], false);
             } else {
-                length = listFiles[i].length();
+                length = listFiles[i2].length();
             }
             j += length;
         }
         return j;
     }
 
-    public static String getTempFilePath(int i, String str, boolean z) {
+    public static String getTempFilePath(int i2, String str, boolean z) {
         File file = CACHE_DIR;
         if (file == null) {
             return null;
         }
         File[] listFiles = file.listFiles();
-        String prefixByType = getPrefixByType(i);
-        for (int i2 = 0; i2 < listFiles.length; i2++) {
-            if (listFiles[i2] != null && listFiles[i2].getName().startsWith(prefixByType)) {
-                if (listFiles[i2].getName().endsWith(str)) {
-                    return listFiles[i2].getAbsolutePath();
+        String prefixByType = getPrefixByType(i2);
+        for (int i3 = 0; i3 < listFiles.length; i3++) {
+            if (listFiles[i3] != null && listFiles[i3].getName().startsWith(prefixByType)) {
+                if (listFiles[i3].getName().endsWith(str)) {
+                    return listFiles[i3].getAbsolutePath();
                 }
                 if (z) {
-                    listFiles[i2].delete();
+                    listFiles[i3].delete();
                 }
             }
         }
@@ -1801,11 +1801,11 @@ public class FileHelper {
         return false;
     }
 
-    public static String SaveFile(String str, byte[] bArr, int i) {
+    public static String SaveFile(String str, byte[] bArr, int i2) {
         if (checkSD()) {
-            return SaveFile((String) null, getFilePath(str, i, false), bArr);
+            return SaveFile((String) null, getFilePath(str, i2, false), bArr);
         }
-        return SaveTempFile(i, str, bArr);
+        return SaveTempFile(i2, str, bArr);
     }
 
     public static String saveFile(String str, String str2, InputStream inputStream) {
@@ -1901,7 +1901,7 @@ public class FileHelper {
         }
     }
 
-    public static String compressBitmapToFile(String str, String str2, Bitmap bitmap, float f2, int i) {
+    public static String compressBitmapToFile(String str, String str2, Bitmap bitmap, float f2, int i2) {
         File dataDirectory;
         if (bitmap == null) {
             return null;
@@ -1932,11 +1932,11 @@ public class FileHelper {
         try {
             if ((!file.exists() || file.delete()) && file.createNewFile()) {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
                 while (byteArrayOutputStream.toByteArray().length > f2) {
                     byteArrayOutputStream.reset();
-                    i -= 5;
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
+                    i2 -= 5;
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
                 }
                 FileOutputStream fileOutputStream = new FileOutputStream(file);
                 fileOutputStream.write(byteArrayOutputStream.toByteArray());

@@ -2,14 +2,14 @@ package com.facebook.common.util;
 
 import com.facebook.infer.annotation.Functional;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public enum TriState {
     YES,
     NO,
     UNSET;
 
     /* renamed from: com.facebook.common.util.TriState$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$util$TriState;
 
@@ -32,9 +32,9 @@ public enum TriState {
     }
 
     @Functional
-    public static TriState fromDbValue(int i) {
-        if (i != 1) {
-            if (i != 2) {
+    public static TriState fromDbValue(int i2) {
+        if (i2 != 1) {
+            if (i2 != 2) {
                 return UNSET;
             }
             return NO;
@@ -44,10 +44,10 @@ public enum TriState {
 
     @Functional
     public boolean asBoolean() {
-        int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
+        int i2 = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 != 3) {
                     throw new IllegalStateException("Unrecognized TriState value: " + this);
                 }
                 throw new IllegalStateException("No boolean equivalent for UNSET");
@@ -60,10 +60,10 @@ public enum TriState {
     @Nullable
     @Functional
     public Boolean asBooleanObject() {
-        int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
-        if (i != 1) {
-            if (i != 2) {
-                if (i == 3) {
+        int i2 = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 == 3) {
                     return null;
                 }
                 throw new IllegalStateException("Unrecognized TriState value: " + this);
@@ -75,15 +75,15 @@ public enum TriState {
 
     @Functional
     public int getDbValue() {
-        int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
-        int i2 = 1;
-        if (i != 1) {
-            i2 = 2;
-            if (i != 2) {
+        int i2 = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
+        int i3 = 1;
+        if (i2 != 1) {
+            i3 = 2;
+            if (i2 != 2) {
                 return 3;
             }
         }
-        return i2;
+        return i3;
     }
 
     @Functional
@@ -103,10 +103,10 @@ public enum TriState {
 
     @Functional
     public boolean asBoolean(boolean z) {
-        int i = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
-        if (i != 1) {
-            if (i != 2) {
-                if (i == 3) {
+        int i2 = AnonymousClass1.$SwitchMap$com$facebook$common$util$TriState[ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 == 3) {
                     return z;
                 }
                 throw new IllegalStateException("Unrecognized TriState value: " + this);

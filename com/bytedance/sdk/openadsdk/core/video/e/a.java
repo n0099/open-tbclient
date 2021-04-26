@@ -7,7 +7,7 @@ import com.baidu.webkit.sdk.VideoCloudSetting;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f28393a = Build.VERSION.SDK_INT;
+    public static final int f29264a = Build.VERSION.SDK_INT;
 
     public static int a(long j, long j2) {
         return Math.min(Math.max(0, j2 > 0 ? (int) (((j * 1.0d) / j2) * 100.0d) : 0), 100);
@@ -47,10 +47,10 @@ public class a {
             view.setSystemUiVisibility(0);
             return;
         }
-        int i = f28393a;
-        if (i >= 19) {
+        int i2 = f29264a;
+        if (i2 >= 19) {
             view.setSystemUiVisibility(3846);
-        } else if (i >= 16) {
+        } else if (i2 >= 16) {
             view.setSystemUiVisibility(5);
         } else {
             view.setSystemUiVisibility(1);

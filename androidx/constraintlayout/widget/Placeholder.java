@@ -30,8 +30,8 @@ public class Placeholder extends View {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.ConstraintLayout_placeholder);
             int indexCount = obtainStyledAttributes.getIndexCount();
-            for (int i = 0; i < indexCount; i++) {
-                int index = obtainStyledAttributes.getIndex(i);
+            for (int i2 = 0; i2 < indexCount; i2++) {
+                int index = obtainStyledAttributes.getIndex(i2);
                 if (index == R.styleable.ConstraintLayout_placeholder_content) {
                     this.mContentId = obtainStyledAttributes.getResourceId(index, this.mContentId);
                 } else if (index == R.styleable.ConstraintLayout_placeholder_emptyVisibility) {
@@ -68,9 +68,9 @@ public class Placeholder extends View {
         }
     }
 
-    public void setContentId(int i) {
+    public void setContentId(int i2) {
         View findViewById;
-        if (this.mContentId == i) {
+        if (this.mContentId == i2) {
             return;
         }
         View view = this.mContent;
@@ -79,15 +79,15 @@ public class Placeholder extends View {
             ((ConstraintLayout.LayoutParams) this.mContent.getLayoutParams()).isInPlaceholder = false;
             this.mContent = null;
         }
-        this.mContentId = i;
-        if (i == -1 || (findViewById = ((View) getParent()).findViewById(i)) == null) {
+        this.mContentId = i2;
+        if (i2 == -1 || (findViewById = ((View) getParent()).findViewById(i2)) == null) {
             return;
         }
         findViewById.setVisibility(8);
     }
 
-    public void setEmptyVisibility(int i) {
-        this.mEmptyVisibility = i;
+    public void setEmptyVisibility(int i2) {
+        this.mEmptyVisibility = i2;
     }
 
     public void updatePostMeasure(ConstraintLayout constraintLayout) {
@@ -123,16 +123,16 @@ public class Placeholder extends View {
         init(attributeSet);
     }
 
-    public Placeholder(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public Placeholder(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mContentId = -1;
         this.mContent = null;
         this.mEmptyVisibility = 4;
         init(attributeSet);
     }
 
-    public Placeholder(Context context, AttributeSet attributeSet, int i, int i2) {
-        super(context, attributeSet, i);
+    public Placeholder(Context context, AttributeSet attributeSet, int i2, int i3) {
+        super(context, attributeSet, i2);
         this.mContentId = -1;
         this.mContent = null;
         this.mEmptyVisibility = 4;

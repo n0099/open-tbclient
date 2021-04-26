@@ -10,9 +10,12 @@ import android.util.AttributeSet;
 import android.view.ActionMode;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import android.view.textclassifier.TextClassifier;
 import android.widget.EditText;
 import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.core.view.TintableBackgroundView;
@@ -20,9 +23,10 @@ import androidx.core.widget.TextViewCompat;
 /* loaded from: classes.dex */
 public class AppCompatEditText extends EditText implements TintableBackgroundView {
     public final AppCompatBackgroundHelper mBackgroundTintHelper;
+    public final AppCompatTextClassifierHelper mTextClassifierHelper;
     public final AppCompatTextHelper mTextHelper;
 
-    public AppCompatEditText(Context context) {
+    public AppCompatEditText(@NonNull Context context) {
         this(context, null);
     }
 
@@ -41,7 +45,7 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
 
     @Override // androidx.core.view.TintableBackgroundView
     @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportBackgroundTintList() {
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {
@@ -52,13 +56,24 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
 
     @Override // androidx.core.view.TintableBackgroundView
     @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {
             return appCompatBackgroundHelper.getSupportBackgroundTintMode();
         }
         return null;
+    }
+
+    @Override // android.widget.TextView
+    @NonNull
+    @RequiresApi(api = 26)
+    public TextClassifier getTextClassifier() {
+        AppCompatTextClassifierHelper appCompatTextClassifierHelper;
+        if (Build.VERSION.SDK_INT < 28 && (appCompatTextClassifierHelper = this.mTextClassifierHelper) != null) {
+            return appCompatTextClassifierHelper.getTextClassifier();
+        }
+        return super.getTextClassifier();
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -76,11 +91,11 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(@DrawableRes int i) {
-        super.setBackgroundResource(i);
+    public void setBackgroundResource(@DrawableRes int i2) {
+        super.setBackgroundResource(i2);
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {
-            appCompatBackgroundHelper.onSetBackgroundResource(i);
+            appCompatBackgroundHelper.onSetBackgroundResource(i2);
         }
     }
 
@@ -90,7 +105,7 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {
@@ -99,7 +114,7 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {
@@ -108,15 +123,26 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     @Override // android.widget.TextView
-    public void setTextAppearance(Context context, int i) {
-        super.setTextAppearance(context, i);
+    public void setTextAppearance(Context context, int i2) {
+        super.setTextAppearance(context, i2);
         AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
         if (appCompatTextHelper != null) {
-            appCompatTextHelper.onSetTextAppearance(context, i);
+            appCompatTextHelper.onSetTextAppearance(context, i2);
         }
     }
 
-    public AppCompatEditText(Context context, AttributeSet attributeSet) {
+    @Override // android.widget.TextView
+    @RequiresApi(api = 26)
+    public void setTextClassifier(@Nullable TextClassifier textClassifier) {
+        AppCompatTextClassifierHelper appCompatTextClassifierHelper;
+        if (Build.VERSION.SDK_INT < 28 && (appCompatTextClassifierHelper = this.mTextClassifierHelper) != null) {
+            appCompatTextClassifierHelper.setTextClassifier(textClassifier);
+        } else {
+            super.setTextClassifier(textClassifier);
+        }
+    }
+
+    public AppCompatEditText(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.editTextStyle);
     }
 
@@ -130,14 +156,16 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
         return super.getEditableText();
     }
 
-    public AppCompatEditText(Context context, AttributeSet attributeSet, int i) {
-        super(TintContextWrapper.wrap(context), attributeSet, i);
+    public AppCompatEditText(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(TintContextWrapper.wrap(context), attributeSet, i2);
+        ThemeUtils.checkAppCompatTheme(this, getContext());
         AppCompatBackgroundHelper appCompatBackgroundHelper = new AppCompatBackgroundHelper(this);
         this.mBackgroundTintHelper = appCompatBackgroundHelper;
-        appCompatBackgroundHelper.loadFromAttributes(attributeSet, i);
+        appCompatBackgroundHelper.loadFromAttributes(attributeSet, i2);
         AppCompatTextHelper appCompatTextHelper = new AppCompatTextHelper(this);
         this.mTextHelper = appCompatTextHelper;
-        appCompatTextHelper.loadFromAttributes(attributeSet, i);
+        appCompatTextHelper.loadFromAttributes(attributeSet, i2);
         this.mTextHelper.applyCompoundDrawablesTints();
+        this.mTextClassifierHelper = new AppCompatTextClassifierHelper(this);
     }
 }

@@ -11,11 +11,11 @@ import com.qq.e.comm.util.GDTLogger;
 public abstract class LiteAbstractAD<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public T f38406a;
+    public T f35974a;
 
     public abstract T a(Context context, POFactory pOFactory, String str, String str2);
 
-    public abstract void a(int i);
+    public abstract void a(int i2);
 
     public final void a(final Context context, final String str, final String str2) {
         if (a.a(context)) {
@@ -23,7 +23,7 @@ public abstract class LiteAbstractAD<T> {
                 @Override // java.lang.Runnable
                 public void run() {
                     LiteAbstractAD liteAbstractAD;
-                    int i;
+                    int i2;
                     if (GDTADManager.getInstance().initWith(context, str)) {
                         try {
                             final POFactory pOFactory = GDTADManager.getInstance().getPM().getPOFactory();
@@ -37,8 +37,8 @@ public abstract class LiteAbstractAD<T> {
                                             LiteAbstractAD.this.a(200102);
                                             return;
                                         }
-                                        LiteAbstractAD.this.f38406a = LiteAbstractAD.this.a(context, pOFactory, str, str2);
-                                        LiteAbstractAD.this.a((LiteAbstractAD) LiteAbstractAD.this.f38406a);
+                                        LiteAbstractAD.this.f35974a = LiteAbstractAD.this.a(context, pOFactory, str, str2);
+                                        LiteAbstractAD.this.a((LiteAbstractAD) LiteAbstractAD.this.f35974a);
                                     } catch (Throwable th) {
                                         GDTLogger.e("Exception while init Core", th);
                                         LiteAbstractAD.this.a(2001);
@@ -49,14 +49,14 @@ public abstract class LiteAbstractAD<T> {
                         } catch (Throwable th) {
                             GDTLogger.e("Exception while init plugin", th);
                             liteAbstractAD = LiteAbstractAD.this;
-                            i = 200102;
+                            i2 = 200102;
                         }
                     } else {
                         GDTLogger.e("Fail to init ADManager");
                         liteAbstractAD = LiteAbstractAD.this;
-                        i = 200101;
+                        i2 = 200101;
                     }
-                    liteAbstractAD.a(i);
+                    liteAbstractAD.a(i2);
                 }
             });
             return;

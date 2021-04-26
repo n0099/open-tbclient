@@ -32,7 +32,7 @@ public class LivenessBaseActivity extends BeanActivity {
     }
 
     @Override // com.baidu.fsg.base.activity.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
     }
 
     public boolean isSupportLiuHai() {

@@ -32,26 +32,26 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     public static class a implements Comparator<Map.Entry<String, Object>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public SORT f2163e;
+        public SORT f2127e;
 
         public a(SORT sort) {
-            this.f2163e = null;
-            this.f2163e = sort;
+            this.f2127e = null;
+            this.f2127e = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(Map.Entry<String, Object> entry, Map.Entry<String, Object> entry2) {
-            if (this.f2163e == SORT.ASCEND) {
+            if (this.f2127e == SORT.ASCEND) {
                 return entry.getKey().compareTo(entry2.getKey());
             }
             return entry2.getKey().compareTo(entry.getKey());
         }
     }
 
-    public HttpMessage(int i) {
-        super(i);
+    public HttpMessage(int i2) {
+        super(i2);
         this.mHeaders = null;
         this.mParams = null;
         this.mComparator = null;
@@ -86,7 +86,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                 Object value = entry.getValue();
                 String str2 = StringUtil.NULL_STRING;
                 sb.append(key == null ? StringUtil.NULL_STRING : key.toString());
-                sb.append(com.alipay.sdk.encrypt.a.f1922h);
+                sb.append(com.alipay.sdk.encrypt.a.f1873h);
                 if (value != null) {
                     str2 = value.toString();
                 }
@@ -124,7 +124,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                 addHeader("Cookie", map2KVString(";", parseKVString));
                 return str3;
             }
-            addHeader("Cookie", str + com.alipay.sdk.encrypt.a.f1922h + str2 + ';');
+            addHeader("Cookie", str + com.alipay.sdk.encrypt.a.f1873h + str2 + ';');
         }
         return null;
     }
@@ -142,8 +142,8 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     }
 
     @Override // com.baidu.adp.framework.message.Message
-    public boolean checkCmd(int i) {
-        return FrameHelper.b(i);
+    public boolean checkCmd(int i2) {
+        return FrameHelper.b(i2);
     }
 
     public HashMap<String, String> getHeaders() {
@@ -239,11 +239,11 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         return this.mParams.put(str, obj);
     }
 
-    public Object addParam(String str, int i) {
+    public Object addParam(String str, int i2) {
         if (str == null) {
             return null;
         }
-        return this.mParams.put(str, String.valueOf(i));
+        return this.mParams.put(str, String.valueOf(i2));
     }
 
     public Object addParam(String str, long j) {
@@ -253,8 +253,8 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         return this.mParams.put(str, String.valueOf(j));
     }
 
-    public HttpMessage(int i, BdUniqueId bdUniqueId) {
-        super(i, bdUniqueId);
+    public HttpMessage(int i2, BdUniqueId bdUniqueId) {
+        super(i2, bdUniqueId);
         this.mHeaders = null;
         this.mParams = null;
         this.mComparator = null;

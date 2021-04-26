@@ -22,7 +22,7 @@ public class TransparentBgLinearLayout extends LinearLayout {
         this(context, attributeSet, 0);
     }
 
-    public TransparentBgLinearLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public TransparentBgLinearLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

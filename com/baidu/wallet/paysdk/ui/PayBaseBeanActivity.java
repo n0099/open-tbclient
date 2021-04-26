@@ -63,10 +63,10 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
     public static final int FLAG_PAY_SKD = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public f f25777a;
+    public f f26560a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f25778b;
+    public long f26561b;
 
     public static String a(LinkedList<BaseActivity> linkedList) {
         StringBuilder sb = new StringBuilder();
@@ -112,10 +112,10 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
     }
 
     public f getBindCardFlagDelegate() {
-        if (this.f25777a == null) {
-            this.f25777a = new f(this);
+        if (this.f26560a == null) {
+            this.f26560a = new f(this);
         }
-        return this.f25777a;
+        return this.f26560a;
     }
 
     public ArrayList<String> getCancelPayEventValue(String str) {
@@ -130,20 +130,20 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void onBeanExecFailureWithErrContent(int i, int i2, String str, Object obj) {
+    public void onBeanExecFailureWithErrContent(int i2, int i3, String str, Object obj) {
         PwdPayContract.Presenter presenter;
         if ((this instanceof PwdPayActivity) && (presenter = ((PwdPayActivity) this).mPresenter) != null) {
-            presenter.handleFailure(i, i2, str);
+            presenter.handleFailure(i2, i3, str);
         } else {
-            super.onBeanExecFailureWithErrContent(i, i2, str, obj);
+            super.onBeanExecFailureWithErrContent(i2, i3, str, obj);
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        this.f25778b = System.currentTimeMillis();
-        d.e.a.a.a.g(this, StatConfig.getInstance(this));
-        d.e.a.a.a.x(new SensorsSyncHttpImpl());
+        this.f26561b = System.currentTimeMillis();
+        d.d.a.a.a.g(this, StatConfig.getInstance(this));
+        d.d.a.a.a.x(new SensorsSyncHttpImpl());
         super.onCreate(bundle);
         this.mAct = this;
         if (bundle != null) {
@@ -166,12 +166,12 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, android.app.Activity
-    public Dialog onCreateDialog(int i) {
-        LogUtil.d("PayBaseBeanActivity", "onCreateDialog. id = " + i);
-        if (i != 13) {
-            if (i != 23) {
-                if (i != 34 && i != 35) {
-                    return super.onCreateDialog(i);
+    public Dialog onCreateDialog(int i2) {
+        LogUtil.d("PayBaseBeanActivity", "onCreateDialog. id = " + i2);
+        if (i2 != 13) {
+            if (i2 != 23) {
+                if (i2 != 34 && i2 != 35) {
+                    return super.onCreateDialog(i2);
                 }
                 return new PromptMultiBtnDialog(this);
             }
@@ -191,11 +191,11 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, android.app.Activity
-    public void onPrepareDialog(int i, Dialog dialog) {
-        LogUtil.d("PayBaseBeanActivity", "onPrepareDialog. id = " + i);
-        if (i != 4) {
-            if (i != 12) {
-                super.onPrepareDialog(i, dialog);
+    public void onPrepareDialog(int i2, Dialog dialog) {
+        LogUtil.d("PayBaseBeanActivity", "onPrepareDialog. id = " + i2);
+        if (i2 != 4) {
+            if (i2 != 12) {
+                super.onPrepareDialog(i2, dialog);
                 return;
             }
             PromptDialog promptDialog = (PromptDialog) dialog;
@@ -249,7 +249,7 @@ public abstract class PayBaseBeanActivity extends BeanActivity {
         super.onResume();
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         DirectPayContentResponse payResponse = PayDataCache.getInstance().getPayResponse();
         if (payResponse != null) {

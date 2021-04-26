@@ -6,9 +6,9 @@ public class ResponseUnreadPointNum extends CustomResponsedMessage<Object> {
     public boolean fromNet;
     public int num;
 
-    public ResponseUnreadPointNum(int i, boolean z) {
+    public ResponseUnreadPointNum(int i2, boolean z) {
         super(2001176);
-        this.num = i;
+        this.num = i2;
         this.fromNet = z;
     }
 
@@ -24,7 +24,7 @@ public class ResponseUnreadPointNum extends CustomResponsedMessage<Object> {
         this.fromNet = z;
     }
 
-    public void setNum(int i) {
-        this.num = i;
+    public void setNum(int i2) {
+        this.num = i2;
     }
 }

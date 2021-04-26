@@ -27,9 +27,9 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
         if (Build.VERSION.SDK_INT < 19) {
             return null;
         }
-        for (int i = 0; i < MediaCodecList.getCodecCount(); i++) {
+        for (int i2 = 0; i2 < MediaCodecList.getCodecCount(); i2++) {
             try {
-                mediaCodecInfo = MediaCodecList.getCodecInfoAt(i);
+                mediaCodecInfo = MediaCodecList.getCodecInfoAt(i2);
             } catch (IllegalArgumentException e2) {
                 Logging.e(TAG, "Cannot retrieve decoder codec info", e2);
                 mediaCodecInfo = null;
@@ -94,8 +94,8 @@ public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
     public VideoCodecInfo[] getSupportedCodecs() {
         ArrayList arrayList = new ArrayList();
         VideoCodecType[] videoCodecTypeArr = {VideoCodecType.VP8, VideoCodecType.VP9, VideoCodecType.H264};
-        for (int i = 0; i < 3; i++) {
-            VideoCodecType videoCodecType = videoCodecTypeArr[i];
+        for (int i2 = 0; i2 < 3; i2++) {
+            VideoCodecType videoCodecType = videoCodecTypeArr[i2];
             MediaCodecInfo findCodecForType = findCodecForType(videoCodecType);
             if (findCodecForType != null) {
                 String name = videoCodecType.name();

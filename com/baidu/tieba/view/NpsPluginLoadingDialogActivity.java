@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import d.b.j0.m1.d;
-import d.b.j0.m1.e;
-import d.b.j0.q1.a;
+import d.a.j0.m1.e;
+import d.a.j0.m1.f;
+import d.a.j0.q1.a;
 /* loaded from: classes5.dex */
 public class NpsPluginLoadingDialogActivity extends BaseActivity implements View.OnClickListener {
     public TextView mCancel;
@@ -16,7 +16,7 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
     public boolean showHideView;
 
     private void hideDialog() {
-        a.h().j();
+        a.j().n();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -51,7 +51,7 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == d.loading_cancel_text) {
+        if (view.getId() == e.loading_cancel_text) {
             finish();
             hideDialog();
         }
@@ -64,34 +64,34 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         setActivityBgTransparent();
-        setContentView(e.widget_loading_plugin);
+        setContentView(f.widget_loading_plugin);
         Intent intent = getIntent();
         this.showHideView = intent.getBooleanExtra("showHideView", false);
         this.mDialogId = intent.getLongExtra("dialogId", -1L);
-        PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(d.progress_bar);
+        PluginRoundProgressBar pluginRoundProgressBar = (PluginRoundProgressBar) findViewById(e.progress_bar);
         this.mRoundProgressBar = pluginRoundProgressBar;
         pluginRoundProgressBar.setMax(100);
         this.mRoundProgressBar.setRoundColor(0);
         this.mRoundProgressBar.setTextColor(-1);
         this.mRoundProgressBar.setRoundProgressColor(-1);
-        TextView textView = (TextView) findViewById(d.loading_cancel_text);
+        TextView textView = (TextView) findViewById(e.loading_cancel_text);
         this.mCancel = textView;
         if (this.showHideView) {
             textView.setVisibility(8);
         }
         this.mCancel.setOnClickListener(this);
-        if (!a.h().i()) {
+        if (!a.j().m()) {
             finish();
         } else {
-            a.h().k(this);
+            a.j().o(this);
         }
     }
 
-    public void setRoundProgress(int i) {
+    public void setRoundProgress(int i2) {
         PluginRoundProgressBar pluginRoundProgressBar = this.mRoundProgressBar;
-        if (pluginRoundProgressBar == null || pluginRoundProgressBar.getProgress() == i) {
+        if (pluginRoundProgressBar == null || pluginRoundProgressBar.getProgress() == i2) {
             return;
         }
-        this.mRoundProgressBar.setProgress(i);
+        this.mRoundProgressBar.setProgress(i2);
     }
 }

@@ -62,18 +62,18 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
         return (BdActionBar) findViewById(ResUtils.id(getActivity(), "bdactionbar"));
     }
 
-    public void handleFailure(int i, int i2, String str) {
-        if (i2 == 5003) {
+    public void handleFailure(int i2, int i3, String str) {
+        if (i3 == 5003) {
             GlobalUtils.toast(getActivity(), ResUtils.getString(getActivity(), "wallet_base_please_login"));
             AccountManager.getInstance(getActivity()).logout();
             WalletLoginHelper.getInstance().logout(false);
-        } else if (i2 == -2) {
+        } else if (i3 == -2) {
             GlobalUtils.toast(getActivity(), ResUtils.getString(getActivity(), "fp_get_data_fail"));
-        } else if (i2 == -3) {
+        } else if (i3 == -3) {
             GlobalUtils.toast(getActivity(), ResUtils.getString(getActivity(), "fp_get_data_fail"));
-        } else if (i2 == -4) {
+        } else if (i3 == -4) {
             GlobalUtils.toast(getActivity(), ResUtils.getString(getActivity(), "fp_get_data_fail"));
-        } else if (i2 == -8) {
+        } else if (i3 == -8) {
             WalletGlobalUtils.safeShowDialog(this, 11, "");
         } else {
             this.mDialogMsg = str;
@@ -84,7 +84,7 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
         }
     }
 
-    public abstract void handleResponse(int i, Object obj, String str);
+    public abstract void handleResponse(int i2, Object obj, String str);
 
     public void initActionBar(String str) {
         initActionBarWithActualTitleValue(ResUtils.getString(getActivity(), str));
@@ -119,37 +119,37 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecFailure(final int i, final int i2, final String str) {
-        LogUtil.i("BeanActivity", "onBeanExecFailure. bean id = " + i + ", err code = " + i2 + ", err msg = " + str);
+    public void onBeanExecFailure(final int i2, final int i3, final String str) {
+        LogUtil.i("BeanActivity", "onBeanExecFailure. bean id = " + i2 + ", err code = " + i3 + ", err msg = " + str);
         getHandler().post(new Runnable() { // from class: com.baidu.wallet.core.beans.BeanActivity.4
             @Override // java.lang.Runnable
             public void run() {
                 BeanActivity beanActivity = BeanActivity.this;
                 if (beanActivity.mAct != null) {
-                    beanActivity.handleFailure(i, i2, str);
+                    beanActivity.handleFailure(i2, i3, str);
                 }
             }
         });
     }
 
-    public void onBeanExecFailureWithErrContent(int i, int i2, String str, Object obj) {
-        handleFailure(i, i2, str);
+    public void onBeanExecFailureWithErrContent(int i2, int i3, String str, Object obj) {
+        handleFailure(i2, i3, str);
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecSuccess(final int i, final Object obj, final String str) {
+    public void onBeanExecSuccess(final int i2, final Object obj, final String str) {
         getHandler().post(new Runnable() { // from class: com.baidu.wallet.core.beans.BeanActivity.3
             @Override // java.lang.Runnable
             public void run() {
                 BeanActivity beanActivity = BeanActivity.this;
                 if (beanActivity.mAct != null) {
-                    beanActivity.handleResponse(i, obj, str);
+                    beanActivity.handleResponse(i2, obj, str);
                 }
             }
         });
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mAct = this;

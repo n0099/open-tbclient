@@ -61,9 +61,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             }
             int length = iArr.length;
             int[] iArr2 = new int[length + 2];
-            int i = length - 1;
-            System.arraycopy(iArr, 0, iArr2, 0, i);
-            iArr2[i] = 12352;
+            int i2 = length - 1;
+            System.arraycopy(iArr, 0, iArr2, 0, i2);
+            iArr2[i2] = 12352;
             iArr2[length] = 4;
             iArr2[length + 1] = 12344;
             return iArr2;
@@ -73,10 +73,10 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay) {
             int[] iArr = new int[1];
             if (egl10.eglChooseConfig(eGLDisplay, this.mConfigSpec, null, 0, iArr)) {
-                int i = iArr[0];
-                if (i > 0) {
-                    EGLConfig[] eGLConfigArr = new EGLConfig[i];
-                    if (egl10.eglChooseConfig(eGLDisplay, this.mConfigSpec, eGLConfigArr, i, iArr)) {
+                int i2 = iArr[0];
+                if (i2 > 0) {
+                    EGLConfig[] eGLConfigArr = new EGLConfig[i2];
+                    if (egl10.eglChooseConfig(eGLDisplay, this.mConfigSpec, eGLConfigArr, i2, iArr)) {
                         EGLConfig chooseConfig = chooseConfig(egl10, eGLDisplay, eGLConfigArr);
                         if (chooseConfig != null) {
                             return chooseConfig;
@@ -103,19 +103,19 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         public int mStencilSize;
         public int[] mValue;
 
-        public ComponentSizeChooser(int i, int i2, int i3, int i4, int i5, int i6) {
-            super(new int[]{12324, i, 12323, i2, 12322, i3, 12321, i4, 12325, i5, 12326, i6, 12344});
+        public ComponentSizeChooser(int i2, int i3, int i4, int i5, int i6, int i7) {
+            super(new int[]{12324, i2, 12323, i3, 12322, i4, 12321, i5, 12325, i6, 12326, i7, 12344});
             this.mValue = new int[1];
-            this.mRedSize = i;
-            this.mGreenSize = i2;
-            this.mBlueSize = i3;
-            this.mAlphaSize = i4;
-            this.mDepthSize = i5;
-            this.mStencilSize = i6;
+            this.mRedSize = i2;
+            this.mGreenSize = i3;
+            this.mBlueSize = i4;
+            this.mAlphaSize = i5;
+            this.mDepthSize = i6;
+            this.mStencilSize = i7;
         }
 
-        private int findConfigAttrib(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i, int i2) {
-            return egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, this.mValue) ? this.mValue[0] : i2;
+        private int findConfigAttrib(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i2, int i3) {
+            return egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i2, this.mValue) ? this.mValue[0] : i3;
         }
 
         @Override // com.baidu.searchbox.afx.gl.GLTextureView.BaseConfigChooser
@@ -232,12 +232,12 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             this.mEglSurface = null;
         }
 
-        public static String formatEglError(String str, int i) {
-            return str + " failed: " + i;
+        public static String formatEglError(String str, int i2) {
+            return str + " failed: " + i2;
         }
 
-        public static void logEglErrorAsWarning(String str, String str2, int i) {
-            Log.w(str, formatEglError(str2, i));
+        public static void logEglErrorAsWarning(String str, String str2, int i2) {
+            Log.w(str, formatEglError(str2, i2));
         }
 
         private void throwEglException(String str) {
@@ -341,8 +341,8 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             return !this.mEgl.eglSwapBuffers(this.mEglDisplay, this.mEglSurface) ? this.mEgl.eglGetError() : CommandMessage.COMMAND_BASE;
         }
 
-        public static void throwEglException(String str, int i) {
-            throw new RuntimeException(formatEglError(str, i));
+        public static void throwEglException(String str, int i2) {
+            throw new RuntimeException(formatEglError(str, i2));
         }
     }
 
@@ -387,8 +387,8 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             boolean z7 = false;
             boolean z8 = false;
             boolean z9 = false;
-            int i = 0;
             int i2 = 0;
+            int i3 = 0;
             boolean z10 = false;
             while (true) {
                 Runnable runnable = null;
@@ -471,11 +471,11 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                                         }
                                         if (this.mHaveEglSurface) {
                                             if (this.mSizeChanged) {
-                                                int i3 = this.mWidth;
-                                                int i4 = this.mHeight;
+                                                int i4 = this.mWidth;
+                                                int i5 = this.mHeight;
                                                 this.mSizeChanged = false;
-                                                i = i3;
                                                 i2 = i4;
+                                                i3 = i5;
                                                 z2 = false;
                                                 z7 = true;
                                                 z9 = true;
@@ -524,7 +524,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                         if (z9) {
                             GLTextureView gLTextureView3 = this.mGLSurfaceViewWeakRef.get();
                             if (gLTextureView3 != null) {
-                                gLTextureView3.mRenderer.onSurfaceChanged(gl10, i, i2);
+                                gLTextureView3.mRenderer.onSurfaceChanged(gl10, i2, i3);
                             }
                             z9 = false;
                         }
@@ -583,11 +583,11 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         public int getRenderMode() {
-            int i;
+            int i2;
             synchronized (GLTextureView.sGLThreadManager) {
-                i = this.mRenderMode;
+                i2 = this.mRenderMode;
             }
-            return i;
+            return i2;
         }
 
         public void onPause() {
@@ -620,10 +620,10 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             }
         }
 
-        public void onWindowResize(int i, int i2) {
+        public void onWindowResize(int i2, int i3) {
             synchronized (GLTextureView.sGLThreadManager) {
-                this.mWidth = i;
-                this.mHeight = i2;
+                this.mWidth = i2;
+                this.mHeight = i3;
                 this.mSizeChanged = true;
                 this.mRequestRender = true;
                 this.mRenderComplete = false;
@@ -690,10 +690,10 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             }
         }
 
-        public void setRenderMode(int i) {
-            if (i >= 0 && i <= 1) {
+        public void setRenderMode(int i2) {
+            if (i2 >= 0 && i2 <= 1) {
                 synchronized (GLTextureView.sGLThreadManager) {
-                    this.mRenderMode = i;
+                    this.mRenderMode = i2;
                     GLTextureView.sGLThreadManager.notifyAll();
                 }
                 return;
@@ -837,9 +837,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         @Override // java.io.Writer
-        public void write(char[] cArr, int i, int i2) {
-            for (int i3 = 0; i3 < i2; i3++) {
-                char c2 = cArr[i + i3];
+        public void write(char[] cArr, int i2, int i3) {
+            for (int i4 = 0; i4 < i3; i4++) {
+                char c2 = cArr[i2 + i4];
                 if (c2 == '\n') {
                     flushBuilder();
                 } else {
@@ -853,7 +853,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     public interface Renderer {
         void onDrawFrame(GL10 gl10);
 
-        void onSurfaceChanged(GL10 gl10, int i, int i2);
+        void onSurfaceChanged(GL10 gl10, int i2, int i3);
 
         void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig);
     }
@@ -914,8 +914,8 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     @Override // android.view.View.OnLayoutChangeListener
-    public void onLayoutChange(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-        surfaceChanged(getSurfaceTexture(), 0, i3 - i, i4 - i2);
+    public void onLayoutChange(View view, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+        surfaceChanged(getSurfaceTexture(), 0, i4 - i2, i5 - i3);
     }
 
     public void onPause() {
@@ -927,9 +927,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
+    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
         surfaceCreated(surfaceTexture);
-        surfaceChanged(surfaceTexture, 0, i, i2);
+        surfaceChanged(surfaceTexture, 0, i2, i3);
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
@@ -939,8 +939,8 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
-        surfaceChanged(surfaceTexture, 0, i, i2);
+    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
+        surfaceChanged(surfaceTexture, 0, i2, i3);
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
@@ -955,8 +955,8 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         this.mGLThread.requestRender();
     }
 
-    public void setDebugFlags(int i) {
-        this.mDebugFlags = i;
+    public void setDebugFlags(int i2) {
+        this.mDebugFlags = i2;
     }
 
     public void setEGLConfigChooser(EGLConfigChooser eGLConfigChooser) {
@@ -964,9 +964,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         this.mEGLConfigChooser = eGLConfigChooser;
     }
 
-    public void setEGLContextClientVersion(int i) {
+    public void setEGLContextClientVersion(int i2) {
         checkRenderThreadState();
-        this.mEGLContextClientVersion = i;
+        this.mEGLContextClientVersion = i2;
     }
 
     public void setEGLContextFactory(EGLContextFactory eGLContextFactory) {
@@ -987,8 +987,8 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         this.mPreserveEGLContextOnPause = z;
     }
 
-    public void setRenderMode(int i) {
-        this.mGLThread.setRenderMode(i);
+    public void setRenderMode(int i2) {
+        this.mGLThread.setRenderMode(i2);
     }
 
     public void setRenderer(Renderer renderer) {
@@ -1008,8 +1008,8 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         gLThread.start();
     }
 
-    public void surfaceChanged(SurfaceTexture surfaceTexture, int i, int i2, int i3) {
-        this.mGLThread.onWindowResize(i2, i3);
+    public void surfaceChanged(SurfaceTexture surfaceTexture, int i2, int i3, int i4) {
+        this.mGLThread.onWindowResize(i3, i4);
     }
 
     public void surfaceCreated(SurfaceTexture surfaceTexture) {
@@ -1030,7 +1030,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         init();
     }
 
-    public void setEGLConfigChooser(int i, int i2, int i3, int i4, int i5, int i6) {
-        setEGLConfigChooser(new ComponentSizeChooser(i, i2, i3, i4, i5, i6));
+    public void setEGLConfigChooser(int i2, int i3, int i4, int i5, int i6, int i7) {
+        setEGLConfigChooser(new ComponentSizeChooser(i2, i3, i4, i5, i6, i7));
     }
 }

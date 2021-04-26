@@ -21,7 +21,7 @@ public class DefaultHttpResponseFactory implements HttpResponseFactory {
     }
 
     @Override // org.apache.http.HttpResponseFactory
-    public HttpResponse newHttpResponse(ProtocolVersion protocolVersion, int i, HttpContext httpContext) {
+    public HttpResponse newHttpResponse(ProtocolVersion protocolVersion, int i2, HttpContext httpContext) {
         throw new RuntimeException("Stub!");
     }
 

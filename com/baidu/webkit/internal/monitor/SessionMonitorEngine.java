@@ -90,12 +90,12 @@ public class SessionMonitorEngine implements INoProGuard {
                 String str2 = Build.MODEL;
                 String str3 = Build.MANUFACTURER;
                 String str4 = Build.VERSION.RELEASE;
-                int i = Build.VERSION.SDK_INT;
+                int i2 = Build.VERSION.SDK_INT;
                 this.mStaticPublicData.put("product", str3);
                 this.mStaticPublicData.put("brand", str);
                 this.mStaticPublicData.put("model", str2);
                 this.mStaticPublicData.put("version", str4);
-                this.mStaticPublicData.put("sdk", i);
+                this.mStaticPublicData.put("sdk", i2);
                 String str5 = LOG_TAG;
                 Log.i(str5, "processStaticPublicData: " + this.mStaticPublicData.toString());
             } catch (Throwable th) {
@@ -139,19 +139,19 @@ public class SessionMonitorEngine implements INoProGuard {
         }
     }
 
-    public long getRecordNA20SuperFrameTimeStamp(int i) {
+    public long getRecordNA20SuperFrameTimeStamp(int i2) {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
                         return -1L;
                     }
-                    return bVar.f26636f;
+                    return bVar.f27444f;
                 }
-                return bVar.f26635e;
+                return bVar.f27443e;
             }
-            return bVar.f26637g;
+            return bVar.f27445g;
         }
         return -1L;
     }
@@ -159,7 +159,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public long getSearchButtonClickedTimeStamp() {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
-            return bVar.f26631a;
+            return bVar.f27439a;
         }
         return -1L;
     }
@@ -167,7 +167,7 @@ public class SessionMonitorEngine implements INoProGuard {
     public JSONObject getWebViewTimeStamp() {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
-            return bVar.f26638h;
+            return bVar.f27446h;
         }
         return null;
     }
@@ -230,10 +230,10 @@ public class SessionMonitorEngine implements INoProGuard {
         this.sImplement.get().notifyPageLeave(str, webView);
     }
 
-    public void onPageKeySectionTimeCost(WebView webView, String str, int i, long j) {
+    public void onPageKeySectionTimeCost(WebView webView, String str, int i2, long j) {
         WebViewFactoryProvider provider = WebViewFactory.getProvider();
         if (provider != null) {
-            provider.onPageKeySectionTimeCostKeySection(webView, str, i, j);
+            provider.onPageKeySectionTimeCostKeySection(webView, str, i2, j);
         }
     }
 
@@ -273,33 +273,33 @@ public class SessionMonitorEngine implements INoProGuard {
         this.sImplement.get().record(webView, str);
     }
 
-    public void recordFrameworkBehaviorValue(int i, Object obj) {
+    public void recordFrameworkBehaviorValue(int i2, Object obj) {
         a aVar = this.sFrameworkBehaviorProvider;
-        if (aVar.f26622a == null) {
-            aVar.f26622a = new a.C0289a(aVar, (byte) 0);
+        if (aVar.f27430a == null) {
+            aVar.f27430a = new a.C0284a(aVar, (byte) 0);
         }
-        if (i == 9) {
-            aVar.f26622a.a();
-            aVar.f26622a.f26628f = true;
+        if (i2 == 9) {
+            aVar.f27430a.a();
+            aVar.f27430a.f27436f = true;
         }
-        a.C0289a c0289a = aVar.f26622a;
-        if (c0289a.f26628f) {
-            switch (i) {
+        a.C0284a c0284a = aVar.f27430a;
+        if (c0284a.f27436f) {
+            switch (i2) {
                 case 7:
-                    c0289a.f26623a = ((Boolean) obj).booleanValue();
+                    c0284a.f27431a = ((Boolean) obj).booleanValue();
                     return;
                 case 8:
-                    c0289a.f26624b = ((Boolean) obj).booleanValue();
+                    c0284a.f27432b = ((Boolean) obj).booleanValue();
                     return;
                 case 9:
-                    c0289a.f26625c = ((Long) obj).longValue();
+                    c0284a.f27433c = ((Long) obj).longValue();
                     return;
                 case 10:
-                    c0289a.f26626d = ((Long) obj).longValue();
-                    aVar.f26622a.f26628f = true;
+                    c0284a.f27434d = ((Long) obj).longValue();
+                    aVar.f27430a.f27436f = true;
                     return;
                 case 11:
-                    c0289a.f26627e = ((Boolean) obj).booleanValue();
+                    c0284a.f27435e = ((Boolean) obj).booleanValue();
                     return;
                 default:
                     return;
@@ -309,9 +309,9 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(String str, long j) {
         a aVar = this.sFrameworkBehaviorProvider;
-        a.C0289a c0289a = aVar.f26622a;
-        if (c0289a != null) {
-            aVar.f26622a.f26629g.put(str, Long.valueOf(j + (c0289a.f26629g.containsKey(str) ? aVar.f26622a.f26629g.get(str).longValue() : 0L)));
+        a.C0284a c0284a = aVar.f27430a;
+        if (c0284a != null) {
+            aVar.f27430a.f27437g.put(str, Long.valueOf(j + (c0284a.f27437g.containsKey(str) ? aVar.f27430a.f27437g.get(str).longValue() : 0L)));
         }
     }
 
@@ -324,16 +324,16 @@ public class SessionMonitorEngine implements INoProGuard {
         }
     }
 
-    public void recordNA20SuperFrameTimeStamp(int i, long j) {
+    public void recordNA20SuperFrameTimeStamp(int i2, long j) {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
-            if (i == 1) {
-                bVar.f26637g = j;
-            } else if (i == 2) {
-                bVar.f26635e = j;
-            } else if (i != 3) {
+            if (i2 == 1) {
+                bVar.f27445g = j;
+            } else if (i2 == 2) {
+                bVar.f27443e = j;
+            } else if (i2 != 3) {
             } else {
-                bVar.f26636f = j;
+                bVar.f27444f = j;
             }
         }
     }
@@ -343,20 +343,20 @@ public class SessionMonitorEngine implements INoProGuard {
         if (bVar == null || TextUtils.isEmpty(str) || !str.startsWith("baiduboxapp://v1/browser/open") || !str.contains("isContainer=1")) {
             return;
         }
-        bVar.f26634d = System.currentTimeMillis();
+        bVar.f27442d = System.currentTimeMillis();
         Log.d("linhua-x", "recordSearchBoxJsBridgeInvoked: " + str);
     }
 
-    public void recordSearchTimeStamp(int i, long j) {
+    public void recordSearchTimeStamp(int i2, long j) {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
-            if (i == 1) {
-                bVar.f26631a = j;
-            } else if (i == 2) {
-                bVar.f26632b = j;
-            } else if (i != 3) {
+            if (i2 == 1) {
+                bVar.f27439a = j;
+            } else if (i2 == 2) {
+                bVar.f27440b = j;
+            } else if (i2 != 3) {
             } else {
-                bVar.f26633c = j;
+                bVar.f27441c = j;
             }
         }
     }
@@ -364,14 +364,14 @@ public class SessionMonitorEngine implements INoProGuard {
     public void recordWebViewTimeStamp(String str, long j) {
         b bVar = this.sExtraInterfaceProvider;
         if (bVar != null) {
-            if (bVar.f26638h == null) {
-                bVar.f26638h = new JSONObject();
+            if (bVar.f27446h == null) {
+                bVar.f27446h = new JSONObject();
             }
             try {
-                if (TextUtils.isEmpty(str) || bVar.f26638h.has(str)) {
+                if (TextUtils.isEmpty(str) || bVar.f27446h.has(str)) {
                     return;
                 }
-                bVar.f26638h.put(str, j);
+                bVar.f27446h.put(str, j);
             } catch (JSONException e2) {
                 Log.printStackTrace(e2);
             }
@@ -410,18 +410,18 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void startFrameworkBehaviorMonitor() {
         a aVar = this.sFrameworkBehaviorProvider;
-        if (aVar.f26622a == null) {
-            aVar.f26622a = new a.C0289a(aVar, (byte) 0);
+        if (aVar.f27430a == null) {
+            aVar.f27430a = new a.C0284a(aVar, (byte) 0);
         }
-        a.C0289a c0289a = aVar.f26622a;
-        if (c0289a.f26625c == -1) {
-            c0289a.a();
+        a.C0284a c0284a = aVar.f27430a;
+        if (c0284a.f27433c == -1) {
+            c0284a.a();
         }
-        a.C0289a c0289a2 = aVar.f26622a;
-        if (c0289a2.f26628f) {
+        a.C0284a c0284a2 = aVar.f27430a;
+        if (c0284a2.f27436f) {
             return;
         }
-        c0289a2.f26628f = true;
+        c0284a2.f27436f = true;
     }
 
     public void updateCuidIfNeeded() {

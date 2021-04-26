@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.channels.WritableByteChannel;
 @DoNotParseDetail
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class IsoFile extends BasicContainer implements Closeable {
     public static Logger LOG = Logger.getLogger(IsoFile.class);
 
@@ -36,8 +36,8 @@ public class IsoFile extends BasicContainer implements Closeable {
     public static byte[] fourCCtoBytes(String str) {
         byte[] bArr = new byte[4];
         if (str != null) {
-            for (int i = 0; i < Math.min(4, str.length()); i++) {
-                bArr[i] = (byte) str.charAt(i);
+            for (int i2 = 0; i2 < Math.min(4, str.length()); i2++) {
+                bArr[i2] = (byte) str.charAt(i2);
             }
         }
         return bArr;

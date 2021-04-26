@@ -18,10 +18,10 @@ import java.lang.ref.WeakReference;
 public final class GlobalUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static LayoutInflater f3984a = null;
+    public static LayoutInflater f4039a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Toast> f3985b = null;
+    public static WeakReference<Toast> f4040b = null;
     public static String showStr = "";
 
     public static String getProperties(String str, String str2) {
@@ -68,42 +68,42 @@ public final class GlobalUtils {
         toast(context, charSequence, 0);
     }
 
-    public static void toast(Context context, CharSequence charSequence, int i) {
+    public static void toast(Context context, CharSequence charSequence, int i2) {
         try {
-            toast(context, charSequence, -1, i);
+            toast(context, charSequence, -1, i2);
         } catch (Exception unused) {
             LogUtil.errord("Exception in Toast!");
         }
     }
 
-    public static void toast(Context context, CharSequence charSequence, int i, int i2) {
+    public static void toast(Context context, CharSequence charSequence, int i2, int i3) {
         TextView textView;
         Context applicationContext = context.getApplicationContext();
         if (TextUtils.isEmpty(charSequence)) {
             return;
         }
-        WeakReference<Toast> weakReference = f3985b;
+        WeakReference<Toast> weakReference = f4040b;
         if (weakReference != null && weakReference.get() != null) {
-            f3985b.get().cancel();
+            f4040b.get().cancel();
         }
-        if (f3984a == null) {
-            f3984a = LayoutInflater.from(applicationContext);
+        if (f4039a == null) {
+            f4039a = LayoutInflater.from(applicationContext);
         }
-        View inflate = f3984a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
+        View inflate = f4039a.inflate(ResUtils.layout(applicationContext, "wallet_base_toast"), (ViewGroup) null);
         if (inflate == null || (textView = (TextView) inflate.findViewById(ResUtils.id(applicationContext, "wallet_base_toast_message"))) == null) {
             return;
         }
         textView.setText(charSequence);
         ImageView imageView = (ImageView) inflate.findViewById(ResUtils.id(applicationContext, "wallet_base_toast_icon"));
-        if (imageView != null && i > 0) {
-            imageView.setImageResource(i);
+        if (imageView != null && i2 > 0) {
+            imageView.setImageResource(i2);
             imageView.setVisibility(0);
         }
         Toast toast = new Toast(applicationContext);
-        toast.setDuration(i2);
+        toast.setDuration(i3);
         toast.setGravity(17, 0, 0);
         toast.setView(inflate);
-        f3985b = new WeakReference<>(toast);
+        f4040b = new WeakReference<>(toast);
         toast.show();
     }
 }

@@ -13,15 +13,15 @@ public class RGStateSegEntry extends RGStateCar3D {
         Point K;
         b.a().Q().o();
         b.a().G().b(true);
-        MapStatus i = b.a().G().i();
-        if (i != null) {
-            MapStatus.Builder builder = new MapStatus.Builder(i);
-            WinRound winRound = i.winRound;
+        MapStatus i2 = b.a().G().i();
+        if (i2 != null) {
+            MapStatus.Builder builder = new MapStatus.Builder(i2);
+            WinRound winRound = i2.winRound;
             long abs = 0.0f - (Math.abs(winRound.bottom - winRound.top) * 0.2f);
             builder.overlook(0.0f);
-            WinRound winRound2 = i.winRound;
+            WinRound winRound2 = i2.winRound;
             builder.targetScreen(new android.graphics.Point((winRound2.right + winRound2.left) / 2, ((winRound2.top + winRound2.bottom) / 2) - ((int) abs)));
-            if (i.zoom < 19.0f) {
+            if (i2.zoom < 19.0f) {
                 builder.zoom(19.0f);
             }
             if (b.a().K() != null) {

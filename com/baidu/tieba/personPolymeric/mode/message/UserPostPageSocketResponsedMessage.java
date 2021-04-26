@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import tbclient.User;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UserPostPageSocketResponsedMessage extends SocketResponsedMessage {
     public int from;
     public boolean isHost;
@@ -35,7 +35,7 @@ public class UserPostPageSocketResponsedMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         PersonPostModel personPostModel = new PersonPostModel(null, null, this.isHost, this.from);
         this.personPostModel = personPostModel;
         UserPostResIdl parseProtobuf = personPostModel.parseProtobuf(bArr, this.page, this.threadUser);

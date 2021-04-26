@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.k;
-import d.b.c.e.p.l;
-/* loaded from: classes4.dex */
+import d.a.c.e.p.k;
+import d.a.c.e.p.l;
+/* loaded from: classes5.dex */
 public final class SettingTextTestNewView extends TbSettingTextTipView {
     public SettingTextTestNewView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -27,7 +27,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
         }
         if (z) {
             this.j.setText("new");
-            this.j.setTextAppearance(this.f13447e, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
+            this.j.setTextAppearance(this.f13427e, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
             SkinManager.setBackgroundResource(this.j, R.drawable.icon_news_text_prompt);
             return;
         }
@@ -37,6 +37,6 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
         }
         this.j.setText(version);
         this.j.setBackgroundDrawable(null);
-        this.j.setTextAppearance(this.f13447e, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
+        this.j.setTextAppearance(this.f13427e, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
     }
 }

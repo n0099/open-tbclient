@@ -10,13 +10,13 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f6363a;
+    public Context f6548a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<HashMap<String, String>> f6364b = null;
+    public List<HashMap<String, String>> f6549b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<String> f6365c = null;
+    public a<String> f6550c = null;
 
     /* loaded from: classes2.dex */
     public interface a<Result> {
@@ -24,7 +24,7 @@ public class e {
     }
 
     public e(Context context) {
-        this.f6363a = context;
+        this.f6548a = context;
     }
 
     private List<HashMap<String, String>> a(HashMap<String, String> hashMap, String[] strArr) {
@@ -68,7 +68,7 @@ public class e {
                 e2.printStackTrace();
             }
         }
-        a<String> aVar = this.f6365c;
+        a<String> aVar = this.f6550c;
         if (aVar != null) {
             aVar.a(jSONObject.toString());
         }
@@ -76,24 +76,24 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(List<HashMap<String, String>> list) {
-        int i;
+        int i2;
         com.baidu.lbsapi.auth.a.a("syncConnect start Thread id = " + String.valueOf(Thread.currentThread().getId()));
         if (list == null || list.size() == 0) {
             com.baidu.lbsapi.auth.a.c("syncConnect failed,params list is null or size is 0");
             return;
         }
         ArrayList arrayList = new ArrayList();
-        int i2 = 0;
-        while (i2 < list.size()) {
-            com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i2 + "  start!!!");
-            HashMap<String, String> hashMap = list.get(i2);
-            g gVar = new g(this.f6363a);
+        int i3 = 0;
+        while (i3 < list.size()) {
+            com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i3 + "  start!!!");
+            HashMap<String, String> hashMap = list.get(i3);
+            g gVar = new g(this.f6548a);
             if (gVar.a()) {
                 String a2 = gVar.a(hashMap);
                 if (a2 == null) {
                     a2 = "";
                 }
-                com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i2 + "  result:" + a2);
+                com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i3 + "  result:" + a2);
                 arrayList.add(a2);
                 try {
                     JSONObject jSONObject = new JSONObject(a2);
@@ -110,14 +110,14 @@ public class e {
                 arrayList.add(ErrorMessage.a("Current network is not available."));
             }
             com.baidu.lbsapi.auth.a.a("syncConnect end");
-            i2++;
+            i3++;
         }
-        com.baidu.lbsapi.auth.a.a("--iiiiii:" + i2 + "<><>paramList.size():" + list.size() + "<><>authResults.size():" + arrayList.size());
-        if (list.size() <= 0 || i2 != list.size() || arrayList.size() <= 0 || i2 != arrayList.size() || i2 - 1 <= 0) {
+        com.baidu.lbsapi.auth.a.a("--iiiiii:" + i3 + "<><>paramList.size():" + list.size() + "<><>authResults.size():" + arrayList.size());
+        if (list.size() <= 0 || i3 != list.size() || arrayList.size() <= 0 || i3 != arrayList.size() || i3 - 1 <= 0) {
             return;
         }
         try {
-            JSONObject jSONObject2 = new JSONObject((String) arrayList.get(i));
+            JSONObject jSONObject2 = new JSONObject((String) arrayList.get(i2));
             if (!jSONObject2.has("status") || jSONObject2.getInt("status") == 0) {
                 return;
             }
@@ -129,8 +129,8 @@ public class e {
     }
 
     public void a(HashMap<String, String> hashMap, String[] strArr, a<String> aVar) {
-        this.f6364b = a(hashMap, strArr);
-        this.f6365c = aVar;
+        this.f6549b = a(hashMap, strArr);
+        this.f6550c = aVar;
         new Thread(new f(this)).start();
     }
 }

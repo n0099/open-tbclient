@@ -12,11 +12,11 @@ import com.baidu.wallet.core.BaseActivity;
 public final class WalletGlobalUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Dialog f24007a = null;
+    public static Dialog f24755a = null;
     public static String showStr = "";
 
     public static void DismissLoadingDialog() {
-        Dialog dialog = f24007a;
+        Dialog dialog = f24755a;
         if (dialog != null) {
             Context context = dialog.getContext();
             if (context instanceof ContextThemeWrapper) {
@@ -26,39 +26,39 @@ public final class WalletGlobalUtils {
                 return;
             }
             try {
-                f24007a.dismiss();
+                f24755a.dismiss();
             } catch (Throwable th) {
                 LogUtil.e("globalUtils", "dialog Exception", th);
             }
-            f24007a = null;
+            f24755a = null;
         }
     }
 
-    public static void safeDismissDialog(BaseActivity baseActivity, int i) {
+    public static void safeDismissDialog(BaseActivity baseActivity, int i2) {
         try {
             showStr = "";
             Activity activity = baseActivity.getActivity();
             if (activity == null || activity.isFinishing()) {
                 return;
             }
-            baseActivity.getActivity().removeDialog(i);
+            baseActivity.getActivity().removeDialog(i2);
         } catch (Throwable th) {
             LogUtil.e("globalUtils", "dialog Exception", th);
         }
     }
 
-    public static void safeShowDialog(BaseActivity baseActivity, int i, String str) {
+    public static void safeShowDialog(BaseActivity baseActivity, int i2, String str) {
         try {
             showStr = str;
-            baseActivity.getActivity().showDialog(i);
+            baseActivity.getActivity().showDialog(i2);
         } catch (Exception unused) {
         }
     }
 
     public static void showLoadingDialog(Context context) {
-        if (f24007a == null) {
-            f24007a = new LoadingDialog(context);
+        if (f24755a == null) {
+            f24755a = new LoadingDialog(context);
         }
-        f24007a.show();
+        f24755a.show();
     }
 }

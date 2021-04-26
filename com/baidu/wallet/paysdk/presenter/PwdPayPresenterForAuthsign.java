@@ -22,20 +22,20 @@ public class PwdPayPresenterForAuthsign extends PwdPayContract.Presenter {
     }
 
     @Override // com.baidu.wallet.paysdk.contract.PwdPayContract.Presenter, com.baidu.wallet.paysdk.presenter.NetWorkPresenter
-    public void handleFailure(int i, int i2, String str) {
-        super.handleFailure(i, i2, str);
+    public void handleFailure(int i2, int i3, String str) {
+        super.handleFailure(i2, i3, str);
     }
 
     @Override // com.baidu.wallet.paysdk.contract.PwdPayContract.Presenter, com.baidu.wallet.paysdk.presenter.NetWorkPresenter
-    public void handleResponse(int i, Object obj, String str) {
-        if (i == 257) {
+    public void handleResponse(int i2, Object obj, String str) {
+        if (i2 == 257) {
             StatisticManager.onEventEnd(StatServiceEvent.CHECK_PASSWORD, 0);
             BaiduPay.getInstance().bindCardAuth(this.mActivity, false);
             StatisticManager.onEventWithValue(StatServiceEvent.EVENT_AuthorizePay_ClickNext, StatServiceEvent.VALUE_AuthorizePay_ClickNext_NewCard);
             this.mActivity.finishWithoutAnim();
             return;
         }
-        super.handleResponse(i, obj, str);
+        super.handleResponse(i2, obj, str);
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.BasePresenter

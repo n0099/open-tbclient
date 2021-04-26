@@ -10,10 +10,10 @@ import kotlin.text.Typography;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f69282a = new a((byte) 0);
+    public static final Object f68319a = new a((byte) 0);
 
     /* renamed from: b  reason: collision with root package name */
-    public Map f69283b;
+    public Map f68320b;
 
     /* loaded from: classes7.dex */
     public static final class a {
@@ -38,7 +38,7 @@ public class b {
     }
 
     public b() {
-        this.f69283b = new HashMap();
+        this.f68320b = new HashMap();
     }
 
     public b(String str) {
@@ -46,7 +46,7 @@ public class b {
     }
 
     public b(Map map) {
-        this.f69283b = map == null ? new HashMap() : map;
+        this.f68320b = map == null ? new HashMap() : map;
     }
 
     public b(c cVar) {
@@ -78,9 +78,9 @@ public class b {
             }
             if (d2 != null) {
                 b(d2);
-                this.f69283b.put(obj, d2);
+                this.f68320b.put(obj, d2);
             } else {
-                this.f69283b.remove(obj);
+                this.f68320b.remove(obj);
             }
             char c4 = cVar.c();
             if (c4 != ',' && c4 != ';') {
@@ -148,10 +148,10 @@ public class b {
         int length = str.length();
         StringBuffer stringBuffer = new StringBuffer(length + 4);
         stringBuffer.append(Typography.quote);
-        int i = 0;
+        int i2 = 0;
         char c2 = 0;
-        while (i < length) {
-            char charAt = str.charAt(i);
+        while (i2 < length) {
+            char charAt = str.charAt(i2);
             if (charAt == '\f') {
                 str2 = "\\f";
             } else if (charAt != '\r') {
@@ -175,7 +175,7 @@ public class b {
                                         break;
                                     }
                                     stringBuffer.append(charAt);
-                                    i++;
+                                    i2++;
                                     c2 = charAt;
                                     break;
                             }
@@ -184,13 +184,13 @@ public class b {
                 }
                 stringBuffer.append('\\');
                 stringBuffer.append(charAt);
-                i++;
+                i2++;
                 c2 = charAt;
             } else {
                 str2 = "\\r";
             }
             stringBuffer.append(str2);
-            i++;
+            i2++;
             c2 = charAt;
         }
         stringBuffer.append(Typography.quote);
@@ -198,7 +198,7 @@ public class b {
     }
 
     public final Object a(String str) {
-        Object obj = str == null ? null : this.f69283b.get(str);
+        Object obj = str == null ? null : this.f68320b.get(str);
         if (obj != null) {
             return obj;
         }
@@ -206,11 +206,11 @@ public class b {
     }
 
     public final Iterator a() {
-        return this.f69283b.keySet().iterator();
+        return this.f68320b.keySet().iterator();
     }
 
     public final boolean b(String str) {
-        return this.f69283b.containsKey(str);
+        return this.f68320b.containsKey(str);
     }
 
     public String toString() {
@@ -224,7 +224,7 @@ public class b {
                 Object next = a2.next();
                 stringBuffer.append(c(next.toString()));
                 stringBuffer.append(':');
-                stringBuffer.append(a(this.f69283b.get(next)));
+                stringBuffer.append(a(this.f68320b.get(next)));
             }
             stringBuffer.append('}');
             return stringBuffer.toString();

@@ -28,18 +28,18 @@ public class BdStatisticsUploadConfig implements Serializable {
         public int uploadCycle = 1;
     }
 
-    public int geUploadCycle(String str, int i) {
+    public int geUploadCycle(String str, int i2) {
         HashMap<String, BdStatistisUploadChilidItem> hashMap;
         BdStatistisUploadChilidItem bdStatistisUploadChilidItem;
         BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem = this.item.get("alert");
-        return (bdStatisticsUploadConfigItem == null || (hashMap = bdStatisticsUploadConfigItem.childItem) == null || (bdStatistisUploadChilidItem = hashMap.get(str)) == null) ? i : bdStatistisUploadChilidItem.uploadCycle;
+        return (bdStatisticsUploadConfigItem == null || (hashMap = bdStatisticsUploadConfigItem.childItem) == null || (bdStatistisUploadChilidItem = hashMap.get(str)) == null) ? i2 : bdStatistisUploadChilidItem.uploadCycle;
     }
 
-    public int getMaxAlertCount(String str, int i) {
+    public int getMaxAlertCount(String str, int i2) {
         HashMap<String, BdStatistisUploadChilidItem> hashMap;
         BdStatistisUploadChilidItem bdStatistisUploadChilidItem;
         BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem = this.item.get("alert");
-        return (bdStatisticsUploadConfigItem == null || (hashMap = bdStatisticsUploadConfigItem.childItem) == null || (bdStatistisUploadChilidItem = hashMap.get(str)) == null) ? i : bdStatistisUploadChilidItem.maxAlertCount;
+        return (bdStatisticsUploadConfigItem == null || (hashMap = bdStatisticsUploadConfigItem.childItem) == null || (bdStatistisUploadChilidItem = hashMap.get(str)) == null) ? i2 : bdStatistisUploadChilidItem.maxAlertCount;
     }
 
     public boolean isUpload(String str, String str2) {

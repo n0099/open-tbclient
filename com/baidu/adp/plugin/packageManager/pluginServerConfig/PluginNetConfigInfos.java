@@ -56,10 +56,10 @@ public class PluginNetConfigInfos extends OrmObject implements Serializable {
         if (list == null || list.size() == 0 || pluginConfig == null) {
             return;
         }
-        for (int i = 0; i < this.plugin_config.size(); i++) {
-            PluginConfig pluginConfig2 = this.plugin_config.get(i);
+        for (int i2 = 0; i2 < this.plugin_config.size(); i2++) {
+            PluginConfig pluginConfig2 = this.plugin_config.get(i2);
             if (pluginConfig2 != null && !TextUtils.isEmpty(pluginConfig2.package_name) && pluginConfig2.package_name.equals(pluginConfig.package_name)) {
-                this.plugin_config.set(i, pluginConfig2);
+                this.plugin_config.set(i2, pluginConfig2);
                 return;
             }
         }

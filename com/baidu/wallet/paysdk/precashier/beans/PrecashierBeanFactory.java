@@ -13,20 +13,20 @@ public class PrecashierBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PrecashierBeanFactory f25412a = new PrecashierBeanFactory();
+        public static PrecashierBeanFactory f26186a = new PrecashierBeanFactory();
     }
 
     public static PrecashierBeanFactory getInstance() {
-        return a.f25412a;
+        return a.f26186a;
     }
 
     @Override // com.baidu.apollon.beans.IBeanFactory
-    public ApollonBean<?> getBean(Context context, int i, String str) {
+    public ApollonBean<?> getBean(Context context, int i2, String str) {
         Context applicationContext = context.getApplicationContext();
-        if (i == 1) {
+        if (i2 == 1) {
             return new PrecashierDefaultPayTypeBean(applicationContext);
         }
-        PrecashierModifyPayTypeBean precashierModifyPayTypeBean = i == 2 ? new PrecashierModifyPayTypeBean(applicationContext) : null;
+        PrecashierModifyPayTypeBean precashierModifyPayTypeBean = i2 == 2 ? new PrecashierModifyPayTypeBean(applicationContext) : null;
         if (precashierModifyPayTypeBean != null) {
             BeanManager.getInstance().addBean(str, precashierModifyPayTypeBean);
         }

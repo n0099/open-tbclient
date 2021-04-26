@@ -56,9 +56,9 @@ public class VideoPlayerProxy extends PlayerProxy {
         videoPlayer.setFrameCallback(new SpeedControl());
         this.mVideoPlayer.setOnInfoListener(new VideoPlayer.OnInfoListener() { // from class: com.baidu.searchbox.afx.proxy.VideoPlayerProxy.1
             @Override // com.baidu.searchbox.afx.decode.VideoPlayer.OnInfoListener
-            public boolean onInfo(VideoPlayer videoPlayer2, int i, int i2) {
+            public boolean onInfo(VideoPlayer videoPlayer2, int i2, int i3) {
                 OnVideoStartedListener onVideoStartedListener;
-                if (i == 3 && (onVideoStartedListener = VideoPlayerProxy.this.mOnVideoStartedListener) != null) {
+                if (i2 == 3 && (onVideoStartedListener = VideoPlayerProxy.this.mOnVideoStartedListener) != null) {
                     onVideoStartedListener.onVideoStarted();
                     return true;
                 }
@@ -150,13 +150,13 @@ public class VideoPlayerProxy extends PlayerProxy {
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
     public void play() {
-        int i = AnonymousClass6.$SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState[this.mPlayerState.ordinal()];
-        if (i == 1 || i == 2 || i == 3) {
+        int i2 = AnonymousClass6.$SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState[this.mPlayerState.ordinal()];
+        if (i2 == 1 || i2 == 2 || i2 == 3) {
             VideoPlayer.PlayTask playTask = this.mPlayTask;
             if (playTask != null) {
                 playTask.execute();
             }
-        } else if (i == 4) {
+        } else if (i2 == 4) {
             resume();
         }
         super.play();
@@ -268,18 +268,18 @@ public class VideoPlayerProxy extends PlayerProxy {
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(int i, int i2) {
+    public void setLoopSection(int i2, int i3) {
         VideoPlayer videoPlayer = this.mVideoPlayer;
         if (videoPlayer != null) {
-            videoPlayer.setLoopSection(i, i2);
+            videoPlayer.setLoopSection(i2, i3);
         }
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(int i) {
+    public void setLoopSection(int i2) {
         VideoPlayer videoPlayer = this.mVideoPlayer;
         if (videoPlayer != null) {
-            videoPlayer.setLoopSection(i);
+            videoPlayer.setLoopSection(i2);
         }
     }
 }

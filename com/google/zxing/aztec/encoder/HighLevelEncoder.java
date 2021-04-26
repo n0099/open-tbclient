@@ -1,6 +1,5 @@
 package com.google.zxing.aztec.encoder;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.google.zxing.common.BitArray;
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -26,28 +25,28 @@ public final class HighLevelEncoder {
         int[][] iArr = (int[][]) Array.newInstance(int.class, 5, 256);
         CHAR_MAP = iArr;
         iArr[0][32] = 1;
-        for (int i = 65; i <= 90; i++) {
-            CHAR_MAP[0][i] = (i - 65) + 2;
+        for (int i2 = 65; i2 <= 90; i2++) {
+            CHAR_MAP[0][i2] = (i2 - 65) + 2;
         }
         CHAR_MAP[1][32] = 1;
-        for (int i2 = 97; i2 <= 122; i2++) {
-            CHAR_MAP[1][i2] = (i2 - 97) + 2;
+        for (int i3 = 97; i3 <= 122; i3++) {
+            CHAR_MAP[1][i3] = (i3 - 97) + 2;
         }
         CHAR_MAP[2][32] = 1;
-        for (int i3 = 48; i3 <= 57; i3++) {
-            CHAR_MAP[2][i3] = (i3 - 48) + 2;
+        for (int i4 = 48; i4 <= 57; i4++) {
+            CHAR_MAP[2][i4] = (i4 - 48) + 2;
         }
         int[][] iArr2 = CHAR_MAP;
         iArr2[2][44] = 12;
         iArr2[2][46] = 13;
-        int[] iArr3 = {0, 32, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 27, 28, 29, 30, 31, 64, 92, 94, 95, 96, Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER, 126, 127};
-        for (int i4 = 0; i4 < 28; i4++) {
-            CHAR_MAP[3][iArr3[i4]] = i4;
+        int[] iArr3 = {0, 32, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 27, 28, 29, 30, 31, 64, 92, 94, 95, 96, 124, 126, 127};
+        for (int i5 = 0; i5 < 28; i5++) {
+            CHAR_MAP[3][iArr3[i5]] = i5;
         }
-        int[] iArr4 = {0, 13, 0, 0, 0, 0, 33, 39, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 58, 59, 60, 61, 62, 63, 91, 93, Constants.METHOD_IM_FRIEND_GROUP_QUERY, 125};
-        for (int i5 = 0; i5 < 31; i5++) {
-            if (iArr4[i5] > 0) {
-                CHAR_MAP[4][iArr4[i5]] = i5;
+        int[] iArr4 = {0, 13, 0, 0, 0, 0, 33, 39, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 58, 59, 60, 61, 62, 63, 91, 93, 123, 125};
+        for (int i6 = 0; i6 < 31; i6++) {
+            if (iArr4[i6] > 0) {
+                CHAR_MAP[4][iArr4[i6]] = i6;
             }
         }
         int[][] iArr5 = (int[][]) Array.newInstance(int.class, 6, 6);
@@ -92,55 +91,55 @@ public final class HighLevelEncoder {
         return linkedList;
     }
 
-    private void updateStateForChar(State state, int i, Collection<State> collection) {
-        char c2 = (char) (this.text[i] & 255);
+    private void updateStateForChar(State state, int i2, Collection<State> collection) {
+        char c2 = (char) (this.text[i2] & 255);
         boolean z = CHAR_MAP[state.getMode()][c2] > 0;
         State state2 = null;
-        for (int i2 = 0; i2 <= 4; i2++) {
-            int i3 = CHAR_MAP[i2][c2];
-            if (i3 > 0) {
+        for (int i3 = 0; i3 <= 4; i3++) {
+            int i4 = CHAR_MAP[i3][c2];
+            if (i4 > 0) {
                 if (state2 == null) {
-                    state2 = state.endBinaryShift(i);
+                    state2 = state.endBinaryShift(i2);
                 }
-                if (!z || i2 == state.getMode() || i2 == 2) {
-                    collection.add(state2.latchAndAppend(i2, i3));
+                if (!z || i3 == state.getMode() || i3 == 2) {
+                    collection.add(state2.latchAndAppend(i3, i4));
                 }
-                if (!z && SHIFT_TABLE[state.getMode()][i2] >= 0) {
-                    collection.add(state2.shiftAndAppend(i2, i3));
+                if (!z && SHIFT_TABLE[state.getMode()][i3] >= 0) {
+                    collection.add(state2.shiftAndAppend(i3, i4));
                 }
             }
         }
         if (state.getBinaryShiftByteCount() > 0 || CHAR_MAP[state.getMode()][c2] == 0) {
-            collection.add(state.addBinaryShiftChar(i));
+            collection.add(state.addBinaryShiftChar(i2));
         }
     }
 
-    public static void updateStateForPair(State state, int i, int i2, Collection<State> collection) {
-        State endBinaryShift = state.endBinaryShift(i);
-        collection.add(endBinaryShift.latchAndAppend(4, i2));
+    public static void updateStateForPair(State state, int i2, int i3, Collection<State> collection) {
+        State endBinaryShift = state.endBinaryShift(i2);
+        collection.add(endBinaryShift.latchAndAppend(4, i3));
         if (state.getMode() != 4) {
-            collection.add(endBinaryShift.shiftAndAppend(4, i2));
+            collection.add(endBinaryShift.shiftAndAppend(4, i3));
         }
-        if (i2 == 3 || i2 == 4) {
-            collection.add(endBinaryShift.latchAndAppend(2, 16 - i2).latchAndAppend(2, 1));
+        if (i3 == 3 || i3 == 4) {
+            collection.add(endBinaryShift.latchAndAppend(2, 16 - i3).latchAndAppend(2, 1));
         }
         if (state.getBinaryShiftByteCount() > 0) {
-            collection.add(state.addBinaryShiftChar(i).addBinaryShiftChar(i + 1));
+            collection.add(state.addBinaryShiftChar(i2).addBinaryShiftChar(i2 + 1));
         }
     }
 
-    private Collection<State> updateStateListForChar(Iterable<State> iterable, int i) {
+    private Collection<State> updateStateListForChar(Iterable<State> iterable, int i2) {
         LinkedList linkedList = new LinkedList();
         for (State state : iterable) {
-            updateStateForChar(state, i, linkedList);
+            updateStateForChar(state, i2, linkedList);
         }
         return simplifyStates(linkedList);
     }
 
-    public static Collection<State> updateStateListForPair(Iterable<State> iterable, int i, int i2) {
+    public static Collection<State> updateStateListForPair(Iterable<State> iterable, int i2, int i3) {
         LinkedList linkedList = new LinkedList();
         for (State state : iterable) {
-            updateStateForPair(state, i, i2, linkedList);
+            updateStateForPair(state, i2, i3, linkedList);
         }
         return simplifyStates(linkedList);
     }
@@ -151,63 +150,63 @@ public final class HighLevelEncoder {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public BitArray encode() {
-        int i;
+        int i2;
         Collection<State> singletonList = Collections.singletonList(State.INITIAL_STATE);
-        int i2 = 0;
+        int i3 = 0;
         while (true) {
             byte[] bArr = this.text;
-            if (i2 < bArr.length) {
-                int i3 = i2 + 1;
-                byte b2 = i3 < bArr.length ? bArr[i3] : (byte) 0;
-                byte b3 = this.text[i2];
+            if (i3 < bArr.length) {
+                int i4 = i3 + 1;
+                byte b2 = i4 < bArr.length ? bArr[i4] : (byte) 0;
+                byte b3 = this.text[i3];
                 if (b3 == 13) {
                     if (b2 == 10) {
-                        i = 2;
-                        if (i <= 0) {
+                        i2 = 2;
+                        if (i2 <= 0) {
                         }
-                        i2++;
+                        i3++;
                     }
-                    i = 0;
-                    if (i <= 0) {
+                    i2 = 0;
+                    if (i2 <= 0) {
                     }
-                    i2++;
+                    i3++;
                 } else if (b3 == 44) {
                     if (b2 == 32) {
-                        i = 4;
-                        if (i <= 0) {
+                        i2 = 4;
+                        if (i2 <= 0) {
                         }
-                        i2++;
+                        i3++;
                     }
-                    i = 0;
-                    if (i <= 0) {
+                    i2 = 0;
+                    if (i2 <= 0) {
                     }
-                    i2++;
+                    i3++;
                 } else if (b3 != 46) {
                     if (b3 == 58 && b2 == 32) {
-                        i = 5;
-                        if (i <= 0) {
-                            singletonList = updateStateListForPair(singletonList, i2, i);
-                            i2 = i3;
+                        i2 = 5;
+                        if (i2 <= 0) {
+                            singletonList = updateStateListForPair(singletonList, i3, i2);
+                            i3 = i4;
                         } else {
-                            singletonList = updateStateListForChar(singletonList, i2);
+                            singletonList = updateStateListForChar(singletonList, i3);
                         }
-                        i2++;
+                        i3++;
                     }
-                    i = 0;
-                    if (i <= 0) {
+                    i2 = 0;
+                    if (i2 <= 0) {
                     }
-                    i2++;
+                    i3++;
                 } else {
                     if (b2 == 32) {
-                        i = 3;
-                        if (i <= 0) {
+                        i2 = 3;
+                        if (i2 <= 0) {
                         }
-                        i2++;
+                        i3++;
                     }
-                    i = 0;
-                    if (i <= 0) {
+                    i2 = 0;
+                    if (i2 <= 0) {
                     }
-                    i2++;
+                    i3++;
                 }
             } else {
                 return ((State) Collections.min(singletonList, new Comparator<State>() { // from class: com.google.zxing.aztec.encoder.HighLevelEncoder.1

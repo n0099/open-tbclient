@@ -24,13 +24,12 @@ import com.baidu.mobads.container.widget.VerifyPerDialog;
 import com.baidu.mobads.sdk.api.IOAdEvent;
 import com.baidu.mobads.sdk.api.IOAdEventListener;
 import com.baidu.mobads.sdk.api.SplashAd;
-import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
-import d.b.b0.b.f.e;
-import d.b.d0.a.b;
-import d.b.d0.a.d.d;
-import d.b.d0.a.g.a;
-import d.b.d0.a.g.b;
-import d.b.d0.a.g.c;
+import d.a.b0.b.f.e;
+import d.a.d0.a.b;
+import d.a.d0.a.d.d;
+import d.a.d0.a.g.a;
+import d.a.d0.a.g.b;
+import d.a.d0.a.g.c;
 import java.util.HashMap;
 import org.apache.http.HttpStatus;
 import org.json.JSONException;
@@ -96,13 +95,13 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         } catch (Exception e2) {
             this.mAdLogger.d(TAG, e2);
         }
-        b a2 = new d.b.d0.a.a().a(context, getContainerParameter());
+        b a2 = new d.a.d0.a.a().a(context, getContainerParameter());
         this.mAdContainer = a2;
-        a2.a(this);
+        a2.b(this);
         this.mAdContainer.d(this);
     }
 
-    private d.b.d0.a.b getContainerParameter() {
+    private d.a.d0.a.b getContainerParameter() {
         this.mAdContainerType = "image";
         String mainPictureUrl = this.mAdInstanceInfo.getMainPictureUrl();
         this.mSplashLogType = 1;
@@ -110,7 +109,7 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         String optString = originJsonObject.optString("publisher");
         String optString2 = originJsonObject.optString("app_version");
         boolean z = (!this.mIsDisplayDownLoadInfo || TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2) || TextUtils.isEmpty(this.mPrivacyLink) || TextUtils.isEmpty(this.mPermissionLink)) ? false : true;
-        int i = getStretchFromJson(originJsonObject) == 0 ? 17 : 16;
+        int i2 = getStretchFromJson(originJsonObject) == 0 ? 17 : 16;
         if (this.mAdInstanceInfo.getCreativeType().getValue().equals("gif")) {
             this.mAdContainerType = "gif";
             this.mSplashLogType = 3;
@@ -119,24 +118,24 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
             mainPictureUrl = this.mAdInstanceInfo.getVideoUrl();
             this.mSplashLogType = 4;
         }
-        b.C0593b c0593b = new b.C0593b(this.mAdContainerType, mainPictureUrl);
-        c0593b.t("rsplash");
-        c0593b.l(this.mIsFullScreenAd);
-        c0593b.h(this.mBottomLogoHeight);
-        c0593b.m(this.mBottomLogoResId);
-        c0593b.j(this.mLimitRegionClick);
-        c0593b.r(getMantleActionText());
-        c0593b.s(this.mIsFullScreenAd ? 47 : this.mBottomLogoHeight + 39);
-        c0593b.k(this.mBitmapDisplayMode);
-        c0593b.i(this.mAdInstanceInfo.getCloseType());
-        c0593b.v(z);
-        c0593b.f(optString);
-        c0593b.g(optString2);
-        c0593b.u(true);
-        c0593b.k(i);
-        c0593b.z(this.mSkipType);
-        tryAddExtStyle(c0593b, originJsonObject);
-        return c0593b.a();
+        b.C0532b c0532b = new b.C0532b(this.mAdContainerType, mainPictureUrl);
+        c0532b.t("rsplash");
+        c0532b.l(this.mIsFullScreenAd);
+        c0532b.h(this.mBottomLogoHeight);
+        c0532b.m(this.mBottomLogoResId);
+        c0532b.j(this.mLimitRegionClick);
+        c0532b.r(getMantleActionText());
+        c0532b.s(this.mIsFullScreenAd ? 47 : this.mBottomLogoHeight + 39);
+        c0532b.k(this.mBitmapDisplayMode);
+        c0532b.i(this.mAdInstanceInfo.getCloseType());
+        c0532b.v(z);
+        c0532b.f(optString);
+        c0532b.g(optString2);
+        c0532b.u(true);
+        c0532b.k(i2);
+        c0532b.z(this.mSkipType);
+        tryAddExtStyle(c0532b, originJsonObject);
+        return c0532b.a();
     }
 
     private String getMantleActionText() {
@@ -188,27 +187,27 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         LpCloseController.getInstance(context).addEventListener("AdLpClosed", this.lpCloseListener);
     }
 
-    private void tryAddExtStyle(b.C0593b c0593b, JSONObject jSONObject) {
+    private void tryAddExtStyle(b.C0532b c0532b, JSONObject jSONObject) {
         try {
             if (this.mSkipType == 1) {
-                c0593b.z(1);
-                c0593b.i(5);
-                c0593b.A(72);
-                c0593b.y(30);
+                c0532b.z(1);
+                c0532b.i(5);
+                c0532b.A(72);
+                c0532b.y(30);
             }
             if (this.mLabelType == 1) {
-                c0593b.c("广告");
-                c0593b.e(25);
-                c0593b.d(13);
-                c0593b.u(false);
+                c0532b.c("广告");
+                c0532b.e(25);
+                c0532b.d(13);
+                c0532b.u(false);
             }
             boolean z = this.mIsFullScreenAd;
             if (jSONObject.has("pattern")) {
                 z = jSONObject.optInt("pattern") == 1;
-                c0593b.l(z);
-                c0593b.h(e.b());
-                c0593b.m(e.c());
-                c0593b.s(z ? 47 : this.mBottomLogoHeight + 39);
+                c0532b.l(z);
+                c0532b.h(e.b());
+                c0532b.m(e.c());
+                c0532b.s(z ? 47 : this.mBottomLogoHeight + 39);
             }
             String optString = jSONObject.optString("custom_ext_data");
             if (TextUtils.isEmpty(optString)) {
@@ -216,26 +215,26 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
             }
             JSONObject jSONObject2 = new JSONObject(optString);
             if (jSONObject2.has("duration")) {
-                c0593b.B(jSONObject2.optInt("duration") * 1000);
-                c0593b.z(1);
-                c0593b.i(5);
-                c0593b.A(72);
-                c0593b.y(30);
+                c0532b.B(jSONObject2.optInt("duration") * 1000);
+                c0532b.z(1);
+                c0532b.i(5);
+                c0532b.A(72);
+                c0532b.y(30);
             }
             if (jSONObject2.has("label_name")) {
-                c0593b.c(jSONObject2.optString("label_name"));
-                c0593b.e(25);
-                c0593b.d(13);
-                c0593b.u(false);
+                c0532b.c(jSONObject2.optString("label_name"));
+                c0532b.e(25);
+                c0532b.d(13);
+                c0532b.u(false);
             }
             if (jSONObject2.has("logo_type")) {
-                c0593b.n(e.d(jSONObject2.optInt("logo_type")));
-                c0593b.D(68);
-                c0593b.C(30);
-                c0593b.o(z);
+                c0532b.n(e.d(jSONObject2.optInt("logo_type")));
+                c0532b.D(68);
+                c0532b.C(30);
+                c0532b.o(z);
             }
             if (jSONObject2.has("style")) {
-                c0593b.E(jSONObject2.optJSONObject("style"));
+                c0532b.E(jSONObject2.optJSONObject("style"));
             }
         } catch (JSONException e2) {
             this.mAdLogger.e(TAG, e2);
@@ -248,7 +247,7 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
     }
 
     public Bitmap getCloseBitmap() {
-        d.b.d0.a.g.b bVar = this.mAdContainer;
+        d.a.d0.a.g.b bVar = this.mAdContainer;
         if (bVar instanceof d) {
             return ((d) bVar).X();
         }
@@ -261,12 +260,12 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
 
     @Override // com.baidu.mobads.container.XBaseAdContainer
     public void load() {
-        this.mAdLogger.d(TAG, TrackLoadSettingsAtom.TYPE);
-        this.mAdContainer.b();
+        this.mAdLogger.d(TAG, "load");
+        this.mAdContainer.a();
         PackageUtils.sendRsplashLog(this.mAppContext, this.mAdContainerCxt, PackageUtils.RSPLASH_JSON_LOG, 1);
     }
 
-    @Override // d.b.d0.a.g.a
+    @Override // d.a.d0.a.g.a
     public void onAdClick() {
         PackageUtils.sendRsplashLog(this.mAppContext, this.mAdContainerCxt, PackageUtils.RSPLASH_JSON_LOG, 8);
         XAdContainerContext xAdContainerContext = this.mAdContainerCxt;
@@ -278,24 +277,24 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         new XAdRemoteClickHandler().onAdClicked(this, this.mAdContainerCxt.getAdInstanceInfo(), Boolean.TRUE, shouBaiLpFlag);
     }
 
-    @Override // d.b.d0.a.g.c
+    @Override // d.a.d0.a.g.c
     public void onAdError(String str) {
         XAdErrorCode xAdErrorCode = XAdErrorCode.MCACHE_FETCH_FAILED;
         processAdError(xAdErrorCode, "Splash Failed: " + str);
     }
 
-    @Override // d.b.d0.a.g.c
+    @Override // d.a.d0.a.g.c
     public void onAdLoad() {
         this.mAdState = 1;
         PackageUtils.sendRsplashLog(this.mAppContext, this.mAdContainerCxt, PackageUtils.RSPLASH_JSON_LOG, 5);
     }
 
-    @Override // d.b.d0.a.g.a
+    @Override // d.a.d0.a.g.a
     public void onAdLogoClick() {
         startWangmengPage();
     }
 
-    @Override // d.b.d0.a.g.c
+    @Override // d.a.d0.a.g.c
     public void onAdStart() {
         this.hasPlayed = true;
         if (this.mAdState != 2) {
@@ -323,7 +322,7 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         }
     }
 
-    @Override // d.b.d0.a.g.c
+    @Override // d.a.d0.a.g.c
     public void onAdStop(String str) {
         this.mAdState = 2;
         if (!"video".equals(this.mAdContainerType)) {
@@ -332,7 +331,7 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         closeAd(str);
     }
 
-    @Override // d.b.d0.a.g.a
+    @Override // d.a.d0.a.g.a
     public void onPermissionClick() {
         VerifyPerDialog createVerPerDialog = VerifyPerDialog.createVerPerDialog(this.mAdContainerCxt.getActivity(), this.mPermissionLink);
         createVerPerDialog.setHideNavigation(true);
@@ -354,7 +353,7 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         createVerPerDialog.show();
     }
 
-    @Override // d.b.d0.a.g.a
+    @Override // d.a.d0.a.g.a
     public void onPrivacyClick() {
         Intent intent = new Intent();
         intent.putExtra(AppPriActivity.PRIVACY_LINK, this.mPrivacyLink);
@@ -362,7 +361,7 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
         registerLpCloseReceiver(this.mAppContext);
     }
 
-    @Override // d.b.d0.a.g.a
+    @Override // d.a.d0.a.g.a
     public void onSkipClick() {
         onAdStop("click_skip_button");
     }
@@ -373,13 +372,13 @@ public class SplashAdContainer extends XBaseAdContainer implements c, a {
 
     @Override // com.baidu.mobads.container.XBaseAdContainer
     public void onAdClick(IXAdInstanceInfo iXAdInstanceInfo, View view) {
-        int i = this.mSplashLogType;
-        if (i == 4) {
+        int i2 = this.mSplashLogType;
+        if (i2 == 4) {
             checkAPO(PackageUtils.SOURCE_DONWLOAD_APO_RSPLASH_VIDEO_JSON);
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             SplashVSLogUtil.sendLog(this.mAdContainerCxt, 9, false, 3, HttpStatus.SC_FAILED_DEPENDENCY, this.showRecord);
             checkAPO(PackageUtils.SOURCE_DONWLOAD_APO_GIF_JSON);
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             sendRsplashExpClickLog(1);
             checkAPO(PackageUtils.SOURCE_DONWLOAD_APO_RSPLASH_JSON);
         }

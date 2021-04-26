@@ -10,40 +10,40 @@ public final class ModulusGF {
     public final ModulusPoly one;
     public final ModulusPoly zero;
 
-    public ModulusGF(int i, int i2) {
-        this.modulus = i;
-        this.expTable = new int[i];
-        this.logTable = new int[i];
-        int i3 = 1;
-        for (int i4 = 0; i4 < i; i4++) {
-            this.expTable[i4] = i3;
-            i3 = (i3 * i2) % i;
+    public ModulusGF(int i2, int i3) {
+        this.modulus = i2;
+        this.expTable = new int[i2];
+        this.logTable = new int[i2];
+        int i4 = 1;
+        for (int i5 = 0; i5 < i2; i5++) {
+            this.expTable[i5] = i4;
+            i4 = (i4 * i3) % i2;
         }
-        for (int i5 = 0; i5 < i - 1; i5++) {
-            this.logTable[this.expTable[i5]] = i5;
+        for (int i6 = 0; i6 < i2 - 1; i6++) {
+            this.logTable[this.expTable[i6]] = i6;
         }
         this.zero = new ModulusPoly(this, new int[]{0});
         this.one = new ModulusPoly(this, new int[]{1});
     }
 
-    public int add(int i, int i2) {
-        return (i + i2) % this.modulus;
+    public int add(int i2, int i3) {
+        return (i2 + i3) % this.modulus;
     }
 
-    public ModulusPoly buildMonomial(int i, int i2) {
-        if (i >= 0) {
-            if (i2 == 0) {
+    public ModulusPoly buildMonomial(int i2, int i3) {
+        if (i2 >= 0) {
+            if (i3 == 0) {
                 return this.zero;
             }
-            int[] iArr = new int[i + 1];
-            iArr[0] = i2;
+            int[] iArr = new int[i2 + 1];
+            iArr[0] = i3;
             return new ModulusPoly(this, iArr);
         }
         throw new IllegalArgumentException();
     }
 
-    public int exp(int i) {
-        return this.expTable[i];
+    public int exp(int i2) {
+        return this.expTable[i2];
     }
 
     public ModulusPoly getOne() {
@@ -58,31 +58,31 @@ public final class ModulusGF {
         return this.zero;
     }
 
-    public int inverse(int i) {
-        if (i != 0) {
-            return this.expTable[(this.modulus - this.logTable[i]) - 1];
+    public int inverse(int i2) {
+        if (i2 != 0) {
+            return this.expTable[(this.modulus - this.logTable[i2]) - 1];
         }
         throw new ArithmeticException();
     }
 
-    public int log(int i) {
-        if (i != 0) {
-            return this.logTable[i];
+    public int log(int i2) {
+        if (i2 != 0) {
+            return this.logTable[i2];
         }
         throw new IllegalArgumentException();
     }
 
-    public int multiply(int i, int i2) {
-        if (i == 0 || i2 == 0) {
+    public int multiply(int i2, int i3) {
+        if (i2 == 0 || i3 == 0) {
             return 0;
         }
         int[] iArr = this.expTable;
         int[] iArr2 = this.logTable;
-        return iArr[(iArr2[i] + iArr2[i2]) % (this.modulus - 1)];
+        return iArr[(iArr2[i2] + iArr2[i3]) % (this.modulus - 1)];
     }
 
-    public int subtract(int i, int i2) {
-        int i3 = this.modulus;
-        return ((i + i3) - i2) % i3;
+    public int subtract(int i2, int i3) {
+        int i4 = this.modulus;
+        return ((i2 + i4) - i3) % i4;
     }
 }

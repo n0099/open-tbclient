@@ -23,8 +23,8 @@ public class AdAsyncResponseData extends JsonHttpResponsedMessage {
         }
         JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i).optJSONObject("adInfo");
+        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2).optJSONObject("adInfo");
             if (optJSONObject2 != null) {
                 arrayList.add(AdvertAppInfo.G4(optJSONObject2));
             }
@@ -33,7 +33,7 @@ public class AdAsyncResponseData extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {

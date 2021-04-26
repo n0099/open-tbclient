@@ -45,13 +45,13 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     public String mKey;
     public int mReqSource;
 
-    public IMAudioTransRequest(Context context, String str, String str2, String str3, int i, String str4) {
+    public IMAudioTransRequest(Context context, String str, String str2, String str3, int i2, String str4) {
         this.mContext = context;
         this.mKey = str4;
         this.mFilePath = str;
         this.mContentType = str2;
         this.mFormat = str3;
-        this.mReqSource = i;
+        this.mReqSource = i2;
     }
 
     public void execute() {
@@ -283,15 +283,15 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         LogUtils.d(TAG, "IMAudio Trans onFailure " + transErrorCode.first);
         ChatMsgManagerImpl.getInstance(this.mContext).onAudioTransCallBack(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
-        int i2;
+    public void onSuccess(int i2, byte[] bArr) {
+        int i3;
         String str;
         String str2;
         String str3;
@@ -300,37 +300,37 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
         LogUtils.d("IMGenBosObjectUrlRequest", str4);
         try {
             jSONObject = new JSONObject(str4);
-            i2 = jSONObject.optInt("error_code", -1);
+            i3 = jSONObject.optInt("error_code", -1);
         } catch (Exception e2) {
             LogUtils.e(TAG, "deleteExpiredReliableMsgs :", e2);
             LogUtils.e(TAG, e2.getMessage(), e2);
-            i2 = 1010;
+            i3 = 1010;
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
         }
-        if (i2 == 0) {
+        if (i3 == 0) {
             str3 = jSONObject.optString("base64_file");
             str2 = Constants.ERROR_MSG_SUCCESS;
-            ChatMsgManagerImpl.getInstance(this.mContext).onAudioTransCallBack(this.mKey, i2, str2, str3);
+            ChatMsgManagerImpl.getInstance(this.mContext).onAudioTransCallBack(this.mKey, i3, str2, str3);
         }
-        i2 = jSONObject.getInt("error_code");
+        i3 = jSONObject.getInt("error_code");
         str = jSONObject.getString("error_msg");
         str2 = str;
         str3 = "";
-        ChatMsgManagerImpl.getInstance(this.mContext).onAudioTransCallBack(this.mKey, i2, str2, str3);
+        ChatMsgManagerImpl.getInstance(this.mContext).onAudioTransCallBack(this.mKey, i3, str2, str3);
     }
 
-    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
+    public Pair<Integer, String> transErrorCode(int i2, byte[] bArr, Throwable th) {
         String str;
         if (th != null) {
-            i = 1012;
+            i2 = 1012;
             str = Constants.ERROR_MSG_HTTP_IOEXCEPTION_ERROR;
-        } else if (i == 1005) {
+        } else if (i2 == 1005) {
             str = new String(bArr);
         } else {
-            str = "http response is error! response code:" + i;
-            i = 1011;
+            str = "http response is error! response code:" + i2;
+            i2 = 1011;
         }
-        return new Pair<>(Integer.valueOf(i), str);
+        return new Pair<>(Integer.valueOf(i2), str);
     }
 }

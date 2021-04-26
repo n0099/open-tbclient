@@ -7,88 +7,88 @@ import com.baidu.android.common.others.lang.StringUtil;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f29021a;
+    public final int f29913a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f29022b;
+    public final String f29914b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f29023c;
+    public final String f29915c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f29024d;
+    public final String f29916d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f29025e;
+    public final String f29917e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f29026f;
+    public final String f29918f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f29027g;
+    public final String f29919g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f29028h;
+    public final String f29920h;
 
     /* loaded from: classes5.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f29029a;
+        public String f29921a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f29030b;
+        public String f29922b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f29031c;
+        public String f29923c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f29032d;
+        public String f29924d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f29033e;
+        public String f29925e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f29034f;
+        public String f29926f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f29035g;
+        public String f29927g;
 
         public a() {
         }
 
         public a a(String str) {
-            this.f29029a = str;
+            this.f29921a = str;
             return this;
         }
 
         public a b(String str) {
-            this.f29030b = str;
+            this.f29922b = str;
             return this;
         }
 
         public a c(String str) {
-            this.f29031c = str;
+            this.f29923c = str;
             return this;
         }
 
         public a d(String str) {
-            this.f29032d = str;
+            this.f29924d = str;
             return this;
         }
 
         public a e(String str) {
-            this.f29033e = str;
+            this.f29925e = str;
             return this;
         }
 
         public a f(String str) {
-            this.f29034f = str;
+            this.f29926f = str;
             return this;
         }
 
         public a g(String str) {
-            this.f29035g = str;
+            this.f29927g = str;
             return this;
         }
 
@@ -103,36 +103,36 @@ public class p {
 
     @NonNull
     public String toString() {
-        return "methodName: " + this.f29024d + ", params: " + this.f29025e + ", callbackId: " + this.f29026f + ", type: " + this.f29023c + ", version: " + this.f29022b + StringUtil.ARRAY_ELEMENT_SEPARATOR;
+        return "methodName: " + this.f29916d + ", params: " + this.f29917e + ", callbackId: " + this.f29918f + ", type: " + this.f29915c + ", version: " + this.f29914b + StringUtil.ARRAY_ELEMENT_SEPARATOR;
     }
 
-    public p(String str, int i) {
-        this.f29022b = null;
-        this.f29023c = null;
-        this.f29024d = null;
-        this.f29025e = null;
-        this.f29026f = str;
-        this.f29027g = null;
-        this.f29021a = i;
-        this.f29028h = null;
+    public p(String str, int i2) {
+        this.f29914b = null;
+        this.f29915c = null;
+        this.f29916d = null;
+        this.f29917e = null;
+        this.f29918f = str;
+        this.f29919g = null;
+        this.f29913a = i2;
+        this.f29920h = null;
     }
 
-    public static p a(String str, int i) {
-        return new p(str, i);
+    public static p a(String str, int i2) {
+        return new p(str, i2);
     }
 
     public static boolean a(p pVar) {
-        return pVar == null || pVar.f29021a != 1 || TextUtils.isEmpty(pVar.f29024d) || TextUtils.isEmpty(pVar.f29025e);
+        return pVar == null || pVar.f29913a != 1 || TextUtils.isEmpty(pVar.f29916d) || TextUtils.isEmpty(pVar.f29917e);
     }
 
     public p(a aVar) {
-        this.f29022b = aVar.f29029a;
-        this.f29023c = aVar.f29030b;
-        this.f29024d = aVar.f29031c;
-        this.f29025e = aVar.f29032d;
-        this.f29026f = aVar.f29033e;
-        this.f29027g = aVar.f29034f;
-        this.f29021a = 1;
-        this.f29028h = aVar.f29035g;
+        this.f29914b = aVar.f29921a;
+        this.f29915c = aVar.f29922b;
+        this.f29916d = aVar.f29923c;
+        this.f29917e = aVar.f29924d;
+        this.f29918f = aVar.f29925e;
+        this.f29919g = aVar.f29926f;
+        this.f29913a = 1;
+        this.f29920h = aVar.f29927g;
     }
 }

@@ -37,9 +37,9 @@ public class MediaBrowserServiceCompatApi21 {
         }
 
         @Override // android.service.media.MediaBrowserService
-        public MediaBrowserService.BrowserRoot onGetRoot(String str, int i, Bundle bundle) {
+        public MediaBrowserService.BrowserRoot onGetRoot(String str, int i2, Bundle bundle) {
             MediaSessionCompat.ensureClassLoader(bundle);
-            BrowserRoot onGetRoot = this.mServiceProxy.onGetRoot(str, i, bundle == null ? null : new Bundle(bundle));
+            BrowserRoot onGetRoot = this.mServiceProxy.onGetRoot(str, i2, bundle == null ? null : new Bundle(bundle));
             if (onGetRoot == null) {
                 return null;
             }
@@ -95,7 +95,7 @@ public class MediaBrowserServiceCompatApi21 {
 
     /* loaded from: classes.dex */
     public interface ServiceCompatProxy {
-        BrowserRoot onGetRoot(String str, int i, Bundle bundle);
+        BrowserRoot onGetRoot(String str, int i2, Bundle bundle);
 
         void onLoadChildren(String str, ResultWrapper<List<Parcel>> resultWrapper);
     }

@@ -7,7 +7,7 @@ public interface a {
 
     void refreshMenu(String str, HomeCfgResponse.TitleItemData[] titleItemDataArr, String str2);
 
-    void refreshRightZone(int i);
+    void refreshRightZone(int i2);
 
     void refreshRightZone(String str);
 

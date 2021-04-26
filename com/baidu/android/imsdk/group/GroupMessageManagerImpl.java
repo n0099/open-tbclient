@@ -325,8 +325,8 @@ public class GroupMessageManagerImpl {
     }
 
     private boolean isExistChatMsg(ArrayList<ChatMsg> arrayList) {
-        for (int i = 0; i < arrayList.size(); i++) {
-            int msgType = arrayList.get(i).getMsgType();
+        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+            int msgType = arrayList.get(i2).getMsgType();
             if ((msgType >= 0 && msgType <= 100) || msgType == 2001) {
                 return true;
             }
@@ -361,7 +361,7 @@ public class GroupMessageManagerImpl {
     }
 
     public ArrayList<ChatMsg> addMsgs(ArrayList<ChatMsg> arrayList, boolean z) {
-        int i;
+        int i2;
         if (arrayList != null && arrayList.size() > 0) {
             ChatMsg chatMsg = arrayList.get(arrayList.size() - 1);
             if (chatMsg.getMsgType() == 1003) {
@@ -388,7 +388,7 @@ public class GroupMessageManagerImpl {
             if (!GroupInfoDAOImpl.isExistGroup(mContext, valueOf2)) {
                 String str = TAG;
                 LogUtils.d(str, "STAR table " + valueOf2 + " is not exist");
-                i = GroupInfoDAOImpl.createGroup(mContext, valueOf2);
+                i2 = GroupInfoDAOImpl.createGroup(mContext, valueOf2);
                 if (isStarMessage) {
                     GroupInfoDAOImpl.setGroupType(mContext, valueOf2, 2);
                     GroupInfoDAOImpl.setGroupDisturb(mContext, valueOf2, 1);
@@ -397,11 +397,11 @@ public class GroupMessageManagerImpl {
             } else {
                 String str2 = TAG;
                 LogUtils.d(str2, "STAR group table " + valueOf2 + " has exist");
-                i = 0;
+                i2 = 0;
             }
-            if (i < 0) {
+            if (i2 < 0) {
                 String str3 = TAG;
-                LogUtils.e(str3, "STAR create group table error " + i);
+                LogUtils.e(str3, "STAR create group table error " + i2);
                 return null;
             } else if (chatMsg2.getContacter() == 0) {
                 LogUtils.e(TAG, "STAR group id is 0, return null");
@@ -411,8 +411,8 @@ public class GroupMessageManagerImpl {
                 String str4 = TAG;
                 LogUtils.d(str4, "STAR receive group message, size is " + arrayList.size());
                 if (arrayList != null && arrayList.size() > 0) {
-                    for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                        ChatMsg chatMsg3 = arrayList.get(i2);
+                    for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                        ChatMsg chatMsg3 = arrayList.get(i3);
                         handleGroupSystemMessage(chatMsg3);
                         chatMsg3.setChatType(3);
                     }
@@ -452,24 +452,24 @@ public class GroupMessageManagerImpl {
         return arrayList;
     }
 
-    public ArrayList<ChatMsg> getAllChatAndSystemMsg(String str, ChatMsg chatMsg, int i, boolean z) {
+    public ArrayList<ChatMsg> getAllChatAndSystemMsg(String str, ChatMsg chatMsg, int i2, boolean z) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return GroupMessageDAOImpl.fetchAllChatMsg(mContext, str, chatMsg, i, z);
+        return GroupMessageDAOImpl.fetchAllChatMsg(mContext, str, chatMsg, i2, z);
     }
 
-    public ArrayList<ChatMsg> getAllChatMsg(String str, ChatMsg chatMsg, int i, boolean z) {
+    public ArrayList<ChatMsg> getAllChatMsg(String str, ChatMsg chatMsg, int i2, boolean z) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return GroupMessageDAOImpl.fetchChatMsgExceptGroupSystem(mContext, str, chatMsg, i, z);
+        return GroupMessageDAOImpl.fetchChatMsgExceptGroupSystem(mContext, str, chatMsg, i2, z);
     }
 
-    public ArrayList<ChatMsg> getAllSystemMsg(String str, ChatMsg chatMsg, int i, boolean z) {
+    public ArrayList<ChatMsg> getAllSystemMsg(String str, ChatMsg chatMsg, int i2, boolean z) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return GroupMessageDAOImpl.fetchGroupSystemMsg(mContext, str, chatMsg, i, z);
+        return GroupMessageDAOImpl.fetchGroupSystemMsg(mContext, str, chatMsg, i2, z);
     }
 }

@@ -17,23 +17,23 @@ public class BasicTokenIterator implements TokenIterator {
         throw new RuntimeException("Stub!");
     }
 
-    public String createToken(String str, int i, int i2) {
+    public String createToken(String str, int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 
-    public int findNext(int i) throws ParseException {
+    public int findNext(int i2) throws ParseException {
         throw new RuntimeException("Stub!");
     }
 
-    public int findTokenEnd(int i) {
+    public int findTokenEnd(int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public int findTokenSeparator(int i) {
+    public int findTokenSeparator(int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public int findTokenStart(int i) {
+    public int findTokenStart(int i2) {
         throw new RuntimeException("Stub!");
     }
 

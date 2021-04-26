@@ -4,6 +4,7 @@ import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.swan.apps.model.SwanTaskDeadEvent;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.google.android.material.badge.BadgeDrawable;
 import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
@@ -20,7 +21,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import kotlin.text.Typography;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class HttpUrlHelper {
     public static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
     public static final String FRAGMENT_ENCODE_SET = "";
@@ -44,7 +45,7 @@ public final class HttpUrlHelper {
     public final String username;
 
     /* renamed from: com.baidu.down.utils.HttpUrlHelper$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$down$utils$HttpUrlHelper$Builder$ParseResult;
 
@@ -79,61 +80,61 @@ public final class HttpUrlHelper {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(7:3|(1:40)(2:7|(2:20|(1:36))(6:10|11|12|13|14|15))|29|12|13|14|15) */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0053, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0054, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0054, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0055, code lost:
         r0.printStackTrace();
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String canonicalize(String str, int i, int i2, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
+    public static String canonicalize(String str, int i2, int i3, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         StringBuilder sb = new StringBuilder();
-        int i3 = i;
-        while (i3 < i2) {
-            int codePointAt = str.codePointAt(i3);
+        int i4 = i2;
+        while (i4 < i3) {
+            int codePointAt = str.codePointAt(i4);
             if (codePointAt >= 32 && codePointAt != 127) {
                 if (codePointAt < 128 || !z4) {
-                    if (str2.indexOf(codePointAt) == -1 && ((codePointAt != 37 || (z && (!z2 || percentEncoded(str, i3, i2)))) && (codePointAt != 43 || !z3))) {
-                        i3 += Character.charCount(codePointAt);
+                    if (str2.indexOf(codePointAt) == -1 && ((codePointAt != 37 || (z && (!z2 || percentEncoded(str, i4, i3)))) && (codePointAt != 43 || !z3))) {
+                        i4 += Character.charCount(codePointAt);
                     }
                 } else {
-                    sb.append(URLEncoder.encode(str.substring(i, i3), "utf-8"));
-                    sb.append(canonicalize2(str, i3, i2, str2, z, z2, z3, z4));
+                    sb.append(URLEncoder.encode(str.substring(i2, i4), "utf-8"));
+                    sb.append(canonicalize2(str, i4, i3, str2, z, z2, z3, z4));
                     return sb.toString();
                 }
             }
-            sb.append(URLEncoder.encode(str.substring(i, i3), "utf-8"));
-            sb.append(canonicalize2(str, i3, i2, str2, z, z2, z3, z4));
+            sb.append(URLEncoder.encode(str.substring(i2, i4), "utf-8"));
+            sb.append(canonicalize2(str, i4, i3, str2, z, z2, z3, z4));
             return sb.toString();
         }
-        return str.substring(i, i2);
+        return str.substring(i2, i3);
     }
 
-    public static String canonicalize2(String str, int i, int i2, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
+    public static String canonicalize2(String str, int i2, int i3, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         StringBuilder sb = new StringBuilder();
-        while (i < i2) {
-            int codePointAt = str.codePointAt(i);
+        while (i2 < i3) {
+            int codePointAt = str.codePointAt(i2);
             if (!z || (codePointAt != 9 && codePointAt != 10 && codePointAt != 12 && codePointAt != 13)) {
                 if (codePointAt == 43 && z3) {
                     try {
-                        sb.append(URLEncoder.encode(z ? "+" : "%2B", "utf-8"));
+                        sb.append(URLEncoder.encode(z ? BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX : "%2B", "utf-8"));
                     } catch (UnsupportedEncodingException e2) {
                         e2.printStackTrace();
                     }
-                } else if (codePointAt >= 32 && codePointAt != 127 && ((codePointAt < 128 || !z4) && str2.indexOf(codePointAt) == -1 && (codePointAt != 37 || (z && (!z2 || percentEncoded(str, i, i2)))))) {
+                } else if (codePointAt >= 32 && codePointAt != 127 && ((codePointAt < 128 || !z4) && str2.indexOf(codePointAt) == -1 && (codePointAt != 37 || (z && (!z2 || percentEncoded(str, i2, i3)))))) {
                     sb.append(HttpUrlHelperUtil.writeUtf8CodePoint(codePointAt));
                 } else {
                     for (byte b2 : HttpUrlHelperUtil.writeUtf8CodePoint2(codePointAt)) {
-                        int i3 = b2 & 255;
+                        int i4 = b2 & 255;
                         sb.append(HttpUrlHelperUtil.writeByte(37));
-                        sb.append(HttpUrlHelperUtil.writeByte(HEX_DIGITS[(i3 >> 4) & 15]));
-                        sb.append(HttpUrlHelperUtil.writeByte(HEX_DIGITS[i3 & 15]));
+                        sb.append(HttpUrlHelperUtil.writeByte(HEX_DIGITS[(i4 >> 4) & 15]));
+                        sb.append(HttpUrlHelperUtil.writeByte(HEX_DIGITS[i4 & 15]));
                     }
                 }
             }
-            i += Character.charCount(codePointAt);
+            i2 += Character.charCount(codePointAt);
         }
         return sb.toString();
     }
@@ -155,9 +156,9 @@ public final class HttpUrlHelper {
     public static HttpUrlHelper getChecked(String str) throws MalformedURLException, UnknownHostException {
         Builder builder = new Builder();
         Builder.ParseResult parse = builder.parse(null, str);
-        int i = AnonymousClass1.$SwitchMap$com$baidu$down$utils$HttpUrlHelper$Builder$ParseResult[parse.ordinal()];
-        if (i != 1) {
-            if (i != 2) {
+        int i2 = AnonymousClass1.$SwitchMap$com$baidu$down$utils$HttpUrlHelper$Builder$ParseResult[parse.ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
                 throw new MalformedURLException("Invalid URL: " + parse + " for " + str);
             }
             throw new UnknownHostException("Invalid host: " + str);
@@ -167,15 +168,15 @@ public final class HttpUrlHelper {
 
     public static void namesAndValuesToQueryString(StringBuilder sb, List<String> list) {
         int size = list.size();
-        for (int i = 0; i < size; i += 2) {
-            String str = list.get(i);
-            String str2 = list.get(i + 1);
-            if (i > 0) {
+        for (int i2 = 0; i2 < size; i2 += 2) {
+            String str = list.get(i2);
+            String str2 = list.get(i2 + 1);
+            if (i2 > 0) {
                 sb.append(Typography.amp);
             }
             sb.append(str);
             if (str2 != null) {
-                sb.append(a.f1922h);
+                sb.append(a.f1873h);
                 sb.append(str2);
             }
         }
@@ -191,9 +192,9 @@ public final class HttpUrlHelper {
 
     public static void pathSegmentsToString(StringBuilder sb, List<String> list) {
         int size = list.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             sb.append('/');
-            sb.append(list.get(i));
+            sb.append(list.get(i2));
         }
     }
 
@@ -201,17 +202,17 @@ public final class HttpUrlHelper {
         return percentDecode(str, 0, str.length(), z);
     }
 
-    public static String percentDecode2(String str, int i, int i2, boolean z) {
-        int i3;
+    public static String percentDecode2(String str, int i2, int i3, boolean z) {
+        int i4;
         StringBuilder sb = new StringBuilder();
-        while (i < i2) {
-            int codePointAt = str.codePointAt(i);
-            if (codePointAt == 37 && (i3 = i + 2) < i2) {
-                int decodeHexDigit = HttpUrlHelperUtil.decodeHexDigit(str.charAt(i + 1));
-                int decodeHexDigit2 = HttpUrlHelperUtil.decodeHexDigit(str.charAt(i3));
+        while (i2 < i3) {
+            int codePointAt = str.codePointAt(i2);
+            if (codePointAt == 37 && (i4 = i2 + 2) < i3) {
+                int decodeHexDigit = HttpUrlHelperUtil.decodeHexDigit(str.charAt(i2 + 1));
+                int decodeHexDigit2 = HttpUrlHelperUtil.decodeHexDigit(str.charAt(i4));
                 if (decodeHexDigit != -1 && decodeHexDigit2 != -1) {
                     sb.append(HttpUrlHelperUtil.writeByte((decodeHexDigit << 4) + decodeHexDigit2));
-                    i = i3;
+                    i2 = i4;
                 }
                 sb.append(HttpUrlHelperUtil.writeUtf8CodePoint(codePointAt));
             } else {
@@ -220,33 +221,33 @@ public final class HttpUrlHelper {
                 }
                 sb.append(HttpUrlHelperUtil.writeUtf8CodePoint(codePointAt));
             }
-            i += Character.charCount(codePointAt);
+            i2 += Character.charCount(codePointAt);
         }
         return sb.toString();
     }
 
-    public static boolean percentEncoded(String str, int i, int i2) {
-        int i3 = i + 2;
-        return i3 < i2 && str.charAt(i) == '%' && HttpUrlHelperUtil.decodeHexDigit(str.charAt(i + 1)) != -1 && HttpUrlHelperUtil.decodeHexDigit(str.charAt(i3)) != -1;
+    public static boolean percentEncoded(String str, int i2, int i3) {
+        int i4 = i2 + 2;
+        return i4 < i3 && str.charAt(i2) == '%' && HttpUrlHelperUtil.decodeHexDigit(str.charAt(i2 + 1)) != -1 && HttpUrlHelperUtil.decodeHexDigit(str.charAt(i4)) != -1;
     }
 
     public static List<String> queryStringToNamesAndValues(String str) {
         ArrayList arrayList = new ArrayList();
-        int i = 0;
-        while (i <= str.length()) {
-            int indexOf = str.indexOf(38, i);
+        int i2 = 0;
+        while (i2 <= str.length()) {
+            int indexOf = str.indexOf(38, i2);
             if (indexOf == -1) {
                 indexOf = str.length();
             }
-            int indexOf2 = str.indexOf(61, i);
+            int indexOf2 = str.indexOf(61, i2);
             if (indexOf2 != -1 && indexOf2 <= indexOf) {
-                arrayList.add(str.substring(i, indexOf2));
+                arrayList.add(str.substring(i2, indexOf2));
                 arrayList.add(str.substring(indexOf2 + 1, indexOf));
             } else {
-                arrayList.add(str.substring(i, indexOf));
+                arrayList.add(str.substring(i2, indexOf));
                 arrayList.add(null);
             }
-            i = indexOf + 1;
+            i2 = indexOf + 1;
         }
         return arrayList;
     }
@@ -278,9 +279,9 @@ public final class HttpUrlHelper {
         int delimiterOffset = HttpUrlHelperUtil.delimiterOffset(str, indexOf, str.length(), "?#");
         ArrayList arrayList = new ArrayList();
         while (indexOf < delimiterOffset) {
-            int i = indexOf + 1;
-            int delimiterOffset2 = HttpUrlHelperUtil.delimiterOffset(this.url, i, delimiterOffset, '/');
-            arrayList.add(this.url.substring(i, delimiterOffset2));
+            int i2 = indexOf + 1;
+            int delimiterOffset2 = HttpUrlHelperUtil.delimiterOffset(this.url, i2, delimiterOffset, '/');
+            arrayList.add(this.url.substring(i2, delimiterOffset2));
             indexOf = delimiterOffset2;
         }
         return arrayList;
@@ -369,16 +370,16 @@ public final class HttpUrlHelper {
             return null;
         }
         int size = list.size();
-        for (int i = 0; i < size; i += 2) {
-            if (str.equals(this.queryNamesAndValues.get(i))) {
-                return this.queryNamesAndValues.get(i + 1);
+        for (int i2 = 0; i2 < size; i2 += 2) {
+            if (str.equals(this.queryNamesAndValues.get(i2))) {
+                return this.queryNamesAndValues.get(i2 + 1);
             }
         }
         return null;
     }
 
-    public String queryParameterName(int i) {
-        return this.queryNamesAndValues.get(i * 2);
+    public String queryParameterName(int i2) {
+        return this.queryNamesAndValues.get(i2 * 2);
     }
 
     public Set<String> queryParameterNames() {
@@ -387,14 +388,14 @@ public final class HttpUrlHelper {
         }
         LinkedHashSet linkedHashSet = new LinkedHashSet();
         int size = this.queryNamesAndValues.size();
-        for (int i = 0; i < size; i += 2) {
-            linkedHashSet.add(this.queryNamesAndValues.get(i));
+        for (int i2 = 0; i2 < size; i2 += 2) {
+            linkedHashSet.add(this.queryNamesAndValues.get(i2));
         }
         return Collections.unmodifiableSet(linkedHashSet);
     }
 
-    public String queryParameterValue(int i) {
-        return this.queryNamesAndValues.get((i * 2) + 1);
+    public String queryParameterValue(int i2) {
+        return this.queryNamesAndValues.get((i2 * 2) + 1);
     }
 
     public List<String> queryParameterValues(String str) {
@@ -403,9 +404,9 @@ public final class HttpUrlHelper {
         }
         ArrayList arrayList = new ArrayList();
         int size = this.queryNamesAndValues.size();
-        for (int i = 0; i < size; i += 2) {
-            if (str.equals(this.queryNamesAndValues.get(i))) {
-                arrayList.add(this.queryNamesAndValues.get(i + 1));
+        for (int i2 = 0; i2 < size; i2 += 2) {
+            if (str.equals(this.queryNamesAndValues.get(i2))) {
+                arrayList.add(this.queryNamesAndValues.get(i2 + 1));
             }
         }
         return Collections.unmodifiableList(arrayList);
@@ -460,7 +461,7 @@ public final class HttpUrlHelper {
         return this.username;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         public String encodedFragment;
         public final List<String> encodedPathSegments;
@@ -471,7 +472,7 @@ public final class HttpUrlHelper {
         public String encodedPassword = "";
         public int port = -1;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes2.dex */
         public enum ParseResult {
             SUCCESS,
             MISSING_SCHEME,
@@ -486,9 +487,9 @@ public final class HttpUrlHelper {
             arrayList.add("");
         }
 
-        public static String canonicalizeHost(String str, int i, int i2) {
+        public static String canonicalizeHost(String str, int i2, int i3) {
             InetAddress decodeIpv6;
-            String percentDecode = HttpUrlHelper.percentDecode(str, i, i2, false);
+            String percentDecode = HttpUrlHelper.percentDecode(str, i2, i3, false);
             if (percentDecode.contains(":")) {
                 if (percentDecode.startsWith("[") && percentDecode.endsWith("]")) {
                     decodeIpv6 = decodeIpv6(percentDecode, 1, percentDecode.length() - 1);
@@ -507,38 +508,38 @@ public final class HttpUrlHelper {
             return HttpUrlHelperUtil.domainToAscii(percentDecode);
         }
 
-        public static boolean decodeIpv4Suffix(String str, int i, int i2, byte[] bArr, int i3) {
-            int i4 = i3;
-            while (i < i2) {
-                if (i4 == bArr.length) {
+        public static boolean decodeIpv4Suffix(String str, int i2, int i3, byte[] bArr, int i4) {
+            int i5 = i4;
+            while (i2 < i3) {
+                if (i5 == bArr.length) {
                     return false;
                 }
-                if (i4 != i3) {
-                    if (str.charAt(i) != '.') {
+                if (i5 != i4) {
+                    if (str.charAt(i2) != '.') {
                         return false;
                     }
-                    i++;
+                    i2++;
                 }
-                int i5 = i;
-                int i6 = 0;
-                while (i5 < i2) {
-                    char charAt = str.charAt(i5);
+                int i6 = i2;
+                int i7 = 0;
+                while (i6 < i3) {
+                    char charAt = str.charAt(i6);
                     if (charAt < '0' || charAt > '9') {
                         break;
-                    } else if ((i6 == 0 && i != i5) || (i6 = ((i6 * 10) + charAt) - 48) > 255) {
+                    } else if ((i7 == 0 && i2 != i6) || (i7 = ((i7 * 10) + charAt) - 48) > 255) {
                         return false;
                     } else {
-                        i5++;
+                        i6++;
                     }
                 }
-                if (i5 - i == 0) {
+                if (i6 - i2 == 0) {
                     return false;
                 }
-                bArr[i4] = (byte) i6;
-                i4++;
-                i = i5;
+                bArr[i5] = (byte) i7;
+                i5++;
+                i2 = i6;
             }
-            return i4 == i3 + 4;
+            return i5 == i4 + 4;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:41:0x0079, code lost:
@@ -548,28 +549,28 @@ public final class HttpUrlHelper {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public static InetAddress decodeIpv6(String str, int i, int i2) {
-            int i3;
+        public static InetAddress decodeIpv6(String str, int i2, int i3) {
+            int i4;
             byte[] bArr = new byte[16];
-            int i4 = 0;
-            int i5 = -1;
+            int i5 = 0;
             int i6 = -1;
+            int i7 = -1;
             while (true) {
-                if (i < i2) {
-                    if (i4 != 16) {
-                        int i7 = i + 2;
-                        if (i7 <= i2 && str.regionMatches(i, "::", 0, 2)) {
-                            if (i5 == -1) {
-                                i4 += 2;
-                                i5 = i4;
-                                if (i7 != i2) {
-                                    i6 = i7;
-                                    i = i6;
-                                    int i8 = 0;
-                                    while (i < i2) {
+                if (i2 < i3) {
+                    if (i5 != 16) {
+                        int i8 = i2 + 2;
+                        if (i8 <= i3 && str.regionMatches(i2, "::", 0, 2)) {
+                            if (i6 == -1) {
+                                i5 += 2;
+                                i6 = i5;
+                                if (i8 != i3) {
+                                    i7 = i8;
+                                    i2 = i7;
+                                    int i9 = 0;
+                                    while (i2 < i3) {
                                     }
-                                    i3 = i - i6;
-                                    if (i3 == 0) {
+                                    i4 = i2 - i7;
+                                    if (i4 == 0) {
                                         break;
                                     }
                                     break;
@@ -578,34 +579,34 @@ public final class HttpUrlHelper {
                             }
                             return null;
                         }
-                        if (i4 != 0) {
-                            if (str.regionMatches(i, ":", 0, 1)) {
-                                i++;
-                            } else if (!str.regionMatches(i, ".", 0, 1) || !decodeIpv4Suffix(str, i6, i2, bArr, i4 - 2)) {
+                        if (i5 != 0) {
+                            if (str.regionMatches(i2, ":", 0, 1)) {
+                                i2++;
+                            } else if (!str.regionMatches(i2, ".", 0, 1) || !decodeIpv4Suffix(str, i7, i3, bArr, i5 - 2)) {
                                 return null;
                             } else {
-                                i4 += 2;
+                                i5 += 2;
                             }
                         }
-                        i6 = i;
-                        i = i6;
-                        int i82 = 0;
-                        while (i < i2) {
-                            int decodeHexDigit = HttpUrlHelperUtil.decodeHexDigit(str.charAt(i));
+                        i7 = i2;
+                        i2 = i7;
+                        int i92 = 0;
+                        while (i2 < i3) {
+                            int decodeHexDigit = HttpUrlHelperUtil.decodeHexDigit(str.charAt(i2));
                             if (decodeHexDigit == -1) {
                                 break;
                             }
-                            i82 = (i82 << 4) + decodeHexDigit;
-                            i++;
+                            i92 = (i92 << 4) + decodeHexDigit;
+                            i2++;
                         }
-                        i3 = i - i6;
-                        if (i3 == 0 || i3 > 4) {
+                        i4 = i2 - i7;
+                        if (i4 == 0 || i4 > 4) {
                             break;
                         }
-                        int i9 = i4 + 1;
-                        bArr[i4] = (byte) ((i82 >>> 8) & 255);
-                        i4 = i9 + 1;
-                        bArr[i9] = (byte) (i82 & 255);
+                        int i10 = i5 + 1;
+                        bArr[i5] = (byte) ((i92 >>> 8) & 255);
+                        i5 = i10 + 1;
+                        bArr[i10] = (byte) (i92 & 255);
                     } else {
                         return null;
                     }
@@ -613,13 +614,13 @@ public final class HttpUrlHelper {
                     break;
                 }
             }
-            if (i4 != 16) {
-                if (i5 == -1) {
+            if (i5 != 16) {
+                if (i6 == -1) {
                     return null;
                 }
-                int i10 = i4 - i5;
-                System.arraycopy(bArr, i5, bArr, 16 - i10, i10);
-                Arrays.fill(bArr, i5, (16 - i4) + i5, (byte) 0);
+                int i11 = i5 - i6;
+                System.arraycopy(bArr, i6, bArr, 16 - i11, i11);
+                Arrays.fill(bArr, i6, (16 - i5) + i6, (byte) 0);
             }
             try {
                 return InetAddress.getByAddress(bArr);
@@ -629,36 +630,36 @@ public final class HttpUrlHelper {
         }
 
         public static String inet6AddressToAscii(byte[] bArr) {
-            int i = 0;
-            int i2 = -1;
-            int i3 = 0;
+            int i2 = 0;
+            int i3 = -1;
             int i4 = 0;
-            while (i3 < bArr.length) {
-                int i5 = i3;
-                while (i5 < 16 && bArr[i5] == 0 && bArr[i5 + 1] == 0) {
-                    i5 += 2;
+            int i5 = 0;
+            while (i4 < bArr.length) {
+                int i6 = i4;
+                while (i6 < 16 && bArr[i6] == 0 && bArr[i6 + 1] == 0) {
+                    i6 += 2;
                 }
-                int i6 = i5 - i3;
-                if (i6 > i4) {
-                    i2 = i3;
-                    i4 = i6;
+                int i7 = i6 - i4;
+                if (i7 > i5) {
+                    i3 = i4;
+                    i5 = i7;
                 }
-                i3 = i5 + 2;
+                i4 = i6 + 2;
             }
             StringBuilder sb = new StringBuilder();
-            while (i < bArr.length) {
-                if (i == i2) {
+            while (i2 < bArr.length) {
+                if (i2 == i3) {
                     sb.append(HttpUrlHelperUtil.writeByte(58));
-                    i += i4;
-                    if (i == 16) {
+                    i2 += i5;
+                    if (i2 == 16) {
                         sb.append(HttpUrlHelperUtil.writeByte(58));
                     }
                 } else {
-                    if (i > 0) {
+                    if (i2 > 0) {
                         sb.append(HttpUrlHelperUtil.writeByte(58));
                     }
-                    sb.append(HttpUrlHelperUtil.writeHexadecimalUnsignedLong(((bArr[i] & 255) << 8) | (bArr[i + 1] & 255)));
-                    i += 2;
+                    sb.append(HttpUrlHelperUtil.writeHexadecimalUnsignedLong(((bArr[i2] & 255) << 8) | (bArr[i2 + 1] & 255)));
+                    i2 += 2;
                 }
             }
             return sb.toString();
@@ -672,10 +673,10 @@ public final class HttpUrlHelper {
             return str.equals(IStringUtil.TOP_PATH) || str.equalsIgnoreCase("%2e.") || str.equalsIgnoreCase(".%2e") || str.equalsIgnoreCase("%2e%2e");
         }
 
-        public static int parsePort(String str, int i, int i2) {
+        public static int parsePort(String str, int i2, int i3) {
             int parseInt;
             try {
-                parseInt = Integer.parseInt(HttpUrlHelper.canonicalize(str, i, i2, "", false, false, false, true));
+                parseInt = Integer.parseInt(HttpUrlHelper.canonicalize(str, i2, i3, "", false, false, false, true));
             } catch (NumberFormatException unused) {
             }
             if (parseInt <= 0 || parseInt > 65535) {
@@ -694,26 +695,26 @@ public final class HttpUrlHelper {
             this.encodedPathSegments.add("");
         }
 
-        public static int portColonOffset(String str, int i, int i2) {
-            while (i < i2) {
-                char charAt = str.charAt(i);
+        public static int portColonOffset(String str, int i2, int i3) {
+            while (i2 < i3) {
+                char charAt = str.charAt(i2);
                 if (charAt == ':') {
-                    return i;
+                    return i2;
                 }
                 if (charAt == '[') {
                     do {
-                        i++;
-                        if (i < i2) {
+                        i2++;
+                        if (i2 < i3) {
                         }
-                    } while (str.charAt(i) != ']');
+                    } while (str.charAt(i2) != ']');
                 }
-                i++;
+                i2++;
             }
-            return i2;
+            return i3;
         }
 
-        private void push(String str, int i, int i2, boolean z, boolean z2) {
-            String canonicalize = HttpUrlHelper.canonicalize(str, i, i2, " \"<>^`{}|/\\?#", z2, false, false, true);
+        private void push(String str, int i2, int i3, boolean z, boolean z2) {
+            String canonicalize = HttpUrlHelper.canonicalize(str, i2, i3, " \"<>^`{}|/\\?#", z2, false, false, true);
             if (isDot(canonicalize)) {
                 return;
             }
@@ -811,24 +812,24 @@ public final class HttpUrlHelper {
             throw new UnsupportedOperationException("Method not decompiled: com.baidu.down.utils.HttpUrlHelper.Builder.resolvePath(java.lang.String, int, int):void");
         }
 
-        public static int schemeDelimiterOffset(String str, int i, int i2) {
-            if (i2 - i < 2) {
+        public static int schemeDelimiterOffset(String str, int i2, int i3) {
+            if (i3 - i2 < 2) {
                 return -1;
             }
-            char charAt = str.charAt(i);
+            char charAt = str.charAt(i2);
             if ((charAt >= 'a' && charAt <= 'z') || (charAt >= 'A' && charAt <= 'Z')) {
                 while (true) {
-                    i++;
-                    if (i >= i2) {
+                    i2++;
+                    if (i2 >= i3) {
                         break;
                     }
-                    char charAt2 = str.charAt(i);
+                    char charAt2 = str.charAt(i2);
                     if (charAt2 < 'a' || charAt2 > 'z') {
                         if (charAt2 < 'A' || charAt2 > 'Z') {
                             if (charAt2 < '0' || charAt2 > '9') {
                                 if (charAt2 != '+' && charAt2 != '-' && charAt2 != '.') {
                                     if (charAt2 == ':') {
-                                        return i;
+                                        return i2;
                                     }
                                 }
                             }
@@ -839,17 +840,17 @@ public final class HttpUrlHelper {
             return -1;
         }
 
-        public static int slashCount(String str, int i, int i2) {
-            int i3 = 0;
-            while (i < i2) {
-                char charAt = str.charAt(i);
+        public static int slashCount(String str, int i2, int i3) {
+            int i4 = 0;
+            while (i2 < i3) {
+                char charAt = str.charAt(i2);
                 if (charAt != '\\' && charAt != '/') {
                     break;
                 }
-                i3++;
-                i++;
+                i4++;
+                i2++;
             }
-            return i3;
+            return i4;
         }
 
         public Builder addEncodedPathSegment(String str) {
@@ -893,8 +894,8 @@ public final class HttpUrlHelper {
         }
 
         public int effectivePort() {
-            int i = this.port;
-            return i != -1 ? i : HttpUrlHelper.defaultPort(this.scheme);
+            int i2 = this.port;
+            return i2 != -1 ? i2 : HttpUrlHelper.defaultPort(this.scheme);
         }
 
         public Builder encodedFragment(String str) {
@@ -953,7 +954,7 @@ public final class HttpUrlHelper {
 
         public ParseResult parse(HttpUrlHelper httpUrlHelper, String str) {
             int delimiterOffset;
-            int i;
+            int i2;
             int skipLeadingAsciiWhitespace = HttpUrlHelperUtil.skipLeadingAsciiWhitespace(str, 0, str.length());
             int skipTrailingAsciiWhitespace = HttpUrlHelperUtil.skipTrailingAsciiWhitespace(str, skipLeadingAsciiWhitespace, str.length());
             if (schemeDelimiterOffset(str, skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace) != -1) {
@@ -985,49 +986,49 @@ public final class HttpUrlHelper {
                     encodedQuery(httpUrlHelper.encodedQuery());
                 }
             } else {
-                int i2 = skipLeadingAsciiWhitespace + slashCount;
+                int i3 = skipLeadingAsciiWhitespace + slashCount;
                 boolean z = false;
                 boolean z2 = false;
                 while (true) {
-                    delimiterOffset = HttpUrlHelperUtil.delimiterOffset(str, i2, skipTrailingAsciiWhitespace, "@/\\?#");
+                    delimiterOffset = HttpUrlHelperUtil.delimiterOffset(str, i3, skipTrailingAsciiWhitespace, "@/\\?#");
                     char charAt = delimiterOffset != skipTrailingAsciiWhitespace ? str.charAt(delimiterOffset) : (char) 65535;
                     if (charAt == 65535 || charAt == c3 || charAt == '/' || charAt == '\\' || charAt == c2) {
                         break;
                     }
                     if (charAt == '@') {
                         if (!z) {
-                            int delimiterOffset2 = HttpUrlHelperUtil.delimiterOffset(str, i2, delimiterOffset, ':');
-                            i = delimiterOffset;
-                            String canonicalize = HttpUrlHelper.canonicalize(str, i2, delimiterOffset2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
+                            int delimiterOffset2 = HttpUrlHelperUtil.delimiterOffset(str, i3, delimiterOffset, ':');
+                            i2 = delimiterOffset;
+                            String canonicalize = HttpUrlHelper.canonicalize(str, i3, delimiterOffset2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
                             if (z2) {
                                 canonicalize = this.encodedUsername + "%40" + canonicalize;
                             }
                             this.encodedUsername = canonicalize;
-                            if (delimiterOffset2 != i) {
-                                this.encodedPassword = HttpUrlHelper.canonicalize(str, delimiterOffset2 + 1, i, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
+                            if (delimiterOffset2 != i2) {
+                                this.encodedPassword = HttpUrlHelper.canonicalize(str, delimiterOffset2 + 1, i2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
                                 z = true;
                             }
                             z2 = true;
                         } else {
-                            i = delimiterOffset;
-                            this.encodedPassword += "%40" + HttpUrlHelper.canonicalize(str, i2, i, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
+                            i2 = delimiterOffset;
+                            this.encodedPassword += "%40" + HttpUrlHelper.canonicalize(str, i3, i2, " \"':;<=>@[]^`{}|/\\?#", true, false, false, true);
                         }
-                        i2 = i + 1;
+                        i3 = i2 + 1;
                     }
                     c2 = '?';
                     c3 = SwanTaskDeadEvent.SEPARATOR;
                 }
-                int portColonOffset = portColonOffset(str, i2, delimiterOffset);
-                int i3 = portColonOffset + 1;
-                if (i3 < delimiterOffset) {
-                    this.host = canonicalizeHost(str, i2, portColonOffset);
-                    int parsePort = parsePort(str, i3, delimiterOffset);
+                int portColonOffset = portColonOffset(str, i3, delimiterOffset);
+                int i4 = portColonOffset + 1;
+                if (i4 < delimiterOffset) {
+                    this.host = canonicalizeHost(str, i3, portColonOffset);
+                    int parsePort = parsePort(str, i4, delimiterOffset);
                     this.port = parsePort;
                     if (parsePort == -1) {
                         return ParseResult.INVALID_PORT;
                     }
                 } else {
-                    this.host = canonicalizeHost(str, i2, portColonOffset);
+                    this.host = canonicalizeHost(str, i3, portColonOffset);
                     this.port = HttpUrlHelper.defaultPort(this.scheme);
                 }
                 if (this.host == null) {
@@ -1056,26 +1057,26 @@ public final class HttpUrlHelper {
             throw new NullPointerException("password == null");
         }
 
-        public Builder port(int i) {
-            if (i > 0 && i <= 65535) {
-                this.port = i;
+        public Builder port(int i2) {
+            if (i2 > 0 && i2 <= 65535) {
+                this.port = i2;
                 return this;
             }
-            throw new IllegalArgumentException("unexpected port: " + i);
+            throw new IllegalArgumentException("unexpected port: " + i2);
         }
 
         public Builder reencodeForUri() {
             int size = this.encodedPathSegments.size();
-            for (int i = 0; i < size; i++) {
-                this.encodedPathSegments.set(i, HttpUrlHelper.canonicalize(this.encodedPathSegments.get(i), "[]", true, true, false, true));
+            for (int i2 = 0; i2 < size; i2++) {
+                this.encodedPathSegments.set(i2, HttpUrlHelper.canonicalize(this.encodedPathSegments.get(i2), "[]", true, true, false, true));
             }
             List<String> list = this.encodedQueryNamesAndValues;
             if (list != null) {
                 int size2 = list.size();
-                for (int i2 = 0; i2 < size2; i2++) {
-                    String str = this.encodedQueryNamesAndValues.get(i2);
+                for (int i3 = 0; i3 < size2; i3++) {
+                    String str = this.encodedQueryNamesAndValues.get(i3);
                     if (str != null) {
-                        this.encodedQueryNamesAndValues.set(i2, HttpUrlHelper.canonicalize(str, "\\^`{|}", true, true, true, true));
+                        this.encodedQueryNamesAndValues.set(i3, HttpUrlHelper.canonicalize(str, "\\^`{|}", true, true, true, true));
                     }
                 }
             }
@@ -1086,8 +1087,8 @@ public final class HttpUrlHelper {
             return this;
         }
 
-        public Builder removePathSegment(int i) {
-            this.encodedPathSegments.remove(i);
+        public Builder removePathSegment(int i2) {
+            this.encodedPathSegments.remove(i2);
             if (this.encodedPathSegments.isEmpty()) {
                 this.encodedPathSegments.add("");
             }
@@ -1108,10 +1109,10 @@ public final class HttpUrlHelper {
             throw new NullPointerException("scheme == null");
         }
 
-        public Builder setEncodedPathSegment(int i, String str) {
+        public Builder setEncodedPathSegment(int i2, String str) {
             if (str != null) {
                 String canonicalize = HttpUrlHelper.canonicalize(str, 0, str.length(), " \"<>^`{}|/\\?#", true, false, false, true);
-                this.encodedPathSegments.set(i, canonicalize);
+                this.encodedPathSegments.set(i2, canonicalize);
                 if (isDot(canonicalize) || isDotDot(canonicalize)) {
                     throw new IllegalArgumentException("unexpected path segment: " + str);
                 }
@@ -1120,11 +1121,11 @@ public final class HttpUrlHelper {
             throw new NullPointerException("encodedPathSegment == null");
         }
 
-        public Builder setPathSegment(int i, String str) {
+        public Builder setPathSegment(int i2, String str) {
             if (str != null) {
                 String canonicalize = HttpUrlHelper.canonicalize(str, 0, str.length(), " \"<>^`{}|/\\?#", false, false, false, true);
                 if (!isDot(canonicalize) && !isDotDot(canonicalize)) {
-                    this.encodedPathSegments.set(i, canonicalize);
+                    this.encodedPathSegments.set(i2, canonicalize);
                     return this;
                 }
                 throw new IllegalArgumentException("unexpected path segment: " + str);
@@ -1177,12 +1178,12 @@ public final class HttpUrlHelper {
         }
 
         private Builder addPathSegments(String str, boolean z) {
-            int i = 0;
+            int i2 = 0;
             do {
-                int delimiterOffset = HttpUrlHelperUtil.delimiterOffset(str, i, str.length(), "/\\");
-                push(str, i, delimiterOffset, delimiterOffset < str.length(), z);
-                i = delimiterOffset + 1;
-            } while (i <= str.length());
+                int delimiterOffset = HttpUrlHelperUtil.delimiterOffset(str, i2, str.length(), "/\\");
+                push(str, i2, delimiterOffset, delimiterOffset < str.length(), z);
+                i2 = delimiterOffset + 1;
+            } while (i2 <= str.length());
             return this;
         }
     }
@@ -1215,21 +1216,21 @@ public final class HttpUrlHelper {
         return Collections.unmodifiableList(arrayList);
     }
 
-    public static String percentDecode(String str, int i, int i2, boolean z) {
+    public static String percentDecode(String str, int i2, int i3, boolean z) {
         StringBuilder sb = new StringBuilder();
-        for (int i3 = i; i3 < i2; i3++) {
-            char charAt = str.charAt(i3);
+        for (int i4 = i2; i4 < i3; i4++) {
+            char charAt = str.charAt(i4);
             if (charAt == '%' || (charAt == '+' && z)) {
                 try {
-                    sb.append(URLEncoder.encode(str.substring(i, i3), "utf-8"));
+                    sb.append(URLEncoder.encode(str.substring(i2, i4), "utf-8"));
                 } catch (UnsupportedEncodingException e2) {
                     e2.printStackTrace();
                 }
-                sb.append(percentDecode2(str, i3, i2, z));
+                sb.append(percentDecode2(str, i4, i3, z));
                 return sb.toString();
             }
         }
-        return str.substring(i, i2);
+        return str.substring(i2, i3);
     }
 
     public static String canonicalize(String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {

@@ -28,8 +28,8 @@ public final class ScrollerCompat {
     }
 
     @Deprecated
-    public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-        this.mScroller.fling(i, i2, i3, i4, i5, i6, i7, i8);
+    public void fling(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+        this.mScroller.fling(i2, i3, i4, i5, i6, i7, i8, i9);
     }
 
     @Deprecated
@@ -68,23 +68,23 @@ public final class ScrollerCompat {
     }
 
     @Deprecated
-    public void notifyHorizontalEdgeReached(int i, int i2, int i3) {
-        this.mScroller.notifyHorizontalEdgeReached(i, i2, i3);
+    public void notifyHorizontalEdgeReached(int i2, int i3, int i4) {
+        this.mScroller.notifyHorizontalEdgeReached(i2, i3, i4);
     }
 
     @Deprecated
-    public void notifyVerticalEdgeReached(int i, int i2, int i3) {
-        this.mScroller.notifyVerticalEdgeReached(i, i2, i3);
+    public void notifyVerticalEdgeReached(int i2, int i3, int i4) {
+        this.mScroller.notifyVerticalEdgeReached(i2, i3, i4);
     }
 
     @Deprecated
-    public boolean springBack(int i, int i2, int i3, int i4, int i5, int i6) {
-        return this.mScroller.springBack(i, i2, i3, i4, i5, i6);
+    public boolean springBack(int i2, int i3, int i4, int i5, int i6, int i7) {
+        return this.mScroller.springBack(i2, i3, i4, i5, i6, i7);
     }
 
     @Deprecated
-    public void startScroll(int i, int i2, int i3, int i4) {
-        this.mScroller.startScroll(i, i2, i3, i4);
+    public void startScroll(int i2, int i3, int i4, int i5) {
+        this.mScroller.startScroll(i2, i3, i4, i5);
     }
 
     @Deprecated
@@ -93,12 +93,12 @@ public final class ScrollerCompat {
     }
 
     @Deprecated
-    public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
-        this.mScroller.fling(i, i2, i3, i4, i5, i6, i7, i8, i9, i10);
+    public void fling(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11) {
+        this.mScroller.fling(i2, i3, i4, i5, i6, i7, i8, i9, i10, i11);
     }
 
     @Deprecated
-    public void startScroll(int i, int i2, int i3, int i4, int i5) {
-        this.mScroller.startScroll(i, i2, i3, i4, i5);
+    public void startScroll(int i2, int i3, int i4, int i5, int i6) {
+        this.mScroller.startScroll(i2, i3, i4, i5, i6);
     }
 }

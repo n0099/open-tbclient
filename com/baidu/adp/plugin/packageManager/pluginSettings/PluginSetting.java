@@ -2,7 +2,7 @@ package com.baidu.adp.plugin.packageManager.pluginSettings;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.c.e.m.b;
+import d.a.c.e.m.b;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class PluginSetting implements Serializable, Cloneable {
@@ -42,19 +42,19 @@ public class PluginSetting implements Serializable, Cloneable {
         }
         int length = split.length;
         int[] iArr = new int[length * 2];
-        for (int i = 0; i < length; i++) {
-            if (TextUtils.isEmpty(split[i])) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (TextUtils.isEmpty(split[i2])) {
                 BdLog.e("cmdRange2Int is null");
                 return null;
             }
-            String[] split2 = split[i].split("-");
+            String[] split2 = split[i2].split("-");
             if (split2 != null && split2.length == 2) {
                 int d2 = b.d(split2[0], -1);
                 int d3 = b.d(split2[1], -1);
                 if (d2 >= 0 && d3 >= 0 && d2 <= d3) {
-                    int i2 = i * 2;
-                    iArr[i2] = d2;
-                    iArr[i2 + 1] = d3;
+                    int i3 = i2 * 2;
+                    iArr[i3] = d2;
+                    iArr[i3 + 1] = d3;
                 } else {
                     BdLog.e("cmdRange2Int split  toInt error");
                     return null;
@@ -73,10 +73,10 @@ public class PluginSetting implements Serializable, Cloneable {
         }
         int length = iArr.length;
         StringBuilder sb = new StringBuilder(50);
-        for (int i = 0; i < length; i++) {
-            sb.append(iArr[i]);
-            if (i != length - 1) {
-                if (i % 2 == 0) {
+        for (int i2 = 0; i2 < length; i2++) {
+            sb.append(iArr[i2]);
+            if (i2 != length - 1) {
+                if (i2 % 2 == 0) {
                     sb.append("-");
                 } else {
                     sb.append(",");
@@ -105,7 +105,7 @@ public class PluginSetting implements Serializable, Cloneable {
         return this.cmdRangeStr;
     }
 
-    public boolean isContainCmd(int i) {
+    public boolean isContainCmd(int i2) {
         int[] iArr = this.cmdRangeInt;
         if (iArr == null) {
             return false;
@@ -114,9 +114,9 @@ public class PluginSetting implements Serializable, Cloneable {
         if (length % 2 != 0) {
             return false;
         }
-        for (int i2 = 0; i2 < length - 1; i2 += 2) {
+        for (int i3 = 0; i3 < length - 1; i3 += 2) {
             int[] iArr2 = this.cmdRangeInt;
-            if (i >= iArr2[i2] && i <= iArr2[i2 + 1]) {
+            if (i2 >= iArr2[i3] && i2 <= iArr2[i3 + 1]) {
                 return true;
             }
         }

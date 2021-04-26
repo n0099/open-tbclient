@@ -12,21 +12,21 @@ public class a extends v<Boolean> {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f29939a;
+        public static final /* synthetic */ int[] f30854a;
 
         static {
             int[] iArr = new int[com.bytedance.sdk.openadsdk.preload.a.d.b.values().length];
-            f29939a = iArr;
+            f30854a = iArr;
             try {
                 iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.BOOLEAN.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f29939a[com.bytedance.sdk.openadsdk.preload.a.d.b.NULL.ordinal()] = 2;
+                f30854a[com.bytedance.sdk.openadsdk.preload.a.d.b.NULL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f29939a[com.bytedance.sdk.openadsdk.preload.a.d.b.NUMBER.ordinal()] = 3;
+                f30854a[com.bytedance.sdk.openadsdk.preload.a.d.b.NUMBER.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -47,12 +47,12 @@ public class a extends v<Boolean> {
     /* renamed from: a */
     public Boolean b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
         com.bytedance.sdk.openadsdk.preload.a.d.b f2 = aVar.f();
-        int i = AnonymousClass1.f29939a[f2.ordinal()];
-        if (i != 1) {
-            if (i == 2) {
+        int i2 = AnonymousClass1.f30854a[f2.ordinal()];
+        if (i2 != 1) {
+            if (i2 == 2) {
                 aVar.j();
                 return null;
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 return Boolean.valueOf(aVar.m() != 0);
             } else {
                 throw new p("Expected BOOLEAN or NUMBER but was " + f2);

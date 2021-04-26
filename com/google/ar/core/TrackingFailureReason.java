@@ -11,20 +11,20 @@ public enum TrackingFailureReason {
     
     public final int nativeCode;
 
-    TrackingFailureReason(int i) {
-        this.nativeCode = i;
+    TrackingFailureReason(int i2) {
+        this.nativeCode = i2;
     }
 
-    public static TrackingFailureReason forNumber(int i) {
+    public static TrackingFailureReason forNumber(int i2) {
         TrackingFailureReason[] values;
         for (TrackingFailureReason trackingFailureReason : values()) {
-            if (trackingFailureReason.nativeCode == i) {
+            if (trackingFailureReason.nativeCode == i2) {
                 return trackingFailureReason;
             }
         }
         StringBuilder sb = new StringBuilder(68);
         sb.append("Unexpected value for native TrackingFailureReason, value=");
-        sb.append(i);
+        sb.append(i2);
         throw new FatalException(sb.toString());
     }
 }

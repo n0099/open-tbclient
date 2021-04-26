@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 public class PhotoLiveLinearLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f22065e;
+    public a f22748e;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -16,29 +16,29 @@ public class PhotoLiveLinearLayout extends LinearLayout {
 
     public PhotoLiveLinearLayout(Context context) {
         super(context);
-        this.f22065e = null;
+        this.f22748e = null;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        a aVar = this.f22065e;
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        a aVar = this.f22748e;
         if (aVar != null) {
             aVar.a();
         }
     }
 
     public void setOnChangeLayoutListener(a aVar) {
-        this.f22065e = aVar;
+        this.f22748e = aVar;
     }
 
     public PhotoLiveLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f22065e = null;
+        this.f22748e = null;
     }
 }

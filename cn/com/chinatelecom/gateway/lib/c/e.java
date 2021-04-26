@@ -15,31 +15,31 @@ import java.net.InetAddress;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1552a = "e";
+    public static final String f1574a = "e";
 
     /* renamed from: e  reason: collision with root package name */
-    public a f1556e;
+    public a f1578e;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1553b = false;
+    public boolean f1575b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public ConnectivityManager f1554c = null;
+    public ConnectivityManager f1576c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public ConnectivityManager.NetworkCallback f1555d = null;
+    public ConnectivityManager.NetworkCallback f1577d = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f1557f = 0;
+    public long f1579f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f1558g = 0;
+    public long f1580g = 0;
 
     /* loaded from: classes.dex */
     public interface a {
         void a();
 
-        void a(int i, String str, long j);
+        void a(int i2, String str, long j);
 
         void a(Network network, long j);
     }
@@ -49,16 +49,16 @@ public class e {
             byte[] address = InetAddress.getByName(str).getAddress();
             return (address[0] & 255) | ((address[3] & 255) << 24) | ((address[2] & 255) << 16) | ((address[1] & 255) << 8);
         } catch (Throwable th) {
-            CtAuth.warn(f1552a, "When InetAddress.getByName(),throws exception", th);
+            CtAuth.warn(f1574a, "When InetAddress.getByName(),throws exception", th);
             return -1;
         }
     }
 
     @TargetApi(21)
     private void a(Context context) {
-        this.f1557f = 0L;
-        this.f1554c = (ConnectivityManager) context.getSystemService("connectivity");
-        this.f1558g = System.currentTimeMillis();
+        this.f1579f = 0L;
+        this.f1576c = (ConnectivityManager) context.getSystemService("connectivity");
+        this.f1580g = System.currentTimeMillis();
         NetworkRequest.Builder builder = new NetworkRequest.Builder();
         builder.addCapability(12);
         builder.addTransportType(0);
@@ -68,23 +68,23 @@ public class e {
             public void onAvailable(Network network) {
                 long currentTimeMillis = System.currentTimeMillis();
                 e eVar = e.this;
-                eVar.f1557f = currentTimeMillis - eVar.f1558g;
-                e.this.f1553b = true;
-                if (e.this.f1556e != null) {
-                    e.this.f1556e.a(network, e.this.f1557f);
+                eVar.f1579f = currentTimeMillis - eVar.f1580g;
+                e.this.f1575b = true;
+                if (e.this.f1578e != null) {
+                    e.this.f1578e.a(network, e.this.f1579f);
                 }
-                if (e.this.f1554c != null) {
+                if (e.this.f1576c != null) {
                     try {
-                        e.this.f1554c.unregisterNetworkCallback(this);
-                        e.this.f1554c = null;
+                        e.this.f1576c.unregisterNetworkCallback(this);
+                        e.this.f1576c = null;
                     } catch (Throwable th) {
-                        CtAuth.warn(e.f1552a, "switchToMobileForAboveL", th);
+                        CtAuth.warn(e.f1574a, "switchToMobileForAboveL", th);
                     }
                 }
             }
         };
-        this.f1555d = networkCallback;
-        this.f1554c.requestNetwork(build, networkCallback);
+        this.f1577d = networkCallback;
+        this.f1576c.requestNetwork(build, networkCallback);
     }
 
     public static String b(String str) {
@@ -108,89 +108,89 @@ public class e {
     public void b() {
         ConnectivityManager connectivityManager;
         ConnectivityManager.NetworkCallback networkCallback;
-        if (Build.VERSION.SDK_INT < 21 || (connectivityManager = this.f1554c) == null || (networkCallback = this.f1555d) == null) {
+        if (Build.VERSION.SDK_INT < 21 || (connectivityManager = this.f1576c) == null || (networkCallback = this.f1577d) == null) {
             return;
         }
         try {
             connectivityManager.unregisterNetworkCallback(networkCallback);
         } catch (Throwable th) {
-            CtAuth.warn(f1552a, "unregisterNetworkCallback", th);
+            CtAuth.warn(f1574a, "unregisterNetworkCallback", th);
         }
-        this.f1554c = null;
+        this.f1576c = null;
     }
 
     private boolean b(Context context, String str) {
         boolean z = false;
         try {
             Class<?> cls = Class.forName("android.net.ConnectivityManager");
-            this.f1557f = 0L;
-            this.f1558g = System.currentTimeMillis();
+            this.f1579f = 0L;
+            this.f1580g = System.currentTimeMillis();
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            this.f1554c = connectivityManager;
+            this.f1576c = connectivityManager;
             if (connectivityManager.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) != 0) {
                 Method method = cls.getMethod("startUsingNetworkFeature", Integer.TYPE, String.class);
-                ConnectivityManager connectivityManager2 = this.f1554c;
+                ConnectivityManager connectivityManager2 = this.f1576c;
                 Object[] objArr = new Object[2];
                 objArr[0] = 0;
                 objArr[1] = "enableHIPRI";
                 method.invoke(connectivityManager2, objArr);
-                for (int i = 0; i < 5 && this.f1554c.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) != 0; i++) {
+                for (int i2 = 0; i2 < 5 && this.f1576c.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) != 0; i2++) {
                     Thread.sleep(500L);
                 }
             }
-            z = ((Boolean) cls.getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(this.f1554c, 5, Integer.valueOf(a(b(str))))).booleanValue();
-            this.f1557f = System.currentTimeMillis() - this.f1558g;
-            String str2 = f1552a;
+            z = ((Boolean) cls.getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(this.f1576c, 5, Integer.valueOf(a(b(str))))).booleanValue();
+            this.f1579f = System.currentTimeMillis() - this.f1580g;
+            String str2 = f1574a;
             StringBuilder sb = new StringBuilder();
             sb.append("Switch network result ： ");
             sb.append(z);
             sb.append(" (4.x) , expendTime ：");
-            sb.append(this.f1557f);
+            sb.append(this.f1579f);
             CtAuth.info(str2, sb.toString());
         } catch (Throwable th) {
-            CtAuth.warn(f1552a, "4.x网络切换异常", th);
+            CtAuth.warn(f1574a, "4.x网络切换异常", th);
         }
         return z;
     }
 
-    public void a(final int i) {
+    public void a(final int i2) {
         i.a(new Runnable() { // from class: cn.com.chinatelecom.gateway.lib.c.e.1
             @Override // java.lang.Runnable
             public void run() {
-                if (i > 2500) {
+                if (i2 > 2500) {
                     try {
                         Thread.sleep(TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
                     } catch (Throwable th) {
-                        CtAuth.warn(e.f1552a, "timeoutCheckRunnable exception!", th);
+                        CtAuth.warn(e.f1574a, "timeoutCheckRunnable exception!", th);
                     }
-                    if (!e.this.f1553b) {
-                        if (e.this.f1556e != null) {
-                            e.this.f1556e.a(80800, "WIFI切换超时", TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
+                    if (!e.this.f1575b) {
+                        if (e.this.f1578e != null) {
+                            e.this.f1578e.a(80800, "WIFI切换超时", TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
                         }
-                        CtAuth.info(e.f1552a, "切换网络超时(L)");
+                        CtAuth.info(e.f1574a, "切换网络超时(L)");
                         e.this.b();
                         return;
                     }
                 }
                 try {
-                    Thread.sleep(i <= 2500 ? i : i - 2500);
+                    Thread.sleep(i2 <= 2500 ? i2 : i2 - 2500);
                 } catch (Throwable th2) {
-                    CtAuth.warn(e.f1552a, "timeoutCheckRunnable exception!", th2);
+                    CtAuth.warn(e.f1574a, "timeoutCheckRunnable exception!", th2);
                 }
-                if (e.this.f1556e != null) {
-                    e.this.f1556e.a();
+                if (e.this.f1578e != null) {
+                    e.this.f1578e.a();
                 }
             }
         });
     }
 
     public void a(Context context, a aVar) {
-        this.f1556e = aVar;
+        this.f1578e = aVar;
         try {
             a(context);
         } catch (Throwable th) {
-            CtAuth.warn(f1552a, "switchToMobileForAboveL", th);
-            a aVar2 = this.f1556e;
+            CtAuth.warn(f1574a, "switchToMobileForAboveL", th);
+            a aVar2 = this.f1578e;
             if (aVar2 != null) {
                 aVar2.a(80801, "WIFI切换异常", -1L);
             }

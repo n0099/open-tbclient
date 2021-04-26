@@ -4,8 +4,8 @@ public class CharCache {
     public char[] cache;
     public int pos;
 
-    public CharCache(int i) {
-        this.cache = new char[i];
+    public CharCache(int i2) {
+        this.cache = new char[i2];
     }
 
     public void append(String str) {
@@ -31,11 +31,11 @@ public class CharCache {
     }
 
     public void append(char c2) {
-        int i = this.pos;
+        int i2 = this.pos;
         char[] cArr = this.cache;
-        if (i < cArr.length - 1) {
-            cArr[i] = c2;
-            this.pos = i + 1;
+        if (i2 < cArr.length - 1) {
+            cArr[i2] = c2;
+            this.pos = i2 + 1;
         }
     }
 }

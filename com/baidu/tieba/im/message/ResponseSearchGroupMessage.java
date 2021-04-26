@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.data.BaseGroupData;
 import com.squareup.wire.Wire;
-import d.b.c.e.d.l;
+import d.a.c.e.d.l;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -47,7 +47,7 @@ public class ResponseSearchGroupMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         SearchGroupResIdl searchGroupResIdl = (SearchGroupResIdl) new Wire(new Class[0]).parseFrom(bArr, SearchGroupResIdl.class);
         setError(searchGroupResIdl.error.errorno.intValue());
         setErrorString(searchGroupResIdl.error.usermsg);
@@ -81,8 +81,8 @@ public class ResponseSearchGroupMessage extends SocketResponsedMessage {
         setSearchResult(linkedList);
     }
 
-    public ResponseSearchGroupMessage(int i) {
-        super(i);
+    public ResponseSearchGroupMessage(int i2) {
+        super(i2);
         this.searchResult = new ArrayList();
         this.cacheList = new ArrayList();
     }

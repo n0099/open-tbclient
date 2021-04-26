@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import d.b.c.a.e;
-import d.b.c.e.p.k;
-import d.b.c.e.p.l;
-import d.b.j0.d3.f0;
+import d.a.c.a.e;
+import d.a.c.e.p.k;
+import d.a.c.e.p.l;
+import d.a.j0.d3.f0;
 /* loaded from: classes5.dex */
 public class NewFollowButton extends TBSpecificationBtn implements View.OnClickListener {
     public int A;
@@ -28,8 +28,8 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public boolean E;
     public int F;
     public boolean G;
-    public d.b.i0.r.f0.m.b H;
-    public d.b.i0.r.f0.m.b I;
+    public d.a.i0.r.f0.m.b H;
+    public d.a.i0.r.f0.m.b I;
     public LikeModel J;
     public f0 K;
     public b L;
@@ -48,15 +48,15 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public class a implements Animation.AnimationListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f21832a;
+        public final /* synthetic */ boolean f22489a;
 
         public a(boolean z) {
-            this.f21832a = z;
+            this.f22489a = z;
         }
 
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
-            NewFollowButton.this.E(this.f21832a);
+            NewFollowButton.this.B(this.f22489a);
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -73,7 +73,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         public b() {
         }
 
-        @Override // d.b.j0.d3.f0.a
+        @Override // d.a.j0.d3.f0.a
         public void a(String str, long j) {
             if (NewFollowButton.this.y != null) {
                 NewFollowButton.this.y.a(str, j);
@@ -81,7 +81,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             NewFollowButton.this.M = false;
         }
 
-        @Override // d.b.j0.d3.f0.a
+        @Override // d.a.j0.d3.f0.a
         public void b(String str, long j) {
             NewFollowButton newFollowButton = NewFollowButton.this;
             newFollowButton.F(false, newFollowButton.E);
@@ -91,15 +91,15 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             NewFollowButton.this.M = false;
         }
 
-        @Override // d.b.c.a.e
+        @Override // d.a.c.a.e
         public void c(Object obj) {
             if (NewFollowButton.this.J.getErrorCode() == 22) {
-                l.L(NewFollowButton.this.u.getPageActivity(), NewFollowButton.this.u.getString(R.string.had_liked_forum));
+                l.M(NewFollowButton.this.u.getPageActivity(), NewFollowButton.this.u.getString(R.string.had_liked_forum));
                 NewFollowButton.this.M = false;
             } else if (obj == null) {
                 NewFollowButton.this.M = false;
             } else if (NewFollowButton.this.J.getErrorCode() != 0) {
-                l.L(NewFollowButton.this.u.getPageActivity(), NewFollowButton.this.J.getErrorString());
+                l.M(NewFollowButton.this.u.getPageActivity(), NewFollowButton.this.J.getErrorString());
                 NewFollowButton.this.M = false;
             } else {
                 NewFollowButton newFollowButton = NewFollowButton.this;
@@ -124,31 +124,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         if (this.M || this.u == null) {
             return;
         }
-        if (!l.C()) {
-            UtilHelper.showToast(this.u.getPageActivity(), this.u.getString(R.string.neterror));
-        } else if (StringUtils.isNull(this.s) || this.t <= 0 || !ViewHelper.checkUpIsLogin(this.u.getPageActivity())) {
-        } else {
-            if (this.L == null) {
-                this.L = new b(this, null);
-            }
-            if (this.J == null) {
-                LikeModel likeModel = new LikeModel(this.u);
-                this.J = likeModel;
-                likeModel.setLoadDataCallBack(this.L);
-            }
-            if (k.isForumName(this.s)) {
-                this.M = true;
-                this.J.E();
-                this.J.H(this.s, String.valueOf(this.t));
-            }
-        }
-    }
-
-    public final void B() {
-        if (this.M || this.u == null) {
-            return;
-        }
-        if (!l.C()) {
+        if (!l.D()) {
             UtilHelper.showToast(this.u.getPageActivity(), this.u.getString(R.string.neterror));
         } else if (StringUtils.isNull(this.s) || this.t <= 0 || !ViewHelper.checkUpIsLogin(this.u.getPageActivity())) {
         } else {
@@ -165,12 +141,12 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         }
     }
 
-    public final void E(boolean z) {
+    public final void B(boolean z) {
         if (z) {
             TBSpecificationButtonConfig tBSpecificationButtonConfig = this.w;
             if (tBSpecificationButtonConfig == null) {
                 if (this.I == null) {
-                    d.b.i0.r.f0.m.b bVar = new d.b.i0.r.f0.m.b();
+                    d.a.i0.r.f0.m.b bVar = new d.a.i0.r.f0.m.b();
                     this.I = bVar;
                     bVar.r(R.color.CAM_X0109);
                     this.I.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
@@ -185,7 +161,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.v;
             if (tBSpecificationButtonConfig2 == null) {
                 if (this.H == null) {
-                    d.b.i0.r.f0.m.b bVar2 = new d.b.i0.r.f0.m.b();
+                    d.a.i0.r.f0.m.b bVar2 = new d.a.i0.r.f0.m.b();
                     this.H = bVar2;
                     bVar2.q(R.color.CAM_X0302);
                     if (this.C) {
@@ -215,16 +191,40 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         if (z2 && (animation = this.N) != null) {
             startAnimation(animation);
         } else {
-            E(z);
+            B(z);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.G) {
-            A();
+            z();
         } else {
-            B();
+            A();
+        }
+    }
+
+    public final void z() {
+        if (this.M || this.u == null) {
+            return;
+        }
+        if (!l.D()) {
+            UtilHelper.showToast(this.u.getPageActivity(), this.u.getString(R.string.neterror));
+        } else if (StringUtils.isNull(this.s) || this.t <= 0 || !ViewHelper.checkUpIsLogin(this.u.getPageActivity())) {
+        } else {
+            if (this.L == null) {
+                this.L = new b(this, null);
+            }
+            if (this.J == null) {
+                LikeModel likeModel = new LikeModel(this.u);
+                this.J = likeModel;
+                likeModel.setLoadDataCallBack(this.L);
+            }
+            if (k.isForumName(this.s)) {
+                this.M = true;
+                this.J.E();
+                this.J.H(this.s, String.valueOf(this.t));
+            }
         }
     }
 
@@ -232,8 +232,8 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         this(context, attributeSet, 0);
     }
 
-    public NewFollowButton(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public NewFollowButton(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.z = true;
         this.A = UtilHelper.getDimenPixelSize(R.dimen.tbds4);
         this.B = UtilHelper.getDimenPixelSize(R.dimen.tbds30);

@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import d.b.c.e.m.b;
-import d.b.i0.r.q.a2;
+import d.a.c.e.m.b;
+import d.a.i0.r.q.a2;
 import java.io.Serializable;
 import java.util.Map;
 import org.json.JSONObject;
@@ -84,8 +84,8 @@ public class VideoItemData implements Serializable, Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public VideoItemData[] newArray(int i) {
-            return new VideoItemData[i];
+        public VideoItemData[] newArray(int i2) {
+            return new VideoItemData[i2];
         }
     }
 
@@ -159,7 +159,7 @@ public class VideoItemData implements Serializable, Parcelable {
 
     public VideoItemData buildWithOriginThreadData(OriginalThreadInfo originalThreadInfo) {
         if (originalThreadInfo != null) {
-            this.thread_id = originalThreadInfo.f12885f;
+            this.thread_id = originalThreadInfo.f12801f;
             this.post_id = originalThreadInfo.n;
             VideoInfo videoInfo = originalThreadInfo.r;
             if (videoInfo != null) {
@@ -176,14 +176,14 @@ public class VideoItemData implements Serializable, Parcelable {
             this.comment_num = String.valueOf(originalThreadInfo.x);
             this.agree_num = String.valueOf(originalThreadInfo.w.agree_num);
             this.share_num = String.valueOf(originalThreadInfo.y);
-            String str = originalThreadInfo.f12886g;
+            String str = originalThreadInfo.f12802g;
             this.title = str;
             if (TextUtils.isEmpty(str)) {
-                this.title = originalThreadInfo.f12881b;
+                this.title = originalThreadInfo.f12797b;
             }
-            this.forum_id = String.valueOf(originalThreadInfo.f12884e);
+            this.forum_id = String.valueOf(originalThreadInfo.f12800e);
             this.baijiahaoData = originalThreadInfo.p;
-            this.forum_name = originalThreadInfo.f12883d;
+            this.forum_name = originalThreadInfo.f12799d;
             this.is_agreed = String.valueOf(originalThreadInfo.w.has_agree);
             if (originalThreadInfo.v != null) {
                 UserItemData userItemData = new UserItemData();
@@ -267,11 +267,11 @@ public class VideoItemData implements Serializable, Parcelable {
         if (baijiahaoData == null) {
             return 1;
         }
-        int i = baijiahaoData.oriUgcType;
-        if (i == 2) {
+        int i2 = baijiahaoData.oriUgcType;
+        if (i2 == 2) {
             return 3;
         }
-        return i == 4 ? 2 : 1;
+        return i2 == 4 ? 2 : 1;
     }
 
     public long getVideoWatchDuration() {
@@ -348,7 +348,7 @@ public class VideoItemData implements Serializable, Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.forum_id);
         parcel.writeString(this.forum_name);
         parcel.writeString(this.mark_id);
@@ -373,8 +373,8 @@ public class VideoItemData implements Serializable, Parcelable {
         parcel.writeString(this.share_num);
         parcel.writeString(this.comment_num);
         parcel.writeInt(this.play_count);
-        parcel.writeParcelable(this.author_info, i);
-        parcel.writeParcelable(this.act_info, i);
+        parcel.writeParcelable(this.author_info, i2);
+        parcel.writeParcelable(this.act_info, i2);
         parcel.writeLong(this.mVideoWatchDuration);
         parcel.writeInt(this.isVerticalVideo);
         parcel.writeSerializable(this.baijiahaoData);
@@ -388,7 +388,7 @@ public class VideoItemData implements Serializable, Parcelable {
         parcel.writeString(this.mRecomWeight);
         parcel.writeString(this.mMd5);
         parcel.writeString(this.mRecomExtra);
-        parcel.writeParcelable(this.mWorksInfoData, i);
+        parcel.writeParcelable(this.mWorksInfoData, i2);
     }
 
     public VideoItemData(Parcel parcel) {

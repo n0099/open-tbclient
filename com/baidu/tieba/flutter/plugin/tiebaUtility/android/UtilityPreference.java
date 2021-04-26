@@ -1,7 +1,7 @@
 package com.baidu.tieba.flutter.plugin.tiebaUtility.android;
 
 import com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityPreferenceAuto;
-import d.b.i0.r.d0.b;
+import d.a.i0.r.d0.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,9 +13,9 @@ public class UtilityPreference implements TiebaUtilityPreferenceAuto.HostUtility
         getPreferenceParam.getNameSpace();
         HashMap hashMap = new HashMap();
         TiebaUtilityPreferenceAuto.KVResult kVResult = new TiebaUtilityPreferenceAuto.KVResult();
-        for (int i = 0; i < keys.size(); i++) {
-            if (b.j().s(SharePrefNameTransform.getAndroidNameFromIos((String) keys.get(i)))) {
-                hashMap.put(keys.get(i), Boolean.valueOf(b.j().g(SharePrefNameTransform.getAndroidNameFromIos((String) keys.get(i)), false)));
+        for (int i2 = 0; i2 < keys.size(); i2++) {
+            if (b.j().s(SharePrefNameTransform.getAndroidNameFromIos((String) keys.get(i2)))) {
+                hashMap.put(keys.get(i2), Boolean.valueOf(b.j().g(SharePrefNameTransform.getAndroidNameFromIos((String) keys.get(i2)), false)));
             }
         }
         kVResult.setResult(hashMap);

@@ -7,18 +7,18 @@ import java.util.List;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<i.b> f29332a;
+    public List<i.b> f30234a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f29333b;
+    public f f30235b;
 
     public abstract int a();
 
     public i.b a(String str) {
         List<i.b> list;
-        if (str != null && (list = this.f29332a) != null && list.size() > 0) {
-            for (i.b bVar : this.f29332a) {
-                if (str.equals(bVar.f29409a)) {
+        if (str != null && (list = this.f30234a) != null && list.size() > 0) {
+            for (i.b bVar : this.f30234a) {
+                if (str.equals(bVar.f30312a)) {
                     return bVar;
                 }
             }
@@ -26,8 +26,8 @@ public abstract class a {
         return null;
     }
 
-    public String a(int i) {
-        switch (i) {
+    public String a(int i2) {
+        switch (i2) {
             case 200:
                 return "OK";
             case 201:
@@ -43,7 +43,7 @@ public abstract class a {
             case 206:
                 return "Partial Content";
             default:
-                switch (i) {
+                switch (i2) {
                     case 300:
                         return "Multiple Choices";
                     case 301:
@@ -57,7 +57,7 @@ public abstract class a {
                     case 305:
                         return "Use Proxy";
                     default:
-                        switch (i) {
+                        switch (i2) {
                             case 400:
                                 return "Bad Request";
                             case 401:
@@ -91,7 +91,7 @@ public abstract class a {
                             case 415:
                                 return "Unsupported Media Type";
                             default:
-                                switch (i) {
+                                switch (i2) {
                                     case 500:
                                         return "Internal Server Error";
                                     case 501:
@@ -125,6 +125,6 @@ public abstract class a {
     public abstract String f();
 
     public f g() {
-        return this.f29333b;
+        return this.f30235b;
     }
 }

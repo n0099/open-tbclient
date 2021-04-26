@@ -8,12 +8,12 @@ import org.json.JSONObject;
 public class ResponsePayNewVcodeInfoMessage extends JsonHttpResponsedMessage {
     public PayVcodeInfoData payNewVcodeInfoData;
 
-    public ResponsePayNewVcodeInfoMessage(int i) {
-        super(i);
+    public ResponsePayNewVcodeInfoMessage(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
         if (getStatusCode() != 200 || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
             return;

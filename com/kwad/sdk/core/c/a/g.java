@@ -1,35 +1,37 @@
 package com.kwad.sdk.core.c.a;
 
 import com.kwad.sdk.core.response.model.AdInfo;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class g implements com.kwad.sdk.core.c<AdInfo.AdSplashInfo> {
+public class g implements com.kwad.sdk.core.c<AdInfo.AdMaterialInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public JSONObject a(AdInfo.AdSplashInfo adSplashInfo) {
-        JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "logoPosition", adSplashInfo.logoPosition);
-        com.kwad.sdk.utils.o.a(jSONObject, "skipSecond", adSplashInfo.skipSecond);
-        com.kwad.sdk.utils.o.a(jSONObject, "mute", adSplashInfo.mute);
-        com.kwad.sdk.utils.o.a(jSONObject, "skipTips", adSplashInfo.skipTips);
-        com.kwad.sdk.utils.o.a(jSONObject, "speakerMuteIconUrl", adSplashInfo.speakerMuteIconUrl);
-        com.kwad.sdk.utils.o.a(jSONObject, "speakerIconUrl", adSplashInfo.speakerIconUrl);
-        com.kwad.sdk.utils.o.a(jSONObject, "imageDisplaySecond", adSplashInfo.imageDisplaySecond);
-        return jSONObject;
+    public void a(AdInfo.AdMaterialInfo adMaterialInfo, JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
+        }
+        adMaterialInfo.materialType = jSONObject.optInt("materialType", new Integer("2").intValue());
+        adMaterialInfo.materialFeatureList = new ArrayList();
+        JSONArray optJSONArray = jSONObject.optJSONArray("materialFeature");
+        if (optJSONArray != null) {
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                AdInfo.AdMaterialInfo.MaterialFeature materialFeature = new AdInfo.AdMaterialInfo.MaterialFeature();
+                materialFeature.parseJson(optJSONArray.optJSONObject(i2));
+                adMaterialInfo.materialFeatureList.add(materialFeature);
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
-    public void a(AdInfo.AdSplashInfo adSplashInfo, JSONObject jSONObject) {
+    public JSONObject b(AdInfo.AdMaterialInfo adMaterialInfo, JSONObject jSONObject) {
         if (jSONObject == null) {
-            return;
+            jSONObject = new JSONObject();
         }
-        adSplashInfo.logoPosition = jSONObject.optInt("logoPosition", new Integer("1").intValue());
-        adSplashInfo.skipSecond = jSONObject.optInt("skipSecond");
-        adSplashInfo.mute = jSONObject.optInt("mute", new Integer("1").intValue());
-        adSplashInfo.skipTips = jSONObject.optString("skipTips");
-        adSplashInfo.speakerMuteIconUrl = jSONObject.optString("speakerMuteIconUrl");
-        adSplashInfo.speakerIconUrl = jSONObject.optString("speakerIconUrl");
-        adSplashInfo.imageDisplaySecond = jSONObject.optInt("imageDisplaySecond", new Integer("5").intValue());
+        com.kwad.sdk.utils.o.a(jSONObject, "materialType", adMaterialInfo.materialType);
+        com.kwad.sdk.utils.o.a(jSONObject, "materialFeature", adMaterialInfo.materialFeatureList);
+        return jSONObject;
     }
 }

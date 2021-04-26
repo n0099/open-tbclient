@@ -7,7 +7,7 @@ import java.security.MessageDigest;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f30127a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static final char[] f31044a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String a(byte[] bArr) {
         if (bArr != null) {
@@ -16,21 +16,21 @@ public class j {
         throw new NullPointerException("bytes is null");
     }
 
-    public static String a(byte[] bArr, int i, int i2) {
+    public static String a(byte[] bArr, int i2, int i3) {
         if (bArr != null) {
-            if (i >= 0 && i + i2 <= bArr.length) {
-                int i3 = i2 * 2;
-                char[] cArr = new char[i3];
-                int i4 = 0;
-                for (int i5 = 0; i5 < i2; i5++) {
-                    int i6 = bArr[i5 + i] & 255;
-                    int i7 = i4 + 1;
-                    char[] cArr2 = f30127a;
-                    cArr[i4] = cArr2[i6 >> 4];
-                    i4 = i7 + 1;
-                    cArr[i7] = cArr2[i6 & 15];
+            if (i2 >= 0 && i2 + i3 <= bArr.length) {
+                int i4 = i3 * 2;
+                char[] cArr = new char[i4];
+                int i5 = 0;
+                for (int i6 = 0; i6 < i3; i6++) {
+                    int i7 = bArr[i6 + i2] & 255;
+                    int i8 = i5 + 1;
+                    char[] cArr2 = f31044a;
+                    cArr[i5] = cArr2[i7 >> 4];
+                    i5 = i8 + 1;
+                    cArr[i8] = cArr2[i7 & 15];
                 }
-                return new String(cArr, 0, i3);
+                return new String(cArr, 0, i4);
             }
             throw new IndexOutOfBoundsException();
         }

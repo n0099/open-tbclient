@@ -142,11 +142,11 @@ public class EglRenderer implements VideoSink {
         this.name = str;
     }
 
-    private String averageTimeAsString(long j, int i) {
-        if (i <= 0) {
+    private String averageTimeAsString(long j, int i2) {
+        if (i2 <= 0) {
             return AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
         }
-        return TimeUnit.NANOSECONDS.toMicros(j / i) + " us";
+        return TimeUnit.NANOSECONDS.toMicros(j / i2) + " us";
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -9,23 +9,23 @@ import java.util.concurrent.Executors;
 public abstract class e implements com.kwad.sdk.core.videocache.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ExecutorService f34543a = Executors.newSingleThreadExecutor();
+    public final ExecutorService f33533a = Executors.newSingleThreadExecutor();
 
     /* loaded from: classes6.dex */
     public class a implements Callable<Void> {
 
         /* renamed from: b  reason: collision with root package name */
-        public final File f34545b;
+        public final File f33535b;
 
         public a(File file) {
-            this.f34545b = file;
+            this.f33535b = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Void call() {
-            e.this.b(this.f34545b);
+            e.this.b(this.f33535b);
             return null;
         }
     }
@@ -40,7 +40,7 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
                     size--;
                     b2 -= length;
                 } else {
-                    com.kwad.sdk.core.d.a.d("LruDiskUsage", "Error deleting file " + file + " for trimming cache");
+                    com.kwad.sdk.core.d.a.e("LruDiskUsage", "Error deleting file " + file + " for trimming cache");
                 }
             }
         }
@@ -62,8 +62,8 @@ public abstract class e implements com.kwad.sdk.core.videocache.a.a {
 
     @Override // com.kwad.sdk.core.videocache.a.a
     public void a(File file) {
-        this.f34543a.submit(new a(file));
+        this.f33533a.submit(new a(file));
     }
 
-    public abstract boolean a(File file, long j, int i);
+    public abstract boolean a(File file, long j, int i2);
 }

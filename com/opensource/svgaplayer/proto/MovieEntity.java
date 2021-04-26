@@ -4,9 +4,9 @@ import com.squareup.wire2.FieldEncoding;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.ProtoAdapter;
 import com.squareup.wire2.WireField;
-import d.o.a.c;
-import d.o.a.d;
-import d.o.a.h.a;
+import d.n.a.c;
+import d.n.a.d;
+import d.n.a.h.a;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -166,8 +166,8 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
     }
 
     public int hashCode() {
-        int i = this.hashCode;
-        if (i == 0) {
+        int i2 = this.hashCode;
+        if (i2 == 0) {
             int hashCode = unknownFields().hashCode() * 37;
             String str = this.version;
             int hashCode2 = (hashCode + (str != null ? str.hashCode() : 0)) * 37;
@@ -176,7 +176,7 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
             this.hashCode = hashCode3;
             return hashCode3;
         }
-        return i;
+        return i2;
     }
 
     @Override // com.squareup.wire2.Message

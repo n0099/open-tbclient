@@ -5,17 +5,17 @@ import java.io.File;
 public class g extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final long f34546a;
+    public final long f33536a;
 
     public g(long j) {
         if (j <= 0) {
             throw new IllegalArgumentException("Max size must be positive number!");
         }
-        this.f34546a = j;
+        this.f33536a = j;
     }
 
     @Override // com.kwad.sdk.core.videocache.a.e
-    public boolean a(File file, long j, int i) {
-        return j <= this.f34546a;
+    public boolean a(File file, long j, int i2) {
+        return j <= this.f33536a;
     }
 }

@@ -14,7 +14,7 @@ public final class p implements Parcelable.Creator<TransitResultNode> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public TransitResultNode[] newArray(int i) {
-        return new TransitResultNode[i];
+    public TransitResultNode[] newArray(int i2) {
+        return new TransitResultNode[i2];
     }
 }

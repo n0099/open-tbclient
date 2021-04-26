@@ -14,19 +14,19 @@ public class MediaStreamTrack {
         
         public final int nativeIndex;
 
-        MediaType(int i) {
-            this.nativeIndex = i;
+        MediaType(int i2) {
+            this.nativeIndex = i2;
         }
 
         @CalledByNative("MediaType")
-        public static MediaType fromNativeIndex(int i) {
+        public static MediaType fromNativeIndex(int i2) {
             MediaType[] values;
             for (MediaType mediaType : values()) {
-                if (mediaType.getNative() == i) {
+                if (mediaType.getNative() == i2) {
                     return mediaType;
                 }
             }
-            throw new IllegalArgumentException("Unknown native media type: " + i);
+            throw new IllegalArgumentException("Unknown native media type: " + i2);
         }
 
         @CalledByNative("MediaType")
@@ -41,8 +41,8 @@ public class MediaStreamTrack {
         ENDED;
 
         @CalledByNative("State")
-        public static State fromNativeIndex(int i) {
-            return values()[i];
+        public static State fromNativeIndex(int i2) {
+            return values()[i2];
         }
     }
 
@@ -65,7 +65,7 @@ public class MediaStreamTrack {
             return null;
         }
         String nativeGetKind = nativeGetKind(j);
-        if (nativeGetKind.equals("audio")) {
+        if (nativeGetKind.equals(AUDIO_TRACK_KIND)) {
             return new AudioTrack(j);
         }
         if (nativeGetKind.equals("video")) {

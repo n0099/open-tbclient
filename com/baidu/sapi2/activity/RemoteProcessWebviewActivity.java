@@ -20,16 +20,17 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.i;
 import com.baidu.sapi2.views.ViewUtility;
-import d.b.y.a.a;
-import d.b.y.a.b;
-import d.b.y.a.d;
-import d.b.y.a.e;
-import d.b.y.a.f;
-import d.b.y.a.h;
+import d.a.y.a.a;
+import d.a.y.a.b;
+import d.a.y.a.d;
+import d.a.y.a.e;
+import d.a.y.a.f;
+import d.a.y.a.h;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -39,38 +40,106 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     public static final String EXTRA_IS_DARK_MODE = "is_dark_mode";
     public static final String EXTRA_SHOW_BOTTOM_BACK = "show_bottom_back";
 
-    /* renamed from: h  reason: collision with root package name */
-    public static final String f10633h = ":pass";
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f10751f = ":pass";
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f10634a;
+    public boolean f10752a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f10635b;
+    public boolean f10753b;
     public View bottomBackView;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10636c;
+    public String f10754c;
+    public SapiConfiguration configuration;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f10637d;
+    public String f10755d;
     public View dividerLine;
 
     /* renamed from: e  reason: collision with root package name */
-    public WebView f10638e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ProgressBar f10639f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public View f10640g;
+    public WebView f10756e;
     public ImageView mBottomBackBtnIv;
+    public TextView mBottomBackTvText;
     public RelativeLayout mBottomBgLayout;
     public ImageView mBottomDividerLine;
     public ImageView mLeftBtnIv;
     public LinearLayout mLeftBtnLayout;
     public TextView mTitle;
     public RelativeLayout mTitleBgLayout;
+    public View noNetworkView;
+    public ProgressBar progressBar;
+
+    private void b() {
+        this.f10752a = getIntent().getBooleanExtra(EXTRA_IS_DARK_MODE, false);
+        this.f10753b = getIntent().getBooleanExtra(EXTRA_SHOW_BOTTOM_BACK, false);
+        this.f10754c = getIntent().getStringExtra(EXTRA_EXTERNAL_TITLE);
+        this.f10755d = getIntent().getStringExtra("external_url");
+    }
+
+    private void c() {
+        ViewStub viewStub;
+        if (this.f10752a) {
+            setTheme(h.SDKDarkTheme);
+        }
+        this.f10756e = (WebView) findViewById(e.webview);
+        this.mTitle = (TextView) findViewById(e.title);
+        ImageView imageView = (ImageView) findViewById(e.title_btn_left_iv);
+        this.mLeftBtnIv = imageView;
+        imageView.setOnClickListener(this);
+        this.mLeftBtnLayout = (LinearLayout) findViewById(e.title_left_btn_layout);
+        this.dividerLine = findViewById(e.title_divider_line);
+        this.mTitleBgLayout = (RelativeLayout) findViewById(e.sapi_title_bg_layout);
+        this.mTitle.setText(this.f10754c);
+        if (this.f10753b) {
+            if (this.bottomBackView == null && (viewStub = (ViewStub) findViewById(e.stub_bottom_back)) != null) {
+                this.bottomBackView = viewStub.inflate();
+                this.mBottomBackBtnIv = (ImageView) findViewById(e.sapi_bottom_back);
+                this.mBottomBackTvText = (TextView) findViewById(e.sapi_textview_back);
+                this.mBottomBgLayout = (RelativeLayout) findViewById(e.sapi_layout_bottom_back);
+                this.mBottomDividerLine = (ImageView) findViewById(e.sapi_sdk_bottom_divider_line);
+                this.mBottomBackBtnIv.setOnClickListener(this);
+                this.mBottomBackTvText.setOnClickListener(this);
+                ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
+                ViewUtility.setViewClickAlpha(this.mBottomBackTvText, 0.2f);
+                this.mBottomBackTvText.setVisibility(this.configuration.isShowBottomBackText ? 0 : 8);
+            }
+            this.mLeftBtnIv.setVisibility(8);
+        }
+        SapiConfiguration sapiConfiguration = this.configuration;
+        if (sapiConfiguration != null) {
+            ViewUtility.enlargedViews(this.mLeftBtnIv, sapiConfiguration.textZoom);
+            ViewUtility.enlargedViews(this.mTitle, this.configuration.textZoom);
+            ViewUtility.enlargedViews(this.mBottomBackBtnIv, this.configuration.textZoom);
+            ViewUtility.enlargedViews(this.mBottomBackTvText, this.configuration.textZoom);
+        }
+        if (this.f10752a) {
+            this.mTitleBgLayout.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
+            this.mLeftBtnIv.setImageResource(d.sapi_sdk_btn_back_dark_mode);
+            this.mTitle.setTextColor(getResources().getColor(b.sapi_sdk_dark_mode_edit_text_color));
+            this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
+            this.dividerLine.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
+            ImageView imageView2 = this.mBottomBackBtnIv;
+            if (imageView2 != null) {
+                imageView2.setImageResource(d.sapi_sdk_btn_back_dark_mode);
+            }
+            RelativeLayout relativeLayout = this.mBottomBgLayout;
+            if (relativeLayout != null) {
+                relativeLayout.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
+            }
+            TextView textView = this.mBottomBackTvText;
+            if (textView != null) {
+                textView.setTextColor(getResources().getColor(b.sapi_sdk_dark_mode_edit_text_color));
+            }
+            ImageView imageView3 = this.mBottomDividerLine;
+            if (imageView3 != null) {
+                imageView3.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
+            }
+        }
+        a();
+        this.f10756e.loadUrl(this.f10755d);
+    }
 
     @Override // android.app.Activity
     public void finish() {
@@ -87,7 +156,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
     public void onCreate(Bundle bundle) {
         if (Build.VERSION.SDK_INT >= 28) {
             String curProcessName = SapiUtils.getCurProcessName(this);
-            if (!TextUtils.isEmpty(curProcessName) && curProcessName.endsWith(f10633h)) {
+            if (!TextUtils.isEmpty(curProcessName) && curProcessName.endsWith(f10751f)) {
                 try {
                     WebView.setDataDirectorySuffix(curProcessName);
                 } catch (Throwable unused) {
@@ -95,6 +164,9 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             }
         }
         super.onCreate(bundle);
+        if (this.configuration == null) {
+            this.configuration = SapiAccountManager.getInstance().getConfignation();
+        }
         setContentView(f.layout_sapi_sdk_normal_webview_with_title_bar);
         a(true);
         b();
@@ -110,70 +182,15 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
         }
     }
 
-    private void b() {
-        this.f10634a = getIntent().getBooleanExtra(EXTRA_IS_DARK_MODE, false);
-        this.f10635b = getIntent().getBooleanExtra(EXTRA_SHOW_BOTTOM_BACK, false);
-        this.f10636c = getIntent().getStringExtra(EXTRA_EXTERNAL_TITLE);
-        this.f10637d = getIntent().getStringExtra(EXTRA_EXTERNAL_URL);
-    }
-
-    private void c() {
-        ViewStub viewStub;
-        if (this.f10634a) {
-            setTheme(h.SDKDarkTheme);
-        }
-        this.f10638e = (WebView) findViewById(e.webview);
-        this.mTitle = (TextView) findViewById(e.title);
-        ImageView imageView = (ImageView) findViewById(e.title_btn_left_iv);
-        this.mLeftBtnIv = imageView;
-        imageView.setOnClickListener(this);
-        this.mLeftBtnLayout = (LinearLayout) findViewById(e.title_left_btn_layout);
-        this.dividerLine = findViewById(e.title_divider_line);
-        this.mTitleBgLayout = (RelativeLayout) findViewById(e.sapi_title_bg_layout);
-        this.mTitle.setText(this.f10636c);
-        if (this.f10635b) {
-            if (this.bottomBackView == null && (viewStub = (ViewStub) findViewById(e.stub_bottom_back)) != null) {
-                this.bottomBackView = viewStub.inflate();
-                this.mBottomBackBtnIv = (ImageView) findViewById(e.sapi_bottom_back);
-                this.mBottomBgLayout = (RelativeLayout) findViewById(e.sapi_layout_bottom_back);
-                this.mBottomDividerLine = (ImageView) findViewById(e.sapi_sdk_bottom_divider_line);
-                this.mBottomBackBtnIv.setOnClickListener(this);
-                ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
-            }
-            this.mLeftBtnIv.setVisibility(8);
-        }
-        if (this.f10634a) {
-            this.mTitleBgLayout.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
-            this.mLeftBtnIv.setImageResource(d.sapi_sdk_btn_back_dark_mode);
-            this.mTitle.setTextColor(getResources().getColor(b.sapi_sdk_dark_mode_edit_text_color));
-            this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
-            this.dividerLine.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
-            ImageView imageView2 = this.mBottomBackBtnIv;
-            if (imageView2 != null) {
-                imageView2.setImageResource(d.sapi_sdk_btn_back_dark_mode);
-            }
-            RelativeLayout relativeLayout = this.mBottomBgLayout;
-            if (relativeLayout != null) {
-                relativeLayout.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
-            }
-            ImageView imageView3 = this.mBottomDividerLine;
-            if (imageView3 != null) {
-                imageView3.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_title_color));
-            }
-        }
-        a();
-        this.f10638e.loadUrl(this.f10637d);
-    }
-
     private void a() {
-        WebSettings settings = this.f10638e.getSettings();
+        WebSettings settings = this.f10756e.getSettings();
         try {
             settings.setJavaScriptEnabled(true);
         } catch (Exception unused) {
         }
         settings.setTextSize(WebSettings.TextSize.NORMAL);
         settings.setDomStorageEnabled(true);
-        this.f10638e.setScrollBarStyle(0);
+        this.f10756e.setScrollBarStyle(0);
         settings.setSaveFormData(false);
         settings.setSavePassword(false);
         settings.setAllowFileAccess(false);
@@ -183,14 +200,14 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
         }
         try {
             ProgressBar progressBar = new ProgressBar(this, null, 16842872);
-            this.f10639f = progressBar;
+            this.progressBar = progressBar;
             progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(this, 2.0f), 0, 0));
-            this.f10639f.setBackgroundColor(getResources().getColor(b.sapi_sdk_explain_camera_detail_color));
-            this.f10638e.addView(this.f10639f);
+            this.progressBar.setBackgroundColor(getResources().getColor(b.sapi_sdk_explain_camera_detail_color));
+            this.f10756e.addView(this.progressBar);
         } catch (Throwable th) {
             Log.e(th);
         }
-        this.f10638e.setWebChromeClient(new WebChromeClient() { // from class: com.baidu.sapi2.activity.RemoteProcessWebviewActivity.1
+        this.f10756e.setWebChromeClient(new WebChromeClient() { // from class: com.baidu.sapi2.activity.RemoteProcessWebviewActivity.1
             @Override // android.webkit.WebChromeClient
             public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 JSONObject jSONObject = new JSONObject();
@@ -203,44 +220,45 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             }
 
             @Override // android.webkit.WebChromeClient
-            public void onProgressChanged(WebView webView, int i) {
-                if (RemoteProcessWebviewActivity.this.f10639f != null) {
-                    if (i == 100) {
-                        RemoteProcessWebviewActivity.this.f10639f.setVisibility(8);
+            public void onProgressChanged(WebView webView, int i2) {
+                ProgressBar progressBar2 = RemoteProcessWebviewActivity.this.progressBar;
+                if (progressBar2 != null) {
+                    if (i2 == 100) {
+                        progressBar2.setVisibility(8);
                     } else {
-                        if (RemoteProcessWebviewActivity.this.f10639f.getVisibility() == 8) {
-                            RemoteProcessWebviewActivity.this.f10639f.setVisibility(0);
+                        if (progressBar2.getVisibility() == 8) {
+                            RemoteProcessWebviewActivity.this.progressBar.setVisibility(0);
                         }
-                        RemoteProcessWebviewActivity.this.f10639f.setProgress(i);
+                        RemoteProcessWebviewActivity.this.progressBar.setProgress(i2);
                     }
                 }
-                super.onProgressChanged(webView, i);
+                super.onProgressChanged(webView, i2);
             }
         });
-        this.f10638e.setWebViewClient(new WebViewClient() { // from class: com.baidu.sapi2.activity.RemoteProcessWebviewActivity.2
+        this.f10756e.setWebViewClient(new WebViewClient() { // from class: com.baidu.sapi2.activity.RemoteProcessWebviewActivity.2
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
                 if (SapiUtils.hasActiveNetwork(RemoteProcessWebviewActivity.this)) {
                     return;
                 }
-                if (RemoteProcessWebviewActivity.this.f10640g == null) {
-                    RemoteProcessWebviewActivity remoteProcessWebviewActivity = RemoteProcessWebviewActivity.this;
-                    remoteProcessWebviewActivity.f10640g = i.a(remoteProcessWebviewActivity, remoteProcessWebviewActivity.f10638e);
-                    RemoteProcessWebviewActivity.this.f10638e.addView(RemoteProcessWebviewActivity.this.f10640g, new ViewGroup.LayoutParams(-1, -1));
+                RemoteProcessWebviewActivity remoteProcessWebviewActivity = RemoteProcessWebviewActivity.this;
+                if (remoteProcessWebviewActivity.noNetworkView == null) {
+                    remoteProcessWebviewActivity.noNetworkView = com.baidu.sapi2.utils.b.a(remoteProcessWebviewActivity, remoteProcessWebviewActivity.f10756e);
+                    RemoteProcessWebviewActivity.this.f10756e.addView(RemoteProcessWebviewActivity.this.noNetworkView, new ViewGroup.LayoutParams(-1, -1));
                 }
-                RemoteProcessWebviewActivity.this.f10640g.setVisibility(0);
+                RemoteProcessWebviewActivity.this.noNetworkView.setVisibility(0);
             }
         });
     }
 
     private void a(boolean z) {
-        int i = a.sapi_sdk_slide_right_in;
-        int i2 = a.sapi_sdk_slide_right_out;
+        int i2 = a.sapi_sdk_slide_right_in;
+        int i3 = a.sapi_sdk_slide_right_out;
         if (z) {
-            overridePendingTransition(i, a.sapi_sdk_slide_left_out);
+            overridePendingTransition(i2, a.sapi_sdk_slide_left_out);
         } else {
-            overridePendingTransition(a.sapi_sdk_slide_left_in, i2);
+            overridePendingTransition(a.sapi_sdk_slide_left_in, i3);
         }
     }
 }

@@ -41,16 +41,16 @@ public class CustomAlertDialog extends Dialog {
         this.positiveBtn.setOnClickListener(onClickListener);
     }
 
-    public void setPositiveTvColor(int i) {
-        this.positiveBtn.setTextColor(i);
+    public void setPositiveTvColor(int i2) {
+        this.positiveBtn.setTextColor(i2);
     }
 
     public void setTitle(String str) {
         this.titleTv.setText(str);
     }
 
-    public CustomAlertDialog(Context context, int i) {
-        super(context, i);
+    public CustomAlertDialog(Context context, int i2) {
+        super(context, i2);
         init();
     }
 

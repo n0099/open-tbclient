@@ -29,18 +29,18 @@ public interface LiveNickNameService {
             return SERVICE_REFERENCE;
         }
 
-        public final void setNICKNAME_DIALOG_TYPE_DISTRIBUTE(int i) {
-            NICKNAME_DIALOG_TYPE_DISTRIBUTE = i;
+        public final void setNICKNAME_DIALOG_TYPE_DISTRIBUTE(int i2) {
+            NICKNAME_DIALOG_TYPE_DISTRIBUTE = i2;
         }
 
-        public final void setNICKNAME_DIALOG_TYPE_RECOMMEND(int i) {
-            NICKNAME_DIALOG_TYPE_RECOMMEND = i;
+        public final void setNICKNAME_DIALOG_TYPE_RECOMMEND(int i2) {
+            NICKNAME_DIALOG_TYPE_RECOMMEND = i2;
         }
     }
 
     int nickNameDialogStatus();
 
-    void showNickNameDialog(Activity activity, String str, int i);
+    void showNickNameDialog(Activity activity, String str, int i2);
 
-    void showNickNameGuideDialog(Activity activity, int i, String str, int i2);
+    void showNickNameGuideDialog(Activity activity, int i2, String str, int i3);
 }

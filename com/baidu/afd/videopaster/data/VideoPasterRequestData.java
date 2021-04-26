@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
-import d.b.c.e.p.j;
-import d.b.d.m.a;
+import d.a.c.e.p.j;
+import d.a.d.m.a;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,19 +45,19 @@ public class VideoPasterRequestData extends HttpMessage {
         super(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
         addCommonParams();
         addHeader("Cookie", CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME));
-        addParam("pid", aVar.f());
+        addParam("pid", aVar.g());
         addParam("ac", "1");
         String ext = getExt(aVar);
         if (!StringUtils.isNull(ext)) {
             addParam("ext", ext);
         }
         addParam("is_https", 1);
-        addParam("flr", String.valueOf(aVar.d()));
-        addParam("sw", String.valueOf(aVar.g()));
+        addParam("flr", String.valueOf(aVar.b()));
+        addParam("sw", String.valueOf(aVar.f()));
         addParam(IAdRequestParam.SCREEN_HEIGHT, String.valueOf(aVar.e()));
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
-        addParam("fc", String.valueOf(aVar.d()));
-        addParam("ft", aVar.b());
+        addParam("fc", String.valueOf(aVar.b()));
+        addParam("ft", aVar.c());
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
     }
 
@@ -97,11 +97,11 @@ public class VideoPasterRequestData extends HttpMessage {
     }
 
     public static String getExt(a aVar) {
-        if (aVar == null || aVar.c() == null || aVar.c().isEmpty()) {
+        if (aVar == null || aVar.d() == null || aVar.d().isEmpty()) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : aVar.c().entrySet()) {
+        for (Map.Entry<String, String> entry : aVar.d().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();

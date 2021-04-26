@@ -92,10 +92,10 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class HttpUtils {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class HttpStatusException extends Exception {
         public static final String ERROR_INFO = "http status code error:";
 
@@ -104,7 +104,7 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class NetworkUnavailableException extends Exception {
         public static final String ERROR_INFO = "network unavailable";
 
@@ -113,40 +113,40 @@ public class HttpUtils {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a extends SSLSocketFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        public final SSLContext f39674a;
+        public final SSLContext f37276a;
 
         public a(KeyStore keyStore) throws NoSuchAlgorithmException, KeyManagementException, KeyStoreException, UnrecoverableKeyException {
             super(keyStore);
             b bVar;
-            this.f39674a = SSLContext.getInstance("TLS");
+            this.f37276a = SSLContext.getInstance("TLS");
             try {
                 bVar = new b();
             } catch (Exception unused) {
                 bVar = null;
             }
-            this.f39674a.init(null, new TrustManager[]{bVar}, null);
+            this.f37276a.init(null, new TrustManager[]{bVar}, null);
         }
 
         @Override // org.apache.http.conn.ssl.SSLSocketFactory, org.apache.http.conn.scheme.LayeredSocketFactory
-        public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException, UnknownHostException {
-            return this.f39674a.getSocketFactory().createSocket(socket, str, i, z);
+        public Socket createSocket(Socket socket, String str, int i2, boolean z) throws IOException, UnknownHostException {
+            return this.f37276a.getSocketFactory().createSocket(socket, str, i2, z);
         }
 
         @Override // org.apache.http.conn.ssl.SSLSocketFactory, org.apache.http.conn.scheme.SocketFactory
         public Socket createSocket() throws IOException {
-            return this.f39674a.getSocketFactory().createSocket();
+            return this.f37276a.getSocketFactory().createSocket();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b implements X509TrustManager {
 
         /* renamed from: a  reason: collision with root package name */
-        public X509TrustManager f39675a;
+        public X509TrustManager f37277a;
 
         public b() throws Exception {
             KeyStore keyStore;
@@ -183,9 +183,9 @@ public class HttpUtils {
                 trustManagerFactory2.init((KeyStore) null);
                 trustManagers = trustManagerFactory2.getTrustManagers();
             }
-            for (int i = 0; i < trustManagers.length; i++) {
-                if (trustManagers[i] instanceof X509TrustManager) {
-                    this.f39675a = (X509TrustManager) trustManagers[i];
+            for (int i2 = 0; i2 < trustManagers.length; i2++) {
+                if (trustManagers[i2] instanceof X509TrustManager) {
+                    this.f37277a = (X509TrustManager) trustManagers[i2];
                     return;
                 }
             }
@@ -194,32 +194,32 @@ public class HttpUtils {
 
         @Override // javax.net.ssl.X509TrustManager
         public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.f39675a.checkClientTrusted(x509CertificateArr, str);
+            this.f37277a.checkClientTrusted(x509CertificateArr, str);
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.f39675a.checkServerTrusted(x509CertificateArr, str);
+            this.f37277a.checkServerTrusted(x509CertificateArr, str);
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public X509Certificate[] getAcceptedIssuers() {
-            return this.f39675a.getAcceptedIssuers();
+            return this.f37277a.getAcceptedIssuers();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f39676a;
+        public final String f37278a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f39677b;
+        public final int f37279b;
 
-        public c(String str, int i) {
-            this.f39676a = str;
-            this.f39677b = i;
+        public c(String str, int i2) {
+            this.f37278a = str;
+            this.f37279b = i2;
         }
     }
 
@@ -245,14 +245,14 @@ public class HttpUtils {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        int i = -1;
+        int i2 = -1;
         int size = bundle.size();
         for (String str2 : bundle.keySet()) {
-            i++;
+            i2++;
             Object obj = bundle.get(str2);
             if (obj instanceof String) {
                 sb.append("Content-Disposition: form-data; name=\"" + str2 + "\"" + Part.CRLF + Part.CRLF + ((String) obj));
-                if (i < size - 1) {
+                if (i2 < size - 1) {
                     sb.append("\r\n--" + str + Part.CRLF);
                 }
             }
@@ -278,11 +278,11 @@ public class HttpUtils {
                     sb.append(URLEncoder.encode(str) + "=");
                     String[] stringArray = bundle.getStringArray(str);
                     if (stringArray != null) {
-                        for (int i = 0; i < stringArray.length; i++) {
-                            if (i == 0) {
-                                sb.append(URLEncoder.encode(stringArray[i]));
+                        for (int i2 = 0; i2 < stringArray.length; i2++) {
+                            if (i2 == 0) {
+                                sb.append(URLEncoder.encode(stringArray[i2]));
                             } else {
-                                sb.append(URLEncoder.encode("," + stringArray[i]));
+                                sb.append(URLEncoder.encode("," + stringArray[i2]));
                             }
                         }
                     }
@@ -415,7 +415,7 @@ public class HttpUtils {
     }
 
     public static HttpClient getHttpClient(Context context, String str, String str2) {
-        int i;
+        int i2;
         SchemeRegistry schemeRegistry = new SchemeRegistry();
         schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
         if (Build.VERSION.SDK_INT < 16) {
@@ -433,28 +433,28 @@ public class HttpUtils {
         }
         BasicHttpParams basicHttpParams = new BasicHttpParams();
         f a2 = context != null ? f.a(context, str) : null;
-        int i2 = 0;
+        int i3 = 0;
         if (a2 != null) {
-            i2 = a2.a("Common_HttpConnectionTimeout");
-            i = a2.a("Common_SocketConnectionTimeout");
+            i3 = a2.a("Common_HttpConnectionTimeout");
+            i2 = a2.a("Common_SocketConnectionTimeout");
         } else {
-            i = 0;
+            i2 = 0;
+        }
+        if (i3 == 0) {
+            i3 = 15000;
         }
         if (i2 == 0) {
-            i2 = 15000;
+            i2 = 30000;
         }
-        if (i == 0) {
-            i = 30000;
-        }
-        HttpConnectionParams.setConnectionTimeout(basicHttpParams, i2);
-        HttpConnectionParams.setSoTimeout(basicHttpParams, i);
+        HttpConnectionParams.setConnectionTimeout(basicHttpParams, i3);
+        HttpConnectionParams.setSoTimeout(basicHttpParams, i2);
         HttpProtocolParams.setVersion(basicHttpParams, HttpVersion.HTTP_1_1);
         HttpProtocolParams.setContentCharset(basicHttpParams, "UTF-8");
         HttpProtocolParams.setUserAgent(basicHttpParams, "AndroidSDK_" + Build.VERSION.SDK + "_" + Build.DEVICE + "_" + Build.VERSION.RELEASE);
         DefaultHttpClient defaultHttpClient = new DefaultHttpClient(new ThreadSafeClientConnManager(basicHttpParams, schemeRegistry), basicHttpParams);
         c proxy = getProxy(context);
         if (proxy != null) {
-            defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.f39676a, proxy.f39677b));
+            defaultHttpClient.getParams().setParameter(ConnRoutePNames.DEFAULT_PROXY, new HttpHost(proxy.f37278a, proxy.f37279b));
         }
         return defaultHttpClient;
     }
@@ -488,11 +488,11 @@ public class HttpUtils {
         bundle2.remove("appid_for_getting_config");
         HttpClient httpClient = getHttpClient(context, string, str);
         HttpGet httpGet = null;
-        int i = 0;
-        int i2 = -1;
+        int i2 = 0;
+        int i3 = -1;
         if (str2.equals("GET")) {
             String encodeUrl = encodeUrl(bundle2);
-            i = 0 + encodeUrl.length();
+            i2 = 0 + encodeUrl.length();
             com.tencent.open.a.f.a("openSDK_LOG.HttpUtils", "-->openUrl2 before url =" + str);
             String str3 = str.indexOf("?") == -1 ? str + "?" : str + "&";
             com.tencent.open.a.f.a("openSDK_LOG.HttpUtils", "-->openUrl2 encodedParam =" + encodeUrl + " -- url = " + str3);
@@ -524,21 +524,21 @@ public class HttpUtils {
                 int size = bundle3.size();
                 byteArrayOutputStream.write(j.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
                 for (String str5 : bundle3.keySet()) {
-                    i2++;
+                    i3++;
                     byteArrayOutputStream.write(j.i("Content-Disposition: form-data; name=\"" + str5 + "\"; filename=\"" + str5 + "\"" + Part.CRLF));
                     byteArrayOutputStream.write(j.i("Content-Type: content/unknown\r\n\r\n"));
                     byte[] byteArray = bundle3.getByteArray(str5);
                     if (byteArray != null) {
                         byteArrayOutputStream.write(byteArray);
                     }
-                    if (i2 < size - 1) {
+                    if (i3 < size - 1) {
                         byteArrayOutputStream.write(j.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f\r\n"));
                     }
                 }
             }
             byteArrayOutputStream.write(j.i("\r\n--3i2ndDfv2rTHiSisAbouNdArYfORhtTPEefj3q2f--\r\n"));
             byte[] byteArray2 = byteArrayOutputStream.toByteArray();
-            i = 0 + byteArray2.length;
+            i2 = 0 + byteArray2.length;
             byteArrayOutputStream.close();
             httpPost.setEntity(new ByteArrayEntity(byteArray2));
             httpGet = httpPost;
@@ -546,7 +546,7 @@ public class HttpUtils {
         HttpResponse execute = httpClient.execute(httpGet);
         int statusCode = execute.getStatusLine().getStatusCode();
         if (statusCode == 200) {
-            return new j.a(a(execute), i);
+            return new j.a(a(execute), i2);
         }
         throw new HttpStatusException(HttpStatusException.ERROR_INFO + statusCode);
     }
@@ -665,7 +665,7 @@ public class HttpUtils {
             r11 = r21
             r12 = r22
             com.tencent.open.utils.j$a r0 = openUrl2(r1, r2, r12, r11)     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
-            java.lang.String r13 = r0.f39719a     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
+            java.lang.String r13 = r0.f37321a     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
             org.json.JSONObject r3 = com.tencent.open.utils.j.d(r13)     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
             java.lang.String r13 = "ret"
             int r13 = r3.getInt(r13)     // Catch: org.json.JSONException -> Ld1 java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
@@ -673,8 +673,8 @@ public class HttpUtils {
         Ld1:
             r13 = -4
         Ld2:
-            long r14 = r0.f39720b     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
-            long r0 = r0.f39721c     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
+            long r14 = r0.f37322b     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
+            long r0 = r0.f37323c     // Catch: org.json.JSONException -> Ldc java.io.IOException -> Led java.net.MalformedURLException -> L101 com.tencent.open.utils.HttpUtils.NetworkUnavailableException -> L112 com.tencent.open.utils.HttpUtils.HttpStatusException -> L117 java.net.SocketTimeoutException -> L142 org.apache.http.conn.ConnectTimeoutException -> L15e
             r9 = r0
             r0 = r3
             r11 = r13

@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.IncrForumAccessCount.DataReq;
 import tbclient.IncrForumAccessCount.IncrForumAccessCountReqIdl;
 /* loaded from: classes4.dex */

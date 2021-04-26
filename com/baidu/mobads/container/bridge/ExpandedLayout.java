@@ -42,8 +42,8 @@ public class ExpandedLayout extends FrameLayout {
         
         public final int mGravity;
 
-        ClosePosition(int i) {
-            this.mGravity = i;
+        ClosePosition(int i2) {
+            this.mGravity = i2;
         }
 
         public int getGravity() {
@@ -53,7 +53,7 @@ public class ExpandedLayout extends FrameLayout {
 
     /* loaded from: classes2.dex */
     public interface KeyDownListener {
-        boolean handleKeyDown(int i, KeyEvent keyEvent);
+        boolean handleKeyDown(int i2, KeyEvent keyEvent);
     }
 
     /* loaded from: classes2.dex */
@@ -89,8 +89,8 @@ public class ExpandedLayout extends FrameLayout {
         setWillNotDraw(false);
     }
 
-    private void applyCloseBoundsWithSize(ClosePosition closePosition, int i, Rect rect, Rect rect2) {
-        Gravity.apply(closePosition.getGravity(), i, i, rect, rect2);
+    private void applyCloseBoundsWithSize(ClosePosition closePosition, int i2, Rect rect, Rect rect2) {
+        Gravity.apply(closePosition.getGravity(), i2, i2, rect, rect2);
     }
 
     private void applyCloseButtonBounds(ClosePosition closePosition, Rect rect, Rect rect2) {
@@ -127,8 +127,8 @@ public class ExpandedLayout extends FrameLayout {
             applyCloseRegionBounds(this.mClosePosition, this.mClosableLayoutRect, this.mCloseRegionBounds);
             this.mInsetCloseRegionBounds.set(this.mCloseRegionBounds);
             Rect rect = this.mInsetCloseRegionBounds;
-            int i = this.mCloseButtonPadding;
-            rect.inset(i, i);
+            int i2 = this.mCloseButtonPadding;
+            rect.inset(i2, i2);
             applyCloseButtonBounds(this.mClosePosition, this.mInsetCloseRegionBounds, this.mCloseButtonBounds);
             this.mCloseDrawable.setBounds(this.mCloseButtonBounds);
         }
@@ -150,17 +150,17 @@ public class ExpandedLayout extends FrameLayout {
     }
 
     @Override // android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         KeyDownListener keyDownListener = this.mKeyDownListener;
         if (keyDownListener == null) {
             return false;
         }
-        return keyDownListener.handleKeyDown(i, keyEvent);
+        return keyDownListener.handleKeyDown(i2, keyEvent);
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
         this.mCloseBoundChanged = true;
     }
 
@@ -188,9 +188,9 @@ public class ExpandedLayout extends FrameLayout {
         return true;
     }
 
-    public boolean pointInCloseBounds(int i, int i2, int i3) {
+    public boolean pointInCloseBounds(int i2, int i3, int i4) {
         Rect rect = this.mCloseRegionBounds;
-        return i >= rect.left - i3 && i2 >= rect.top - i3 && i < rect.right + i3 && i2 < rect.bottom + i3;
+        return i2 >= rect.left - i4 && i3 >= rect.top - i4 && i2 < rect.right + i4 && i3 < rect.bottom + i4;
     }
 
     public void setClosePosition(ClosePosition closePosition) {

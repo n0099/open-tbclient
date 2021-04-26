@@ -12,20 +12,20 @@ public class ArCoreApk {
         
         public final int nativeCode;
 
-        InstallBehavior(int i) {
-            this.nativeCode = i;
+        InstallBehavior(int i2) {
+            this.nativeCode = i2;
         }
 
-        public static InstallBehavior forNumber(int i) {
+        public static InstallBehavior forNumber(int i2) {
             InstallBehavior[] values;
             for (InstallBehavior installBehavior : values()) {
-                if (installBehavior.nativeCode == i) {
+                if (installBehavior.nativeCode == i2) {
                     return installBehavior;
                 }
             }
             StringBuilder sb = new StringBuilder(62);
             sb.append("Unexpected value for native InstallBehavior, value=");
-            sb.append(i);
+            sb.append(i2);
             throw new FatalException(sb.toString());
         }
     }
@@ -37,20 +37,20 @@ public class ArCoreApk {
         
         public final int nativeCode;
 
-        InstallStatus(int i) {
-            this.nativeCode = i;
+        InstallStatus(int i2) {
+            this.nativeCode = i2;
         }
 
-        public static InstallStatus forNumber(int i) {
+        public static InstallStatus forNumber(int i2) {
             InstallStatus[] values;
             for (InstallStatus installStatus : values()) {
-                if (installStatus.nativeCode == i) {
+                if (installStatus.nativeCode == i2) {
                     return installStatus;
                 }
             }
             StringBuilder sb = new StringBuilder(60);
             sb.append("Unexpected value for native InstallStatus, value=");
-            sb.append(i);
+            sb.append(i2);
             throw new FatalException(sb.toString());
         }
     }
@@ -63,20 +63,20 @@ public class ArCoreApk {
         
         public final int nativeCode;
 
-        UserMessageType(int i) {
-            this.nativeCode = i;
+        UserMessageType(int i2) {
+            this.nativeCode = i2;
         }
 
-        public static UserMessageType forNumber(int i) {
+        public static UserMessageType forNumber(int i2) {
             UserMessageType[] values;
             for (UserMessageType userMessageType : values()) {
-                if (userMessageType.nativeCode == i) {
+                if (userMessageType.nativeCode == i2) {
                     return userMessageType;
                 }
             }
             StringBuilder sb = new StringBuilder(62);
             sb.append("Unexpected value for native UserMessageType, value=");
-            sb.append(i);
+            sb.append(i2);
             throw new FatalException(sb.toString());
         }
     }
@@ -87,7 +87,7 @@ public class ArCoreApk {
     }
 
     public static ArCoreApk b() {
-        return d.h.b.a.f.d();
+        return d.g.b.a.f.d();
     }
 
     public abstract Availability a(Context context);
@@ -112,20 +112,20 @@ public class ArCoreApk {
             $VALUES = new Availability[]{UNKNOWN_ERROR, UNKNOWN_CHECKING, UNKNOWN_TIMED_OUT, UNSUPPORTED_DEVICE_NOT_CAPABLE, SUPPORTED_NOT_INSTALLED, SUPPORTED_APK_TOO_OLD, gVar};
         }
 
-        public Availability(String str, int i, int i2) {
-            this.nativeCode = i2;
+        public Availability(String str, int i2, int i3) {
+            this.nativeCode = i3;
         }
 
-        public static Availability forNumber(int i) {
+        public static Availability forNumber(int i2) {
             Availability[] values;
             for (Availability availability : values()) {
-                if (availability.nativeCode == i) {
+                if (availability.nativeCode == i2) {
                     return availability;
                 }
             }
             StringBuilder sb = new StringBuilder(59);
             sb.append("Unexpected value for native Availability, value=");
-            sb.append(i);
+            sb.append(i2);
             throw new FatalException(sb.toString());
         }
 
@@ -153,8 +153,8 @@ public class ArCoreApk {
             return false;
         }
 
-        public /* synthetic */ Availability(String str, int i, int i2, d.h.b.a.e eVar) {
-            this(str, i, i2);
+        public /* synthetic */ Availability(String str, int i2, int i3, d.g.b.a.e eVar) {
+            this(str, i2, i3);
         }
     }
 }

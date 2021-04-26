@@ -35,7 +35,7 @@ public final class BasicCertificateChainCleaner extends CertificateChainCleaner 
         ArrayList arrayList = new ArrayList();
         arrayList.add(arrayDeque.removeFirst());
         boolean z = false;
-        for (int i = 0; i < 9; i++) {
+        for (int i2 = 0; i2 < 9; i2++) {
             X509Certificate x509Certificate = (X509Certificate) arrayList.get(arrayList.size() - 1);
             X509Certificate findByIssuerAndSignature = this.trustRootIndex.findByIssuerAndSignature(x509Certificate);
             if (findByIssuerAndSignature != null) {

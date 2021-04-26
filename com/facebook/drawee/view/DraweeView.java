@@ -17,7 +17,7 @@ import com.facebook.drawee.interfaces.DraweeHierarchy;
 import com.facebook.drawee.view.AspectRatioMeasure;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     public static boolean sGlobalLegacyVisibilityHandlingEnabled = false;
     public float mAspectRatio;
@@ -152,10 +152,10 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     }
 
     @Override // android.widget.ImageView, android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         AspectRatioMeasure.Spec spec = this.mMeasureSpec;
-        spec.width = i;
-        spec.height = i2;
+        spec.width = i2;
+        spec.height = i3;
         AspectRatioMeasure.updateMeasureSpec(spec, this.mAspectRatio, getLayoutParams(), getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom());
         AspectRatioMeasure.Spec spec2 = this.mMeasureSpec;
         super.onMeasure(spec2.width, spec2.height);
@@ -177,8 +177,8 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     }
 
     @Override // android.view.View
-    public void onVisibilityChanged(View view, int i) {
-        super.onVisibilityChanged(view, i);
+    public void onVisibilityChanged(View view, int i2) {
+        super.onVisibilityChanged(view, i2);
         maybeOverrideVisibilityHandling();
     }
 
@@ -218,10 +218,10 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
 
     @Override // android.widget.ImageView
     @Deprecated
-    public void setImageResource(int i) {
+    public void setImageResource(int i2) {
         init(getContext());
         this.mDraweeHolder.setController(null);
-        super.setImageResource(i);
+        super.setImageResource(i2);
     }
 
     @Override // android.widget.ImageView
@@ -252,8 +252,8 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
         init(context);
     }
 
-    public DraweeView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public DraweeView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mMeasureSpec = new AspectRatioMeasure.Spec();
         this.mAspectRatio = 0.0f;
         this.mInitialised = false;
@@ -262,8 +262,8 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     }
 
     @TargetApi(21)
-    public DraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
-        super(context, attributeSet, i, i2);
+    public DraweeView(Context context, AttributeSet attributeSet, int i2, int i3) {
+        super(context, attributeSet, i2, i3);
         this.mMeasureSpec = new AspectRatioMeasure.Spec();
         this.mAspectRatio = 0.0f;
         this.mInitialised = false;

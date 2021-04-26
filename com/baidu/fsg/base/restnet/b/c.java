@@ -14,10 +14,10 @@ import javax.net.ssl.SSLSession;
 public class c implements HostnameVerifier {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f5224a;
+    public final /* synthetic */ b f5355a;
 
     public c(b bVar) {
-        this.f5224a = bVar;
+        this.f5355a = bVar;
     }
 
     @Override // javax.net.ssl.HostnameVerifier
@@ -25,7 +25,7 @@ public class c implements HostnameVerifier {
         e eVar;
         try {
             Certificate[] peerCertificates = sSLSession.getPeerCertificates();
-            eVar = this.f5224a.f5220e;
+            eVar = this.f5355a.f5351e;
             String v = eVar.b().v();
             if (!TextUtils.isEmpty(v) && peerCertificates != null && peerCertificates.length > 0) {
                 X509Certificate x509Certificate = (X509Certificate) peerCertificates[0];

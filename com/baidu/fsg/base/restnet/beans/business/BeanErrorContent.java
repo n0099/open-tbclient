@@ -6,9 +6,9 @@ public class BeanErrorContent {
     public String mMsg;
     public int mRet;
 
-    public BeanErrorContent(int i, int i2, String str, Object obj) {
-        this.mBeanId = i;
-        this.mRet = i2;
+    public BeanErrorContent(int i2, int i3, String str, Object obj) {
+        this.mBeanId = i2;
+        this.mRet = i3;
         this.mMsg = str;
         this.mErrContent = obj;
     }

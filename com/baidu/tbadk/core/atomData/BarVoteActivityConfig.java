@@ -12,10 +12,10 @@ public class BarVoteActivityConfig extends IntentConfig {
         super(context);
     }
 
-    public BarVoteActivityConfig createNormalConfig(long j, int i) {
+    public BarVoteActivityConfig createNormalConfig(long j, int i2) {
         Intent intent = getIntent();
         intent.putExtra("fid", j);
-        intent.putExtra("source", i);
+        intent.putExtra("source", i2);
         return this;
     }
 }

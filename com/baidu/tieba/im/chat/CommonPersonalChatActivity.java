@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
-import d.b.j0.e1.w.c;
+import d.a.j0.e1.w.c;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,8 +24,8 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity
-    public String[] getDialogOperationItems(int i, boolean z) {
-        return super.getDialogOperationItems(i, true);
+    public String[] getDialogOperationItems(int i2, boolean z) {
+        return super.getDialogOperationItems(i2, true);
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
@@ -48,16 +48,16 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0027, code lost:
         r0 = r0.getContent();
      */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.b.c.e.h.a
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.a.c.e.h.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onItemViewClick(View view, int i, int i2, long j) {
+    public void onItemViewClick(View view, int i2, int i3, long j) {
         MsglistModel msglistModel;
         ChatMessage msg;
         String content;
-        super.onItemViewClick(view, i, i2, j);
-        if (i == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg = msglistModel.getMsg(i2)) != null && c.q(msg) && content != null) {
+        super.onItemViewClick(view, i2, i3, j);
+        if (i2 == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg = msglistModel.getMsg(i3)) != null && c.q(msg) && content != null) {
             JSONObject jSONObject = null;
             try {
                 try {

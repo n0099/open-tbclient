@@ -5,14 +5,14 @@ import android.content.pm.ApplicationInfo;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public ApplicationInfo f8054a;
+    public ApplicationInfo f8345a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f8055b = 0;
+    public int f8346b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f8056c = false;
+    public boolean f8347c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f8057d = false;
+    public boolean f8348d = false;
 }

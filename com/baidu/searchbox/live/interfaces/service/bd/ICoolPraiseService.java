@@ -17,7 +17,7 @@ public interface ICoolPraiseService {
 
     void setPraiseCntsVisibility(boolean z);
 
-    void setPraiseIconSize(int i, int i2);
+    void setPraiseIconSize(int i2, int i3);
 
     void setPraiseId(String str);
 

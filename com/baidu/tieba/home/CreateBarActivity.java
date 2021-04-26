@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import androidx.core.internal.view.SupportMenu;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
@@ -28,8 +29,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.i0.s.c.h0;
+import d.a.c.e.p.l;
+import d.a.i0.s.c.h0;
 /* loaded from: classes4.dex */
 public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     public RelativeLayout mCreatebar;
@@ -84,7 +85,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             }
             if (length >= 32) {
                 CreateBarActivity.this.mErrorView.setText(CreateBarActivity.this.getPageContext().getString(R.string.bar_name_long));
-                CreateBarActivity.this.mErrorView.setTextColor(-65536);
+                CreateBarActivity.this.mErrorView.setTextColor(SupportMenu.CATEGORY_MASK);
                 return;
             }
             CreateBarActivity.this.mErrorView.setText(CreateBarActivity.this.getPageContext().getString(R.string.bar_name_rule));
@@ -92,11 +93,11 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         }
 
         @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
 
         @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
     }
 
@@ -109,10 +110,10 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == 0) {
                 if (CreateBarActivity.this.mEditName.hasFocus()) {
-                    l.w(CreateBarActivity.this.getPageContext().getPageActivity(), CreateBarActivity.this.mEditName);
+                    l.x(CreateBarActivity.this.getPageContext().getPageActivity(), CreateBarActivity.this.mEditName);
                 }
                 if (CreateBarActivity.this.mEditVcode.hasFocus()) {
-                    l.w(CreateBarActivity.this.getPageContext().getPageActivity(), CreateBarActivity.this.mEditVcode);
+                    l.x(CreateBarActivity.this.getPageContext().getPageActivity(), CreateBarActivity.this.mEditVcode);
                     return false;
                 }
                 return false;
@@ -125,25 +126,25 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     public class d extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f16631a;
+        public String f16880a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f16632b;
+        public String f16881b;
 
         /* renamed from: c  reason: collision with root package name */
-        public NetWork f16633c = null;
+        public NetWork f16882c = null;
 
         public d(String str, String str2) {
-            this.f16631a = null;
-            this.f16632b = null;
-            this.f16631a = str;
-            this.f16632b = str2;
+            this.f16880a = null;
+            this.f16881b = null;
+            this.f16880a = str;
+            this.f16881b = str2;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            NetWork netWork = this.f16633c;
+            NetWork netWork = this.f16882c;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -162,13 +163,13 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         public String doInBackground(String... strArr) {
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/c/forum/create");
-                this.f16633c = netWork;
+                this.f16882c = netWork;
                 netWork.getNetContext().getRequest().mIsNeedTbs = true;
-                this.f16633c.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f16631a);
-                this.f16633c.addPostData("vcode", this.f16632b);
-                this.f16633c.addPostData("vcode_md5", CreateBarActivity.this.mVcode_md5);
-                this.f16633c.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
-                this.f16633c.postNetData();
+                this.f16882c.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.f16880a);
+                this.f16882c.addPostData("vcode", this.f16881b);
+                this.f16882c.addPostData("vcode_md5", CreateBarActivity.this.mVcode_md5);
+                this.f16882c.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+                this.f16882c.postNetData();
                 return null;
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -182,13 +183,13 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             super.onPostExecute((d) str);
             CreateBarActivity.this.mProgress.setVisibility(8);
             CreateBarActivity.this.mCreateTask = null;
-            if (this.f16633c.getNetContext().getResponse().isRequestSuccess()) {
-                CreateBarSuccessActivity.startActivity(CreateBarActivity.this.getPageContext().getPageActivity(), this.f16631a);
+            if (this.f16882c.getNetContext().getResponse().isRequestSuccess()) {
+                CreateBarSuccessActivity.startActivity(CreateBarActivity.this.getPageContext().getPageActivity(), this.f16880a);
                 CreateBarActivity.this.finish();
                 return;
             }
-            CreateBarActivity.this.showToast(this.f16633c.getErrorString());
-            if (this.f16633c.isNetSuccess()) {
+            CreateBarActivity.this.showToast(this.f16882c.getErrorString());
+            if (this.f16882c.isNetSuccess()) {
                 CreateBarActivity.this.startImageTask();
             }
         }
@@ -198,14 +199,14 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     public class e extends BdAsyncTask<String, Integer, Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f16635a;
+        public NetWork f16884a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f16636b;
+        public volatile boolean f16885b;
 
         public e() {
-            this.f16635a = null;
-            this.f16636b = false;
+            this.f16884a = null;
+            this.f16885b = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -214,22 +215,22 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         public Bitmap doInBackground(String... strArr) {
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/anti/vcode");
-                this.f16635a = netWork;
+                this.f16884a = netWork;
                 netWork.addPostData("fid", "0");
-                this.f16635a.addPostData("pub_type", "0");
-                this.f16635a.addPostData("fname", "");
-                this.f16635a.addPostData("tid", "0");
-                String postNetData = this.f16635a.postNetData();
-                if (this.f16635a.getNetContext().getResponse().isRequestSuccess()) {
+                this.f16884a.addPostData("pub_type", "0");
+                this.f16884a.addPostData("fname", "");
+                this.f16884a.addPostData("tid", "0");
+                String postNetData = this.f16884a.postNetData();
+                if (this.f16884a.getNetContext().getResponse().isRequestSuccess()) {
                     h0 h0Var = new h0();
                     h0Var.e(postNetData);
                     if (h0Var.c() != null && h0Var.c().length() > 0) {
                         CreateBarActivity.this.mVcode_md5 = h0Var.b();
-                        if (this.f16636b) {
+                        if (this.f16885b) {
                             return null;
                         }
                         NetWork netWork2 = new NetWork(h0Var.c());
-                        this.f16635a = netWork2;
+                        this.f16884a = netWork2;
                         return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                     }
                 }
@@ -242,8 +243,8 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            this.f16636b = true;
-            NetWork netWork = this.f16635a;
+            this.f16885b = true;
+            NetWork netWork = this.f16884a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -355,19 +356,19 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        getLayoutMode().k(i == 1);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        getLayoutMode().k(i2 == 1);
         getLayoutMode().j(this.mContainer);
-        SkinManager.setButtonTextColor(this.mCreateButtonText, i);
-        SkinManager.setTextColor(this.mTextInfo2, i);
+        SkinManager.setButtonTextColor(this.mCreateButtonText, i2);
+        SkinManager.setTextColor(this.mTextInfo2, i2);
         String str = this.mBarName + getPageContext().getString(R.string.bar_not_create);
         SpannableString spannableString = new SpannableString(str);
         spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10252)), 0, this.mBarName.length(), 33);
         spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.common_color_10004)), this.mBarName.length(), str.length(), 33);
         SkinManager.setBackgroundResource(this.mCreatebar, R.drawable.btn_general_start_selector);
         this.mTextInfo.setText(spannableString);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

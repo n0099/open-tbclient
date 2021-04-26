@@ -75,18 +75,18 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         }
     }
 
-    public DownloadTask(String str, Uri uri, PriorityStrategy.Priority priority, int i, int i2, int i3, int i4, boolean z, int i5, Map<String, List<String>> map, @Nullable String str2, boolean z2, boolean z3, Boolean bool, @Nullable Integer num, @Nullable Boolean bool2) {
+    public DownloadTask(String str, Uri uri, PriorityStrategy.Priority priority, int i2, int i3, int i4, int i5, boolean z, int i6, Map<String, List<String>> map, @Nullable String str2, boolean z2, boolean z3, Boolean bool, @Nullable Integer num, @Nullable Boolean bool2) {
         Boolean bool3;
         String str3 = str2;
         this.url = str;
         this.uri = uri;
         this.priority = priority;
-        this.readBufferSize = i;
-        this.flushBufferSize = i2;
-        this.syncBufferSize = i3;
-        this.syncBufferIntervalMills = i4;
+        this.readBufferSize = i2;
+        this.flushBufferSize = i3;
+        this.syncBufferSize = i4;
+        this.syncBufferIntervalMills = i5;
         this.autoCallbackToUIThread = z;
-        this.minIntervalMillisCallbackProcess = i5;
+        this.minIntervalMillisCallbackProcess = i6;
         this.headerMapFields = map;
         this.passIfAlreadyCompleted = z2;
         this.wifiRequired = z3;
@@ -156,11 +156,11 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         BdDownload.with().downloadDispatcher().enqueue(downloadTaskArr);
     }
 
-    public static MockTaskForCompare mockTaskForCompare(int i) {
-        return new MockTaskForCompare(i);
+    public static MockTaskForCompare mockTaskForCompare(int i2) {
+        return new MockTaskForCompare(i2);
     }
 
-    public synchronized DownloadTask addTag(int i, Object obj) {
+    public synchronized DownloadTask addTag(int i2, Object obj) {
         if (this.keyTagMap == null) {
             synchronized (this) {
                 if (this.keyTagMap == null) {
@@ -168,7 +168,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
                 }
             }
         }
-        this.keyTagMap.put(i, obj);
+        this.keyTagMap.put(i2, obj);
         return this;
     }
 
@@ -311,11 +311,11 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         return this.syncBufferSize;
     }
 
-    public Object getTag(int i) {
+    public Object getTag(int i2) {
         if (this.keyTagMap == null) {
             return null;
         }
-        return this.keyTagMap.get(i);
+        return this.keyTagMap.get(i2);
     }
 
     public Uri getUri() {
@@ -349,13 +349,13 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
     }
 
     @NonNull
-    public MockTaskForCompare mock(int i) {
-        return new MockTaskForCompare(i, this);
+    public MockTaskForCompare mock(int i2) {
+        return new MockTaskForCompare(i2, this);
     }
 
-    public synchronized void removeTag(int i) {
+    public synchronized void removeTag(int i2) {
         if (this.keyTagMap != null) {
-            this.keyTagMap.remove(i);
+            this.keyTagMap.remove(i2);
         }
     }
 
@@ -476,8 +476,8 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             return this;
         }
 
-        public Builder setConnectionCount(@IntRange(from = 1) int i) {
-            this.connectionCount = Integer.valueOf(i);
+        public Builder setConnectionCount(@IntRange(from = 1) int i2) {
+            this.connectionCount = Integer.valueOf(i2);
             return this;
         }
 
@@ -494,9 +494,9 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             throw new IllegalArgumentException("Uri isn't file scheme we can't let filename from response");
         }
 
-        public Builder setFlushBufferSize(int i) {
-            if (i >= 0) {
-                this.flushBufferSize = i;
+        public Builder setFlushBufferSize(int i2) {
+            if (i2 >= 0) {
+                this.flushBufferSize = i2;
                 return this;
             }
             throw new IllegalArgumentException("Value must be positive!");
@@ -507,8 +507,8 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             return this;
         }
 
-        public Builder setMinIntervalMillisCallbackProcess(int i) {
-            this.minIntervalMillisCallbackProcess = i;
+        public Builder setMinIntervalMillisCallbackProcess(int i2) {
+            this.minIntervalMillisCallbackProcess = i2;
             return this;
         }
 
@@ -527,25 +527,25 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             return this;
         }
 
-        public Builder setReadBufferSize(int i) {
-            if (i >= 0) {
-                this.readBufferSize = i;
+        public Builder setReadBufferSize(int i2) {
+            if (i2 >= 0) {
+                this.readBufferSize = i2;
                 return this;
             }
             throw new IllegalArgumentException("Value must be positive!");
         }
 
-        public Builder setSyncBufferIntervalMillis(int i) {
-            if (i >= 0) {
-                this.syncBufferIntervalMillis = i;
+        public Builder setSyncBufferIntervalMillis(int i2) {
+            if (i2 >= 0) {
+                this.syncBufferIntervalMillis = i2;
                 return this;
             }
             throw new IllegalArgumentException("Value must be positive!");
         }
 
-        public Builder setSyncBufferSize(int i) {
-            if (i >= 0) {
-                this.syncBufferSize = i;
+        public Builder setSyncBufferSize(int i2) {
+            if (i2 >= 0) {
+                this.syncBufferSize = i2;
                 return this;
             }
             throw new IllegalArgumentException("Value must be positive!");
@@ -609,8 +609,8 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         @NonNull
         public final String url;
 
-        public MockTaskForCompare(int i) {
-            this.id = i;
+        public MockTaskForCompare(int i2) {
+            this.id = i2;
             this.url = "";
             File file = IdentifiedTask.EMPTY_FILE;
             this.providedPathFile = file;
@@ -647,8 +647,8 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             return this.url;
         }
 
-        public MockTaskForCompare(int i, @NonNull DownloadTask downloadTask) {
-            this.id = i;
+        public MockTaskForCompare(int i2, @NonNull DownloadTask downloadTask) {
+            this.id = i2;
             this.url = downloadTask.url;
             this.parentFile = downloadTask.getParentFile();
             this.providedPathFile = downloadTask.providedPathFile;

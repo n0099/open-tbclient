@@ -22,19 +22,19 @@ public class ScreenUtils {
         return displayMetrics;
     }
 
-    public static int getLogicalPixel(Context context, int i) {
+    public static int getLogicalPixel(Context context, int i2) {
         try {
-            return (int) (i / getScreenDensity(context));
+            return (int) (i2 / getScreenDensity(context));
         } catch (Exception unused) {
-            return i;
+            return i2;
         }
     }
 
-    public static int getPixel(Context context, int i) {
+    public static int getPixel(Context context, int i2) {
         try {
-            return (int) (i * getScreenDensity(context));
+            return (int) (i2 * getScreenDensity(context));
         } catch (Exception unused) {
-            return i;
+            return i2;
         }
     }
 

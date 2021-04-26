@@ -29,7 +29,7 @@ import java.util.Map;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f28748a = false;
+    public static boolean f29634a = false;
 
     public static void b(final Context context, final com.bytedance.sdk.openadsdk.core.d.l lVar, final Intent intent, final String str) {
         String str2;
@@ -77,7 +77,7 @@ public class z {
     }
 
     public static void a(boolean z) {
-        f28748a = z;
+        f29634a = z;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:100:0x018f  */
@@ -87,14 +87,14 @@ public class z {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean a(final Context context, final com.bytedance.sdk.openadsdk.core.d.l lVar, final int i, @Nullable TTNativeAd tTNativeAd, @Nullable TTNativeExpressAd tTNativeExpressAd, final String str, @Nullable com.bytedance.sdk.openadsdk.downloadnew.core.a aVar, final boolean z, final Map<String, Object> map, boolean z2, boolean z3) {
+    public static boolean a(final Context context, final com.bytedance.sdk.openadsdk.core.d.l lVar, final int i2, @Nullable TTNativeAd tTNativeAd, @Nullable TTNativeExpressAd tTNativeExpressAd, final String str, @Nullable com.bytedance.sdk.openadsdk.downloadnew.core.a aVar, final boolean z, final Map<String, Object> map, boolean z2, boolean z3) {
         boolean z4;
         String ac;
         String str2;
         boolean z5;
         Map map2;
         Map map3;
-        if (context == null || lVar == null || i == -1) {
+        if (context == null || lVar == null || i2 == -1) {
             return false;
         }
         com.bytedance.sdk.openadsdk.core.d.g ao = lVar.ao();
@@ -127,7 +127,7 @@ public class z {
                             public void a(Throwable th) {
                                 com.bytedance.sdk.openadsdk.core.d.l lVar2 = com.bytedance.sdk.openadsdk.core.d.l.this;
                                 if (lVar2 != null && !lVar2.aC()) {
-                                    z.a(context, com.bytedance.sdk.openadsdk.core.d.l.this.ac(), com.bytedance.sdk.openadsdk.core.d.l.this, i, str, z, map);
+                                    z.a(context, com.bytedance.sdk.openadsdk.core.d.l.this.ac(), com.bytedance.sdk.openadsdk.core.d.l.this, i2, str, z, map);
                                     com.bytedance.sdk.openadsdk.utils.u.c("WebHelper", "openDetailPage() -> context.startActivity(intent) fail :", th);
                                 }
                                 com.bytedance.sdk.openadsdk.c.d.b(p.a(), com.bytedance.sdk.openadsdk.core.d.l.this, str, "deeplink_fail_realtime");
@@ -232,17 +232,17 @@ public class z {
                     return false;
                 }
             } else {
-                com.bytedance.sdk.openadsdk.utils.b.a(context, a(context, ac, lVar, i, tTNativeAd, tTNativeExpressAd, str, z, map, z2, false), null);
-                f28748a = false;
+                com.bytedance.sdk.openadsdk.utils.b.a(context, a(context, ac, lVar, i2, tTNativeAd, tTNativeExpressAd, str, z, map, z2, false), null);
+                f29634a = false;
             }
             return z4;
         }
         return false;
     }
 
-    public static boolean a(Context context, String str, com.bytedance.sdk.openadsdk.core.d.l lVar, int i, String str2, boolean z, Map<String, Object> map) {
+    public static boolean a(Context context, String str, com.bytedance.sdk.openadsdk.core.d.l lVar, int i2, String str2, boolean z, Map<String, Object> map) {
         try {
-            return com.bytedance.sdk.openadsdk.utils.b.a(context, a(context, str, lVar, i, (TTNativeAd) null, (TTNativeExpressAd) null, str2, z, map, false, false), null);
+            return com.bytedance.sdk.openadsdk.utils.b.a(context, a(context, str, lVar, i2, (TTNativeAd) null, (TTNativeExpressAd) null, str2, z, map, false, false), null);
         } catch (Throwable unused) {
             return false;
         }
@@ -260,8 +260,8 @@ public class z {
         if (lVar == null || intent == null || context == null || !lVar.aD() || (c2 = i.d().c()) == null) {
             return;
         }
-        c2.a(new a.InterfaceC0340a() { // from class: com.bytedance.sdk.openadsdk.core.z.2
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0340a
+        c2.a(new a.InterfaceC0333a() { // from class: com.bytedance.sdk.openadsdk.core.z.2
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0333a
             public void a() {
                 long currentTimeMillis = System.currentTimeMillis();
                 com.bytedance.sdk.openadsdk.utils.u.b("WebHelper", "间隔时间 onActivityResumed intervalTime " + (currentTimeMillis - j));
@@ -274,32 +274,32 @@ public class z {
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0340a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0333a
             public void b() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0340a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0333a
             public void c() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0340a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0333a
             public void d() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0340a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0333a
             public void e() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0340a
+            @Override // com.bytedance.sdk.openadsdk.utils.a.InterfaceC0333a
             public void f() {
             }
         });
     }
 
     public static boolean a(TTNativeAd tTNativeAd) {
-        if (tTNativeAd != null && (tTNativeAd instanceof a.InterfaceC0333a)) {
+        if (tTNativeAd != null && (tTNativeAd instanceof a.InterfaceC0326a)) {
             try {
-                return ((a.InterfaceC0333a) tTNativeAd).g();
+                return ((a.InterfaceC0326a) tTNativeAd).g();
             } catch (Throwable unused) {
                 return false;
             }
@@ -307,9 +307,9 @@ public class z {
         return false;
     }
 
-    public static Intent a(Context context, String str, com.bytedance.sdk.openadsdk.core.d.l lVar, int i, @Nullable TTNativeAd tTNativeAd, TTNativeExpressAd tTNativeExpressAd, String str2, boolean z, Map<String, Object> map, boolean z2, boolean z3) {
+    public static Intent a(Context context, String str, com.bytedance.sdk.openadsdk.core.d.l lVar, int i2, @Nullable TTNativeAd tTNativeAd, TTNativeExpressAd tTNativeExpressAd, String str2, boolean z, Map<String, Object> map, boolean z2, boolean z3) {
         Intent intent;
-        int i2;
+        int i3;
         if (lVar.C() && !TextUtils.isEmpty(com.bytedance.sdk.openadsdk.core.d.n.a(lVar)) && (tTNativeAd != null || tTNativeExpressAd != null)) {
             intent = new Intent(context, TTPlayableWebPageActivity.class);
             intent.putExtra("ad_pending_download", a(lVar, z));
@@ -322,7 +322,7 @@ public class z {
                 }
             }
         } else {
-            intent = tTNativeAd instanceof TTDrawFeedAd ? new Intent(context, TTWebPageActivity.class) : (!com.bytedance.sdk.openadsdk.core.d.l.c(lVar) || f28748a || a(tTNativeAd) || !ak.c(lVar)) ? new Intent(context, TTWebPageActivity.class) : new Intent(context, TTVideoWebPageActivity.class);
+            intent = tTNativeAd instanceof TTDrawFeedAd ? new Intent(context, TTWebPageActivity.class) : (!com.bytedance.sdk.openadsdk.core.d.l.c(lVar) || f29634a || a(tTNativeAd) || !ak.c(lVar)) ? new Intent(context, TTWebPageActivity.class) : new Intent(context, TTVideoWebPageActivity.class);
         }
         intent.putExtra("url", str);
         intent.putExtra("gecko_id", lVar.ae());
@@ -332,7 +332,7 @@ public class z {
         intent.putExtra("log_extra", lVar.ap());
         intent.putExtra("icon_url", lVar.aa() == null ? null : lVar.aa().a());
         intent.putExtra("event_tag", str2);
-        intent.putExtra("source", i);
+        intent.putExtra("source", i2);
         if (!(context instanceof Activity)) {
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         }
@@ -345,7 +345,7 @@ public class z {
         }
         if (com.bytedance.sdk.openadsdk.core.d.l.c(lVar)) {
             if (tTNativeAd != null) {
-                r8 = tTNativeAd instanceof a.InterfaceC0333a ? ((a.InterfaceC0333a) tTNativeAd).e() : null;
+                r8 = tTNativeAd instanceof a.InterfaceC0326a ? ((a.InterfaceC0326a) tTNativeAd).e() : null;
                 if (r8 != null) {
                     intent.putExtra(TTAdConstant.MULTI_PROCESS_DATA, r8.a().toString());
                 }
@@ -354,28 +354,28 @@ public class z {
                 intent.putExtra(TTAdConstant.MULTI_PROCESS_DATA, r8.a().toString());
             }
             if (r8 != null) {
-                intent.putExtra("video_is_auto_play", r8.f29575d);
+                intent.putExtra("video_is_auto_play", r8.f30480d);
                 com.bytedance.sdk.openadsdk.utils.u.c("videoDataModel", "videoDataModel=" + r8.a().toString());
             }
             if (TTVideoWebPageActivity.a(intent) && (r8 != null || z2)) {
                 try {
                     if (r8 != null) {
-                        i2 = (int) ((((float) r8.f29578g) / ((float) r8.f29576e)) * 100.0f);
+                        i3 = (int) ((((float) r8.f30483g) / ((float) r8.f30481e)) * 100.0f);
                     } else {
                         com.bytedance.sdk.openadsdk.multipro.b.a aVar = new com.bytedance.sdk.openadsdk.multipro.b.a();
-                        aVar.f29578g = 100L;
-                        aVar.f29572a = true;
-                        aVar.f29575d = ak.j(lVar);
+                        aVar.f30483g = 100L;
+                        aVar.f30477a = true;
+                        aVar.f30480d = ak.j(lVar);
                         intent.putExtra(TTAdConstant.MULTI_PROCESS_DATA, aVar.a().toString());
-                        i2 = 100;
+                        i3 = 100;
                     }
                     if (map == null) {
                         map = new HashMap<>();
                     }
-                    map.put("play_percent", Integer.valueOf(i2));
+                    map.put("play_percent", Integer.valueOf(i3));
                     if (lVar.ad() == 0) {
                         intent.setComponent(new ComponentName(context, TTVideoScrollWebPageActivity.class));
-                    } else if (lVar.ad() > 0 && i2 > lVar.ad() && ak.j(lVar)) {
+                    } else if (lVar.ad() > 0 && i3 > lVar.ad() && ak.j(lVar)) {
                         intent.setComponent(new ComponentName(context, TTVideoScrollWebPageActivity.class));
                     }
                 } catch (Throwable unused) {

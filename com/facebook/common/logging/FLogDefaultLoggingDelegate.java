@@ -3,7 +3,7 @@ package com.facebook.common.logging;
 import android.util.Log;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FLogDefaultLoggingDelegate implements LoggingDelegate {
     public static final FLogDefaultLoggingDelegate sInstance = new FLogDefaultLoggingDelegate();
     public String mApplicationTag = "unknown";
@@ -33,8 +33,8 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
         return str;
     }
 
-    private void println(int i, String str, String str2) {
-        Log.println(i, prefixTag(str), str2);
+    private void println(int i2, String str, String str2) {
+        Log.println(i2, prefixTag(str), str2);
     }
 
     @Override // com.facebook.common.logging.LoggingDelegate
@@ -58,13 +58,13 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
     }
 
     @Override // com.facebook.common.logging.LoggingDelegate
-    public boolean isLoggable(int i) {
-        return this.mMinimumLoggingLevel <= i;
+    public boolean isLoggable(int i2) {
+        return this.mMinimumLoggingLevel <= i2;
     }
 
     @Override // com.facebook.common.logging.LoggingDelegate
-    public void log(int i, String str, String str2) {
-        println(i, str, str2);
+    public void log(int i2, String str, String str2) {
+        println(i2, str, str2);
     }
 
     public void setApplicationTag(String str) {
@@ -72,8 +72,8 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
     }
 
     @Override // com.facebook.common.logging.LoggingDelegate
-    public void setMinimumLoggingLevel(int i) {
-        this.mMinimumLoggingLevel = i;
+    public void setMinimumLoggingLevel(int i2) {
+        this.mMinimumLoggingLevel = i2;
     }
 
     @Override // com.facebook.common.logging.LoggingDelegate
@@ -91,8 +91,8 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
         println(6, str, str2);
     }
 
-    private void println(int i, String str, String str2, Throwable th) {
-        Log.println(i, prefixTag(str), getMsg(str2, th));
+    private void println(int i2, String str, String str2, Throwable th) {
+        Log.println(i2, prefixTag(str), getMsg(str2, th));
     }
 
     @Override // com.facebook.common.logging.LoggingDelegate

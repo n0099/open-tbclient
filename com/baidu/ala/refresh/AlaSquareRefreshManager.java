@@ -9,33 +9,33 @@ public class AlaSquareRefreshManager {
     public RefreshRunnable[] mPageRefreshRunnables;
     public ISquareRefreshHandler mSquareRefreshHandler;
 
-    private boolean checkIndex(int i) {
+    private boolean checkIndex(int i2) {
         long[] jArr;
-        return i >= 0 && (jArr = this.mPageRefreshInterval) != null && jArr.length > i;
+        return i2 >= 0 && (jArr = this.mPageRefreshInterval) != null && jArr.length > i2;
     }
 
     private void createPageRefreshRunnables() {
         long[] jArr = this.mPageRefreshInterval;
         int length = jArr.length;
         this.mPageRefreshRunnables = new RefreshRunnable[jArr.length];
-        for (int i = 0; i < length; i++) {
-            RefreshRunnable refreshRunnable = new RefreshRunnable(i, getTimeByIndex(this.mPageRefreshInterval, i));
+        for (int i2 = 0; i2 < length; i2++) {
+            RefreshRunnable refreshRunnable = new RefreshRunnable(i2, getTimeByIndex(this.mPageRefreshInterval, i2));
             refreshRunnable.postDelay();
-            this.mPageRefreshRunnables[i] = refreshRunnable;
+            this.mPageRefreshRunnables[i2] = refreshRunnable;
         }
     }
 
-    private long getTimeByIndex(long[] jArr, int i) {
-        if (jArr == null || i < 0 || jArr.length <= i) {
+    private long getTimeByIndex(long[] jArr, int i2) {
+        if (jArr == null || i2 < 0 || jArr.length <= i2) {
             return -1L;
         }
-        return jArr[i];
+        return jArr[i2];
     }
 
     private void releasePageRefreshRunnables() {
         int length = this.mPageRefreshRunnables.length;
-        for (int i = 0; i < length; i++) {
-            this.mHandler.removeCallbacks(this.mPageRefreshRunnables[i]);
+        for (int i2 = 0; i2 < length; i2++) {
+            this.mHandler.removeCallbacks(this.mPageRefreshRunnables[i2]);
         }
     }
 
@@ -64,13 +64,13 @@ public class AlaSquareRefreshManager {
         this.mCurRefreshTimes = null;
     }
 
-    public void onPageForeground(int i) {
-        if (checkIndex(i)) {
-            long currentTimeMillis = System.currentTimeMillis() - this.mCurRefreshTimes[i];
-            if (currentTimeMillis > this.mPageRefreshInterval[i]) {
-                this.mPageRefreshRunnables[i].post();
+    public void onPageForeground(int i2) {
+        if (checkIndex(i2)) {
+            long currentTimeMillis = System.currentTimeMillis() - this.mCurRefreshTimes[i2];
+            if (currentTimeMillis > this.mPageRefreshInterval[i2]) {
+                this.mPageRefreshRunnables[i2].post();
             } else {
-                this.mPageRefreshRunnables[i].postDelay(currentTimeMillis);
+                this.mPageRefreshRunnables[i2].postDelay(currentTimeMillis);
             }
         }
     }
@@ -81,10 +81,10 @@ public class AlaSquareRefreshManager {
         }
     }
 
-    public void reset(int i) {
-        if (checkIndex(i)) {
-            this.mHandler.removeCallbacks(this.mPageRefreshRunnables[i]);
-            this.mPageRefreshRunnables[i].postDelay();
+    public void reset(int i2) {
+        if (checkIndex(i2)) {
+            this.mHandler.removeCallbacks(this.mPageRefreshRunnables[i2]);
+            this.mPageRefreshRunnables[i2].postDelay();
         }
     }
 
@@ -93,10 +93,10 @@ public class AlaSquareRefreshManager {
         public int mIndex;
         public long mInterval;
 
-        public RefreshRunnable(int i, long j) {
+        public RefreshRunnable(int i2, long j) {
             this.mIndex = 0;
             this.mInterval = 0L;
-            this.mIndex = i;
+            this.mIndex = i2;
             this.mInterval = j;
         }
 

@@ -4,19 +4,19 @@ import java.io.File;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public interface a {
-    int a(byte[] bArr, int i, int i2) throws IOException;
+    int a(byte[] bArr, int i2, int i3) throws IOException;
 
     long a(long j) throws IOException;
 
     void a() throws IOException;
 
-    void a(int i) throws IOException;
+    void a(int i2) throws IOException;
 
     void a(byte[] bArr) throws IOException;
 
     int b(byte[] bArr) throws IOException;
 
-    int b(byte[] bArr, int i, int i2) throws IOException;
+    int b(byte[] bArr, int i2, int i3) throws IOException;
 
     long b() throws IOException;
 

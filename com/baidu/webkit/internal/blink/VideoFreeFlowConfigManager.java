@@ -27,53 +27,53 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f26569a;
+        public String f27376a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f26570b;
+        public String f27377b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f26571c;
+        public String f27378c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f26572d;
+        public int f27379d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f26573e;
+        public String f27380e;
 
         public a(String str) {
-            this.f26569a = null;
-            this.f26570b = null;
-            this.f26571c = null;
-            this.f26572d = 2;
-            this.f26573e = null;
+            this.f27376a = null;
+            this.f27377b = null;
+            this.f27378c = null;
+            this.f27379d = 2;
+            this.f27380e = null;
             if (TextUtils.isEmpty(str) || !str.contains("#")) {
                 return;
             }
             String[] split = str.split("#");
             int length = split.length;
-            for (int i = 0; i < length; i++) {
-                if (!TextUtils.isEmpty(split[i])) {
-                    if (i == 0) {
-                        this.f26569a = split[i];
-                    } else if (i == 1) {
-                        this.f26570b = split[i];
-                    } else if (i == 2) {
-                        String str2 = split[i];
-                        this.f26571c = str2;
+            for (int i2 = 0; i2 < length; i2++) {
+                if (!TextUtils.isEmpty(split[i2])) {
+                    if (i2 == 0) {
+                        this.f27376a = split[i2];
+                    } else if (i2 == 1) {
+                        this.f27377b = split[i2];
+                    } else if (i2 == 2) {
+                        String str2 = split[i2];
+                        this.f27378c = str2;
                         if (!TextUtils.isEmpty(str2)) {
                             String trim = str2.trim();
-                            this.f26571c = trim;
+                            this.f27378c = trim;
                             if (trim.startsWith(VideoFreeFlowConfigManager.DIRECT)) {
-                                this.f26572d = 2;
-                            } else if (this.f26571c.startsWith(VideoFreeFlowConfigManager.PROXY)) {
-                                this.f26572d = 1;
-                                String str3 = this.f26571c;
+                                this.f27379d = 2;
+                            } else if (this.f27378c.startsWith(VideoFreeFlowConfigManager.PROXY)) {
+                                this.f27379d = 1;
+                                String str3 = this.f27378c;
                                 String trim2 = str3.substring(str3.indexOf(VideoFreeFlowConfigManager.PROXY) + 5).trim();
                                 if (!TextUtils.isEmpty(trim2)) {
                                     String[] split2 = trim2.split(";");
                                     if (split2.length > 0 && !TextUtils.isEmpty(split2[0])) {
-                                        this.f26573e = split2[0];
+                                        this.f27380e = split2[0];
                                     }
                                 }
                             }
@@ -106,7 +106,7 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:36:0x009f, code lost:
-        if (r3.indexOf(r6.f26570b) != (-1)) goto L53;
+        if (r3.indexOf(r6.f27377b) != (-1)) goto L53;
      */
     /* JADX WARN: Removed duplicated region for block: B:50:0x00cb A[Catch: all -> 0x00e0, TryCatch #0 {, blocks: (B:10:0x0012, B:12:0x0024, B:14:0x0033, B:16:0x003b, B:18:0x0043, B:21:0x004d, B:50:0x00cb, B:52:0x00cf, B:53:0x00d1, B:55:0x00d3, B:57:0x00d8, B:59:0x00da, B:24:0x005a, B:26:0x0064, B:28:0x006a, B:30:0x0076, B:33:0x008e, B:35:0x0099, B:38:0x00a2, B:40:0x00ac, B:43:0x00b5, B:45:0x00bf, B:60:0x00de), top: B:65:0x0012 }] */
     /* JADX WARN: Removed duplicated region for block: B:69:0x00da A[SYNTHETIC] */
@@ -119,24 +119,24 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
             synchronized (this.mListLock) {
                 int size = this.mPacRulesList.size();
                 String host = Uri.parse(str).getHost();
-                for (int i = 0; i < size; i++) {
-                    a aVar = this.mPacRulesList.get(i);
-                    if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(aVar.f26569a) && !TextUtils.isEmpty(aVar.f26570b) && !TextUtils.isEmpty(aVar.f26571c)) {
-                        if (!aVar.f26570b.equals("*")) {
-                            if (aVar.f26569a.equals(HOST_MATCH)) {
-                                if (!TextUtils.isEmpty(host) && host.length() >= aVar.f26570b.length() && host.substring(host.length() - aVar.f26570b.length()).equals(aVar.f26570b)) {
+                for (int i2 = 0; i2 < size; i2++) {
+                    a aVar = this.mPacRulesList.get(i2);
+                    if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(aVar.f27376a) && !TextUtils.isEmpty(aVar.f27377b) && !TextUtils.isEmpty(aVar.f27378c)) {
+                        if (!aVar.f27377b.equals("*")) {
+                            if (aVar.f27376a.equals(HOST_MATCH)) {
+                                if (!TextUtils.isEmpty(host) && host.length() >= aVar.f27377b.length() && host.substring(host.length() - aVar.f27377b.length()).equals(aVar.f27377b)) {
                                 }
-                            } else if (!aVar.f26569a.equals(HOST_STR)) {
-                                if (aVar.f26569a.equals(HOST_STR_MATCH)) {
-                                    if (host.equals(aVar.f26570b)) {
+                            } else if (!aVar.f27376a.equals(HOST_STR)) {
+                                if (aVar.f27376a.equals(HOST_STR_MATCH)) {
+                                    if (host.equals(aVar.f27377b)) {
                                     }
-                                } else if (aVar.f26569a.equals(URL_MATCH) && str.indexOf(aVar.f26570b) != -1) {
+                                } else if (aVar.f27376a.equals(URL_MATCH) && str.indexOf(aVar.f27377b) != -1) {
                                 }
                             }
                             if (z) {
-                                if (aVar.f26572d == 1) {
-                                    return aVar.f26573e;
-                                } else if (aVar.f26572d == 2) {
+                                if (aVar.f27379d == 1) {
+                                    return aVar.f27380e;
+                                } else if (aVar.f27379d == 2) {
                                     return null;
                                 }
                             }

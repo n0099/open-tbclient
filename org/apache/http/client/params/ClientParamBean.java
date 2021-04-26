@@ -46,7 +46,7 @@ public class ClientParamBean extends HttpAbstractParamBean {
         throw new RuntimeException("Stub!");
     }
 
-    public void setMaxRedirects(int i) {
+    public void setMaxRedirects(int i2) {
         throw new RuntimeException("Stub!");
     }
 

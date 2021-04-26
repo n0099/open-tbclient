@@ -19,8 +19,8 @@ public class CouponMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public CouponMsg[] newArray(int i) {
-            return new CouponMsg[i];
+        public CouponMsg[] newArray(int i2) {
+            return new CouponMsg[i2];
         }
     };
     public long mAppid;
@@ -121,11 +121,11 @@ public class CouponMsg extends NormalMsg {
         this.mDiscount = str;
     }
 
-    public void setDiscountType(int i) {
-        this.mDiscountType = i;
+    public void setDiscountType(int i2) {
+        this.mDiscountType = i2;
     }
 
-    public boolean setJsonContent(String str, String str2, String str3, int i, String str4, String str5, String str6, String str7) {
+    public boolean setJsonContent(String str, String str2, String str3, int i2, String str4, String str5, String str6, String str7) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str4) || TextUtils.isEmpty(str3)) {
             return false;
         }
@@ -135,7 +135,7 @@ public class CouponMsg extends NormalMsg {
             jSONObject.put("logo", str);
             jSONObject.put("name", str2);
             jSONObject.put("desc", str3);
-            jSONObject.put("discount_type", i);
+            jSONObject.put("discount_type", i2);
             jSONObject.put("discount", str4);
             jSONObject.put("bgcolor", str5);
             jSONObject.put("url", str6);
@@ -168,8 +168,8 @@ public class CouponMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.mType);
         parcel.writeLong(this.mAppid);
         parcel.writeString(this.mLogo);

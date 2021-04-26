@@ -29,17 +29,19 @@ public final class j {
     public byte[] Z;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f68761b;
+    public int f67619b;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f68763d;
+    public byte[] f67621d;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f68766g;
+    public int f67624g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f68767h;
-    public boolean i;
+    public boolean f67625h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f67626i;
     public boolean j;
     public int w;
     public int x;
@@ -47,16 +49,16 @@ public final class j {
     public byte[] z;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f68760a = 0;
+    public int f67618a = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f68762c = new a();
+    public final a f67620c = new a();
 
     /* renamed from: e  reason: collision with root package name */
-    public final int[] f68764e = new int[3240];
+    public final int[] f67622e = new int[3240];
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f68765f = new int[3240];
+    public final int[] f67623f = new int[3240];
     public final g k = new g();
     public final g l = new g();
     public final g m = new g();
@@ -75,41 +77,41 @@ public final class j {
     public int T = 0;
 
     public static void a(j jVar) throws IOException {
-        int i = jVar.f68760a;
-        if (i == 0) {
+        int i2 = jVar.f67618a;
+        if (i2 == 0) {
             throw new IllegalStateException("State MUST be initialized");
         }
-        if (i == 11) {
+        if (i2 == 11) {
             return;
         }
-        jVar.f68760a = 11;
-        a.b(jVar.f68762c);
+        jVar.f67618a = 11;
+        a.b(jVar.f67620c);
     }
 
     public static int b(a aVar) {
         if (a.i(aVar, 1) == 0) {
             return 16;
         }
-        int i = a.i(aVar, 3);
-        if (i != 0) {
-            return i + 17;
-        }
         int i2 = a.i(aVar, 3);
         if (i2 != 0) {
-            return i2 + 8;
+            return i2 + 17;
+        }
+        int i3 = a.i(aVar, 3);
+        if (i3 != 0) {
+            return i3 + 8;
         }
         return 17;
     }
 
     public static void c(j jVar, InputStream inputStream) {
-        if (jVar.f68760a == 0) {
-            a.e(jVar.f68762c, inputStream);
-            int b2 = b(jVar.f68762c);
+        if (jVar.f67618a == 0) {
+            a.e(jVar.f67620c, inputStream);
+            int b2 = b(jVar.f67620c);
             if (b2 != 9) {
-                int i = 1 << b2;
-                jVar.P = i;
-                jVar.O = i - 16;
-                jVar.f68760a = 1;
+                int i2 = 1 << b2;
+                jVar.P = i2;
+                jVar.O = i2 - 16;
+                jVar.f67618a = 1;
                 return;
             }
             throw new BrotliRuntimeException("Invalid 'windowBits' code");

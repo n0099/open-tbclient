@@ -9,16 +9,16 @@ public class GetOneKeyLoginStateDTO {
         beginTime = System.currentTimeMillis();
     }
 
-    public static int getAfterConnTimeOut(int i) {
-        int i2;
+    public static int getAfterConnTimeOut(int i2) {
+        int i3;
         try {
-            i2 = (int) (i - (System.currentTimeMillis() - beginTime));
+            i3 = (int) (i2 - (System.currentTimeMillis() - beginTime));
         } catch (Exception unused) {
-            i2 = 0;
+            i3 = 0;
         }
-        if (i2 < 0) {
+        if (i3 < 0) {
             return 0;
         }
-        return i2;
+        return i3;
     }
 }

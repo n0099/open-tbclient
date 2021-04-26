@@ -22,10 +22,10 @@ public class RotateLoadingLayout extends LoadingLayout {
     public RotateLoadingLayout(Context context, PullToRefreshBase.Mode mode, PullToRefreshBase.Orientation orientation, TypedArray typedArray) {
         super(context, mode, orientation, typedArray);
         this.u = typedArray.getBoolean(R$styleable.PullToRefresh_tb_ptrRotateDrawableWhilePulling, true);
-        this.f13960f.setScaleType(ImageView.ScaleType.MATRIX);
+        this.f13992f.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
         this.r = matrix;
-        this.f13960f.setImageMatrix(matrix);
+        this.f13992f.setImageMatrix(matrix);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
         this.q = rotateAnimation;
         rotateAnimation.setInterpolator(LoadingLayout.p);
@@ -45,7 +45,7 @@ public class RotateLoadingLayout extends LoadingLayout {
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     public void c(float f2) {
         this.r.setRotate(this.u ? f2 * 90.0f : Math.max(0.0f, Math.min(180.0f, (f2 * 360.0f) - 180.0f)), this.s, this.t);
-        this.f13960f.setImageMatrix(this.r);
+        this.f13992f.setImageMatrix(this.r);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
@@ -54,7 +54,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     public void g() {
-        this.f13960f.startAnimation(this.q);
+        this.f13992f.startAnimation(this.q);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
@@ -68,7 +68,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     public void k() {
-        this.f13960f.clearAnimation();
+        this.f13992f.clearAnimation();
         l();
     }
 
@@ -76,7 +76,7 @@ public class RotateLoadingLayout extends LoadingLayout {
         Matrix matrix = this.r;
         if (matrix != null) {
             matrix.reset();
-            this.f13960f.setImageMatrix(this.r);
+            this.f13992f.setImageMatrix(this.r);
         }
     }
 }

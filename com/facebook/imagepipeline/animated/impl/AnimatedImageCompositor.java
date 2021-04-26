@@ -8,14 +8,14 @@ import android.graphics.PorterDuffXfermode;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AnimatedImageCompositor {
     public final AnimatedDrawableBackend mAnimatedDrawableBackend;
     public final Callback mCallback;
     public final Paint mTransparentFillPaint;
 
     /* renamed from: com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult;
 
@@ -41,14 +41,14 @@ public class AnimatedImageCompositor {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public interface Callback {
-        CloseableReference<Bitmap> getCachedBitmap(int i);
+        CloseableReference<Bitmap> getCachedBitmap(int i2);
 
-        void onIntermediateResult(int i, Bitmap bitmap);
+        void onIntermediateResult(int i2, Bitmap bitmap);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public enum FrameNeededResult {
         REQUIRED,
         NOT_REQUIRED,
@@ -67,13 +67,13 @@ public class AnimatedImageCompositor {
     }
 
     private void disposeToBackground(Canvas canvas, AnimatedDrawableFrameInfo animatedDrawableFrameInfo) {
-        int i = animatedDrawableFrameInfo.xOffset;
-        int i2 = animatedDrawableFrameInfo.yOffset;
-        canvas.drawRect(i, i2, i + animatedDrawableFrameInfo.width, i2 + animatedDrawableFrameInfo.height, this.mTransparentFillPaint);
+        int i2 = animatedDrawableFrameInfo.xOffset;
+        int i3 = animatedDrawableFrameInfo.yOffset;
+        canvas.drawRect(i2, i3, i2 + animatedDrawableFrameInfo.width, i3 + animatedDrawableFrameInfo.height, this.mTransparentFillPaint);
     }
 
-    private FrameNeededResult isFrameNeededForRendering(int i) {
-        AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i);
+    private FrameNeededResult isFrameNeededForRendering(int i2) {
+        AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i2);
         AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = frameInfo.disposalMethod;
         if (disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT) {
             return FrameNeededResult.REQUIRED;
@@ -94,53 +94,53 @@ public class AnimatedImageCompositor {
         return animatedDrawableFrameInfo.xOffset == 0 && animatedDrawableFrameInfo.yOffset == 0 && animatedDrawableFrameInfo.width == this.mAnimatedDrawableBackend.getRenderedWidth() && animatedDrawableFrameInfo.height == this.mAnimatedDrawableBackend.getRenderedHeight();
     }
 
-    private boolean isKeyFrame(int i) {
-        if (i == 0) {
+    private boolean isKeyFrame(int i2) {
+        if (i2 == 0) {
             return true;
         }
-        AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i);
-        AnimatedDrawableFrameInfo frameInfo2 = this.mAnimatedDrawableBackend.getFrameInfo(i - 1);
+        AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i2);
+        AnimatedDrawableFrameInfo frameInfo2 = this.mAnimatedDrawableBackend.getFrameInfo(i2 - 1);
         if (frameInfo.blendOperation == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND && isFullFrame(frameInfo)) {
             return true;
         }
         return frameInfo2.disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND && isFullFrame(frameInfo2);
     }
 
-    private int prepareCanvasWithClosestCachedFrame(int i, Canvas canvas) {
-        while (i >= 0) {
-            int i2 = AnonymousClass1.$SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult[isFrameNeededForRendering(i).ordinal()];
-            if (i2 == 1) {
-                AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i);
-                CloseableReference<Bitmap> cachedBitmap = this.mCallback.getCachedBitmap(i);
+    private int prepareCanvasWithClosestCachedFrame(int i2, Canvas canvas) {
+        while (i2 >= 0) {
+            int i3 = AnonymousClass1.$SwitchMap$com$facebook$imagepipeline$animated$impl$AnimatedImageCompositor$FrameNeededResult[isFrameNeededForRendering(i2).ordinal()];
+            if (i3 == 1) {
+                AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(i2);
+                CloseableReference<Bitmap> cachedBitmap = this.mCallback.getCachedBitmap(i2);
                 if (cachedBitmap != null) {
                     try {
                         canvas.drawBitmap(cachedBitmap.get(), 0.0f, 0.0f, (Paint) null);
                         if (frameInfo.disposalMethod == AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND) {
                             disposeToBackground(canvas, frameInfo);
                         }
-                        return i + 1;
+                        return i2 + 1;
                     } finally {
                         cachedBitmap.close();
                     }
-                } else if (isKeyFrame(i)) {
-                    return i;
+                } else if (isKeyFrame(i2)) {
+                    return i2;
                 }
-            } else if (i2 == 2) {
-                return i + 1;
+            } else if (i3 == 2) {
+                return i2 + 1;
             } else {
-                if (i2 == 3) {
-                    return i;
+                if (i3 == 3) {
+                    return i2;
                 }
             }
-            i--;
+            i2--;
         }
         return 0;
     }
 
-    public void renderFrame(int i, Bitmap bitmap) {
+    public void renderFrame(int i2, Bitmap bitmap) {
         Canvas canvas = new Canvas(bitmap);
         canvas.drawColor(0, PorterDuff.Mode.SRC);
-        for (int prepareCanvasWithClosestCachedFrame = !isKeyFrame(i) ? prepareCanvasWithClosestCachedFrame(i - 1, canvas) : i; prepareCanvasWithClosestCachedFrame < i; prepareCanvasWithClosestCachedFrame++) {
+        for (int prepareCanvasWithClosestCachedFrame = !isKeyFrame(i2) ? prepareCanvasWithClosestCachedFrame(i2 - 1, canvas) : i2; prepareCanvasWithClosestCachedFrame < i2; prepareCanvasWithClosestCachedFrame++) {
             AnimatedDrawableFrameInfo frameInfo = this.mAnimatedDrawableBackend.getFrameInfo(prepareCanvasWithClosestCachedFrame);
             AnimatedDrawableFrameInfo.DisposalMethod disposalMethod = frameInfo.disposalMethod;
             if (disposalMethod != AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_PREVIOUS) {
@@ -154,10 +154,10 @@ public class AnimatedImageCompositor {
                 }
             }
         }
-        AnimatedDrawableFrameInfo frameInfo2 = this.mAnimatedDrawableBackend.getFrameInfo(i);
+        AnimatedDrawableFrameInfo frameInfo2 = this.mAnimatedDrawableBackend.getFrameInfo(i2);
         if (frameInfo2.blendOperation == AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND) {
             disposeToBackground(canvas, frameInfo2);
         }
-        this.mAnimatedDrawableBackend.renderFrame(i, canvas);
+        this.mAnimatedDrawableBackend.renderFrame(i2, canvas);
     }
 }

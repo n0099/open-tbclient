@@ -3,43 +3,43 @@ package com.baidu.apollon.utils;
 public final class ChannelUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f3957a = false;
+    public static boolean f4012a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3958b = null;
+    public static String f4013b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3959c = "";
+    public static String f4014c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f3960d;
+    public static String f4015d;
 
     public static String getHostPackageName() {
-        return f3959c;
+        return f4014c;
     }
 
     public static String getHostUA() {
-        return f3960d;
+        return f4015d;
     }
 
     public static String getSDKVersion() {
-        return f3958b;
+        return f4013b;
     }
 
     public static void initBussinessParams(String str, boolean z) {
-        f3958b = str;
-        f3957a = z;
+        f4013b = str;
+        f4012a = z;
     }
 
     public static void initHostParams(String str) {
-        f3960d = str;
+        f4015d = str;
     }
 
     public static boolean isSpecailPackage() {
-        return f3957a;
+        return f4012a;
     }
 
     public static void setHostPackageName(String str) {
-        f3959c = str;
+        f4014c = str;
     }
 }

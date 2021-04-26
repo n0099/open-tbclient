@@ -26,36 +26,36 @@ import java.util.regex.Pattern;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f37405a = 65536;
+    public static int f35127a = 65536;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f37406b = 2000;
+    public static long f35128b = 2000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f37407c;
+    public static String f35129c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Boolean f37408d;
+    public static Boolean f35130d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Boolean f37409e;
+    public static Boolean f35131e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f37410f = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+    public static final Pattern f35132f = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
 
     public static int a() {
-        return f37405a;
+        return f35127a;
     }
 
     public static int a(String str, String str2, boolean z) {
         return com.kwai.filedownloader.download.b.a().b().a(str, str2, z);
     }
 
-    public static String a(int i, com.kwai.filedownloader.a.b bVar) {
+    public static String a(int i2, com.kwai.filedownloader.a.b bVar) {
         if (bVar != null) {
             String a2 = bVar.a(Util.ETAG);
-            if (d.f37396a) {
-                d.c(f.class, "etag find %s for task(%d)", a2, Integer.valueOf(i));
+            if (d.f35118a) {
+                d.c(f.class, "etag find %s for task(%d)", a2, Integer.valueOf(i2));
             }
             return a2;
         }
@@ -97,44 +97,44 @@ public class f {
         return String.format(Locale.ENGLISH, str, objArr);
     }
 
-    public static void a(int i) {
+    public static void a(int i2) {
         if (!a(c.a())) {
             throw new IllegalAccessException("This value is used in the :filedownloader process, so set this value in your process is without effect. You can add 'process.non-separate=true' in 'filedownloader.properties' to share the main process to FileDownloadService. Or you can configure this value in 'filedownloader.properties' by 'download.min-progress-step'.");
         }
-        f37405a = i;
+        f35127a = i2;
     }
 
     public static void a(long j) {
         if (!a(c.a())) {
             throw new IllegalAccessException("This value is used in the :filedownloader process, so set this value in your process is without effect. You can add 'process.non-separate=true' in 'filedownloader.properties' to share the main process to FileDownloadService. Or you can configure this value in 'filedownloader.properties' by 'download.min-progress-time'.");
         }
-        f37406b = j;
+        f35128b = j;
     }
 
-    public static boolean a(int i, com.kwai.filedownloader.d.c cVar) {
-        return a(i, cVar, (Boolean) null);
+    public static boolean a(int i2, com.kwai.filedownloader.d.c cVar) {
+        return a(i2, cVar, (Boolean) null);
     }
 
-    public static boolean a(int i, com.kwai.filedownloader.d.c cVar, Boolean bool) {
+    public static boolean a(int i2, com.kwai.filedownloader.d.c cVar, Boolean bool) {
         if (cVar == null) {
-            if (d.f37396a) {
-                d.c(f.class, "can't continue %d model == null", Integer.valueOf(i));
+            if (d.f35118a) {
+                d.c(f.class, "can't continue %d model == null", Integer.valueOf(i2));
             }
             return false;
         } else if (cVar.e() == null) {
-            if (d.f37396a) {
-                d.c(f.class, "can't continue %d temp path == null", Integer.valueOf(i));
+            if (d.f35118a) {
+                d.c(f.class, "can't continue %d temp path == null", Integer.valueOf(i2));
             }
             return false;
         } else {
-            return a(i, cVar, cVar.e(), bool);
+            return a(i2, cVar, cVar.e(), bool);
         }
     }
 
-    public static boolean a(int i, com.kwai.filedownloader.d.c cVar, String str, Boolean bool) {
+    public static boolean a(int i2, com.kwai.filedownloader.d.c cVar, String str, Boolean bool) {
         if (str == null) {
-            if (d.f37396a) {
-                d.c(f.class, "can't continue %d path = null", Integer.valueOf(i));
+            if (d.f35118a) {
+                d.c(f.class, "can't continue %d path = null", Integer.valueOf(i2));
                 return false;
             }
             return false;
@@ -143,8 +143,8 @@ public class f {
         boolean exists = file.exists();
         boolean isDirectory = file.isDirectory();
         if (!exists || isDirectory) {
-            if (d.f37396a) {
-                d.c(f.class, "can't continue %d file not suit, exists[%B], directory[%B]", Integer.valueOf(i), Boolean.valueOf(exists), Boolean.valueOf(isDirectory));
+            if (d.f35118a) {
+                d.c(f.class, "can't continue %d file not suit, exists[%B], directory[%B]", Integer.valueOf(i2), Boolean.valueOf(exists), Boolean.valueOf(isDirectory));
                 return false;
             }
             return false;
@@ -152,24 +152,24 @@ public class f {
         long length = file.length();
         long g2 = cVar.g();
         if (cVar.n() <= 1 && g2 == 0) {
-            if (d.f37396a) {
-                d.c(f.class, "can't continue %d the downloaded-record is zero.", Integer.valueOf(i));
+            if (d.f35118a) {
+                d.c(f.class, "can't continue %d the downloaded-record is zero.", Integer.valueOf(i2));
                 return false;
             }
             return false;
         }
         long h2 = cVar.h();
         if (length < g2 || (h2 != -1 && (length > h2 || g2 >= h2))) {
-            if (d.f37396a) {
-                d.c(f.class, "can't continue %d dirty data fileLength[%d] sofar[%d] total[%d]", Integer.valueOf(i), Long.valueOf(length), Long.valueOf(g2), Long.valueOf(h2));
+            if (d.f35118a) {
+                d.c(f.class, "can't continue %d dirty data fileLength[%d] sofar[%d] total[%d]", Integer.valueOf(i2), Long.valueOf(length), Long.valueOf(g2), Long.valueOf(h2));
                 return false;
             }
             return false;
         } else if (bool == null || bool.booleanValue() || h2 != length) {
             return true;
         } else {
-            if (d.f37396a) {
-                d.c(f.class, "can't continue %d, because of the output stream doesn't support seek, but the task has already pre-allocated, so we only can download it from the very beginning.", Integer.valueOf(i));
+            if (d.f35118a) {
+                d.c(f.class, "can't continue %d, because of the output stream doesn't support seek, but the task has already pre-allocated, so we only can download it from the very beginning.", Integer.valueOf(i2));
                 return false;
             }
             return false;
@@ -181,12 +181,12 @@ public class f {
     }
 
     public static boolean a(Context context) {
-        Boolean bool = f37408d;
+        Boolean bool = f35130d;
         if (bool != null) {
             return bool.booleanValue();
         }
         boolean z = false;
-        if (!e.a().f37400d) {
+        if (!e.a().f35122d) {
             int myPid = Process.myPid();
             ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
             if (activityManager != null) {
@@ -215,7 +215,7 @@ public class f {
             z = true;
         }
         Boolean valueOf = Boolean.valueOf(z);
-        f37408d = valueOf;
+        f35130d = valueOf;
         return valueOf.booleanValue();
     }
 
@@ -228,19 +228,19 @@ public class f {
     }
 
     public static long b() {
-        return f37406b;
+        return f35128b;
     }
 
-    public static long b(int i, com.kwai.filedownloader.a.b bVar) {
+    public static long b(int i2, com.kwai.filedownloader.a.b bVar) {
         long k = k(bVar.a("Content-Length"));
         String a2 = bVar.a("Transfer-Encoding");
         if (k < 0) {
             if (!(a2 != null && a2.equals("chunked"))) {
-                if (!e.a().f37399c) {
+                if (!e.a().f35121c) {
                     throw new FileDownloadGiveUpRetryException("can't know the size of the download file, and its Transfer-Encoding is not Chunked either.\nyou can ignore such exception by add http.lenient=true to the filedownloader.properties");
                 }
-                if (d.f37396a) {
-                    d.c(f.class, "%d response header is not legal but HTTP lenient is true, so handle as the case of transfer encoding chunk", Integer.valueOf(i));
+                if (d.f35118a) {
+                    d.c(f.class, "%d response header is not legal but HTTP lenient is true, so handle as the case of transfer encoding chunk", Integer.valueOf(i2));
                 }
             }
             return -1L;
@@ -267,10 +267,10 @@ public class f {
     }
 
     public static String c() {
-        if (TextUtils.isEmpty(f37407c)) {
+        if (TextUtils.isEmpty(f35129c)) {
             return (c.a().getExternalCacheDir() == null ? Environment.getDownloadCacheDirectory() : c.a().getExternalCacheDir()).getAbsolutePath();
         }
-        return f37407c;
+        return f35129c;
     }
 
     public static String c(String str) {
@@ -297,7 +297,7 @@ public class f {
     }
 
     public static String e() {
-        return a("FileDownloader/%s", "3.3.9");
+        return a("FileDownloader/%s", "3.3.8.3");
     }
 
     public static String e(String str) {
@@ -305,11 +305,11 @@ public class f {
             byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"));
             StringBuilder sb = new StringBuilder(digest.length * 2);
             for (byte b2 : digest) {
-                int i = b2 & 255;
-                if (i < 16) {
+                int i2 = b2 & 255;
+                if (i2 < 16) {
                     sb.append("0");
                 }
-                sb.append(Integer.toHexString(i));
+                sb.append(Integer.toHexString(i2));
             }
             return sb.toString();
         } catch (UnsupportedEncodingException e2) {
@@ -329,7 +329,7 @@ public class f {
             return null;
         }
         try {
-            Matcher matcher = f37410f.matcher(str);
+            Matcher matcher = f35132f.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }
@@ -340,19 +340,19 @@ public class f {
 
     public static String h(String str) {
         int length = str.length();
-        int i = 2;
-        int i2 = (File.separatorChar == '\\' && length > 2 && str.charAt(1) == ':') ? 2 : 0;
+        int i2 = 2;
+        int i3 = (File.separatorChar == '\\' && length > 2 && str.charAt(1) == ':') ? 2 : 0;
         int lastIndexOf = str.lastIndexOf(File.separatorChar);
-        if (lastIndexOf != -1 || i2 <= 0) {
-            i = lastIndexOf;
+        if (lastIndexOf != -1 || i3 <= 0) {
+            i2 = lastIndexOf;
         }
-        if (i != -1) {
+        if (i2 != -1) {
             char charAt = str.charAt(length - 1);
             char c2 = File.separatorChar;
             if (charAt == c2) {
                 return null;
             }
-            return (str.indexOf(c2) == i && str.charAt(i2) == File.separatorChar) ? str.substring(0, i + 1) : str.substring(0, i);
+            return (str.indexOf(c2) == i2 && str.charAt(i3) == File.separatorChar) ? str.substring(0, i2 + 1) : str.substring(0, i2);
         }
         return null;
     }

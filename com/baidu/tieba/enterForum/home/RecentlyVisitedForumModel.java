@@ -2,7 +2,7 @@ package com.baidu.tieba.enterForum.home;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.data.VisitedForumData;
-import d.b.j0.i0.g.a;
+import d.a.j0.i0.g.a;
 /* loaded from: classes4.dex */
 public class RecentlyVisitedForumModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel

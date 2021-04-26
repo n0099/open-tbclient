@@ -11,11 +11,11 @@ public abstract class e {
         return a(bArr, 0, bArr.length);
     }
 
-    public e a(byte[] bArr, int i, int i2) {
+    public e a(byte[] bArr, int i2, int i3) {
         try {
-            b a2 = b.a(bArr, i, i2);
+            b a2 = b.a(bArr, i2, i3);
             a(a2);
-            a2.m147a(0);
+            a2.m150a(0);
             return this;
         } catch (d e2) {
             throw e2;
@@ -27,9 +27,9 @@ public abstract class e {
     public abstract void a(c cVar);
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m265a(byte[] bArr, int i, int i2) {
+    public void m268a(byte[] bArr, int i2, int i3) {
         try {
-            c a2 = c.a(bArr, i, i2);
+            c a2 = c.a(bArr, i2, i3);
             a(a2);
             a2.b();
         } catch (IOException unused) {
@@ -37,15 +37,15 @@ public abstract class e {
         }
     }
 
-    public boolean a(b bVar, int i) {
-        return bVar.m149a(i);
+    public boolean a(b bVar, int i2) {
+        return bVar.m152a(i2);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m266a() {
+    public byte[] m269a() {
         int b2 = b();
         byte[] bArr = new byte[b2];
-        m265a(bArr, 0, b2);
+        m268a(bArr, 0, b2);
         return bArr;
     }
 

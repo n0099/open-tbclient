@@ -31,19 +31,19 @@ public class AlaFrsStoryLiveGatherRequestMessage extends HttpMessage {
         addParam("need_recommend", this.needRecommend);
     }
 
-    public void setNeedRecommend(int i) {
-        this.needRecommend = i;
+    public void setNeedRecommend(int i2) {
+        this.needRecommend = i2;
     }
 
-    public void setPn(int i) {
-        this.pn = i;
+    public void setPn(int i2) {
+        this.pn = i2;
     }
 
-    public void setPs(int i) {
-        this.ps = i;
+    public void setPs(int i2) {
+        this.ps = i2;
     }
 
-    public void setSortType(int i) {
-        this.sortType = i;
+    public void setSortType(int i2) {
+        this.sortType = i2;
     }
 }

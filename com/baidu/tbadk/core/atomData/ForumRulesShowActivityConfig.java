@@ -16,13 +16,13 @@ public class ForumRulesShowActivityConfig extends IntentConfig {
         getIntent().putExtra("from", str2);
     }
 
-    public ForumRulesShowActivityConfig(Context context, String str, String str2, ForumRuleBaseData forumRuleBaseData, String str3, String str4, int i) {
+    public ForumRulesShowActivityConfig(Context context, String str, String str2, ForumRuleBaseData forumRuleBaseData, String str3, String str4, int i2) {
         super(context);
         getIntent().putExtra("forum_id", str);
         getIntent().putExtra("forum_name", str2);
         getIntent().putExtra(IntentConfig.DATAS, forumRuleBaseData);
         getIntent().putExtra("from", str3);
         getIntent().putExtra("url", str4);
-        getIntent().putExtra(IntentConfig.USER_LEVEL, i);
+        getIntent().putExtra(IntentConfig.USER_LEVEL, i2);
     }
 }

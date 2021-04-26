@@ -3,14 +3,14 @@ package com.ss.android.socialbase.downloader.exception;
 public class b extends BaseException {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f39232a;
+    public final int f36822a;
 
-    public b(int i, int i2, String str) {
-        super(i, str);
-        this.f39232a = i2;
+    public b(int i2, int i3, String str) {
+        super(i2, str);
+        this.f36822a = i3;
     }
 
     public int a() {
-        return this.f39232a;
+        return this.f36822a;
     }
 }

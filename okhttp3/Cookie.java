@@ -132,15 +132,15 @@ public final class Cookie {
         this.persistent = z4;
     }
 
-    public static int dateCharacterOffset(String str, int i, int i2, boolean z) {
-        while (i < i2) {
-            char charAt = str.charAt(i);
+    public static int dateCharacterOffset(String str, int i2, int i3, boolean z) {
+        while (i2 < i3) {
+            char charAt = str.charAt(i2);
             if (((charAt < ' ' && charAt != '\t') || charAt >= 127 || (charAt >= '0' && charAt <= '9') || ((charAt >= 'a' && charAt <= 'z') || ((charAt >= 'A' && charAt <= 'Z') || charAt == ':'))) == (!z)) {
-                return i;
+                return i2;
             }
-            i++;
+            i2++;
         }
-        return i2;
+        return i3;
     }
 
     public static boolean domainMatch(String str, String str2) {
@@ -159,8 +159,8 @@ public final class Cookie {
         List<String> values = headers.values("Set-Cookie");
         int size = values.size();
         ArrayList arrayList = null;
-        for (int i = 0; i < size; i++) {
-            Cookie parse = parse(httpUrl, values.get(i));
+        for (int i2 = 0; i2 < size; i2++) {
+            Cookie parse = parse(httpUrl, values.get(i2));
             if (parse != null) {
                 if (arrayList == null) {
                     arrayList = new ArrayList();
@@ -188,57 +188,57 @@ public final class Cookie {
         throw new IllegalArgumentException();
     }
 
-    public static long parseExpires(String str, int i, int i2) {
-        int dateCharacterOffset = dateCharacterOffset(str, i, i2, false);
+    public static long parseExpires(String str, int i2, int i3) {
+        int dateCharacterOffset = dateCharacterOffset(str, i2, i3, false);
         Matcher matcher = TIME_PATTERN.matcher(str);
-        int i3 = -1;
         int i4 = -1;
         int i5 = -1;
         int i6 = -1;
         int i7 = -1;
         int i8 = -1;
-        while (dateCharacterOffset < i2) {
-            int dateCharacterOffset2 = dateCharacterOffset(str, dateCharacterOffset + 1, i2, true);
+        int i9 = -1;
+        while (dateCharacterOffset < i3) {
+            int dateCharacterOffset2 = dateCharacterOffset(str, dateCharacterOffset + 1, i3, true);
             matcher.region(dateCharacterOffset, dateCharacterOffset2);
-            if (i4 == -1 && matcher.usePattern(TIME_PATTERN).matches()) {
-                i4 = Integer.parseInt(matcher.group(1));
-                i7 = Integer.parseInt(matcher.group(2));
-                i8 = Integer.parseInt(matcher.group(3));
-            } else if (i5 == -1 && matcher.usePattern(DAY_OF_MONTH_PATTERN).matches()) {
+            if (i5 == -1 && matcher.usePattern(TIME_PATTERN).matches()) {
                 i5 = Integer.parseInt(matcher.group(1));
-            } else if (i6 == -1 && matcher.usePattern(MONTH_PATTERN).matches()) {
-                i6 = MONTH_PATTERN.pattern().indexOf(matcher.group(1).toLowerCase(Locale.US)) / 4;
-            } else if (i3 == -1 && matcher.usePattern(YEAR_PATTERN).matches()) {
-                i3 = Integer.parseInt(matcher.group(1));
+                i8 = Integer.parseInt(matcher.group(2));
+                i9 = Integer.parseInt(matcher.group(3));
+            } else if (i6 == -1 && matcher.usePattern(DAY_OF_MONTH_PATTERN).matches()) {
+                i6 = Integer.parseInt(matcher.group(1));
+            } else if (i7 == -1 && matcher.usePattern(MONTH_PATTERN).matches()) {
+                i7 = MONTH_PATTERN.pattern().indexOf(matcher.group(1).toLowerCase(Locale.US)) / 4;
+            } else if (i4 == -1 && matcher.usePattern(YEAR_PATTERN).matches()) {
+                i4 = Integer.parseInt(matcher.group(1));
             }
-            dateCharacterOffset = dateCharacterOffset(str, dateCharacterOffset2 + 1, i2, false);
+            dateCharacterOffset = dateCharacterOffset(str, dateCharacterOffset2 + 1, i3, false);
         }
-        if (i3 >= 70 && i3 <= 99) {
-            i3 += 1900;
+        if (i4 >= 70 && i4 <= 99) {
+            i4 += 1900;
         }
-        if (i3 >= 0 && i3 <= 69) {
-            i3 += 2000;
+        if (i4 >= 0 && i4 <= 69) {
+            i4 += 2000;
         }
-        if (i3 >= 1601) {
-            if (i6 != -1) {
-                if (i5 < 1 || i5 > 31) {
+        if (i4 >= 1601) {
+            if (i7 != -1) {
+                if (i6 < 1 || i6 > 31) {
                     throw new IllegalArgumentException();
                 }
-                if (i4 < 0 || i4 > 23) {
+                if (i5 < 0 || i5 > 23) {
                     throw new IllegalArgumentException();
                 }
-                if (i7 < 0 || i7 > 59) {
+                if (i8 < 0 || i8 > 59) {
                     throw new IllegalArgumentException();
                 }
-                if (i8 >= 0 && i8 <= 59) {
+                if (i9 >= 0 && i9 <= 59) {
                     GregorianCalendar gregorianCalendar = new GregorianCalendar(Util.UTC);
                     gregorianCalendar.setLenient(false);
-                    gregorianCalendar.set(1, i3);
-                    gregorianCalendar.set(2, i6 - 1);
-                    gregorianCalendar.set(5, i5);
-                    gregorianCalendar.set(11, i4);
-                    gregorianCalendar.set(12, i7);
-                    gregorianCalendar.set(13, i8);
+                    gregorianCalendar.set(1, i4);
+                    gregorianCalendar.set(2, i7 - 1);
+                    gregorianCalendar.set(5, i6);
+                    gregorianCalendar.set(11, i5);
+                    gregorianCalendar.set(12, i8);
+                    gregorianCalendar.set(13, i9);
                     gregorianCalendar.set(14, 0);
                     return gregorianCalendar.getTimeInMillis();
                 }
@@ -357,8 +357,8 @@ public final class Cookie {
         int length = str.length();
         char c2 = ';';
         int delimiterOffset = Util.delimiterOffset(str, 0, length, ';');
-        char c3 = a.f1922h;
-        int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f1922h);
+        char c3 = a.f1873h;
+        int delimiterOffset2 = Util.delimiterOffset(str, 0, delimiterOffset, (char) a.f1873h);
         if (delimiterOffset2 == delimiterOffset) {
             return null;
         }
@@ -370,7 +370,7 @@ public final class Cookie {
         if (Util.indexOfControlOrNonAscii(trimSubstring2) != -1) {
             return null;
         }
-        int i = delimiterOffset + 1;
+        int i2 = delimiterOffset + 1;
         String str3 = null;
         String str4 = null;
         long j3 = -1;
@@ -379,10 +379,10 @@ public final class Cookie {
         boolean z2 = false;
         boolean z3 = true;
         boolean z4 = false;
-        while (i < length) {
-            int delimiterOffset3 = Util.delimiterOffset(str, i, length, c2);
-            int delimiterOffset4 = Util.delimiterOffset(str, i, delimiterOffset3, c3);
-            String trimSubstring3 = Util.trimSubstring(str, i, delimiterOffset4);
+        while (i2 < length) {
+            int delimiterOffset3 = Util.delimiterOffset(str, i2, length, c2);
+            int delimiterOffset4 = Util.delimiterOffset(str, i2, delimiterOffset3, c3);
+            String trimSubstring3 = Util.trimSubstring(str, i2, delimiterOffset4);
             String trimSubstring4 = delimiterOffset4 < delimiterOffset3 ? Util.trimSubstring(str, delimiterOffset4 + 1, delimiterOffset3) : "";
             if (trimSubstring3.equalsIgnoreCase("expires")) {
                 try {
@@ -402,14 +402,14 @@ public final class Cookie {
                 } else if (trimSubstring3.equalsIgnoreCase("httponly")) {
                     z2 = true;
                 }
-                i = delimiterOffset3 + 1;
+                i2 = delimiterOffset3 + 1;
                 c2 = ';';
-                c3 = a.f1922h;
+                c3 = a.f1873h;
             }
             z4 = true;
-            i = delimiterOffset3 + 1;
+            i2 = delimiterOffset3 + 1;
             c2 = ';';
-            c3 = a.f1922h;
+            c3 = a.f1873h;
         }
         long j5 = Long.MIN_VALUE;
         if (j3 != Long.MIN_VALUE) {
@@ -460,7 +460,7 @@ public final class Cookie {
     public String toString(boolean z) {
         StringBuilder sb = new StringBuilder();
         sb.append(this.name);
-        sb.append(a.f1922h);
+        sb.append(a.f1873h);
         sb.append(this.value);
         if (this.persistent) {
             if (this.expiresAt == Long.MIN_VALUE) {

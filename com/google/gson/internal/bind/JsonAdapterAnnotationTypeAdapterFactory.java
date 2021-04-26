@@ -5,41 +5,40 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonSerializer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
-import d.h.d.b.b;
-import d.h.d.c.a;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.internal.ConstructorConstructor;
+import com.google.gson.reflect.TypeToken;
 /* loaded from: classes6.dex */
 public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapterFactory {
+    public final ConstructorConstructor constructorConstructor;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final b f31334e;
-
-    public JsonAdapterAnnotationTypeAdapterFactory(b bVar) {
-        this.f31334e = bVar;
-    }
-
-    public TypeAdapter<?> a(b bVar, Gson gson, a<?> aVar, d.h.d.a.b bVar2) {
-        TypeAdapter<?> treeTypeAdapter;
-        Object a2 = bVar.a(a.a(bVar2.value())).a();
-        if (a2 instanceof TypeAdapter) {
-            treeTypeAdapter = (TypeAdapter) a2;
-        } else if (a2 instanceof TypeAdapterFactory) {
-            treeTypeAdapter = ((TypeAdapterFactory) a2).create(gson, aVar);
-        } else {
-            boolean z = a2 instanceof JsonSerializer;
-            if (!z && !(a2 instanceof JsonDeserializer)) {
-                throw new IllegalArgumentException("Invalid attempt to bind an instance of " + a2.getClass().getName() + " as a @JsonAdapter for " + aVar.toString() + ". @JsonAdapter value must be a TypeAdapter, TypeAdapterFactory, JsonSerializer or JsonDeserializer.");
-            }
-            treeTypeAdapter = new TreeTypeAdapter<>(z ? (JsonSerializer) a2 : null, a2 instanceof JsonDeserializer ? (JsonDeserializer) a2 : null, gson, aVar, null);
-        }
-        return (treeTypeAdapter == null || !bVar2.nullSafe()) ? treeTypeAdapter : treeTypeAdapter.nullSafe();
+    public JsonAdapterAnnotationTypeAdapterFactory(ConstructorConstructor constructorConstructor) {
+        this.constructorConstructor = constructorConstructor;
     }
 
     @Override // com.google.gson.TypeAdapterFactory
-    public <T> TypeAdapter<T> create(Gson gson, a<T> aVar) {
-        d.h.d.a.b bVar = (d.h.d.a.b) aVar.c().getAnnotation(d.h.d.a.b.class);
-        if (bVar == null) {
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+        JsonAdapter jsonAdapter = (JsonAdapter) typeToken.getRawType().getAnnotation(JsonAdapter.class);
+        if (jsonAdapter == null) {
             return null;
         }
-        return (TypeAdapter<T>) a(this.f31334e, gson, aVar, bVar);
+        return (TypeAdapter<T>) getTypeAdapter(this.constructorConstructor, gson, typeToken, jsonAdapter);
+    }
+
+    public TypeAdapter<?> getTypeAdapter(ConstructorConstructor constructorConstructor, Gson gson, TypeToken<?> typeToken, JsonAdapter jsonAdapter) {
+        TypeAdapter<?> treeTypeAdapter;
+        Object construct = constructorConstructor.get(TypeToken.get((Class) jsonAdapter.value())).construct();
+        if (construct instanceof TypeAdapter) {
+            treeTypeAdapter = (TypeAdapter) construct;
+        } else if (construct instanceof TypeAdapterFactory) {
+            treeTypeAdapter = ((TypeAdapterFactory) construct).create(gson, typeToken);
+        } else {
+            boolean z = construct instanceof JsonSerializer;
+            if (!z && !(construct instanceof JsonDeserializer)) {
+                throw new IllegalArgumentException("Invalid attempt to bind an instance of " + construct.getClass().getName() + " as a @JsonAdapter for " + typeToken.toString() + ". @JsonAdapter value must be a TypeAdapter, TypeAdapterFactory, JsonSerializer or JsonDeserializer.");
+            }
+            treeTypeAdapter = new TreeTypeAdapter<>(z ? (JsonSerializer) construct : null, construct instanceof JsonDeserializer ? (JsonDeserializer) construct : null, gson, typeToken, null);
+        }
+        return (treeTypeAdapter == null || !jsonAdapter.nullSafe()) ? treeTypeAdapter : treeTypeAdapter.nullSafe();
     }
 }

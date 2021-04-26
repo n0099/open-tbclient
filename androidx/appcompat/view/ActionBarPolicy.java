@@ -8,7 +8,7 @@ import android.os.Build;
 import android.view.ViewConfiguration;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ActionBarPolicy {
     public Context mContext;
@@ -31,17 +31,17 @@ public class ActionBarPolicy {
 
     public int getMaxActionButtons() {
         Configuration configuration = this.mContext.getResources().getConfiguration();
-        int i = configuration.screenWidthDp;
-        int i2 = configuration.screenHeightDp;
-        if (configuration.smallestScreenWidthDp > 600 || i > 600) {
+        int i2 = configuration.screenWidthDp;
+        int i3 = configuration.screenHeightDp;
+        if (configuration.smallestScreenWidthDp > 600 || i2 > 600) {
             return 5;
         }
-        if (i <= 960 || i2 <= 720) {
-            if (i <= 720 || i2 <= 960) {
-                if (i < 500) {
-                    if (i <= 640 || i2 <= 480) {
-                        if (i <= 480 || i2 <= 640) {
-                            return i >= 360 ? 3 : 2;
+        if (i2 <= 960 || i3 <= 720) {
+            if (i2 <= 720 || i3 <= 960) {
+                if (i2 < 500) {
+                    if (i2 <= 640 || i3 <= 480) {
+                        if (i2 <= 480 || i3 <= 640) {
+                            return i2 >= 360 ? 3 : 2;
                         }
                         return 4;
                     }

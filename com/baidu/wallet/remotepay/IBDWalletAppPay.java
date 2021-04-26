@@ -118,27 +118,27 @@ public interface IBDWalletAppPay extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 == 1) {
                 parcel.enforceInterface(DESCRIPTOR);
                 String doPay = doPay(parcel.readString(), parcel.readHashMap(Stub.class.getClassLoader()));
                 parcel2.writeNoException();
                 parcel2.writeString(doPay);
                 return true;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 parcel.enforceInterface(DESCRIPTOR);
                 String walletSdkVersion = getWalletSdkVersion();
                 parcel2.writeNoException();
                 parcel2.writeString(walletSdkVersion);
                 return true;
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 parcel.enforceInterface(DESCRIPTOR);
                 registerCallback(IRemoteServiceCallback.Stub.asInterface(parcel.readStrongBinder()));
                 parcel2.writeNoException();
                 return true;
-            } else if (i != 4) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 4) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString(DESCRIPTOR);
                 return true;

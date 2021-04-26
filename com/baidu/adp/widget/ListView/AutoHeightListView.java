@@ -11,15 +11,15 @@ public class AutoHeightListView extends ListView {
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(536870911, Integer.MIN_VALUE));
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, View.MeasureSpec.makeMeasureSpec(536870911, Integer.MIN_VALUE));
     }
 
     public AutoHeightListView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public AutoHeightListView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public AutoHeightListView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

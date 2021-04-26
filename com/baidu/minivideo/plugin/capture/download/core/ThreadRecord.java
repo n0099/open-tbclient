@@ -43,8 +43,8 @@ public class ThreadRecord {
         this.finished = j;
     }
 
-    public void setId(int i) {
-        this.id = i;
+    public void setId(int i2) {
+        this.id = i2;
     }
 
     public void setStart(long j) {
@@ -59,12 +59,12 @@ public class ThreadRecord {
         this.uri = str;
     }
 
-    public ThreadRecord(int i, String str, String str2, long j) {
-        this(i, str, str2, 0L, 0L, j);
+    public ThreadRecord(int i2, String str, String str2, long j) {
+        this(i2, str, str2, 0L, 0L, j);
     }
 
-    public ThreadRecord(int i, String str, String str2, long j, long j2, long j3) {
-        this.id = i;
+    public ThreadRecord(int i2, String str, String str2, long j, long j2, long j3) {
+        this.id = i2;
         this.tag = str;
         this.uri = str2;
         this.start = j;

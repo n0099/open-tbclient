@@ -22,7 +22,7 @@ public abstract class ChannelViewBase extends RelativeLayout {
     }
 
     @TargetApi(11)
-    public ChannelViewBase(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ChannelViewBase(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

@@ -6,15 +6,15 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface IPCCallback extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Stub extends Binder implements IPCCallback {
         public static final String DESCRIPTOR = "com.vivo.vms.IPCCallback";
         public static final int TRANSACTION_call = 1;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static class Proxy implements IPCCallback {
             public IBinder mRemote;
 
@@ -70,10 +70,10 @@ public interface IPCCallback extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i != 1) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 != 1) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString(DESCRIPTOR);
                 return true;

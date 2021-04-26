@@ -39,50 +39,50 @@ import org.json.JSONObject;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f2021a = "com.eg.android.AlipayGphone";
+    public static final String f1978a = "com.eg.android.AlipayGphone";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f2022b = 125;
+    public static final int f1979b = 125;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f2023c = "com.alipay.android.app";
+    public static final String f1980c = "com.alipay.android.app";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f2024d = "com.eg.android.AlipayGphoneRC";
+    public static final String f1981d = "com.eg.android.AlipayGphoneRC";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f2025e = 99;
+    public static final int f1982e = 99;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f2026f = {"10.1.5.1013151", "10.1.5.1013148"};
+    public static final String[] f1983f = {"10.1.5.1013151", "10.1.5.1013148"};
 
     /* loaded from: classes.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final PackageInfo f2027a;
+        public final PackageInfo f1984a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f2028b;
+        public final int f1985b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f2029c;
+        public final String f1986c;
 
-        public a(PackageInfo packageInfo, int i, String str) {
-            this.f2027a = packageInfo;
-            this.f2028b = i;
-            this.f2029c = str;
+        public a(PackageInfo packageInfo, int i2, String str) {
+            this.f1984a = packageInfo;
+            this.f1985b = i2;
+            this.f1986c = str;
         }
 
         public boolean a() {
-            Signature[] signatureArr = this.f2027a.signatures;
+            Signature[] signatureArr = this.f1984a.signatures;
             if (signatureArr == null || signatureArr.length == 0) {
                 return false;
             }
             for (Signature signature : signatureArr) {
                 String b2 = n.b(signature.toByteArray());
-                if (b2 != null && !TextUtils.equals(b2, this.f2029c)) {
-                    com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.w, String.format("Got %s, expected %s", b2, this.f2029c));
+                if (b2 != null && !TextUtils.equals(b2, this.f1986c)) {
+                    com.alipay.sdk.app.statistic.a.a("biz", com.alipay.sdk.app.statistic.c.w, String.format("Got %s, expected %s", b2, this.f1986c));
                     return true;
                 }
             }
@@ -90,7 +90,7 @@ public class n {
         }
 
         public boolean b() {
-            return this.f2027a.versionCode < this.f2028b;
+            return this.f1984a.versionCode < this.f1985b;
         }
     }
 
@@ -159,12 +159,12 @@ public class n {
 
     public static String a() {
         if (EnvUtils.isSandBox()) {
-            return f2024d;
+            return f1981d;
         }
         try {
-            return com.alipay.sdk.app.i.f1842a.get(0).f1900a;
+            return com.alipay.sdk.app.i.f1787a.get(0).f1851a;
         } catch (Throwable unused) {
-            return f2021a;
+            return f1978a;
         }
     }
 
@@ -184,8 +184,8 @@ public class n {
     }
 
     public static String e(Context context) {
-        DisplayMetrics i = i(context);
-        return i.widthPixels + "*" + i.heightPixels;
+        DisplayMetrics i2 = i(context);
+        return i2.widthPixels + "*" + i2.heightPixels;
     }
 
     public static boolean f(String str) {
@@ -193,7 +193,7 @@ public class n {
     }
 
     public static String a(String str) {
-        return (EnvUtils.isSandBox() && TextUtils.equals(str, f2024d)) ? "com.eg.android.AlipayGphoneRC.IAlixPay" : "com.eg.android.AlipayGphone.IAlixPay";
+        return (EnvUtils.isSandBox() && TextUtils.equals(str, f1981d)) ? "com.eg.android.AlipayGphoneRC.IAlixPay" : "com.eg.android.AlipayGphone.IAlixPay";
     }
 
     public static String a(String str, String str2, String str3) {
@@ -232,7 +232,7 @@ public class n {
             return null;
         }
         for (a.C0015a c0015a : list) {
-            if (c0015a != null && (a2 = a(context, c0015a.f1900a, c0015a.f1901b, c0015a.f1902c)) != null && !a2.a() && !a2.b()) {
+            if (c0015a != null && (a2 = a(context, c0015a.f1851a, c0015a.f1852b, c0015a.f1853c)) != null && !a2.a() && !a2.b()) {
                 return a2;
             }
         }
@@ -251,10 +251,10 @@ public class n {
         return context.getResources().getConfiguration().locale.toString();
     }
 
-    public static a a(Context context, String str, int i, String str2) {
+    public static a a(Context context, String str, int i2, String str2) {
         PackageInfo packageInfo;
-        if (EnvUtils.isSandBox() && f2021a.equals(str)) {
-            str = f2024d;
+        if (EnvUtils.isSandBox() && f1978a.equals(str)) {
+            str = f1981d;
         }
         try {
             packageInfo = b(context, str);
@@ -263,7 +263,7 @@ public class n {
             packageInfo = null;
         }
         if (b(packageInfo)) {
-            return a(packageInfo, i, str2);
+            return a(packageInfo, i2, str2);
         }
         return null;
     }
@@ -289,16 +289,16 @@ public class n {
         return z;
     }
 
-    public static a a(PackageInfo packageInfo, int i, String str) {
+    public static a a(PackageInfo packageInfo, int i2, String str) {
         if (packageInfo == null) {
             return null;
         }
-        return new a(packageInfo, i, str);
+        return new a(packageInfo, i2, str);
     }
 
     public static boolean a(Context context) {
         try {
-            return context.getPackageManager().getPackageInfo(f2023c, 128) != null;
+            return context.getPackageManager().getPackageInfo(f1980c, 128) != null;
         } catch (PackageManager.NameNotFoundException unused) {
             return false;
         }
@@ -323,8 +323,8 @@ public class n {
         }
         try {
             String str = packageInfo.versionName;
-            if (!TextUtils.equals(str, f2026f[0])) {
-                if (!TextUtils.equals(str, f2026f[1])) {
+            if (!TextUtils.equals(str, f1983f[0])) {
+                if (!TextUtils.equals(str, f1983f[1])) {
                     return false;
                 }
             }
@@ -338,10 +338,10 @@ public class n {
         return context.getPackageManager().getPackageInfo(str, 192);
     }
 
-    public static String a(int i) {
+    public static String a(int i2) {
         Random random = new Random();
         StringBuilder sb = new StringBuilder();
-        for (int i2 = 0; i2 < i; i2++) {
+        for (int i3 = 0; i3 < i2; i3++) {
             int nextInt = random.nextInt(3);
             if (nextInt == 0) {
                 sb.append(String.valueOf((char) Math.round((Math.random() * 25.0d) + 65.0d)));
@@ -358,9 +358,9 @@ public class n {
         try {
             for (a.C0015a c0015a : list) {
                 if (c0015a != null) {
-                    String str = c0015a.f1900a;
-                    if (EnvUtils.isSandBox() && f2021a.equals(str)) {
-                        str = f2024d;
+                    String str = c0015a.f1851a;
+                    if (EnvUtils.isSandBox() && f1978a.equals(str)) {
+                        str = f1981d;
                     }
                     try {
                         if (context.getPackageManager().getPackageInfo(str, 128) != null) {
@@ -481,7 +481,7 @@ public class n {
             return true;
         }
         try {
-            a a2 = a(activity, com.alipay.sdk.app.i.f1842a);
+            a a2 = a(activity, com.alipay.sdk.app.i.f1787a);
             if (a2 != null && !a2.b() && !a2.a()) {
                 if (str.startsWith("intent://platformapi/startapp")) {
                     str = str.replaceFirst("intent://platformapi/startapp\\?", com.alipay.sdk.cons.a.j);

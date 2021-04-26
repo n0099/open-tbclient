@@ -12,17 +12,17 @@ import com.bytedance.sdk.openadsdk.core.q;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final q f27397a = p.f();
+    public final q f28226a = p.f();
 
     public static a a() {
         return new a();
     }
 
     public void a(final Context context, AdSlot adSlot, final TTAdNative.InteractionAdListener interactionAdListener) {
-        this.f27397a.a(adSlot, new m(), 2, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.c.a.1
+        this.f28226a.a(adSlot, new m(), 2, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.c.a.1
             @Override // com.bytedance.sdk.openadsdk.core.q.b
-            public void a(int i, String str) {
-                interactionAdListener.onError(i, str);
+            public void a(int i2, String str) {
+                interactionAdListener.onError(i2, str);
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.q.b

@@ -16,11 +16,11 @@ public interface HttpResponse extends HttpMessage {
 
     void setReasonPhrase(String str) throws IllegalStateException;
 
-    void setStatusCode(int i) throws IllegalStateException;
+    void setStatusCode(int i2) throws IllegalStateException;
 
-    void setStatusLine(ProtocolVersion protocolVersion, int i);
+    void setStatusLine(ProtocolVersion protocolVersion, int i2);
 
-    void setStatusLine(ProtocolVersion protocolVersion, int i, String str);
+    void setStatusLine(ProtocolVersion protocolVersion, int i2, String str);
 
     void setStatusLine(StatusLine statusLine);
 }

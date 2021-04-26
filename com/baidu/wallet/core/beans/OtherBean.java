@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public abstract class OtherBean<T> extends NetworkBean<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23936a = "OtherBaseBean";
+    public static final String f24681a = "OtherBaseBean";
     public int mRetCode;
 
     public OtherBean(Context context) {

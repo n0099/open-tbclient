@@ -2,7 +2,7 @@ package com.baidu.tieba.hottopic.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.CommonReq;
 import tbclient.TopicList.DataReq;
 import tbclient.TopicList.TopicListReqIdl;
@@ -11,7 +11,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     public String call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f17304common;
+    public CommonReq f17602common;
     public long fid;
     public String list_type;
     public String need_tab_list;
@@ -24,7 +24,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f69798common = getCommon();
+            builder.f68845common = getCommon();
             builder.call_from = getCallFrom();
             builder.list_type = getListType();
             builder.need_tab_list = getNeedTabList();
@@ -45,7 +45,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f17304common;
+        return this.f17602common;
     }
 
     public String getListType() {
@@ -61,7 +61,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f17304common = commonReq;
+        this.f17602common = commonReq;
     }
 
     public void setFid(long j) {

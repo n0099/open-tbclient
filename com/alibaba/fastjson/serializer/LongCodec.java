@@ -19,16 +19,16 @@ public class LongCodec implements ObjectSerializer, ObjectDeserializer {
         Object castToLong;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         try {
-            int i = jSONLexer.token();
-            if (i == 2) {
+            int i2 = jSONLexer.token();
+            if (i2 == 2) {
                 long longValue = jSONLexer.longValue();
                 jSONLexer.nextToken(16);
                 castToLong = (T) Long.valueOf(longValue);
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 castToLong = (T) Long.valueOf(TypeUtils.longValue(jSONLexer.decimalValue()));
                 jSONLexer.nextToken(16);
             } else {
-                if (i == 12) {
+                if (i2 == 12) {
                     JSONObject jSONObject = new JSONObject(true);
                     defaultJSONParser.parseObject((Map) jSONObject);
                     castToLong = (T) TypeUtils.castToLong(jSONObject);
@@ -51,7 +51,7 @@ public class LongCodec implements ObjectSerializer, ObjectDeserializer {
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (obj == null) {
             serializeWriter.writeNull(SerializerFeature.WriteNullNumberAsZero);

@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
 public final class a {
     public static int a(Activity activity) {
-        int i = -1;
+        int i2 = -1;
         if (Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !c(activity) || !b(activity)) {
             return -1;
         }
@@ -20,23 +20,23 @@ public final class a {
             Object obj = declaredField.get(activity);
             Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
             declaredField2.setAccessible(true);
-            int i2 = declaredField2.getInt(obj);
-            if (i2 != -1) {
+            int i3 = declaredField2.getInt(obj);
+            if (i3 != -1) {
                 try {
                     declaredField2.setInt(obj, -1);
                 } catch (IllegalAccessException e2) {
                     e = e2;
-                    i = i2;
+                    i2 = i3;
                     e.printStackTrace();
-                    return i;
+                    return i2;
                 } catch (NoSuchFieldException e3) {
                     e = e3;
-                    i = i2;
+                    i2 = i3;
                     e.printStackTrace();
-                    return i;
+                    return i2;
                 }
             }
-            return i2;
+            return i3;
         } catch (IllegalAccessException e4) {
             e = e4;
         } catch (NoSuchFieldException e5) {

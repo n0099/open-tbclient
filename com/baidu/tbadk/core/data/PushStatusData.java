@@ -26,14 +26,14 @@ public class PushStatusData implements Serializable {
         this.mStatus = pushStatus.status.intValue();
         this.mPushTypeDatas = new ArrayList();
         int size = pushStatus.types.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             PushTypeData pushTypeData = new PushTypeData();
-            pushTypeData.parserProtobuf(pushStatus.types.get(i));
+            pushTypeData.parserProtobuf(pushStatus.types.get(i2));
             this.mPushTypeDatas.add(pushTypeData);
         }
     }
 
-    public void setStatus(int i) {
-        this.mStatus = i;
+    public void setStatus(int i2) {
+        this.mStatus = i2;
     }
 }

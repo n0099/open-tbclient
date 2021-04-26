@@ -29,7 +29,7 @@ import com.kwad.sdk.core.imageloader.core.display.RoundedBitmapDisplayer;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
 import com.kwad.sdk.core.report.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
-import com.kwad.sdk.utils.ao;
+import com.kwad.sdk.utils.an;
 import java.io.InputStream;
 /* loaded from: classes6.dex */
 public class KSImageLoader {
@@ -122,22 +122,22 @@ public class KSImageLoader {
                     } else {
                         str2 = cause.getMessage() + " @ " + cause.getStackTrace()[0].getFileName() + cause.getStackTrace()[0].getClassName() + cause.getStackTrace()[0].getLineNumber();
                     }
-                    int i = AnonymousClass1.$SwitchMap$com$kwad$sdk$core$imageloader$core$assist$FailReason$FailType[failReason.getType().ordinal()];
-                    if (i == 1) {
+                    int i2 = AnonymousClass1.$SwitchMap$com$kwad$sdk$core$imageloader$core$assist$FailReason$FailType[failReason.getType().ordinal()];
+                    if (i2 == 1) {
                         str3 = RomUtils.UNKNOWN;
-                    } else if (i == 2) {
+                    } else if (i2 == 2) {
                         sb.append("IO_ERROR");
                         sb.append(str2);
-                    } else if (i == 3) {
+                    } else if (i2 == 3) {
                         str3 = "OUT_OF_MEMORY";
-                    } else if (i == 4) {
+                    } else if (i2 == 4) {
                         str3 = "NETWORK_DENIED";
-                    } else if (i == 5) {
+                    } else if (i2 == 5) {
                         str3 = "DECODING_ERROR";
                     }
                     sb.append(str3);
                 }
-                e.c(this.adTemplate, str, sb.toString());
+                e.a(this.adTemplate, str, sb.toString());
             }
         }
 
@@ -151,12 +151,12 @@ public class KSImageLoader {
     }
 
     @RequiresApi(api = 17)
-    public static Bitmap blur(Context context, Bitmap bitmap, @IntRange(from = 1, to = 25) int i) {
+    public static Bitmap blur(Context context, Bitmap bitmap, @IntRange(from = 1, to = 25) int i2) {
         RenderScript create = RenderScript.create(context);
         Allocation createFromBitmap = Allocation.createFromBitmap(create, bitmap);
         ScriptIntrinsicBlur create2 = ScriptIntrinsicBlur.create(create, createFromBitmap.getElement());
         create2.setInput(createFromBitmap);
-        create2.setRadius(i);
+        create2.setRadius(i2);
         create2.forEach(createFromBitmap);
         createFromBitmap.copyTo(bitmap);
         create.destroy();
@@ -190,12 +190,12 @@ public class KSImageLoader {
         ImageLoader.getInstance().init(builder.build());
     }
 
-    public static void loadAppIcon(ImageView imageView, @Nullable String str, AdTemplate adTemplate, int i) {
+    public static void loadAppIcon(ImageView imageView, @Nullable String str, AdTemplate adTemplate, int i2) {
         if (imageView == null || TextUtils.isEmpty(str)) {
             return;
         }
         checkInit();
-        ImageLoader.getInstance().displayImage(str, imageView, new DisplayImageOptions.Builder().showImageOnLoading(imageView.getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).showImageForEmptyUri(imageView.getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).showImageOnFail(imageView.getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).displayer(new RoundedBitmapDisplayer(ao.a(imageView.getContext(), i))).build(), new InnerImageLoadingListener(adTemplate, null));
+        ImageLoader.getInstance().displayImage(str, imageView, new DisplayImageOptions.Builder().showImageOnLoading(imageView.getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).showImageForEmptyUri(imageView.getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).showImageOnFail(imageView.getContext().getResources().getDrawable(R.drawable.ksad_default_app_icon)).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).displayer(new RoundedBitmapDisplayer(an.a(imageView.getContext(), i2))).build(), new InnerImageLoadingListener(adTemplate, null));
     }
 
     public static void loadAuthorCircleIcon(ImageView imageView, String str) {
@@ -207,15 +207,15 @@ public class KSImageLoader {
             return;
         }
         checkInit();
-        ImageLoader.getInstance().displayImage(str, imageView, new DisplayImageOptions.Builder().showImageOnLoading(drawable).showImageForEmptyUri(drawable).showImageOnFail(drawable).cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).displayer(new CircleBitmapDisplayer(Integer.valueOf(Color.argb(255, 255, 255, 255)), ao.a(imageView.getContext(), 1.0f))).build());
+        ImageLoader.getInstance().displayImage(str, imageView, new DisplayImageOptions.Builder().showImageOnLoading(drawable).showImageForEmptyUri(drawable).showImageOnFail(drawable).cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).displayer(new CircleBitmapDisplayer(Integer.valueOf(Color.argb(255, 255, 255, 255)), an.a(imageView.getContext(), 1.0f))).build());
     }
 
-    public static void loadCircleIcon(ImageView imageView, String str, Drawable drawable, @ColorInt int i) {
+    public static void loadCircleIcon(ImageView imageView, String str, Drawable drawable, @ColorInt int i2) {
         if (imageView == null) {
             return;
         }
         checkInit();
-        ImageLoader.getInstance().displayImage(str, imageView, new DisplayImageOptions.Builder().showImageOnLoading(drawable).showImageForEmptyUri(drawable).showImageOnFail(drawable).cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).displayer(new CircleBitmapDisplayer(Integer.valueOf(i), ao.a(imageView.getContext(), 1.0f))).build());
+        ImageLoader.getInstance().displayImage(str, imageView, new DisplayImageOptions.Builder().showImageOnLoading(drawable).showImageForEmptyUri(drawable).showImageOnFail(drawable).cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).displayer(new CircleBitmapDisplayer(Integer.valueOf(i2), an.a(imageView.getContext(), 1.0f))).build());
     }
 
     public static void loadCircleIconWithoutStroke(ImageView imageView, String str, Drawable drawable) {
@@ -231,7 +231,7 @@ public class KSImageLoader {
             return;
         }
         checkInit();
-        ImageLoader.getInstance().displayImage(str, imageView, new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.RGB_565).cacheInMemory(true).cacheOnDisk(true).displayer(new RoundedBitmapDisplayer(ao.a(imageView.getContext(), 1.0f))).build(), new InnerImageLoadingListener(adTemplate, null));
+        ImageLoader.getInstance().displayImage(str, imageView, new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.RGB_565).cacheInMemory(true).cacheOnDisk(true).displayer(new RoundedBitmapDisplayer(an.a(imageView.getContext(), 1.0f))).build(), new InnerImageLoadingListener(adTemplate, null));
     }
 
     public static void loadImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate) {

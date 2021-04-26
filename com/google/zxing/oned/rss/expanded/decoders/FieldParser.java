@@ -74,14 +74,14 @@ public final class FieldParser {
         throw NotFoundException.getNotFoundInstance();
     }
 
-    public static String processFixedAI(int i, int i2, String str) throws NotFoundException {
-        if (str.length() >= i) {
-            String substring = str.substring(0, i);
-            int i3 = i2 + i;
-            if (str.length() >= i3) {
-                String substring2 = str.substring(i, i3);
+    public static String processFixedAI(int i2, int i3, String str) throws NotFoundException {
+        if (str.length() >= i2) {
+            String substring = str.substring(0, i2);
+            int i4 = i3 + i2;
+            if (str.length() >= i4) {
+                String substring2 = str.substring(i2, i4);
                 String str2 = "(" + substring + ')' + substring2;
-                String parseFieldsInGeneralPurpose = parseFieldsInGeneralPurpose(str.substring(i3));
+                String parseFieldsInGeneralPurpose = parseFieldsInGeneralPurpose(str.substring(i4));
                 if (parseFieldsInGeneralPurpose == null) {
                     return str2;
                 }
@@ -92,15 +92,15 @@ public final class FieldParser {
         throw NotFoundException.getNotFoundInstance();
     }
 
-    public static String processVariableAI(int i, int i2, String str) throws NotFoundException {
-        String substring = str.substring(0, i);
-        int i3 = i2 + i;
-        if (str.length() < i3) {
-            i3 = str.length();
+    public static String processVariableAI(int i2, int i3, String str) throws NotFoundException {
+        String substring = str.substring(0, i2);
+        int i4 = i3 + i2;
+        if (str.length() < i4) {
+            i4 = str.length();
         }
-        String substring2 = str.substring(i, i3);
+        String substring2 = str.substring(i2, i4);
         String str2 = "(" + substring + ')' + substring2;
-        String parseFieldsInGeneralPurpose = parseFieldsInGeneralPurpose(str.substring(i3));
+        String parseFieldsInGeneralPurpose = parseFieldsInGeneralPurpose(str.substring(i4));
         if (parseFieldsInGeneralPurpose == null) {
             return str2;
         }

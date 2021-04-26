@@ -92,6 +92,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     public MediaConstraints pcConstraints;
     public PeerConnectionParameters peerConnectionParameters;
     public String preferredVideoCodec;
+    public AudioTrack remoteAudioTrack;
     public VideoTrack remoteVideoTrack;
     public boolean renderVideo;
     public MediaConstraints sdpMediaConstraints;
@@ -141,6 +142,10 @@ public class PeerConnectionClient implements DataChannel.Observer {
                             return;
                         }
                         Log.d(PeerConnectionClient.TAG, "=========== onAddStream ==========");
+                        if (mediaStream.audioTracks.size() == 1) {
+                            PeerConnectionClient.this.remoteAudioTrack = mediaStream.audioTracks.get(0);
+                            PCObserver.this.connection.audioTrack = PeerConnectionClient.this.remoteAudioTrack;
+                        }
                         if (mediaStream.videoTracks.size() == 1) {
                             PeerConnectionClient.this.remoteVideoTrack = mediaStream.videoTracks.get(0);
                             PeerConnectionClient.this.remoteVideoTrack.setEnabled(true);
@@ -244,6 +249,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                     @Override // java.lang.Runnable
                     public void run() {
                         PeerConnectionClient.this.remoteVideoTrack = null;
+                        PeerConnectionClient.this.remoteAudioTrack = null;
                     }
                 });
             }
@@ -333,38 +339,38 @@ public class PeerConnectionClient implements DataChannel.Observer {
         public final int videoMinkbps;
         public final int videoWidth;
 
-        public PeerConnectionParameters(boolean z, int i, int i2, int i3, String str, boolean z2, int i4, String str2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, int i5, int i6, boolean z8, boolean z9, boolean z10, boolean z11, boolean z12, boolean z13, int i7, RtcParameterSettings.RtcAudioBitrateMode rtcAudioBitrateMode, RtcParameterSettings.RtcAudioChannel rtcAudioChannel, int i8, boolean z14, boolean z15, int i9, int i10, int i11, int i12) {
+        public PeerConnectionParameters(boolean z, int i2, int i3, int i4, String str, boolean z2, int i5, String str2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, int i6, int i7, boolean z8, boolean z9, boolean z10, boolean z11, boolean z12, boolean z13, int i8, RtcParameterSettings.RtcAudioBitrateMode rtcAudioBitrateMode, RtcParameterSettings.RtcAudioChannel rtcAudioChannel, int i9, boolean z14, boolean z15, int i10, int i11, int i12, int i13) {
             this.tracing = z;
-            this.videoWidth = i;
-            this.videoHeight = i2;
-            this.videoFps = i3;
+            this.videoWidth = i2;
+            this.videoHeight = i3;
+            this.videoFps = i4;
             this.videoCodec = str;
             this.videoCodecHwAcceleration = z2;
-            this.audioStartBitrate = i4;
+            this.audioStartBitrate = i5;
             this.audioCodec = str2;
             this.noAudioProcessing = z3;
             this.useOpenSLES = z4;
             this.disableBuiltInAEC = z5;
             this.disableBuiltInAGC = z6;
             this.disableBuiltInNS = z7;
-            this.videoMaxkbps = i5;
-            this.videoMinkbps = i6;
+            this.videoMaxkbps = i6;
+            this.videoMinkbps = i7;
             this.micPhoneMuted = z8;
             this.cameraMuted = z9;
             this.enableFEC = z10;
             this.enableFixedResolution = z11;
             this.enableRequiredResolutionAligment32 = z12;
             this.enableHighProfile = z13;
-            this.audioMaxkbps = i7;
+            this.audioMaxkbps = i8;
             this.audioBitrateMode = rtcAudioBitrateMode;
             this.transportAudioChannel = rtcAudioChannel;
-            this.encodeBitrateMode = i8;
+            this.encodeBitrateMode = i9;
             this.enableHisiH264HW = z14;
             this.enableMTKH264Decode = z15;
-            this.audioSource = i9;
-            this.audioBufferPackets = i10;
-            this.audioPlayoutDelay = i11;
-            this.audioCodecComplex = i12;
+            this.audioSource = i10;
+            this.audioBufferPackets = i11;
+            this.audioPlayoutDelay = i12;
+            this.audioCodecComplex = i13;
         }
     }
 
@@ -469,13 +475,13 @@ public class PeerConnectionClient implements DataChannel.Observer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void changeCaptureFormatInternal(int i, int i2, int i3) {
+    public void changeCaptureFormatInternal(int i2, int i3, int i4) {
         if (this.isError || this.videoCapturer == null) {
             Log.e(TAG, "Failed to change capture format. Video: true. Error : " + this.isError);
             return;
         }
-        Log.d(TAG, "changeCaptureFormat: " + i + "x" + i2 + "@" + i3);
-        this.videoSource.adaptOutputFormat(i, i2, i3);
+        Log.d(TAG, "changeCaptureFormat: " + i2 + "x" + i3 + "@" + i4);
+        this.videoSource.adaptOutputFormat(i2, i3, i4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -485,8 +491,8 @@ public class PeerConnectionClient implements DataChannel.Observer {
         ConcurrentHashMap<BigInteger, JanusConnection> concurrentHashMap = this.peerConnectionMap;
         if (concurrentHashMap != null) {
             int size = concurrentHashMap.size();
-            for (int i = 0; i < size; i++) {
-                JanusConnection janusConnection = (JanusConnection) this.peerConnectionMap.values().toArray()[i];
+            for (int i2 = 0; i2 < size; i2++) {
+                JanusConnection janusConnection = (JanusConnection) this.peerConnectionMap.values().toArray()[i2];
                 janusConnection.peerConnection.close();
                 janusConnection.peerConnection.dispose();
                 janusConnection.peerConnection = null;
@@ -550,12 +556,12 @@ public class PeerConnectionClient implements DataChannel.Observer {
         this.pcConstraints = mediaConstraints;
         mediaConstraints.optional.add(new MediaConstraints.KeyValuePair(DTLS_SRTP_KEY_AGREEMENT_CONSTRAINT, "true"));
         PeerConnectionParameters peerConnectionParameters = this.peerConnectionParameters;
-        int i = peerConnectionParameters.videoWidth;
-        this.videoWidth = i;
-        int i2 = peerConnectionParameters.videoHeight;
-        this.videoHeight = i2;
+        int i2 = peerConnectionParameters.videoWidth;
+        this.videoWidth = i2;
+        int i3 = peerConnectionParameters.videoHeight;
+        this.videoHeight = i3;
         this.videoFps = peerConnectionParameters.videoFps;
-        if (i == 0 || i2 == 0) {
+        if (i2 == 0 || i3 == 0) {
             this.videoWidth = 1280;
             this.videoHeight = HD_VIDEO_HEIGHT;
         }
@@ -675,8 +681,8 @@ public class PeerConnectionClient implements DataChannel.Observer {
         if (this.peerConnectionParameters.enableFixedResolution) {
             str4 = str4 + "BRTC.Fixed.Resolution/Enabled/";
         }
-        int i = this.peerConnectionParameters.encodeBitrateMode;
-        if (i == 0 || i == 1 || i == 2) {
+        int i2 = this.peerConnectionParameters.encodeBitrateMode;
+        if (i2 == 0 || i2 == 1 || i2 == 2) {
             str4 = str4 + "BRTC-Encoder-BitrateMode/" + this.peerConnectionParameters.encodeBitrateMode + "/";
         }
         if (this.peerConnectionParameters.enableHighProfile) {
@@ -694,14 +700,14 @@ public class PeerConnectionClient implements DataChannel.Observer {
         if (this.peerConnectionParameters.audioCodecComplex >= 0) {
             str4 = str4 + "BRTC.Opus.Complexity/" + this.peerConnectionParameters.audioCodecComplex + "/";
         }
-        int i2 = 0;
+        int i3 = 0;
         while (true) {
-            if (i2 >= MediaCodecList.getCodecCount()) {
+            if (i3 >= MediaCodecList.getCodecCount()) {
                 break;
             }
             MediaCodecInfo mediaCodecInfo = null;
             try {
-                mediaCodecInfo = MediaCodecList.getCodecInfoAt(i2);
+                mediaCodecInfo = MediaCodecList.getCodecInfoAt(i3);
             } catch (IllegalArgumentException e2) {
                 Logging.e(TAG, "Cannot retrieve encoder codec info", e2);
             }
@@ -709,7 +715,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 z = true;
                 break;
             }
-            i2++;
+            i3++;
         }
         if (this.peerConnectionParameters.enableRequiredResolutionAligment32 || z) {
             str4 = str4 + "BRTC.Required.Resolustion.Aligment32/Enabled/";
@@ -847,14 +853,14 @@ public class PeerConnectionClient implements DataChannel.Observer {
         ((CameraVideoCapturer) this.videoCapturer).switchCamera(null);
     }
 
-    public void changeCaptureFormat(final int i, final int i2, final int i3) {
+    public void changeCaptureFormat(final int i2, final int i3, final int i4) {
         if (this.executor.isShutdown()) {
             Log.w(TAG, "executor is already shutdown");
         } else {
             this.executor.execute(new Runnable() { // from class: com.baidu.rtc.PeerConnectionClient.20
                 @Override // java.lang.Runnable
                 public void run() {
-                    PeerConnectionClient.this.changeCaptureFormatInternal(i, i2, i3);
+                    PeerConnectionClient.this.changeCaptureFormatInternal(i2, i3, i4);
                 }
             });
         }
@@ -1028,7 +1034,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void enableStatsEvents(boolean z, int i, final BigInteger bigInteger, final StatsEventsType statsEventsType) {
+    public void enableStatsEvents(boolean z, int i2, final BigInteger bigInteger, final StatsEventsType statsEventsType) {
         TimerTask timerTask;
         Map<BigInteger, TimerTask> map;
         Map<BigInteger, TimerTask> map2;
@@ -1065,13 +1071,13 @@ public class PeerConnectionClient implements DataChannel.Observer {
                         if (statsEventsType == StatsEventsType.GET_SLI_EVENT) {
                             map = this.timerTaskGetSLIMap;
                         }
-                        this.statsTimer.schedule(timerTask3, 0L, i);
+                        this.statsTimer.schedule(timerTask3, 0L, i2);
                         return;
                     } else {
                         map = this.timerTaskGetQualityMap;
                     }
                     map.put(bigInteger, timerTask3);
-                    this.statsTimer.schedule(timerTask3, 0L, i);
+                    this.statsTimer.schedule(timerTask3, 0L, i2);
                     return;
                 } else {
                     timerTask = this.timerTaskGetQualityMap.get(bigInteger);
@@ -1097,7 +1103,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
                 if (statsEventsType != StatsEventsType.GET_AUDIOLEVEL_EVENT) {
                 }
                 map.put(bigInteger, timerTask32);
-                this.statsTimer.schedule(timerTask32, 0L, i);
+                this.statsTimer.schedule(timerTask32, 0L, i2);
                 return;
             } catch (Exception e2) {
                 Log.e(TAG, "Can not schedule statistics timer", e2);
@@ -1155,8 +1161,8 @@ public class PeerConnectionClient implements DataChannel.Observer {
         this.dcPublisher.send(new DataChannel.Buffer(byteBuffer, true));
     }
 
-    public void setAudioChannel(int i) {
-        this.mAudioChannel = i;
+    public void setAudioChannel(int i2) {
+        this.mAudioChannel = i2;
     }
 
     public void setAudioEnabled(final boolean z) {
@@ -1178,8 +1184,8 @@ public class PeerConnectionClient implements DataChannel.Observer {
         }
     }
 
-    public void setAudioFreguency(int i) {
-        this.mAudioFreguency = i;
+    public void setAudioFreguency(int i2) {
+        this.mAudioFreguency = i2;
     }
 
     public void setAudioRecording(final BigInteger bigInteger, final boolean z) {

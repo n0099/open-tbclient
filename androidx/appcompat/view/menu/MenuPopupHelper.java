@@ -18,7 +18,7 @@ import androidx.appcompat.R;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class MenuPopupHelper implements MenuHelper {
     public static final int TOUCH_EPICENTER_SIZE_DP = 48;
@@ -63,17 +63,17 @@ public class MenuPopupHelper implements MenuHelper {
         return standardMenuPopup;
     }
 
-    private void showPopup(int i, int i2, boolean z, boolean z2) {
+    private void showPopup(int i2, int i3, boolean z, boolean z2) {
         MenuPopup popup = getPopup();
         popup.setShowTitle(z2);
         if (z) {
             if ((GravityCompat.getAbsoluteGravity(this.mDropDownGravity, ViewCompat.getLayoutDirection(this.mAnchorView)) & 7) == 5) {
-                i -= this.mAnchorView.getWidth();
+                i2 -= this.mAnchorView.getWidth();
             }
-            popup.setHorizontalOffset(i);
-            popup.setVerticalOffset(i2);
-            int i3 = (int) ((this.mContext.getResources().getDisplayMetrics().density * 48.0f) / 2.0f);
-            popup.setEpicenterBounds(new Rect(i - i3, i2 - i3, i + i3, i2 + i3));
+            popup.setHorizontalOffset(i2);
+            popup.setVerticalOffset(i3);
+            int i4 = (int) ((this.mContext.getResources().getDisplayMetrics().density * 48.0f) / 2.0f);
+            popup.setEpicenterBounds(new Rect(i2 - i4, i3 - i4, i2 + i4, i3 + i4));
         }
         popup.show();
     }
@@ -126,8 +126,8 @@ public class MenuPopupHelper implements MenuHelper {
         }
     }
 
-    public void setGravity(int i) {
-        this.mDropDownGravity = i;
+    public void setGravity(int i2) {
+        this.mDropDownGravity = i2;
     }
 
     public void setOnDismissListener(@Nullable PopupWindow.OnDismissListener onDismissListener) {
@@ -164,17 +164,17 @@ public class MenuPopupHelper implements MenuHelper {
         this(context, menuBuilder, view, false, R.attr.popupMenuStyle, 0);
     }
 
-    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view, boolean z, @AttrRes int i) {
-        this(context, menuBuilder, view, z, i, 0);
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view, boolean z, @AttrRes int i2) {
+        this(context, menuBuilder, view, z, i2, 0);
     }
 
-    public void show(int i, int i2) {
-        if (!tryShow(i, i2)) {
+    public void show(int i2, int i3) {
+        if (!tryShow(i2, i3)) {
             throw new IllegalStateException("MenuPopupHelper cannot be used without an anchor");
         }
     }
 
-    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view, boolean z, @AttrRes int i, @StyleRes int i2) {
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view, boolean z, @AttrRes int i2, @StyleRes int i3) {
         this.mDropDownGravity = GravityCompat.START;
         this.mInternalOnDismissListener = new PopupWindow.OnDismissListener() { // from class: androidx.appcompat.view.menu.MenuPopupHelper.1
             @Override // android.widget.PopupWindow.OnDismissListener
@@ -186,18 +186,18 @@ public class MenuPopupHelper implements MenuHelper {
         this.mMenu = menuBuilder;
         this.mAnchorView = view;
         this.mOverflowOnly = z;
-        this.mPopupStyleAttr = i;
-        this.mPopupStyleRes = i2;
+        this.mPopupStyleAttr = i2;
+        this.mPopupStyleRes = i3;
     }
 
-    public boolean tryShow(int i, int i2) {
+    public boolean tryShow(int i2, int i3) {
         if (isShowing()) {
             return true;
         }
         if (this.mAnchorView == null) {
             return false;
         }
-        showPopup(i, i2, true, true);
+        showPopup(i2, i3, true, true);
         return true;
     }
 }

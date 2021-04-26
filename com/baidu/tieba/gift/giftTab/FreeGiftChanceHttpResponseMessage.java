@@ -10,8 +10,8 @@ public class FreeGiftChanceHttpResponseMessage extends TbHttpResponsedMessage {
     public int freeChance;
     public long sceneId;
 
-    public FreeGiftChanceHttpResponseMessage(int i) {
-        super(i);
+    public FreeGiftChanceHttpResponseMessage(int i2) {
+        super(i2);
         this.freeChance = 0;
     }
 
@@ -29,7 +29,7 @@ public class FreeGiftChanceHttpResponseMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetUserFreeChanceResIdl getUserFreeChanceResIdl = (GetUserFreeChanceResIdl) new Wire(new Class[0]).parseFrom(bArr, GetUserFreeChanceResIdl.class);
         if (getUserFreeChanceResIdl == null) {
             return;

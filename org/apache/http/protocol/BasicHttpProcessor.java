@@ -27,7 +27,7 @@ public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInter
     }
 
     @Override // org.apache.http.protocol.HttpResponseInterceptorList
-    public void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i) {
+    public void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -58,7 +58,7 @@ public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInter
     }
 
     @Override // org.apache.http.protocol.HttpRequestInterceptorList
-    public HttpRequestInterceptor getRequestInterceptor(int i) {
+    public HttpRequestInterceptor getRequestInterceptor(int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -68,7 +68,7 @@ public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInter
     }
 
     @Override // org.apache.http.protocol.HttpResponseInterceptorList
-    public HttpResponseInterceptor getResponseInterceptor(int i) {
+    public HttpResponseInterceptor getResponseInterceptor(int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -97,12 +97,12 @@ public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInter
         throw new RuntimeException("Stub!");
     }
 
-    public final void addInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i) {
+    public final void addInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i2) {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.protocol.HttpRequestInterceptorList
-    public void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i) {
+    public void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -120,7 +120,7 @@ public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInter
         throw new RuntimeException("Stub!");
     }
 
-    public final void addInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i) {
+    public final void addInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i2) {
         throw new RuntimeException("Stub!");
     }
 }

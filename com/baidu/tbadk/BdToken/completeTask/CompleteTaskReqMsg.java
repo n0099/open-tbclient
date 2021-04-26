@@ -4,8 +4,8 @@ import android.util.Base64;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.n0;
-import d.b.i0.z0.w;
+import d.a.i0.z0.n0;
+import d.a.i0.z0.w;
 import tbclient.CompleteTask.CompleteTaskReqIdl;
 import tbclient.CompleteTask.DataReq;
 /* loaded from: classes3.dex */
@@ -18,9 +18,9 @@ public class CompleteTaskReqMsg extends NetMessage {
     public int mTaskType;
     public String mToken;
 
-    public CompleteTaskReqMsg(int i) {
+    public CompleteTaskReqMsg(int i2) {
         super(CmdConfigHttp.CMD_COMPLETE_TASK, 309627);
-        this.mTaskType = i;
+        this.mTaskType = i2;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage

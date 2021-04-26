@@ -25,7 +25,7 @@ public class DrawableTextView extends TextView {
         super(context, attributeSet);
     }
 
-    public DrawableTextView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public DrawableTextView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

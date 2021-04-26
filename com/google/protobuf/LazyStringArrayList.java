@@ -34,11 +34,11 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
     }
 
     @Override // com.google.protobuf.LazyStringList
-    public ByteString getByteString(int i) {
-        Object obj = this.list.get(i);
+    public ByteString getByteString(int i2) {
+        Object obj = this.list.get(i2);
         if (obj instanceof String) {
             ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-            this.list.set(i, copyFromUtf8);
+            this.list.set(i2, copyFromUtf8);
             return copyFromUtf8;
         }
         return (ByteString) obj;
@@ -56,48 +56,48 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
-    public void add(int i, String str) {
-        this.list.add(i, str);
+    public void add(int i2, String str) {
+        this.list.add(i2, str);
         ((AbstractList) this).modCount++;
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public boolean addAll(int i, Collection<? extends String> collection) {
+    public boolean addAll(int i2, Collection<? extends String> collection) {
         if (collection instanceof LazyStringList) {
             collection = ((LazyStringList) collection).getUnderlyingElements();
         }
-        boolean addAll = this.list.addAll(i, collection);
+        boolean addAll = this.list.addAll(i2, collection);
         ((AbstractList) this).modCount++;
         return addAll;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
-    public String get(int i) {
-        Object obj = this.list.get(i);
+    public String get(int i2) {
+        Object obj = this.list.get(i2);
         if (obj instanceof String) {
             return (String) obj;
         }
         ByteString byteString = (ByteString) obj;
         String stringUtf8 = byteString.toStringUtf8();
         if (byteString.isValidUtf8()) {
-            this.list.set(i, stringUtf8);
+            this.list.set(i2, stringUtf8);
         }
         return stringUtf8;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
-    public String remove(int i) {
-        Object remove = this.list.remove(i);
+    public String remove(int i2) {
+        Object remove = this.list.remove(i2);
         ((AbstractList) this).modCount++;
         return asString(remove);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
-    public String set(int i, String str) {
-        return asString(this.list.set(i, str));
+    public String set(int i2, String str) {
+        return asString(this.list.set(i2, str));
     }
 
     public LazyStringArrayList(LazyStringList lazyStringList) {

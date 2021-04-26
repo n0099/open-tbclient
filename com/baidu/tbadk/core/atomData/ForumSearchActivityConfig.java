@@ -16,9 +16,9 @@ public class ForumSearchActivityConfig extends IntentConfig {
         }
     }
 
-    public void setFrom(int i) {
+    public void setFrom(int i2) {
         if (getIntent() != null) {
-            getIntent().putExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, i);
+            getIntent().putExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, i2);
         }
     }
 
@@ -61,6 +61,12 @@ public class ForumSearchActivityConfig extends IntentConfig {
     public void setTransmitThreadAuthorNameShow(String str) {
         if (getIntent() != null) {
             getIntent().putExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW, str);
+        }
+    }
+
+    public void setYyAnchorBdUid(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("extra_key_yy_anchor_bduid", str);
         }
     }
 }

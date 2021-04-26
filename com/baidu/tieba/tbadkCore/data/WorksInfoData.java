@@ -28,8 +28,8 @@ public class WorksInfoData implements Serializable, Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public WorksInfoData[] newArray(int i) {
-            return new WorksInfoData[i];
+        public WorksInfoData[] newArray(int i2) {
+            return new WorksInfoData[i2];
         }
     }
 
@@ -49,9 +49,9 @@ public class WorksInfoData implements Serializable, Parcelable {
         JSONArray optJSONArray = jSONObject.optJSONArray("topic_list");
         if (optJSONArray != null) {
             this.topicListData = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 RecommendTopicData.RecommendTopicListData recommendTopicListData = new RecommendTopicData.RecommendTopicListData();
-                recommendTopicListData.parseJson(optJSONArray.optJSONObject(i));
+                recommendTopicListData.parseJson(optJSONArray.optJSONObject(i2));
                 this.topicListData.add(recommendTopicListData);
             }
         }
@@ -73,7 +73,7 @@ public class WorksInfoData implements Serializable, Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeByte(this.isWorks ? (byte) 1 : (byte) 0);
         parcel.writeList(this.topicListData);
     }

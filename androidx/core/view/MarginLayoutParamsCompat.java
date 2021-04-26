@@ -33,31 +33,31 @@ public final class MarginLayoutParamsCompat {
         return false;
     }
 
-    public static void resolveLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams, int i) {
+    public static void resolveLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams, int i2) {
         if (Build.VERSION.SDK_INT >= 17) {
-            marginLayoutParams.resolveLayoutDirection(i);
+            marginLayoutParams.resolveLayoutDirection(i2);
         }
     }
 
-    public static void setLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams, int i) {
+    public static void setLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams, int i2) {
         if (Build.VERSION.SDK_INT >= 17) {
-            marginLayoutParams.setLayoutDirection(i);
+            marginLayoutParams.setLayoutDirection(i2);
         }
     }
 
-    public static void setMarginEnd(ViewGroup.MarginLayoutParams marginLayoutParams, int i) {
+    public static void setMarginEnd(ViewGroup.MarginLayoutParams marginLayoutParams, int i2) {
         if (Build.VERSION.SDK_INT >= 17) {
-            marginLayoutParams.setMarginEnd(i);
+            marginLayoutParams.setMarginEnd(i2);
         } else {
-            marginLayoutParams.rightMargin = i;
+            marginLayoutParams.rightMargin = i2;
         }
     }
 
-    public static void setMarginStart(ViewGroup.MarginLayoutParams marginLayoutParams, int i) {
+    public static void setMarginStart(ViewGroup.MarginLayoutParams marginLayoutParams, int i2) {
         if (Build.VERSION.SDK_INT >= 17) {
-            marginLayoutParams.setMarginStart(i);
+            marginLayoutParams.setMarginStart(i2);
         } else {
-            marginLayoutParams.leftMargin = i;
+            marginLayoutParams.leftMargin = i2;
         }
     }
 }

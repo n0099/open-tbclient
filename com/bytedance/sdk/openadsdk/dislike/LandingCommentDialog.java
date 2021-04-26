@@ -23,25 +23,25 @@ import java.util.ArrayList;
 public class LandingCommentDialog extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f28774a;
+    public View f29660a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f28775b;
+    public ImageView f29661b;
 
     /* renamed from: c  reason: collision with root package name */
-    public EditText f28776c;
+    public EditText f29662c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f28777d;
+    public TextView f29663d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f28778e;
+    public TextView f29664e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l f28779f;
+    public l f29665f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f28780g;
+    public a f29666g;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -54,20 +54,20 @@ public class LandingCommentDialog extends FrameLayout {
 
     public LandingCommentDialog(@NonNull Context context, @NonNull l lVar) {
         super(context, null, ad.g(context, "quick_option_dialog"));
-        this.f28779f = lVar;
+        this.f29665f = lVar;
         a(context);
     }
 
     public static void setEditTextInputSpace(EditText editText) {
         editText.setFilters(new InputFilter[]{new InputFilter() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingCommentDialog.5
             @Override // android.text.InputFilter
-            public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-                while (i < i2) {
-                    int type = Character.getType(charSequence.charAt(i));
+            public CharSequence filter(CharSequence charSequence, int i2, int i3, Spanned spanned, int i4, int i5) {
+                while (i2 < i3) {
+                    int type = Character.getType(charSequence.charAt(i2));
                     if (type == 19 || type == 28) {
                         return "";
                     }
-                    i++;
+                    i2++;
                 }
                 return null;
             }
@@ -75,7 +75,7 @@ public class LandingCommentDialog extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.f28780g = aVar;
+        this.f29666g = aVar;
     }
 
     private void a(Context context) {
@@ -87,79 +87,79 @@ public class LandingCommentDialog extends FrameLayout {
             }
         });
         setBackgroundColor(Color.parseColor("#80000000"));
-        this.f28774a = LayoutInflater.from(context).inflate(ad.f(context, "tt_dislike_comment_layout"), (ViewGroup) this, false);
+        this.f29660a = LayoutInflater.from(context).inflate(ad.f(context, "tt_dislike_comment_layout"), (ViewGroup) this, false);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 80;
-        this.f28774a.setLayoutParams(layoutParams);
-        this.f28774a.setClickable(true);
+        this.f29660a.setLayoutParams(layoutParams);
+        this.f29660a.setClickable(true);
         c();
     }
 
     private void c() {
-        EditText editText = (EditText) this.f28774a.findViewById(ad.e(getContext(), "tt_comment_content"));
-        this.f28776c = editText;
+        EditText editText = (EditText) this.f29660a.findViewById(ad.e(getContext(), "tt_comment_content"));
+        this.f29662c = editText;
         setEditTextInputSpace(editText);
-        TextView textView = (TextView) this.f28774a.findViewById(ad.e(getContext(), "tt_comment_commit"));
-        this.f28777d = textView;
+        TextView textView = (TextView) this.f29660a.findViewById(ad.e(getContext(), "tt_comment_commit"));
+        this.f29663d = textView;
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingCommentDialog.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                String obj = LandingCommentDialog.this.f28776c.getText().toString();
+                String obj = LandingCommentDialog.this.f29662c.getText().toString();
                 if (obj.length() <= 0 || obj.isEmpty()) {
                     return;
                 }
                 FilterWord filterWord = new FilterWord("0:00", obj);
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(filterWord);
-                com.bytedance.sdk.openadsdk.c.d.a(LandingCommentDialog.this.f28779f, arrayList);
-                if (LandingCommentDialog.this.f28780g != null) {
+                com.bytedance.sdk.openadsdk.c.d.a(LandingCommentDialog.this.f29665f, arrayList);
+                if (LandingCommentDialog.this.f29666g != null) {
                     try {
-                        LandingCommentDialog.this.f28780g.a(obj, true);
+                        LandingCommentDialog.this.f29666g.a(obj, true);
                     } catch (Throwable unused) {
                     }
                 }
                 LandingCommentDialog.this.a();
             }
         });
-        ImageView imageView = (ImageView) this.f28774a.findViewById(ad.e(getContext(), "tt_comment_close"));
-        this.f28775b = imageView;
+        ImageView imageView = (ImageView) this.f29660a.findViewById(ad.e(getContext(), "tt_comment_close"));
+        this.f29661b = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingCommentDialog.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 LandingCommentDialog.this.a();
             }
         });
-        this.f28778e = (TextView) this.f28774a.findViewById(ad.e(getContext(), "tt_comment_number"));
-        this.f28776c.addTextChangedListener(new TextWatcher() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingCommentDialog.4
+        this.f29664e = (TextView) this.f29660a.findViewById(ad.e(getContext(), "tt_comment_number"));
+        this.f29662c.addTextChangedListener(new TextWatcher() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingCommentDialog.4
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
             }
 
             @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             }
 
             @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                 int round = Math.round(charSequence.length());
-                LandingCommentDialog.this.f28778e.setText(round + "");
+                LandingCommentDialog.this.f29664e.setText(round + "");
                 if (round > 0) {
-                    LandingCommentDialog.this.f28777d.setTextColor(-16777216);
-                    LandingCommentDialog.this.f28777d.setClickable(true);
+                    LandingCommentDialog.this.f29663d.setTextColor(-16777216);
+                    LandingCommentDialog.this.f29663d.setClickable(true);
                     return;
                 }
-                LandingCommentDialog.this.f28777d.setTextColor(-7829368);
-                LandingCommentDialog.this.f28777d.setClickable(false);
+                LandingCommentDialog.this.f29663d.setTextColor(-7829368);
+                LandingCommentDialog.this.f29663d.setClickable(false);
             }
         });
     }
 
     public void b() {
-        if (this.f28774a.getParent() == null) {
-            addView(this.f28774a);
+        if (this.f29660a.getParent() == null) {
+            addView(this.f29660a);
         }
         setVisibility(0);
-        a aVar = this.f28780g;
+        a aVar = this.f29666g;
         if (aVar != null) {
             aVar.a(this);
         }
@@ -167,11 +167,11 @@ public class LandingCommentDialog extends FrameLayout {
 
     public void a() {
         setVisibility(8);
-        InputMethodManager inputMethodManager = (InputMethodManager) this.f28776c.getContext().getSystemService("input_method");
+        InputMethodManager inputMethodManager = (InputMethodManager) this.f29662c.getContext().getSystemService("input_method");
         if (inputMethodManager != null) {
-            inputMethodManager.hideSoftInputFromWindow(this.f28774a.getWindowToken(), 0);
+            inputMethodManager.hideSoftInputFromWindow(this.f29660a.getWindowToken(), 0);
         }
-        a aVar = this.f28780g;
+        a aVar = this.f29666g;
         if (aVar != null) {
             aVar.b(this);
         }

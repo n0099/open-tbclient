@@ -8,16 +8,16 @@ import com.googlecode.mp4parser.util.CastUtils;
 import g.a.a.a;
 import g.a.b.b.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SampleSizeBox extends AbstractFullBox {
     public static final String TYPE = "stsz";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
     public int sampleCount;
     public long sampleSize;
     public long[] sampleSizes;
@@ -50,8 +50,8 @@ public class SampleSizeBox extends AbstractFullBox {
         this.sampleCount = l2i;
         if (this.sampleSize == 0) {
             this.sampleSizes = new long[l2i];
-            for (int i = 0; i < this.sampleCount; i++) {
-                this.sampleSizes[i] = IsoTypeReader.readUInt32(byteBuffer);
+            for (int i2 = 0; i2 < this.sampleCount; i2++) {
+                this.sampleSizes[i2] = IsoTypeReader.readUInt32(byteBuffer);
             }
         }
     }
@@ -91,10 +91,10 @@ public class SampleSizeBox extends AbstractFullBox {
         return this.sampleSize;
     }
 
-    public long getSampleSizeAtIndex(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_2, this, this, g.a.b.a.a.e(i)));
+    public long getSampleSizeAtIndex(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_2, this, this, g.a.b.a.a.e(i2)));
         long j = this.sampleSize;
-        return j > 0 ? j : this.sampleSizes[i];
+        return j > 0 ? j : this.sampleSizes[i2];
     }
 
     public long[] getSampleSizes() {

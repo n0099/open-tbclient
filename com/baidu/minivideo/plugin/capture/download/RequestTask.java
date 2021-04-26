@@ -89,16 +89,16 @@ public class RequestTask implements Serializable {
         this.name = str;
     }
 
-    public void setProgress(int i) {
-        this.progress = i;
+    public void setProgress(int i2) {
+        this.progress = i2;
     }
 
     public void setSavePath(String str) {
         this.savePath = str;
     }
 
-    public void setStatus(int i) {
-        this.status = i;
+    public void setStatus(int i2) {
+        this.status = i2;
     }
 
     public void setUrl(String str) {

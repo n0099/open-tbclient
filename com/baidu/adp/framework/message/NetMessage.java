@@ -30,13 +30,13 @@ public abstract class NetMessage {
         boolean checkToSwitchHttp(SocketResponsedMessage socketResponsedMessage);
     }
 
-    public NetMessage(int i, int i2) {
-        init(i, i2, null);
+    public NetMessage(int i2, int i3) {
+        init(i2, i3, null);
     }
 
-    private void init(int i, int i2, BdUniqueId bdUniqueId) {
-        this.httpCmd = i;
-        this.socketCmd = i2;
+    private void init(int i2, int i3, BdUniqueId bdUniqueId) {
+        this.httpCmd = i2;
+        this.socketCmd = i3;
         this.tag = bdUniqueId;
         this.clientLogID = BdStatisticsManager.getInstance().getClientLogId();
     }
@@ -120,8 +120,8 @@ public abstract class NetMessage {
         this.socketCostTime = j;
     }
 
-    public void setSocketErrNo(int i) {
-        this.socketErrNo = i;
+    public void setSocketErrNo(int i2) {
+        this.socketErrNo = i2;
     }
 
     public void setSwitchToHttpStrategy(a aVar) {
@@ -135,7 +135,7 @@ public abstract class NetMessage {
         this.tag = bdUniqueId;
     }
 
-    public NetMessage(int i, int i2, BdUniqueId bdUniqueId) {
-        init(i, i2, bdUniqueId);
+    public NetMessage(int i2, int i3, BdUniqueId bdUniqueId) {
+        init(i2, i3, bdUniqueId);
     }
 }

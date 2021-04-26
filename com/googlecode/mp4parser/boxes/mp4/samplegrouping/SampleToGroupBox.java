@@ -15,12 +15,12 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class SampleToGroupBox extends AbstractFullBox {
     public static final String TYPE = "sbgp";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
     public List<Entry> entries;
     public String groupingType;
     public String groupingTypeParameter;
@@ -30,9 +30,9 @@ public class SampleToGroupBox extends AbstractFullBox {
         public int groupDescriptionIndex;
         public long sampleCount;
 
-        public Entry(long j, int i) {
+        public Entry(long j, int i2) {
             this.sampleCount = j;
-            this.groupDescriptionIndex = i;
+            this.groupDescriptionIndex = i2;
         }
 
         public boolean equals(Object obj) {
@@ -59,8 +59,8 @@ public class SampleToGroupBox extends AbstractFullBox {
             return (((int) (j ^ (j >>> 32))) * 31) + this.groupDescriptionIndex;
         }
 
-        public void setGroupDescriptionIndex(int i) {
-            this.groupDescriptionIndex = i;
+        public void setGroupDescriptionIndex(int i2) {
+            this.groupDescriptionIndex = i2;
         }
 
         public void setSampleCount(long j) {

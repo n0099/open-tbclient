@@ -31,7 +31,7 @@ public class WbAppInfo {
         this.packageName = str;
     }
 
-    public void setSupportVersion(int i) {
-        this.supportVersion = i;
+    public void setSupportVersion(int i2) {
+        this.supportVersion = i2;
     }
 }

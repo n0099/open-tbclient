@@ -53,7 +53,7 @@ public final class NetUtils {
                 jSONObject.put("wifi_conn", jSONObject2);
             }
             if (scanResults != null && scanResults.size() > 0) {
-                int i = 0;
+                int i2 = 0;
                 JSONArray jSONArray = new JSONArray();
                 for (ScanResult scanResult : scanResults) {
                     JSONObject jSONObject3 = new JSONObject();
@@ -61,8 +61,8 @@ public final class NetUtils {
                     jSONObject3.put("rssi", scanResult.level);
                     jSONObject3.put("ssid", scanResult.SSID);
                     jSONArray.put(jSONObject3);
-                    i++;
-                    if (i >= 10) {
+                    i2++;
+                    if (i2 >= 10) {
                         break;
                     }
                 }

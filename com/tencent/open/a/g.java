@@ -5,36 +5,36 @@ import java.io.Writer;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class g implements Iterable<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentLinkedQueue<String> f39600a;
+    public ConcurrentLinkedQueue<String> f37201a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicInteger f39601b;
+    public AtomicInteger f37202b;
 
     public g() {
-        this.f39600a = null;
-        this.f39601b = null;
-        this.f39600a = new ConcurrentLinkedQueue<>();
-        this.f39601b = new AtomicInteger(0);
+        this.f37201a = null;
+        this.f37202b = null;
+        this.f37201a = new ConcurrentLinkedQueue<>();
+        this.f37202b = new AtomicInteger(0);
     }
 
     public int a(String str) {
         int length = str.length();
-        this.f39600a.add(str);
-        return this.f39601b.addAndGet(length);
+        this.f37201a.add(str);
+        return this.f37202b.addAndGet(length);
     }
 
     public void b() {
-        this.f39600a.clear();
-        this.f39601b.set(0);
+        this.f37201a.clear();
+        this.f37202b.set(0);
     }
 
     @Override // java.lang.Iterable
     public Iterator<String> iterator() {
-        return this.f39600a.iterator();
+        return this.f37201a.iterator();
     }
 
     public void a(Writer writer, char[] cArr) throws IOException {
@@ -43,36 +43,36 @@ public class g implements Iterable<String> {
         }
         int length = cArr.length;
         Iterator<String> it = iterator();
-        int i = length;
-        int i2 = 0;
+        int i2 = length;
+        int i3 = 0;
         while (it.hasNext()) {
             String next = it.next();
             int length2 = next.length();
-            int i3 = 0;
+            int i4 = 0;
             while (length2 > 0) {
-                int i4 = i > length2 ? length2 : i;
-                int i5 = i3 + i4;
-                next.getChars(i3, i5, cArr, i2);
-                i -= i4;
-                i2 += i4;
-                length2 -= i4;
-                if (i == 0) {
+                int i5 = i2 > length2 ? length2 : i2;
+                int i6 = i4 + i5;
+                next.getChars(i4, i6, cArr, i3);
+                i2 -= i5;
+                i3 += i5;
+                length2 -= i5;
+                if (i2 == 0) {
                     writer.write(cArr, 0, length);
-                    i = length;
-                    i3 = i5;
-                    i2 = 0;
+                    i2 = length;
+                    i4 = i6;
+                    i3 = 0;
                 } else {
-                    i3 = i5;
+                    i4 = i6;
                 }
             }
         }
-        if (i2 > 0) {
-            writer.write(cArr, 0, i2);
+        if (i3 > 0) {
+            writer.write(cArr, 0, i3);
         }
         writer.flush();
     }
 
     public int a() {
-        return this.f39601b.get();
+        return this.f37202b.get();
     }
 }

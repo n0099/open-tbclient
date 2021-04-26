@@ -6,10 +6,10 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.swan.apps.IAudioListener;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface IAudioService extends IInterface {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static abstract class Stub extends Binder implements IAudioService {
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IAudioService";
         public static final int TRANSACTION_getDuration = 2;
@@ -23,7 +23,7 @@ public interface IAudioService extends IInterface {
         public static final int TRANSACTION_stop = 5;
         public static final int TRANSACTION_unregisterListener = 10;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes.dex */
         public static class Proxy implements IAudioService {
             public IBinder mRemote;
 
@@ -128,12 +128,12 @@ public interface IAudioService extends IInterface {
             }
 
             @Override // com.baidu.swan.apps.IAudioService
-            public void seek(int i) throws RemoteException {
+            public void seek(int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    obtain.writeInt(i);
+                    obtain.writeInt(i2);
                     this.mRemote.transact(6, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
@@ -208,9 +208,9 @@ public interface IAudioService extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i != 1598968902) {
-                switch (i) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 != 1598968902) {
+                switch (i2) {
                     case 1:
                         parcel.enforceInterface(DESCRIPTOR);
                         setParams(parcel.readString());
@@ -264,7 +264,7 @@ public interface IAudioService extends IInterface {
                         parcel2.writeNoException();
                         return true;
                     default:
-                        return super.onTransact(i, parcel, parcel2, i2);
+                        return super.onTransact(i2, parcel, parcel2, i3);
                 }
             }
             parcel2.writeString(DESCRIPTOR);
@@ -284,7 +284,7 @@ public interface IAudioService extends IInterface {
 
     void release() throws RemoteException;
 
-    void seek(int i) throws RemoteException;
+    void seek(int i2) throws RemoteException;
 
     void setParams(String str) throws RemoteException;
 

@@ -9,9 +9,9 @@ public interface TTSplashAd {
 
     /* loaded from: classes5.dex */
     public interface AdInteractionListener {
-        void onAdClicked(View view, int i);
+        void onAdClicked(View view, int i2);
 
-        void onAdShow(View view, int i);
+        void onAdShow(View view, int i2);
 
         void onAdSkip();
 

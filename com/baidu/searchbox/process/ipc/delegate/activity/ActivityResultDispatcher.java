@@ -12,9 +12,9 @@ public class ActivityResultDispatcher {
     public final Activity mHolder;
     public final int mRequestCode;
 
-    public ActivityResultDispatcher(Activity activity, int i) {
+    public ActivityResultDispatcher(Activity activity, int i2) {
         this.mHolder = activity;
-        this.mRequestCode = i;
+        this.mRequestCode = i2;
     }
 
     public synchronized void addConsumer(@Nullable ActivityResultConsumer activityResultConsumer) {
@@ -31,14 +31,14 @@ public class ActivityResultDispatcher {
         this.mConsumers.remove(activityResultConsumer);
     }
 
-    public boolean notifyActivityResult(int i, int i2, Intent intent) {
-        if (this.mRequestCode != i) {
+    public boolean notifyActivityResult(int i2, int i3, Intent intent) {
+        if (this.mRequestCode != i2) {
             return false;
         }
         HashSet hashSet = new HashSet();
         synchronized (this) {
             for (ActivityResultConsumer activityResultConsumer : new HashSet(this.mConsumers)) {
-                if (activityResultConsumer.consume(this, i2, intent)) {
+                if (activityResultConsumer.consume(this, i3, intent)) {
                     hashSet.add(activityResultConsumer);
                 }
             }

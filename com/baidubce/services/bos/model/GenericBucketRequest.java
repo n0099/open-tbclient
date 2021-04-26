@@ -25,8 +25,8 @@ public abstract class GenericBucketRequest extends AbstractBceRequest {
                 if (trim.length() <= 63) {
                     if (isLowercaseOrDigit(trim.charAt(0))) {
                         if (isLowercaseOrDigit(trim.charAt(trim.length() - 1))) {
-                            for (int i = 1; i < trim.length() - 1; i++) {
-                                char charAt = trim.charAt(i);
+                            for (int i2 = 1; i2 < trim.length() - 1; i2++) {
+                                char charAt = trim.charAt(i2);
                                 if (!isLowercaseOrDigit(charAt) && charAt != '-') {
                                     throw new IllegalArgumentException("Invalid bucketName:" + trim + ". bucketName should contain only lowercase leters, digits and hyphens(-).");
                                 }

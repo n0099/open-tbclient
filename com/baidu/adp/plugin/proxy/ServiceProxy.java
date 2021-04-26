@@ -14,7 +14,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.pluginBase.PluginBaseService;
-import d.b.c.h.f.c;
+import d.a.c.h.f.c;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
@@ -22,12 +22,12 @@ public class ServiceProxy extends Service implements c {
     public PluginBaseService mEntity = null;
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
+    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i2) {
         if (intent != null) {
             loadTargetService(intent);
             PluginBaseService pluginBaseService = this.mEntity;
             if (pluginBaseService != null) {
-                return pluginBaseService.bindService(intent, serviceConnection, i);
+                return pluginBaseService.bindService(intent, serviceConnection, i2);
             }
         }
         return false;
@@ -51,7 +51,7 @@ public class ServiceProxy extends Service implements c {
         return super.getResources();
     }
 
-    @Override // d.b.c.h.f.c
+    @Override // d.a.c.h.f.c
     public Service getService() {
         return this;
     }
@@ -130,31 +130,31 @@ public class ServiceProxy extends Service implements c {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
+    public void onStart(Intent intent, int i2) {
         if (intent == null) {
             stopSelf();
             return;
         }
         PluginBaseService pluginBaseService = this.mEntity;
         if (pluginBaseService != null) {
-            pluginBaseService.onStart(intent, i);
+            pluginBaseService.onStart(intent, i2);
         } else {
-            super.onStart(intent, i);
+            super.onStart(intent, i2);
         }
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(Intent intent, int i2, int i3) {
         if (intent == null) {
             stopSelf();
-            return super.onStartCommand(intent, i, i2);
+            return super.onStartCommand(intent, i2, i3);
         }
         loadTargetService(intent);
         PluginBaseService pluginBaseService = this.mEntity;
         if (pluginBaseService != null) {
-            return pluginBaseService.onStartCommand(intent, i, i2);
+            return pluginBaseService.onStartCommand(intent, i2, i3);
         }
-        return super.onStartCommand(intent, i, i2);
+        return super.onStartCommand(intent, i2, i3);
     }
 
     @Override // android.app.Service
@@ -166,71 +166,71 @@ public class ServiceProxy extends Service implements c {
         return super.onUnbind(intent);
     }
 
-    @Override // d.b.c.h.f.c
-    public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i) {
+    @Override // d.a.c.h.f.c
+    public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i2) {
         Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
         if (plugin2 != null && plugin2.remapStartServiceIntent(intent)) {
-            return super.bindService(intent, serviceConnection, i);
+            return super.bindService(intent, serviceConnection, i2);
         }
         return false;
     }
 
-    @Override // d.b.c.h.f.c
+    @Override // d.a.c.h.f.c
     public void proxyDump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         super.dump(fileDescriptor, printWriter, strArr);
     }
 
-    @Override // d.b.c.h.f.c
+    @Override // d.a.c.h.f.c
     public void proxyFinalize() throws Throwable {
         super.finalize();
     }
 
-    @Override // d.b.c.h.f.c
+    @Override // d.a.c.h.f.c
     public PackageManager proxyGetPackageManager() {
         return super.getPackageManager();
     }
 
-    @Override // d.b.c.h.f.c
-    public SharedPreferences proxyGetSharedPreferences(String str, int i) {
-        return super.getSharedPreferences(str, i);
+    @Override // d.a.c.h.f.c
+    public SharedPreferences proxyGetSharedPreferences(String str, int i2) {
+        return super.getSharedPreferences(str, i2);
     }
 
-    @Override // d.b.c.h.f.c
+    @Override // d.a.c.h.f.c
     public void proxyOnConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
     }
 
-    @Override // d.b.c.h.f.c
+    @Override // d.a.c.h.f.c
     public void proxyOnDestroy() {
         super.onDestroy();
     }
 
-    @Override // d.b.c.h.f.c
+    @Override // d.a.c.h.f.c
     public void proxyOnLowMemory() {
         super.onLowMemory();
     }
 
-    @Override // d.b.c.h.f.c
+    @Override // d.a.c.h.f.c
     public void proxyOnRebind(Intent intent) {
         super.onRebind(intent);
     }
 
-    @Override // d.b.c.h.f.c
-    public void proxyOnStart(Intent intent, int i) {
-        super.onStart(intent, i);
+    @Override // d.a.c.h.f.c
+    public void proxyOnStart(Intent intent, int i2) {
+        super.onStart(intent, i2);
     }
 
-    @Override // d.b.c.h.f.c
-    public int proxyOnStartCommand(Intent intent, int i, int i2) {
-        return super.onStartCommand(intent, i, i2);
+    @Override // d.a.c.h.f.c
+    public int proxyOnStartCommand(Intent intent, int i2, int i3) {
+        return super.onStartCommand(intent, i2, i3);
     }
 
-    @Override // d.b.c.h.f.c
+    @Override // d.a.c.h.f.c
     public boolean proxyOnUnbind(Intent intent) {
         return super.onUnbind(intent);
     }
 
-    @Override // d.b.c.h.f.c
+    @Override // d.a.c.h.f.c
     public void proxyStartActivity(Intent intent) {
         Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
         if (plugin2 != null && plugin2.remapStartActivityIntent(intent)) {
@@ -241,7 +241,7 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // d.b.c.h.f.c
+    @Override // d.a.c.h.f.c
     public ComponentName proxyStartService(Intent intent) {
         Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
         if (plugin2 != null && plugin2.remapStartActivityIntent(intent)) {
@@ -250,7 +250,7 @@ public class ServiceProxy extends Service implements c {
         return null;
     }
 
-    @Override // d.b.c.h.f.c
+    @Override // d.a.c.h.f.c
     public boolean proxyStopService(Intent intent) {
         Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
         if (plugin2 != null && plugin2.remapStartActivityIntent(intent)) {

@@ -9,8 +9,8 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ListAdapter;
 import android.widget.WrapperListAdapter;
-import d.b.c.j.e.e;
-import d.b.c.j.e.o;
+import d.a.c.j.e.e;
+import d.a.c.j.e.o;
 /* loaded from: classes.dex */
 public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
     public DataSetObserver mAdapterDataSetObserver;
@@ -46,7 +46,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
         };
     }
 
-    @Override // android.widget.Adapter, d.b.c.j.e.o
+    @Override // android.widget.Adapter, d.a.c.j.e.o
     public int getCount() {
         ListAdapter listAdapter = this.mAdapter;
         if (listAdapter != null) {
@@ -63,29 +63,29 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
         return ((Filterable) listAdapter).getFilter();
     }
 
-    @Override // android.widget.Adapter, d.b.c.j.e.o
-    public Object getItem(int i) {
+    @Override // android.widget.Adapter, d.a.c.j.e.o
+    public Object getItem(int i2) {
         ListAdapter listAdapter = this.mAdapter;
         if (listAdapter != null) {
-            return listAdapter.getItem(i);
+            return listAdapter.getItem(i2);
         }
         return null;
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public long getItemId(int i2) {
         ListAdapter listAdapter = this.mAdapter;
         if (listAdapter != null) {
-            return listAdapter.getItemId(i);
+            return listAdapter.getItemId(i2);
         }
         return 0L;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i2, View view, ViewGroup viewGroup) {
         ListAdapter listAdapter = this.mAdapter;
         if (listAdapter != null) {
-            return listAdapter.getView(i, view, viewGroup);
+            return listAdapter.getView(i2, view, viewGroup);
         }
         return null;
     }
@@ -111,7 +111,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
         return super.hasStableIds();
     }
 
-    @Override // android.widget.BaseAdapter, d.b.c.j.e.o
+    @Override // android.widget.BaseAdapter, d.a.c.j.e.o
     public void notifyDataSetChanged() {
         super.notifyDataSetChanged();
         ListAdapter listAdapter = this.mAdapter;

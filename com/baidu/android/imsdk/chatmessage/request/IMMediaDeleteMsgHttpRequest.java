@@ -75,8 +75,8 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
             if (this.mMsgIds != null && this.mMsgIds.size() > 0) {
                 try {
                     JSONArray jSONArray = new JSONArray();
-                    for (int i = 0; i < this.mMsgIds.size(); i++) {
-                        jSONArray.put(this.mMsgIds.get(i));
+                    for (int i2 = 0; i2 < this.mMsgIds.size(); i2++) {
+                        jSONArray.put(this.mMsgIds.get(i2));
                     }
                     jSONObject.put("msgids", jSONArray);
                 } catch (Exception e2) {
@@ -93,28 +93,28 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         ChatMsgManagerImpl.getInstance(this.mContext).onMediaDeleteChatMsgResult(this.mListenerKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str = new String(bArr);
-        LogUtils.d(TAG, "BC> mListenerKey=" + this.mListenerKey + ", errorCode=" + i + ", result=" + str);
+        LogUtils.d(TAG, "BC> mListenerKey=" + this.mListenerKey + ", errorCode=" + i2 + ", result=" + str);
         if (TextUtils.isEmpty(this.mListenerKey)) {
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            if (i == 200) {
-                i = jSONObject.optInt("error_code", -1);
+            if (i2 == 200) {
+                i2 = jSONObject.optInt("error_code", -1);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
-            i = 1010;
+            i2 = 1010;
         }
-        ChatMsgManagerImpl.getInstance(this.mContext).onMediaDeleteChatMsgResult(this.mListenerKey, i, "success!");
+        ChatMsgManagerImpl.getInstance(this.mContext).onMediaDeleteChatMsgResult(this.mListenerKey, i2, "success!");
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.request.IMMediaBaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -122,7 +122,7 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
         return super.shouldAbort();
     }
 
-    public IMMediaDeleteMsgHttpRequest(Context context, long j, int i, long j2, String str, long j3, List<Long> list, String str2) {
+    public IMMediaDeleteMsgHttpRequest(Context context, long j, int i2, long j2, String str, long j3, List<Long> list, String str2) {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
@@ -130,7 +130,7 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mMaxId = j3;
         this.mMsgIds = list;
         this.mListenerKey = str2;
-        this.mContactorType = i;
+        this.mContactorType = i2;
         this.mContactorPauid = j2;
         this.mContactorThirdid = str;
     }

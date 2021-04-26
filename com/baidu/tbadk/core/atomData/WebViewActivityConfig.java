@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.c.e.p.k;
-import d.b.c.e.p.l;
+import d.a.c.e.p.k;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_AD_DEEPLINK_URL = "tag_ad_deeplink_url";
@@ -62,7 +62,7 @@ public class WebViewActivityConfig extends IntentConfig {
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public boolean isValid() {
         if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-            l.L(getContext(), getContext().getString(R.string.web_view_corrupted));
+            l.M(getContext(), getContext().getString(R.string.web_view_corrupted));
             return false;
         }
         return true;

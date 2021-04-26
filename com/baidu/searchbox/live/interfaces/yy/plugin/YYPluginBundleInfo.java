@@ -12,27 +12,27 @@ public final class YYPluginBundleInfo {
     public final String packageName;
     public final int versionCode;
 
-    public YYPluginBundleInfo(String str, int i, boolean z, String str2) {
+    public YYPluginBundleInfo(String str, int i2, boolean z, String str2) {
         this.packageName = str;
-        this.versionCode = i;
+        this.versionCode = i2;
         this.needUpdate = z;
         this.ext = str2;
     }
 
-    public static /* synthetic */ YYPluginBundleInfo copy$default(YYPluginBundleInfo yYPluginBundleInfo, String str, int i, boolean z, String str2, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ YYPluginBundleInfo copy$default(YYPluginBundleInfo yYPluginBundleInfo, String str, int i2, boolean z, String str2, int i3, Object obj) {
+        if ((i3 & 1) != 0) {
             str = yYPluginBundleInfo.packageName;
         }
-        if ((i2 & 2) != 0) {
-            i = yYPluginBundleInfo.versionCode;
+        if ((i3 & 2) != 0) {
+            i2 = yYPluginBundleInfo.versionCode;
         }
-        if ((i2 & 4) != 0) {
+        if ((i3 & 4) != 0) {
             z = yYPluginBundleInfo.needUpdate;
         }
-        if ((i2 & 8) != 0) {
+        if ((i3 & 8) != 0) {
             str2 = yYPluginBundleInfo.ext;
         }
-        return yYPluginBundleInfo.copy(str, i, z, str2);
+        return yYPluginBundleInfo.copy(str, i2, z, str2);
     }
 
     public final String component1() {
@@ -51,8 +51,8 @@ public final class YYPluginBundleInfo {
         return this.ext;
     }
 
-    public final YYPluginBundleInfo copy(String str, int i, boolean z, String str2) {
-        return new YYPluginBundleInfo(str, i, z, str2);
+    public final YYPluginBundleInfo copy(String str, int i2, boolean z, String str2) {
+        return new YYPluginBundleInfo(str, i2, z, str2);
     }
 
     public boolean equals(Object obj) {
@@ -88,20 +88,20 @@ public final class YYPluginBundleInfo {
         String str = this.packageName;
         int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.versionCode) * 31;
         boolean z = this.needUpdate;
-        int i = z;
+        int i2 = z;
         if (z != 0) {
-            i = 1;
+            i2 = 1;
         }
-        int i2 = (hashCode + i) * 31;
+        int i3 = (hashCode + i2) * 31;
         String str2 = this.ext;
-        return i2 + (str2 != null ? str2.hashCode() : 0);
+        return i3 + (str2 != null ? str2.hashCode() : 0);
     }
 
     public String toString() {
         return "YYPluginBundleInfo { packageName=" + this.packageName + " versionCode=" + this.versionCode + " needUpdate=" + this.needUpdate + " ext=" + this.ext + " }";
     }
 
-    public /* synthetic */ YYPluginBundleInfo(String str, int i, boolean z, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, (i2 & 2) != 0 ? 0 : i, (i2 & 4) != 0 ? false : z, str2);
+    public /* synthetic */ YYPluginBundleInfo(String str, int i2, boolean z, String str2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, (i3 & 2) != 0 ? 0 : i2, (i3 & 4) != 0 ? false : z, str2);
     }
 }

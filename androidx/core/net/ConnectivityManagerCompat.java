@@ -1,5 +1,6 @@
 package androidx.core.net;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -18,13 +19,14 @@ public final class ConnectivityManagerCompat {
     public static final int RESTRICT_BACKGROUND_STATUS_WHITELISTED = 2;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface RestrictBackgroundStatus {
     }
 
     @Nullable
     @RequiresPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION)
+    @SuppressLint({"ReferencesDeprecated"})
     public static NetworkInfo getNetworkInfoFromBroadcast(@NonNull ConnectivityManager connectivityManager, @NonNull Intent intent) {
         NetworkInfo networkInfo = (NetworkInfo) intent.getParcelableExtra("networkInfo");
         if (networkInfo != null) {

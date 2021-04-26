@@ -2,7 +2,8 @@ package com.baidu.tbadk.core.util;
 
 import android.content.Context;
 import com.baidu.rtc.PeerConnectionClient;
-import d.b.c.e.p.l;
+import com.baidu.sapi2.activity.IdCardOcrCameraActivity;
+import d.a.c.e.p.l;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class LocalViewSize {
@@ -15,21 +16,21 @@ public class LocalViewSize {
         public int width;
     }
 
-    private ImageSize countPicSize(ImageSize imageSize, int i, int i2) {
+    private ImageSize countPicSize(ImageSize imageSize, int i2, int i3) {
         ImageSize imageSize2 = new ImageSize();
-        int i3 = imageSize.height;
-        int i4 = imageSize.width;
-        if (i / i2 > i3 / i4) {
-            imageSize2.height = i3;
-            int i5 = (i3 * i2) / i;
-            imageSize2.width = i5;
-            if (i5 == 0) {
+        int i4 = imageSize.height;
+        int i5 = imageSize.width;
+        if (i2 / i3 > i4 / i5) {
+            imageSize2.height = i4;
+            int i6 = (i4 * i3) / i2;
+            imageSize2.width = i6;
+            if (i6 == 0) {
                 imageSize2.height = 324;
                 imageSize2.width = 162;
             }
         } else {
-            imageSize2.width = i4;
-            imageSize2.height = (i4 * i) / i2;
+            imageSize2.width = i5;
+            imageSize2.height = (i5 * i2) / i3;
         }
         return imageSize2;
     }
@@ -44,7 +45,7 @@ public class LocalViewSize {
     public int getEquipmentWidth() {
         int k = l.k(this.mContext);
         if (k >= 1080) {
-            return 1080;
+            return IdCardOcrCameraActivity.G;
         }
         if (k < 720 || k >= 1080) {
             return 480;
@@ -65,61 +66,61 @@ public class LocalViewSize {
 
     public int getMsgBPicMaxSizeInt() {
         ImageSize msgBPicMaxSize = getMsgBPicMaxSize();
-        int i = msgBPicMaxSize.height;
-        int i2 = msgBPicMaxSize.width;
-        return i >= i2 ? i : i2;
+        int i2 = msgBPicMaxSize.height;
+        int i3 = msgBPicMaxSize.width;
+        return i2 >= i3 ? i2 : i3;
     }
 
-    public ImageSize getMsgBPicShowSize(ImageSize imageSize, int i, int i2) {
-        if (i <= imageSize.height / 2 && i2 <= imageSize.width / 2) {
+    public ImageSize getMsgBPicShowSize(ImageSize imageSize, int i2, int i3) {
+        if (i2 <= imageSize.height / 2 && i3 <= imageSize.width / 2) {
             ImageSize imageSize2 = new ImageSize();
-            imageSize2.height = i;
-            imageSize2.width = i2;
+            imageSize2.height = i2;
+            imageSize2.width = i3;
             return imageSize2;
         }
-        return countPicSize(imageSize, i, i2);
+        return countPicSize(imageSize, i2, i3);
     }
 
     public ImageSize getMsgSPicMaxSize() {
         int k = l.k(this.mContext);
-        int i = 240;
+        int i2 = 240;
         if (k < 240) {
-            i = k / 3;
+            i2 = k / 3;
         } else if (k <= 320) {
-            i = 80;
+            i2 = 80;
         } else if (k <= 480) {
-            i = 160;
+            i2 = 160;
         } else if (k > 720) {
-            i = k / 3;
+            i2 = k / 3;
         }
         ImageSize imageSize = new ImageSize();
-        imageSize.height = i;
-        imageSize.width = i;
+        imageSize.height = i2;
+        imageSize.width = i2;
         return imageSize;
     }
 
     public int getMsgSPicMaxSizeInt() {
         ImageSize msgSPicMaxSize = getMsgSPicMaxSize();
-        int i = msgSPicMaxSize.height;
-        int i2 = msgSPicMaxSize.width;
-        return i >= i2 ? i : i2;
+        int i2 = msgSPicMaxSize.height;
+        int i3 = msgSPicMaxSize.width;
+        return i2 >= i3 ? i2 : i3;
     }
 
-    public ImageSize getMsgSPicShowSize(ImageSize imageSize, int i, int i2) {
-        if (i <= imageSize.height && i2 <= imageSize.width) {
+    public ImageSize getMsgSPicShowSize(ImageSize imageSize, int i2, int i3) {
+        if (i2 <= imageSize.height && i3 <= imageSize.width) {
             ImageSize imageSize2 = new ImageSize();
-            int i3 = imageSize.height;
-            int i4 = imageSize.width;
-            if (i / i2 > i3 / i4) {
-                imageSize2.height = i3;
-                imageSize2.width = (i3 * i2) / i;
+            int i4 = imageSize.height;
+            int i5 = imageSize.width;
+            if (i2 / i3 > i4 / i5) {
+                imageSize2.height = i4;
+                imageSize2.width = (i4 * i3) / i2;
             } else {
-                imageSize2.width = i4;
-                imageSize2.height = (i4 * i) / i2;
+                imageSize2.width = i5;
+                imageSize2.height = (i5 * i2) / i3;
             }
             return imageSize2;
         }
-        return countPicSize(imageSize, i, i2);
+        return countPicSize(imageSize, i2, i3);
     }
 
     public ImageSize getMsgUpPicMaxSize() {
@@ -131,9 +132,9 @@ public class LocalViewSize {
 
     public int getMsgUpPicMaxSizeInt() {
         ImageSize msgUpPicMaxSize = getMsgUpPicMaxSize();
-        int i = msgUpPicMaxSize.height;
-        int i2 = msgUpPicMaxSize.width;
-        return i >= i2 ? i : i2;
+        int i2 = msgUpPicMaxSize.height;
+        int i3 = msgUpPicMaxSize.width;
+        return i2 >= i3 ? i2 : i3;
     }
 
     public void initial(Context context) {

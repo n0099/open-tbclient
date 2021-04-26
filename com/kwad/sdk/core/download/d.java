@@ -5,11 +5,11 @@ public interface d {
 
     void a(String str);
 
-    void a(String str, int i, int i2, int i3);
+    void a(String str, int i2, int i3, int i4);
 
-    void a(String str, int i, f fVar);
+    void a(String str, int i2, f fVar);
 
-    void a(String str, int i, String str2, f fVar);
+    void a(String str, int i2, String str2, f fVar);
 
     void a(String str, f fVar);
 

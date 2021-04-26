@@ -27,9 +27,9 @@ public class SdpPrefer {
 
     public static int findMediaDescriptionLine(boolean z, String[] strArr) {
         String str = z ? "m=audio " : "m=video ";
-        for (int i = 0; i < strArr.length; i++) {
-            if (strArr[i].startsWith(str)) {
-                return i;
+        for (int i2 = 0; i2 < strArr.length; i2++) {
+            if (strArr[i2].startsWith(str)) {
+                return i2;
             }
         }
         return -1;
@@ -42,9 +42,9 @@ public class SdpPrefer {
 
     public static String parseRemoteMediaIp(String str) {
         String[] split = str.split(Part.CRLF);
-        for (int i = 0; i < split.length; i++) {
-            if (split[i].contains("a=candidate:")) {
-                String handleCandidate = handleCandidate(split[i]);
+        for (int i2 = 0; i2 < split.length; i2++) {
+            if (split[i2].contains("a=candidate:")) {
+                String handleCandidate = handleCandidate(split[i2]);
                 return handleCandidate == null ? "" : handleCandidate;
             }
         }
@@ -56,53 +56,53 @@ public class SdpPrefer {
         boolean z;
         String[] split = str2.split(Part.CRLF);
         Pattern compile = Pattern.compile("^a=rtpmap:(\\d+) " + str + "(/\\d+)+[\r]?$");
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            if (i >= split.length) {
-                i = -1;
+            if (i2 >= split.length) {
+                i2 = -1;
                 str3 = null;
                 break;
             }
-            Matcher matcher = compile.matcher(split[i]);
+            Matcher matcher = compile.matcher(split[i2]);
             if (matcher.matches()) {
                 str3 = matcher.group(1);
                 break;
             }
-            i++;
+            i2++;
         }
         if (str3 == null) {
             Log.w(TAG, "No rtpmap for " + str + " codec");
             return str2;
         }
-        Log.d(TAG, "Found " + str + " rtpmap " + str3 + " at " + split[i]);
+        Log.d(TAG, "Found " + str + " rtpmap " + str3 + " at " + split[i2]);
         StringBuilder sb = new StringBuilder();
         sb.append("^a=fmtp:");
         sb.append(str3);
         sb.append(" \\w+=\\d+.*[\r]?$");
         Pattern compile2 = Pattern.compile(sb.toString());
-        int i2 = 0;
+        int i3 = 0;
         while (true) {
-            if (i2 >= split.length) {
+            if (i3 >= split.length) {
                 z = false;
                 break;
-            } else if (compile2.matcher(split[i2]).matches()) {
-                Log.d(TAG, "Found " + str + " " + split[i2]);
-                split[i2] = setAudioFmptParam(split[i2], audioSdpAttribute, false);
+            } else if (compile2.matcher(split[i3]).matches()) {
+                Log.d(TAG, "Found " + str + " " + split[i3]);
+                split[i3] = setAudioFmptParam(split[i3], audioSdpAttribute, false);
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append("Update remote SDP line: ");
-                sb2.append(split[i2]);
+                sb2.append(split[i3]);
                 Log.d(TAG, sb2.toString());
                 z = true;
                 break;
             } else {
-                i2++;
+                i3++;
             }
         }
         StringBuilder sb3 = new StringBuilder();
-        for (int i3 = 0; i3 < split.length; i3++) {
-            sb3.append(split[i3]);
+        for (int i4 = 0; i4 < split.length; i4++) {
+            sb3.append(split[i4]);
             sb3.append(Part.CRLF);
-            if (!z && i3 == i) {
+            if (!z && i4 == i2) {
                 String audioFmptParam = setAudioFmptParam("a=fmtp:" + str3 + " ", audioSdpAttribute, true);
                 StringBuilder sb4 = new StringBuilder();
                 sb4.append("Add local SDP line: ");

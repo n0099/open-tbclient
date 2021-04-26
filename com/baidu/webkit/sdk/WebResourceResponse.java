@@ -13,9 +13,9 @@ public class WebResourceResponse {
     public Map<String, String> mResponseHeaders;
     public int mStatusCode;
 
-    public WebResourceResponse(String str, String str2, int i, String str3, Map<String, String> map, InputStream inputStream) {
+    public WebResourceResponse(String str, String str2, int i2, String str3, Map<String, String> map, InputStream inputStream) {
         this(str, str2, inputStream);
-        setStatusCodeAndReasonPhrase(i, str3);
+        setStatusCodeAndReasonPhrase(i2, str3);
         setResponseHeaders(map);
     }
 
@@ -25,11 +25,11 @@ public class WebResourceResponse {
         setData(inputStream);
     }
 
-    public WebResourceResponse(boolean z, String str, String str2, int i, String str3, Map<String, String> map, InputStream inputStream) {
+    public WebResourceResponse(boolean z, String str, String str2, int i2, String str3, Map<String, String> map, InputStream inputStream) {
         this.mImmutable = z;
         this.mMimeType = str;
         this.mEncoding = str2;
-        this.mStatusCode = i;
+        this.mStatusCode = i2;
         this.mReasonPhrase = str3;
         this.mResponseHeaders = map;
         this.mInputStream = inputStream;
@@ -92,15 +92,15 @@ public class WebResourceResponse {
         this.mResponseHeaders = map;
     }
 
-    public void setStatusCodeAndReasonPhrase(int i, String str) {
+    public void setStatusCodeAndReasonPhrase(int i2, String str) {
         checkImmutable();
-        if (i < 100) {
+        if (i2 < 100) {
             throw new IllegalArgumentException("statusCode can't be less than 100.");
         }
-        if (i > 599) {
+        if (i2 > 599) {
             throw new IllegalArgumentException("statusCode can't be greater than 599.");
         }
-        if (i > 299 && i < 400) {
+        if (i2 > 299 && i2 < 400) {
             throw new IllegalArgumentException("statusCode can't be in the [300, 399] range.");
         }
         if (str == null) {
@@ -109,12 +109,12 @@ public class WebResourceResponse {
         if (str.trim().isEmpty()) {
             throw new IllegalArgumentException("reasonPhrase can't be empty.");
         }
-        for (int i2 = 0; i2 < str.length(); i2++) {
-            if (str.charAt(i2) > 127) {
+        for (int i3 = 0; i3 < str.length(); i3++) {
+            if (str.charAt(i3) > 127) {
                 throw new IllegalArgumentException("reasonPhrase can't contain non-ASCII characters.");
             }
         }
-        this.mStatusCode = i;
+        this.mStatusCode = i2;
         this.mReasonPhrase = str;
     }
 }

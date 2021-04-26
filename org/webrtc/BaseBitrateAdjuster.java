@@ -15,12 +15,12 @@ public class BaseBitrateAdjuster implements BitrateAdjuster {
     }
 
     @Override // org.webrtc.BitrateAdjuster
-    public void reportEncodedFrame(int i) {
+    public void reportEncodedFrame(int i2) {
     }
 
     @Override // org.webrtc.BitrateAdjuster
-    public void setTargets(int i, int i2) {
-        this.targetBitrateBps = i;
-        this.targetFps = i2;
+    public void setTargets(int i2, int i3) {
+        this.targetBitrateBps = i2;
+        this.targetFps = i3;
     }
 }

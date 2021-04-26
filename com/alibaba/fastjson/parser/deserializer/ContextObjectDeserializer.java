@@ -9,5 +9,5 @@ public abstract class ContextObjectDeserializer implements ObjectDeserializer {
         return (T) deserialze(defaultJSONParser, type, obj, null, 0);
     }
 
-    public abstract <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, String str, int i);
+    public abstract <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, String str, int i2);
 }

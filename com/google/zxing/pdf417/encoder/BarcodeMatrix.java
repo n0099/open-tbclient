@@ -8,15 +8,15 @@ public final class BarcodeMatrix {
     public final BarcodeRow[] matrix;
     public final int width;
 
-    public BarcodeMatrix(int i, int i2) {
-        BarcodeRow[] barcodeRowArr = new BarcodeRow[i];
+    public BarcodeMatrix(int i2, int i3) {
+        BarcodeRow[] barcodeRowArr = new BarcodeRow[i2];
         this.matrix = barcodeRowArr;
         int length = barcodeRowArr.length;
-        for (int i3 = 0; i3 < length; i3++) {
-            this.matrix[i3] = new BarcodeRow(((i2 + 4) * 17) + 1);
+        for (int i4 = 0; i4 < length; i4++) {
+            this.matrix[i4] = new BarcodeRow(((i3 + 4) * 17) + 1);
         }
-        this.width = i2 * 17;
-        this.height = i;
+        this.width = i3 * 17;
+        this.height = i2;
         this.currentRow = -1;
     }
 
@@ -28,17 +28,17 @@ public final class BarcodeMatrix {
         return getScaledMatrix(1, 1);
     }
 
-    public byte[][] getScaledMatrix(int i, int i2) {
-        byte[][] bArr = (byte[][]) Array.newInstance(byte.class, this.height * i2, this.width * i);
-        int i3 = this.height * i2;
-        for (int i4 = 0; i4 < i3; i4++) {
-            bArr[(i3 - i4) - 1] = this.matrix[i4 / i2].getScaledRow(i);
+    public byte[][] getScaledMatrix(int i2, int i3) {
+        byte[][] bArr = (byte[][]) Array.newInstance(byte.class, this.height * i3, this.width * i2);
+        int i4 = this.height * i3;
+        for (int i5 = 0; i5 < i4; i5++) {
+            bArr[(i4 - i5) - 1] = this.matrix[i5 / i3].getScaledRow(i2);
         }
         return bArr;
     }
 
-    public void set(int i, int i2, byte b2) {
-        this.matrix[i2].set(i, b2);
+    public void set(int i2, int i3, byte b2) {
+        this.matrix[i3].set(i2, b2);
     }
 
     public void startRow() {

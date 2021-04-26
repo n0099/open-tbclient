@@ -2,7 +2,7 @@ package com.google.common.collect;
 
 import com.baidu.android.common.others.IStringUtil;
 import com.google.common.primitives.Booleans;
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.io.Serializable;
 import java.lang.Comparable;
 import java.util.NoSuchElementException;
@@ -15,7 +15,7 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
     public static final class AboveAll extends Cut<Comparable<?>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final AboveAll f30844e = new AboveAll();
+        public static final AboveAll f31801e = new AboveAll();
         public static final long serialVersionUID = 0;
 
         public AboveAll() {
@@ -23,7 +23,7 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
         }
 
         private Object readResolve() {
-            return f30844e;
+            return f31801e;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -161,11 +161,11 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
 
         @Override // com.google.common.collect.Cut
         public Cut<C> withLowerBoundType(BoundType boundType, DiscreteDomain<C> discreteDomain) {
-            int i = a.f30846a[boundType.ordinal()];
-            if (i == 1) {
+            int i2 = a.f31803a[boundType.ordinal()];
+            if (i2 == 1) {
                 C next = discreteDomain.next(this.endpoint);
                 return next == null ? Cut.belowAll() : Cut.belowValue(next);
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 return this;
             } else {
                 throw new AssertionError();
@@ -174,9 +174,9 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
 
         @Override // com.google.common.collect.Cut
         public Cut<C> withUpperBoundType(BoundType boundType, DiscreteDomain<C> discreteDomain) {
-            int i = a.f30846a[boundType.ordinal()];
-            if (i != 1) {
-                if (i == 2) {
+            int i2 = a.f31803a[boundType.ordinal()];
+            if (i2 != 1) {
+                if (i2 == 2) {
                     C next = discreteDomain.next(this.endpoint);
                     return next == null ? Cut.aboveAll() : Cut.belowValue(next);
                 }
@@ -190,7 +190,7 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
     public static final class BelowAll extends Cut<Comparable<?>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final BelowAll f30845e = new BelowAll();
+        public static final BelowAll f31802e = new BelowAll();
         public static final long serialVersionUID = 0;
 
         public BelowAll() {
@@ -198,7 +198,7 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
         }
 
         private Object readResolve() {
-            return f30845e;
+            return f31802e;
         }
 
         @Override // com.google.common.collect.Cut
@@ -339,9 +339,9 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
 
         @Override // com.google.common.collect.Cut
         public Cut<C> withLowerBoundType(BoundType boundType, DiscreteDomain<C> discreteDomain) {
-            int i = a.f30846a[boundType.ordinal()];
-            if (i != 1) {
-                if (i == 2) {
+            int i2 = a.f31803a[boundType.ordinal()];
+            if (i2 != 1) {
+                if (i2 == 2) {
                     C previous = discreteDomain.previous(this.endpoint);
                     return previous == null ? Cut.belowAll() : new AboveValue(previous);
                 }
@@ -352,11 +352,11 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
 
         @Override // com.google.common.collect.Cut
         public Cut<C> withUpperBoundType(BoundType boundType, DiscreteDomain<C> discreteDomain) {
-            int i = a.f30846a[boundType.ordinal()];
-            if (i == 1) {
+            int i2 = a.f31803a[boundType.ordinal()];
+            if (i2 == 1) {
                 C previous = discreteDomain.previous(this.endpoint);
                 return previous == null ? Cut.aboveAll() : new AboveValue(previous);
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 return this;
             } else {
                 throw new AssertionError();
@@ -368,17 +368,17 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30846a;
+        public static final /* synthetic */ int[] f31803a;
 
         static {
             int[] iArr = new int[BoundType.values().length];
-            f30846a = iArr;
+            f31803a = iArr;
             try {
                 iArr[BoundType.CLOSED.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f30846a[BoundType.OPEN.ordinal()] = 2;
+                f31803a[BoundType.OPEN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -389,7 +389,7 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
     }
 
     public static <C extends Comparable> Cut<C> aboveAll() {
-        return AboveAll.f30844e;
+        return AboveAll.f31801e;
     }
 
     public static <C extends Comparable> Cut<C> aboveValue(C c2) {
@@ -397,7 +397,7 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
     }
 
     public static <C extends Comparable> Cut<C> belowAll() {
-        return BelowAll.f30845e;
+        return BelowAll.f31802e;
     }
 
     public static <C extends Comparable> Cut<C> belowValue(C c2) {

@@ -11,14 +11,14 @@ import org.json.JSONObject;
 public class AlaLiveSquareGetTabResponse extends JsonHttpResponsedMessage {
     public AlaSquareTabData mTabData;
 
-    public AlaLiveSquareGetTabResponse(int i) {
+    public AlaLiveSquareGetTabResponse(int i2) {
         super(AlaCmdConfigHttp.CMD_ALA_LIVE_SQUARE_GET_TAB_INFO);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
-        super.decodeLogicInBackGround(i, jSONObject);
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
             return;
         }
@@ -31,9 +31,9 @@ public class AlaLiveSquareGetTabResponse extends JsonHttpResponsedMessage {
         if (optJSONArray != null && optJSONArray.length() > 0) {
             int length = optJSONArray.length();
             ArrayList arrayList2 = new ArrayList(length);
-            for (int i2 = 0; i2 < length; i2++) {
+            for (int i3 = 0; i3 < length; i3++) {
                 AlaSquareTabInfo alaSquareTabInfo = new AlaSquareTabInfo();
-                alaSquareTabInfo.parse(optJSONArray.optJSONObject(i2));
+                alaSquareTabInfo.parse(optJSONArray.optJSONObject(i3));
                 arrayList2.add(alaSquareTabInfo);
             }
             arrayList = arrayList2;

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.i0.d0.a;
+import d.a.i0.d0.a;
 /* loaded from: classes.dex */
 public class AlaNetRefreshView extends a {
     public TextView mNetFailTipView;
@@ -51,21 +51,21 @@ public class AlaNetRefreshView extends a {
         }
     }
 
-    public void setBackgroundColor(int i) {
-        this.attachedView.setBackgroundColor(i);
+    public void setBackgroundColor(int i2) {
+        this.attachedView.setBackgroundColor(i2);
     }
 
-    public void setContainerBackgroundColor(int i) {
+    public void setContainerBackgroundColor(int i2) {
         LinearLayout linearLayout = this.mNetRefreshContainer;
         if (linearLayout != null) {
-            linearLayout.setBackgroundColor(i);
+            linearLayout.setBackgroundColor(i2);
         }
     }
 
-    public void setImageResource(int i) {
+    public void setImageResource(int i2) {
         ImageView imageView = this.mNetRefreshImg;
         if (imageView != null) {
-            imageView.setImageResource(i);
+            imageView.setImageResource(i2);
         }
     }
 
@@ -83,10 +83,10 @@ public class AlaNetRefreshView extends a {
         }
     }
 
-    public void setNetRefreshBtnBackgroundResource(int i) {
+    public void setNetRefreshBtnBackgroundResource(int i2) {
         TextView textView = this.mNetRefreshBtn;
         if (textView != null) {
-            textView.setBackgroundResource(i);
+            textView.setBackgroundResource(i2);
         }
     }
 
@@ -97,10 +97,10 @@ public class AlaNetRefreshView extends a {
         }
     }
 
-    public void setNetRefreshBtnTextColor(int i) {
+    public void setNetRefreshBtnTextColor(int i2) {
         TextView textView = this.mNetRefreshBtn;
         if (textView != null) {
-            textView.setTextColor(i);
+            textView.setTextColor(i2);
         }
     }
 
@@ -111,10 +111,10 @@ public class AlaNetRefreshView extends a {
         }
     }
 
-    public void setNetRefreshTipTextColor(int i) {
+    public void setNetRefreshTipTextColor(int i2) {
         TextView textView = this.mNetFailTipView;
         if (textView != null) {
-            textView.setTextColor(i);
+            textView.setTextColor(i2);
         }
     }
 

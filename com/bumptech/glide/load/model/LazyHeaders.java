@@ -2,7 +2,6 @@ package com.bumptech.glide.load.model;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -64,8 +63,8 @@ public final class LazyHeaders implements Headers {
             }
             int length = property.length();
             StringBuilder sb = new StringBuilder(property.length());
-            for (int i = 0; i < length; i++) {
-                char charAt = property.charAt(i);
+            for (int i2 = 0; i2 < length; i2++) {
+                char charAt = property.charAt(i2);
                 if ((charAt > 31 || charAt == '\t') && charAt < 127) {
                     sb.append(charAt);
                 } else {
@@ -75,7 +74,7 @@ public final class LazyHeaders implements Headers {
             return sb.toString();
         }
 
-        public Builder addHeader(@NonNull String str, @NonNull String str2) {
+        public Builder addHeader(String str, String str2) {
             return addHeader(str, new StringHeaderFactory(str2));
         }
 
@@ -84,11 +83,11 @@ public final class LazyHeaders implements Headers {
             return new LazyHeaders(this.headers);
         }
 
-        public Builder setHeader(@NonNull String str, @Nullable String str2) {
+        public Builder setHeader(String str, String str2) {
             return setHeader(str, str2 == null ? null : new StringHeaderFactory(str2));
         }
 
-        public Builder addHeader(@NonNull String str, @NonNull LazyHeaderFactory lazyHeaderFactory) {
+        public Builder addHeader(String str, LazyHeaderFactory lazyHeaderFactory) {
             if (this.isUserAgentDefault && "User-Agent".equalsIgnoreCase(str)) {
                 return setHeader(str, lazyHeaderFactory);
             }
@@ -97,7 +96,7 @@ public final class LazyHeaders implements Headers {
             return this;
         }
 
-        public Builder setHeader(@NonNull String str, @Nullable LazyHeaderFactory lazyHeaderFactory) {
+        public Builder setHeader(String str, LazyHeaderFactory lazyHeaderFactory) {
             copyIfNecessary();
             if (lazyHeaderFactory == null) {
                 this.headers.remove(str);
@@ -115,10 +114,9 @@ public final class LazyHeaders implements Headers {
 
     /* loaded from: classes5.dex */
     public static final class StringHeaderFactory implements LazyHeaderFactory {
-        @NonNull
         public final String value;
 
-        public StringHeaderFactory(@NonNull String str) {
+        public StringHeaderFactory(String str) {
             this.value = str;
         }
 
@@ -151,11 +149,11 @@ public final class LazyHeaders implements Headers {
     private String buildHeaderValue(@NonNull List<LazyHeaderFactory> list) {
         StringBuilder sb = new StringBuilder();
         int size = list.size();
-        for (int i = 0; i < size; i++) {
-            String buildHeader = list.get(i).buildHeader();
+        for (int i2 = 0; i2 < size; i2++) {
+            String buildHeader = list.get(i2).buildHeader();
             if (!TextUtils.isEmpty(buildHeader)) {
                 sb.append(buildHeader);
-                if (i != list.size() - 1) {
+                if (i2 != list.size() - 1) {
                     sb.append(',');
                 }
             }

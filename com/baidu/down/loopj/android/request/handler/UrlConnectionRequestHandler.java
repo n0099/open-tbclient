@@ -29,7 +29,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     public static final boolean DEBUG = false;
     public static final String TAG = "UrlConnectionRequestHandler";
@@ -318,11 +318,11 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     }
 
     @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler
-    public boolean onRetryRequest(IOException iOException, int i, int i2) {
+    public boolean onRetryRequest(IOException iOException, int i2, int i3) {
         if (!isHttpRequestNull()) {
-            return this.mURLConnectionRetryHandler.retryRequest(iOException, i, this.mURLConnectionRequest.getURL().getHost(), i2);
+            return this.mURLConnectionRetryHandler.retryRequest(iOException, i2, this.mURLConnectionRequest.getURL().getHost(), i3);
         }
-        return this.mURLConnectionRetryHandler.retryRequest(iOException, i, "", i2);
+        return this.mURLConnectionRetryHandler.retryRequest(iOException, i2, "", i3);
     }
 
     @Override // com.baidu.down.loopj.android.request.handler.ICommonRequestHandler

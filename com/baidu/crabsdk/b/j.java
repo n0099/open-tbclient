@@ -7,7 +7,6 @@ import com.baidu.crabsdk.CrabSDK;
 import com.baidu.crabsdk.OnUploadFilesCallback;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.TbConfig;
-import com.kwai.video.player.KsMediaMeta;
 import com.vivo.push.PushClientConstants;
 import java.util.UUID;
 import org.json.JSONException;
@@ -21,7 +20,7 @@ public final class j {
             if (l != null && l.length != 0) {
                 String encodeToString = Base64.encodeToString(l, 0);
                 JSONObject b2 = b(str2, str3, str4);
-                b2.put(KsMediaMeta.KSM_KEY_FORMAT, 1);
+                b2.put("format", 1);
                 b2.put(TbConfig.TMP_LOG_DIR_NAME, encodeToString);
                 b2.put("fileName", str.substring(str.lastIndexOf("/") + 1));
                 return b2;
@@ -45,7 +44,7 @@ public final class j {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("recordId", System.currentTimeMillis() + UUID.randomUUID().toString());
-            jSONObject.put("appKey", com.baidu.crabsdk.a.f4673d);
+            jSONObject.put("appKey", com.baidu.crabsdk.a.f4782d);
             jSONObject.put("phoneTime", System.currentTimeMillis());
             jSONObject.put("networkInfo", o.a());
             jSONObject.put("uname", t.g());
@@ -66,7 +65,7 @@ public final class j {
             jSONObject.put("curPage", a.i());
             jSONObject.put("locale", i.b());
             jSONObject.put("cuid", h.c());
-            jSONObject.put("channel", com.baidu.crabsdk.a.f4671b);
+            jSONObject.put("channel", com.baidu.crabsdk.a.f4780b);
             jSONObject.put("cpuabi", Build.CPU_ABI);
             jSONObject.put("romVN", str);
             jSONObject.put("launcherVN", str2);

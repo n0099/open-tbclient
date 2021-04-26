@@ -21,42 +21,42 @@ import java.util.List;
 public class PluginEditText extends EditText implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5507a;
+    public String f5652a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f5508b;
+    public boolean f5653b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<IEditTextPasteFilter> f5509c;
+    public List<IEditTextPasteFilter> f5654c;
     public boolean isAlwaysShow;
     public int off;
 
-    public PluginEditText(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f5507a = getClass().getSimpleName();
+    public PluginEditText(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f5652a = getClass().getSimpleName();
         this.isAlwaysShow = false;
-        this.f5508b = true;
-        this.f5509c = new ArrayList();
+        this.f5653b = true;
+        this.f5654c = new ArrayList();
         List<IEditTextPasteFilter> parseEditTextPasteFilter = EditTextPasteFilterUtils.parseEditTextPasteFilter(attributeSet);
         if (parseEditTextPasteFilter == null || parseEditTextPasteFilter.size() <= 0) {
             return;
         }
-        this.f5509c.addAll(parseEditTextPasteFilter);
+        this.f5654c.addAll(parseEditTextPasteFilter);
     }
 
     public void addEditTextPasteFilter(IEditTextPasteFilter iEditTextPasteFilter) {
         if (iEditTextPasteFilter != null) {
-            this.f5509c.add(iEditTextPasteFilter);
+            this.f5654c.add(iEditTextPasteFilter);
         }
     }
 
     public List<IEditTextPasteFilter> getEditTextPasteFilters() {
-        return this.f5509c;
+        return this.f5654c;
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onFocusChanged(boolean z, int i, Rect rect) {
-        super.onFocusChanged(z, i, rect);
+    public void onFocusChanged(boolean z, int i2, Rect rect) {
+        super.onFocusChanged(z, i2, rect);
         if (z || this.isAlwaysShow) {
             return;
         }
@@ -64,14 +64,14 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
     }
 
     @Override // android.widget.TextView
-    public boolean onTextContextMenuItem(int i) {
+    public boolean onTextContextMenuItem(int i2) {
         String str;
-        if (i == 16908322) {
-            String applyEditTextPasteFilters = EditTextPasteFilterUtils.applyEditTextPasteFilters(getContext(), this.f5509c);
+        if (i2 == 16908322) {
+            String applyEditTextPasteFilters = EditTextPasteFilterUtils.applyEditTextPasteFilters(getContext(), this.f5654c);
             try {
                 int selectionStart = getSelectionStart();
                 int selectionEnd = getSelectionEnd();
-                LogUtil.d(this.f5507a, "\tstart:" + selectionStart + "\tend:" + selectionEnd);
+                LogUtil.d(this.f5652a, "\tstart:" + selectionStart + "\tend:" + selectionEnd);
                 Editable editableText = getEditableText();
                 if (editableText != null) {
                     String obj = editableText.toString();
@@ -102,33 +102,33 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
                     requestFocus();
                     return true;
                 }
-                return super.onTextContextMenuItem(i);
+                return super.onTextContextMenuItem(i2);
             } catch (Exception e2) {
-                LogUtil.d(this.f5507a, e2.getMessage());
-                return super.onTextContextMenuItem(i);
+                LogUtil.d(this.f5652a, e2.getMessage());
+                return super.onTextContextMenuItem(i2);
             }
         }
-        return super.onTextContextMenuItem(i);
+        return super.onTextContextMenuItem(i2);
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         super.onTouchEvent(motionEvent);
-        if (this.f5508b) {
+        if (this.f5653b) {
             RimGlobalUtils.showInputMethod(getContext(), view);
             return true;
         }
         return true;
     }
 
-    public void setMyHint(CharSequence charSequence, int i) {
+    public void setMyHint(CharSequence charSequence, int i2) {
         SpannableString spannableString = new SpannableString(charSequence.toString());
-        spannableString.setSpan(new AbsoluteSizeSpan(i), 0, spannableString.length(), 33);
+        spannableString.setSpan(new AbsoluteSizeSpan(i2), 0, spannableString.length(), 33);
         setHint(new SpannedString(spannableString));
     }
 
-    public void setMyHintTextSize(int i) {
-        setMyHint(getHint(), i);
+    public void setMyHintTextSize(int i2) {
+        setMyHint(getHint(), i2);
     }
 
     public void setShowInputMethod(boolean z) {
@@ -136,20 +136,20 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
     }
 
     public void setShowSystemMethodFlag(boolean z) {
-        this.f5508b = z;
+        this.f5653b = z;
     }
 
     public PluginEditText(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f5507a = getClass().getSimpleName();
+        this.f5652a = getClass().getSimpleName();
         this.isAlwaysShow = false;
-        this.f5508b = true;
-        this.f5509c = new ArrayList();
+        this.f5653b = true;
+        this.f5654c = new ArrayList();
         List<IEditTextPasteFilter> parseEditTextPasteFilter = EditTextPasteFilterUtils.parseEditTextPasteFilter(attributeSet);
         if (parseEditTextPasteFilter == null || parseEditTextPasteFilter.size() <= 0) {
             return;
         }
-        this.f5509c.addAll(parseEditTextPasteFilter);
+        this.f5654c.addAll(parseEditTextPasteFilter);
     }
 
     public PluginEditText(Context context) {

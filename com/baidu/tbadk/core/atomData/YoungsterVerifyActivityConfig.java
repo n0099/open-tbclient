@@ -25,7 +25,7 @@ public class YoungsterVerifyActivityConfig extends TbWebViewActivityConfig {
         }
     }
 
-    public void setKeyYoungsterPasswordFrom(int i) {
-        getIntent().putExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_FROM, i);
+    public void setKeyYoungsterPasswordFrom(int i2) {
+        getIntent().putExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_FROM, i2);
     }
 }

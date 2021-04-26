@@ -12,24 +12,26 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-import d.b.c.a.j;
-import d.b.i0.m.c;
-import d.b.i0.m.d;
+import d.a.c.a.j;
+import d.a.i0.m.c;
+import d.a.i0.m.d;
 /* loaded from: classes3.dex */
 public class BannerGifView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public GifView f13399e;
+    public GifView f13372e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f13400f;
+    public ImageView f13373f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f13401g;
+    public View f13374g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f13402h;
-    public String i;
+    public float f13375h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f13376i;
     public String j;
     public boolean k;
     public c l;
@@ -42,7 +44,7 @@ public class BannerGifView extends RelativeLayout {
         public a() {
         }
 
-        @Override // d.b.i0.m.d
+        @Override // d.a.i0.m.d
         public boolean b(View view) {
             if (BannerGifView.this.m == null || !BannerGifView.this.m.b(view)) {
                 BannerGifView.this.e();
@@ -59,7 +61,7 @@ public class BannerGifView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == BannerGifView.this.f13400f) {
+            if (view == BannerGifView.this.f13373f) {
                 BannerGifView.this.setCloseVisibility(false);
             }
         }
@@ -67,20 +69,20 @@ public class BannerGifView extends RelativeLayout {
 
     public BannerGifView(Context context) {
         super(context);
-        this.f13402h = 5.744f;
+        this.f13375h = 5.744f;
         this.k = false;
         this.n = new a();
         this.o = new b();
         f();
     }
 
-    public final void d(int i) {
-        int i2 = 0;
+    public final void d(int i2) {
+        int i3 = 0;
         boolean z = true;
-        if (i != 1 && i != 4) {
+        if (i2 != 1 && i2 != 4) {
             z = false;
         }
-        this.f13401g.setVisibility((this.k && z) ? 8 : 8);
+        this.f13374g.setVisibility((this.k && z) ? 8 : 8);
     }
 
     public final void e() {
@@ -96,64 +98,64 @@ public class BannerGifView extends RelativeLayout {
 
     public final void f() {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.gif_banner_view, this);
-        this.f13400f = (ImageView) inflate.findViewById(R.id.btn_close);
-        this.f13401g = inflate.findViewById(R.id.image_mask);
+        this.f13373f = (ImageView) inflate.findViewById(R.id.btn_close);
+        this.f13374g = inflate.findViewById(R.id.image_mask);
         GifView gifView = (GifView) inflate.findViewById(R.id.image_gif);
-        this.f13399e = gifView;
+        this.f13372e = gifView;
         gifView.setShowStaticDrawable(false);
-        this.f13399e.setSupportNoImage(false);
-        this.f13399e.setAutoPlay(true);
-        this.f13400f.setOnClickListener(this.o);
-        this.f13399e.setOnInterceptClickListener(this.n);
+        this.f13372e.setSupportNoImage(false);
+        this.f13372e.setAutoPlay(true);
+        this.f13373f.setOnClickListener(this.o);
+        this.f13372e.setOnInterceptClickListener(this.n);
         g(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void g(int i) {
-        SkinManager.setBackgroundColor(this.f13401g, R.color.black_alpha30, i);
-        d(i);
+    public void g(int i2) {
+        SkinManager.setBackgroundColor(this.f13374g, R.color.black_alpha30, i2);
+        d(i2);
     }
 
     public GifView getGifView() {
-        return this.f13399e;
+        return this.f13372e;
     }
 
     public String getUrl() {
-        return this.i;
+        return this.f13376i;
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        View.MeasureSpec.getMode(i);
+    public void onMeasure(int i2, int i3) {
         View.MeasureSpec.getMode(i2);
-        int size = (View.MeasureSpec.getSize(i) - getPaddingLeft()) - getPaddingRight();
-        View.MeasureSpec.getSize(i2);
+        View.MeasureSpec.getMode(i3);
+        int size = (View.MeasureSpec.getSize(i2) - getPaddingLeft()) - getPaddingRight();
+        View.MeasureSpec.getSize(i3);
         getPaddingBottom();
         getPaddingTop();
-        float f2 = this.f13402h;
+        float f2 = this.f13375h;
         if (f2 > 0.0f) {
-            i2 = View.MeasureSpec.makeMeasureSpec((int) ((size / f2) + 0.5f), 1073741824);
+            i3 = View.MeasureSpec.makeMeasureSpec((int) ((size / f2) + 0.5f), 1073741824);
         }
-        super.onMeasure(i, i2);
+        super.onMeasure(i2, i3);
     }
 
     @Override // android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
+    public void onWindowVisibilityChanged(int i2) {
+        super.onWindowVisibilityChanged(i2);
         if (this.l != null) {
-            this.l.a(this, i == 0, this.i);
+            this.l.a(this, i2 == 0, this.f13376i);
         }
     }
 
     public void setCloseVisibility(boolean z) {
-        this.f13400f.setVisibility(z ? 0 : 8);
+        this.f13373f.setVisibility(z ? 0 : 8);
     }
 
-    public void setDefaultResid(int i) {
-        SkinManager.setImageResource(this.f13399e, i);
+    public void setDefaultResid(int i2) {
+        SkinManager.setImageResource(this.f13372e, i2);
     }
 
-    public void setErrorResid(int i) {
-        this.f13399e.setErrorResid(i);
+    public void setErrorResid(int i2) {
+        this.f13372e.setErrorResid(i2);
     }
 
     public void setIWindowChangedListener(c cVar) {
@@ -170,7 +172,7 @@ public class BannerGifView extends RelativeLayout {
     }
 
     public void setRatio(float f2) {
-        this.f13402h = f2;
+        this.f13375h = f2;
         invalidate();
     }
 }

@@ -3,15 +3,15 @@ package androidx.recyclerview.widget;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
-import androidx.collection.ArrayMap;
 import androidx.collection.LongSparseArray;
+import androidx.collection.SimpleArrayMap;
 import androidx.core.util.Pools;
 import androidx.recyclerview.widget.RecyclerView;
 /* loaded from: classes.dex */
 public class ViewInfoStore {
     public static final boolean DEBUG = false;
     @VisibleForTesting
-    public final ArrayMap<RecyclerView.ViewHolder, InfoRecord> mLayoutHolderMap = new ArrayMap<>();
+    public final SimpleArrayMap<RecyclerView.ViewHolder, InfoRecord> mLayoutHolderMap = new SimpleArrayMap<>();
     @VisibleForTesting
     public final LongSparseArray<RecyclerView.ViewHolder> mOldChangedHolders = new LongSparseArray<>();
 
@@ -60,17 +60,17 @@ public class ViewInfoStore {
         void unused(RecyclerView.ViewHolder viewHolder);
     }
 
-    private RecyclerView.ItemAnimator.ItemHolderInfo popFromLayoutStep(RecyclerView.ViewHolder viewHolder, int i) {
+    private RecyclerView.ItemAnimator.ItemHolderInfo popFromLayoutStep(RecyclerView.ViewHolder viewHolder, int i2) {
         InfoRecord valueAt;
         RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo;
         int indexOfKey = this.mLayoutHolderMap.indexOfKey(viewHolder);
         if (indexOfKey >= 0 && (valueAt = this.mLayoutHolderMap.valueAt(indexOfKey)) != null) {
-            int i2 = valueAt.flags;
-            if ((i2 & i) != 0) {
-                valueAt.flags = (~i) & i2;
-                if (i == 4) {
+            int i3 = valueAt.flags;
+            if ((i3 & i2) != 0) {
+                valueAt.flags = (~i2) & i3;
+                if (i2 == 4) {
                     itemHolderInfo = valueAt.preInfo;
-                } else if (i == 8) {
+                } else if (i2 == 8) {
                     itemHolderInfo = valueAt.postInfo;
                 } else {
                     throw new IllegalArgumentException("Must provide flag PRE or POST");
@@ -169,23 +169,23 @@ public class ViewInfoStore {
         for (int size = this.mLayoutHolderMap.size() - 1; size >= 0; size--) {
             RecyclerView.ViewHolder keyAt = this.mLayoutHolderMap.keyAt(size);
             InfoRecord removeAt = this.mLayoutHolderMap.removeAt(size);
-            int i = removeAt.flags;
-            if ((i & 3) == 3) {
+            int i2 = removeAt.flags;
+            if ((i2 & 3) == 3) {
                 processCallback.unused(keyAt);
-            } else if ((i & 1) != 0) {
+            } else if ((i2 & 1) != 0) {
                 RecyclerView.ItemAnimator.ItemHolderInfo itemHolderInfo = removeAt.preInfo;
                 if (itemHolderInfo == null) {
                     processCallback.unused(keyAt);
                 } else {
                     processCallback.processDisappeared(keyAt, itemHolderInfo, removeAt.postInfo);
                 }
-            } else if ((i & 14) == 14) {
+            } else if ((i2 & 14) == 14) {
                 processCallback.processAppeared(keyAt, removeAt.preInfo, removeAt.postInfo);
-            } else if ((i & 12) == 12) {
+            } else if ((i2 & 12) == 12) {
                 processCallback.processPersistent(keyAt, removeAt.preInfo, removeAt.postInfo);
-            } else if ((i & 4) != 0) {
+            } else if ((i2 & 4) != 0) {
                 processCallback.processDisappeared(keyAt, removeAt.preInfo, null);
-            } else if ((i & 8) != 0) {
+            } else if ((i2 & 8) != 0) {
                 processCallback.processAppeared(keyAt, removeAt.preInfo, removeAt.postInfo);
             }
             InfoRecord.recycle(removeAt);

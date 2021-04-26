@@ -42,8 +42,8 @@ public class PendantData extends OrmObject {
         }
     }
 
-    public PendantData(int i) {
+    public PendantData(int i2) {
         this.pendantType = 4;
-        this.pendantType = i;
+        this.pendantType = i2;
     }
 }

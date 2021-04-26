@@ -24,8 +24,8 @@ public class WriteVoteItemData extends OrmObject implements Serializable {
         this.text = jSONObject.optString("text");
     }
 
-    public void setId(int i) {
-        this.id = i;
+    public void setId(int i2) {
+        this.id = i2;
     }
 
     public void setText(String str) {

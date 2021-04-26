@@ -78,12 +78,12 @@ public class CoreStatPlugin extends AbsPlugin {
         }
     }
 
-    private void onError(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, int i, String str) {
+    private void onError(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, int i2, String str) {
         BdVideoLog.d("【Statistics】 onError upload begin");
         try {
             JSONObject extStatisticsLogClone = bDVideoPlayerUbcContent.getExtStatisticsLogClone();
-            extStatisticsLogClone.putOpt("errorNo", Integer.valueOf(i));
-            extStatisticsLogClone.putOpt("sub_errorNo", Integer.valueOf(i));
+            extStatisticsLogClone.putOpt("errorNo", Integer.valueOf(i2));
+            extStatisticsLogClone.putOpt("sub_errorNo", Integer.valueOf(i2));
             extStatisticsLogClone.putOpt("errorInfo", str);
             this.mUBCService.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, bDVideoPlayerUbcContent, (JSONObject) null));
         } catch (JSONException e2) {
@@ -166,7 +166,7 @@ public class CoreStatPlugin extends AbsPlugin {
                 c2 = 65535;
                 break;
             case 1537938041:
-                if (action.equals(StatisticsEvent.ACTION_PLAYER_CARLTON)) {
+                if (action.equals("statistics_player_carlton")) {
                     c2 = 0;
                     break;
                 }

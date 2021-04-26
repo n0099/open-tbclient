@@ -1,60 +1,58 @@
 package io.reactivex.internal.operators.single;
 
-import f.b.e;
-import f.b.r;
-import f.b.s;
-import f.b.t.b;
-import g.d.c;
+import io.reactivex.Flowable;
+import io.reactivex.SingleObserver;
+import io.reactivex.SingleSource;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
+import org.reactivestreams.Subscriber;
 /* loaded from: classes7.dex */
-public final class SingleToFlowable<T> extends e<T> {
-
-    /* renamed from: f  reason: collision with root package name */
-    public final s<? extends T> f69243f;
+public final class SingleToFlowable<T> extends Flowable<T> {
+    public final SingleSource<? extends T> source;
 
     /* loaded from: classes7.dex */
-    public static final class SingleToFlowableObserver<T> extends DeferredScalarSubscription<T> implements r<T> {
+    public static final class SingleToFlowableObserver<T> extends DeferredScalarSubscription<T> implements SingleObserver<T> {
         public static final long serialVersionUID = 187782011903685568L;
 
         /* renamed from: d  reason: collision with root package name */
-        public b f69244d;
+        public Disposable f68302d;
 
-        public SingleToFlowableObserver(c<? super T> cVar) {
-            super(cVar);
+        public SingleToFlowableObserver(Subscriber<? super T> subscriber) {
+            super(subscriber);
         }
 
-        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, io.reactivex.internal.subscriptions.BasicIntQueueSubscription, g.d.d
+        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.reactivestreams.Subscription
         public void cancel() {
             super.cancel();
-            this.f69244d.dispose();
+            this.f68302d.dispose();
         }
 
-        @Override // f.b.r
+        @Override // io.reactivex.SingleObserver
         public void onError(Throwable th) {
             this.actual.onError(th);
         }
 
-        @Override // f.b.r
-        public void onSubscribe(b bVar) {
-            if (DisposableHelper.validate(this.f69244d, bVar)) {
-                this.f69244d = bVar;
+        @Override // io.reactivex.SingleObserver
+        public void onSubscribe(Disposable disposable) {
+            if (DisposableHelper.validate(this.f68302d, disposable)) {
+                this.f68302d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
 
-        @Override // f.b.r
+        @Override // io.reactivex.SingleObserver
         public void onSuccess(T t) {
             complete(t);
         }
     }
 
-    public SingleToFlowable(s<? extends T> sVar) {
-        this.f69243f = sVar;
+    public SingleToFlowable(SingleSource<? extends T> singleSource) {
+        this.source = singleSource;
     }
 
-    @Override // f.b.e
-    public void c(c<? super T> cVar) {
-        this.f69243f.a(new SingleToFlowableObserver(cVar));
+    @Override // io.reactivex.Flowable
+    public void subscribeActual(Subscriber<? super T> subscriber) {
+        this.source.subscribe(new SingleToFlowableObserver(subscriber));
     }
 }

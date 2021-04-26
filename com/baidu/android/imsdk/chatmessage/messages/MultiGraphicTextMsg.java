@@ -22,8 +22,8 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public MultiGraphicTextMsg[] newArray(int i) {
-            return new MultiGraphicTextMsg[i];
+        public MultiGraphicTextMsg[] newArray(int i2) {
+            return new MultiGraphicTextMsg[i2];
         }
     };
     public Article[] mArticles;
@@ -41,8 +41,8 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public Article[] newArray(int i) {
-                return new Article[i];
+            public Article[] newArray(int i2) {
+                return new Article[i2];
             }
         };
         public String mArticleUrl;
@@ -100,7 +100,7 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeString(this.mTitle);
             parcel.writeString(this.mDigest);
             parcel.writeString(this.mCover);
@@ -153,14 +153,14 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
             if (length > 0) {
                 this.mArticles = new Article[length];
             }
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject jSONObject = optJSONArray.getJSONObject(i);
-                this.mArticles[i] = new Article();
-                this.mArticles[i].setTitle(jSONObject.getString("title"));
-                this.mArticles[i].setDigest(jSONObject.optString(LightappBusinessClient.MTD_DIGEST, ""));
-                this.mArticles[i].setCover(jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, ""));
-                this.mArticles[i].setArticleUrl(jSONObject.getString("article_url"));
-                this.mArticles[i].setSchema(jSONObject.optString("schema"));
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                JSONObject jSONObject = optJSONArray.getJSONObject(i2);
+                this.mArticles[i2] = new Article();
+                this.mArticles[i2].setTitle(jSONObject.getString("title"));
+                this.mArticles[i2].setDigest(jSONObject.optString(LightappBusinessClient.MTD_DIGEST, ""));
+                this.mArticles[i2].setCover(jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, ""));
+                this.mArticles[i2].setArticleUrl(jSONObject.getString("article_url"));
+                this.mArticles[i2].setSchema(jSONObject.optString("schema"));
             }
             return true;
         } catch (JSONException e2) {
@@ -194,13 +194,13 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         Article[] articleArr = this.mArticles;
         int length = articleArr != null ? articleArr.length : 0;
         parcel.writeInt(length);
         if (length > 0) {
-            parcel.writeTypedArray(this.mArticles, i);
+            parcel.writeTypedArray(this.mArticles, i2);
         }
     }
 

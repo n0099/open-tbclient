@@ -111,7 +111,7 @@ public abstract class a<T> {
         return sb.toString();
     }
 
-    public abstract void c(int i);
+    public abstract void c(int i2);
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0059 */
     /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.io.BufferedReader */
@@ -205,8 +205,8 @@ public abstract class a<T> {
         }
     }
 
-    public boolean d(int i) {
-        return 403 == i || 404 == i;
+    public boolean d(int i2) {
+        return 403 == i2 || 404 == i2;
     }
 
     public abstract Map<String, Object> getParameters();
@@ -245,9 +245,9 @@ public abstract class a<T> {
     }
 
     public void a(com.baidu.searchbox.dns.d.c.a.a aVar) {
-        int i = this.aj + 1;
-        this.aj = i;
-        if (i <= this.al) {
+        int i2 = this.aj + 1;
+        this.aj = i2;
+        if (i2 <= this.al) {
             SystemClock.sleep(5000L);
         } else if (aVar.P() == 10001) {
             throw new com.baidu.searchbox.dns.d.c.a.b(aVar.P(), aVar.Q(), " retry count reach fail ");

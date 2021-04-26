@@ -32,7 +32,7 @@ import java.util.Map;
 public class DownloadManagerImpl implements IDownloadManager {
     public DownloadTaskProgressListener mDownloadListener = new DownloadTaskProgressListener() { // from class: com.baidu.searchbox.pms.download.DownloadManagerImpl.2
         @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
-        public void connected(@NonNull DownloadTask downloadTask, int i, long j, long j2) {
+        public void connected(@NonNull DownloadTask downloadTask, int i2, long j, long j2) {
             DownloadTaskExt downloadTaskExt = (DownloadTaskExt) DownloadManagerImpl.this.mTasks.get(downloadTask.getTag());
             if (downloadTaskExt == null) {
                 return;
@@ -67,12 +67,12 @@ public class DownloadManagerImpl implements IDownloadManager {
             if (downloadTaskExt == null) {
                 return;
             }
-            int i = AnonymousClass3.$SwitchMap$com$baidu$searchbox$bddownload$core$cause$EndCause[endCause.ordinal()];
-            if (i == 3) {
+            int i2 = AnonymousClass3.$SwitchMap$com$baidu$searchbox$bddownload$core$cause$EndCause[endCause.ordinal()];
+            if (i2 == 3) {
                 downloadTaskExt.mergeCallback.onSuccess(downloadTaskExt.info.filePath);
-            } else if (i == 4) {
+            } else if (i2 == 4) {
                 downloadTaskExt.mergeCallback.onPause();
-            } else if (i != 5) {
+            } else if (i2 != 5) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("by bdownload:EndCause:");
                 sb.append(endCause.name());
@@ -80,8 +80,8 @@ public class DownloadManagerImpl implements IDownloadManager {
                 if (exc != null) {
                     sb.append(Log.getStackTraceString(exc));
                 }
-                int i2 = AnonymousClass3.$SwitchMap$com$baidu$searchbox$bddownload$core$cause$EndCause[endCause.ordinal()];
-                downloadTaskExt.mergeCallback.onError((i2 == 1 || i2 == 2) ? ErrorConstant.Code.DOWNLOAD_ERROR_WRITE : 2201, sb.toString());
+                int i3 = AnonymousClass3.$SwitchMap$com$baidu$searchbox$bddownload$core$cause$EndCause[endCause.ordinal()];
+                downloadTaskExt.mergeCallback.onError((i3 == 1 || i3 == 2) ? ErrorConstant.Code.DOWNLOAD_ERROR_WRITE : 2201, sb.toString());
             } else if (downloadTaskExt.info.type == 3) {
                 downloadTaskExt.mergeCallback.onPause();
             } else {
@@ -167,11 +167,11 @@ public class DownloadManagerImpl implements IDownloadManager {
         return build;
     }
 
-    private PriorityStrategy.Priority getPriority(int i) {
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
+    private PriorityStrategy.Priority getPriority(int i2) {
+        if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 != 3) {
+                    if (i2 != 4) {
                         return PriorityStrategy.Priority.DEFAULT;
                     }
                     return PriorityStrategy.Priority.SPECIAL;
@@ -186,8 +186,8 @@ public class DownloadManagerImpl implements IDownloadManager {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void innerStart(@NonNull List<PackageInfo> list, @Nullable DownloadOptions downloadOptions, @NonNull InnerCallback innerCallback) {
         ArrayList arrayList = new ArrayList(list.size());
-        for (int i = 0; i < list.size(); i++) {
-            PackageInfo packageInfo = list.get(i);
+        for (int i2 = 0; i2 < list.size(); i2++) {
+            PackageInfo packageInfo = list.get(i2);
             if (packageInfo != null && prepareDownload(packageInfo, downloadOptions, innerCallback)) {
                 DownloadTask createTask = createTask(packageInfo, downloadOptions);
                 DownloadTaskExt downloadTaskExt = new DownloadTaskExt(createTask, packageInfo, innerCallback);

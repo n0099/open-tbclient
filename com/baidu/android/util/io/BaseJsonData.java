@@ -72,8 +72,8 @@ public class BaseJsonData {
         this.mData = jSONObject;
     }
 
-    public void setErrorCode(int i) {
-        this.mErrorCode = i;
+    public void setErrorCode(int i2) {
+        this.mErrorCode = i2;
     }
 
     public void setErrorMessage(String str) {
@@ -88,22 +88,22 @@ public class BaseJsonData {
         this.mTimestamp = j;
     }
 
-    public BaseJsonData(int i, JSONObject jSONObject) {
+    public BaseJsonData(int i2, JSONObject jSONObject) {
         this.mErrorCode = -1;
-        this.mErrorCode = i;
+        this.mErrorCode = i2;
         this.mData = jSONObject;
     }
 
     public static BaseJsonData fromJson(JSONObject jSONObject) {
         BaseJsonData baseJsonData = null;
         try {
-            int i = jSONObject.getInt("errno");
+            int i2 = jSONObject.getInt("errno");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             JSONArray optJSONArray = jSONObject.optJSONArray("data");
             if (optJSONObject == null) {
                 optJSONObject = (optJSONArray == null || optJSONArray.length() <= 0) ? null : optJSONArray.getJSONObject(0);
             }
-            BaseJsonData baseJsonData2 = new BaseJsonData(i, optJSONObject);
+            BaseJsonData baseJsonData2 = new BaseJsonData(i2, optJSONObject);
             try {
                 if (jSONObject.has("errmsg") && !jSONObject.isNull("errmsg")) {
                     baseJsonData2.setErrorMessage(jSONObject.getString("errmsg"));

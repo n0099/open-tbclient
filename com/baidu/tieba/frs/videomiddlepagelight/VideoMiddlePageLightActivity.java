@@ -27,9 +27,9 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
-import d.b.c.e.m.e;
-import d.b.c.e.p.j;
-import d.b.i0.d0.g;
+import d.a.c.e.m.e;
+import d.a.c.e.p.j;
+import d.a.i0.d0.g;
 import java.io.Serializable;
 import java.util.List;
 import kotlin.Lazy;
@@ -41,11 +41,11 @@ import kotlin.jvm.internal.PropertyReference1Impl;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KProperty;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0094\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007*\u0002)>\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\bI\u0010\u0007J\u0011\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\r\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\u0006\u0010\u0007J\u0017\u0010\n\u001a\u00020\u00052\u0006\u0010\t\u001a\u00020\bH\u0014¢\u0006\u0004\b\n\u0010\u000bJ\u0019\u0010\u000e\u001a\u00020\u00052\b\u0010\r\u001a\u0004\u0018\u00010\fH\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u0019\u0010\u0012\u001a\u00020\u00052\b\u0010\u0011\u001a\u0004\u0018\u00010\u0010H\u0014¢\u0006\u0004\b\u0012\u0010\u0013J\u000f\u0010\u0014\u001a\u00020\u0005H\u0014¢\u0006\u0004\b\u0014\u0010\u0007J\u000f\u0010\u0015\u001a\u00020\u0005H\u0014¢\u0006\u0004\b\u0015\u0010\u0007J\u000f\u0010\u0016\u001a\u00020\u0005H\u0014¢\u0006\u0004\b\u0016\u0010\u0007J\u0015\u0010\u0018\u001a\u00020\u00052\u0006\u0010\u0017\u001a\u00020\b¢\u0006\u0004\b\u0018\u0010\u000bJ\r\u0010\u0019\u001a\u00020\u0005¢\u0006\u0004\b\u0019\u0010\u0007J\u000f\u0010\u001b\u001a\u00020\u001aH\u0016¢\u0006\u0004\b\u001b\u0010\u001cR\u0016\u0010\u001e\u001a\u00020\u001d8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b\u001e\u0010\u001fR\u0016\u0010!\u001a\u00020 8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b!\u0010\"R\u0016\u0010#\u001a\u00020\u001a8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010$R\u0016\u0010%\u001a\u00020\u001a8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b%\u0010$R\u0016\u0010'\u001a\u00020&8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b'\u0010(R\u0016\u0010*\u001a\u00020)8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b*\u0010+R\u0016\u0010-\u001a\u00020,8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b-\u0010.R\u0016\u00100\u001a\u00020/8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b0\u00101R\u0016\u00103\u001a\u0002028\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b3\u00104R\u0016\u00106\u001a\u0002058\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b6\u00107R\u0016\u00109\u001a\u0002088\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b9\u0010:R\u0016\u0010<\u001a\u00020;8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b<\u0010=R\u0016\u0010?\u001a\u00020>8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b?\u0010@R\u0016\u0010A\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bA\u0010BR\u001d\u0010H\u001a\u00020C8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bD\u0010E\u001a\u0004\bF\u0010G¨\u0006J"}, d2 = {"Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "", "getCurrentPageKey", "()Ljava/lang/String;", "", "hideLoadingView", "()V", "", WriteMulitImageActivityConfig.SKIN_TYPE, "onChangeSkinType", "(I)V", "Landroid/content/res/Configuration;", "newConfig", "onConfigurationChanged", "(Landroid/content/res/Configuration;)V", "Landroid/os/Bundle;", "savedInstanceState", MissionEvent.MESSAGE_CREATE, "(Landroid/os/Bundle;)V", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, MissionEvent.MESSAGE_RESUME, "position", "scrollCurPlayingVideoToTop", "showLoadingView", "", "videoNeedPreload", "()Z", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightAdapterManager;", "adapterManager", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightAdapterManager;", "Landroidx/recyclerview/widget/DividerItemDecoration;", "cardDividerLine", "Landroidx/recyclerview/widget/DividerItemDecoration;", "isForbidOnceListAutoScroll", "Z", "isNeedTwiceScroll", "Landroid/view/GestureDetector;", "listGestureDetector", "Landroid/view/GestureDetector;", "com/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$listGestureDetectorListener$1", "listGestureDetectorListener", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$listGestureDetectorListener$1;", "Lcom/baidu/tbadk/loading/LoadingView;", "loadingView", "Lcom/baidu/tbadk/loading/LoadingView;", "Lcom/baidu/tbadk/core/view/NavigationBar;", "navigationBar", "Lcom/baidu/tbadk/core/view/NavigationBar;", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "networkChangeMessageListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "Lcom/baidu/tbadk/core/view/NoNetworkView;", "noNetworkView", "Lcom/baidu/tbadk/core/view/NoNetworkView;", "Lcom/baidu/adp/widget/ListView/BdTypeRecyclerView;", "recyclerView", "Lcom/baidu/adp/widget/ListView/BdTypeRecyclerView;", "Landroid/view/View;", "rootView", "Landroid/view/View;", "com/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$scrollListener$1", "scrollListener", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$scrollListener$1;", "twiceScrollToPosition", "I", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "viewModel$delegate", "Lkotlin/Lazy;", "getViewModel", "()Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "viewModel", "<init>", "frsExtra_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0094\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007*\u0002)>\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\bI\u0010\u0007J\u0011\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0003\u0010\u0004J\r\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\u0006\u0010\u0007J\u0017\u0010\n\u001a\u00020\u00052\u0006\u0010\t\u001a\u00020\bH\u0014¢\u0006\u0004\b\n\u0010\u000bJ\u0017\u0010\u000e\u001a\u00020\u00052\u0006\u0010\r\u001a\u00020\fH\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u0019\u0010\u0012\u001a\u00020\u00052\b\u0010\u0011\u001a\u0004\u0018\u00010\u0010H\u0014¢\u0006\u0004\b\u0012\u0010\u0013J\u000f\u0010\u0014\u001a\u00020\u0005H\u0014¢\u0006\u0004\b\u0014\u0010\u0007J\u000f\u0010\u0015\u001a\u00020\u0005H\u0014¢\u0006\u0004\b\u0015\u0010\u0007J\u000f\u0010\u0016\u001a\u00020\u0005H\u0014¢\u0006\u0004\b\u0016\u0010\u0007J\u0015\u0010\u0018\u001a\u00020\u00052\u0006\u0010\u0017\u001a\u00020\b¢\u0006\u0004\b\u0018\u0010\u000bJ\r\u0010\u0019\u001a\u00020\u0005¢\u0006\u0004\b\u0019\u0010\u0007J\u000f\u0010\u001b\u001a\u00020\u001aH\u0016¢\u0006\u0004\b\u001b\u0010\u001cR\u0016\u0010\u001e\u001a\u00020\u001d8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b\u001e\u0010\u001fR\u0016\u0010!\u001a\u00020 8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b!\u0010\"R\u0016\u0010#\u001a\u00020\u001a8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010$R\u0016\u0010%\u001a\u00020\u001a8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b%\u0010$R\u0016\u0010'\u001a\u00020&8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b'\u0010(R\u0016\u0010*\u001a\u00020)8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b*\u0010+R\u0016\u0010-\u001a\u00020,8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b-\u0010.R\u0016\u00100\u001a\u00020/8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b0\u00101R\u0016\u00103\u001a\u0002028\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b3\u00104R\u0016\u00106\u001a\u0002058\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b6\u00107R\u0016\u00109\u001a\u0002088\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b9\u0010:R\u0016\u0010<\u001a\u00020;8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b<\u0010=R\u0016\u0010?\u001a\u00020>8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b?\u0010@R\u0016\u0010A\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bA\u0010BR\u001d\u0010H\u001a\u00020C8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bD\u0010E\u001a\u0004\bF\u0010G¨\u0006J"}, d2 = {"Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "", "getCurrentPageKey", "()Ljava/lang/String;", "", "hideLoadingView", "()V", "", WriteMulitImageActivityConfig.SKIN_TYPE, "onChangeSkinType", "(I)V", "Landroid/content/res/Configuration;", "newConfig", "onConfigurationChanged", "(Landroid/content/res/Configuration;)V", "Landroid/os/Bundle;", "savedInstanceState", MissionEvent.MESSAGE_CREATE, "(Landroid/os/Bundle;)V", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, MissionEvent.MESSAGE_RESUME, "position", "scrollCurPlayingVideoToTop", "showLoadingView", "", "videoNeedPreload", "()Z", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightAdapterManager;", "adapterManager", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightAdapterManager;", "Landroidx/recyclerview/widget/DividerItemDecoration;", "cardDividerLine", "Landroidx/recyclerview/widget/DividerItemDecoration;", "isForbidOnceListAutoScroll", "Z", "isNeedTwiceScroll", "Landroid/view/GestureDetector;", "listGestureDetector", "Landroid/view/GestureDetector;", "com/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$listGestureDetectorListener$1", "listGestureDetectorListener", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$listGestureDetectorListener$1;", "Lcom/baidu/tbadk/loading/LoadingView;", "loadingView", "Lcom/baidu/tbadk/loading/LoadingView;", "Lcom/baidu/tbadk/core/view/NavigationBar;", "navigationBar", "Lcom/baidu/tbadk/core/view/NavigationBar;", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "networkChangeMessageListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "Lcom/baidu/tbadk/core/view/NoNetworkView;", "noNetworkView", "Lcom/baidu/tbadk/core/view/NoNetworkView;", "Lcom/baidu/adp/widget/ListView/BdTypeRecyclerView;", "recyclerView", "Lcom/baidu/adp/widget/ListView/BdTypeRecyclerView;", "Landroid/view/View;", "rootView", "Landroid/view/View;", "com/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$scrollListener$1", "scrollListener", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageLightActivity$scrollListener$1;", "twiceScrollToPosition", "I", "Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "viewModel$delegate", "Lkotlin/Lazy;", "getViewModel", "()Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;", "viewModel", "<init>", "frsExtra_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes4.dex */
 public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(VideoMiddlePageLightActivity.class), "viewModel", "getViewModel()Lcom/baidu/tieba/frs/videomiddlepagelight/VideoMiddlePageViewModel;"))};
-    public d.b.j0.q0.q2.a adapterManager;
+    public d.a.j0.q0.q2.a adapterManager;
     public DividerItemDecoration cardDividerLine;
     public boolean isForbidOnceListAutoScroll;
     public boolean isNeedTwiceScroll;
@@ -85,14 +85,14 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
+        public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
             boolean z;
-            int i2;
-            super.onScrollStateChanged(recyclerView, i);
+            int i3;
+            super.onScrollStateChanged(recyclerView, i2);
             z = VideoMiddlePageLightActivity.this.isNeedTwiceScroll;
-            if (!z || i != 0) {
+            if (!z || i2 != 0) {
                 Integer value = VideoMiddlePageLightActivity.this.getViewModel().c().getValue();
-                if (value != null && i == 0) {
+                if (value != null && i2 == 0) {
                     if (VideoMiddlePageLightActivity.access$getRecyclerView$p(VideoMiddlePageLightActivity.this).getFirstCompletelyVisiblePosition() == -1) {
                         if (VideoMiddlePageLightActivity.access$getRecyclerView$p(VideoMiddlePageLightActivity.this).getFirstVisiblePosition() != -1) {
                             int firstVisiblePosition = VideoMiddlePageLightActivity.access$getRecyclerView$p(VideoMiddlePageLightActivity.this).getFirstVisiblePosition();
@@ -125,8 +125,8 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
             }
             VideoMiddlePageLightActivity.this.isNeedTwiceScroll = false;
             VideoMiddlePageLightActivity videoMiddlePageLightActivity = VideoMiddlePageLightActivity.this;
-            i2 = videoMiddlePageLightActivity.twiceScrollToPosition;
-            videoMiddlePageLightActivity.scrollCurPlayingVideoToTop(i2);
+            i3 = videoMiddlePageLightActivity.twiceScrollToPosition;
+            videoMiddlePageLightActivity.scrollCurPlayingVideoToTop(i3);
         }
     };
     public final CustomMessageListener networkChangeMessageListener = new b(2000994);
@@ -154,8 +154,8 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
 
     /* loaded from: classes4.dex */
     public static final class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -182,7 +182,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         public final void onChanged(List<BaseCardInfo> it) {
             if (it.size() > 0) {
                 VideoMiddlePageLightActivity.this.hideLoadingView();
-                d.b.j0.q0.q2.a access$getAdapterManager$p = VideoMiddlePageLightActivity.access$getAdapterManager$p(VideoMiddlePageLightActivity.this);
+                d.a.j0.q0.q2.a access$getAdapterManager$p = VideoMiddlePageLightActivity.access$getAdapterManager$p(VideoMiddlePageLightActivity.this);
                 Intrinsics.checkExpressionValueIsNotNull(it, "it");
                 access$getAdapterManager$p.d(it);
             }
@@ -235,8 +235,8 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         }
     }
 
-    public static final /* synthetic */ d.b.j0.q0.q2.a access$getAdapterManager$p(VideoMiddlePageLightActivity videoMiddlePageLightActivity) {
-        d.b.j0.q0.q2.a aVar = videoMiddlePageLightActivity.adapterManager;
+    public static final /* synthetic */ d.a.j0.q0.q2.a access$getAdapterManager$p(VideoMiddlePageLightActivity videoMiddlePageLightActivity) {
+        d.a.j0.q0.q2.a aVar = videoMiddlePageLightActivity.adapterManager;
         if (aVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adapterManager");
         }
@@ -266,7 +266,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         return (VideoMiddlePageViewModel) lazy.getValue();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.b.i0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.i0.k0.a
     public String getCurrentPageKey() {
         return "a023";
     }
@@ -293,17 +293,17 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i2) {
         NavigationBar navigationBar = this.navigationBar;
         if (navigationBar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("navigationBar");
         }
-        navigationBar.onChangeSkinType(getPageContext(), i);
+        navigationBar.onChangeSkinType(getPageContext(), i2);
         NoNetworkView noNetworkView = this.noNetworkView;
         if (noNetworkView == null) {
             Intrinsics.throwUninitializedPropertyAccessException("noNetworkView");
         }
-        noNetworkView.c(getPageContext(), i);
+        noNetworkView.c(getPageContext(), i2);
         DividerItemDecoration dividerItemDecoration = this.cardDividerLine;
         if (dividerItemDecoration == null) {
             Intrinsics.throwUninitializedPropertyAccessException("cardDividerLine");
@@ -322,7 +322,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         getViewModel().b().setValue(configuration);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         VideoMiddlePageViewModel viewModel = getViewModel();
@@ -422,7 +422,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
             }
             VideoMiddlePageViewModel viewModel6 = getViewModel();
             Intrinsics.checkExpressionValueIsNotNull(viewModel6, "viewModel");
-            this.adapterManager = new d.b.j0.q0.q2.a(pageContext, bdTypeRecyclerView4, viewModel6);
+            this.adapterManager = new d.a.j0.q0.q2.a(pageContext, bdTypeRecyclerView4, viewModel6);
             getViewModel().l();
             showLoadingView();
             getViewModel().j().observe(this, new c());
@@ -443,7 +443,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
                 if (TbSingleton.getInstance().isCutoutScreen(this) || TbSingleton.getInstance().isNotchScreen(this)) {
                     Window window = getWindow();
                     Intrinsics.checkExpressionValueIsNotNull(window, "window");
-                    d.b.j0.p3.c.b(1, window.getAttributes(), getWindow());
+                    d.a.j0.p3.c.b(1, window.getAttributes(), getWindow());
                     return;
                 }
                 return;
@@ -456,7 +456,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.j0.q0.q2.a aVar = this.adapterManager;
+        d.a.j0.q0.q2.a aVar = this.adapterManager;
         if (aVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adapterManager");
         }
@@ -468,7 +468,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        d.b.j0.q0.q2.a aVar = this.adapterManager;
+        d.a.j0.q0.q2.a aVar = this.adapterManager;
         if (aVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("adapterManager");
         }
@@ -484,8 +484,8 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
         getViewModel().p();
     }
 
-    public final void scrollCurPlayingVideoToTop(int i) {
-        if (i != -1) {
+    public final void scrollCurPlayingVideoToTop(int i2) {
+        if (i2 != -1) {
             BdTypeRecyclerView bdTypeRecyclerView = this.recyclerView;
             if (bdTypeRecyclerView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
@@ -497,24 +497,24 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
             if (bdTypeRecyclerView2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
             }
-            if (i < bdTypeRecyclerView2.getFirstVisiblePosition()) {
+            if (i2 < bdTypeRecyclerView2.getFirstVisiblePosition()) {
                 BdTypeRecyclerView bdTypeRecyclerView3 = this.recyclerView;
                 if (bdTypeRecyclerView3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
                 }
-                bdTypeRecyclerView3.smoothScrollToPosition(i);
+                bdTypeRecyclerView3.smoothScrollToPosition(i2);
                 return;
             }
             BdTypeRecyclerView bdTypeRecyclerView4 = this.recyclerView;
             if (bdTypeRecyclerView4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
             }
-            if (i <= bdTypeRecyclerView4.getLastCompletelyVisiblePosition()) {
+            if (i2 <= bdTypeRecyclerView4.getLastCompletelyVisiblePosition()) {
                 BdTypeRecyclerView bdTypeRecyclerView5 = this.recyclerView;
                 if (bdTypeRecyclerView5 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
                 }
-                int firstVisiblePosition = i - bdTypeRecyclerView5.getFirstVisiblePosition();
+                int firstVisiblePosition = i2 - bdTypeRecyclerView5.getFirstVisiblePosition();
                 if (firstVisiblePosition >= 0) {
                     BdTypeRecyclerView bdTypeRecyclerView6 = this.recyclerView;
                     if (bdTypeRecyclerView6 == null) {
@@ -543,9 +543,9 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
             if (bdTypeRecyclerView9 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("recyclerView");
             }
-            bdTypeRecyclerView9.smoothScrollToPosition(i);
+            bdTypeRecyclerView9.smoothScrollToPosition(i2);
             this.isNeedTwiceScroll = true;
-            this.twiceScrollToPosition = i;
+            this.twiceScrollToPosition = i2;
         }
     }
 
@@ -574,7 +574,7 @@ public final class VideoMiddlePageLightActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.core.util.videoPreload.IVideoNeedPreload
     public boolean videoNeedPreload() {
         if (!j.H()) {
-            d.b.j0.q3.f d2 = d.b.j0.q3.f.d();
+            d.a.j0.q3.f d2 = d.a.j0.q3.f.d();
             Intrinsics.checkExpressionValueIsNotNull(d2, "VideoHolyCardManager.getInstance()");
             if (!d2.e()) {
                 return false;

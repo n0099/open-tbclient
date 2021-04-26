@@ -7,12 +7,12 @@ public abstract class LuminanceSource {
     public final int height;
     public final int width;
 
-    public LuminanceSource(int i, int i2) {
-        this.width = i;
-        this.height = i2;
+    public LuminanceSource(int i2, int i3) {
+        this.width = i2;
+        this.height = i3;
     }
 
-    public LuminanceSource crop(int i, int i2, int i3, int i4) {
+    public LuminanceSource crop(int i2, int i3, int i4, int i5) {
         throw new UnsupportedOperationException("This luminance source does not support cropping.");
     }
 
@@ -22,7 +22,7 @@ public abstract class LuminanceSource {
 
     public abstract byte[] getMatrix();
 
-    public abstract byte[] getRow(int i, byte[] bArr);
+    public abstract byte[] getRow(int i2, byte[] bArr);
 
     public final int getWidth() {
         return this.width;
@@ -49,14 +49,14 @@ public abstract class LuminanceSource {
     }
 
     public final String toString() {
-        int i = this.width;
-        byte[] bArr = new byte[i];
-        StringBuilder sb = new StringBuilder(this.height * (i + 1));
-        for (int i2 = 0; i2 < this.height; i2++) {
-            bArr = getRow(i2, bArr);
-            for (int i3 = 0; i3 < this.width; i3++) {
-                int i4 = bArr[i3] & 255;
-                sb.append(i4 < 64 ? SwanTaskDeadEvent.SEPARATOR : i4 < 128 ? '+' : i4 < 192 ? IStringUtil.EXTENSION_SEPARATOR : ' ');
+        int i2 = this.width;
+        byte[] bArr = new byte[i2];
+        StringBuilder sb = new StringBuilder(this.height * (i2 + 1));
+        for (int i3 = 0; i3 < this.height; i3++) {
+            bArr = getRow(i3, bArr);
+            for (int i4 = 0; i4 < this.width; i4++) {
+                int i5 = bArr[i4] & 255;
+                sb.append(i5 < 64 ? SwanTaskDeadEvent.SEPARATOR : i5 < 128 ? '+' : i5 < 192 ? IStringUtil.EXTENSION_SEPARATOR : ' ');
             }
             sb.append('\n');
         }

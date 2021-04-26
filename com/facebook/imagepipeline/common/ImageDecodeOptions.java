@@ -6,7 +6,7 @@ import com.facebook.imagepipeline.transformation.BitmapTransformation;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ImageDecodeOptions {
     public static final ImageDecodeOptions DEFAULTS = newBuilder().build();
     public final Bitmap.Config bitmapConfig;

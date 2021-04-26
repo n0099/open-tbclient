@@ -5,8 +5,8 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 /* loaded from: classes3.dex */
 public class ScrollView extends android.widget.ScrollView {
-    public ScrollView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ScrollView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a(context);
     }
 
@@ -15,40 +15,40 @@ public class ScrollView extends android.widget.ScrollView {
 
     @Override // android.widget.ScrollView
     public int computeScrollDeltaToGetChildRectOnScreen(Rect rect) {
-        int i;
         int i2;
+        int i3;
         if (getChildCount() == 0) {
             return 0;
         }
         int height = getHeight();
         int scrollY = getScrollY();
-        int i3 = scrollY + height;
+        int i4 = scrollY + height;
         int verticalFadingEdgeLength = getVerticalFadingEdgeLength();
         if (rect.top > 0) {
             scrollY += verticalFadingEdgeLength;
         }
         if (rect.bottom < getChildAt(0).getHeight()) {
-            i3 -= verticalFadingEdgeLength;
+            i4 -= verticalFadingEdgeLength;
         }
-        int i4 = rect.top;
-        if (i4 > i3 && rect.bottom > i3 && i4 > scrollY) {
+        int i5 = rect.top;
+        if (i5 > i4 && rect.bottom > i4 && i5 > scrollY) {
             if (rect.height() > height) {
-                i2 = rect.top - scrollY;
+                i3 = rect.top - scrollY;
             } else {
-                i2 = rect.bottom - i3;
+                i3 = rect.bottom - i4;
             }
-            return Math.min(i2 + 0, getChildAt(0).getBottom() - i3);
+            return Math.min(i3 + 0, getChildAt(0).getBottom() - i4);
         }
-        int i5 = rect.bottom;
-        if (i5 >= scrollY || rect.top >= scrollY || i5 >= i3) {
+        int i6 = rect.bottom;
+        if (i6 >= scrollY || rect.top >= scrollY || i6 >= i4) {
             return 0;
         }
         if (rect.height() > height) {
-            i = 0 - (i3 - rect.bottom);
+            i2 = 0 - (i4 - rect.bottom);
         } else {
-            i = 0 - (scrollY - rect.top);
+            i2 = 0 - (scrollY - rect.top);
         }
-        return Math.max(i, -getScrollY());
+        return Math.max(i2, -getScrollY());
     }
 
     public ScrollView(Context context, AttributeSet attributeSet) {

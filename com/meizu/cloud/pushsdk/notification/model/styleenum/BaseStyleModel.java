@@ -7,8 +7,8 @@ public enum BaseStyleModel {
     
     public int code;
 
-    BaseStyleModel(int i) {
-        this.code = i;
+    BaseStyleModel(int i2) {
+        this.code = i2;
     }
 
     public int getCode() {

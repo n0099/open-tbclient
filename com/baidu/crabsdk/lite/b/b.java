@@ -6,16 +6,16 @@ import java.util.LinkedList;
 public final class b<E> extends LinkedList<E> {
     public final int xu;
 
-    public b(int i) {
-        this.xu = i;
+    public b(int i2) {
+        this.xu = i2;
     }
 
     @Override // java.util.LinkedList, java.util.AbstractSequentialList, java.util.AbstractList, java.util.List
-    public final void add(int i, E e2) {
+    public final void add(int i2, E e2) {
         if (size() == this.xu) {
             removeFirst();
         }
-        super.add(i, e2);
+        super.add(i2, e2);
     }
 
     @Override // java.util.LinkedList, java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List, java.util.Deque, java.util.Queue

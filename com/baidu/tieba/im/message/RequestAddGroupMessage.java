@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import d.b.c.e.m.b;
+import d.a.c.e.m.b;
 import protobuf.AddGroup.AddGroupReqIdl;
 import protobuf.AddGroup.DataReq;
 /* loaded from: classes4.dex */
@@ -88,16 +88,16 @@ public class RequestAddGroupMessage extends TbSocketMessage {
         this.business = str;
     }
 
-    public void setFlag(int i) {
-        this.flag = i;
+    public void setFlag(int i2) {
+        this.flag = i2;
     }
 
-    public void setForumId(int i) {
-        this.forumId = i;
+    public void setForumId(int i2) {
+        this.forumId = i2;
     }
 
-    public void setGroupType(int i) {
-        this.groupType = i;
+    public void setGroupType(int i2) {
+        this.groupType = i2;
     }
 
     public void setIntro(String str) {

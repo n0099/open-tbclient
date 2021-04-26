@@ -2,10 +2,10 @@ package com.baidu.tieba.square.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.a3.f.d;
+import d.a.j0.a3.f.d;
 import tbclient.Error;
 import tbclient.GetForumSquare.GetForumSquareResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForumSquareSocketResponsedMessage extends TbSocketReponsedMessage {
     public d mForumSquareRespData;
 
@@ -19,7 +19,7 @@ public class ForumSquareSocketResponsedMessage extends TbSocketReponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         String str;
         Integer num;
         GetForumSquareResIdl getForumSquareResIdl = (GetForumSquareResIdl) new Wire(new Class[0]).parseFrom(bArr, GetForumSquareResIdl.class);

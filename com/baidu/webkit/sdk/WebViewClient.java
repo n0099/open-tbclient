@@ -138,8 +138,8 @@ public class WebViewClient {
         return false;
     }
 
-    public int computeHookH5NavigationStep(int i) {
-        return i;
+    public int computeHookH5NavigationStep(int i2) {
+        return i2;
     }
 
     public void doUpdateVisitedHistory(WebView webView, String str, boolean z, boolean z2, boolean z3, boolean z4) {
@@ -160,7 +160,7 @@ public class WebViewClient {
     public void onDiTingUploadFeatures(WebView webView, String str, String str2, String str3) {
     }
 
-    public void onDidAsyncWiseSearchStatusChanged(WebView webView, String str, int i, long j) {
+    public void onDidAsyncWiseSearchStatusChanged(WebView webView, String str, int i2, long j) {
     }
 
     public void onDisplaySoftKeyboard(WebView webView) {
@@ -187,7 +187,7 @@ public class WebViewClient {
     public void onFirstPaintDid(WebView webView, String str) {
     }
 
-    public void onFirstScreenPaintFinished(WebView webView, String str, int i, int i2, int i3, int i4, int i5) {
+    public void onFirstScreenPaintFinished(WebView webView, String str, int i2, int i3, int i4, int i5, int i6) {
     }
 
     public void onFirstTextPaint(WebView webView, String str) {
@@ -197,35 +197,35 @@ public class WebViewClient {
         message.sendToTarget();
     }
 
-    public void onFullScreenMode(WebView webView, boolean z, int i, int i2) {
+    public void onFullScreenMode(WebView webView, boolean z, int i2, int i3) {
     }
 
-    public void onGestureFlingEnded(WebView webView, int i, int i2) {
+    public void onGestureFlingEnded(WebView webView, int i2, int i3) {
     }
 
-    public void onGestureScrollEnded(WebView webView, int i, int i2) {
+    public void onGestureScrollEnded(WebView webView, int i2, int i3) {
     }
 
-    public void onGestureScrollStarted(WebView webView, int i, int i2) {
+    public void onGestureScrollStarted(WebView webView, int i2, int i3) {
     }
 
-    public String onGetErrorContent(WebView webView, int i, String str, String str2) {
+    public String onGetErrorContent(WebView webView, int i2, String str, String str2) {
         return null;
     }
 
-    public void onGoBackOrForward(WebView webView, int i) {
+    public void onGoBackOrForward(WebView webView, int i2) {
     }
 
-    public void onGoBackOrForwardAnimationFinish(WebView webView, int i) {
+    public void onGoBackOrForwardAnimationFinish(WebView webView, int i2) {
     }
 
-    public void onGoBackOrForwardAnimationStart(WebView webView, int i) {
+    public void onGoBackOrForwardAnimationStart(WebView webView, int i2) {
     }
 
     public void onGotNotResponse(WebView webView) {
     }
 
-    public void onHandleBackForwardBeyondHistory(int i) {
+    public void onHandleBackForwardBeyondHistory(int i2) {
     }
 
     public void onHasVideo(WebView webView) {
@@ -249,19 +249,19 @@ public class WebViewClient {
     public void onMagicFilterAbortResourceRequest(String str, String str2, boolean z) {
     }
 
-    public void onMagicFilterHideElement(WebView webView, String str, int i, int i2, int i3, int i4, int i5) {
+    public void onMagicFilterHideElement(WebView webView, String str, int i2, int i3, int i4, int i5, int i6) {
     }
 
-    public void onMainActionsCollected(WebView webView, boolean z, int i) {
+    public void onMainActionsCollected(WebView webView, boolean z, int i2) {
     }
 
-    public void onMainResourceHttpcodeDid(WebView webView, int i, String str) {
+    public void onMainResourceHttpcodeDid(WebView webView, int i2, String str) {
     }
 
-    public void onMainResourceIdDid(WebView webView, int i) {
+    public void onMainResourceIdDid(WebView webView, int i2) {
     }
 
-    public void onMainResourceNetcodeDid(WebView webView, int i) {
+    public void onMainResourceNetcodeDid(WebView webView, int i2) {
     }
 
     public void onMainResourceResponseDid(WebView webView, String str) {
@@ -282,7 +282,7 @@ public class WebViewClient {
     public void onNavigationAnimationStart(WebView webView, boolean z) {
     }
 
-    public void onNewHistoryItem(WebView webView, String str, int i) {
+    public void onNewHistoryItem(WebView webView, String str, int i2) {
     }
 
     public void onPageCanBeScaled(WebView webView, boolean z) {
@@ -311,7 +311,7 @@ public class WebViewClient {
     public void onPageSwitching(WebView webView) {
     }
 
-    public void onPageWithHSTSDid(String str, int i, boolean z) {
+    public void onPageWithHSTSDid(String str, int i2, boolean z) {
     }
 
     public void onPausePlugin() {
@@ -339,7 +339,7 @@ public class WebViewClient {
     }
 
     @Deprecated
-    public void onReceivedError(WebView webView, int i, String str, String str2) {
+    public void onReceivedError(WebView webView, int i2, String str, String str2) {
     }
 
     public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
@@ -363,7 +363,7 @@ public class WebViewClient {
         return false;
     }
 
-    public void onResourceLoaded(WebView webView, String str, long j, String str2, String str3, int i) {
+    public void onResourceLoaded(WebView webView, String str, long j, String str2, String str3, int i2) {
     }
 
     public void onRestoreFromCache(WebView webView, String str) {
@@ -391,7 +391,7 @@ public class WebViewClient {
         return false;
     }
 
-    public void onSubjectsCollected(WebView webView, boolean z, int i) {
+    public void onSubjectsCollected(WebView webView, boolean z, int i2) {
     }
 
     public boolean onSupportsForceZoomScale(WebView webView) {
@@ -402,7 +402,7 @@ public class WebViewClient {
         return false;
     }
 
-    public void onThemeColorChanged(WebView webView, int i) {
+    public void onThemeColorChanged(WebView webView, int i2) {
     }
 
     @Deprecated
@@ -416,7 +416,7 @@ public class WebViewClient {
     public void onUpdateTextFieldNextPreStatus(WebView webView, boolean z, boolean z2) {
     }
 
-    public void onUrlRedirectedDid(WebView webView, String str, String str2, int i) {
+    public void onUrlRedirectedDid(WebView webView, String str, String str2, int i2) {
     }
 
     public void onUserInteraction(WebView webView, String str, InteractionType interactionType) {

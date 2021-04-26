@@ -5,7 +5,7 @@ import okhttp3.Response;
 public abstract class ResponseCallback<T> {
     public abstract void onFail(Exception exc);
 
-    public abstract void onSuccess(T t, int i);
+    public abstract void onSuccess(T t, int i2);
 
-    public abstract T parseResponse(Response response, int i) throws Exception;
+    public abstract T parseResponse(Response response, int i2) throws Exception;
 }

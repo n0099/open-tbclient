@@ -35,7 +35,7 @@ public class UIUtils {
     }
 
     public static synchronized int getStatusBarHeight(Context context) {
-        int i;
+        int i2;
         synchronized (UIUtils.class) {
             if (!get) {
                 int identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
@@ -47,21 +47,21 @@ public class UIUtils {
                     Log.d(TAG, "status bar util: " + statusBarHeight);
                 }
             }
-            i = statusBarHeight;
+            i2 = statusBarHeight;
         }
-        return i;
+        return i2;
     }
 
     public static int getStatusBarHeightEx() {
         int identifier = AppRuntime.getAppContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
-        int i = 0;
+        int i2 = 0;
         if (identifier > 0) {
             try {
-                i = AppRuntime.getAppContext().getResources().getDimensionPixelSize(identifier);
+                i2 = AppRuntime.getAppContext().getResources().getDimensionPixelSize(identifier);
             } catch (Exception unused) {
             }
         }
-        return i == 0 ? (int) (getDensity(null) * 25.0f) : i;
+        return i2 == 0 ? (int) (getDensity(null) * 25.0f) : i2;
     }
 
     public static void initDisplayMetrics(Context context) {

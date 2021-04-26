@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.faceshop.CollectEmotionData;
-import d.b.c.e.p.q;
-import d.b.i0.a0.d;
+import d.a.c.e.p.q;
+import d.a.i0.a0.d;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,12 +21,12 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
     public List<String> mFaceGroupData;
     public long mFaceGroupUpdateTime;
 
-    public GetCloudFaceGroupMessage(int i) {
-        super(i);
+    public GetCloudFaceGroupMessage(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
@@ -55,9 +55,9 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
             return;
         }
         this.mCollectEmotionList = new ArrayList();
-        for (int i = 0; i < jSONArray.length(); i++) {
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             try {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                JSONObject jSONObject = jSONArray.getJSONObject(i2);
                 if (jSONObject != null) {
                     CollectEmotionData collectEmotionData = new CollectEmotionData();
                     collectEmotionData.pid = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
@@ -67,7 +67,7 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
                     collectEmotionData.thumbnail = jSONObject.optString("thumbnail");
                     collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
                     collectEmotionData.pkgId = jSONObject.optString("pck_id");
-                    StringBuilder sb = new StringBuilder(d.f50414f);
+                    StringBuilder sb = new StringBuilder(d.f47968f);
                     if (TextUtils.isEmpty(collectEmotionData.pkgId)) {
                         sb.append(collectEmotionData.pkgId);
                         sb.append(",");
@@ -96,11 +96,11 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
             return;
         }
         this.mCollectUpdateTime = jSONObject.optLong("pic_update_time");
-        if (d.b.j0.y1.d.k() < this.mCollectUpdateTime) {
+        if (d.a.j0.y1.d.k() < this.mCollectUpdateTime) {
             parseCollectData(jSONObject.optJSONArray("pic_ids"));
         }
         this.mFaceGroupUpdateTime = jSONObject.optLong("pkg_update_time");
-        if (d.b.j0.y1.d.l() < this.mFaceGroupUpdateTime) {
+        if (d.a.j0.y1.d.l() < this.mFaceGroupUpdateTime) {
             parseFaceGroupData(jSONObject.optString("package_ids"));
         }
     }

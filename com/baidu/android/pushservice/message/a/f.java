@@ -28,14 +28,14 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class f {
-    public static void a(final Context context, final CrossPushMessage crossPushMessage, final String str, final byte[] bArr, final byte[] bArr2, final int i) {
+    public static void a(final Context context, final CrossPushMessage crossPushMessage, final String str, final byte[] bArr, final byte[] bArr2, final int i2) {
         com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c("showCrossAppNotification", (short) 99) { // from class: com.baidu.android.pushservice.message.a.f.1
             @Override // com.baidu.android.pushservice.h.c
             public void a() {
                 Bitmap q;
                 try {
-                    Intent parseUri = Intent.parseUri("baidupush://bdpush/cross?from=" + context.getPackageName() + "&to=" + crossPushMessage.f3456a, 0);
-                    parseUri.setPackage(crossPushMessage.f3456a);
+                    Intent parseUri = Intent.parseUri("baidupush://bdpush/cross?from=" + context.getPackageName() + "&to=" + crossPushMessage.f3491a, 0);
+                    parseUri.setPackage(crossPushMessage.f3491a);
                     parseUri.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
                     parseUri.putExtra("msgid", crossPushMessage.mMsgId);
                     parseUri.putExtra("notification_title", crossPushMessage.mTitle);
@@ -56,21 +56,21 @@ public class f {
                     RemoteViews remoteViews = new RemoteViews(packageName, context.getResources().getIdentifier("push_custom_notification", "layout", packageName));
                     remoteViews.setTextViewText(context.getResources().getIdentifier("push_custom_msg_title", "id", packageName), crossPushMessage.mTitle);
                     remoteViews.setTextViewText(context.getResources().getIdentifier("push_custom_msg_content", "id", packageName), crossPushMessage.mDescription);
-                    if (!TextUtils.isEmpty(crossPushMessage.f3457b) && (q = m.q(context, crossPushMessage.f3457b)) != null) {
+                    if (!TextUtils.isEmpty(crossPushMessage.f3492b) && (q = m.q(context, crossPushMessage.f3492b)) != null) {
                         remoteViews.setImageViewBitmap(context.getResources().getIdentifier("push_custom_msg_icon", "id", packageName), q);
                     }
                     remoteViews.setTextViewText(context.getResources().getIdentifier("push_custom_msg_time", "id", packageName), DateUtils.formatDateTime(context, System.currentTimeMillis(), 1));
                     autoCancel.setContent(remoteViews);
                     Notification build = Build.VERSION.SDK_INT >= 16 ? autoCancel.build() : autoCancel.getNotification();
-                    int i2 = Build.VERSION.SDK_INT;
-                    if (i2 >= 24) {
+                    int i3 = Build.VERSION.SDK_INT;
+                    if (i3 >= 24) {
                         autoCancel.setCustomBigContentView(remoteViews);
-                    } else if (i2 >= 16) {
+                    } else if (i3 >= 16) {
                         build.bigContentView = remoteViews;
                     }
                     NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
                     if (notificationManager != null) {
-                        notificationManager.notify(i, build);
+                        notificationManager.notify(i2, build);
                     }
                 } catch (Exception e2) {
                     new b.c(context).a(Log.getStackTraceString(e2)).a();
@@ -80,7 +80,7 @@ public class f {
     }
 
     @SuppressLint({"NewApi"})
-    public static void a(Context context, PublicMsg publicMsg, String str, int i) {
+    public static void a(Context context, PublicMsg publicMsg, String str, int i2) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
         Intent intent = new Intent(context, PushService.class);
         intent.setAction("com.baidu.pushservice.action.publicmsg.CLICK_V2");
@@ -93,10 +93,10 @@ public class f {
         intent.setClass(context, PushService.class);
         intent2.setClass(context, PushService.class);
         Notification.Builder autoCancel = new Notification.Builder(context).setContentTitle(publicMsg.mTitle).setContentText(publicMsg.mDescription).setSmallIcon(17301569).setTicker(publicMsg.mTitle).setSound(RingtoneManager.getDefaultUri(2)).setDeleteIntent(PendingIntent.getService(context, 0, intent2, 0)).setContentIntent(PendingIntent.getService(context, 0, intent, 0)).setAutoCancel(true);
-        notificationManager.notify(i, Build.VERSION.SDK_INT >= 16 ? autoCancel.build() : autoCancel.getNotification());
+        notificationManager.notify(i2, Build.VERSION.SDK_INT >= 16 ? autoCancel.build() : autoCancel.getNotification());
     }
 
-    public static void a(Context context, PublicMsg publicMsg, String str, String str2, int i, byte[] bArr, byte[] bArr2, int i2) {
+    public static void a(Context context, PublicMsg publicMsg, String str, String str2, int i2, byte[] bArr, byte[] bArr2, int i3) {
         Intent intent = new Intent();
         intent.putExtra("public_msg", publicMsg);
         intent.putExtra("pushService_package_name", context.getPackageName());
@@ -104,8 +104,8 @@ public class f {
         intent.putExtra("notify_type", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
         intent.putExtra("message_id", str);
         intent.putExtra(Constants.APP_ID, str2);
-        intent.putExtra("notify_id", i2);
-        intent.putExtra("baidu_message_type", i);
+        intent.putExtra("notify_id", i3);
+        intent.putExtra("baidu_message_type", i2);
         if (m.g(context, publicMsg.mPkgName) > 45) {
             intent.putExtra("baidu_message_body", bArr2);
             intent.putExtra("baidu_message_secur_info", bArr);

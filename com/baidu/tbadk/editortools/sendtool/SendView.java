@@ -9,25 +9,27 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import d.b.i0.w.n;
-import d.b.j0.d3.c;
+import d.a.i0.w.n;
+import d.a.j0.d3.c;
 /* loaded from: classes3.dex */
 public class SendView extends TextView implements n {
     public static int j = 1;
     public static int k;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditorTools f13568e;
+    public EditorTools f13561e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13569f;
+    public int f13562f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean[] f13570g;
+    public boolean[] f13563g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int[] f13571h;
-    public int i;
+    public int[] f13564h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f13565i;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -36,15 +38,15 @@ public class SendView extends TextView implements n {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            SendView.this.d(new d.b.i0.w.a(8, -1, null));
+            SendView.this.d(new d.a.i0.w.a(8, -1, null));
         }
     }
 
     public SendView(Context context) {
         super(context);
-        this.f13570g = new boolean[]{false, false, false, false, false};
-        this.f13571h = new int[]{0, 0};
-        this.i = k;
+        this.f13563g = new boolean[]{false, false, false, false, false};
+        this.f13564h = new int[]{0, 0};
+        this.f13565i = k;
         setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds17), context.getResources().getDimensionPixelSize(R.dimen.ds28), context.getResources().getDimensionPixelSize(R.dimen.ds10), context.getResources().getDimensionPixelSize(R.dimen.ds28));
         setGravity(17);
         setIncludeFontPadding(false);
@@ -55,16 +57,16 @@ public class SendView extends TextView implements n {
         setOnClickListener(new a());
     }
 
-    public void a(int i) {
-        if (i == k) {
-            boolean[] zArr = this.f13570g;
+    public void a(int i2) {
+        if (i2 == k) {
+            boolean[] zArr = this.f13563g;
             if (!zArr[0] && !zArr[1] && !zArr[2] && !zArr[3] && !zArr[4]) {
                 setEnabled(false);
             } else {
                 setEnabled(true);
             }
-        } else if (i == j) {
-            if (this.f13570g[1]) {
+        } else if (i2 == j) {
+            if (this.f13563g[1]) {
                 setEnabled(true);
             } else {
                 setEnabled(false);
@@ -72,124 +74,124 @@ public class SendView extends TextView implements n {
         }
     }
 
-    @Override // d.b.i0.w.n
+    @Override // d.a.i0.w.n
     public void b() {
         setVisibility(0);
     }
 
-    @Override // d.b.i0.w.n
-    public void d(d.b.i0.w.a aVar) {
-        EditorTools editorTools = this.f13568e;
+    @Override // d.a.i0.w.n
+    public void d(d.a.i0.w.a aVar) {
+        EditorTools editorTools = this.f13561e;
         if (editorTools != null) {
             editorTools.A(aVar);
         }
     }
 
-    @Override // d.b.i0.w.n
+    @Override // d.a.i0.w.n
     public int getToolId() {
-        return this.f13569f;
+        return this.f13562f;
     }
 
-    @Override // d.b.i0.w.n
+    @Override // d.a.i0.w.n
     public void hide() {
         setVisibility(8);
     }
 
-    @Override // d.b.i0.w.n
+    @Override // d.a.i0.w.n
     public void init() {
         setClickable(false);
     }
 
-    @Override // d.b.i0.w.b
-    public void onAction(d.b.i0.w.a aVar) {
+    @Override // d.a.i0.w.b
+    public void onAction(d.a.i0.w.a aVar) {
         if (aVar == null) {
             return;
         }
-        int i = aVar.f52278a;
-        if (i == 4) {
-            Object obj = aVar.f52280c;
+        int i2 = aVar.f49949a;
+        if (i2 == 4) {
+            Object obj = aVar.f49951c;
             if (obj != null && (!(obj instanceof String) || !StringUtils.isNull((String) obj))) {
-                this.f13570g[0] = true;
+                this.f13563g[0] = true;
             } else {
-                this.f13570g[0] = false;
+                this.f13563g[0] = false;
             }
-        } else if (i == 39 || i == 28) {
-            this.f13570g[3] = true;
-        } else if (i != 29) {
-            switch (i) {
+        } else if (i2 == 39 || i2 == 28) {
+            this.f13563g[3] = true;
+        } else if (i2 != 29) {
+            switch (i2) {
                 case 9:
-                    boolean[] zArr = this.f13570g;
+                    boolean[] zArr = this.f13563g;
                     zArr[0] = false;
                     zArr[1] = false;
                     zArr[2] = false;
                     zArr[3] = false;
                     zArr[4] = false;
-                    int[] iArr = this.f13571h;
+                    int[] iArr = this.f13564h;
                     iArr[0] = 0;
                     iArr[1] = 0;
                     break;
                 case 10:
-                    this.f13570g[2] = true;
+                    this.f13563g[2] = true;
                     break;
                 case 11:
-                    this.f13570g[2] = false;
+                    this.f13563g[2] = false;
                     break;
                 case 12:
-                    Object obj2 = aVar.f52280c;
-                    if (obj2 instanceof d.b.i0.w.r.a) {
-                        d.b.i0.w.r.a aVar2 = (d.b.i0.w.r.a) obj2;
-                        WriteImagesInfo writeImagesInfo = aVar2.f52300a;
+                    Object obj2 = aVar.f49951c;
+                    if (obj2 instanceof d.a.i0.w.r.a) {
+                        d.a.i0.w.r.a aVar2 = (d.a.i0.w.r.a) obj2;
+                        WriteImagesInfo writeImagesInfo = aVar2.f49972a;
                         if (writeImagesInfo != null) {
                             if (writeImagesInfo.getChosedFiles() != null) {
-                                this.f13571h[0] = aVar2.f52300a.getChosedFiles().size();
+                                this.f13564h[0] = aVar2.f49972a.getChosedFiles().size();
                             } else {
-                                this.f13571h[0] = 0;
+                                this.f13564h[0] = 0;
                             }
                         }
-                        if (this.f13571h[0] > 0) {
-                            this.f13570g[1] = true;
+                        if (this.f13564h[0] > 0) {
+                            this.f13563g[1] = true;
                             break;
                         } else {
-                            this.f13570g[1] = false;
+                            this.f13563g[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr2 = this.f13571h;
+                    int[] iArr2 = this.f13564h;
                     iArr2[0] = iArr2[0] - 1;
                     if (iArr2[0] > 0) {
-                        this.f13570g[1] = true;
+                        this.f13563g[1] = true;
                         break;
                     } else {
-                        this.f13570g[1] = false;
+                        this.f13563g[1] = false;
                         break;
                     }
             }
         } else {
-            this.f13570g[3] = false;
+            this.f13563g[3] = false;
         }
-        a(this.i);
+        a(this.f13565i);
     }
 
-    @Override // d.b.i0.w.n
-    public void onChangeSkinType(int i) {
-        int color = SkinManager.getColor(i, R.color.CAM_X0302);
+    @Override // d.a.i0.w.n
+    public void onChangeSkinType(int i2) {
+        int color = SkinManager.getColor(i2, R.color.CAM_X0302);
         setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{c.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), c.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
     }
 
-    @Override // d.b.i0.w.n
+    @Override // d.a.i0.w.n
     public void setEditorTools(EditorTools editorTools) {
-        this.f13568e = editorTools;
+        this.f13561e = editorTools;
     }
 
-    @Override // d.b.i0.w.n
-    public void setToolId(int i) {
-        this.f13569f = i;
+    @Override // d.a.i0.w.n
+    public void setToolId(int i2) {
+        this.f13562f = i2;
     }
 
-    public void setType(int i) {
-        this.i = i;
+    public void setType(int i2) {
+        this.f13565i = i2;
     }
 }

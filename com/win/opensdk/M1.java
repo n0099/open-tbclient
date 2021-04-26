@@ -1,23 +1,19 @@
 package com.win.opensdk;
 
-import android.content.Context;
-import android.text.TextUtils;
-/* loaded from: classes7.dex */
-public final class M1 {
-    public static String a(Context context) {
-        String i = V1.i(context);
-        if (TextUtils.isEmpty(i)) {
-            try {
-                K1 a2 = L1.a(context);
-                String str = a2 == null ? null : a2.f40091a;
-                if (TextUtils.isEmpty(str)) {
-                    V1.f(context, str);
-                }
-                return str;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return i;
+import android.view.View;
+import com.win.opensdk.views.CloseParentView;
+/* loaded from: classes6.dex */
+public class M1 implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ CloseParentView f37708a;
+
+    public M1(CloseParentView closeParentView) {
+        this.f37708a = closeParentView;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f37708a.a();
     }
 }

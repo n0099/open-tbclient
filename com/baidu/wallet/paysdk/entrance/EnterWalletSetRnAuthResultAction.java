@@ -8,10 +8,10 @@ import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class EnterWalletSetRnAuthResultAction implements RouterAction {
-    private void a(int i, String str) {
+    private void a(int i2, String str) {
         RNAuthCallBack rNAuthBack = BaiduPay.getInstance().getRNAuthBack();
         if (rNAuthBack != null) {
-            rNAuthBack.onRNAuthResult(i, str);
+            rNAuthBack.onRNAuthResult(i2, str);
             BaiduPay.getInstance().clearRNAuthBack();
         }
     }

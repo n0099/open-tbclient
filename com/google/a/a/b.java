@@ -9,13 +9,13 @@ import android.os.RemoteException;
 public class b extends Binder implements IInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.h.a.a.b f30643a;
+    public static d.g.a.a.b f31578a;
 
     public b(String str) {
         attachInterface(this, str);
     }
 
-    public boolean a(int i, Parcel parcel) throws RemoteException {
+    public boolean a(int i2, Parcel parcel) throws RemoteException {
         return false;
     }
 
@@ -25,10 +25,10 @@ public class b extends Binder implements IInterface {
     }
 
     @Override // android.os.Binder
-    public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+    public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
         boolean z;
-        if (i > 16777215) {
-            z = super.onTransact(i, parcel, parcel2, i2);
+        if (i2 > 16777215) {
+            z = super.onTransact(i2, parcel, parcel2, i3);
         } else {
             parcel.enforceInterface(getInterfaceDescriptor());
             z = false;
@@ -36,6 +36,6 @@ public class b extends Binder implements IInterface {
         if (z) {
             return true;
         }
-        return a(i, parcel);
+        return a(i2, parcel);
     }
 }

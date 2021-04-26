@@ -2,7 +2,7 @@ package com.baidu.tieba.write.share;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.j0.v3.q.c;
+import d.a.j0.v3.p.c;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class CheckResponse extends JsonHttpResponsedMessage {
@@ -13,8 +13,8 @@ public class CheckResponse extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        if (i != 1003417 || jSONObject == null) {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        if (i2 != 1003417 || jSONObject == null) {
             return;
         }
         setError(jSONObject.optInt("error_code"));
@@ -24,9 +24,9 @@ public class CheckResponse extends JsonHttpResponsedMessage {
         }
         c cVar = new c();
         this.mCheckResponseData = cVar;
-        cVar.f63826a = jSONObject.optString("tbopen_app_key");
-        this.mCheckResponseData.f63828c = jSONObject.optString("tbopen_app_name");
-        this.mCheckResponseData.f63829d = jSONObject.optString("tbopen_app_icon");
+        cVar.f62063a = jSONObject.optString("tbopen_app_key");
+        this.mCheckResponseData.f62065c = jSONObject.optString("tbopen_app_name");
+        this.mCheckResponseData.f62066d = jSONObject.optString("tbopen_app_icon");
         JSONObject optJSONObject = jSONObject.optJSONObject("config");
         if (optJSONObject != null) {
             this.mCheckResponseData.j = optJSONObject.optString("default_pic");

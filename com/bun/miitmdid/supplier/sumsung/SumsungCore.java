@@ -31,7 +31,7 @@ public class SumsungCore {
         this.mConnection = new ServiceConnection() { // from class: com.bun.miitmdid.supplier.sumsung.SumsungCore.1
             @Override // android.content.ServiceConnection
             public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                SumsungCore.this.mDeviceidInterface = a.AbstractBinderC0490a.a(iBinder);
+                SumsungCore.this.mDeviceidInterface = a.AbstractBinderC0434a.a(iBinder);
                 if (SumsungCore.this.mCallerCallBack != null) {
                     SumsungCore.this.mCallerCallBack.a(true);
                 }

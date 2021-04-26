@@ -37,25 +37,25 @@ import org.json.JSONObject;
 public class al {
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f30074a = -1.0f;
+    public static float f30991a = -1.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f30075b = -1;
+    public static int f30992b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f30076c = -1.0f;
+    public static float f30993c = -1.0f;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f30077d = -1;
+    public static int f30994d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f30078e = -1;
+    public static int f30995e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static WindowManager f30079f;
+    public static WindowManager f30996f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static float f30080g;
+    public static float f30997g;
 
     static {
         a(com.bytedance.sdk.openadsdk.core.p.a());
@@ -63,61 +63,61 @@ public class al {
 
     public static void a(Context context) {
         Context a2 = context == null ? com.bytedance.sdk.openadsdk.core.p.a() : context;
-        f30079f = (WindowManager) com.bytedance.sdk.openadsdk.core.p.a().getSystemService("window");
+        f30996f = (WindowManager) com.bytedance.sdk.openadsdk.core.p.a().getSystemService("window");
         if (a2 == null) {
             return;
         }
         if (b()) {
             DisplayMetrics displayMetrics = a2.getResources().getDisplayMetrics();
-            f30074a = displayMetrics.density;
-            f30075b = displayMetrics.densityDpi;
-            f30076c = displayMetrics.scaledDensity;
-            f30077d = displayMetrics.widthPixels;
-            f30078e = displayMetrics.heightPixels;
+            f30991a = displayMetrics.density;
+            f30992b = displayMetrics.densityDpi;
+            f30993c = displayMetrics.scaledDensity;
+            f30994d = displayMetrics.widthPixels;
+            f30995e = displayMetrics.heightPixels;
         }
         if (context == null || context.getResources() == null || context.getResources().getConfiguration() == null) {
             return;
         }
         if (context.getResources().getConfiguration().orientation == 1) {
-            int i = f30077d;
-            int i2 = f30078e;
-            if (i > i2) {
-                f30077d = i2;
-                f30078e = i;
+            int i2 = f30994d;
+            int i3 = f30995e;
+            if (i2 > i3) {
+                f30994d = i3;
+                f30995e = i2;
                 return;
             }
             return;
         }
-        int i3 = f30077d;
-        int i4 = f30078e;
-        if (i3 < i4) {
-            f30077d = i4;
-            f30078e = i3;
+        int i4 = f30994d;
+        int i5 = f30995e;
+        if (i4 < i5) {
+            f30994d = i5;
+            f30995e = i4;
         }
     }
 
-    public static boolean a(int i) {
-        return i == 0 || i == 8 || i == 4;
+    public static boolean a(int i2) {
+        return i2 == 0 || i2 == 8 || i2 == 4;
     }
 
     public static int c(Context context) {
         a(context);
-        return f30077d;
+        return f30994d;
     }
 
     public static int d(Context context) {
         a(context);
-        return f30078e;
+        return f30995e;
     }
 
     public static float e(Context context) {
         a(context);
-        return f30074a;
+        return f30991a;
     }
 
     public static int f(Context context) {
         a(context);
-        return f30075b;
+        return f30992b;
     }
 
     public static void g(View view) {
@@ -162,7 +162,7 @@ public class al {
     }
 
     public static boolean b() {
-        return f30074a < 0.0f || f30075b < 0 || f30076c < 0.0f || f30077d < 0 || f30078e < 0;
+        return f30991a < 0.0f || f30992b < 0 || f30993c < 0.0f || f30994d < 0 || f30995e < 0;
     }
 
     public static int b(Context context, float f2) {
@@ -232,22 +232,22 @@ public class al {
         if (context == null) {
             return null;
         }
-        if (f30079f == null) {
-            f30079f = (WindowManager) com.bytedance.sdk.openadsdk.core.p.a().getSystemService("window");
+        if (f30996f == null) {
+            f30996f = (WindowManager) com.bytedance.sdk.openadsdk.core.p.a().getSystemService("window");
         }
         int[] iArr = new int[2];
-        WindowManager windowManager = f30079f;
+        WindowManager windowManager = f30996f;
         if (windowManager != null) {
             Display defaultDisplay = windowManager.getDefaultDisplay();
             DisplayMetrics displayMetrics = new DisplayMetrics();
             defaultDisplay.getMetrics(displayMetrics);
-            int i = displayMetrics.widthPixels;
-            int i2 = displayMetrics.heightPixels;
-            int i3 = Build.VERSION.SDK_INT;
-            if (i3 >= 14 && i3 < 17) {
+            int i2 = displayMetrics.widthPixels;
+            int i3 = displayMetrics.heightPixels;
+            int i4 = Build.VERSION.SDK_INT;
+            if (i4 >= 14 && i4 < 17) {
                 try {
-                    i = ((Integer) Display.class.getMethod("getRawWidth", new Class[0]).invoke(defaultDisplay, new Object[0])).intValue();
-                    i2 = ((Integer) Display.class.getMethod("getRawHeight", new Class[0]).invoke(defaultDisplay, new Object[0])).intValue();
+                    i2 = ((Integer) Display.class.getMethod("getRawWidth", new Class[0]).invoke(defaultDisplay, new Object[0])).intValue();
+                    i3 = ((Integer) Display.class.getMethod("getRawHeight", new Class[0]).invoke(defaultDisplay, new Object[0])).intValue();
                 } catch (Exception unused) {
                 }
             }
@@ -255,13 +255,13 @@ public class al {
                 try {
                     Point point = new Point();
                     Display.class.getMethod("getRealSize", Point.class).invoke(defaultDisplay, point);
-                    i = point.x;
-                    i2 = point.y;
+                    i2 = point.x;
+                    i3 = point.y;
                 } catch (Exception unused2) {
                 }
             }
-            iArr[0] = i;
-            iArr[1] = i2;
+            iArr[0] = i2;
+            iArr[1] = i3;
         }
         if (iArr[0] <= 0 || iArr[1] <= 0) {
             DisplayMetrics displayMetrics2 = context.getResources().getDisplayMetrics();
@@ -305,17 +305,17 @@ public class al {
             return;
         }
         try {
-            if (Build.VERSION.SDK_INT >= 28 && f30080g == 0.0f) {
+            if (Build.VERSION.SDK_INT >= 28 && f30997g == 0.0f) {
                 WindowInsets rootWindowInsets = view.getRootWindowInsets();
                 DisplayCutout displayCutout = rootWindowInsets != null ? rootWindowInsets.getDisplayCutout() : null;
                 if (displayCutout != null) {
-                    f30080g = displayCutout.getSafeInsetTop();
+                    f30997g = displayCutout.getSafeInsetTop();
                 }
             }
-            if (f30080g == 0.0f) {
+            if (f30997g == 0.0f) {
                 return;
             }
-            float max = Math.max(i(view.getContext()), f30080g);
+            float max = Math.max(i(view.getContext()), f30997g);
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams instanceof FrameLayout.LayoutParams) {
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
@@ -338,13 +338,13 @@ public class al {
         return (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
     }
 
-    public static void c(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, String str, String str2, Bitmap bitmap, boolean z, int i) {
+    public static void c(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, String str, String str2, Bitmap bitmap, boolean z, int i2) {
         if (bitmap != null) {
             try {
                 if (bitmap.getWidth() > 0 && bitmap.getHeight() > 0 && !bitmap.isRecycled()) {
                     int a2 = a(bitmap);
                     if (a2 >= 50 || z) {
-                        com.bytedance.sdk.openadsdk.c.d.a(context, lVar, str, str2, a2, i);
+                        com.bytedance.sdk.openadsdk.c.d.a(context, lVar, str, str2, a2, i2);
                     }
                 }
             } catch (Throwable th) {
@@ -358,13 +358,13 @@ public class al {
         return (f2 * e(context)) + 0.5f;
     }
 
-    public static void a(View view, int i, int i2, int i3, int i4) {
+    public static void a(View view, int i2, int i3, int i4, int i5) {
         Rect rect = new Rect();
         view.getHitRect(rect);
-        rect.top -= i;
-        rect.bottom += i2;
-        rect.left -= i3;
-        rect.right += i4;
+        rect.top -= i2;
+        rect.bottom += i3;
+        rect.left -= i4;
+        rect.right += i5;
         ((View) view.getParent()).setTouchDelegate(new n(rect, view));
     }
 
@@ -377,12 +377,12 @@ public class al {
         return null;
     }
 
-    public static void b(View view, int i, int i2, int i3, int i4) {
+    public static void b(View view, int i2, int i3, int i4, int i5) {
         ViewGroup.LayoutParams layoutParams;
         if (view == null || (layoutParams = view.getLayoutParams()) == null || !(layoutParams instanceof ViewGroup.MarginLayoutParams)) {
             return;
         }
-        a(view, (ViewGroup.MarginLayoutParams) layoutParams, i, i2, i3, i4);
+        a(view, (ViewGroup.MarginLayoutParams) layoutParams, i2, i3, i4, i5);
     }
 
     @Nullable
@@ -409,11 +409,11 @@ public class al {
         return f.a(d2, d2.getWidth() / 6, d2.getHeight() / 6);
     }
 
-    public static void a(View view, int i) {
-        if (view == null || view.getVisibility() == i || !a(i)) {
+    public static void a(View view, int i2) {
+        if (view == null || view.getVisibility() == i2 || !a(i2)) {
             return;
         }
-        view.setVisibility(i);
+        view.setVisibility(i2);
     }
 
     public static void a(View view, float f2) {
@@ -445,13 +445,13 @@ public class al {
         try {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
-            int i = width * height;
-            int[] iArr = new int[i];
+            int i2 = width * height;
+            int[] iArr = new int[i2];
             bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
             ArrayList<Integer> arrayList = new ArrayList<>();
-            for (int i2 = 0; i2 < i; i2++) {
-                int i3 = iArr[i2];
-                arrayList.add(Integer.valueOf(Color.rgb((16711680 & i3) >> 16, (65280 & i3) >> 8, i3 & 255)));
+            for (int i3 = 0; i3 < i2; i3++) {
+                int i4 = iArr[i3];
+                arrayList.add(Integer.valueOf(Color.rgb((16711680 & i4) >> 16, (65280 & i4) >> 8, i4 & 255)));
             }
             return arrayList;
         } catch (Throwable unused) {
@@ -459,24 +459,24 @@ public class al {
         }
     }
 
-    public static void a(View view, ViewGroup.MarginLayoutParams marginLayoutParams, int i, int i2, int i3, int i4) {
+    public static void a(View view, ViewGroup.MarginLayoutParams marginLayoutParams, int i2, int i3, int i4, int i5) {
         if (view == null || marginLayoutParams == null) {
             return;
         }
-        if (marginLayoutParams.leftMargin == i && marginLayoutParams.topMargin == i2 && marginLayoutParams.rightMargin == i3 && marginLayoutParams.bottomMargin == i4) {
+        if (marginLayoutParams.leftMargin == i2 && marginLayoutParams.topMargin == i3 && marginLayoutParams.rightMargin == i4 && marginLayoutParams.bottomMargin == i5) {
             return;
         }
-        if (i != -3) {
-            marginLayoutParams.leftMargin = i;
-        }
         if (i2 != -3) {
-            marginLayoutParams.topMargin = i2;
+            marginLayoutParams.leftMargin = i2;
         }
         if (i3 != -3) {
-            marginLayoutParams.rightMargin = i3;
+            marginLayoutParams.topMargin = i3;
         }
         if (i4 != -3) {
-            marginLayoutParams.bottomMargin = i4;
+            marginLayoutParams.rightMargin = i4;
+        }
+        if (i5 != -3) {
+            marginLayoutParams.bottomMargin = i5;
         }
         view.setLayoutParams(marginLayoutParams);
     }
@@ -494,15 +494,15 @@ public class al {
             jSONObject = new JSONObject();
         }
         try {
-            int i = 1;
+            int i2 = 1;
             if (!jSONObject.has("app_scene")) {
                 jSONObject.put("app_scene", com.bytedance.sdk.openadsdk.core.i.d().a() ? 1 : 0);
             }
             if (!jSONObject.has("lock_scene")) {
                 if (!(!a())) {
-                    i = 0;
+                    i2 = 0;
                 }
-                jSONObject.put("lock_scene", i);
+                jSONObject.put("lock_scene", i2);
             }
         } catch (Throwable th) {
             u.b("addShowScene error " + th.toString());
@@ -542,11 +542,11 @@ public class al {
         view.setOnTouchListener(onTouchListener);
     }
 
-    public static void a(final Context context, final com.bytedance.sdk.openadsdk.core.d.l lVar, final String str, final String str2, final Bitmap bitmap, final boolean z, final int i) {
+    public static void a(final Context context, final com.bytedance.sdk.openadsdk.core.d.l lVar, final String str, final String str2, final Bitmap bitmap, final boolean z, final int i2) {
         com.bytedance.sdk.openadsdk.l.e.a(new com.bytedance.sdk.openadsdk.l.g("startCheckPlayableStatusPercentage") { // from class: com.bytedance.sdk.openadsdk.utils.al.3
             @Override // java.lang.Runnable
             public void run() {
-                al.c(context, lVar, str, str2, bitmap, z, i);
+                al.c(context, lVar, str, str2, bitmap, z, i2);
             }
         }, 5);
     }
@@ -569,19 +569,19 @@ public class al {
                     hashMap.put(next, 1);
                 }
             }
-            int i = 0;
             int i2 = 0;
+            int i3 = 0;
             for (Map.Entry entry : hashMap.entrySet()) {
                 int intValue = ((Integer) entry.getValue()).intValue();
-                if (i2 < intValue) {
-                    i = ((Integer) entry.getKey()).intValue();
-                    i2 = intValue;
+                if (i3 < intValue) {
+                    i2 = ((Integer) entry.getKey()).intValue();
+                    i3 = intValue;
                 }
             }
-            if (i == 0) {
+            if (i2 == 0) {
                 return -1;
             }
-            return (int) ((i2 / ((bitmap.getWidth() * bitmap.getHeight()) * 1.0f)) * 100.0f);
+            return (int) ((i3 / ((bitmap.getWidth() * bitmap.getHeight()) * 1.0f)) * 100.0f);
         } catch (Throwable unused) {
             return -1;
         }

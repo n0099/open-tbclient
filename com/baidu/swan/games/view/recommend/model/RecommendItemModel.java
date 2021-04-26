@@ -3,19 +3,19 @@ package com.baidu.swan.games.view.recommend.model;
 import com.alipay.sdk.cons.b;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.NoProGuard;
-import d.h.d.a.c;
+import com.google.gson.annotations.SerializedName;
 /* loaded from: classes3.dex */
 public class RecommendItemModel implements NoProGuard {
-    @c(b.f1883h)
+    @SerializedName(b.f1831h)
     public String appKey;
-    @c(DpStatConstants.KEY_APP_NAME)
+    @SerializedName(DpStatConstants.KEY_APP_NAME)
     public String appName;
     public String buttonText;
-    @c("desc")
+    @SerializedName("desc")
     public String desc;
-    @c("icon_url")
+    @SerializedName("icon_url")
     public String iconUrl;
-    @c("scheme")
+    @SerializedName("scheme")
     public String scheme;
 
     public String getAppKey() {

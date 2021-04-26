@@ -29,13 +29,13 @@ public class IMDelMsg extends Message {
     public int mReSendCount = 0;
     public long mToId;
 
-    public IMDelMsg(Context context, long j, int i, long[] jArr, long j2, boolean z) {
+    public IMDelMsg(Context context, long j, int i2, long[] jArr, long j2, boolean z) {
         this.mClientMaxMsgid = -1L;
         initCommonParameter(context);
         this.mContext = context;
         this.mToId = j;
         setNeedReplay(true);
-        this.mCategory = i;
+        this.mCategory = i2;
         setType(57);
         this.mMsgIds = jArr;
         this.mClientMaxMsgid = j2;
@@ -72,8 +72,8 @@ public class IMDelMsg extends Message {
             jArr = null;
         } else {
             long[] jArr2 = new long[optJSONArray.length()];
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                jArr2[i] = optJSONArray.getLong(i);
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                jArr2[i2] = optJSONArray.getLong(i2);
             }
             jArr = jArr2;
         }
@@ -135,14 +135,14 @@ public class IMDelMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
         try {
             if (TextUtils.isEmpty(this.mListenerKey)) {
-                if (i == 0) {
+                if (i2 == 0) {
                     DBManager.getInstance(context).deleteCmdMsg(getUUID());
                     setNeedReSend(false);
                 } else {
-                    if (i != 1004 && i != 1001) {
+                    if (i2 != 1004 && i2 != 1001) {
                         if (this.mReSendCount >= 3) {
                             setNeedReSend(false);
                             DBManager.getInstance(context).deleteCmdMsg(getUUID());
@@ -153,13 +153,13 @@ public class IMDelMsg extends Message {
                         DBManager.getInstance(context).updateCmdMsgSendStatus(getUUID(), 1);
                     }
                     setNeedReSend(false);
-                    LoginManager.getInstance(this.mContext).triggleLogoutListener(i, str);
+                    LoginManager.getInstance(this.mContext).triggleLogoutListener(i2, str);
                     DBManager.getInstance(context).updateCmdMsgSendStatus(getUUID(), 1);
                 }
-            } else if (i == 0) {
+            } else if (i2 == 0) {
                 updateDB(context);
             }
-            super.handleMessageResult(context, jSONObject, i, str);
+            super.handleMessageResult(context, jSONObject, i2, str);
         } catch (Exception e2) {
             LogUtils.e(TAG, "handle IMDelMsg exception :", e2);
         }

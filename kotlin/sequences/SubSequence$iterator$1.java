@@ -25,8 +25,8 @@ public final class SubSequence$iterator$1 implements Iterator<T>, KMappedMarker 
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private final void drop() {
-        int i;
-        while (r0 < i && this.iterator.hasNext()) {
+        int i2;
+        while (r0 < i2 && this.iterator.hasNext()) {
             this.iterator.next();
             this.position++;
         }
@@ -42,21 +42,21 @@ public final class SubSequence$iterator$1 implements Iterator<T>, KMappedMarker 
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        int i;
+        int i2;
         drop();
-        int i2 = this.position;
-        i = this.this$0.endIndex;
-        return i2 < i && this.iterator.hasNext();
+        int i3 = this.position;
+        i2 = this.this$0.endIndex;
+        return i3 < i2 && this.iterator.hasNext();
     }
 
     /* JADX WARN: Type inference failed for: r0v5, types: [T, java.lang.Object] */
     @Override // java.util.Iterator
     public T next() {
-        int i;
+        int i2;
         drop();
-        int i2 = this.position;
-        i = this.this$0.endIndex;
-        if (i2 < i) {
+        int i3 = this.position;
+        i2 = this.this$0.endIndex;
+        if (i3 < i2) {
             this.position++;
             return this.iterator.next();
         }
@@ -68,7 +68,7 @@ public final class SubSequence$iterator$1 implements Iterator<T>, KMappedMarker 
         throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 
-    public final void setPosition(int i) {
-        this.position = i;
+    public final void setPosition(int i2) {
+        this.position = i2;
     }
 }

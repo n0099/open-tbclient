@@ -7,48 +7,48 @@ import com.baidu.mapsdkplatform.comapi.synchronization.c.c;
 public class d extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f7749a;
+    public final /* synthetic */ int f8028a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ HistoryTraceQueryOptions f7750b;
+    public final /* synthetic */ HistoryTraceQueryOptions f8029b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f7751c;
+    public final /* synthetic */ String f8030c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ b.a f7752d;
+    public final /* synthetic */ b.a f8031d;
 
-    public d(b.a aVar, int i, HistoryTraceQueryOptions historyTraceQueryOptions, String str) {
-        this.f7752d = aVar;
-        this.f7749a = i;
-        this.f7750b = historyTraceQueryOptions;
-        this.f7751c = str;
+    public d(b.a aVar, int i2, HistoryTraceQueryOptions historyTraceQueryOptions, String str) {
+        this.f8031d = aVar;
+        this.f8028a = i2;
+        this.f8029b = historyTraceQueryOptions;
+        this.f8030c = str;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.e
     public void a(c.a aVar) {
-        int i;
         int i2;
         int i3;
+        int i4;
         if (c.a.SERVER_ERROR == aVar || c.a.NETWORK_ERROR == aVar || c.a.INNER_ERROR == aVar || c.a.REQUEST_ERROR == aVar) {
-            i = b.f7744g;
-            if (i <= 2) {
-                this.f7752d.a(this.f7751c, this.f7749a, this.f7750b);
-                i2 = b.f7744g;
-                int unused = b.f7744g = i2 + 1;
+            i2 = b.f8022g;
+            if (i2 <= 2) {
+                this.f8031d.a(this.f8030c, this.f8028a, this.f8029b);
+                i3 = b.f8022g;
+                int unused = b.f8022g = i3 + 1;
             }
         }
-        i3 = b.f7744g;
-        if (2 < i3) {
-            this.f7752d.a(aVar, this.f7749a);
+        i4 = b.f8022g;
+        if (2 < i4) {
+            this.f8031d.a(aVar, this.f8028a);
         }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.e
     public void a(String str) {
-        String str2 = b.f7740a;
+        String str2 = b.f8018a;
         com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str2, "Request success, the result = " + str);
-        this.f7752d.a(3, str, this.f7749a, this.f7750b);
-        int unused = b.f7744g = 0;
+        this.f8031d.a(3, str, this.f8028a, this.f8029b);
+        int unused = b.f8022g = 0;
     }
 }

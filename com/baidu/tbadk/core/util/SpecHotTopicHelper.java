@@ -8,13 +8,13 @@ import android.util.Pair;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc;
-import d.b.c.e.l.c;
-import d.b.c.e.l.d;
-import d.b.c.e.m.e;
-import d.b.c.e.p.l;
-import d.b.c.j.d.a;
-import d.b.i0.r.f0.k;
-import d.b.i0.r.q.a2;
+import d.a.c.e.l.c;
+import d.a.c.e.l.d;
+import d.a.c.e.m.e;
+import d.a.c.e.p.l;
+import d.a.c.j.d.a;
+import d.a.i0.r.f0.k;
+import d.a.i0.r.q.a2;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -22,16 +22,16 @@ public class SpecHotTopicHelper {
     public static final Map<Long, Pair<String, String>> mMap = new HashMap();
     public static c mResourceCallback = new c<a>() { // from class: com.baidu.tbadk.core.util.SpecHotTopicHelper.2
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.c.e.l.c
-        public void onLoaded(a aVar, String str, int i) {
-            super.onLoaded((AnonymousClass2) aVar, str, i);
+        @Override // d.a.c.e.l.c
+        public void onLoaded(a aVar, String str, int i2) {
+            super.onLoaded((AnonymousClass2) aVar, str, i2);
             if (aVar != null) {
-                d.b.i0.a0.c.k().a(str, aVar.p());
+                d.a.i0.a0.c.k().a(str, aVar.p());
             }
         }
     };
 
-    public static void addSpecTopic(a2 a2Var, SpannableString spannableString, String str, int i) {
+    public static void addSpecTopic(a2 a2Var, SpannableString spannableString, String str, int i2) {
         a loadBdImageFromLocal;
         a loadBdImageFromLocal2;
         BitmapDrawable bitmapDrawable;
@@ -43,21 +43,21 @@ public class SpecHotTopicHelper {
         if (StringUtils.isNull(D0) || StringUtils.isNull(c1)) {
             return;
         }
-        Bitmap j = d.b.i0.a0.c.k().j(D0);
+        Bitmap j = d.a.i0.a0.c.k().j(D0);
         if ((j == null || !AbstractImageLoaderProc.isImageFileExist(D0, 10)) && (loadBdImageFromLocal = AbstractImageLoaderProc.loadBdImageFromLocal(D0, 10)) != null) {
             j = loadBdImageFromLocal.p();
-            d.b.i0.a0.c.k().a(D0, j);
+            d.a.i0.a0.c.k().a(D0, j);
         }
-        Bitmap j2 = d.b.i0.a0.c.k().j(c1);
+        Bitmap j2 = d.a.i0.a0.c.k().j(c1);
         if ((j2 == null || !AbstractImageLoaderProc.isImageFileExist(c1, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(c1, 10)) != null) {
             j2 = loadBdImageFromLocal2.p();
-            d.b.i0.a0.c.k().a(c1, j2);
+            d.a.i0.a0.c.k().a(c1, j2);
         }
         if (j != null && !j.isRecycled() && j2 != null && !j2.isRecycled()) {
-            int i2 = 0;
-            for (int i3 = 0; i3 < str.length(); i3++) {
-                if (str.charAt(i3) == '#') {
-                    if (i2 % 2 == 0) {
+            int i3 = 0;
+            for (int i4 = 0; i4 < str.length(); i4++) {
+                if (str.charAt(i4) == '#') {
+                    if (i3 % 2 == 0) {
                         bitmapDrawable = new BitmapDrawable(j);
                         bitmapDrawable.setBounds(0, 0, j.getWidth(), j.getHeight());
                     } else {
@@ -66,9 +66,9 @@ public class SpecHotTopicHelper {
                     }
                     k kVar = new k(bitmapDrawable);
                     kVar.b(l.e(TbadkCoreApplication.getInst(), a2Var.p));
-                    int i4 = i + i3;
-                    spannableString.setSpan(kVar, i4, i4 + 1, 33);
-                    i2++;
+                    int i5 = i2 + i4;
+                    spannableString.setSpan(kVar, i5, i5 + 1, 33);
+                    i3++;
                 }
             }
             return;
@@ -77,10 +77,10 @@ public class SpecHotTopicHelper {
     }
 
     public static void loadSpecTopicIconIfNeed(final String str, final String str2) {
-        Bitmap j = d.b.i0.a0.c.k().j(str);
-        Bitmap j2 = d.b.i0.a0.c.k().j(str2);
+        Bitmap j = d.a.i0.a0.c.k().j(str);
+        Bitmap j2 = d.a.i0.a0.c.k().j(str2);
         if (j == null || j2 == null) {
-            if (!l.B()) {
+            if (!l.C()) {
                 e.a().post(new Runnable() { // from class: com.baidu.tbadk.core.util.SpecHotTopicHelper.1
                     @Override // java.lang.Runnable
                     public void run() {

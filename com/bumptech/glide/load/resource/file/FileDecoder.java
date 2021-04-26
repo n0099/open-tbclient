@@ -15,7 +15,7 @@ public class FileDecoder implements ResourceDecoder<File, File> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource<File> decode(@NonNull File file, int i, int i2, @NonNull Options options) {
+    public Resource<File> decode(@NonNull File file, int i2, int i3, @NonNull Options options) {
         return new FileResource(file);
     }
 }

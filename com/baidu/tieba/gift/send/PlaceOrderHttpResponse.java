@@ -2,15 +2,15 @@ package com.baidu.tieba.gift.send;
 
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.u0.d.a;
+import d.a.j0.u0.d.a;
 import tbclient.Error;
 import tbclient.PlaceOrder.PlaceOrderResIdl;
 /* loaded from: classes4.dex */
 public class PlaceOrderHttpResponse extends TbHttpResponsedMessage {
     public a orderInfo;
 
-    public PlaceOrderHttpResponse(int i) {
-        super(i);
+    public PlaceOrderHttpResponse(int i2) {
+        super(i2);
     }
 
     public a getOrderInfo() {
@@ -19,7 +19,7 @@ public class PlaceOrderHttpResponse extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         PlaceOrderResIdl placeOrderResIdl = (PlaceOrderResIdl) new Wire(new Class[0]).parseFrom(bArr, PlaceOrderResIdl.class);
         if (placeOrderResIdl == null) {
             return;

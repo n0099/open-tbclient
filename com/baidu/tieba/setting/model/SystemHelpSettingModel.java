@@ -16,22 +16,22 @@ import com.baidu.tbadk.core.util.StorageFile;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f20688e;
+    public b f21244e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f20689f;
+    public c f21245f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f20690g;
+    public Context f21246g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BaseActivity.LoadDataCallBack f20691h;
+    public BaseActivity.LoadDataCallBack f21247h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<String, Integer, String> {
         public b() {
         }
@@ -40,10 +40,11 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
-            d.b.i0.r.g0.b.b.a();
+            d.a.i0.r.g0.b.b.a();
             try {
                 FileHelper.clearCacheDir("image");
                 FileHelper.clearCacheDir("images");
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921549));
                 StorageFile.getInstance().clearBubbleCache();
                 return null;
             } catch (Exception e2) {
@@ -56,14 +57,14 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((b) str);
-            SystemHelpSettingModel.this.f20688e = null;
-            if (SystemHelpSettingModel.this.f20691h != null) {
-                SystemHelpSettingModel.this.f20691h.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+            SystemHelpSettingModel.this.f21244e = null;
+            if (SystemHelpSettingModel.this.f21247h != null) {
+                SystemHelpSettingModel.this.f21247h.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends BdAsyncTask<String, String, String> {
         public c() {
         }
@@ -71,15 +72,15 @@ public class SystemHelpSettingModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            d.b.c.e.a.b bVar = new d.b.c.e.a.b();
+            d.a.c.e.a.b bVar = new d.a.c.e.a.b();
             String a2 = bVar.a("image", true, false, true);
             String cacheDir = FileHelper.getCacheDir();
-            String str = cacheDir + "voice";
-            String str2 = cacheDir + TbConfig.TMP_DATABASE_NAME;
-            long directorySize = FileHelper.getDirectorySize(a2, false) + FileHelper.getDirectorySize(str, false) + FileHelper.getFileSize(str2) + FileHelper.getDirectorySize(bVar.a("images", true, false, true), false);
-            float f2 = ((float) directorySize) + 0.0f;
-            if (directorySize >= 10485.76d) {
-                return String.format("%.2f", Float.valueOf(f2 / 1048576.0f)) + SystemHelpSettingModel.this.f20690g.getString(R.string.mebibyte);
+            String a3 = bVar.a("images", true, false, true);
+            long directorySize = FileHelper.getDirectorySize(a2, false);
+            long directorySize2 = directorySize + FileHelper.getDirectorySize(cacheDir + "voice", false) + FileHelper.getFileSize(cacheDir + TbConfig.TMP_DATABASE_NAME) + FileHelper.getDirectorySize(a3, false) + ((Long) MessageManager.getInstance().runTask(2921548, Long.class).getData()).longValue();
+            float f2 = ((float) directorySize2) + 0.0f;
+            if (directorySize2 >= 10485.76d) {
+                return String.format("%.2f", Float.valueOf(f2 / 1048576.0f)) + SystemHelpSettingModel.this.f21246g.getString(R.string.mebibyte);
             }
             return "";
         }
@@ -88,24 +89,24 @@ public class SystemHelpSettingModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((c) str);
-            SystemHelpSettingModel.this.f20689f = null;
-            if (SystemHelpSettingModel.this.f20691h != null) {
-                SystemHelpSettingModel.this.f20691h.callback(MoreModel.TaskType.GET_SIZE, str);
+            SystemHelpSettingModel.this.f21245f = null;
+            if (SystemHelpSettingModel.this.f21247h != null) {
+                SystemHelpSettingModel.this.f21247h.callback(MoreModel.TaskType.GET_SIZE, str);
             }
         }
     }
 
     public SystemHelpSettingModel(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.f20688e = null;
-        this.f20689f = null;
-        this.f20690g = null;
-        this.f20691h = null;
-        this.f20690g = systemHelpSettingActivity.getPageContext().getPageActivity();
+        this.f21244e = null;
+        this.f21245f = null;
+        this.f21246g = null;
+        this.f21247h = null;
+        this.f21246g = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
     public void A(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.f20691h = loadDataCallBack;
+        this.f21247h = loadDataCallBack;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -119,9 +120,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     public void w() {
-        if (this.f20688e == null) {
+        if (this.f21244e == null) {
             b bVar = new b();
-            this.f20688e = bVar;
+            this.f21244e = bVar;
             bVar.execute(new String[0]);
         }
     }
@@ -135,9 +136,9 @@ public class SystemHelpSettingModel extends BdBaseModel {
     }
 
     public void y() {
-        if (this.f20689f == null) {
+        if (this.f21245f == null) {
             c cVar = new c();
-            this.f20689f = cVar;
+            this.f21245f = cVar;
             cVar.execute(new String[0]);
         }
     }

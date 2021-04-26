@@ -20,7 +20,7 @@ public abstract class MAActivity extends Activity {
         return null;
     }
 
-    public void setMABottomToolBarVisibility(int i) {
-        Log.d(TAG, "setMABottomToolBarVisibility = " + i);
+    public void setMABottomToolBarVisibility(int i2) {
+        Log.d(TAG, "setMABottomToolBarVisibility = " + i2);
     }
 }

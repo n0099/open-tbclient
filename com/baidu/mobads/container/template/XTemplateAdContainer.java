@@ -103,7 +103,7 @@ public class XTemplateAdContainer extends XBaseHtmlAdContainer {
             }
 
             @Override // com.baidu.mobads.container.bridge.BridgeListener
-            public void setVisibility(int i) {
+            public void setVisibility(int i2) {
             }
         };
     }
@@ -170,15 +170,15 @@ public class XTemplateAdContainer extends XBaseHtmlAdContainer {
                 }
 
                 @Override // android.webkit.WebViewClient
-                public void onReceivedError(WebView webView, int i, String str, String str2) {
-                    super.onReceivedError(webView, i, str, str2);
+                public void onReceivedError(WebView webView, int i2, String str, String str2) {
+                    super.onReceivedError(webView, i2, str, str2);
                     if ("rsplash".equals(XTemplateAdContainer.this.mAdContainerCxt.getAdProd())) {
                         PackageUtils.sendRsplashLog(XTemplateAdContainer.this.mAppContext, XTemplateAdContainer.this.mAdContainerCxt, PackageUtils.RSPLASH_HTML_LOG, 5);
                     }
                     XTemplateAdContainer.this.mAdState = 2;
                     XTemplateAdContainer xTemplateAdContainer = XTemplateAdContainer.this;
                     XAdErrorCode xAdErrorCode = XAdErrorCode.NETWORK_UNCONNECT;
-                    xTemplateAdContainer.processAdError(xAdErrorCode, "模板广告onReceivedError-" + i);
+                    xTemplateAdContainer.processAdError(xAdErrorCode, "模板广告onReceivedError-" + i2);
                 }
 
                 @Override // com.baidu.mobads.container.XMyWebViewClient, android.webkit.WebViewClient
@@ -275,7 +275,7 @@ public class XTemplateAdContainer extends XBaseHtmlAdContainer {
         if ("rsplash".equals(this.mAdContainerCxt.getAdProd())) {
             PackageUtils.sendRsplashLog(this.mAppContext, this.mAdContainerCxt, PackageUtils.RSPLASH_HTML_LOG, 2);
         }
-        this.mWebView.loadDataWithBaseURL(null, htmlSnippet, SapiWebView.K, "UTF-8", null);
+        this.mWebView.loadDataWithBaseURL(null, htmlSnippet, SapiWebView.DATA_MIME_TYPE, "UTF-8", null);
     }
 
     public Boolean loadInSamePage(String str) {

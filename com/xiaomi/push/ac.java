@@ -8,7 +8,7 @@ public class ac {
         throw new IllegalArgumentException("the length of bytes must be 4");
     }
 
-    public static byte[] a(int i) {
-        return new byte[]{(byte) (i >> 24), (byte) (i >> 16), (byte) (i >> 8), (byte) i};
+    public static byte[] a(int i2) {
+        return new byte[]{(byte) (i2 >> 24), (byte) (i2 >> 16), (byte) (i2 >> 8), (byte) i2};
     }
 }

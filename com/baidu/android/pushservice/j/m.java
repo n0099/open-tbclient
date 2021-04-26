@@ -74,19 +74,19 @@ import java.util.regex.Pattern;
 public final class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3431a = -1;
+    public static int f3466a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f3432b = {"android.permission.INTERNET", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION};
+    public static final String[] f3467b = {"android.permission.INTERNET", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION};
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f3433c = -1;
+    public static int f3468c = -1;
 
     public static boolean A(Context context) {
-        if (f3433c == -1) {
-            f3433c = !k(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION) ? 1 : 0;
+        if (f3468c == -1) {
+            f3468c = !k(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION) ? 1 : 0;
         }
-        return f3433c == 0;
+        return f3468c == 0;
     }
 
     public static boolean B(Context context) {
@@ -212,13 +212,13 @@ public final class m {
         }
     }
 
-    public static void a(Context context, String str, int i) {
+    public static void a(Context context, String str, int i2) {
         if (context == null) {
             return;
         }
         Intent a2 = l.a(context);
         a2.putExtra("method", "com.baidu.android.pushservice.action.SEND_ACK");
-        a2.putExtra("bd.cross.request.RESULT_CODE", i);
+        a2.putExtra("bd.cross.request.RESULT_CODE", i2);
         a2.putExtra("message_id", str);
         a2.setPackage(context.getPackageName());
         String b2 = b(context, context.getPackageName(), "com.baidu.android.pushservice.action.METHOD");
@@ -259,7 +259,7 @@ public final class m {
     public static synchronized void a(Context context, boolean z) {
         synchronized (m.class) {
             try {
-                f3431a = z ? 1 : 0;
+                f3466a = z ? 1 : 0;
                 SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
                 edit.putBoolean("bind_status", z);
                 edit.commit();
@@ -334,22 +334,22 @@ public final class m {
         }
     }
 
-    public static boolean a(int i, int i2, int i3, int i4) {
-        int i5 = Calendar.getInstance(Locale.CHINA).get(11);
-        int i6 = Calendar.getInstance(Locale.CHINA).get(12);
-        if (i < i3) {
-            if (i >= i5 || i5 >= i3) {
-                if (i5 != i || i6 < i2) {
-                    return i5 == i3 && i6 <= i4;
+    public static boolean a(int i2, int i3, int i4, int i5) {
+        int i6 = Calendar.getInstance(Locale.CHINA).get(11);
+        int i7 = Calendar.getInstance(Locale.CHINA).get(12);
+        if (i2 < i4) {
+            if (i2 >= i6 || i6 >= i4) {
+                if (i6 != i2 || i7 < i3) {
+                    return i6 == i4 && i7 <= i5;
                 }
                 return true;
             }
             return true;
-        } else if (i <= i3) {
-            return i == i5 && i6 >= i2 && i4 >= i6;
-        } else if ((i5 <= i || i5 >= 24) && i5 >= i3) {
-            if (i5 != i || i6 < i2) {
-                return i5 == i3 && i6 <= i4;
+        } else if (i2 <= i4) {
+            return i2 == i6 && i7 >= i3 && i5 >= i7;
+        } else if ((i6 <= i2 || i6 >= 24) && i6 >= i4) {
+            if (i6 != i2 || i7 < i3) {
+                return i6 == i4 && i7 <= i5;
             }
             return true;
         } else {
@@ -588,8 +588,8 @@ public final class m {
             PushClient.getInstance(context).initialize();
             PushClient.getInstance(context).turnOnPush(new IPushActionListener() { // from class: com.baidu.android.pushservice.j.m.2
                 @Override // com.vivo.push.IPushActionListener
-                public void onStateChanged(int i) {
-                    if (i == 101) {
+                public void onStateChanged(int i2) {
+                    if (i2 == 101) {
                         com.baidu.android.pushservice.f.b(context, 0);
                         if (z) {
                             return;
@@ -600,7 +600,7 @@ public final class m {
                         m.a(context, true, true);
                         return;
                     }
-                    if (i == 0 || i == 1) {
+                    if (i2 == 0 || i2 == 1) {
                         i.a(context, "vi_push_proxy_mode", 1);
                         if (!z && !com.baidu.android.pushservice.b.d.c(context)) {
                             com.baidu.android.pushservice.a.a(context, false);
@@ -628,7 +628,7 @@ public final class m {
 
     public static boolean b(Context context) {
         String a2 = com.baidu.android.pushservice.a.a(context);
-        if (SapiOptions.t.equals(a2)) {
+        if (SapiOptions.KEY_CACHE_ENABLED.equals(a2)) {
             return false;
         }
         if ("disabled".equals(a2)) {
@@ -1056,13 +1056,13 @@ public final class m {
     public static synchronized boolean i(Context context) {
         boolean z;
         synchronized (m.class) {
-            if (f3431a == -1) {
+            if (f3466a == -1) {
                 try {
-                    f3431a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
+                    f3466a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
                 } catch (Exception unused) {
                 }
             }
-            z = f3431a == 1;
+            z = f3466a == 1;
         }
         return z;
     }
@@ -1316,22 +1316,22 @@ public final class m {
 
     public static int o(Context context, String str) {
         int indexOf;
-        int i = 0;
+        int i2 = 0;
         do {
             try {
                 indexOf = str.indexOf("#Intent;");
                 if (indexOf != -1) {
-                    int i2 = indexOf + 8;
-                    i += i2;
-                    str = str.substring(i2);
+                    int i3 = indexOf + 8;
+                    i2 += i3;
+                    str = str.substring(i3);
                     continue;
                 }
             } catch (Exception e2) {
                 new b.c(context).a(Log.getStackTraceString(e2)).a();
-                return i;
+                return i2;
             }
         } while (indexOf != -1);
-        return i > 0 ? i - 8 : i;
+        return i2 > 0 ? i2 - 8 : i2;
     }
 
     public static boolean o(Context context) {
@@ -1418,7 +1418,7 @@ public final class m {
                 Log.e("BDPushSDK-Utility", "permission Push-SDK for oppo proxy need is not exist !");
                 return "permission Push-SDK for oppo proxy need is not exist !";
             } else {
-                for (String str : f3432b) {
+                for (String str : f3467b) {
                     if (!a(str, strArr2)) {
                         String str2 = str + " permission Push-SDK need is not exist !";
                         Log.e("BDPushSDK-Utility", str2);

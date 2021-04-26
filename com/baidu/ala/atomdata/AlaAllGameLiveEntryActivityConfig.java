@@ -11,9 +11,9 @@ public class AlaAllGameLiveEntryActivityConfig extends IntentConfig {
     @Deprecated
     public static final String ALA_ALL_GAME_ENTRY_TITLE = "ala_all_game_entry_title";
 
-    public AlaAllGameLiveEntryActivityConfig(Context context, int i, ArrayList<AlaSquareTabInfo> arrayList) {
+    public AlaAllGameLiveEntryActivityConfig(Context context, int i2, ArrayList<AlaSquareTabInfo> arrayList) {
         super(context);
-        getIntent().putExtra(ALA_ALL_GAME_ENTRY_HAS_SEARCH, i);
+        getIntent().putExtra(ALA_ALL_GAME_ENTRY_HAS_SEARCH, i2);
         getIntent().putParcelableArrayListExtra(ALA_ALL_GAME_ENTRY_DATA, arrayList);
     }
 }

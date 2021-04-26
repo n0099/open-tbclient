@@ -5,7 +5,7 @@ public class TurbonetException extends UrlRequestException {
         super(str, th);
     }
 
-    public TurbonetException(String str, int i, int i2) {
-        super(str, i, i2);
+    public TurbonetException(String str, int i2, int i3) {
+        super(str, i2, i3);
     }
 }

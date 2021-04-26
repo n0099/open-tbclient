@@ -7,7 +7,7 @@ import com.baidu.down.statistic.ThreadSpeedStat;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashSet;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public interface ICommonRequestHandler {
     void cancelRequest();
 
@@ -43,7 +43,7 @@ public interface ICommonRequestHandler {
 
     void onRemoveRequestHeader(String str);
 
-    boolean onRetryRequest(IOException iOException, int i, int i2);
+    boolean onRetryRequest(IOException iOException, int i2, int i3);
 
     void onSetRequestHeader(String str, String str2);
 

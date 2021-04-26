@@ -25,14 +25,15 @@ import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.PageDialogHelper;
 import com.baidu.tieba.R;
-import d.b.j0.r1.f.f;
+import d.a.i0.l0.d;
+import d.a.j0.r1.f.f;
 /* loaded from: classes3.dex */
 public class CardBoxMemberPayActivity extends BaseActivity implements View.OnClickListener {
     public static String MEMBER_AGREEMENT_JUMP_URL = "https://tieba.baidu.com/tb/vip_eula_mobile.html";
     public String mClickZone;
     public String mPackedId;
     public String mReferPage;
-    public d.b.j0.r1.f.a mView;
+    public d.a.j0.r1.f.a mView;
     public boolean mHasShowAnim = false;
     public boolean mAnimateRunning = false;
     public HttpMessageListener mRequestMemberPayInfoListener = new b(CmdConfigHttp.CARD_BOX_MEMBER_PAY_CMD);
@@ -60,8 +61,8 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
 
     /* loaded from: classes3.dex */
     public class b extends HttpMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -89,8 +90,8 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
 
     /* loaded from: classes3.dex */
     public class c extends CustomMessageListener {
-        public c(int i) {
-            super(i);
+        public c(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -134,7 +135,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
     }
 
     private void initUI() {
-        this.mView = new d.b.j0.r1.f.a(this);
+        this.mView = new d.a.j0.r1.f.a(this);
     }
 
     private void registerGetMemberPayInfoTask() {
@@ -162,11 +163,11 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         this.mHasShowAnim = true;
     }
 
-    private void startDealIntentService(long j, long j2, long j3, int i) {
+    private void startDealIntentService(long j, long j2, long j3, int i2) {
         String str;
         PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j), String.valueOf(j2), String.valueOf(j3), true, false, PageDialogHelper.PayForm.NOT_SET, this.mReferPage, this.mClickZone);
         payConfig.setFrom(4);
-        d.b.j0.r1.f.a aVar = this.mView;
+        d.a.j0.r1.f.a aVar = this.mView;
         if (aVar == null || aVar.i() == null) {
             str = "";
         } else {
@@ -174,10 +175,10 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
             str = this.mView.r;
         }
         payConfig.setOrderName(getPageContext().getPageActivity().getString(R.string.member_month, new Object[]{String.valueOf(j3)}));
-        payConfig.setAutoPay(i);
+        payConfig.setAutoPay(i2);
         payConfig.setPropsMon(String.valueOf(j3));
         payConfig.paymentPosKey = str;
-        d.b.i0.l0.c.c().a(payConfig, getPageContext().getPageActivity());
+        d.c().a(payConfig, getPageContext().getPageActivity());
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -204,20 +205,20 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mView.j(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mView.j(i2);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        d.b.j0.r1.f.a aVar = this.mView;
+        d.a.j0.r1.f.a aVar = this.mView;
         if (aVar == null) {
             return;
         }
         if (view == aVar.h() && this.mView.d() != null) {
             f.d d2 = this.mView.d();
-            startDealIntentService(d2.i, d2.j / 100, d2.l, d2.n);
+            startDealIntentService(d2.f59691i, d2.j / 100, d2.l, d2.n);
         } else if (view == this.mView.f()) {
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{MEMBER_AGREEMENT_JUMP_URL});
         } else if (view == this.mView.e()) {

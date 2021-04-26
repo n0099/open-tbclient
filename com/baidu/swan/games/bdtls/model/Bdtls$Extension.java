@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
 /* loaded from: classes3.dex */
-public final class Bdtls$Extension extends GeneratedMessageLite implements d.b.h0.g.d.g.b {
+public final class Bdtls$Extension extends GeneratedMessageLite implements d.a.h0.g.d.g.b {
     public static final int DATA_FIELD_NUMBER = 2;
     public static Parser<Bdtls$Extension> PARSER = new a();
     public static final int TYPE_FIELD_NUMBER = 1;
@@ -37,16 +37,16 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.b.h
     }
 
     /* loaded from: classes3.dex */
-    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements d.b.h0.g.d.g.b {
+    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements d.a.h0.g.d.g.b {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12493e;
+        public int f12382e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f12494f;
+        public int f12383f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ByteString f12495g = ByteString.EMPTY;
+        public ByteString f12384g = ByteString.EMPTY;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -63,7 +63,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.b.h
         }
 
         public boolean hasType() {
-            return (this.f12493e & 1) == 1;
+            return (this.f12382e & 1) == 1;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -96,24 +96,24 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.b.h
         /* renamed from: n */
         public Bdtls$Extension buildPartial() {
             Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this);
-            int i = this.f12493e;
-            int i2 = (i & 1) != 1 ? 0 : 1;
-            bdtls$Extension.type_ = this.f12494f;
-            if ((i & 2) == 2) {
-                i2 |= 2;
+            int i2 = this.f12382e;
+            int i3 = (i2 & 1) != 1 ? 0 : 1;
+            bdtls$Extension.type_ = this.f12383f;
+            if ((i2 & 2) == 2) {
+                i3 |= 2;
             }
-            bdtls$Extension.data_ = this.f12495g;
-            bdtls$Extension.bitField0_ = i2;
+            bdtls$Extension.data_ = this.f12384g;
+            bdtls$Extension.bitField0_ = i3;
             return bdtls$Extension;
         }
 
         public b o() {
             super.clear();
-            this.f12494f = 0;
-            int i = this.f12493e & (-2);
-            this.f12493e = i;
-            this.f12495g = ByteString.EMPTY;
-            this.f12493e = i & (-3);
+            this.f12383f = 0;
+            int i2 = this.f12382e & (-2);
+            this.f12382e = i2;
+            this.f12384g = ByteString.EMPTY;
+            this.f12382e = i2 & (-3);
             return this;
         }
 
@@ -134,7 +134,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.b.h
         }
 
         public boolean s() {
-            return (this.f12493e & 2) == 2;
+            return (this.f12382e & 2) == 2;
         }
 
         public b t(Bdtls$Extension bdtls$Extension) {
@@ -186,16 +186,16 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.b.h
 
         public b v(ByteString byteString) {
             if (byteString != null) {
-                this.f12493e |= 2;
-                this.f12495g = byteString;
+                this.f12382e |= 2;
+                this.f12384g = byteString;
                 return this;
             }
             throw null;
         }
 
-        public b w(int i) {
-            this.f12493e |= 1;
-            this.f12494f = i;
+        public b w(int i2) {
+            this.f12382e |= 1;
+            this.f12383f = i2;
             return this;
         }
 
@@ -258,9 +258,9 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements d.b.h
 
     @Override // com.google.protobuf.MessageLite
     public int getSerializedSize() {
-        int i = this.memoizedSerializedSize;
-        if (i != -1) {
-            return i;
+        int i2 = this.memoizedSerializedSize;
+        if (i2 != -1) {
+            return i2;
         }
         int computeUInt32Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeUInt32Size(1, this.type_) : 0;
         if ((this.bitField0_ & 2) == 2) {

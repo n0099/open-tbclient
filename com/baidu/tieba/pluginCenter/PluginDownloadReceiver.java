@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.lib.util.BdLog;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PluginDownloadReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {

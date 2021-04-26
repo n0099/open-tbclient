@@ -11,7 +11,7 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 public class HomeRecommendItemView extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24283a;
+    public NetImageView f25035a;
     public MaskTextView mDesc_1;
     public MaskTextView mDesc_2;
     public MaskTextView mRmdText;
@@ -28,7 +28,7 @@ public class HomeRecommendItemView extends BaseItemView {
         this.mTitle = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_rmd_title"));
         this.mDesc_1 = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_rmd_title_des_1"));
         this.mDesc_2 = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_rmd_title_des_2"));
-        this.f24283a = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
+        this.f25035a = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
@@ -79,10 +79,10 @@ public class HomeRecommendItemView extends BaseItemView {
         }
         if (!handlePoint() && hasCornor()) {
             setIconUrl(getData().corner_addr);
-            this.f24283a.setVisibility(0);
+            this.f25035a.setVisibility(0);
             return;
         }
-        this.f24283a.setVisibility(8);
+        this.f25035a.setVisibility(8);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
@@ -99,12 +99,12 @@ public class HomeRecommendItemView extends BaseItemView {
         }
     }
 
-    public void setDesc1Visibility(int i) {
+    public void setDesc1Visibility(int i2) {
         MaskTextView maskTextView = this.mDesc_1;
-        if (maskTextView == null || maskTextView.getVisibility() == i) {
+        if (maskTextView == null || maskTextView.getVisibility() == i2) {
             return;
         }
-        this.mDesc_1.setVisibility(i);
+        this.mDesc_1.setVisibility(i2);
     }
 
     public void setDesc2(String str) {
@@ -114,19 +114,19 @@ public class HomeRecommendItemView extends BaseItemView {
         }
     }
 
-    public void setDesc2Visibility(int i) {
+    public void setDesc2Visibility(int i2) {
         MaskTextView maskTextView = this.mDesc_2;
-        if (maskTextView == null || maskTextView.getVisibility() == i) {
+        if (maskTextView == null || maskTextView.getVisibility() == i2) {
             return;
         }
-        this.mDesc_2.setVisibility(i);
+        this.mDesc_2.setVisibility(i2);
     }
 
     public void setIconUrl(String str) {
-        if (this.f24283a == null || TextUtils.isEmpty(str)) {
+        if (this.f25035a == null || TextUtils.isEmpty(str)) {
             return;
         }
-        NetImageView netImageView = this.f24283a;
+        NetImageView netImageView = this.f25035a;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + str);
     }
 

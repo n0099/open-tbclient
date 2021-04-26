@@ -26,7 +26,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewPropertyAnimatorCompat;
 import androidx.core.view.ViewPropertyAnimatorListenerAdapter;
 import androidx.legacy.app.ActionBarDrawerToggle;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+import com.google.android.material.badge.BadgeDrawable;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ToolbarWidgetWrapper implements DecorToolbar {
     public static final int AFFECTS_LOGO_MASK = 3;
@@ -102,10 +103,10 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     private void updateToolbarLogo() {
         Drawable drawable;
-        int i = this.mDisplayOpts;
-        if ((i & 2) == 0) {
+        int i2 = this.mDisplayOpts;
+        if ((i2 & 2) == 0) {
             drawable = null;
-        } else if ((i & 1) != 0) {
+        } else if ((i2 & 1) != 0) {
             drawable = this.mLogo;
             if (drawable == null) {
                 drawable = this.mIcon;
@@ -117,8 +118,8 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void animateToVisibility(int i) {
-        ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = setupAnimatorToVisibility(i, 200L);
+    public void animateToVisibility(int i2) {
+        ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = setupAnimatorToVisibility(i2, 200L);
         if (viewPropertyAnimatorCompat != null) {
             viewPropertyAnimatorCompat.start();
         }
@@ -291,11 +292,11 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setDefaultNavigationContentDescription(int i) {
-        if (i == this.mDefaultNavigationContentDescription) {
+    public void setDefaultNavigationContentDescription(int i2) {
+        if (i2 == this.mDefaultNavigationContentDescription) {
             return;
         }
-        this.mDefaultNavigationContentDescription = i;
+        this.mDefaultNavigationContentDescription = i2;
         if (TextUtils.isEmpty(this.mToolbar.getNavigationContentDescription())) {
             setNavigationContentDescription(this.mDefaultNavigationContentDescription);
         }
@@ -310,22 +311,22 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setDisplayOptions(int i) {
+    public void setDisplayOptions(int i2) {
         View view;
-        int i2 = this.mDisplayOpts ^ i;
-        this.mDisplayOpts = i;
-        if (i2 != 0) {
-            if ((i2 & 4) != 0) {
-                if ((i & 4) != 0) {
+        int i3 = this.mDisplayOpts ^ i2;
+        this.mDisplayOpts = i2;
+        if (i3 != 0) {
+            if ((i3 & 4) != 0) {
+                if ((i2 & 4) != 0) {
                     updateHomeAccessibility();
                 }
                 updateNavigationIcon();
             }
-            if ((i2 & 3) != 0) {
+            if ((i3 & 3) != 0) {
                 updateToolbarLogo();
             }
-            if ((i2 & 8) != 0) {
-                if ((i & 8) != 0) {
+            if ((i3 & 8) != 0) {
+                if ((i2 & 8) != 0) {
                     this.mToolbar.setTitle(this.mTitle);
                     this.mToolbar.setSubtitle(this.mSubtitle);
                 } else {
@@ -333,10 +334,10 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
                     this.mToolbar.setSubtitle((CharSequence) null);
                 }
             }
-            if ((i2 & 16) == 0 || (view = this.mCustomView) == null) {
+            if ((i3 & 16) == 0 || (view = this.mCustomView) == null) {
                 return;
             }
-            if ((i & 16) != 0) {
+            if ((i2 & 16) != 0) {
                 this.mToolbar.addView(view);
             } else {
                 this.mToolbar.removeView(view);
@@ -352,10 +353,10 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setDropdownSelectedPosition(int i) {
+    public void setDropdownSelectedPosition(int i2) {
         Spinner spinner = this.mSpinner;
         if (spinner != null) {
-            spinner.setSelection(i);
+            spinner.setSelection(i2);
             return;
         }
         throw new IllegalStateException("Can't set dropdown selected position without an adapter");
@@ -379,7 +380,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
         Toolbar.LayoutParams layoutParams = (Toolbar.LayoutParams) this.mTabView.getLayoutParams();
         ((ViewGroup.MarginLayoutParams) layoutParams).width = -2;
         ((ViewGroup.MarginLayoutParams) layoutParams).height = -2;
-        layoutParams.gravity = 8388691;
+        layoutParams.gravity = BadgeDrawable.BOTTOM_START;
         scrollingTabContainerView.setAllowCollapse(true);
     }
 
@@ -388,13 +389,13 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setIcon(int i) {
-        setIcon(i != 0 ? AppCompatResources.getDrawable(getContext(), i) : null);
+    public void setIcon(int i2) {
+        setIcon(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setLogo(int i) {
-        setLogo(i != 0 ? AppCompatResources.getDrawable(getContext(), i) : null);
+    public void setLogo(int i2) {
+        setLogo(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
@@ -431,11 +432,11 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setNavigationMode(int i) {
+    public void setNavigationMode(int i2) {
         View view;
-        int i2 = this.mNavigationMode;
-        if (i != i2) {
-            if (i2 == 1) {
+        int i3 = this.mNavigationMode;
+        if (i2 != i3) {
+            if (i3 == 1) {
                 Spinner spinner = this.mSpinner;
                 if (spinner != null) {
                     ViewParent parent = spinner.getParent();
@@ -444,29 +445,29 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
                         toolbar.removeView(this.mSpinner);
                     }
                 }
-            } else if (i2 == 2 && (view = this.mTabView) != null) {
+            } else if (i3 == 2 && (view = this.mTabView) != null) {
                 ViewParent parent2 = view.getParent();
                 Toolbar toolbar2 = this.mToolbar;
                 if (parent2 == toolbar2) {
                     toolbar2.removeView(this.mTabView);
                 }
             }
-            this.mNavigationMode = i;
-            if (i != 0) {
-                if (i == 1) {
+            this.mNavigationMode = i2;
+            if (i2 != 0) {
+                if (i2 == 1) {
                     ensureSpinner();
                     this.mToolbar.addView(this.mSpinner, 0);
-                } else if (i == 2) {
+                } else if (i2 == 2) {
                     View view2 = this.mTabView;
                     if (view2 != null) {
                         this.mToolbar.addView(view2, 0);
                         Toolbar.LayoutParams layoutParams = (Toolbar.LayoutParams) this.mTabView.getLayoutParams();
                         ((ViewGroup.MarginLayoutParams) layoutParams).width = -2;
                         ((ViewGroup.MarginLayoutParams) layoutParams).height = -2;
-                        layoutParams.gravity = 8388691;
+                        layoutParams.gravity = BadgeDrawable.BOTTOM_START;
                     }
                 } else {
-                    throw new IllegalArgumentException("Invalid navigation mode " + i);
+                    throw new IllegalArgumentException("Invalid navigation mode " + i2);
                 }
             }
         }
@@ -487,8 +488,8 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setVisibility(int i) {
-        this.mToolbar.setVisibility(i);
+    public void setVisibility(int i2) {
+        this.mToolbar.setVisibility(i2);
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
@@ -505,8 +506,8 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(final int i, long j) {
-        return ViewCompat.animate(this.mToolbar).alpha(i == 0 ? 1.0f : 0.0f).setDuration(j).setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: androidx.appcompat.widget.ToolbarWidgetWrapper.2
+    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(final int i2, long j) {
+        return ViewCompat.animate(this.mToolbar).alpha(i2 == 0 ? 1.0f : 0.0f).setDuration(j).setListener(new ViewPropertyAnimatorListenerAdapter() { // from class: androidx.appcompat.widget.ToolbarWidgetWrapper.2
             public boolean mCanceled = false;
 
             @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
@@ -519,7 +520,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
                 if (this.mCanceled) {
                     return;
                 }
-                ToolbarWidgetWrapper.this.mToolbar.setVisibility(i);
+                ToolbarWidgetWrapper.this.mToolbar.setVisibility(i2);
             }
 
             @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
@@ -534,7 +535,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
         return this.mToolbar.showOverflowMenu();
     }
 
-    public ToolbarWidgetWrapper(Toolbar toolbar, boolean z, int i, int i2) {
+    public ToolbarWidgetWrapper(Toolbar toolbar, boolean z, int i2, int i3) {
         Drawable drawable;
         this.mNavigationMode = 0;
         this.mDefaultNavigationContentDescription = 0;
@@ -600,7 +601,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
             this.mDisplayOpts = detectDisplayOptions();
         }
         obtainStyledAttributes.recycle();
-        setDefaultNavigationContentDescription(i);
+        setDefaultNavigationContentDescription(i2);
         this.mHomeDescription = this.mToolbar.getNavigationContentDescription();
         this.mToolbar.setNavigationOnClickListener(new View.OnClickListener() { // from class: androidx.appcompat.widget.ToolbarWidgetWrapper.1
             public final ActionMenuItem mNavItem;
@@ -634,12 +635,12 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setNavigationContentDescription(int i) {
-        setNavigationContentDescription(i == 0 ? null : getContext().getString(i));
+    public void setNavigationContentDescription(int i2) {
+        setNavigationContentDescription(i2 == 0 ? null : getContext().getString(i2));
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public void setNavigationIcon(int i) {
-        setNavigationIcon(i != 0 ? AppCompatResources.getDrawable(getContext(), i) : null);
+    public void setNavigationIcon(int i2) {
+        setNavigationIcon(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
     }
 }

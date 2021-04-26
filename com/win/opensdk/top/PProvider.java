@@ -7,22 +7,18 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
-import com.win.opensdk.D1;
-import com.win.opensdk.G;
-import com.win.opensdk.V1;
-import com.win.opensdk.Z0;
 import com.win.opensdk.a1;
-import org.json.JSONException;
-import org.json.JSONStringer;
-/* loaded from: classes7.dex */
+import com.win.opensdk.s1;
+import com.win.opensdk.z;
+/* loaded from: classes6.dex */
 public class PProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40428a;
+    public Context f37951a;
 
     public final void a() {
-        if (V1.g(this.f40428a) == 0) {
-            G.f(this.f40428a);
+        if (s1.g(this.f37951a) == 0) {
+            z.c(this.f37951a);
         }
     }
 
@@ -43,33 +39,17 @@ public class PProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        long currentTimeMillis = System.currentTimeMillis();
         Context context = getContext();
-        this.f40428a = context;
+        this.f37951a = context;
         if (context != null) {
-            if (V1.g(context) == 0) {
-                G.f(this.f40428a);
-            }
-        } else {
-            new Handler(Looper.getMainLooper()).post(new D1(this));
-        }
-        try {
-            if (V1.t(getContext())) {
-                Z0 a2 = a1.a(this.f40428a);
-                long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                try {
-                    a2.f40234b = new JSONStringer().object();
-                    a2.a("e", "hbt").a("dr", currentTimeMillis2);
-                } catch (JSONException unused) {
-                }
-                a2.a();
+            if (s1.g(context) == 0) {
+                z.c(this.f37951a);
                 return true;
             }
             return true;
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return true;
         }
+        new Handler(Looper.getMainLooper()).post(new a1(this));
+        return true;
     }
 
     @Override // android.content.ContentProvider

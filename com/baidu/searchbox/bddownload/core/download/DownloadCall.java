@@ -98,7 +98,9 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
             }
             List<DownloadChain> list = (List) this.blockChainList.clone();
             for (DownloadChain downloadChain : list) {
-                downloadChain.cancel();
+                if (downloadChain != null) {
+                    downloadChain.cancel();
+                }
             }
             if (list.isEmpty() && this.currentThread != null) {
                 Util.d(TAG, "interrupt thread with cancel operation because of chains are not running " + this.task.getId());
@@ -142,7 +144,7 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
         BdDownload with = BdDownload.with();
         ProcessFileStrategy processFileStrategy = with.processFileStrategy();
         inspectTaskStart();
-        int i = 0;
+        int i2 = 0;
         while (true) {
             if (this.task.getUrl().length() <= 0) {
                 this.cache = new DownloadCache.PreError(new IOException("unexpected url: " + this.task.getUrl()));
@@ -188,17 +190,17 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
                                 break;
                             }
                             if (createCache.isPreconditionFailed()) {
-                                int i2 = i + 1;
-                                if (i < 1) {
+                                int i3 = i2 + 1;
+                                if (i2 < 1) {
                                     this.store.remove(this.task.getId());
-                                    i = i2;
+                                    i2 = i3;
                                     z = true;
                                     continue;
                                     if (!z) {
                                         break;
                                     }
                                 } else {
-                                    i = i2;
+                                    i2 = i3;
                                 }
                             }
                             z = false;
@@ -274,11 +276,11 @@ public class DownloadCall extends NamedRunnable implements Comparable<DownloadCa
         int blockCount = breakpointInfo.getBlockCount();
         ArrayList arrayList = new ArrayList(breakpointInfo.getBlockCount());
         ArrayList arrayList2 = new ArrayList();
-        for (int i = 0; i < blockCount; i++) {
-            BlockInfo block = breakpointInfo.getBlock(i);
+        for (int i2 = 0; i2 < blockCount; i2++) {
+            BlockInfo block = breakpointInfo.getBlock(i2);
             if (!Util.isCorrectFull(block.getCurrentOffset(), block.getContentLength())) {
                 Util.resetBlockIfDirty(block);
-                DownloadChain createChain = DownloadChain.createChain(i, this.task, breakpointInfo, downloadCache, this.store);
+                DownloadChain createChain = DownloadChain.createChain(i2, this.task, breakpointInfo, downloadCache, this.store);
                 arrayList.add(createChain);
                 arrayList2.add(Integer.valueOf(createChain.getBlockIndex()));
             }

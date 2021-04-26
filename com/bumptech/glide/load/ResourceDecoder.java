@@ -7,7 +7,7 @@ import java.io.IOException;
 /* loaded from: classes5.dex */
 public interface ResourceDecoder<T, Z> {
     @Nullable
-    Resource<Z> decode(@NonNull T t, int i, int i2, @NonNull Options options) throws IOException;
+    Resource<Z> decode(@NonNull T t, int i2, int i3, @NonNull Options options) throws IOException;
 
     boolean handles(@NonNull T t, @NonNull Options options) throws IOException;
 }

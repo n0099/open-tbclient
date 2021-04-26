@@ -117,11 +117,11 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Integer num, int i, int i2, @NonNull Options options) {
+    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Integer num, int i2, int i3, @NonNull Options options) {
         Uri resourceUri = getResourceUri(num);
         if (resourceUri == null) {
             return null;
         }
-        return this.uriLoader.buildLoadData(resourceUri, i, i2, options);
+        return this.uriLoader.buildLoadData(resourceUri, i2, i3, options);
     }
 }

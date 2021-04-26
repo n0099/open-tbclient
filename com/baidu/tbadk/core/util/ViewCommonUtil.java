@@ -5,7 +5,7 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.view.View;
 import com.compatible.menukey.MenuKeyUtils;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class ViewCommonUtil {
     public static int[] getScreenFullSize(Activity activity) {
@@ -36,9 +36,9 @@ public class ViewCommonUtil {
         }
         int r = l.r(activity);
         int e2 = MenuKeyUtils.hasSmartBar() ? l.e(activity, 48.0f) : 0;
-        int i = UtilHelper.canUseStyleImmersiveSticky() ? 0 : r;
+        int i2 = UtilHelper.canUseStyleImmersiveSticky() ? 0 : r;
         rect.bottom -= e2;
-        rect.top += i;
+        rect.top += i2;
         return rect;
     }
 }

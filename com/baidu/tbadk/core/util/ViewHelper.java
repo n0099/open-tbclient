@@ -13,7 +13,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tieba.R;
-import d.b.c.e.k.a;
+import d.a.c.e.k.a;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class ViewHelper {
@@ -49,7 +49,7 @@ public class ViewHelper {
         boolean onViewFound(View view);
     }
 
-    public static void addStateBarViewSpace(View view, int i, boolean z) {
+    public static void addStateBarViewSpace(View view, int i2, boolean z) {
         if (view == null || view.getParent() == null) {
             return;
         }
@@ -59,9 +59,9 @@ public class ViewHelper {
             linearLayout.setOrientation(1);
             View view3 = new View(view.getContext());
             if (z) {
-                SkinManager.setBackgroundColor(view3, i);
+                SkinManager.setBackgroundColor(view3, i2);
             } else {
-                view3.setBackgroundResource(i);
+                view3.setBackgroundResource(i2);
             }
             linearLayout.addView(view3, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
         }
@@ -83,9 +83,9 @@ public class ViewHelper {
         return isLogin;
     }
 
-    public static int getCommonColor(int i) {
+    public static int getCommonColor(int i2) {
         boolean z = true;
-        if (i != 1 && i != 4) {
+        if (i2 != 1 && i2 != 4) {
             z = false;
         }
         return getCommonColor(z);
@@ -119,8 +119,8 @@ public class ViewHelper {
         LinkedList linkedList = new LinkedList();
         while (true) {
             int childCount = viewGroup.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = viewGroup.getChildAt(i);
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = viewGroup.getChildAt(i2);
                 if (viewCallback.onViewFound(childAt)) {
                     return;
                 }
@@ -141,33 +141,33 @@ public class ViewHelper {
         }
     }
 
-    public static void processSkin(ViewGroup viewGroup, int i) {
+    public static void processSkin(ViewGroup viewGroup, int i2) {
         int identityHashCode = System.identityHashCode(viewGroup);
         Integer f2 = cachedSkinInViews.f(Integer.valueOf(identityHashCode));
-        if (f2 == null || i != f2.intValue()) {
-            processSkin0(viewGroup, i);
-            cachedSkinInViews.h(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+        if (f2 == null || i2 != f2.intValue()) {
+            processSkin0(viewGroup, i2);
+            cachedSkinInViews.h(Integer.valueOf(identityHashCode), Integer.valueOf(i2));
         }
     }
 
-    public static void processSkin0(ViewGroup viewGroup, final int i) {
-        final boolean z = i == 1 || i == 4;
+    public static void processSkin0(ViewGroup viewGroup, final int i2) {
+        final boolean z = i2 == 1 || i2 == 4;
         processAllViewsIn(viewGroup, true, new ViewCallback() { // from class: com.baidu.tbadk.core.util.ViewHelper.1
             @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
             public boolean onViewFound(View view) {
                 Object tag = view.getTag();
                 if (tag != null) {
                     if (ViewHelper.TEXT_GROUP.equals(tag)) {
-                        ViewHelper.setTextColor((TextView) view, i);
+                        ViewHelper.setTextColor((TextView) view, i2);
                         return false;
                     } else if (ViewHelper.TEXT_CONTENT.equals(tag)) {
-                        ViewHelper.setTextColor((TextView) view, i);
+                        ViewHelper.setTextColor((TextView) view, i2);
                         return false;
                     } else if (ViewHelper.TEXT_NUM.equals(tag)) {
-                        ViewHelper.setGroupTextColor((TextView) view, i);
+                        ViewHelper.setGroupTextColor((TextView) view, i2);
                         return false;
                     } else if (ViewHelper.CHECK_BOX.equals(tag)) {
-                        ViewHelper.setTextColor((CheckBox) view, i);
+                        ViewHelper.setTextColor((CheckBox) view, i2);
                         return false;
                     } else if (ViewHelper.SIDE_BAR_CONTENT.equals(tag)) {
                         ((TextView) view).setTextAppearance(TbadkCoreApplication.getInst().getApp(), z ? R.style.sidebar_content_1 : R.style.sidebar_content);
@@ -200,7 +200,7 @@ public class ViewHelper {
                         SkinManager.setImageResource((ImageView) view, R.drawable.icon_ba_top_arrow_big);
                         return false;
                     } else if (ViewHelper.LIST_ITEM_LINE.equals(tag)) {
-                        ViewHelper.setSkinForListDivider(view, i);
+                        ViewHelper.setSkinForListDivider(view, i2);
                         return false;
                     } else {
                         return false;
@@ -224,9 +224,9 @@ public class ViewHelper {
         }
     }
 
-    public static void setGroupTextColor(TextView textView, int i) {
+    public static void setGroupTextColor(TextView textView, int i2) {
         if (textView != null) {
-            if (i != 1 && i != 4) {
+            if (i2 != 1 && i2 != 4) {
                 textView.setTextColor(-5065030);
             } else {
                 textView.setTextColor(-11446171);
@@ -234,47 +234,47 @@ public class ViewHelper {
         }
     }
 
-    public static void setSkinForListDivider(View view, int i) {
+    public static void setSkinForListDivider(View view, int i2) {
         if (view == null) {
             return;
         }
-        if (i != 1 && i != 4) {
+        if (i2 != 1 && i2 != 4) {
             view.setBackgroundColor(-1183760);
         } else {
             view.setBackgroundColor(-14078923);
         }
     }
 
-    public static void setSkinForListItem(View view, int i, int i2) {
+    public static void setSkinForListItem(View view, int i2, int i3) {
         if (view == null) {
             return;
         }
         view.setBackgroundDrawable(null);
-        if (i == 0) {
+        if (i2 == 0) {
             SkinManager.setBackgroundResource(view, R.drawable.auto_skin_list_item_bg_up);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             SkinManager.setBackgroundResource(view, R.drawable.auto_skin_list_item_bg_down);
         } else {
             SkinManager.setBackgroundResource(view, R.drawable.list_selector_item);
         }
     }
 
-    public static void setTextColor(TextView textView, int i) {
+    public static void setTextColor(TextView textView, int i2) {
         if (textView != null) {
-            textView.setTextColor(getCommonColor(i));
+            textView.setTextColor(getCommonColor(i2));
         }
     }
 
     public static void skipToLoginActivity(Context context) {
         if (context != null) {
-            d.b.i0.r.z.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+            d.a.i0.r.z.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true)));
         }
     }
 
     public static void skipToLoginActivityFromH5(Context context, String str, String str2) {
         if (context != null) {
-            d.b.i0.r.z.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+            d.a.i0.r.z.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
         }
     }
@@ -282,7 +282,7 @@ public class ViewHelper {
     @Deprecated
     public static void skipToRegisterActivity(Context context) {
         if (context != null) {
-            d.b.i0.r.z.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+            d.a.i0.r.z.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
             skipToLoginActivity(context);
         }
     }
@@ -295,9 +295,9 @@ public class ViewHelper {
         return z ? mSkin_1_common_color : mMore_color;
     }
 
-    public static void setTextColor(CheckBox checkBox, int i) {
+    public static void setTextColor(CheckBox checkBox, int i2) {
         if (checkBox != null) {
-            checkBox.setTextColor(getCommonColor(i));
+            checkBox.setTextColor(getCommonColor(i2));
         }
     }
 

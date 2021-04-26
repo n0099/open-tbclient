@@ -17,25 +17,25 @@ public final class CommonPlatformViewFactory extends PlatformViewFactory {
         this.messenger = binaryMessenger;
     }
 
-    public static void removePlatformViewByPersistentViewId(int i) {
-        if (viewMap.containsKey(String.valueOf(i))) {
-            viewMap.remove(Integer.valueOf(i));
+    public static void removePlatformViewByPersistentViewId(int i2) {
+        if (viewMap.containsKey(String.valueOf(i2))) {
+            viewMap.remove(Integer.valueOf(i2));
         }
     }
 
     @Override // io.flutter.plugin.platform.PlatformViewFactory
-    public PlatformView create(Context context, int i, Object obj) {
+    public PlatformView create(Context context, int i2, Object obj) {
         Map map = (obj == null || !(obj instanceof Map)) ? null : (Map) obj;
         String valueOf = map == null ? "0" : String.valueOf(map.get("persistentViewId"));
         if (Integer.parseInt(valueOf) < 0) {
             CommonPlatformView commonPlatformView = viewMap.get(valueOf);
             if (commonPlatformView == null) {
-                CommonPlatformView commonPlatformView2 = new CommonPlatformView(context, this.messenger, i, map);
+                CommonPlatformView commonPlatformView2 = new CommonPlatformView(context, this.messenger, i2, map);
                 viewMap.put(valueOf, commonPlatformView2);
                 return commonPlatformView2;
             }
             return commonPlatformView;
         }
-        return new CommonPlatformView(context, this.messenger, i, map);
+        return new CommonPlatformView(context, this.messenger, i2, map);
     }
 }

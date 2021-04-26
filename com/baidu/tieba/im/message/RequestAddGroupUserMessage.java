@@ -65,8 +65,8 @@ public class RequestAddGroupUserMessage extends TbSocketMessage {
         return this.userIds;
     }
 
-    public void setDecision(int i) {
-        this.decision = i;
+    public void setDecision(int i2) {
+        this.decision = i2;
     }
 
     public void setGroupId(long j) {
@@ -77,16 +77,16 @@ public class RequestAddGroupUserMessage extends TbSocketMessage {
         this.inviterUserId = j;
     }
 
-    public void setJoinType(int i) {
-        this.joinType = i;
+    public void setJoinType(int i2) {
+        this.joinType = i2;
     }
 
     public void setNotice_id(String str) {
         this.notice_id = str;
     }
 
-    public void setSysGroupId(int i) {
-        this.sysGroupId = i;
+    public void setSysGroupId(int i2) {
+        this.sysGroupId = i2;
     }
 
     public void setSysMsgId(String str) {

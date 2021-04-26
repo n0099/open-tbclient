@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.widget.LinearLayoutCompat;
@@ -17,6 +18,7 @@ import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes6.dex */
 public class ForegroundLinearLayout extends LinearLayoutCompat {
+    @Nullable
     public Drawable foreground;
     public boolean foregroundBoundsChanged;
     public int foregroundGravity;
@@ -24,7 +26,7 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     public final Rect overlayBounds;
     public final Rect selfBounds;
 
-    public ForegroundLinearLayout(Context context) {
+    public ForegroundLinearLayout(@NonNull Context context) {
         this(context, null);
     }
 
@@ -73,6 +75,7 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     }
 
     @Override // android.view.View
+    @Nullable
     public Drawable getForeground() {
         return this.foreground;
     }
@@ -93,19 +96,19 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     }
 
     @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        super.onLayout(z, i2, i3, i4, i5);
         this.foregroundBoundsChanged = z | this.foregroundBoundsChanged;
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
         this.foregroundBoundsChanged = true;
     }
 
     @Override // android.view.View
-    public void setForeground(Drawable drawable) {
+    public void setForeground(@Nullable Drawable drawable) {
         Drawable drawable2 = this.foreground;
         if (drawable2 != drawable) {
             if (drawable2 != null) {
@@ -131,16 +134,16 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     }
 
     @Override // android.view.View
-    public void setForegroundGravity(int i) {
-        if (this.foregroundGravity != i) {
-            if ((8388615 & i) == 0) {
-                i |= GravityCompat.START;
+    public void setForegroundGravity(int i2) {
+        if (this.foregroundGravity != i2) {
+            if ((8388615 & i2) == 0) {
+                i2 |= GravityCompat.START;
             }
-            if ((i & 112) == 0) {
-                i |= 48;
+            if ((i2 & 112) == 0) {
+                i2 |= 48;
             }
-            this.foregroundGravity = i;
-            if (i == 119 && this.foreground != null) {
+            this.foregroundGravity = i2;
+            if (i2 == 119 && this.foreground != null) {
                 this.foreground.getPadding(new Rect());
             }
             requestLayout();
@@ -152,18 +155,18 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
         return super.verifyDrawable(drawable) || drawable == this.foreground;
     }
 
-    public ForegroundLinearLayout(Context context, AttributeSet attributeSet) {
+    public ForegroundLinearLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public ForegroundLinearLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ForegroundLinearLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.selfBounds = new Rect();
         this.overlayBounds = new Rect();
         this.foregroundGravity = 119;
         this.mForegroundInPadding = true;
         this.foregroundBoundsChanged = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, R.styleable.ForegroundLinearLayout, i, 0, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, R.styleable.ForegroundLinearLayout, i2, 0, new int[0]);
         this.foregroundGravity = obtainStyledAttributes.getInt(R.styleable.ForegroundLinearLayout_android_foregroundGravity, this.foregroundGravity);
         Drawable drawable = obtainStyledAttributes.getDrawable(R.styleable.ForegroundLinearLayout_android_foreground);
         if (drawable != null) {

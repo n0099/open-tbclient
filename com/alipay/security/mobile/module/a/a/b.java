@@ -12,8 +12,8 @@ public final class b {
             messageDigest.update(str.getBytes("UTF-8"));
             byte[] digest = messageDigest.digest();
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < digest.length; i++) {
-                sb.append(String.format("%02x", Byte.valueOf(digest[i])));
+            for (int i2 = 0; i2 < digest.length; i2++) {
+                sb.append(String.format("%02x", Byte.valueOf(digest[i2])));
             }
             return sb.toString();
         } catch (Exception unused) {

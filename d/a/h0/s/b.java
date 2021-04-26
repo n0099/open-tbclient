@@ -1,0 +1,172 @@
+package d.a.h0.s;
+
+import android.util.Log;
+import android.view.View;
+import java.lang.ref.WeakReference;
+/* loaded from: classes3.dex */
+public final class b {
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f47603a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f47604b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f47605c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f47606d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f47607e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f47608f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f47609g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f47610h = 0;
+
+    public b(View view) {
+        new WeakReference(view);
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x00ab, code lost:
+        if (r4 != false) goto L34;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x00ae, code lost:
+        if (r4 != false) goto L33;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x00b0, code lost:
+        r12 = (int) (r0 / r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x00b4, code lost:
+        r11 = (int) (r3 * r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x00f4, code lost:
+        if (r1 > r11) goto L75;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(int i2, int i3) {
+        int i4;
+        float f2;
+        int i5;
+        int i6 = this.f47607e;
+        if (i6 == 90 || i6 == 270) {
+            i3 = i2;
+            i2 = i3;
+        }
+        int defaultSize = View.getDefaultSize(this.f47603a, i2);
+        int defaultSize2 = View.getDefaultSize(this.f47604b, i3);
+        if (this.f47610h != 3) {
+            if (this.f47603a > 0 && this.f47604b > 0) {
+                int mode = View.MeasureSpec.getMode(i2);
+                i2 = View.MeasureSpec.getSize(i2);
+                int mode2 = View.MeasureSpec.getMode(i3);
+                i3 = View.MeasureSpec.getSize(i3);
+                if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
+                    float f3 = i2;
+                    float f4 = i3;
+                    float f5 = f3 / f4;
+                    int i7 = this.f47610h;
+                    if (i7 == 4) {
+                        int i8 = this.f47607e;
+                        f2 = (i8 == 90 || i8 == 270) ? 0.5625f : 1.7777778f;
+                    } else if (i7 != 5) {
+                        f2 = this.f47603a / this.f47604b;
+                        int i9 = this.f47605c;
+                        if (i9 > 0 && (i5 = this.f47606d) > 0) {
+                            f2 = (f2 * i9) / i5;
+                        }
+                    } else {
+                        int i10 = this.f47607e;
+                        f2 = (i10 == 90 || i10 == 270) ? 0.75f : 1.3333334f;
+                    }
+                    boolean z = f2 > f5;
+                    int i11 = this.f47610h;
+                    if (i11 != 0) {
+                        if (i11 != 1) {
+                            if (i11 != 4 && i11 != 5) {
+                                if (z) {
+                                    i2 = Math.min(this.f47603a, i2);
+                                    i3 = (int) (i2 / f2);
+                                } else {
+                                    i3 = Math.min(this.f47604b, i3);
+                                    i2 = (int) (i3 * f2);
+                                }
+                            }
+                        }
+                    }
+                } else if (mode == 1073741824 && mode2 == 1073741824) {
+                    int i12 = this.f47603a;
+                    int i13 = i12 * i3;
+                    int i14 = this.f47604b;
+                    if (i13 < i2 * i14) {
+                        i2 = (i12 * i3) / i14;
+                    } else if (i12 * i3 > i2 * i14) {
+                        i3 = (i14 * i2) / i12;
+                    }
+                } else if (mode == 1073741824) {
+                    int i15 = (this.f47604b * i2) / this.f47603a;
+                    if (mode2 != Integer.MIN_VALUE || i15 <= i3) {
+                        i3 = i15;
+                    }
+                } else if (mode2 == 1073741824) {
+                    i4 = (this.f47603a * i3) / this.f47604b;
+                    if (mode == Integer.MIN_VALUE) {
+                    }
+                    i2 = i4;
+                } else {
+                    i4 = this.f47603a;
+                    int i16 = this.f47604b;
+                    if (mode2 != Integer.MIN_VALUE || i16 <= i3) {
+                        i3 = i16;
+                    } else {
+                        i4 = (i4 * i3) / i16;
+                    }
+                    if (mode == Integer.MIN_VALUE && i4 > i2) {
+                        i3 = (this.f47604b * i2) / this.f47603a;
+                    }
+                    i2 = i4;
+                }
+            } else {
+                Log.d("MeasureHelper", "no size yet");
+                i2 = defaultSize;
+                i3 = defaultSize2;
+            }
+        }
+        this.f47608f = i2;
+        this.f47609g = i3;
+    }
+
+    public int b() {
+        return this.f47609g;
+    }
+
+    public int c() {
+        return this.f47608f;
+    }
+
+    public void d(int i2) {
+        this.f47610h = i2;
+    }
+
+    public void e(int i2) {
+        this.f47607e = i2;
+    }
+
+    public void f(int i2, int i3) {
+        this.f47605c = i2;
+        this.f47606d = i3;
+    }
+
+    public void g(int i2, int i3) {
+        this.f47603a = i2;
+        this.f47604b = i3;
+    }
+}

@@ -8,18 +8,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.page.widget.TextProgressBar;
-import com.kwad.sdk.utils.ao;
+import com.kwad.sdk.utils.an;
 /* loaded from: classes6.dex */
 public class DrawDownloadProgressBar extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34987a;
+    public Context f33958a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextProgressBar f34988b;
+    public TextProgressBar f33959b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f34989c;
+    public View f33960c;
 
     public DrawDownloadProgressBar(@NonNull Context context) {
         super(context);
@@ -31,17 +31,17 @@ public class DrawDownloadProgressBar extends FrameLayout {
         a(context);
     }
 
-    public DrawDownloadProgressBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public DrawDownloadProgressBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a(context);
     }
 
     private void a(Context context) {
-        this.f34987a = context;
+        this.f33958a = context;
         FrameLayout.inflate(context, R.layout.ksad_draw_download_bar, this);
-        this.f34988b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
+        this.f33959b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
         View findViewById = findViewById(R.id.ksad_download_progress_cover);
-        this.f34989c = findViewById;
+        this.f33960c = findViewById;
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.draw.view.DrawDownloadProgressBar.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -50,29 +50,29 @@ public class DrawDownloadProgressBar extends FrameLayout {
         });
     }
 
-    public void a(String str, int i) {
+    public void a(String str, int i2) {
         View view;
-        int i2;
-        if (i == 0 || i == getMax()) {
-            view = this.f34989c;
-            i2 = 0;
+        int i3;
+        if (i2 == 0 || i2 == getMax()) {
+            view = this.f33960c;
+            i3 = 0;
         } else {
-            view = this.f34989c;
-            i2 = 8;
+            view = this.f33960c;
+            i3 = 8;
         }
-        view.setVisibility(i2);
-        this.f34988b.a(str, i);
+        view.setVisibility(i3);
+        this.f33959b.a(str, i2);
     }
 
     public int getMax() {
-        return this.f34988b.getMax();
+        return this.f33959b.getMax();
     }
 
-    public void setTextColor(int i) {
-        this.f34988b.setTextColor(i);
+    public void setTextColor(int i2) {
+        this.f33959b.setTextColor(i2);
     }
 
-    public void setTextSize(int i) {
-        this.f34988b.setTextDimen(ao.a(getContext(), i));
+    public void setTextSize(int i2) {
+        this.f33959b.setTextDimen(an.a(getContext(), i2));
     }
 }

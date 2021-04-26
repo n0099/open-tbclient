@@ -94,8 +94,8 @@ public class ImageViewDialog extends Dialog implements View.OnClickListener {
         }
     }
 
-    public ImageViewDialog(Context context, int i) {
-        super(context, i);
+    public ImageViewDialog(Context context, int i2) {
+        super(context, i2);
         initView();
     }
 }

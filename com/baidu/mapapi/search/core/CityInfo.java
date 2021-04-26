@@ -22,7 +22,7 @@ public class CityInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.city);
         parcel.writeInt(this.num);
     }

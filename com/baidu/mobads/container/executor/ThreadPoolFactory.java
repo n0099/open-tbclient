@@ -45,12 +45,12 @@ public class ThreadPoolFactory {
         }
     };
 
-    public static ScheduledThreadPoolExecutor getScheduledThreadPoolExecutor(int i) {
-        return new ScheduledThreadPoolExecutor(i, sThreadFactory);
+    public static ScheduledThreadPoolExecutor getScheduledThreadPoolExecutor(int i2) {
+        return new ScheduledThreadPoolExecutor(i2, sThreadFactory);
     }
 
-    public static ThreadPoolExecutor getThreadPoolExecutor(int i, int i2) {
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i2, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), sThreadFactory);
+    public static ThreadPoolExecutor getThreadPoolExecutor(int i2, int i3) {
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), sThreadFactory);
         threadPoolExecutor.setRejectedExecutionHandler(sRunOnSerialPolicy);
         return threadPoolExecutor;
     }

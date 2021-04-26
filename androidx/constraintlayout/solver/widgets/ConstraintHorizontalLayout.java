@@ -25,11 +25,11 @@ public class ConstraintHorizontalLayout extends ConstraintWidgetContainer {
     @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
     public void addToSolver(LinearSystem linearSystem) {
         if (this.mChildren.size() != 0) {
-            int i = 0;
+            int i2 = 0;
             int size = this.mChildren.size();
             ConstraintWidget constraintWidget = this;
-            while (i < size) {
-                ConstraintWidget constraintWidget2 = this.mChildren.get(i);
+            while (i2 < size) {
+                ConstraintWidget constraintWidget2 = this.mChildren.get(i2);
                 if (constraintWidget != this) {
                     constraintWidget2.connect(ConstraintAnchor.Type.LEFT, constraintWidget, ConstraintAnchor.Type.RIGHT);
                     constraintWidget.connect(ConstraintAnchor.Type.RIGHT, constraintWidget2, ConstraintAnchor.Type.LEFT);
@@ -45,7 +45,7 @@ public class ConstraintHorizontalLayout extends ConstraintWidgetContainer {
                 constraintWidget2.connect(type2, this, type2);
                 ConstraintAnchor.Type type3 = ConstraintAnchor.Type.BOTTOM;
                 constraintWidget2.connect(type3, this, type3);
-                i++;
+                i2++;
                 constraintWidget = constraintWidget2;
             }
             if (constraintWidget != this) {
@@ -60,13 +60,13 @@ public class ConstraintHorizontalLayout extends ConstraintWidgetContainer {
         super.addToSolver(linearSystem);
     }
 
-    public ConstraintHorizontalLayout(int i, int i2, int i3, int i4) {
-        super(i, i2, i3, i4);
+    public ConstraintHorizontalLayout(int i2, int i3, int i4, int i5) {
+        super(i2, i3, i4, i5);
         this.mAlignment = ContentAlignment.MIDDLE;
     }
 
-    public ConstraintHorizontalLayout(int i, int i2) {
-        super(i, i2);
+    public ConstraintHorizontalLayout(int i2, int i3) {
+        super(i2, i3);
         this.mAlignment = ContentAlignment.MIDDLE;
     }
 }

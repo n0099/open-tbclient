@@ -101,24 +101,24 @@ public class IMSendMsgRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         LogUtils.d(TAG, "onFailure errorCode: " + transErrorCode.first);
         ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(((Integer) transErrorCode.first).intValue(), this.msg, -1L, this.key);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
-        int i2;
+    public void onSuccess(int i2, byte[] bArr) {
+        int i3;
         String str = new String(bArr);
         LogUtils.d(TAG, "onSuccess :" + str);
         try {
-            i2 = new JSONObject(str).getInt("error_code");
+            i3 = new JSONObject(str).getInt("error_code");
         } catch (Exception e2) {
             LogUtils.e(TAG, "JSONException", e2);
-            i2 = 1010;
+            i3 = 1010;
         }
-        ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i2, this.msg, System.currentTimeMillis(), this.key);
+        ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i3, this.msg, System.currentTimeMillis(), this.key);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

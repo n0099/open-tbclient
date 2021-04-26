@@ -9,20 +9,20 @@ import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
 public class d extends IRewardAdInteractionListener.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    public TTRewardVideoAd.RewardAdInteractionListener f29531a;
+    public TTRewardVideoAd.RewardAdInteractionListener f30436a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f29532b = new Handler(Looper.getMainLooper());
+    public Handler f30437b = new Handler(Looper.getMainLooper());
 
     public d(TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
-        this.f29531a = rewardAdInteractionListener;
+        this.f30436a = rewardAdInteractionListener;
     }
 
     private Handler b() {
-        Handler handler = this.f29532b;
+        Handler handler = this.f30437b;
         if (handler == null) {
             Handler handler2 = new Handler(Looper.getMainLooper());
-            this.f29532b = handler2;
+            this.f30437b = handler2;
             return handler2;
         }
         return handler;
@@ -33,8 +33,8 @@ public class d extends IRewardAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.d.3
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.f29531a != null) {
-                    d.this.f29531a.onAdClose();
+                if (d.this.f30436a != null) {
+                    d.this.f30436a.onAdClose();
                 }
             }
         });
@@ -45,8 +45,8 @@ public class d extends IRewardAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.d.1
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.f29531a != null) {
-                    d.this.f29531a.onAdShow();
+                if (d.this.f30436a != null) {
+                    d.this.f30436a.onAdShow();
                 }
             }
         });
@@ -57,8 +57,8 @@ public class d extends IRewardAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.d.2
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.f29531a != null) {
-                    d.this.f29531a.onAdVideoBarClick();
+                if (d.this.f30436a != null) {
+                    d.this.f30436a.onAdVideoBarClick();
                 }
             }
         });
@@ -70,12 +70,12 @@ public class d extends IRewardAdInteractionListener.Stub {
     }
 
     @Override // com.bytedance.sdk.openadsdk.IRewardAdInteractionListener
-    public void onRewardVerify(final boolean z, final int i, final String str, final int i2, final String str2) throws RemoteException {
+    public void onRewardVerify(final boolean z, final int i2, final String str, final int i3, final String str2) throws RemoteException {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.d.7
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.f29531a != null) {
-                    d.this.f29531a.onRewardVerify(z, i, str, i2, str2);
+                if (d.this.f30436a != null) {
+                    d.this.f30436a.onRewardVerify(z, i2, str, i3, str2);
                 }
             }
         });
@@ -86,8 +86,8 @@ public class d extends IRewardAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.d.6
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.f29531a != null) {
-                    d.this.f29531a.onSkippedVideo();
+                if (d.this.f30436a != null) {
+                    d.this.f30436a.onSkippedVideo();
                 }
             }
         });
@@ -98,8 +98,8 @@ public class d extends IRewardAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.d.4
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.f29531a != null) {
-                    d.this.f29531a.onVideoComplete();
+                if (d.this.f30436a != null) {
+                    d.this.f30436a.onVideoComplete();
                 }
             }
         });
@@ -110,15 +110,15 @@ public class d extends IRewardAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.d.5
             @Override // java.lang.Runnable
             public void run() {
-                if (d.this.f29531a != null) {
-                    d.this.f29531a.onVideoError();
+                if (d.this.f30436a != null) {
+                    d.this.f30436a.onVideoError();
                 }
             }
         });
     }
 
     private void a() {
-        this.f29531a = null;
-        this.f29532b = null;
+        this.f30436a = null;
+        this.f30437b = null;
     }
 }

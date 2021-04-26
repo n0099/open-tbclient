@@ -12,7 +12,7 @@ import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopic
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopicThreadMessage;
 import com.baidu.tieba.homepage.topic.topictab.message.ResponseHttpGetTopicListMessage;
 import com.baidu.tieba.homepage.topic.topictab.message.ResponseSocketGetTopicListMessage;
-import d.b.j0.d3.d0.a;
+import d.a.j0.d3.d0.a;
 /* loaded from: classes4.dex */
 public class TopicStatic {
     static {

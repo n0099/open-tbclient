@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.message.ResponsePullMessage;
 import com.baidu.tieba.im.util.MessageUtils;
 import com.squareup.wire.Wire;
-import d.b.i0.r.q.x0;
+import d.a.i0.r.q.x0;
 import java.util.LinkedList;
 import protobuf.PushMessage.DataRes;
 import protobuf.PushMessage.PushMessageResIdl;
@@ -30,7 +30,7 @@ public class PushResponseMessage extends ResponsePullMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.message.ResponsePullMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         PushMsg pushMsg;
         PushMsgInfo pushMsgInfo;
         PushMessageResIdl pushMessageResIdl = (PushMessageResIdl) new Wire(new Class[0]).parseFrom(bArr, PushMessageResIdl.class);

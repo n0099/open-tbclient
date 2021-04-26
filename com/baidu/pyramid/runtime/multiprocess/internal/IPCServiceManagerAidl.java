@@ -103,22 +103,22 @@ public interface IPCServiceManagerAidl extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 == 1) {
                 parcel.enforceInterface(DESCRIPTOR);
                 IBinder service = getService(parcel.readString());
                 parcel2.writeNoException();
                 parcel2.writeStrongBinder(service);
                 return true;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 parcel.enforceInterface(DESCRIPTOR);
                 boolean removeService = removeService(parcel.readString());
                 parcel2.writeNoException();
                 parcel2.writeInt(removeService ? 1 : 0);
                 return true;
-            } else if (i != 3) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 3) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString(DESCRIPTOR);
                 return true;

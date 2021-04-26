@@ -35,24 +35,24 @@ public class AC3TrackImpl extends AbstractTrack {
     public class a implements Sample {
 
         /* renamed from: a  reason: collision with root package name */
-        public final long f31424a;
+        public final long f32292a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f31425b;
+        public final long f32293b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final DataSource f31426c;
+        public final DataSource f32294c;
 
         public a(AC3TrackImpl aC3TrackImpl, long j, long j2, DataSource dataSource) {
-            this.f31424a = j;
-            this.f31425b = j2;
-            this.f31426c = dataSource;
+            this.f32292a = j;
+            this.f32293b = j2;
+            this.f32294c = dataSource;
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public ByteBuffer asByteBuffer() {
             try {
-                return this.f31426c.map(this.f31424a, this.f31425b);
+                return this.f32294c.map(this.f32292a, this.f32293b);
             } catch (IOException e2) {
                 throw new RuntimeException(e2);
             }
@@ -60,12 +60,12 @@ public class AC3TrackImpl extends AbstractTrack {
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public long getSize() {
-            return this.f31425b;
+            return this.f32293b;
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-            this.f31426c.transferTo(this.f31424a, this.f31425b, writableByteChannel);
+            this.f32294c.transferTo(this.f32292a, this.f32293b, writableByteChannel);
         }
     }
 
@@ -307,19 +307,19 @@ public class AC3TrackImpl extends AbstractTrack {
     }
 
     private AudioSampleEntry createAudioSampleEntry() throws IOException {
-        int i;
+        int i2;
         BitReaderBuffer bitReaderBuffer = new BitReaderBuffer(this.samples.get(0).asByteBuffer());
         if (bitReaderBuffer.readBits(16) == 2935) {
             bitReaderBuffer.readBits(16);
             int readBits = bitReaderBuffer.readBits(2);
             if (readBits == 0) {
-                i = 48000;
+                i2 = 48000;
             } else if (readBits == 1) {
-                i = SwanAudioPlayer.DEFAULT_SAMPLE_RATE;
+                i2 = SwanAudioPlayer.DEFAULT_SAMPLE_RATE;
             } else if (readBits != 2) {
                 throw new RuntimeException("Unsupported Sample Rate");
             } else {
-                i = 32000;
+                i2 = 32000;
             }
             int readBits2 = bitReaderBuffer.readBits(6);
             int readBits3 = bitReaderBuffer.readBits(5);
@@ -327,7 +327,7 @@ public class AC3TrackImpl extends AbstractTrack {
             int readBits5 = bitReaderBuffer.readBits(3);
             if (readBits3 != 16) {
                 if (readBits3 == 9) {
-                    i /= 2;
+                    i2 /= 2;
                 } else if (readBits3 != 8 && readBits3 != 6) {
                     throw new RuntimeException("Unsupported bsid");
                 }
@@ -352,7 +352,7 @@ public class AC3TrackImpl extends AbstractTrack {
                         int readBits6 = bitReaderBuffer.readBits(1);
                         AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE8);
                         audioSampleEntry.setChannelCount(2);
-                        audioSampleEntry.setSampleRate(i);
+                        audioSampleEntry.setSampleRate(i2);
                         audioSampleEntry.setDataReferenceIndex(1);
                         audioSampleEntry.setSampleSize(16);
                         AC3SpecificBox aC3SpecificBox = new AC3SpecificBox();
@@ -374,11 +374,11 @@ public class AC3TrackImpl extends AbstractTrack {
         throw new RuntimeException("Stream doesn't seem to be AC3");
     }
 
-    private int getFrameSize(int i, int i2) {
-        int i3 = i >>> 1;
-        int i4 = i & 1;
-        if (i3 <= 18 && i4 <= 1 && i2 <= 2) {
-            return bitRateAndFrameSizeTable[i3][i4][i2][1] * 2;
+    private int getFrameSize(int i2, int i3) {
+        int i4 = i2 >>> 1;
+        int i5 = i2 & 1;
+        if (i4 <= 18 && i5 <= 1 && i3 <= 2) {
+            return bitRateAndFrameSizeTable[i4][i5][i3][1] * 2;
         }
         throw new RuntimeException("Cannot determine framesize of current sample");
     }

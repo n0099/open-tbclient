@@ -3,30 +3,29 @@ package androidx.transition;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.os.Build;
-import android.util.Log;
 import android.util.Property;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
-import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class ViewUtils {
     public static final Property<View, Rect> CLIP_BOUNDS;
     public static final ViewUtilsBase IMPL;
     public static final String TAG = "ViewUtils";
     public static final Property<View, Float> TRANSITION_ALPHA;
-    public static final int VISIBILITY_MASK = 12;
-    public static Field sViewFlagsField;
-    public static boolean sViewFlagsFieldFetched;
 
     static {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 22) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 29) {
+            IMPL = new ViewUtilsApi29();
+        } else if (i2 >= 23) {
+            IMPL = new ViewUtilsApi23();
+        } else if (i2 >= 22) {
             IMPL = new ViewUtilsApi22();
-        } else if (i >= 21) {
+        } else if (i2 >= 21) {
             IMPL = new ViewUtilsApi21();
-        } else if (i >= 19) {
+        } else if (i2 >= 19) {
             IMPL = new ViewUtilsApi19();
         } else {
             IMPL = new ViewUtilsBase();
@@ -63,20 +62,6 @@ public class ViewUtils {
         IMPL.clearNonTransitionAlpha(view);
     }
 
-    public static void fetchViewFlagsField() {
-        if (sViewFlagsFieldFetched) {
-            return;
-        }
-        try {
-            Field declaredField = View.class.getDeclaredField("mViewFlags");
-            sViewFlagsField = declaredField;
-            declaredField.setAccessible(true);
-        } catch (NoSuchFieldException unused) {
-            Log.i("ViewUtils", "fetchViewFlagsField: ");
-        }
-        sViewFlagsFieldFetched = true;
-    }
-
     public static ViewOverlayImpl getOverlay(@NonNull View view) {
         if (Build.VERSION.SDK_INT >= 18) {
             return new ViewOverlayApi18(view);
@@ -103,23 +88,16 @@ public class ViewUtils {
         IMPL.setAnimationMatrix(view, matrix);
     }
 
-    public static void setLeftTopRightBottom(@NonNull View view, int i, int i2, int i3, int i4) {
-        IMPL.setLeftTopRightBottom(view, i, i2, i3, i4);
+    public static void setLeftTopRightBottom(@NonNull View view, int i2, int i3, int i4, int i5) {
+        IMPL.setLeftTopRightBottom(view, i2, i3, i4, i5);
     }
 
     public static void setTransitionAlpha(@NonNull View view, float f2) {
         IMPL.setTransitionAlpha(view, f2);
     }
 
-    public static void setTransitionVisibility(@NonNull View view, int i) {
-        fetchViewFlagsField();
-        Field field = sViewFlagsField;
-        if (field != null) {
-            try {
-                sViewFlagsField.setInt(view, i | (field.getInt(view) & (-13)));
-            } catch (IllegalAccessException unused) {
-            }
-        }
+    public static void setTransitionVisibility(@NonNull View view, int i2) {
+        IMPL.setTransitionVisibility(view, i2);
     }
 
     public static void transformMatrixToGlobal(@NonNull View view, @NonNull Matrix matrix) {

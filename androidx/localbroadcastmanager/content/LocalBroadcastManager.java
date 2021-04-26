@@ -101,11 +101,11 @@ public final class LocalBroadcastManager {
                 this.mPendingBroadcasts.toArray(broadcastRecordArr);
                 this.mPendingBroadcasts.clear();
             }
-            for (int i = 0; i < size; i++) {
-                BroadcastRecord broadcastRecord = broadcastRecordArr[i];
+            for (int i2 = 0; i2 < size; i2++) {
+                BroadcastRecord broadcastRecord = broadcastRecordArr[i2];
                 int size2 = broadcastRecord.receivers.size();
-                for (int i2 = 0; i2 < size2; i2++) {
-                    ReceiverRecord receiverRecord = broadcastRecord.receivers.get(i2);
+                for (int i3 = 0; i3 < size2; i3++) {
+                    ReceiverRecord receiverRecord = broadcastRecord.receivers.get(i3);
                     if (!receiverRecord.dead) {
                         receiverRecord.receiver.onReceive(this.mAppContext, broadcastRecord.intent);
                     }
@@ -123,8 +123,8 @@ public final class LocalBroadcastManager {
                 this.mReceivers.put(broadcastReceiver, arrayList);
             }
             arrayList.add(receiverRecord);
-            for (int i = 0; i < intentFilter.countActions(); i++) {
-                String action = intentFilter.getAction(i);
+            for (int i2 = 0; i2 < intentFilter.countActions(); i2++) {
+                String action = intentFilter.getAction(i2);
                 ArrayList<ReceiverRecord> arrayList2 = this.mActions.get(action);
                 if (arrayList2 == null) {
                     arrayList2 = new ArrayList<>(1);
@@ -136,7 +136,7 @@ public final class LocalBroadcastManager {
     }
 
     public boolean sendBroadcast(@NonNull Intent intent) {
-        int i;
+        int i2;
         String str;
         ArrayList arrayList;
         ArrayList<ReceiverRecord> arrayList2;
@@ -157,9 +157,9 @@ public final class LocalBroadcastManager {
                     Log.v(TAG, "Action list: " + arrayList3);
                 }
                 ArrayList arrayList4 = null;
-                int i2 = 0;
-                while (i2 < arrayList3.size()) {
-                    ReceiverRecord receiverRecord = arrayList3.get(i2);
+                int i3 = 0;
+                while (i3 < arrayList3.size()) {
+                    ReceiverRecord receiverRecord = arrayList3.get(i3);
                     if (z) {
                         Log.v(TAG, "Matching against filter " + receiverRecord.filter);
                     }
@@ -167,13 +167,13 @@ public final class LocalBroadcastManager {
                         if (z) {
                             Log.v(TAG, "  Filter's target already added");
                         }
-                        i = i2;
+                        i2 = i3;
                         arrayList2 = arrayList3;
                         str = action;
                         str2 = resolveTypeIfNeeded;
                         arrayList = arrayList4;
                     } else {
-                        i = i2;
+                        i2 = i3;
                         str = action;
                         arrayList = arrayList4;
                         arrayList2 = arrayList3;
@@ -186,7 +186,7 @@ public final class LocalBroadcastManager {
                             arrayList4 = arrayList == null ? new ArrayList() : arrayList;
                             arrayList4.add(receiverRecord);
                             receiverRecord.broadcasting = true;
-                            i2 = i + 1;
+                            i3 = i2 + 1;
                             action = str;
                             arrayList3 = arrayList2;
                             resolveTypeIfNeeded = str2;
@@ -195,15 +195,15 @@ public final class LocalBroadcastManager {
                         }
                     }
                     arrayList4 = arrayList;
-                    i2 = i + 1;
+                    i3 = i2 + 1;
                     action = str;
                     arrayList3 = arrayList2;
                     resolveTypeIfNeeded = str2;
                 }
                 ArrayList arrayList5 = arrayList4;
                 if (arrayList5 != null) {
-                    for (int i3 = 0; i3 < arrayList5.size(); i3++) {
-                        ((ReceiverRecord) arrayList5.get(i3)).broadcasting = false;
+                    for (int i4 = 0; i4 < arrayList5.size(); i4++) {
+                        ((ReceiverRecord) arrayList5.get(i4)).broadcasting = false;
                     }
                     this.mPendingBroadcasts.add(new BroadcastRecord(intent, arrayList5));
                     if (!this.mHandler.hasMessages(1)) {
@@ -231,8 +231,8 @@ public final class LocalBroadcastManager {
             for (int size = remove.size() - 1; size >= 0; size--) {
                 ReceiverRecord receiverRecord = remove.get(size);
                 receiverRecord.dead = true;
-                for (int i = 0; i < receiverRecord.filter.countActions(); i++) {
-                    String action = receiverRecord.filter.getAction(i);
+                for (int i2 = 0; i2 < receiverRecord.filter.countActions(); i2++) {
+                    String action = receiverRecord.filter.getAction(i2);
                     ArrayList<ReceiverRecord> arrayList = this.mActions.get(action);
                     if (arrayList != null) {
                         for (int size2 = arrayList.size() - 1; size2 >= 0; size2--) {

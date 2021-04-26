@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static s f28699a;
+    public static s f29584a;
 
     public static void a() {
         FileInputStream fileInputStream;
@@ -31,14 +31,14 @@ public class f {
                         fileInputStream.read(bArr);
                         s a2 = s.a(new JSONObject(new String(bArr, "utf-8")));
                         if (a2 != null) {
-                            f28699a = a2;
-                            u.b(com.alipay.sdk.packet.e.f1944e, "old version read success: " + f28699a.b());
+                            f29584a = a2;
+                            u.b(com.alipay.sdk.packet.e.f1896e, "old version read success: " + f29584a.b());
                         }
                         fileInputStream2 = fileInputStream;
                     } catch (Throwable th2) {
                         th = th2;
                         try {
-                            u.c(com.alipay.sdk.packet.e.f1944e, "version init error", th);
+                            u.c(com.alipay.sdk.packet.e.f1896e, "version init error", th);
                             if (fileInputStream != null) {
                                 fileInputStream.close();
                             }
@@ -54,7 +54,7 @@ public class f {
                         }
                     }
                 } else {
-                    u.b(com.alipay.sdk.packet.e.f1944e, "version pkg json file does not exist");
+                    u.b(com.alipay.sdk.packet.e.f1896e, "version pkg json file does not exist");
                 }
             } catch (IOException unused2) {
                 return;
@@ -71,20 +71,20 @@ public class f {
     public static synchronized s b() {
         s sVar;
         synchronized (f.class) {
-            sVar = f28699a;
+            sVar = f29584a;
         }
         return sVar;
     }
 
     public static void c() {
-        s sVar = f28699a;
+        s sVar = f29584a;
         if (sVar == null) {
-            u.b(com.alipay.sdk.packet.e.f1944e, "version save error1");
+            u.b(com.alipay.sdk.packet.e.f1896e, "version save error1");
             return;
         }
         String g2 = sVar.g();
         if (TextUtils.isEmpty(g2)) {
-            u.b(com.alipay.sdk.packet.e.f1944e, "version save error2");
+            u.b(com.alipay.sdk.packet.e.f1896e, "version save error2");
             return;
         }
         File file = new File(b.e(), "temp_pkg_info.json");
@@ -107,7 +107,7 @@ public class f {
                     th = th;
                     fileOutputStream = fileOutputStream2;
                     try {
-                        u.c(com.alipay.sdk.packet.e.f1944e, "version save error3", th);
+                        u.c(com.alipay.sdk.packet.e.f1896e, "version save error3", th);
                         if (fileOutputStream != null) {
                             fileOutputStream.close();
                         }
@@ -146,7 +146,7 @@ public class f {
                 }
             }
         }
-        f28699a = null;
+        f29584a = null;
     }
 
     public static boolean b(String str) {
@@ -158,19 +158,19 @@ public class f {
             String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
             String[] split2 = b2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
             int min = Math.min(split.length, split2.length);
-            for (int i = 0; i < min; i++) {
-                int length = split[i].length() - split2[i].length();
+            for (int i2 = 0; i2 < min; i2++) {
+                int length = split[i2].length() - split2[i2].length();
                 if (length != 0) {
                     return length > 0;
                 }
-                int compareTo = split[i].compareTo(split2[i]);
+                int compareTo = split[i2].compareTo(split2[i2]);
                 if (compareTo > 0) {
                     return true;
                 }
                 if (compareTo < 0) {
                     return false;
                 }
-                if (i == min - 1) {
+                if (i2 == min - 1) {
                     return split.length > split2.length;
                 }
             }
@@ -183,7 +183,7 @@ public class f {
         synchronized (f.class) {
             if (sVar != null) {
                 if (sVar.f()) {
-                    f28699a = sVar;
+                    f29584a = sVar;
                 }
             }
         }

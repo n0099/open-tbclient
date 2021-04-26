@@ -2,13 +2,14 @@ package com.baidu.tieba.gift.send;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.PlaceOrder.DataReq;
 import tbclient.PlaceOrder.PlaceOrderReqIdl;
 /* loaded from: classes4.dex */
 public class PlaceOrderRequest extends NetMessage {
     public long accountId;
     public int accountType;
+    public int currency;
     public int giftId;
     public long postId;
     public String sceneFrom;
@@ -33,6 +34,7 @@ public class PlaceOrderRequest extends NetMessage {
         builder.num = Integer.valueOf(this.sendCount);
         builder.account_id = Long.valueOf(this.accountId);
         builder.account_type = Integer.valueOf(this.accountType);
+        builder.currency = Integer.valueOf(this.currency);
         if (z) {
             w.a(builder, true);
         }
@@ -69,8 +71,8 @@ public class PlaceOrderRequest extends NetMessage {
         return this.toUserName;
     }
 
-    public void setGiftId(int i) {
-        this.giftId = i;
+    public void setGiftId(int i2) {
+        this.giftId = i2;
     }
 
     public void setPostId(long j) {
@@ -81,8 +83,8 @@ public class PlaceOrderRequest extends NetMessage {
         this.sceneFrom = str;
     }
 
-    public void setSendCount(int i) {
-        this.sendCount = i;
+    public void setSendCount(int i2) {
+        this.sendCount = i2;
     }
 
     public void setThreadId(long j) {

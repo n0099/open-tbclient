@@ -19,8 +19,8 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler.ModelCreator
-        public ListenerSpeedAssistExtend.Listener4SpeedModel create(int i) {
-            return new ListenerSpeedAssistExtend.Listener4SpeedModel(i);
+        public ListenerSpeedAssistExtend.Listener4SpeedModel create(int i2) {
+            return new ListenerSpeedAssistExtend.Listener4SpeedModel(i2);
         }
     }
 
@@ -31,7 +31,7 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
-    public final void blockEnd(DownloadTask downloadTask, int i, BlockInfo blockInfo) {
+    public final void blockEnd(DownloadTask downloadTask, int i2, BlockInfo blockInfo) {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
@@ -43,7 +43,7 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
-    public final void progressBlock(DownloadTask downloadTask, int i, long j) {
+    public final void progressBlock(DownloadTask downloadTask, int i2, long j) {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback

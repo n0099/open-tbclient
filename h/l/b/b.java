@@ -13,22 +13,22 @@ import rx.exceptions.OnErrorNotImplementedException;
 public class b extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Handler f68850a;
+    public final Handler f67713a;
 
     /* loaded from: classes7.dex */
     public static class a extends g.a {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Handler f68851e;
+        public final Handler f67714e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.l.a.b f68852f = h.l.a.a.a().b();
+        public final h.l.a.b f67715f = h.l.a.a.a().b();
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile boolean f68853g;
+        public volatile boolean f67716g;
 
         public a(Handler handler) {
-            this.f68851e = handler;
+            this.f67714e = handler;
         }
 
         @Override // h.g.a
@@ -38,61 +38,61 @@ public class b extends g {
 
         @Override // h.g.a
         public k c(h.n.a aVar, long j, TimeUnit timeUnit) {
-            if (this.f68853g) {
+            if (this.f67716g) {
                 return e.c();
             }
-            this.f68852f.c(aVar);
-            RunnableC1907b runnableC1907b = new RunnableC1907b(aVar, this.f68851e);
-            Message obtain = Message.obtain(this.f68851e, runnableC1907b);
+            this.f67715f.c(aVar);
+            RunnableC1854b runnableC1854b = new RunnableC1854b(aVar, this.f67714e);
+            Message obtain = Message.obtain(this.f67714e, runnableC1854b);
             obtain.obj = this;
-            this.f68851e.sendMessageDelayed(obtain, timeUnit.toMillis(j));
-            if (this.f68853g) {
-                this.f68851e.removeCallbacks(runnableC1907b);
+            this.f67714e.sendMessageDelayed(obtain, timeUnit.toMillis(j));
+            if (this.f67716g) {
+                this.f67714e.removeCallbacks(runnableC1854b);
                 return e.c();
             }
-            return runnableC1907b;
+            return runnableC1854b;
         }
 
         @Override // h.k
         public boolean isUnsubscribed() {
-            return this.f68853g;
+            return this.f67716g;
         }
 
         @Override // h.k
         public void unsubscribe() {
-            this.f68853g = true;
-            this.f68851e.removeCallbacksAndMessages(this);
+            this.f67716g = true;
+            this.f67714e.removeCallbacksAndMessages(this);
         }
     }
 
     /* renamed from: h.l.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class RunnableC1907b implements Runnable, k {
+    public static final class RunnableC1854b implements Runnable, k {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.n.a f68854e;
+        public final h.n.a f67717e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Handler f68855f;
+        public final Handler f67718f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile boolean f68856g;
+        public volatile boolean f67719g;
 
-        public RunnableC1907b(h.n.a aVar, Handler handler) {
-            this.f68854e = aVar;
-            this.f68855f = handler;
+        public RunnableC1854b(h.n.a aVar, Handler handler) {
+            this.f67717e = aVar;
+            this.f67718f = handler;
         }
 
         @Override // h.k
         public boolean isUnsubscribed() {
-            return this.f68856g;
+            return this.f67719g;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             IllegalStateException illegalStateException;
             try {
-                this.f68854e.call();
+                this.f67717e.call();
             } catch (Throwable th) {
                 if (th instanceof OnErrorNotImplementedException) {
                     illegalStateException = new IllegalStateException("Exception thrown on Scheduler.Worker thread. Add `onError` handling.", th);
@@ -107,17 +107,17 @@ public class b extends g {
 
         @Override // h.k
         public void unsubscribe() {
-            this.f68856g = true;
-            this.f68855f.removeCallbacks(this);
+            this.f67719g = true;
+            this.f67718f.removeCallbacks(this);
         }
     }
 
     public b(Looper looper) {
-        this.f68850a = new Handler(looper);
+        this.f67713a = new Handler(looper);
     }
 
     @Override // h.g
     public g.a createWorker() {
-        return new a(this.f68850a);
+        return new a(this.f67713a);
     }
 }

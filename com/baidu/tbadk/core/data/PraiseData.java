@@ -68,16 +68,16 @@ public class PraiseData extends OrmObject implements Serializable {
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (int i = 0; i < list.size(); i++) {
-            String l = list.get(i).toString();
+        for (int i2 = 0; i2 < list.size(); i2++) {
+            String l = list.get(i2).toString();
             if (this.userMap != null && l != null && !l.equals("0") && (metaData = this.userMap.get(l)) != null) {
                 this.users.add(metaData);
             }
         }
     }
 
-    public void setIsLike(int i) {
-        this.isLike = i;
+    public void setIsLike(int i2) {
+        this.isLike = i2;
     }
 
     public void setNum(long j) {
@@ -112,8 +112,8 @@ public class PraiseData extends OrmObject implements Serializable {
             if (jSONArray == null || jSONArray.length() <= 0) {
                 return;
             }
-            for (int i = 0; i < jSONArray.length(); i++) {
-                String optString = jSONArray.optString(i);
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                String optString = jSONArray.optString(i2);
                 if (this.userMap != null && optString != null && optString.length() > 0 && (metaData = this.userMap.get(optString)) != null) {
                     this.users.add(metaData);
                 }

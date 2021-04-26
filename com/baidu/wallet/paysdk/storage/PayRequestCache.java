@@ -20,7 +20,7 @@ import java.util.Set;
 public final class PayRequestCache implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, BeanRequestBase> f25549a;
+    public final HashMap<String, BeanRequestBase> f26326a;
 
     /* loaded from: classes5.dex */
     public enum BindCategory {
@@ -30,15 +30,15 @@ public final class PayRequestCache implements NoProguard {
         
         public int mScenario;
 
-        BindCategory(int i) {
-            this.mScenario = i;
+        BindCategory(int i2) {
+            this.mScenario = i2;
         }
 
-        public static BindCategory from(int i) {
-            if (11 == i) {
+        public static BindCategory from(int i2) {
+            if (11 == i2) {
                 return Initiative;
             }
-            if (4 == i) {
+            if (4 == i2) {
                 return Pwd;
             }
             return Other;
@@ -53,7 +53,7 @@ public final class PayRequestCache implements NoProguard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PayRequestCache f25550a = new PayRequestCache();
+        public static PayRequestCache f26327a = new PayRequestCache();
     }
 
     public static BindFastRequest getBindRequest(Activity activity) {
@@ -65,22 +65,22 @@ public final class PayRequestCache implements NoProguard {
     }
 
     public static PayRequestCache getInstance() {
-        return a.f25550a;
+        return a.f26327a;
     }
 
     public void addBeanRequestToCache(String str, BeanRequestBase beanRequestBase) {
         if (str == null || str.equals("") || beanRequestBase == null) {
             return;
         }
-        this.f25549a.put(str, beanRequestBase);
+        this.f26326a.put(str, beanRequestBase);
     }
 
     public void clearPaySdkRequestCache() {
         LogUtil.e(PayRequestCache.class.getSimpleName(), "clearPaySdkRequestCache", null);
-        Set<String> keySet = this.f25549a.keySet();
+        Set<String> keySet = this.f26326a.keySet();
         HashSet<String> hashSet = new HashSet();
         for (String str : keySet) {
-            if (this.f25549a.get(str) != null && this.f25549a.get(str).mBelongPaySdk) {
+            if (this.f26326a.get(str) != null && this.f26326a.get(str).mBelongPaySdk) {
                 hashSet.add(str);
             }
         }
@@ -90,14 +90,14 @@ public final class PayRequestCache implements NoProguard {
     }
 
     public void clearRequestCache() {
-        this.f25549a.clear();
+        this.f26326a.clear();
     }
 
     public BeanRequestBase getBeanRequestFromCache(String str) {
         if (str == null || str.equals("")) {
             return null;
         }
-        return this.f25549a.get(str);
+        return this.f26326a.get(str);
     }
 
     public BindCategory getBindCategoryByIntent(Intent intent) {
@@ -167,10 +167,10 @@ public final class PayRequestCache implements NoProguard {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f25549a.remove(str);
+        this.f26326a.remove(str);
     }
 
     public PayRequestCache() {
-        this.f25549a = new HashMap<>();
+        this.f26326a = new HashMap<>();
     }
 }

@@ -40,23 +40,23 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
 
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         public void run() {
-            int i;
+            int i2;
             String str;
             long j;
             long j2 = 0;
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
-                i = jSONObject.getInt("error_code");
+                i2 = jSONObject.getInt("error_code");
                 str = jSONObject.optString("error_msg", "");
-                j = (i == 0 && jSONObject.has("response_params")) ? jSONObject.getJSONObject("response_params").optLong("group_id", -1L) : 0L;
+                j = (i2 == 0 && jSONObject.has("response_params")) ? jSONObject.getJSONObject("response_params").optLong("group_id", -1L) : 0L;
             } catch (JSONException e2) {
                 LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e2);
-                i = 1010;
+                i2 = 1010;
                 new IMTrack.CrashBuilder(IMCreateGroupRequest.this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 j = 0;
             }
-            if (i == 0) {
+            if (i2 == 0) {
                 if (IMCreateGroupRequest.this.mAddingList != null && IMCreateGroupRequest.this.mAddingList.size() > 0) {
                     IMAddGroupMemberRequest iMAddGroupMemberRequest = new IMAddGroupMemberRequest(IMCreateGroupRequest.this.mContext, IMCreateGroupRequest.this.mKey, IMCreateGroupRequest.this.mAppid, j, IMCreateGroupRequest.this.mAddingList, true);
                     LogUtils.d(IMCreateGroupRequest.TAG, "FXF create group info --->  add member to group ");
@@ -90,22 +90,22 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
                 return;
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(IMCreateGroupRequest.this.mKey);
-            LogUtils.d(IMCreateGroupRequest.TAG, "IMCreateGroupRequest  " + i + " " + str);
+            LogUtils.d(IMCreateGroupRequest.TAG, "IMCreateGroupRequest  " + i2 + " " + str);
             if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
                 LogUtils.d(IMCreateGroupRequest.TAG, "IMCreateGroupRequest listener is null ");
                 return;
             }
             CreateResultInfo createResultInfo = new CreateResultInfo();
             createResultInfo.groupid = String.valueOf(j);
-            ((BIMValueCallBack) removeListener).onResult(i, str, createResultInfo);
+            ((BIMValueCallBack) removeListener).onResult(i2, str, createResultInfo);
         }
     }
 
-    public IMCreateGroupRequest(Context context, String str, long j, int i, String str2, ArrayList<String> arrayList) {
+    public IMCreateGroupRequest(Context context, String str, long j, int i2, String str2, ArrayList<String> arrayList) {
         this.mContext = context;
         this.mAppid = j;
         this.mKey = str;
-        this.mType = i;
+        this.mType = i2;
         this.mName = str2;
         this.mAddingList = arrayList;
     }
@@ -142,8 +142,8 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
             return;
@@ -152,7 +152,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str = new String(bArr);
         String str2 = TAG;
         LogUtils.d(str2, "json is " + str);

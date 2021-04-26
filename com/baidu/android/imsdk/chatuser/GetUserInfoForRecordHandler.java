@@ -15,9 +15,9 @@ public class GetUserInfoForRecordHandler extends GetChatObjectInfoForRecordHandl
     public void getChatObjectInfo(long j, final CallBack callBack) {
         ChatUserManagerImpl.getInstance(this.mContext).getUser(j, 0, new IGetUserListener() { // from class: com.baidu.android.imsdk.chatuser.GetUserInfoForRecordHandler.1
             @Override // com.baidu.android.imsdk.chatuser.IGetUserListener
-            public void onGetUserResult(int i, long j2, ChatUser chatUser) {
-                LogUtils.d("GetUserInfoForRecordHandler", "getChatObjectInfo getUser error:" + i);
-                if (i == 0 && chatUser != null) {
+            public void onGetUserResult(int i2, long j2, ChatUser chatUser) {
+                LogUtils.d("GetUserInfoForRecordHandler", "getChatObjectInfo getUser error:" + i2);
+                if (i2 == 0 && chatUser != null) {
                     GetUserInfoForRecordHandler.this.deleteUUid();
                     CallBack callBack2 = callBack;
                     if (callBack2 != null) {
@@ -35,10 +35,10 @@ public class GetUserInfoForRecordHandler extends GetChatObjectInfoForRecordHandl
     }
 
     @Override // com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler
-    public void updateChatRecord(ChatObject chatObject, int i, int i2, Object obj) {
+    public void updateChatRecord(ChatObject chatObject, int i2, int i3, Object obj) {
         ChatUser chatUser = (ChatUser) obj;
         if (chatUser != null) {
-            updateChatRecord(chatObject, chatUser.getUserName(), i, chatUser.getIconUrl(), 0, "", "", 0, chatUser.getMarkTop(), chatUser.getMarkTopTime(), chatUser.getShield(), chatUser.getShieldTime(), chatUser.getVipId(), chatUser.getVPortrait(), chatUser.getIdentity());
+            updateChatRecord(chatObject, chatUser.getUserName(), i2, chatUser.getIconUrl(), 0, "", "", 0, chatUser.getMarkTop(), chatUser.getMarkTopTime(), chatUser.getShield(), chatUser.getShieldTime(), chatUser.getVipId(), chatUser.getVPortrait(), chatUser.getIdentity());
         }
     }
 }

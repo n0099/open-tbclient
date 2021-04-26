@@ -6,9 +6,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
+import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.view.menu.MenuBuilder;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class SubMenuBuilder extends MenuBuilder implements SubMenu {
     public MenuItemImpl mItem;
@@ -26,7 +27,7 @@ public class SubMenuBuilder extends MenuBuilder implements SubMenu {
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder
-    public boolean dispatchMenuItemSelected(MenuBuilder menuBuilder, MenuItem menuItem) {
+    public boolean dispatchMenuItemSelected(@NonNull MenuBuilder menuBuilder, @NonNull MenuItem menuItem) {
         return super.dispatchMenuItemSelected(menuBuilder, menuItem) || this.mParentMenu.dispatchMenuItemSelected(menuBuilder, menuItem);
     }
 
@@ -116,18 +117,18 @@ public class SubMenuBuilder extends MenuBuilder implements SubMenu {
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setHeaderIcon(int i) {
-        return (SubMenu) super.setHeaderIconInt(i);
+    public SubMenu setHeaderIcon(int i2) {
+        return (SubMenu) super.setHeaderIconInt(i2);
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setHeaderTitle(int i) {
-        return (SubMenu) super.setHeaderTitleInt(i);
+    public SubMenu setHeaderTitle(int i2) {
+        return (SubMenu) super.setHeaderTitleInt(i2);
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setIcon(int i) {
-        this.mItem.setIcon(i);
+    public SubMenu setIcon(int i2) {
+        this.mItem.setIcon(i2);
         return this;
     }
 }

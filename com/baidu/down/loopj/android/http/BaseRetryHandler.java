@@ -7,7 +7,7 @@ import java.net.UnknownHostException;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BaseRetryHandler {
     public static final boolean DEBUG = false;
     public static final String TAG = "BaseRetryHandler";

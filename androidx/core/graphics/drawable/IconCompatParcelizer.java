@@ -1,6 +1,7 @@
 package androidx.core.graphics.drawable;
 
 import android.content.res.ColorStateList;
+import android.os.Parcelable;
 import androidx.annotation.RestrictTo;
 import androidx.versionedparcelable.VersionedParcel;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -22,12 +23,33 @@ public class IconCompatParcelizer {
     public static void write(IconCompat iconCompat, VersionedParcel versionedParcel) {
         versionedParcel.setSerializationFlags(true, true);
         iconCompat.onPreParceling(versionedParcel.isStream());
-        versionedParcel.writeInt(iconCompat.mType, 1);
-        versionedParcel.writeByteArray(iconCompat.mData, 2);
-        versionedParcel.writeParcelable(iconCompat.mParcelable, 3);
-        versionedParcel.writeInt(iconCompat.mInt1, 4);
-        versionedParcel.writeInt(iconCompat.mInt2, 5);
-        versionedParcel.writeParcelable(iconCompat.mTintList, 6);
-        versionedParcel.writeString(iconCompat.mTintModeStr, 7);
+        int i2 = iconCompat.mType;
+        if (-1 != i2) {
+            versionedParcel.writeInt(i2, 1);
+        }
+        byte[] bArr = iconCompat.mData;
+        if (bArr != null) {
+            versionedParcel.writeByteArray(bArr, 2);
+        }
+        Parcelable parcelable = iconCompat.mParcelable;
+        if (parcelable != null) {
+            versionedParcel.writeParcelable(parcelable, 3);
+        }
+        int i3 = iconCompat.mInt1;
+        if (i3 != 0) {
+            versionedParcel.writeInt(i3, 4);
+        }
+        int i4 = iconCompat.mInt2;
+        if (i4 != 0) {
+            versionedParcel.writeInt(i4, 5);
+        }
+        ColorStateList colorStateList = iconCompat.mTintList;
+        if (colorStateList != null) {
+            versionedParcel.writeParcelable(colorStateList, 6);
+        }
+        String str = iconCompat.mTintModeStr;
+        if (str != null) {
+            versionedParcel.writeString(str, 7);
+        }
     }
 }

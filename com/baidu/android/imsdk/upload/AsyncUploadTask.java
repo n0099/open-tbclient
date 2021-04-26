@@ -38,12 +38,12 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
     public String mUrl;
     public String mXbcs;
 
-    public AsyncUploadTask(Context context, int i, String str, String str2, String str3, String str4, String str5, IUploadTransferListener iUploadTransferListener) {
+    public AsyncUploadTask(Context context, int i2, String str, String str2, String str3, String str4, String str5, IUploadTransferListener iUploadTransferListener) {
         this.mRemoteUrl = "";
         this.mContext = context;
         this.mListener = iUploadTransferListener;
         this.mUrl = str;
-        this.mType = i;
+        this.mType = i2;
         this.mFilePath = str2;
         this.mContentType = str3;
         this.mAuthorization = str4;
@@ -124,10 +124,10 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
         }
     }
 
-    private void notifyFailed(int i) {
+    private void notifyFailed(int i2) {
         try {
             if (this.mListener != null) {
-                this.mListener.onFailed(i, this.mType, this.mFilePath);
+                this.mListener.onFailed(i2, this.mType, this.mFilePath);
             }
         } catch (Exception e2) {
             LogUtils.e(TAG, "notifyFailed", e2);
@@ -178,8 +178,8 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
         }
     }
 
-    public AsyncUploadTask(Context context, int i, String str, String str2, String str3, String str4, String str5, String str6, IUploadTransferListener iUploadTransferListener) {
-        this(context, i, str, str3, str4, str5, str6, iUploadTransferListener);
+    public AsyncUploadTask(Context context, int i2, String str, String str2, String str3, String str4, String str5, String str6, IUploadTransferListener iUploadTransferListener) {
+        this(context, i2, str, str3, str4, str5, str6, iUploadTransferListener);
         this.mRemoteUrl = str2;
     }
 }

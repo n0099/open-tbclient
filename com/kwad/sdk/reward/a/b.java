@@ -3,7 +3,7 @@ package com.kwad.sdk.reward.a;
 public interface b {
     void a();
 
-    void a(int i, int i2);
+    void a(int i2, int i3);
 
     void a(boolean z);
 

@@ -13,19 +13,19 @@ import java.net.URL;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a implements b {
-    /* JADX WARN: Removed duplicated region for block: B:101:0x0211  */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x0214  */
-    /* JADX WARN: Removed duplicated region for block: B:105:0x0226  */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x0244  */
-    /* JADX WARN: Removed duplicated region for block: B:118:0x0267  */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x026a  */
-    /* JADX WARN: Removed duplicated region for block: B:122:0x027c  */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x01d0  */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x01df  */
-    /* JADX WARN: Removed duplicated region for block: B:95:0x01e3  */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x01ee  */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x020d  */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x0210  */
+    /* JADX WARN: Removed duplicated region for block: B:105:0x0222  */
+    /* JADX WARN: Removed duplicated region for block: B:115:0x0240  */
+    /* JADX WARN: Removed duplicated region for block: B:118:0x0263  */
+    /* JADX WARN: Removed duplicated region for block: B:119:0x0266  */
+    /* JADX WARN: Removed duplicated region for block: B:122:0x0278  */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x01cc  */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x01db  */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x01df  */
+    /* JADX WARN: Removed duplicated region for block: B:98:0x01ea  */
     @Override // com.cmic.sso.sdk.b.a.b
     @TargetApi(21)
     /*
@@ -36,9 +36,9 @@ public class a implements b {
         InputStream inputStream;
         StringBuilder sb;
         OutputStream outputStream;
-        int i;
-        HttpURLConnection httpURLConnection;
         int i2;
+        HttpURLConnection httpURLConnection;
+        int i3;
         HttpURLConnection httpURLConnection2;
         String str2 = "";
         com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "请求地址: " + cVar.a());
@@ -82,7 +82,7 @@ public class a implements b {
                         str = "";
                         inputStream = null;
                         sb = null;
-                        i = -1;
+                        i2 = -1;
                         try {
                             e.printStackTrace();
                             StringBuilder sb2 = new StringBuilder();
@@ -90,23 +90,20 @@ public class a implements b {
                             sb2.append(cVar.a());
                             com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb2.toString());
                             if (e instanceof SSLHandshakeException) {
-                                aVar.a("isNeedToGetCert", true);
                             }
-                            com.cmic.sso.sdk.c.a.f30450a.add(e);
-                            i2 = e instanceof EOFException ? 200050 : 102102;
+                            com.cmic.sso.sdk.c.a.f31379a.add(e);
+                            if (e instanceof EOFException) {
+                            }
                             a(outputStream);
                             a(inputStream);
                             if (httpURLConnection != null) {
-                                httpURLConnection.disconnect();
                             }
-                            com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i2);
+                            com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i3);
                             StringBuilder sb3 = new StringBuilder();
                             sb3.append("responseResult: ");
                             sb3.append(TextUtils.isEmpty(sb) ? str : sb.toString());
                             com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", sb3.toString());
-                            if (i2 == 200 && i2 != 301 && i2 != 302) {
-                                cVar2.a(com.cmic.sso.sdk.b.d.a.a(i2));
-                                return;
+                            if (i3 == 200) {
                             }
                             cVar2.a((com.cmic.sso.sdk.b.d.b) null);
                         } catch (Throwable th) {
@@ -116,13 +113,13 @@ public class a implements b {
                             if (httpURLConnection != null) {
                                 httpURLConnection.disconnect();
                             }
-                            com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i);
+                            com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i2);
                             StringBuilder sb4 = new StringBuilder();
                             sb4.append("responseResult: ");
                             sb4.append(!TextUtils.isEmpty(sb) ? str : sb.toString());
                             com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", sb4.toString());
-                            if (i == 200 && i != 301 && i != 302) {
-                                cVar2.a(com.cmic.sso.sdk.b.d.a.a(i));
+                            if (i2 == 200 && i2 != 301 && i2 != 302) {
+                                cVar2.a(com.cmic.sso.sdk.b.d.a.a(i2));
                             } else {
                                 cVar2.a((com.cmic.sso.sdk.b.d.b) null);
                             }
@@ -133,17 +130,17 @@ public class a implements b {
                         str = "";
                         inputStream = null;
                         sb = null;
-                        i = -1;
+                        i2 = -1;
                         a(outputStream);
                         a(inputStream);
                         if (httpURLConnection != null) {
                         }
-                        com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i);
+                        com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i2);
                         StringBuilder sb42 = new StringBuilder();
                         sb42.append("responseResult: ");
                         sb42.append(!TextUtils.isEmpty(sb) ? str : sb.toString());
                         com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", sb42.toString());
-                        if (i == 200) {
+                        if (i2 == 200) {
                         }
                         cVar2.a((com.cmic.sso.sdk.b.d.b) null);
                         throw th;
@@ -169,7 +166,7 @@ public class a implements b {
                                     str2 = str;
                                 } catch (Exception e4) {
                                     e = e4;
-                                    i = responseCode;
+                                    i2 = responseCode;
                                     e.printStackTrace();
                                     StringBuilder sb22 = new StringBuilder();
                                     sb22.append("请求失败: ");
@@ -177,34 +174,34 @@ public class a implements b {
                                     com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb22.toString());
                                     if (e instanceof SSLHandshakeException) {
                                     }
-                                    com.cmic.sso.sdk.c.a.f30450a.add(e);
+                                    com.cmic.sso.sdk.c.a.f31379a.add(e);
                                     if (e instanceof EOFException) {
                                     }
                                     a(outputStream);
                                     a(inputStream);
                                     if (httpURLConnection != null) {
                                     }
-                                    com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i2);
+                                    com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i3);
                                     StringBuilder sb32 = new StringBuilder();
                                     sb32.append("responseResult: ");
                                     sb32.append(TextUtils.isEmpty(sb) ? str : sb.toString());
                                     com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", sb32.toString());
-                                    if (i2 == 200) {
+                                    if (i3 == 200) {
                                     }
                                     cVar2.a((com.cmic.sso.sdk.b.d.b) null);
                                 } catch (Throwable th3) {
                                     th = th3;
-                                    i = responseCode;
+                                    i2 = responseCode;
                                     a(outputStream);
                                     a(inputStream);
                                     if (httpURLConnection != null) {
                                     }
-                                    com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i);
+                                    com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i2);
                                     StringBuilder sb422 = new StringBuilder();
                                     sb422.append("responseResult: ");
                                     sb422.append(!TextUtils.isEmpty(sb) ? str : sb.toString());
                                     com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", sb422.toString());
-                                    if (i == 200) {
+                                    if (i2 == 200) {
                                     }
                                     cVar2.a((com.cmic.sso.sdk.b.d.b) null);
                                     throw th;
@@ -237,7 +234,7 @@ public class a implements b {
                     } catch (Exception e6) {
                         e = e6;
                         str = "";
-                        i = responseCode;
+                        i2 = responseCode;
                         sb = null;
                         e.printStackTrace();
                         StringBuilder sb222 = new StringBuilder();
@@ -245,37 +242,40 @@ public class a implements b {
                         sb222.append(cVar.a());
                         com.cmic.sso.sdk.d.c.a("ConnectionInterceptor", sb222.toString());
                         if (e instanceof SSLHandshakeException) {
+                            aVar.a("isNeedToGetCert", true);
                         }
-                        com.cmic.sso.sdk.c.a.f30450a.add(e);
-                        if (e instanceof EOFException) {
-                        }
+                        com.cmic.sso.sdk.c.a.f31379a.add(e);
+                        i3 = e instanceof EOFException ? 200050 : 102102;
                         a(outputStream);
                         a(inputStream);
                         if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
                         }
-                        com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i2);
+                        com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i3);
                         StringBuilder sb322 = new StringBuilder();
                         sb322.append("responseResult: ");
                         sb322.append(TextUtils.isEmpty(sb) ? str : sb.toString());
                         com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", sb322.toString());
-                        if (i2 == 200) {
+                        if (i3 == 200 && i3 != 301 && i3 != 302) {
+                            cVar2.a(com.cmic.sso.sdk.b.d.a.a(i3));
+                        } else {
+                            cVar2.a((com.cmic.sso.sdk.b.d.b) null);
                         }
-                        cVar2.a((com.cmic.sso.sdk.b.d.b) null);
                     } catch (Throwable th5) {
                         th = th5;
                         str = "";
-                        i = responseCode;
+                        i2 = responseCode;
                         sb = null;
                         a(outputStream);
                         a(inputStream);
                         if (httpURLConnection != null) {
                         }
-                        com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i);
+                        com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", "responseCode: " + i2);
                         StringBuilder sb4222 = new StringBuilder();
                         sb4222.append("responseResult: ");
                         sb4222.append(!TextUtils.isEmpty(sb) ? str : sb.toString());
                         com.cmic.sso.sdk.d.c.b("ConnectionInterceptor", sb4222.toString());
-                        if (i == 200) {
+                        if (i2 == 200) {
                         }
                         cVar2.a((com.cmic.sso.sdk.b.d.b) null);
                         throw th;
@@ -283,12 +283,12 @@ public class a implements b {
                 } catch (Exception e7) {
                     e = e7;
                     str = "";
-                    i = responseCode;
+                    i2 = responseCode;
                     inputStream = null;
                 } catch (Throwable th6) {
                     th = th6;
                     str = "";
-                    i = responseCode;
+                    i2 = responseCode;
                     inputStream = null;
                 }
             } catch (Exception e8) {
@@ -310,7 +310,7 @@ public class a implements b {
             inputStream = null;
             sb = null;
             outputStream = null;
-            i = -1;
+            i2 = -1;
             httpURLConnection = null;
         } catch (Throwable th8) {
             th = th8;
@@ -318,7 +318,7 @@ public class a implements b {
             inputStream = null;
             sb = null;
             outputStream = null;
-            i = -1;
+            i2 = -1;
             httpURLConnection = null;
         }
     }

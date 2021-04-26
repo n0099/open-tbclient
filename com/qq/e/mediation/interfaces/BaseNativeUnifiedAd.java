@@ -21,17 +21,17 @@ public abstract class BaseNativeUnifiedAd {
 
     public abstract int getECPM();
 
-    public abstract void loadData(int i);
+    public abstract void loadData(int i2);
 
     public abstract void setAdListener(ADListener aDListener);
 
-    public abstract void setBrowserType(int i);
+    public abstract void setBrowserType(int i2);
 
     public abstract void setCategories(List<String> list);
 
     public abstract void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy);
 
-    public abstract void setMaxVideoDuration(int i);
+    public abstract void setMaxVideoDuration(int i2);
 
-    public abstract void setMinVideoDuration(int i);
+    public abstract void setMinVideoDuration(int i2);
 }

@@ -11,7 +11,7 @@ public class StatusCodeException extends IOException {
         super(str);
     }
 
-    public static boolean isStatusCodeMatched(int i) {
-        return i >= 400 && i != 429;
+    public static boolean isStatusCodeMatched(int i2) {
+        return i2 >= 400 && i2 != 429;
     }
 }

@@ -16,29 +16,29 @@ public class CHCreditGroup extends BaseItemLayout {
     public static final int ITEM_LIMIT = 3;
 
     /* renamed from: a  reason: collision with root package name */
-    public CHTitleView f24342a;
+    public CHTitleView f25095a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f24343b;
+    public LinearLayout f25096b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f24344c;
+    public List<BaseItemView> f25097c;
 
     public CHCreditGroup(Context context) {
         super(context);
-        this.f24344c = new ArrayList();
+        this.f25097c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
-        return this.f24344c;
+        return this.f25097c;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_group_layout"), this);
-        this.f24342a = (CHTitleView) findViewById(ResUtils.id(getContext(), "ch_credit_group_title"));
-        this.f24343b = (LinearLayout) findViewById(ResUtils.id(getContext(), "ch_credit_group"));
+        this.f25095a = (CHTitleView) findViewById(ResUtils.id(getContext(), "ch_credit_group_title"));
+        this.f25096b = (LinearLayout) findViewById(ResUtils.id(getContext(), "ch_credit_group"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -50,23 +50,23 @@ public class CHCreditGroup extends BaseItemLayout {
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void refreshData() {
-        this.f24342a.setData(this.mConfigData, getWalletInterface());
-        this.f24343b.removeAllViews();
+        this.f25095a.setData(this.mConfigData, getWalletInterface());
+        this.f25096b.removeAllViews();
         HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
         int length = 3 >= dataItemArr.length ? dataItemArr.length : 3;
-        for (int i = 0; i < length; i++) {
-            if (this.mConfigData.list[i] != null) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (this.mConfigData.list[i2] != null) {
                 CHCreditItem cHCreditItem = new CHCreditItem(getContext());
                 new View(getContext());
-                cHCreditItem.setData(this.mConfigData.list[i], getWalletInterface());
-                this.f24343b.addView(cHCreditItem);
-                this.f24344c.add(cHCreditItem);
+                cHCreditItem.setData(this.mConfigData.list[i2], getWalletInterface());
+                this.f25096b.addView(cHCreditItem);
+                this.f25097c.add(cHCreditItem);
             }
         }
     }
 
     public CHCreditGroup(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24344c = new ArrayList();
+        this.f25097c = new ArrayList();
     }
 }

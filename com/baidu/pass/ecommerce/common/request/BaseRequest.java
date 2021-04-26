@@ -146,9 +146,9 @@ public abstract class BaseRequest {
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
-            public void onFailure(Throwable th, int i, String str) {
+            public void onFailure(Throwable th, int i2, String str) {
                 BaseRequest.this.releaseActionTimeHandler();
-                Log.d(BaseRequest.TAG, "Failure: url=" + BaseRequest.this.getRelativeUrl() + " code=" + i + " response=" + str);
+                Log.d(BaseRequest.TAG, "Failure: url=" + BaseRequest.this.getRelativeUrl() + " code=" + i2 + " response=" + str);
                 if (netCallback == null) {
                     return;
                 }
@@ -158,7 +158,7 @@ public abstract class BaseRequest {
             }
 
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-            public void onSuccess(int i, String str) {
+            public void onSuccess(int i2, String str) {
                 int optInt;
                 String optString;
                 BaseRequest.this.releaseActionTimeHandler();
@@ -167,8 +167,8 @@ public abstract class BaseRequest {
                 if (netCallback2 == null) {
                     return;
                 }
-                if (200 != i) {
-                    netCallback2.onFailure(i, str);
+                if (200 != i2) {
+                    netCallback2.onFailure(i2, str);
                     return;
                 }
                 try {

@@ -50,12 +50,12 @@ public final class EventBus {
         mEventController.b(event);
     }
 
-    public void register(Object obj, String str, int i, ThreadMode threadMode) {
-        mEventController.a(obj, str, i, false, threadMode);
+    public void register(Object obj, String str, int i2, ThreadMode threadMode) {
+        mEventController.a(obj, str, i2, false, threadMode);
     }
 
-    public void registerSticky(Object obj, String str, int i, ThreadMode threadMode) {
-        mEventController.a(obj, str, i, true, threadMode);
+    public void registerSticky(Object obj, String str, int i2, ThreadMode threadMode) {
+        mEventController.a(obj, str, i2, true, threadMode);
     }
 
     public void removeAllStickyEvents() {
@@ -70,8 +70,8 @@ public final class EventBus {
         mEventController.a(obj);
     }
 
-    public void register(Object obj, String[] strArr, int i, ThreadMode threadMode) {
-        mEventController.a(obj, strArr, i, false, threadMode);
+    public void register(Object obj, String[] strArr, int i2, ThreadMode threadMode) {
+        mEventController.a(obj, strArr, i2, false, threadMode);
     }
 
     public synchronized void unregister(Object obj, String str) {

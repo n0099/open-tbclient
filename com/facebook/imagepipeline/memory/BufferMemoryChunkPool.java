@@ -13,7 +13,7 @@ public class BufferMemoryChunkPool extends MemoryChunkPool {
     /* JADX DEBUG: Return type fixed from 'com.facebook.imagepipeline.memory.BufferMemoryChunk' to match base method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.imagepipeline.memory.MemoryChunkPool, com.facebook.imagepipeline.memory.BasePool
-    public MemoryChunk alloc(int i) {
-        return new BufferMemoryChunk(i);
+    public MemoryChunk alloc(int i2) {
+        return new BufferMemoryChunk(i2);
     }
 }

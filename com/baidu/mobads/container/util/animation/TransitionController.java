@@ -145,17 +145,17 @@ public class TransitionController {
         }
     }
 
-    private void saveBundleInfo(int i, int i2) {
-        this.mTransitionBundle.putInt(FROM_RADIUS, i);
-        this.mTransitionBundle.putInt(TO_RADIUS, i2);
+    private void saveBundleInfo(int i2, int i3) {
+        this.mTransitionBundle.putInt(FROM_RADIUS, i2);
+        this.mTransitionBundle.putInt(TO_RADIUS, i3);
     }
 
     private ImageView showTransitionView(Activity activity) {
         Rect rect = (Rect) activity.getIntent().getParcelableExtra(SOURCE_RECT);
-        int i = rect.right - rect.left;
-        int i2 = rect.bottom - rect.top;
-        saveBundleInfo(i, i2);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i, i2);
+        int i2 = rect.right - rect.left;
+        int i3 = rect.bottom - rect.top;
+        saveBundleInfo(i2, i3);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i2, i3);
         layoutParams.setMargins(rect.left, (rect.top - getActionBarHeight(activity)) - getStatusBarHeight(activity), rect.right, rect.bottom);
         ImageView imageView = new ImageView(activity);
         imageView.setImageBitmap(this.mTransitionCache.firstViewCache);
@@ -165,10 +165,10 @@ public class TransitionController {
     }
 
     public static void startActivity(Intent intent, final XBaseAdContainer xBaseAdContainer) {
-        int i;
+        int i2;
         JSONObject originJsonObject;
         RemoteXAdLogger remoteXAdLogger = RemoteXAdLogger.getInstance();
-        int i2 = 0;
+        int i3 = 0;
         if (xBaseAdContainer != null) {
             try {
                 originJsonObject = xBaseAdContainer.getAdContainerContext().getAdInstanceInfo().getOriginJsonObject();
@@ -181,23 +181,23 @@ public class TransitionController {
                 if (!TextUtils.isEmpty(optString)) {
                     String optString2 = new JSONObject(optString).optString("innovate");
                     if (!TextUtils.isEmpty(optString2)) {
-                        i = new JSONObject(optString2).optInt("kpdj");
+                        i2 = new JSONObject(optString2).optInt("kpdj");
                         if (Build.VERSION.SDK_INT >= 21 && !(xBaseAdContainer instanceof XSplashTemplateAdContainer) && (!(xBaseAdContainer instanceof SplashAdContainer) || !((SplashAdContainer) xBaseAdContainer).isVideoType() || xBaseAdContainer.windowFocusState == -1)) {
-                            i2 = i;
+                            i3 = i2;
                         }
                     }
                 }
             }
-            i = 0;
+            i2 = 0;
             if (Build.VERSION.SDK_INT >= 21) {
-                i2 = i;
+                i3 = i2;
             }
         }
         if (xBaseAdContainer == null || xBaseAdContainer.getAdContainerContext() == null || xBaseAdContainer.getAdContainerContext().getActivity() == null) {
             return;
         }
         Activity activity = xBaseAdContainer.getAdContainerContext().getActivity();
-        if (i2 != 1) {
+        if (i3 != 1) {
             activity.startActivity(intent);
             xBaseAdContainer.getAdContainerContext().getEventDispatcher().dispatchEvent(new XAdRemoteClickEvent("AdFinishActivity"));
             return;
@@ -223,10 +223,10 @@ public class TransitionController {
     public void startTransitionAnimation(final View view, final View view2) {
         view.getLocationOnScreen(r1);
         int[] iArr = {iArr[0] + (view.getMeasuredWidth() / 2), iArr[1] + (view.getMeasuredHeight() / 2)};
-        int i = this.mTransitionBundle.getInt(FROM_RADIUS);
-        int i2 = this.mTransitionBundle.getInt(TO_RADIUS);
-        int max = Math.max(iArr[0], i - iArr[0]);
-        int max2 = Math.max(iArr[1], i2 - iArr[1]);
+        int i2 = this.mTransitionBundle.getInt(FROM_RADIUS);
+        int i3 = this.mTransitionBundle.getInt(TO_RADIUS);
+        int max = Math.max(iArr[0], i2 - iArr[0]);
+        int max2 = Math.max(iArr[1], i3 - iArr[1]);
         Animator createCircularReveal = ViewAnimationUtils.createCircularReveal(view2, iArr[0], iArr[1], (int) Math.sqrt((max * max) + (max2 * max2)), 0.0f);
         createCircularReveal.setDuration(1000L);
         createCircularReveal.setInterpolator(new AccelerateDecelerateInterpolator());

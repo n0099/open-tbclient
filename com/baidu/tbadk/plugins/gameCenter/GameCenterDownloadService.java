@@ -7,7 +7,7 @@ import android.os.IBinder;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.i0.p0.c.a;
+import d.a.i0.p0.c.a;
 /* loaded from: classes3.dex */
 public class GameCenterDownloadService extends Service {
     @Override // android.app.Service
@@ -77,11 +77,11 @@ public class GameCenterDownloadService extends Service {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
-        super.onStart(intent, i);
+    public void onStart(Intent intent, int i2) {
+        super.onStart(intent, i2);
         if (a.d() != null) {
             try {
-                a.d().onStart(intent, i);
+                a.d().onStart(intent, i2);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -89,15 +89,15 @@ public class GameCenterDownloadService extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(Intent intent, int i2, int i3) {
         if (a.d() != null) {
             try {
-                return a.d().onStartCommand(intent, i, i2);
+                return a.d().onStartCommand(intent, i2, i3);
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
-        return super.onStartCommand(intent, i, i2);
+        return super.onStartCommand(intent, i2, i3);
     }
 
     @Override // android.app.Service

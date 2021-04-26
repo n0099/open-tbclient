@@ -1,6 +1,7 @@
 package com.kwad.sdk.api;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,8 @@ public interface KsNativeAd {
     @Keep
     /* loaded from: classes6.dex */
     public interface AdInteractionListener {
+        boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener);
+
         @KsAdSdkApi
         @Keep
         void onAdClicked(View view, KsNativeAd ksNativeAd);
@@ -60,7 +63,7 @@ public interface KsNativeAd {
 
         @KsAdSdkApi
         @Keep
-        void onVideoPlayError(int i, int i2);
+        void onVideoPlayError(int i2, int i3);
 
         @KsAdSdkApi
         @Keep
@@ -145,6 +148,10 @@ public interface KsNativeAd {
     @Keep
     String getPermissionInfo();
 
+    @KsAdSdkApi
+    @Keep
+    String getProductName();
+
     @NonNull
     @KsAdSdkApi
     @Keep
@@ -197,7 +204,7 @@ public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
-    void setBidEcpm(int i);
+    void setBidEcpm(int i2);
 
     @KsAdSdkApi
     @Keep

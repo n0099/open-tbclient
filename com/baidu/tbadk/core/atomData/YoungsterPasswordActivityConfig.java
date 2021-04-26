@@ -15,15 +15,15 @@ public class YoungsterPasswordActivityConfig extends IntentConfig {
         super(context);
     }
 
-    public void setKeyYoungsterPasswordFrom(int i) {
-        getIntent().putExtra(KEY_YOUNGSTER_PASSWORD_FROM, i);
+    public void setKeyYoungsterPasswordFrom(int i2) {
+        getIntent().putExtra(KEY_YOUNGSTER_PASSWORD_FROM, i2);
     }
 
     public void setKeyYoungsterPasswordInput(String str) {
         getIntent().putExtra(KEY_YOUNGSTER_PASSWORD_INPUT, str);
     }
 
-    public void setYoungsterPasswordPageType(int i) {
-        getIntent().putExtra(KEY_YOUNGSTER_PASSWORD_PAGE_TYPE, i);
+    public void setYoungsterPasswordPageType(int i2) {
+        getIntent().putExtra(KEY_YOUNGSTER_PASSWORD_PAGE_TYPE, i2);
     }
 }

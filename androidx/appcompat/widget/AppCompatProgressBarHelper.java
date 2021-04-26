@@ -39,13 +39,13 @@ public class AppCompatProgressBarHelper {
             LayerDrawable layerDrawable = (LayerDrawable) drawable;
             int numberOfLayers = layerDrawable.getNumberOfLayers();
             Drawable[] drawableArr = new Drawable[numberOfLayers];
-            for (int i = 0; i < numberOfLayers; i++) {
-                int id = layerDrawable.getId(i);
-                drawableArr[i] = tileify(layerDrawable.getDrawable(i), id == 16908301 || id == 16908303);
+            for (int i2 = 0; i2 < numberOfLayers; i2++) {
+                int id = layerDrawable.getId(i2);
+                drawableArr[i2] = tileify(layerDrawable.getDrawable(i2), id == 16908301 || id == 16908303);
             }
             LayerDrawable layerDrawable2 = new LayerDrawable(drawableArr);
-            for (int i2 = 0; i2 < numberOfLayers; i2++) {
-                layerDrawable2.setId(i2, layerDrawable.getId(i2));
+            for (int i3 = 0; i3 < numberOfLayers; i3++) {
+                layerDrawable2.setId(i3, layerDrawable.getId(i3));
             }
             return layerDrawable2;
         } else if (drawable instanceof BitmapDrawable) {
@@ -68,10 +68,10 @@ public class AppCompatProgressBarHelper {
             int numberOfFrames = animationDrawable.getNumberOfFrames();
             AnimationDrawable animationDrawable2 = new AnimationDrawable();
             animationDrawable2.setOneShot(animationDrawable.isOneShot());
-            for (int i = 0; i < numberOfFrames; i++) {
-                Drawable tileify = tileify(animationDrawable.getFrame(i), true);
+            for (int i2 = 0; i2 < numberOfFrames; i2++) {
+                Drawable tileify = tileify(animationDrawable.getFrame(i2), true);
                 tileify.setLevel(10000);
-                animationDrawable2.addFrame(tileify, animationDrawable.getDuration(i));
+                animationDrawable2.addFrame(tileify, animationDrawable.getDuration(i2));
             }
             animationDrawable2.setLevel(10000);
             return animationDrawable2;
@@ -79,12 +79,12 @@ public class AppCompatProgressBarHelper {
         return drawable;
     }
 
-    public Bitmap getSampleTime() {
+    public Bitmap getSampleTile() {
         return this.mSampleTile;
     }
 
-    public void loadFromAttributes(AttributeSet attributeSet, int i) {
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, TINT_ATTRS, i, 0);
+    public void loadFromAttributes(AttributeSet attributeSet, int i2) {
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, TINT_ATTRS, i2, 0);
         Drawable drawableIfKnown = obtainStyledAttributes.getDrawableIfKnown(0);
         if (drawableIfKnown != null) {
             this.mView.setIndeterminateDrawable(tileifyIndeterminate(drawableIfKnown));

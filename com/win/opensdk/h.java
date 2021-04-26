@@ -3,18 +3,18 @@ package com.win.opensdk;
 import android.content.Context;
 import android.os.AsyncTask;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class h extends AsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f40323a;
+    public final /* synthetic */ String f37870a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f40324b;
+    public final /* synthetic */ PBSplash f37871b;
 
     public h(PBSplash pBSplash, String str) {
-        this.f40324b = pBSplash;
-        this.f40323a = str;
+        this.f37871b = pBSplash;
+        this.f37870a = str;
     }
 
     @Override // android.os.AsyncTask
@@ -22,7 +22,7 @@ public class h extends AsyncTask {
         String str = ((String[]) objArr)[0];
         if (str != null) {
             try {
-                return G.d(str);
+                return z.d(str);
             } catch (OutOfMemoryError unused) {
                 return null;
             }
@@ -35,34 +35,34 @@ public class h extends AsyncTask {
         Context context;
         byte[] bArr = (byte[]) obj;
         if (bArr == null) {
-            PBSplash pBSplash = this.f40324b;
-            PBSplashListener pBSplashListener = pBSplash.f40148e;
+            PBSplash pBSplash = this.f37871b;
+            PBSplashListener pBSplashListener = pBSplash.f37733e;
             if (pBSplashListener != null && !pBSplash.j) {
                 pBSplashListener.onFail(PBError.NO_RESUOURCE);
-                this.f40324b.i = true;
+                this.f37871b.f37737i = true;
             }
         } else {
-            PBSplash pBSplash2 = this.f40324b;
-            PBSplashListener pBSplashListener2 = pBSplash2.f40148e;
+            PBSplash pBSplash2 = this.f37871b;
+            PBSplashListener pBSplashListener2 = pBSplash2.f37733e;
             if (pBSplashListener2 != null && !pBSplash2.j) {
                 pBSplash2.m = bArr;
                 pBSplashListener2.onLoaded();
-                this.f40324b.i = true;
+                this.f37871b.f37737i = true;
             }
         }
         if (bArr != null) {
-            PBSplash pBSplash3 = this.f40324b;
+            PBSplash pBSplash3 = this.f37871b;
             if (pBSplash3.j) {
                 StringBuilder sb = new StringBuilder();
-                context = this.f40324b.f40144a;
-                sb.append(G.a(context));
+                context = this.f37871b.f37729a;
+                sb.append(z.a(context));
                 sb.append(File.separator);
                 sb.append("win");
                 sb.append(File.separator);
-                sb.append(G.c(this.f40323a));
+                sb.append(z.c(this.f37870a));
                 sb.append(".gif");
                 pBSplash3.p = new File(sb.toString());
-                new Thread(new C1(bArr, this.f40324b.p.getPath())).start();
+                new Thread(new Z0(bArr, this.f37871b.p.getPath())).start();
             }
         }
     }

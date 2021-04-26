@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.data;
 
 import com.baidu.adp.BdUniqueId;
-import d.b.c.j.e.n;
+import d.a.c.j.e.n;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class GroupPermData implements n, Serializable {
@@ -63,7 +63,7 @@ public class GroupPermData implements n, Serializable {
         return this.isManager;
     }
 
-    @Override // d.b.c.j.e.n
+    @Override // d.a.c.j.e.n
     public BdUniqueId getType() {
         return TYPE_FRS_CREATE_GROUP;
     }
@@ -84,28 +84,28 @@ public class GroupPermData implements n, Serializable {
         return this.isManager == 1;
     }
 
-    public void setCanCreateNormal(int i) {
-        this.canCreateNormal = i;
+    public void setCanCreateNormal(int i2) {
+        this.canCreateNormal = i2;
     }
 
-    public void setCanCreateNormalNum(int i) {
-        this.canCreateNormalNum = i;
+    public void setCanCreateNormalNum(int i2) {
+        this.canCreateNormalNum = i2;
     }
 
-    public void setCanCreateOfficial(int i) {
-        this.canCreateOfficial = i;
+    public void setCanCreateOfficial(int i2) {
+        this.canCreateOfficial = i2;
     }
 
-    public void setCanCreateOfficialNum(int i) {
-        this.canCreateOfficialNum = i;
+    public void setCanCreateOfficialNum(int i2) {
+        this.canCreateOfficialNum = i2;
     }
 
-    public void setCanCreatePersonal(int i) {
-        this.canCreatePersonal = i;
+    public void setCanCreatePersonal(int i2) {
+        this.canCreatePersonal = i2;
     }
 
-    public void setCanCreatePersonalNum(int i) {
-        this.canCreatePersonalNum = i;
+    public void setCanCreatePersonalNum(int i2) {
+        this.canCreatePersonalNum = i2;
     }
 
     public void setCreateNormalTip(String str) {
@@ -124,7 +124,7 @@ public class GroupPermData implements n, Serializable {
         this.forumId = str;
     }
 
-    public void setIsManager(int i) {
-        this.isManager = i;
+    public void setIsManager(int i2) {
+        this.isManager = i2;
     }
 }

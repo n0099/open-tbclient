@@ -11,7 +11,7 @@ public class Base64OutputStream extends BaseNCodecOutputStream {
         super(outputStream, new Base64(false), z);
     }
 
-    public Base64OutputStream(OutputStream outputStream, boolean z, int i, byte[] bArr) {
-        super(outputStream, new Base64(i, bArr), z);
+    public Base64OutputStream(OutputStream outputStream, boolean z, int i2, byte[] bArr) {
+        super(outputStream, new Base64(i2, bArr), z);
     }
 }

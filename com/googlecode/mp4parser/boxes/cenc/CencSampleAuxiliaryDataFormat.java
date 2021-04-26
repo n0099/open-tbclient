@@ -15,8 +15,8 @@ public class CencSampleAuxiliaryDataFormat {
         public int clear;
         public long encrypted;
 
-        public Pair(int i, long j) {
-            this.clear = i;
+        public Pair(int i2, long j) {
+            this.clear = i2;
             this.encrypted = j;
         }
 
@@ -41,8 +41,8 @@ public class CencSampleAuxiliaryDataFormat {
         }
     }
 
-    public Pair createPair(int i, long j) {
-        return new Pair(i, j);
+    public Pair createPair(int i2, long j) {
+        return new Pair(i2, j);
     }
 
     public boolean equals(Object obj) {

@@ -1,27 +1,45 @@
 package com.win.opensdk;
 
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public class f1 implements Runnable {
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.concurrent.Executors;
+/* loaded from: classes6.dex */
+public class f1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ g1 f40314a;
+    public static HashMap f37864a;
 
-    public f1(g1 g1Var) {
-        this.f40314a = g1Var;
+    static {
+        Executors.newFixedThreadPool(1);
+        f37864a = new HashMap();
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String str;
-        HashMap a2 = p1.a(this.f40314a.f40319a);
-        try {
-            str = this.f40314a.a() + p1.a(a2);
-        } catch (UnsupportedEncodingException unused) {
-            str = "";
+    public static synchronized void a(String str) {
+        synchronized (f1.class) {
+            f37864a.remove(str);
         }
-        G.a(str, (Map) null, new e1(this));
+    }
+
+    public static synchronized void a(String str, e1 e1Var) {
+        synchronized (f1.class) {
+            HashSet hashSet = (HashSet) f37864a.get(str);
+            if (hashSet == null) {
+                hashSet = new HashSet();
+                f37864a.put(str, hashSet);
+            }
+            hashSet.add(e1Var);
+        }
+    }
+
+    public static void a(String str, String str2, Object obj) {
+        HashSet hashSet = (HashSet) f37864a.get(str);
+        if (hashSet == null || hashSet.size() <= 0) {
+            return;
+        }
+        Iterator it = hashSet.iterator();
+        while (it.hasNext()) {
+            ((e1) it.next()).a(str, str2, obj);
+        }
     }
 }

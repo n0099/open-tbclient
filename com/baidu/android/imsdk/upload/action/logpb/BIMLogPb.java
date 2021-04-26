@@ -96,9 +96,9 @@ public final class BIMLogPb {
                 @Override // com.google.protobuf.MessageLite.Builder
                 public AuthInfo buildPartial() {
                     AuthInfo authInfo = new AuthInfo(this);
-                    int i = (this.bitField0 & 1) != 1 ? 0 : 1;
+                    int i2 = (this.bitField0 & 1) != 1 ? 0 : 1;
                     authInfo.token = this.token;
-                    authInfo.bitField0 = i;
+                    authInfo.bitField0 = i2;
                     return authInfo;
                 }
 
@@ -195,9 +195,9 @@ public final class BIMLogPb {
 
             @Override // com.google.protobuf.MessageLite
             public int getSerializedSize() {
-                int i = this.memoizedSerializedSize;
-                if (i != -1) {
-                    return i;
+                int i2 = this.memoizedSerializedSize;
+                if (i2 != -1) {
+                    return i2;
                 }
                 int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getTokenBytes()) : 0;
                 this.memoizedSerializedSize = computeBytesSize;
@@ -407,30 +407,30 @@ public final class BIMLogPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public LogRequest buildPartial() {
                 LogRequest logRequest = new LogRequest(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 logRequest.version = this.version;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
                 logRequest.serviceName = this.serviceName;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
                 }
                 logRequest.authInfo = this.authInfo;
-                if ((i & 8) == 8) {
-                    i2 |= 8;
+                if ((i2 & 8) == 8) {
+                    i3 |= 8;
                 }
                 logRequest.requestTimestampMs = this.requestTimestampMs;
-                if ((i & 16) == 16) {
-                    i2 |= 16;
+                if ((i2 & 16) == 16) {
+                    i3 |= 16;
                 }
                 logRequest.sign = this.sign;
-                if ((i & 32) == 32) {
-                    i2 |= 32;
+                if ((i2 & 32) == 32) {
+                    i3 |= 32;
                 }
                 logRequest.payload = this.payload;
-                logRequest.bitField0 = i2;
+                logRequest.bitField0 = i3;
                 return logRequest;
             }
 
@@ -439,21 +439,21 @@ public final class BIMLogPb {
             public Builder clear() {
                 super.clear();
                 this.version = 0L;
-                int i = this.bitField0 & (-2);
-                this.bitField0 = i;
-                this.serviceName = "";
-                this.bitField0 = i & (-3);
-                this.authInfo = AuthInfo.getDefaultInstance();
-                int i2 = this.bitField0 & (-5);
+                int i2 = this.bitField0 & (-2);
                 this.bitField0 = i2;
-                this.requestTimestampMs = 0L;
-                int i3 = i2 & (-9);
+                this.serviceName = "";
+                this.bitField0 = i2 & (-3);
+                this.authInfo = AuthInfo.getDefaultInstance();
+                int i3 = this.bitField0 & (-5);
                 this.bitField0 = i3;
-                this.sign = "";
-                int i4 = i3 & (-17);
+                this.requestTimestampMs = 0L;
+                int i4 = i3 & (-9);
                 this.bitField0 = i4;
+                this.sign = "";
+                int i5 = i4 & (-17);
+                this.bitField0 = i5;
                 this.payload = ByteString.EMPTY;
-                this.bitField0 = i4 & (-33);
+                this.bitField0 = i5 & (-33);
                 return this;
             }
 
@@ -577,9 +577,9 @@ public final class BIMLogPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeInt64Size = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.version) : 0;
             if ((this.bitField0 & 2) == 2) {
@@ -817,9 +817,9 @@ public final class BIMLogPb {
                 return true;
             }
 
-            public Builder setErrorCode(int i) {
+            public Builder setErrorCode(int i2) {
                 this.bitField0 |= 1;
-                this.errorCode = i;
+                this.errorCode = i2;
                 return this;
             }
 
@@ -843,18 +843,18 @@ public final class BIMLogPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public LogResponse buildPartial() {
                 LogResponse logResponse = new LogResponse(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 logResponse.errorCode = this.errorCode;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
                 logResponse.errorMsg = this.errorMsg;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
                 }
                 logResponse.pingIntervalMs = this.pingIntervalMs;
-                logResponse.bitField0 = i2;
+                logResponse.bitField0 = i3;
                 return logResponse;
             }
 
@@ -863,13 +863,13 @@ public final class BIMLogPb {
             public Builder clear() {
                 super.clear();
                 this.errorCode = 0;
-                int i = this.bitField0 & (-2);
-                this.bitField0 = i;
-                this.errorMsg = "";
-                int i2 = i & (-3);
+                int i2 = this.bitField0 & (-2);
                 this.bitField0 = i2;
+                this.errorMsg = "";
+                int i3 = i2 & (-3);
+                this.bitField0 = i3;
                 this.pingIntervalMs = 0L;
-                this.bitField0 = i2 & (-5);
+                this.bitField0 = i3 & (-5);
                 return this;
             }
 
@@ -1003,9 +1003,9 @@ public final class BIMLogPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeInt32Size = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.errorCode) : 0;
             if ((this.bitField0 & 2) == 2) {

@@ -14,11 +14,11 @@ public class IdentityHashMap<K, V> {
         public final Entry<K, V> next;
         public V value;
 
-        public Entry(K k, V v, int i, Entry<K, V> entry) {
+        public Entry(K k, V v, int i2, Entry<K, V> entry) {
             this.key = k;
             this.value = v;
             this.next = entry;
-            this.hashCode = i;
+            this.hashCode = i2;
         }
     }
 
@@ -31,13 +31,13 @@ public class IdentityHashMap<K, V> {
     }
 
     public Class findClass(String str) {
-        int i = 0;
+        int i2 = 0;
         while (true) {
             Entry<K, V>[] entryArr = this.buckets;
-            if (i >= entryArr.length) {
+            if (i2 >= entryArr.length) {
                 return null;
             }
-            Entry<K, V> entry = entryArr[i];
+            Entry<K, V> entry = entryArr[i2];
             if (entry != null) {
                 for (Entry<K, V> entry2 = entry; entry2 != null; entry2 = entry2.next) {
                     K k = entry.key;
@@ -50,7 +50,7 @@ public class IdentityHashMap<K, V> {
                 }
                 continue;
             }
-            i++;
+            i2++;
         }
     }
 
@@ -65,30 +65,30 @@ public class IdentityHashMap<K, V> {
 
     public boolean put(K k, V v) {
         int identityHashCode = System.identityHashCode(k);
-        int i = this.indexMask & identityHashCode;
-        for (Entry<K, V> entry = this.buckets[i]; entry != null; entry = entry.next) {
+        int i2 = this.indexMask & identityHashCode;
+        for (Entry<K, V> entry = this.buckets[i2]; entry != null; entry = entry.next) {
             if (k == entry.key) {
                 entry.value = v;
                 return true;
             }
         }
-        this.buckets[i] = new Entry<>(k, v, identityHashCode, this.buckets[i]);
+        this.buckets[i2] = new Entry<>(k, v, identityHashCode, this.buckets[i2]);
         return false;
     }
 
     public int size() {
         Entry<K, V>[] entryArr;
-        int i = 0;
+        int i2 = 0;
         for (Entry<K, V> entry : this.buckets) {
             for (; entry != null; entry = entry.next) {
-                i++;
+                i2++;
             }
         }
-        return i;
+        return i2;
     }
 
-    public IdentityHashMap(int i) {
-        this.indexMask = i - 1;
-        this.buckets = new Entry[i];
+    public IdentityHashMap(int i2) {
+        this.indexMask = i2 - 1;
+        this.buckets = new Entry[i2];
     }
 }

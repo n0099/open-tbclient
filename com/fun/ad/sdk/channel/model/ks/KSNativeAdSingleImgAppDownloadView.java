@@ -1,9 +1,9 @@
 package com.fun.ad.sdk.channel.model.ks;
 
-import a.a.a.a.r.b.d.b;
-import a.a.a.a.r.b.d.c;
-import a.a.a.a.v.c;
-import a.a.a.a.v.d;
+import a.a.a.a.t.b.d.b;
+import a.a.a.a.t.b.d.c;
+import a.a.a.a.x.c;
+import a.a.a.a.x.d;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
@@ -23,25 +23,25 @@ import java.util.ArrayList;
 public class KSNativeAdSingleImgAppDownloadView extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f30572a;
+    public TextView f31506a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f30573b;
+    public ImageView f31507b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f30574c;
+    public ImageView f31508c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f30575d;
+    public ImageView f31509d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f30576e;
+    public TextView f31510e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f30577f;
+    public Button f31511f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f30578g;
+    public float f31512g;
 
     public KSNativeAdSingleImgAppDownloadView(Context context) {
         this(context, null);
@@ -51,36 +51,36 @@ public class KSNativeAdSingleImgAppDownloadView extends c {
         this(context, attributeSet, 0);
     }
 
-    public KSNativeAdSingleImgAppDownloadView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f30578g = 1.78f;
+    public KSNativeAdSingleImgAppDownloadView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f31512g = 1.78f;
     }
 
-    @Override // a.a.a.a.r.b.d.c
+    @Override // a.a.a.a.t.b.d.c
     public void a(Activity activity, KsNativeAd ksNativeAd, KsNativeAd.AdInteractionListener adInteractionListener) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(this);
-        arrayList.add(this.f30577f);
+        arrayList.add(this.f31511f);
         ksNativeAd.registerViewForInteraction(this, arrayList, adInteractionListener);
         d.b("KSNativeAd Single getImageList: " + ksNativeAd.getImageList(), new Object[0]);
         if (ksNativeAd.getImageList() != null && !ksNativeAd.getImageList().isEmpty()) {
             KsImage ksImage = ksNativeAd.getImageList().get(0);
             d.b("KSNativeAd Single img: " + ksImage, new Object[0]);
             if (ksImage != null && ksImage.isValid()) {
-                this.f30578g = (ksImage.getWidth() * 1.0f) / (ksImage.getHeight() * 1.0f);
+                this.f31512g = (ksImage.getWidth() * 1.0f) / (ksImage.getHeight() * 1.0f);
                 d.b("KSNativeAd Single img width: " + ksImage.getWidth() + ", height: " + ksImage.getHeight(), new Object[0]);
-                c.a.f1346a.a(this, ksImage.getImageUrl(), this.f30573b);
+                c.a.f1361a.a(this, ksImage.getImageUrl(), this.f31507b);
             }
         }
-        this.f30574c.setImageBitmap(ksNativeAd.getSdkLogo());
-        this.f30572a.setText(ksNativeAd.getAdDescription());
+        this.f31508c.setImageBitmap(ksNativeAd.getSdkLogo());
+        this.f31506a.setText(ksNativeAd.getAdDescription());
         if (TextUtils.isEmpty(ksNativeAd.getAppIconUrl())) {
-            this.f30575d.setVisibility(8);
+            this.f31509d.setVisibility(8);
         } else {
-            this.f30575d.setVisibility(0);
+            this.f31509d.setVisibility(0);
             Context context = getContext();
             String appIconUrl = ksNativeAd.getAppIconUrl();
-            ImageView imageView = this.f30575d;
+            ImageView imageView = this.f31509d;
             if (context == null) {
                 d.b("GlideHelper: context is null when load: " + appIconUrl, new Object[0]);
             } else if (context instanceof Activity) {
@@ -94,31 +94,31 @@ public class KSNativeAdSingleImgAppDownloadView extends c {
                 Glide.with(context).load(appIconUrl).into(imageView);
             }
         }
-        this.f30576e.setText(ksNativeAd.getAppName());
-        this.f30577f.setText(ksNativeAd.getActionDescription());
-        ksNativeAd.setDownloadListener(new b(ksNativeAd.getActionDescription(), this.f30577f));
+        this.f31510e.setText(ksNativeAd.getAppName());
+        this.f31511f.setText(ksNativeAd.getActionDescription());
+        ksNativeAd.setDownloadListener(new b(ksNativeAd.getActionDescription(), this.f31511f));
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30572a = (TextView) findViewById(R.id.ad_description);
-        this.f30573b = (ImageView) findViewById(R.id.ad_img);
-        this.f30574c = (ImageView) findViewById(R.id.ad_logo);
-        this.f30575d = (ImageView) findViewById(R.id.ad_app_icon);
-        this.f30576e = (TextView) findViewById(R.id.ad_app_title);
-        this.f30577f = (Button) findViewById(R.id.ad_app_download);
+        this.f31506a = (TextView) findViewById(R.id.ad_description);
+        this.f31507b = (ImageView) findViewById(R.id.ad_img);
+        this.f31508c = (ImageView) findViewById(R.id.ad_logo);
+        this.f31509d = (ImageView) findViewById(R.id.ad_app_icon);
+        this.f31510e = (TextView) findViewById(R.id.ad_app_title);
+        this.f31511f = (Button) findViewById(R.id.ad_app_download);
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        d.b("KSNativeAd onSizeChanged w: " + i + ", h: " + i2 + ", oldw: " + i3 + ", oldh: " + i4, new Object[0]);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30573b.getLayoutParams();
-        int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
-        layoutParams.width = i5;
-        layoutParams.height = (int) (((float) i5) / this.f30578g);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        d.b("KSNativeAd onSizeChanged w: " + i2 + ", h: " + i3 + ", oldw: " + i4 + ", oldh: " + i5, new Object[0]);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f31507b.getLayoutParams();
+        int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
+        layoutParams.width = i6;
+        layoutParams.height = (int) (((float) i6) / this.f31512g);
         d.b("KSNativeAd onSizeChanged width: " + layoutParams.width + ", height: " + layoutParams.height, new Object[0]);
-        this.f30573b.setLayoutParams(layoutParams);
+        this.f31507b.setLayoutParams(layoutParams);
     }
 }

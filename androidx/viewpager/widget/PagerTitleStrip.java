@@ -67,20 +67,20 @@ public class PagerTitleStrip extends ViewGroup {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i) {
-            this.mScrollState = i;
+        public void onPageScrollStateChanged(int i2) {
+            this.mScrollState = i2;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f2, int i2) {
+        public void onPageScrolled(int i2, float f2, int i3) {
             if (f2 > 0.5f) {
-                i++;
+                i2++;
             }
-            PagerTitleStrip.this.updateTextPositions(i, f2, false);
+            PagerTitleStrip.this.updateTextPositions(i2, f2, false);
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
+        public void onPageSelected(int i2) {
             if (this.mScrollState == 0) {
                 PagerTitleStrip pagerTitleStrip = PagerTitleStrip.this;
                 pagerTitleStrip.updateText(pagerTitleStrip.mPager.getCurrentItem(), PagerTitleStrip.this.mPager.getAdapter());
@@ -162,7 +162,7 @@ public class PagerTitleStrip extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         if (this.mPager != null) {
             float f2 = this.mLastKnownPositionOffset;
             if (f2 < 0.0f) {
@@ -173,22 +173,22 @@ public class PagerTitleStrip extends ViewGroup {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
+    public void onMeasure(int i2, int i3) {
         int max;
-        if (View.MeasureSpec.getMode(i) == 1073741824) {
+        if (View.MeasureSpec.getMode(i2) == 1073741824) {
             int paddingTop = getPaddingTop() + getPaddingBottom();
-            int childMeasureSpec = ViewGroup.getChildMeasureSpec(i2, paddingTop, -2);
-            int size = View.MeasureSpec.getSize(i);
-            int childMeasureSpec2 = ViewGroup.getChildMeasureSpec(i, (int) (size * 0.2f), -2);
+            int childMeasureSpec = ViewGroup.getChildMeasureSpec(i3, paddingTop, -2);
+            int size = View.MeasureSpec.getSize(i2);
+            int childMeasureSpec2 = ViewGroup.getChildMeasureSpec(i2, (int) (size * 0.2f), -2);
             this.mPrevText.measure(childMeasureSpec2, childMeasureSpec);
             this.mCurrText.measure(childMeasureSpec2, childMeasureSpec);
             this.mNextText.measure(childMeasureSpec2, childMeasureSpec);
-            if (View.MeasureSpec.getMode(i2) == 1073741824) {
-                max = View.MeasureSpec.getSize(i2);
+            if (View.MeasureSpec.getMode(i3) == 1073741824) {
+                max = View.MeasureSpec.getSize(i3);
             } else {
                 max = Math.max(getMinHeight(), this.mCurrText.getMeasuredHeight() + paddingTop);
             }
-            setMeasuredDimension(size, View.resolveSizeAndState(max, i2, this.mCurrText.getMeasuredState() << 16));
+            setMeasuredDimension(size, View.resolveSizeAndState(max, i3, this.mCurrText.getMeasuredState() << 16));
             return;
         }
         throw new IllegalStateException("Must measure with an exact width");
@@ -202,35 +202,35 @@ public class PagerTitleStrip extends ViewGroup {
         super.requestLayout();
     }
 
-    public void setGravity(int i) {
-        this.mGravity = i;
+    public void setGravity(int i2) {
+        this.mGravity = i2;
         requestLayout();
     }
 
     public void setNonPrimaryAlpha(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        int i = ((int) (f2 * 255.0f)) & 255;
-        this.mNonPrimaryAlpha = i;
-        int i2 = (i << 24) | (this.mTextColor & ViewCompat.MEASURED_SIZE_MASK);
-        this.mPrevText.setTextColor(i2);
-        this.mNextText.setTextColor(i2);
+        int i2 = ((int) (f2 * 255.0f)) & 255;
+        this.mNonPrimaryAlpha = i2;
+        int i3 = (i2 << 24) | (this.mTextColor & ViewCompat.MEASURED_SIZE_MASK);
+        this.mPrevText.setTextColor(i3);
+        this.mNextText.setTextColor(i3);
     }
 
-    public void setTextColor(@ColorInt int i) {
-        this.mTextColor = i;
-        this.mCurrText.setTextColor(i);
-        int i2 = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & ViewCompat.MEASURED_SIZE_MASK);
-        this.mPrevText.setTextColor(i2);
-        this.mNextText.setTextColor(i2);
+    public void setTextColor(@ColorInt int i2) {
+        this.mTextColor = i2;
+        this.mCurrText.setTextColor(i2);
+        int i3 = (this.mNonPrimaryAlpha << 24) | (this.mTextColor & ViewCompat.MEASURED_SIZE_MASK);
+        this.mPrevText.setTextColor(i3);
+        this.mNextText.setTextColor(i3);
     }
 
-    public void setTextSize(int i, float f2) {
-        this.mPrevText.setTextSize(i, f2);
-        this.mCurrText.setTextSize(i, f2);
-        this.mNextText.setTextSize(i, f2);
+    public void setTextSize(int i2, float f2) {
+        this.mPrevText.setTextSize(i2, f2);
+        this.mCurrText.setTextSize(i2, f2);
+        this.mNextText.setTextSize(i2, f2);
     }
 
-    public void setTextSpacing(int i) {
-        this.mScaledTextSpacing = i;
+    public void setTextSpacing(int i2) {
+        this.mScaledTextSpacing = i2;
         requestLayout();
     }
 
@@ -252,15 +252,15 @@ public class PagerTitleStrip extends ViewGroup {
         }
     }
 
-    public void updateText(int i, PagerAdapter pagerAdapter) {
+    public void updateText(int i2, PagerAdapter pagerAdapter) {
         int count = pagerAdapter != null ? pagerAdapter.getCount() : 0;
         this.mUpdatingText = true;
         CharSequence charSequence = null;
-        this.mPrevText.setText((i < 1 || pagerAdapter == null) ? null : pagerAdapter.getPageTitle(i - 1));
-        this.mCurrText.setText((pagerAdapter == null || i >= count) ? null : pagerAdapter.getPageTitle(i));
-        int i2 = i + 1;
-        if (i2 < count && pagerAdapter != null) {
-            charSequence = pagerAdapter.getPageTitle(i2);
+        this.mPrevText.setText((i2 < 1 || pagerAdapter == null) ? null : pagerAdapter.getPageTitle(i2 - 1));
+        this.mCurrText.setText((pagerAdapter == null || i2 >= count) ? null : pagerAdapter.getPageTitle(i2));
+        int i3 = i2 + 1;
+        if (i3 < count && pagerAdapter != null) {
+            charSequence = pagerAdapter.getPageTitle(i3);
         }
         this.mNextText.setText(charSequence);
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(Math.max(0, (int) (((getWidth() - getPaddingLeft()) - getPaddingRight()) * 0.8f)), Integer.MIN_VALUE);
@@ -268,20 +268,20 @@ public class PagerTitleStrip extends ViewGroup {
         this.mPrevText.measure(makeMeasureSpec, makeMeasureSpec2);
         this.mCurrText.measure(makeMeasureSpec, makeMeasureSpec2);
         this.mNextText.measure(makeMeasureSpec, makeMeasureSpec2);
-        this.mLastKnownCurrentPage = i;
+        this.mLastKnownCurrentPage = i2;
         if (!this.mUpdatingPositions) {
-            updateTextPositions(i, this.mLastKnownPositionOffset, false);
+            updateTextPositions(i2, this.mLastKnownPositionOffset, false);
         }
         this.mUpdatingText = false;
     }
 
-    public void updateTextPositions(int i, float f2, boolean z) {
-        int i2;
+    public void updateTextPositions(int i2, float f2, boolean z) {
         int i3;
         int i4;
         int i5;
-        if (i != this.mLastKnownCurrentPage) {
-            updateText(i, this.mPager.getAdapter());
+        int i6;
+        if (i2 != this.mLastKnownCurrentPage) {
+            updateText(i2, this.mPager.getAdapter());
         } else if (!z && f2 == this.mLastKnownPositionOffset) {
             return;
         }
@@ -289,60 +289,60 @@ public class PagerTitleStrip extends ViewGroup {
         int measuredWidth = this.mPrevText.getMeasuredWidth();
         int measuredWidth2 = this.mCurrText.getMeasuredWidth();
         int measuredWidth3 = this.mNextText.getMeasuredWidth();
-        int i6 = measuredWidth2 / 2;
+        int i7 = measuredWidth2 / 2;
         int width = getWidth();
         int height = getHeight();
         int paddingLeft = getPaddingLeft();
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        int i7 = paddingRight + i6;
-        int i8 = (width - (paddingLeft + i6)) - i7;
+        int i8 = paddingRight + i7;
+        int i9 = (width - (paddingLeft + i7)) - i8;
         float f3 = 0.5f + f2;
         if (f3 > 1.0f) {
             f3 -= 1.0f;
         }
-        int i9 = ((width - i7) - ((int) (i8 * f3))) - i6;
-        int i10 = measuredWidth2 + i9;
+        int i10 = ((width - i8) - ((int) (i9 * f3))) - i7;
+        int i11 = measuredWidth2 + i10;
         int baseline = this.mPrevText.getBaseline();
         int baseline2 = this.mCurrText.getBaseline();
         int baseline3 = this.mNextText.getBaseline();
         int max = Math.max(Math.max(baseline, baseline2), baseline3);
-        int i11 = max - baseline;
-        int i12 = max - baseline2;
-        int i13 = max - baseline3;
-        int max2 = Math.max(Math.max(this.mPrevText.getMeasuredHeight() + i11, this.mCurrText.getMeasuredHeight() + i12), this.mNextText.getMeasuredHeight() + i13);
-        int i14 = this.mGravity & 112;
-        if (i14 == 16) {
-            i2 = (((height - paddingTop) - paddingBottom) - max2) / 2;
-        } else if (i14 != 80) {
-            i3 = i11 + paddingTop;
+        int i12 = max - baseline;
+        int i13 = max - baseline2;
+        int i14 = max - baseline3;
+        int max2 = Math.max(Math.max(this.mPrevText.getMeasuredHeight() + i12, this.mCurrText.getMeasuredHeight() + i13), this.mNextText.getMeasuredHeight() + i14);
+        int i15 = this.mGravity & 112;
+        if (i15 == 16) {
+            i3 = (((height - paddingTop) - paddingBottom) - max2) / 2;
+        } else if (i15 != 80) {
             i4 = i12 + paddingTop;
-            i5 = paddingTop + i13;
+            i5 = i13 + paddingTop;
+            i6 = paddingTop + i14;
             TextView textView = this.mCurrText;
-            textView.layout(i9, i4, i10, textView.getMeasuredHeight() + i4);
-            int min = Math.min(paddingLeft, (i9 - this.mScaledTextSpacing) - measuredWidth);
+            textView.layout(i10, i5, i11, textView.getMeasuredHeight() + i5);
+            int min = Math.min(paddingLeft, (i10 - this.mScaledTextSpacing) - measuredWidth);
             TextView textView2 = this.mPrevText;
-            textView2.layout(min, i3, measuredWidth + min, textView2.getMeasuredHeight() + i3);
-            int max3 = Math.max((width - paddingRight) - measuredWidth3, i10 + this.mScaledTextSpacing);
+            textView2.layout(min, i4, measuredWidth + min, textView2.getMeasuredHeight() + i4);
+            int max3 = Math.max((width - paddingRight) - measuredWidth3, i11 + this.mScaledTextSpacing);
             TextView textView3 = this.mNextText;
-            textView3.layout(max3, i5, max3 + measuredWidth3, textView3.getMeasuredHeight() + i5);
+            textView3.layout(max3, i6, max3 + measuredWidth3, textView3.getMeasuredHeight() + i6);
             this.mLastKnownPositionOffset = f2;
             this.mUpdatingPositions = false;
         } else {
-            i2 = (height - paddingBottom) - max2;
+            i3 = (height - paddingBottom) - max2;
         }
-        i3 = i11 + i2;
-        i4 = i12 + i2;
-        i5 = i2 + i13;
+        i4 = i12 + i3;
+        i5 = i13 + i3;
+        i6 = i3 + i14;
         TextView textView4 = this.mCurrText;
-        textView4.layout(i9, i4, i10, textView4.getMeasuredHeight() + i4);
-        int min2 = Math.min(paddingLeft, (i9 - this.mScaledTextSpacing) - measuredWidth);
+        textView4.layout(i10, i5, i11, textView4.getMeasuredHeight() + i5);
+        int min2 = Math.min(paddingLeft, (i10 - this.mScaledTextSpacing) - measuredWidth);
         TextView textView22 = this.mPrevText;
-        textView22.layout(min2, i3, measuredWidth + min2, textView22.getMeasuredHeight() + i3);
-        int max32 = Math.max((width - paddingRight) - measuredWidth3, i10 + this.mScaledTextSpacing);
+        textView22.layout(min2, i4, measuredWidth + min2, textView22.getMeasuredHeight() + i4);
+        int max32 = Math.max((width - paddingRight) - measuredWidth3, i11 + this.mScaledTextSpacing);
         TextView textView32 = this.mNextText;
-        textView32.layout(max32, i5, max32 + measuredWidth3, textView32.getMeasuredHeight() + i5);
+        textView32.layout(max32, i6, max32 + measuredWidth3, textView32.getMeasuredHeight() + i6);
         this.mLastKnownPositionOffset = f2;
         this.mUpdatingPositions = false;
     }

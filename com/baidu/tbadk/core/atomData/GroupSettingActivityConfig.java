@@ -10,13 +10,13 @@ public class GroupSettingActivityConfig extends IntentConfig {
     public static final String INTENT_DATA_GROUP_NAME = "intent_data_group_name";
     public static final String INTENT_DATA_IS_GROUP_MASTER = "intent_data_is_group_master";
 
-    public GroupSettingActivityConfig(Context context, int i, String str, String str2, boolean z, int i2) {
+    public GroupSettingActivityConfig(Context context, int i2, String str, String str2, boolean z, int i3) {
         super(context);
         getIntent().putExtra(INTENT_DATA_GROUP_NAME, str);
         getIntent().putExtra(INTENT_DATA_GROUP_ID, str2);
         getIntent().putExtra(INTENT_DATA_IS_GROUP_MASTER, z);
-        getIntent().putExtra(INTENT_DATA_GROUP_FLAG, i2);
-        setRequestCode(i);
+        getIntent().putExtra(INTENT_DATA_GROUP_FLAG, i3);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

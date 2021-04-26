@@ -5,36 +5,36 @@ import java.util.HashMap;
 public class q implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f4237a;
+    public final /* synthetic */ int f4307a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f4238b;
+    public final /* synthetic */ int f4308b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ HashMap f4239c;
+    public final /* synthetic */ HashMap f4309c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ int f4240d;
+    public final /* synthetic */ int f4310d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ ArBridge f4241e;
+    public final /* synthetic */ ArBridge f4311e;
 
-    public q(ArBridge arBridge, int i, int i2, HashMap hashMap, int i3) {
-        this.f4241e = arBridge;
-        this.f4237a = i;
-        this.f4238b = i2;
-        this.f4239c = hashMap;
-        this.f4240d = i3;
+    public q(ArBridge arBridge, int i2, int i3, HashMap hashMap, int i4) {
+        this.f4311e = arBridge;
+        this.f4307a = i2;
+        this.f4308b = i3;
+        this.f4309c = hashMap;
+        this.f4310d = i4;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        int i = this.f4237a;
-        if (-1 == i) {
-            ArBridge arBridge = this.f4241e;
-            arBridge.sendMessageToEngine(this.f4238b, arBridge.getMessageID(), this.f4239c, this.f4240d);
+        int i2 = this.f4307a;
+        if (-1 == i2) {
+            ArBridge arBridge = this.f4311e;
+            arBridge.sendMessageToEngine(this.f4308b, arBridge.getMessageID(), this.f4309c, this.f4310d);
             return;
         }
-        this.f4241e.sendMessageToEngine(this.f4238b, i, this.f4239c, this.f4240d);
+        this.f4311e.sendMessageToEngine(this.f4308b, i2, this.f4309c, this.f4310d);
     }
 }

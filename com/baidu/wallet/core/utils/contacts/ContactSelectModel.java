@@ -63,8 +63,8 @@ public class ContactSelectModel implements NoProguard {
         return JsonUtils.toJson(this);
     }
 
-    public ContactSelectModel(int i) {
+    public ContactSelectModel(int i2) {
         this();
-        this.result = i;
+        this.result = i2;
     }
 }

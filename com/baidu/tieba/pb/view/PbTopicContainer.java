@@ -17,18 +17,18 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.i0.l.a;
-import d.b.i0.p0.b;
+import d.a.c.e.p.l;
+import d.a.i0.l.a;
+import d.a.i0.p0.b;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19858e;
+    public int f20354e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f19859f;
+    public TbPageContext f20355f;
 
     public PbTopicContainer(Context context) {
         this(context, null);
@@ -59,7 +59,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         if (view.getTag() instanceof RecommendTopicData.RecommendTopicListData) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM));
             RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view.getTag();
-            TbPageContext tbPageContext = this.f19859f;
+            TbPageContext tbPageContext = this.f20355f;
             if (tbPageContext != null && !b.c(tbPageContext, false, true)) {
                 HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicActivityConfig.createNormalConfig(recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName(), "2")));
@@ -71,34 +71,34 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        int size = (View.MeasureSpec.getSize(i) - getPaddingRight()) - getPaddingLeft();
+    public void onMeasure(int i2, int i3) {
+        int size = (View.MeasureSpec.getSize(i2) - getPaddingRight()) - getPaddingLeft();
         int childCount = getChildCount();
-        if (childCount > this.f19858e) {
+        if (childCount > this.f20354e) {
             while (true) {
                 childCount--;
-                if (childCount <= this.f19858e) {
+                if (childCount <= this.f20354e) {
                     break;
                 }
                 removeViewAt(childCount);
             }
         }
-        int i3 = 0;
         int i4 = 0;
-        while (i3 < getChildCount()) {
-            View childAt = getChildAt(i3);
+        int i5 = 0;
+        while (i4 < getChildCount()) {
+            View childAt = getChildAt(i4);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) childAt.getLayoutParams();
-            childAt.measure(LinearLayout.getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight(), layoutParams.width), LinearLayout.getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom(), layoutParams.height));
-            i4 += childAt.getMeasuredWidth() + layoutParams.leftMargin + layoutParams.rightMargin;
-            if (i4 > size) {
+            childAt.measure(LinearLayout.getChildMeasureSpec(i2, getPaddingLeft() + getPaddingRight(), layoutParams.width), LinearLayout.getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom(), layoutParams.height));
+            i5 += childAt.getMeasuredWidth() + layoutParams.leftMargin + layoutParams.rightMargin;
+            if (i5 > size) {
                 break;
             }
-            i3++;
+            i4++;
         }
-        for (int childCount2 = getChildCount() - 1; childCount2 >= i3; childCount2--) {
+        for (int childCount2 = getChildCount() - 1; childCount2 >= i4; childCount2--) {
             removeViewAt(childCount2);
         }
-        super.onMeasure(i, i2);
+        super.onMeasure(i2, i3);
     }
 
     public void setData(List<RecommendTopicData.RecommendTopicListData> list) {
@@ -108,25 +108,25 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         }
         setVisibility(0);
         removeAllViews();
-        for (int i = 0; i < 3 && i < list.size(); i++) {
-            RecommendTopicData.RecommendTopicListData recommendTopicListData = list.get(i);
+        for (int i2 = 0; i2 < 3 && i2 < list.size(); i2++) {
+            RecommendTopicData.RecommendTopicListData recommendTopicListData = list.get(i2);
             if (recommendTopicListData != null) {
                 a(recommendTopicListData);
             }
         }
     }
 
-    public void setMaxChildCount(int i) {
-        this.f19858e = i;
+    public void setMaxChildCount(int i2) {
+        this.f20354e = i2;
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
-        this.f19859f = tbPageContext;
+        this.f20355f = tbPageContext;
     }
 
     public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19858e = 3;
+        this.f20354e = 3;
         setOrientation(0);
     }
 }

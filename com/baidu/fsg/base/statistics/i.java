@@ -11,44 +11,46 @@ import com.baidu.fsg.base.utils.LogUtil;
 public class i extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5342a = "logsender";
+    public static final String f5478a = "logsender";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5343d = "rim_stat_event";
+    public static final String f5479d = "rim_stat_event";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5344e = "rim_stat_event.db";
+    public static final String f5480e = "rim_stat_event.db";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5345f = 1;
+    public static final int f5481f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5346g = "CREATE TABLE IF NOT EXISTS rim_stat_event(en VARCHAR(64) not null ,extra1 VARCHAR(64)  ,extra2 VARCHAR(64)  ,extra3 VARCHAR(64),extra4 VARCHAR(64)  ,extra5 VARCHAR(64) ,et BIGINT,ev TEXT,extra6 TEXT,extra7 TEXT,extra8 TEXT,extra9 TEXT,eg VARCHAR(20) default(null),lk VARCHAR(10) default(null),nu INTEGER PRIMARY KEY autoincrement)";
-    public static i i;
+    public static final String f5482g = "CREATE TABLE IF NOT EXISTS rim_stat_event(en VARCHAR(64) not null ,extra1 VARCHAR(64)  ,extra2 VARCHAR(64)  ,extra3 VARCHAR(64),extra4 VARCHAR(64)  ,extra5 VARCHAR(64) ,et BIGINT,ev TEXT,extra6 TEXT,extra7 TEXT,extra8 TEXT,extra9 TEXT,eg VARCHAR(20) default(null),lk VARCHAR(10) default(null),nu INTEGER PRIMARY KEY autoincrement)";
+
+    /* renamed from: i  reason: collision with root package name */
+    public static i f5483i;
 
     /* renamed from: b  reason: collision with root package name */
-    public SQLiteDatabase f5347b;
+    public SQLiteDatabase f5484b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final byte[] f5348c;
+    public final byte[] f5485c;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f5349h;
+    public int f5486h;
 
     public i(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2) {
         super(context, str, cursorFactory, i2);
-        this.f5348c = new byte[0];
-        this.f5349h = 200;
-        this.f5347b = getWritableDatabase();
+        this.f5485c = new byte[0];
+        this.f5486h = 200;
+        this.f5484b = getWritableDatabase();
     }
 
     public static synchronized i a(Context context) {
         i iVar;
         synchronized (i.class) {
-            if (i == null) {
-                i = new i(context, f5344e, null, 1);
+            if (f5483i == null) {
+                f5483i = new i(context, f5480e, null, 1);
             }
-            iVar = i;
+            iVar = f5483i;
         }
         return iVar;
     }
@@ -61,11 +63,11 @@ public class i extends SQLiteOpenHelper {
         h[] hVarArr;
         h[] hVarArr2;
         Cursor rawQuery;
-        synchronized (this.f5348c) {
+        synchronized (this.f5485c) {
             Cursor cursor = null;
             try {
                 try {
-                    rawQuery = this.f5347b.rawQuery("select * from rim_stat_event", null);
+                    rawQuery = this.f5484b.rawQuery("select * from rim_stat_event", null);
                 } finally {
                 }
             } catch (Exception unused) {
@@ -124,17 +126,17 @@ public class i extends SQLiteOpenHelper {
     }
 
     public void finalize() throws Throwable {
-        SQLiteDatabase sQLiteDatabase = this.f5347b;
+        SQLiteDatabase sQLiteDatabase = this.f5484b;
         if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
-            this.f5347b.close();
+            this.f5484b.close();
         }
-        this.f5347b = null;
+        this.f5484b = null;
         super.finalize();
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        sQLiteDatabase.execSQL(f5346g);
+        sQLiteDatabase.execSQL(f5482g);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -142,7 +144,7 @@ public class i extends SQLiteOpenHelper {
     }
 
     public void a(h hVar) {
-        synchronized (this.f5348c) {
+        synchronized (this.f5485c) {
             if (hVar != null) {
                 if (!TextUtils.isEmpty(hVar.p)) {
                     ContentValues contentValues = new ContentValues();
@@ -152,7 +154,7 @@ public class i extends SQLiteOpenHelper {
                     contentValues.put("eg", hVar.s);
                     contentValues.put("lk", hVar.t);
                     try {
-                        this.f5347b.insert(f5343d, null, contentValues);
+                        this.f5484b.insert(f5479d, null, contentValues);
                     } catch (Exception unused) {
                     }
                     LogUtil.d("logsender", "插入一条数据" + hVar.p);
@@ -168,8 +170,8 @@ public class i extends SQLiteOpenHelper {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public int a() {
-        synchronized (this.f5348c) {
-            Cursor rawQuery = this.f5347b.rawQuery("SELECT COUNT(*) FROM rim_stat_event", null);
+        synchronized (this.f5485c) {
+            Cursor rawQuery = this.f5484b.rawQuery("SELECT COUNT(*) FROM rim_stat_event", null);
             if (rawQuery == null) {
                 return 0;
             }
@@ -196,13 +198,13 @@ public class i extends SQLiteOpenHelper {
     }
 
     public void a(h[] hVarArr) {
-        synchronized (this.f5348c) {
+        synchronized (this.f5485c) {
             if (hVarArr != null) {
                 if (hVarArr.length != 0) {
                     LogUtil.d("logsender", "=====removeEvents-begin=====size=" + hVarArr.length);
                     for (h hVar : hVarArr) {
                         if (hVar != null) {
-                            this.f5347b.delete(f5343d, "nu=" + hVar.u, null);
+                            this.f5484b.delete(f5479d, "nu=" + hVar.u, null);
                         }
                     }
                     LogUtil.d("logsender", "=====removeEvents-end=====");

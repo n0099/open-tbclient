@@ -77,8 +77,8 @@ public final class DropWhileSequence$iterator$1 implements Iterator<T>, KMappedM
         throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 
-    public final void setDropState(int i) {
-        this.dropState = i;
+    public final void setDropState(int i2) {
+        this.dropState = i2;
     }
 
     public final void setNextItem(T t) {

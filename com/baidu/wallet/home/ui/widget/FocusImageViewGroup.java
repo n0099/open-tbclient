@@ -38,8 +38,8 @@ public class FocusImageViewGroup extends BannerFocusImageViewGroup {
         this.mPageType = HomeCfgBean.PAGE_HOME;
     }
 
-    public FocusImageViewGroup(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public FocusImageViewGroup(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mPageType = HomeCfgBean.PAGE_HOME;
     }
 }

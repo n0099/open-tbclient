@@ -1,19 +1,19 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.j0.f1.b.i;
+import d.a.j0.f1.b.i;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class MsgReminderHttpRespMessage extends JsonHttpResponsedMessage {
     public i msgData;
 
-    public MsgReminderHttpRespMessage(int i) {
-        super(i);
+    public MsgReminderHttpRespMessage(int i2) {
+        super(i2);
         this.msgData = null;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {

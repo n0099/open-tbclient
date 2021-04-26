@@ -12,25 +12,27 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.i.p;
-import d.b.i0.r.q.a2;
-import d.b.i0.r.u.c;
+import d.a.c.e.p.l;
+import d.a.i.p;
+import d.a.i0.r.q.a2;
+import d.a.i0.r.u.c;
 /* loaded from: classes.dex */
-public class RichTextLayout extends LinearLayout implements p<d.b.i0.r.q.a>, View.OnClickListener {
+public class RichTextLayout extends LinearLayout implements p<d.a.i0.r.q.a>, View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f4545e;
+    public final int f4643e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f4546f;
+    public TextView f4644f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f4547g;
+    public TextView f4645g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f4548h;
-    public boolean i;
+    public Context f4646h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f4647i;
     public View.OnClickListener j;
     public boolean k;
 
@@ -62,10 +64,10 @@ public class RichTextLayout extends LinearLayout implements p<d.b.i0.r.q.a>, Vie
 
     public RichTextLayout(Context context) {
         super(context);
-        this.f4545e = l.k(TbadkCoreApplication.getInst()) - ((l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
-        this.i = false;
+        this.f4643e = l.k(TbadkCoreApplication.getInst()) - ((l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        this.f4647i = false;
         this.k = false;
-        this.f4548h = context;
+        this.f4646h = context;
         c();
     }
 
@@ -75,46 +77,46 @@ public class RichTextLayout extends LinearLayout implements p<d.b.i0.r.q.a>, Vie
         setClipToPadding(false);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.f4547g = (TextView) findViewById(R.id.thread_card_abstract);
-        this.f4546f = (TextView) findViewById(R.id.thread_card_title);
+        this.f4645g = (TextView) findViewById(R.id.thread_card_abstract);
+        this.f4644f = (TextView) findViewById(R.id.thread_card_title);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.i.p
+    @Override // d.a.i.p
     /* renamed from: d */
-    public void a(d.b.i0.r.q.a aVar) {
-        if (aVar == null || aVar.n() == null) {
+    public void a(d.a.i0.r.q.a aVar) {
+        if (aVar == null || aVar.m() == null) {
             return;
         }
-        a2 n = aVar.n();
-        OriginalThreadInfo originalThreadInfo = n.r1;
-        if (originalThreadInfo != null && this.i) {
-            this.f4546f.setVisibility(8);
-            c d2 = c.d(this.f4547g);
+        a2 m = aVar.m();
+        OriginalThreadInfo originalThreadInfo = m.r1;
+        if (originalThreadInfo != null && this.f4647i) {
+            this.f4644f.setVisibility(8);
+            c d2 = c.d(this.f4645g);
             d2.v(R.string.F_X01);
             d2.u(R.dimen.T_X07);
             if (originalThreadInfo.m) {
-                ThreadCardUtils.setAbstract(this.f4547g, this.f4546f, new SpannableString(originalThreadInfo.f12886g), n, this.f4545e, this.i, this.k);
-                SkinManager.setViewTextColor(this.f4547g, R.color.CAM_X0108);
+                ThreadCardUtils.setAbstract(this.f4645g, this.f4644f, new SpannableString(originalThreadInfo.f12802g), m, this.f4643e, this.f4647i, this.k);
+                SkinManager.setViewTextColor(this.f4645g, R.color.CAM_X0108);
             } else {
-                ThreadCardUtils.setAbstract(this.f4547g, this.f4546f, originalThreadInfo.t, n, this.f4545e, this.i, this.k);
+                ThreadCardUtils.setAbstract(this.f4645g, this.f4644f, originalThreadInfo.t, m, this.f4643e, this.f4647i, this.k);
             }
         } else {
-            ThreadCardUtils.setTitle(this.f4546f, n, this.k);
-            ThreadCardUtils.setAbstract(this.f4547g, this.f4546f, n.D(), n, this.f4545e, this.i, this.k);
+            ThreadCardUtils.setTitle(this.f4644f, m, this.k);
+            ThreadCardUtils.setAbstract(this.f4645g, this.f4644f, m.D(), m, this.f4643e, this.f4647i, this.k);
         }
-        if (!this.i) {
-            this.f4547g.setClickable(false);
-            this.f4546f.setClickable(false);
+        if (!this.f4647i) {
+            this.f4645g.setClickable(false);
+            this.f4644f.setClickable(false);
         } else if (originalThreadInfo != null && originalThreadInfo.m) {
             setOnClickListener(null);
             setClickable(true);
         } else {
             setOnClickListener(this);
-            this.f4547g.setOnClickListener(new a());
-            this.f4546f.setOnClickListener(new b());
-            this.f4547g.setClickable(true);
-            this.f4546f.setClickable(true);
+            this.f4645g.setOnClickListener(new a());
+            this.f4644f.setOnClickListener(new b());
+            this.f4645g.setClickable(true);
+            this.f4644f.setClickable(true);
         }
     }
 
@@ -138,6 +140,6 @@ public class RichTextLayout extends LinearLayout implements p<d.b.i0.r.q.a>, Vie
     }
 
     public void setTransmit(boolean z) {
-        this.i = z;
+        this.f4647i = z;
     }
 }

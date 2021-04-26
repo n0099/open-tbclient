@@ -17,6 +17,7 @@ import com.alibaba.fastjson.util.TypeUtils;
 import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.wallet.base.iddetect.IdCardActivity;
 import java.lang.reflect.Array;
@@ -90,8 +91,8 @@ public class JSONPath implements JSONAware {
     public static class ArrayAccessSegment implements Segment {
         public final int index;
 
-        public ArrayAccessSegment(int i) {
-            this.index = i;
+        public ArrayAccessSegment(int i2) {
+            this.index = i2;
         }
 
         @Override // com.alibaba.fastjson.JSONPath.Segment
@@ -276,11 +277,11 @@ public class JSONPath implements JSONAware {
         public Object eval(JSONPath jSONPath, Object obj, Object obj2) {
             if (obj2 instanceof JSONArray) {
                 JSONArray jSONArray = (JSONArray) ((JSONArray) obj2).clone();
-                for (int i = 0; i < jSONArray.size(); i++) {
-                    Object obj3 = jSONArray.get(i);
+                for (int i2 = 0; i2 < jSONArray.size(); i2++) {
+                    Object obj3 = jSONArray.get(i2);
                     Object floor = floor(obj3);
                     if (floor != obj3) {
-                        jSONArray.set(i, floor);
+                        jSONArray.set(i2, floor);
                     }
                 }
                 return jSONArray;
@@ -366,15 +367,15 @@ public class JSONPath implements JSONAware {
         @Override // com.alibaba.fastjson.JSONPath.Filter
         public boolean apply(JSONPath jSONPath, Object obj, Object obj2, Object obj3) {
             Object obj4 = get(jSONPath, obj, obj3);
-            int i = 0;
+            int i2 = 0;
             if (obj4 == null) {
                 Long[] lArr = this.values;
                 int length = lArr.length;
-                while (i < length) {
-                    if (lArr[i] == null) {
+                while (i2 < length) {
+                    if (lArr[i2] == null) {
                         return !this.not;
                     }
-                    i++;
+                    i2++;
                 }
                 return this.not;
             }
@@ -382,12 +383,12 @@ public class JSONPath implements JSONAware {
                 long longExtractValue = TypeUtils.longExtractValue((Number) obj4);
                 Long[] lArr2 = this.values;
                 int length2 = lArr2.length;
-                while (i < length2) {
-                    Long l = lArr2[i];
+                while (i2 < length2) {
+                    Long l = lArr2[i2];
                     if (l != null && l.longValue() == longExtractValue) {
                         return !this.not;
                     }
-                    i++;
+                    i2++;
                 }
             }
             return this.not;
@@ -535,11 +536,11 @@ public class JSONPath implements JSONAware {
         public Segment buildArraySegement(String str) {
             int length = str.length();
             char charAt = str.charAt(0);
-            int i = length - 1;
-            char charAt2 = str.charAt(i);
+            int i2 = length - 1;
+            char charAt2 = str.charAt(i2);
             int indexOf = str.indexOf(44);
             if (str.length() > 2 && charAt == '\'' && charAt2 == '\'') {
-                String substring = str.substring(1, i);
+                String substring = str.substring(1, i2);
                 if (indexOf != -1 && strArrayPatternx.matcher(str).find()) {
                     return new MultiPropertySegment(substring.split(strArrayRegex));
                 }
@@ -561,34 +562,34 @@ public class JSONPath implements JSONAware {
             } else if (indexOf != -1) {
                 String[] split = str.split(",");
                 int[] iArr = new int[split.length];
-                for (int i2 = 0; i2 < split.length; i2++) {
-                    iArr[i2] = Integer.parseInt(split[i2]);
+                for (int i3 = 0; i3 < split.length; i3++) {
+                    iArr[i3] = Integer.parseInt(split[i3]);
                 }
                 return new MultiIndexSegment(iArr);
             } else if (indexOf2 != -1) {
                 String[] split2 = str.split(":");
                 int length2 = split2.length;
                 int[] iArr2 = new int[length2];
-                for (int i3 = 0; i3 < split2.length; i3++) {
-                    String str2 = split2[i3];
+                for (int i4 = 0; i4 < split2.length; i4++) {
+                    String str2 = split2[i4];
                     if (str2.length() != 0) {
-                        iArr2[i3] = Integer.parseInt(str2);
-                    } else if (i3 == 0) {
-                        iArr2[i3] = 0;
+                        iArr2[i4] = Integer.parseInt(str2);
+                    } else if (i4 == 0) {
+                        iArr2[i4] = 0;
                     } else {
                         throw new UnsupportedOperationException();
                     }
                 }
-                int i4 = iArr2[0];
-                int i5 = length2 > 1 ? iArr2[1] : -1;
-                int i6 = length2 == 3 ? iArr2[2] : 1;
-                if (i5 < 0 || i5 >= i4) {
-                    if (i6 > 0) {
-                        return new RangeSegment(i4, i5, i6);
+                int i5 = iArr2[0];
+                int i6 = length2 > 1 ? iArr2[1] : -1;
+                int i7 = length2 == 3 ? iArr2[2] : 1;
+                if (i6 < 0 || i6 >= i5) {
+                    if (i7 > 0) {
+                        return new RangeSegment(i5, i6, i7);
                     }
-                    throw new UnsupportedOperationException("step must greater than zero : " + i6);
+                    throw new UnsupportedOperationException("step must greater than zero : " + i7);
                 }
-                throw new UnsupportedOperationException("end must greater than or equals start. start " + i4 + ",  end " + i5);
+                throw new UnsupportedOperationException("end must greater than or equals start. start " + i5 + ",  end " + i6);
             } else {
                 throw new UnsupportedOperationException();
             }
@@ -608,22 +609,22 @@ public class JSONPath implements JSONAware {
                         if (!propertySegment.deep && propertySegment.propertyName.equals("*")) {
                         }
                     }
-                    int i = this.level;
-                    if (i == segmentArr.length) {
-                        Segment[] segmentArr2 = new Segment[(i * 3) / 2];
-                        System.arraycopy(segmentArr, 0, segmentArr2, 0, i);
+                    int i2 = this.level;
+                    if (i2 == segmentArr.length) {
+                        Segment[] segmentArr2 = new Segment[(i2 * 3) / 2];
+                        System.arraycopy(segmentArr, 0, segmentArr2, 0, i2);
                         segmentArr = segmentArr2;
                     }
-                    int i2 = this.level;
-                    this.level = i2 + 1;
-                    segmentArr[i2] = readSegement;
+                    int i3 = this.level;
+                    this.level = i3 + 1;
+                    segmentArr[i3] = readSegement;
                 }
-                int i3 = this.level;
-                if (i3 == segmentArr.length) {
+                int i4 = this.level;
+                if (i4 == segmentArr.length) {
                     return segmentArr;
                 }
-                Segment[] segmentArr3 = new Segment[i3];
-                System.arraycopy(segmentArr, 0, segmentArr3, 0, i3);
+                Segment[] segmentArr3 = new Segment[i4];
+                System.arraycopy(segmentArr, 0, segmentArr3, 0, i4);
                 return segmentArr3;
             }
             throw new IllegalArgumentException();
@@ -662,9 +663,9 @@ public class JSONPath implements JSONAware {
 
         public void next() {
             String str = this.path;
-            int i = this.pos;
-            this.pos = i + 1;
-            this.ch = str.charAt(i);
+            int i2 = this.pos;
+            this.pos = i2 + 1;
+            this.ch = str.charAt(i2);
         }
 
         public Segment parseArrayAccess(boolean z) {
@@ -685,7 +686,7 @@ public class JSONPath implements JSONAware {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public Object parseArrayAccessFilter(boolean z) {
-            int i;
+            int i2;
             boolean z2;
             boolean z3;
             char c2;
@@ -709,16 +710,16 @@ public class JSONPath implements JSONAware {
             char c10;
             Filter notNullSegement;
             char c11;
-            int i2;
+            int i3;
             Filter doubleOpSegement;
             char c12;
             char c13;
             char c14;
             char c15;
-            int i3;
+            int i4;
             String substring;
             String replaceAll;
-            int i4;
+            int i5;
             char charAt;
             if (z) {
                 accept('[');
@@ -726,19 +727,19 @@ public class JSONPath implements JSONAware {
             if (this.ch == '?') {
                 next();
                 accept('(');
-                i = 1;
+                i2 = 1;
                 while (this.ch == '(') {
                     next();
-                    i++;
+                    i2++;
                 }
                 z2 = true;
             } else {
-                i = 0;
+                i2 = 0;
                 z2 = false;
             }
             skipWhitespace();
             if (!z2 && !IOUtils.firstIdentifier(this.ch) && !Character.isJavaIdentifierStart(this.ch) && (c15 = this.ch) != '\\' && c15 != '@') {
-                int i5 = this.pos - 1;
+                int i6 = this.pos - 1;
                 while (true) {
                     char c16 = this.ch;
                     if (c16 == ']' || c16 == '/' || isEOF() || !(this.ch != '.' || z2 || z2 || c15 == '\'')) {
@@ -751,28 +752,28 @@ public class JSONPath implements JSONAware {
                 }
                 char c17 = this.ch;
                 if (c17 != '/' && c17 != '.') {
-                    i3 = this.pos;
-                    substring = this.path.substring(i5, i3);
+                    i4 = this.pos;
+                    substring = this.path.substring(i6, i4);
                     if (substring.indexOf(92) != 0) {
                     }
                     if (substring.indexOf(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX) == -1) {
                     }
                 } else {
-                    int i6 = this.pos;
-                    i3 = i6 - 1;
-                    substring = this.path.substring(i5, i3);
+                    int i7 = this.pos;
+                    i4 = i7 - 1;
+                    substring = this.path.substring(i6, i4);
                     if (substring.indexOf(92) != 0) {
                         StringBuilder sb = new StringBuilder(substring.length());
-                        int i7 = 0;
-                        while (i7 < substring.length()) {
-                            char charAt2 = substring.charAt(i7);
-                            if (charAt2 == '\\' && i7 < substring.length() - 1 && ((charAt = substring.charAt((i4 = i7 + 1))) == '@' || charAt2 == '\\' || charAt2 == '\"')) {
+                        int i8 = 0;
+                        while (i8 < substring.length()) {
+                            char charAt2 = substring.charAt(i8);
+                            if (charAt2 == '\\' && i8 < substring.length() - 1 && ((charAt = substring.charAt((i5 = i8 + 1))) == '@' || charAt2 == '\\' || charAt2 == '\"')) {
                                 sb.append(charAt);
-                                i7 = i4;
+                                i8 = i5;
                             } else {
                                 sb.append(charAt2);
                             }
-                            i7++;
+                            i8++;
                         }
                         substring = sb.toString();
                     }
@@ -875,7 +876,7 @@ public class JSONPath implements JSONAware {
                                         }
                                         next();
                                     }
-                                    if (i > 1 && c12 == ')') {
+                                    if (i2 > 1 && c12 == ')') {
                                         next();
                                     }
                                     char c19 = this.ch;
@@ -921,11 +922,11 @@ public class JSONPath implements JSONAware {
                                     next();
                                     if (this.ch == 'i') {
                                         next();
-                                        i2 = 2;
+                                        i3 = 2;
                                     } else {
-                                        i2 = 0;
+                                        i3 = 0;
                                     }
-                                    RegMatchSegement regMatchSegement = new RegMatchSegement(readName, z3, Pattern.compile(sb2.toString(), i2), readOp);
+                                    RegMatchSegement regMatchSegement = new RegMatchSegement(readName, z3, Pattern.compile(sb2.toString(), i3), readOp);
                                     if (z2) {
                                         accept(')');
                                     }
@@ -1201,8 +1202,8 @@ public class JSONPath implements JSONAware {
                             }
                             int size = jSONArray.size();
                             long[] jArr = new long[size];
-                            for (int i8 = 0; i8 < size; i8++) {
-                                jArr[i8] = TypeUtils.longExtractValue((Number) jSONArray.get(i8));
+                            for (int i9 = 0; i9 < size; i9++) {
+                                jArr[i9] = TypeUtils.longExtractValue((Number) jSONArray.get(i9));
                             }
                             Filter intInSegement = new IntInSegement(readName, z3, jArr, z5);
                             while (true) {
@@ -1271,10 +1272,10 @@ public class JSONPath implements JSONAware {
                             if (z8) {
                                 int size2 = jSONArray.size();
                                 Long[] lArr = new Long[size2];
-                                for (int i9 = 0; i9 < size2; i9++) {
-                                    Number number = (Number) jSONArray.get(i9);
+                                for (int i10 = 0; i10 < size2; i10++) {
+                                    Number number = (Number) jSONArray.get(i10);
                                     if (number != null) {
-                                        lArr[i9] = Long.valueOf(TypeUtils.longExtractValue(number));
+                                        lArr[i10] = Long.valueOf(TypeUtils.longExtractValue(number));
                                     }
                                 }
                                 Filter intObjInSegement = new IntObjInSegement(readName, z3, lArr, z5);
@@ -1318,7 +1319,7 @@ public class JSONPath implements JSONAware {
         }
 
         public double readDoubleValue(long j) {
-            int i = this.pos - 1;
+            int i2 = this.pos - 1;
             next();
             while (true) {
                 char c2 = this.ch;
@@ -1327,11 +1328,11 @@ public class JSONPath implements JSONAware {
                 }
                 next();
             }
-            return Double.parseDouble(this.path.substring(i, this.pos - 1)) + j;
+            return Double.parseDouble(this.path.substring(i2, this.pos - 1)) + j;
         }
 
         public long readLongValue() {
-            int i = this.pos - 1;
+            int i2 = this.pos - 1;
             char c2 = this.ch;
             if (c2 == '+' || c2 == '-') {
                 next();
@@ -1343,7 +1344,7 @@ public class JSONPath implements JSONAware {
                 }
                 next();
             }
-            return Long.parseLong(this.path.substring(i, this.pos - 1));
+            return Long.parseLong(this.path.substring(i2, this.pos - 1));
         }
 
         public String readName() {
@@ -1392,7 +1393,7 @@ public class JSONPath implements JSONAware {
                 }
             } else if (c2 == '!') {
                 next();
-                accept(a.f1922h);
+                accept(a.f1873h);
                 operator = Operator.NE;
             } else if (c2 == '<') {
                 next();
@@ -1485,8 +1486,8 @@ public class JSONPath implements JSONAware {
                     if (c5 == '.' && this.ch == '.') {
                         next();
                         int length = this.path.length();
-                        int i = this.pos;
-                        if (length > i + 3 && this.ch == '[' && this.path.charAt(i) == '*' && this.path.charAt(this.pos + 1) == ']' && this.path.charAt(this.pos + 2) == '.') {
+                        int i2 = this.pos;
+                        if (length > i2 + 3 && this.ch == '[' && this.path.charAt(i2) == '*' && this.path.charAt(this.pos + 1) == ']' && this.path.charAt(this.pos + 2) == '.') {
                             next();
                             next();
                             next();
@@ -1511,7 +1512,7 @@ public class JSONPath implements JSONAware {
                                 if (!isEOF()) {
                                     next();
                                 }
-                                if (!"size".equals(readName) && !"length".equals(readName)) {
+                                if (!"size".equals(readName) && !CloudStabilityUBCUtils.KEY_LENGTH.equals(readName)) {
                                     if ("max".equals(readName)) {
                                         return MaxSegment.instance;
                                     }
@@ -1548,11 +1549,11 @@ public class JSONPath implements JSONAware {
         public String readString() {
             char c2 = this.ch;
             next();
-            int i = this.pos - 1;
+            int i2 = this.pos - 1;
             while (this.ch != c2 && !isEOF()) {
                 next();
             }
-            String substring = this.path.substring(i, isEOF() ? this.pos : this.pos - 1);
+            String substring = this.path.substring(i2, isEOF() ? this.pos : this.pos - 1);
             accept(c2);
             return substring;
         }
@@ -1630,7 +1631,7 @@ public class JSONPath implements JSONAware {
 
         @Override // com.alibaba.fastjson.JSONPath.Filter
         public boolean apply(JSONPath jSONPath, Object obj, Object obj2, Object obj3) {
-            int i;
+            int i2;
             Object obj4 = get(jSONPath, obj, obj3);
             if (obj4 == null) {
                 return false;
@@ -1641,20 +1642,20 @@ public class JSONPath implements JSONAware {
             }
             String str = this.startsWithValue;
             if (str == null) {
-                i = 0;
+                i2 = 0;
             } else if (!obj5.startsWith(str)) {
                 return this.not;
             } else {
-                i = this.startsWithValue.length() + 0;
+                i2 = this.startsWithValue.length() + 0;
             }
             String[] strArr = this.containsValues;
             if (strArr != null) {
                 for (String str2 : strArr) {
-                    int indexOf = obj5.indexOf(str2, i);
+                    int indexOf = obj5.indexOf(str2, i2);
                     if (indexOf == -1) {
                         return this.not;
                     }
-                    i = indexOf + str2.length();
+                    i2 = indexOf + str2.length();
                 }
             }
             String str3 = this.endsWithValue;
@@ -1724,14 +1725,14 @@ public class JSONPath implements JSONAware {
         @Override // com.alibaba.fastjson.JSONPath.Segment
         public Object eval(JSONPath jSONPath, Object obj, Object obj2) {
             JSONArray jSONArray = new JSONArray(this.indexes.length);
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 int[] iArr = this.indexes;
-                if (i >= iArr.length) {
+                if (i2 >= iArr.length) {
                     return jSONArray;
                 }
-                jSONArray.add(jSONPath.getArrayItem(obj2, iArr[i]));
-                i++;
+                jSONArray.add(jSONPath.getArrayItem(obj2, iArr[i2]));
+                i2++;
             }
         }
 
@@ -1768,28 +1769,28 @@ public class JSONPath implements JSONAware {
         public MultiPropertySegment(String[] strArr) {
             this.propertyNames = strArr;
             this.propertyNamesHash = new long[strArr.length];
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 long[] jArr = this.propertyNamesHash;
-                if (i >= jArr.length) {
+                if (i2 >= jArr.length) {
                     return;
                 }
-                jArr[i] = TypeUtils.fnv1a_64(strArr[i]);
-                i++;
+                jArr[i2] = TypeUtils.fnv1a_64(strArr[i2]);
+                i2++;
             }
         }
 
         @Override // com.alibaba.fastjson.JSONPath.Segment
         public Object eval(JSONPath jSONPath, Object obj, Object obj2) {
             ArrayList arrayList = new ArrayList(this.propertyNames.length);
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 String[] strArr = this.propertyNames;
-                if (i >= strArr.length) {
+                if (i2 >= strArr.length) {
                     return arrayList;
                 }
-                arrayList.add(jSONPath.getPropertyValue(obj2, strArr[i], this.propertyNamesHash[i]));
-                i++;
+                arrayList.add(jSONPath.getPropertyValue(obj2, strArr[i2], this.propertyNamesHash[i2]));
+                i2++;
             }
         }
 
@@ -1813,14 +1814,14 @@ public class JSONPath implements JSONAware {
                 if (jSONLexerBase.matchStat != 3) {
                     return;
                 }
-                int i = jSONLexerBase.token();
-                if (i == 2) {
+                int i2 = jSONLexerBase.token();
+                if (i2 == 2) {
                     integerValue = jSONLexerBase.integerValue();
                     jSONLexerBase.nextToken(16);
-                } else if (i == 3) {
+                } else if (i2 == 3) {
                     integerValue = jSONLexerBase.decimalValue();
                     jSONLexerBase.nextToken(16);
-                } else if (i != 4) {
+                } else if (i2 != 4) {
                     integerValue = defaultJSONParser.parse();
                 } else {
                     integerValue = jSONLexerBase.stringVal();
@@ -1952,19 +1953,19 @@ public class JSONPath implements JSONAware {
                     jSONArray = new JSONArray();
                 }
                 while (true) {
-                    int i = jSONLexerBase.token();
-                    if (i == 12) {
+                    int i2 = jSONLexerBase.token();
+                    if (i2 == 12) {
                         boolean z = this.deep;
                         if (z) {
                             extract(jSONPath, defaultJSONParser, context);
                         } else {
                             int seekObjectToField = jSONLexerBase.seekObjectToField(this.propertyNameHash, z);
                             if (seekObjectToField == 3) {
-                                int i2 = jSONLexerBase.token();
-                                if (i2 == 2) {
+                                int i3 = jSONLexerBase.token();
+                                if (i3 == 2) {
                                     integerValue3 = jSONLexerBase.integerValue();
                                     jSONLexerBase.nextToken();
-                                } else if (i2 != 4) {
+                                } else if (i3 != 4) {
                                     integerValue3 = defaultJSONParser.parse();
                                 } else {
                                     integerValue3 = jSONLexerBase.stringVal();
@@ -1984,8 +1985,8 @@ public class JSONPath implements JSONAware {
                                 throw new UnsupportedOperationException(jSONLexerBase.info());
                             }
                         }
-                    } else if (i != 14) {
-                        switch (i) {
+                    } else if (i2 != 14) {
+                        switch (i2) {
                             case 2:
                             case 3:
                             case 4:
@@ -2018,14 +2019,14 @@ public class JSONPath implements JSONAware {
                 boolean z2 = this.deep;
                 if (!z2) {
                     if (jSONLexerBase.seekObjectToField(this.propertyNameHash, z2) == 3 && context.eval) {
-                        int i3 = jSONLexerBase.token();
-                        if (i3 == 2) {
+                        int i4 = jSONLexerBase.token();
+                        if (i4 == 2) {
                             integerValue2 = jSONLexerBase.integerValue();
                             jSONLexerBase.nextToken(16);
-                        } else if (i3 == 3) {
+                        } else if (i4 == 3) {
                             integerValue2 = jSONLexerBase.decimalValue();
                             jSONLexerBase.nextToken(16);
-                        } else if (i3 != 4) {
+                        } else if (i4 != 4) {
                             integerValue2 = defaultJSONParser.parse();
                         } else {
                             integerValue2 = jSONLexerBase.stringVal();
@@ -2046,14 +2047,14 @@ public class JSONPath implements JSONAware {
                     }
                     if (seekObjectToField2 == 3) {
                         if (context.eval) {
-                            int i4 = jSONLexerBase.token();
-                            if (i4 == 2) {
+                            int i5 = jSONLexerBase.token();
+                            if (i5 == 2) {
                                 integerValue = jSONLexerBase.integerValue();
                                 jSONLexerBase.nextToken(16);
-                            } else if (i4 == 3) {
+                            } else if (i5 == 3) {
                                 integerValue = jSONLexerBase.decimalValue();
                                 jSONLexerBase.nextToken(16);
-                            } else if (i4 != 4) {
+                            } else if (i5 != 4) {
                                 integerValue = defaultJSONParser.parse();
                             } else {
                                 integerValue = jSONLexerBase.stringVal();
@@ -2099,31 +2100,31 @@ public class JSONPath implements JSONAware {
         public final int start;
         public final int step;
 
-        public RangeSegment(int i, int i2, int i3) {
-            this.start = i;
-            this.end = i2;
-            this.step = i3;
+        public RangeSegment(int i2, int i3, int i4) {
+            this.start = i2;
+            this.end = i3;
+            this.step = i4;
         }
 
         @Override // com.alibaba.fastjson.JSONPath.Segment
         public Object eval(JSONPath jSONPath, Object obj, Object obj2) {
             int intValue = SizeSegment.instance.eval(jSONPath, obj, obj2).intValue();
-            int i = this.start;
-            if (i < 0) {
-                i += intValue;
-            }
-            int i2 = this.end;
+            int i2 = this.start;
             if (i2 < 0) {
                 i2 += intValue;
             }
-            int i3 = ((i2 - i) / this.step) + 1;
-            if (i3 == -1) {
+            int i3 = this.end;
+            if (i3 < 0) {
+                i3 += intValue;
+            }
+            int i4 = ((i3 - i2) / this.step) + 1;
+            if (i4 == -1) {
                 return null;
             }
-            ArrayList arrayList = new ArrayList(i3);
-            while (i <= i2 && i < intValue) {
-                arrayList.add(jSONPath.getArrayItem(obj2, i));
-                i += this.step;
+            ArrayList arrayList = new ArrayList(i4);
+            while (i2 <= i3 && i2 < intValue) {
+                arrayList.add(jSONPath.getArrayItem(obj2, i2));
+                i2 += this.step;
             }
             return arrayList;
         }
@@ -2598,27 +2599,27 @@ public class JSONPath implements JSONAware {
         }
         init();
         Object obj2 = null;
-        int i = 0;
-        Object obj3 = obj;
         int i2 = 0;
+        Object obj3 = obj;
+        int i3 = 0;
         while (true) {
             Segment[] segmentArr = this.segments;
-            if (i2 >= segmentArr.length) {
+            if (i3 >= segmentArr.length) {
                 break;
             }
-            if (i2 == segmentArr.length - 1) {
+            if (i3 == segmentArr.length - 1) {
                 obj2 = obj3;
             }
-            obj3 = this.segments[i2].eval(this, obj, obj3);
-            i2++;
+            obj3 = this.segments[i3].eval(this, obj, obj3);
+            i3++;
         }
         if (obj3 != null) {
             if (obj3 instanceof Collection) {
                 Collection collection = (Collection) obj3;
                 int length = objArr.length;
-                while (i < length) {
-                    collection.add(objArr[i]);
-                    i++;
+                while (i2 < length) {
+                    collection.add(objArr[i2]);
+                    i2++;
                 }
                 return;
             }
@@ -2627,9 +2628,9 @@ public class JSONPath implements JSONAware {
                 int length2 = Array.getLength(obj3);
                 Object newInstance = Array.newInstance(cls.getComponentType(), objArr.length + length2);
                 System.arraycopy(obj3, 0, newInstance, 0, length2);
-                while (i < objArr.length) {
-                    Array.set(newInstance, length2 + i, objArr[i]);
-                    i++;
+                while (i2 < objArr.length) {
+                    Array.set(newInstance, length2 + i2, objArr[i2]);
+                    i2++;
                 }
                 Segment[] segmentArr2 = this.segments;
                 Segment segment = segmentArr2[segmentArr2.length - 1];
@@ -2654,20 +2655,20 @@ public class JSONPath implements JSONAware {
         }
         init();
         Object obj2 = obj;
-        int i = 0;
+        int i2 = 0;
         while (true) {
             Segment[] segmentArr = this.segments;
-            if (i >= segmentArr.length) {
+            if (i2 >= segmentArr.length) {
                 return true;
             }
-            Object eval = segmentArr[i].eval(this, obj, obj2);
+            Object eval = segmentArr[i2].eval(this, obj, obj2);
             if (eval == null) {
                 return false;
             }
             if (eval == Collections.EMPTY_LIST && (obj2 instanceof List)) {
                 return ((List) obj2).contains(eval);
             }
-            i++;
+            i2++;
             obj2 = eval;
         }
     }
@@ -2765,8 +2766,8 @@ public class JSONPath implements JSONAware {
                 }
             } else if (obj instanceof List) {
                 List list2 = (List) obj;
-                for (int i = 0; i < list2.size(); i++) {
-                    deepScan(list2.get(i), str, list);
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    deepScan(list2.get(i2), str, list);
                 }
             }
         }
@@ -2805,8 +2806,8 @@ public class JSONPath implements JSONAware {
             }
         } else if (obj instanceof List) {
             List list = (List) obj;
-            for (int i = 0; i < list.size(); i++) {
-                deepSet(list.get(i), str, j, obj2);
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                deepSet(list.get(i2), str, j, obj2);
             }
         }
     }
@@ -2816,15 +2817,15 @@ public class JSONPath implements JSONAware {
             return null;
         }
         init();
-        int i = 0;
+        int i2 = 0;
         Object obj2 = obj;
         while (true) {
             Segment[] segmentArr = this.segments;
-            if (i >= segmentArr.length) {
+            if (i2 >= segmentArr.length) {
                 return obj2;
             }
-            obj2 = segmentArr[i].eval(this, obj, obj2);
-            i++;
+            obj2 = segmentArr[i2].eval(this, obj, obj2);
+            i2++;
         }
     }
 
@@ -2860,13 +2861,13 @@ public class JSONPath implements JSONAware {
             return Array.getLength(obj);
         }
         if (obj instanceof Map) {
-            int i = 0;
+            int i2 = 0;
             for (Object obj2 : ((Map) obj).values()) {
                 if (obj2 != null) {
-                    i++;
+                    i2++;
                 }
             }
-            return i;
+            return i2;
         }
         JavaBeanSerializer javaBeanSerializer = getJavaBeanSerializer(obj.getClass());
         if (javaBeanSerializer == null) {
@@ -2898,17 +2899,17 @@ public class JSONPath implements JSONAware {
             return eval(defaultJSONParser.parse());
         }
         Context context = null;
-        int i = 0;
+        int i2 = 0;
         while (true) {
             Segment[] segmentArr2 = this.segments;
-            if (i < segmentArr2.length) {
-                Segment segment2 = segmentArr2[i];
-                boolean z2 = i == segmentArr2.length - 1;
+            if (i2 < segmentArr2.length) {
+                Segment segment2 = segmentArr2[i2];
+                boolean z2 = i2 == segmentArr2.length - 1;
                 if (context != null && (obj = context.object) != null) {
                     context.object = segment2.eval(this, null, obj);
                 } else {
                     if (!z2) {
-                        Segment segment3 = this.segments[i + 1];
+                        Segment segment3 = this.segments[i2 + 1];
                         if ((!(segment2 instanceof PropertySegment) || !((PropertySegment) segment2).deep || (!(segment3 instanceof ArrayAccessSegment) && !(segment3 instanceof MultiIndexSegment) && !(segment3 instanceof MultiPropertySegment) && !(segment3 instanceof SizeSegment) && !(segment3 instanceof PropertySegment) && !(segment3 instanceof FilterSegment))) && ((!(segment3 instanceof ArrayAccessSegment) || ((ArrayAccessSegment) segment3).index >= 0) && !(segment3 instanceof FilterSegment) && !(segment2 instanceof WildCardSegment) && !(segment2 instanceof MultiIndexSegment))) {
                             z = false;
                             Context context2 = new Context(context, z);
@@ -2921,56 +2922,56 @@ public class JSONPath implements JSONAware {
                     segment2.extract(this, defaultJSONParser, context22);
                     context = context22;
                 }
-                i++;
+                i2++;
             } else {
                 return context.object;
             }
         }
     }
 
-    public Object getArrayItem(Object obj, int i) {
+    public Object getArrayItem(Object obj, int i2) {
         if (obj == null) {
             return null;
         }
         if (obj instanceof List) {
             List list = (List) obj;
-            if (i >= 0) {
-                if (i < list.size()) {
-                    return list.get(i);
+            if (i2 >= 0) {
+                if (i2 < list.size()) {
+                    return list.get(i2);
                 }
                 return null;
-            } else if (Math.abs(i) <= list.size()) {
-                return list.get(list.size() + i);
+            } else if (Math.abs(i2) <= list.size()) {
+                return list.get(list.size() + i2);
             } else {
                 return null;
             }
         } else if (obj.getClass().isArray()) {
             int length = Array.getLength(obj);
-            if (i >= 0) {
-                if (i < length) {
-                    return Array.get(obj, i);
+            if (i2 >= 0) {
+                if (i2 < length) {
+                    return Array.get(obj, i2);
                 }
                 return null;
-            } else if (Math.abs(i) <= length) {
-                return Array.get(obj, length + i);
+            } else if (Math.abs(i2) <= length) {
+                return Array.get(obj, length + i2);
             } else {
                 return null;
             }
         } else if (obj instanceof Map) {
             Map map = (Map) obj;
-            Object obj2 = map.get(Integer.valueOf(i));
-            return obj2 == null ? map.get(Integer.toString(i)) : obj2;
+            Object obj2 = map.get(Integer.valueOf(i2));
+            return obj2 == null ? map.get(Integer.toString(i2)) : obj2;
         } else if (obj instanceof Collection) {
-            int i2 = 0;
+            int i3 = 0;
             for (Object obj3 : (Collection) obj) {
-                if (i2 == i) {
+                if (i3 == i2) {
                     return obj3;
                 }
-                i2++;
+                i3++;
             }
             return null;
         } else {
-            if (i == 0) {
+            if (i2 == 0) {
                 return obj;
             }
             throw new UnsupportedOperationException();
@@ -3022,12 +3023,12 @@ public class JSONPath implements JSONAware {
                 throw new JSONPathException("jsonpath error, path " + this.path + ", segement " + str, e2);
             }
         }
-        int i = 0;
+        int i2 = 0;
         if (obj2 instanceof List) {
             List list = (List) obj2;
             if (SIZE != j && LENGTH != j) {
-                while (i < list.size()) {
-                    Object obj4 = list.get(i);
+                while (i2 < list.size()) {
+                    Object obj4 = list.get(i2);
                     if (obj4 == list) {
                         if (jSONArray == null) {
                             jSONArray = new JSONArray(list.size());
@@ -3048,7 +3049,7 @@ public class JSONPath implements JSONAware {
                             jSONArray.add(propertyValue);
                         }
                     }
-                    i++;
+                    i2++;
                 }
                 return jSONArray == null ? Collections.emptyList() : jSONArray;
             }
@@ -3057,8 +3058,8 @@ public class JSONPath implements JSONAware {
             Object[] objArr = (Object[]) obj2;
             if (SIZE != j && LENGTH != j) {
                 JSONArray jSONArray2 = new JSONArray(objArr.length);
-                while (i < objArr.length) {
-                    Object obj5 = objArr[i];
+                while (i2 < objArr.length) {
+                    Object obj5 = objArr[i2];
                     if (obj5 == objArr) {
                         jSONArray2.add(obj5);
                     } else {
@@ -3069,7 +3070,7 @@ public class JSONPath implements JSONAware {
                             jSONArray2.add(propertyValue2);
                         }
                     }
-                    i++;
+                    i2++;
                 }
                 return jSONArray2;
             }
@@ -3146,8 +3147,8 @@ public class JSONPath implements JSONAware {
     public boolean isRef() {
         try {
             init();
-            for (int i = 0; i < this.segments.length; i++) {
-                Class<?> cls = this.segments[i].getClass();
+            for (int i2 = 0; i2 < this.segments.length; i2++) {
+                Class<?> cls = this.segments[i2].getClass();
                 if (cls != ArrayAccessSegment.class && cls != PropertySegment.class) {
                     return false;
                 }
@@ -3163,13 +3164,13 @@ public class JSONPath implements JSONAware {
             return null;
         }
         init();
-        int i = 0;
+        int i2 = 0;
         Object obj2 = obj;
         while (true) {
             Segment[] segmentArr = this.segments;
-            if (i < segmentArr.length) {
-                obj2 = segmentArr[i].eval(this, obj, obj2);
-                i++;
+            if (i2 < segmentArr.length) {
+                obj2 = segmentArr[i2].eval(this, obj, obj2);
+                i2++;
             } else {
                 return evalKeySet(obj2);
             }
@@ -3183,20 +3184,20 @@ public class JSONPath implements JSONAware {
         }
         init();
         Object obj3 = null;
-        int i = 0;
+        int i2 = 0;
         Object obj4 = obj;
         while (true) {
             Segment[] segmentArr2 = this.segments;
-            if (i >= segmentArr2.length) {
+            if (i2 >= segmentArr2.length) {
                 break;
             }
-            Segment segment = segmentArr2[i];
+            Segment segment = segmentArr2[i2];
             Object eval = segment.eval(this, obj, obj4);
-            if (eval == null && i != this.segments.length - 1 && (segment instanceof PropertySegment)) {
+            if (eval == null && i2 != this.segments.length - 1 && (segment instanceof PropertySegment)) {
                 eval = new JSONObject();
                 ((PropertySegment) segment).setValue(this, obj4, eval);
             }
-            i++;
+            i2++;
             obj3 = obj4;
             obj4 = eval;
         }
@@ -3302,17 +3303,17 @@ public class JSONPath implements JSONAware {
         Segment[] segmentArr = this.segments;
         Segment segment = segmentArr[segmentArr.length - 1];
         Object obj2 = obj;
-        int i = 0;
+        int i2 = 0;
         while (true) {
             Segment[] segmentArr2 = this.segments;
-            if (i >= segmentArr2.length) {
+            if (i2 >= segmentArr2.length) {
                 break;
-            } else if (i == segmentArr2.length - 1) {
+            } else if (i2 == segmentArr2.length - 1) {
                 collection = obj2;
                 break;
             } else {
-                Segment segment2 = segmentArr2[i];
-                if (i == segmentArr2.length - 2 && (segment instanceof FilterSegment) && (segment2 instanceof PropertySegment)) {
+                Segment segment2 = segmentArr2[i2];
+                if (i2 == segmentArr2.length - 2 && (segment instanceof FilterSegment) && (segment2 instanceof PropertySegment)) {
                     FilterSegment filterSegment = (FilterSegment) segment;
                     if (obj2 instanceof List) {
                         PropertySegment propertySegment = (PropertySegment) segment2;
@@ -3342,22 +3343,22 @@ public class JSONPath implements JSONAware {
                 if (obj2 == null) {
                     break;
                 }
-                i++;
+                i2++;
             }
         }
     }
 
-    public boolean removeArrayItem(JSONPath jSONPath, Object obj, int i) {
+    public boolean removeArrayItem(JSONPath jSONPath, Object obj, int i2) {
         if (obj instanceof List) {
             List list = (List) obj;
-            if (i >= 0) {
-                if (i >= list.size()) {
+            if (i2 >= 0) {
+                if (i2 >= list.size()) {
                     return false;
                 }
-                list.remove(i);
+                list.remove(i2);
                 return true;
             }
-            int size = list.size() + i;
+            int size = list.size() + i2;
             if (size < 0) {
                 return false;
             }
@@ -3407,25 +3408,25 @@ public class JSONPath implements JSONAware {
         return set(obj, obj2, true);
     }
 
-    public boolean setArrayItem(JSONPath jSONPath, Object obj, int i, Object obj2) {
+    public boolean setArrayItem(JSONPath jSONPath, Object obj, int i2, Object obj2) {
         if (obj instanceof List) {
             List list = (List) obj;
-            if (i >= 0) {
-                list.set(i, obj2);
+            if (i2 >= 0) {
+                list.set(i2, obj2);
             } else {
-                list.set(list.size() + i, obj2);
+                list.set(list.size() + i2, obj2);
             }
             return true;
         }
         Class<?> cls = obj.getClass();
         if (cls.isArray()) {
             int length = Array.getLength(obj);
-            if (i >= 0) {
-                if (i < length) {
-                    Array.set(obj, i, obj2);
+            if (i2 >= 0) {
+                if (i2 < length) {
+                    Array.set(obj, i2, obj2);
                 }
-            } else if (Math.abs(i) <= length) {
-                Array.set(obj, length + i, obj2);
+            } else if (Math.abs(i2) <= length) {
+                Array.set(obj, length + i2, obj2);
             }
             return true;
         }
@@ -3470,13 +3471,13 @@ public class JSONPath implements JSONAware {
             return -1;
         }
         init();
-        int i = 0;
+        int i2 = 0;
         Object obj2 = obj;
         while (true) {
             Segment[] segmentArr = this.segments;
-            if (i < segmentArr.length) {
-                obj2 = segmentArr[i].eval(this, obj, obj2);
-                i++;
+            if (i2 < segmentArr.length) {
+                obj2 = segmentArr[i2].eval(this, obj, obj2);
+                i2++;
             } else {
                 return evalSize(obj2);
             }
@@ -3519,18 +3520,18 @@ public class JSONPath implements JSONAware {
         init();
         Object obj3 = obj;
         Object obj4 = null;
-        int i = 0;
+        int i2 = 0;
         while (true) {
             Segment[] segmentArr = this.segments;
-            if (i >= segmentArr.length) {
+            if (i2 >= segmentArr.length) {
                 obj3 = obj4;
                 break;
             }
-            Segment segment = segmentArr[i];
+            Segment segment = segmentArr[i2];
             Object eval = segment.eval(this, obj, obj3);
             if (eval == null) {
                 Segment[] segmentArr2 = this.segments;
-                Segment segment2 = i < segmentArr2.length - 1 ? segmentArr2[i + 1] : null;
+                Segment segment2 = i2 < segmentArr2.length - 1 ? segmentArr2[i2 + 1] : null;
                 if (segment2 instanceof PropertySegment) {
                     if (segment instanceof PropertySegment) {
                         String str = ((PropertySegment) segment).propertyName;
@@ -3567,7 +3568,7 @@ public class JSONPath implements JSONAware {
                     break;
                 }
             }
-            i++;
+            i2++;
             obj4 = obj3;
             obj3 = eval;
         }
@@ -3603,7 +3604,7 @@ public class JSONPath implements JSONAware {
         if (obj == null) {
             return;
         }
-        int i = 0;
+        int i2 = 0;
         if (map.put(obj, str) != null) {
             Class<?> cls = obj.getClass();
             if (!(cls == String.class || cls == Boolean.class || cls == Character.class || cls == UUID.class || cls.isEnum() || (obj instanceof Number) || (obj instanceof Date))) {
@@ -3635,16 +3636,16 @@ public class JSONPath implements JSONAware {
                     sb3.append(str);
                 }
                 sb3.append("/");
-                sb3.append(i);
+                sb3.append(i2);
                 paths(map, map2, sb3.toString(), obj2, serializeConfig);
-                i++;
+                i2++;
             }
         } else {
             Class<?> cls2 = obj.getClass();
             if (cls2.isArray()) {
                 int length = Array.getLength(obj);
-                while (i < length) {
-                    Object obj3 = Array.get(obj, i);
+                while (i2 < length) {
+                    Object obj3 = Array.get(obj, i2);
                     if (str.equals("/")) {
                         sb2 = new StringBuilder();
                     } else {
@@ -3652,9 +3653,9 @@ public class JSONPath implements JSONAware {
                         sb2.append(str);
                     }
                     sb2.append("/");
-                    sb2.append(i);
+                    sb2.append(i2);
                     paths(map, map2, sb2.toString(), obj3, serializeConfig);
-                    i++;
+                    i2++;
                 }
             } else if (!ParserConfig.isPrimitive2(cls2) && !cls2.isEnum()) {
                 ObjectSerializer objectWriter = serializeConfig.getObjectWriter(cls2);
@@ -3704,8 +3705,8 @@ public class JSONPath implements JSONAware {
         compile(str).arrayAdd(obj, objArr);
     }
 
-    public static Object extract(String str, String str2, ParserConfig parserConfig, int i, Feature... featureArr) {
-        DefaultJSONParser defaultJSONParser = new DefaultJSONParser(str, parserConfig, i | Feature.OrderedField.mask);
+    public static Object extract(String str, String str2, ParserConfig parserConfig, int i2, Feature... featureArr) {
+        DefaultJSONParser defaultJSONParser = new DefaultJSONParser(str, parserConfig, i2 | Feature.OrderedField.mask);
         Object extract = compile(str2).extract(defaultJSONParser);
         defaultJSONParser.lexer.close();
         return extract;

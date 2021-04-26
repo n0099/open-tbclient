@@ -4,7 +4,7 @@ package org.apache.http;
 public interface HeaderElement {
     String getName();
 
-    NameValuePair getParameter(int i);
+    NameValuePair getParameter(int i2);
 
     NameValuePair getParameterByName(String str);
 

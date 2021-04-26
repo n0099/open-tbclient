@@ -10,10 +10,10 @@ public class OfficalBarChatActivityConfig extends IntentConfig {
     public static final String USER_TYPE = "user_type";
     public UserData mUserData;
 
-    public OfficalBarChatActivityConfig(Context context, long j, String str, String str2, int i) {
+    public OfficalBarChatActivityConfig(Context context, long j, String str, String str2, int i2) {
         super(context);
         this.mUserData = null;
-        UserData userData = new UserData(j, str, str2, i);
+        UserData userData = new UserData(j, str, str2, i2);
         this.mUserData = userData;
         Intent intent = getIntent();
         intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
@@ -26,15 +26,15 @@ public class OfficalBarChatActivityConfig extends IntentConfig {
         return this.mUserData;
     }
 
-    public OfficalBarChatActivityConfig(Context context, long j, String str, String str2, int i, int i2) {
+    public OfficalBarChatActivityConfig(Context context, long j, String str, String str2, int i2, int i3) {
         super(context);
         this.mUserData = null;
-        UserData userData = new UserData(j, str, str2, i);
+        UserData userData = new UserData(j, str, str2, i2);
         this.mUserData = userData;
         Intent intent = getIntent();
         intent.putExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
         intent.putExtra("user", userData);
-        intent.putExtra("user_type", i2);
+        intent.putExtra("user_type", i3);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
     }
 }

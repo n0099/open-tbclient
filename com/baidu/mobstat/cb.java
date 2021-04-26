@@ -6,9 +6,9 @@ import java.nio.ByteBuffer;
 public interface cb {
     String a(by byVar) throws ch;
 
-    void a(by byVar, int i, String str);
+    void a(by byVar, int i2, String str);
 
-    void a(by byVar, int i, String str, boolean z);
+    void a(by byVar, int i2, String str, boolean z);
 
     void a(by byVar, cq cqVar);
 
@@ -26,7 +26,7 @@ public interface cb {
 
     void b(by byVar);
 
-    void b(by byVar, int i, String str, boolean z);
+    void b(by byVar, int i2, String str, boolean z);
 
     void b(by byVar, cq cqVar);
 

@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractTask implements DownConstants, Comparable<AbstractTask> {
     public static final int DF_SEG_SIZE = 524288;
     public static int DF_SEG_WRITE_SIZE = 524288;
@@ -82,8 +82,8 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
     public int mPriority = 3;
     public Context myContext = null;
 
-    public AbstractTask(int i) {
-        this.mTaskType = i;
+    public AbstractTask(int i2) {
+        this.mTaskType = i2;
     }
 
     public abstract String getDefaultUrl();
@@ -104,13 +104,13 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
 
     public abstract void pend();
 
-    public void setPriority(int i) {
-        if (i < 1) {
-            i = 1;
-        } else if (i > 5) {
-            i = 5;
+    public void setPriority(int i2) {
+        if (i2 < 1) {
+            i2 = 1;
+        } else if (i2 > 5) {
+            i2 = 5;
         }
-        this.mPriority = i;
+        this.mPriority = i2;
     }
 
     public void setTaskmsg(TaskMsg taskMsg) {
@@ -128,12 +128,12 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     public int compareTo(AbstractTask abstractTask) {
-        int i = this.mPriority;
-        int i2 = abstractTask.mPriority;
-        if (i > i2) {
+        int i2 = this.mPriority;
+        int i3 = abstractTask.mPriority;
+        if (i2 > i3) {
             return -1;
         }
-        if (i == i2) {
+        if (i2 == i3) {
             long j = this.mLastNotifyBytes;
             if (j > 0) {
                 long j2 = this.mTotalLength;
@@ -146,11 +146,11 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
                             if (j5 > 0) {
                                 long j6 = abstractTask.mLastNotifySpeed;
                                 if (j6 > 0) {
-                                    int i3 = (((j2 - j) / j3) > ((j5 - j4) / j6) ? 1 : (((j2 - j) / j3) == ((j5 - j4) / j6) ? 0 : -1));
-                                    if (i3 > 0) {
+                                    int i4 = (((j2 - j) / j3) > ((j5 - j4) / j6) ? 1 : (((j2 - j) / j3) == ((j5 - j4) / j6) ? 0 : -1));
+                                    if (i4 > 0) {
                                         return 1;
                                     }
-                                    return i3 < 0 ? -1 : 0;
+                                    return i4 < 0 ? -1 : 0;
                                 }
                             }
                         }

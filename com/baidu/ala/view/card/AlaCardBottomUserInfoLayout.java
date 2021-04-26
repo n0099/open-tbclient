@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.AlaPlayAnimationView;
-import d.b.i0.r.q.a2;
-import d.b.i0.z0.i0;
+import d.a.i0.r.q.a2;
+import d.a.i0.z0.i0;
 /* loaded from: classes.dex */
 public class AlaCardBottomUserInfoLayout extends LinearLayout {
     public static final int MAX_USERNAME_LENGTH = 10;
@@ -69,16 +69,16 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
             str = i0.m(str, 10) + StringHelper.STRING_MORE;
         }
         if (alaUserInfoData != null) {
-            this.alaCardUserHeadImg.W(alaUserInfoData.portrait, 28, false);
+            this.alaCardUserHeadImg.V(alaUserInfoData.portrait, 28, false);
         }
         this.alaCardUserName.setText(str);
         this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), StringHelper.numFormatOverWan(a2Var.q1().audience_count)));
     }
 
-    public void setUserHeadImgVisible(int i) {
+    public void setUserHeadImgVisible(int i2) {
         HeadImageView headImageView = this.alaCardUserHeadImg;
         if (headImageView != null) {
-            headImageView.setVisibility(i);
+            headImageView.setVisibility(i2);
         }
     }
 
@@ -94,8 +94,8 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         init(context);
     }
 
-    public AlaCardBottomUserInfoLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public AlaCardBottomUserInfoLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         init(context);
     }
 }

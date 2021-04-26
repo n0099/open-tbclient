@@ -11,23 +11,25 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import d.b.i0.r.u.e.a;
+import d.a.i0.r.u.e.a;
 /* loaded from: classes3.dex */
 public class EMRichTextAnyIconSpan extends ReplacementSpan {
     public static final int k = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12919e;
+    public int f12839e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IconType f12920f;
+    public IconType f12840f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12921g;
+    public int f12841g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12922h;
-    public int i;
+    public int f12842h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f12843i;
     public int j;
 
     /* loaded from: classes3.dex */
@@ -37,49 +39,49 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
         PIC
     }
 
-    public EMRichTextAnyIconSpan(int i, int i2, IconType iconType) {
-        this.f12919e = i;
-        this.f12920f = iconType;
-        this.f12921g = i2;
+    public EMRichTextAnyIconSpan(int i2, int i3, IconType iconType) {
+        this.f12839e = i2;
+        this.f12840f = iconType;
+        this.f12841g = i3;
         b(k);
     }
 
-    public void a(int i) {
-        this.i = i;
+    public void a(int i2) {
+        this.f12843i = i2;
     }
 
-    public void b(int i) {
-        this.i = i;
-        this.j = i;
+    public void b(int i2) {
+        this.f12843i = i2;
+        this.j = i2;
     }
 
-    public void c(int i) {
-        this.j = i;
+    public void c(int i2) {
+        this.j = i2;
     }
 
-    public void d(int i) {
-        this.f12922h = i;
+    public void d(int i2) {
+        this.f12842h = i2;
     }
 
     @Override // android.text.style.ReplacementSpan
-    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f2, int i3, int i4, int i5, @NonNull Paint paint) {
+    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i2, int i3, float f2, int i4, int i5, int i6, @NonNull Paint paint) {
         Drawable drawable;
         float dimenPixelSize;
-        IconType iconType = this.f12920f;
+        IconType iconType = this.f12840f;
         if (iconType == IconType.WEBP) {
-            drawable = WebPManager.getPureDrawable(this.f12919e, SkinManager.getColor(this.f12921g), WebPManager.ResourceStateType.NORMAL_PRESS);
+            drawable = WebPManager.getPureDrawable(this.f12839e, SkinManager.getColor(this.f12841g), WebPManager.ResourceStateType.NORMAL_PRESS);
         } else if (iconType == IconType.SVG) {
-            drawable = SvgManager.getInstance().getPureDrawable(this.f12919e, this.f12921g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            drawable = SvgManager.getInstance().getPureDrawable(this.f12839e, this.f12841g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         } else {
-            drawable = SkinManager.getDrawable(this.f12919e);
+            drawable = SkinManager.getDrawable(this.f12839e);
         }
         if (drawable == null) {
             return;
         }
-        int i6 = this.f12922h;
-        drawable.setBounds(0, 0, i6, i6);
+        int i7 = this.f12842h;
+        drawable.setBounds(0, 0, i7, i7);
         canvas.save();
-        float f3 = f2 + this.i;
+        float f3 = f2 + this.f12843i;
         Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
         if (a.b(charSequence)) {
             a.a(fontMetricsInt, (int) paint.getTextSize());
@@ -87,16 +89,16 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
         } else {
             dimenPixelSize = 0.0f + UtilHelper.getDimenPixelSize(R.dimen.tbds3);
         }
-        canvas.translate(f3, dimenPixelSize + i4 + fontMetricsInt.ascent);
+        canvas.translate(f3, dimenPixelSize + i5 + fontMetricsInt.ascent);
         drawable.draw(canvas);
         canvas.restore();
     }
 
     @Override // android.text.style.ReplacementSpan
-    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        if (this.f12922h == 0) {
-            this.f12922h = (int) paint.getTextSize();
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i2, int i3, @Nullable Paint.FontMetricsInt fontMetricsInt) {
+        if (this.f12842h == 0) {
+            this.f12842h = (int) paint.getTextSize();
         }
-        return this.i + this.j + this.f12922h;
+        return this.f12843i + this.j + this.f12842h;
     }
 }

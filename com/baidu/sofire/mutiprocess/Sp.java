@@ -10,24 +10,24 @@ public class Sp {
         return b.a(context);
     }
 
-    public static Bundle mainProcessCallGetPluginStatus(int i, String str) {
-        return b.a(i, str);
+    public static Bundle mainProcessCallGetPluginStatus(int i2, String str) {
+        return b.a(i2, str);
     }
 
     public static Set<Integer> mainProcessGetSubProcessPids() {
         return b.a();
     }
 
-    public static Bundle mainProcessRequestCallPlugin(int i, Bundle bundle) {
-        return b.a(i, bundle);
+    public static Bundle mainProcessRequestCallPlugin(int i2, Bundle bundle) {
+        return b.a(i2, bundle);
     }
 
     public static Map<Integer, Integer> mainProcessStartAllPlugin(String str) {
         return b.a(str);
     }
 
-    public static int mainProcessStartOrStopPlugin(int i, String str, boolean z) {
-        return b.a(i, str, z);
+    public static int mainProcessStartOrStopPlugin(int i2, String str, boolean z) {
+        return b.a(i2, str, z);
     }
 
     public static void registerNeedNotifySubProcess(String str, boolean z) {

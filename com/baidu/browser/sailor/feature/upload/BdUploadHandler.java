@@ -18,9 +18,9 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.h.a.g;
-import d.b.h.a.j.a;
-import d.b.h.a.j.b;
+import d.a.h.a.g;
+import d.a.h.a.j.a;
+import d.a.h.a.j.b;
 import java.io.File;
 /* loaded from: classes.dex */
 public class BdUploadHandler implements INoProGuard {
@@ -53,7 +53,7 @@ public class BdUploadHandler implements INoProGuard {
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
         intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
-        a.b().a(4099, new d.b.h.b.c.b.b(this));
+        a.b().a(4099, new d.a.h.b.c.b.b(this));
         return intent;
     }
 
@@ -111,7 +111,7 @@ public class BdUploadHandler implements INoProGuard {
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
         intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, StorageUtils.EXTERNAL_STORAGE_PERMISSION});
-        a.b().a(4099, new d.b.h.b.c.b.a(this));
+        a.b().a(4099, new d.a.h.b.c.b.a(this));
         return intent;
     }
 
@@ -163,7 +163,7 @@ public class BdUploadHandler implements INoProGuard {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onResult(int i, Intent intent) {
+    public void onResult(int i2, Intent intent) {
         Uri uri;
         File file;
         Uri fromFile;
@@ -172,16 +172,16 @@ public class BdUploadHandler implements INoProGuard {
                 this.mCanHandleResult = false;
                 return;
             }
-            if (i == -1 && intent == null && this.mCameraFilePath == null) {
-                i = 0;
+            if (i2 == -1 && intent == null && this.mCameraFilePath == null) {
+                i2 = 0;
             }
-            if (i == 0 && this.mCaughtActivityNotFoundException) {
+            if (i2 == 0 && this.mCaughtActivityNotFoundException) {
                 this.mCaughtActivityNotFoundException = false;
                 return;
             }
-            if (intent != null && i == -1) {
+            if (intent != null && i2 == -1) {
                 uri = intent.getData();
-                if (uri == null && ((intent == null || intent.getData() == null) && i == -1)) {
+                if (uri == null && ((intent == null || intent.getData() == null) && i2 == -1)) {
                     file = new File(this.mCameraFilePath);
                     if (file.exists()) {
                         if (Build.VERSION.SDK_INT >= 24) {
@@ -359,14 +359,14 @@ public class BdUploadHandler implements INoProGuard {
         return false;
     }
 
-    public boolean startActivityForResult(Intent intent, int i) {
+    public boolean startActivityForResult(Intent intent, int i2) {
         try {
-            this.mActivity.startActivityForResult(intent, i);
+            this.mActivity.startActivityForResult(intent, i2);
             return true;
         } catch (ActivityNotFoundException e2) {
             try {
                 this.mCaughtActivityNotFoundException = true;
-                this.mActivity.startActivityForResult(createDefaultOpenableIntent(), i);
+                this.mActivity.startActivityForResult(createDefaultOpenableIntent(), i2);
                 return true;
             } catch (ActivityNotFoundException unused) {
                 Log.printStackTrace(e2);

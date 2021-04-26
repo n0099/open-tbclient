@@ -8,20 +8,20 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import d.b.c.e.d.l;
-/* loaded from: classes4.dex */
+import d.a.c.e.d.l;
+/* loaded from: classes5.dex */
 public class ForumRankModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f20915e;
+    public String f21484e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f20916f;
+    public b f21485f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f20917g;
+    public String f21486g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<Void, ForumRankData, ForumRankData> {
         public b() {
         }
@@ -32,9 +32,9 @@ public class ForumRankModel extends BdBaseModel {
         public ForumRankData doInBackground(Void... voidArr) {
             String str;
             ForumRankData forumRankData;
-            l<String> g2 = d.b.i0.r.r.a.f().g("tb.forum_rank");
+            l<String> g2 = d.a.i0.r.r.a.f().g("tb.forum_rank");
             if (g2 != null) {
-                str = g2.get("forum_rank_cache_key_" + ForumRankModel.this.f20915e);
+                str = g2.get("forum_rank_cache_key_" + ForumRankModel.this.f21484e);
             } else {
                 str = null;
             }
@@ -42,14 +42,14 @@ public class ForumRankModel extends BdBaseModel {
                 publishProgress(forumRankData);
             }
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/forumsquarelist");
-            netWork.addPostData("list_id", ForumRankModel.this.f20915e);
-            netWork.addPostData("st_type", ForumRankModel.this.f20917g);
+            netWork.addPostData("list_id", ForumRankModel.this.f21484e);
+            netWork.addPostData("st_type", ForumRankModel.this.f21486g);
             String postNetData = netWork.postNetData();
             if (StringUtils.isNull(postNetData)) {
                 return null;
             }
             if (g2 != null) {
-                g2.e("forum_rank_cache_key_" + ForumRankModel.this.f20915e, postNetData, 86400000L);
+                g2.e("forum_rank_cache_key_" + ForumRankModel.this.f21484e, postNetData, 86400000L);
             }
             return (ForumRankData) OrmObject.objectWithJsonStr(postNetData, ForumRankData.class);
         }
@@ -58,7 +58,7 @@ public class ForumRankModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(ForumRankData forumRankData) {
-            ForumRankModel.this.f20916f = null;
+            ForumRankModel.this.f21485f = null;
             if (ForumRankModel.this.mLoadDataCallBack != null) {
                 ForumRankModel.this.mLoadDataCallBack.c(forumRankData);
             }
@@ -67,7 +67,7 @@ public class ForumRankModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            ForumRankModel.this.f20916f = null;
+            ForumRankModel.this.f21485f = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -84,21 +84,21 @@ public class ForumRankModel extends BdBaseModel {
 
     public ForumRankModel(Bundle bundle) {
         super(null);
-        this.f20915e = null;
-        this.f20916f = null;
-        this.f20917g = null;
-        this.f20915e = bundle.getString("id");
-        this.f20917g = bundle.getString("st_type");
+        this.f21484e = null;
+        this.f21485f = null;
+        this.f21486g = null;
+        this.f21484e = bundle.getString("id");
+        this.f21486g = bundle.getString("st_type");
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (this.f20915e == null) {
+        if (this.f21484e == null) {
             return false;
         }
-        if (this.f20916f == null) {
+        if (this.f21485f == null) {
             b bVar = new b();
-            this.f20916f = bVar;
+            this.f21485f = bVar;
             bVar.execute(new Void[0]);
             return true;
         }
@@ -107,7 +107,7 @@ public class ForumRankModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        b bVar = this.f20916f;
+        b bVar = this.f21485f;
         if (bVar != null) {
             bVar.cancel();
             return false;
@@ -116,16 +116,16 @@ public class ForumRankModel extends BdBaseModel {
     }
 
     public void z(Bundle bundle) {
-        bundle.putString("id", this.f20915e);
-        bundle.putString("st_type", this.f20917g);
+        bundle.putString("id", this.f21484e);
+        bundle.putString("st_type", this.f21486g);
     }
 
     public ForumRankModel(Intent intent) {
         super(null);
-        this.f20915e = null;
-        this.f20916f = null;
-        this.f20917g = null;
-        this.f20915e = intent.getStringExtra("id");
-        this.f20917g = intent.getStringExtra("st_type");
+        this.f21484e = null;
+        this.f21485f = null;
+        this.f21486g = null;
+        this.f21484e = intent.getStringExtra("id");
+        this.f21486g = intent.getStringExtra("st_type");
     }
 }

@@ -9,16 +9,16 @@ import java.util.Collection;
 public final class PayStatisticsUtil {
 
     /* renamed from: d  reason: collision with root package name */
-    public static Context f3872d;
+    public static Context f3924d;
 
     /* renamed from: a  reason: collision with root package name */
-    public StatisticsSettings f3873a;
+    public StatisticsSettings f3925a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f3874b;
+    public boolean f3926b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SyncHttpImpl f3875c;
+    public SyncHttpImpl f3927c;
 
     /* loaded from: classes.dex */
     public enum CallerId {
@@ -29,8 +29,8 @@ public final class PayStatisticsUtil {
         public int id;
         public String version;
 
-        CallerId(int i) {
-            this.id = i;
+        CallerId(int i2) {
+            this.id = i2;
         }
 
         public int getId() {
@@ -50,18 +50,18 @@ public final class PayStatisticsUtil {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PayStatisticsUtil f3876a = new PayStatisticsUtil();
+        public static PayStatisticsUtil f3928a = new PayStatisticsUtil();
     }
 
     public static Context c() {
-        return f3872d;
+        return f3924d;
     }
 
     private boolean d() {
-        if (f3872d == null) {
+        if (f3924d == null) {
             return true;
         }
-        StatisticsSettings statisticsSettings = this.f3873a;
+        StatisticsSettings statisticsSettings = this.f3925a;
         if (statisticsSettings != null) {
             return !statisticsSettings.isEnabled();
         }
@@ -69,7 +69,7 @@ public final class PayStatisticsUtil {
     }
 
     public static PayStatisticsUtil getInstance() {
-        return a.f3876a;
+        return a.f3928a;
     }
 
     public static void initData(Context context) {
@@ -83,12 +83,12 @@ public final class PayStatisticsUtil {
             return;
         }
         PayStatisticsUtil payStatisticsUtil = getInstance();
-        payStatisticsUtil.f3873a = statisticsSettings;
+        payStatisticsUtil.f3925a = statisticsSettings;
         try {
-            if (payStatisticsUtil.f3874b) {
+            if (payStatisticsUtil.f3926b) {
                 return;
             }
-            payStatisticsUtil.f3874b = true;
+            payStatisticsUtil.f3926b = true;
             d.a().b();
         } catch (Exception unused) {
         }
@@ -111,16 +111,16 @@ public final class PayStatisticsUtil {
         onEventWithValues(str, null, null);
     }
 
-    public static void onEventEnd(String str, int i) {
-        onEventEndWithValue(str, i, null, null);
+    public static void onEventEnd(String str, int i2) {
+        onEventEndWithValue(str, i2, null, null);
     }
 
-    public static void onEventEndWithValue(String str, int i, String str2) {
-        onEventEndWithValue(str, i, str2, null);
+    public static void onEventEndWithValue(String str, int i2, String str2) {
+        onEventEndWithValue(str, i2, str2, null);
     }
 
-    public static void onEventEndWithValues(String str, int i, Collection<String> collection) {
-        onEventEndWithValues(str, i, collection, null);
+    public static void onEventEndWithValues(String str, int i2, Collection<String> collection) {
+        onEventEndWithValues(str, i2, collection, null);
     }
 
     public static void onEventStart(String str) {
@@ -178,47 +178,47 @@ public final class PayStatisticsUtil {
     }
 
     public static void setHttpImpl(SyncHttpImpl syncHttpImpl) {
-        getInstance().f3875c = syncHttpImpl;
+        getInstance().f3927c = syncHttpImpl;
     }
 
     public StatisticsSettings a() {
-        return this.f3873a;
+        return this.f3925a;
     }
 
     public SyncHttpImpl b() {
-        return this.f3875c;
+        return this.f3927c;
     }
 
     public PayStatisticsUtil() {
     }
 
     public static boolean a(Context context) {
-        if (f3872d == null && context != null) {
-            f3872d = context.getApplicationContext();
+        if (f3924d == null && context != null) {
+            f3924d = context.getApplicationContext();
         }
-        return f3872d != null;
+        return f3924d != null;
     }
 
-    public static void onEventEnd(String str, int i, String str2) {
-        onEventEndWithValue(str, i, null, str2);
+    public static void onEventEnd(String str, int i2, String str2) {
+        onEventEndWithValue(str, i2, null, str2);
     }
 
-    public static void onEventEndWithValue(String str, int i, String str2, String str3) {
+    public static void onEventEndWithValue(String str, int i2, String str2, String str3) {
         if (getInstance().d() || TextUtils.isEmpty(str)) {
             return;
         }
         try {
-            StatService.a(str, Integer.toString(i), str2, str3);
+            StatService.a(str, Integer.toString(i2), str2, str3);
         } catch (Exception unused) {
         }
     }
 
-    public static void onEventEndWithValues(String str, int i, Collection<String> collection, String str2) {
+    public static void onEventEndWithValues(String str, int i2, Collection<String> collection, String str2) {
         if (getInstance().d() || TextUtils.isEmpty(str)) {
             return;
         }
         try {
-            StatService.b(str, Integer.toString(i), collection, str2);
+            StatService.b(str, Integer.toString(i2), collection, str2);
         } catch (Exception unused) {
         }
     }

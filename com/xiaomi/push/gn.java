@@ -8,30 +8,30 @@ public class gn {
     public static final char[] f436a = "&quot;".toCharArray();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f40980b = "&apos;".toCharArray();
+    public static final char[] f38505b = "&apos;".toCharArray();
 
     /* renamed from: c  reason: collision with root package name */
-    public static final char[] f40981c = "&amp;".toCharArray();
+    public static final char[] f38506c = "&amp;".toCharArray();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final char[] f40982d = "&lt;".toCharArray();
+    public static final char[] f38507d = "&lt;".toCharArray();
 
     /* renamed from: e  reason: collision with root package name */
-    public static final char[] f40983e = "&gt;".toCharArray();
+    public static final char[] f38508e = "&gt;".toCharArray();
 
     /* renamed from: a  reason: collision with root package name */
-    public static Random f40979a = new Random();
+    public static Random f38504a = new Random();
 
     /* renamed from: f  reason: collision with root package name */
-    public static char[] f40984f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+    public static char[] f38509f = "0123456789abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
 
-    public static String a(int i) {
-        if (i < 1) {
+    public static String a(int i2) {
+        if (i2 < 1) {
             return null;
         }
-        char[] cArr = new char[i];
-        for (int i2 = 0; i2 < i; i2++) {
-            cArr[i2] = f40984f[f40979a.nextInt(71)];
+        char[] cArr = new char[i2];
+        for (int i3 = 0; i3 < i2; i3++) {
+            cArr[i3] = f38509f[f38504a.nextInt(71)];
         }
         return new String(cArr);
     }
@@ -43,53 +43,53 @@ public class gn {
         char[] charArray = str.toCharArray();
         int length = charArray.length;
         StringBuilder sb = new StringBuilder((int) (length * 1.3d));
-        int i = 0;
         int i2 = 0;
-        while (i < length) {
-            char c2 = charArray[i];
+        int i3 = 0;
+        while (i2 < length) {
+            char c2 = charArray[i2];
             if (c2 <= '>') {
                 if (c2 == '<') {
-                    if (i > i2) {
-                        sb.append(charArray, i2, i - i2);
+                    if (i2 > i3) {
+                        sb.append(charArray, i3, i2 - i3);
                     }
-                    i2 = i + 1;
-                    sb.append(f40982d);
+                    i3 = i2 + 1;
+                    sb.append(f38507d);
                 } else if (c2 == '>') {
-                    if (i > i2) {
-                        sb.append(charArray, i2, i - i2);
+                    if (i2 > i3) {
+                        sb.append(charArray, i3, i2 - i3);
                     }
-                    i2 = i + 1;
-                    sb.append(f40983e);
+                    i3 = i2 + 1;
+                    sb.append(f38508e);
                 } else if (c2 == '&') {
-                    if (i > i2) {
-                        sb.append(charArray, i2, i - i2);
+                    if (i2 > i3) {
+                        sb.append(charArray, i3, i2 - i3);
                     }
-                    int i3 = i + 5;
-                    if (length <= i3 || charArray[i + 1] != '#' || !Character.isDigit(charArray[i + 2]) || !Character.isDigit(charArray[i + 3]) || !Character.isDigit(charArray[i + 4]) || charArray[i3] != ';') {
-                        i2 = i + 1;
-                        sb.append(f40981c);
+                    int i4 = i2 + 5;
+                    if (length <= i4 || charArray[i2 + 1] != '#' || !Character.isDigit(charArray[i2 + 2]) || !Character.isDigit(charArray[i2 + 3]) || !Character.isDigit(charArray[i2 + 4]) || charArray[i4] != ';') {
+                        i3 = i2 + 1;
+                        sb.append(f38506c);
                     }
                 } else if (c2 == '\"') {
-                    if (i > i2) {
-                        sb.append(charArray, i2, i - i2);
+                    if (i2 > i3) {
+                        sb.append(charArray, i3, i2 - i3);
                     }
-                    i2 = i + 1;
+                    i3 = i2 + 1;
                     sb.append(f436a);
                 } else if (c2 == '\'') {
-                    if (i > i2) {
-                        sb.append(charArray, i2, i - i2);
+                    if (i2 > i3) {
+                        sb.append(charArray, i3, i2 - i3);
                     }
-                    i2 = i + 1;
-                    sb.append(f40980b);
+                    i3 = i2 + 1;
+                    sb.append(f38505b);
                 }
             }
-            i++;
+            i2++;
         }
-        if (i2 == 0) {
+        if (i3 == 0) {
             return str;
         }
-        if (i > i2) {
-            sb.append(charArray, i2, i - i2);
+        if (i2 > i3) {
+            sb.append(charArray, i3, i2 - i3);
         }
         return sb.toString();
     }
@@ -108,16 +108,16 @@ public class gn {
         StringBuilder sb = new StringBuilder(charArray.length);
         sb.append(charArray, 0, indexOf);
         sb.append(charArray2);
-        int i = indexOf + length;
+        int i2 = indexOf + length;
         while (true) {
-            int indexOf2 = str.indexOf(str2, i);
+            int indexOf2 = str.indexOf(str2, i2);
             if (indexOf2 <= 0) {
-                sb.append(charArray, i, charArray.length - i);
+                sb.append(charArray, i2, charArray.length - i2);
                 return sb.toString();
             }
-            sb.append(charArray, i, indexOf2 - i);
+            sb.append(charArray, i2, indexOf2 - i2);
             sb.append(charArray2);
-            i = indexOf2 + length;
+            i2 = indexOf2 + length;
         }
     }
 

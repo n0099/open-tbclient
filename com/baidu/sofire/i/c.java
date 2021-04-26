@@ -13,13 +13,13 @@ public interface c extends IInterface {
 
         /* renamed from: com.baidu.sofire.i.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0160a implements c {
+        public static class C0155a implements c {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f11485a;
+            public IBinder f11310a;
 
-            public C0160a(IBinder iBinder) {
-                this.f11485a = iBinder;
+            public C0155a(IBinder iBinder) {
+                this.f11310a = iBinder;
             }
 
             @Override // com.baidu.sofire.i.c
@@ -28,7 +28,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    this.f11485a.transact(1, obtain, obtain2, 0);
+                    this.f11310a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -39,7 +39,7 @@ public interface c extends IInterface {
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                return this.f11485a;
+                return this.f11310a;
             }
 
             @Override // com.baidu.sofire.i.c
@@ -48,7 +48,7 @@ public interface c extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    this.f11485a.transact(2, obtain, obtain2, 0);
+                    this.f11310a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -63,20 +63,20 @@ public interface c extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0160a(iBinder) : (c) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0155a(iBinder) : (c) queryLocalInterface;
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
-            if (i == 1) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) {
+            if (i2 == 1) {
                 parcel.enforceInterface(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
                 String a2 = a();
                 parcel2.writeNoException();
                 parcel2.writeString(a2);
                 return true;
-            } else if (i != 2) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 2) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
                 return true;

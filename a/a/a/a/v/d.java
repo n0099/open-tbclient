@@ -1,66 +1,184 @@
 package a.a.a.a.v;
 
-import android.util.Log;
-import com.fun.ad.sdk.FunAdSdk;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.down.loopj.android.http.AsyncHttpClient;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.zip.GZIPInputStream;
 /* loaded from: classes.dex */
-public final class d {
+public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f1347a = Pattern.compile("(\\$\\d+)+$");
+    public String f1345a;
 
-    public static void a() {
-        a(null, 3, null, new Object[0]);
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public String f1346b;
 
-    public static void a(String str, Object... objArr) {
-        a(null, 3, str, objArr);
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public String f1347c;
 
-    public static void a(Throwable th) {
-        a(th, 6, "", new Object[0]);
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public byte[] f1348d;
 
-    public static void a(Throwable th, int i, String str, Object... objArr) {
-        if (FunAdSdk.isLogEnabled()) {
-            try {
-                StackTraceElement[] stackTrace = new Throwable().getStackTrace();
-                StackTraceElement stackTraceElement = stackTrace[2];
-                if (str == null) {
-                    str = stackTraceElement.getMethodName();
-                } else if (objArr != null && objArr.length != 0) {
-                    str = String.format(str, objArr);
-                }
-                String className = stackTrace[2].getClassName();
-                Matcher matcher = f1347a.matcher(className);
-                String str2 = "";
-                if (matcher.find()) {
-                    className = matcher.replaceAll("");
-                }
-                Object[] objArr2 = new Object[3];
-                objArr2[0] = className.substring(className.lastIndexOf(46) + 1);
-                objArr2[1] = str;
-                if (th != null) {
-                    str2 = "\n" + Log.getStackTraceString(th);
-                }
-                objArr2[2] = str2;
-                Log.println(i, "FunAdSdk", String.format("[%s] %s%s", objArr2));
-            } catch (Exception e2) {
-                a(e2);
+    public d(String str, e eVar) {
+        StringBuilder sb;
+        if (str == null) {
+            throw new IllegalArgumentException("url is null");
+        }
+        this.f1345a = str;
+        if (eVar != null) {
+            String str2 = "?";
+            if (str.contains("?")) {
+                sb = new StringBuilder();
+                sb.append(this.f1345a);
+                str2 = "&";
+            } else {
+                sb = new StringBuilder();
+                sb.append(this.f1345a);
             }
+            sb.append(str2);
+            sb.append(eVar.b());
+            this.f1345a = sb.toString();
         }
     }
 
-    public static void b() {
-        a(null, 6, null, new Object[0]);
-    }
-
-    public static void b(String str, Object... objArr) {
-        a(null, 6, str, objArr);
-    }
-
-    public static void c(String str, Object... objArr) {
-        a(null, 2, str, objArr);
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00c6  */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x00ec  */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x0074 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x00f8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x00f1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public f a() {
+        OutputStream outputStream;
+        InputStream inputStream;
+        Throwable th;
+        OutputStream outputStream2;
+        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f1345a).openConnection();
+        InputStream inputStream2 = null;
+        try {
+            httpURLConnection.setConnectTimeout(30000);
+            httpURLConnection.setReadTimeout(8000);
+            httpURLConnection.setRequestMethod(this.f1346b);
+            httpURLConnection.setDoOutput("POST".equals(this.f1346b) && this.f1348d != null);
+            if (this.f1347c != null) {
+                httpURLConnection.setRequestProperty("Content-Type", this.f1347c);
+            }
+            httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
+            try {
+                httpURLConnection.setRequestProperty("user-agent", System.getProperty("http.agent"));
+                httpURLConnection.setRequestProperty("Accept-Encoding", "gzip,deflate");
+                try {
+                    httpURLConnection.connect();
+                    if (httpURLConnection.getDoOutput()) {
+                        outputStream2 = httpURLConnection.getOutputStream();
+                        if (outputStream2 != null) {
+                            try {
+                                outputStream2.write(this.f1348d);
+                                outputStream2.close();
+                            } catch (Exception e2) {
+                                e = e2;
+                                throw new IOException(e);
+                            }
+                        }
+                        inputStream = httpURLConnection.getInputStream();
+                        if (inputStream != null) {
+                            httpURLConnection.disconnect();
+                            if (inputStream != null) {
+                                try {
+                                    inputStream.close();
+                                } catch (Exception unused) {
+                                }
+                            }
+                            if (outputStream2 != null) {
+                                try {
+                                    outputStream2.close();
+                                } catch (Exception unused2) {
+                                }
+                            }
+                            return null;
+                        }
+                        try {
+                            String contentEncoding = httpURLConnection.getContentEncoding();
+                            if (contentEncoding != null && AsyncHttpClient.ENCODING_GZIP.equals(contentEncoding.toLowerCase())) {
+                                inputStream = new GZIPInputStream(inputStream);
+                            }
+                        } catch (Throwable th2) {
+                            outputStream = outputStream2;
+                            th = th2;
+                            inputStream2 = inputStream;
+                            inputStream = inputStream2;
+                            th = th;
+                            outputStream2 = outputStream;
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                            }
+                            if (inputStream != null) {
+                                try {
+                                    inputStream.close();
+                                } catch (Exception unused3) {
+                                }
+                            }
+                            if (outputStream2 != null) {
+                                try {
+                                    outputStream2.close();
+                                } catch (Exception unused4) {
+                                }
+                            }
+                            throw th;
+                        }
+                        try {
+                            byte[] bArr = new byte[16384];
+                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                            while (true) {
+                                int read = inputStream.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                byteArrayOutputStream.write(bArr, 0, read);
+                            }
+                            f fVar = new f(httpURLConnection.getResponseCode(), httpURLConnection.getContentType(), byteArrayOutputStream.toString());
+                            httpURLConnection.disconnect();
+                            try {
+                                inputStream.close();
+                            } catch (Exception unused5) {
+                            }
+                            if (outputStream2 != null) {
+                                try {
+                                    outputStream2.close();
+                                } catch (Exception unused6) {
+                                }
+                            }
+                            return fVar;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            if (httpURLConnection != null) {
+                            }
+                            if (inputStream != null) {
+                            }
+                            if (outputStream2 != null) {
+                            }
+                            throw th;
+                        }
+                    }
+                    outputStream2 = null;
+                    inputStream = httpURLConnection.getInputStream();
+                    if (inputStream != null) {
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                }
+            } catch (Throwable th4) {
+                outputStream = "user-agent";
+                th = th4;
+            }
+        } catch (Throwable th5) {
+            th = th5;
+            outputStream = null;
+        }
     }
 }

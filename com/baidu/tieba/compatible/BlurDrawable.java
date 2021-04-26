@@ -77,13 +77,13 @@ public class BlurDrawable {
     }
 
     @TargetApi(17)
-    public void init(int i, int i2, Bitmap bitmap) {
-        if (enabled && i > 0 && i2 > 0 && bitmap != null) {
+    public void init(int i2, int i3, Bitmap bitmap) {
+        if (enabled && i2 > 0 && i3 > 0 && bitmap != null) {
             try {
-                this.mBlurScript.setRadius(i);
+                this.mBlurScript.setRadius(i2);
                 Bitmap copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
                 Matrix matrix = new Matrix();
-                float f2 = 1.0f / i2;
+                float f2 = 1.0f / i3;
                 matrix.postScale(f2, f2);
                 this.mBitmapToBlur = Bitmap.createBitmap(copy, 0, 0, copy.getWidth(), copy.getHeight(), matrix, true);
             } catch (Exception unused) {

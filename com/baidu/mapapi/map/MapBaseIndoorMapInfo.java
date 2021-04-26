@@ -5,16 +5,16 @@ import java.util.ArrayList;
 public final class MapBaseIndoorMapInfo {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f6924d = "MapBaseIndoorMapInfo";
+    public static final String f7166d = "MapBaseIndoorMapInfo";
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6925a;
+    public String f7167a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6926b;
+    public String f7168b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f6927c;
+    public ArrayList<String> f7169c;
 
     /* loaded from: classes2.dex */
     public enum SwitchFloorError {
@@ -29,26 +29,26 @@ public final class MapBaseIndoorMapInfo {
     }
 
     public MapBaseIndoorMapInfo(MapBaseIndoorMapInfo mapBaseIndoorMapInfo) {
-        this.f6925a = mapBaseIndoorMapInfo.f6925a;
-        this.f6926b = mapBaseIndoorMapInfo.f6926b;
-        this.f6927c = mapBaseIndoorMapInfo.f6927c;
+        this.f7167a = mapBaseIndoorMapInfo.f7167a;
+        this.f7168b = mapBaseIndoorMapInfo.f7168b;
+        this.f7169c = mapBaseIndoorMapInfo.f7169c;
     }
 
     public MapBaseIndoorMapInfo(String str, String str2, ArrayList<String> arrayList) {
-        this.f6925a = str;
-        this.f6926b = str2;
-        this.f6927c = arrayList;
+        this.f7167a = str;
+        this.f7168b = str2;
+        this.f7169c = arrayList;
     }
 
     public String getCurFloor() {
-        return this.f6926b;
+        return this.f7168b;
     }
 
     public ArrayList<String> getFloors() {
-        return this.f6927c;
+        return this.f7169c;
     }
 
     public String getID() {
-        return this.f6925a;
+        return this.f7167a;
     }
 }

@@ -77,8 +77,8 @@ public class SerializableItemInfo implements Serializable {
         this.id = num;
     }
 
-    public void setIsSchool(int i) {
-        this.isSchool = i;
+    public void setIsSchool(int i2) {
+        this.isSchool = i2;
     }
 
     public void setName(String str) {

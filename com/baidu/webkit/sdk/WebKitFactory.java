@@ -231,7 +231,7 @@ public final class WebKitFactory {
         public static final int RET_NO_NEW_PACKAGE = 1;
         public static final int RET_STOPPED = 2;
 
-        void onInstallFinish(int i, String str);
+        void onInstallFinish(int i2, String str);
 
         void onInstallStart();
     }
@@ -290,9 +290,9 @@ public final class WebKitFactory {
         }
     }
 
-    public static void forceInitT7(int i) {
-        if (i == 0 || 1 == i) {
-            mInitWebkitType = i;
+    public static void forceInitT7(int i2) {
+        if (i2 == 0 || 1 == i2) {
+            mInitWebkitType = i2;
         }
     }
 
@@ -480,13 +480,13 @@ public final class WebKitFactory {
             if (bArr != null) {
                 String[] split = new String(bArr).split("\n");
                 long parseLong = Long.parseLong(sStatisticsSessionId);
-                for (int i = 0; i < split.length; i++) {
+                for (int i2 = 0; i2 < split.length; i2++) {
                     try {
-                        if (Long.parseLong(split[i]) >= parseLong - 86400000 && split.length - i < 100) {
-                            arrayList22.add(split[i]);
+                        if (Long.parseLong(split[i2]) >= parseLong - 86400000 && split.length - i2 < 100) {
+                            arrayList22.add(split[i2]);
                         }
                     } catch (NumberFormatException unused2) {
-                        Log.e(TAG, "parseLong err: " + split[i]);
+                        Log.e(TAG, "parseLong err: " + split[i2]);
                     }
                 }
             }
@@ -572,7 +572,7 @@ public final class WebKitFactory {
         EngineManager.getInstance().installAsync(str, webkitInstallListener);
     }
 
-    public static boolean isEngineAvailable(int i) {
+    public static boolean isEngineAvailable(int i2) {
         return true;
     }
 
@@ -585,8 +585,8 @@ public final class WebKitFactory {
     }
 
     public static boolean isPlatformSupported() {
-        int i = Build.VERSION.SDK_INT;
-        return i >= 14 && i <= 29;
+        int i2 = Build.VERSION.SDK_INT;
+        return i2 >= 14 && i2 <= 29;
     }
 
     public static boolean isUserPrivacyEnabled() {
@@ -694,9 +694,9 @@ public final class WebKitFactory {
         mJavaScriptInterface.setBTransUrl(str);
     }
 
-    public static void setBlockedAdCountJs(int i) {
+    public static void setBlockedAdCountJs(int i2) {
         if (mJavaScriptInterface != null) {
-            JsUploadTask.setBlockedAdCount(i);
+            JsUploadTask.setBlockedAdCount(i2);
         }
     }
 
@@ -751,12 +751,12 @@ public final class WebKitFactory {
         sEnableMultipleProcess = z ? SwitchState.On : SwitchState.Off;
     }
 
-    public static synchronized boolean setEngine(int i) {
+    public static synchronized boolean setEngine(int i2) {
         int curEngine;
         synchronized (WebKitFactory.class) {
             WebViewFactory.installZesEngineIfNeeded(!ZeusSDK.usingZeusSDK(), false);
-            WebViewFactory.setUseSystemWebView(1 != i);
-            if (1 == i) {
+            WebViewFactory.setUseSystemWebView(1 != i2);
+            if (1 == i2) {
                 WebViewFactory.unzip();
             }
             WebViewFactory.getProvider();
@@ -770,16 +770,16 @@ public final class WebKitFactory {
         return curEngine == 1;
     }
 
-    public static void setEngineJs(int i) {
+    public static void setEngineJs(int i2) {
         JsUploadTask jsUploadTask = mJavaScriptInterface;
         if (jsUploadTask != null) {
-            jsUploadTask.setEngine(i);
+            jsUploadTask.setEngine(i2);
         }
     }
 
-    public static void setErrorCodeJs(int i) {
+    public static void setErrorCodeJs(int i2) {
         if (mJavaScriptInterface != null) {
-            JsUploadTask.setErrorCode(i);
+            JsUploadTask.setErrorCode(i2);
         }
     }
 
@@ -814,10 +814,10 @@ public final class WebKitFactory {
         }
     }
 
-    public static void setHttpcode(int i) {
+    public static void setHttpcode(int i2) {
         JsUploadTask jsUploadTask = mJavaScriptInterface;
         if (jsUploadTask != null) {
-            jsUploadTask.setHttpcode(i);
+            jsUploadTask.setHttpcode(i2);
         }
     }
 
@@ -852,9 +852,9 @@ public final class WebKitFactory {
         sIsNeedDownloadCloudResource = z;
     }
 
-    public static void setNetErrorJs(int i) {
+    public static void setNetErrorJs(int i2) {
         if (mJavaScriptInterface != null) {
-            JsUploadTask.setNetError(i);
+            JsUploadTask.setNetError(i2);
         }
     }
 
@@ -864,10 +864,10 @@ public final class WebKitFactory {
         }
     }
 
-    public static void setNetcode(int i) {
+    public static void setNetcode(int i2) {
         JsUploadTask jsUploadTask = mJavaScriptInterface;
         if (jsUploadTask != null) {
-            jsUploadTask.setNetcode(i);
+            jsUploadTask.setNetcode(i2);
         }
     }
 
@@ -882,9 +882,9 @@ public final class WebKitFactory {
         mJavaScriptInterface.setPageStartTime(j);
     }
 
-    public static void setParsedTokensJs(int i) {
+    public static void setParsedTokensJs(int i2) {
         if (mJavaScriptInterface != null) {
-            JsUploadTask.setParsedTokens(i);
+            JsUploadTask.setParsedTokens(i2);
         }
     }
 
@@ -892,9 +892,9 @@ public final class WebKitFactory {
         sProcessType = str;
     }
 
-    public static void setReceivedDataSizeJs(int i) {
+    public static void setReceivedDataSizeJs(int i2) {
         if (mJavaScriptInterface != null) {
-            JsUploadTask.setReceivedDataSize(i);
+            JsUploadTask.setReceivedDataSize(i2);
         }
     }
 
@@ -938,10 +938,10 @@ public final class WebKitFactory {
         }
     }
 
-    public static void setWiseLandingPageType(int i) {
+    public static void setWiseLandingPageType(int i2) {
         JsUploadTask jsUploadTask = mJavaScriptInterface;
         if (jsUploadTask != null) {
-            jsUploadTask.setWiseLandingPageType(i);
+            jsUploadTask.setWiseLandingPageType(i2);
         }
     }
 

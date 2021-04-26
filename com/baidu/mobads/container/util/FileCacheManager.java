@@ -44,8 +44,8 @@ public class FileCacheManager {
         }
     }
 
-    public static void setMaxCache(int i) {
-        MAX_CACHA_Byte = i * 1000 * 1000;
+    public static void setMaxCache(int i2) {
+        MAX_CACHA_Byte = i2 * 1000 * 1000;
     }
 
     public void clear(final String str) {

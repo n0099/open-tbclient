@@ -15,11 +15,11 @@ public class TailEditActivityConfig extends IntentConfig {
         getIntent().putExtra(IS_NO_TAIL, z);
     }
 
-    public TailEditActivityConfig(Context context, int i, String str, String str2) {
+    public TailEditActivityConfig(Context context, int i2, String str, String str2) {
         super(context);
         Intent intent = getIntent();
         intent.putExtra(TAIL_CONTENT, str);
-        intent.putExtra(TAIL_ID, i);
+        intent.putExtra(TAIL_ID, i2);
         intent.putExtra(TAIL_COLOR, str2);
     }
 }

@@ -3,15 +3,15 @@ package com.baidu.platform.comapi.walknavi.g;
 public class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f9700a;
+    public final /* synthetic */ a f10060a;
 
     public o(a aVar) {
-        this.f9700a = aVar;
+        this.f10060a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f9700a.s();
+        this.f10060a.s();
         com.baidu.platform.comapi.walknavi.b.a().H().b("WALKNAVI_AR_ADJUST_HAS_SHOW", true);
     }
 }

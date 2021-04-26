@@ -9,7 +9,7 @@ import android.view.WindowManager;
 import com.google.protobuf.CodedInputStream;
 /* loaded from: classes2.dex */
 public class f {
-    public static void a(Activity activity, int i) {
+    public static void a(Activity activity, int i2) {
         if (Build.VERSION.SDK_INT >= 19) {
             Window window = activity.getWindow();
             WindowManager.LayoutParams attributes = window.getAttributes();
@@ -18,10 +18,10 @@ public class f {
         }
         j jVar = new j(activity);
         jVar.a(true);
-        jVar.a(i);
+        jVar.a(i2);
     }
 
-    public static void b(Activity activity, int i) {
+    public static void b(Activity activity, int i2) {
         if (Build.VERSION.SDK_INT >= 19) {
             Window window = activity.getWindow();
             WindowManager.LayoutParams attributes = window.getAttributes();
@@ -30,7 +30,7 @@ public class f {
         }
         j jVar = new j(activity);
         jVar.b(true);
-        jVar.b(i);
+        jVar.b(i2);
     }
 
     public static boolean a(WindowManager windowManager) {
@@ -38,11 +38,11 @@ public class f {
             Display defaultDisplay = windowManager.getDefaultDisplay();
             DisplayMetrics displayMetrics = new DisplayMetrics();
             defaultDisplay.getRealMetrics(displayMetrics);
-            int i = displayMetrics.heightPixels;
-            int i2 = displayMetrics.widthPixels;
+            int i2 = displayMetrics.heightPixels;
+            int i3 = displayMetrics.widthPixels;
             DisplayMetrics displayMetrics2 = new DisplayMetrics();
             defaultDisplay.getMetrics(displayMetrics2);
-            return i2 - displayMetrics2.widthPixels > 0 || i - displayMetrics2.heightPixels > 0;
+            return i3 - displayMetrics2.widthPixels > 0 || i2 - displayMetrics2.heightPixels > 0;
         }
         return false;
     }

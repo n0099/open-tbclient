@@ -57,19 +57,19 @@ public final class Statistics implements INoProGuard {
 
     public static native boolean nativeInit(String str, String str2, String str3);
 
-    public static native void nativeRecord(int i, String str);
+    public static native void nativeRecord(int i2, String str);
 
     public static native void nativeUpdatePhoenixConfig(String str);
 
     public static native void nativeUploadSuccessfully();
 
-    public static void record(int i, String str) {
+    public static void record(int i2, String str) {
         if (str == null) {
             str = "";
         }
         try {
             if (mIsInited) {
-                nativeRecord(i, str);
+                nativeRecord(i2, str);
             }
         } catch (Throwable th) {
             th.printStackTrace();

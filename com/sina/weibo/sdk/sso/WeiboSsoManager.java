@@ -4,9 +4,9 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.weibo.ssosdk.WeiboSsoSdk;
-import d.q.a.a;
-import d.q.a.b;
-import d.q.a.c;
+import d.p.a.a;
+import d.p.a.b;
+import d.p.a.c;
 /* loaded from: classes6.dex */
 public final class WeiboSsoManager {
     public static final String TAG = "WeiboSsoManager";
@@ -28,7 +28,7 @@ public final class WeiboSsoManager {
     private void initAid() {
         try {
             WeiboSsoSdk.i().m(new b() { // from class: com.sina.weibo.sdk.sso.WeiboSsoManager.1
-                @Override // d.q.a.b
+                @Override // d.p.a.b
                 public void handler(WeiboSsoSdk.d dVar) {
                     if (dVar != null) {
                         WeiboSsoManager.this.aid = dVar.a();

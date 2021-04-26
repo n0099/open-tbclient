@@ -2,7 +2,7 @@ package com.baidu.tieba.likedForum;
 
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.j0.d3.d0.a;
+import d.a.j0.d3.d0.a;
 /* loaded from: classes4.dex */
 public class LikedForumStatic {
     static {

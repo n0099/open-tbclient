@@ -121,8 +121,8 @@ public class SVProgressHUD {
         initAnimation();
     }
 
-    private void configMaskType(int i, boolean z, boolean z2) {
-        this.rootView.setBackgroundResource(i);
+    private void configMaskType(int i2, boolean z, boolean z2) {
+        this.rootView.setBackgroundResource(i2);
         this.rootView.setClickable(z);
         setCancelable(z2);
     }

@@ -8,7 +8,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UnvarnishedMessage {
     public static final String TAG = "UnvarnishedMessage";
     public String mMessage;
@@ -69,8 +69,8 @@ public class UnvarnishedMessage {
         this.mParams = map;
     }
 
-    public void setTargetType(int i) {
-        this.mTargetType = i;
+    public void setTargetType(int i2) {
+        this.mTargetType = i2;
     }
 
     public void setTragetContent(String str) {

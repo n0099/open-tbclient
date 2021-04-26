@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.facebook.common.util.UriUtil;
-import d.b.d.m.e.a;
+import d.a.d.m.e.a;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -38,15 +38,15 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                             if (optJSONObject3 != null) {
                                 JSONArray optJSONArray3 = optJSONObject3.optJSONArray("extra");
                                 if (optJSONArray3 != null && optJSONArray3.length() > 0) {
-                                    int i = 0;
+                                    int i2 = 0;
                                     while (true) {
-                                        if (i < optJSONArray3.length()) {
-                                            JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i);
+                                        if (i2 < optJSONArray3.length()) {
+                                            JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i2);
                                             if (optJSONObject4 != null && TextUtils.equals("extraParam", optJSONObject4.optString(Config.APP_KEY))) {
                                                 this.pasterData.q = optJSONObject4.optString("v");
                                                 break;
                                             }
-                                            i++;
+                                            i2++;
                                         } else {
                                             break;
                                         }
@@ -114,8 +114,8 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                         if (optJSONObject3 != null) {
                             JSONArray optJSONArray = optJSONObject2.optJSONArray("ad_monitor_url");
                             if (optJSONArray != null && optJSONArray.length() > 0) {
-                                for (int i = 0; i < optJSONArray.length(); i++) {
-                                    JSONObject optJSONObject4 = optJSONArray.optJSONObject(i);
+                                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                                    JSONObject optJSONObject4 = optJSONArray.optJSONObject(i2);
                                     if (optJSONObject4 != null) {
                                         this.pasterData.u.add(optJSONObject4.optString("show_url"));
                                         this.pasterData.v.add(optJSONObject4.optString("click_url"));
@@ -190,13 +190,13 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                                         aVar5.t = 24;
                                     }
                                     a aVar6 = this.pasterData;
-                                    aVar6.f43270g = optString3;
+                                    aVar6.f40505g = optString3;
                                     aVar6.e(this.type);
                                     a aVar7 = this.pasterData;
-                                    aVar7.f43269f = optString2;
+                                    aVar7.f40504f = optString2;
                                     aVar7.j = optInt;
-                                    aVar7.i = optString5;
-                                    aVar7.f43271h = optString4;
+                                    aVar7.f40507i = optString5;
+                                    aVar7.f40506h = optString4;
                                     aVar7.o = optString7;
                                     aVar7.n = optString6;
                                     aVar7.p = optString8;
@@ -220,7 +220,7 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {

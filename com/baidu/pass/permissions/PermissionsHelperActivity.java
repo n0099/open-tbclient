@@ -11,31 +11,31 @@ import com.baidu.pass.view.CommonDialog;
 public class PermissionsHelperActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f9335a = 8000;
+    public static final int f9684a = 8000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f9336b = 8001;
+    public static final int f9685b = 8001;
 
     /* renamed from: c  reason: collision with root package name */
-    public PermissionsDTO f9337c;
+    public PermissionsDTO f9686c;
 
     /* renamed from: d  reason: collision with root package name */
-    public PermissionsCallback f9338d;
+    public PermissionsCallback f9687d;
 
     /* renamed from: e  reason: collision with root package name */
-    public StringBuilder f9339e;
+    public StringBuilder f9688e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f9340f;
+    public boolean f9689f;
 
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i == 8000) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i2 == 8000) {
             if (PassPermissions.getInstance().a(PassPermissions.getInstance().getPermissionsDTO().permissions)) {
-                this.f9338d.onSuccess();
+                this.f9687d.onSuccess();
             } else {
-                this.f9338d.onFailure(-1);
+                this.f9687d.onFailure(-1);
             }
             finish();
         }
@@ -44,58 +44,58 @@ public class PermissionsHelperActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f9337c = PassPermissions.getInstance().getPermissionsDTO();
+        this.f9686c = PassPermissions.getInstance().getPermissionsDTO();
         PermissionsCallback permissionsCallback = PassPermissions.getInstance().getPermissionsCallback();
-        this.f9338d = permissionsCallback;
-        if (this.f9337c == null) {
+        this.f9687d = permissionsCallback;
+        if (this.f9686c == null) {
             if (permissionsCallback != null) {
                 permissionsCallback.onFailure(-1);
             }
             finish();
             return;
         }
-        this.f9339e = new StringBuilder();
-        for (String str : this.f9337c.permissions) {
-            this.f9339e.append(str);
+        this.f9688e = new StringBuilder();
+        for (String str : this.f9686c.permissions) {
+            this.f9688e.append(str);
         }
         SharedPreferencesUtil.getInstance(this);
-        if (!((Boolean) SharedPreferencesUtil.get(this.f9339e.toString(), Boolean.FALSE)).booleanValue() && !TextUtils.isEmpty(this.f9337c.dialogTitle)) {
-            new CommonDialog.Builder(this).setTitle(this.f9337c.dialogTitle).setMessage(this.f9337c.dialogMsg).setDarkMode(this.f9337c.isDarkMode).setPositiveBtn(this.f9337c.okBtnTxt, new b(this)).setNegativeButton(this.f9337c.cancleBtnTxt, new a(this)).build().show();
-            this.f9340f = true;
+        if (!((Boolean) SharedPreferencesUtil.get(this.f9688e.toString(), Boolean.FALSE)).booleanValue() && !TextUtils.isEmpty(this.f9686c.dialogTitle)) {
+            new CommonDialog.Builder(this).setTitle(this.f9686c.dialogTitle).setMessage(this.f9686c.dialogMsg).setDarkMode(this.f9686c.isDarkMode).setPositiveBtn(this.f9686c.okBtnTxt, new b(this)).setNegativeButton(this.f9686c.cancleBtnTxt, new a(this)).build().show();
+            this.f9689f = true;
             return;
         }
-        requestPermissions(this.f9337c.permissions, f9336b);
+        requestPermissions(this.f9686c.permissions, f9685b);
     }
 
     @Override // android.app.Activity
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        super.onRequestPermissionsResult(i, strArr, iArr);
-        if (i != 8001) {
+    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(i2, strArr, iArr);
+        if (i2 != 8001) {
             return;
         }
         boolean z = false;
         boolean z2 = true;
-        for (int i2 = 0; i2 < strArr.length; i2++) {
-            if (iArr[i2] == 0) {
+        for (int i3 = 0; i3 < strArr.length; i3++) {
+            if (iArr[i3] == 0) {
                 Log.i(PassPermissions.TAG, "Permission check result is permission granted");
-            } else if (TextUtils.isEmpty(this.f9337c.dialogMsg)) {
-                this.f9338d.onFailure(-1);
+            } else if (TextUtils.isEmpty(this.f9686c.dialogMsg)) {
+                this.f9687d.onFailure(-1);
                 finish();
                 return;
             } else {
-                if (!shouldShowRequestPermissionRationale(strArr[i2])) {
+                if (!shouldShowRequestPermissionRationale(strArr[i3])) {
                     z = true;
                 }
                 z2 = false;
             }
         }
-        if (z && !this.f9340f && this.f9337c.showExplainDialogAfterForbid) {
-            new CommonDialog.Builder(this).setTitle(this.f9337c.dialogTitle).setMessage(this.f9337c.dialogMsg).setPositiveBtn(this.f9337c.okBtnTxt, new d(this)).setNegativeButton(this.f9337c.cancleBtnTxt, new c(this)).build().show();
+        if (z && !this.f9689f && this.f9686c.showExplainDialogAfterForbid) {
+            new CommonDialog.Builder(this).setTitle(this.f9686c.dialogTitle).setMessage(this.f9686c.dialogMsg).setPositiveBtn(this.f9686c.okBtnTxt, new d(this)).setNegativeButton(this.f9686c.cancleBtnTxt, new c(this)).build().show();
         } else if (z2) {
-            this.f9338d.onSuccess();
+            this.f9687d.onSuccess();
             finish();
         } else {
-            this.f9338d.onFailure(-1);
+            this.f9687d.onFailure(-1);
             finish();
         }
     }

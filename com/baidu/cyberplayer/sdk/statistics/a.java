@@ -6,38 +6,38 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f5100a;
+    public static a f5229a;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f5102c = false;
+    public boolean f5231c = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f5101b = new c(DpStatConstants.SESSION_TYPE_KERNEL);
+    public c f5230b = new c(DpStatConstants.SESSION_TYPE_KERNEL);
 
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f5100a == null) {
-                f5100a = new a();
+            if (f5229a == null) {
+                f5229a = new a();
             }
-            aVar = f5100a;
+            aVar = f5229a;
         }
         return aVar;
     }
 
     public JSONObject a(JSONObject jSONObject) throws JSONException {
-        return this.f5101b.a(jSONObject);
+        return this.f5230b.a(jSONObject);
     }
 
     public void b() {
-        if (this.f5102c) {
+        if (this.f5231c) {
             return;
         }
-        this.f5102c = true;
+        this.f5231c = true;
         Context applicationContext = CyberPlayerManager.getApplicationContext();
         PackageManager packageManager = applicationContext.getPackageManager();
         String packageName = applicationContext.getPackageName();
@@ -50,16 +50,16 @@ public class a {
             }
         }
         String networkStatisticsData = DpNetworkUtils.getNetworkStatisticsData(applicationContext);
-        this.f5101b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_APP_NAME, packageName));
-        this.f5101b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "app_version", str));
-        this.f5101b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SDK_VERSION, CyberPlayerManager.getSDKVersion()));
-        this.f5101b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "cuid", CyberPlayerManager.getClientID()));
-        this.f5101b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "network", networkStatisticsData));
-        this.f5101b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_KERNEL_SESSION_ID, System.currentTimeMillis()));
-        this.f5101b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SERVER_TYPE, DpStatConstants.SERVER_TYPE_DUPLAYER_INIT));
+        this.f5230b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_APP_NAME, packageName));
+        this.f5230b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "app_version", str));
+        this.f5230b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SDK_VERSION, CyberPlayerManager.getSDKVersion()));
+        this.f5230b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "cuid", CyberPlayerManager.getClientID()));
+        this.f5230b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "network", networkStatisticsData));
+        this.f5230b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_KERNEL_SESSION_ID, System.currentTimeMillis()));
+        this.f5230b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, DpStatConstants.KEY_SERVER_TYPE, DpStatConstants.SERVER_TYPE_DUPLAYER_INIT));
         String str2 = CyberPlayerManager.getInstallOpts().get("abtest_sid");
         if (str2 != null) {
-            this.f5101b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "abtest_sid", str2));
+            this.f5230b.a(new e((int) DpStatConstants.SESSION_TYPE_KERNEL, "abtest_sid", str2));
         }
     }
 }

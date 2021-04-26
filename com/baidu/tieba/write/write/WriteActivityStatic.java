@@ -52,17 +52,17 @@ import com.baidu.tieba.write.vcode.newVcode.NewVcodeActivity;
 import com.baidu.tieba.write.vcode.oldVcode.VcodeActivity;
 import com.baidu.tieba.write.write.relevance.RelevanceItemSearchActivity;
 import com.baidu.tieba.write.write.vote.WriteVoteActivity;
-import d.b.c.a.j;
-import d.b.c.e.p.l;
+import d.a.c.a.j;
+import d.a.c.e.p.l;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public class WriteActivityStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f22244a = 11;
+    public static int f22932a = 11;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f22245b = 18;
+    public static int f22933b = 18;
 
     /* loaded from: classes5.dex */
     public static class a implements UrlManager.UrlSchemaHandler {
@@ -75,14 +75,14 @@ public class WriteActivityStatic {
     }
 
     /* loaded from: classes5.dex */
-    public static class b extends d.b.c.c.f.b {
-        public b(int i) {
-            super(i);
+    public static class b extends d.a.c.c.f.b {
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
         /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-        @Override // d.b.c.c.f.f
+        @Override // d.a.c.c.f.f
         public /* bridge */ /* synthetic */ CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
             CustomMessage<?> customMessage2 = customMessage;
             process2(customMessage2, customMessageTask);
@@ -99,7 +99,7 @@ public class WriteActivityStatic {
                     if (intentConfig.getContext() != null && (WriteActivityConfig.class == (cls = data.getClass()) || RecordVideoActivityConfig.class == cls || WriteVoteActivityConfig.class == cls)) {
                         String simpleName = intentConfig.getContext().getClass().getSimpleName();
                         if ("FrsActivity".equals(simpleName) || "MainTabActivity".equals(simpleName)) {
-                            d.b.j0.d3.q0.a.f().o(j.a(intentConfig.getContext()).getUniqueId());
+                            d.a.j0.d3.q0.a.f().o(j.a(intentConfig.getContext()).getUniqueId());
                         }
                     }
                 }
@@ -110,8 +110,8 @@ public class WriteActivityStatic {
 
     /* loaded from: classes5.dex */
     public static class c extends CustomMessageListener {
-        public c(int i) {
-            super(i);
+        public c(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -127,8 +127,8 @@ public class WriteActivityStatic {
     /* loaded from: classes5.dex */
     public static class d implements CustomMessageTask.CustomRunnable<Object> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.b.j0.b0.c> run(CustomMessage<Object> customMessage) {
-            return new CustomResponsedMessage<>(2001449, new d.b.j0.v3.b());
+        public CustomResponsedMessage<d.a.j0.b0.c> run(CustomMessage<Object> customMessage) {
+            return new CustomResponsedMessage<>(2001449, new d.a.j0.v3.b());
         }
     }
 
@@ -154,14 +154,14 @@ public class WriteActivityStatic {
         UrlManager.getInstance().registerSchema(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new a());
         f();
         g();
-        d.b.j0.d3.d0.a.h(309450, GetRepostForumSocketResMessage.class, false, false);
-        d.b.j0.d3.d0.a.c(309450, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, TbConfig.CMD_GET_REPOST_FORUM_LIST, GetRepostForumHttpResMessage.class, false, false, true, false);
+        d.a.j0.d3.d0.a.h(309450, GetRepostForumSocketResMessage.class, false, false);
+        d.a.j0.d3.d0.a.c(309450, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, TbConfig.CMD_GET_REPOST_FORUM_LIST, GetRepostForumHttpResMessage.class, false, false, true, false);
     }
 
     public static void b(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        int i = Build.VERSION.SDK_INT;
-        if (i <= f22245b && i >= f22244a) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 <= f22933b && i2 >= f22932a) {
             d(tbPageContext);
         } else {
             c(tbPageContext);
@@ -174,7 +174,7 @@ public class WriteActivityStatic {
             AntiData antiData = new AntiData();
             antiData.setIfpost(1);
             if (antiData.getIfpost() == 0) {
-                l.L(tbPageContext.getPageActivity(), antiData.getForbid_info());
+                l.M(tbPageContext.getPageActivity(), antiData.getForbid_info());
                 return;
             }
             antiData.setIfVoice(false);
@@ -185,15 +185,15 @@ public class WriteActivityStatic {
     }
 
     public static void d(TbPageContext<?> tbPageContext) {
-        d.b.i0.l.a.p(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
+        d.a.i0.l.a.p(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
     }
 
     public static void e() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001449, new d());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        d.b.j0.d3.d0.a.f(309686, UrlParserSocketResponseMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, d.b.j0.d3.d0.a.a(TbConfig.URL_URL_PARSER, 309686));
+        d.a.j0.d3.d0.a.f(309686, UrlParserSocketResponseMessage.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, d.a.j0.d3.d0.a.a(TbConfig.URL_URL_PARSER, 309686));
         tbHttpMessageTask.setResponsedClass(UrlParserHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

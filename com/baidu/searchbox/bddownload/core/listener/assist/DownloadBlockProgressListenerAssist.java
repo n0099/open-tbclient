@@ -17,9 +17,9 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
 
     /* loaded from: classes2.dex */
     public interface AssistExtend {
-        boolean dispatchBlockEnd(DownloadTask downloadTask, int i, Listener4Model listener4Model);
+        boolean dispatchBlockEnd(DownloadTask downloadTask, int i2, Listener4Model listener4Model);
 
-        boolean dispatchFetchProgress(@NonNull DownloadTask downloadTask, int i, long j, @NonNull Listener4Model listener4Model);
+        boolean dispatchFetchProgress(@NonNull DownloadTask downloadTask, int i2, long j, @NonNull Listener4Model listener4Model);
 
         boolean dispatchInfoReady(DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, boolean z, @NonNull Listener4Model listener4Model);
 
@@ -28,13 +28,13 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
 
     /* loaded from: classes2.dex */
     public interface Listener4Callback {
-        void blockEnd(DownloadTask downloadTask, int i, BlockInfo blockInfo);
+        void blockEnd(DownloadTask downloadTask, int i2, BlockInfo blockInfo);
 
         void infoReady(DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, boolean z, @NonNull Listener4Model listener4Model);
 
         void progress(DownloadTask downloadTask, long j);
 
-        void progressBlock(DownloadTask downloadTask, int i, long j);
+        void progressBlock(DownloadTask downloadTask, int i2, long j);
 
         void taskEnd(DownloadTask downloadTask, EndCause endCause, @Nullable Exception exc, @NonNull Listener4Model listener4Model);
     }
@@ -46,16 +46,16 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
         public final int id;
         public BreakpointInfo info;
 
-        public Listener4Model(int i) {
-            this.id = i;
+        public Listener4Model(int i2) {
+            this.id = i2;
         }
 
         public SparseArray<Long> cloneBlockCurrentOffsetMap() {
             return this.blockCurrentOffsetMap.clone();
         }
 
-        public long getBlockCurrentOffset(int i) {
-            return this.blockCurrentOffsetMap.get(i).longValue();
+        public long getBlockCurrentOffset(int i2) {
+            return this.blockCurrentOffsetMap.get(i2).longValue();
         }
 
         public SparseArray<Long> getBlockCurrentOffsetMap() {
@@ -81,8 +81,8 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
             this.currentOffset = breakpointInfo.getTotalOffset();
             SparseArray<Long> sparseArray = new SparseArray<>();
             int blockCount = breakpointInfo.getBlockCount();
-            for (int i = 0; i < blockCount; i++) {
-                sparseArray.put(i, Long.valueOf(breakpointInfo.getBlock(i).getCurrentOffset()));
+            for (int i2 = 0; i2 < blockCount; i2++) {
+                sparseArray.put(i2, Long.valueOf(breakpointInfo.getBlock(i2).getCurrentOffset()));
             }
             this.blockCurrentOffsetMap = sparseArray;
         }
@@ -92,30 +92,30 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
         this.modelHandler = listenerModelHandler;
     }
 
-    public void fetchEnd(DownloadTask downloadTask, int i) {
+    public void fetchEnd(DownloadTask downloadTask, int i2) {
         Listener4Callback listener4Callback;
         T orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo());
         if (orRecoverModel == null) {
             return;
         }
         AssistExtend assistExtend = this.assistExtend;
-        if ((assistExtend == null || !assistExtend.dispatchBlockEnd(downloadTask, i, orRecoverModel)) && (listener4Callback = this.callback) != null) {
-            listener4Callback.blockEnd(downloadTask, i, orRecoverModel.info.getBlock(i));
+        if ((assistExtend == null || !assistExtend.dispatchBlockEnd(downloadTask, i2, orRecoverModel)) && (listener4Callback = this.callback) != null) {
+            listener4Callback.blockEnd(downloadTask, i2, orRecoverModel.info.getBlock(i2));
         }
     }
 
-    public void fetchProgress(DownloadTask downloadTask, int i, long j) {
+    public void fetchProgress(DownloadTask downloadTask, int i2, long j) {
         Listener4Callback listener4Callback;
         T orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo());
         if (orRecoverModel == null) {
             return;
         }
-        long longValue = orRecoverModel.blockCurrentOffsetMap.get(i).longValue() + j;
-        orRecoverModel.blockCurrentOffsetMap.put(i, Long.valueOf(longValue));
+        long longValue = orRecoverModel.blockCurrentOffsetMap.get(i2).longValue() + j;
+        orRecoverModel.blockCurrentOffsetMap.put(i2, Long.valueOf(longValue));
         orRecoverModel.currentOffset += j;
         AssistExtend assistExtend = this.assistExtend;
-        if ((assistExtend == null || !assistExtend.dispatchFetchProgress(downloadTask, i, j, orRecoverModel)) && (listener4Callback = this.callback) != null) {
-            listener4Callback.progressBlock(downloadTask, i, longValue);
+        if ((assistExtend == null || !assistExtend.dispatchFetchProgress(downloadTask, i2, j, orRecoverModel)) && (listener4Callback = this.callback) != null) {
+            listener4Callback.progressBlock(downloadTask, i2, longValue);
             this.callback.progress(downloadTask, orRecoverModel.currentOffset);
         }
     }

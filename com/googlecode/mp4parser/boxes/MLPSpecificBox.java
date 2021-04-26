@@ -10,14 +10,14 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class MLPSpecificBox extends AbstractBox {
     public static final String TYPE = "dmlp";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_7 = null;
     public int format_info;
     public int peak_data_rate;
     public int reserved;
@@ -86,23 +86,23 @@ public class MLPSpecificBox extends AbstractBox {
         return this.reserved2;
     }
 
-    public void setFormat_info(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i)));
-        this.format_info = i;
+    public void setFormat_info(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i2)));
+        this.format_info = i2;
     }
 
-    public void setPeak_data_rate(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i)));
-        this.peak_data_rate = i;
+    public void setPeak_data_rate(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i2)));
+        this.peak_data_rate = i2;
     }
 
-    public void setReserved(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.e(i)));
-        this.reserved = i;
+    public void setReserved(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.e(i2)));
+        this.reserved = i2;
     }
 
-    public void setReserved2(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_7, this, this, g.a.b.a.a.e(i)));
-        this.reserved2 = i;
+    public void setReserved2(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_7, this, this, g.a.b.a.a.e(i2)));
+        this.reserved2 = i2;
     }
 }

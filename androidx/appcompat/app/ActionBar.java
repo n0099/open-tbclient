@@ -34,13 +34,13 @@ public abstract class ActionBar {
     public static final int NAVIGATION_MODE_TABS = 2;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface DisplayOptions {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface NavigationMode {
     }
@@ -53,7 +53,7 @@ public abstract class ActionBar {
     @Deprecated
     /* loaded from: classes.dex */
     public interface OnNavigationListener {
-        boolean onNavigationItemSelected(int i, long j);
+        boolean onNavigationItemSelected(int i2, long j);
     }
 
     @Deprecated
@@ -75,15 +75,15 @@ public abstract class ActionBar {
 
         public abstract void select();
 
-        public abstract Tab setContentDescription(@StringRes int i);
+        public abstract Tab setContentDescription(@StringRes int i2);
 
         public abstract Tab setContentDescription(CharSequence charSequence);
 
-        public abstract Tab setCustomView(int i);
+        public abstract Tab setCustomView(int i2);
 
         public abstract Tab setCustomView(View view);
 
-        public abstract Tab setIcon(@DrawableRes int i);
+        public abstract Tab setIcon(@DrawableRes int i2);
 
         public abstract Tab setIcon(Drawable drawable);
 
@@ -91,7 +91,7 @@ public abstract class ActionBar {
 
         public abstract Tab setTag(Object obj);
 
-        public abstract Tab setText(int i);
+        public abstract Tab setText(int i2);
 
         public abstract Tab setText(CharSequence charSequence);
     }
@@ -112,25 +112,25 @@ public abstract class ActionBar {
     public abstract void addTab(Tab tab);
 
     @Deprecated
-    public abstract void addTab(Tab tab, int i);
+    public abstract void addTab(Tab tab, int i2);
 
     @Deprecated
-    public abstract void addTab(Tab tab, int i, boolean z);
+    public abstract void addTab(Tab tab, int i2, boolean z);
 
     @Deprecated
     public abstract void addTab(Tab tab, boolean z);
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean closeOptionsMenu() {
         return false;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean collapseActionView() {
         return false;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void dispatchMenuVisibilityChanged(boolean z) {
     }
 
@@ -165,7 +165,7 @@ public abstract class ActionBar {
     public abstract CharSequence getSubtitle();
 
     @Deprecated
-    public abstract Tab getTabAt(int i);
+    public abstract Tab getTabAt(int i2);
 
     @Deprecated
     public abstract int getTabCount();
@@ -179,7 +179,7 @@ public abstract class ActionBar {
 
     public abstract void hide();
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean invalidateOptionsMenu() {
         return false;
     }
@@ -190,7 +190,7 @@ public abstract class ActionBar {
 
     public abstract boolean isShowing();
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean isTitleTruncated() {
         return false;
     }
@@ -198,24 +198,24 @@ public abstract class ActionBar {
     @Deprecated
     public abstract Tab newTab();
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void onConfigurationChanged(Configuration configuration) {
     }
 
     public void onDestroy() {
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public boolean onKeyShortcut(int i2, KeyEvent keyEvent) {
         return false;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean onMenuKeyEvent(KeyEvent keyEvent) {
         return false;
     }
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean openOptionsMenu() {
         return false;
     }
@@ -229,9 +229,9 @@ public abstract class ActionBar {
     public abstract void removeTab(Tab tab);
 
     @Deprecated
-    public abstract void removeTabAt(int i);
+    public abstract void removeTabAt(int i2);
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean requestFocus() {
         return false;
     }
@@ -241,21 +241,21 @@ public abstract class ActionBar {
 
     public abstract void setBackgroundDrawable(@Nullable Drawable drawable);
 
-    public abstract void setCustomView(int i);
+    public abstract void setCustomView(int i2);
 
     public abstract void setCustomView(View view);
 
     public abstract void setCustomView(View view, LayoutParams layoutParams);
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setDefaultDisplayHomeAsUpEnabled(boolean z) {
     }
 
     public abstract void setDisplayHomeAsUpEnabled(boolean z);
 
-    public abstract void setDisplayOptions(int i);
+    public abstract void setDisplayOptions(int i2);
 
-    public abstract void setDisplayOptions(int i, int i2);
+    public abstract void setDisplayOptions(int i2, int i3);
 
     public abstract void setDisplayShowCustomEnabled(boolean z);
 
@@ -271,8 +271,8 @@ public abstract class ActionBar {
         }
     }
 
-    public void setHideOffset(int i) {
-        if (i != 0) {
+    public void setHideOffset(int i2) {
+        if (i2 != 0) {
             throw new UnsupportedOperationException("Setting an explicit action bar hide offset is not supported in this action bar configuration.");
         }
     }
@@ -283,13 +283,13 @@ public abstract class ActionBar {
         }
     }
 
-    public void setHomeActionContentDescription(@StringRes int i) {
+    public void setHomeActionContentDescription(@StringRes int i2) {
     }
 
     public void setHomeActionContentDescription(@Nullable CharSequence charSequence) {
     }
 
-    public void setHomeAsUpIndicator(@DrawableRes int i) {
+    public void setHomeAsUpIndicator(@DrawableRes int i2) {
     }
 
     public void setHomeAsUpIndicator(@Nullable Drawable drawable) {
@@ -298,24 +298,24 @@ public abstract class ActionBar {
     public void setHomeButtonEnabled(boolean z) {
     }
 
-    public abstract void setIcon(@DrawableRes int i);
+    public abstract void setIcon(@DrawableRes int i2);
 
     public abstract void setIcon(Drawable drawable);
 
     @Deprecated
     public abstract void setListNavigationCallbacks(SpinnerAdapter spinnerAdapter, OnNavigationListener onNavigationListener);
 
-    public abstract void setLogo(@DrawableRes int i);
+    public abstract void setLogo(@DrawableRes int i2);
 
     public abstract void setLogo(Drawable drawable);
 
     @Deprecated
-    public abstract void setNavigationMode(int i);
+    public abstract void setNavigationMode(int i2);
 
     @Deprecated
-    public abstract void setSelectedNavigationItem(int i);
+    public abstract void setSelectedNavigationItem(int i2);
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setShowHideAnimationEnabled(boolean z) {
     }
 
@@ -325,21 +325,21 @@ public abstract class ActionBar {
     public void setStackedBackgroundDrawable(Drawable drawable) {
     }
 
-    public abstract void setSubtitle(int i);
+    public abstract void setSubtitle(int i2);
 
     public abstract void setSubtitle(CharSequence charSequence);
 
-    public abstract void setTitle(@StringRes int i);
+    public abstract void setTitle(@StringRes int i2);
 
     public abstract void setTitle(CharSequence charSequence);
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setWindowTitle(CharSequence charSequence) {
     }
 
     public abstract void show();
 
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ActionMode startActionMode(ActionMode.Callback callback) {
         return null;
     }
@@ -356,20 +356,20 @@ public abstract class ActionBar {
             obtainStyledAttributes.recycle();
         }
 
-        public LayoutParams(int i, int i2) {
-            super(i, i2);
+        public LayoutParams(int i2, int i3) {
+            super(i2, i3);
             this.gravity = 0;
             this.gravity = 8388627;
         }
 
-        public LayoutParams(int i, int i2, int i3) {
-            super(i, i2);
+        public LayoutParams(int i2, int i3, int i4) {
+            super(i2, i3);
             this.gravity = 0;
-            this.gravity = i3;
+            this.gravity = i4;
         }
 
-        public LayoutParams(int i) {
-            this(-2, -1, i);
+        public LayoutParams(int i2) {
+            this(-2, -1, i2);
         }
 
         public LayoutParams(LayoutParams layoutParams) {

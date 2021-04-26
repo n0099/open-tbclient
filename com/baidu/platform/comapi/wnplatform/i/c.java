@@ -7,46 +7,46 @@ import android.os.Message;
 public class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f9850a;
+    public final /* synthetic */ b f10215a;
 
     public c(b bVar) {
-        this.f9850a = bVar;
+        this.f10215a = bVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         a aVar;
         a aVar2;
-        int i;
-        Bundle a2;
         int i2;
+        Bundle a2;
+        int i3;
         a aVar3;
         a aVar4;
         com.baidu.platform.comapi.wnplatform.d.a.b("WRoutePlaner", "msg.arg1" + message.arg1 + "; msg.what" + message.what);
         if (message.what != 4099) {
             return;
         }
-        int i3 = message.arg1;
-        int i4 = message.arg2;
-        if (i4 == 1 || i4 == 0) {
-            if (i3 != 0) {
-                aVar = this.f9850a.f9847a;
+        int i4 = message.arg1;
+        int i5 = message.arg2;
+        if (i5 == 1 || i5 == 0) {
+            if (i4 != 0) {
+                aVar = this.f10215a.f10212a;
                 if (aVar != null) {
-                    aVar2 = this.f9850a.f9847a;
-                    aVar2.a(i3);
+                    aVar2 = this.f10215a.f10212a;
+                    aVar2.a(i4);
                     return;
                 }
                 return;
             }
             com.baidu.platform.comapi.wnplatform.model.b R = com.baidu.platform.comapi.walknavi.b.a().R();
-            b bVar = this.f9850a;
-            i = bVar.f9848b;
-            a2 = bVar.a(i);
-            i2 = this.f9850a.f9848b;
-            R.a(a2, i2);
-            aVar3 = this.f9850a.f9847a;
+            b bVar = this.f10215a;
+            i2 = bVar.f10213b;
+            a2 = bVar.a(i2);
+            i3 = this.f10215a.f10213b;
+            R.a(a2, i3);
+            aVar3 = this.f10215a.f10212a;
             if (aVar3 != null) {
-                aVar4 = this.f9850a.f9847a;
+                aVar4 = this.f10215a.f10212a;
                 aVar4.b();
             }
         }

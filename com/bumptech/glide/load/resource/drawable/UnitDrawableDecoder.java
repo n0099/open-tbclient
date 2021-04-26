@@ -17,7 +17,7 @@ public class UnitDrawableDecoder implements ResourceDecoder<Drawable, Drawable> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
     @Nullable
-    public Resource<Drawable> decode(@NonNull Drawable drawable, int i, int i2, @NonNull Options options) {
+    public Resource<Drawable> decode(@NonNull Drawable drawable, int i2, int i3, @NonNull Options options) {
         return NonOwnedDrawableResource.newInstance(drawable);
     }
 }

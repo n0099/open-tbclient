@@ -40,18 +40,18 @@ public class FieldInfo implements Comparable<FieldInfo> {
     public final int serialzeFeatures;
     public final boolean unwrapped;
 
-    public FieldInfo(String str, Class<?> cls, Class<?> cls2, Type type, Field field, int i, int i2, int i3) {
+    public FieldInfo(String str, Class<?> cls, Class<?> cls2, Type type, Field field, int i2, int i3, int i4) {
         this.ordinal = 0;
-        i = i < 0 ? 0 : i;
+        i2 = i2 < 0 ? 0 : i2;
         this.name = str;
         this.declaringClass = cls;
         this.fieldClass = cls2;
         this.fieldType = type;
         this.method = null;
         this.field = field;
-        this.ordinal = i;
-        this.serialzeFeatures = i2;
-        this.parserFeatures = i3;
+        this.ordinal = i2;
+        this.serialzeFeatures = i3;
+        this.parserFeatures = i4;
         this.isEnum = cls2.isEnum();
         if (field != null) {
             int modifiers = field.getModifiers();
@@ -82,18 +82,18 @@ public class FieldInfo implements Comparable<FieldInfo> {
             return false;
         }
         boolean z = false;
-        for (int i = 0; i < typeArr.length; i++) {
-            Type type = typeArr[i];
+        for (int i2 = 0; i2 < typeArr.length; i2++) {
+            Type type = typeArr[i2];
             if (type instanceof ParameterizedType) {
                 ParameterizedType parameterizedType = (ParameterizedType) type;
                 Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
                 if (getArgument(actualTypeArguments, map)) {
-                    typeArr[i] = TypeReference.intern(new ParameterizedTypeImpl(actualTypeArguments, parameterizedType.getOwnerType(), parameterizedType.getRawType()));
+                    typeArr[i2] = TypeReference.intern(new ParameterizedTypeImpl(actualTypeArguments, parameterizedType.getOwnerType(), parameterizedType.getRawType()));
                     z = true;
                 }
             } else {
                 if ((type instanceof TypeVariable) && map.containsKey(type)) {
-                    typeArr[i] = map.get(type);
+                    typeArr[i2] = map.get(type);
                     z = true;
                 }
             }
@@ -127,9 +127,9 @@ public class FieldInfo implements Comparable<FieldInfo> {
             return null;
         }
         TypeVariable<Class<?>>[] typeParameters = cls2.getTypeParameters();
-        for (int i = 0; i < typeParameters.length; i++) {
-            if (typeVariable.equals(typeParameters[i])) {
-                return typeArr[i];
+        for (int i2 = 0; i2 < typeParameters.length; i2++) {
+            if (typeVariable.equals(typeParameters[i2])) {
+                return typeArr[i2];
             }
         }
         return null;
@@ -237,9 +237,9 @@ public class FieldInfo implements Comparable<FieldInfo> {
                     ParameterizedType parameterizedType2 = (ParameterizedType) TypeUtils.getGenericParamType(type);
                     TypeVariable typeVariable = (TypeVariable) type2;
                     TypeVariable<Class<?>>[] typeParameters2 = TypeUtils.getClass(parameterizedType2).getTypeParameters();
-                    for (int i = 0; i < typeParameters2.length; i++) {
-                        if (typeParameters2[i].getName().equals(typeVariable.getName())) {
-                            return parameterizedType2.getActualTypeArguments()[i];
+                    for (int i2 = 0; i2 < typeParameters2.length; i2++) {
+                        if (typeParameters2[i2].getName().equals(typeVariable.getName())) {
+                            return parameterizedType2.getActualTypeArguments()[i2];
                         }
                     }
                 }
@@ -274,12 +274,12 @@ public class FieldInfo implements Comparable<FieldInfo> {
     public int compareTo(FieldInfo fieldInfo) {
         Method method = fieldInfo.method;
         if (method == null || this.method == null || !method.isBridge() || this.method.isBridge() || !fieldInfo.method.getName().equals(this.method.getName())) {
-            int i = this.ordinal;
-            int i2 = fieldInfo.ordinal;
-            if (i < i2) {
+            int i2 = this.ordinal;
+            int i3 = fieldInfo.ordinal;
+            if (i2 < i3) {
                 return -1;
             }
-            if (i > i2) {
+            if (i2 > i3) {
                 return 1;
             }
             int compareTo = this.name.compareTo(fieldInfo.name);
@@ -331,19 +331,19 @@ public class FieldInfo implements Comparable<FieldInfo> {
             return false;
         }
         boolean z = false;
-        for (int i = 0; i < typeArr.length; i++) {
-            Type type = typeArr[i];
+        for (int i2 = 0; i2 < typeArr.length; i2++) {
+            Type type = typeArr[i2];
             if (type instanceof ParameterizedType) {
                 ParameterizedType parameterizedType = (ParameterizedType) type;
                 Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
                 if (getArgument(actualTypeArguments, typeVariableArr, typeArr2)) {
-                    typeArr[i] = TypeReference.intern(new ParameterizedTypeImpl(actualTypeArguments, parameterizedType.getOwnerType(), parameterizedType.getRawType()));
+                    typeArr[i2] = TypeReference.intern(new ParameterizedTypeImpl(actualTypeArguments, parameterizedType.getOwnerType(), parameterizedType.getRawType()));
                     z = true;
                 }
             } else if (type instanceof TypeVariable) {
-                for (int i2 = 0; i2 < typeVariableArr.length; i2++) {
-                    if (type.equals(typeVariableArr[i2])) {
-                        typeArr[i] = typeArr2[i2];
+                for (int i3 = 0; i3 < typeVariableArr.length; i3++) {
+                    if (type.equals(typeVariableArr[i3])) {
+                        typeArr[i2] = typeArr2[i3];
                         z = true;
                     }
                 }
@@ -352,8 +352,8 @@ public class FieldInfo implements Comparable<FieldInfo> {
         return z;
     }
 
-    public FieldInfo(String str, Method method, Field field, Class<?> cls, Type type, int i, int i2, int i3, JSONField jSONField, JSONField jSONField2, String str2) {
-        this(str, method, field, cls, type, i, i2, i3, jSONField, jSONField2, str2, null);
+    public FieldInfo(String str, Method method, Field field, Class<?> cls, Type type, int i2, int i3, int i4, JSONField jSONField, JSONField jSONField2, String str2) {
+        this(str, method, field, cls, type, i2, i3, i4, jSONField, jSONField2, str2, null);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:5:0x001f, code lost:
@@ -362,7 +362,7 @@ public class FieldInfo implements Comparable<FieldInfo> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public FieldInfo(String str, Method method, Field field, Class<?> cls, Type type, int i, int i2, int i3, JSONField jSONField, JSONField jSONField2, String str2, Map<TypeVariable, Type> map) {
+    public FieldInfo(String str, Method method, Field field, Class<?> cls, Type type, int i2, int i3, int i4, JSONField jSONField, JSONField jSONField2, String str2, Map<TypeVariable, Type> map) {
         String str3;
         String str4;
         boolean z;
@@ -380,13 +380,13 @@ public class FieldInfo implements Comparable<FieldInfo> {
             str3 = str;
         }
         str4 = str3;
-        int i4 = i < 0 ? 0 : i;
+        int i5 = i2 < 0 ? 0 : i2;
         this.name = str4;
         this.method = method;
         this.field = field;
-        this.ordinal = i4;
-        this.serialzeFeatures = i2;
-        this.parserFeatures = i3;
+        this.ordinal = i5;
+        this.serialzeFeatures = i3;
+        this.parserFeatures = i4;
         this.fieldAnnotation = jSONField;
         this.methodAnnotation = jSONField2;
         if (field != null) {

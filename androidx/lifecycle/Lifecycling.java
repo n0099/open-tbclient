@@ -106,8 +106,8 @@ public class Lifecycling {
                 return new SingleGeneratedAdapterObserver(createGeneratedAdapter(list.get(0), obj));
             }
             GeneratedAdapter[] generatedAdapterArr = new GeneratedAdapter[list.size()];
-            for (int i = 0; i < list.size(); i++) {
-                generatedAdapterArr[i] = createGeneratedAdapter(list.get(i), obj);
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                generatedAdapterArr[i2] = createGeneratedAdapter(list.get(i2), obj);
             }
             return new CompositeGeneratedAdaptersObserver(generatedAdapterArr);
         }

@@ -10,14 +10,14 @@ public class BitmapPoolAdapter implements BitmapPool {
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
     @NonNull
-    public Bitmap get(int i, int i2, Bitmap.Config config) {
-        return Bitmap.createBitmap(i, i2, config);
+    public Bitmap get(int i2, int i3, Bitmap.Config config) {
+        return Bitmap.createBitmap(i2, i3, config);
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
     @NonNull
-    public Bitmap getDirty(int i, int i2, Bitmap.Config config) {
-        return get(i, i2, config);
+    public Bitmap getDirty(int i2, int i3, Bitmap.Config config) {
+        return get(i2, i3, config);
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
@@ -35,6 +35,6 @@ public class BitmapPoolAdapter implements BitmapPool {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-    public void trimMemory(int i) {
+    public void trimMemory(int i2) {
     }
 }

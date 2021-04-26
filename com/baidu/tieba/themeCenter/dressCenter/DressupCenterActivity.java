@@ -3,9 +3,9 @@ package com.baidu.tieba.themeCenter.dressCenter;
 import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel;
-import d.b.j0.j3.h.c;
-import d.b.j0.j3.h.d;
-import d.b.j0.j3.h.e;
+import d.a.j0.j3.h.c;
+import d.a.j0.j3.h.d;
+import d.a.j0.j3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
@@ -19,10 +19,10 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel.b
-        public void a(int i, String str, List<d.b.j0.j3.h.a> list, e eVar, List<d> list2) {
+        public void a(int i2, String str, List<d.a.j0.j3.h.a> list, e eVar, List<d> list2) {
             DressupCenterActivity dressupCenterActivity = DressupCenterActivity.this;
             dressupCenterActivity.hideLoadingView(dressupCenterActivity.mView.e());
-            if (i == 0) {
+            if (i2 == 0) {
                 DressupCenterActivity.this.mView.m(list, eVar, list2, DressupCenterActivity.this.mModel.z());
                 return;
             }
@@ -31,23 +31,23 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
     public String getCurrentPageKey() {
         return "b003";
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public d.b.i0.k0.d getPageStayDurationItem() {
-        d.b.i0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
+    public d.a.i0.k0.d getPageStayDurationItem() {
+        d.a.i0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50982a = true;
+            pageStayDurationItem.f48564a = true;
         }
         return pageStayDurationItem;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         c cVar = this.mView;
         if (cVar != null) {
             cVar.f();

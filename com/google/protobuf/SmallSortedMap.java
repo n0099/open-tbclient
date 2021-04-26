@@ -154,9 +154,9 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
                 SmallSortedMap.this.checkMutable();
                 if (this.pos < SmallSortedMap.this.entryList.size()) {
                     SmallSortedMap smallSortedMap = SmallSortedMap.this;
-                    int i = this.pos;
-                    this.pos = i - 1;
-                    smallSortedMap.removeArrayEntryAt(i);
+                    int i2 = this.pos;
+                    this.pos = i2 - 1;
+                    smallSortedMap.removeArrayEntryAt(i2);
                     return;
                 }
                 getOverflowIterator().remove();
@@ -169,9 +169,9 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         @Override // java.util.Iterator
         public Map.Entry<K, V> next() {
             this.nextCalledBeforeRemove = true;
-            int i = this.pos + 1;
-            this.pos = i;
-            if (i < SmallSortedMap.this.entryList.size()) {
+            int i2 = this.pos + 1;
+            this.pos = i2;
+            if (i2 < SmallSortedMap.this.entryList.size()) {
                 return (Map.Entry) SmallSortedMap.this.entryList.get(this.pos);
             }
             return getOverflowIterator().next();
@@ -241,19 +241,19 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
                 return size;
             }
         }
-        int i = 0;
-        while (i <= size) {
-            int i2 = (i + size) / 2;
-            int compareTo2 = k.compareTo(this.entryList.get(i2).getKey());
+        int i2 = 0;
+        while (i2 <= size) {
+            int i3 = (i2 + size) / 2;
+            int compareTo2 = k.compareTo(this.entryList.get(i3).getKey());
             if (compareTo2 < 0) {
-                size = i2 - 1;
+                size = i3 - 1;
             } else if (compareTo2 <= 0) {
-                return i2;
+                return i3;
             } else {
-                i = i2 + 1;
+                i2 = i3 + 1;
             }
         }
-        return -(i + 1);
+        return -(i2 + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -279,13 +279,13 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         return (SortedMap) this.overflowEntries;
     }
 
-    public static <FieldDescriptorType extends FieldSet.FieldDescriptorLite<FieldDescriptorType>> SmallSortedMap<FieldDescriptorType, Object> newFieldMap(int i) {
-        return (SmallSortedMap<FieldDescriptorType, Object>) new SmallSortedMap<FieldDescriptorType, Object>(i) { // from class: com.google.protobuf.SmallSortedMap.1
+    public static <FieldDescriptorType extends FieldSet.FieldDescriptorLite<FieldDescriptorType>> SmallSortedMap<FieldDescriptorType, Object> newFieldMap(int i2) {
+        return (SmallSortedMap<FieldDescriptorType, Object>) new SmallSortedMap<FieldDescriptorType, Object>(i2) { // from class: com.google.protobuf.SmallSortedMap.1
             @Override // com.google.protobuf.SmallSortedMap
             public void makeImmutable() {
                 if (!isImmutable()) {
-                    for (int i2 = 0; i2 < getNumArrayEntries(); i2++) {
-                        Map.Entry<FieldDescriptorType, Object> arrayEntryAt = getArrayEntryAt(i2);
+                    for (int i3 = 0; i3 < getNumArrayEntries(); i3++) {
+                        Map.Entry<FieldDescriptorType, Object> arrayEntryAt = getArrayEntryAt(i3);
                         if (((FieldSet.FieldDescriptorLite) arrayEntryAt.getKey()).isRepeated()) {
                             arrayEntryAt.setValue(Collections.unmodifiableList((List) arrayEntryAt.getValue()));
                         }
@@ -308,14 +308,14 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         };
     }
 
-    public static <K extends Comparable<K>, V> SmallSortedMap<K, V> newInstanceForTest(int i) {
-        return new SmallSortedMap<>(i);
+    public static <K extends Comparable<K>, V> SmallSortedMap<K, V> newInstanceForTest(int i2) {
+        return new SmallSortedMap<>(i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public V removeArrayEntryAt(int i) {
+    public V removeArrayEntryAt(int i2) {
         checkMutable();
-        V value = this.entryList.remove(i).getValue();
+        V value = this.entryList.remove(i2).getValue();
         if (!this.overflowEntries.isEmpty()) {
             Iterator<Map.Entry<K, V>> it = getOverflowEntriesMutable().entrySet().iterator();
             this.entryList.add(new Entry(this, it.next()));
@@ -364,8 +364,8 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         return this.overflowEntries.get(comparable);
     }
 
-    public Map.Entry<K, V> getArrayEntryAt(int i) {
-        return this.entryList.get(i);
+    public Map.Entry<K, V> getArrayEntryAt(int i2) {
+        return this.entryList.get(i2);
     }
 
     public int getNumArrayEntries() {
@@ -420,8 +420,8 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         return this.entryList.size() + this.overflowEntries.size();
     }
 
-    public SmallSortedMap(int i) {
-        this.maxArraySize = i;
+    public SmallSortedMap(int i2) {
+        this.maxArraySize = i2;
         this.entryList = Collections.emptyList();
         this.overflowEntries = Collections.emptyMap();
     }
@@ -433,17 +433,17 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
             return this.entryList.get(binarySearchInArray).setValue(v);
         }
         ensureEntryArrayMutable();
-        int i = -(binarySearchInArray + 1);
-        if (i >= this.maxArraySize) {
+        int i2 = -(binarySearchInArray + 1);
+        if (i2 >= this.maxArraySize) {
             return getOverflowEntriesMutable().put(k, v);
         }
         int size = this.entryList.size();
-        int i2 = this.maxArraySize;
-        if (size == i2) {
-            SmallSortedMap<K, V>.Entry remove = this.entryList.remove(i2 - 1);
+        int i3 = this.maxArraySize;
+        if (size == i3) {
+            SmallSortedMap<K, V>.Entry remove = this.entryList.remove(i3 - 1);
             getOverflowEntriesMutable().put((K) remove.getKey(), remove.getValue());
         }
-        this.entryList.add(i, new Entry(k, v));
+        this.entryList.add(i2, new Entry(k, v));
         return null;
     }
 }

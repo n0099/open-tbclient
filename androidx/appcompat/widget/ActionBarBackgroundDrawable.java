@@ -61,7 +61,7 @@ public class ActionBarBackgroundDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
+    public void setAlpha(int i2) {
     }
 
     @Override // android.graphics.drawable.Drawable

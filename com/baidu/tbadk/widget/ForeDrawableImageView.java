@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewParent;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import d.b.i0.r.k;
+import d.a.i0.r.k;
 /* loaded from: classes3.dex */
 public class ForeDrawableImageView extends TbImageView {
     public Drawable w0;
@@ -17,9 +17,16 @@ public class ForeDrawableImageView extends TbImageView {
     public int y0;
     public Paint z0;
 
-    public ForeDrawableImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ForeDrawableImageView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.z0 = new Paint();
+    }
+
+    public final void b0(Canvas canvas, int i2, int i3) {
+        if (StringUtils.isNull(this.x0) || k.c().g()) {
+            return;
+        }
+        canvas.drawText(this.x0, (int) (i2 - (this.z0.measureText(this.x0) / 2.0f)), i3 + this.y0, this.z0);
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -29,13 +36,6 @@ public class ForeDrawableImageView extends TbImageView {
         if (drawable != null && drawable.isStateful() && this.w0.setState(getDrawableState())) {
             invalidate();
         }
-    }
-
-    public final void f0(Canvas canvas, int i, int i2) {
-        if (StringUtils.isNull(this.x0) || k.c().g()) {
-            return;
-        }
-        canvas.drawText(this.x0, (int) (i - (this.z0.measureText(this.x0) / 2.0f)), i2 + this.y0, this.z0);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
@@ -51,30 +51,30 @@ public class ForeDrawableImageView extends TbImageView {
             }
             int intrinsicWidth = this.w0.getIntrinsicWidth();
             int intrinsicHeight = this.w0.getIntrinsicHeight();
-            int i = intrinsicWidth / 2;
-            int i2 = (measuredWidth / 2) - i;
+            int i2 = intrinsicWidth / 2;
+            int i3 = (measuredWidth / 2) - i2;
             int height = (getHeight() / 2) - (intrinsicHeight / 2);
-            canvas.translate(i2, height);
+            canvas.translate(i3, height);
             this.w0.draw(canvas);
             canvas.restore();
-            f0(canvas, i2 + i, height + intrinsicHeight);
+            b0(canvas, i3 + i2, height + intrinsicHeight);
         }
     }
 
-    public void setForegroundDrawable(int i) {
-        setForegroundDrawable(SkinManager.getDrawable(i));
+    public void setForegroundDrawable(int i2) {
+        setForegroundDrawable(SkinManager.getDrawable(i2));
     }
 
     public void setNoImageBottomText(String str) {
         this.x0 = str;
     }
 
-    public void setNoImageBottomTextColor(int i) {
-        this.z0.setColor(SkinManager.getColor(i));
+    public void setNoImageBottomTextColor(int i2) {
+        this.z0.setColor(SkinManager.getColor(i2));
     }
 
-    public void setNoImageBottomTextPadding(int i) {
-        this.y0 = i;
+    public void setNoImageBottomTextPadding(int i2) {
+        this.y0 = i2;
     }
 
     public void setNoImageBottomTextSize(float f2) {

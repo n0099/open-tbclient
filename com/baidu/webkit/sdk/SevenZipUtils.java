@@ -125,12 +125,12 @@ public class SevenZipUtils {
     }
 
     private int decode() {
-        int i = 0;
+        int i2 = 0;
         if (this.m7zCount <= 0 || this.m7zTotal <= 0) {
             return 0;
         }
         this.mContext.getResources().getAssets();
-        int i2 = this.m7zCount;
+        int i3 = this.m7zCount;
         final String str = this.m7zFile;
         final int[] iArr = this.m7zSizes;
         final int[] iArr2 = this.m7zOffsets;
@@ -144,35 +144,35 @@ public class SevenZipUtils {
         if (doInit != 0) {
             return doInit;
         }
-        ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(i2);
-        while (i < i2) {
-            final int i3 = i;
+        ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(i3);
+        while (i2 < i3) {
+            final int i4 = i2;
             newFixedThreadPool.submit(new Runnable() { // from class: com.baidu.webkit.sdk.SevenZipUtils.2
                 @Override // java.lang.Runnable
                 public void run() {
                     SevenZipUtils sevenZipUtils = SevenZipUtils.this;
                     String str3 = str;
                     int[] iArr4 = iArr2;
-                    int i4 = i3;
-                    sevenZipUtils.decodeAndMerge(null, str3, iArr4[i4], iArr[i4], iArr3[i4]);
+                    int i5 = i4;
+                    sevenZipUtils.decodeAndMerge(null, str3, iArr4[i5], iArr[i5], iArr3[i5]);
                 }
             });
-            i++;
-            i2 = i2;
+            i2++;
+            i3 = i3;
         }
         shutdownAndAwaitTermination(newFixedThreadPool);
         return !this.mHooked ? submit() : doInit;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void decodeAndMerge(AssetManager assetManager, String str, int i, int i2, int i3);
+    public native void decodeAndMerge(AssetManager assetManager, String str, int i2, int i3, int i4);
 
-    private native int doHook(int i, boolean z);
+    private native int doHook(int i2, boolean z);
 
-    private int doInit(String str, String str2, int i, int i2, int i3, int i4) {
+    private int doInit(String str, String str2, int i2, int i3, int i4, int i5) {
         if (sLibraryLoaded) {
             try {
-                return init(str, str2, i, i2, i3, i4);
+                return init(str, str2, i2, i3, i4, i5);
             } catch (UnsatisfiedLinkError e2) {
                 LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
                 loadErrorCode.trace("512:" + e2.toString());
@@ -182,7 +182,7 @@ public class SevenZipUtils {
         return 0;
     }
 
-    private native int extract(String str, String str2, int i, int i2);
+    private native int extract(String str, String str2, int i2, int i3);
 
     public static synchronized SevenZipUtils getInstance() {
         SevenZipUtils sevenZipUtils;
@@ -203,7 +203,7 @@ public class SevenZipUtils {
         return str;
     }
 
-    private native int init(String str, String str2, int i, int i2, int i3, int i4);
+    private native int init(String str, String str2, int i2, int i3, int i4, int i5);
 
     private boolean isEnoughSpace(long j) {
         try {
@@ -219,22 +219,22 @@ public class SevenZipUtils {
 
     private int readMeta() {
         try {
-            int i = this.mJson_meta.getInt("count");
-            this.m7zCount = i;
-            this.m7zSizes = new int[i];
-            this.m7zOffsets = new int[i];
-            this.m7zSzOffsets = new int[i];
+            int i2 = this.mJson_meta.getInt("count");
+            this.m7zCount = i2;
+            this.m7zSizes = new int[i2];
+            this.m7zOffsets = new int[i2];
+            this.m7zSzOffsets = new int[i2];
             this.m7zFile = getNativeLibraryDir() + "/" + this.mJson_meta.getString("file");
             JSONArray jSONArray = this.mJson_meta.getJSONArray(LZMA_META_KEY_OFFSET);
             JSONArray jSONArray2 = this.mJson_meta.getJSONArray(LZMA_META_KEY_SZ_OFFSET);
             this.m7zOffsets[0] = 0;
-            for (int i2 = 0; i2 < this.m7zCount; i2++) {
-                this.m7zSizes[i2] = jSONArray.getInt(i2);
-                if (i2 > 0) {
-                    int i3 = i2 - 1;
-                    this.m7zOffsets[i2] = this.m7zOffsets[i3] + this.m7zSizes[i3];
+            for (int i3 = 0; i3 < this.m7zCount; i3++) {
+                this.m7zSizes[i3] = jSONArray.getInt(i3);
+                if (i3 > 0) {
+                    int i4 = i3 - 1;
+                    this.m7zOffsets[i3] = this.m7zOffsets[i4] + this.m7zSizes[i4];
                 }
-                this.m7zSzOffsets[i2] = jSONArray2.getInt(i2) + this.mOffset_7z;
+                this.m7zSzOffsets[i3] = jSONArray2.getInt(i3) + this.mOffset_7z;
             }
             this.m7zTotal = this.mJson_meta.getInt("total");
             return 0;
@@ -349,19 +349,19 @@ public class SevenZipUtils {
             new Handler(handlerThread.getLooper()).post(new Runnable() { // from class: com.baidu.webkit.sdk.SevenZipUtils.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    int i;
+                    int i2;
                     try {
-                        i = SevenZipUtils.this.submit();
+                        i2 = SevenZipUtils.this.submit();
                     } catch (UnsatisfiedLinkError e2) {
                         LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
                         loadErrorCode.trace("512:" + e2.toString());
-                        i = 89;
+                        i2 = 89;
                     }
-                    if (i == 0) {
+                    if (i2 == 0) {
                         SevenZipUtils.this.createTimestamp();
                     } else {
                         LoadErrorCode loadErrorCode2 = LoadErrorCode.getInstance();
-                        loadErrorCode2.set(101, "write back: " + i);
+                        loadErrorCode2.set(101, "write back: " + i2);
                         LoadErrorCode.Statistics.record();
                     }
                     SevenZipUtils.this.unLock();
@@ -451,23 +451,23 @@ public class SevenZipUtils {
                 this.mJson_meta = new JSONObject(str3.substring(this.mOffset_meta, this.mOffset_elf - 2));
                 JSONObject jSONObject = new JSONObject(str3.substring(this.mOffset_elf, this.mOffset_7z - 2));
                 this.mJson_elf = jSONObject;
-                int i = Integer.MAX_VALUE;
+                int i2 = Integer.MAX_VALUE;
                 JSONArray jSONArray = jSONObject.getJSONArray(LZMA_META_KEY_LOADABLE);
-                int i2 = 0;
-                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
-                    int i4 = jSONObject2.getInt(LZMA_META_KEY_VADDR);
-                    int i5 = jSONObject2.getInt(LZMA_META_KEY_MEMSZ);
-                    if (i4 < i) {
-                        i = i4;
+                int i3 = 0;
+                for (int i4 = 0; i4 < jSONArray.length(); i4++) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i4);
+                    int i5 = jSONObject2.getInt(LZMA_META_KEY_VADDR);
+                    int i6 = jSONObject2.getInt(LZMA_META_KEY_MEMSZ);
+                    if (i5 < i2) {
+                        i2 = i5;
                     }
-                    int i6 = i4 + i5;
-                    if (i6 > i2) {
-                        i2 = i6;
+                    int i7 = i5 + i6;
+                    if (i7 > i3) {
+                        i3 = i7;
                     }
                 }
-                this.mMinAddr = i;
-                this.mMaxAddr = i2;
+                this.mMinAddr = i2;
+                this.mMaxAddr = i3;
                 this.mPrepared = true;
                 try {
                     fileInputStream.close();
@@ -506,7 +506,7 @@ public class SevenZipUtils {
     }
 
     public void unzip(String str, String str2) {
-        int i;
+        int i2;
         if (this.mErrorCode != 0) {
             return;
         }
@@ -516,21 +516,21 @@ public class SevenZipUtils {
                 file.mkdirs();
             }
             try {
-                int i2 = Build.VERSION.SDK_INT;
-                if (i2 == 19 && Build.VERSION.RELEASE.contains("4.4.3")) {
-                    i2 = 20;
+                int i3 = Build.VERSION.SDK_INT;
+                if (i3 == 19 && Build.VERSION.RELEASE.contains("4.4.3")) {
+                    i3 = 20;
                 }
-                if (extract(str, str2, this.mOffset_7z, i2) == 0) {
+                if (extract(str, str2, this.mOffset_7z, i3) == 0) {
                     return;
                 }
             } catch (Throwable th) {
                 Log.e(TAG, "failed to extract " + str + ": " + th);
             }
-            i = 91;
+            i2 = 91;
         } else {
-            i = 92;
+            i2 = 92;
         }
-        this.mErrorCode = i;
+        this.mErrorCode = i2;
     }
 
     public synchronized void unzipWithMeta(String str, String str2) {

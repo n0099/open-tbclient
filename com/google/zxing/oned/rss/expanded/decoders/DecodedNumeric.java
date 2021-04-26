@@ -7,11 +7,11 @@ public final class DecodedNumeric extends DecodedObject {
     public final int firstDigit;
     public final int secondDigit;
 
-    public DecodedNumeric(int i, int i2, int i3) throws FormatException {
-        super(i);
-        if (i2 >= 0 && i2 <= 10 && i3 >= 0 && i3 <= 10) {
-            this.firstDigit = i2;
-            this.secondDigit = i3;
+    public DecodedNumeric(int i2, int i3, int i4) throws FormatException {
+        super(i2);
+        if (i3 >= 0 && i3 <= 10 && i4 >= 0 && i4 <= 10) {
+            this.firstDigit = i3;
+            this.secondDigit = i4;
             return;
         }
         throw FormatException.getFormatInstance();

@@ -34,7 +34,7 @@ public abstract class BaseSplashAd {
 
     public abstract void setADListener(ADListener aDListener);
 
-    public abstract void setFetchDelay(int i);
+    public abstract void setFetchDelay(int i2);
 
     public abstract void setLoadAdParams(LoadAdParams loadAdParams);
 

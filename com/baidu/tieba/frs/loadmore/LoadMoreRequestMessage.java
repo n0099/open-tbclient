@@ -5,10 +5,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
-import d.b.c.e.m.b;
-import d.b.c.e.p.l;
-import d.b.i0.z0.w;
-import d.b.j0.s2.d0.a;
+import d.a.c.e.m.b;
+import d.a.c.e.p.l;
+import d.a.i0.z0.w;
+import d.a.j0.s2.f0.a;
 import tbclient.ThreadList.AdParam;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
@@ -43,15 +43,15 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.forum_name = this.forumName;
         builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
         int k = l.k(TbadkCoreApplication.getInst());
-        int i = l.i(TbadkCoreApplication.getInst());
+        int i2 = l.i(TbadkCoreApplication.getInst());
         builder.pn = Integer.valueOf(this.pn);
         builder.st_type = Integer.valueOf(this.st_type);
-        builder.scr_h = Integer.valueOf(i);
+        builder.scr_h = Integer.valueOf(i2);
         builder.scr_w = Integer.valueOf(k);
         builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.sort_type = Integer.valueOf(this.mSortType);
-        builder.ad_context_list = d.b.j0.s2.f0.b.f().d("FRS");
+        builder.ad_context_list = d.a.j0.s2.h0.b.f().d("FRS");
         AdExtParam.a b2 = AdExtParam.a.b();
         b2.e(this.adFloorInfo);
         builder.ad_ext_params = b2.a();
@@ -98,32 +98,32 @@ public class LoadMoreRequestMessage extends NetMessage {
         this.mLastClickTid = j;
     }
 
-    public void setLoadCount(int i) {
-        this.loadCount = i;
+    public void setLoadCount(int i2) {
+        this.loadCount = i2;
     }
 
-    public void setNeedAbstract(int i) {
-        this.need_abstract = i;
+    public void setNeedAbstract(int i2) {
+        this.need_abstract = i2;
     }
 
-    public void setPageNumber(int i) {
-        this.pn = i;
+    public void setPageNumber(int i2) {
+        this.pn = i2;
     }
 
-    public void setPageType(int i) {
-        this.mPageType = i;
+    public void setPageType(int i2) {
+        this.mPageType = i2;
     }
 
-    public void setRefreshCount(int i) {
-        this.refreshCount = i;
+    public void setRefreshCount(int i2) {
+        this.refreshCount = i2;
     }
 
-    public void setSortType(int i) {
-        this.mSortType = i;
+    public void setSortType(int i2) {
+        this.mSortType = i2;
     }
 
-    public void setStType(int i) {
-        this.st_type = i;
+    public void setStType(int i2) {
+        this.st_type = i2;
     }
 
     public void setThreadIds(String str) {

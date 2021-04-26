@@ -35,17 +35,17 @@ public class WebpTranscodeProducer implements Producer<EncodedImage> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(@Nullable EncodedImage encodedImage, int i) {
+        public void onNewResultImpl(@Nullable EncodedImage encodedImage, int i2) {
             if (this.mShouldTranscodeWhenFinished == TriState.UNSET && encodedImage != null) {
                 this.mShouldTranscodeWhenFinished = WebpTranscodeProducer.shouldTranscode(encodedImage);
             }
             if (this.mShouldTranscodeWhenFinished == TriState.NO) {
-                getConsumer().onNewResult(encodedImage, i);
-            } else if (BaseConsumer.isLast(i)) {
+                getConsumer().onNewResult(encodedImage, i2);
+            } else if (BaseConsumer.isLast(i2)) {
                 if (this.mShouldTranscodeWhenFinished == TriState.YES && encodedImage != null) {
                     WebpTranscodeProducer.this.transcodeLastResult(encodedImage, getConsumer(), this.mContext);
                 } else {
-                    getConsumer().onNewResult(encodedImage, i);
+                    getConsumer().onNewResult(encodedImage, i2);
                 }
             }
         }

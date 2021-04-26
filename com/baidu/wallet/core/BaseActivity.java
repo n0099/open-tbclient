@@ -151,14 +151,14 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
         }
     }
 
-    public static synchronized void clearTasksWithFlag(int i) {
+    public static synchronized void clearTasksWithFlag(int i2) {
         synchronized (BaseActivity.class) {
             LogUtil.methodTrace("BaseActivity");
             LogUtil.d("BaseActivity", "clearTasksWithFlag. stack size = " + mActivityStack.size());
             Iterator<BaseActivity> it = mActivityStack.iterator();
             while (it.hasNext()) {
                 BaseActivity next = it.next();
-                if ((next.mFlag & i) != 0) {
+                if ((next.mFlag & i2) != 0) {
                     next.finish();
                     next.overridePendingTransition(0, 0);
                 }
@@ -184,18 +184,18 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
         try {
             Class<?>[] declaredClasses = Activity.class.getDeclaredClasses();
             int length = declaredClasses.length;
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 obj = null;
-                if (i >= length) {
+                if (i2 >= length) {
                     cls = null;
                     break;
                 }
-                cls = declaredClasses[i];
+                cls = declaredClasses[i2];
                 if (cls.getSimpleName().equals("TranslucentConversionListener")) {
                     break;
                 }
-                i++;
+                i2++;
             }
             if (cls != null) {
                 obj2 = Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new InvocationHandler() { // from class: com.baidu.wallet.core.BaseActivity.1
@@ -273,8 +273,8 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
         }
     }
 
-    public static void setCustomDensity(@NonNull final Application application, boolean z, int i) {
-        int i2;
+    public static void setCustomDensity(@NonNull final Application application, boolean z, int i2) {
+        int i3;
         DisplayMetrics displayMetrics = application.getResources().getDisplayMetrics();
         if (sNocompatDensity == 0.0f) {
             sNocompatDensity = displayMetrics.density;
@@ -294,11 +294,11 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
             });
         }
         if (z) {
-            i2 = displayMetrics.widthPixels;
+            i3 = displayMetrics.widthPixels;
         } else {
-            i2 = displayMetrics.heightPixels;
+            i3 = displayMetrics.heightPixels;
         }
-        float f2 = i2 / i;
+        float f2 = i3 / i2;
         displayMetrics.density = f2;
         displayMetrics.scaledDensity = (sNocompatScaleDensity / sNocompatDensity) * f2;
         displayMetrics.densityDpi = (int) (160.0f * f2);
@@ -354,14 +354,14 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
         return super.getActivity();
     }
 
-    public ArrayList<String> getHandlerFailureData(int i, int i2, String str) {
+    public ArrayList<String> getHandlerFailureData(int i2, int i3, String str) {
         String str2;
         String str3 = "";
         ArrayList<String> arrayList = new ArrayList<>();
         try {
-            str2 = String.valueOf(i);
+            str2 = String.valueOf(i2);
             try {
-                str3 = String.valueOf(i2);
+                str3 = String.valueOf(i3);
             } catch (Exception unused) {
             }
         } catch (Exception unused2) {
@@ -400,8 +400,8 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -412,7 +412,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
         }
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         try {
             super.onBackPressed();
@@ -455,7 +455,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
         overridePendingTransition(0, 0);
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Serializable serializable;
         ActivityInfo activityInfo;
@@ -553,12 +553,12 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
     }
 
     @Override // android.app.Activity
-    public Dialog onCreateDialog(int i) {
-        LogUtil.d("BaseActivity", "onCreateDialog. id = " + i);
-        if (i == -2 || i == -1 || i == 0) {
+    public Dialog onCreateDialog(int i2) {
+        LogUtil.d("BaseActivity", "onCreateDialog. id = " + i2);
+        if (i2 == -2 || i2 == -1 || i2 == 0) {
             return new LoadingDialog(this);
         }
-        if (i != 2) {
+        if (i2 != 2) {
             return new PromptDialog(getActivity());
         }
         return new PromptImageDialog(getActivity());
@@ -581,11 +581,11 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 82 && keyEvent.isLongPress()) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 82 && keyEvent.isLongPress()) {
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -619,9 +619,9 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
     }
 
     @Override // android.app.Activity
-    public void onPrepareDialog(int i, Dialog dialog) {
-        LogUtil.d("BaseActivity", "onPrepareDialog. id = " + i);
-        if (i == -2) {
+    public void onPrepareDialog(int i2, Dialog dialog) {
+        LogUtil.d("BaseActivity", "onPrepareDialog. id = " + i2);
+        if (i2 == -2) {
             LoadingDialog loadingDialog = (LoadingDialog) dialog;
             loadingDialog.setCancelable(true);
             loadingDialog.setOnCancelListener(new DelegateOnCancleListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.wallet.core.BaseActivity.3
@@ -630,7 +630,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     BaseActivity.this.cancleRequest();
                 }
             }, loadingDialog));
-        } else if (i == -1) {
+        } else if (i2 == -1) {
             LoadingDialog loadingDialog2 = (LoadingDialog) dialog;
             loadingDialog2.setCancelable(true);
             loadingDialog2.setOnCancelListener(new DelegateOnCancleListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.wallet.core.BaseActivity.2
@@ -639,14 +639,14 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     BaseActivity.this.onBackPressed();
                 }
             }, loadingDialog2));
-        } else if (i == 0) {
+        } else if (i2 == 0) {
             ((LoadingDialog) dialog).setCancelable(false);
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             PromptDialog promptDialog = (PromptDialog) dialog;
             promptDialog.setMessage(this.mDialogMsg);
             promptDialog.setCanceledOnTouchOutside(false);
             promptDialog.hideNegativeButton();
-        } else if (i == 11) {
+        } else if (i2 == 11) {
             PromptDialog promptDialog2 = (PromptDialog) dialog;
             promptDialog2.setMessage(getString(ResUtils.string(getActivity(), "ebpay_no_network")));
             promptDialog2.setCanceledOnTouchOutside(false);
@@ -667,8 +667,8 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     }
                 }
             });
-        } else if (i != 52) {
-            super.onPrepareDialog(i, dialog);
+        } else if (i2 != 52) {
+            super.onPrepareDialog(i2, dialog);
         } else {
             final PromptDialog promptDialog3 = (PromptDialog) dialog;
             promptDialog3.setMessage(this.mDialogMsg);
@@ -710,7 +710,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
         PayStatisticsUtil.onIn(getClass().getSimpleName(), 0L);
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         NetworkBean.SessionCache sessionCache = NetworkBean.SessionCache.getInstance();
         if (sessionCache != null) {
@@ -725,9 +725,9 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
     }
 
     public void setImmersiveStatusBar(Activity activity) {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 19) {
-            if (i >= 21) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 19) {
+            if (i2 >= 21) {
                 Window window = activity.getWindow();
                 window.getDecorView().setSystemUiVisibility(1280);
                 window.addFlags(Integer.MIN_VALUE);
@@ -768,9 +768,9 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
         this.mSafeScrollView = safeScrollView;
     }
 
-    public void setUIAdaptationMode(boolean z, boolean z2, int i) {
+    public void setUIAdaptationMode(boolean z, boolean z2, int i2) {
         this.isWidthLimitedMode = z2;
-        this.defaultLenth = i;
+        this.defaultLenth = i2;
         this.isSupportUIAdapatation = z;
     }
 
@@ -778,9 +778,9 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
         this.mWindowNightMode = z;
     }
 
-    public void showBaseDialog(int i, String str) {
+    public void showBaseDialog(int i2, String str) {
         this.mDialogMsg = str;
-        WalletGlobalUtils.safeShowDialog(this, i, str);
+        WalletGlobalUtils.safeShowDialog(this, i2, str);
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
@@ -788,12 +788,12 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
         startActivityForResult(intent, -1);
     }
 
-    public void startActivityForResult(Class<?> cls, int i) {
-        startActivityForResult(new Intent(this, cls), i);
+    public void startActivityForResult(Class<?> cls, int i2) {
+        startActivityForResult(new Intent(this, cls), i2);
     }
 
-    public void startActivityForResultWithoutAnim(Intent intent, int i) {
-        super.startActivityForResult(intent, i);
+    public void startActivityForResultWithoutAnim(Intent intent, int i2) {
+        super.startActivityForResult(intent, i2);
     }
 
     public void startActivityWithExtras(Bundle bundle, Class<?> cls) {
@@ -843,8 +843,8 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void startActivityForResult(Intent intent, int i) {
-        super.startActivityForResult(intent, i);
+    public void startActivityForResult(Intent intent, int i2) {
+        super.startActivityForResult(intent, i2);
         BaiduWalletUtils.startActivityAnim(getActivity());
     }
 }

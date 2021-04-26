@@ -16,6 +16,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.internal.view.SupportMenu;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
 import java.io.File;
@@ -33,29 +34,31 @@ import org.apache.http.conn.util.InetAddressUtils;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5656a = "armeabi";
+    public static final String f5809a = "armeabi";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5657b = "armeabi-v7a";
+    public static final String f5810b = "armeabi-v7a";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5658c = "x86";
+    public static final String f5811c = "x86";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5659d = "arm64-v8a";
+    public static final String f5812d = "arm64-v8a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5660e = 480;
+    public static final int f5813e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5661f = 480;
+    public static final int f5814f = 480;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f5662g = 192;
+    public static final int f5815g = 192;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f5663h = 480;
-    public static final int i = 620;
+    public static final int f5816h = 480;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final int f5817i = 620;
     public static final int j = 728;
     public static final int k = 750;
     public static final int l = 1335;
@@ -78,12 +81,12 @@ public class h {
         canvas.drawRect(b2, paint);
         Point point = new Point();
         point.set(b2.centerX(), b2.centerY());
-        paint.setColor(-65536);
+        paint.setColor(SupportMenu.CATEGORY_MASK);
         canvas.drawCircle(point.x, point.y, 5.0f, paint);
         canvas.drawRect(a(new int[]{bitmap.getWidth(), bitmap.getHeight()}), paint);
         Point point2 = new Point();
         point2.set(bitmap.getWidth() / 2, (bitmap.getHeight() * 728) / 1335);
-        paint.setColor(-65536);
+        paint.setColor(SupportMenu.CATEGORY_MASK);
         canvas.drawCircle(point2.x, point2.y, 5.0f, paint);
         int width = ((bitmap.getWidth() * 480) / 750) / 2;
         int i4 = point2.x;
@@ -334,7 +337,7 @@ public class h {
     }
 
     public static String a(String str, Context context) {
-        return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f5627a;
+        return str + "-" + d(context) + "-Android-sapi_bio-" + com.baidu.fsg.face.base.c.f5780a;
     }
 
     public static int a(Context context, float f2) {

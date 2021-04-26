@@ -44,5 +44,5 @@ public class DeviceIdFactory {
         return iDeviceId;
     }
 
-    public static native IDeviceId getInstanceNative(Context context, int i);
+    public static native IDeviceId getInstanceNative(Context context, int i2);
 }

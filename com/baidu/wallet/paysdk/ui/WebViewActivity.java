@@ -116,7 +116,7 @@ public class WebViewActivity extends BaseActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         SafeWebView safeWebView = this.mWebView;
         if (safeWebView != null && safeWebView.canGoBack()) {
@@ -126,7 +126,7 @@ public class WebViewActivity extends BaseActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     @SuppressLint({"NewApi"})
     public void onCreate(Bundle bundle) {
         String str;

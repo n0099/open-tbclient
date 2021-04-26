@@ -24,10 +24,10 @@ public class StatService {
     public static final int JAVA_EXCEPTION_LOG = 16;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f8444a = false;
+    public static boolean f8746a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f8445b;
+    public static boolean f8747b;
 
     /* loaded from: classes2.dex */
     public interface WearListener {
@@ -37,8 +37,8 @@ public class StatService {
     public static boolean a(Class<?> cls, String str) {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         boolean z = false;
-        for (int i = 2; i < stackTrace.length; i++) {
-            StackTraceElement stackTraceElement = stackTrace[i];
+        for (int i2 = 2; i2 < stackTrace.length; i2++) {
+            StackTraceElement stackTraceElement = stackTrace[i2];
             if (stackTraceElement.getMethodName().equals(str)) {
                 try {
                     for (Class<?> cls2 = Class.forName(stackTraceElement.getClassName()); cls2.getSuperclass() != null && cls2.getSuperclass() != cls; cls2 = cls2.getSuperclass()) {
@@ -93,8 +93,8 @@ public class StatService {
         }
     }
 
-    public static void onEvent(Context context, String str, String str2, int i, Map<String, String> map) {
-        a(context, str, str2, i, (ExtraInfo) null, map);
+    public static void onEvent(Context context, String str, String str2, int i2, Map<String, String> map) {
+        a(context, str, str2, i2, (ExtraInfo) null, map);
     }
 
     public static void onEventDuration(Context context, String str, String str2, long j, Map<String, String> map) {
@@ -216,7 +216,7 @@ public class StatService {
 
     public static void setFeedTrack(MtjConfig.FeedTrackStrategy feedTrackStrategy) {
         av.a(feedTrackStrategy);
-        f8445b = true;
+        f8747b = true;
     }
 
     public static void setForTv(Context context, boolean z) {
@@ -247,16 +247,16 @@ public class StatService {
         view.setTag(-97001, str);
     }
 
-    public static void setLogSenderDelayed(int i) {
-        LogSender.instance().setLogSenderDelayed(i);
+    public static void setLogSenderDelayed(int i2) {
+        LogSender.instance().setLogSenderDelayed(i2);
     }
 
-    public static void setOn(Context context, int i) {
-        if (a(context, "setOn(...)") && !f8444a) {
-            f8444a = true;
-            if ((i & 1) != 0) {
+    public static void setOn(Context context, int i2) {
+        if (a(context, "setOn(...)") && !f8746a) {
+            f8746a = true;
+            if ((i2 & 1) != 0) {
                 a(context, false);
-            } else if ((i & 16) != 0) {
+            } else if ((i2 & 16) != 0) {
                 a(context, true);
             }
             BDStatCore.instance().init(context);
@@ -283,19 +283,19 @@ public class StatService {
     }
 
     @Deprecated
-    public static void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i, boolean z) {
+    public static void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i2, boolean z) {
         if (a(context, "setSendLogStrategy(...)")) {
             boolean a2 = bx.a(Application.class, MissionEvent.MESSAGE_CREATE);
             if (a2) {
                 bc.c().c("[WARNING] setSendLogStrategy 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
             }
             BDStatCore.instance().onSessionStart(context, a2);
-            LogSender.instance().setSendLogStrategy(context.getApplicationContext(), sendStrategyEnum, i, z);
+            LogSender.instance().setSendLogStrategy(context.getApplicationContext(), sendStrategyEnum, i2, z);
         }
     }
 
-    public static void setSessionTimeOut(int i) {
-        BDStatCore.instance().setSessionTimeOut(i);
+    public static void setSessionTimeOut(int i2) {
+        BDStatCore.instance().setSessionTimeOut(i2);
     }
 
     public static synchronized void setStartType(boolean z) {
@@ -335,7 +335,7 @@ public class StatService {
             }
             af.a(appKey);
             af.a(z2);
-            if (!f8445b) {
+            if (!f8747b) {
                 setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_ALL);
             }
             BDStatCore.instance().init(context);
@@ -347,8 +347,8 @@ public class StatService {
         a(context, webView, webViewClient, (WebChromeClient) null, false);
     }
 
-    public static void onEvent(Context context, String str, String str2, int i) {
-        a(context, str, str2, i, (ExtraInfo) null, (Map<String, String>) null);
+    public static void onEvent(Context context, String str, String str2, int i2) {
+        a(context, str, str2, i2, (ExtraInfo) null, (Map<String, String>) null);
     }
 
     public static void onEventDuration(Context context, String str, String str2, long j) {
@@ -381,8 +381,8 @@ public class StatService {
     }
 
     @Deprecated
-    public static void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i) {
-        setSendLogStrategy(context, sendStrategyEnum, i, false);
+    public static void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i2) {
+        setSendLogStrategy(context, sendStrategyEnum, i2, false);
     }
 
     public static synchronized void a(Context context, String str, ExtraInfo extraInfo) {
@@ -404,13 +404,13 @@ public class StatService {
         }
     }
 
-    public static void a(Context context, String str, String str2, int i, ExtraInfo extraInfo, Map<String, String> map) {
+    public static void a(Context context, String str, String str2, int i2, ExtraInfo extraInfo, Map<String, String> map) {
         if (a(context, "onEvent(...)") && !TextUtils.isEmpty(str)) {
             boolean a2 = bx.a(Application.class, MissionEvent.MESSAGE_CREATE);
             if (a2) {
                 bc.c().c("[WARNING] onEvent 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
             }
-            BDStatCore.instance().onEvent(context.getApplicationContext(), str, str2, i, extraInfo, bx.a(map), a2);
+            BDStatCore.instance().onEvent(context.getApplicationContext(), str, str2, i2, extraInfo, bx.a(map), a2);
         }
     }
 
@@ -449,8 +449,8 @@ public class StatService {
 
     @SuppressLint({"NewApi"})
     public static void a(WebView webView) {
-        int i = Build.VERSION.SDK_INT;
-        if (i < 11 || i > 18) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 < 11 || i2 > 18) {
             return;
         }
         webView.removeJavascriptInterface("searchBoxJavaBridge_");

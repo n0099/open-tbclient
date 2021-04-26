@@ -6,8 +6,8 @@ import com.baidu.searchbox.player.pool.IPoolItem;
 public class SynchronizedFIFOPool<T extends IPoolItem> extends FIFOPool<T> {
     public final Object mLock;
 
-    public SynchronizedFIFOPool(int i) {
-        super(i);
+    public SynchronizedFIFOPool(int i2) {
+        super(i2);
         this.mLock = new Object();
     }
 

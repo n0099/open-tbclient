@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.b.i0.r.q.r;
+import d.a.i0.r.q.r;
 /* loaded from: classes3.dex */
 public abstract class ICDNProblemUploader {
     public static ICDNProblemUploader problemUploader;
@@ -24,7 +24,7 @@ public abstract class ICDNProblemUploader {
 
     public abstract r getmCdnLogData();
 
-    public abstract void insertErrorData(int i, String str);
+    public abstract void insertErrorData(int i2, String str);
 
     public abstract void insertNormalData(long j, String str);
 

@@ -8,5 +8,5 @@ public interface MotuPlugin {
 
     void init(Context context);
 
-    void startActivity(Context context, int i, String str);
+    void startActivity(Context context, int i2, String str);
 }

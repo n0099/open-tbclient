@@ -6,11 +6,11 @@ public final class Dimensions {
     public final int minCols;
     public final int minRows;
 
-    public Dimensions(int i, int i2, int i3, int i4) {
-        this.minCols = i;
-        this.maxCols = i2;
-        this.minRows = i3;
-        this.maxRows = i4;
+    public Dimensions(int i2, int i3, int i4, int i5) {
+        this.minCols = i2;
+        this.maxCols = i3;
+        this.minRows = i4;
+        this.maxRows = i5;
     }
 
     public int getMaxCols() {

@@ -8,15 +8,13 @@ public enum QrLoginAction {
     LOGIN("login"),
     CANCEL(QueryResponse.Options.CANCEL);
     
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f11077a;
+    public String name;
 
     QrLoginAction(String str) {
-        this.f11077a = str;
+        this.name = str;
     }
 
     public String getName() {
-        return this.f11077a;
+        return this.name;
     }
 }

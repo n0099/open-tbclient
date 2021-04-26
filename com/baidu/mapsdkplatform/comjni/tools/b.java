@@ -16,7 +16,7 @@ public final class b implements Parcelable.Creator<ParcelItem> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public ParcelItem[] newArray(int i) {
-        return new ParcelItem[i];
+    public ParcelItem[] newArray(int i2) {
+        return new ParcelItem[i2];
     }
 }

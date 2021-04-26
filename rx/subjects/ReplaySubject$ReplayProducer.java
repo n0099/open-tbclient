@@ -28,11 +28,11 @@ public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger impleme
 
     @Override // h.f
     public void request(long j) {
-        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i > 0) {
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i2 > 0) {
             a.b(this.requested, j);
             this.state.buffer.a(this);
-        } else if (i >= 0) {
+        } else if (i2 >= 0) {
         } else {
             throw new IllegalArgumentException("n >= required but it was " + j);
         }

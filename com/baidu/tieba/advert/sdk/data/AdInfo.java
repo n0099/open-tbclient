@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.facebook.common.util.UriUtil;
-import d.b.j0.r.a.f.b;
-import d.b.j0.r.a.j.a;
+import d.a.j0.r.a.f.b;
+import d.a.j0.r.a.j.a;
 import java.io.Serializable;
 import java.net.URLDecoder;
 import java.util.ArrayList;
@@ -146,9 +146,9 @@ public class AdInfo implements Serializable {
 
     public boolean shouldDownloadVideo() {
         b b2 = b.b(a.d());
-        if (TextUtils.isEmpty(b2.f61338d)) {
+        if (TextUtils.isEmpty(b2.f59479d)) {
             return true;
         }
-        return TextUtils.isEmpty(b2.f61337c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f61337c.equals(this.adVideoUrl);
+        return TextUtils.isEmpty(b2.f59478c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f59478c.equals(this.adVideoUrl);
     }
 }

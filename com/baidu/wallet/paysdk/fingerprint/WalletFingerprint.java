@@ -23,19 +23,19 @@ public class WalletFingerprint implements NoProguard {
     public static int SUPPORT_API_LEVEL = 23;
 
     /* renamed from: a  reason: collision with root package name */
-    public static WalletFingerprint f25313a;
+    public static WalletFingerprint f26084a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IFingerprintPay f25314b;
+    public IFingerprintPay f26085b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.fingerprint.a.a f25315c;
+    public com.baidu.wallet.paysdk.fingerprint.a.a f26086c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f25316d;
+    public Context f26087d;
 
     /* renamed from: e  reason: collision with root package name */
-    public PhoneSupportStatus f25317e = PhoneSupportStatus.UNSUPPORT;
+    public PhoneSupportStatus f26088e = PhoneSupportStatus.UNSUPPORT;
 
     /* loaded from: classes5.dex */
     public enum FpType {
@@ -50,27 +50,27 @@ public class WalletFingerprint implements NoProguard {
     }
 
     public WalletFingerprint(Context context) {
-        this.f25316d = context.getApplicationContext();
+        this.f26087d = context.getApplicationContext();
     }
 
     private void a() {
         if (SecurityUtils.isRoot()) {
-            this.f25317e = PhoneSupportStatus.UNSUPPORT;
+            this.f26088e = PhoneSupportStatus.UNSUPPORT;
         } else if (b()) {
             LogUtil.d("WalletFingerprint", "Only support system!");
-            this.f25317e = PhoneSupportStatus.SUPPORT_SYS;
+            this.f26088e = PhoneSupportStatus.SUPPORT_SYS;
         } else {
             LogUtil.d("WalletFingerprint", "None support!");
-            this.f25317e = PhoneSupportStatus.UNSUPPORT;
+            this.f26088e = PhoneSupportStatus.UNSUPPORT;
         }
     }
 
     @TargetApi(23)
     private boolean b() {
-        if (PermissionManager.checkCallingPermission(this.f25316d, "android.permission.USE_FINGERPRINT") && Build.VERSION.SDK_INT >= SUPPORT_API_LEVEL) {
-            FingerprintManager fingerprintManager = (FingerprintManager) this.f25316d.getSystemService(FingerprintManager.class);
+        if (PermissionManager.checkCallingPermission(this.f26087d, "android.permission.USE_FINGERPRINT") && Build.VERSION.SDK_INT >= SUPPORT_API_LEVEL) {
+            FingerprintManager fingerprintManager = (FingerprintManager) this.f26087d.getSystemService(FingerprintManager.class);
             try {
-                a a2 = a.a(this.f25316d);
+                a a2 = a.a(this.f26087d);
                 return a2 != null && a2.a() && fingerprintManager != null && fingerprintManager.isHardwareDetected();
             } catch (KeyStoreException e2) {
                 e2.printStackTrace();
@@ -80,46 +80,46 @@ public class WalletFingerprint implements NoProguard {
     }
 
     public static WalletFingerprint getInstance(Context context) {
-        if (f25313a == null) {
+        if (f26084a == null) {
             synchronized (WalletFingerprint.class) {
-                if (f25313a == null) {
-                    f25313a = new WalletFingerprint(context);
+                if (f26084a == null) {
+                    f26084a = new WalletFingerprint(context);
                 }
             }
         }
-        return f25313a;
+        return f26084a;
     }
 
     public static String getKeyStoreAlise(Context context) {
         String ppKey = PayPreferenceManager.getPpKey(context.getApplicationContext());
-        return a.f25318b + "_" + ppKey + "_" + BeanConstants.CHANNEL_ID;
+        return a.f26089b + "_" + ppKey + "_" + BeanConstants.CHANNEL_ID;
     }
 
     public static String getKeyStoreNewAlise(Context context) {
         String newPpKey = PayPreferenceManager.getNewPpKey(context.getApplicationContext());
-        return a.f25318b + "_" + newPpKey + "_" + BeanConstants.CHANNEL_ID;
+        return a.f26089b + "_" + newPpKey + "_" + BeanConstants.CHANNEL_ID;
     }
 
     @TargetApi(23)
     public void cancleListening() {
         LogUtil.d("WalletFingerprint", "WalletFingerprint.cancleListening");
-        com.baidu.wallet.paysdk.fingerprint.a.a aVar = this.f25315c;
+        com.baidu.wallet.paysdk.fingerprint.a.a aVar = this.f26086c;
         if (aVar != null) {
             aVar.a();
-            this.f25315c.d();
-            this.f25315c = null;
+            this.f26086c.d();
+            this.f26086c = null;
         }
     }
 
     public void clearOTPToken() {
         LogUtil.d("WalletFingerprint", "clearOTPToken");
-        SharedPreferencesUtils.setParam(this.f25316d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getPpKey(this.f25316d), "");
-        SharedPreferencesUtils.setParam(this.f25316d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getNewPpKey(this.f25316d), "");
+        SharedPreferencesUtils.setParam(this.f26087d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getPpKey(this.f26087d), "");
+        SharedPreferencesUtils.setParam(this.f26087d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getNewPpKey(this.f26087d), "");
     }
 
     public void close(Activity activity, FpType fpType, FingerprintCallback fingerprintCallback) {
         IFingerprintPay fingerprintPay = getFingerprintPay(fpType);
-        this.f25314b = fingerprintPay;
+        this.f26085b = fingerprintPay;
         if (fingerprintPay == null) {
             fingerprintCallback.onAuthorizeResult(IFingerprintPay.Action.CLOSE, 2, "");
         } else {
@@ -131,33 +131,33 @@ public class WalletFingerprint implements NoProguard {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String safeSavedDataByUnionId = OtpTokenUtils.getSafeSavedDataByUnionId(str, this.f25316d);
+        String safeSavedDataByUnionId = OtpTokenUtils.getSafeSavedDataByUnionId(str, this.f26087d);
         LogUtil.d("WalletFingerprint", "generateDynamickey tokeninfo=" + safeSavedDataByUnionId);
         String[] split = safeSavedDataByUnionId.split("\\|");
         if (split.length == 9) {
-            int i = 6;
-            int i2 = 1;
+            int i2 = 6;
+            int i3 = 1;
             try {
-                i = Integer.valueOf(split[5].substring(split[5].length() - 1, split[5].length())).intValue();
-                i2 = Integer.valueOf(split[7]).intValue();
+                i2 = Integer.valueOf(split[5].substring(split[5].length() - 1, split[5].length())).intValue();
+                i3 = Integer.valueOf(split[7]).intValue();
             } catch (Exception unused) {
             }
-            LogUtil.d("WalletFingerprint", "generateDynamicKey() key.length=" + i + "&& timeStep=" + i2);
-            return OtpTokenUtils.getEncryptTOtpCode(this.f25316d, i2, safeSavedDataByUnionId.split("\\|")[3], i);
+            LogUtil.d("WalletFingerprint", "generateDynamicKey() key.length=" + i2 + "&& timeStep=" + i3);
+            return OtpTokenUtils.getEncryptTOtpCode(this.f26087d, i3, safeSavedDataByUnionId.split("\\|")[3], i2);
         }
         return null;
     }
 
     public IFingerprintPay getFingerprintPay() {
         a();
-        if (this.f25317e == PhoneSupportStatus.SUPPORT_SYS) {
+        if (this.f26088e == PhoneSupportStatus.SUPPORT_SYS) {
             return new SysFingerprintPay();
         }
         return null;
     }
 
     public String getSN() {
-        String[] split = new String(Base64.decode((String) SharedPreferencesUtils.getParam(this.f25316d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getNewPpKey(this.f25316d), ""), 0)).split("\\|");
+        String[] split = new String(Base64.decode((String) SharedPreferencesUtils.getParam(this.f26087d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getNewPpKey(this.f26087d), ""), 0)).split("\\|");
         if (split.length == 3) {
             return SafePay.getInstance().localDecrypt1(split[2]);
         }
@@ -165,27 +165,27 @@ public class WalletFingerprint implements NoProguard {
     }
 
     public boolean hasEnrollFingerprint() {
-        if (PermissionManager.checkCallingPermission(this.f25316d, "android.permission.USE_FINGERPRINT") && isDevicesSupport()) {
-            return a(this.f25316d);
+        if (PermissionManager.checkCallingPermission(this.f26087d, "android.permission.USE_FINGERPRINT") && isDevicesSupport()) {
+            return a(this.f26087d);
         }
         return false;
     }
 
     public boolean hasOTPToken() {
-        return !TextUtils.isEmpty((String) SharedPreferencesUtils.getParam(this.f25316d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getNewPpKey(this.f25316d), ""));
+        return !TextUtils.isEmpty((String) SharedPreferencesUtils.getParam(this.f26087d, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, PayPreferenceManager.getNewPpKey(this.f26087d), ""));
     }
 
     public boolean isDevicesSupport() {
-        if (PermissionManager.checkCallingPermission(this.f25316d, "android.permission.USE_FINGERPRINT")) {
+        if (PermissionManager.checkCallingPermission(this.f26087d, "android.permission.USE_FINGERPRINT")) {
             a();
-            return this.f25317e != PhoneSupportStatus.UNSUPPORT;
+            return this.f26088e != PhoneSupportStatus.UNSUPPORT;
         }
         return false;
     }
 
     public void open(Activity activity, FpType fpType, FingerprintCallback fingerprintCallback) {
         IFingerprintPay fingerprintPay = getFingerprintPay(fpType);
-        this.f25314b = fingerprintPay;
+        this.f26085b = fingerprintPay;
         if (fingerprintPay == null) {
             fingerprintCallback.onAuthorizeResult(IFingerprintPay.Action.OPEN, 2, "");
         } else {
@@ -195,16 +195,16 @@ public class WalletFingerprint implements NoProguard {
 
     @TargetApi(23)
     public void startListening(b bVar) {
-        this.f25314b = getFingerprintPay(FpType.SYSTEM_FINGERPRINT);
+        this.f26085b = getFingerprintPay(FpType.SYSTEM_FINGERPRINT);
         try {
-            this.f25315c = new com.baidu.wallet.paysdk.fingerprint.a.a(this.f25316d);
+            this.f26086c = new com.baidu.wallet.paysdk.fingerprint.a.a(this.f26087d);
         } catch (KeyStoreException e2) {
             e2.printStackTrace();
         }
-        com.baidu.wallet.paysdk.fingerprint.a.a aVar = this.f25315c;
-        if (aVar != null && this.f25314b != null) {
+        com.baidu.wallet.paysdk.fingerprint.a.a aVar = this.f26086c;
+        if (aVar != null && this.f26085b != null) {
             aVar.a(bVar);
-            this.f25315c.a(2);
+            this.f26086c.a(2);
             return;
         }
         bVar.a(-1, "");
@@ -212,7 +212,7 @@ public class WalletFingerprint implements NoProguard {
 
     public void verify(Activity activity, FpType fpType, FingerprintCallback fingerprintCallback) {
         IFingerprintPay fingerprintPay = getFingerprintPay(fpType);
-        this.f25314b = fingerprintPay;
+        this.f26085b = fingerprintPay;
         if (fingerprintPay == null) {
             fingerprintCallback.onAuthorizeResult(IFingerprintPay.Action.VERIFY, 2, "");
         } else {
@@ -222,7 +222,7 @@ public class WalletFingerprint implements NoProguard {
 
     public IFingerprintPay getFingerprintPay(FpType fpType) {
         a();
-        PhoneSupportStatus phoneSupportStatus = this.f25317e;
+        PhoneSupportStatus phoneSupportStatus = this.f26088e;
         if (phoneSupportStatus != PhoneSupportStatus.UNSUPPORT && fpType == FpType.SYSTEM_FINGERPRINT && phoneSupportStatus == PhoneSupportStatus.SUPPORT_SYS) {
             return new SysFingerprintPay();
         }

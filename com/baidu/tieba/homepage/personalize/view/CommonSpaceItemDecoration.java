@@ -8,18 +8,18 @@ import androidx.recyclerview.widget.RecyclerView;
 public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f16970a;
+    public int f17242a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f16971b;
+    public int f17243b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f16972c;
+    public int f17244c;
 
-    public CommonSpaceItemDecoration(int i, int i2, int i3) {
-        this.f16970a = i;
-        this.f16971b = i2;
-        this.f16972c = i3;
+    public CommonSpaceItemDecoration(int i2, int i3, int i4) {
+        this.f17242a = i2;
+        this.f17243b = i3;
+        this.f17244c = i4;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -28,23 +28,23 @@ public class CommonSpaceItemDecoration extends RecyclerView.ItemDecoration {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (linearLayoutManager.getOrientation() == 1) {
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.top = this.f16970a;
+                rect.top = this.f17242a;
             } else {
-                rect.top = this.f16971b;
+                rect.top = this.f17243b;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                rect.bottom = this.f16972c;
+                rect.bottom = this.f17244c;
                 return;
             }
             return;
         }
         if (recyclerView.getChildAdapterPosition(view) == 0) {
-            rect.left = this.f16970a;
+            rect.left = this.f17242a;
         } else {
-            rect.left = this.f16971b;
+            rect.left = this.f17243b;
         }
         if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-            rect.right = this.f16972c;
+            rect.right = this.f17244c;
         }
     }
 }

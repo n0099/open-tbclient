@@ -7,32 +7,34 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.pb.view.FallingView;
-import d.b.c.e.p.l;
-import d.b.j0.d2.p.c;
+import d.a.c.e.p.l;
+import d.a.j0.d2.p.c;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class FallingView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<c> f19820e;
+    public List<c> f20311e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19821f;
+    public int f20312f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19822g;
+    public int f20313g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f19823h;
-    public Runnable i;
+    public boolean f20314h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Runnable f20315i;
     public Handler j;
     public Paint k;
 
     public FallingView(Context context) {
         super(context);
-        this.f19823h = false;
-        this.i = new Runnable() { // from class: d.b.j0.d2.p.b
+        this.f20314h = false;
+        this.f20315i = new Runnable() { // from class: d.a.j0.d2.p.b
             @Override // java.lang.Runnable
             public final void run() {
                 FallingView.this.d();
@@ -42,22 +44,22 @@ public class FallingView extends View {
         b();
     }
 
-    public void a(c cVar, int i) {
-        if (this.f19821f == 0) {
-            this.f19821f = l.k(getContext());
+    public void a(c cVar, int i2) {
+        if (this.f20312f == 0) {
+            this.f20312f = l.k(getContext());
         }
-        if (this.f19822g == 0) {
-            this.f19822g = l.i(getContext());
+        if (this.f20313g == 0) {
+            this.f20313g = l.i(getContext());
         }
-        for (int i2 = 0; i2 < i; i2++) {
-            c cVar2 = new c(cVar.i, this.f19821f, this.f19822g);
-            cVar2.f55149e = (-i2) * 180;
-            this.f19820e.add(cVar2);
+        for (int i3 = 0; i3 < i2; i3++) {
+            c cVar2 = new c(cVar.f52986i, this.f20312f, this.f20313g);
+            cVar2.f52982e = (-i3) * 180;
+            this.f20311e.add(cVar2);
         }
     }
 
     public final void b() {
-        this.f19820e = new ArrayList();
+        this.f20311e = new ArrayList();
         Paint paint = new Paint();
         this.k = paint;
         paint.setDither(true);
@@ -65,58 +67,58 @@ public class FallingView extends View {
     }
 
     public boolean c() {
-        return this.f19823h;
+        return this.f20314h;
     }
 
     public /* synthetic */ void d() {
         invalidate();
     }
 
-    public final int e(int i, int i2) {
-        int mode = View.MeasureSpec.getMode(i2);
-        int size = View.MeasureSpec.getSize(i2);
-        return mode == 1073741824 ? size : mode == Integer.MIN_VALUE ? Math.min(i, size) : i;
+    public final int e(int i2, int i3) {
+        int mode = View.MeasureSpec.getMode(i3);
+        int size = View.MeasureSpec.getSize(i3);
+        return mode == 1073741824 ? size : mode == Integer.MIN_VALUE ? Math.min(i2, size) : i2;
     }
 
     public void f() {
-        this.f19823h = true;
+        this.f20314h = true;
         invalidate();
     }
 
     public void g() {
-        this.f19823h = false;
+        this.f20314h = false;
         if (getHandler() != null) {
-            getHandler().removeCallbacks(this.i);
+            getHandler().removeCallbacks(this.f20315i);
         }
-        this.f19820e.clear();
+        this.f20311e.clear();
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         long currentTimeMillis = System.currentTimeMillis();
         super.onDraw(canvas);
-        if (this.f19820e.size() > 0) {
-            for (int i = 0; i < this.f19820e.size(); i++) {
-                this.f19820e.get(i).b(canvas, this.k);
+        if (this.f20311e.size() > 0) {
+            for (int i2 = 0; i2 < this.f20311e.size(); i2++) {
+                this.f20311e.get(i2).b(canvas, this.k);
             }
-            this.j.postDelayed(this.i, (currentTimeMillis + 5) - System.currentTimeMillis());
+            this.j.postDelayed(this.f20315i, (currentTimeMillis + 5) - System.currentTimeMillis());
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        int e2 = e(1000, i2);
-        int e3 = e(600, i);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        int e2 = e(1000, i3);
+        int e3 = e(600, i2);
         setMeasuredDimension(e3, e2);
-        this.f19821f = e3;
-        this.f19822g = e2;
+        this.f20312f = e3;
+        this.f20313g = e2;
     }
 
     public FallingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19823h = false;
-        this.i = new Runnable() { // from class: d.b.j0.d2.p.b
+        this.f20314h = false;
+        this.f20315i = new Runnable() { // from class: d.a.j0.d2.p.b
             @Override // java.lang.Runnable
             public final void run() {
                 FallingView.this.d();

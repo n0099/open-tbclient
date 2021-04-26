@@ -60,10 +60,10 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
         public static final class b extends GeneratedMessageLite.Builder<AuthInfo, b> implements Object {
 
             /* renamed from: e  reason: collision with root package name */
-            public int f14354e;
+            public int f14411e;
 
             /* renamed from: f  reason: collision with root package name */
-            public Object f14355f = "";
+            public Object f14412f = "";
 
             public b() {
                 maybeForceBuilderInitialization();
@@ -109,16 +109,16 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
             /* renamed from: n */
             public AuthInfo buildPartial() {
                 AuthInfo authInfo = new AuthInfo(this);
-                int i = (this.f14354e & 1) != 1 ? 0 : 1;
-                authInfo.token = this.f14355f;
-                authInfo.bitField0 = i;
+                int i2 = (this.f14411e & 1) != 1 ? 0 : 1;
+                authInfo.token = this.f14412f;
+                authInfo.bitField0 = i2;
                 return authInfo;
             }
 
             public b o() {
                 super.clear();
-                this.f14355f = "";
-                this.f14354e &= -2;
+                this.f14412f = "";
+                this.f14411e &= -2;
                 return this;
             }
 
@@ -140,8 +140,8 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
 
             public b s(AuthInfo authInfo) {
                 if (authInfo != AuthInfo.getDefaultInstance() && authInfo.hasToken()) {
-                    this.f14354e |= 1;
-                    this.f14355f = authInfo.token;
+                    this.f14411e |= 1;
+                    this.f14412f = authInfo.token;
                 }
                 return this;
             }
@@ -234,9 +234,9 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getTokenBytes()) : 0;
             this.memoizedSerializedSize = computeBytesSize;
@@ -405,17 +405,19 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
     public static final class b extends GeneratedMessageLite.Builder<BIMLogPb$LogRequest, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f14356e;
+        public int f14413e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f14357f;
-        public long i;
+        public long f14414f;
+
+        /* renamed from: i  reason: collision with root package name */
+        public long f14417i;
 
         /* renamed from: g  reason: collision with root package name */
-        public Object f14358g = "";
+        public Object f14415g = "";
 
         /* renamed from: h  reason: collision with root package name */
-        public AuthInfo f14359h = AuthInfo.getDefaultInstance();
+        public AuthInfo f14416h = AuthInfo.getDefaultInstance();
         public Object j = "";
         public ByteString k = ByteString.EMPTY;
 
@@ -463,51 +465,51 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
         /* renamed from: n */
         public BIMLogPb$LogRequest buildPartial() {
             BIMLogPb$LogRequest bIMLogPb$LogRequest = new BIMLogPb$LogRequest(this);
-            int i = this.f14356e;
-            int i2 = (i & 1) != 1 ? 0 : 1;
-            bIMLogPb$LogRequest.version = this.f14357f;
-            if ((i & 2) == 2) {
-                i2 |= 2;
+            int i2 = this.f14413e;
+            int i3 = (i2 & 1) != 1 ? 0 : 1;
+            bIMLogPb$LogRequest.version = this.f14414f;
+            if ((i2 & 2) == 2) {
+                i3 |= 2;
             }
-            bIMLogPb$LogRequest.serviceName = this.f14358g;
-            if ((i & 4) == 4) {
-                i2 |= 4;
+            bIMLogPb$LogRequest.serviceName = this.f14415g;
+            if ((i2 & 4) == 4) {
+                i3 |= 4;
             }
-            bIMLogPb$LogRequest.authInfo = this.f14359h;
-            if ((i & 8) == 8) {
-                i2 |= 8;
+            bIMLogPb$LogRequest.authInfo = this.f14416h;
+            if ((i2 & 8) == 8) {
+                i3 |= 8;
             }
-            bIMLogPb$LogRequest.requestTimestampMs = this.i;
-            if ((i & 16) == 16) {
-                i2 |= 16;
+            bIMLogPb$LogRequest.requestTimestampMs = this.f14417i;
+            if ((i2 & 16) == 16) {
+                i3 |= 16;
             }
             bIMLogPb$LogRequest.sign = this.j;
-            if ((i & 32) == 32) {
-                i2 |= 32;
+            if ((i2 & 32) == 32) {
+                i3 |= 32;
             }
             bIMLogPb$LogRequest.payload = this.k;
-            bIMLogPb$LogRequest.bitField0 = i2;
+            bIMLogPb$LogRequest.bitField0 = i3;
             return bIMLogPb$LogRequest;
         }
 
         public b o() {
             super.clear();
-            this.f14357f = 0L;
-            int i = this.f14356e & (-2);
-            this.f14356e = i;
-            this.f14358g = "";
-            this.f14356e = i & (-3);
-            this.f14359h = AuthInfo.getDefaultInstance();
-            int i2 = this.f14356e & (-5);
-            this.f14356e = i2;
-            this.i = 0L;
-            int i3 = i2 & (-9);
-            this.f14356e = i3;
+            this.f14414f = 0L;
+            int i2 = this.f14413e & (-2);
+            this.f14413e = i2;
+            this.f14415g = "";
+            this.f14413e = i2 & (-3);
+            this.f14416h = AuthInfo.getDefaultInstance();
+            int i3 = this.f14413e & (-5);
+            this.f14413e = i3;
+            this.f14417i = 0L;
+            int i4 = i3 & (-9);
+            this.f14413e = i4;
             this.j = "";
-            int i4 = i3 & (-17);
-            this.f14356e = i4;
+            int i5 = i4 & (-17);
+            this.f14413e = i5;
             this.k = ByteString.EMPTY;
-            this.f14356e = i4 & (-33);
+            this.f14413e = i5 & (-33);
             return this;
         }
 
@@ -528,14 +530,14 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
         }
 
         public b s(AuthInfo authInfo) {
-            if ((this.f14356e & 4) == 4 && this.f14359h != AuthInfo.getDefaultInstance()) {
-                AuthInfo.b newBuilder = AuthInfo.newBuilder(this.f14359h);
+            if ((this.f14413e & 4) == 4 && this.f14416h != AuthInfo.getDefaultInstance()) {
+                AuthInfo.b newBuilder = AuthInfo.newBuilder(this.f14416h);
                 newBuilder.s(authInfo);
-                this.f14359h = newBuilder.buildPartial();
+                this.f14416h = newBuilder.buildPartial();
             } else {
-                this.f14359h = authInfo;
+                this.f14416h = authInfo;
             }
-            this.f14356e |= 4;
+            this.f14413e |= 4;
             return this;
         }
 
@@ -547,8 +549,8 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
                 x(bIMLogPb$LogRequest.getVersion());
             }
             if (bIMLogPb$LogRequest.hasServiceName()) {
-                this.f14356e |= 2;
-                this.f14358g = bIMLogPb$LogRequest.serviceName;
+                this.f14413e |= 2;
+                this.f14415g = bIMLogPb$LogRequest.serviceName;
             }
             if (bIMLogPb$LogRequest.hasAuthInfo()) {
                 s(bIMLogPb$LogRequest.getAuthInfo());
@@ -557,7 +559,7 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
                 w(bIMLogPb$LogRequest.getRequestTimestampMs());
             }
             if (bIMLogPb$LogRequest.hasSign()) {
-                this.f14356e |= 16;
+                this.f14413e |= 16;
                 this.j = bIMLogPb$LogRequest.sign;
             }
             if (bIMLogPb$LogRequest.hasPayload()) {
@@ -602,7 +604,7 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
 
         public b v(ByteString byteString) {
             if (byteString != null) {
-                this.f14356e |= 32;
+                this.f14413e |= 32;
                 this.k = byteString;
                 return this;
             }
@@ -610,14 +612,14 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
         }
 
         public b w(long j) {
-            this.f14356e |= 8;
-            this.i = j;
+            this.f14413e |= 8;
+            this.f14417i = j;
             return this;
         }
 
         public b x(long j) {
-            this.f14356e |= 1;
-            this.f14357f = j;
+            this.f14413e |= 1;
+            this.f14414f = j;
             return this;
         }
 
@@ -692,9 +694,9 @@ public final class BIMLogPb$LogRequest extends GeneratedMessageLite implements M
 
     @Override // com.google.protobuf.MessageLite
     public int getSerializedSize() {
-        int i = this.memoizedSerializedSize;
-        if (i != -1) {
-            return i;
+        int i2 = this.memoizedSerializedSize;
+        if (i2 != -1) {
+            return i2;
         }
         int computeInt64Size = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.version) : 0;
         if ((this.bitField0 & 2) == 2) {

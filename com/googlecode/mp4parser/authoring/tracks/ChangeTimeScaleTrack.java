@@ -42,20 +42,20 @@ public class ChangeTimeScaleTrack implements Track {
     public static long[] adjustTts(long[] jArr, double d2, long[] jArr2, long[] jArr3) {
         long[] jArr4 = new long[jArr.length];
         long j = 0;
-        int i = 1;
-        while (i <= jArr.length) {
-            int i2 = i - 1;
-            long round = Math.round(jArr[i2] * d2);
-            int i3 = i + 1;
-            int binarySearch = Arrays.binarySearch(jArr2, i3);
+        int i2 = 1;
+        while (i2 <= jArr.length) {
+            int i3 = i2 - 1;
+            long round = Math.round(jArr[i3] * d2);
+            int i4 = i2 + 1;
+            int binarySearch = Arrays.binarySearch(jArr2, i4);
             if (binarySearch >= 0 && jArr3[binarySearch] != j) {
                 long j2 = jArr3[binarySearch] - (j + round);
-                LOG.finest(String.format("Sample %d %d / %d - correct by %d", Integer.valueOf(i), Long.valueOf(j), Long.valueOf(jArr3[binarySearch]), Long.valueOf(j2)));
+                LOG.finest(String.format("Sample %d %d / %d - correct by %d", Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(jArr3[binarySearch]), Long.valueOf(j2)));
                 round += j2;
             }
             j += round;
-            jArr4[i2] = round;
-            i = i3;
+            jArr4[i3] = round;
+            i2 = i4;
         }
         return jArr4;
     }
@@ -63,19 +63,19 @@ public class ChangeTimeScaleTrack implements Track {
     public static long[] getTimes(Track track, long[] jArr, long j) {
         long[] jArr2 = new long[jArr.length];
         long j2 = 0;
-        int i = 0;
-        int i2 = 1;
+        int i2 = 0;
+        int i3 = 1;
         while (true) {
-            long j3 = i2;
+            long j3 = i3;
             if (j3 > jArr[jArr.length - 1]) {
                 return jArr2;
             }
-            if (j3 == jArr[i]) {
-                jArr2[i] = (j2 * j) / track.getTrackMetaData().getTimescale();
-                i++;
+            if (j3 == jArr[i2]) {
+                jArr2[i2] = (j2 * j) / track.getTrackMetaData().getTimescale();
+                i2++;
             }
-            j2 += track.getSampleDurations()[i2 - 1];
-            i2++;
+            j2 += track.getSampleDurations()[i3 - 1];
+            i3++;
         }
     }
 

@@ -1,6 +1,0 @@
-package d.b.h0.o;
-/* loaded from: classes3.dex */
-public class c {
-    public static void a() {
-    }
-}

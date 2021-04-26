@@ -8,16 +8,16 @@ import java.util.ArrayList;
 public final class MarkerOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6985a;
+    public int f7231a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bundle f6987c;
+    public Bundle f7233c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LatLng f6988d;
+    public LatLng f7234d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BitmapDescriptor f6989e;
+    public BitmapDescriptor f7235e;
     public float j;
     public String k;
     public int l;
@@ -25,14 +25,16 @@ public final class MarkerOptions extends OverlayOptions {
     public Point u;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f6990f = 0.5f;
+    public float f7236f = 0.5f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f6991g = 1.0f;
+    public float f7237g = 1.0f;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f6992h = true;
-    public boolean i = false;
+    public boolean f7238h = true;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f7239i = false;
     public boolean m = false;
     public int o = 20;
     public float p = 1.0f;
@@ -42,7 +44,7 @@ public final class MarkerOptions extends OverlayOptions {
     public boolean t = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6986b = true;
+    public boolean f7232b = true;
 
     /* loaded from: classes2.dex */
     public enum MarkerAnimateType {
@@ -55,23 +57,23 @@ public final class MarkerOptions extends OverlayOptions {
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Marker marker = new Marker();
-        marker.x = this.f6986b;
-        marker.w = this.f6985a;
-        marker.y = this.f6987c;
-        LatLng latLng = this.f6988d;
+        marker.x = this.f7232b;
+        marker.w = this.f7231a;
+        marker.y = this.f7233c;
+        LatLng latLng = this.f7234d;
         if (latLng != null) {
-            marker.f6977a = latLng;
-            if (this.f6989e == null && this.n == null) {
+            marker.f7222a = latLng;
+            if (this.f7235e == null && this.n == null) {
                 throw new IllegalStateException("when you add marker, you must set the icon or icons");
             }
-            marker.f6978b = this.f6989e;
-            marker.f6979c = this.f6990f;
-            marker.f6980d = this.f6991g;
-            marker.f6981e = this.f6992h;
-            marker.f6982f = this.i;
-            marker.f6983g = this.j;
-            marker.f6984h = this.k;
-            marker.i = this.l;
+            marker.f7223b = this.f7235e;
+            marker.f7224c = this.f7236f;
+            marker.f7225d = this.f7237g;
+            marker.f7226e = this.f7238h;
+            marker.f7227f = this.f7239i;
+            marker.f7228g = this.j;
+            marker.f7229h = this.k;
+            marker.f7230i = this.l;
             marker.j = this.m;
             marker.o = this.n;
             marker.p = this.o;
@@ -100,8 +102,8 @@ public final class MarkerOptions extends OverlayOptions {
 
     public MarkerOptions anchor(float f2, float f3) {
         if (f2 >= 0.0f && f2 <= 1.0f && f3 >= 0.0f && f3 <= 1.0f) {
-            this.f6990f = f2;
-            this.f6991g = f3;
+            this.f7236f = f2;
+            this.f7237g = f3;
         }
         return this;
     }
@@ -115,12 +117,12 @@ public final class MarkerOptions extends OverlayOptions {
     }
 
     public MarkerOptions draggable(boolean z) {
-        this.i = z;
+        this.f7239i = z;
         return this;
     }
 
     public MarkerOptions extraInfo(Bundle bundle) {
-        this.f6987c = bundle;
+        this.f7233c = bundle;
         return this;
     }
 
@@ -140,24 +142,24 @@ public final class MarkerOptions extends OverlayOptions {
     }
 
     public float getAnchorX() {
-        return this.f6990f;
+        return this.f7236f;
     }
 
     public float getAnchorY() {
-        return this.f6991g;
+        return this.f7237g;
     }
 
     public MarkerAnimateType getAnimateType() {
-        int i = this.s;
-        return i != 1 ? i != 2 ? i != 3 ? MarkerAnimateType.none : MarkerAnimateType.jump : MarkerAnimateType.grow : MarkerAnimateType.drop;
+        int i2 = this.s;
+        return i2 != 1 ? i2 != 2 ? i2 != 3 ? MarkerAnimateType.none : MarkerAnimateType.jump : MarkerAnimateType.grow : MarkerAnimateType.drop;
     }
 
     public Bundle getExtraInfo() {
-        return this.f6987c;
+        return this.f7233c;
     }
 
     public BitmapDescriptor getIcon() {
-        return this.f6989e;
+        return this.f7235e;
     }
 
     public ArrayList<BitmapDescriptor> getIcons() {
@@ -169,7 +171,7 @@ public final class MarkerOptions extends OverlayOptions {
     }
 
     public LatLng getPosition() {
-        return this.f6988d;
+        return this.f7234d;
     }
 
     public float getRotate() {
@@ -181,12 +183,12 @@ public final class MarkerOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f6985a;
+        return this.f7231a;
     }
 
     public MarkerOptions icon(BitmapDescriptor bitmapDescriptor) {
         if (bitmapDescriptor != null) {
-            this.f6989e = bitmapDescriptor;
+            this.f7235e = bitmapDescriptor;
             return this;
         }
         throw new IllegalArgumentException("marker's icon can not be null");
@@ -197,8 +199,8 @@ public final class MarkerOptions extends OverlayOptions {
             if (arrayList.size() == 0) {
                 return this;
             }
-            for (int i = 0; i < arrayList.size(); i++) {
-                if (arrayList.get(i) == null || arrayList.get(i).f6858a == null) {
+            for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                if (arrayList.get(i2) == null || arrayList.get(i2).f7097a == null) {
                     return this;
                 }
             }
@@ -209,7 +211,7 @@ public final class MarkerOptions extends OverlayOptions {
     }
 
     public boolean isDraggable() {
-        return this.i;
+        return this.f7239i;
     }
 
     public boolean isFlat() {
@@ -217,29 +219,29 @@ public final class MarkerOptions extends OverlayOptions {
     }
 
     public boolean isPerspective() {
-        return this.f6992h;
+        return this.f7238h;
     }
 
     public boolean isVisible() {
-        return this.f6986b;
+        return this.f7232b;
     }
 
-    public MarkerOptions period(int i) {
-        if (i > 0) {
-            this.o = i;
+    public MarkerOptions period(int i2) {
+        if (i2 > 0) {
+            this.o = i2;
             return this;
         }
         throw new IllegalArgumentException("marker's period must be greater than zero ");
     }
 
     public MarkerOptions perspective(boolean z) {
-        this.f6992h = z;
+        this.f7238h = z;
         return this;
     }
 
     public MarkerOptions position(LatLng latLng) {
         if (latLng != null) {
-            this.f6988d = latLng;
+            this.f7234d = latLng;
             return this;
         }
         throw new IllegalArgumentException("marker's position can not be null");
@@ -275,17 +277,17 @@ public final class MarkerOptions extends OverlayOptions {
     }
 
     public MarkerOptions visible(boolean z) {
-        this.f6986b = z;
+        this.f7232b = z;
         return this;
     }
 
-    public MarkerOptions yOffset(int i) {
-        this.l = i;
+    public MarkerOptions yOffset(int i2) {
+        this.l = i2;
         return this;
     }
 
-    public MarkerOptions zIndex(int i) {
-        this.f6985a = i;
+    public MarkerOptions zIndex(int i2) {
+        this.f7231a = i2;
         return this;
     }
 }

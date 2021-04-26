@@ -1,24 +1,24 @@
 package io.reactivex.internal.observers;
 
-import f.b.o;
-import f.b.t.b;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 /* loaded from: classes7.dex */
-public abstract class DeferredScalarObserver<T, R> extends DeferredScalarDisposable<R> implements o<T> {
+public abstract class DeferredScalarObserver<T, R> extends DeferredScalarDisposable<R> implements Observer<T> {
     public static final long serialVersionUID = -266195175408988651L;
-    public b s;
+    public Disposable s;
 
-    public DeferredScalarObserver(o<? super R> oVar) {
-        super(oVar);
+    public DeferredScalarObserver(Observer<? super R> observer) {
+        super(observer);
     }
 
-    @Override // io.reactivex.internal.observers.DeferredScalarDisposable, io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.t.b
+    @Override // io.reactivex.internal.observers.DeferredScalarDisposable, io.reactivex.disposables.Disposable
     public void dispose() {
         super.dispose();
         this.s.dispose();
     }
 
-    @Override // f.b.o
+    @Override // io.reactivex.Observer
     public void onComplete() {
         T t = this.value;
         if (t != null) {
@@ -29,19 +29,16 @@ public abstract class DeferredScalarObserver<T, R> extends DeferredScalarDisposa
         complete();
     }
 
-    @Override // f.b.o
+    @Override // io.reactivex.Observer
     public void onError(Throwable th) {
         this.value = null;
         error(th);
     }
 
-    @Override // f.b.o
-    public abstract /* synthetic */ void onNext(T t);
-
-    @Override // f.b.o
-    public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.s, bVar)) {
-            this.s = bVar;
+    @Override // io.reactivex.Observer
+    public void onSubscribe(Disposable disposable) {
+        if (DisposableHelper.validate(this.s, disposable)) {
+            this.s = disposable;
             this.actual.onSubscribe(this);
         }
     }

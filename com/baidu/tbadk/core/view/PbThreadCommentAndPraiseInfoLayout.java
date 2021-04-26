@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
-import d.b.c.e.p.l;
-import d.b.i0.r.q.a2;
-import d.b.i0.r.q.e;
-import d.b.i0.r.u.c;
+import d.a.c.e.p.l;
+import d.a.i0.r.q.a2;
+import d.a.i0.r.q.e;
+import d.a.i0.r.u.c;
 /* loaded from: classes3.dex */
 public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseInfoLayout {
     public View.OnClickListener k0;
@@ -30,11 +30,11 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
 
     public PbThreadCommentAndPraiseInfoLayout(Context context) {
         super(context);
-        T();
+        R();
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void B(View view) {
+    public void A(View view) {
         View.OnClickListener onClickListener = this.k0;
         if (onClickListener != null) {
             onClickListener.onClick(view);
@@ -42,15 +42,15 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void J() {
+    public void I() {
         setVisibility(0);
-        R();
+        P();
         onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void M(a2 a2Var) {
-        super.M(a2Var);
+    public void L(a2 a2Var) {
+        super.L(a2Var);
         if (a2Var == null || this.k == null || !a2Var.A2()) {
             return;
         }
@@ -62,8 +62,8 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void Q(a2 a2Var) {
-        super.Q(a2Var);
+    public void O(a2 a2Var) {
+        super.O(a2Var);
         View view = this.o;
         if (view == null || this.m == null || a2Var == null) {
             return;
@@ -73,7 +73,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         this.m.setText(this.F.getString(R.string.share_weixin_friend_new));
     }
 
-    public final void R() {
+    public final void P() {
         View findViewById = findViewById(R.id.thread_comment_layout_root);
         ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
         layoutParams.height = -1;
@@ -84,7 +84,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         int g5 = l.g(getContext(), R.dimen.tbds10);
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.share_num_container);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -1);
-        layoutParams2.weight = V() ? 0.2f : 0.25f;
+        layoutParams2.weight = T() ? 0.2f : 0.25f;
         linearLayout.setLayoutParams(layoutParams2);
         linearLayout.setOrientation(1);
         ImageView imageView = (ImageView) findViewById(R.id.share_num_img);
@@ -101,7 +101,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         this.m0.setText(this.F.getString(R.string.share_weixin_friend_new));
         LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.qq_share_container);
         LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(0, -1);
-        layoutParams5.weight = V() ? 0.2f : 0.25f;
+        layoutParams5.weight = T() ? 0.2f : 0.25f;
         linearLayout2.setLayoutParams(layoutParams5);
         linearLayout2.setOrientation(1);
         ImageView imageView2 = (ImageView) findViewById(R.id.qq_share_image);
@@ -115,7 +115,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         this.n0.setLayoutParams(layoutParams7);
         this.n0.setTextSize(0, f2);
         this.n0.setText(this.F.getString(R.string.share_qq_friends));
-        if (V()) {
+        if (T()) {
             this.L = true;
             setNeedAddReplyIcon(true);
             LinearLayout linearLayout3 = (LinearLayout) findViewById(R.id.thread_info_commont_container);
@@ -136,7 +136,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             this.L = false;
             setNeedAddReplyIcon(false);
         }
-        if (V()) {
+        if (T()) {
             setCollectVisible(true);
             LinearLayout linearLayout4 = (LinearLayout) findViewById(R.id.collect_num_container);
             LinearLayout.LayoutParams layoutParams10 = new LinearLayout.LayoutParams(0, -1);
@@ -157,23 +157,23 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         AgreeView agreeView = (AgreeView) findViewById(R.id.new_agree_view);
         LinearLayout.LayoutParams layoutParams13 = new LinearLayout.LayoutParams(0, -1);
         layoutParams13.topMargin = l.g(getContext(), R.dimen.tbds18);
-        layoutParams2.weight = V() ? 0.2f : 0.25f;
+        layoutParams2.weight = T() ? 0.2f : 0.25f;
         agreeView.setLayoutParams(layoutParams13);
         agreeView.g();
     }
 
-    public void S(String str) {
+    public void Q(String str) {
         if (this.E == null || TextUtils.isEmpty(str) || !str.equals(this.E.w1())) {
             return;
         }
         e eVar = new e();
-        eVar.f51506b = 4;
-        eVar.f51508d = 2;
-        this.f13162h.setStatisticData(eVar);
-        this.f13162h.s();
+        eVar.f49131b = 4;
+        eVar.f49133d = 2;
+        this.f13106h.setStatisticData(eVar);
+        this.f13106h.s();
     }
 
-    public void T() {
+    public void R() {
         setVisibility(8);
         setReplyTimeVisible(false);
         setIsBarViewVisible(false);
@@ -187,25 +187,25 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         setQQShareVisible(true);
     }
 
-    public boolean U() {
+    public boolean S() {
         a2 a2Var = this.E;
         return (a2Var == null || !a2Var.z2() || this.E.u1() == null) ? false : true;
     }
 
-    public boolean V() {
+    public boolean T() {
         a2 a2Var;
         WorksInfoData worksInfoData;
-        return U() && (a2Var = this.E) != null && (worksInfoData = a2Var.E2) != null && worksInfoData.isWorks;
+        return S() && (a2Var = this.E) != null && (worksInfoData = a2Var.E2) != null && worksInfoData.isWorks;
     }
 
-    public boolean W(a2 a2Var, AntiData antiData) {
+    public boolean V(a2 a2Var, AntiData antiData) {
         return setData(a2Var);
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void onChangeSkinType() {
         super.onChangeSkinType();
-        if (V()) {
+        if (T()) {
             WebPManager.setMaskDrawable(this.n, R.drawable.icon_mask_bottom_share_new_wechat26, null);
             WebPManager.setMaskDrawable(this.w, R.drawable.icon_mask_bottom_share_new_qq28, null);
         } else {
@@ -220,8 +220,8 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             d2.q(R.color.CAM_X0107);
             EMTextView eMTextView2 = this.k;
             int g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
-            int i = R.color.CAM_X0207;
-            SkinManager.setBackgroundShapeDrawable(eMTextView2, g2, i, i);
+            int i2 = R.color.CAM_X0207;
+            SkinManager.setBackgroundShapeDrawable(eMTextView2, g2, i2, i2);
         }
         SkinManager.setViewTextColor(this.m0, R.drawable.selector_comment_and_prise_item_text_color);
         SkinManager.setViewTextColor(this.n0, R.drawable.selector_comment_and_prise_item_text_color);
@@ -232,13 +232,13 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void setAgreeViewType(a2 a2Var) {
         if (a2Var != null) {
-            this.f13162h.setDisagreeShow(a2Var.y2());
+            this.f13106h.setDisagreeShow(a2Var.y2());
         }
         if (a2Var != null && a2Var.A2()) {
-            this.f13162h.setDisagreeShow(true);
+            this.f13106h.setDisagreeShow(true);
         }
         if (a2Var != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13162h.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13106h.getLayoutParams();
             if (a2Var.A2()) {
                 layoutParams.weight = 0.2f;
             } else if (a2Var.y2()) {
@@ -246,7 +246,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             } else {
                 layoutParams.weight = 0.5f;
             }
-            this.f13162h.setLayoutParams(layoutParams);
+            this.f13106h.setLayoutParams(layoutParams);
         }
     }
 
@@ -255,6 +255,14 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     }
 
     public void setPostId(String str) {
+    }
+
+    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
+    public void t(View view) {
+        View.OnClickListener onClickListener = this.k0;
+        if (onClickListener != null) {
+            onClickListener.onClick(view);
+        }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
@@ -274,15 +282,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void v(View view) {
-        View.OnClickListener onClickListener = this.k0;
-        if (onClickListener != null) {
-            onClickListener.onClick(view);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void z(View view) {
+    public void y(View view) {
         View.OnClickListener onClickListener = this.k0;
         if (onClickListener != null) {
             onClickListener.onClick(view);
@@ -291,6 +291,6 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
 
     public PbThreadCommentAndPraiseInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        T();
+        R();
     }
 }

@@ -47,26 +47,26 @@ public class BaseNCodecOutputStream extends FilterOutputStream {
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
-    public void write(int i) throws IOException {
+    public void write(int i2) throws IOException {
         byte[] bArr = this.singleByte;
-        bArr[0] = (byte) i;
+        bArr[0] = (byte) i2;
         write(bArr, 0, 1);
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
+    public void write(byte[] bArr, int i2, int i3) throws IOException {
         if (bArr == null) {
             throw null;
         }
-        if (i >= 0 && i2 >= 0) {
-            if (i > bArr.length || i + i2 > bArr.length) {
+        if (i2 >= 0 && i3 >= 0) {
+            if (i2 > bArr.length || i2 + i3 > bArr.length) {
                 throw new IndexOutOfBoundsException();
             }
-            if (i2 > 0) {
+            if (i3 > 0) {
                 if (this.doEncode) {
-                    this.baseNCodec.encode(bArr, i, i2, this.context);
+                    this.baseNCodec.encode(bArr, i2, i3, this.context);
                 } else {
-                    this.baseNCodec.decode(bArr, i, i2, this.context);
+                    this.baseNCodec.decode(bArr, i2, i3, this.context);
                 }
                 flush(false);
                 return;

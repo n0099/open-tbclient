@@ -16,10 +16,10 @@ import com.google.android.material.appbar.AppBarLayout;
 public class VideoZoomBehavior extends AppBarLayout.Behavior {
 
     /* renamed from: a  reason: collision with root package name */
-    public VideoContainerLayout f19763a;
+    public VideoContainerLayout f20248a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPbViewModel f19764b;
+    public VideoPbViewModel f20249b;
 
     public VideoZoomBehavior() {
     }
@@ -30,8 +30,8 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
             return (VideoContainerLayout) viewGroup;
         }
         int childCount = viewGroup.getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = viewGroup.getChildAt(i);
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = viewGroup.getChildAt(i2);
             if ((childAt instanceof ViewGroup) && (a2 = a((ViewGroup) childAt)) != null) {
                 return a2;
             }
@@ -46,46 +46,54 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
         return false;
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+    /* renamed from: c */
+    public void onNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i2, int i3, int i4, int i5, int i6) {
+        super.onNestedScroll(coordinatorLayout, appBarLayout, view, i2, i3, i4, i5, i6);
+        d(i5, appBarLayout, view, i6);
+    }
+
+    public final void d(int i2, AppBarLayout appBarLayout, View view, int i3) {
+        if (i3 == 1) {
+            int topAndBottomOffset = getTopAndBottomOffset();
+            if ((i2 >= 0 || topAndBottomOffset != 0) && (i2 <= 0 || topAndBottomOffset != (-appBarLayout.getTotalScrollRange()))) {
+                return;
+            }
+            ViewCompat.stopNestedScroll(view, 1);
+        }
+    }
+
     @Override // com.google.android.material.appbar.AppBarLayout.Behavior, com.google.android.material.appbar.ViewOffsetBehavior
-    public boolean setTopAndBottomOffset(int i) {
+    public boolean setTopAndBottomOffset(int i2) {
         VideoContainerLayout videoContainerLayout;
         ViewGroup.LayoutParams layoutParams;
-        boolean topAndBottomOffset = super.setTopAndBottomOffset(i);
-        if (topAndBottomOffset && (videoContainerLayout = this.f19763a) != null && (layoutParams = videoContainerLayout.getLayoutParams()) != null) {
-            int maxHeight = this.f19763a.getMaxHeight() + i;
+        boolean topAndBottomOffset = super.setTopAndBottomOffset(i2);
+        if (topAndBottomOffset && (videoContainerLayout = this.f20248a) != null && (layoutParams = videoContainerLayout.getLayoutParams()) != null) {
+            int maxHeight = this.f20248a.getMaxHeight() + i2;
             if (layoutParams.height != maxHeight) {
                 layoutParams.height = maxHeight;
-                this.f19763a.setLayoutParams(layoutParams);
+                this.f20248a.setLayoutParams(layoutParams);
             }
-            if (this.f19764b == null && (this.f19763a.getContext() instanceof PbActivity)) {
-                this.f19764b = (VideoPbViewModel) ViewModelProviders.of((PbActivity) this.f19763a.getContext()).get(VideoPbViewModel.class);
+            if (this.f20249b == null && (this.f20248a.getContext() instanceof PbActivity)) {
+                this.f20249b = (VideoPbViewModel) ViewModelProviders.of((PbActivity) this.f20248a.getContext()).get(VideoPbViewModel.class);
             }
-            VideoPbViewModel videoPbViewModel = this.f19764b;
+            VideoPbViewModel videoPbViewModel = this.f20249b;
             if (videoPbViewModel != null) {
-                if (i > -5) {
+                if (i2 > -5) {
                     MutableLiveData<Boolean> e2 = videoPbViewModel.e();
                     if (e2 == null || e2.getValue() == null || !e2.getValue().booleanValue()) {
-                        this.f19764b.t(true);
+                        this.f20249b.t(true);
                     }
                 } else {
                     MutableLiveData<Boolean> e3 = videoPbViewModel.e();
                     if (e3 == null || e3.getValue() == null || e3.getValue().booleanValue()) {
-                        this.f19764b.t(false);
+                        this.f20249b.t(false);
                     }
                 }
             }
         }
         return topAndBottomOffset;
-    }
-
-    public final void stopNestedScrollIfNeeded(int i, AppBarLayout appBarLayout, View view, int i2) {
-        if (i2 == 1) {
-            int topAndBottomOffset = getTopAndBottomOffset();
-            if ((i >= 0 || topAndBottomOffset != 0) && (i <= 0 || topAndBottomOffset != (-appBarLayout.getTotalScrollRange()))) {
-                return;
-            }
-            ViewCompat.stopNestedScroll(view, 1);
-        }
     }
 
     public VideoZoomBehavior(Context context, AttributeSet attributeSet) {
@@ -94,30 +102,23 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, com.google.android.material.appbar.ViewOffsetBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i) {
-        this.f19763a = a(appBarLayout);
-        return super.onLayoutChild(coordinatorLayout, appBarLayout, i);
+    public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i2) {
+        this.f20248a = a(appBarLayout);
+        return super.onLayoutChild(coordinatorLayout, appBarLayout, i2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i, int i2, int[] iArr, int i3) {
-        super.onNestedPreScroll(coordinatorLayout, appBarLayout, view, i, i2, iArr, i3);
-        stopNestedScrollIfNeeded(i2, appBarLayout, view, i3);
+    public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i2, int i3, int[] iArr, int i4) {
+        super.onNestedPreScroll(coordinatorLayout, appBarLayout, view, i2, i3, iArr, i4);
+        d(i3, appBarLayout, view, i4);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public void onNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i, int i2, int i3, int i4, int i5) {
-        super.onNestedScroll(coordinatorLayout, appBarLayout, view, i, i2, i3, i4, i5);
-        stopNestedScrollIfNeeded(i4, appBarLayout, view, i5);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view, @NonNull View view2, int i, int i2) {
+    public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull AppBarLayout appBarLayout, @NonNull View view, @NonNull View view2, int i2, int i3) {
         VideoContainerLayout a2 = a(appBarLayout);
-        this.f19763a = a2;
-        return (a2 == null || (i & 2) == 0) ? false : true;
+        this.f20248a = a2;
+        return (a2 == null || (i2 & 2) == 0) ? false : true;
     }
 }

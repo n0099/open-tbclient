@@ -6,9 +6,9 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import d.b.c.e.m.b;
-import d.b.j0.d3.e;
-import d.b.j0.d3.m;
+import d.a.c.e.m.b;
+import d.a.j0.d3.e;
+import d.a.j0.d3.m;
 import tbclient.Error;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes5.dex */
@@ -61,20 +61,20 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<m, 
         this.responseData = mVar;
     }
 
-    public void setUpdateType(int i) {
-        this.updateType = i;
+    public void setUpdateType(int i2) {
+        this.updateType = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
         m mVar;
         if (hasError() || (mVar = this.responseData) == null || !this.needCache || mVar.getForum() == null) {
             return;
         }
         int sortType = this.responseData.getSortType();
-        e i2 = e.i();
-        String g2 = i2.g("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
+        e i3 = e.i();
+        String g2 = i3.g("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
         if (sortType == 3) {
             e.i().m(g2, bArr);
         } else {
@@ -84,10 +84,10 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<m, 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void beforeDispatchInBackGround(int i, byte[] bArr) {
+    public void beforeDispatchInBackGround(int i2, byte[] bArr) {
         int d2;
         CustomResponsedMessage runTask;
-        super.beforeDispatchInBackGround(i, (int) bArr);
+        super.beforeDispatchInBackGround(i2, (int) bArr);
         if (this.responseData.getBookInfo() == null || StringUtils.isNull(this.responseData.getBookInfo().a(), true) || this.responseData.getBookInfo().a().equals("0") || this.responseData.getBookInfo().b() != 3 || (d2 = b.d(this.responseData.getBookInfo().a(), -1)) <= 0 || (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(d2))) == null) {
             return;
         }
@@ -96,7 +96,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<m, 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage, com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         Error error;
         m mVar = new m();
         this.responseData = mVar;

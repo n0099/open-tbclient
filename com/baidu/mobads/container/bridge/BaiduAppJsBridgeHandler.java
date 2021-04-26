@@ -468,7 +468,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
             this.mIsAppBackground = false;
             oAdTimer.setEventHandler(new OAdTimer.EventHandler() { // from class: com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler.2
                 @Override // com.baidu.mobads.container.util.OAdTimer.EventHandler
-                public void onTimer(int i) {
+                public void onTimer(int i2) {
                     if (!AppUtils.isForeground(BaiduAppJsBridgeHandler.this.mContext, BaiduAppJsBridgeHandler.this.mContext.getPackageName())) {
                         BaiduAppJsBridgeHandler.this.mIsAppBackground = true;
                     }
@@ -556,7 +556,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendSDKTypeLog(int i, String str, String str2, String str3, JSONObject jSONObject) {
+    public void sendSDKTypeLog(int i2, String str, String str2, String str3, JSONObject jSONObject) {
         if (jSONObject != null) {
             DownloadAppInfo downloadAppInfo = null;
             try {
@@ -565,7 +565,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                 } else if (this.mAppInfoMap.containsKey(str2)) {
                     downloadAppInfo = this.mAppInfoMap.get(str2);
                 }
-                SendLogUtil.Builder append = SendLogUtil.Builder.create(this.mContext).appendType(i).appendProdType(this.mProd).appendAppSid(this.mAppsid).appendAdInfo(this.mAdInstanceInfo).append("msg", str).append("status", jSONObject.optString("status")).append("message", jSONObject.optString("message")).append("dl_type", DL_TYPE_JMY);
+                SendLogUtil.Builder append = SendLogUtil.Builder.create(this.mContext).appendType(i2).appendProdType(this.mProd).appendAppSid(this.mAppsid).appendAdInfo(this.mAdInstanceInfo).append("msg", str).append("status", jSONObject.optString("status")).append("message", jSONObject.optString("message")).append("dl_type", DL_TYPE_JMY);
                 if (downloadAppInfo != null) {
                     append.append("pk", downloadAppInfo.mPk).append("file_id", downloadAppInfo.mFileId).append("isDirectLaunch", downloadAppInfo.isDirectLaunch).append("isUserAction", downloadAppInfo.isUserAction);
                     String str4 = downloadAppInfo.mDeepLinkUrl;
@@ -824,7 +824,7 @@ public class BaiduAppJsBridgeHandler implements IOAdEventListener, InstallReceiv
                     final OAdTimer oAdTimer = new OAdTimer(5000, 1000);
                     oAdTimer.setEventHandler(new OAdTimer.EventHandler() { // from class: com.baidu.mobads.container.bridge.BaiduAppJsBridgeHandler.1
                         @Override // com.baidu.mobads.container.util.OAdTimer.EventHandler
-                        public void onTimer(int i) {
+                        public void onTimer(int i2) {
                             if (AppUtils.isForeground(BaiduAppJsBridgeHandler.this.mContext, BaiduAppJsBridgeHandler.this.mContext.getPackageName())) {
                                 BaiduAppJsBridgeHandler baiduAppJsBridgeHandler = BaiduAppJsBridgeHandler.this;
                                 DownloadAppInfo downloadAppInfo2 = downloadAppInfo;

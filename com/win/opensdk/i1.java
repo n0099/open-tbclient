@@ -1,32 +1,30 @@
 package com.win.opensdk;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-/* loaded from: classes7.dex */
-public class i1 extends Handler {
-
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ n1 f40329a;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i1(n1 n1Var, Looper looper) {
-        super(looper);
-        this.f40329a = n1Var;
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        int i = message.what;
-        n1.c();
-        if (i == 100101) {
-            this.f40329a.j.removeMessages(100101);
-            Z0 a2 = a1.a(this.f40329a.f40368a);
-            b1 b1Var = new b1(null);
-            b1Var.f40271a = this.f40329a.f40369b;
-            a2.a(b1Var, V1.s(this.f40329a.f40368a) * 1000, 2002, 0).a();
-            this.f40329a.a(PBError.TIMEOUT);
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import com.baidu.android.util.devices.RomUtils;
+/* loaded from: classes6.dex */
+public class i1 {
+    public static h1 a(Context context) {
+        if (!RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(Build.MANUFACTURER) || Build.VERSION.SDK_INT < 23) {
+            return null;
+        }
+        g1 g1Var = new g1(context);
+        try {
+            try {
+                Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+                intent.setPackage("com.huawei.hwid");
+                if (context.bindService(intent, g1Var, 1)) {
+                    a aVar = (a) b.a(g1Var.a());
+                    return new h1(aVar.a(), aVar.b());
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            return null;
+        } finally {
+            context.unbindService(g1Var);
         }
     }
 }

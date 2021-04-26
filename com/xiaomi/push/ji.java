@@ -7,28 +7,28 @@ import java.io.OutputStream;
 public class ji extends jl {
 
     /* renamed from: a  reason: collision with root package name */
-    public InputStream f41268a;
+    public InputStream f38812a;
 
     /* renamed from: a  reason: collision with other field name */
     public OutputStream f813a;
 
     public ji() {
-        this.f41268a = null;
+        this.f38812a = null;
         this.f813a = null;
     }
 
     public ji(OutputStream outputStream) {
-        this.f41268a = null;
+        this.f38812a = null;
         this.f813a = null;
         this.f813a = outputStream;
     }
 
     @Override // com.xiaomi.push.jl
-    public int a(byte[] bArr, int i, int i2) {
-        InputStream inputStream = this.f41268a;
+    public int a(byte[] bArr, int i2, int i3) {
+        InputStream inputStream = this.f38812a;
         if (inputStream != null) {
             try {
-                int read = inputStream.read(bArr, i, i2);
+                int read = inputStream.read(bArr, i2, i3);
                 if (read >= 0) {
                     return read;
                 }
@@ -41,13 +41,13 @@ public class ji extends jl {
     }
 
     @Override // com.xiaomi.push.jl
-    public void a(byte[] bArr, int i, int i2) {
+    public void a(byte[] bArr, int i2, int i3) {
         OutputStream outputStream = this.f813a;
         if (outputStream == null) {
             throw new jm(1, "Cannot write to null outputStream");
         }
         try {
-            outputStream.write(bArr, i, i2);
+            outputStream.write(bArr, i2, i3);
         } catch (IOException e2) {
             throw new jm(0, e2);
         }

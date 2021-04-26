@@ -1,6 +1,6 @@
 package com.google.common.primitives;
 
-import d.h.c.g.b;
+import d.g.c.g.b;
 import java.util.Comparator;
 /* loaded from: classes6.dex */
 public enum UnsignedBytes$LexicographicalComparatorHolder$PureJavaComparator implements Comparator<byte[]> {
@@ -15,8 +15,8 @@ public enum UnsignedBytes$LexicographicalComparatorHolder$PureJavaComparator imp
     @Override // java.util.Comparator
     public int compare(byte[] bArr, byte[] bArr2) {
         int min = Math.min(bArr.length, bArr2.length);
-        for (int i = 0; i < min; i++) {
-            int b2 = b.b(bArr[i], bArr2[i]);
+        for (int i2 = 0; i2 < min; i2++) {
+            int b2 = b.b(bArr[i2], bArr2[i2]);
             if (b2 != 0) {
                 return b2;
             }

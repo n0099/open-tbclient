@@ -31,19 +31,19 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
         this.mNetworkFetcher = networkFetcher;
     }
 
-    public static float calculateProgress(int i, int i2) {
-        return i2 > 0 ? i / i2 : 1.0f - ((float) Math.exp((-i) / 50000.0d));
+    public static float calculateProgress(int i2, int i3) {
+        return i3 > 0 ? i2 / i3 : 1.0f - ((float) Math.exp((-i2) / 50000.0d));
     }
 
     @Nullable
-    private Map<String, String> getExtraMap(FetchState fetchState, int i) {
+    private Map<String, String> getExtraMap(FetchState fetchState, int i2) {
         if (fetchState.getListener().requiresExtraMap(fetchState.getId())) {
-            return this.mNetworkFetcher.getExtraMap(fetchState, i);
+            return this.mNetworkFetcher.getExtraMap(fetchState, i2);
         }
         return null;
     }
 
-    public static void notifyConsumer(PooledByteBufferOutputStream pooledByteBufferOutputStream, int i, @Nullable BytesRange bytesRange, Consumer<EncodedImage> consumer) {
+    public static void notifyConsumer(PooledByteBufferOutputStream pooledByteBufferOutputStream, int i2, @Nullable BytesRange bytesRange, Consumer<EncodedImage> consumer) {
         EncodedImage encodedImage;
         CloseableReference of = CloseableReference.of(pooledByteBufferOutputStream.toByteBuffer());
         EncodedImage encodedImage2 = null;
@@ -55,7 +55,7 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
         try {
             encodedImage.setBytesRange(bytesRange);
             encodedImage.parseMetaData();
-            consumer.onNewResult(encodedImage, i);
+            consumer.onNewResult(encodedImage, i2);
             EncodedImage.closeSafely(encodedImage);
             CloseableReference.closeSafely(of);
         } catch (Throwable th2) {
@@ -105,10 +105,10 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
         notifyConsumer(pooledByteBufferOutputStream, fetchState.getOnNewResultStatusFlags(), fetchState.getResponseBytesRange(), fetchState.getConsumer());
     }
 
-    public void onResponse(FetchState fetchState, InputStream inputStream, int i) throws IOException {
+    public void onResponse(FetchState fetchState, InputStream inputStream, int i2) throws IOException {
         PooledByteBufferOutputStream newOutputStream;
-        if (i > 0) {
-            newOutputStream = this.mPooledByteBufferFactory.newOutputStream(i);
+        if (i2 > 0) {
+            newOutputStream = this.mPooledByteBufferFactory.newOutputStream(i2);
         } else {
             newOutputStream = this.mPooledByteBufferFactory.newOutputStream();
         }
@@ -123,7 +123,7 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
                 } else if (read > 0) {
                     newOutputStream.write(bArr, 0, read);
                     maybeHandleIntermediateResult(newOutputStream, fetchState);
-                    fetchState.getConsumer().onProgressUpdate(calculateProgress(newOutputStream.size(), i));
+                    fetchState.getConsumer().onProgressUpdate(calculateProgress(newOutputStream.size(), i2));
                 }
             } finally {
                 this.mByteArrayPool.release(bArr);
@@ -148,11 +148,11 @@ public class NetworkFetchProducer implements Producer<EncodedImage> {
             }
 
             @Override // com.facebook.imagepipeline.producers.NetworkFetcher.Callback
-            public void onResponse(InputStream inputStream, int i) throws IOException {
+            public void onResponse(InputStream inputStream, int i2) throws IOException {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("NetworkFetcher->onResponse");
                 }
-                NetworkFetchProducer.this.onResponse(createFetchState, inputStream, i);
+                NetworkFetchProducer.this.onResponse(createFetchState, inputStream, i2);
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.endSection();
                 }

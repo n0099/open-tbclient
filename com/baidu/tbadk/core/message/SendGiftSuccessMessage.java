@@ -7,10 +7,10 @@ public class SendGiftSuccessMessage extends CustomResponsedMessage {
 
     /* loaded from: classes3.dex */
     public static class a {
-        public void a(int i) {
+        public void a(int i2) {
         }
 
-        public void b(int i) {
+        public void b(int i2) {
         }
 
         public void c(String str) {
@@ -35,7 +35,7 @@ public class SendGiftSuccessMessage extends CustomResponsedMessage {
         this.mGiftInfo = aVar;
     }
 
-    public SendGiftSuccessMessage(int i, Object obj) {
-        super(i, obj);
+    public SendGiftSuccessMessage(int i2, Object obj) {
+        super(i2, obj);
     }
 }

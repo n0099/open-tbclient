@@ -25,7 +25,7 @@ public abstract class RFC2617Scheme extends AuthSchemeBase {
     }
 
     @Override // org.apache.http.impl.auth.AuthSchemeBase
-    public void parseChallenge(CharArrayBuffer charArrayBuffer, int i, int i2) throws MalformedChallengeException {
+    public void parseChallenge(CharArrayBuffer charArrayBuffer, int i2, int i3) throws MalformedChallengeException {
         throw new RuntimeException("Stub!");
     }
 }

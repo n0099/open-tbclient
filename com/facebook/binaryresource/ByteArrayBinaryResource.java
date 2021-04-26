@@ -4,7 +4,7 @@ import com.facebook.common.internal.Preconditions;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ByteArrayBinaryResource implements BinaryResource {
     public final byte[] mBytes;
 

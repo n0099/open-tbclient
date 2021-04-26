@@ -1,8 +1,8 @@
 package com.google.common.math;
 
 import com.google.common.primitives.UnsignedLongs;
-import d.h.c.a.n;
-import d.h.c.f.e;
+import d.g.c.a.n;
+import d.g.c.f.e;
 import java.math.RoundingMode;
 /* loaded from: classes6.dex */
 public final class LongMath {
@@ -22,18 +22,18 @@ public final class LongMath {
         },
         LARGE { // from class: com.google.common.math.LongMath.MillerRabinTester.2
             private long plusMod(long j, long j2, long j3) {
-                int i = (j > (j3 - j2) ? 1 : (j == (j3 - j2) ? 0 : -1));
+                int i2 = (j > (j3 - j2) ? 1 : (j == (j3 - j2) ? 0 : -1));
                 long j4 = j + j2;
-                return i >= 0 ? j4 - j3 : j4;
+                return i2 >= 0 ? j4 - j3 : j4;
             }
 
             private long times2ToThe32Mod(long j, long j2) {
-                int i = 32;
+                int i2 = 32;
                 do {
-                    int min = Math.min(i, Long.numberOfLeadingZeros(j));
+                    int min = Math.min(i2, Long.numberOfLeadingZeros(j));
                     j = UnsignedLongs.e(j << min, j2);
-                    i -= min;
-                } while (i > 0);
+                    i2 -= min;
+                } while (i2 > 0);
                 return j;
             }
 
@@ -92,10 +92,10 @@ public final class LongMath {
             if (powMod == 1) {
                 return true;
             }
-            int i = 0;
+            int i2 = 0;
             while (powMod != j3) {
-                i++;
-                if (i == numberOfTrailingZeros) {
+                i2++;
+                if (i2 == numberOfTrailingZeros) {
                     return false;
                 }
                 powMod = squareMod(powMod, j2);
@@ -116,41 +116,41 @@ public final class LongMath {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31218a;
+        public static final /* synthetic */ int[] f32197a;
 
         static {
             int[] iArr = new int[RoundingMode.values().length];
-            f31218a = iArr;
+            f32197a = iArr;
             try {
                 iArr[RoundingMode.UNNECESSARY.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31218a[RoundingMode.DOWN.ordinal()] = 2;
+                f32197a[RoundingMode.DOWN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f31218a[RoundingMode.FLOOR.ordinal()] = 3;
+                f32197a[RoundingMode.FLOOR.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f31218a[RoundingMode.UP.ordinal()] = 4;
+                f32197a[RoundingMode.UP.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f31218a[RoundingMode.CEILING.ordinal()] = 5;
+                f32197a[RoundingMode.CEILING.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f31218a[RoundingMode.HALF_DOWN.ordinal()] = 6;
+                f32197a[RoundingMode.HALF_DOWN.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f31218a[RoundingMode.HALF_UP.ordinal()] = 7;
+                f32197a[RoundingMode.HALF_UP.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f31218a[RoundingMode.HALF_EVEN.ordinal()] = 8;
+                f32197a[RoundingMode.HALF_EVEN.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
@@ -173,15 +173,15 @@ public final class LongMath {
         n.p(roundingMode);
         long j3 = j / j2;
         long j4 = j - (j2 * j3);
-        int i = (j4 > 0L ? 1 : (j4 == 0L ? 0 : -1));
-        if (i == 0) {
+        int i2 = (j4 > 0L ? 1 : (j4 == 0L ? 0 : -1));
+        if (i2 == 0) {
             return j3;
         }
-        int i2 = (int) ((j ^ j2) >> 63);
-        int i3 = i2 | 1;
-        switch (a.f31218a[roundingMode.ordinal()]) {
+        int i3 = (int) ((j ^ j2) >> 63);
+        int i4 = i3 | 1;
+        switch (a.f32197a[roundingMode.ordinal()]) {
             case 1:
-                e.d(i == 0);
+                e.d(i2 == 0);
                 r9 = false;
                 break;
             case 2:
@@ -197,8 +197,8 @@ public final class LongMath {
             case 7:
             case 8:
                 long abs = Math.abs(j4);
-                int i4 = ((abs - (Math.abs(j2) - abs)) > 0L ? 1 : ((abs - (Math.abs(j2) - abs)) == 0L ? 0 : -1));
-                if (i4 == 0) {
+                int i5 = ((abs - (Math.abs(j2) - abs)) > 0L ? 1 : ((abs - (Math.abs(j2) - abs)) == 0L ? 0 : -1));
+                if (i5 == 0) {
                     r9 = (((1 & j3) != 0) & (roundingMode == RoundingMode.HALF_EVEN)) | (roundingMode == RoundingMode.HALF_UP);
                     break;
                 }
@@ -206,6 +206,6 @@ public final class LongMath {
             default:
                 throw new AssertionError();
         }
-        return r9 ? j3 + i3 : j3;
+        return r9 ? j3 + i4 : j3;
     }
 }

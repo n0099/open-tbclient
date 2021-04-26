@@ -6,13 +6,13 @@ public enum PortraitCategory {
     
 
     /* renamed from: a  reason: collision with root package name */
-    public String f10804a;
+    public String f10864a;
 
     PortraitCategory(String str) {
-        this.f10804a = str;
+        this.f10864a = str;
     }
 
     public String getValue() {
-        return this.f10804a;
+        return this.f10864a;
     }
 }

@@ -7,10 +7,10 @@ import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.webkit.sdk.VideoCloudSetting;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CfgItemParser {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public enum a {
         FAILED,
         AND_NEED_CHECK_NEXT,
@@ -18,23 +18,23 @@ public class CfgItemParser {
         SUCCESS
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f4936e;
+        public int f5057e;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f4934c = false;
+        public boolean f5055c = false;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f4935d = false;
+        public boolean f5056d = false;
 
         /* renamed from: a  reason: collision with root package name */
-        public String[] f4932a = null;
+        public String[] f5053a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f4933b = true;
+        public boolean f5054b = true;
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(String str, String str2, String str3) {
@@ -42,23 +42,23 @@ public class CfgItemParser {
                 return;
             }
             if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_CLOSE_ALL)) {
-                this.f4935d = true;
-                this.f4934c = false;
+                this.f5056d = true;
+                this.f5055c = false;
             } else if (str.equals(VideoCloudSetting.DEFAULT_ERROR_LOG_ENABLE_ALL)) {
-                this.f4934c = true;
-                this.f4935d = false;
+                this.f5055c = true;
+                this.f5056d = false;
             } else if (!str.contains(str2)) {
-                this.f4932a = a(str, str3);
+                this.f5053a = a(str, str3);
             } else {
                 if (str2.endsWith(FieldBuilder.SE)) {
                     str2 = "\\|";
                 }
                 String[] split = str.split(str2);
                 if (split.length == 2) {
-                    this.f4932a = a(split[0], str3);
-                    this.f4933b = c(split[1]);
+                    this.f5053a = a(split[0], str3);
+                    this.f5054b = c(split[1]);
                 } else if (split.length == 1) {
-                    this.f4932a = a(split[0], str3);
+                    this.f5053a = a(split[0], str3);
                 }
             }
         }
@@ -75,9 +75,9 @@ public class CfgItemParser {
             }
             String[] split = str.split(str2);
             int length = split.length;
-            for (int i = 0; i < length; i++) {
-                if (TextUtils.isEmpty(split[i]) || split[i].equals(".")) {
-                    split[i] = null;
+            for (int i2 = 0; i2 < length; i2++) {
+                if (TextUtils.isEmpty(split[i2]) || split[i2].equals(".")) {
+                    split[i2] = null;
                 }
             }
             return split;
@@ -87,21 +87,21 @@ public class CfgItemParser {
             return TextUtils.isEmpty(str) || !str.toLowerCase().equals("or");
         }
 
-        public void a(int i) {
-            this.f4936e = i;
+        public void a(int i2) {
+            this.f5057e = i2;
         }
 
         public boolean a(String str) {
             String[] strArr;
-            if (this.f4934c) {
+            if (this.f5055c) {
                 return true;
             }
-            if (!TextUtils.isEmpty(str) && (strArr = this.f4932a) != null) {
+            if (!TextUtils.isEmpty(str) && (strArr = this.f5053a) != null) {
                 int length = strArr.length;
-                for (int i = 0; i < length; i++) {
-                    if (!str.equals(this.f4932a[i]) && (this.f4936e != 0 || !a(str, this.f4932a[i], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "*"))) {
-                        if (this.f4936e == 1) {
-                            if (str.contains("." + this.f4932a[i])) {
+                for (int i2 = 0; i2 < length; i2++) {
+                    if (!str.equals(this.f5053a[i2]) && (this.f5057e != 0 || !a(str, this.f5053a[i2], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "*"))) {
+                        if (this.f5057e == 1) {
+                            if (str.contains("." + this.f5053a[i2])) {
                             }
                         }
                     }
@@ -118,12 +118,12 @@ public class CfgItemParser {
                 return false;
             }
             int length = split.length;
-            for (int i = 0; i < length; i++) {
-                if (TextUtils.isEmpty(split[i]) || TextUtils.isEmpty(split2[i])) {
-                    if (!TextUtils.isEmpty(split2[i]) || !TextUtils.isEmpty(split[i])) {
+            for (int i2 = 0; i2 < length; i2++) {
+                if (TextUtils.isEmpty(split[i2]) || TextUtils.isEmpty(split2[i2])) {
+                    if (!TextUtils.isEmpty(split2[i2]) || !TextUtils.isEmpty(split[i2])) {
                         return false;
                     }
-                } else if (!split2[i].equals(str4) && !split2[i].equals(split[i])) {
+                } else if (!split2[i2].equals(str4) && !split2[i2].equals(split[i2])) {
                     return false;
                 }
             }
@@ -131,11 +131,11 @@ public class CfgItemParser {
         }
 
         public a b(String str) {
-            if (this.f4935d) {
+            if (this.f5056d) {
                 return a.FAILED;
             }
             boolean a2 = a(str);
-            return this.f4933b ? a2 ? a.AND_NEED_CHECK_NEXT : a.FAILED : a2 ? a.SUCCESS : a.OR_NEED_CHECK_NEXT;
+            return this.f5054b ? a2 ? a.AND_NEED_CHECK_NEXT : a.FAILED : a2 ? a.SUCCESS : a.OR_NEED_CHECK_NEXT;
         }
     }
 
@@ -143,8 +143,8 @@ public class CfgItemParser {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
-        for (int i = 0; i < arrayList.size(); i++) {
-            if (str.indexOf(arrayList.get(i)) > -1) {
+        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+            if (str.indexOf(arrayList.get(i2)) > -1) {
                 return true;
             }
         }
@@ -157,8 +157,8 @@ public class CfgItemParser {
 
     public static boolean b(String str, ArrayList<String> arrayList) {
         if (!TextUtils.isEmpty(str) && arrayList != null) {
-            for (int i = 0; i < arrayList.size(); i++) {
-                if (str.equalsIgnoreCase(arrayList.get(i))) {
+            for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                if (str.equalsIgnoreCase(arrayList.get(i2))) {
                     return true;
                 }
             }

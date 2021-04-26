@@ -145,15 +145,15 @@ public class HandlerMessenger implements IMessenger {
     }
 
     @Override // com.baidu.searchbox.player.message.IMessenger
-    public void register(int i, @NonNull INeuron iNeuron) {
-        CopyOnWriteArrayList<INeuron> copyOnWriteArrayList = this.mSubscribers.get(Integer.valueOf(i));
+    public void register(int i2, @NonNull INeuron iNeuron) {
+        CopyOnWriteArrayList<INeuron> copyOnWriteArrayList = this.mSubscribers.get(Integer.valueOf(i2));
         if (copyOnWriteArrayList == null) {
             copyOnWriteArrayList = new CopyOnWriteArrayList<>();
         }
         if (!copyOnWriteArrayList.contains(iNeuron)) {
             copyOnWriteArrayList.add(iNeuron);
         }
-        this.mSubscribers.put(Integer.valueOf(i), copyOnWriteArrayList);
+        this.mSubscribers.put(Integer.valueOf(i2), copyOnWriteArrayList);
     }
 
     @Override // com.baidu.searchbox.player.message.IMessenger

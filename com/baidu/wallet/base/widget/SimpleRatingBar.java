@@ -21,7 +21,7 @@ public class SimpleRatingBar extends LinearLayout {
 
     /* loaded from: classes5.dex */
     public interface OnSimpleRatingBarChangeListener {
-        void onRatingChanged(SimpleRatingBar simpleRatingBar, int i, boolean z);
+        void onRatingChanged(SimpleRatingBar simpleRatingBar, int i2, boolean z);
     }
 
     /* loaded from: classes5.dex */
@@ -74,7 +74,7 @@ public class SimpleRatingBar extends LinearLayout {
         removeAllViews();
         this.mStars.clear();
         this.mRate = 0;
-        for (int i = 0; i < this.mMaxRate; i++) {
+        for (int i2 = 0; i2 < this.mMaxRate; i2++) {
             addStar();
         }
     }
@@ -83,12 +83,12 @@ public class SimpleRatingBar extends LinearLayout {
         this.mChangeListener = onSimpleRatingBarChangeListener;
     }
 
-    public void setRate(int i, boolean z) {
-        this.mRate = i;
-        int i2 = 0;
-        while (i2 < this.mStars.size()) {
-            this.mStars.get(i2).setImageResource(ResUtils.drawable(getContext(), i2 < i ? this.mImageStar : this.mImageBackground));
-            i2++;
+    public void setRate(int i2, boolean z) {
+        this.mRate = i2;
+        int i3 = 0;
+        while (i3 < this.mStars.size()) {
+            this.mStars.get(i3).setImageResource(ResUtils.drawable(getContext(), i3 < i2 ? this.mImageStar : this.mImageBackground));
+            i3++;
         }
         OnSimpleRatingBarChangeListener onSimpleRatingBarChangeListener = this.mChangeListener;
         if (onSimpleRatingBarChangeListener != null) {
@@ -96,8 +96,8 @@ public class SimpleRatingBar extends LinearLayout {
         }
     }
 
-    public void setRating(int i) {
-        setRate(i, false);
+    public void setRating(int i2) {
+        setRate(i2, false);
     }
 
     public SimpleRatingBar(Context context, AttributeSet attributeSet) {

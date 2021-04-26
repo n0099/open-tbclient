@@ -50,7 +50,7 @@ public class OptionalCodec implements ObjectSerializer, ObjectDeserializer {
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         if (obj == null) {
             jSONSerializer.writeNull();
         } else if (obj instanceof Optional) {

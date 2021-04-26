@@ -3,13 +3,13 @@ package com.sdk.base.framework.a.c;
 public class k<E> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f38828a;
+    public final int f36409a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final E f38829b;
+    public final E f36410b;
 
-    public k(int i, E e2) {
-        this.f38828a = i == 0 ? b.f38804a : i;
-        this.f38829b = e2;
+    public k(int i2, E e2) {
+        this.f36409a = i2 == 0 ? b.f36385a : i2;
+        this.f36410b = e2;
     }
 }

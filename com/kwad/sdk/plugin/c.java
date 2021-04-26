@@ -3,13 +3,13 @@ package com.kwad.sdk.plugin;
 import android.content.Context;
 import com.kwad.sdk.api.SdkConfig;
 /* loaded from: classes6.dex */
-public class c implements e {
-    @Override // com.kwad.sdk.plugin.e
-    public void a(Context context, SdkConfig sdkConfig) {
+public class c implements d {
+    @Override // com.kwad.sdk.plugin.d
+    public Class a() {
+        return c.class;
     }
 
-    @Override // com.kwad.sdk.plugin.e
-    public Class b() {
-        return c.class;
+    @Override // com.kwad.sdk.plugin.d
+    public void a(Context context, SdkConfig sdkConfig) {
     }
 }

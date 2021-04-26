@@ -46,20 +46,38 @@ public final class ArraysKt___ArraysJvmKt$asList$5 extends AbstractList<Float> i
     }
 
     public boolean contains(float f2) {
-        return ArraysKt___ArraysKt.contains(this.$this_asList, f2);
+        for (float f3 : this.$this_asList) {
+            if (Float.floatToIntBits(f3) == Float.floatToIntBits(f2)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.collections.AbstractList, java.util.List
-    public Float get(int i) {
-        return Float.valueOf(this.$this_asList[i]);
+    public Float get(int i2) {
+        return Float.valueOf(this.$this_asList[i2]);
     }
 
     public int indexOf(float f2) {
-        return ArraysKt___ArraysKt.indexOf(this.$this_asList, f2);
+        float[] fArr = this.$this_asList;
+        int length = fArr.length;
+        for (int i2 = 0; i2 < length; i2++) {
+            if (Float.floatToIntBits(fArr[i2]) == Float.floatToIntBits(f2)) {
+                return i2;
+            }
+        }
+        return -1;
     }
 
     public int lastIndexOf(float f2) {
-        return ArraysKt___ArraysKt.lastIndexOf(this.$this_asList, f2);
+        float[] fArr = this.$this_asList;
+        for (int length = fArr.length - 1; length >= 0; length--) {
+            if (Float.floatToIntBits(fArr[length]) == Float.floatToIntBits(f2)) {
+                return length;
+            }
+        }
+        return -1;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.memberTask;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.r1.c.b.r;
+import d.a.j0.r1.c.b.r;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
@@ -36,7 +36,7 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetMemberTaskListResIdl getMemberTaskListResIdl = (GetMemberTaskListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMemberTaskListResIdl.class);
         if (getMemberTaskListResIdl == null) {
             return;
@@ -57,9 +57,9 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
             return;
         }
         int size = getMemberTaskListResIdl.data.task_list.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            if (getMemberTaskListResIdl.data.task_list.get(i2) != null) {
-                this.mTaskList.add(new r(getMemberTaskListResIdl.data.task_list.get(i2)));
+        for (int i3 = 0; i3 < size; i3++) {
+            if (getMemberTaskListResIdl.data.task_list.get(i3) != null) {
+                this.mTaskList.add(new r(getMemberTaskListResIdl.data.task_list.get(i3)));
             }
         }
     }

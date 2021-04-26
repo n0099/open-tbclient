@@ -82,7 +82,7 @@ public final class ZeusLogUploader {
 
     /* loaded from: classes.dex */
     public interface OnFinishedListener {
-        void onFinished(String str, int i, String str2);
+        void onFinished(String str, int i2, String str2);
     }
 
     public ZeusLogUploader(String str, String str2, boolean z) {
@@ -107,17 +107,17 @@ public final class ZeusLogUploader {
         return new ZeusLogUploader(str2, null, true).uploadLogFile(str, z, onFinishedListener);
     }
 
-    public static byte[] doCompress(byte[] bArr, int i, StringBuffer stringBuffer) {
+    public static byte[] doCompress(byte[] bArr, int i2, StringBuffer stringBuffer) {
         GZIPOutputStream gZIPOutputStream;
         ByteArrayInputStream byteArrayInputStream;
-        if (bArr != null && i > 0) {
+        if (bArr != null && i2 > 0) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             byte[] bArr2 = new byte[4096];
             try {
-                if (i > bArr.length) {
-                    i = bArr.length;
+                if (i2 > bArr.length) {
+                    i2 = bArr.length;
                 }
-                byteArrayInputStream = new ByteArrayInputStream(bArr, 0, i);
+                byteArrayInputStream = new ByteArrayInputStream(bArr, 0, i2);
                 try {
                     GZIPOutputStream gZIPOutputStream2 = new GZIPOutputStream(byteArrayOutputStream);
                     while (true) {
@@ -180,17 +180,17 @@ public final class ZeusLogUploader {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public byte[] doEncryptUploadFailedFile(byte[] bArr, int i, boolean z) {
+    public byte[] doEncryptUploadFailedFile(byte[] bArr, int i2, boolean z) {
         String str;
-        if (bArr == null || bArr.length <= 0 || i <= 0 || mEncryptKey == null) {
+        if (bArr == null || bArr.length <= 0 || i2 <= 0 || mEncryptKey == null) {
             return null;
         }
-        if (i > bArr.length) {
-            i = bArr.length;
+        if (i2 > bArr.length) {
+            i2 = bArr.length;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        byte[] bArr2 = new byte[i];
-        System.arraycopy(bArr, 0, bArr2, 0, i);
+        byte[] bArr2 = new byte[i2];
+        System.arraycopy(bArr, 0, bArr2, 0, i2);
         RC4 rc4 = new RC4(mEncryptKey);
         byte[] encrypt = z ? rc4.encrypt(bArr2) : rc4.decrypt(bArr2);
         long currentTimeMillis2 = System.currentTimeMillis();
@@ -373,7 +373,7 @@ public final class ZeusLogUploader {
         ByteArrayOutputStream byteArrayOutputStream;
         byte[] doEncryptUploadFailedFile;
         DataInputStream dataInputStream;
-        int i = z ? 6 : 7;
+        int i2 = z ? 6 : 7;
         File file = new File(str);
         ?? exists = file.exists();
         FileOutputStream fileOutputStream = null;
@@ -395,7 +395,7 @@ public final class ZeusLogUploader {
                                     try {
                                         break;
                                     } catch (Exception unused) {
-                                        i = 5;
+                                        i2 = 5;
                                     }
                                 }
                             }
@@ -413,7 +413,7 @@ public final class ZeusLogUploader {
                             if (dataInputStream != null) {
                                 dataInputStream.close();
                             }
-                            i = 5;
+                            i2 = 5;
                             byteArrayOutputStream = exists;
                             doEncryptUploadFailedFile = doEncryptUploadFailedFile(byteArrayOutputStream.toByteArray(), byteArrayOutputStream.toByteArray().length, z);
                             if (doEncryptUploadFailedFile != null) {
@@ -465,7 +465,7 @@ public final class ZeusLogUploader {
                 }
                 fileOutputStream2.flush();
                 fileOutputStream2.close();
-                return i;
+                return i2;
             } catch (Exception unused9) {
                 fileOutputStream = fileOutputStream2;
                 if (fileOutputStream != null) {
@@ -544,7 +544,7 @@ public final class ZeusLogUploader {
             boolean z2;
             OnFinishedListener onFinishedListener;
             byte[] bArr;
-            int i;
+            int i2;
             for (String str : this.files) {
                 try {
                     fileInputStream = new FileInputStream(str);
@@ -556,15 +556,15 @@ public final class ZeusLogUploader {
                 try {
                     int available = fileInputStream.available();
                     if (this.cuid != null && !this.logType.equals("crashlog")) {
-                        i = this.cuid.getBytes().length;
-                        bArr = new byte[available + i];
+                        i2 = this.cuid.getBytes().length;
+                        bArr = new byte[available + i2];
                         System.arraycopy(this.cuid.getBytes(), 0, bArr, 0, this.cuid.getBytes().length);
                     } else {
                         bArr = new byte[available];
-                        i = 0;
+                        i2 = 0;
                     }
                     do {
-                        i += fileInputStream.read(bArr, i, available);
+                        i2 += fileInputStream.read(bArr, i2, available);
                         available = fileInputStream.available();
                     } while (available > 0);
                     z2 = ZeusLogUploader.uploadFileEncryptJudge(bArr);
@@ -628,8 +628,8 @@ public final class ZeusLogUploader {
 
         public MyRunner(File[] fileArr, String str, String str2, boolean z, boolean z2, OnFinishedListener onFinishedListener) {
             this.files = new String[fileArr.length];
-            for (int i = 0; i < fileArr.length; i++) {
-                this.files[i] = fileArr[i].getPath();
+            for (int i2 = 0; i2 < fileArr.length; i2++) {
+                this.files[i2] = fileArr[i2].getPath();
             }
             this.deletAfterUpload = z2;
             this.listener = onFinishedListener;

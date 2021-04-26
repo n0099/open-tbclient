@@ -35,34 +35,34 @@ public final class WebSocketProtocol {
         return ByteString.encodeUtf8(str + ACCEPT_MAGIC).sha1().base64();
     }
 
-    public static String closeCodeExceptionMessage(int i) {
-        if (i < 1000 || i >= 5000) {
-            return "Code must be in range [1000,5000): " + i;
-        } else if ((i < 1004 || i > 1006) && (i < 1012 || i > 2999)) {
+    public static String closeCodeExceptionMessage(int i2) {
+        if (i2 < 1000 || i2 >= 5000) {
+            return "Code must be in range [1000,5000): " + i2;
+        } else if ((i2 < 1004 || i2 > 1006) && (i2 < 1012 || i2 > 2999)) {
             return null;
         } else {
-            return "Code " + i + " is reserved and may not be used.";
+            return "Code " + i2 + " is reserved and may not be used.";
         }
     }
 
     public static void toggleMask(Buffer.UnsafeCursor unsafeCursor, byte[] bArr) {
         int length = bArr.length;
-        int i = 0;
+        int i2 = 0;
         do {
             byte[] bArr2 = unsafeCursor.data;
-            int i2 = unsafeCursor.start;
-            int i3 = unsafeCursor.end;
-            while (i2 < i3) {
-                int i4 = i % length;
-                bArr2[i2] = (byte) (bArr2[i2] ^ bArr[i4]);
-                i2++;
-                i = i4 + 1;
+            int i3 = unsafeCursor.start;
+            int i4 = unsafeCursor.end;
+            while (i3 < i4) {
+                int i5 = i2 % length;
+                bArr2[i3] = (byte) (bArr2[i3] ^ bArr[i5]);
+                i3++;
+                i2 = i5 + 1;
             }
         } while (unsafeCursor.next() != -1);
     }
 
-    public static void validateCloseCode(int i) {
-        String closeCodeExceptionMessage = closeCodeExceptionMessage(i);
+    public static void validateCloseCode(int i2) {
+        String closeCodeExceptionMessage = closeCodeExceptionMessage(i2);
         if (closeCodeExceptionMessage != null) {
             throw new IllegalArgumentException(closeCodeExceptionMessage);
         }

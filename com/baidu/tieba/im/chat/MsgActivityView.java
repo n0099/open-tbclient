@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import d.b.j0.e1.f.e;
+import d.a.j0.e1.f.e;
 import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,8 +22,8 @@ public class MsgActivityView extends e {
     public TextView v;
     public TextView w;
     public int x;
-    public d.b.c.e.h.a y;
-    public d.b.c.e.h.b z;
+    public d.a.c.e.h.a y;
+    public d.a.c.e.h.b z;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -57,25 +57,25 @@ public class MsgActivityView extends e {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f17444e;
+        public final /* synthetic */ String f17753e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f17445f;
+        public final /* synthetic */ String f17754f;
 
         public c(String str, String str2) {
-            this.f17444e = str;
-            this.f17445f = str2;
+            this.f17753e = str;
+            this.f17754f = str2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(MsgActivityView.this.getPageContext().getPageActivity(), this.f17444e, this.f17445f)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(MsgActivityView.this.getPageContext().getPageActivity(), this.f17753e, this.f17754f)));
         }
     }
 
     public MsgActivityView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_msgactivity_view);
-        this.f55598h = (TextView) d(R.id.tex_msgitem_time);
+        this.f53447h = (TextView) d(R.id.tex_msgitem_time);
         this.u = (TextView) d(R.id.msg_msgactivity_title);
         this.v = (TextView) d(R.id.msg_msgactivity_time);
         this.w = (TextView) d(R.id.msg_msgactivity_address);
@@ -87,12 +87,12 @@ public class MsgActivityView extends e {
         e().setOnLongClickListener(new b());
     }
 
-    public void K(ChatMessage chatMessage) {
+    public void H(ChatMessage chatMessage) {
         String string;
         if (chatMessage == null) {
             return;
         }
-        z(chatMessage);
+        w(chatMessage);
         try {
             JSONObject optJSONObject = new JSONObject(chatMessage.getContent()).optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
             if (optJSONObject != null) {
@@ -104,15 +104,15 @@ public class MsgActivityView extends e {
                 String optString6 = optJSONObject.optString("activityUserName");
                 this.u.setText(optString);
                 Calendar calendar = Calendar.getInstance();
-                calendar.setTimeInMillis(d.b.c.e.m.b.f(optString2, 0L) * 1000);
-                int i = calendar.get(11);
-                int i2 = calendar.get(12);
-                int i3 = calendar.get(7) - 1;
-                int i4 = calendar.get(1);
-                int i5 = calendar.get(2) + 1;
-                int i6 = calendar.get(5);
+                calendar.setTimeInMillis(d.a.c.e.m.b.f(optString2, 0L) * 1000);
+                int i2 = calendar.get(11);
+                int i3 = calendar.get(12);
+                int i4 = calendar.get(7) - 1;
+                int i5 = calendar.get(1);
+                int i6 = calendar.get(2) + 1;
+                int i7 = calendar.get(5);
                 String str = "";
-                switch (i3) {
+                switch (i4) {
                     case 0:
                         str = this.mContext.getResources().getString(R.string.seven);
                         break;
@@ -135,13 +135,13 @@ public class MsgActivityView extends e {
                         str = this.mContext.getResources().getString(R.string.six);
                         break;
                 }
-                if (i > 12) {
+                if (i2 > 12) {
                     string = this.mContext.getResources().getString(R.string.pm);
-                    i -= 12;
+                    i2 -= 12;
                 } else {
                     string = this.mContext.getResources().getString(R.string.am);
                 }
-                this.v.setText(String.format("%d-%d-%d %s %s %d:%d", Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), str, string, Integer.valueOf(i), Integer.valueOf(i2)));
+                this.v.setText(String.format("%d-%d-%d %s %s %d:%d", Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), str, string, Integer.valueOf(i2), Integer.valueOf(i3)));
                 if (TextUtils.isEmpty(optString3)) {
                     this.w.setVisibility(4);
                 } else {
@@ -150,25 +150,25 @@ public class MsgActivityView extends e {
                 }
                 this.t.setTag(optString4);
                 this.t.setOnClickListener(new c(optString5, optString6));
-                this.t.W(optString4, 12, false);
+                this.t.V(optString4, 12, false);
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
     }
 
-    @Override // d.b.j0.e1.f.e
-    public void r(d.b.c.e.h.a aVar) {
+    @Override // d.a.j0.e1.f.e
+    public void p(d.a.c.e.h.a aVar) {
         this.y = aVar;
     }
 
-    @Override // d.b.j0.e1.f.e
-    public void s(d.b.c.e.h.b bVar) {
+    @Override // d.a.j0.e1.f.e
+    public void q(d.a.c.e.h.b bVar) {
         this.z = bVar;
     }
 
-    @Override // d.b.j0.e1.f.e
-    public void u(int i) {
-        this.x = i;
+    @Override // d.a.j0.e1.f.e
+    public void r(int i2) {
+        this.x = i2;
     }
 }

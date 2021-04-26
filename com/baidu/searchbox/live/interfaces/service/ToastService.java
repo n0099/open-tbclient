@@ -24,40 +24,40 @@ public interface ToastService {
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public static final class DefaultImpls {
-        public static /* synthetic */ void showClickableToast$default(ToastService toastService, Context context, String str, String str2, int i, ToastClickListener toastClickListener, int i2, Object obj) {
+        public static /* synthetic */ void showClickableToast$default(ToastService toastService, Context context, String str, String str2, int i2, ToastClickListener toastClickListener, int i3, Object obj) {
             if (obj == null) {
-                toastService.showClickableToast(context, str, str2, (i2 & 8) != 0 ? 0 : i, toastClickListener);
+                toastService.showClickableToast(context, str, str2, (i3 & 8) != 0 ? 0 : i2, toastClickListener);
                 return;
             }
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: showClickableToast");
         }
 
-        public static /* synthetic */ void showNormal$default(ToastService toastService, Context context, String str, int i, int i2, Object obj) {
+        public static /* synthetic */ void showNormal$default(ToastService toastService, Context context, String str, int i2, int i3, Object obj) {
             if (obj == null) {
-                if ((i2 & 4) != 0) {
-                    i = 0;
+                if ((i3 & 4) != 0) {
+                    i2 = 0;
                 }
-                toastService.showNormal(context, str, i);
+                toastService.showNormal(context, str, i2);
                 return;
             }
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: showNormal");
         }
 
-        public static /* synthetic */ void showToastBottom$default(ToastService toastService, Context context, String str, int i, int i2, Object obj) {
+        public static /* synthetic */ void showToastBottom$default(ToastService toastService, Context context, String str, int i2, int i3, Object obj) {
             if (obj == null) {
-                if ((i2 & 4) != 0) {
-                    i = 0;
+                if ((i3 & 4) != 0) {
+                    i2 = 0;
                 }
-                toastService.showToastBottom(context, str, i);
+                toastService.showToastBottom(context, str, i2);
                 return;
             }
             throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: showToastBottom");
         }
     }
 
-    void showClickableToast(Context context, String str, String str2, int i, ToastClickListener toastClickListener);
+    void showClickableToast(Context context, String str, String str2, int i2, ToastClickListener toastClickListener);
 
-    void showNormal(Context context, String str, int i);
+    void showNormal(Context context, String str, int i2);
 
-    void showToastBottom(Context context, String str, int i);
+    void showToastBottom(Context context, String str, int i2);
 }

@@ -9,28 +9,28 @@ import com.baidu.tieba.R;
 public class EditorInfoView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21019e;
+    public int f21602e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21020f;
+    public int f21603f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21021g;
+    public int f21604g;
 
     public EditorInfoView(Context context) {
         this(context, null);
     }
 
-    public void a(int i) {
-        if (i != this.f21019e) {
+    public void a(int i2) {
+        if (i2 != this.f21602e) {
             SkinManager.setViewTextColor(this, R.color.CAM_X0106);
-            this.f21019e = i;
+            this.f21602e = i2;
         }
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
         setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(R.dimen.ds48));
     }
 
@@ -38,14 +38,14 @@ public class EditorInfoView extends TextView {
         this(context, attributeSet, 0);
     }
 
-    public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f21019e = 3;
-        this.f21020f = (int) context.getResources().getDimension(R.dimen.ds18);
+    public EditorInfoView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f21602e = 3;
+        this.f21603f = (int) context.getResources().getDimension(R.dimen.ds18);
         int dimension = (int) context.getResources().getDimension(R.dimen.ds6);
-        this.f21021g = dimension;
-        int i2 = this.f21020f;
-        setPadding(i2, dimension, i2, dimension);
+        this.f21604g = dimension;
+        int i3 = this.f21603f;
+        setPadding(i3, dimension, i3, dimension);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(R.dimen.ds24));

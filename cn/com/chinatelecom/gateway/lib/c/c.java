@@ -10,10 +10,10 @@ import java.util.UUID;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1549a = "cn.com.chinatelecom.gateway.lib.c.c";
+    public static final String f1571a = "cn.com.chinatelecom.gateway.lib.c.c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1550b = "";
+    public static String f1572b = "";
 
     public static String a() {
         String uuid = UUID.randomUUID().toString();
@@ -26,16 +26,16 @@ public class c {
     }
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f1550b)) {
+        if (TextUtils.isEmpty(f1572b)) {
             String b2 = b(context);
-            f1550b = b2;
+            f1572b = b2;
             if (TextUtils.isEmpty(b2)) {
                 String c2 = c(context);
-                f1550b = c2;
+                f1572b = c2;
                 a(context, c2);
             }
         }
-        return f1550b;
+        return f1572b;
     }
 
     public static String a(String str) {
@@ -46,12 +46,12 @@ public class c {
             messageDigest.update(bytes);
             byte[] digest = messageDigest.digest();
             char[] cArr2 = new char[digest.length * 2];
-            int i = 0;
+            int i2 = 0;
             for (byte b2 : digest) {
-                int i2 = i + 1;
-                cArr2[i] = cArr[(b2 >>> 4) & 15];
-                i = i2 + 1;
-                cArr2[i2] = cArr[b2 & 15];
+                int i3 = i2 + 1;
+                cArr2[i2] = cArr[(b2 >>> 4) & 15];
+                i2 = i3 + 1;
+                cArr2[i3] = cArr[b2 & 15];
             }
             return new String(cArr2);
         } catch (Exception unused) {

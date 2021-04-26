@@ -9,35 +9,35 @@ import java.util.concurrent.Executor;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<a> f37448a = new ArrayList();
+    public final List<a> f35170a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public final e.b f37449b;
+    public final e.b f35171b;
 
     /* loaded from: classes6.dex */
     public class a {
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<Integer> f37451b = new ArrayList();
+        public final List<Integer> f35173b = new ArrayList();
 
         /* renamed from: c  reason: collision with root package name */
-        public final Executor f37452c;
+        public final Executor f35174c;
 
-        public a(int i) {
-            this.f37452c = com.kwai.filedownloader.f.b.a(1, "Flow-" + i);
+        public a(int i2) {
+            this.f35174c = com.kwai.filedownloader.f.b.a(1, "Flow-" + i2);
         }
 
-        public void a(int i) {
-            this.f37451b.add(Integer.valueOf(i));
+        public void a(int i2) {
+            this.f35173b.add(Integer.valueOf(i2));
         }
 
         public void a(final MessageSnapshot messageSnapshot) {
-            this.f37452c.execute(new Runnable() { // from class: com.kwai.filedownloader.message.g.a.1
+            this.f35174c.execute(new Runnable() { // from class: com.kwai.filedownloader.message.g.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.this.f37449b.a(messageSnapshot);
+                    g.this.f35171b.a(messageSnapshot);
                     try {
-                        a.this.f37451b.remove(Integer.valueOf(messageSnapshot.m()));
+                        a.this.f35173b.remove(Integer.valueOf(messageSnapshot.m()));
                     } catch (Exception unused) {
                     }
                 }
@@ -45,42 +45,42 @@ public class g {
         }
     }
 
-    public g(int i, e.b bVar) {
-        this.f37449b = bVar;
-        for (int i2 = 0; i2 < i; i2++) {
-            this.f37448a.add(new a(i2));
+    public g(int i2, e.b bVar) {
+        this.f35171b = bVar;
+        for (int i3 = 0; i3 < i2; i3++) {
+            this.f35170a.add(new a(i3));
         }
     }
 
     public void a(MessageSnapshot messageSnapshot) {
         a aVar = null;
         try {
-            synchronized (this.f37448a) {
+            synchronized (this.f35170a) {
                 int m = messageSnapshot.m();
-                Iterator<a> it = this.f37448a.iterator();
+                Iterator<a> it = this.f35170a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     a next = it.next();
-                    if (next.f37451b.contains(Integer.valueOf(m))) {
+                    if (next.f35173b.contains(Integer.valueOf(m))) {
                         aVar = next;
                         break;
                     }
                 }
                 if (aVar == null) {
-                    int i = 0;
-                    Iterator<a> it2 = this.f37448a.iterator();
+                    int i2 = 0;
+                    Iterator<a> it2 = this.f35170a.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             break;
                         }
                         a next2 = it2.next();
-                        if (next2.f37451b.size() <= 0) {
+                        if (next2.f35173b.size() <= 0) {
                             aVar = next2;
                             break;
-                        } else if (i == 0 || next2.f37451b.size() < i) {
-                            i = next2.f37451b.size();
+                        } else if (i2 == 0 || next2.f35173b.size() < i2) {
+                            i2 = next2.f35173b.size();
                             aVar = next2;
                         }
                     }

@@ -23,8 +23,8 @@ public class QuickReply implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public QuickReply[] newArray(int i) {
-            return new QuickReply[i];
+        public QuickReply[] newArray(int i2) {
+            return new QuickReply[i2];
         }
     };
     public static final int MENU_TYPE = 1;
@@ -52,8 +52,8 @@ public class QuickReply implements Parcelable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public Act[] newArray(int i) {
-                return new Act[i];
+            public Act[] newArray(int i2) {
+                return new Act[i2];
             }
         };
         public String mCallBackKey;
@@ -85,16 +85,16 @@ public class QuickReply implements Parcelable {
             return this.mIsCallBack;
         }
 
-        public void setCallBack(int i) {
-            this.mIsCallBack = i;
+        public void setCallBack(int i2) {
+            this.mIsCallBack = i2;
         }
 
         public void setCallBackKey(String str) {
             this.mCallBackKey = str;
         }
 
-        public void setType(int i) {
-            this.mType = i;
+        public void setType(int i2) {
+            this.mType = i2;
         }
 
         public void setValue(String str) {
@@ -102,7 +102,7 @@ public class QuickReply implements Parcelable {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeInt(this.mType);
             parcel.writeString(this.mValue);
             parcel.writeInt(this.mIsCallBack);
@@ -130,8 +130,8 @@ public class QuickReply implements Parcelable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public ReplyContent[] newArray(int i) {
-                return new ReplyContent[i];
+            public ReplyContent[] newArray(int i2) {
+                return new ReplyContent[i2];
             }
         };
         public Act mAct;
@@ -162,9 +162,9 @@ public class QuickReply implements Parcelable {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeString(this.mName);
-            parcel.writeParcelable(this.mAct, i);
+            parcel.writeParcelable(this.mAct, i2);
         }
 
         public ReplyContent(Parcel parcel) {
@@ -193,8 +193,8 @@ public class QuickReply implements Parcelable {
             quickReply.setPaName(jSONObject.optString(UserAccountActionItem.KEY_SRC));
             JSONArray jSONArray = jSONObject.getJSONArray("button_list");
             ArrayList<ReplyContent> arrayList = new ArrayList<>();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject jSONObject2 = jSONArray.getJSONObject(i);
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                 ReplyContent replyContent = new ReplyContent();
                 replyContent.setName(jSONObject2.getString("name"));
                 if (jSONObject2.has("act")) {
@@ -294,7 +294,7 @@ public class QuickReply implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeLong(this.mType);
         parcel.writeLong(this.mVersionId);
         parcel.writeLong(this.mPaId);

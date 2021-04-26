@@ -22,8 +22,8 @@ public class CustomMessageTask extends MessageTask {
         ASYNCHRONIZED
     }
 
-    public CustomMessageTask(int i, CustomRunnable<?> customRunnable) {
-        super(i);
+    public CustomMessageTask(int i2, CustomRunnable<?> customRunnable) {
+        super(i2);
         this.mRunnable = null;
         this.mType = TASK_TYPE.ASYNCHRONIZED;
         this.isImme = false;

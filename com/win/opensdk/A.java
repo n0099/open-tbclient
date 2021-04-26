@@ -1,32 +1,19 @@
 package com.win.opensdk;
 
-import com.win.opensdk.core.Info;
-/* loaded from: classes7.dex */
-public class A implements A2 {
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+/* loaded from: classes6.dex */
+public class A {
 
-    /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Info f39997a;
+    /* renamed from: d  reason: collision with root package name */
+    public static A f37602d = new A();
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ C f39998b;
+    public E f37604b;
 
-    public A(C c2, Info info) {
-        this.f39998b = c2;
-        this.f39997a = info;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f37605c = false;
 
-    @Override // com.win.opensdk.A2
-    public void a(String str) {
-    }
-
-    @Override // com.win.opensdk.A2
-    public boolean a(String str, String str2) {
-        C.a(this.f39998b, this.f39997a, str);
-        PBBannerListener pBBannerListener = this.f39998b.f40025g;
-        if (pBBannerListener != null) {
-            pBBannerListener.onClicked();
-            return true;
-        }
-        return true;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public ThreadPoolExecutor f37603a = (ThreadPoolExecutor) Executors.newCachedThreadPool();
 }

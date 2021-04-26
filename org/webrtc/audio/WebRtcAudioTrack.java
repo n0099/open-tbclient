@@ -57,12 +57,12 @@ public class WebRtcAudioTrack {
         }
 
         @TargetApi(21)
-        private int writeOnLollipop(AudioTrack audioTrack, ByteBuffer byteBuffer, int i) {
-            return audioTrack.write(byteBuffer, i, 0);
+        private int writeOnLollipop(AudioTrack audioTrack, ByteBuffer byteBuffer, int i2) {
+            return audioTrack.write(byteBuffer, i2, 0);
         }
 
-        private int writePreLollipop(AudioTrack audioTrack, ByteBuffer byteBuffer, int i) {
-            return audioTrack.write(byteBuffer.array(), byteBuffer.arrayOffset(), i);
+        private int writePreLollipop(AudioTrack audioTrack, ByteBuffer byteBuffer, int i2) {
+            return audioTrack.write(byteBuffer.array(), byteBuffer.arrayOffset(), i2);
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -140,24 +140,24 @@ public class WebRtcAudioTrack {
         }
     }
 
-    private int channelCountToConfiguration(int i) {
-        return i == 1 ? 4 : 12;
+    private int channelCountToConfiguration(int i2) {
+        return i2 == 1 ? 4 : 12;
     }
 
     @TargetApi(21)
-    public static AudioTrack createAudioTrackOnLollipopOrHigher(int i, int i2, int i3) {
+    public static AudioTrack createAudioTrackOnLollipopOrHigher(int i2, int i3, int i4) {
         Logging.d(TAG, "createAudioTrackOnLollipopOrHigher");
         int nativeOutputSampleRate = AudioTrack.getNativeOutputSampleRate(0);
         Logging.d(TAG, "nativeOutputSampleRate: " + nativeOutputSampleRate);
-        if (i != nativeOutputSampleRate) {
+        if (i2 != nativeOutputSampleRate) {
             Logging.w(TAG, "Unable to use fast mode since requested sample rate is not native");
         }
         String str = Build.MODEL;
-        return (BaiduRtcRoomImp.mConfigAudioContenttype == 2 || str.contains("NV6001") || str.contains("NV6101") || str.contains("XDH-0F-A1") || str.contains("NV5001")) ? new AudioTrack(new AudioAttributes.Builder().setUsage(1).setContentType(2).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i).setChannelMask(i2).build(), i3, 1, 0) : new AudioTrack(new AudioAttributes.Builder().setUsage(DEFAULT_USAGE).setContentType(1).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i).setChannelMask(i2).build(), i3, 1, 0);
+        return (BaiduRtcRoomImp.mConfigAudioContenttype == 2 || str.contains("NV6001") || str.contains("NV6101") || str.contains("XDH-0F-A1") || str.contains("NV5001")) ? new AudioTrack(new AudioAttributes.Builder().setUsage(1).setContentType(2).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i2).setChannelMask(i3).build(), i4, 1, 0) : new AudioTrack(new AudioAttributes.Builder().setUsage(DEFAULT_USAGE).setContentType(1).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i2).setChannelMask(i3).build(), i4, 1, 0);
     }
 
-    public static AudioTrack createAudioTrackOnLowerThanLollipop(int i, int i2, int i3) {
-        return new AudioTrack(0, i, i2, 2, i3, 1);
+    public static AudioTrack createAudioTrackOnLowerThanLollipop(int i2, int i3, int i4) {
+        return new AudioTrack(0, i2, i3, 2, i4, 1);
     }
 
     public static int getDefaultUsageAttribute() {
@@ -187,19 +187,19 @@ public class WebRtcAudioTrack {
     }
 
     @CalledByNative
-    private boolean initPlayout(int i, int i2) {
+    private boolean initPlayout(int i2, int i3) {
         this.threadChecker.checkIsOnValidThread();
-        Logging.d(TAG, "initPlayout(sampleRate=" + i + ", channels=" + i2 + SmallTailInfo.EMOTION_SUFFIX);
-        this.byteBuffer = ByteBuffer.allocateDirect(i2 * 2 * (i / 100));
+        Logging.d(TAG, "initPlayout(sampleRate=" + i2 + ", channels=" + i3 + SmallTailInfo.EMOTION_SUFFIX);
+        this.byteBuffer = ByteBuffer.allocateDirect(i3 * 2 * (i2 / 100));
         StringBuilder sb = new StringBuilder();
         sb.append("byteBuffer.capacity: ");
         sb.append(this.byteBuffer.capacity());
         Logging.d(TAG, sb.toString());
         this.emptyBytes = new byte[this.byteBuffer.capacity()];
         nativeCacheDirectBufferAddress(this.nativeAudioTrack, this.byteBuffer);
-        int channelCountToConfiguration = channelCountToConfiguration(i2);
-        int minBufferSize = AudioTrack.getMinBufferSize(i, channelCountToConfiguration, 2);
-        this.sampleRateInHz = i;
+        int channelCountToConfiguration = channelCountToConfiguration(i3);
+        int minBufferSize = AudioTrack.getMinBufferSize(i2, channelCountToConfiguration, 2);
+        this.sampleRateInHz = i2;
         this.channelConfig = channelCountToConfiguration;
         this.audioFormat = 2;
         Logging.d(TAG, "AudioTrack.getMinBufferSize: " + minBufferSize);
@@ -211,7 +211,7 @@ public class WebRtcAudioTrack {
             return false;
         } else {
             try {
-                this.audioTrack = WebRtcAudioUtils.runningOnLollipopOrHigher() ? createAudioTrackOnLollipopOrHigher(i, channelCountToConfiguration, minBufferSize) : createAudioTrackOnLowerThanLollipop(i, channelCountToConfiguration, minBufferSize);
+                this.audioTrack = WebRtcAudioUtils.runningOnLollipopOrHigher() ? createAudioTrackOnLollipopOrHigher(i2, channelCountToConfiguration, minBufferSize) : createAudioTrackOnLowerThanLollipop(i2, channelCountToConfiguration, minBufferSize);
                 AudioTrack audioTrack = this.audioTrack;
                 if (audioTrack == null || audioTrack.getState() != 1) {
                     reportWebRtcAudioTrackInitError("Initialization of audio track failed.");
@@ -260,7 +260,7 @@ public class WebRtcAudioTrack {
 
     public static native void nativeCacheDirectBufferAddress(long j, ByteBuffer byteBuffer);
 
-    public static native void nativeGetPlayoutData(long j, int i);
+    public static native void nativeGetPlayoutData(long j, int i2);
 
     private void releaseAudioResources() {
         Logging.d(TAG, "releaseAudioResources");
@@ -300,14 +300,14 @@ public class WebRtcAudioTrack {
     }
 
     @CalledByNative
-    private boolean setStreamVolume(int i) {
+    private boolean setStreamVolume(int i2) {
         this.threadChecker.checkIsOnValidThread();
-        Logging.d(TAG, "setStreamVolume(" + i + SmallTailInfo.EMOTION_SUFFIX);
+        Logging.d(TAG, "setStreamVolume(" + i2 + SmallTailInfo.EMOTION_SUFFIX);
         if (isVolumeFixed()) {
             Logging.e(TAG, "The device implements a fixed volume policy.");
             return false;
         }
-        this.audioManager.setStreamVolume(0, i, 0);
+        this.audioManager.setStreamVolume(0, i2, 0);
         return true;
     }
 

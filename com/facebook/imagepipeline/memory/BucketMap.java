@@ -31,9 +31,9 @@ public class BucketMap<T> {
             return "LinkedEntry(key: " + this.key + SmallTailInfo.EMOTION_SUFFIX;
         }
 
-        public LinkedEntry(@Nullable LinkedEntry<I> linkedEntry, int i, LinkedList<I> linkedList, @Nullable LinkedEntry<I> linkedEntry2) {
+        public LinkedEntry(@Nullable LinkedEntry<I> linkedEntry, int i2, LinkedList<I> linkedList, @Nullable LinkedEntry<I> linkedEntry2) {
             this.prev = linkedEntry;
-            this.key = i;
+            this.key = i2;
             this.value = linkedList;
             this.next = linkedEntry2;
         }
@@ -85,8 +85,8 @@ public class BucketMap<T> {
     }
 
     @Nullable
-    public synchronized T acquire(int i) {
-        LinkedEntry<T> linkedEntry = this.mMap.get(i);
+    public synchronized T acquire(int i2) {
+        LinkedEntry<T> linkedEntry = this.mMap.get(i2);
         if (linkedEntry == null) {
             return null;
         }
@@ -95,11 +95,11 @@ public class BucketMap<T> {
         return pollFirst;
     }
 
-    public synchronized void release(int i, T t) {
-        LinkedEntry<T> linkedEntry = this.mMap.get(i);
+    public synchronized void release(int i2, T t) {
+        LinkedEntry<T> linkedEntry = this.mMap.get(i2);
         if (linkedEntry == null) {
-            linkedEntry = new LinkedEntry<>(null, i, new LinkedList(), null);
-            this.mMap.put(i, linkedEntry);
+            linkedEntry = new LinkedEntry<>(null, i2, new LinkedList(), null);
+            this.mMap.put(i2, linkedEntry);
         }
         linkedEntry.value.addLast(t);
         moveToFront(linkedEntry);
@@ -118,13 +118,13 @@ public class BucketMap<T> {
 
     @VisibleForTesting
     public synchronized int valueCount() {
-        int i;
-        i = 0;
+        int i2;
+        i2 = 0;
         for (LinkedEntry linkedEntry = this.mHead; linkedEntry != null; linkedEntry = linkedEntry.next) {
             if (linkedEntry.value != null) {
-                i += linkedEntry.value.size();
+                i2 += linkedEntry.value.size();
             }
         }
-        return i;
+        return i2;
     }
 }

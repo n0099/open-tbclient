@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.data.ThemeCardInUserData;
 import com.baidu.tbadk.coreExtra.data.BazhuGradeData;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.tbadk.coreExtra.data.PrivSetsData;
-import d.b.c.e.m.b;
-import d.b.c.e.p.k;
-import d.b.i0.r.f0.q.a;
-import d.b.i0.t.d;
-import d.b.i0.t.n;
+import d.a.c.e.m.b;
+import d.a.c.e.p.k;
+import d.a.i0.r.f0.q.a;
+import d.a.i0.t.d;
+import d.a.i0.t.n;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -172,7 +172,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.fansNickName;
     }
 
-    @Override // d.b.i0.r.f0.q.a
+    @Override // d.a.i0.r.f0.q.a
     public int getFansNum() {
         return this.fansNum;
     }
@@ -217,7 +217,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.imBjhAvatar;
     }
 
-    @Override // d.b.i0.r.f0.q.a
+    @Override // d.a.i0.r.f0.q.a
     public boolean getIsLike() {
         return isGod() ? this.godUserData.getIsLike() || this.mHadConcerned : this.is_like == 1 || this.mHadConcerned;
     }
@@ -254,7 +254,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.likeNum;
     }
 
-    @Override // d.b.i0.r.f0.q.a
+    @Override // d.a.i0.r.f0.q.a
     public int getLikeStatus() {
         return this.likeStatus;
     }
@@ -278,7 +278,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.pendantData;
     }
 
-    @Override // d.b.i0.r.f0.q.a
+    @Override // d.a.i0.r.f0.q.a
     public String getPortrait() {
         return this.portrait;
     }
@@ -319,7 +319,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.uk;
     }
 
-    @Override // d.b.i0.r.f0.q.a
+    @Override // d.a.i0.r.f0.q.a
     public String getUserId() {
         return this.userId;
     }
@@ -356,10 +356,10 @@ public class MetaData extends OrmObject implements Serializable, a {
 
     public boolean isForumBusinessAccount() {
         d dVar = this.businessAccountData;
-        return dVar != null && dVar.f52214b;
+        return dVar != null && dVar.f49882b;
     }
 
-    @Override // d.b.i0.r.f0.q.a
+    @Override // d.a.i0.r.f0.q.a
     public boolean isGod() {
         return this.isGod;
     }
@@ -375,7 +375,7 @@ public class MetaData extends OrmObject implements Serializable, a {
 
     public boolean isOfficial() {
         d dVar = this.businessAccountData;
-        return dVar != null && dVar.f52213a;
+        return dVar != null && dVar.f49881a;
     }
 
     public boolean isVideoGod() {
@@ -438,25 +438,25 @@ public class MetaData extends OrmObject implements Serializable, a {
         this.isMem = user.is_mem.intValue();
         this.mIconInfo.clear();
         if (list != null) {
-            for (int i = 0; i < list.size(); i++) {
+            for (int i2 = 0; i2 < list.size(); i2++) {
                 IconData iconData = new IconData();
-                iconData.parserProtobuf(list.get(i));
+                iconData.parserProtobuf(list.get(i2));
                 this.mIconInfo.add(iconData);
             }
         }
         this.mTShowIconInfo.clear();
         if (list2 != null) {
-            for (int i2 = 0; i2 < list2.size(); i2++) {
+            for (int i3 = 0; i3 < list2.size(); i3++) {
                 IconData iconData2 = new IconData();
-                iconData2.parserProtobuf(list2.get(i2));
+                iconData2.parserProtobuf(list2.get(i3));
                 this.mTShowIconInfo.add(iconData2);
             }
         }
         this.mTShowIconInfoNew.clear();
         if (list3 != null) {
-            for (int i3 = 0; i3 < list3.size(); i3++) {
+            for (int i4 = 0; i4 < list3.size(); i4++) {
                 IconData iconData3 = new IconData();
-                iconData3.parserProtobuf(list3.get(i3));
+                iconData3.parserProtobuf(list3.get(i4));
                 this.mTShowIconInfoNew.add(iconData3);
             }
         }
@@ -552,29 +552,29 @@ public class MetaData extends OrmObject implements Serializable, a {
         this.businessAccountData = dVar;
     }
 
-    public void setConcern_num(int i) {
-        this.concernNum = i;
+    public void setConcern_num(int i2) {
+        this.concernNum = i2;
     }
 
     public void setFansNickName(String str) {
         this.fansNickName = str;
     }
 
-    @Override // d.b.i0.r.f0.q.a
-    public void setFansNum(int i) {
-        this.fansNum = i;
+    @Override // d.a.i0.r.f0.q.a
+    public void setFansNum(int i2) {
+        this.fansNum = i2;
     }
 
     public void setForumToolAuth(List<ForumToolPerm> list) {
         this.forumToolAuth = list;
     }
 
-    public void setGender(int i) {
-        this.gender = i;
+    public void setGender(int i2) {
+        this.gender = i2;
     }
 
-    public void setGiftNum(int i) {
-        this.giftNum = i;
+    public void setGiftNum(int i2) {
+        this.giftNum = i2;
     }
 
     @Deprecated
@@ -607,7 +607,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         this.isBigV = z;
     }
 
-    @Override // d.b.i0.r.f0.q.a
+    @Override // d.a.i0.r.f0.q.a
     public void setIsFromNetWork(boolean z) {
         this.isLikeStatusFromNet = z;
         GodUserData godUserData = this.godUserData;
@@ -628,25 +628,25 @@ public class MetaData extends OrmObject implements Serializable, a {
         }
     }
 
-    public void setIsManager(int i) {
-        this.is_manager = i;
+    public void setIsManager(int i2) {
+        this.is_manager = i2;
     }
 
-    public void setLeft_call_num(int i) {
-        this.left_call_num = i;
+    public void setLeft_call_num(int i2) {
+        this.left_call_num = i2;
     }
 
-    public void setLevel_id(int i) {
-        this.level_id = i;
+    public void setLevel_id(int i2) {
+        this.level_id = i2;
     }
 
-    public void setLikeNum(int i) {
-        this.likeNum = i;
+    public void setLikeNum(int i2) {
+        this.likeNum = i2;
     }
 
-    @Override // d.b.i0.r.f0.q.a
-    public void setLikeStatus(int i) {
-        this.likeStatus = i;
+    @Override // d.a.i0.r.f0.q.a
+    public void setLikeStatus(int i2) {
+        this.likeStatus = i2;
     }
 
     public void setName_show(String str) {
@@ -685,12 +685,12 @@ public class MetaData extends OrmObject implements Serializable, a {
         this.bigVData = userTbVipInfoData;
     }
 
-    public void setThreadNum(int i) {
-        this.threadNum = i;
+    public void setThreadNum(int i2) {
+        this.threadNum = i2;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 
     public void setUk(String str) {
@@ -792,23 +792,23 @@ public class MetaData extends OrmObject implements Serializable, a {
                 optJSONObject = jSONObject.optJSONObject("god_data");
                 optJSONObject2 = jSONObject.optJSONObject("tb_vip");
                 if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         IconData iconData = new IconData();
-                        iconData.parserJson(optJSONArray.getJSONObject(i));
+                        iconData.parserJson(optJSONArray.getJSONObject(i2));
                         this.mIconInfo.add(iconData);
                     }
                 }
                 if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                         IconData iconData2 = new IconData();
-                        iconData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        iconData2.parserJson(optJSONArray2.getJSONObject(i3));
                         this.mTShowIconInfo.add(iconData2);
                     }
                 }
                 if (optJSONArray3 != null) {
-                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                    for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
                         IconData iconData3 = new IconData();
-                        iconData3.parserJson(optJSONArray3.getJSONObject(i3));
+                        iconData3.parserJson(optJSONArray3.getJSONObject(i4));
                         this.mTShowIconInfoNew.add(iconData3);
                     }
                 }
@@ -872,9 +872,9 @@ public class MetaData extends OrmObject implements Serializable, a {
                 this.forumToolAuth.clear();
                 optJSONArray4 = jSONObject.optJSONArray("forum_tool_auth");
                 if (optJSONArray4 == null) {
-                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                    for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
                         ForumToolPerm.Builder builder2 = new ForumToolPerm.Builder();
-                        builder2.perm = Long.valueOf(((JSONObject) optJSONArray4.get(i4)).optLong("perm"));
+                        builder2.perm = Long.valueOf(((JSONObject) optJSONArray4.get(i5)).optLong("perm"));
                         this.forumToolAuth.add(builder2.build(false));
                     }
                     return;

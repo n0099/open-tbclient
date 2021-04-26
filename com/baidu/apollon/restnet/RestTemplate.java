@@ -23,35 +23,35 @@ import java.util.List;
 public class RestTemplate {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3771a = "RestTemplate";
+    public static final String f3819a = "RestTemplate";
 
     /* renamed from: b  reason: collision with root package name */
-    public AbstractHttpMessageConverter<?> f3772b;
+    public AbstractHttpMessageConverter<?> f3820b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<RestHttpRequestInterceptor> f3773c;
+    public List<RestHttpRequestInterceptor> f3821c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f3774d;
+    public Context f3822d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f3775e;
+    public String f3823e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f3776f;
+    public String f3824f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f3777g;
+    public boolean f3825g;
 
     /* loaded from: classes.dex */
     public final class a implements RestHttpRequestInterceptor {
 
         /* renamed from: b  reason: collision with root package name */
-        public final Class<?> f3779b;
+        public final Class<?> f3827b;
 
         @Override // com.baidu.apollon.restnet.rest.RestHttpRequestInterceptor
         public void intercept(Context context, d dVar) {
-            if (this.f3779b != null) {
+            if (this.f3827b != null) {
                 ArrayList arrayList = new ArrayList();
                 if (arrayList.isEmpty()) {
                     return;
@@ -70,7 +70,7 @@ public class RestTemplate {
         }
 
         public a(Class<?> cls) {
-            this.f3779b = cls;
+            this.f3827b = cls;
         }
     }
 
@@ -79,11 +79,11 @@ public class RestTemplate {
     }
 
     public List<RestHttpRequestInterceptor> a() {
-        return this.f3773c;
+        return this.f3821c;
     }
 
     public AbstractHttpMessageConverter<?> b() {
-        return this.f3772b;
+        return this.f3820b;
     }
 
     public <T> T c(String str, List<RestNameValuePair> list, String str2, Class<T> cls, boolean z) throws RestRuntimeException {
@@ -115,11 +115,11 @@ public class RestTemplate {
     }
 
     public void setMessageConverter(AbstractHttpMessageConverter<?> abstractHttpMessageConverter) {
-        this.f3772b = abstractHttpMessageConverter;
+        this.f3820b = abstractHttpMessageConverter;
     }
 
     public void setRequestInterceptor(List<RestHttpRequestInterceptor> list) {
-        this.f3773c = list;
+        this.f3821c = list;
     }
 
     public RestTemplate(Context context, String str, String str2) {
@@ -127,7 +127,7 @@ public class RestTemplate {
     }
 
     public void a(boolean z) {
-        this.f3777g = z;
+        this.f3825g = z;
     }
 
     public <T> RestResponseEntity<T> b(String str, List<RestNameValuePair> list, String str2, Class<T> cls, boolean z) throws RestRuntimeException {
@@ -140,15 +140,15 @@ public class RestTemplate {
     }
 
     public RestTemplate(boolean z, Context context, String str, String str2) {
-        this.f3772b = null;
-        this.f3773c = new ArrayList();
-        this.f3774d = null;
-        this.f3775e = null;
-        this.f3776f = "";
-        this.f3777g = true;
-        this.f3776f = str2;
-        this.f3774d = context.getApplicationContext();
-        this.f3775e = str;
+        this.f3820b = null;
+        this.f3821c = new ArrayList();
+        this.f3822d = null;
+        this.f3823e = null;
+        this.f3824f = "";
+        this.f3825g = true;
+        this.f3824f = str2;
+        this.f3822d = context.getApplicationContext();
+        this.f3823e = str;
     }
 
     public <T> T a(String str, List<RestNameValuePair> list, String str2, Class<T> cls, boolean z) throws RestRuntimeException {
@@ -234,9 +234,9 @@ public class RestTemplate {
             }
             LogUtil.d("RestTemplate", sb.toString());
         }
-        d a2 = c.a().a(this.f3774d, this.f3776f, this.f3775e, str, httpMethod, list, restMultipartEntity, str2, z);
+        d a2 = c.a().a(this.f3822d, this.f3824f, this.f3823e, str, httpMethod, list, restMultipartEntity, str2, z);
         for (RestHttpRequestInterceptor restHttpRequestInterceptor : a()) {
-            restHttpRequestInterceptor.intercept(this.f3774d, a2);
+            restHttpRequestInterceptor.intercept(this.f3822d, a2);
         }
         return a2;
     }
@@ -249,7 +249,7 @@ public class RestTemplate {
             if (port > 0) {
                 String str = host + ":" + port;
             }
-            if (this.f3777g) {
+            if (this.f3825g) {
                 ((RestUrlConnectionRequest) dVar).b(RestHttpDNSEnabler.a(url));
             }
             dVar.a(url.toString());

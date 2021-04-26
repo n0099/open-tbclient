@@ -2,18 +2,18 @@ package com.baidu.tieba.signall;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.j0.z2.c;
+import d.a.j0.z2.c;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GetForumResponsed extends JsonHttpResponsedMessage {
     public c listData;
 
-    public GetForumResponsed(int i) {
-        super(i);
+    public GetForumResponsed(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) {
         if (getError() != 0 || jSONObject == null) {
             return;
         }

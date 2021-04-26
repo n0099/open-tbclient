@@ -6,7 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class SwanRelayActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {

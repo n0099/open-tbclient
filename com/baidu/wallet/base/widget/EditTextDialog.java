@@ -11,7 +11,7 @@ import com.baidu.apollon.utils.ResUtils;
 public class EditTextDialog extends BaseDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f23500a;
+    public TextView f24226a;
     public PluginEditText mContentEditText;
 
     public EditTextDialog(Context context) {
@@ -40,45 +40,45 @@ public class EditTextDialog extends BaseDialog {
             }
 
             @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             }
 
             @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             }
         });
-        this.f23500a = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_text_msg"));
+        this.f24226a = (TextView) findViewById(ResUtils.id(this.mContext, "dialog_text_msg"));
     }
 
-    public void setHint(int i) {
-        this.mContentEditText.setHint(i);
+    public void setHint(int i2) {
+        this.mContentEditText.setHint(i2);
     }
 
-    public void setSelection(int i) {
-        this.mContentEditText.setSelection(i);
+    public void setSelection(int i2) {
+        this.mContentEditText.setSelection(i2);
     }
 
     public void setText(String str) {
         this.mContentEditText.setText(str);
     }
 
-    public void setTextColor(int i) {
-        this.f23500a.setTextColor(i);
+    public void setTextColor(int i2) {
+        this.f24226a.setTextColor(i2);
     }
 
     public void setTipsText(String str) {
-        this.f23500a.setText(str);
+        this.f24226a.setText(str);
     }
 
-    public EditTextDialog(Context context, int i) {
-        super(context, i);
+    public EditTextDialog(Context context, int i2) {
+        super(context, i2);
     }
 
     public void setHint(String str) {
         this.mContentEditText.setHint(str);
     }
 
-    public void setTipsText(int i) {
-        this.f23500a.setText(i);
+    public void setTipsText(int i2) {
+        this.f24226a.setText(i2);
     }
 }

@@ -3,19 +3,16 @@ package androidx.appcompat.view.menu;
 import android.content.Context;
 import android.view.MenuItem;
 import android.view.SubMenu;
-import androidx.collection.ArrayMap;
+import androidx.collection.SimpleArrayMap;
 import androidx.core.internal.view.SupportMenuItem;
 import androidx.core.internal.view.SupportSubMenu;
-import java.util.Iterator;
-import java.util.Map;
 /* loaded from: classes.dex */
-public abstract class BaseMenuWrapper<T> extends BaseWrapper<T> {
+public abstract class BaseMenuWrapper {
     public final Context mContext;
-    public Map<SupportMenuItem, MenuItem> mMenuItems;
-    public Map<SupportSubMenu, SubMenu> mSubMenus;
+    public SimpleArrayMap<SupportMenuItem, MenuItem> mMenuItems;
+    public SimpleArrayMap<SupportSubMenu, SubMenu> mSubMenus;
 
-    public BaseMenuWrapper(Context context, T t) {
-        super(t);
+    public BaseMenuWrapper(Context context) {
         this.mContext = context;
     }
 
@@ -23,13 +20,13 @@ public abstract class BaseMenuWrapper<T> extends BaseWrapper<T> {
         if (menuItem instanceof SupportMenuItem) {
             SupportMenuItem supportMenuItem = (SupportMenuItem) menuItem;
             if (this.mMenuItems == null) {
-                this.mMenuItems = new ArrayMap();
+                this.mMenuItems = new SimpleArrayMap<>();
             }
             MenuItem menuItem2 = this.mMenuItems.get(menuItem);
             if (menuItem2 == null) {
-                MenuItem wrapSupportMenuItem = MenuWrapperFactory.wrapSupportMenuItem(this.mContext, supportMenuItem);
-                this.mMenuItems.put(supportMenuItem, wrapSupportMenuItem);
-                return wrapSupportMenuItem;
+                MenuItemWrapperICS menuItemWrapperICS = new MenuItemWrapperICS(this.mContext, supportMenuItem);
+                this.mMenuItems.put(supportMenuItem, menuItemWrapperICS);
+                return menuItemWrapperICS;
             }
             return menuItem2;
         }
@@ -40,13 +37,13 @@ public abstract class BaseMenuWrapper<T> extends BaseWrapper<T> {
         if (subMenu instanceof SupportSubMenu) {
             SupportSubMenu supportSubMenu = (SupportSubMenu) subMenu;
             if (this.mSubMenus == null) {
-                this.mSubMenus = new ArrayMap();
+                this.mSubMenus = new SimpleArrayMap<>();
             }
             SubMenu subMenu2 = this.mSubMenus.get(supportSubMenu);
             if (subMenu2 == null) {
-                SubMenu wrapSupportSubMenu = MenuWrapperFactory.wrapSupportSubMenu(this.mContext, supportSubMenu);
-                this.mSubMenus.put(supportSubMenu, wrapSupportSubMenu);
-                return wrapSupportSubMenu;
+                SubMenuWrapperICS subMenuWrapperICS = new SubMenuWrapperICS(this.mContext, supportSubMenu);
+                this.mSubMenus.put(supportSubMenu, subMenuWrapperICS);
+                return subMenuWrapperICS;
             }
             return subMenu2;
         }
@@ -54,38 +51,37 @@ public abstract class BaseMenuWrapper<T> extends BaseWrapper<T> {
     }
 
     public final void internalClear() {
-        Map<SupportMenuItem, MenuItem> map = this.mMenuItems;
-        if (map != null) {
-            map.clear();
+        SimpleArrayMap<SupportMenuItem, MenuItem> simpleArrayMap = this.mMenuItems;
+        if (simpleArrayMap != null) {
+            simpleArrayMap.clear();
         }
-        Map<SupportSubMenu, SubMenu> map2 = this.mSubMenus;
-        if (map2 != null) {
-            map2.clear();
+        SimpleArrayMap<SupportSubMenu, SubMenu> simpleArrayMap2 = this.mSubMenus;
+        if (simpleArrayMap2 != null) {
+            simpleArrayMap2.clear();
         }
     }
 
-    public final void internalRemoveGroup(int i) {
-        Map<SupportMenuItem, MenuItem> map = this.mMenuItems;
-        if (map == null) {
+    public final void internalRemoveGroup(int i2) {
+        if (this.mMenuItems == null) {
             return;
         }
-        Iterator<SupportMenuItem> it = map.keySet().iterator();
-        while (it.hasNext()) {
-            if (i == it.next().getGroupId()) {
-                it.remove();
+        int i3 = 0;
+        while (i3 < this.mMenuItems.size()) {
+            if (this.mMenuItems.keyAt(i3).getGroupId() == i2) {
+                this.mMenuItems.removeAt(i3);
+                i3--;
             }
+            i3++;
         }
     }
 
-    public final void internalRemoveItem(int i) {
-        Map<SupportMenuItem, MenuItem> map = this.mMenuItems;
-        if (map == null) {
+    public final void internalRemoveItem(int i2) {
+        if (this.mMenuItems == null) {
             return;
         }
-        Iterator<SupportMenuItem> it = map.keySet().iterator();
-        while (it.hasNext()) {
-            if (i == it.next().getItemId()) {
-                it.remove();
+        for (int i3 = 0; i3 < this.mMenuItems.size(); i3++) {
+            if (this.mMenuItems.keyAt(i3).getItemId() == i2) {
+                this.mMenuItems.removeAt(i3);
                 return;
             }
         }

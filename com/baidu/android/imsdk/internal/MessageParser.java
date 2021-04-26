@@ -27,8 +27,8 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import d.b.r.a;
-import d.b.s.a.b.d.b;
+import d.a.r.a;
+import d.a.s.a.b.d.b;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -48,10 +48,10 @@ public class MessageParser {
         public ChatMsg msg;
         public boolean msgIsNull;
 
-        public DuParser(Context context, String str, int i) {
+        public DuParser(Context context, String str, int i2) {
             this.context = context;
             this.content = str;
-            this.category = i;
+            this.category = i2;
         }
 
         public ChatMsg getMsg() {
@@ -64,10 +64,10 @@ public class MessageParser {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public DuParser invokeParse() throws Exception {
-            int i;
-            String str;
             int i2;
+            String str;
             int i3;
+            int i4;
             ChatMsg newChatMsg;
             JSONObject jSONObject = new JSONObject(this.content);
             String optString = jSONObject.optString("text");
@@ -90,35 +90,35 @@ public class MessageParser {
                                 JSONObject jSONObject4 = new JSONObject();
                                 jSONObject4.put("text", jSONObject3.optString("body"));
                                 optString5 = jSONObject4.toString();
-                                i = optInt;
+                                i2 = optInt;
                                 str = MessageParser.TAG;
-                                i3 = 0;
+                                i4 = 0;
                             } else if (optInt3 == 0) {
                                 JSONArray jSONArray = new JSONArray(jSONObject3.optString("body"));
-                                i2 = optInt2;
+                                i3 = optInt2;
                                 if (jSONArray.length() > 1) {
                                     JSONArray jSONArray2 = new JSONArray();
-                                    int i4 = 0;
-                                    while (i4 < jSONArray.length()) {
-                                        JSONObject optJSONObject = jSONArray.optJSONObject(i4);
+                                    int i5 = 0;
+                                    while (i5 < jSONArray.length()) {
+                                        JSONObject optJSONObject = jSONArray.optJSONObject(i5);
                                         String str3 = str2;
                                         JSONObject jSONObject5 = new JSONObject();
                                         jSONObject5.put("title", optJSONObject.optString("title"));
                                         jSONObject5.put("article_url", optJSONObject.optString("url"));
                                         jSONObject5.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, optJSONObject.optString("headImage"));
                                         jSONArray2.put(jSONObject5);
-                                        i4++;
+                                        i5++;
                                         str2 = str3;
                                         optInt = optInt;
                                     }
-                                    i = optInt;
+                                    i2 = optInt;
                                     str = str2;
                                     JSONObject jSONObject6 = new JSONObject();
                                     jSONObject6.put("articles", jSONArray2);
                                     optString5 = jSONObject6.toString();
-                                    i3 = 9;
+                                    i4 = 9;
                                 } else {
-                                    i = optInt;
+                                    i2 = optInt;
                                     str = MessageParser.TAG;
                                     if (jSONArray.length() == 1) {
                                         JSONObject optJSONObject2 = jSONArray.optJSONObject(0);
@@ -127,12 +127,12 @@ public class MessageParser {
                                         jSONObject7.put("article_url", optJSONObject2.optString("url"));
                                         jSONObject7.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, optJSONObject2.optString("headImage"));
                                         optString5 = jSONObject7.toString();
-                                        i3 = 8;
+                                        i4 = 8;
                                     }
-                                    i3 = i2;
+                                    i4 = i3;
                                 }
                             }
-                            newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, i3, -1);
+                            newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, i4, -1);
                             this.msg = newChatMsg;
                             if (newChatMsg != null) {
                                 this.msgIsNull = true;
@@ -170,23 +170,23 @@ public class MessageParser {
                                 } else if (optInt4 == 20) {
                                     this.msg.setChatType(20);
                                 }
-                                this.msg.setMsgType(i3);
-                                if (i3 == 18) {
+                                this.msg.setMsgType(i4);
+                                if (i4 == 18) {
                                     ((HtmlMsg) this.msg).setDesc(jSONObject2.optString("description"));
                                 }
                                 this.jsonParseResult = this.msg.setMsgContentFromServer(optString5);
                                 this.msg.setmExtJson(optString6);
                                 this.msg.setServiceType(optString2);
-                                this.msg.setTemplateType(i);
+                                this.msg.setTemplateType(i2);
                             } else {
                                 LogUtils.e(str, "duzhan msg parse error! ext in content is null!");
                             }
                         }
-                        i = optInt;
+                        i2 = optInt;
                         str = MessageParser.TAG;
-                        i2 = optInt2;
-                        i3 = i2;
-                        newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, i3, -1);
+                        i3 = optInt2;
+                        i4 = i3;
+                        newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, i4, -1);
                         this.msg = newChatMsg;
                         if (newChatMsg != null) {
                         }
@@ -219,9 +219,9 @@ public class MessageParser {
         LogUtils.d(TAG, "ack> will get remote pa, ids=" + arrayList2.toString());
         PaManager.getPaInfos(context, arrayList2, new IGetPaInfosListener() { // from class: com.baidu.android.imsdk.internal.MessageParser.2
             @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
-            public void onResult(int i, String str, ArrayList<PaInfo> arrayList3) {
-                LogUtils.d(MessageParser.TAG, "ack> get remote painfos, responseCode=" + i + ", strMsg=" + str);
-                if (i != 0 || arrayList3 == null || arrayList3.size() <= 0) {
+            public void onResult(int i2, String str, ArrayList<PaInfo> arrayList3) {
+                LogUtils.d(MessageParser.TAG, "ack> get remote painfos, responseCode=" + i2 + ", strMsg=" + str);
+                if (i2 != 0 || arrayList3 == null || arrayList3.size() <= 0) {
                     return;
                 }
                 LogUtils.d(MessageParser.TAG, "ack> get remote pa, painfos size=" + arrayList3.size());
@@ -236,8 +236,8 @@ public class MessageParser {
         });
     }
 
-    public static String getPaPage(int i, int i2) {
-        return i2 == 16 ? Constants.PAGE_SHANGXIONGHAO_NAME : i2 == 21 ? Constants.PAGE_XIAOCHENGXUKEFU_NAME : i == 7 ? Constants.PAGE_BAIJIAHAO_NAME : i == 17 ? Constants.PAGE_FUWUXIAOXI_NAME : (i == 1 || i == 5) ? Constants.PAGE_SHOWBAIFUWUHAO_NAME : (i == 19 || i == 6 || i == 29) ? Constants.PAGE_HUDONG_NAME : "";
+    public static String getPaPage(int i2, int i3) {
+        return i3 == 16 ? Constants.PAGE_SHANGXIONGHAO_NAME : i3 == 21 ? Constants.PAGE_XIAOCHENGXUKEFU_NAME : i2 == 7 ? Constants.PAGE_BAIJIAHAO_NAME : i2 == 17 ? Constants.PAGE_FUWUXIAOXI_NAME : (i2 == 1 || i2 == 5) ? Constants.PAGE_SHOWBAIFUWUHAO_NAME : (i2 == 19 || i2 == 6 || i2 == 29) ? Constants.PAGE_HUDONG_NAME : "";
     }
 
     public static synchronized List<NewAckMessage.Tripule> handleAck(Context context, ArrayList<ChatMsg> arrayList, boolean z) {
@@ -273,7 +273,7 @@ public class MessageParser {
     /* JADX WARN: Type inference failed for: r0v9, types: [T, java.lang.Long] */
     /* JADX WARN: Type inference failed for: r1v10 */
     /* JADX WARN: Type inference failed for: r1v6 */
-    /* JADX WARN: Type inference failed for: r1v7, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r1v7, types: [int, boolean] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -282,8 +282,8 @@ public class MessageParser {
         String str;
         long j;
         long j2;
-        int i;
         int i2;
+        int i3;
         boolean z2;
         DuParser invokeParse;
         ChatMsg msg;
@@ -314,15 +314,15 @@ public class MessageParser {
                     msg = newChatMsg;
                 } else if (optInt != 2) {
                     if (optInt == 3) {
-                        int i3 = jSONObject.getInt("cmd");
-                        msg = ChatMsgFactory.getInstance().newChatMsg(context, 3, -1, i3);
+                        int i4 = jSONObject.getInt("cmd");
+                        msg = ChatMsgFactory.getInstance().newChatMsg(context, 3, -1, i4);
                         if (msg == null) {
                             return msg;
                         }
                         msg.setCategory(optInt);
                         msg.setContacter(optLong4);
                         msg.setFromUser(optLong2);
-                        msg.setNotifyCmd(i3);
+                        msg.setNotifyCmd(i4);
                         isJsonParseResult = msg.setMsgContentFromServer(optString);
                     } else if (optInt == 4) {
                         int optInt3 = jSONObject.optInt("type");
@@ -362,8 +362,8 @@ public class MessageParser {
                     }
                     str = "";
                 } else {
-                    int i4 = jSONObject.getInt("cmd");
-                    ChatMsg newChatMsg2 = ChatMsgFactory.getInstance().newChatMsg(context, optInt, -1, i4);
+                    int i5 = jSONObject.getInt("cmd");
+                    ChatMsg newChatMsg2 = ChatMsgFactory.getInstance().newChatMsg(context, optInt, -1, i5);
                     if (newChatMsg2 == null) {
                         return newChatMsg2;
                     }
@@ -371,7 +371,7 @@ public class MessageParser {
                     newChatMsg2.setContacter(optLong4);
                     newChatMsg2.setFromUser(optLong2);
                     boolean msgContentFromServer = newChatMsg2.setMsgContentFromServer(optString);
-                    newChatMsg2.setNotifyCmd(i4);
+                    newChatMsg2.setNotifyCmd(i5);
                     ChatMsg handleSysChatMsg = handleSysChatMsg(newChatMsg2);
                     handleSysChatMsg.setMsgType(-1);
                     msg = handleSysChatMsg;
@@ -389,16 +389,16 @@ public class MessageParser {
                 try {
                     j2 = optLong6;
                     try {
-                        i = new JSONObject(optString).optInt(TableDefine.MessageColumns.COLUME_TEMPLATE, 0);
+                        i2 = new JSONObject(optString).optInt(TableDefine.MessageColumns.COLUME_TEMPLATE, 0);
                     } catch (JSONException e2) {
                         e = e2;
                         LogUtils.e(TAG, "parserMessage template_type:", e);
-                        i = 0;
+                        i2 = 0;
                         if (optInt5 == 80) {
                         }
-                        i2 = 2;
+                        i3 = 2;
                         z2 = false;
-                        if (i != i2) {
+                        if (i2 != i3) {
                         }
                         if (z2) {
                         }
@@ -418,17 +418,17 @@ public class MessageParser {
                     e = e4;
                     j2 = optLong6;
                 }
-                if (((optInt5 == 80 || optInt6 == 11) && !(optInt5 == 0 && optInt6 == 10)) || i != 0) {
-                    i2 = 2;
+                if (((optInt5 == 80 || optInt6 == 11) && !(optInt5 == 0 && optInt6 == 10)) || i2 != 0) {
+                    i3 = 2;
                     z2 = false;
                 } else {
-                    i2 = 2;
+                    i3 = 2;
                     z2 = true;
                 }
-                boolean z3 = i != i2 || i == 3;
+                boolean z3 = i2 != i3 || i2 == 3;
                 try {
                     if (z2 && !z3) {
-                        if ((i == 1 || i == 4) && optInt5 == 80) {
+                        if ((i2 == 1 || i2 == 4) && optInt5 == 80) {
                             optInt5 = 0;
                         }
                         ChatMsg newChatMsg3 = ChatMsgFactory.getInstance().newChatMsg(context, optInt, optInt5, -1);
@@ -437,7 +437,7 @@ public class MessageParser {
                         }
                         newChatMsg3.setMsgType(optInt5);
                         boolean msgContentFromServer2 = newChatMsg3.setMsgContentFromServer(optString);
-                        newChatMsg3.setTemplateType(i);
+                        newChatMsg3.setTemplateType(i2);
                         if (newChatMsg3.isDumiMessage()) {
                             newChatMsg3.setChatType(100);
                             LogUtils.d(TAG, "setchattype as dumi " + newChatMsg3.getMsgId());
@@ -537,20 +537,20 @@ public class MessageParser {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
                 final NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                 newAckMessage.addTriples(list2);
-                if (a.f65510e) {
+                if (a.f63831e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
-                    bLCPRequest.f6413a = 2L;
-                    bLCPRequest.f6414b = 95L;
-                    bLCPRequest.f6415c = newAckMessage.getBody().getBytes();
-                    bLCPRequest.f6416d = System.nanoTime();
-                    d.b.s.a.b.a.c(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.internal.MessageParser.3
-                        @Override // d.b.s.a.b.d.b
-                        public void onResponse(int i, String str, long j2, long j3, long j4, byte[] bArr) {
-                            LogUtils.d(MessageParser.TAG, "MessageParser Ack Response err :" + i + ", methodId :" + j3 + ", data :" + bArr.length);
+                    bLCPRequest.f6598a = 2L;
+                    bLCPRequest.f6599b = 95L;
+                    bLCPRequest.f6600c = newAckMessage.getBody().getBytes();
+                    bLCPRequest.f6601d = System.nanoTime();
+                    d.a.s.a.b.a.c(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.internal.MessageParser.3
+                        @Override // d.a.s.a.b.d.b
+                        public void onResponse(int i2, String str, long j2, long j3, long j4, byte[] bArr) {
+                            LogUtils.d(MessageParser.TAG, "MessageParser Ack Response err :" + i2 + ", methodId :" + j3 + ", data :" + bArr.length);
                             if (j3 == 95) {
                                 try {
-                                    NewAckMessage.this.handleMessageResult(context, new JSONObject(new String(bArr)), i, str);
-                                    if (i != 0) {
+                                    NewAckMessage.this.handleMessageResult(context, new JSONObject(new String(bArr)), i2, str);
+                                    if (i2 != 0) {
                                         LogUtils.d(MessageParser.TAG, "ack failed，retry~~");
                                         AckHandlerThread.getInstance(context).getAckHandler().sendMessageDelayed(AckMessage.getSendMessage(1, NewAckMessage.this), 1000L);
                                     }
@@ -883,8 +883,8 @@ public class MessageParser {
             try {
                 Type type2 = new Type();
                 type2.t = 0L;
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    ChatMsg parserMessage = parserMessage(context, jSONArray.getJSONObject(i), type2, z);
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    ChatMsg parserMessage = parserMessage(context, jSONArray.getJSONObject(i2), type2, z);
                     if (type.t.longValue() < ((Long) type2.t).longValue()) {
                         type.t = type2.t;
                     }

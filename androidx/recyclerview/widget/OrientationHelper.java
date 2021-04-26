@@ -85,20 +85,20 @@ public abstract class OrientationHelper {
             }
 
             @Override // androidx.recyclerview.widget.OrientationHelper
-            public void offsetChild(View view, int i) {
-                view.offsetLeftAndRight(i);
+            public void offsetChild(View view, int i2) {
+                view.offsetLeftAndRight(i2);
             }
 
             @Override // androidx.recyclerview.widget.OrientationHelper
-            public void offsetChildren(int i) {
-                this.mLayoutManager.offsetChildrenHorizontal(i);
+            public void offsetChildren(int i2) {
+                this.mLayoutManager.offsetChildrenHorizontal(i2);
             }
         };
     }
 
-    public static OrientationHelper createOrientationHelper(RecyclerView.LayoutManager layoutManager, int i) {
-        if (i != 0) {
-            if (i == 1) {
+    public static OrientationHelper createOrientationHelper(RecyclerView.LayoutManager layoutManager, int i2) {
+        if (i2 != 0) {
+            if (i2 == 1) {
                 return createVerticalHelper(layoutManager);
             }
             throw new IllegalArgumentException("invalid orientation");
@@ -178,13 +178,13 @@ public abstract class OrientationHelper {
             }
 
             @Override // androidx.recyclerview.widget.OrientationHelper
-            public void offsetChild(View view, int i) {
-                view.offsetTopAndBottom(i);
+            public void offsetChild(View view, int i2) {
+                view.offsetTopAndBottom(i2);
             }
 
             @Override // androidx.recyclerview.widget.OrientationHelper
-            public void offsetChildren(int i) {
-                this.mLayoutManager.offsetChildrenVertical(i);
+            public void offsetChildren(int i2) {
+                this.mLayoutManager.offsetChildrenVertical(i2);
             }
         };
     }
@@ -226,9 +226,9 @@ public abstract class OrientationHelper {
 
     public abstract int getTransformedStartWithDecoration(View view);
 
-    public abstract void offsetChild(View view, int i);
+    public abstract void offsetChild(View view, int i2);
 
-    public abstract void offsetChildren(int i);
+    public abstract void offsetChildren(int i2);
 
     public void onLayoutComplete() {
         this.mLastTotalSpace = getTotalSpace();

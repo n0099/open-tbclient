@@ -33,7 +33,7 @@ public class e extends com.bytedance.sdk.openadsdk.f.a.e<JSONObject, JSONObject>
                 return jSONObject2;
             }
             u.b("GetDownloadStatusMethod", "GetDownloadStatusMethod analysisJson downloadId " + optString);
-            JSONObject a2 = a.C0323a.a(optString);
+            JSONObject a2 = a.C0316a.a(optString);
             u.b("GetDownloadStatusMethod", "GetDownloadStatusMethod analysisJson downloadJson " + a2.toString());
             return a2;
         } catch (Throwable unused) {
@@ -41,15 +41,15 @@ public class e extends com.bytedance.sdk.openadsdk.f.a.e<JSONObject, JSONObject>
         }
     }
 
-    public static void a(JSONObject jSONObject, int i, String str, int i2, int i3) {
+    public static void a(JSONObject jSONObject, int i2, String str, int i3, int i4) {
         if (jSONObject == null) {
             return;
         }
         try {
-            jSONObject.put("code", i);
+            jSONObject.put("code", i2);
             jSONObject.put("codeMsg", str);
-            jSONObject.put("downloadStatus", i2);
-            jSONObject.put("downloadProcessRate", i3);
+            jSONObject.put("downloadStatus", i3);
+            jSONObject.put("downloadProcessRate", i4);
         } catch (Exception unused) {
             u.b("GetDownloadStatusMethod", str);
         }

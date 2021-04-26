@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.SeekBar;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoMiddleNiaiControllerView extends VideoControllerView {
     public VideoMiddleNiaiControllerView(Context context) {
         super(context);
@@ -36,7 +36,7 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
         super(context, attributeSet);
     }
 
-    public VideoMiddleNiaiControllerView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public VideoMiddleNiaiControllerView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

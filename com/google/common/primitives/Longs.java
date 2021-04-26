@@ -2,7 +2,7 @@ package com.google.common.primitives;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.google.common.base.Converter;
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.Arrays;
@@ -27,8 +27,8 @@ public final class Longs {
         @Override // java.util.Comparator
         public int compare(long[] jArr, long[] jArr2) {
             int min = Math.min(jArr.length, jArr2.length);
-            for (int i = 0; i < min; i++) {
-                int c2 = Longs.c(jArr[i], jArr2[i]);
+            for (int i2 = 0; i2 < min; i2++) {
+                int c2 = Longs.c(jArr[i2], jArr2[i2]);
                 if (c2 != 0) {
                     return c2;
                 }
@@ -64,8 +64,8 @@ public final class Longs {
                 if (longArrayAsList.size() != size) {
                     return false;
                 }
-                for (int i = 0; i < size; i++) {
-                    if (this.array[this.start + i] != longArrayAsList.array[longArrayAsList.start + i]) {
+                for (int i2 = 0; i2 < size; i2++) {
+                    if (this.array[this.start + i2] != longArrayAsList.array[longArrayAsList.start + i2]) {
                         return false;
                     }
                 }
@@ -76,11 +76,11 @@ public final class Longs {
 
         @Override // java.util.AbstractList, java.util.Collection, java.util.List
         public int hashCode() {
-            int i = 1;
-            for (int i2 = this.start; i2 < this.end; i2++) {
-                i = (i * 31) + Longs.e(this.array[i2]);
+            int i2 = 1;
+            for (int i3 = this.start; i3 < this.end; i3++) {
+                i2 = (i2 * 31) + Longs.e(this.array[i3]);
             }
-            return i;
+            return i2;
         }
 
         @Override // java.util.AbstractList, java.util.List
@@ -112,14 +112,14 @@ public final class Longs {
         }
 
         @Override // java.util.AbstractList, java.util.List
-        public List<Long> subList(int i, int i2) {
-            n.v(i, i2, size());
-            if (i == i2) {
+        public List<Long> subList(int i2, int i3) {
+            n.v(i2, i3, size());
+            if (i2 == i3) {
                 return Collections.emptyList();
             }
             long[] jArr = this.array;
-            int i3 = this.start;
-            return new LongArrayAsList(jArr, i + i3, i3 + i2);
+            int i4 = this.start;
+            return new LongArrayAsList(jArr, i2 + i4, i4 + i3);
         }
 
         public long[] toLongArray() {
@@ -131,12 +131,12 @@ public final class Longs {
             StringBuilder sb = new StringBuilder(size() * 10);
             sb.append('[');
             sb.append(this.array[this.start]);
-            int i = this.start;
+            int i2 = this.start;
             while (true) {
-                i++;
-                if (i < this.end) {
+                i2++;
+                if (i2 < this.end) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(this.array[i]);
+                    sb.append(this.array[i2]);
                 } else {
                     sb.append(']');
                     return sb.toString();
@@ -144,28 +144,28 @@ public final class Longs {
             }
         }
 
-        public LongArrayAsList(long[] jArr, int i, int i2) {
+        public LongArrayAsList(long[] jArr, int i2, int i3) {
             this.array = jArr;
-            this.start = i;
-            this.end = i2;
+            this.start = i2;
+            this.end = i3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Long get(int i) {
-            n.n(i, size());
-            return Long.valueOf(this.array[this.start + i]);
+        public Long get(int i2) {
+            n.n(i2, size());
+            return Long.valueOf(this.array[this.start + i2]);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Long set(int i, Long l) {
-            n.n(i, size());
+        public Long set(int i2, Long l) {
+            n.n(i2, size());
             long[] jArr = this.array;
-            int i2 = this.start;
-            long j = jArr[i2 + i];
+            int i3 = this.start;
+            long j = jArr[i3 + i2];
             n.p(l);
-            jArr[i2 + i] = l.longValue();
+            jArr[i3 + i2] = l.longValue();
             return Long.valueOf(j);
         }
     }
@@ -197,11 +197,11 @@ public final class Longs {
     }
 
     public static int c(long j, long j2) {
-        int i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
-        if (i < 0) {
+        int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+        if (i2 < 0) {
             return -1;
         }
-        return i > 0 ? 1 : 0;
+        return i2 > 0 ? 1 : 0;
     }
 
     public static long d(byte b2, byte b3, byte b4, byte b5, byte b6, byte b7, byte b8, byte b9) {
@@ -212,20 +212,20 @@ public final class Longs {
         return (int) (j ^ (j >>> 32));
     }
 
-    public static int f(long[] jArr, long j, int i, int i2) {
-        while (i < i2) {
-            if (jArr[i] == j) {
-                return i;
+    public static int f(long[] jArr, long j, int i2, int i3) {
+        while (i2 < i3) {
+            if (jArr[i2] == j) {
+                return i2;
             }
-            i++;
+            i2++;
         }
         return -1;
     }
 
-    public static int g(long[] jArr, long j, int i, int i2) {
-        for (int i3 = i2 - 1; i3 >= i; i3--) {
-            if (jArr[i3] == j) {
-                return i3;
+    public static int g(long[] jArr, long j, int i2, int i3) {
+        for (int i4 = i3 - 1; i4 >= i2; i4--) {
+            if (jArr[i4] == j) {
+                return i4;
             }
         }
         return -1;
@@ -238,10 +238,10 @@ public final class Longs {
         Object[] array = collection.toArray();
         int length = array.length;
         long[] jArr = new long[length];
-        for (int i = 0; i < length; i++) {
-            Object obj = array[i];
+        for (int i2 = 0; i2 < length; i2++) {
+            Object obj = array[i2];
             n.p(obj);
-            jArr[i] = ((Number) obj).longValue();
+            jArr[i2] = ((Number) obj).longValue();
         }
         return jArr;
     }

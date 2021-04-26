@@ -40,8 +40,8 @@ public class CustomDialogData implements IBaseDialogData {
         customDialogData.body = jSONObject.optString("body");
         JSONArray optJSONArray = jSONObject.optJSONArray("button");
         if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                 Button button = new Button();
                 button.text = optJSONObject2.optString("text");
                 button.action = optJSONObject2.optString("action");

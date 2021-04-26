@@ -56,7 +56,7 @@ public class PmsManagerImpl implements IPmsManager {
 
     @Override // com.baidu.searchbox.pms.init.IPmsManager
     public boolean isInDegradeList(String str, String str2) {
-        return RequestDataUtils.isPackageNameDegrade(str, str2);
+        return RequestDataUtils.isPackageNameDegrade("aps", str, str2) || RequestDataUtils.isPackageNameDegrade(ApsCloudControlProcessor.SERVER_DPM, str, str2);
     }
 
     @Override // com.baidu.searchbox.pms.init.IPmsManager

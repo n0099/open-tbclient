@@ -46,20 +46,40 @@ public final class ArraysKt___ArraysJvmKt$asList$6 extends AbstractList<Double> 
     }
 
     public boolean contains(double d2) {
-        return ArraysKt___ArraysKt.contains(this.$this_asList, d2);
+        double[] dArr = this.$this_asList;
+        int length = dArr.length;
+        for (int i2 = 0; i2 < length; i2++) {
+            if (Double.doubleToLongBits(dArr[i2]) == Double.doubleToLongBits(d2)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.collections.AbstractList, java.util.List
-    public Double get(int i) {
-        return Double.valueOf(this.$this_asList[i]);
+    public Double get(int i2) {
+        return Double.valueOf(this.$this_asList[i2]);
     }
 
     public int indexOf(double d2) {
-        return ArraysKt___ArraysKt.indexOf(this.$this_asList, d2);
+        double[] dArr = this.$this_asList;
+        int length = dArr.length;
+        for (int i2 = 0; i2 < length; i2++) {
+            if (Double.doubleToLongBits(dArr[i2]) == Double.doubleToLongBits(d2)) {
+                return i2;
+            }
+        }
+        return -1;
     }
 
     public int lastIndexOf(double d2) {
-        return ArraysKt___ArraysKt.lastIndexOf(this.$this_asList, d2);
+        double[] dArr = this.$this_asList;
+        for (int length = dArr.length - 1; length >= 0; length--) {
+            if (Double.doubleToLongBits(dArr[length]) == Double.doubleToLongBits(d2)) {
+                return length;
+            }
+        }
+        return -1;
     }
 }

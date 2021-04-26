@@ -25,13 +25,13 @@ public class RTCAudioSamples extends JavaAudioDeviceModule.AudioSamples {
         void onRtcAudioRecordSamplesReady(RTCAudioSamples rTCAudioSamples);
     }
 
-    public RTCAudioSamples(int i, int i2, int i3, byte[] bArr) {
-        super(i, i2, i3, bArr);
+    public RTCAudioSamples(int i2, int i3, int i4, byte[] bArr) {
+        super(i2, i3, i4, bArr);
         this.captureTime = 0L;
     }
 
-    public RTCAudioSamples(int i, int i2, int i3, byte[] bArr, long j) {
-        super(i, i2, i3, bArr);
+    public RTCAudioSamples(int i2, int i3, int i4, byte[] bArr, long j) {
+        super(i2, i3, i4, bArr);
         this.captureTime = 0L;
         this.captureTime = j;
     }

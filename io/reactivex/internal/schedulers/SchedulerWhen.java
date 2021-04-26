@@ -1,17 +1,58 @@
 package io.reactivex.internal.schedulers;
 
-import f.b.p;
-import f.b.t.c;
+import io.reactivex.Completable;
+import io.reactivex.CompletableObserver;
+import io.reactivex.Flowable;
+import io.reactivex.Scheduler;
+import io.reactivex.annotations.Experimental;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.disposables.Disposables;
+import io.reactivex.functions.Function;
+import io.reactivex.internal.util.ExceptionHelper;
+import io.reactivex.processors.FlowableProcessor;
+import io.reactivex.processors.UnicastProcessor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
+@Experimental
 /* loaded from: classes7.dex */
-public class SchedulerWhen extends p implements f.b.t.b {
+public class SchedulerWhen extends Scheduler implements Disposable {
+    public final Scheduler actualScheduler;
+    public Disposable disposable;
+    public final FlowableProcessor<Flowable<Completable>> workerProcessor;
+    public static final Disposable SUBSCRIBED = new SubscribedDisposable();
+    public static final Disposable DISPOSED = Disposables.disposed();
 
-    /* renamed from: f  reason: collision with root package name */
-    public static final f.b.t.b f69246f = new b();
+    /* loaded from: classes7.dex */
+    public static final class CreateWorkerFunction implements Function<ScheduledAction, Completable> {
+        public final Scheduler.Worker actualWorker;
 
-    /* renamed from: g  reason: collision with root package name */
-    public static final f.b.t.b f69247g = c.a();
+        /* loaded from: classes7.dex */
+        public final class WorkerCompletable extends Completable {
+            public final ScheduledAction action;
+
+            public WorkerCompletable(ScheduledAction scheduledAction) {
+                this.action = scheduledAction;
+            }
+
+            @Override // io.reactivex.Completable
+            public void subscribeActual(CompletableObserver completableObserver) {
+                completableObserver.onSubscribe(this.action);
+                this.action.call(CreateWorkerFunction.this.actualWorker, completableObserver);
+            }
+        }
+
+        public CreateWorkerFunction(Scheduler.Worker worker) {
+            this.actualWorker = worker;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // io.reactivex.functions.Function
+        public Completable apply(ScheduledAction scheduledAction) {
+            return new WorkerCompletable(scheduledAction);
+        }
+    }
 
     /* loaded from: classes7.dex */
     public static class DelayedAction extends ScheduledAction {
@@ -26,8 +67,8 @@ public class SchedulerWhen extends p implements f.b.t.b {
         }
 
         @Override // io.reactivex.internal.schedulers.SchedulerWhen.ScheduledAction
-        public f.b.t.b callActual(p.c cVar, f.b.b bVar) {
-            return cVar.c(new a(this.action, bVar), this.delayTime, this.unit);
+        public Disposable callActual(Scheduler.Worker worker, CompletableObserver completableObserver) {
+            return worker.schedule(new OnCompletedAction(this.action, completableObserver), this.delayTime, this.unit);
         }
     }
 
@@ -40,84 +81,156 @@ public class SchedulerWhen extends p implements f.b.t.b {
         }
 
         @Override // io.reactivex.internal.schedulers.SchedulerWhen.ScheduledAction
-        public f.b.t.b callActual(p.c cVar, f.b.b bVar) {
-            return cVar.b(new a(this.action, bVar));
+        public Disposable callActual(Scheduler.Worker worker, CompletableObserver completableObserver) {
+            return worker.schedule(new OnCompletedAction(this.action, completableObserver));
         }
     }
 
     /* loaded from: classes7.dex */
-    public static abstract class ScheduledAction extends AtomicReference<f.b.t.b> implements f.b.t.b {
-        public ScheduledAction() {
-            super(SchedulerWhen.f69246f);
+    public static class OnCompletedAction implements Runnable {
+        public final Runnable action;
+        public final CompletableObserver actionCompletable;
+
+        public OnCompletedAction(Runnable runnable, CompletableObserver completableObserver) {
+            this.action = runnable;
+            this.actionCompletable = completableObserver;
         }
 
-        public void call(p.c cVar, f.b.b bVar) {
-            f.b.t.b bVar2 = get();
-            if (bVar2 != SchedulerWhen.f69247g && bVar2 == SchedulerWhen.f69246f) {
-                f.b.t.b callActual = callActual(cVar, bVar);
-                if (compareAndSet(SchedulerWhen.f69246f, callActual)) {
+        @Override // java.lang.Runnable
+        public void run() {
+            try {
+                this.action.run();
+            } finally {
+                this.actionCompletable.onComplete();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static abstract class ScheduledAction extends AtomicReference<Disposable> implements Disposable {
+        public ScheduledAction() {
+            super(SchedulerWhen.SUBSCRIBED);
+        }
+
+        public void call(Scheduler.Worker worker, CompletableObserver completableObserver) {
+            Disposable disposable = get();
+            if (disposable != SchedulerWhen.DISPOSED && disposable == SchedulerWhen.SUBSCRIBED) {
+                Disposable callActual = callActual(worker, completableObserver);
+                if (compareAndSet(SchedulerWhen.SUBSCRIBED, callActual)) {
                     return;
                 }
                 callActual.dispose();
             }
         }
 
-        public abstract f.b.t.b callActual(p.c cVar, f.b.b bVar);
+        public abstract Disposable callActual(Scheduler.Worker worker, CompletableObserver completableObserver);
 
-        @Override // f.b.t.b
+        @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            f.b.t.b bVar;
-            f.b.t.b bVar2 = SchedulerWhen.f69247g;
+            Disposable disposable;
+            Disposable disposable2 = SchedulerWhen.DISPOSED;
             do {
-                bVar = get();
-                if (bVar == SchedulerWhen.f69247g) {
+                disposable = get();
+                if (disposable == SchedulerWhen.DISPOSED) {
                     return;
                 }
-            } while (!compareAndSet(bVar, bVar2));
-            if (bVar != SchedulerWhen.f69246f) {
-                bVar.dispose();
+            } while (!compareAndSet(disposable, disposable2));
+            if (disposable != SchedulerWhen.SUBSCRIBED) {
+                disposable.dispose();
             }
         }
 
-        @Override // f.b.t.b
+        @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
             return get().isDisposed();
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final f.b.b f69248e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final Runnable f69249f;
-
-        public a(Runnable runnable, f.b.b bVar) {
-            this.f69249f = runnable;
-            this.f69248e = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            try {
-                this.f69249f.run();
-            } finally {
-                this.f69248e.onComplete();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b implements f.b.t.b {
-        @Override // f.b.t.b
+    public static final class SubscribedDisposable implements Disposable {
+        @Override // io.reactivex.disposables.Disposable
         public void dispose() {
         }
 
-        @Override // f.b.t.b
+        @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
             return false;
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: io.reactivex.functions.Function<io.reactivex.Flowable<io.reactivex.Flowable<io.reactivex.Completable>>, io.reactivex.Completable> */
+    /* JADX DEBUG: Type inference failed for r2v2. Raw type applied. Possible types: io.reactivex.processors.FlowableProcessor<T>, io.reactivex.processors.FlowableProcessor<io.reactivex.Flowable<io.reactivex.Completable>>, io.reactivex.Flowable<io.reactivex.Flowable<io.reactivex.Completable>> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public SchedulerWhen(Function<Flowable<Flowable<Completable>>, Completable> function, Scheduler scheduler) {
+        this.actualScheduler = scheduler;
+        FlowableProcessor serialized = UnicastProcessor.create().toSerialized();
+        this.workerProcessor = serialized;
+        try {
+            this.disposable = ((Completable) function.apply(serialized)).subscribe();
+        } catch (Throwable th) {
+            throw ExceptionHelper.wrapOrThrow(th);
+        }
+    }
+
+    @Override // io.reactivex.Scheduler
+    @NonNull
+    public Scheduler.Worker createWorker() {
+        Scheduler.Worker createWorker = this.actualScheduler.createWorker();
+        FlowableProcessor<T> serialized = UnicastProcessor.create().toSerialized();
+        Flowable<Completable> map = serialized.map(new CreateWorkerFunction(createWorker));
+        QueueWorker queueWorker = new QueueWorker(serialized, createWorker);
+        this.workerProcessor.onNext(map);
+        return queueWorker;
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public void dispose() {
+        this.disposable.dispose();
+    }
+
+    @Override // io.reactivex.disposables.Disposable
+    public boolean isDisposed() {
+        return this.disposable.isDisposed();
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class QueueWorker extends Scheduler.Worker {
+        public final FlowableProcessor<ScheduledAction> actionProcessor;
+        public final Scheduler.Worker actualWorker;
+        public final AtomicBoolean unsubscribed = new AtomicBoolean();
+
+        public QueueWorker(FlowableProcessor<ScheduledAction> flowableProcessor, Scheduler.Worker worker) {
+            this.actionProcessor = flowableProcessor;
+            this.actualWorker = worker;
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public void dispose() {
+            if (this.unsubscribed.compareAndSet(false, true)) {
+                this.actionProcessor.onComplete();
+                this.actualWorker.dispose();
+            }
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public boolean isDisposed() {
+            return this.unsubscribed.get();
+        }
+
+        @Override // io.reactivex.Scheduler.Worker
+        @NonNull
+        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
+            DelayedAction delayedAction = new DelayedAction(runnable, j, timeUnit);
+            this.actionProcessor.onNext(delayedAction);
+            return delayedAction;
+        }
+
+        @Override // io.reactivex.Scheduler.Worker
+        @NonNull
+        public Disposable schedule(@NonNull Runnable runnable) {
+            ImmediateAction immediateAction = new ImmediateAction(runnable);
+            this.actionProcessor.onNext(immediateAction);
+            return immediateAction;
         }
     }
 }

@@ -21,8 +21,8 @@ public abstract class IActivityProxy implements IComponentProxy {
 
     @KsAdSdkDynamicApi
     @Keep
-    public <T extends View> T findViewById(int i) {
-        return (T) this.mActivity.findViewById(i);
+    public <T extends View> T findViewById(int i2) {
+        return (T) this.mActivity.findViewById(i2);
     }
 
     @KsAdSdkDynamicApi
@@ -51,12 +51,12 @@ public abstract class IActivityProxy implements IComponentProxy {
 
     @KsAdSdkDynamicApi
     @Keep
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
     }
 
     @KsAdSdkDynamicApi
     @Keep
-    public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
+    public void onApplyThemeResource(Resources.Theme theme, int i2, boolean z) {
     }
 
     @KsAdSdkDynamicApi
@@ -94,39 +94,39 @@ public abstract class IActivityProxy implements IComponentProxy {
 
     @KsAdSdkDynamicApi
     @Keep
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         Activity activity = this.mActivity;
         if (activity instanceof BaseProxyActivity) {
-            return ((BaseProxyActivity) activity).superOnKeyDown(i, keyEvent);
+            return ((BaseProxyActivity) activity).superOnKeyDown(i2, keyEvent);
         }
         if (activity instanceof BaseProxyFragmentActivity) {
-            return ((BaseProxyFragmentActivity) activity).superOnKeyDown(i, keyEvent);
+            return ((BaseProxyFragmentActivity) activity).superOnKeyDown(i2, keyEvent);
         }
         throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
     }
 
     @KsAdSdkDynamicApi
     @Keep
-    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
+    public boolean onKeyLongPress(int i2, KeyEvent keyEvent) {
         Activity activity = this.mActivity;
         if (activity instanceof BaseProxyActivity) {
-            return ((BaseProxyActivity) activity).superOnKeyLongPress(i, keyEvent);
+            return ((BaseProxyActivity) activity).superOnKeyLongPress(i2, keyEvent);
         }
         if (activity instanceof BaseProxyFragmentActivity) {
-            return ((BaseProxyFragmentActivity) activity).superOnKeyLongPress(i, keyEvent);
+            return ((BaseProxyFragmentActivity) activity).superOnKeyLongPress(i2, keyEvent);
         }
         throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
     }
 
     @KsAdSdkDynamicApi
     @Keep
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
         Activity activity = this.mActivity;
         if (activity instanceof BaseProxyActivity) {
-            return ((BaseProxyActivity) activity).superOnKeyUp(i, keyEvent);
+            return ((BaseProxyActivity) activity).superOnKeyUp(i2, keyEvent);
         }
         if (activity instanceof BaseProxyFragmentActivity) {
-            return ((BaseProxyFragmentActivity) activity).superOnKeyUp(i, keyEvent);
+            return ((BaseProxyFragmentActivity) activity).superOnKeyUp(i2, keyEvent);
         }
         throw new RuntimeException(this.mActivity + " must be BaseProxyActivity or BaseProxyFragmentActivity");
     }
@@ -218,7 +218,7 @@ public abstract class IActivityProxy implements IComponentProxy {
 
     @KsAdSdkDynamicApi
     @Keep
-    public void onTitleChanged(CharSequence charSequence, int i) {
+    public void onTitleChanged(CharSequence charSequence, int i2) {
     }
 
     @KsAdSdkDynamicApi
@@ -228,8 +228,8 @@ public abstract class IActivityProxy implements IComponentProxy {
 
     @KsAdSdkDynamicApi
     @Keep
-    public void overridePendingTransition(int i, int i2) {
-        this.mActivity.overridePendingTransition(i, i2);
+    public void overridePendingTransition(int i2, int i3) {
+        this.mActivity.overridePendingTransition(i2, i3);
     }
 
     public void setActivity(Activity activity) {
@@ -238,8 +238,8 @@ public abstract class IActivityProxy implements IComponentProxy {
 
     @KsAdSdkDynamicApi
     @Keep
-    public void setContentView(int i) {
-        this.mActivity.setContentView(i);
+    public void setContentView(int i2) {
+        this.mActivity.setContentView(i2);
     }
 
     @KsAdSdkDynamicApi

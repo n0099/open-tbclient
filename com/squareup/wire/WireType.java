@@ -14,8 +14,8 @@ public enum WireType {
     public static final int TAG_TYPE_MASK = 7;
     public final int value;
 
-    WireType(int i) {
-        this.value = i;
+    WireType(int i2) {
+        this.value = i2;
     }
 
     /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
@@ -32,17 +32,17 @@ public enum WireType {
         return this.value;
     }
 
-    public static WireType valueOf(int i) {
-        int i2 = i & 7;
-        if (i2 != 0) {
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 4) {
-                            if (i2 == 5) {
+    public static WireType valueOf(int i2) {
+        int i3 = i2 & 7;
+        if (i3 != 0) {
+            if (i3 != 1) {
+                if (i3 != 2) {
+                    if (i3 != 3) {
+                        if (i3 != 4) {
+                            if (i3 == 5) {
                                 return FIXED32;
                             }
-                            throw new IllegalArgumentException("No WireType for value " + i);
+                            throw new IllegalArgumentException("No WireType for value " + i2);
                         }
                         return END_GROUP;
                     }

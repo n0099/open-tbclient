@@ -14,7 +14,7 @@ public class RFC2965Spec extends RFC2109Spec {
     }
 
     @Override // org.apache.http.impl.cookie.RFC2109Spec
-    public void formatCookieAsVer(CharArrayBuffer charArrayBuffer, Cookie cookie, int i) {
+    public void formatCookieAsVer(CharArrayBuffer charArrayBuffer, Cookie cookie, int i2) {
         throw new RuntimeException("Stub!");
     }
 

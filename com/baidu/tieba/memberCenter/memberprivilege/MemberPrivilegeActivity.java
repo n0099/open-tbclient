@@ -16,17 +16,16 @@ import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.BubbleChooseActivityConfig;
-import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.util.PageDialogHelper;
 import com.baidu.tieba.R;
-import d.b.c.e.p.k;
-import d.b.j0.r1.g.a;
-import d.b.j0.r1.g.d;
+import com.baidu.tieba.wallet.CurrencyJumpHelper;
+import d.a.c.e.p.k;
+import d.a.j0.r1.g.a;
+import d.a.j0.r1.g.d;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivity> {
@@ -38,8 +37,8 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +53,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
                     MemberPrivilegeActivity.this.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? MemberPrivilegeActivity.this.getResources().getString(R.string.neterror) : responseMemberPrivilegeMessage.getErrorString());
                     return;
                 }
-                d.b.j0.r1.g.a aVar = responseMemberPrivilegeMessage.mData;
+                d.a.j0.r1.g.a aVar = responseMemberPrivilegeMessage.mData;
                 if (aVar != null) {
                     MemberPrivilegeActivity.this.mMemberPrivilegeView.e().h(aVar);
                 } else {
@@ -66,8 +65,8 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
 
     /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -82,8 +81,8 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
 
     /* loaded from: classes3.dex */
     public class c extends CustomMessageListener {
-        public c(int i) {
-            super(i);
+        public c(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -113,9 +112,9 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mMemberPrivilegeView.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mMemberPrivilegeView.onChangeSkinType(i2);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
@@ -124,7 +123,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "consume_33", PrefetchEvent.STATE_CLICK, 1, new Object[0]);
             sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(getPageContext().getPageActivity(), 0, "pay", 3, 1, this.SCENE_ID)));
         } else if (R.id.right_button == view.getId()) {
-            sendMessage(new CustomMessage(2002001, new BuyTBeanActivityConfig(getPageContext().getPageActivity(), 0L, 1, this.SCENE_ID, PageDialogHelper.PayForm.NOT_SET)));
+            CurrencyJumpHelper.memberCenterBuyTBean(getPageContext().getPageActivity(), this.SCENE_ID);
         }
     }
 
@@ -140,19 +139,19 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (i == 0 || 1 == this.mMemberPrivilegeView.e().getItemViewType(i)) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+        if (i2 == 0 || 1 == this.mMemberPrivilegeView.e().getItemViewType(i2)) {
             return;
         }
-        String str = ((a.C1571a) this.mMemberPrivilegeView.e().getItem(i)).f61560d;
-        String str2 = ((a.C1571a) this.mMemberPrivilegeView.e().getItem(i)).f61558b;
+        String str = ((a.C1510a) this.mMemberPrivilegeView.e().getItem(i2)).f59712d;
+        String str2 = ((a.C1510a) this.mMemberPrivilegeView.e().getItem(i2)).f59710b;
         if (k.isEmpty(str)) {
             return;
         }
         if (isBubbleLink(str)) {
             sendMessage(new CustomMessage(2002001, new BubbleChooseActivityConfig(getPageContext().getPageActivity())));
         } else {
-            d.b.i0.l.a.o(getPageContext().getPageActivity(), str2, str, true, true, true);
+            d.a.i0.l.a.o(getPageContext().getPageActivity(), str2, str, true, true, true);
         }
     }
 

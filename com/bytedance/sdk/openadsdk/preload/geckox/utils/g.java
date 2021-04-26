@@ -5,11 +5,11 @@ import android.content.Context;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f30040a;
+    public static Context f30957a;
 
     public static void a(Context context) {
         if (context != null) {
-            f30040a = context;
+            f30957a = context;
         }
     }
 

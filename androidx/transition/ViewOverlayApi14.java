@@ -26,8 +26,8 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
         ViewGroup contentView = getContentView(view);
         if (contentView != null) {
             int childCount = contentView.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = contentView.getChildAt(i);
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = contentView.getChildAt(i2);
                 if (childAt instanceof OverlayViewGroup) {
                     return ((OverlayViewGroup) childAt).mViewOverlay;
                 }
@@ -55,40 +55,18 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
     }
 
     @Override // androidx.transition.ViewOverlayImpl
-    public void clear() {
-        this.mOverlayViewGroup.clear();
-    }
-
-    public ViewGroup getOverlayView() {
-        return this.mOverlayViewGroup;
-    }
-
-    public boolean isEmpty() {
-        return this.mOverlayViewGroup.isEmpty();
-    }
-
-    @Override // androidx.transition.ViewOverlayImpl
     public void remove(@NonNull Drawable drawable) {
         this.mOverlayViewGroup.remove(drawable);
-    }
-
-    public ViewOverlayApi14() {
     }
 
     /* loaded from: classes.dex */
     public static class OverlayViewGroup extends ViewGroup {
         public static Method sInvalidateChildInParentFastMethod;
+        public boolean mDisposed;
         public ArrayList<Drawable> mDrawables;
         public ViewGroup mHostView;
         public View mRequestingView;
         public ViewOverlayApi14 mViewOverlay;
-
-        /* loaded from: classes.dex */
-        public static class TouchInterceptor extends View {
-            public TouchInterceptor(Context context) {
-                super(context);
-            }
-        }
 
         static {
             try {
@@ -108,6 +86,22 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
             this.mViewOverlay = viewOverlayApi14;
         }
 
+        private void assertNotDisposed() {
+            if (this.mDisposed) {
+                throw new IllegalStateException("This overlay was disposed already. Please use a new one via ViewGroupUtils.getOverlay()");
+            }
+        }
+
+        private void disposeIfEmpty() {
+            if (getChildCount() == 0) {
+                ArrayList<Drawable> arrayList = this.mDrawables;
+                if (arrayList == null || arrayList.size() == 0) {
+                    this.mDisposed = true;
+                    this.mHostView.removeView(this);
+                }
+            }
+        }
+
         private void getOffset(int[] iArr) {
             int[] iArr2 = new int[2];
             int[] iArr3 = new int[2];
@@ -118,6 +112,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
         }
 
         public void add(Drawable drawable) {
+            assertNotDisposed();
             if (this.mDrawables == null) {
                 this.mDrawables = new ArrayList<>();
             }
@@ -127,14 +122,6 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
             this.mDrawables.add(drawable);
             invalidate(drawable.getBounds());
             drawable.setCallback(this);
-        }
-
-        public void clear() {
-            removeAllViews();
-            ArrayList<Drawable> arrayList = this.mDrawables;
-            if (arrayList != null) {
-                arrayList.clear();
-            }
         }
 
         @Override // android.view.ViewGroup, android.view.View
@@ -148,25 +135,14 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
             super.dispatchDraw(canvas);
             ArrayList<Drawable> arrayList = this.mDrawables;
             int size = arrayList == null ? 0 : arrayList.size();
-            for (int i = 0; i < size; i++) {
-                this.mDrawables.get(i).draw(canvas);
+            for (int i2 = 0; i2 < size; i2++) {
+                this.mDrawables.get(i2).draw(canvas);
             }
         }
 
         @Override // android.view.ViewGroup, android.view.View
         public boolean dispatchTouchEvent(MotionEvent motionEvent) {
             return false;
-        }
-
-        public void invalidateChildFast(View view, Rect rect) {
-            if (this.mHostView != null) {
-                int left = view.getLeft();
-                int top = view.getTop();
-                int[] iArr = new int[2];
-                getOffset(iArr);
-                rect.offset(left + iArr[0], top + iArr[1]);
-                this.mHostView.invalidate(rect);
-            }
         }
 
         @Override // android.view.ViewGroup, android.view.ViewParent
@@ -187,14 +163,14 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
             return null;
         }
 
-        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        public ViewParent invalidateChildInParentFast(int i, int i2, Rect rect) {
+        @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+        public ViewParent invalidateChildInParentFast(int i2, int i3, Rect rect) {
             if (!(this.mHostView instanceof ViewGroup) || sInvalidateChildInParentFastMethod == null) {
                 return null;
             }
             try {
                 getOffset(new int[2]);
-                sInvalidateChildInParentFastMethod.invoke(this.mHostView, Integer.valueOf(i), Integer.valueOf(i2), rect);
+                sInvalidateChildInParentFastMethod.invoke(this.mHostView, Integer.valueOf(i2), Integer.valueOf(i3), rect);
                 return null;
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
@@ -210,13 +186,8 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
             invalidate(drawable.getBounds());
         }
 
-        public boolean isEmpty() {
-            ArrayList<Drawable> arrayList;
-            return getChildCount() == 0 && ((arrayList = this.mDrawables) == null || arrayList.size() == 0);
-        }
-
         @Override // android.view.ViewGroup, android.view.View
-        public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         }
 
         public void remove(Drawable drawable) {
@@ -225,6 +196,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
                 arrayList.remove(drawable);
                 invalidate(drawable.getBounds());
                 drawable.setCallback(null);
+                disposeIfEmpty();
             }
         }
 
@@ -236,12 +208,11 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
 
         public void remove(View view) {
             super.removeView(view);
-            if (isEmpty()) {
-                this.mHostView.removeView(this);
-            }
+            disposeIfEmpty();
         }
 
         public void add(View view) {
+            assertNotDisposed();
             if (view.getParent() instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view.getParent();
                 if (viewGroup != this.mHostView && viewGroup.getParent() != null && ViewCompat.isAttachedToWindow(viewGroup)) {
@@ -257,7 +228,7 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
                     viewGroup.removeView(view);
                 }
             }
-            super.addView(view, getChildCount() - 1);
+            super.addView(view);
         }
     }
 }

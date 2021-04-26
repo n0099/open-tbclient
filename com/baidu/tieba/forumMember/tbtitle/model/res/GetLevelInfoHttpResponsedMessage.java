@@ -3,7 +3,7 @@ package com.baidu.tieba.forumMember.tbtitle.model.res;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
 import com.squareup.wire.Wire;
-import d.b.j0.o0.d.a.b.a;
+import d.a.j0.o0.d.a.b.a;
 import tbclient.Error;
 import tbclient.GetLevelInfo.DataRes;
 import tbclient.GetLevelInfo.GetLevelInfoResIdl;
@@ -11,8 +11,8 @@ import tbclient.GetLevelInfo.GetLevelInfoResIdl;
 public class GetLevelInfoHttpResponsedMessage extends HttpResponsedMessage {
     public DataRes mResult;
 
-    public GetLevelInfoHttpResponsedMessage(int i) {
-        super(i);
+    public GetLevelInfoHttpResponsedMessage(int i2) {
+        super(i2);
     }
 
     public DataRes getResult() {
@@ -21,7 +21,7 @@ public class GetLevelInfoHttpResponsedMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
         GetLevelInfoRequestMessage getLevelInfoRequestMessage = (getOrginalMessage() == null || getOrginalMessage().getExtra() == null) ? null : (GetLevelInfoRequestMessage) getOrginalMessage().getExtra();
         if (getLevelInfoRequestMessage != null) {
             a aVar = new a();
@@ -31,7 +31,7 @@ public class GetLevelInfoHttpResponsedMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         DataRes dataRes;
         GetLevelInfoResIdl getLevelInfoResIdl = (GetLevelInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetLevelInfoResIdl.class);
         Error error = getLevelInfoResIdl.error;

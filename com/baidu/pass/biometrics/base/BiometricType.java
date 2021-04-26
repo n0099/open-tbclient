@@ -3,7 +3,7 @@ package com.baidu.pass.biometrics.base;
 public final class BiometricType {
     public static final int LIVENESS_RECOG = 4;
 
-    public static String a(int i) {
-        return i != 4 ? "" : "com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager";
+    public static String a(int i2) {
+        return i2 != 4 ? "" : "com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager";
     }
 }

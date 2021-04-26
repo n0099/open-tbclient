@@ -39,12 +39,12 @@ public final class TransformingIndexedSequence$iterator$1 implements Iterator<R>
     public R next() {
         Function2 function2;
         function2 = this.this$0.transformer;
-        int i = this.index;
-        this.index = i + 1;
-        if (i < 0) {
+        int i2 = this.index;
+        this.index = i2 + 1;
+        if (i2 < 0) {
             CollectionsKt__CollectionsKt.throwIndexOverflow();
         }
-        return function2.invoke(Integer.valueOf(i), this.iterator.next());
+        return function2.invoke(Integer.valueOf(i2), this.iterator.next());
     }
 
     @Override // java.util.Iterator
@@ -52,7 +52,7 @@ public final class TransformingIndexedSequence$iterator$1 implements Iterator<R>
         throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 
-    public final void setIndex(int i) {
-        this.index = i;
+    public final void setIndex(int i2) {
+        this.index = i2;
     }
 }

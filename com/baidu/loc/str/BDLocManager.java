@@ -68,9 +68,9 @@ public class BDLocManager implements Debug {
                 StringBuffer stringBuffer = new StringBuffer(128);
                 stringBuffer.append(this.mNetworkType);
                 stringBuffer.append("h");
-                int i = this.mMcc;
-                if (i != 460) {
-                    stringBuffer.append(i);
+                int i2 = this.mMcc;
+                if (i2 != 460) {
+                    stringBuffer.append(i2);
                 }
                 stringBuffer.append(String.format(Locale.CHINA, "h%xh%xh%x", Integer.valueOf(this.mMnc), Integer.valueOf(this.mLac), Integer.valueOf(this.mCid)));
                 return stringBuffer.toString();
@@ -180,43 +180,43 @@ public class BDLocManager implements Debug {
             return list.size();
         }
 
-        public String toString(int i) {
-            int i2;
+        public String toString(int i2) {
+            int i3;
             boolean z;
             if (size() < 1) {
                 return null;
             }
             boolean hasConnectWifi = BDLocManager.this.hasConnectWifi();
             if (hasConnectWifi) {
-                i2 = i - 1;
+                i3 = i2 - 1;
                 z = false;
             } else {
-                i2 = i;
+                i3 = i2;
                 z = true;
             }
             StringBuffer stringBuffer = new StringBuffer(512);
             int size = this.wifiList.size();
-            int i3 = 0;
+            int i4 = 0;
             boolean z2 = true;
-            for (int i4 = 0; i4 < size; i4++) {
-                if (this.wifiList.get(i4).level != 0) {
-                    String str = this.wifiList.get(i4).BSSID;
-                    int i5 = this.wifiList.get(i4).level;
+            for (int i5 = 0; i5 < size; i5++) {
+                if (this.wifiList.get(i5).level != 0) {
+                    String str = this.wifiList.get(i5).BSSID;
+                    int i6 = this.wifiList.get(i5).level;
                     String replace = str.replace(":", "");
                     if (BDLocManager.this.connectWifi == null || !replace.equals(BDLocManager.this.connectWifi)) {
-                        if (i3 < i2) {
+                        if (i4 < i3) {
                             stringBuffer.append("h");
                             stringBuffer.append(replace);
                             stringBuffer.append("m");
-                            stringBuffer.append(StrictMath.abs(i5));
-                            i3++;
+                            stringBuffer.append(StrictMath.abs(i6));
+                            i4++;
                             z2 = false;
                         }
-                        if (i3 > i2 && z) {
+                        if (i4 > i3 && z) {
                             break;
                         }
                     } else {
-                        BDLocManager.this.connecetWifiLevel = StrictMath.abs(i5);
+                        BDLocManager.this.connecetWifiLevel = StrictMath.abs(i6);
                         z = true;
                     }
                 }
@@ -252,40 +252,40 @@ public class BDLocManager implements Debug {
     public static String data2Base64(byte[] bArr) {
         boolean z;
         char[] cArr = new char[((bArr.length + 2) / 3) * 4];
-        int i = 0;
         int i2 = 0;
-        while (i < bArr.length) {
-            int i3 = (bArr[i] & 255) << 8;
-            int i4 = i + 1;
+        int i3 = 0;
+        while (i2 < bArr.length) {
+            int i4 = (bArr[i2] & 255) << 8;
+            int i5 = i2 + 1;
             boolean z2 = true;
-            if (i4 < bArr.length) {
-                i3 |= bArr[i4] & 255;
+            if (i5 < bArr.length) {
+                i4 |= bArr[i5] & 255;
                 z = true;
             } else {
                 z = false;
             }
-            int i5 = i3 << 8;
-            int i6 = i + 2;
-            if (i6 < bArr.length) {
-                i5 |= bArr[i6] & 255;
+            int i6 = i4 << 8;
+            int i7 = i2 + 2;
+            if (i7 < bArr.length) {
+                i6 |= bArr[i7] & 255;
             } else {
                 z2 = false;
             }
-            int i7 = 64;
-            cArr[i2 + 3] = alphabet[z2 ? 63 - (i5 & 63) : 64];
-            int i8 = i5 >> 6;
-            int i9 = i2 + 2;
+            int i8 = 64;
+            cArr[i3 + 3] = alphabet[z2 ? 63 - (i6 & 63) : 64];
+            int i9 = i6 >> 6;
+            int i10 = i3 + 2;
             char[] cArr2 = alphabet;
             if (z) {
-                i7 = 63 - (i8 & 63);
+                i8 = 63 - (i9 & 63);
             }
-            cArr[i9] = cArr2[i7];
-            int i10 = i8 >> 6;
+            cArr[i10] = cArr2[i8];
+            int i11 = i9 >> 6;
             char[] cArr3 = alphabet;
-            cArr[i2 + 1] = cArr3[63 - (i10 & 63)];
-            cArr[i2 + 0] = cArr3[63 - ((i10 >> 6) & 63)];
-            i += 3;
-            i2 += 4;
+            cArr[i3 + 1] = cArr3[63 - (i11 & 63)];
+            cArr[i3 + 0] = cArr3[63 - ((i11 >> 6) & 63)];
+            i2 += 3;
+            i3 += 4;
         }
         return new String(cArr);
     }
@@ -299,15 +299,15 @@ public class BDLocManager implements Debug {
         byte nextInt2 = (byte) new Random().nextInt(255);
         byte[] bArr = new byte[bytes.length + 2];
         int length = bytes.length;
-        int i = 0;
         int i2 = 0;
-        while (i < length) {
-            bArr[i2] = (byte) (bytes[i] ^ nextInt);
-            i++;
+        int i3 = 0;
+        while (i2 < length) {
+            bArr[i3] = (byte) (bytes[i2] ^ nextInt);
             i2++;
+            i3++;
         }
-        bArr[i2] = nextInt;
-        bArr[i2 + 1] = nextInt2;
+        bArr[i3] = nextInt;
+        bArr[i3 + 1] = nextInt2;
         return data2Base64(bArr);
     }
 
@@ -395,12 +395,12 @@ public class BDLocManager implements Debug {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String getLocStringData(int i) {
+    private String getLocStringData(int i2) {
         String str;
         String str2;
         this.time = System.currentTimeMillis();
-        if (i < 3) {
-            i = 3;
+        if (i2 < 3) {
+            i2 = 3;
         }
         if (this.mCellInfo != null) {
             str = this.mCellInfo.toCellString();
@@ -410,7 +410,7 @@ public class BDLocManager implements Debug {
             if (this.mWifiList != null || this.mWifiList.needToFresh()) {
                 this.mWifiList = new WifiList(this.mWifiman.getScanResults());
             }
-            str2 = this.mWifiList.toString(i);
+            str2 = this.mWifiList.toString(i2);
             if (str2 != null) {
                 str = str + str2;
             }
@@ -425,7 +425,7 @@ public class BDLocManager implements Debug {
         if (this.mWifiList != null) {
         }
         this.mWifiList = new WifiList(this.mWifiman.getScanResults());
-        str2 = this.mWifiList.toString(i);
+        str2 = this.mWifiList.toString(i2);
         if (str2 != null) {
         }
         if (str.equals("Z")) {
@@ -459,11 +459,11 @@ public class BDLocManager implements Debug {
         }
     }
 
-    private int getValidValue(int i) {
-        if (i == Integer.MAX_VALUE) {
+    private int getValidValue(int i2) {
+        if (i2 == Integer.MAX_VALUE) {
             return -1;
         }
-        return i;
+        return i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -505,11 +505,11 @@ public class BDLocManager implements Debug {
                 String substring = networkOperator.substring(3);
                 if (substring != null) {
                     char[] charArray = substring.toCharArray();
-                    int i = 0;
-                    while (i < charArray.length && Character.isDigit(charArray[i])) {
-                        i++;
+                    int i2 = 0;
+                    while (i2 < charArray.length && Character.isDigit(charArray[i2])) {
+                        i2++;
                     }
-                    int intValue2 = Integer.valueOf(substring.substring(0, i)).intValue();
+                    int intValue2 = Integer.valueOf(substring.substring(0, i2)).intValue();
                     if (intValue2 < 0) {
                         intValue2 = this.mCellInfo.mMnc;
                     }
@@ -561,9 +561,9 @@ public class BDLocManager implements Debug {
         }
     }
 
-    public String getLocString(int i) {
+    public String getLocString(int i2) {
         try {
-            return getLocStringData(i);
+            return getLocStringData(i2);
         } catch (Exception unused) {
             return null;
         }

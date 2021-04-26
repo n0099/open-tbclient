@@ -15,6 +15,7 @@ import com.baidu.searchbox.pms.utils.DebugUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class PackageControl {
     public static volatile PackageControl sInstance;
@@ -61,6 +62,13 @@ public class PackageControl {
         contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(packageInfo.currentSize));
         contentValues.put("create_time", Long.valueOf(packageInfo.createTime));
         contentValues.put("update_time", Long.valueOf(packageInfo.updateTime));
+        contentValues.put(PackageTable.IS_MAIN_ENTRANCE, Integer.valueOf(packageInfo.isMainEntrance() ? 1 : 0));
+        if (!TextUtils.isEmpty(packageInfo.getDependenciesString())) {
+            contentValues.put(PackageTable.DEPENDENCY_PACKAGE, packageInfo.getDependenciesString());
+        }
+        if (!TextUtils.isEmpty(packageInfo.updateSign)) {
+            contentValues.put(PackageTable.UPDATE_SIGN, packageInfo.updateSign);
+        }
         return contentValues;
     }
 
@@ -82,12 +90,12 @@ public class PackageControl {
         String str4 = "SELECT * FROM package_info";
         if (list.size() > 0 || !TextUtils.isEmpty(str)) {
             String str5 = "SELECT * FROM package_info WHERE ";
-            int i = 0;
-            while (i < size) {
+            int i2 = 0;
+            while (i2 < size) {
                 str5 = str5 + ((String) pair.first) + " = ? ";
-                strArr[i] = (String) list.get(i).second;
-                i++;
-                if (i < size) {
+                strArr[i2] = (String) list.get(i2).second;
+                i2++;
+                if (i2 < size) {
                     StringBuilder sb = new StringBuilder();
                     sb.append(str5);
                     sb.append(z ? "AND " : "OR ");
@@ -110,7 +118,6 @@ public class PackageControl {
     }
 
     private List<PackageInfo> getPackageFiles(Cursor cursor) {
-        int i;
         int i2;
         int i3;
         int i4;
@@ -158,39 +165,42 @@ public class PackageControl {
         int columnIndex22 = cursor2.getColumnIndex("create_time");
         int columnIndex23 = cursor2.getColumnIndex("update_time");
         int columnIndex24 = cursor2.getColumnIndex("_id");
+        int columnIndex25 = cursor2.getColumnIndex(PackageTable.UPDATE_SIGN);
+        int columnIndex26 = cursor2.getColumnIndex(PackageTable.IS_MAIN_ENTRANCE);
+        int i18 = columnIndex14;
+        int columnIndex27 = cursor2.getColumnIndex(PackageTable.DEPENDENCY_PACKAGE);
         if (!cursor.moveToFirst()) {
             return arrayList3;
         }
-        int i18 = columnIndex24;
+        int i19 = columnIndex27;
         while (true) {
             String string = cursor2.getString(columnIndex);
             if (TextUtils.isEmpty(string)) {
-                i = columnIndex;
+                i4 = columnIndex26;
+                i2 = columnIndex;
+                i3 = columnIndex13;
                 arrayList = arrayList3;
+                i6 = columnIndex15;
+                i5 = i18;
+                i7 = columnIndex2;
+                i15 = columnIndex25;
+                i16 = columnIndex20;
                 i9 = columnIndex19;
-                i8 = columnIndex18;
-                i7 = columnIndex17;
-                i6 = columnIndex16;
-                i5 = columnIndex2;
-                i16 = i18;
-                i17 = columnIndex20;
-                i10 = columnIndex3;
-                int i19 = columnIndex21;
-                i11 = columnIndex4;
-                i14 = columnIndex23;
-                i15 = columnIndex22;
-                i12 = columnIndex5;
-                i13 = i19;
-                int i20 = columnIndex15;
-                i4 = columnIndex13;
-                i2 = columnIndex14;
-                i3 = i20;
+                i8 = columnIndex3;
+                i17 = i19;
+                int i20 = columnIndex21;
+                i10 = columnIndex4;
+                i13 = columnIndex23;
+                i14 = columnIndex22;
+                i11 = columnIndex5;
+                i12 = i20;
             } else {
-                i = columnIndex;
-                PackageInfo packageInfo = new PackageInfo();
+                i2 = columnIndex;
+                i3 = columnIndex13;
+                i4 = columnIndex26;
+                PackageInfo packageInfo = new PackageInfo(cursor2.getInt(columnIndex26) == 1);
                 packageInfo.errNo = 0;
                 packageInfo.packageName = string;
-                int i21 = columnIndex13;
                 packageInfo.updateVersion = cursor2.getLong(columnIndex2);
                 packageInfo.downloadUrl = cursor2.getString(columnIndex3);
                 packageInfo.version = cursor2.getLong(columnIndex4);
@@ -202,41 +212,43 @@ public class PackageControl {
                 packageInfo.downloadOption = cursor2.getInt(columnIndex11);
                 packageInfo.extraServer = cursor2.getString(columnIndex8);
                 packageInfo.channelId = cursor2.getString(columnIndex12);
-                packageInfo.wifi = cursor2.getInt(i21);
-                i2 = columnIndex14;
-                packageInfo.isSilence = cursor2.getInt(i2);
-                i3 = columnIndex15;
-                i4 = i21;
-                packageInfo.disable = cursor2.getInt(i3);
-                int i22 = columnIndex16;
-                i5 = columnIndex2;
-                packageInfo.sign = cursor2.getString(i22);
-                int i23 = columnIndex17;
-                i6 = i22;
-                packageInfo.type = cursor2.getInt(i23);
-                int i24 = columnIndex18;
-                i7 = i23;
-                packageInfo.extraLocal = cursor2.getString(i24);
-                int i25 = columnIndex19;
-                i8 = i24;
-                packageInfo.filePath = cursor2.getString(i25);
-                i9 = i25;
-                int i26 = columnIndex20;
-                i10 = columnIndex3;
-                packageInfo.totalSize = cursor2.getLong(i26);
-                int i27 = columnIndex21;
-                i11 = columnIndex4;
-                packageInfo.currentSize = cursor2.getLong(i27);
-                int i28 = columnIndex22;
-                i12 = columnIndex5;
-                packageInfo.createTime = cursor2.getLong(i28);
-                i13 = i27;
-                i14 = columnIndex23;
-                i15 = i28;
-                packageInfo.updateTime = cursor2.getLong(i14);
-                i16 = i18;
-                i17 = i26;
-                packageInfo.rawId = cursor2.getInt(i16);
+                packageInfo.wifi = cursor2.getInt(i3);
+                i5 = i18;
+                packageInfo.isSilence = cursor2.getInt(i5);
+                i6 = columnIndex15;
+                packageInfo.disable = cursor2.getInt(i6);
+                i7 = columnIndex2;
+                packageInfo.sign = cursor2.getString(columnIndex16);
+                packageInfo.type = cursor2.getInt(columnIndex17);
+                packageInfo.extraLocal = cursor2.getString(columnIndex18);
+                int i21 = columnIndex19;
+                packageInfo.filePath = cursor2.getString(i21);
+                i8 = columnIndex3;
+                int i22 = columnIndex20;
+                i9 = i21;
+                packageInfo.totalSize = cursor2.getLong(i22);
+                int i23 = columnIndex21;
+                i10 = columnIndex4;
+                packageInfo.currentSize = cursor2.getLong(i23);
+                int i24 = columnIndex22;
+                i11 = columnIndex5;
+                packageInfo.createTime = cursor2.getLong(i24);
+                i12 = i23;
+                i13 = columnIndex23;
+                i14 = i24;
+                packageInfo.updateTime = cursor2.getLong(i13);
+                packageInfo.rawId = cursor2.getInt(columnIndex24);
+                i15 = columnIndex25;
+                packageInfo.updateSign = cursor2.getString(i15);
+                i16 = i22;
+                i17 = i19;
+                String string2 = cursor2.getString(i17);
+                if (!TextUtils.isEmpty(string2)) {
+                    try {
+                        packageInfo.setDependenciesString(new JSONObject(string2));
+                    } catch (Exception unused) {
+                    }
+                }
                 arrayList = arrayList3;
                 arrayList.add(packageInfo);
             }
@@ -244,26 +256,24 @@ public class PackageControl {
                 return arrayList;
             }
             arrayList3 = arrayList;
-            columnIndex3 = i10;
-            columnIndex20 = i17;
-            columnIndex = i;
-            cursor2 = cursor;
-            i18 = i16;
-            columnIndex2 = i5;
-            columnIndex16 = i6;
-            columnIndex17 = i7;
-            columnIndex18 = i8;
+            i19 = i17;
+            i18 = i5;
+            columnIndex3 = i8;
             columnIndex19 = i9;
-            int i29 = i15;
-            columnIndex23 = i14;
-            columnIndex4 = i11;
-            columnIndex21 = i13;
-            columnIndex5 = i12;
-            columnIndex22 = i29;
-            int i30 = i3;
-            columnIndex14 = i2;
-            columnIndex13 = i4;
-            columnIndex15 = i30;
+            columnIndex20 = i16;
+            columnIndex = i2;
+            columnIndex13 = i3;
+            columnIndex26 = i4;
+            cursor2 = cursor;
+            columnIndex25 = i15;
+            columnIndex2 = i7;
+            columnIndex15 = i6;
+            int i25 = i14;
+            columnIndex23 = i13;
+            columnIndex4 = i10;
+            columnIndex21 = i12;
+            columnIndex5 = i11;
+            columnIndex22 = i25;
         }
     }
 
@@ -311,22 +321,22 @@ public class PackageControl {
     public boolean deleteItemByKeValues(List<Pair<String, String>> list, boolean z) {
         StringBuilder sb = new StringBuilder();
         String[] strArr = new String[list.size()];
-        int i = 0;
+        int i2 = 0;
         for (Pair<String, String> pair : list) {
-            if (i == 0) {
+            if (i2 == 0) {
                 sb.append(pair.first + " =? ");
             } else {
                 sb.append(z ? " AND " : " OR ");
                 sb.append(pair.first + " =? ");
             }
-            strArr[i] = "" + pair.second;
-            i++;
+            strArr[i2] = "" + pair.second;
+            i2++;
         }
         return PmsContentProviderImpl.deleteExt(this.mContext, PmsContentProviderImpl.CONTENT_URI_PACKAGE_INFO, sb.toString(), strArr) > 0;
     }
 
     public Cursor getPackageFileCursor(List<Pair<String, String>> list, List<Pair<String, String>> list2, String str, String str2) {
-        int i;
+        int i2;
         Pair<String, String> pair;
         Pair<String, String> pair2;
         if (list == null) {
@@ -341,34 +351,34 @@ public class PackageControl {
         if (list.size() > 0 || list2.size() > 0 || str != null) {
             str3 = "SELECT * FROM package_info WHERE ";
         }
-        int i2 = 0;
+        int i3 = 0;
         if (list.size() > 0) {
-            int i3 = 0;
-            i = 0;
-            while (i3 < list.size()) {
+            int i4 = 0;
+            i2 = 0;
+            while (i4 < list.size()) {
                 str3 = str3 + ((String) pair2.first) + " = ? ";
-                int i4 = i + 1;
-                strArr[i] = (String) list.get(i3).second;
-                if (i4 < size) {
+                int i5 = i2 + 1;
+                strArr[i2] = (String) list.get(i4).second;
+                if (i5 < size) {
                     str3 = str3 + "AND ";
                 }
-                i3++;
-                i = i4;
+                i4++;
+                i2 = i5;
             }
         } else {
-            i = 0;
+            i2 = 0;
         }
         if (list2.size() > 0) {
             String str4 = str3 + " ( ";
-            while (i2 < list2.size()) {
+            while (i3 < list2.size()) {
                 str4 = str4 + ((String) pair.first) + " = ? ";
-                int i5 = i + 1;
-                strArr[i] = (String) list2.get(i2).second;
-                if (i5 < size) {
+                int i6 = i2 + 1;
+                strArr[i2] = (String) list2.get(i3).second;
+                if (i6 < size) {
                     str4 = str4 + "OR ";
                 }
-                i2++;
-                i = i5;
+                i3++;
+                i2 = i6;
             }
             str3 = str4 + ") ";
         }
@@ -425,7 +435,7 @@ public class PackageControl {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x004b */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r9v11, types: [java.lang.String] */
-    public List<PackageInfo> queryItems(String str, String str2, String str3, String str4, int i) {
+    public List<PackageInfo> queryItems(String str, String str2, String str3, String str4, int i2) {
         Throwable th;
         Cursor cursor;
         ArrayList arrayList = new ArrayList();
@@ -433,8 +443,8 @@ public class PackageControl {
         if (str2 != null) {
             arrayList.add(new Pair<>("package_name", str2));
         }
-        if (i >= 0) {
-            str2 = i + "";
+        if (i2 >= 0) {
+            str2 = i2 + "";
             arrayList.add(new Pair<>("type", str2));
         }
         Cursor cursor2 = str2;
@@ -479,7 +489,7 @@ public class PackageControl {
     }
 
     public int resetFinishedUpdateVersion(String str, List<String> list) {
-        int i = 2;
+        int i2 = 2;
         int size = list != null ? list.size() + 2 : 2;
         String[] strArr = new String[size];
         strArr[0] = str;
@@ -489,12 +499,12 @@ public class PackageControl {
             String str3 = str2 + "AND (";
             for (String str4 : list) {
                 str3 = str3 + "package_name =? ";
-                int i2 = i + 1;
-                strArr[i] = str4;
-                if (i2 < size) {
+                int i3 = i2 + 1;
+                strArr[i2] = str4;
+                if (i3 < size) {
                     str3 = str3 + "OR ";
                 }
-                i = i2;
+                i2 = i3;
             }
             str2 = str3 + SmallTailInfo.EMOTION_SUFFIX;
         }

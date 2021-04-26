@@ -11,22 +11,22 @@ import org.json.JSONTokener;
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public C0292a f26749a = new C0292a();
+    public C0285a f27560a = new C0285a();
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0292a {
+    public class C0285a {
 
         /* renamed from: a  reason: collision with root package name */
-        public com.bun.miitmdid.a.a.a f26750a;
+        public com.bun.miitmdid.a.a.a f27561a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bun.miitmdid.a.a.b f26751b;
+        public com.bun.miitmdid.a.a.b f27562b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c f26752c;
+        public c f27563c;
 
-        public C0292a() {
+        public C0285a() {
         }
     }
 
@@ -65,9 +65,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_HUAWEI) != null) {
-            aVar.f26749a.f26750a = new com.bun.miitmdid.a.a.a();
+            aVar.f27560a.f27561a = new com.bun.miitmdid.a.a.a();
         }
-        return aVar.f26749a.f26750a != null;
+        return aVar.f27560a.f27561a != null;
     }
 
     public static boolean b(a aVar, JSONObject jSONObject) {
@@ -75,9 +75,9 @@ public class a implements b {
             return false;
         }
         if (jSONObject.optJSONObject(RomUtils.MANUFACTURER_XIAOMI) != null) {
-            aVar.f26749a.f26752c = new c();
+            aVar.f27560a.f27563c = new c();
         }
-        return aVar.f26749a.f26752c != null;
+        return aVar.f27560a.f27563c != null;
     }
 
     public static boolean c(a aVar, JSONObject jSONObject) {
@@ -87,17 +87,17 @@ public class a implements b {
         JSONObject optJSONObject = jSONObject.optJSONObject(RomUtils.MANUFACTURER_VIVO);
         com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
         if (optJSONObject != null) {
-            bVar.f26754a = optJSONObject.optString("appid");
-            aVar.f26749a.f26751b = bVar;
+            bVar.f27565a = optJSONObject.optString("appid");
+            aVar.f27560a.f27562b = bVar;
         }
-        return aVar.f26749a.f26751b != null;
+        return aVar.f27560a.f27562b != null;
     }
 
     @Override // com.bun.miitmdid.a.b
     public String a() {
         com.bun.miitmdid.a.a.b bVar;
         String str;
-        C0292a c0292a = this.f26749a;
-        return (c0292a == null || (bVar = c0292a.f26751b) == null || (str = bVar.f26754a) == null) ? "" : str;
+        C0285a c0285a = this.f27560a;
+        return (c0285a == null || (bVar = c0285a.f27562b) == null || (str = bVar.f27565a) == null) ? "" : str;
     }
 }

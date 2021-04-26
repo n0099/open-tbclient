@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import d.b.j0.v3.k.a;
-import d.b.j0.v3.k.b;
+import d.a.j0.v3.j.a;
+import d.a.j0.v3.j.b;
 /* loaded from: classes5.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String ACCOUNT_ACCESS_CANCEL = "http://tieba.baidu.com/account/access/cancel";
@@ -43,13 +43,13 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i2 == -1) {
-            if (i == 12006) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i3 == -1) {
+            if (i2 == 12006) {
                 setResult(-1, intent);
             }
-        } else if (i2 == 0 && i == 12006) {
+        } else if (i3 == 0 && i2 == 12006) {
             setResult(0, intent);
         }
         finish();

@@ -7,20 +7,20 @@ import java.io.PushbackInputStream;
 public final class a extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f38919a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+    public static final char[] f36504a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f38920b = new byte[256];
+    public static final byte[] f36505b = new byte[256];
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f38921c = new byte[4];
+    public byte[] f36506c = new byte[4];
 
     static {
-        for (int i = 0; i < 255; i++) {
-            f38920b[i] = -1;
+        for (int i2 = 0; i2 < 255; i2++) {
+            f36505b[i2] = -1;
         }
-        for (int i2 = 0; i2 < 64; i2++) {
-            f38920b[f38919a[i2]] = (byte) i2;
+        for (int i3 = 0; i3 < 64; i3++) {
+            f36505b[f36504a[i3]] = (byte) i3;
         }
     }
 
@@ -30,13 +30,13 @@ public final class a extends d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void a(PushbackInputStream pushbackInputStream, OutputStream outputStream, int i) {
+    public final void a(PushbackInputStream pushbackInputStream, OutputStream outputStream, int i2) {
         byte b2;
         byte b3;
         byte b4;
         byte b5;
-        int i2;
-        if (i < 2) {
+        int i3;
+        if (i2 < 2) {
             throw new b("BASE64Decoder: Not enough bytes for an atom.");
         }
         while (true) {
@@ -46,41 +46,41 @@ public final class a extends d {
                 throw new c();
             }
             if (read != 10 && read != 13) {
-                byte[] bArr = this.f38921c;
+                byte[] bArr = this.f36506c;
                 bArr[0] = (byte) read;
-                int i3 = i - 1;
-                int i4 = 0;
+                int i4 = i2 - 1;
+                int i5 = 0;
                 while (true) {
-                    if (i4 >= i3) {
+                    if (i5 >= i4) {
                         break;
                     }
                     int read2 = pushbackInputStream.read();
                     if (read2 == -1) {
-                        i3 = i4 == 0 ? -1 : i4;
+                        i4 = i5 == 0 ? -1 : i5;
                     } else {
-                        i4++;
-                        bArr[i4] = (byte) read2;
+                        i5++;
+                        bArr[i5] = (byte) read2;
                     }
                 }
-                if (i3 == -1) {
+                if (i4 == -1) {
                     throw new c();
                 }
-                if (i > 3 && this.f38921c[3] == 61) {
-                    i = 3;
+                if (i2 > 3 && this.f36506c[3] == 61) {
+                    i2 = 3;
                 }
-                if (i > 2 && this.f38921c[2] == 61) {
-                    i = 2;
+                if (i2 > 2 && this.f36506c[2] == 61) {
+                    i2 = 2;
                 }
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 != 4) {
                             b4 = -1;
                             b5 = -1;
                             b3 = -1;
-                            if (i != 2) {
-                                i2 = ((b3 >>> 4) & 3) | ((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE);
-                            } else if (i != 3) {
-                                if (i != 4) {
+                            if (i2 != 2) {
+                                i3 = ((b3 >>> 4) & 3) | ((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE);
+                            } else if (i2 != 3) {
+                                if (i2 != 4) {
                                     return;
                                 }
                                 outputStream.write((byte) (((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE) | ((b3 >>> 4) & 3)));
@@ -89,28 +89,28 @@ public final class a extends d {
                                 return;
                             } else {
                                 outputStream.write((byte) (((b6 << 2) & GDiffPatcher.COPY_INT_UBYTE) | (3 & (b3 >>> 4))));
-                                i2 = ((b3 << 4) & 240) | ((b4 >>> 2) & 15);
+                                i3 = ((b3 << 4) & 240) | ((b4 >>> 2) & 15);
                             }
-                            outputStream.write((byte) i2);
+                            outputStream.write((byte) i3);
                             return;
                         }
-                        b6 = f38920b[this.f38921c[3] & 255];
+                        b6 = f36505b[this.f36506c[3] & 255];
                     }
                     b2 = b6;
-                    b6 = f38920b[this.f38921c[2] & 255];
+                    b6 = f36505b[this.f36506c[2] & 255];
                 } else {
                     b2 = -1;
                 }
-                byte[] bArr2 = f38920b;
-                byte[] bArr3 = this.f38921c;
+                byte[] bArr2 = f36505b;
+                byte[] bArr3 = this.f36506c;
                 b3 = bArr2[bArr3[1] & 255];
                 byte b7 = b2;
                 b4 = b6;
                 b6 = bArr2[bArr3[0] & 255];
                 b5 = b7;
-                if (i != 2) {
+                if (i2 != 2) {
                 }
-                outputStream.write((byte) i2);
+                outputStream.write((byte) i3);
                 return;
             }
         }

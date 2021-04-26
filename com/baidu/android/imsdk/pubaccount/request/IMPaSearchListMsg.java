@@ -49,18 +49,18 @@ public class IMPaSearchListMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
         ArrayList arrayList;
         Exception e2;
         ArrayList arrayList2 = null;
-        if (i == 0) {
+        if (i2 == 0) {
             try {
                 JSONArray optJSONArray = jSONObject.optJSONArray("pa_list");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     arrayList = new ArrayList();
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                         try {
-                            JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                            JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
                             PaInfo paInfo = new PaInfo();
                             paInfo.setPaId(jSONObject2.optLong("pa_uid"));
                             paInfo.setNickName(jSONObject2.optString("pa_nickname"));
@@ -74,8 +74,8 @@ public class IMPaSearchListMsg extends Message {
                             e2 = e3;
                             LogUtils.e(LogUtils.TAG, "handleMessageResult:", e2);
                             new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
-                            super.handleMessageResult(context, jSONObject, i, str);
-                            PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i, str, arrayList);
+                            super.handleMessageResult(context, jSONObject, i2, str);
+                            PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i2, str, arrayList);
                         }
                     }
                     arrayList2 = arrayList;
@@ -86,7 +86,7 @@ public class IMPaSearchListMsg extends Message {
             }
         }
         arrayList = arrayList2;
-        super.handleMessageResult(context, jSONObject, i, str);
-        PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i, str, arrayList);
+        super.handleMessageResult(context, jSONObject, i2, str);
+        PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i2, str, arrayList);
     }
 }

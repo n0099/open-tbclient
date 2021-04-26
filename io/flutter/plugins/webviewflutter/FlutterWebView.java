@@ -26,7 +26,7 @@ public class FlutterWebView implements PlatformView, MethodChannel.MethodCallHan
     public final InputAwareWebView webView;
 
     @TargetApi(17)
-    public FlutterWebView(Context context, BinaryMessenger binaryMessenger, int i, Map<String, Object> map, View view) {
+    public FlutterWebView(Context context, BinaryMessenger binaryMessenger, int i2, Map<String, Object> map, View view) {
         DisplayListenerProxy displayListenerProxy = new DisplayListenerProxy();
         DisplayManager displayManager = (DisplayManager) context.getSystemService("display");
         displayListenerProxy.onPreWebViewInitialization(displayManager);
@@ -34,7 +34,7 @@ public class FlutterWebView implements PlatformView, MethodChannel.MethodCallHan
         this.webView = inputAwareWebView;
         inputAwareWebView.setOnScrollChangedCallback(new InputAwareWebView.OnScrollChangedCallback() { // from class: io.flutter.plugins.webviewflutter.FlutterWebView.1
             @Override // io.flutter.plugins.webviewflutter.InputAwareWebView.OnScrollChangedCallback
-            public void onScroll(int i2, int i3, int i4, int i5) {
+            public void onScroll(int i3, int i4, int i5, int i6) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("offsetY", String.valueOf(FlutterWebView.this.webView.getScrollY()));
                 FlutterWebView.this.methodChannel.invokeMethod("onPageOffsetY", hashMap);
@@ -44,7 +44,7 @@ public class FlutterWebView implements PlatformView, MethodChannel.MethodCallHan
         this.platformThreadHandler = new Handler(context.getMainLooper());
         this.webView.getSettings().setDomStorageEnabled(true);
         this.webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        MethodChannel methodChannel = new MethodChannel(binaryMessenger, "plugins.flutter.io/webview_" + i);
+        MethodChannel methodChannel = new MethodChannel(binaryMessenger, "plugins.flutter.io/webview_" + i2);
         this.methodChannel = methodChannel;
         methodChannel.setMethodCallHandler(this);
         this.flutterWebViewClient = new FlutterWebViewClient(this.methodChannel);
@@ -218,17 +218,17 @@ public class FlutterWebView implements PlatformView, MethodChannel.MethodCallHan
         result.success(null);
     }
 
-    private void updateAutoMediaPlaybackPolicy(int i) {
-        this.webView.getSettings().setMediaPlaybackRequiresUserGesture(i != 1);
+    private void updateAutoMediaPlaybackPolicy(int i2) {
+        this.webView.getSettings().setMediaPlaybackRequiresUserGesture(i2 != 1);
     }
 
-    private void updateJsMode(int i) {
-        if (i == 0) {
+    private void updateJsMode(int i2) {
+        if (i2 == 0) {
             this.webView.getSettings().setJavaScriptEnabled(false);
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             this.webView.getSettings().setJavaScriptEnabled(true);
         } else {
-            throw new IllegalArgumentException("Trying to set unknown JavaScript mode: " + i);
+            throw new IllegalArgumentException("Trying to set unknown JavaScript mode: " + i2);
         }
     }
 

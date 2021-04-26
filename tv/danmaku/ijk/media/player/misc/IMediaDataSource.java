@@ -8,5 +8,5 @@ public interface IMediaDataSource {
 
     long getSize();
 
-    int readAt(long j, byte[] bArr, int i, int i2);
+    int readAt(long j, byte[] bArr, int i2, int i3);
 }

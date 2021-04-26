@@ -1,58 +1,58 @@
 package io.reactivex.internal.disposables;
 
-import f.b.t.b;
+import io.reactivex.disposables.Disposable;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes7.dex */
-public final class ArrayCompositeDisposable extends AtomicReferenceArray<b> implements b {
+public final class ArrayCompositeDisposable extends AtomicReferenceArray<Disposable> implements Disposable {
     public static final long serialVersionUID = 2746389416410565408L;
 
-    public ArrayCompositeDisposable(int i) {
-        super(i);
+    public ArrayCompositeDisposable(int i2) {
+        super(i2);
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
-        b andSet;
+        Disposable andSet;
         if (get(0) != DisposableHelper.DISPOSED) {
             int length = length();
-            for (int i = 0; i < length; i++) {
-                b bVar = get(i);
+            for (int i2 = 0; i2 < length; i2++) {
+                Disposable disposable = get(i2);
                 DisposableHelper disposableHelper = DisposableHelper.DISPOSED;
-                if (bVar != disposableHelper && (andSet = getAndSet(i, disposableHelper)) != DisposableHelper.DISPOSED && andSet != null) {
+                if (disposable != disposableHelper && (andSet = getAndSet(i2, disposableHelper)) != DisposableHelper.DISPOSED && andSet != null) {
                     andSet.dispose();
                 }
             }
         }
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         return get(0) == DisposableHelper.DISPOSED;
     }
 
-    public b replaceResource(int i, b bVar) {
-        b bVar2;
+    public Disposable replaceResource(int i2, Disposable disposable) {
+        Disposable disposable2;
         do {
-            bVar2 = get(i);
-            if (bVar2 == DisposableHelper.DISPOSED) {
-                bVar.dispose();
+            disposable2 = get(i2);
+            if (disposable2 == DisposableHelper.DISPOSED) {
+                disposable.dispose();
                 return null;
             }
-        } while (!compareAndSet(i, bVar2, bVar));
-        return bVar2;
+        } while (!compareAndSet(i2, disposable2, disposable));
+        return disposable2;
     }
 
-    public boolean setResource(int i, b bVar) {
-        b bVar2;
+    public boolean setResource(int i2, Disposable disposable) {
+        Disposable disposable2;
         do {
-            bVar2 = get(i);
-            if (bVar2 == DisposableHelper.DISPOSED) {
-                bVar.dispose();
+            disposable2 = get(i2);
+            if (disposable2 == DisposableHelper.DISPOSED) {
+                disposable.dispose();
                 return false;
             }
-        } while (!compareAndSet(i, bVar2, bVar));
-        if (bVar2 != null) {
-            bVar2.dispose();
+        } while (!compareAndSet(i2, disposable2, disposable));
+        if (disposable2 != null) {
+            disposable2.dispose();
             return true;
         }
         return true;

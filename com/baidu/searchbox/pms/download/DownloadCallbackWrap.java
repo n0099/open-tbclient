@@ -31,8 +31,8 @@ public class DownloadCallbackWrap implements InnerCallback {
 
     private boolean isAllFinish() {
         for (PackageInfo packageInfo : this.mList) {
-            int i = packageInfo.type;
-            if (i != 5 && i != 6 && i != 10) {
+            int i2 = packageInfo.type;
+            if (i2 != 5 && i2 != 6 && i2 != 10) {
                 return false;
             }
         }
@@ -45,12 +45,12 @@ public class DownloadCallbackWrap implements InnerCallback {
             ArrayList arrayList2 = new ArrayList();
             ArrayList arrayList3 = new ArrayList();
             for (PackageInfo packageInfo : this.mList) {
-                int i = packageInfo.type;
-                if (i == 5) {
+                int i2 = packageInfo.type;
+                if (i2 == 5) {
                     arrayList3.add(packageInfo);
-                } else if (i == 6) {
+                } else if (i2 == 6) {
                     arrayList2.add(packageInfo);
-                } else if (i == 10) {
+                } else if (i2 == 10) {
                     arrayList.add(packageInfo);
                 }
             }
@@ -86,8 +86,8 @@ public class DownloadCallbackWrap implements InnerCallback {
     }
 
     @Override // com.baidu.searchbox.pms.download.InnerCallback
-    public void onError(PackageInfo packageInfo, int i, String str) {
-        notifyError(packageInfo, new ErrorInfo(i, str));
+    public void onError(PackageInfo packageInfo, int i2, String str) {
+        notifyError(packageInfo, new ErrorInfo(i2, str));
     }
 
     @Override // com.baidu.searchbox.pms.download.InnerCallback

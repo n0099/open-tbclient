@@ -34,9 +34,9 @@ public interface IPlayer {
 
     void setGLTextureView(GLTextureView gLTextureView);
 
-    void setLoopSection(int i);
+    void setLoopSection(int i2);
 
-    void setLoopSection(int i, int i2);
+    void setLoopSection(int i2, int i3);
 
     void setLoopSection(long j);
 

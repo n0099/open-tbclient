@@ -6,56 +6,56 @@ import com.kwad.sdk.core.video.a.c;
 public abstract class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public c.e f34474a;
+    public c.e f33461a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b f34475b;
+    public c.b f33462b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a f34476c;
+    public c.a f33463c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.f f34477d;
+    public c.f f33464d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.h f34478e;
+    public c.h f33465e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.InterfaceC0408c f34479f;
+    public c.InterfaceC0382c f33466f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.d f34480g;
+    public c.d f33467g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.g f34481h;
+    public c.g f33468h;
 
     public void a() {
-        this.f34474a = null;
-        this.f34476c = null;
-        this.f34475b = null;
-        this.f34477d = null;
-        this.f34478e = null;
-        this.f34479f = null;
-        this.f34480g = null;
-        this.f34481h = null;
+        this.f33461a = null;
+        this.f33463c = null;
+        this.f33462b = null;
+        this.f33464d = null;
+        this.f33465e = null;
+        this.f33466f = null;
+        this.f33467g = null;
+        this.f33468h = null;
     }
 
-    public final void a(int i) {
-        c.a aVar = this.f34476c;
+    public final void a(int i2) {
+        c.a aVar = this.f33463c;
         if (aVar != null) {
-            aVar.a(this, i);
+            aVar.a(this, i2);
         }
     }
 
-    public final void a(int i, int i2) {
-        c.h hVar = this.f34478e;
+    public final void a(int i2, int i3) {
+        c.h hVar = this.f33465e;
         if (hVar != null) {
-            hVar.a(this, i, i2);
+            hVar.a(this, i2, i3);
         }
     }
 
     public final void a(TimedText timedText) {
-        c.g gVar = this.f34481h;
+        c.g gVar = this.f33468h;
         if (gVar != null) {
             gVar.a(this, timedText);
         }
@@ -63,65 +63,65 @@ public abstract class a implements c {
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.a aVar) {
-        this.f34476c = aVar;
+        this.f33463c = aVar;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.b bVar) {
-        this.f34475b = bVar;
+        this.f33462b = bVar;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
-    public void a(c.InterfaceC0408c interfaceC0408c) {
-        this.f34479f = interfaceC0408c;
+    public void a(c.InterfaceC0382c interfaceC0382c) {
+        this.f33466f = interfaceC0382c;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.d dVar) {
-        this.f34480g = dVar;
+        this.f33467g = dVar;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.e eVar) {
-        this.f34474a = eVar;
+        this.f33461a = eVar;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.f fVar) {
-        this.f34477d = fVar;
+        this.f33464d = fVar;
     }
 
     @Override // com.kwad.sdk.core.video.a.c
     public void a(c.h hVar) {
-        this.f34478e = hVar;
+        this.f33465e = hVar;
     }
 
     public final void b() {
-        c.e eVar = this.f34474a;
+        c.e eVar = this.f33461a;
         if (eVar != null) {
             eVar.a(this);
         }
     }
 
-    public final boolean b(int i, int i2) {
-        c.InterfaceC0408c interfaceC0408c = this.f34479f;
-        return interfaceC0408c != null && interfaceC0408c.a(this, i, i2);
+    public final boolean b(int i2, int i3) {
+        c.InterfaceC0382c interfaceC0382c = this.f33466f;
+        return interfaceC0382c != null && interfaceC0382c.a(this, i2, i3);
     }
 
     public final void c() {
-        c.b bVar = this.f34475b;
+        c.b bVar = this.f33462b;
         if (bVar != null) {
             bVar.a(this);
         }
     }
 
-    public final boolean c(int i, int i2) {
-        c.d dVar = this.f34480g;
-        return dVar != null && dVar.a(this, i, i2);
+    public final boolean c(int i2, int i3) {
+        c.d dVar = this.f33467g;
+        return dVar != null && dVar.a(this, i2, i3);
     }
 
     public final void d() {
-        c.f fVar = this.f34477d;
+        c.f fVar = this.f33464d;
         if (fVar != null) {
             fVar.a(this);
         }

@@ -15,8 +15,8 @@ public class StoryObject implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public StoryObject[] newArray(int i) {
-            return new StoryObject[i];
+        public StoryObject[] newArray(int i2) {
+            return new StoryObject[i2];
         }
     };
     public String appId;
@@ -35,7 +35,7 @@ public class StoryObject implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.sourcePath);
         parcel.writeInt(this.sourceType);
         parcel.writeString(this.appId);

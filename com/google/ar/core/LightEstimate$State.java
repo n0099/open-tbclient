@@ -8,20 +8,20 @@ public enum LightEstimate$State {
     
     public final int nativeCode;
 
-    LightEstimate$State(int i) {
-        this.nativeCode = i;
+    LightEstimate$State(int i2) {
+        this.nativeCode = i2;
     }
 
-    public static LightEstimate$State forNumber(int i) {
+    public static LightEstimate$State forNumber(int i2) {
         LightEstimate$State[] values;
         for (LightEstimate$State lightEstimate$State : values()) {
-            if (lightEstimate$State.nativeCode == i) {
+            if (lightEstimate$State.nativeCode == i2) {
                 return lightEstimate$State;
             }
         }
         StringBuilder sb = new StringBuilder(66);
         sb.append("Unexpected value for native LightEstimate.State, value=");
-        sb.append(i);
+        sb.append(i2);
         throw new FatalException(sb.toString());
     }
 }

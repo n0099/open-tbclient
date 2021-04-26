@@ -9,12 +9,12 @@ import android.os.Message;
 public class y extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ x f6642a;
+    public final /* synthetic */ x f6869a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y(x xVar, Looper looper) {
         super(looper);
-        this.f6642a = xVar;
+        this.f6869a = xVar;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:33:0x008d -> B:35:0x0090). Please submit an issue!!! */
@@ -26,24 +26,24 @@ public class y extends Handler {
         String a2;
         Handler handler;
         Handler handler2;
-        int i = message.what;
+        int i2 = message.what;
         try {
-            if (i != 1) {
-                if (i == 2) {
+            if (i2 != 1) {
+                if (i2 == 2) {
                     c2 = u.c();
                     n = com.baidu.location.b.i.a().n();
                     d2 = u.d();
                     a2 = u.a();
-                } else if (i == 3) {
+                } else if (i2 == 3) {
                     c2 = u.c();
                     n = null;
                     d2 = u.d();
                     a2 = a.a().c();
-                } else if (i != 4) {
-                    if (i == 7) {
+                } else if (i2 != 4) {
+                    if (i2 == 7) {
                         w.a().c();
                         return;
-                    } else if (i != 8) {
+                    } else if (i2 != 8) {
                         return;
                     } else {
                         message.getData();
@@ -53,9 +53,9 @@ public class y extends Handler {
                     if (com.baidu.location.b.i.i()) {
                         h.a().d();
                     }
-                    handler = this.f6642a.f6640d;
+                    handler = this.f6869a.f6867d;
                     if (handler != null) {
-                        handler2 = this.f6642a.f6640d;
+                        handler2 = this.f6869a.f6867d;
                         handler2.sendEmptyMessageDelayed(4, com.baidu.location.d.j.Q);
                     }
                 }

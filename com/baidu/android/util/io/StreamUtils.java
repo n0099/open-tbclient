@@ -5,6 +5,7 @@ import android.util.Xml;
 import com.google.zxing.client.result.ResultParser;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -167,29 +168,64 @@ public class StreamUtils {
         }
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x002e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0009 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r4v0, types: [java.io.Closeable, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r4v1 */
+    /* JADX WARN: Type inference failed for: r4v2, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r4v3, types: [java.lang.String] */
     public static String streamToString(InputStream inputStream, String str) {
-        if (inputStream == null) {
+        BufferedReader bufferedReader = null;
+        if (inputStream == 0) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
         try {
             try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, str), 8192);
+                BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader((InputStream) inputStream, str), 8192);
                 while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
+                    try {
+                        String readLine = bufferedReader2.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        sb.append(readLine);
+                    } catch (Exception e2) {
+                        e = e2;
+                        bufferedReader = bufferedReader2;
+                        e.printStackTrace();
+                        Closeables.closeSafely((Closeable) inputStream);
+                        Closeables.closeSafely(bufferedReader);
+                        inputStream = sb.toString();
+                        return inputStream;
+                    } catch (OutOfMemoryError e3) {
+                        e = e3;
+                        bufferedReader = bufferedReader2;
+                        e.printStackTrace();
+                        Closeables.closeSafely((Closeable) inputStream);
+                        Closeables.closeSafely(bufferedReader);
+                        inputStream = sb.toString();
+                        return inputStream;
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedReader = bufferedReader2;
+                        Closeables.closeSafely((Closeable) inputStream);
+                        Closeables.closeSafely(bufferedReader);
+                        throw th;
                     }
-                    sb.append(readLine);
                 }
-            } catch (Throwable th) {
-                Closeables.closeSafely(inputStream);
-                throw th;
+                Closeables.closeSafely((Closeable) inputStream);
+                Closeables.closeSafely(bufferedReader2);
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Exception | OutOfMemoryError e2) {
-            e2.printStackTrace();
+        } catch (Exception e4) {
+            e = e4;
+        } catch (OutOfMemoryError e5) {
+            e = e5;
         }
-        Closeables.closeSafely(inputStream);
-        return sb.toString();
+        inputStream = sb.toString();
+        return inputStream;
     }
 }

@@ -13,21 +13,21 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
-import d.b.y.a.f;
-import d.b.y.a.g;
+import d.a.y.a.f;
+import d.a.y.a.g;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class SwitchAccountActivity extends BaseActivity {
-    public static final String s = "https://wappass.baidu.com/v6/changeAccount";
-    public WebAuthResult p = new WebAuthResult() { // from class: com.baidu.sapi2.activity.SwitchAccountActivity.1
+    public static final String w = "https://wappass.baidu.com/v6/changeAccount";
+    public WebAuthResult t = new WebAuthResult() { // from class: com.baidu.sapi2.activity.SwitchAccountActivity.1
         @Override // com.baidu.sapi2.shell.result.WebAuthResult
         public void finishActivity() {
             SwitchAccountActivity.this.finish();
             CoreViewRouter.getInstance().release();
         }
     };
-    public WebAuthListener q;
-    public SwitchAccountDTO r;
+    public WebAuthListener u;
+    public SwitchAccountDTO v;
 
     private String b() {
         WebBackForwardList copyBackForwardList;
@@ -42,15 +42,15 @@ public class SwitchAccountActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
-        this.q = CoreViewRouter.getInstance().getWebAuthListener();
+        this.u = CoreViewRouter.getInstance().getWebAuthListener();
         SwitchAccountDTO switchAccountDTO = CoreViewRouter.getInstance().getSwitchAccountDTO();
-        this.r = switchAccountDTO;
-        if (switchAccountDTO != null && this.q != null) {
+        this.v = switchAccountDTO;
+        if (switchAccountDTO != null && this.u != null) {
             setupViews();
             return;
         }
-        this.p.setResultCode(-204);
-        a(this.p);
+        this.t.setResultCode(-204);
+        a(this.t);
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
@@ -62,8 +62,8 @@ public class SwitchAccountActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
-        this.p.setResultCode(-301);
-        a(this.p);
+        this.t.setResultCode(-301);
+        a(this.t);
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
@@ -74,8 +74,8 @@ public class SwitchAccountActivity extends BaseActivity {
             init();
         } catch (Throwable th) {
             reportWebviewError(th);
-            this.p.setResultCode(-202);
-            a(this.p);
+            this.t.setResultCode(-202);
+            a(this.t);
         }
     }
 
@@ -93,7 +93,7 @@ public class SwitchAccountActivity extends BaseActivity {
         setTitleText(g.sapi_sdk_title_switch);
         SapiWebView sapiWebView = this.sapiWebView;
         sapiWebView.showSwitchAccount = this.configuration.supportMultipleAccounts;
-        sapiWebView.showLinkAccount = this.r.supportQueryAssociatedAccount;
+        sapiWebView.showLinkAccount = this.v.supportQueryAssociatedAccount;
         sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.SwitchAccountActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
             public void onFinish() {
@@ -109,8 +109,8 @@ public class SwitchAccountActivity extends BaseActivity {
         });
         this.sapiWebView.setAuthorizationListener(new AuthorizationListener() { // from class: com.baidu.sapi2.activity.SwitchAccountActivity.4
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-            public void onFailed(int i, String str) {
-                SwitchAccountActivity.this.a(i, str);
+            public void onFailed(int i2, String str) {
+                SwitchAccountActivity.this.a(i2, str);
             }
 
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
@@ -124,10 +124,10 @@ public class SwitchAccountActivity extends BaseActivity {
             public void onAccountSwitch(SapiWebView.SwitchAccountCallback.Result result) {
                 WebLoginDTO webLoginDTO = new WebLoginDTO();
                 webLoginDTO.finishActivityAfterSuc = false;
-                int i = result.switchAccountType;
-                if (i == 1) {
+                int i2 = result.switchAccountType;
+                if (i2 == 1) {
                     webLoginDTO.preSetUname = result.userName;
-                } else if (i == 2) {
+                } else if (i2 == 2) {
                     if (result.loginType == 0) {
                         webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME;
                     } else {
@@ -171,7 +171,7 @@ public class SwitchAccountActivity extends BaseActivity {
         SapiWebView sapiWebView = this.sapiWebView;
         if (sapiWebView != null && sapiWebView.canGoBack()) {
             String b2 = b();
-            if (b2 != null && b2.startsWith(s)) {
+            if (b2 != null && b2.startsWith(w)) {
                 onClose();
                 return;
             } else {
@@ -184,21 +184,21 @@ public class SwitchAccountActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AccountType accountType) {
-        this.p.setResultCode(0);
-        WebAuthResult webAuthResult = this.p;
+        this.t.setResultCode(0);
+        WebAuthResult webAuthResult = this.t;
         webAuthResult.accountType = accountType;
-        this.q.onSuccess(webAuthResult);
+        this.u.onSuccess(webAuthResult);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, String str) {
-        this.p.setResultCode(i);
-        this.p.setResultMsg(str);
-        this.q.onFailure(this.p);
+    public void a(int i2, String str) {
+        this.t.setResultCode(i2);
+        this.t.setResultMsg(str);
+        this.u.onFailure(this.t);
     }
 
     private void a(WebAuthResult webAuthResult) {
-        WebAuthListener webAuthListener = this.q;
+        WebAuthListener webAuthListener = this.u;
         if (webAuthListener != null) {
             webAuthListener.onFailure(webAuthResult);
         }

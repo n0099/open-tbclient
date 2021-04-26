@@ -1,24 +1,24 @@
 package com.vivo.push.b;
 
 import com.baidu.android.imsdk.IMConstants;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class z extends com.vivo.push.y {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39789a;
+    public int f37392a;
 
     public z() {
         super(IMConstants.IM_MSG_TYPE_SHIELD);
-        this.f39789a = 0;
+        this.f37392a = 0;
     }
 
-    public final void a(int i) {
-        this.f39789a = i;
+    public final void a(int i2) {
+        this.f37392a = i2;
     }
 
     @Override // com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
-        aVar.a("com.bbk.push.ikey.MODE_TYPE", this.f39789a);
+        aVar.a("com.bbk.push.ikey.MODE_TYPE", this.f37392a);
     }
 
     @Override // com.vivo.push.y
@@ -27,7 +27,7 @@ public final class z extends com.vivo.push.y {
     }
 
     public final int d() {
-        return this.f39789a;
+        return this.f37392a;
     }
 
     @Override // com.vivo.push.y
@@ -37,6 +37,6 @@ public final class z extends com.vivo.push.y {
 
     @Override // com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
-        this.f39789a = aVar.b("com.bbk.push.ikey.MODE_TYPE", 0);
+        this.f37392a = aVar.b("com.bbk.push.ikey.MODE_TYPE", 0);
     }
 }

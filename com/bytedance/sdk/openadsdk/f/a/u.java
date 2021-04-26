@@ -24,19 +24,19 @@ import org.json.JSONObject;
 public class u {
 
     /* renamed from: b  reason: collision with root package name */
-    public final LruCache<String, c> f29054b;
+    public final LruCache<String, c> f29946b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final k.a f29055c;
+    public final k.a f29947c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f29056d;
+    public final String f29948d;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, List<b>> f29053a = new ConcurrentHashMap();
+    public final Map<String, List<b>> f29945a = new ConcurrentHashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f29057e = false;
+    public volatile boolean f29949e = false;
 
     /* loaded from: classes5.dex */
     public static class a extends IllegalStateException {
@@ -49,16 +49,16 @@ public class u {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Pattern f29060a;
+        public Pattern f29952a;
 
         /* renamed from: b  reason: collision with root package name */
-        public w f29061b;
+        public w f29953b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<String> f29062c;
+        public List<String> f29954c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<String> f29063d;
+        public List<String> f29955d;
 
         public b() {
         }
@@ -68,26 +68,26 @@ public class u {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public w f29064a = w.PUBLIC;
+        public w f29956a = w.PUBLIC;
 
         /* renamed from: b  reason: collision with root package name */
-        public Set<String> f29065b = new HashSet();
+        public Set<String> f29957b = new HashSet();
 
         /* renamed from: c  reason: collision with root package name */
-        public Set<String> f29066c = new HashSet();
+        public Set<String> f29958c = new HashSet();
     }
 
     @WorkerThread
-    public u(@NonNull String str, int i, @NonNull k.a aVar, @NonNull final Executor executor, @Nullable JSONObject jSONObject) {
-        this.f29056d = str;
-        if (i <= 0) {
-            this.f29054b = new LruCache<>(16);
+    public u(@NonNull String str, int i2, @NonNull k.a aVar, @NonNull final Executor executor, @Nullable JSONObject jSONObject) {
+        this.f29948d = str;
+        if (i2 <= 0) {
+            this.f29946b = new LruCache<>(16);
         } else {
-            this.f29054b = new LruCache<>(i);
+            this.f29946b = new LruCache<>(i2);
         }
-        this.f29055c = aVar;
+        this.f29947c = aVar;
         if (jSONObject == null) {
-            aVar.a(d(str), new k.a.InterfaceC0324a() { // from class: com.bytedance.sdk.openadsdk.f.a.u.1
+            aVar.a(d(str), new k.a.InterfaceC0317a() { // from class: com.bytedance.sdk.openadsdk.f.a.u.1
             });
         } else {
             a(jSONObject);
@@ -96,7 +96,7 @@ public class u {
 
     @WorkerThread
     private void b(JSONObject jSONObject) {
-        this.f29053a.clear();
+        this.f29945a.clear();
         try {
             JSONObject jSONObject2 = jSONObject.getJSONObject("content");
             Iterator<String> keys = jSONObject2.keys();
@@ -104,20 +104,20 @@ public class u {
                 String next = keys.next();
                 JSONArray jSONArray = jSONObject2.getJSONArray(next);
                 LinkedList linkedList = new LinkedList();
-                this.f29053a.put(next, linkedList);
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    linkedList.add(c(jSONArray.getJSONObject(i)));
+                this.f29945a.put(next, linkedList);
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    linkedList.add(c(jSONArray.getJSONObject(i2)));
                 }
             }
         } catch (JSONException e2) {
             i.b("Parse configurations failed, response: " + jSONObject.toString(), e2);
         }
-        this.f29057e = true;
+        this.f29949e = true;
     }
 
     private List<b> c(String str) throws a {
-        if (this.f29057e) {
-            return this.f29053a.get(str);
+        if (this.f29949e) {
+            return this.f29945a.get(str);
         }
         throw new a("Permission config is outdated!");
     }
@@ -128,7 +128,7 @@ public class u {
 
     public void a(JSONObject jSONObject) {
         b(jSONObject);
-        this.f29055c.a(d(this.f29056d), jSONObject.toString());
+        this.f29947c.a(d(this.f29948d), jSONObject.toString());
     }
 
     @NonNull
@@ -144,33 +144,33 @@ public class u {
                     if (authority.endsWith("." + str2)) {
                     }
                 }
-                cVar.f29064a = w.PRIVATE;
+                cVar.f29956a = w.PRIVATE;
                 return cVar;
             }
-            c cVar2 = this.f29054b.get(builder);
+            c cVar2 = this.f29946b.get(builder);
             return cVar2 != null ? cVar2 : a(builder);
         }
-        cVar.f29064a = w.PUBLIC;
+        cVar.f29956a = w.PUBLIC;
         return cVar;
     }
 
     @WorkerThread
     public static b c(JSONObject jSONObject) throws JSONException {
         b bVar = new b();
-        bVar.f29060a = Pattern.compile(jSONObject.getString("pattern"));
-        bVar.f29061b = w.a(jSONObject.getString("group"));
-        bVar.f29062c = new ArrayList();
+        bVar.f29952a = Pattern.compile(jSONObject.getString("pattern"));
+        bVar.f29953b = w.a(jSONObject.getString("group"));
+        bVar.f29954c = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("included_methods");
         if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                bVar.f29062c.add(optJSONArray.getString(i));
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                bVar.f29954c.add(optJSONArray.getString(i2));
             }
         }
-        bVar.f29063d = new ArrayList();
+        bVar.f29955d = new ArrayList();
         JSONArray optJSONArray2 = jSONObject.optJSONArray("excluded_methods");
         if (optJSONArray2 != null) {
-            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                bVar.f29063d.add(optJSONArray2.getString(i2));
+            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                bVar.f29955d.add(optJSONArray2.getString(i3));
             }
         }
         return bVar;
@@ -201,18 +201,18 @@ public class u {
                 return cVar;
             }
             for (b bVar : c2) {
-                if (bVar.f29060a.matcher(str).find()) {
-                    if (bVar.f29061b.compareTo(cVar.f29064a) >= 0) {
-                        cVar.f29064a = bVar.f29061b;
+                if (bVar.f29952a.matcher(str).find()) {
+                    if (bVar.f29953b.compareTo(cVar.f29956a) >= 0) {
+                        cVar.f29956a = bVar.f29953b;
                     }
-                    cVar.f29065b.addAll(bVar.f29062c);
-                    cVar.f29066c.addAll(bVar.f29063d);
+                    cVar.f29957b.addAll(bVar.f29954c);
+                    cVar.f29958c.addAll(bVar.f29955d);
                 }
             }
-            this.f29054b.put(str, cVar);
+            this.f29946b.put(str, cVar);
             return cVar;
         }
-        cVar.f29064a = w.PUBLIC;
+        cVar.f29956a = w.PUBLIC;
         return cVar;
     }
 }

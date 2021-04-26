@@ -1,26 +1,27 @@
 package io.reactivex.internal.observers;
 
-import f.b.o;
-import f.b.t.b;
-import f.b.x.c.f;
-import f.b.x.i.i;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
+import io.reactivex.internal.fuseable.QueueDisposable;
+import io.reactivex.internal.fuseable.SimpleQueue;
+import io.reactivex.internal.util.QueueDrainHelper;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public final class InnerQueuedObserver<T> extends AtomicReference<b> implements o<T>, b {
+public final class InnerQueuedObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable {
     public static final long serialVersionUID = -5417183359794346637L;
     public volatile boolean done;
     public int fusionMode;
-    public final f.b.x.d.b<T> parent;
+    public final InnerQueuedObserverSupport<T> parent;
     public final int prefetch;
-    public f<T> queue;
+    public SimpleQueue<T> queue;
 
-    public InnerQueuedObserver(f.b.x.d.b<T> bVar, int i) {
-        this.parent = bVar;
-        this.prefetch = i;
+    public InnerQueuedObserver(InnerQueuedObserverSupport<T> innerQueuedObserverSupport, int i2) {
+        this.parent = innerQueuedObserverSupport;
+        this.prefetch = i2;
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public void dispose() {
         DisposableHelper.dispose(this);
     }
@@ -29,7 +30,7 @@ public final class InnerQueuedObserver<T> extends AtomicReference<b> implements 
         return this.fusionMode;
     }
 
-    @Override // f.b.t.b
+    @Override // io.reactivex.disposables.Disposable
     public boolean isDisposed() {
         return DisposableHelper.isDisposed(get());
     }
@@ -38,17 +39,17 @@ public final class InnerQueuedObserver<T> extends AtomicReference<b> implements 
         return this.done;
     }
 
-    @Override // f.b.o
+    @Override // io.reactivex.Observer
     public void onComplete() {
         this.parent.innerComplete(this);
     }
 
-    @Override // f.b.o
+    @Override // io.reactivex.Observer
     public void onError(Throwable th) {
         this.parent.innerError(this, th);
     }
 
-    @Override // f.b.o
+    @Override // io.reactivex.Observer
     public void onNext(T t) {
         if (this.fusionMode == 0) {
             this.parent.innerNext(this, t);
@@ -57,29 +58,29 @@ public final class InnerQueuedObserver<T> extends AtomicReference<b> implements 
         }
     }
 
-    @Override // f.b.o
-    public void onSubscribe(b bVar) {
-        if (DisposableHelper.setOnce(this, bVar)) {
-            if (bVar instanceof f.b.x.c.b) {
-                f.b.x.c.b bVar2 = (f.b.x.c.b) bVar;
-                int requestFusion = bVar2.requestFusion(3);
+    @Override // io.reactivex.Observer
+    public void onSubscribe(Disposable disposable) {
+        if (DisposableHelper.setOnce(this, disposable)) {
+            if (disposable instanceof QueueDisposable) {
+                QueueDisposable queueDisposable = (QueueDisposable) disposable;
+                int requestFusion = queueDisposable.requestFusion(3);
                 if (requestFusion == 1) {
                     this.fusionMode = requestFusion;
-                    this.queue = bVar2;
+                    this.queue = queueDisposable;
                     this.done = true;
                     this.parent.innerComplete(this);
                     return;
                 } else if (requestFusion == 2) {
                     this.fusionMode = requestFusion;
-                    this.queue = bVar2;
+                    this.queue = queueDisposable;
                     return;
                 }
             }
-            this.queue = i.a(-this.prefetch);
+            this.queue = QueueDrainHelper.createQueue(-this.prefetch);
         }
     }
 
-    public f<T> queue() {
+    public SimpleQueue<T> queue() {
         return this.queue;
     }
 

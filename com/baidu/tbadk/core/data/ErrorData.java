@@ -31,8 +31,8 @@ public class ErrorData implements Serializable {
         }
     }
 
-    public void setError_code(int i) {
-        this.error_code = i;
+    public void setError_code(int i2) {
+        this.error_code = i2;
     }
 
     public void setError_data(String str) {

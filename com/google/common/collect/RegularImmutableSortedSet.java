@@ -1,9 +1,9 @@
 package com.google.common.collect;
 
-import d.h.c.a.n;
-import d.h.c.c.c1;
-import d.h.c.c.i0;
-import d.h.c.c.u0;
+import d.g.c.a.n;
+import d.g.c.c.c1;
+import d.g.c.c.i0;
+import d.g.c.c.u0;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -89,8 +89,8 @@ public final class RegularImmutableSortedSet<E> extends ImmutableSortedSet<E> {
     }
 
     @Override // com.google.common.collect.ImmutableCollection
-    public int copyIntoArray(Object[] objArr, int i) {
-        return this.elements.copyIntoArray(objArr, i);
+    public int copyIntoArray(Object[] objArr, int i2) {
+        return this.elements.copyIntoArray(objArr, i2);
     }
 
     @Override // com.google.common.collect.ImmutableSortedSet
@@ -159,12 +159,12 @@ public final class RegularImmutableSortedSet<E> extends ImmutableSortedSet<E> {
         return this.elements.get(headIndex);
     }
 
-    public RegularImmutableSortedSet<E> getSubSet(int i, int i2) {
-        if (i == 0 && i2 == size()) {
+    public RegularImmutableSortedSet<E> getSubSet(int i2, int i3) {
+        if (i2 == 0 && i3 == size()) {
             return this;
         }
-        if (i < i2) {
-            return new RegularImmutableSortedSet<>(this.elements.subList(i, i2), this.comparator);
+        if (i2 < i3) {
+            return new RegularImmutableSortedSet<>(this.elements.subList(i2, i3), this.comparator);
         }
         return ImmutableSortedSet.emptySet(this.comparator);
     }

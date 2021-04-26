@@ -41,15 +41,15 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        this.mDelegate.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        this.mDelegate.onActivityResult(i2, i3, intent);
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper
-    public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
-        super.onApplyThemeResource(theme, i, z);
-        this.mDelegate.onApplyThemeResource(theme, i, z);
+    public void onApplyThemeResource(Resources.Theme theme, int i2, boolean z) {
+        super.onApplyThemeResource(theme, i2, z);
+        this.mDelegate.onApplyThemeResource(theme, i2, z);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragmentActivity
@@ -58,7 +58,7 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
         this.mDelegate.onAttachFragment(ksFragment);
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         this.mDelegate.onBackPressed();
     }
@@ -75,7 +75,7 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
         this.mDelegate.onConfigurationChanged(configuration);
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         this.mDelegate.onPreCreate(bundle);
         super.onCreate(bundle);
@@ -90,18 +90,18 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return this.mDelegate.onKeyDown(i, keyEvent);
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        return this.mDelegate.onKeyDown(i2, keyEvent);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
-        return this.mDelegate.onKeyLongPress(i, keyEvent);
+    public boolean onKeyLongPress(int i2, KeyEvent keyEvent) {
+        return this.mDelegate.onKeyLongPress(i2, keyEvent);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        return this.mDelegate.onKeyUp(i, keyEvent);
+    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
+        return this.mDelegate.onKeyUp(i2, keyEvent);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -148,7 +148,7 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
         this.mDelegate.onResume();
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(@NonNull Bundle bundle) {
         this.mDelegate.onPreSaveInstanceState(bundle);
         super.onSaveInstanceState(bundle);
@@ -170,9 +170,9 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
     }
 
     @Override // android.app.Activity
-    public void onTitleChanged(CharSequence charSequence, int i) {
-        super.onTitleChanged(charSequence, i);
-        this.mDelegate.onTitleChanged(charSequence, i);
+    public void onTitleChanged(CharSequence charSequence, int i2) {
+        super.onTitleChanged(charSequence, i2);
+        this.mDelegate.onTitleChanged(charSequence, i2);
     }
 
     @Override // android.app.Activity
@@ -185,15 +185,15 @@ public abstract class BaseProxyFragmentActivity extends KsFragmentActivity {
         super.onBackPressed();
     }
 
-    public boolean superOnKeyDown(int i, KeyEvent keyEvent) {
-        return super.onKeyDown(i, keyEvent);
+    public boolean superOnKeyDown(int i2, KeyEvent keyEvent) {
+        return super.onKeyDown(i2, keyEvent);
     }
 
-    public boolean superOnKeyLongPress(int i, KeyEvent keyEvent) {
-        return super.onKeyLongPress(i, keyEvent);
+    public boolean superOnKeyLongPress(int i2, KeyEvent keyEvent) {
+        return super.onKeyLongPress(i2, keyEvent);
     }
 
-    public boolean superOnKeyUp(int i, KeyEvent keyEvent) {
-        return super.onKeyUp(i, keyEvent);
+    public boolean superOnKeyUp(int i2, KeyEvent keyEvent) {
+        return super.onKeyUp(i2, keyEvent);
     }
 }

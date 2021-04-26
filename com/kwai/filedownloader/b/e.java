@@ -16,7 +16,7 @@ public class e extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
         sQLiteDatabase.delete("ksad_file_download", null, null);
         sQLiteDatabase.delete("ksad_file_download_connection", null, null);
     }
@@ -28,12 +28,12 @@ public class e extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        if (i < 2) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        if (i2 < 2) {
             sQLiteDatabase.execSQL("ALTER TABLE ksad_file_download ADD COLUMN pathAsDirectory TINYINT(1) DEFAULT 0");
             sQLiteDatabase.execSQL("ALTER TABLE ksad_file_download ADD COLUMN filename VARCHAR");
         }
-        if (i < 3) {
+        if (i2 < 3) {
             sQLiteDatabase.execSQL("ALTER TABLE ksad_file_download ADD COLUMN connectionCount INTEGER DEFAULT 1");
             sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS ksad_file_download_connection( id INTEGER, connectionIndex INTEGER, startOffset INTEGER, currentOffset INTEGER, endOffset INTEGER, PRIMARY KEY ( id, connectionIndex ))");
         }

@@ -15,6 +15,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
@@ -125,9 +126,9 @@ public final class UrlUtils {
         }
         int length = sb.length();
         if (length > 0) {
-            int i = length - 1;
-            if (sb.charAt(i) == '&') {
-                sb.deleteCharAt(i);
+            int i2 = length - 1;
+            if (sb.charAt(i2) == '&') {
+                sb.deleteCharAt(i2);
             }
         }
         return sb.toString();
@@ -139,14 +140,14 @@ public final class UrlUtils {
         }
         int indexOf = str.indexOf(58);
         boolean z = true;
-        for (int i = 0; i < indexOf; i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < indexOf; i2++) {
+            char charAt = str.charAt(i2);
             if (!Character.isLetter(charAt)) {
                 break;
             }
             z &= Character.isLowerCase(charAt);
-            if (i == indexOf - 1 && !z) {
-                str = str.substring(0, indexOf).toLowerCase() + str.substring(indexOf);
+            if (i2 == indexOf - 1 && !z) {
+                str = str.substring(0, indexOf).toLowerCase(Locale.getDefault()) + str.substring(indexOf);
             }
         }
         if (str.startsWith("http://") || str.startsWith("https://") || str.startsWith("rtsp://")) {
@@ -171,8 +172,20 @@ public final class UrlUtils {
     }
 
     public static String getMime(String str) {
-        String lowerCase = Uri.parse(str).getPath().toLowerCase();
-        return lowerCase.contains(FileHelper.FILE_CACHE_CSS) ? "text/css" : lowerCase.contains(".js") ? "application/x-javascript" : (lowerCase.contains(".jpg") || lowerCase.contains(".gif") || lowerCase.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) || lowerCase.contains(".jpeg")) ? BdUploadHandler.IMAGE_MIME_TYPE : SapiWebView.K;
+        String path = Uri.parse(str).getPath();
+        if (path != null) {
+            String lowerCase = path.toLowerCase(Locale.getDefault());
+            if (lowerCase.contains(FileHelper.FILE_CACHE_CSS)) {
+                return "text/css";
+            }
+            if (lowerCase.contains(".js")) {
+                return "application/x-javascript";
+            }
+            if (lowerCase.contains(".jpg") || lowerCase.contains(".gif") || lowerCase.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) || lowerCase.contains(".jpeg")) {
+                return BdUploadHandler.IMAGE_MIME_TYPE;
+            }
+        }
+        return SapiWebView.DATA_MIME_TYPE;
     }
 
     public static String getParamValue(String str, String str2) {

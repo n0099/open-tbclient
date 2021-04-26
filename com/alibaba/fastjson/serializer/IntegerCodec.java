@@ -18,20 +18,20 @@ public class IntegerCodec implements ObjectSerializer, ObjectDeserializer {
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
         T t;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
-        int i = jSONLexer.token();
-        if (i == 8) {
+        int i2 = jSONLexer.token();
+        if (i2 == 8) {
             jSONLexer.nextToken(16);
             return null;
         }
         try {
-            if (i == 2) {
+            if (i2 == 2) {
                 int intValue = jSONLexer.intValue();
                 jSONLexer.nextToken(16);
                 t = (T) Integer.valueOf(intValue);
-            } else if (i == 3) {
+            } else if (i2 == 3) {
                 t = (T) Integer.valueOf(TypeUtils.intValue(jSONLexer.decimalValue()));
                 jSONLexer.nextToken(16);
-            } else if (i == 12) {
+            } else if (i2 == 12) {
                 JSONObject jSONObject = new JSONObject(true);
                 defaultJSONParser.parseObject((Map) jSONObject);
                 t = (T) TypeUtils.castToInt(jSONObject);
@@ -55,7 +55,7 @@ public class IntegerCodec implements ObjectSerializer, ObjectDeserializer {
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
         Number number = (Number) obj;
         if (number == null) {

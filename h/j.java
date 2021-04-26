@@ -5,7 +5,7 @@ public abstract class j<T> implements e<T>, k {
     public f producer;
     public long requested;
     public final j<?> subscriber;
-    public final h.o.d.i subscriptions;
+    public final h.o.d.h subscriptions;
 
     public j() {
         this(null, false);
@@ -80,6 +80,6 @@ public abstract class j<T> implements e<T>, k {
     public j(j<?> jVar, boolean z) {
         this.requested = Long.MIN_VALUE;
         this.subscriber = jVar;
-        this.subscriptions = (!z || jVar == null) ? new h.o.d.i() : jVar.subscriptions;
+        this.subscriptions = (!z || jVar == null) ? new h.o.d.h() : jVar.subscriptions;
     }
 }

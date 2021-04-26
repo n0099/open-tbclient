@@ -35,14 +35,14 @@ public class MappingFastJsonValue implements JSONSerializable {
     }
 
     @Override // com.alibaba.fastjson.serializer.JSONSerializable
-    public void write(JSONSerializer jSONSerializer, Object obj, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Type type, int i2) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (this.jsonpFunction == null) {
             jSONSerializer.write(this.value);
             return;
         }
-        int i2 = BrowserSecureMask;
-        if ((i & i2) != 0 || serializeWriter.isEnabled(i2)) {
+        int i3 = BrowserSecureMask;
+        if ((i2 & i3) != 0 || serializeWriter.isEnabled(i3)) {
             serializeWriter.write(SECURITY_PREFIX);
         }
         serializeWriter.write(this.jsonpFunction);

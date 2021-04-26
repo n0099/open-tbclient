@@ -10,40 +10,40 @@ import com.bytedance.sdk.openadsdk.core.i;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.h;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.p.a.a.a.a.h;
-import d.p.a.a.a.a.q;
-import d.p.a.d.n.k;
+import d.o.a.a.a.a.h;
+import d.o.a.a.a.a.q;
+import d.o.a.d.n.k;
 import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
 public class d implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f28883a;
+    public final WeakReference<Context> f29772a;
 
     public d(Context context) {
-        this.f28883a = new WeakReference<>(context);
+        this.f29772a = new WeakReference<>(context);
     }
 
-    @Override // d.p.a.a.a.a.h
-    public void a(@NonNull Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    @Override // d.o.a.a.a.a.h
+    public void a(@NonNull Activity activity, int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
     }
 
-    @Override // d.p.a.a.a.a.h
+    @Override // d.o.a.a.a.a.h
     public void a(@NonNull Activity activity, @NonNull final String[] strArr, final q qVar) {
         boolean z;
         TTCustomController e2;
         if (strArr != null && strArr.length > 0) {
             int length = strArr.length;
-            int i = 0;
+            int i2 = 0;
             while (true) {
-                if (i >= length) {
+                if (i2 >= length) {
                     z = false;
                     break;
-                } else if (StorageUtils.EXTERNAL_STORAGE_PERMISSION.equalsIgnoreCase(strArr[i])) {
+                } else if (StorageUtils.EXTERNAL_STORAGE_PERMISSION.equalsIgnoreCase(strArr[i2])) {
                     z = true;
                     break;
                 } else {
-                    i++;
+                    i2++;
                 }
             }
             if (z && (e2 = i.d().e()) != null && qVar != null && !e2.isCanUseWriteExternal()) {
@@ -86,7 +86,7 @@ public class d implements h {
         }
     }
 
-    @Override // d.p.a.a.a.a.h
+    @Override // d.o.a.a.a.a.h
     public boolean a(@Nullable Context context, @NonNull String str) {
         TTCustomController e2;
         if (!StorageUtils.EXTERNAL_STORAGE_PERMISSION.equalsIgnoreCase(str) || (e2 = i.d().e()) == null || e2.isCanUseWriteExternal()) {

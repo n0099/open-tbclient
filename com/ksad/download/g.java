@@ -25,7 +25,7 @@ public class g {
         return PendingIntent.getActivity(a2, downloadTask.getId(), intent, 134217728);
     }
 
-    public static PendingIntent a(File file, int i) {
+    public static PendingIntent a(File file, int i2) {
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
         intent.addFlags(3);
@@ -35,16 +35,16 @@ public class g {
         for (ResolveInfo resolveInfo : a2.getPackageManager().queryIntentActivities(intent, 65536)) {
             a2.grantUriPermission(resolveInfo.activityInfo.packageName, a3, 3);
         }
-        return PendingIntent.getActivity(a2, i, intent, 134217728);
+        return PendingIntent.getActivity(a2, i2, intent, 134217728);
     }
 
-    public static PendingIntent a(String str, int i) {
+    public static PendingIntent a(String str, int i2) {
         Context a2 = b.a();
         Intent launchIntentForPackage = a2.getPackageManager().getLaunchIntentForPackage(str);
         if (launchIntentForPackage == null) {
             return null;
         }
-        return PendingIntent.getActivity(a2, i, launchIntentForPackage, 134217728);
+        return PendingIntent.getActivity(a2, i2, launchIntentForPackage, 134217728);
     }
 
     public static Uri a(Context context, File file) {

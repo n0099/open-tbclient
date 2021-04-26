@@ -1,5 +1,6 @@
 package com.baidu.tieba.flutter.plugin.tiebaUtility;
 
+import androidx.lifecycle.SavedStateHandle;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
@@ -12,7 +13,7 @@ public class TiebaUtilityPreferenceAuto {
 
         public static GetPreferenceParam fromMap(HashMap hashMap) {
             GetPreferenceParam getPreferenceParam = new GetPreferenceParam();
-            getPreferenceParam.keys = (ArrayList) hashMap.get("keys");
+            getPreferenceParam.keys = (ArrayList) hashMap.get(SavedStateHandle.KEYS);
             getPreferenceParam.nameSpace = (String) hashMap.get("nameSpace");
             return getPreferenceParam;
         }
@@ -35,7 +36,7 @@ public class TiebaUtilityPreferenceAuto {
 
         public HashMap toMap() {
             HashMap hashMap = new HashMap();
-            hashMap.put("keys", this.keys);
+            hashMap.put(SavedStateHandle.KEYS, this.keys);
             hashMap.put("nameSpace", this.nameSpace);
             return hashMap;
         }

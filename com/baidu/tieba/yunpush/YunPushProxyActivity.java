@@ -60,10 +60,10 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onCreate(Bundle bundle) {
-        int i;
-        String string;
         int i2;
+        String string;
         int i3;
+        int i4;
         super.onCreate(bundle);
         try {
             Intent intent = getIntent();
@@ -77,41 +77,41 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                     if (!StringUtils.isNull(string4)) {
                         if (!string4.equals(UrlSchemaHelper.JUMP_TO_CHAT) && !string4.equals(UrlSchemaHelper.HTTPS_JUMP_TO_CHAT)) {
                             if (string4.contains(UrlSchemaHelper.GOTO_OFFICIAL_CHAT)) {
-                                i = 2;
+                                i2 = 2;
                             } else if (string4.contains(UrlSchemaHelper.GOTO_PERSONAL_CHAT)) {
-                                i = 3;
+                                i2 = 3;
                             }
                             int optInt = !jSONObject.isNull(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION) ? jSONObject.optInt(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION) : 0;
                             string = jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE) ? null : jSONObject.getString(MainTabActivityConfig.PUSH_DES_PAGE);
-                            int i4 = optInt == 1 ? 2 : optInt == 2 ? 1 : 0;
-                            int i5 = optInt == 2 ? 1 : 0;
+                            int i5 = optInt == 1 ? 2 : optInt == 2 ? 1 : 0;
+                            int i6 = optInt == 2 ? 1 : 0;
                             if (string == null && optInt == 1) {
-                                i2 = string.equals(getString(R.string.des_page_home_recommend)) ? 1 : 2;
+                                i3 = string.equals(getString(R.string.des_page_home_recommend)) ? 1 : 2;
                             } else {
-                                i2 = 0;
+                                i3 = 0;
                             }
                             if (string4 != null) {
                                 if (string4.contains("type=interaction")) {
-                                    i3 = 2;
+                                    i4 = 2;
                                 } else if (string4.contains("type=recommend")) {
-                                    i3 = 3;
+                                    i4 = 3;
                                 } else if (string4.contains("type=attention-bazhu")) {
-                                    i3 = 4;
+                                    i4 = 4;
                                 } else if (string4.contains("type=attention-common")) {
-                                    i3 = 5;
+                                    i4 = 5;
                                 }
-                                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("obj_type", 2).param("task_id", string2).param("service_id", string3).param(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, string4).param("obj_source", i).param("obj_locate", i4).param("obj_param1", i5).param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_PARAM3, i3).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
+                                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("obj_type", 2).param("task_id", string2).param("service_id", string3).param(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, string4).param("obj_source", i2).param("obj_locate", i5).param("obj_param1", i6).param(TiebaStatic.Params.OBJ_PARAM2, i3).param(TiebaStatic.Params.OBJ_PARAM3, i4).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
                                 if (TextUtils.isEmpty(string4) && string4.contains("HotThreadList")) {
-                                    i = 6;
+                                    i2 = 6;
                                 } else {
                                     if ((!TextUtils.isEmpty(string4) || !string4.contains("HotInteraction")) && (TextUtils.isEmpty(string4) || !string4.contains("frs?kw="))) {
                                         if (!TextUtils.isEmpty(string4) && string4.contains("collect")) {
-                                            i = 8;
+                                            i2 = 8;
                                         }
                                     }
-                                    i = 7;
+                                    i2 = 7;
                                 }
-                                param.param("obj_source", i);
+                                param.param("obj_source", i2);
                                 TiebaStatic.log(param);
                                 if (!TextUtils.isEmpty(string4)) {
                                     try {
@@ -149,21 +149,21 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                     }
                                 }
                             }
-                            i3 = 1;
-                            StatisticItem param3 = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("obj_type", 2).param("task_id", string2).param("service_id", string3).param(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, string4).param("obj_source", i).param("obj_locate", i4).param("obj_param1", i5).param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_PARAM3, i3).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
+                            i4 = 1;
+                            StatisticItem param3 = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("obj_type", 2).param("task_id", string2).param("service_id", string3).param(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, string4).param("obj_source", i2).param("obj_locate", i5).param("obj_param1", i6).param(TiebaStatic.Params.OBJ_PARAM2, i3).param(TiebaStatic.Params.OBJ_PARAM3, i4).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
                             if (TextUtils.isEmpty(string4)) {
                             }
                             if (!TextUtils.isEmpty(string4)) {
                             }
                             if (!TextUtils.isEmpty(string4)) {
-                                i = 8;
+                                i2 = 8;
                             }
-                            param3.param("obj_source", i);
+                            param3.param("obj_source", i2);
                             TiebaStatic.log(param3);
                             if (!TextUtils.isEmpty(string4)) {
                             }
                         }
-                        i = 1;
+                        i2 = 1;
                         if (!jSONObject.isNull(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION)) {
                         }
                         string = jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE) ? null : jSONObject.getString(MainTabActivityConfig.PUSH_DES_PAGE);
@@ -173,23 +173,23 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                         }
                         if (string == null) {
                         }
-                        i2 = 0;
+                        i3 = 0;
                         if (string4 != null) {
                         }
-                        i3 = 1;
-                        StatisticItem param32 = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("obj_type", 2).param("task_id", string2).param("service_id", string3).param(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, string4).param("obj_source", i).param("obj_locate", i4).param("obj_param1", i5).param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_PARAM3, i3).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
+                        i4 = 1;
+                        StatisticItem param32 = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("obj_type", 2).param("task_id", string2).param("service_id", string3).param(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, string4).param("obj_source", i2).param("obj_locate", i5).param("obj_param1", i6).param(TiebaStatic.Params.OBJ_PARAM2, i3).param(TiebaStatic.Params.OBJ_PARAM3, i4).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
                         if (TextUtils.isEmpty(string4)) {
                         }
                         if (!TextUtils.isEmpty(string4)) {
                         }
                         if (!TextUtils.isEmpty(string4)) {
                         }
-                        param32.param("obj_source", i);
+                        param32.param("obj_source", i2);
                         TiebaStatic.log(param32);
                         if (!TextUtils.isEmpty(string4)) {
                         }
                     }
-                    i = 0;
+                    i2 = 0;
                     if (!jSONObject.isNull(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION)) {
                     }
                     string = jSONObject.isNull(MainTabActivityConfig.PUSH_DES_PAGE) ? null : jSONObject.getString(MainTabActivityConfig.PUSH_DES_PAGE);
@@ -199,18 +199,18 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                     }
                     if (string == null) {
                     }
-                    i2 = 0;
+                    i3 = 0;
                     if (string4 != null) {
                     }
-                    i3 = 1;
-                    StatisticItem param322 = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("obj_type", 2).param("task_id", string2).param("service_id", string3).param(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, string4).param("obj_source", i).param("obj_locate", i4).param("obj_param1", i5).param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_PARAM3, i3).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
+                    i4 = 1;
+                    StatisticItem param322 = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("obj_type", 2).param("task_id", string2).param("service_id", string3).param(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, string4).param("obj_source", i2).param("obj_locate", i5).param("obj_param1", i6).param(TiebaStatic.Params.OBJ_PARAM2, i3).param(TiebaStatic.Params.OBJ_PARAM3, i4).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
                     if (TextUtils.isEmpty(string4)) {
                     }
                     if (!TextUtils.isEmpty(string4)) {
                     }
                     if (!TextUtils.isEmpty(string4)) {
                     }
-                    param322.param("obj_source", i);
+                    param322.param("obj_source", i2);
                     TiebaStatic.log(param322);
                     if (!TextUtils.isEmpty(string4)) {
                     }

@@ -9,32 +9,32 @@ import com.baidu.tieba.R;
 public class FrsVideoActivityViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f15889a;
+    public TextView f16076a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f15890b;
+    public ImageView f16077b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f15891c;
+    public TextView f16078c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f15892d;
+    public ImageView f16079d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15893e;
+    public View f16080e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f15894f;
+    public View f16081f;
 
     public FrsVideoActivityViewHolder(View view) {
         super(view);
         if (view != null) {
-            this.f15889a = (TextView) view.findViewById(R.id.video_activity_item_title);
-            this.f15890b = (ImageView) view.findViewById(R.id.video_activity_item_tip);
-            this.f15891c = (TextView) view.findViewById(R.id.video_activity_item_type);
-            this.f15892d = (ImageView) view.findViewById(R.id.video_activity_item_more);
-            this.f15893e = view.findViewById(R.id.top_divider_line);
-            this.f15894f = view.findViewById(R.id.bottom_divider_line);
+            this.f16076a = (TextView) view.findViewById(R.id.video_activity_item_title);
+            this.f16077b = (ImageView) view.findViewById(R.id.video_activity_item_tip);
+            this.f16078c = (TextView) view.findViewById(R.id.video_activity_item_type);
+            this.f16079d = (ImageView) view.findViewById(R.id.video_activity_item_more);
+            this.f16080e = view.findViewById(R.id.top_divider_line);
+            this.f16081f = view.findViewById(R.id.bottom_divider_line);
         }
     }
 }

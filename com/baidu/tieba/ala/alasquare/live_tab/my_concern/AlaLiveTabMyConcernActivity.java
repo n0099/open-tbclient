@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.model.MyConcernTabModel;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.b.c.e.p.j;
-import d.b.c.e.p.l;
-import d.b.c.j.e.n;
-import d.b.i0.d0.h;
-import d.b.j0.t.d.c.f.d.a;
+import d.a.c.e.p.j;
+import d.a.c.e.p.l;
+import d.a.c.j.e.n;
+import d.a.i0.d0.h;
+import d.a.j0.t.d.c.f.d.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcernActivity> {
-    public d.b.j0.t.d.c.f.d.a mAlaLiveTabMyConcernView;
+    public d.a.j0.t.d.c.f.d.a mAlaLiveTabMyConcernView;
     public MyConcernTabModel mModel;
     public h mNetRefreshView;
     public boolean mHasMore = true;
@@ -33,14 +33,14 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            AlaLiveTabMyConcernActivity.this.deleteItem(d.b.j0.t.d.c.f.b.a.class);
+            AlaLiveTabMyConcernActivity.this.deleteItem(d.a.j0.t.d.c.f.b.a.class);
         }
     }
 
@@ -49,7 +49,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         public b() {
         }
 
-        @Override // d.b.j0.t.d.c.f.d.a.f
+        @Override // d.a.j0.t.d.c.f.d.a.f
         public void onListPullRefresh(boolean z) {
             if (!j.z() || AlaLiveTabMyConcernActivity.this.isLoading) {
                 if (AlaLiveTabMyConcernActivity.this.mAlaLiveTabMyConcernView != null) {
@@ -61,9 +61,9 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             AlaLiveTabMyConcernActivity.this.refreshData();
         }
 
-        @Override // d.b.j0.t.d.c.f.d.a.f
+        @Override // d.a.j0.t.d.c.f.d.a.f
         public void onScrollToBottom() {
-            if (l.C() && AlaLiveTabMyConcernActivity.this.mHasMore && !AlaLiveTabMyConcernActivity.this.isLoading) {
+            if (l.D() && AlaLiveTabMyConcernActivity.this.mHasMore && !AlaLiveTabMyConcernActivity.this.isLoading) {
                 AlaLiveTabMyConcernActivity.this.isLoading = true;
                 AlaLiveTabMyConcernActivity.this.mModel.x();
             }
@@ -117,7 +117,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         if (myConcernTabModel != null) {
             myConcernTabModel.A(cls);
         }
-        d.b.j0.t.d.c.f.d.a aVar = this.mAlaLiveTabMyConcernView;
+        d.a.j0.t.d.c.f.d.a aVar = this.mAlaLiveTabMyConcernView;
         if (aVar != null) {
             aVar.o(cls);
         }
@@ -139,7 +139,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     }
 
     private void initView() {
-        d.b.j0.t.d.c.f.d.a aVar = new d.b.j0.t.d.c.f.d.a(getPageContext());
+        d.a.j0.t.d.c.f.d.a aVar = new d.a.j0.t.d.c.f.d.a(getPageContext());
         this.mAlaLiveTabMyConcernView = aVar;
         aVar.r(this.onListViewCallBack);
         setContentView(this.mAlaLiveTabMyConcernView.h());
@@ -152,7 +152,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         this.mModel.y();
     }
 
-    private void showNetRefreshView(int i, String str, View.OnClickListener onClickListener) {
+    private void showNetRefreshView(int i2, String str, View.OnClickListener onClickListener) {
         if (this.mNetRefreshView == null) {
             h hVar = new h(getPageContext().getPageActivity(), onClickListener);
             this.mNetRefreshView = hVar;
@@ -160,7 +160,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             this.mNetRefreshView.o();
             this.mNetRefreshView.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
-        this.mNetRefreshView.i(i);
+        this.mNetRefreshView.i(i2);
         this.mNetRefreshView.l(null);
         this.mNetRefreshView.m(str);
         this.mNetRefreshView.onChangeSkinType();
@@ -169,11 +169,11 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        d.b.j0.t.d.c.f.d.a aVar = this.mAlaLiveTabMyConcernView;
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        d.a.j0.t.d.c.f.d.a aVar = this.mAlaLiveTabMyConcernView;
         if (aVar != null) {
-            aVar.l(i);
+            aVar.l(i2);
         }
     }
 
@@ -185,11 +185,11 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             return;
         }
         initView();
-        this.hasNotificationAccessOpen = d.b.j0.t.d.c.f.c.a.a(getPageContext());
+        this.hasNotificationAccessOpen = d.a.j0.t.d.c.f.c.a.a(getPageContext());
         MyConcernTabModel myConcernTabModel = new MyConcernTabModel(getPageContext());
         this.mModel = myConcernTabModel;
         myConcernTabModel.B(this.mDataCallback);
-        if (!l.C()) {
+        if (!l.D()) {
             showNetRefreshView(R.drawable.new_pic_emotion_08, getResources().getString(R.string.refresh_view_title_text), this.mNetRefreshListener);
         } else {
             showLoadingView(this.mAlaLiveTabMyConcernView.g(), false, getResources().getDimensionPixelSize(R.dimen.ds340));
@@ -206,7 +206,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             myConcernTabModel.onDestroy();
         }
         hideLoadingView(this.mAlaLiveTabMyConcernView.g());
-        d.b.j0.t.d.c.f.d.a aVar = this.mAlaLiveTabMyConcernView;
+        d.a.j0.t.d.c.f.d.a aVar = this.mAlaLiveTabMyConcernView;
         if (aVar != null) {
             aVar.m();
         }
@@ -222,7 +222,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     public void onPause() {
         super.onPause();
         this.isLoading = false;
-        d.b.j0.t.d.c.f.d.a aVar = this.mAlaLiveTabMyConcernView;
+        d.a.j0.t.d.c.f.d.a aVar = this.mAlaLiveTabMyConcernView;
         if (aVar != null) {
             aVar.q(false);
         }
@@ -231,14 +231,14 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.hasNotificationAccessOpen || !d.b.j0.t.d.c.f.c.a.a(getPageContext())) {
+        if (this.hasNotificationAccessOpen || !d.a.j0.t.d.c.f.c.a.a(getPageContext())) {
             return;
         }
-        deleteItem(d.b.j0.t.d.c.f.b.a.class);
+        deleteItem(d.a.j0.t.d.c.f.b.a.class);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, d.b.c.a.g
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, d.a.c.a.g
     public TbPageContext<AlaLiveTabMyConcernActivity> getPageContext() {
         return super.getPageContext();
     }

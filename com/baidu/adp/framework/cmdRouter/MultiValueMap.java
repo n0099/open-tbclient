@@ -15,7 +15,7 @@ public interface MultiValueMap<K, V> {
 
     boolean containsKey(K k);
 
-    V getValue(K k, int i);
+    V getValue(K k, int i2);
 
     List<V> getValues(K k);
 

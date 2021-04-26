@@ -15,8 +15,8 @@ public class UserStatus implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public UserStatus[] newArray(int i) {
-            return new UserStatus[i];
+        public UserStatus[] newArray(int i2) {
+            return new UserStatus[i2];
         }
     };
     public boolean mIsOnline;
@@ -59,7 +59,7 @@ public class UserStatus implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeLong(this.mUid);
         parcel.writeByte(this.mIsOnline ? (byte) 1 : (byte) 0);
         parcel.writeLong(this.mLastOnlineTime);

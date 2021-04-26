@@ -19,18 +19,18 @@ public class o {
         void b();
     }
 
-    public static void a(Context context, String str, int i, final a aVar, boolean z) {
+    public static void a(Context context, String str, int i2, final a aVar, boolean z) {
         u.f("splashLoadAd", " getImageBytes url " + str);
-        com.bytedance.sdk.openadsdk.i.e.c().g().a(str, new b.InterfaceC0326b() { // from class: com.bytedance.sdk.openadsdk.utils.o.1
-            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0326b
+        com.bytedance.sdk.openadsdk.i.e.c().g().a(str, new b.InterfaceC0319b() { // from class: com.bytedance.sdk.openadsdk.utils.o.1
+            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0319b
             public void a() {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0326b
+            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0319b
             public void a(b.c cVar) {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0326b
+            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0319b
             public void a(String str2, com.bytedance.sdk.openadsdk.i.a.d dVar) {
                 a aVar2;
                 if (dVar.c() && (aVar2 = a.this) != null) {
@@ -43,7 +43,7 @@ public class o {
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0326b
+            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0319b
             public void b(b.c cVar) {
                 a aVar2 = a.this;
                 if (aVar2 != null) {
@@ -51,17 +51,17 @@ public class o {
                 }
             }
 
-            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0326b
+            @Override // com.bytedance.sdk.openadsdk.i.a.b.InterfaceC0319b
             public void b() {
                 a aVar2 = a.this;
                 if (aVar2 != null) {
                     aVar2.b();
                 }
             }
-        }, i, i, z);
+        }, i2, i2, z);
     }
 
-    public static Drawable a(byte[] bArr, int i) {
+    public static Drawable a(byte[] bArr, int i2) {
         if (bArr != null && bArr.length > 0) {
             try {
                 return new BitmapDrawable(BitmapFactory.decodeByteArray(bArr, 0, bArr.length));

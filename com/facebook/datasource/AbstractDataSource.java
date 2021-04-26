@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractDataSource<T> implements DataSource<T> {
     @GuardedBy("this")
     @Nullable
@@ -22,7 +22,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
     public DataSourceStatus mDataSourceStatus = DataSourceStatus.IN_PROGRESS;
     public final ConcurrentLinkedQueue<Pair<DataSubscriber<T>, Executor>> mSubscribers = new ConcurrentLinkedQueue<>();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum DataSourceStatus {
         IN_PROGRESS,
         SUCCESS,

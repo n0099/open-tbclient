@@ -16,12 +16,12 @@ public enum l {
     
     public int m;
 
-    l(int i) {
-        this.m = i;
+    l(int i2) {
+        this.m = i2;
     }
 
-    public static l a(int i) {
-        return i != 0 ? i != 1 ? i != 2 ? i != 3 ? i != 5 ? i != 6 ? i != 8 ? i != 20 ? i != 30 ? i != 101 ? i != 104 ? MSG_TYPE_INVALID : MSG_TYPE_APPSTAT_COMMAND : MSG_TYPE_INNERBIND : MSG_TYPE_APP_PRIORITY : MSG_TYPE_CROSS_PUSH : MSG_TYPE_CLEAR_MESSAGE : MSG_TYPE_PRIVATE_MESSAGE : MSG_TYPE_MULTI_PRIVATE_NOTIFICATION : MSG_TYPE_MULTI_PUBLIC : MSG_TYPE_SINGLE_PUBLIC : MSG_TYPE_MULTI_PRIVATE : MSG_TYPE_SINGLE_PRIVATE;
+    public static l a(int i2) {
+        return i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 5 ? i2 != 6 ? i2 != 8 ? i2 != 20 ? i2 != 30 ? i2 != 101 ? i2 != 104 ? MSG_TYPE_INVALID : MSG_TYPE_APPSTAT_COMMAND : MSG_TYPE_INNERBIND : MSG_TYPE_APP_PRIORITY : MSG_TYPE_CROSS_PUSH : MSG_TYPE_CLEAR_MESSAGE : MSG_TYPE_PRIVATE_MESSAGE : MSG_TYPE_MULTI_PRIVATE_NOTIFICATION : MSG_TYPE_MULTI_PUBLIC : MSG_TYPE_SINGLE_PUBLIC : MSG_TYPE_MULTI_PRIVATE : MSG_TYPE_SINGLE_PRIVATE;
     }
 
     public int b() {

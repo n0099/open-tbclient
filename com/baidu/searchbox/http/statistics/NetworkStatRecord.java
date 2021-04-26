@@ -1,6 +1,7 @@
 package com.baidu.searchbox.http.statistics;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.InetAddress;
@@ -273,7 +274,7 @@ public class NetworkStatRecord {
                 jSONObject.put("bdTraceId", this.bdTraceId);
             }
             jSONObject.put("isConnected", this.isConnected ? "1" : "0");
-            jSONObject.put("networkQuality", this.networkQuality);
+            jSONObject.put(CloudStabilityUBCUtils.KEY_WEAK_QUALITY, this.networkQuality);
             jSONObject.put("networkQualityFrom", this.networkQualityFrom);
             if (this.sdtProbeErrorCode != null) {
                 jSONObject.put("sdtProbeErrorCode", this.sdtProbeErrorCode.toString());

@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.background;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.GetBackground.DataReq;
 import tbclient.GetBackground.GetBackgroundReqIdl;
 /* loaded from: classes5.dex */
@@ -25,7 +25,7 @@ public class BackgroundGetRequestMessage extends NetMessage {
         return builder2.build(false);
     }
 
-    public void setPropId(int i) {
-        this.propId = i;
+    public void setPropId(int i2) {
+        this.propId = i2;
     }
 }

@@ -6,22 +6,22 @@ import com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivit
 /* loaded from: classes4.dex */
 public class AiAppsShareDelegateActivity extends ProcessDelegateBaseActivity {
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
         if (intent != null && intent.getExtras() != null) {
-            int i3 = intent.getExtras().getInt("extra_share_status", 3);
-            if (i3 == 1) {
+            int i4 = intent.getExtras().getInt("extra_share_status", 3);
+            if (i4 == 1) {
                 this.mDelegation.mResult.putBoolean("share_result", true);
                 this.mDelegation.mResult.putString("callBack", this.mDelegation.mParams.getString("successCallback", ""));
                 this.mDelegation.mResult.putString("info", "success");
-            } else if (i3 == 3) {
+            } else if (i4 == 3) {
                 this.mDelegation.mResult.putBoolean("share_result", false);
                 this.mDelegation.mResult.putString("callBack", this.mDelegation.mParams.getString("errorCallback", ""));
                 this.mDelegation.mResult.putString("info", "user cancel");
-            } else if (i3 == 2) {
+            } else if (i4 == 2) {
                 this.mDelegation.mResult.putBoolean("share_result", false);
                 this.mDelegation.mResult.putString("callBack", this.mDelegation.mParams.getString("errorCallback", ""));
-                this.mDelegation.mResult.putString("info", e.f1994a);
+                this.mDelegation.mResult.putString("info", e.f1950a);
             }
             exit();
             return;

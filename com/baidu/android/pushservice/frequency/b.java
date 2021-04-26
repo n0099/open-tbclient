@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
+import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.pushservice.PushConstants;
@@ -25,7 +26,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f3068a;
+    public static volatile b f3085a;
 
     /* JADX INFO: Access modifiers changed from: private */
     public int a(String str) {
@@ -40,14 +41,14 @@ public class b {
     }
 
     public static b a() {
-        if (f3068a == null) {
+        if (f3085a == null) {
             synchronized (b.class) {
-                if (f3068a == null) {
-                    f3068a = new b();
+                if (f3085a == null) {
+                    f3085a = new b();
                 }
             }
         }
-        return f3068a;
+        return f3085a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -62,7 +63,7 @@ public class b {
         JSONObject jSONObject2 = new JSONObject();
         jSONArray.put(str);
         try {
-            jSONObject2.put("keys", jSONArray);
+            jSONObject2.put(SavedStateHandle.KEYS, jSONArray);
             String encodeToString = Base64.encodeToString(k.a(jSONObject2.toString().getBytes(), BaiduAppSSOJni.getPublicKey(3)), 2);
             jSONObject.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, a2);
             jSONObject.put("cuid", cuid);
@@ -74,7 +75,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject a(Context context, boolean z, String str, int i, String str2) {
+    public JSONObject a(Context context, boolean z, String str, int i2, String str2) {
         String str3;
         String a2 = i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE");
         String str4 = "";
@@ -100,7 +101,7 @@ public class b {
             jSONObject.put("upload_time", currentTimeMillis);
             jSONObject.put("manufacture", upperCase);
             jSONObject2.put("event_time", currentTimeMillis);
-            jSONObject2.put("vendor_notice", i);
+            jSONObject2.put("vendor_notice", i2);
             jSONObject2.put("payload", str2);
             f2.put(jSONObject2);
             jSONObject.put("data", f2);
@@ -173,10 +174,10 @@ public class b {
                 }
             } else if (str.equals("do_not_disturb")) {
                 JSONObject jSONObject = new JSONObject(e2);
-                int i = jSONObject.getInt("from");
-                int i2 = jSONObject.getInt("to");
-                if (i >= 0 && i <= 86400 && i2 <= 86400 && i2 >= 0) {
-                    ((GetNoDisturbListener) aVar).onResult(0, i, i2);
+                int i2 = jSONObject.getInt("from");
+                int i3 = jSONObject.getInt("to");
+                if (i2 >= 0 && i2 <= 86400 && i3 <= 86400 && i3 >= 0) {
+                    ((GetNoDisturbListener) aVar).onResult(0, i2, i3);
                     return true;
                 }
             }
@@ -208,17 +209,17 @@ public class b {
         return jSONObject.toString();
     }
 
-    public JSONObject a(int i, int i2) {
+    public JSONObject a(int i2, int i3) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tz", TimeZone.getDefault().getID());
         } catch (JSONException unused) {
         }
-        if (i == i2 && i == -1) {
+        if (i2 == i3 && i2 == -1) {
             return jSONObject;
         }
-        jSONObject.put("from", i);
-        jSONObject.put("to", i2);
+        jSONObject.put("from", i2);
+        jSONObject.put("to", i3);
         return jSONObject;
     }
 
@@ -226,7 +227,7 @@ public class b {
         if (b(context, str, aVar)) {
             return;
         }
-        final String str2 = h.f3102c + h.f3106g;
+        final String str2 = h.f3120c + h.f3124g;
         final HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/json");
         d.a().a(new com.baidu.android.pushservice.h.c() { // from class: com.baidu.android.pushservice.frequency.b.3
@@ -238,53 +239,53 @@ public class b {
                 Code decompiled incorrectly, please refer to instructions dump.
             */
             public void a() {
-                int i;
                 int i2;
                 int i3;
+                int i4;
                 JSONObject jSONObject;
                 Context context2 = context;
                 com.baidu.android.pushservice.e.b a2 = com.baidu.android.pushservice.e.c.a(context2, str2, "POST", b.this.a(context2, str), hashMap, "application/json");
-                int i4 = 0;
+                int i5 = 0;
                 if (a2 != null) {
                     String a3 = m.a(context, a2.a());
-                    i = a2.b();
-                    if (i == 200 && (i = b.this.a(a3)) == 0) {
+                    i2 = a2.b();
+                    if (i2 == 200 && (i2 = b.this.a(a3)) == 0) {
                         try {
                             jSONObject = new JSONObject(a3).getJSONObject("data");
                         } catch (JSONException unused) {
                         }
                         if (str.equals(PushConstants.EXTRA_PUSH_FREQ)) {
-                            i4 = jSONObject.getInt(PushConstants.EXTRA_PUSH_FREQ);
+                            i5 = jSONObject.getInt(PushConstants.EXTRA_PUSH_FREQ);
                         } else if (str.equals("do_not_disturb")) {
                             JSONObject jSONObject2 = jSONObject.getJSONObject("do_not_disturb");
-                            i3 = jSONObject2.getInt("from");
+                            i4 = jSONObject2.getInt("from");
                             try {
-                                i2 = jSONObject2.getInt("to");
+                                i3 = jSONObject2.getInt("to");
                                 b.this.b(context, jSONObject);
                             } catch (JSONException unused2) {
-                                i2 = 0;
+                                i3 = 0;
                             }
                             if (str.equals(PushConstants.EXTRA_PUSH_FREQ)) {
-                                ((GetFrequencyListener) aVar).onResult(i, i4);
+                                ((GetFrequencyListener) aVar).onResult(i2, i5);
                                 return;
                             } else if (str.equals("do_not_disturb")) {
-                                ((GetNoDisturbListener) aVar).onResult(i, i3, i2);
+                                ((GetNoDisturbListener) aVar).onResult(i2, i4, i3);
                                 return;
                             } else {
                                 return;
                             }
                         }
-                        i2 = 0;
                         i3 = 0;
+                        i4 = 0;
                         b.this.b(context, jSONObject);
                         if (str.equals(PushConstants.EXTRA_PUSH_FREQ)) {
                         }
                     }
                 } else {
-                    i = 10001;
+                    i2 = 10001;
                 }
-                i2 = 0;
                 i3 = 0;
+                i4 = 0;
                 if (str.equals(PushConstants.EXTRA_PUSH_FREQ)) {
                 }
             }
@@ -292,7 +293,7 @@ public class b {
     }
 
     public void a(final Context context, final HashMap<String, Object> hashMap, final UploadDataListener uploadDataListener) {
-        final String str = h.f3102c + h.f3104e;
+        final String str = h.f3120c + h.f3122e;
         final HashMap hashMap2 = new HashMap();
         hashMap2.put("Content-Type", "application/json");
         d.a().a(new com.baidu.android.pushservice.h.c() { // from class: com.baidu.android.pushservice.frequency.b.1
@@ -314,42 +315,42 @@ public class b {
                     uploadDataListener.onResult(0);
                     return;
                 }
-                int i = 10001;
+                int i2 = 10001;
                 com.baidu.android.pushservice.e.b a2 = com.baidu.android.pushservice.e.c.a(context, str, "POST", b.this.c(context, b2), hashMap2, "application/json");
                 if (a2 != null) {
                     String a3 = m.a(context, a2.a());
-                    if (a2.b() == 200 && (i = b.this.a(a3)) == 0) {
+                    if (a2.b() == 200 && (i2 = b.this.a(a3)) == 0) {
                         if (hashMap2.containsKey("cookie")) {
                             b2.put("bduss", hashMap2.get("cookie"));
                         }
                         b.this.a(context, b2);
                     }
                 }
-                uploadDataListener.onResult(i);
+                uploadDataListener.onResult(i2);
             }
         });
     }
 
-    public void a(Context context, boolean z, int i, String str) {
+    public void a(Context context, boolean z, int i2, String str) {
         if (context == null) {
             return;
         }
-        a(context.getApplicationContext(), z, i, " ", str);
+        a(context.getApplicationContext(), z, i2, " ", str);
     }
 
-    public void a(final Context context, final boolean z, final int i, final String str, final String str2) {
+    public void a(final Context context, final boolean z, final int i2, final String str, final String str2) {
         if (TextUtils.isEmpty(i.a(context, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE"))) {
             return;
         }
         if (i.b(context, "click_data_size", -1) != -1 || z) {
-            final String str3 = h.i + h.j;
+            final String str3 = h.f3126i + h.j;
             final HashMap hashMap = new HashMap();
             hashMap.put("Content-Type", "application/json");
             d.a().a(new com.baidu.android.pushservice.h.c() { // from class: com.baidu.android.pushservice.frequency.b.2
                 @Override // com.baidu.android.pushservice.h.c
                 public void a() {
-                    JSONObject a2 = b.this.a(context, z, str, i, str2);
-                    int i2 = 2;
+                    JSONObject a2 = b.this.a(context, z, str, i2, str2);
+                    int i3 = 2;
                     do {
                         com.baidu.android.pushservice.e.b a3 = a2 != null ? com.baidu.android.pushservice.e.c.a(context, str3, "POST", a2.toString(), hashMap, "application/json") : null;
                         if (a3 != null) {
@@ -359,11 +360,11 @@ public class b {
                                 return;
                             }
                         }
-                        if (i2 == 1) {
+                        if (i3 == 1) {
                             b.this.a(context, a2);
                         }
-                        i2--;
-                    } while (i2 > 0);
+                        i3--;
+                    } while (i3 > 0);
                 }
             });
         }

@@ -34,13 +34,13 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
         /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(EncodedImage encodedImage, int i) {
+        public void onNewResultImpl(EncodedImage encodedImage, int i2) {
             boolean isTracing;
             try {
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.beginSection("EncodedMemoryCacheProducer#onNewResultImpl");
                 }
-                if (!BaseConsumer.isNotLast(i) && encodedImage != null && !BaseConsumer.statusHasAnyFlag(i, 10) && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
+                if (!BaseConsumer.isNotLast(i2) && encodedImage != null && !BaseConsumer.statusHasAnyFlag(i2, 10) && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
                     CloseableReference<PooledByteBuffer> byteBufferRef = encodedImage.getByteBufferRef();
                     if (byteBufferRef != null) {
                         CloseableReference<PooledByteBuffer> cache = this.mIsMemoryCacheEnabled ? this.mMemoryCache.cache(this.mRequestedCacheKey, byteBufferRef) : null;
@@ -50,7 +50,7 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
                             encodedImage2.copyMetaDataFrom(encodedImage);
                             CloseableReference.closeSafely(cache);
                             getConsumer().onProgressUpdate(1.0f);
-                            getConsumer().onNewResult(encodedImage2, i);
+                            getConsumer().onNewResult(encodedImage2, i2);
                             EncodedImage.closeSafely(encodedImage2);
                             if (isTracing) {
                                 return;
@@ -58,14 +58,14 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
                             return;
                         }
                     }
-                    getConsumer().onNewResult(encodedImage, i);
+                    getConsumer().onNewResult(encodedImage, i2);
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.endSection();
                         return;
                     }
                     return;
                 }
-                getConsumer().onNewResult(encodedImage, i);
+                getConsumer().onNewResult(encodedImage, i2);
                 if (FrescoSystrace.isTracing()) {
                     FrescoSystrace.endSection();
                 }

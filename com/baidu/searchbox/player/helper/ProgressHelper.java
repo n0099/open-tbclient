@@ -11,9 +11,9 @@ public class ProgressHelper extends AbsHandlerTask {
         this.mPlayer = bDVideoPlayer;
     }
 
-    private void callPlayerBack(int i, int i2, int i3) {
-        if (i2 > 0) {
-            this.mPlayer.getPlayerCallbackManager().onUpdateProgress(i, (i3 * 100) / i2, i2);
+    private void callPlayerBack(int i2, int i3, int i4) {
+        if (i3 > 0) {
+            this.mPlayer.getPlayerCallbackManager().onUpdateProgress(i2, (i4 * 100) / i3, i3);
         }
     }
 

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.browser.sailor.BdSailorWebChromeClient;
 import com.baidu.browser.sailor.BdSailorWebView;
 import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
-import d.b.h0.a.e0.n.d;
+import d.a.h0.a.e0.n.d;
 /* loaded from: classes3.dex */
 public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
 
@@ -37,11 +37,11 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         }
 
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
-        public void onReceivedError(BdSailorWebView bdSailorWebView, int i, String str, String str2) {
+        public void onReceivedError(BdSailorWebView bdSailorWebView, int i2, String str, String str2) {
             if (SwanAppSimpleH5Widget.this.U != null) {
-                SwanAppSimpleH5Widget.this.U.c(i, str, str2);
+                SwanAppSimpleH5Widget.this.U.c(i2, str, str2);
             }
-            super.onReceivedError(bdSailorWebView, i, str, str2);
+            super.onReceivedError(bdSailorWebView, i2, str, str2);
         }
 
         @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget.WebViewWidgetClient, com.baidu.browser.sailor.BdSailorWebViewClient
@@ -54,7 +54,7 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         super(context);
         S0(new SimpleWebViewClient());
         R0(new SimpleWebChromeClient());
-        this.f11823f.setOnWebViewHookHandler(this);
+        this.f11657f.setOnWebViewHookHandler(this);
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget
@@ -62,8 +62,8 @@ public class SwanAppSimpleH5Widget extends SwanAppWebViewWidget {
         return false;
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, d.b.h0.a.e0.k.c
-    public boolean u() {
+    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, d.a.h0.a.e0.k.c
+    public boolean p() {
         d dVar = this.U;
         if (dVar != null) {
             dVar.goBack();

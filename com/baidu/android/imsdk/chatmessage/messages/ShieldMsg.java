@@ -20,8 +20,8 @@ public class ShieldMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public ShieldMsg[] newArray(int i) {
-            return new ShieldMsg[i];
+        public ShieldMsg[] newArray(int i2) {
+            return new ShieldMsg[i2];
         }
     };
     public String text;
@@ -64,8 +64,8 @@ public class ShieldMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.text);
     }
 

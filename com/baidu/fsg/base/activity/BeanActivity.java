@@ -10,51 +10,51 @@ import com.baidu.fsg.base.utils.RimGlobalUtils;
 public abstract class BeanActivity extends BaseActivity implements IBeanResponseCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5173a = "BaseActivity";
+    public static final String f5303a = "BaseActivity";
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f5174b = null;
+    public Handler f5304b = null;
     public BeanActivity mAct;
 
     private Handler a() {
-        if (this.f5174b == null) {
-            this.f5174b = new Handler(getMainLooper());
+        if (this.f5304b == null) {
+            this.f5304b = new Handler(getMainLooper());
         }
-        return this.f5174b;
+        return this.f5304b;
     }
 
-    public void handleFailure(int i, int i2, String str) {
-        if (i2 == -2) {
+    public void handleFailure(int i2, int i3, String str) {
+        if (i3 == -2) {
             RimGlobalUtils.toastWithTextId(getActivity(), ResUtils.string(this.mAct, "rim_base_get_data_fail"));
-        } else if (i2 == -3) {
+        } else if (i3 == -3) {
             RimGlobalUtils.toastWithTextId(getActivity(), ResUtils.string(this.mAct, "rim_base_get_data_fail"));
-        } else if (i2 == -4) {
+        } else if (i3 == -4) {
             RimGlobalUtils.toastWithTextId(getActivity(), ResUtils.string(this.mAct, "rim_base_get_data_fail"));
-        } else if (i2 == -8) {
+        } else if (i3 == -8) {
             RimGlobalUtils.toastWithTextId(getActivity(), ResUtils.string(this.mAct, "rim_base__no_network"));
         } else {
             RimGlobalUtils.toastWithText(getActivity(), str);
         }
     }
 
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
     }
 
-    public void handleResponse(int i, Object obj, String str, String str2) {
+    public void handleResponse(int i2, Object obj, String str, String str2) {
     }
 
     public void initActionBar(String str) {
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
-    public void onBeanExecFailure(int i, int i2, String str) {
-        LogUtil.i("BeanActivity", "onBeanExecFailure. bean id = " + i + ", err code = " + i2 + ", err msg = " + str);
-        a().post(new b(this, i, i2, str));
+    public void onBeanExecFailure(int i2, int i3, String str) {
+        LogUtil.i("BeanActivity", "onBeanExecFailure. bean id = " + i2 + ", err code = " + i3 + ", err msg = " + str);
+        a().post(new b(this, i2, i3, str));
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
-    public void onBeanExecSuccess(int i, Object obj, String str, String str2) {
-        a().post(new a(this, i, obj, str, str2));
+    public void onBeanExecSuccess(int i2, Object obj, String str, String str2) {
+        a().post(new a(this, i2, obj, str, str2));
     }
 
     @Override // com.baidu.fsg.base.activity.BaseActivity, android.app.Activity

@@ -8,8 +8,8 @@ import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import d.b.i0.t0.a;
-import d.b.j0.v3.l.e;
+import d.a.i0.t0.a;
+import d.a.j0.v3.k.e;
 /* loaded from: classes5.dex */
 public class AlbumFloatActivity extends SuspendedActivity {
     public e albumView;
@@ -19,16 +19,16 @@ public class AlbumFloatActivity extends SuspendedActivity {
         if (this.albumView == null) {
             e eVar = new e(this, null, linearLayout.getId(), R.id.root_stub);
             this.albumView = eVar;
-            eVar.O(navigationBar);
+            eVar.L(navigationBar);
         }
         return this.albumView;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i2 == -1) {
-            this.albumView.I(intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i3 == -1) {
+            this.albumView.G(intent);
         }
     }
 
@@ -45,34 +45,34 @@ public class AlbumFloatActivity extends SuspendedActivity {
         super.onDestroy();
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.x();
+            eVar.v();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
-            this.albumView.w();
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4) {
+            this.albumView.u();
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.y();
+            eVar.w();
         }
         super.onPause();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        super.onRequestPermissionsResult(i, strArr, iArr);
+    public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+        super.onRequestPermissionsResult(i2, strArr, iArr);
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.z(i, strArr, iArr);
+            eVar.x(i2, strArr, iArr);
         }
     }
 
@@ -81,7 +81,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         super.onResume();
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.A();
+            eVar.y();
         }
     }
 
@@ -90,7 +90,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         super.onStart();
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.E();
+            eVar.A();
         }
     }
 
@@ -99,7 +99,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         super.onStop();
         e eVar = this.albumView;
         if (eVar != null) {
-            eVar.F();
+            eVar.B();
         }
     }
 

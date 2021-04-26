@@ -9,7 +9,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class UriUtil {
     public static final String DATA_SCHEME = "data";
     public static final String HTTPS_SCHEME = "https";
@@ -72,12 +72,12 @@ public class UriUtil {
         return Uri.fromFile(file);
     }
 
-    public static Uri getUriForQualifiedResource(String str, int i) {
-        return new Uri.Builder().scheme(QUALIFIED_RESOURCE_SCHEME).authority(str).path(String.valueOf(i)).build();
+    public static Uri getUriForQualifiedResource(String str, int i2) {
+        return new Uri.Builder().scheme(QUALIFIED_RESOURCE_SCHEME).authority(str).path(String.valueOf(i2)).build();
     }
 
-    public static Uri getUriForResourceId(int i) {
-        return new Uri.Builder().scheme(LOCAL_RESOURCE_SCHEME).path(String.valueOf(i)).build();
+    public static Uri getUriForResourceId(int i2) {
+        return new Uri.Builder().scheme(LOCAL_RESOURCE_SCHEME).path(String.valueOf(i2)).build();
     }
 
     public static boolean isDataUri(@Nullable Uri uri) {

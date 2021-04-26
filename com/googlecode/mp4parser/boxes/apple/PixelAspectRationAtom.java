@@ -8,10 +8,10 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class PixelAspectRationAtom extends AbstractBox {
     public static final String TYPE = "pasp";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
     public int hSpacing;
     public int vSpacing;
 
@@ -58,13 +58,13 @@ public class PixelAspectRationAtom extends AbstractBox {
         return this.vSpacing;
     }
 
-    public void sethSpacing(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i)));
-        this.hSpacing = i;
+    public void sethSpacing(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i2)));
+        this.hSpacing = i2;
     }
 
-    public void setvSpacing(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i)));
-        this.vSpacing = i;
+    public void setvSpacing(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i2)));
+        this.vSpacing = i2;
     }
 }

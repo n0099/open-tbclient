@@ -14,28 +14,30 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import d.b.c.j.e.n;
+import d.a.c.j.e.n;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class MyConcernTabModel extends BdBaseModel {
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f14463f;
+    public TbPageContext f14533f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f14464g;
+    public b f14534g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.j0.t.d.c.f.c.b f14465h;
+    public d.a.j0.t.d.c.f.c.b f14535h;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14462e = 1;
-    public HttpMessageListener i = new a(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
+    public int f14532e = 1;
+
+    /* renamed from: i  reason: collision with root package name */
+    public HttpMessageListener f14536i = new a(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -45,17 +47,17 @@ public class MyConcernTabModel extends BdBaseModel {
                 AlaLiveTabMyConcernResponse alaLiveTabMyConcernResponse = (AlaLiveTabMyConcernResponse) httpResponsedMessage;
                 boolean z = ListUtils.isEmpty(alaLiveTabMyConcernResponse.followList) && ListUtils.isEmpty(alaLiveTabMyConcernResponse.recommendList) && ListUtils.isEmpty(alaLiveTabMyConcernResponse.followCloseList) && alaLiveTabMyConcernResponse.followStatus == 0;
                 if (alaLiveTabMyConcernResponse.getError() != 0 || !alaLiveTabMyConcernResponse.isSuccess() || z) {
-                    if (MyConcernTabModel.this.f14464g != null) {
-                        MyConcernTabModel.this.f14464g.b(MyConcernTabModel.this.f14462e == 1);
+                    if (MyConcernTabModel.this.f14534g != null) {
+                        MyConcernTabModel.this.f14534g.b(MyConcernTabModel.this.f14532e == 1);
                         return;
                     }
                     return;
                 }
-                MyConcernTabModel.this.f14465h.e(alaLiveTabMyConcernResponse, MyConcernTabModel.this.f14462e == 1);
-                if (MyConcernTabModel.this.f14464g != null) {
-                    MyConcernTabModel.this.f14464g.a(MyConcernTabModel.this.f14465h.h(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.f14462e == 1);
+                MyConcernTabModel.this.f14535h.e(alaLiveTabMyConcernResponse, MyConcernTabModel.this.f14532e == 1);
+                if (MyConcernTabModel.this.f14534g != null) {
+                    MyConcernTabModel.this.f14534g.a(MyConcernTabModel.this.f14535h.h(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.f14532e == 1);
                 }
-                MyConcernTabModel.this.f14462e = alaLiveTabMyConcernResponse.pn + 1;
+                MyConcernTabModel.this.f14532e = alaLiveTabMyConcernResponse.pn + 1;
             }
         }
     }
@@ -68,18 +70,18 @@ public class MyConcernTabModel extends BdBaseModel {
     }
 
     public MyConcernTabModel(TbPageContext tbPageContext) {
-        this.f14463f = tbPageContext;
-        this.f14465h = new d.b.j0.t.d.c.f.c.b(this.f14463f);
+        this.f14533f = tbPageContext;
+        this.f14535h = new d.a.j0.t.d.c.f.c.b(this.f14533f);
         z();
-        MessageManager.getInstance().registerListener(this.i);
+        MessageManager.getInstance().registerListener(this.f14536i);
     }
 
     public void A(Class<? extends BaseCardInfo> cls) {
-        this.f14465h.j(cls);
+        this.f14535h.j(cls);
     }
 
     public void B(b bVar) {
-        this.f14464g = bVar;
+        this.f14534g = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -93,25 +95,25 @@ public class MyConcernTabModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        this.f14465h.a();
-        if (this.i != null) {
-            MessageManager.getInstance().unRegisterListener(this.i);
+        this.f14535h.a();
+        if (this.f14536i != null) {
+            MessageManager.getInstance().unRegisterListener(this.f14536i);
         }
     }
 
-    public final void w(int i) {
+    public final void w(int i2) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
-        httpMessage.addParam(Config.PACKAGE_NAME, i);
+        httpMessage.addParam(Config.PACKAGE_NAME, i2);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void x() {
-        w(this.f14462e);
+        w(this.f14532e);
     }
 
     public void y() {
-        this.f14462e = 1;
-        this.f14465h.a();
+        this.f14532e = 1;
+        this.f14535h.a();
         w(1);
     }
 

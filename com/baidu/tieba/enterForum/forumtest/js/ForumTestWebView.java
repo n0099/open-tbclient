@@ -25,30 +25,32 @@ import com.baidubce.auth.NTLMEngineImpl;
 public class ForumTestWebView extends WebView {
 
     /* renamed from: e  reason: collision with root package name */
-    public WebViewClient f15055e;
+    public WebViewClient f15176e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f15056f;
+    public h f15177f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f15057g;
+    public c f15178g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f15058h;
-    public d i;
+    public e f15179h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public d f15180i;
     public f j;
     public g k;
-    public d.b.j0.i0.e.a.a l;
-    public d.b.j0.i0.e.a.c m;
+    public d.a.j0.i0.e.a.a l;
+    public d.a.j0.i0.e.a.c m;
 
     /* loaded from: classes4.dex */
-    public class a implements d.b.j0.i0.e.a.c {
+    public class a implements d.a.j0.i0.e.a.c {
         public a() {
         }
 
-        @Override // d.b.j0.i0.e.a.c
+        @Override // d.a.j0.i0.e.a.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-            d.b.j0.i0.e.a.a aVar = ForumTestWebView.this.l;
+            d.a.j0.i0.e.a.a aVar = ForumTestWebView.this.l;
             if (aVar != null) {
                 return aVar.b(str, jsPromptResult);
             }
@@ -69,16 +71,16 @@ public class ForumTestWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
-            if (ForumTestWebView.this.i != null) {
-                ForumTestWebView.this.i.onPageFinished(webView, str);
+            if (ForumTestWebView.this.f15180i != null) {
+                ForumTestWebView.this.f15180i.onPageFinished(webView, str);
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
-            if (ForumTestWebView.this.f15058h != null) {
-                ForumTestWebView.this.f15058h.a(webView, str);
+            if (ForumTestWebView.this.f15179h != null) {
+                ForumTestWebView.this.f15179h.a(webView, str);
             }
         }
 
@@ -89,8 +91,8 @@ public class ForumTestWebView extends WebView {
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            if (ForumTestWebView.this.f15057g != null) {
-                return ForumTestWebView.this.f15057g.shouldOverrideUrlLoading(webView, str);
+            if (ForumTestWebView.this.f15178g != null) {
+                return ForumTestWebView.this.f15178g.shouldOverrideUrlLoading(webView, str);
             }
             return super.shouldOverrideUrlLoading(webView, str);
         }
@@ -113,7 +115,7 @@ public class ForumTestWebView extends WebView {
 
     /* loaded from: classes4.dex */
     public interface f {
-        void a(WebView webView, int i);
+        void a(WebView webView, int i2);
     }
 
     /* loaded from: classes4.dex */
@@ -141,7 +143,7 @@ public class ForumTestWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((ForumTestWebView.this.getContext() instanceof Activity) && d.b.c.e.m.g.e((Activity) ForumTestWebView.this.getContext())) {
+            if ((ForumTestWebView.this.getContext() instanceof Activity) && d.a.c.e.m.g.e((Activity) ForumTestWebView.this.getContext())) {
                 return super.onJsAlert(webView, str, str2, jsResult);
             }
             return true;
@@ -149,7 +151,7 @@ public class ForumTestWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((ForumTestWebView.this.getContext() instanceof Activity) && d.b.c.e.m.g.e((Activity) ForumTestWebView.this.getContext())) {
+            if ((ForumTestWebView.this.getContext() instanceof Activity) && d.a.c.e.m.g.e((Activity) ForumTestWebView.this.getContext())) {
                 return super.onJsBeforeUnload(webView, str, str2, jsResult);
             }
             return true;
@@ -157,7 +159,7 @@ public class ForumTestWebView extends WebView {
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-            if ((ForumTestWebView.this.getContext() instanceof Activity) && d.b.c.e.m.g.e((Activity) ForumTestWebView.this.getContext())) {
+            if ((ForumTestWebView.this.getContext() instanceof Activity) && d.a.c.e.m.g.e((Activity) ForumTestWebView.this.getContext())) {
                 return super.onJsConfirm(webView, str, str2, jsResult);
             }
             return true;
@@ -173,10 +175,10 @@ public class ForumTestWebView extends WebView {
         }
 
         @Override // android.webkit.WebChromeClient
-        public void onProgressChanged(WebView webView, int i) {
-            super.onProgressChanged(webView, i);
+        public void onProgressChanged(WebView webView, int i2) {
+            super.onProgressChanged(webView, i2);
             if (ForumTestWebView.this.j != null) {
-                ForumTestWebView.this.j.a(webView, i);
+                ForumTestWebView.this.j.a(webView, i2);
             }
         }
 
@@ -201,18 +203,18 @@ public class ForumTestWebView extends WebView {
     @Override // android.webkit.WebView
     public void destroy() {
         super.destroy();
-        this.f15055e = null;
-        this.f15056f = null;
-        this.f15057g = null;
-        this.f15058h = null;
-        this.i = null;
+        this.f15176e = null;
+        this.f15177f = null;
+        this.f15178g = null;
+        this.f15179h = null;
+        this.f15180i = null;
         this.j = null;
         this.k = null;
         this.m = null;
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
-    public void g(d.b.j0.i0.e.a.b bVar) {
+    public void g(d.a.j0.i0.e.a.b bVar) {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         getSettings().setAllowFileAccess(true);
@@ -229,15 +231,15 @@ public class ForumTestWebView extends WebView {
         setScrollBarStyle(NTLMEngineImpl.FLAG_REQUEST_VERSION);
         getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion());
         WebViewClient bVar2 = new b();
-        this.f15055e = bVar2;
+        this.f15176e = bVar2;
         setWebViewClient(bVar2);
         h hVar = new h(this, null);
-        this.f15056f = hVar;
+        this.f15177f = hVar;
         setWebChromeClient(hVar);
-        d.b.j0.i0.e.a.a aVar = new d.b.j0.i0.e.a.a();
+        d.a.j0.i0.e.a.a aVar = new d.a.j0.i0.e.a.a();
         this.l = aVar;
         aVar.a(bVar);
-        d.b.i0.l.a.f(getContext());
+        d.a.i0.l.a.f(getContext());
         removeJavascriptInterface("searchBoxJavaBridge_");
         removeJavascriptInterface("accessibility");
         removeJavascriptInterface("accessibilityTraversal");
@@ -262,9 +264,9 @@ public class ForumTestWebView extends WebView {
     }
 
     @Override // android.webkit.WebView, android.view.View
-    public void setOverScrollMode(int i) {
+    public void setOverScrollMode(int i2) {
         try {
-            super.setOverScrollMode(i);
+            super.setOverScrollMode(i2);
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -275,8 +277,8 @@ public class ForumTestWebView extends WebView {
         this.m = new a();
     }
 
-    public ForumTestWebView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ForumTestWebView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.m = new a();
     }
 }

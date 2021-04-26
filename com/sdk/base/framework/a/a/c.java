@@ -9,24 +9,24 @@ import java.util.Map;
 public class c<K, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedHashMap<K, V> f38792a;
+    public final LinkedHashMap<K, V> f36373a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38793b;
+    public int f36374b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38794c;
+    public int f36375c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b<K, Long> f38795d;
+    public b<K, Long> f36376d;
 
-    public c(int i) {
-        if (i <= 0) {
+    public c(int i2) {
+        if (i2 <= 0) {
             throw new IllegalArgumentException("maxSize <= 0");
         }
-        this.f38794c = i;
-        this.f38792a = new LinkedHashMap<>(0, 0.75f, true);
-        this.f38795d = new b<>(0, 0.75f);
+        this.f36375c = i2;
+        this.f36373a = new LinkedHashMap<>(0, 0.75f, true);
+        this.f36376d = new b<>(0, 0.75f);
     }
 
     public static int a(String str, String str2, Boolean bool) {
@@ -48,11 +48,11 @@ public class c<K, V> {
         if (length < 100) {
             return str.getBytes(str2).length;
         }
-        int i = 0;
-        while (i < length) {
-            int i2 = i + 100;
-            j += new String(str.substring(i, i2 < length ? i2 : length)).getBytes(str2).length;
-            i = i2;
+        int i2 = 0;
+        while (i2 < length) {
+            int i3 = i2 + 100;
+            j += new String(str.substring(i2, i3 < length ? i3 : length)).getBytes(str2).length;
+            i2 = i3;
         }
         return j;
     }
@@ -61,25 +61,25 @@ public class c<K, V> {
         return (str == null || str.length() == 0 || str.trim().length() == 0 || StringUtil.NULL_STRING.equals(str)) ? Boolean.TRUE : Boolean.FALSE;
     }
 
-    private void a(int i) {
+    private void a(int i2) {
         while (true) {
             synchronized (this) {
-                if (this.f38793b <= i || this.f38792a.isEmpty()) {
+                if (this.f36374b <= i2 || this.f36373a.isEmpty()) {
                     break;
                 }
-                Map.Entry<K, V> next = this.f38792a.entrySet().iterator().next();
+                Map.Entry<K, V> next = this.f36373a.entrySet().iterator().next();
                 K key = next.getKey();
                 V value = next.getValue();
-                this.f38792a.remove(key);
-                this.f38795d.remove(key);
-                this.f38793b -= b(key, value);
+                this.f36373a.remove(key);
+                this.f36376d.remove(key);
+                this.f36374b -= b(key, value);
             }
         }
     }
 
     public static boolean a(String... strArr) {
-        for (int i = 0; i < 2; i++) {
-            String str = strArr[i];
+        for (int i2 = 0; i2 < 2; i2++) {
+            String str = strArr[i2];
             if ((str == null || str.length() <= 0) && a(str).booleanValue()) {
                 return true;
             }
@@ -90,9 +90,9 @@ public class c<K, V> {
     private int b(K k, V v) {
         int a2 = a((c<K, V>) k, (K) v);
         if (a2 <= 0) {
-            this.f38793b = 0;
-            for (Map.Entry<K, V> entry : this.f38792a.entrySet()) {
-                this.f38793b += a((c<K, V>) entry.getKey(), (K) entry.getValue());
+            this.f36374b = 0;
+            for (Map.Entry<K, V> entry : this.f36373a.entrySet()) {
+                this.f36374b += a((c<K, V>) entry.getKey(), (K) entry.getValue());
             }
         }
         return a2;
@@ -116,10 +116,10 @@ public class c<K, V> {
         V remove;
         if (k != null) {
             synchronized (this) {
-                remove = this.f38792a.remove(k);
-                this.f38795d.remove(k);
+                remove = this.f36373a.remove(k);
+                this.f36376d.remove(k);
                 if (remove != null) {
-                    this.f38793b -= b(k, remove);
+                    this.f36374b -= b(k, remove);
                 }
             }
             return remove;
@@ -144,11 +144,11 @@ public class c<K, V> {
     public final V a(K k) {
         if (k != null) {
             synchronized (this) {
-                if (!this.f38795d.containsKey(k)) {
+                if (!this.f36376d.containsKey(k)) {
                     b((c<K, V>) k);
                     return null;
                 }
-                V v = this.f38792a.get(k);
+                V v = this.f36373a.get(k);
                 if (v != null) {
                     return v;
                 }
@@ -164,14 +164,14 @@ public class c<K, V> {
             throw new NullPointerException("key == null || value == null");
         }
         synchronized (this) {
-            this.f38793b += b(k, v);
-            put = this.f38792a.put(k, v);
-            this.f38795d.put(k, Long.valueOf(j));
+            this.f36374b += b(k, v);
+            put = this.f36373a.put(k, v);
+            this.f36376d.put(k, Long.valueOf(j));
             if (put != null) {
-                this.f38793b -= b(k, put);
+                this.f36374b -= b(k, put);
             }
         }
-        a(this.f38794c);
+        a(this.f36375c);
         return put;
     }
 }

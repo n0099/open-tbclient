@@ -24,10 +24,10 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
         public final int abiScore;
         public final ZipEntry backingEntry;
 
-        public ZipDso(String str, ZipEntry zipEntry, int i) {
+        public ZipDso(String str, ZipEntry zipEntry, int i2) {
             super(str, makePseudoHash(zipEntry));
             this.backingEntry = zipEntry;
-            this.abiScore = i;
+            this.abiScore = i2;
         }
 
         public static String makePseudoHash(ZipEntry zipEntry) {
@@ -64,9 +64,9 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
             public UnpackingSoSource.InputDso next() throws IOException {
                 ZipUnpacker.this.ensureDsos();
                 ZipDso[] zipDsoArr = ZipUnpacker.this.mDsos;
-                int i = this.mCurrentDso;
-                this.mCurrentDso = i + 1;
-                ZipDso zipDso = zipDsoArr[i];
+                int i2 = this.mCurrentDso;
+                this.mCurrentDso = i2 + 1;
+                ZipDso zipDso = zipDsoArr[i2];
                 InputStream inputStream = ZipUnpacker.this.mZipFile.getInputStream(zipDso.backingEntry);
                 try {
                     return new UnpackingSoSource.InputDso(zipDso, inputStream);
@@ -115,21 +115,21 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
                 this.mSoSource.setSoSourceAbis((String[]) linkedHashSet.toArray(new String[linkedHashSet.size()]));
                 ZipDso[] zipDsoArr = (ZipDso[]) hashMap.values().toArray(new ZipDso[hashMap.size()]);
                 Arrays.sort(zipDsoArr);
-                int i = 0;
-                for (int i2 = 0; i2 < zipDsoArr.length; i2++) {
-                    ZipDso zipDso2 = zipDsoArr[i2];
+                int i2 = 0;
+                for (int i3 = 0; i3 < zipDsoArr.length; i3++) {
+                    ZipDso zipDso2 = zipDsoArr[i3];
                     if (shouldExtract(zipDso2.backingEntry, zipDso2.name)) {
-                        i++;
+                        i2++;
                     } else {
-                        zipDsoArr[i2] = null;
+                        zipDsoArr[i3] = null;
                     }
                 }
-                ZipDso[] zipDsoArr2 = new ZipDso[i];
-                int i3 = 0;
+                ZipDso[] zipDsoArr2 = new ZipDso[i2];
+                int i4 = 0;
                 for (ZipDso zipDso3 : zipDsoArr) {
                     if (zipDso3 != null) {
-                        zipDsoArr2[i3] = zipDso3;
-                        i3++;
+                        zipDsoArr2[i4] = zipDso3;
+                        i4++;
                     }
                 }
                 this.mDsos = zipDsoArr2;

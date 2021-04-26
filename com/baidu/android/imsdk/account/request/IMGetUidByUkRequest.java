@@ -28,9 +28,9 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
 
     private String contactWithComma(long[] jArr) {
         StringBuilder sb = new StringBuilder("" + jArr[0]);
-        for (int i = 1; i < jArr.length; i++) {
+        for (int i2 = 1; i2 < jArr.length; i2++) {
             sb.append(",");
-            sb.append(jArr[i]);
+            sb.append(jArr[i2]);
         }
         return sb.toString();
     }
@@ -89,17 +89,17 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         AccountManagerImpl.getInstance(this.mContext).onGetUidByUkResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mUks, null);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         TreeMap treeMap;
         String str;
-        int i2;
         int i3;
+        int i4;
         String string;
         long[] jArr;
         String str2 = new String(bArr);
@@ -109,8 +109,8 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
             JSONObject jSONObject = new JSONObject(str2);
             if (jSONObject.has("response_params")) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                i3 = jSONObject2.getInt("error_code");
-                if (i3 == 0) {
+                i4 = jSONObject2.getInt("error_code");
+                if (i4 == 0) {
                     TreeMap treeMap3 = new TreeMap();
                     try {
                         JSONObject jSONObject3 = jSONObject2.getJSONObject("info");
@@ -125,22 +125,22 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                         treeMap = treeMap2;
-                        i2 = 1010;
-                        AccountManagerImpl.getInstance(this.mContext).onGetUidByUkResult(this.mKey, i2, str, this.mUks, treeMap);
+                        i3 = 1010;
+                        AccountManagerImpl.getInstance(this.mContext).onGetUidByUkResult(this.mKey, i3, str, this.mUks, treeMap);
                     }
                 }
                 string = Constants.ERROR_MSG_SUCCESS;
             } else {
-                i3 = jSONObject.getInt("error_code");
+                i4 = jSONObject.getInt("error_code");
                 string = jSONObject.getString("error_msg");
             }
             str = string;
-            i2 = i3;
+            i3 = i4;
             treeMap = treeMap2;
         } catch (JSONException e3) {
             e = e3;
         }
-        AccountManagerImpl.getInstance(this.mContext).onGetUidByUkResult(this.mKey, i2, str, this.mUks, treeMap);
+        AccountManagerImpl.getInstance(this.mContext).onGetUidByUkResult(this.mKey, i3, str, this.mUks, treeMap);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -148,17 +148,17 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
         return false;
     }
 
-    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
+    public Pair<Integer, String> transErrorCode(int i2, byte[] bArr, Throwable th) {
         String str;
         if (th != null) {
-            i = 1012;
+            i2 = 1012;
             str = Constants.ERROR_MSG_HTTP_IOEXCEPTION_ERROR;
-        } else if (i == 1005) {
+        } else if (i2 == 1005) {
             str = new String(bArr);
         } else {
-            str = "http response is error! response code:" + i;
-            i = 1011;
+            str = "http response is error! response code:" + i2;
+            i2 = 1011;
         }
-        return new Pair<>(Integer.valueOf(i), str);
+        return new Pair<>(Integer.valueOf(i2), str);
     }
 }

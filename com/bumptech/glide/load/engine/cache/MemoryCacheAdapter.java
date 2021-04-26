@@ -49,6 +49,6 @@ public class MemoryCacheAdapter implements MemoryCache {
     }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
-    public void trimMemory(int i) {
+    public void trimMemory(int i2) {
     }
 }

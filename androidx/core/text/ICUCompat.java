@@ -1,5 +1,6 @@
 package androidx.core.text;
 
+import android.icu.util.ULocale;
 import android.os.Build;
 import android.util.Log;
 import androidx.annotation.Nullable;
@@ -13,13 +14,17 @@ public final class ICUCompat {
     public static Method sGetScriptMethod;
 
     static {
-        if (Build.VERSION.SDK_INT >= 21) {
-            try {
-                sAddLikelySubtagsMethod = Class.forName("libcore.icu.ICU").getMethod("addLikelySubtags", Locale.class);
-                return;
-            } catch (Exception e2) {
-                throw new IllegalStateException(e2);
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 21) {
+            if (i2 < 24) {
+                try {
+                    sAddLikelySubtagsMethod = Class.forName("libcore.icu.ICU").getMethod("addLikelySubtags", Locale.class);
+                    return;
+                } catch (Exception e2) {
+                    throw new IllegalStateException(e2);
+                }
             }
+            return;
         }
         try {
             Class<?> cls = Class.forName("libcore.icu.ICU");
@@ -63,7 +68,11 @@ public final class ICUCompat {
 
     @Nullable
     public static String maximizeAndGetScript(Locale locale) {
-        if (Build.VERSION.SDK_INT >= 21) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 24) {
+            return ULocale.addLikelySubtags(ULocale.forLocale(locale)).getScript();
+        }
+        if (i2 >= 21) {
             try {
                 return ((Locale) sAddLikelySubtagsMethod.invoke(null, locale)).getScript();
             } catch (IllegalAccessException e2) {

@@ -3,7 +3,7 @@ package com.facebook.common.internal;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CountingOutputStream extends FilterOutputStream {
     public long mCount;
 
@@ -22,14 +22,14 @@ public class CountingOutputStream extends FilterOutputStream {
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
-        ((FilterOutputStream) this).out.write(bArr, i, i2);
-        this.mCount += i2;
+    public void write(byte[] bArr, int i2, int i3) throws IOException {
+        ((FilterOutputStream) this).out.write(bArr, i2, i3);
+        this.mCount += i3;
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
-    public void write(int i) throws IOException {
-        ((FilterOutputStream) this).out.write(i);
+    public void write(int i2) throws IOException {
+        ((FilterOutputStream) this).out.write(i2);
         this.mCount++;
     }
 }

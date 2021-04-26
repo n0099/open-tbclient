@@ -14,7 +14,7 @@ public final class a implements Parcelable.Creator<LatLng> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public LatLng[] newArray(int i) {
-        return new LatLng[i];
+    public LatLng[] newArray(int i2) {
+        return new LatLng[i2];
     }
 }

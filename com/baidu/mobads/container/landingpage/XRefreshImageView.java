@@ -33,11 +33,11 @@ public class XRefreshImageView extends ImageView {
         int dip2px = dip2px(this.context, 15.0f);
         int dip2px2 = dip2px(this.context, 4.0f);
         RectF rectF = this.rect2;
-        int i = dip2px + 1 + (dip2px2 / 2);
-        float f2 = width - i;
+        int i2 = dip2px + 1 + (dip2px2 / 2);
+        float f2 = width - i2;
         rectF.left = f2;
         rectF.top = f2;
-        float f3 = width + i;
+        float f3 = width + i2;
         rectF.right = f3;
         rectF.bottom = f3;
         this.paint.setColor(-1907998);
@@ -45,9 +45,9 @@ public class XRefreshImageView extends ImageView {
         canvas.drawArc(this.rect2, this.startAngle + 0, 72.0f, false, this.paint);
         this.paint.setColor(-1594427658);
         canvas.drawArc(this.rect2, this.startAngle + 72, 270.0f, false, this.paint);
-        int i2 = this.startAngle + 10;
-        this.startAngle = i2;
-        if (i2 >= 360) {
+        int i3 = this.startAngle + 10;
+        this.startAngle = i3;
+        if (i3 >= 360) {
             this.startAngle = 0;
         }
         super.onDraw(canvas);

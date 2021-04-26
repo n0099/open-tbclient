@@ -4,12 +4,12 @@ import android.content.Context;
 import android.text.TextUtils;
 /* loaded from: classes7.dex */
 public class cy {
-    public static int a(Context context, int i) {
+    public static int a(Context context, int i2) {
         int a2 = gq.a(context);
         if (-1 == a2) {
             return -1;
         }
-        return (i * (a2 == 0 ? 13 : 11)) / 10;
+        return (i2 * (a2 == 0 ? 13 : 11)) / 10;
     }
 
     public static int a(hf hfVar) {
@@ -18,7 +18,7 @@ public class cy {
 
     public static int a(iq iqVar, hf hfVar) {
         int a2;
-        switch (cz.f40728a[hfVar.ordinal()]) {
+        switch (cz.f38245a[hfVar.ordinal()]) {
             case 1:
             case 2:
             case 3:
@@ -36,17 +36,17 @@ public class cy {
                     try {
                         if (iqVar instanceof hw) {
                             String str = ((hw) iqVar).f591d;
-                            if (!TextUtils.isEmpty(str) && ek.a(ek.m270a(str)) != -1) {
-                                a2 = ek.a(ek.m270a(str));
+                            if (!TextUtils.isEmpty(str) && ek.a(ek.m273a(str)) != -1) {
+                                a2 = ek.a(ek.m273a(str));
                                 break;
                             }
                         } else if (iqVar instanceof ie) {
                             String str2 = ((ie) iqVar).f652d;
                             if (!TextUtils.isEmpty(str2)) {
-                                if (ek.a(ek.m270a(str2)) != -1) {
-                                    a2 = ek.a(ek.m270a(str2));
+                                if (ek.a(ek.m273a(str2)) != -1) {
+                                    a2 = ek.a(ek.m273a(str2));
                                 }
-                                if (hp.UploadTinyData.equals(ek.m270a(str2))) {
+                                if (hp.UploadTinyData.equals(ek.m273a(str2))) {
                                     return -1;
                                 }
                             }
@@ -85,31 +85,31 @@ public class cy {
         return a2;
     }
 
-    public static void a(String str, Context context, int i, int i2) {
-        if (i <= 0 || i2 <= 0) {
+    public static void a(String str, Context context, int i2, int i3) {
+        if (i2 <= 0 || i3 <= 0) {
             return;
         }
-        int a2 = a(context, i2);
-        if (i != ek.a(hp.UploadTinyData)) {
-            el.a(context.getApplicationContext()).a(str, i, 1L, a2);
+        int a2 = a(context, i3);
+        if (i2 != ek.a(hp.UploadTinyData)) {
+            el.a(context.getApplicationContext()).a(str, i2, 1L, a2);
         }
     }
 
-    public static void a(String str, Context context, ib ibVar, int i) {
+    public static void a(String str, Context context, ib ibVar, int i2) {
         hf a2;
         if (context == null || ibVar == null || (a2 = ibVar.a()) == null) {
             return;
         }
         int a3 = a(a2);
-        if (i <= 0) {
+        if (i2 <= 0) {
             byte[] a4 = ip.a(ibVar);
-            i = a4 != null ? a4.length : 0;
+            i2 = a4 != null ? a4.length : 0;
         }
-        a(str, context, a3, i);
+        a(str, context, a3, i2);
     }
 
-    public static void a(String str, Context context, iq iqVar, hf hfVar, int i) {
-        a(str, context, a(iqVar, hfVar), i);
+    public static void a(String str, Context context, iq iqVar, hf hfVar, int i2) {
+        a(str, context, a(iqVar, hfVar), i2);
     }
 
     public static void a(String str, Context context, byte[] bArr) {
@@ -121,7 +121,7 @@ public class cy {
             ip.a(ibVar, bArr);
             a(str, context, ibVar, bArr.length);
         } catch (iv unused) {
-            com.xiaomi.channel.commonutils.logger.b.m55a("fail to convert bytes to container");
+            com.xiaomi.channel.commonutils.logger.b.m58a("fail to convert bytes to container");
         }
     }
 }

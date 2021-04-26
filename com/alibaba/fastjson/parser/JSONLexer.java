@@ -44,7 +44,7 @@ public interface JSONLexer {
 
     boolean isBlankInput();
 
-    boolean isEnabled(int i);
+    boolean isEnabled(int i2);
 
     boolean isEnabled(Feature feature);
 
@@ -56,11 +56,11 @@ public interface JSONLexer {
 
     void nextToken();
 
-    void nextToken(int i);
+    void nextToken(int i2);
 
     void nextTokenWithColon();
 
-    void nextTokenWithColon(int i);
+    void nextTokenWithColon(int i2);
 
     String numberString();
 
@@ -100,7 +100,7 @@ public interface JSONLexer {
 
     String scanTypeName(SymbolTable symbolTable);
 
-    void setFeatures(int i);
+    void setFeatures(int i2);
 
     void setLocale(Locale locale);
 

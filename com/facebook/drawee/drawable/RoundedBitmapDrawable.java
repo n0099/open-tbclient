@@ -12,7 +12,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.lang.ref.WeakReference;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RoundedBitmapDrawable extends RoundedDrawable {
     @Nullable
     public final Bitmap mBitmap;
@@ -89,11 +89,11 @@ public class RoundedBitmapDrawable extends RoundedDrawable {
     }
 
     @Override // com.facebook.drawee.drawable.RoundedDrawable, android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        super.setAlpha(i);
-        if (i != this.mPaint.getAlpha()) {
-            this.mPaint.setAlpha(i);
-            super.setAlpha(i);
+    public void setAlpha(int i2) {
+        super.setAlpha(i2);
+        if (i2 != this.mPaint.getAlpha()) {
+            this.mPaint.setAlpha(i2);
+            super.setAlpha(i2);
             invalidateSelf();
         }
     }

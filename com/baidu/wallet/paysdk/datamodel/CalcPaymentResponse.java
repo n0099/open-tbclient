@@ -32,21 +32,21 @@ public class CalcPaymentResponse implements IBeanResponse, NoProguard, Serializa
         return true;
     }
 
-    public String getActivitiesJsonParams(int i, String str) {
+    public String getActivitiesJsonParams(int i2, String str) {
         PayData.Discount[] discountArr = this.activity_list;
         if (discountArr == null || discountArr.length == 0) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        int i2 = 0;
+        int i3 = 0;
         while (true) {
             PayData.Discount[] discountArr2 = this.activity_list;
-            if (i2 < discountArr2.length) {
-                PayData.Discount discount = discountArr2[i2];
+            if (i3 < discountArr2.length) {
+                PayData.Discount discount = discountArr2[i3];
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("id", discount.id);
-                    if (i2 == i) {
+                    if (i3 == i2) {
                         jSONObject.put("selected", str);
                     } else {
                         jSONObject.put("selected", discount.getSelectedString());
@@ -55,28 +55,28 @@ public class CalcPaymentResponse implements IBeanResponse, NoProguard, Serializa
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                i2++;
+                i3++;
             } else {
                 return jSONArray.toString();
             }
         }
     }
 
-    public String getCouponJsonParams(int i, String str) {
+    public String getCouponJsonParams(int i2, String str) {
         PayData.Coupon[] couponArr = this.coupon_list;
         if (couponArr == null || couponArr.length == 0) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        int i2 = 0;
+        int i3 = 0;
         while (true) {
             PayData.Coupon[] couponArr2 = this.coupon_list;
-            if (i2 < couponArr2.length) {
-                PayData.Coupon coupon = couponArr2[i2];
+            if (i3 < couponArr2.length) {
+                PayData.Coupon coupon = couponArr2[i3];
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("id", coupon.id);
-                    if (i2 == i) {
+                    if (i3 == i2) {
                         jSONObject.put("selected", str);
                     } else {
                         jSONObject.put("selected", coupon.getSelectedString());
@@ -85,7 +85,7 @@ public class CalcPaymentResponse implements IBeanResponse, NoProguard, Serializa
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                i2++;
+                i3++;
             } else {
                 return jSONArray.toString();
             }
@@ -98,11 +98,11 @@ public class CalcPaymentResponse implements IBeanResponse, NoProguard, Serializa
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        int i = 0;
+        int i2 = 0;
         while (true) {
             PayData.ChannelDiscountMap[] channelDiscountMapArr2 = this.activity_map;
-            if (i < channelDiscountMapArr2.length) {
-                PayData.ChannelDiscountMap channelDiscountMap = channelDiscountMapArr2[i];
+            if (i2 < channelDiscountMapArr2.length) {
+                PayData.ChannelDiscountMap channelDiscountMap = channelDiscountMapArr2[i2];
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("card_no", channelDiscountMap.card_no);
@@ -111,7 +111,7 @@ public class CalcPaymentResponse implements IBeanResponse, NoProguard, Serializa
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                i++;
+                i2++;
             } else {
                 return jSONArray.toString();
             }

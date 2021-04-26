@@ -44,8 +44,8 @@ public enum d implements e {
     public static String a(String str, String str2) {
         StringBuilder sb = new StringBuilder();
         int length = str.length();
-        for (int i = 0; i < length; i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            char charAt = str.charAt(i2);
             if (Character.isUpperCase(charAt) && sb.length() != 0) {
                 sb.append(str2);
             }
@@ -56,18 +56,18 @@ public enum d implements e {
 
     public static String a(String str) {
         int length = str.length() - 1;
-        int i = 0;
-        while (!Character.isLetter(str.charAt(i)) && i < length) {
-            i++;
+        int i2 = 0;
+        while (!Character.isLetter(str.charAt(i2)) && i2 < length) {
+            i2++;
         }
-        char charAt = str.charAt(i);
+        char charAt = str.charAt(i2);
         if (Character.isUpperCase(charAt)) {
             return str;
         }
         char upperCase = Character.toUpperCase(charAt);
-        if (i == 0) {
+        if (i2 == 0) {
             return upperCase + str.substring(1);
         }
-        return str.substring(0, i) + upperCase + str.substring(i + 1);
+        return str.substring(0, i2) + upperCase + str.substring(i2 + 1);
     }
 }

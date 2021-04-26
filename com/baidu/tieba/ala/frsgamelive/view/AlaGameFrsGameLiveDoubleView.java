@@ -6,72 +6,72 @@ import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import d.b.j0.t.c;
-import d.b.j0.t.h.b.a;
-import d.b.j0.x.b;
+import d.a.j0.t.c;
+import d.a.j0.t.h.b.a;
+import d.a.j0.x.b;
 /* loaded from: classes4.dex */
 public class AlaGameFrsGameLiveDoubleView extends b<a> {
-    public d.b.j0.t.e.d.a m;
-    public d.b.j0.t.e.d.a n;
+    public d.a.j0.t.e.d.a m;
+    public d.a.j0.t.e.d.a n;
 
     /* loaded from: classes4.dex */
     public static class AlaGameFrsGameLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public AlaGameFrsGameLiveDoubleView f14665a;
+        public AlaGameFrsGameLiveDoubleView f14743a;
 
         public AlaGameFrsGameLiveDoubleViewHolder(AlaGameFrsGameLiveDoubleView alaGameFrsGameLiveDoubleView) {
-            super(alaGameFrsGameLiveDoubleView.m());
-            this.f14665a = alaGameFrsGameLiveDoubleView;
+            super(alaGameFrsGameLiveDoubleView.l());
+            this.f14743a = alaGameFrsGameLiveDoubleView;
         }
     }
 
     public AlaGameFrsGameLiveDoubleView(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        u();
+        s();
     }
 
-    @Override // d.b.j0.x.b
-    public int h() {
+    @Override // d.a.j0.x.b
+    public int g() {
         return R.layout.ala_sub_list_game_live;
     }
 
-    @Override // d.b.j0.x.b
-    public void o(TbPageContext<?> tbPageContext, int i) {
-        this.m.e(tbPageContext, i);
-        this.n.e(tbPageContext, i);
+    @Override // d.a.j0.x.b
+    public void n(TbPageContext<?> tbPageContext, int i2) {
+        this.m.e(tbPageContext, i2);
+        this.n.e(tbPageContext, i2);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
     }
 
-    public final void u() {
-        this.m = new d.b.j0.t.e.d.a(l());
-        this.n = new d.b.j0.t.e.d.a(l());
-        ViewGroup viewGroup = (ViewGroup) m();
+    public final void s() {
+        this.m = new d.a.j0.t.e.d.a(k());
+        this.n = new d.a.j0.t.e.d.a(k());
+        ViewGroup viewGroup = (ViewGroup) l();
         View view = new View(b());
         viewGroup.addView(this.m.c());
-        viewGroup.addView(view, new LinearLayout.LayoutParams(l().getResources().getDimensionPixelSize(R.dimen.ds16), -1));
+        viewGroup.addView(view, new LinearLayout.LayoutParams(k().getResources().getDimensionPixelSize(R.dimen.ds16), -1));
         viewGroup.addView(this.n.c());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.j0.x.b
-    /* renamed from: v */
-    public void n(a aVar) {
+    @Override // d.a.j0.x.b
+    /* renamed from: t */
+    public void m(a aVar) {
         if (aVar != null) {
-            this.m.d(aVar.f62758e);
-            this.n.d(aVar.f62759f);
+            this.m.d(aVar.f60954e);
+            this.n.d(aVar.f60955f);
         }
     }
 
-    public void w(String str) {
+    public void u(String str) {
         this.m.f(str);
         this.n.f(str);
     }
 
-    public void x(c cVar) {
+    public void v(c cVar) {
         this.m.g(cVar);
         this.n.g(cVar);
     }

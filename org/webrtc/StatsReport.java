@@ -41,15 +41,15 @@ public class StatsReport {
         sb.append(", timestamp: ");
         sb.append(this.timestamp);
         sb.append(", values: ");
-        int i = 0;
+        int i2 = 0;
         while (true) {
             Value[] valueArr = this.values;
-            if (i >= valueArr.length) {
+            if (i2 >= valueArr.length) {
                 return sb.toString();
             }
-            sb.append(valueArr[i].toString());
+            sb.append(valueArr[i2].toString());
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            i++;
+            i2++;
         }
     }
 }

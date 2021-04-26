@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageButton;
 import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
@@ -19,7 +20,7 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
     public final AppCompatBackgroundHelper mBackgroundTintHelper;
     public final AppCompatImageHelper mImageHelper;
 
-    public AppCompatImageButton(Context context) {
+    public AppCompatImageButton(@NonNull Context context) {
         this(context, null);
     }
 
@@ -38,7 +39,7 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
 
     @Override // androidx.core.view.TintableBackgroundView
     @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportBackgroundTintList() {
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {
@@ -49,7 +50,7 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
 
     @Override // androidx.core.view.TintableBackgroundView
     @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {
@@ -60,7 +61,7 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
 
     @Override // androidx.core.widget.TintableImageSourceView
     @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportImageTintList() {
         AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
         if (appCompatImageHelper != null) {
@@ -71,7 +72,7 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
 
     @Override // androidx.core.widget.TintableImageSourceView
     @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportImageTintMode() {
         AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
         if (appCompatImageHelper != null) {
@@ -95,11 +96,11 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(@DrawableRes int i) {
-        super.setBackgroundResource(i);
+    public void setBackgroundResource(@DrawableRes int i2) {
+        super.setBackgroundResource(i2);
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {
-            appCompatBackgroundHelper.onSetBackgroundResource(i);
+            appCompatBackgroundHelper.onSetBackgroundResource(i2);
         }
     }
 
@@ -122,8 +123,8 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
     }
 
     @Override // android.widget.ImageView
-    public void setImageResource(@DrawableRes int i) {
-        this.mImageHelper.setImageResource(i);
+    public void setImageResource(@DrawableRes int i2) {
+        this.mImageHelper.setImageResource(i2);
     }
 
     @Override // android.widget.ImageView
@@ -136,7 +137,7 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {
@@ -145,7 +146,7 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {
@@ -154,7 +155,7 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
     }
 
     @Override // androidx.core.widget.TintableImageSourceView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setSupportImageTintList(@Nullable ColorStateList colorStateList) {
         AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
         if (appCompatImageHelper != null) {
@@ -163,7 +164,7 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
     }
 
     @Override // androidx.core.widget.TintableImageSourceView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setSupportImageTintMode(@Nullable PorterDuff.Mode mode) {
         AppCompatImageHelper appCompatImageHelper = this.mImageHelper;
         if (appCompatImageHelper != null) {
@@ -171,17 +172,18 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
         }
     }
 
-    public AppCompatImageButton(Context context, AttributeSet attributeSet) {
+    public AppCompatImageButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.imageButtonStyle);
     }
 
-    public AppCompatImageButton(Context context, AttributeSet attributeSet, int i) {
-        super(TintContextWrapper.wrap(context), attributeSet, i);
+    public AppCompatImageButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(TintContextWrapper.wrap(context), attributeSet, i2);
+        ThemeUtils.checkAppCompatTheme(this, getContext());
         AppCompatBackgroundHelper appCompatBackgroundHelper = new AppCompatBackgroundHelper(this);
         this.mBackgroundTintHelper = appCompatBackgroundHelper;
-        appCompatBackgroundHelper.loadFromAttributes(attributeSet, i);
+        appCompatBackgroundHelper.loadFromAttributes(attributeSet, i2);
         AppCompatImageHelper appCompatImageHelper = new AppCompatImageHelper(this);
         this.mImageHelper = appCompatImageHelper;
-        appCompatImageHelper.loadFromAttributes(attributeSet, i);
+        appCompatImageHelper.loadFromAttributes(attributeSet, i2);
     }
 }

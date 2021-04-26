@@ -14,11 +14,11 @@ public interface ActivityControlSurface {
 
     void detachFromActivityForConfigChanges();
 
-    boolean onActivityResult(int i, int i2, @Nullable Intent intent);
+    boolean onActivityResult(int i2, int i3, @Nullable Intent intent);
 
     void onNewIntent(@NonNull Intent intent);
 
-    boolean onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
+    boolean onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr);
 
     void onRestoreInstanceState(@Nullable Bundle bundle);
 

@@ -8,13 +8,13 @@ import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusHttpResponseMessage;
 import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusRequestMessage;
 import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusSocketResponseMessage;
 import com.baidu.tbadk.core.BaseFragment;
-import d.b.c.c.g.a;
+import d.a.c.c.g.a;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class AlaAutoRefreshFragment extends BaseFragment {
     public static final int GET_CLOSE_ONSCROLL_STOP_DELAY_MILLIS = 2000;
     public a mLiveStatusMsgListener = new a(AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.ala.refresh.AlaAutoRefreshFragment.1
-        @Override // d.b.c.c.g.a
+        @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null && responsedMessage.getOrginalMessage().getTag() == AlaAutoRefreshFragment.this.getUniqueId()) {
                 List<Long> list = null;
@@ -41,10 +41,10 @@ public abstract class AlaAutoRefreshFragment extends BaseFragment {
         }
     }
 
-    public void markLoadedData(int i) {
+    public void markLoadedData(int i2) {
         ISquareRefreshHandler iSquareRefreshHandler = this.mSquareRefreshHandler;
         if (iSquareRefreshHandler != null) {
-            iSquareRefreshHandler.markDataLoaded(i);
+            iSquareRefreshHandler.markDataLoaded(i2);
         }
     }
 

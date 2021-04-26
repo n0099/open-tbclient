@@ -6,10 +6,10 @@ import com.baidu.mapapi.map.MapStatus;
 public class b implements BaiduMap.OnMapStatusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f9947a;
+    public final /* synthetic */ a f10315a;
 
     public b(a aVar) {
-        this.f9947a = aVar;
+        this.f10315a = aVar;
     }
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
@@ -20,11 +20,11 @@ public class b implements BaiduMap.OnMapStatusChangeListener {
     public void onMapStatusChangeFinish(MapStatus mapStatus) {
         f fVar;
         f fVar2;
-        fVar = this.f9947a.f9946d;
+        fVar = this.f10315a.f10314d;
         if (fVar == null) {
             return;
         }
-        fVar2 = this.f9947a.f9946d;
+        fVar2 = this.f10315a.f10314d;
         fVar2.a();
     }
 
@@ -33,6 +33,6 @@ public class b implements BaiduMap.OnMapStatusChangeListener {
     }
 
     @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
+    public void onMapStatusChangeStart(MapStatus mapStatus, int i2) {
     }
 }

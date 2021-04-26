@@ -12,10 +12,10 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import d.b.c.e.m.b;
-import d.b.c.e.p.f;
-import d.b.c.e.p.m;
-import d.b.c.e.p.q;
+import d.a.c.e.m.b;
+import d.a.c.e.p.f;
+import d.a.c.e.p.m;
+import d.a.c.e.p.q;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -37,13 +37,13 @@ public final class Util {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f2273a = false;
+        public boolean f2244a = false;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2274b = null;
+        public String f2245b = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f2275c = 0;
+        public int f2246c = 0;
     }
 
     public static void a(File file) {
@@ -98,10 +98,10 @@ public final class Util {
         String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
         int length = split.length;
         int length2 = split2.length;
-        int i = length < length2 ? length : length2;
-        for (int i2 = 0; i2 < i; i2++) {
-            int d2 = b.d(split[i2], 0);
-            int d3 = b.d(split2[i2], 0);
+        int i2 = length < length2 ? length : length2;
+        for (int i3 = 0; i3 < i2; i3++) {
+            int d2 = b.d(split[i3], 0);
+            int d3 = b.d(split2[i3], 0);
             if (d2 > d3) {
                 return VersionCompare.GREATER;
             }
@@ -146,24 +146,24 @@ public final class Util {
                 }
                 fileOutputStream.flush();
                 fileOutputStream.close();
-                aVar.f2273a = true;
+                aVar.f2244a = true;
             } catch (Exception e3) {
                 e = e3;
                 fileOutputStream2 = fileOutputStream;
-                aVar.f2273a = false;
-                aVar.f2274b = e.toString();
-                d.b.c.e.m.a.d(fileOutputStream2);
+                aVar.f2244a = false;
+                aVar.f2245b = e.toString();
+                d.a.c.e.m.a.d(fileOutputStream2);
                 return aVar;
             } catch (Throwable th2) {
                 th = th2;
                 fileOutputStream2 = fileOutputStream;
-                d.b.c.e.m.a.d(fileOutputStream2);
+                d.a.c.e.m.a.d(fileOutputStream2);
                 throw th;
             }
-            d.b.c.e.m.a.d(fileOutputStream2);
+            d.a.c.e.m.a.d(fileOutputStream2);
             return aVar;
         }
-        aVar.f2274b = "illegal_param";
+        aVar.f2245b = "illegal_param";
         return aVar;
     }
 
@@ -209,13 +209,13 @@ public final class Util {
             return null;
         }
         StringBuilder sb = null;
-        int i = 0;
+        int i2 = 0;
         while (true) {
             Bundle bundle = applicationInfo.metaData;
             StringBuilder sb2 = new StringBuilder();
             sb2.append("cmd_range_");
-            int i2 = i + 1;
-            sb2.append(i);
+            int i3 = i2 + 1;
+            sb2.append(i2);
             String string = bundle.getString(sb2.toString());
             if (TextUtils.isEmpty(string)) {
                 break;
@@ -225,7 +225,7 @@ public final class Util {
             }
             sb.append(string);
             sb.append(",");
-            i = i2;
+            i2 = i3;
         }
         if (sb == null || sb.length() <= 0) {
             return null;
@@ -356,14 +356,14 @@ public final class Util {
         return bundle.getBoolean("is_third", false);
     }
 
-    public static int w(byte[] bArr, int i) {
+    public static int w(byte[] bArr, int i2) {
         if (bArr == null) {
             return 0;
         }
-        return ((short) ((bArr[i] & 255) | (bArr[i + 1] << 8))) & UShort.MAX_VALUE;
+        return ((short) ((bArr[i2] & 255) | (bArr[i2 + 1] << 8))) & UShort.MAX_VALUE;
     }
 
-    public static d.b.c.h.k.f x(InputStream inputStream) throws IOException {
+    public static d.a.c.h.k.f x(InputStream inputStream) throws IOException {
         if (inputStream == null) {
             return null;
         }
@@ -373,7 +373,7 @@ public final class Util {
         }
         int w = w(bArr, 6);
         int w2 = w(bArr, 8);
-        d.b.c.h.k.f fVar = new d.b.c.h.k.f();
+        d.a.c.h.k.f fVar = new d.a.c.h.k.f();
         fVar.b(((w2 >> 9) & 127) + 1980, (w2 >> 5) & 15, w2 & 31, (w >> 11) & 31, (w >> 5) & 63, (w & 31) << 1);
         return fVar;
     }

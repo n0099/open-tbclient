@@ -16,22 +16,22 @@ import java.util.concurrent.TimeUnit;
 public class HybridAD implements HADI {
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f38466a;
+    public volatile boolean f36034a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f38467b;
+    public volatile boolean f36035b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f38468c;
+    public volatile boolean f36036c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HADI f38469d;
+    public HADI f36037d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HybridADListener f38470e;
+    public HybridADListener f36038e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CountDownLatch f38471f = new CountDownLatch(1);
+    public CountDownLatch f36039f = new CountDownLatch(1);
 
     public HybridAD(Context context, HybridADSetting hybridADSetting, HybridADListener hybridADListener) {
         if (GDTADManager.getInstance().isInitialized()) {
@@ -53,13 +53,13 @@ public class HybridAD implements HADI {
             GDTLogger.e(String.format("HybridAD Constructor params error, context=%s, appID=%s,HybridADListener=%s", context, str, hybridADListener));
             return;
         }
-        this.f38470e = hybridADListener;
-        this.f38467b = true;
+        this.f36038e = hybridADListener;
+        this.f36035b = true;
         if (!a.a(context)) {
             GDTLogger.e("Required Activity/Service/Permission Not Declared in AndroidManifest.xml");
             return;
         }
-        this.f38468c = true;
+        this.f36036c = true;
         GDTADManager.INIT_EXECUTOR.execute(new Runnable() { // from class: com.qq.e.ads.hybrid.HybridAD.1
             @Override // java.lang.Runnable
             public void run() {
@@ -72,13 +72,13 @@ public class HybridAD implements HADI {
                                 POFactory pOFactory2 = pOFactory;
                                 if (pOFactory2 != null) {
                                     AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
-                                    HybridAD.this.f38469d = pOFactory2.getHybridAD(hybridADSetting, hybridADListener);
-                                    HybridAD.this.f38466a = true;
+                                    HybridAD.this.f36037d = pOFactory2.getHybridAD(hybridADSetting, hybridADListener);
+                                    HybridAD.this.f36034a = true;
                                 } else {
                                     GDTLogger.e("poFactory is null");
                                     HybridAD.a(HybridAD.this, 2001);
                                 }
-                                HybridAD.this.f38471f.countDown();
+                                HybridAD.this.f36039f.countDown();
                             }
                         });
                         return;
@@ -89,17 +89,17 @@ public class HybridAD implements HADI {
                     GDTLogger.e("Fail to init ADManager");
                 }
                 HybridAD.a(HybridAD.this, 2001);
-                HybridAD.this.f38471f.countDown();
+                HybridAD.this.f36039f.countDown();
             }
         });
     }
 
-    public static /* synthetic */ void a(HybridAD hybridAD, int i) {
+    public static /* synthetic */ void a(HybridAD hybridAD, int i2) {
         new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.qq.e.ads.hybrid.HybridAD.3
             @Override // java.lang.Runnable
             public void run() {
-                if (HybridAD.this.f38470e != null) {
-                    HybridAD.this.f38470e.onError(AdErrorConvertor.formatErrorCode(r2));
+                if (HybridAD.this.f36038e != null) {
+                    HybridAD.this.f36038e.onError(AdErrorConvertor.formatErrorCode(r2));
                 }
             }
         });
@@ -108,7 +108,7 @@ public class HybridAD implements HADI {
     @Override // com.qq.e.comm.pi.HADI
     public void loadUrl(final String str) {
         boolean z;
-        if (this.f38467b && this.f38468c) {
+        if (this.f36035b && this.f36036c) {
             z = true;
         } else {
             GDTLogger.e("AD init Params OR Context error, details in logs produced while init HybridAD");
@@ -116,16 +116,16 @@ public class HybridAD implements HADI {
         }
         if (!z) {
             GDTLogger.e("HybridAD loadUrl error");
-        } else if (this.f38466a) {
-            this.f38469d.loadUrl(str);
+        } else if (this.f36034a) {
+            this.f36037d.loadUrl(str);
         } else {
             new Thread(new Runnable() { // from class: com.qq.e.ads.hybrid.HybridAD.2
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        HybridAD.this.f38471f.await(30L, TimeUnit.SECONDS);
-                        if (HybridAD.this.f38466a) {
-                            HybridAD.this.f38469d.loadUrl(str);
+                        HybridAD.this.f36039f.await(30L, TimeUnit.SECONDS);
+                        if (HybridAD.this.f36034a) {
+                            HybridAD.this.f36037d.loadUrl(str);
                             return;
                         }
                         GDTLogger.e("delegate init failed ");

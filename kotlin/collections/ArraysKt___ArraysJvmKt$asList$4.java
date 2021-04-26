@@ -51,8 +51,8 @@ public final class ArraysKt___ArraysJvmKt$asList$4 extends AbstractList<Long> im
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.collections.AbstractList, java.util.List
-    public Long get(int i) {
-        return Long.valueOf(this.$this_asList[i]);
+    public Long get(int i2) {
+        return Long.valueOf(this.$this_asList[i2]);
     }
 
     public int indexOf(long j) {

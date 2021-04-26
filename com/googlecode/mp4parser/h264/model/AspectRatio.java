@@ -4,13 +4,13 @@ public class AspectRatio {
     public static final AspectRatio Extended_SAR = new AspectRatio(255);
     public int value;
 
-    public AspectRatio(int i) {
-        this.value = i;
+    public AspectRatio(int i2) {
+        this.value = i2;
     }
 
-    public static AspectRatio fromValue(int i) {
+    public static AspectRatio fromValue(int i2) {
         AspectRatio aspectRatio = Extended_SAR;
-        return i == aspectRatio.value ? aspectRatio : new AspectRatio(i);
+        return i2 == aspectRatio.value ? aspectRatio : new AspectRatio(i2);
     }
 
     public int getValue() {

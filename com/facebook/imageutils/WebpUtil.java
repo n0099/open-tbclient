@@ -16,8 +16,8 @@ public class WebpUtil {
         if (bArr.length != str.length()) {
             return false;
         }
-        for (int i = 0; i < bArr.length; i++) {
-            if (str.charAt(i) != bArr[i]) {
+        for (int i2 = 0; i2 < bArr.length; i2++) {
+            if (str.charAt(i2) != bArr[i2]) {
                 return false;
             }
         }
@@ -65,7 +65,7 @@ public class WebpUtil {
             } catch (IOException e3) {
                 e3.printStackTrace();
             }
-            if (compare(bArr, b.f23223e)) {
+            if (compare(bArr, b.f23938e)) {
                 getInt(inputStream);
                 inputStream.read(bArr);
                 if (!compare(bArr, "WEBP")) {
@@ -156,8 +156,8 @@ public class WebpUtil {
         return new Pair<>(Integer.valueOf(read3Bytes(inputStream) + 1), Integer.valueOf(read3Bytes(inputStream) + 1));
     }
 
-    public static boolean isBitOne(byte b2, int i) {
-        return ((b2 >> (i % 8)) & 1) == 1;
+    public static boolean isBitOne(byte b2, int i2) {
+        return ((b2 >> (i2 % 8)) & 1) == 1;
     }
 
     public static int read3Bytes(InputStream inputStream) throws IOException {

@@ -56,8 +56,8 @@ public abstract class AbstractProducerToDataSourceAdapter<T> extends AbstractDat
             }
 
             @Override // com.facebook.imagepipeline.producers.BaseConsumer
-            public void onNewResultImpl(@Nullable T t, int i) {
-                AbstractProducerToDataSourceAdapter.this.onNewResultImpl(t, i);
+            public void onNewResultImpl(@Nullable T t, int i2) {
+                AbstractProducerToDataSourceAdapter.this.onNewResultImpl(t, i2);
             }
 
             @Override // com.facebook.imagepipeline.producers.BaseConsumer
@@ -97,8 +97,8 @@ public abstract class AbstractProducerToDataSourceAdapter<T> extends AbstractDat
         return this.mSettableProducerContext.getImageRequest();
     }
 
-    public void onNewResultImpl(@Nullable T t, int i) {
-        boolean isLast = BaseConsumer.isLast(i);
+    public void onNewResultImpl(@Nullable T t, int i2) {
+        boolean isLast = BaseConsumer.isLast(i2);
         if (super.setResult(t, isLast) && isLast) {
             this.mRequestListener.onRequestSuccess(this.mSettableProducerContext.getImageRequest(), this.mSettableProducerContext.getId(), this.mSettableProducerContext.isPrefetch());
         }

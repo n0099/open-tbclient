@@ -1,8 +1,8 @@
 package com.google.common.collect;
 
 import com.google.common.collect.ImmutableMap;
-import d.h.c.c.k;
-import d.h.c.c.m;
+import d.g.c.c.k;
+import d.g.c.c.m;
 import java.util.Collection;
 import java.util.Map;
 /* loaded from: classes6.dex */
@@ -58,12 +58,12 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
         @Override // com.google.common.collect.ImmutableMap.b
         /* renamed from: h */
         public ImmutableBiMap<K, V> a() {
-            if (this.f30892c == 0) {
+            if (this.f31851c == 0) {
                 return ImmutableBiMap.of();
             }
             g();
-            this.f30893d = true;
-            return new RegularImmutableBiMap(this.f30891b, this.f30892c);
+            this.f31852d = true;
+            return new RegularImmutableBiMap(this.f31850b, this.f31851c);
         }
 
         public a<K, V> i(K k, V v) {
@@ -86,8 +86,8 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
             return this;
         }
 
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
     }
 
@@ -95,9 +95,9 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
         return new a<>();
     }
 
-    public static <K, V> a<K, V> builderWithExpectedSize(int i) {
-        m.b(i, "expectedSize");
-        return new a<>(i);
+    public static <K, V> a<K, V> builderWithExpectedSize(int i2) {
+        m.b(i2, "expectedSize");
+        return new a<>(i2);
     }
 
     public static <K, V> ImmutableBiMap<K, V> copyOf(Map<? extends K, ? extends V> map) {
@@ -114,14 +114,14 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
         return RegularImmutableBiMap.EMPTY;
     }
 
-    @Override // d.h.c.c.k
+    @Override // d.g.c.c.k
     @Deprecated
     public V forcePut(K k, V v) {
         throw new UnsupportedOperationException();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.h.c.c.k
+    @Override // d.g.c.c.k
     public abstract ImmutableBiMap<V, K> inverse();
 
     @Override // com.google.common.collect.ImmutableMap
@@ -147,7 +147,7 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableMap, java.util.Map, d.h.c.c.k
+    @Override // com.google.common.collect.ImmutableMap, java.util.Map, d.g.c.c.k
     public ImmutableSet<V> values() {
         return inverse().keySet();
     }

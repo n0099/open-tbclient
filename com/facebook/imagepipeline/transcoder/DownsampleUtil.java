@@ -30,7 +30,7 @@ public class DownsampleUtil {
         return max;
     }
 
-    public static int determineSampleSize(RotationOptions rotationOptions, @Nullable ResizeOptions resizeOptions, EncodedImage encodedImage, int i) {
+    public static int determineSampleSize(RotationOptions rotationOptions, @Nullable ResizeOptions resizeOptions, EncodedImage encodedImage, int i2) {
         int ratioToSampleSize;
         if (EncodedImage.isMetaDataAvailable(encodedImage)) {
             float determineDownsampleRatio = determineDownsampleRatio(rotationOptions, resizeOptions, encodedImage);
@@ -40,7 +40,7 @@ public class DownsampleUtil {
                 ratioToSampleSize = ratioToSampleSize(determineDownsampleRatio);
             }
             int max = Math.max(encodedImage.getHeight(), encodedImage.getWidth());
-            float f2 = resizeOptions != null ? resizeOptions.maxBitmapSize : i;
+            float f2 = resizeOptions != null ? resizeOptions.maxBitmapSize : i2;
             while (max / ratioToSampleSize > f2) {
                 ratioToSampleSize = encodedImage.getImageFormat() == DefaultImageFormats.JPEG ? ratioToSampleSize * 2 : ratioToSampleSize + 1;
             }
@@ -64,13 +64,13 @@ public class DownsampleUtil {
         if (f2 > 0.6666667f) {
             return 1;
         }
-        int i = 2;
+        int i2 = 2;
         while (true) {
-            double d2 = i;
+            double d2 = i2;
             if ((1.0d / d2) + ((1.0d / (Math.pow(d2, 2.0d) - d2)) * 0.3333333432674408d) <= f2) {
-                return i - 1;
+                return i2 - 1;
             }
-            i++;
+            i2++;
         }
     }
 
@@ -79,23 +79,23 @@ public class DownsampleUtil {
         if (f2 > 0.6666667f) {
             return 1;
         }
-        int i = 2;
+        int i2 = 2;
         while (true) {
-            int i2 = i * 2;
-            double d2 = 1.0d / i2;
+            int i3 = i2 * 2;
+            double d2 = 1.0d / i3;
             if (d2 + (0.3333333432674408d * d2) <= f2) {
-                return i;
+                return i2;
             }
-            i = i2;
+            i2 = i3;
         }
     }
 
     @VisibleForTesting
-    public static int roundToPowerOfTwo(int i) {
-        int i2 = 1;
-        while (i2 < i) {
-            i2 *= 2;
+    public static int roundToPowerOfTwo(int i2) {
+        int i3 = 1;
+        while (i3 < i2) {
+            i3 *= 2;
         }
-        return i2;
+        return i3;
     }
 }

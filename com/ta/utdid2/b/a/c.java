@@ -23,23 +23,23 @@ public class c {
     public String f11a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39370b;
+    public String f36963b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39371c;
+    public boolean f36964c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f39372d;
+    public boolean f36965d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f39373e;
+    public boolean f36966e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f39374f;
+    public boolean f36967f;
     public Context mContext;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences.Editor f39369a = null;
+    public SharedPreferences.Editor f36962a = null;
 
     /* renamed from: a  reason: collision with other field name */
     public b.a f8a = null;
@@ -58,20 +58,20 @@ public class c {
         boolean z3;
         SharedPreferences sharedPreferences;
         this.f11a = "";
-        this.f39370b = "";
-        this.f39371c = false;
-        this.f39372d = false;
-        this.f39373e = false;
+        this.f36963b = "";
+        this.f36964c = false;
+        this.f36965d = false;
+        this.f36966e = false;
         String str3 = null;
         this.f7a = null;
         this.f9a = null;
         this.mContext = null;
         this.f10a = null;
-        this.f39374f = false;
-        this.f39371c = z;
-        this.f39374f = z2;
+        this.f36967f = false;
+        this.f36964c = z;
+        this.f36967f = z2;
         this.f11a = str2;
-        this.f39370b = str;
+        this.f36963b = str;
         this.mContext = context;
         if (context != null) {
             SharedPreferences sharedPreferences2 = context.getSharedPreferences(str2, 0);
@@ -86,20 +86,20 @@ public class c {
             e2.printStackTrace();
         }
         if (f.isEmpty(str3)) {
-            this.f39373e = false;
-            this.f39372d = false;
+            this.f36966e = false;
+            this.f36965d = false;
         } else if (str3.equals("mounted")) {
-            this.f39373e = true;
-            this.f39372d = true;
+            this.f36966e = true;
+            this.f36965d = true;
         } else if (str3.equals("mounted_ro")) {
-            this.f39372d = true;
-            this.f39373e = false;
+            this.f36965d = true;
+            this.f36966e = false;
         } else {
-            this.f39373e = false;
-            this.f39372d = false;
+            this.f36966e = false;
+            this.f36965d = false;
         }
         try {
-            if ((this.f39372d || this.f39373e) && context != null && !f.isEmpty(str)) {
+            if ((this.f36965d || this.f36966e) && context != null && !f.isEmpty(str)) {
                 d a2 = a(str);
                 this.f10a = a2;
                 if (a2 != null) {
@@ -113,19 +113,19 @@ public class c {
                         long j3 = this.f7a.getLong("t2", 0L);
                         try {
                             j2 = this.f9a.getLong("t2", 0L);
-                            int i = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
-                            if (i < 0 && j3 > 0) {
+                            int i2 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
+                            if (i2 < 0 && j3 > 0) {
                                 a(this.f7a, this.f9a);
                                 this.f9a = this.f10a.a(str2, 0);
-                            } else if (i <= 0 || j2 <= 0) {
-                                int i2 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
-                                if (i2 == 0 && j2 > 0) {
+                            } else if (i2 <= 0 || j2 <= 0) {
+                                int i3 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
+                                if (i3 == 0 && j2 > 0) {
                                     a(this.f9a, this.f7a);
                                     this.f7a = context.getSharedPreferences(str2, 0);
-                                } else if (j2 == 0 && i2 > 0) {
+                                } else if (j2 == 0 && i3 > 0) {
                                     a(this.f7a, this.f9a);
                                     this.f9a = this.f10a.a(str2, 0);
-                                } else if (i == 0) {
+                                } else if (i2 == 0) {
                                     a(this.f7a, this.f9a);
                                     this.f9a = this.f10a.a(str2, 0);
                                 }
@@ -137,18 +137,18 @@ public class c {
                         }
                         j = j3;
                     } else {
-                        int i3 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
-                        if (i3 > 0) {
+                        int i4 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                        if (i4 > 0) {
                             a(this.f7a, this.f9a);
                             this.f9a = this.f10a.a(str2, 0);
-                        } else if (i3 >= 0) {
-                            if (i3 == 0) {
+                        } else if (i4 >= 0) {
+                            if (i4 == 0) {
                                 a(this.f7a, this.f9a);
                                 this.f9a = this.f10a.a(str2, 0);
                             }
                             if (j == j2 || (j == 0 && j2 == 0)) {
                                 long currentTimeMillis = System.currentTimeMillis();
-                                z3 = this.f39374f;
+                                z3 = this.f36967f;
                                 if (z3 || (z3 && j == 0 && j2 == 0)) {
                                     sharedPreferences = this.f7a;
                                     if (sharedPreferences != null) {
@@ -175,7 +175,7 @@ public class c {
                     if (j == j2) {
                     }
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    z3 = this.f39374f;
+                    z3 = this.f36967f;
                     if (z3) {
                     }
                     sharedPreferences = this.f7a;
@@ -194,7 +194,7 @@ public class c {
         if (j == j2) {
         }
         long currentTimeMillis22 = System.currentTimeMillis();
-        z3 = this.f39374f;
+        z3 = this.f36967f;
         if (z3) {
         }
         sharedPreferences = this.f7a;
@@ -203,9 +203,9 @@ public class c {
     }
 
     private d a(String str) {
-        File m44a = m44a(str);
-        if (m44a != null) {
-            d dVar = new d(m44a.getAbsolutePath());
+        File m47a = m47a(str);
+        if (m47a != null) {
+            d dVar = new d(m47a.getAbsolutePath());
             this.f10a = dVar;
             return dVar;
         }
@@ -213,14 +213,14 @@ public class c {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    private boolean m45b() {
+    private boolean m48b() {
         b bVar = this.f9a;
         if (bVar != null) {
-            boolean m43a = bVar.m43a();
-            if (!m43a) {
+            boolean m46a = bVar.m46a();
+            if (!m46a) {
                 commit();
             }
-            return m43a;
+            return m46a;
         }
         return false;
     }
@@ -241,12 +241,12 @@ public class c {
         String str;
         Context context;
         long currentTimeMillis = System.currentTimeMillis();
-        SharedPreferences.Editor editor = this.f39369a;
+        SharedPreferences.Editor editor = this.f36962a;
         if (editor != null) {
-            if (!this.f39374f && this.f7a != null) {
+            if (!this.f36967f && this.f7a != null) {
                 editor.putLong("t", currentTimeMillis);
             }
-            if (!this.f39369a.commit()) {
+            if (!this.f36962a.commit()) {
                 z = false;
                 if (this.f7a != null && (context = this.mContext) != null) {
                     this.f7a = context.getSharedPreferences(this.f11a, 0);
@@ -256,11 +256,11 @@ public class c {
                 if (!f.isEmpty(str)) {
                     if (str.equals("mounted")) {
                         if (this.f9a == null) {
-                            d a2 = a(this.f39370b);
+                            d a2 = a(this.f36963b);
                             if (a2 != null) {
                                 b a3 = a2.a(this.f11a, 0);
                                 this.f9a = a3;
-                                if (!this.f39374f) {
+                                if (!this.f36967f) {
                                     a(this.f7a, a3);
                                 } else {
                                     a(a3, this.f7a);
@@ -298,7 +298,7 @@ public class c {
     }
 
     public String getString(String str) {
-        m45b();
+        m48b();
         SharedPreferences sharedPreferences = this.f7a;
         if (sharedPreferences != null) {
             String string = sharedPreferences.getString(str, "");
@@ -315,7 +315,7 @@ public class c {
             return;
         }
         b();
-        SharedPreferences.Editor editor = this.f39369a;
+        SharedPreferences.Editor editor = this.f36962a;
         if (editor != null) {
             editor.putString(str, str2);
         }
@@ -330,7 +330,7 @@ public class c {
             return;
         }
         b();
-        SharedPreferences.Editor editor = this.f39369a;
+        SharedPreferences.Editor editor = this.f36962a;
         if (editor != null) {
             editor.remove(str);
         }
@@ -341,7 +341,7 @@ public class c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private File m44a(String str) {
+    private File m47a(String str) {
         File externalStorageDirectory = Environment.getExternalStorageDirectory();
         if (externalStorageDirectory != null) {
             File file = new File(String.format("%s%s%s", externalStorageDirectory.getAbsolutePath(), File.separator, str));
@@ -356,13 +356,13 @@ public class c {
     private void b() {
         b bVar;
         SharedPreferences sharedPreferences;
-        if (this.f39369a == null && (sharedPreferences = this.f7a) != null) {
-            this.f39369a = sharedPreferences.edit();
+        if (this.f36962a == null && (sharedPreferences = this.f7a) != null) {
+            this.f36962a = sharedPreferences.edit();
         }
-        if (this.f39373e && this.f8a == null && (bVar = this.f9a) != null) {
+        if (this.f36966e && this.f8a == null && (bVar = this.f9a) != null) {
             this.f8a = bVar.a();
         }
-        m45b();
+        m48b();
     }
 
     private void a(SharedPreferences sharedPreferences, b bVar) {

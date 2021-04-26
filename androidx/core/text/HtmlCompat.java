@@ -22,25 +22,25 @@ public final class HtmlCompat {
     public static final int TO_HTML_PARAGRAPH_LINES_INDIVIDUAL = 1;
 
     @NonNull
-    public static Spanned fromHtml(@NonNull String str, int i) {
+    public static Spanned fromHtml(@NonNull String str, int i2) {
         if (Build.VERSION.SDK_INT >= 24) {
-            return Html.fromHtml(str, i);
+            return Html.fromHtml(str, i2);
         }
         return Html.fromHtml(str);
     }
 
     @NonNull
-    public static String toHtml(@NonNull Spanned spanned, int i) {
+    public static String toHtml(@NonNull Spanned spanned, int i2) {
         if (Build.VERSION.SDK_INT >= 24) {
-            return Html.toHtml(spanned, i);
+            return Html.toHtml(spanned, i2);
         }
         return Html.toHtml(spanned);
     }
 
     @NonNull
-    public static Spanned fromHtml(@NonNull String str, int i, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
+    public static Spanned fromHtml(@NonNull String str, int i2, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
         if (Build.VERSION.SDK_INT >= 24) {
-            return Html.fromHtml(str, i, imageGetter, tagHandler);
+            return Html.fromHtml(str, i2, imageGetter, tagHandler);
         }
         return Html.fromHtml(str, imageGetter, tagHandler);
     }

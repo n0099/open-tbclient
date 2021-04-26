@@ -53,13 +53,13 @@ public abstract class RequestBody {
         return create(mediaType, bArr, 0, bArr.length);
     }
 
-    public static RequestBody create(@Nullable final MediaType mediaType, final byte[] bArr, final int i, final int i2) {
+    public static RequestBody create(@Nullable final MediaType mediaType, final byte[] bArr, final int i2, final int i3) {
         if (bArr != null) {
-            Util.checkOffsetAndCount(bArr.length, i, i2);
+            Util.checkOffsetAndCount(bArr.length, i2, i3);
             return new RequestBody() { // from class: okhttp3.RequestBody.2
                 @Override // okhttp3.RequestBody
                 public long contentLength() {
-                    return i2;
+                    return i3;
                 }
 
                 @Override // okhttp3.RequestBody
@@ -70,7 +70,7 @@ public abstract class RequestBody {
 
                 @Override // okhttp3.RequestBody
                 public void writeTo(BufferedSink bufferedSink) throws IOException {
-                    bufferedSink.write(bArr, i, i2);
+                    bufferedSink.write(bArr, i2, i3);
                 }
             };
         }

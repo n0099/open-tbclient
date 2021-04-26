@@ -3,7 +3,6 @@ package com.xiaomi.push;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
-import androidx.exifinterface.media.ExifInterface;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,7 +13,7 @@ public class dv {
     }
 
     public static String a(String str) {
-        return Base64.encodeToString(bm.m167a(str), 2);
+        return Base64.encodeToString(bm.m170a(str), 2);
     }
 
     public static String a(HashMap<String, String> hashMap) {
@@ -49,7 +48,7 @@ public class dv {
                     hashMap2.put("flow_id", String.valueOf(jSONObject.opt("flow_id")));
                     hashMap2.put("jobkey", String.valueOf(jSONObject.opt("jobkey")));
                     hashMap2.put("msg_id", String.valueOf(jSONObject.opt("msg_id")));
-                    hashMap2.put(ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, String.valueOf(jSONObject.opt("awake_app")));
+                    hashMap2.put("A", String.valueOf(jSONObject.opt("awake_app")));
                     hashMap2.put("B", String.valueOf(jSONObject.opt("awakened_app")));
                     hashMap2.put("module", String.valueOf(jSONObject.opt("awake_type")));
                 } catch (JSONException e2) {

@@ -55,17 +55,17 @@ public class Md5Crypt {
         md5Digest2.update(bytes);
         md5Digest2.update(bArr);
         byte[] digest = md5Digest2.digest();
-        int i = length;
+        int i2 = length;
         while (true) {
-            int i2 = 16;
-            if (i <= 0) {
+            int i3 = 16;
+            if (i2 <= 0) {
                 break;
             }
-            if (i <= 16) {
-                i2 = i;
+            if (i2 <= 16) {
+                i3 = i2;
             }
-            md5Digest.update(digest, 0, i2);
-            i -= 16;
+            md5Digest.update(digest, 0, i3);
+            i2 -= 16;
         }
         Arrays.fill(digest, (byte) 0);
         while (length > 0) {
@@ -78,21 +78,21 @@ public class Md5Crypt {
         }
         StringBuilder sb = new StringBuilder(str2 + group + "$");
         byte[] digest2 = md5Digest.digest();
-        for (int i3 = 0; i3 < 1000; i3++) {
+        for (int i4 = 0; i4 < 1000; i4++) {
             md5Digest2 = DigestUtils.getMd5Digest();
-            int i4 = i3 & 1;
-            if (i4 != 0) {
+            int i5 = i4 & 1;
+            if (i5 != 0) {
                 md5Digest2.update(bArr);
             } else {
                 md5Digest2.update(digest2, 0, 16);
             }
-            if (i3 % 3 != 0) {
+            if (i4 % 3 != 0) {
                 md5Digest2.update(bytes);
             }
-            if (i3 % 7 != 0) {
+            if (i4 % 7 != 0) {
                 md5Digest2.update(bArr);
             }
-            if (i4 != 0) {
+            if (i5 != 0) {
                 md5Digest2.update(digest2, 0, 16);
             } else {
                 md5Digest2.update(bArr);

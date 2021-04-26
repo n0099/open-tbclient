@@ -17,13 +17,13 @@ public class ResponseUpdateGroupMessage extends SocketResponsedMessage {
         return this.groupInfo;
     }
 
-    public ResponseUpdateGroupMessage(int i) {
-        super(i);
+    public ResponseUpdateGroupMessage(int i2) {
+        super(i2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         UpdateGroupResIdl updateGroupResIdl = (UpdateGroupResIdl) new Wire(new Class[0]).parseFrom(bArr, UpdateGroupResIdl.class);
         setError(updateGroupResIdl.error.errorno.intValue());
         setErrorString(updateGroupResIdl.error.usermsg);

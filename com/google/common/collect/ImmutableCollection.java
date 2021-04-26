@@ -1,11 +1,11 @@
 package com.google.common.collect;
 
 import com.google.common.collect.ImmutableList;
-import d.h.c.a.n;
-import d.h.c.c.c1;
-import d.h.c.c.j0;
-import d.h.c.c.m;
-import d.h.c.c.n0;
+import d.g.c.a.n;
+import d.g.c.c.c1;
+import d.g.c.c.j0;
+import d.g.c.c.m;
+import d.g.c.c.n0;
 import java.io.Serializable;
 import java.util.AbstractCollection;
 import java.util.Arrays;
@@ -19,63 +19,63 @@ public abstract class ImmutableCollection<E> extends AbstractCollection<E> imple
     public static abstract class a<E> extends b<E> {
 
         /* renamed from: a  reason: collision with root package name */
-        public Object[] f30879a;
+        public Object[] f31838a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f30880b;
+        public int f31839b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f30881c;
+        public boolean f31840c;
 
-        public a(int i) {
-            m.b(i, "initialCapacity");
-            this.f30879a = new Object[i];
-            this.f30880b = 0;
+        public a(int i2) {
+            m.b(i2, "initialCapacity");
+            this.f31838a = new Object[i2];
+            this.f31839b = 0;
         }
 
         @Override // com.google.common.collect.ImmutableCollection.b
         public b<E> b(E... eArr) {
             j0.b(eArr);
-            g(this.f30880b + eArr.length);
-            System.arraycopy(eArr, 0, this.f30879a, this.f30880b, eArr.length);
-            this.f30880b += eArr.length;
+            g(this.f31839b + eArr.length);
+            System.arraycopy(eArr, 0, this.f31838a, this.f31839b, eArr.length);
+            this.f31839b += eArr.length;
             return this;
         }
 
         public a<E> f(E e2) {
             n.p(e2);
-            g(this.f30880b + 1);
-            Object[] objArr = this.f30879a;
-            int i = this.f30880b;
-            this.f30880b = i + 1;
-            objArr[i] = e2;
+            g(this.f31839b + 1);
+            Object[] objArr = this.f31838a;
+            int i2 = this.f31839b;
+            this.f31839b = i2 + 1;
+            objArr[i2] = e2;
             return this;
         }
 
-        public final void g(int i) {
-            Object[] objArr = this.f30879a;
-            if (objArr.length < i) {
-                this.f30879a = Arrays.copyOf(objArr, b.e(objArr.length, i));
-                this.f30881c = false;
-            } else if (this.f30881c) {
-                this.f30879a = (Object[]) objArr.clone();
-                this.f30881c = false;
+        public final void g(int i2) {
+            Object[] objArr = this.f31838a;
+            if (objArr.length < i2) {
+                this.f31838a = Arrays.copyOf(objArr, b.e(objArr.length, i2));
+                this.f31840c = false;
+            } else if (this.f31840c) {
+                this.f31838a = (Object[]) objArr.clone();
+                this.f31840c = false;
             }
         }
     }
 
     /* loaded from: classes6.dex */
     public static abstract class b<E> {
-        public static int e(int i, int i2) {
-            if (i2 >= 0) {
-                int i3 = i + (i >> 1) + 1;
-                if (i3 < i2) {
-                    i3 = Integer.highestOneBit(i2 - 1) << 1;
+        public static int e(int i2, int i3) {
+            if (i3 >= 0) {
+                int i4 = i2 + (i2 >> 1) + 1;
+                if (i4 < i3) {
+                    i4 = Integer.highestOneBit(i3 - 1) << 1;
                 }
-                if (i3 < 0) {
+                if (i4 < 0) {
                     return Integer.MAX_VALUE;
                 }
-                return i3;
+                return i4;
             }
             throw new AssertionError("cannot store more than MAX_VALUE elements");
         }
@@ -129,13 +129,13 @@ public abstract class ImmutableCollection<E> extends AbstractCollection<E> imple
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
     public abstract boolean contains(Object obj);
 
-    public int copyIntoArray(Object[] objArr, int i) {
+    public int copyIntoArray(Object[] objArr, int i2) {
         c1<E> it = iterator();
         while (it.hasNext()) {
-            objArr[i] = it.next();
-            i++;
+            objArr[i2] = it.next();
+            i2++;
         }
-        return i;
+        return i2;
     }
 
     public Object[] internalArray() {

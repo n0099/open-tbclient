@@ -14,31 +14,33 @@ import java.io.FileReader;
 public class a extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9861a = "a";
+    public static final String f10227a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f9862b;
+    public static String f10228b;
     public static final Long j = -1L;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f9863c;
+    public File f10229c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BufferedReader f9864d;
+    public BufferedReader f10230d;
     public int n;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f9865e = false;
+    public boolean f10231e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f9866f = 0;
+    public int f10232f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public C0130a f9867g = null;
+    public C0130a f10233g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.baidu.platform.comapi.wnplatform.c.b f9868h = null;
-    public Object i = new Object();
+    public com.baidu.platform.comapi.wnplatform.c.b f10234h = null;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Object f10235i = new Object();
     public boolean k = true;
     public Long l = 0L;
     public Long m = 600L;
@@ -49,55 +51,55 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
     public class C0130a extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f9869a;
+        public final /* synthetic */ a f10236a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f9870b;
+        public volatile boolean f10237b;
 
         public void a() {
-            this.f9870b = false;
+            this.f10237b = false;
             interrupt();
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            WLocData c2 = this.f9869a.c();
-            while (this.f9870b && c2 != null) {
+            WLocData c2 = this.f10236a.c();
+            while (this.f10237b && c2 != null) {
                 try {
-                    if (this.f9869a.k) {
-                        String str = a.f9861a;
-                        com.baidu.platform.comapi.wnplatform.d.a.a(str, "[文件时间戳]读取轨迹记录点成功，延时" + this.f9869a.m + "ms执行");
+                    if (this.f10236a.k) {
+                        String str = a.f10227a;
+                        com.baidu.platform.comapi.wnplatform.d.a.a(str, "[文件时间戳]读取轨迹记录点成功，延时" + this.f10236a.m + "ms执行");
                         Thread.sleep(800L);
                     } else {
-                        String str2 = a.f9861a;
-                        com.baidu.platform.comapi.wnplatform.d.a.a(str2, "[用户设定]读取轨迹记录点成功，延时" + this.f9869a.n + "ms执行");
+                        String str2 = a.f10227a;
+                        com.baidu.platform.comapi.wnplatform.d.a.a(str2, "[用户设定]读取轨迹记录点成功，延时" + this.f10236a.n + "ms执行");
                         Thread.sleep(800L);
                     }
                 } catch (InterruptedException unused) {
-                    com.baidu.platform.comapi.wnplatform.d.a.a(a.f9861a, "TrackThread sleep InterruptedException IN");
+                    com.baidu.platform.comapi.wnplatform.d.a.a(a.f10227a, "TrackThread sleep InterruptedException IN");
                 }
-                Message obtainMessage = this.f9869a.o.obtainMessage(1);
+                Message obtainMessage = this.f10236a.o.obtainMessage(1);
                 obtainMessage.obj = c2;
-                this.f9869a.o.sendMessage(obtainMessage);
-                c2 = this.f9869a.c();
+                this.f10236a.o.sendMessage(obtainMessage);
+                c2 = this.f10236a.c();
                 if (c2 == null) {
-                    com.baidu.platform.comapi.wnplatform.d.a.a(a.f9861a, "轨迹点为空，轨迹导航停止");
-                    this.f9869a.f9864d = null;
-                    a.f(this.f9869a);
-                    c2 = this.f9869a.c();
+                    com.baidu.platform.comapi.wnplatform.d.a.a(a.f10227a, "轨迹点为空，轨迹导航停止");
+                    this.f10236a.f10230d = null;
+                    a.f(this.f10236a);
+                    c2 = this.f10236a.c();
                 }
             }
         }
     }
 
     public a() {
-        f9862b = c.a() + "/WNavi/track/track.txt";
+        f10228b = c.a() + "/WNavi/track/track.txt";
     }
 
     public static /* synthetic */ int f(a aVar) {
-        int i = aVar.f9866f;
-        aVar.f9866f = i + 1;
-        return i;
+        int i2 = aVar.f10232f;
+        aVar.f10232f = i2 + 1;
+        return i2;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
@@ -116,23 +118,23 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
         String readLine;
         File[] listFiles;
         try {
-            if (this.f9864d == null && this.f9863c != null && this.f9863c.exists() && (listFiles = this.f9863c.listFiles()) != null && listFiles.length > 0) {
-                if (this.f9866f < listFiles.length) {
-                    File file = listFiles[this.f9866f];
+            if (this.f10230d == null && this.f10229c != null && this.f10229c.exists() && (listFiles = this.f10229c.listFiles()) != null && listFiles.length > 0) {
+                if (this.f10232f < listFiles.length) {
+                    File file = listFiles[this.f10232f];
                     if (file.isFile()) {
                         String name = file.getName();
-                        String str = f9861a;
+                        String str = f10227a;
                         com.baidu.platform.comapi.wnplatform.d.a.a(str, "GPS Data fileName = " + name);
                         if (!TextUtils.isEmpty(name) && name.endsWith(DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION)) {
-                            this.f9864d = new BufferedReader(new FileReader(file));
+                            this.f10230d = new BufferedReader(new FileReader(file));
                         }
                     }
                 } else {
-                    this.f9866f = 0;
+                    this.f10232f = 0;
                 }
             }
-            readLine = this.f9864d.readLine();
-            String str2 = f9861a;
+            readLine = this.f10230d.readLine();
+            String str2 = f10227a;
             com.baidu.platform.comapi.wnplatform.d.a.a(str2, "line = " + readLine);
         } catch (Exception unused) {
             return null;
@@ -141,21 +143,21 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
     }
 
     private void d() {
-        synchronized (this.i) {
-            this.f9863c = null;
-            this.f9864d = null;
-            this.f9866f = 0;
+        synchronized (this.f10235i) {
+            this.f10229c = null;
+            this.f10230d = null;
+            this.f10232f = 0;
         }
     }
 
     public void a() {
-        if (this.f9865e) {
-            C0130a c0130a = this.f9867g;
+        if (this.f10231e) {
+            C0130a c0130a = this.f10233g;
             if (c0130a != null && c0130a.isAlive()) {
-                com.baidu.platform.comapi.wnplatform.d.a.a(f9861a, "用户中断轨迹复现");
-                this.f9867g.a();
+                com.baidu.platform.comapi.wnplatform.d.a.a(f10227a, "用户中断轨迹复现");
+                this.f10233g.a();
                 this.l = 0L;
-                this.f9867g = null;
+                this.f10233g = null;
             }
             d();
         }
@@ -206,7 +208,7 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
                             long parseLong = Long.parseLong(split[8]);
                             this.m = Long.valueOf(Math.abs(parseLong - this.l.longValue()));
                             this.l = Long.valueOf(parseLong);
-                            com.baidu.platform.comapi.wnplatform.d.a.a(f9861a, "[文件时间戳] stampTime：" + parseLong + "mRecordInternalTime:" + this.m);
+                            com.baidu.platform.comapi.wnplatform.d.a.a(f10227a, "[文件时间戳] stampTime：" + parseLong + "mRecordInternalTime:" + this.m);
                         }
                     }
                     f2 = parseFloat;
@@ -218,7 +220,7 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
                 wLocData.latitude = a2.getLatitudeE6() / 100000.0d;
                 wLocData.speed = f2;
                 wLocData.direction = f3;
-                com.baidu.platform.comapi.wnplatform.d.a.a(f9861a, wLocData.toString());
+                com.baidu.platform.comapi.wnplatform.d.a.a(f10227a, wLocData.toString());
                 return wLocData;
             } else if (2 == parseInt || parseInt == 0) {
                 if (split.length == 2) {
@@ -236,13 +238,13 @@ public class a extends com.baidu.platform.comapi.walknavi.a {
             wLocData.latitude = a22.getLatitudeE6() / 100000.0d;
             wLocData.speed = f2;
             wLocData.direction = f3;
-            com.baidu.platform.comapi.wnplatform.d.a.a(f9861a, wLocData.toString());
+            com.baidu.platform.comapi.wnplatform.d.a.a(f10227a, wLocData.toString());
             return wLocData;
         }
         return null;
     }
 
     public void a(com.baidu.platform.comapi.wnplatform.c.b bVar) {
-        this.f9868h = bVar;
+        this.f10234h = bVar;
     }
 }

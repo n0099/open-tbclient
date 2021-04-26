@@ -1,54 +1,42 @@
 package com.baidu.sapi2.utils.enums;
 
+import com.baidu.sapi2.utils.SapiHost;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.h;
 /* loaded from: classes2.dex */
 public enum Domain {
-    DOMAIN_ONLINE("aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==", h.f11094b, h.f11095c, h.f11096d, h.f11097e),
-    DOMAIN_QA(h.f11098f, h.f11099g, h.f11100h, h.i, "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==");
+    DOMAIN_ONLINE("aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==", SapiHost.DOMAIN_ONLINE_WAPPASS_URL, SapiHost.DOMAIN_ONLINE_DEVICE_URL, SapiHost.DOMAIN_ONLINE_CONFIG_HTTPS_URL, SapiHost.DOMAIN_ONLINE_PORTRAIT_URL),
+    DOMAIN_QA(SapiHost.DOMAIN_QA_PASSPORT_URL, SapiHost.DOMAIN_QA_WAPPASS_URL, SapiHost.DOMAIN_QA_DEVICE_URL, SapiHost.DOMAIN_QA_CONFIG_HTTPS_URL, "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==");
     
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f11055a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f11056b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f11057c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f11058d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f11059e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f11060f;
+    public String configHttpsUrl;
+    public String deviceUrl;
+    public boolean forceHttps;
+    public String portraitUrl;
+    public String url;
+    public String wap;
 
     Domain(String str, String str2, String str3, String str4, String str5) {
-        this.f11055a = h.a(str);
-        this.f11056b = h.a(str2);
-        this.f11057c = h.a(str3);
-        this.f11058d = h.a(str4);
-        this.f11059e = h.a(str5);
+        this.url = SapiHost.getHost(str);
+        this.wap = SapiHost.getHost(str2);
+        this.deviceUrl = SapiHost.getHost(str3);
+        this.configHttpsUrl = SapiHost.getHost(str4);
+        this.portraitUrl = SapiHost.getHost(str5);
     }
 
     public Domain forceHttps(boolean z) {
-        this.f11060f = z;
+        this.forceHttps = z;
         return this;
     }
 
     public String getConfigHttpsUrl() {
-        return this.f11058d;
+        return this.configHttpsUrl;
     }
 
     public String getDeviceUrl() {
-        return this.f11057c;
+        return this.deviceUrl;
     }
 
     public String getPortraitUrl() {
-        return this.f11059e;
+        return this.portraitUrl;
     }
 
     public String getURL() {
@@ -60,10 +48,10 @@ public enum Domain {
     }
 
     public String getWap() {
-        if ((equals(DOMAIN_ONLINE) && SapiUtils.getDefaultHttpsEnabled()) || (!equals(DOMAIN_ONLINE) && this.f11060f)) {
-            return this.f11056b.replace("http://", "https://");
+        if ((equals(DOMAIN_ONLINE) && SapiUtils.getDefaultHttpsEnabled()) || (!equals(DOMAIN_ONLINE) && this.forceHttps)) {
+            return this.wap.replace("http://", "https://");
         }
-        return this.f11056b;
+        return this.wap;
     }
 
     public String getWapDomain() {
@@ -71,9 +59,9 @@ public enum Domain {
     }
 
     public String getURL(boolean z) {
-        if ((equals(DOMAIN_ONLINE) && z) || (!equals(DOMAIN_ONLINE) && this.f11060f)) {
-            return this.f11055a.replace("http://", "https://");
+        if ((equals(DOMAIN_ONLINE) && z) || (!equals(DOMAIN_ONLINE) && this.forceHttps)) {
+            return this.url.replace("http://", "https://");
         }
-        return this.f11055a;
+        return this.url;
     }
 }

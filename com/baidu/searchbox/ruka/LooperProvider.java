@@ -20,7 +20,7 @@ public class LooperProvider {
         }
 
         @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor
-        public void startLooperMonitor(Context context, int i) {
+        public void startLooperMonitor(Context context, int i2) {
         }
 
         @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor

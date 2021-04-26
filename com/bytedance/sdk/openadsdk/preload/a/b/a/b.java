@@ -9,20 +9,20 @@ import java.util.Collection;
 public final class b implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.c f29601a;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.c f30506a;
 
     /* loaded from: classes5.dex */
     public static final class a<E> extends v<Collection<E>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final v<E> f29602a;
+        public final v<E> f30507a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final com.bytedance.sdk.openadsdk.preload.a.b.i<? extends Collection<E>> f29603b;
+        public final com.bytedance.sdk.openadsdk.preload.a.b.i<? extends Collection<E>> f30508b;
 
         public a(com.bytedance.sdk.openadsdk.preload.a.f fVar, Type type, v<E> vVar, com.bytedance.sdk.openadsdk.preload.a.b.i<? extends Collection<E>> iVar) {
-            this.f29602a = new m(fVar, vVar, type);
-            this.f29603b = iVar;
+            this.f30507a = new m(fVar, vVar, type);
+            this.f30508b = iVar;
         }
 
         @Override // com.bytedance.sdk.openadsdk.preload.a.v
@@ -38,10 +38,10 @@ public final class b implements w {
                 aVar.j();
                 return null;
             }
-            Collection<E> a2 = this.f29603b.a();
+            Collection<E> a2 = this.f30508b.a();
             aVar.a();
             while (aVar.e()) {
-                a2.add(this.f29602a.b(aVar));
+                a2.add(this.f30507a.b(aVar));
             }
             aVar.b();
             return a2;
@@ -54,14 +54,14 @@ public final class b implements w {
             }
             cVar.b();
             for (E e2 : collection) {
-                this.f29602a.a(cVar, e2);
+                this.f30507a.a(cVar, e2);
             }
             cVar.c();
         }
     }
 
     public b(com.bytedance.sdk.openadsdk.preload.a.b.c cVar) {
-        this.f29601a = cVar;
+        this.f30506a = cVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.w
@@ -70,7 +70,7 @@ public final class b implements w {
         Class<? super T> a2 = aVar.a();
         if (Collection.class.isAssignableFrom(a2)) {
             Type a3 = com.bytedance.sdk.openadsdk.preload.a.b.b.a(b2, (Class<?>) a2);
-            return new a(fVar, a3, fVar.a((com.bytedance.sdk.openadsdk.preload.a.c.a) com.bytedance.sdk.openadsdk.preload.a.c.a.a(a3)), this.f29601a.a(aVar));
+            return new a(fVar, a3, fVar.a((com.bytedance.sdk.openadsdk.preload.a.c.a) com.bytedance.sdk.openadsdk.preload.a.c.a.a(a3)), this.f30506a.a(aVar));
         }
         return null;
     }

@@ -32,8 +32,8 @@ public final class UPCAReader extends UPCEANReader {
     }
 
     @Override // com.google.zxing.oned.UPCEANReader
-    public Result decodeRow(int i, BitArray bitArray, int[] iArr, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
-        return maybeReturnResult(this.ean13Reader.decodeRow(i, bitArray, iArr, map));
+    public Result decodeRow(int i2, BitArray bitArray, int[] iArr, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
+        return maybeReturnResult(this.ean13Reader.decodeRow(i2, bitArray, iArr, map));
     }
 
     @Override // com.google.zxing.oned.UPCEANReader
@@ -47,7 +47,7 @@ public final class UPCAReader extends UPCEANReader {
     }
 
     @Override // com.google.zxing.oned.UPCEANReader, com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
-        return maybeReturnResult(this.ean13Reader.decodeRow(i, bitArray, map));
+    public Result decodeRow(int i2, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
+        return maybeReturnResult(this.ean13Reader.decodeRow(i2, bitArray, map));
     }
 }

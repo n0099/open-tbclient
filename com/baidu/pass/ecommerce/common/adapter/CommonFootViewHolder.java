@@ -24,8 +24,8 @@ public class CommonFootViewHolder extends BaseRecyclerViewHolder<Boolean> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.pass.ecommerce.common.adapter.BaseRecyclerViewHolder
-    public void bindData2View(int i, Boolean bool) {
-        super.bindData2View(i, (int) bool);
+    public void bindData2View(int i2, Boolean bool) {
+        super.bindData2View(i2, (int) bool);
         if (bool.booleanValue()) {
             this.mFooterIc.setVisibility(0);
             this.mFootTv.setText("正在加载...");

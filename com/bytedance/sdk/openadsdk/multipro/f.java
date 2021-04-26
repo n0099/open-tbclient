@@ -16,38 +16,38 @@ import java.util.List;
 public class f implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile f f29592a;
+    public static volatile f f30497a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Context> f29593b;
+    public static WeakReference<Context> f30498b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static List<a> f29594c;
+    public static List<a> f30499c;
 
     static {
         List<a> synchronizedList = Collections.synchronizedList(new ArrayList());
-        f29594c = synchronizedList;
+        f30499c = synchronizedList;
         synchronizedList.add(new com.bytedance.sdk.openadsdk.multipro.d.c());
-        f29594c.add(new com.bytedance.sdk.openadsdk.multipro.a.b());
-        f29594c.add(new com.bytedance.sdk.openadsdk.multipro.c.b());
-        f29594c.add(new com.bytedance.sdk.openadsdk.multipro.c.a());
-        for (a aVar : f29594c) {
+        f30499c.add(new com.bytedance.sdk.openadsdk.multipro.a.b());
+        f30499c.add(new com.bytedance.sdk.openadsdk.multipro.c.b());
+        f30499c.add(new com.bytedance.sdk.openadsdk.multipro.c.a());
+        for (a aVar : f30499c) {
             aVar.b();
         }
     }
 
     public static f b(Context context) {
         if (context != null) {
-            f29593b = new WeakReference<>(context.getApplicationContext());
+            f30498b = new WeakReference<>(context.getApplicationContext());
         }
-        if (f29592a == null) {
+        if (f30497a == null) {
             synchronized (f.class) {
-                if (f29592a == null) {
-                    f29592a = new f();
+                if (f30497a == null) {
+                    f30497a = new f();
                 }
             }
         }
-        return f29592a;
+        return f30497a;
     }
 
     private boolean c(Uri uri) {
@@ -62,7 +62,7 @@ public class f implements a {
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public void a(Context context) {
-        for (a aVar : f29594c) {
+        for (a aVar : f30499c) {
             aVar.a(context);
         }
     }
@@ -117,7 +117,7 @@ public class f implements a {
             u.b("TTProviderManager", "uri is error3");
             return null;
         }
-        for (a aVar : f29594c) {
+        for (a aVar : f30499c) {
             if (str.equals(aVar.a())) {
                 return aVar;
             }

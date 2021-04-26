@@ -11,7 +11,7 @@ public enum DownloadState {
     MEAGESTART,
     MEAGEEND;
 
-    public static DownloadState getState(int i) {
-        return i == 0 ? WAITING : i == 1 ? DOWNLOADING : i == 2 ? PAUSE : i == 3 ? FAILED : i == 4 ? CANCEL : i == 5 ? FINISH : i == 6 ? UNKNOWN : i == 7 ? MEAGESTART : i == 8 ? MEAGEEND : UNKNOWN;
+    public static DownloadState getState(int i2) {
+        return i2 == 0 ? WAITING : i2 == 1 ? DOWNLOADING : i2 == 2 ? PAUSE : i2 == 3 ? FAILED : i2 == 4 ? CANCEL : i2 == 5 ? FINISH : i2 == 6 ? UNKNOWN : i2 == 7 ? MEAGESTART : i2 == 8 ? MEAGEEND : UNKNOWN;
     }
 }

@@ -1,9 +1,9 @@
 package com.google.common.collect;
 
-import d.h.c.a.n;
-import d.h.c.c.c1;
-import d.h.c.c.e0;
-import d.h.c.c.m;
+import d.g.c.a.n;
+import d.g.c.c.c1;
+import d.g.c.c.e0;
+import d.g.c.c.m;
 import java.util.AbstractMap;
 import java.util.Arrays;
 import java.util.Map;
@@ -15,31 +15,31 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     public final transient Object[] alternatingKeysAndValues;
 
     /* renamed from: e  reason: collision with root package name */
-    public final transient Object f31081e;
+    public final transient Object f32050e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final transient int f31082f;
+    public final transient int f32051f;
 
     /* loaded from: classes6.dex */
     public static class EntrySet<K, V> extends ImmutableSet<Map.Entry<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final transient ImmutableMap<K, V> f31083e;
+        public final transient ImmutableMap<K, V> f32052e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final transient Object[] f31084f;
+        public final transient Object[] f32053f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final transient int f31085g;
+        public final transient int f32054g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final transient int f31086h;
+        public final transient int f32055h;
 
-        public EntrySet(ImmutableMap<K, V> immutableMap, Object[] objArr, int i, int i2) {
-            this.f31083e = immutableMap;
-            this.f31084f = objArr;
-            this.f31085g = i;
-            this.f31086h = i2;
+        public EntrySet(ImmutableMap<K, V> immutableMap, Object[] objArr, int i2, int i3) {
+            this.f32052e = immutableMap;
+            this.f32053f = objArr;
+            this.f32054g = i2;
+            this.f32055h = i3;
         }
 
         @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -48,14 +48,14 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
                 Map.Entry entry = (Map.Entry) obj;
                 Object key = entry.getKey();
                 Object value = entry.getValue();
-                return value != null && value.equals(this.f31083e.get(key));
+                return value != null && value.equals(this.f32052e.get(key));
             }
             return false;
         }
 
         @Override // com.google.common.collect.ImmutableCollection
-        public int copyIntoArray(Object[] objArr, int i) {
-            return asList().copyIntoArray(objArr, i);
+        public int copyIntoArray(Object[] objArr, int i2) {
+            return asList().copyIntoArray(objArr, i2);
         }
 
         @Override // com.google.common.collect.ImmutableSet
@@ -68,15 +68,15 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
 
                 @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
                 public int size() {
-                    return EntrySet.this.f31086h;
+                    return EntrySet.this.f32055h;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.List
-                public Map.Entry<K, V> get(int i) {
-                    n.n(i, EntrySet.this.f31086h);
-                    int i2 = i * 2;
-                    return new AbstractMap.SimpleImmutableEntry(EntrySet.this.f31084f[EntrySet.this.f31085g + i2], EntrySet.this.f31084f[i2 + (EntrySet.this.f31085g ^ 1)]);
+                public Map.Entry<K, V> get(int i2) {
+                    n.n(i2, EntrySet.this.f32055h);
+                    int i3 = i2 * 2;
+                    return new AbstractMap.SimpleImmutableEntry(EntrySet.this.f32053f[EntrySet.this.f32054g + i3], EntrySet.this.f32053f[i3 + (EntrySet.this.f32054g ^ 1)]);
                 }
             };
         }
@@ -88,7 +88,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            return this.f31086h;
+            return this.f32055h;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,29 +102,29 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     public static final class KeySet<K> extends ImmutableSet<K> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final transient ImmutableMap<K, ?> f31087e;
+        public final transient ImmutableMap<K, ?> f32056e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final transient ImmutableList<K> f31088f;
+        public final transient ImmutableList<K> f32057f;
 
         public KeySet(ImmutableMap<K, ?> immutableMap, ImmutableList<K> immutableList) {
-            this.f31087e = immutableMap;
-            this.f31088f = immutableList;
+            this.f32056e = immutableMap;
+            this.f32057f = immutableList;
         }
 
         @Override // com.google.common.collect.ImmutableSet, com.google.common.collect.ImmutableCollection
         public ImmutableList<K> asList() {
-            return this.f31088f;
+            return this.f32057f;
         }
 
         @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
-            return this.f31087e.get(obj) != null;
+            return this.f32056e.get(obj) != null;
         }
 
         @Override // com.google.common.collect.ImmutableCollection
-        public int copyIntoArray(Object[] objArr, int i) {
-            return asList().copyIntoArray(objArr, i);
+        public int copyIntoArray(Object[] objArr, int i2) {
+            return asList().copyIntoArray(objArr, i2);
         }
 
         @Override // com.google.common.collect.ImmutableCollection
@@ -134,7 +134,7 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            return this.f31087e.size();
+            return this.f32056e.size();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -148,24 +148,24 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     public static final class KeysOrValuesAsList extends ImmutableList<Object> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final transient Object[] f31089e;
+        public final transient Object[] f32058e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final transient int f31090f;
+        public final transient int f32059f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final transient int f31091g;
+        public final transient int f32060g;
 
-        public KeysOrValuesAsList(Object[] objArr, int i, int i2) {
-            this.f31089e = objArr;
-            this.f31090f = i;
-            this.f31091g = i2;
+        public KeysOrValuesAsList(Object[] objArr, int i2, int i3) {
+            this.f32058e = objArr;
+            this.f32059f = i2;
+            this.f32060g = i3;
         }
 
         @Override // java.util.List
-        public Object get(int i) {
-            n.n(i, this.f31091g);
-            return this.f31089e[(i * 2) + this.f31090f];
+        public Object get(int i2) {
+            n.n(i2, this.f32060g);
+            return this.f32058e[(i2 * 2) + this.f32059f];
         }
 
         @Override // com.google.common.collect.ImmutableCollection
@@ -175,30 +175,30 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
         public int size() {
-            return this.f31091g;
+            return this.f32060g;
         }
     }
 
-    public RegularImmutableMap(Object obj, Object[] objArr, int i) {
-        this.f31081e = obj;
+    public RegularImmutableMap(Object obj, Object[] objArr, int i2) {
+        this.f32050e = obj;
         this.alternatingKeysAndValues = objArr;
-        this.f31082f = i;
+        this.f32051f = i2;
     }
 
-    public static IllegalArgumentException a(Object obj, Object obj2, Object[] objArr, int i) {
-        return new IllegalArgumentException("Multiple entries with same key: " + obj + "=" + obj2 + " and " + objArr[i] + "=" + objArr[i ^ 1]);
+    public static IllegalArgumentException a(Object obj, Object obj2, Object[] objArr, int i2) {
+        return new IllegalArgumentException("Multiple entries with same key: " + obj + "=" + obj2 + " and " + objArr[i2] + "=" + objArr[i2 ^ 1]);
     }
 
-    public static <K, V> RegularImmutableMap<K, V> create(int i, Object[] objArr) {
-        if (i == 0) {
+    public static <K, V> RegularImmutableMap<K, V> create(int i2, Object[] objArr) {
+        if (i2 == 0) {
             return (RegularImmutableMap) EMPTY;
         }
-        if (i == 1) {
+        if (i2 == 1) {
             m.a(objArr[0], objArr[1]);
             return new RegularImmutableMap<>(null, objArr, 1);
         }
-        n.t(i, objArr.length >> 1);
-        return new RegularImmutableMap<>(createHashTable(objArr, i, ImmutableSet.chooseTableSize(i), 0), objArr, i);
+        n.t(i2, objArr.length >> 1);
+        return new RegularImmutableMap<>(createHashTable(objArr, i2, ImmutableSet.chooseTableSize(i2), 0), objArr, i2);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x0039, code lost:
@@ -216,75 +216,75 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Object createHashTable(Object[] objArr, int i, int i2, int i3) {
-        if (i == 1) {
-            m.a(objArr[i3], objArr[i3 ^ 1]);
+    public static Object createHashTable(Object[] objArr, int i2, int i3, int i4) {
+        if (i2 == 1) {
+            m.a(objArr[i4], objArr[i4 ^ 1]);
             return null;
         }
-        int i4 = i2 - 1;
-        int i5 = 0;
-        if (i2 <= 128) {
-            byte[] bArr = new byte[i2];
+        int i5 = i3 - 1;
+        int i6 = 0;
+        if (i3 <= 128) {
+            byte[] bArr = new byte[i3];
             Arrays.fill(bArr, (byte) -1);
-            while (i5 < i) {
-                int i6 = (i5 * 2) + i3;
-                Object obj = objArr[i6];
-                Object obj2 = objArr[i6 ^ 1];
+            while (i6 < i2) {
+                int i7 = (i6 * 2) + i4;
+                Object obj = objArr[i7];
+                Object obj2 = objArr[i7 ^ 1];
                 m.a(obj, obj2);
                 int c2 = e0.c(obj.hashCode());
                 while (true) {
-                    int i7 = c2 & i4;
-                    int i8 = bArr[i7] & 255;
-                    if (i8 == 255) {
+                    int i8 = c2 & i5;
+                    int i9 = bArr[i8] & 255;
+                    if (i9 == 255) {
                         break;
-                    } else if (objArr[i8].equals(obj)) {
-                        throw a(obj, obj2, objArr, i8);
+                    } else if (objArr[i9].equals(obj)) {
+                        throw a(obj, obj2, objArr, i9);
                     } else {
-                        c2 = i7 + 1;
+                        c2 = i8 + 1;
                     }
                 }
             }
             return bArr;
-        } else if (i2 <= 32768) {
-            short[] sArr = new short[i2];
+        } else if (i3 <= 32768) {
+            short[] sArr = new short[i3];
             Arrays.fill(sArr, (short) -1);
-            while (i5 < i) {
-                int i9 = (i5 * 2) + i3;
-                Object obj3 = objArr[i9];
-                Object obj4 = objArr[i9 ^ 1];
+            while (i6 < i2) {
+                int i10 = (i6 * 2) + i4;
+                Object obj3 = objArr[i10];
+                Object obj4 = objArr[i10 ^ 1];
                 m.a(obj3, obj4);
                 int c3 = e0.c(obj3.hashCode());
                 while (true) {
-                    int i10 = c3 & i4;
-                    int i11 = sArr[i10] & UShort.MAX_VALUE;
-                    if (i11 == 65535) {
+                    int i11 = c3 & i5;
+                    int i12 = sArr[i11] & UShort.MAX_VALUE;
+                    if (i12 == 65535) {
                         break;
-                    } else if (objArr[i11].equals(obj3)) {
-                        throw a(obj3, obj4, objArr, i11);
+                    } else if (objArr[i12].equals(obj3)) {
+                        throw a(obj3, obj4, objArr, i12);
                     } else {
-                        c3 = i10 + 1;
+                        c3 = i11 + 1;
                     }
                 }
             }
             return sArr;
         } else {
-            int[] iArr = new int[i2];
+            int[] iArr = new int[i3];
             Arrays.fill(iArr, -1);
-            while (i5 < i) {
-                int i12 = (i5 * 2) + i3;
-                Object obj5 = objArr[i12];
-                Object obj6 = objArr[i12 ^ 1];
+            while (i6 < i2) {
+                int i13 = (i6 * 2) + i4;
+                Object obj5 = objArr[i13];
+                Object obj6 = objArr[i13 ^ 1];
                 m.a(obj5, obj6);
                 int c4 = e0.c(obj5.hashCode());
                 while (true) {
-                    int i13 = c4 & i4;
-                    int i14 = iArr[i13];
-                    if (i14 == -1) {
+                    int i14 = c4 & i5;
+                    int i15 = iArr[i14];
+                    if (i15 == -1) {
                         break;
-                    } else if (objArr[i14].equals(obj5)) {
-                        throw a(obj5, obj6, objArr, i14);
+                    } else if (objArr[i15].equals(obj5)) {
+                        throw a(obj5, obj6, objArr, i15);
                     } else {
-                        c4 = i13 + 1;
+                        c4 = i14 + 1;
                     }
                 }
             }
@@ -294,22 +294,22 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
 
     @Override // com.google.common.collect.ImmutableMap
     public ImmutableSet<Map.Entry<K, V>> createEntrySet() {
-        return new EntrySet(this, this.alternatingKeysAndValues, 0, this.f31082f);
+        return new EntrySet(this, this.alternatingKeysAndValues, 0, this.f32051f);
     }
 
     @Override // com.google.common.collect.ImmutableMap
     public ImmutableSet<K> createKeySet() {
-        return new KeySet(this, new KeysOrValuesAsList(this.alternatingKeysAndValues, 0, this.f31082f));
+        return new KeySet(this, new KeysOrValuesAsList(this.alternatingKeysAndValues, 0, this.f32051f));
     }
 
     @Override // com.google.common.collect.ImmutableMap
     public ImmutableCollection<V> createValues() {
-        return new KeysOrValuesAsList(this.alternatingKeysAndValues, 1, this.f31082f);
+        return new KeysOrValuesAsList(this.alternatingKeysAndValues, 1, this.f32051f);
     }
 
     @Override // com.google.common.collect.ImmutableMap, java.util.Map
     public V get(Object obj) {
-        return (V) get(this.f31081e, this.alternatingKeysAndValues, this.f31082f, 0, obj);
+        return (V) get(this.f32050e, this.alternatingKeysAndValues, this.f32051f, 0, obj);
     }
 
     @Override // com.google.common.collect.ImmutableMap
@@ -319,16 +319,16 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
 
     @Override // java.util.Map
     public int size() {
-        return this.f31082f;
+        return this.f32051f;
     }
 
-    public static Object get(Object obj, Object[] objArr, int i, int i2, Object obj2) {
+    public static Object get(Object obj, Object[] objArr, int i2, int i3, Object obj2) {
         if (obj2 == null) {
             return null;
         }
-        if (i == 1) {
-            if (objArr[i2].equals(obj2)) {
-                return objArr[i2 ^ 1];
+        if (i2 == 1) {
+            if (objArr[i3].equals(obj2)) {
+                return objArr[i3 ^ 1];
             }
             return null;
         } else if (obj == null) {
@@ -339,45 +339,45 @@ public final class RegularImmutableMap<K, V> extends ImmutableMap<K, V> {
                 int length = bArr.length - 1;
                 int c2 = e0.c(obj2.hashCode());
                 while (true) {
-                    int i3 = c2 & length;
-                    int i4 = bArr[i3] & 255;
-                    if (i4 == 255) {
+                    int i4 = c2 & length;
+                    int i5 = bArr[i4] & 255;
+                    if (i5 == 255) {
                         return null;
                     }
-                    if (objArr[i4].equals(obj2)) {
-                        return objArr[i4 ^ 1];
+                    if (objArr[i5].equals(obj2)) {
+                        return objArr[i5 ^ 1];
                     }
-                    c2 = i3 + 1;
+                    c2 = i4 + 1;
                 }
             } else if (obj instanceof short[]) {
                 short[] sArr = (short[]) obj;
                 int length2 = sArr.length - 1;
                 int c3 = e0.c(obj2.hashCode());
                 while (true) {
-                    int i5 = c3 & length2;
-                    int i6 = sArr[i5] & UShort.MAX_VALUE;
-                    if (i6 == 65535) {
+                    int i6 = c3 & length2;
+                    int i7 = sArr[i6] & UShort.MAX_VALUE;
+                    if (i7 == 65535) {
                         return null;
                     }
-                    if (objArr[i6].equals(obj2)) {
-                        return objArr[i6 ^ 1];
+                    if (objArr[i7].equals(obj2)) {
+                        return objArr[i7 ^ 1];
                     }
-                    c3 = i5 + 1;
+                    c3 = i6 + 1;
                 }
             } else {
                 int[] iArr = (int[]) obj;
                 int length3 = iArr.length - 1;
                 int c4 = e0.c(obj2.hashCode());
                 while (true) {
-                    int i7 = c4 & length3;
-                    int i8 = iArr[i7];
-                    if (i8 == -1) {
+                    int i8 = c4 & length3;
+                    int i9 = iArr[i8];
+                    if (i9 == -1) {
                         return null;
                     }
-                    if (objArr[i8].equals(obj2)) {
-                        return objArr[i8 ^ 1];
+                    if (objArr[i9].equals(obj2)) {
+                        return objArr[i9 ^ 1];
                     }
-                    c4 = i7 + 1;
+                    c4 = i8 + 1;
                 }
             }
         }

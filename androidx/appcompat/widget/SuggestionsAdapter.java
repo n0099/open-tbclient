@@ -1,6 +1,6 @@
 package androidx.appcompat.widget;
 
-import android.app.SearchManager;
+import android.annotation.SuppressLint;
 import android.app.SearchableInfo;
 import android.content.ComponentName;
 import android.content.Context;
@@ -32,6 +32,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.WeakHashMap;
+@SuppressLint({"RestrictedAPI"})
 /* loaded from: classes.dex */
 public class SuggestionsAdapter extends ResourceCursorAdapter implements View.OnClickListener {
     public static final boolean DBG = false;
@@ -49,7 +50,6 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
     public final WeakHashMap<String, Drawable.ConstantState> mOutsideDrawablesCache;
     public final Context mProviderContext;
     public int mQueryRefinement;
-    public final SearchManager mSearchManager;
     public final SearchView mSearchView;
     public final SearchableInfo mSearchable;
     public int mText1Col;
@@ -84,7 +84,6 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         this.mIconName1Col = -1;
         this.mIconName2Col = -1;
         this.mFlagsCol = -1;
-        this.mSearchManager = (SearchManager) this.mContext.getSystemService("search");
         this.mSearchView = searchView;
         this.mSearchable = searchableInfo;
         this.mCommitIconResId = searchView.getSuggestionCommitIconResId();
@@ -149,7 +148,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         return getStringOrNull(cursor, cursor.getColumnIndex(str));
     }
 
-    private Drawable getDefaultIcon1(Cursor cursor) {
+    private Drawable getDefaultIcon1() {
         Drawable activityIconWithCache = getActivityIconWithCache(this.mSearchable.getSearchActivity());
         return activityIconWithCache != null ? activityIconWithCache : this.mContext.getPackageManager().getDefaultActivityIcon();
     }
@@ -211,38 +210,38 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
     }
 
     private Drawable getIcon1(Cursor cursor) {
-        int i = this.mIconName1Col;
-        if (i == -1) {
+        int i2 = this.mIconName1Col;
+        if (i2 == -1) {
             return null;
         }
-        Drawable drawableFromResourceValue = getDrawableFromResourceValue(cursor.getString(i));
-        return drawableFromResourceValue != null ? drawableFromResourceValue : getDefaultIcon1(cursor);
+        Drawable drawableFromResourceValue = getDrawableFromResourceValue(cursor.getString(i2));
+        return drawableFromResourceValue != null ? drawableFromResourceValue : getDefaultIcon1();
     }
 
     private Drawable getIcon2(Cursor cursor) {
-        int i = this.mIconName2Col;
-        if (i == -1) {
+        int i2 = this.mIconName2Col;
+        if (i2 == -1) {
             return null;
         }
-        return getDrawableFromResourceValue(cursor.getString(i));
+        return getDrawableFromResourceValue(cursor.getString(i2));
     }
 
-    public static String getStringOrNull(Cursor cursor, int i) {
-        if (i == -1) {
+    public static String getStringOrNull(Cursor cursor, int i2) {
+        if (i2 == -1) {
             return null;
         }
         try {
-            return cursor.getString(i);
+            return cursor.getString(i2);
         } catch (Exception e2) {
             Log.e(LOG_TAG, "unexpected error retrieving valid column from cursor, did the remote process die?", e2);
             return null;
         }
     }
 
-    private void setViewDrawable(ImageView imageView, Drawable drawable, int i) {
+    private void setViewDrawable(ImageView imageView, Drawable drawable, int i2) {
         imageView.setImageDrawable(drawable);
         if (drawable == null) {
-            imageView.setVisibility(i);
+            imageView.setVisibility(i2);
             return;
         }
         imageView.setVisibility(0);
@@ -275,8 +274,8 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
     public void bindView(View view, Context context, Cursor cursor) {
         CharSequence stringOrNull;
         ChildViewCache childViewCache = (ChildViewCache) view.getTag();
-        int i = this.mFlagsCol;
-        int i2 = i != -1 ? cursor.getInt(i) : 0;
+        int i2 = this.mFlagsCol;
+        int i3 = i2 != -1 ? cursor.getInt(i2) : 0;
         if (childViewCache.mText1 != null) {
             setViewText(childViewCache.mText1, getStringOrNull(cursor, this.mText1Col));
         }
@@ -310,8 +309,8 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         if (imageView2 != null) {
             setViewDrawable(imageView2, getIcon2(cursor), 8);
         }
-        int i3 = this.mQueryRefinement;
-        if (i3 != 2 && (i3 != 1 || (i2 & 1) == 0)) {
+        int i4 = this.mQueryRefinement;
+        if (i4 != 2 && (i4 != 1 || (i3 & 1) == 0)) {
             childViewCache.mIconRefine.setVisibility(8);
             return;
         }
@@ -404,9 +403,9 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter, android.widget.BaseAdapter, android.widget.SpinnerAdapter
-    public View getDropDownView(int i, View view, ViewGroup viewGroup) {
+    public View getDropDownView(int i2, View view, ViewGroup viewGroup) {
         try {
-            return super.getDropDownView(i, view, viewGroup);
+            return super.getDropDownView(i2, view, viewGroup);
         } catch (RuntimeException e2) {
             Log.w(LOG_TAG, "Search suggestions cursor threw exception.", e2);
             View newDropDownView = newDropDownView(this.mContext, this.mCursor, viewGroup);
@@ -421,7 +420,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         return this.mQueryRefinement;
     }
 
-    public Cursor getSearchManagerSuggestions(SearchableInfo searchableInfo, String str, int i) {
+    public Cursor getSearchManagerSuggestions(SearchableInfo searchableInfo, String str, int i2) {
         String suggestAuthority;
         String[] strArr = null;
         if (searchableInfo == null || (suggestAuthority = searchableInfo.getSuggestAuthority()) == null) {
@@ -440,16 +439,16 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             fragment.appendPath(str);
         }
         String[] strArr2 = strArr;
-        if (i > 0) {
-            fragment.appendQueryParameter(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(i));
+        if (i2 > 0) {
+            fragment.appendQueryParameter(Constants.EXTRA_CONFIG_LIMIT, String.valueOf(i2));
         }
         return this.mContext.getContentResolver().query(fragment.build(), null, suggestSelection, strArr2, null);
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter, android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i2, View view, ViewGroup viewGroup) {
         try {
-            return super.getView(i, view, viewGroup);
+            return super.getView(i2, view, viewGroup);
         } catch (RuntimeException e2) {
             Log.w(LOG_TAG, "Search suggestions cursor threw exception.", e2);
             View newView = newView(this.mContext, this.mCursor, viewGroup);
@@ -510,7 +509,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         return null;
     }
 
-    public void setQueryRefinement(int i) {
-        this.mQueryRefinement = i;
+    public void setQueryRefinement(int i2) {
+        this.mQueryRefinement = i2;
     }
 }

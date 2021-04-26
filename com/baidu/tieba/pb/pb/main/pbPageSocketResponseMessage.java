@@ -4,10 +4,10 @@ import android.content.Context;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.j0.d2.h.c;
-import d.b.j0.d2.h.e;
-import d.b.j0.d2.k.e.k;
-import d.b.j0.s2.f0.b;
+import d.a.j0.d2.h.c;
+import d.a.j0.d2.h.e;
+import d.a.j0.d2.k.e.k;
+import d.a.j0.s2.h0.b;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbPage.AppealInfo;
@@ -53,11 +53,11 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        int i2 = this.updateType;
-        if (i2 == 3) {
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+        int i3 = this.updateType;
+        if (i3 == 3) {
             k.b().e(this.cacheKey, this.isFromMark, bArr);
-        } else if (i2 != 4) {
+        } else if (i3 != 4) {
         } else {
             k.b().f(this.cacheKey, bArr);
         }
@@ -65,7 +65,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
@@ -77,12 +77,12 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
             this.mAppealInfo = cVar;
             AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
             if (appealInfo != null) {
-                cVar.f54230a = appealInfo.source;
-                cVar.f54232c = appealInfo.appeal_url;
+                cVar.f52009a = appealInfo.source;
+                cVar.f52011c = appealInfo.appeal_url;
             }
             SimpleForum simpleForum = pbPageResIdl.data.forum;
             if (simpleForum != null) {
-                this.mAppealInfo.f54231b = simpleForum.name;
+                this.mAppealInfo.f52010b = simpleForum.name;
                 return;
             }
             return;

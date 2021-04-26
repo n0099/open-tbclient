@@ -34,8 +34,8 @@ public class ConversationManagerImpl {
     public HashMap<String, BIMConversation> mConversationsMaps = new HashMap<>();
     public IChatSessionChangeListener listener = new IChatSessionChangeListener() { // from class: com.baidu.android.imsdk.conversation.ConversationManagerImpl.1
         @Override // com.baidu.android.imsdk.chatmessage.IChatSessionChangeListener
-        public void onChatRecordDelete(int i, long j) {
-            ConversationManagerImpl.this.deleteConversationInternal(i, j);
+        public void onChatRecordDelete(int i2, long j) {
+            ConversationManagerImpl.this.deleteConversationInternal(i2, j);
             ConversationManagerImpl.this.notifyConversationChange();
         }
 
@@ -67,8 +67,8 @@ public class ConversationManagerImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deleteConversationInternal(int i, long j) {
-        String str = i + "_" + j;
+    public void deleteConversationInternal(int i2, long j) {
+        String str = i2 + "_" + j;
         BIMConversation bIMConversation = this.mConversationsMaps.get(str);
         if (bIMConversation != null) {
             this.mConversationsMaps.remove(str);
@@ -77,18 +77,18 @@ public class ConversationManagerImpl {
         }
     }
 
-    public static BIMManager.CATEGORY getCategoryByProtocolCategory(int i, int i2) {
-        if (1 == i) {
+    public static BIMManager.CATEGORY getCategoryByProtocolCategory(int i2, int i3) {
+        if (1 == i2) {
             return BIMManager.CATEGORY.GROUP;
         }
-        if (i == 0) {
-            if (1 == i2) {
+        if (i2 == 0) {
+            if (1 == i3) {
                 return BIMManager.CATEGORY.PA;
             }
-            if (i2 == 0) {
+            if (i3 == 0) {
                 return BIMManager.CATEGORY.SINGLEPERSON;
             }
-        } else if (2 == i) {
+        } else if (2 == i2) {
             return BIMManager.CATEGORY.SYSTEM;
         }
         return BIMManager.CATEGORY.UNKOWN;
@@ -159,10 +159,10 @@ public class ConversationManagerImpl {
         }
     }
 
-    public boolean deleteConversation(int i, String str) {
+    public boolean deleteConversation(int i2, String str) {
         boolean deleteConversation;
         synchronized (syncObject) {
-            deleteConversation = deleteConversation(this.mConversationsMaps.get(i + "_" + str));
+            deleteConversation = deleteConversation(this.mConversationsMaps.get(i2 + "_" + str));
         }
         return deleteConversation;
     }
@@ -203,10 +203,10 @@ public class ConversationManagerImpl {
                     ChatSession chatSession = new ChatSession(value, uKbyBuid, longValue, null);
                     ChatUserManagerImpl.getInstance(mContext).getUserByBuid(longValue, 0, new IGetUserListener() { // from class: com.baidu.android.imsdk.conversation.ConversationManagerImpl.2
                         @Override // com.baidu.android.imsdk.chatuser.IGetUserListener
-                        public void onGetUserResult(int i, long j, ChatUser chatUser) {
+                        public void onGetUserResult(int i2, long j, ChatUser chatUser) {
                             BIMConversation conversation;
                             ChatSession chatSession2;
-                            if (i != 0 || chatUser == null || (conversation = ConversationManagerImpl.this.getConversation(category, str)) == null || (chatSession2 = conversation.getChatSession()) == null) {
+                            if (i2 != 0 || chatUser == null || (conversation = ConversationManagerImpl.this.getConversation(category, str)) == null || (chatSession2 = conversation.getChatSession()) == null) {
                                 return;
                             }
                             chatSession2.setName(chatUser.getUserName());
@@ -297,9 +297,9 @@ public class ConversationManagerImpl {
         this.mAllConversationChangeListener.remove(iConversationChangeListener);
     }
 
-    public void updateConversationName(String str, int i, String str2) {
+    public void updateConversationName(String str, int i2, String str2) {
         ChatSession chatSession;
-        BIMConversation bIMConversation = this.mConversationsMaps.get(i + "_" + str2);
+        BIMConversation bIMConversation = this.mConversationsMaps.get(i2 + "_" + str2);
         if (bIMConversation == null || (chatSession = bIMConversation.getChatSession()) == null) {
             return;
         }

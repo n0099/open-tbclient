@@ -4,11 +4,13 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.internal.JavaVersion;
+import com.google.gson.internal.PreJava9DateFormatProvider;
+import com.google.gson.internal.bind.util.ISO8601Utils;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
-import d.h.d.b.c;
-import d.h.d.b.f;
-import d.h.d.c.a;
-import d.h.d.d.b;
+import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -19,42 +21,38 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 public final class DateTypeAdapter extends TypeAdapter<Date> {
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final TypeAdapterFactory f31332b = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.DateTypeAdapter.1
+    public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.DateTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
-        public <T> TypeAdapter<T> create(Gson gson, a<T> aVar) {
-            if (aVar.c() == Date.class) {
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+            if (typeToken.getRawType() == Date.class) {
                 return new DateTypeAdapter();
             }
             return null;
         }
     };
-
-    /* renamed from: a  reason: collision with root package name */
-    public final List<DateFormat> f31333a;
+    public final List<DateFormat> dateFormats;
 
     public DateTypeAdapter() {
         ArrayList arrayList = new ArrayList();
-        this.f31333a = arrayList;
+        this.dateFormats = arrayList;
         arrayList.add(DateFormat.getDateTimeInstance(2, 2, Locale.US));
         if (!Locale.getDefault().equals(Locale.US)) {
-            this.f31333a.add(DateFormat.getDateTimeInstance(2, 2));
+            this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2));
         }
-        if (c.e()) {
-            this.f31333a.add(f.e(2, 2));
+        if (JavaVersion.isJava9OrLater()) {
+            this.dateFormats.add(PreJava9DateFormatProvider.getUSDateTimeFormat(2, 2));
         }
     }
 
-    public final synchronized Date deserializeToDate(String str) {
-        for (DateFormat dateFormat : this.f31333a) {
+    private synchronized Date deserializeToDate(String str) {
+        for (DateFormat dateFormat : this.dateFormats) {
             try {
                 return dateFormat.parse(str);
             } catch (ParseException unused) {
             }
         }
         try {
-            return d.h.d.b.j.c.a.c(str, new ParsePosition(0));
+            return ISO8601Utils.parse(str, new ParsePosition(0));
         } catch (ParseException e2) {
             throw new JsonSyntaxException(str, e2);
         }
@@ -62,21 +60,21 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
-    public Date read(d.h.d.d.a aVar) throws IOException {
-        if (aVar.M() == JsonToken.NULL) {
-            aVar.I();
+    public Date read(JsonReader jsonReader) throws IOException {
+        if (jsonReader.peek() == JsonToken.NULL) {
+            jsonReader.nextNull();
             return null;
         }
-        return deserializeToDate(aVar.K());
+        return deserializeToDate(jsonReader.nextString());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
-    public synchronized void write(b bVar, Date date) throws IOException {
+    public synchronized void write(JsonWriter jsonWriter, Date date) throws IOException {
         if (date == null) {
-            bVar.B();
+            jsonWriter.nullValue();
         } else {
-            bVar.O(this.f31333a.get(0).format(date));
+            jsonWriter.value(this.dateFormats.get(0).format(date));
         }
     }
 }

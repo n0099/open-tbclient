@@ -4,13 +4,13 @@ import android.text.TextUtils;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class m {
     public static boolean a() {
         String[] strArr = {"/system/xbin/", "/system/bin/", "/system/sbin/", "/sbin/", "/vendor/bin/", "/su/bin/"};
-        for (int i = 0; i < 6; i++) {
+        for (int i2 = 0; i2 < 6; i2++) {
             try {
-                String str = strArr[i];
+                String str = strArr[i2];
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
                 sb.append("su");

@@ -10,8 +10,8 @@ public class PriorityThreadFactory implements ThreadFactory {
     public final AtomicInteger mThreadNumber;
     public final int mThreadPriority;
 
-    public PriorityThreadFactory(int i) {
-        this(i, "PriorityThreadFactory", true);
+    public PriorityThreadFactory(int i2) {
+        this(i2, "PriorityThreadFactory", true);
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -35,9 +35,9 @@ public class PriorityThreadFactory implements ThreadFactory {
         return new Thread(runnable2, str);
     }
 
-    public PriorityThreadFactory(int i, String str, boolean z) {
+    public PriorityThreadFactory(int i2, String str, boolean z) {
         this.mThreadNumber = new AtomicInteger(1);
-        this.mThreadPriority = i;
+        this.mThreadPriority = i2;
         this.mPrefix = str;
         this.mAddThreadNumber = z;
     }

@@ -6,7 +6,6 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.format.Time;
 import android.text.style.ForegroundColorSpan;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -16,8 +15,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.VideoCloudSetting;
-import d.b.c.e.m.b;
-import d.b.c.e.p.k;
+import d.a.c.e.m.b;
+import d.a.c.e.p.k;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -54,7 +53,7 @@ public class StringHelper extends k {
     public static final SimpleDateFormat FORMATE_MONTH_DAY_HOUR_MINUTE = new SimpleDateFormat("MM-dd HH:mm");
     public static final SimpleDateFormat FORMATE_MONTH_DAY = new SimpleDateFormat("MM-dd");
     public static final SimpleDateFormat FORMAT_MONTH_DAY_CHINEASE = new SimpleDateFormat("MM月dd日");
-    public static final SimpleDateFormat FORMAT_DATE_YEAR_SECOND = new SimpleDateFormat(StringUtils.TIMEFORMAT);
+    public static final SimpleDateFormat FORMAT_DATE_YEAR_SECOND = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     public static final SimpleDateFormat FORMAT_DATE_MONTH_SECOND_ = new SimpleDateFormat("MM-dd HH:mm");
     public static Date date = new Date();
 
@@ -89,15 +88,15 @@ public class StringHelper extends k {
         }
         StringBuilder sb = new StringBuilder();
         int length = jSONArray.length();
-        int i = 0;
-        while (i < length) {
+        int i2 = 0;
+        while (i2 < length) {
             try {
-                sb.append(jSONArray.get(i));
+                sb.append(jSONArray.get(i2));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            i++;
-            if (i < length) {
+            i2++;
+            if (i2 < length) {
                 sb.append(",");
             }
         }
@@ -115,94 +114,94 @@ public class StringHelper extends k {
         long[] parseVersion2 = parseVersion(str2);
         long j = 0;
         long j2 = 0;
-        for (int i = 0; i < 3; i++) {
-            j2 += parseVersion[i] << (24 - (i * 8));
-        }
         for (int i2 = 0; i2 < 3; i2++) {
-            j += parseVersion2[i2] << (24 - (i2 * 8));
+            j2 += parseVersion[i2] << (24 - (i2 * 8));
         }
-        int i3 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-        if (i3 > 0) {
+        for (int i3 = 0; i3 < 3; i3++) {
+            j += parseVersion2[i3] << (24 - (i3 * 8));
+        }
+        int i4 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+        if (i4 > 0) {
             return 1;
         }
-        return i3 == 0 ? 0 : -1;
+        return i4 == 0 ? 0 : -1;
     }
 
-    public static String cutChineseAndEnglishWithSuffix(String str, int i, String str2) {
-        if (str == null || i <= 0) {
+    public static String cutChineseAndEnglishWithSuffix(String str, int i2, String str2) {
+        if (str == null || i2 <= 0) {
             return "";
         }
         int length = str.length();
-        int i2 = 0;
         int i3 = 0;
-        while (i2 < length) {
-            i3 = k.isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
-            if (i3 >= i) {
+        int i4 = 0;
+        while (i3 < length) {
+            i4 = k.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
+            if (i4 >= i2) {
                 break;
             }
-            i2++;
+            i3++;
         }
-        int i4 = i2 + 1;
-        if (i4 < length) {
+        int i5 = i3 + 1;
+        if (i5 < length) {
             if (str2 == null) {
                 str2 = "";
             }
-            return str.substring(0, i4) + str2;
+            return str.substring(0, i5) + str2;
         }
         return str;
     }
 
-    public static String cutForumNameWithSuffix(String str, int i, String str2) {
-        if (str == null || i <= 0) {
+    public static String cutForumNameWithSuffix(String str, int i2, String str2) {
+        if (str == null || i2 <= 0) {
             return "";
         }
         int length = str.length();
-        int i2 = 0;
         int i3 = 0;
-        while (i2 < length) {
-            i3 = k.isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
-            if (i3 >= i) {
+        int i4 = 0;
+        while (i3 < length) {
+            i4 = k.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
+            if (i4 >= i2) {
                 break;
             }
-            i2++;
+            i3++;
         }
-        int i4 = i2 + 1;
-        if (i4 < length) {
+        int i5 = i3 + 1;
+        if (i5 < length) {
             if (str2 == null) {
                 str2 = "";
             }
-            if (i3 + 2 < i) {
-                return str.substring(0, i4) + str2;
+            if (i4 + 2 < i2) {
+                return str.substring(0, i5) + str2;
             }
-            return str.substring(0, i2) + str2;
+            return str.substring(0, i3) + str2;
         }
         return str;
     }
 
-    public static String cutHotTopicShow(String str, int i, String str2) {
-        if (str == null || i <= 0) {
+    public static String cutHotTopicShow(String str, int i2, String str2) {
+        if (str == null || i2 <= 0) {
             return "";
         }
         int length = str.length();
         if (str.indexOf("#") == 0 && str.lastIndexOf("#") == length - 1) {
             String replaceAll = str.replaceAll("#", "");
-            int i2 = 0;
             int i3 = 0;
-            while (i2 < length) {
-                i3 = k.isChinese(replaceAll.charAt(i2)) ? i3 + 2 : i3 + 1;
-                if (i3 >= i) {
+            int i4 = 0;
+            while (i3 < length) {
+                i4 = k.isChinese(replaceAll.charAt(i3)) ? i4 + 2 : i4 + 1;
+                if (i4 >= i2) {
                     break;
                 }
-                i2++;
+                i3++;
             }
             StringBuilder sb = new StringBuilder();
-            int i4 = i2 + 1;
-            if (i4 < length) {
+            int i5 = i3 + 1;
+            if (i5 < length) {
                 if (str2 == null) {
                     str2 = "";
                 }
                 sb.append("#");
-                sb.append(replaceAll.substring(0, i4));
+                sb.append(replaceAll.substring(0, i5));
                 sb.append(str2);
                 sb.append("#");
                 return sb.toString();
@@ -212,26 +211,26 @@ public class StringHelper extends k {
             sb.append("#");
             return sb.toString();
         }
-        return cutChineseAndEnglishWithSuffix(str, i, str2);
+        return cutChineseAndEnglishWithSuffix(str, i2, str2);
     }
 
     @Deprecated
-    public static String cutStringWithEllipsis(String str, int i) {
-        return (str == null || i < 0 || str.length() == i) ? str : cutStringWithSuffix(str, i - 1, STRING_MORE);
+    public static String cutStringWithEllipsis(String str, int i2) {
+        return (str == null || i2 < 0 || str.length() == i2) ? str : cutStringWithSuffix(str, i2 - 1, STRING_MORE);
     }
 
-    public static String cutStringWithEllipsisNew(String str, int i) {
+    public static String cutStringWithEllipsisNew(String str, int i2) {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (i <= 0) {
+        if (i2 <= 0) {
             return str;
         }
         try {
-            if (str.codePointCount(0, str.length()) <= i) {
+            if (str.codePointCount(0, str.length()) <= i2) {
                 return str;
             }
-            String substring = str.substring(0, str.offsetByCodePoints(0, i - 1));
+            String substring = str.substring(0, str.offsetByCodePoints(0, i2 - 1));
             return substring + STRING_MORE;
         } catch (Throwable th) {
             BdLog.e(th);
@@ -239,35 +238,35 @@ public class StringHelper extends k {
         }
     }
 
-    public static String cutStringWithEllipsisStrict(String str, int i) {
-        if (str == null || i <= 0) {
+    public static String cutStringWithEllipsisStrict(String str, int i2) {
+        if (str == null || i2 <= 0) {
             return "";
         }
         int length = str.length();
-        int i2 = 0;
         int i3 = 0;
-        while (i2 < length) {
-            i3 = k.isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
-            if (i3 >= i) {
+        int i4 = 0;
+        while (i3 < length) {
+            i4 = k.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
+            if (i4 >= i2) {
                 break;
             }
-            i2++;
+            i3++;
         }
-        if (i3 > i || i2 + 1 < length) {
-            if (i3 + 2 < i) {
-                return str.substring(0, i2 + 1) + STRING_MORE;
+        if (i4 > i2 || i3 + 1 < length) {
+            if (i4 + 2 < i2) {
+                return str.substring(0, i3 + 1) + STRING_MORE;
             }
-            return str.substring(0, i2) + STRING_MORE;
+            return str.substring(0, i3) + STRING_MORE;
         }
         return str;
     }
 
-    public static String cutStringWithSuffix(String str, int i, String str2) {
-        if (str == null || i < 0 || str.length() <= i) {
+    public static String cutStringWithSuffix(String str, int i2, String str2) {
+        if (str == null || i2 < 0 || str.length() <= i2) {
             return str;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(str.substring(0, i));
+        sb.append(str.substring(0, i2));
         if (str2 == null) {
             sb.append("");
         } else {
@@ -285,16 +284,16 @@ public class StringHelper extends k {
         try {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date2);
-            int i = calendar.get(5);
-            int i2 = calendar.get(2);
-            if (i < iArr[i2]) {
-                i2--;
+            int i2 = calendar.get(5);
+            int i3 = calendar.get(2);
+            if (i2 < iArr[i3]) {
+                i3--;
             }
-            if (i2 < 0) {
-                i2 = 11;
+            if (i3 < 0) {
+                i3 = 11;
             }
-            if (i2 >= 0 && i2 <= 11) {
-                return strArr[i2];
+            if (i3 >= 0 && i3 <= 11) {
+                return strArr[i3];
             }
         } catch (ParseException e2) {
             e2.printStackTrace();
@@ -317,11 +316,11 @@ public class StringHelper extends k {
     }
 
     public static String formatDayOrHourTime(long j) {
-        int i = (int) (j / VideoCloudSetting.HOUR_MILLISECOND);
-        if (i >= 24) {
-            return ((i / 24) + 1) + TIME_DAY;
+        int i2 = (int) (j / VideoCloudSetting.HOUR_MILLISECOND);
+        if (i2 >= 24) {
+            return ((i2 / 24) + 1) + TIME_DAY;
         }
-        return (i + 1) + TIME_HOUR;
+        return (i2 + 1) + TIME_HOUR;
     }
 
     public static String formatDayTime(long j) {
@@ -401,41 +400,68 @@ public class StringHelper extends k {
         return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
     }
 
-    public static String formatOverBaiwanNum(long j) {
-        if (j < 0) {
-            j = 0;
+    public static String formatOverBaiwanNum(float f2) {
+        if (f2 < 0.0f) {
+            f2 = 0.0f;
         }
-        String valueOf = String.valueOf(j);
-        if (j >= 100000000) {
-            if (j % 100000000 != 0) {
-                return String.format("%.1f", Double.valueOf(((float) j) / 1.0E8f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+        String valueOf = String.valueOf(f2);
+        if (f2 >= 1.0E8f) {
+            if (f2 % 1.0E8f != 0.0f) {
+                double d2 = f2 / 1.0E8f;
+                return String.format("%.1f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
             }
-            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
-        } else if (j >= 1000000) {
-            float f2 = ((float) j) / 10000.0f;
-            long j2 = j / 10000;
-            if (f2 > ((float) j2)) {
-                return String.format("%.1f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+            return (f2 / 1.0E8f) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+        } else if (f2 >= 1000000.0f) {
+            float f3 = f2 / 10000.0f;
+            long j = f3;
+            if (f3 > ((float) j)) {
+                return String.format("%.1f", Float.valueOf(f3)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
             }
-            return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+            return j + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
         } else {
             return valueOf;
         }
     }
 
-    public static String formatSecondsTime(int i) {
-        int i2 = i / 1000;
-        int i3 = i2 % 60;
-        int i4 = (i2 / 60) % 60;
-        int i5 = i2 / 3600;
+    public static String formatSecondsTime(int i2) {
+        int i3 = i2 / 1000;
+        int i4 = i3 % 60;
+        int i5 = (i3 / 60) % 60;
+        int i6 = i3 / 3600;
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter(sb, Locale.getDefault());
         sb.setLength(0);
-        return i5 > 0 ? formatter.format("%d:%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i3)).toString() : formatter.format("%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3)).toString();
+        return i6 > 0 ? formatter.format("%d:%02d:%02d", Integer.valueOf(i6), Integer.valueOf(i5), Integer.valueOf(i4)).toString() : formatter.format("%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4)).toString();
     }
 
-    public static String formatTosepara(int i) {
-        return new DecimalFormat("#,###").format(i);
+    public static String formatTosepara(int i2) {
+        return new DecimalFormat("#,###").format(i2);
+    }
+
+    public static String formatYdouOverBaiwanNum(float f2) {
+        float f3;
+        if (f2 < 0.0f) {
+            f2 = 0.0f;
+        }
+        if (f2 >= 1.0E8f) {
+            if (f2 % 1.0E8f != 0.0f) {
+                double d2 = f2 / 1.0E8f;
+                return String.format("%.2f", Double.valueOf(d2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+            }
+            return (f2 / 1.0E8f) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+        } else if (f2 < 1000000.0f) {
+            int i2 = (int) f2;
+            if (f2 > i2) {
+                return ((int) (100.0f * f2)) % 10 == 0 ? String.format("%.1f", Float.valueOf(f2)) : String.format("%.2f", Float.valueOf(f2));
+            }
+            return String.valueOf(i2);
+        } else {
+            long j = f2 / 10000;
+            if (f2 / 10000.0f > ((float) j)) {
+                return String.format("%.2f", Float.valueOf(f3)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+            }
+            return j + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+        }
     }
 
     public static String getChatTimeString(Date date2) {
@@ -447,11 +473,11 @@ public class StringHelper extends k {
             return 0;
         }
         int length = str.length();
-        int i = 0;
-        for (int i2 = 0; i2 < length; i2++) {
-            i = k.isChinese(str.charAt(i2)) ? i + 2 : i + 1;
+        int i2 = 0;
+        for (int i3 = 0; i3 < length; i3++) {
+            i2 = k.isChinese(str.charAt(i3)) ? i2 + 2 : i2 + 1;
         }
-        return i;
+        return i2;
     }
 
     public static String getChineseFormatTimeString(long j) {
@@ -636,24 +662,24 @@ public class StringHelper extends k {
         return format;
     }
 
-    public static String getFixedText(String str, int i, boolean z) {
+    public static String getFixedText(String str, int i2, boolean z) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         double d2 = 0.0d;
-        int i2 = 0;
+        int i3 = 0;
         while (true) {
-            if (i2 >= str.length()) {
+            if (i3 >= str.length()) {
                 break;
             }
-            char charAt = str.charAt(i2);
+            char charAt = str.charAt(i3);
             d2 += ((charAt < 'a' || charAt > 'z') && (charAt < 'A' || charAt > 'Z') && (charAt < '0' || charAt > '9')) ? 1.0d : 0.5d;
-            if (d2 <= i) {
+            if (d2 <= i2) {
                 sb.append(charAt);
-                i2++;
+                i3++;
             } else if (z) {
-                String fixedText = getFixedText(sb.toString(), i - 1, false);
+                String fixedText = getFixedText(sb.toString(), i2 - 1, false);
                 return fixedText + STRING_MORE;
             }
         }
@@ -824,44 +850,44 @@ public class StringHelper extends k {
             return 0;
         }
         int length = str.length();
-        int i = 0;
-        for (int i2 = 0; i2 < length; i2++) {
-            i = k.isChinese(str.charAt(i2)) ? i + 2 : i + 1;
+        int i2 = 0;
+        for (int i3 = 0; i3 < length; i3++) {
+            i2 = k.isChinese(str.charAt(i3)) ? i2 + 2 : i2 + 1;
         }
-        return i;
+        return i2;
     }
 
     public static int getRealSize2(String str) {
         byte[] bytes;
-        int i = 0;
+        int i2 = 0;
         if (str == null || (bytes = str.getBytes()) == null) {
             return 0;
         }
         int length = bytes.length;
-        int i2 = 0;
-        while (i < length) {
-            int i3 = bytes[i] & 255;
-            if (i3 >= 252) {
+        int i3 = 0;
+        while (i2 < length) {
+            int i4 = bytes[i2] & 255;
+            if (i4 >= 252) {
+                i3 += 2;
+                i2 += 6;
+            } else if (i4 >= 248) {
+                i3 += 2;
+                i2 += 5;
+            } else if (i4 >= 240) {
+                i3 += 2;
+                i2 += 4;
+            } else if (i4 >= 224) {
+                i3 += 2;
+                i2 += 3;
+            } else if (i4 >= 192) {
+                i3 += 2;
                 i2 += 2;
-                i += 6;
-            } else if (i3 >= 248) {
-                i2 += 2;
-                i += 5;
-            } else if (i3 >= 240) {
-                i2 += 2;
-                i += 4;
-            } else if (i3 >= 224) {
-                i2 += 2;
-                i += 3;
-            } else if (i3 >= 192) {
-                i2 += 2;
-                i += 2;
             } else {
+                i3++;
                 i2++;
-                i++;
             }
         }
-        return i2;
+        return i3;
     }
 
     public static String getStringYearToSecond(Date date2) {
@@ -914,9 +940,9 @@ public class StringHelper extends k {
         return String.valueOf(j / j2) + TIME_DAY;
     }
 
-    public static String getUserDescByGender(int i) {
-        if (i != 1) {
-            if (i != 2) {
+    public static String getUserDescByGender(int i2) {
+        if (i2 != 1) {
+            if (i2 != 2) {
                 return TbadkCoreApplication.getInst().getContext().getString(R.string.he);
             }
             return TbadkCoreApplication.getInst().getContext().getString(R.string.she);
@@ -924,11 +950,11 @@ public class StringHelper extends k {
         return TbadkCoreApplication.getInst().getContext().getString(R.string.he);
     }
 
-    public static String getWeekString(int i, int i2, int i3) {
+    public static String getWeekString(int i2, int i3, int i4) {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(1, i);
-        calendar.set(2, i2);
-        calendar.set(5, i3);
+        calendar.set(1, i2);
+        calendar.set(2, i3);
+        calendar.set(5, i4);
         switch (calendar.get(7)) {
             case 1:
                 return "周日";
@@ -960,9 +986,9 @@ public class StringHelper extends k {
         return (calendar.get(1) * 10000) + 0 + ((calendar.get(2) + 1) * 100) + calendar.get(5);
     }
 
-    public static SpannableString highLightText(String str, String str2, int i, boolean z) {
+    public static SpannableString highLightText(String str, String str2, int i2, boolean z) {
         int lastIndexOf;
-        if (!TextUtils.isEmpty(str) && i > 0) {
+        if (!TextUtils.isEmpty(str) && i2 > 0) {
             SpannableString spannableString = new SpannableString(str);
             if (!TextUtils.isEmpty(str2) && str.contains(str2)) {
                 if (z) {
@@ -970,7 +996,7 @@ public class StringHelper extends k {
                 } else {
                     lastIndexOf = str.lastIndexOf(str2);
                 }
-                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i)), lastIndexOf, str2.length() + lastIndexOf, 33);
+                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i2)), lastIndexOf, str2.length() + lastIndexOf, 33);
             }
             return spannableString;
         }
@@ -1015,11 +1041,11 @@ public class StringHelper extends k {
     public static boolean isTaday(long j) {
         Time time = new Time();
         time.set(j);
-        int i = time.year;
-        int i2 = time.month;
-        int i3 = time.monthDay;
+        int i2 = time.year;
+        int i3 = time.month;
+        int i4 = time.monthDay;
         time.set(System.currentTimeMillis());
-        return i == time.year && i2 == time.month && i3 == time.monthDay;
+        return i2 == time.year && i3 == time.month && i4 == time.monthDay;
     }
 
     public static boolean isThisYear(String str) {
@@ -1066,7 +1092,7 @@ public class StringHelper extends k {
         if (((float) round) > f2) {
             round--;
         }
-        return round + ExifInterface.LONGITUDE_WEST;
+        return round + "W";
     }
 
     public static String longNumFormatOver10000wan(long j) {
@@ -1105,13 +1131,13 @@ public class StringHelper extends k {
             DecimalFormat decimalFormat = new DecimalFormat("#.#");
             float f2 = ((float) j) / 10000.0f;
             if (f2 < 1000.0f) {
-                return decimalFormat.format(f2) + ExifInterface.LONGITUDE_WEST;
+                return decimalFormat.format(f2) + "W";
             }
             long round = Math.round(f2);
             if (((float) round) > f2) {
                 round--;
             }
-            return round + ExifInterface.LONGITUDE_WEST;
+            return round + "W";
         }
         return String.valueOf(j);
     }
@@ -1145,14 +1171,14 @@ public class StringHelper extends k {
     }
 
     @Deprecated
-    public static String numFormat(int i) {
-        if (i > 9999) {
-            return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(i / 10000.0f));
+    public static String numFormat(int i2) {
+        if (i2 > 9999) {
+            return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(i2 / 10000.0f));
         }
-        if (i < 0) {
+        if (i2 < 0) {
             return "0";
         }
-        return "" + i;
+        return "" + i2;
     }
 
     public static String numFormat9999W(long j) {
@@ -1170,7 +1196,7 @@ public class StringHelper extends k {
         if (round >= 9999) {
             return "9999W+";
         }
-        return j + ExifInterface.LONGITUDE_WEST;
+        return j + "W";
     }
 
     public static String numFormatOver10000(long j) {
@@ -1185,7 +1211,7 @@ public class StringHelper extends k {
 
     public static String numFormatOver100000ReturnInt(long j) {
         if (j > 99999) {
-            return ((int) (((float) j) / 10000.0f)) + ExifInterface.LONGITUDE_WEST;
+            return ((int) (((float) j) / 10000.0f)) + "W";
         } else if (j < 0) {
             return "0";
         } else {
@@ -1195,7 +1221,7 @@ public class StringHelper extends k {
 
     public static String numFormatOver10000ReturnInt(long j) {
         if (j > 9999) {
-            return ((int) (((float) j) / 10000.0f)) + ExifInterface.LONGITUDE_WEST;
+            return ((int) (((float) j) / 10000.0f)) + "W";
         } else if (j < 0) {
             return "0";
         } else {
@@ -1203,19 +1229,19 @@ public class StringHelper extends k {
         }
     }
 
-    public static String numFormatOver10000wan(long j) {
-        if (j <= 9999999) {
-            if (j < 0) {
+    public static String numFormatOver10000wan(float f2) {
+        if (f2 <= 9999999.0f) {
+            if (f2 < 0.0f) {
                 return "0";
             }
-            return "" + j;
+            return "" + f2;
         }
-        float f2 = ((float) j) / 10000.0f;
-        long round = Math.round(f2);
-        if (((float) round) > f2) {
+        float f3 = f2 / 10000.0f;
+        long round = Math.round(f3);
+        if (((float) round) > f3) {
             round--;
         }
-        return round + ExifInterface.LONGITUDE_WEST;
+        return round + "W";
     }
 
     public static String numFormatOverWan(long j) {
@@ -1223,13 +1249,13 @@ public class StringHelper extends k {
             return "9999W+";
         }
         if (j >= 10000000) {
-            return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
+            return String.valueOf(j / 10000) + "W";
         }
-        int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
-        if (i > 0) {
+        int i2 = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
+        if (i2 > 0) {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
         }
-        if (i == 0) {
+        if (i2 == 0) {
             return "1W";
         }
         if (j < 0) {
@@ -1243,13 +1269,13 @@ public class StringHelper extends k {
             return "9999W+";
         }
         if (j >= 10000000) {
-            return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
+            return String.valueOf(j / 10000) + "W";
         }
-        int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
-        if (i > 0) {
+        int i2 = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
+        if (i2 > 0) {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
         }
-        if (i == 0) {
+        if (i2 == 0) {
             return "1W";
         }
         if (j < 0) {
@@ -1263,26 +1289,26 @@ public class StringHelper extends k {
             return "9999W+";
         }
         if (j >= 10000000) {
-            return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
+            return String.valueOf(j / 10000) + "W";
         }
-        int i = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
-        if (i > 0) {
+        int i2 = (j > 10000L ? 1 : (j == 10000L ? 0 : -1));
+        if (i2 > 0) {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
         }
-        if (i == 0) {
+        if (i2 == 0) {
             return "1W";
         }
         if (j < -99990000) {
             return "-9999W+";
         }
         if (j <= -10000000) {
-            return String.valueOf(j / 10000) + ExifInterface.LONGITUDE_WEST;
+            return String.valueOf(j / 10000) + "W";
         }
-        int i2 = (j > (-10000L) ? 1 : (j == (-10000L) ? 0 : -1));
-        if (i2 < 0) {
+        int i3 = (j > (-10000L) ? 1 : (j == (-10000L) ? 0 : -1));
+        if (i3 < 0) {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
         }
-        if (i2 == 0) {
+        if (i3 == 0) {
             return "-1W";
         }
         return "" + j;
@@ -1298,7 +1324,7 @@ public class StringHelper extends k {
             return String.format(Locale.getDefault(), "%.1fW", Float.valueOf(((float) j) / 10000.0f));
         } else {
             if (j < 10000000) {
-                return (j / 10000) + ExifInterface.LONGITUDE_WEST;
+                return (j / 10000) + "W";
             }
             float f2 = ((float) (j / 1000000)) / 10.0f;
             if (f2 >= 9999.0f) {
@@ -1311,14 +1337,14 @@ public class StringHelper extends k {
         }
     }
 
-    public static String numOver1000(int i) {
-        if (i > 1000) {
+    public static String numOver1000(int i2) {
+        if (i2 > 1000) {
             return "999+";
         }
-        if (i < 0) {
+        if (i2 < 0) {
             return "0";
         }
-        return "" + i;
+        return "" + i2;
     }
 
     public static String numberUniform(long j) {
@@ -1368,9 +1394,9 @@ public class StringHelper extends k {
         } else if (j < 10000000) {
             float f2 = ((float) (j / 1000)) / 10.0f;
             if (f2 % 1.0f == 0.0f) {
-                return ((int) f2) + ExifInterface.LONGITUDE_WEST;
+                return ((int) f2) + "W";
             }
-            return f2 + ExifInterface.LONGITUDE_WEST;
+            return f2 + "W";
         } else {
             float f3 = ((float) (j / 1000000)) / 10.0f;
             if (f3 >= 9999.0f) {
@@ -1390,7 +1416,7 @@ public class StringHelper extends k {
         if (j < 10000) {
             return j + "";
         } else if (j < 10000000) {
-            return String.format("%.1f", Double.valueOf(j / 10000.0d)) + ExifInterface.LONGITUDE_WEST;
+            return String.format("%.1f", Double.valueOf(j / 10000.0d)) + "W";
         } else {
             float f2 = ((float) (j / 1000000)) / 10.0f;
             if (f2 >= 9999.0f) {
@@ -1414,9 +1440,9 @@ public class StringHelper extends k {
         if (d2 < 9999000.0d) {
             float f2 = ((float) (j / 1000)) / 10.0f;
             if (f2 % 1.0f == 0.0f) {
-                return ((int) f2) + ExifInterface.LONGITUDE_WEST;
+                return ((int) f2) + "W";
             }
-            return f2 + ExifInterface.LONGITUDE_WEST;
+            return f2 + "W";
         } else if (d2 < 9.9999E10d) {
             float f3 = ((float) (j / 1000000)) / 10.0f;
             if (f3 % 1.0f == 0.0f) {
@@ -1439,7 +1465,7 @@ public class StringHelper extends k {
             if (format.endsWith(".0")) {
                 format = format.substring(0, format.length() - 2);
             }
-            return format + ExifInterface.LONGITUDE_WEST;
+            return format + "W";
         } else {
             String format2 = String.format("%.1f", Double.valueOf((j / 1000000.0d) / 10.0d));
             if (format2.endsWith(".0")) {
@@ -1489,9 +1515,9 @@ public class StringHelper extends k {
         } else if (j < 9999000.0d) {
             float f2 = ((float) (j / 1000)) / 10.0f;
             if (f2 % 1.0f == 0.0f) {
-                return ((int) f2) + ExifInterface.LONGITUDE_WEST;
+                return ((int) f2) + "W";
             }
-            return f2 + ExifInterface.LONGITUDE_WEST;
+            return f2 + "W";
         } else {
             return "999.9W";
         }
@@ -1528,31 +1554,31 @@ public class StringHelper extends k {
         }
     }
 
-    public static String stringForVideoTime(int i) {
-        if (i < 1000) {
-            i = 1000;
+    public static String stringForVideoTime(int i2) {
+        if (i2 < 1000) {
+            i2 = 1000;
         }
-        int i2 = i / 1000;
-        int i3 = i2 % 60;
-        int i4 = (i2 / 60) % 60;
-        int i5 = i2 / 3600;
+        int i3 = i2 / 1000;
+        int i4 = i3 % 60;
+        int i5 = (i3 / 60) % 60;
+        int i6 = i3 / 3600;
         StringBuilder sb = new StringBuilder();
         Formatter formatter = new Formatter(sb, Locale.getDefault());
         sb.setLength(0);
-        return i5 > 0 ? formatter.format("%d:%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i3)).toString() : formatter.format("%02d:%02d", Integer.valueOf(i4), Integer.valueOf(i3)).toString();
+        return i6 > 0 ? formatter.format("%d:%02d:%02d", Integer.valueOf(i6), Integer.valueOf(i5), Integer.valueOf(i4)).toString() : formatter.format("%02d:%02d", Integer.valueOf(i5), Integer.valueOf(i4)).toString();
     }
 
-    public static String subString(String str, int i) {
-        if (str == null || i <= 0) {
+    public static String subString(String str, int i2) {
+        if (str == null || i2 <= 0) {
             return "";
         }
         int length = str.length();
         StringBuilder sb = new StringBuilder();
-        int i2 = 0;
-        for (int i3 = 0; i3 < length; i3++) {
-            char charAt = str.charAt(i3);
-            i2 = k.isChinese(charAt) ? i2 + 2 : i2 + 1;
-            if (i2 > i) {
+        int i3 = 0;
+        for (int i4 = 0; i4 < length; i4++) {
+            char charAt = str.charAt(i4);
+            i3 = k.isChinese(charAt) ? i3 + 2 : i3 + 1;
+            if (i3 > i2) {
                 break;
             }
             sb.append(charAt);
@@ -1560,47 +1586,47 @@ public class StringHelper extends k {
         return sb.toString();
     }
 
-    public static String subString2(String str, int i) {
+    public static String subString2(String str, int i2) {
         byte[] bytes;
-        int i2;
-        if (str == null || i < 0 || (bytes = str.getBytes()) == null) {
+        int i3;
+        if (str == null || i2 < 0 || (bytes = str.getBytes()) == null) {
             return null;
         }
         int length = bytes.length;
-        int i3 = 0;
         int i4 = 0;
-        while (i3 < length) {
-            int i5 = bytes[i3] & 255;
-            if (i5 >= 252) {
-                i4 += 2;
-                i2 = 6;
-            } else if (i5 >= 248) {
-                i4 += 2;
-                i2 = 5;
-            } else if (i5 >= 240) {
-                i4 += 2;
-                i2 = 4;
-            } else if (i5 >= 224) {
-                i4 += 2;
-                i2 = 3;
-            } else if (i5 >= 192) {
-                i4 += 2;
-                i2 = 2;
+        int i5 = 0;
+        while (i4 < length) {
+            int i6 = bytes[i4] & 255;
+            if (i6 >= 252) {
+                i5 += 2;
+                i3 = 6;
+            } else if (i6 >= 248) {
+                i5 += 2;
+                i3 = 5;
+            } else if (i6 >= 240) {
+                i5 += 2;
+                i3 = 4;
+            } else if (i6 >= 224) {
+                i5 += 2;
+                i3 = 3;
+            } else if (i6 >= 192) {
+                i5 += 2;
+                i3 = 2;
             } else {
-                i4++;
-                i2 = 1;
+                i5++;
+                i3 = 1;
             }
-            if (i4 > i) {
-                byte[] bArr = new byte[i3];
-                System.arraycopy(bytes, 0, bArr, 0, i3);
+            if (i5 > i2) {
+                byte[] bArr = new byte[i4];
+                System.arraycopy(bytes, 0, bArr, 0, i4);
                 return new String(bArr);
-            } else if (i4 == i) {
-                int i6 = i3 + i2;
-                byte[] bArr2 = new byte[i6];
-                System.arraycopy(bytes, 0, bArr2, 0, i6);
+            } else if (i5 == i2) {
+                int i7 = i4 + i3;
+                byte[] bArr2 = new byte[i7];
+                System.arraycopy(bytes, 0, bArr2, 0, i7);
                 return new String(bArr2);
             } else {
-                i3 += i2;
+                i4 += i3;
             }
         }
         return str;
@@ -1658,6 +1684,21 @@ public class StringHelper extends k {
                 return format;
             }
         }
+    }
+
+    public static String numFormatOver10000wan(long j) {
+        if (j <= 9999999) {
+            if (j < 0) {
+                return "0";
+            }
+            return "" + j;
+        }
+        float f2 = ((float) j) / 10000.0f;
+        long round = Math.round(f2);
+        if (((float) round) > f2) {
+            round--;
+        }
+        return round + "W";
     }
 
     public static String getFormatAlaLiveTime(Date date2) {
@@ -1745,6 +1786,28 @@ public class StringHelper extends k {
         }
     }
 
+    public static String formatOverBaiwanNum(long j) {
+        if (j < 0) {
+            j = 0;
+        }
+        String valueOf = String.valueOf(j);
+        if (j >= 100000000) {
+            if (j % 100000000 != 0) {
+                return String.format("%.1f", Double.valueOf(((float) j) / 1.0E8f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+            }
+            return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+        } else if (j >= 1000000) {
+            float f2 = ((float) j) / 10000.0f;
+            long j2 = j / 10000;
+            if (f2 > ((float) j2)) {
+                return String.format("%.1f", Float.valueOf(f2)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+            }
+            return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_wan);
+        } else {
+            return valueOf;
+        }
+    }
+
     public static String formatSecondsTime(long j) {
         long j2 = j % 60;
         long j3 = (j / 60) % 60;
@@ -1755,18 +1818,18 @@ public class StringHelper extends k {
         return j4 > 0 ? formatter.format("%d:%02d:%02d", Long.valueOf(j4), Long.valueOf(j3), Long.valueOf(j2)).toString() : formatter.format("%02d:%02d", Long.valueOf(j3), Long.valueOf(j2)).toString();
     }
 
-    public static SpannableString highLightText(String str, int i, int i2, int i3) {
-        if (!TextUtils.isEmpty(str) && i3 > 0) {
+    public static SpannableString highLightText(String str, int i2, int i3, int i4) {
+        if (!TextUtils.isEmpty(str) && i4 > 0) {
             SpannableString spannableString = new SpannableString(str);
-            if (i < i2 && i < str.length() && str.length() >= i2) {
-                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i3)), i, i2, 33);
+            if (i2 < i3 && i2 < str.length() && str.length() >= i3) {
+                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(i4)), i2, i3, 33);
             }
             return spannableString;
         }
         return new SpannableString("");
     }
 
-    public static SpannableString highLightText(String str, String str2, int i) {
-        return highLightText(str, str2, i, true);
+    public static SpannableString highLightText(String str, String str2, int i2) {
+        return highLightText(str, str2, i2, true);
     }
 }

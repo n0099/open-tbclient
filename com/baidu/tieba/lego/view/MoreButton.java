@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import d.b.j0.d3.v;
-import d.b.j0.j1.o.j.c;
+import d.a.j0.d3.v;
+import d.a.j0.j1.o.j.c;
 /* loaded from: classes4.dex */
 public class MoreButton extends TextView {
 
@@ -15,19 +15,19 @@ public class MoreButton extends TextView {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f18439e;
+        public final /* synthetic */ TbPageContext f18804e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f18440f;
+        public final /* synthetic */ c f18805f;
 
         public a(TbPageContext tbPageContext, c cVar) {
-            this.f18439e = tbPageContext;
-            this.f18440f = cVar;
+            this.f18804e = tbPageContext;
+            this.f18805f = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            v.c(this.f18439e, this.f18440f.d());
+            v.c(this.f18804e, this.f18805f.d());
         }
     }
 
@@ -53,7 +53,7 @@ public class MoreButton extends TextView {
         super(context, null, 0);
     }
 
-    public MoreButton(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public MoreButton(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

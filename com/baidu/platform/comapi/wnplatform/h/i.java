@@ -5,10 +5,10 @@ import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
 public class i implements com.baidu.platform.comapi.wnplatform.c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f9846a;
+    public final /* synthetic */ f f10211a;
 
     public i(f fVar) {
-        this.f9846a = fVar;
+        this.f10211a = fVar;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.c.b

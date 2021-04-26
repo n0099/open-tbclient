@@ -26,7 +26,7 @@ public class MultiModelLoaderFactory {
     public static class EmptyModelLoader implements ModelLoader<Object, Object> {
         @Override // com.bumptech.glide.load.model.ModelLoader
         @Nullable
-        public ModelLoader.LoadData<Object> buildLoadData(@NonNull Object obj, int i, int i2, @NonNull Options options) {
+        public ModelLoader.LoadData<Object> buildLoadData(@NonNull Object obj, int i2, int i3, @NonNull Options options) {
             return null;
         }
 
@@ -178,7 +178,7 @@ public class MultiModelLoaderFactory {
             } else if (z) {
                 return emptyModelLoader();
             } else {
-                throw new Registry.NoModelLoaderAvailableException((Class<?>) cls, (Class<?>) cls2);
+                throw new Registry.NoModelLoaderAvailableException(cls, cls2);
             }
         } catch (Throwable th) {
             this.alreadyUsedEntries.clear();

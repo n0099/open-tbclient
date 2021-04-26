@@ -20,11 +20,11 @@ public final class PopupWindowCompat {
     public static boolean sSetWindowLayoutTypeMethodAttempted;
 
     public static boolean getOverlapAnchor(@NonNull PopupWindow popupWindow) {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 23) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 23) {
             return popupWindow.getOverlapAnchor();
         }
-        if (i >= 21) {
+        if (i2 >= 21) {
             if (!sOverlapAnchorFieldAttempted) {
                 try {
                     Field declaredField = PopupWindow.class.getDeclaredField("mOverlapAnchor");
@@ -73,10 +73,10 @@ public final class PopupWindowCompat {
     }
 
     public static void setOverlapAnchor(@NonNull PopupWindow popupWindow, boolean z) {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 23) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 23) {
             popupWindow.setOverlapAnchor(z);
-        } else if (i >= 21) {
+        } else if (i2 >= 21) {
             if (!sOverlapAnchorFieldAttempted) {
                 try {
                     Field declaredField = PopupWindow.class.getDeclaredField("mOverlapAnchor");
@@ -98,9 +98,9 @@ public final class PopupWindowCompat {
         }
     }
 
-    public static void setWindowLayoutType(@NonNull PopupWindow popupWindow, int i) {
+    public static void setWindowLayoutType(@NonNull PopupWindow popupWindow, int i2) {
         if (Build.VERSION.SDK_INT >= 23) {
-            popupWindow.setWindowLayoutType(i);
+            popupWindow.setWindowLayoutType(i2);
             return;
         }
         if (!sSetWindowLayoutTypeMethodAttempted) {
@@ -115,20 +115,20 @@ public final class PopupWindowCompat {
         Method method = sSetWindowLayoutTypeMethod;
         if (method != null) {
             try {
-                method.invoke(popupWindow, Integer.valueOf(i));
+                method.invoke(popupWindow, Integer.valueOf(i2));
             } catch (Exception unused2) {
             }
         }
     }
 
-    public static void showAsDropDown(@NonNull PopupWindow popupWindow, @NonNull View view, int i, int i2, int i3) {
+    public static void showAsDropDown(@NonNull PopupWindow popupWindow, @NonNull View view, int i2, int i3, int i4) {
         if (Build.VERSION.SDK_INT >= 19) {
-            popupWindow.showAsDropDown(view, i, i2, i3);
+            popupWindow.showAsDropDown(view, i2, i3, i4);
             return;
         }
-        if ((GravityCompat.getAbsoluteGravity(i3, ViewCompat.getLayoutDirection(view)) & 7) == 5) {
-            i -= popupWindow.getWidth() - view.getWidth();
+        if ((GravityCompat.getAbsoluteGravity(i4, ViewCompat.getLayoutDirection(view)) & 7) == 5) {
+            i2 -= popupWindow.getWidth() - view.getWidth();
         }
-        popupWindow.showAsDropDown(view, i, i2);
+        popupWindow.showAsDropDown(view, i2, i3);
     }
 }

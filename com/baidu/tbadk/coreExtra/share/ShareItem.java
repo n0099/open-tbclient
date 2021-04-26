@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import d.b.c.e.p.k;
-import d.b.i0.r.q.a2;
+import d.a.c.e.p.k;
+import d.a.i0.r.q.a2;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,90 +26,94 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ShareItem {
-    public static final String p0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
-    public String C;
-    public String I;
+    public static final String r0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+    public Bundle A;
+    public String D;
     public String J;
     public String K;
-    public int L;
-    public String M;
+    public String L;
+    public int M;
     public String N;
     public String O;
     public String P;
-    public String R;
-    public OriginalThreadInfo.ShareInfo S;
-    public ForwardInfo T;
-    public String U;
-    public Bundle X;
-    public String c0;
-    public String f0;
-    public int g0;
+    public String Q;
+    public String S;
+    public OriginalThreadInfo.ShareInfo T;
+    public ForwardInfo U;
+    public String V;
+    public Bundle Y;
+    public String e0;
     public String h0;
-    public String i0;
+    public int i0;
     public String j0;
     public String k0;
     public String l0;
-    public JSONArray m0;
-    public JSONObject n0;
+    public String m0;
+    public String n0;
     public int o;
-    public List<Integer> o0;
+    public JSONArray o0;
     public String p;
+    public JSONObject p0;
+    public List<Integer> q0;
     public String w;
     public int y;
-    public Bundle z;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13381a = false;
+    public boolean f13351a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f13382b = false;
+    public boolean f13352b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f13383c = false;
+    public boolean f13353c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f13384d = false;
+    public boolean f13354d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13385e = false;
+    public boolean f13355e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13386f = false;
+    public boolean f13356f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13387g = false;
+    public boolean f13357g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13388h = false;
-    public boolean i = false;
+    public boolean f13358h = false;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f13359i = false;
     public boolean j = false;
     public boolean k = false;
     public boolean l = false;
     public boolean m = false;
     public String n = "";
-    public int D = 0;
-    public int E = 3;
-    public int F = 0;
+    public int E = 0;
+    public int F = 3;
     public int G = 0;
     public int H = 0;
-    public long Q = -1;
-    public int V = 0;
-    public boolean Y = true;
-    public boolean Z = true;
+    public int I = 0;
+    public long R = -1;
+    public int W = 0;
+    public boolean Z = false;
     public boolean a0 = true;
-    public int b0 = 0;
-    public boolean d0 = true;
-    public boolean e0 = false;
+    public boolean b0 = true;
+    public boolean c0 = true;
+    public int d0 = 0;
+    public boolean f0 = true;
+    public boolean g0 = false;
     public String r = null;
     public String s = null;
     public String t = null;
     public String u = null;
     public Uri v = null;
-    public Location A = null;
-    public WeakReference<Bitmap> W = null;
-    public String B = null;
+    public Location B = null;
+    public WeakReference<Bitmap> X = null;
+    public String C = null;
     public String q = null;
     public String x = null;
+    public String z = null;
 
     public ShareItem() {
         this.y = 0;
@@ -117,12 +121,12 @@ public class ShareItem {
     }
 
     public List<Integer> a() {
-        return this.o0;
+        return this.q0;
     }
 
     public byte[] b() {
         Bitmap bitmap;
-        WeakReference<Bitmap> weakReference = this.W;
+        WeakReference<Bitmap> weakReference = this.X;
         if (weakReference != null && (bitmap = weakReference.get()) != null && !bitmap.isRecycled()) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             r1 = bitmap.compress(Bitmap.CompressFormat.PNG, 85, byteArrayOutputStream) ? byteArrayOutputStream.toByteArray() : null;
@@ -136,31 +140,35 @@ public class ShareItem {
 
     public Bitmap c() {
         Bitmap bitmap;
-        WeakReference<Bitmap> weakReference = this.W;
+        WeakReference<Bitmap> weakReference = this.X;
         if (weakReference == null || (bitmap = weakReference.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
-    public Bundle d() {
-        return this.X;
+    public boolean d() {
+        return this.Z;
     }
 
-    public boolean e() {
-        int i = this.L;
-        return i == 7 || i == 8 || i == 5 || i == 6;
+    public Bundle e() {
+        return this.Y;
     }
 
-    public void f() {
-        if (this.W == null) {
+    public boolean f() {
+        int i2 = this.M;
+        return i2 == 7 || i2 == 8 || i2 == 5 || i2 == 6;
+    }
+
+    public void g() {
+        if (this.X == null) {
             return;
         }
         FileOutputStream fileOutputStream = null;
         try {
             try {
                 if (FileHelper.checkSD()) {
-                    File file = new File(p0);
+                    File file = new File(r0);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -175,7 +183,7 @@ public class ShareItem {
                             fileOutputStream2.write(b2);
                             fileOutputStream2.close();
                             this.v = Uri.fromFile(file);
-                            this.W = null;
+                            this.X = null;
                             try {
                                 fileOutputStream2.close();
                             } catch (IOException e2) {
@@ -214,16 +222,20 @@ public class ShareItem {
         }
     }
 
-    public void g(List<Integer> list) {
-        this.o0 = list;
+    public void h(List<Integer> list) {
+        this.q0 = list;
     }
 
-    public void h(Bitmap bitmap) {
-        this.W = new WeakReference<>(bitmap);
+    public void i(Bitmap bitmap) {
+        this.X = new WeakReference<>(bitmap);
     }
 
-    public void i(Bundle bundle) {
-        this.X = bundle;
+    public void j(boolean z) {
+        this.Z = z;
+    }
+
+    public void k(Bundle bundle) {
+        this.Y = bundle;
     }
 
     /* loaded from: classes3.dex */
@@ -264,11 +276,11 @@ public class ShareItem {
             return generateForwardInfo(a2Var, 0);
         }
 
-        public static ForwardInfo generateForwardInfo(a2 a2Var, int i) {
-            return generateForwardInfo(a2Var, i, null);
+        public static ForwardInfo generateForwardInfo(a2 a2Var, int i2) {
+            return generateForwardInfo(a2Var, i2, null);
         }
 
-        public static ForwardInfo generateForwardInfo(a2 a2Var, int i, PostData postData) {
+        public static ForwardInfo generateForwardInfo(a2 a2Var, int i2, PostData postData) {
             String str = null;
             if (a2Var == null) {
                 return null;
@@ -285,11 +297,11 @@ public class ShareItem {
                 }
                 forwardInfo.showText = a2Var.r1.c();
                 OriginalThreadInfo originalThreadInfo = a2Var.r1;
-                forwardInfo.showPicUrl = originalThreadInfo.f12882c;
-                forwardInfo.showType = originalThreadInfo.f12880a;
+                forwardInfo.showPicUrl = originalThreadInfo.f12798c;
+                forwardInfo.showType = originalThreadInfo.f12796a;
                 forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                forwardInfo.originalTid = originalThreadInfo.f12885f;
-                if (i == 1) {
+                forwardInfo.originalTid = originalThreadInfo.f12801f;
+                if (i2 == 1) {
                     if (postData != null && postData.K() != null) {
                         str = postData.K().toString();
                     } else if (a2Var.C() != null) {
@@ -304,25 +316,25 @@ public class ShareItem {
                 if (a2Var.T() != null && !TextUtils.isEmpty(a2Var.T().getName_show())) {
                     forwardInfo.transmitThreadAuthorNameShow = a2Var.T().getName_show();
                 }
-                if (i == 1 && postData != null && k.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.t() != null) {
+                if (i2 == 1 && postData != null && k.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.t() != null) {
                     forwardInfo.transmitThreadAuthorNameShow = postData.t().getName_show();
                 }
-                if (i == 2 && k.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
+                if (i2 == 2 && k.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                     forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
                 }
             } else {
                 if (a2Var.V() != null && !TextUtils.isEmpty(a2Var.V().oriUgcNid)) {
                     forwardInfo.isDynamic = true;
                 }
-                OriginalThreadInfo i2 = OriginalThreadInfo.i(a2Var);
-                if (i2 != null) {
-                    forwardInfo.showText = i2.c();
-                    forwardInfo.showPicUrl = i2.f12882c;
-                    forwardInfo.showType = i2.f12880a;
+                OriginalThreadInfo i3 = OriginalThreadInfo.i(a2Var);
+                if (i3 != null) {
+                    forwardInfo.showText = i3.c();
+                    forwardInfo.showPicUrl = i3.f12798c;
+                    forwardInfo.showType = i3.f12796a;
                 }
                 forwardInfo.originalTid = a2Var.w1();
             }
-            if (i == 1) {
+            if (i2 == 1) {
                 OriginalThreadInfo originalThreadInfo2 = a2Var.r1;
                 if (originalThreadInfo2 != null && originalThreadInfo2.p != null) {
                     BaijiahaoData baijiahaoData2 = new BaijiahaoData();

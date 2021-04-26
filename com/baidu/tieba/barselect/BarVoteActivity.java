@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.BarVoteModel;
-import d.b.c.e.p.l;
-import d.b.j0.v.b.f;
+import d.a.c.e.p.l;
+import d.a.j0.v.b.f;
 /* loaded from: classes4.dex */
 public class BarVoteActivity extends BaseActivity {
     public long fid;
     public int source;
     public BdUniqueId mPageId = BdUniqueId.gen();
     public BarVoteModel mModel = null;
-    public d.b.j0.v.a mView = null;
+    public d.a.j0.v.a mView = null;
     public BarVoteModel.c mCallBack = new a();
 
     /* loaded from: classes4.dex */
@@ -28,14 +28,14 @@ public class BarVoteActivity extends BaseActivity {
         }
 
         @Override // com.baidu.tieba.barselect.BarVoteModel.c
-        public void a(int i, String str, f fVar) {
+        public void a(int i2, String str, f fVar) {
             if (BarVoteActivity.this.mView == null || BarVoteActivity.this.mView.w() == null) {
                 return;
             }
             BarVoteActivity barVoteActivity = BarVoteActivity.this;
             barVoteActivity.hideLoadingView(barVoteActivity.mView.w());
-            if (i != 0) {
-                if (i == 2430005) {
+            if (i2 != 0) {
+                if (i2 == 2430005) {
                     if (BarVoteActivity.this.mModel == null || BarVoteActivity.this.mModel.mPn != 0) {
                         return;
                     }
@@ -85,7 +85,7 @@ public class BarVoteActivity extends BaseActivity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (l.C()) {
+            if (l.D()) {
                 BarVoteActivity.this.mView.x();
                 BarVoteActivity barVoteActivity = BarVoteActivity.this;
                 barVoteActivity.showLoadingView(barVoteActivity.mView.w());
@@ -102,11 +102,11 @@ public class BarVoteActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        d.b.j0.v.a aVar = this.mView;
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        d.a.j0.v.a aVar = this.mView;
         if (aVar != null) {
-            aVar.z(i);
+            aVar.z(i2);
         }
     }
 
@@ -115,7 +115,7 @@ public class BarVoteActivity extends BaseActivity {
         if (view.getId() == R.id.right_textview) {
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"http://c.tieba.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
         } else if (view.getId() == R.id.pb_more) {
-            d.b.j0.v.a aVar = this.mView;
+            d.a.j0.v.a aVar = this.mView;
             if (aVar != null && aVar.v() != null) {
                 this.mView.v().L();
             }
@@ -126,7 +126,7 @@ public class BarVoteActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mView = new d.b.j0.v.a(this);
+        this.mView = new d.a.j0.v.a(this);
         this.fid = getIntent().getLongExtra("fid", 0L);
         this.source = getIntent().getIntExtra("source", 0);
         BarVoteModel barVoteModel = new BarVoteModel(this);
@@ -138,7 +138,7 @@ public class BarVoteActivity extends BaseActivity {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        d.b.j0.v.a aVar = this.mView;
+        d.a.j0.v.a aVar = this.mView;
         if (aVar != null) {
             aVar.y();
         }

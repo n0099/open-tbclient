@@ -31,11 +31,11 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
     public float mOriginMusicVolume = 1.0f;
     public boolean mSelected = false;
 
-    public VideoDraftBean(String str, String str2, long j, int i) {
+    public VideoDraftBean(String str, String str2, long j, int i2) {
         this.mDraftName = str;
         this.mUserID = str2;
         this.mTimeStamp = j;
-        this.mResumeRoute = i;
+        this.mResumeRoute = i2;
     }
 
     public boolean equals(Object obj) {
@@ -206,8 +206,8 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
         }
     }
 
-    public void setBackUpType(int i) {
-        this.mBackUpType = i;
+    public void setBackUpType(int i2) {
+        this.mBackUpType = i2;
     }
 
     public void setCoverPath(String str) {
@@ -262,12 +262,12 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
         this.mPreProcessVideoPath = str;
     }
 
-    public void setResumePage(int i) {
-        this.mResumePage = i;
+    public void setResumePage(int i2) {
+        this.mResumePage = i2;
     }
 
-    public void setResumeRoute(int i) {
-        this.mResumeRoute = i;
+    public void setResumeRoute(int i2) {
+        this.mResumeRoute = i2;
     }
 
     public void setSubTitle(String str) {
@@ -294,8 +294,8 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
         this.mVideoTempData = str;
     }
 
-    public void setVisibility(int i) {
-        this.mVisibility = i;
+    public void setVisibility(int i2) {
+        this.mVisibility = i2;
     }
 
     @Override // com.baidu.minivideo.plugin.capture.bean.Jsonable

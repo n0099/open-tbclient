@@ -45,7 +45,7 @@ public class LivenessRecogResult extends a {
         this.msgMap.put(-307, ERROR_MSG_MAY_BE_NO_CAMERA_PERMISSION);
         this.msgMap.put(ERROR_CODE_MAY_BE_NO_RECORD_AUDIO_PERMISSION, ERROR_MSG_MAY_BE_NO_RECORD_AUDIO_PERMISSION);
         this.msgMap.put(ERROR_CODE_VIDEO_IS_REVIEWING, ERROR_MSG_VIDEO_IS_REVIEWING);
-        this.msgMap.put(ERROR_CODE_LIVENESS_VIDEO_TIMEOUT, ERROR_MSG_LIVENESS_VIDEO_TIMEOUT);
+        this.msgMap.put(-401, ERROR_MSG_LIVENESS_VIDEO_TIMEOUT);
     }
 
     public JSONObject toJSONObject() {

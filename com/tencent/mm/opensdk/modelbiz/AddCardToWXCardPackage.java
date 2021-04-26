@@ -11,11 +11,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONStringer;
 import org.json.JSONTokener;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AddCardToWXCardPackage {
     public static final String TAG = "MicroMsg.AddCardToWXCardPackage";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Req extends BaseReq {
         public List<WXCardItem> cardArrary;
 
@@ -65,7 +65,7 @@ public class AddCardToWXCardPackage {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Resp extends BaseResp {
         public List<WXCardItem> cardArrary;
 
@@ -94,8 +94,8 @@ public class AddCardToWXCardPackage {
             }
             try {
                 JSONArray jSONArray = ((JSONObject) new JSONTokener(string).nextValue()).getJSONArray("card_list");
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
                     WXCardItem wXCardItem = new WXCardItem();
                     wXCardItem.cardId = jSONObject.optString(PersonalCardDetailActivityConfig.CARD_ID);
                     wXCardItem.cardExtMsg = jSONObject.optString("card_ext");
@@ -138,7 +138,7 @@ public class AddCardToWXCardPackage {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class WXCardItem {
         public String cardExtMsg;
         public String cardId;

@@ -7,7 +7,7 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 import javax.annotation.concurrent.GuardedBy;
 @VisibleForTesting
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SharedReference<T> {
     @GuardedBy("itself")
     public static final Map<Object, Integer> sLiveObjects = new IdentityHashMap();
@@ -17,7 +17,7 @@ public class SharedReference<T> {
     @GuardedBy("this")
     public T mValue;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class NullReferenceException extends RuntimeException {
         public NullReferenceException() {
             super("Null shared reference");
@@ -42,12 +42,12 @@ public class SharedReference<T> {
     }
 
     private synchronized int decreaseRefCount() {
-        int i;
+        int i2;
         ensureValid();
         Preconditions.checkArgument(this.mRefCount > 0);
-        i = this.mRefCount - 1;
-        this.mRefCount = i;
-        return i;
+        i2 = this.mRefCount - 1;
+        this.mRefCount = i2;
+        return i2;
     }
 
     private void ensureValid() {

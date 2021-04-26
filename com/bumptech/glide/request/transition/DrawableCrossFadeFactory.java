@@ -27,13 +27,13 @@ public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
             return this;
         }
 
-        public Builder(int i) {
-            this.durationMillis = i;
+        public Builder(int i2) {
+            this.durationMillis = i2;
         }
     }
 
-    public DrawableCrossFadeFactory(int i, boolean z) {
-        this.duration = i;
+    public DrawableCrossFadeFactory(int i2, boolean z) {
+        this.duration = i2;
         this.isCrossFadeEnabled = z;
     }
 
@@ -46,9 +46,6 @@ public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
 
     @Override // com.bumptech.glide.request.transition.TransitionFactory
     public Transition<Drawable> build(DataSource dataSource, boolean z) {
-        if (dataSource == DataSource.MEMORY_CACHE) {
-            return NoTransition.get();
-        }
-        return getResourceTransition();
+        return dataSource == DataSource.MEMORY_CACHE ? NoTransition.get() : getResourceTransition();
     }
 }

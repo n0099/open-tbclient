@@ -23,7 +23,7 @@ public final class WebSocketReader {
 
     /* loaded from: classes7.dex */
     public interface FrameCallback {
-        void onReadClose(int i, String str);
+        void onReadClose(int i2, String str);
 
         void onReadMessage(String str) throws IOException;
 
@@ -170,12 +170,12 @@ public final class WebSocketReader {
     }
 
     private void readMessageFrame() throws IOException {
-        int i = this.opcode;
-        if (i != 1 && i != 2) {
-            throw new ProtocolException("Unknown opcode: " + Integer.toHexString(i));
+        int i2 = this.opcode;
+        if (i2 != 1 && i2 != 2) {
+            throw new ProtocolException("Unknown opcode: " + Integer.toHexString(i2));
         }
         readMessage();
-        if (i == 1) {
+        if (i2 == 1) {
             this.frameCallback.onReadMessage(this.messageFrameBuffer.readUtf8());
         } else {
             this.frameCallback.onReadMessage(this.messageFrameBuffer.readByteString());

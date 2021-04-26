@@ -15,12 +15,12 @@ public class c extends b {
 
     @Override // com.bytedance.sdk.openadsdk.core.c.b
     public void a(@NonNull Context context, l lVar, AdSlot adSlot, String str) {
-        this.f27777a = new NativeExpressVideoView(context, lVar, adSlot, str);
+        this.f28619a = new NativeExpressVideoView(context, lVar, adSlot, str);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public com.bytedance.sdk.openadsdk.multipro.b.a getVideoModel() {
-        NativeExpressView nativeExpressView = this.f27777a;
+        NativeExpressView nativeExpressView = this.f28619a;
         if (nativeExpressView != null) {
             return ((NativeExpressVideoView) nativeExpressView).getVideoModel();
         }
@@ -29,7 +29,7 @@ public class c extends b {
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
-        NativeExpressView nativeExpressView = this.f27777a;
+        NativeExpressView nativeExpressView = this.f28619a;
         if (nativeExpressView != null) {
             nativeExpressView.setVideoAdListener(expressVideoAdListener);
         }

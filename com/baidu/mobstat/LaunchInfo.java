@@ -7,15 +7,15 @@ import org.json.JSONObject;
 public class LaunchInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f8384a;
+    public String f8685a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8385b;
+    public String f8686b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8386c;
+    public String f8687c;
 
-    public static JSONObject getConvertedJson(int i, String str, String str2) {
+    public static JSONObject getConvertedJson(int i2, String str, String str2) {
         JSONObject jSONObject;
         JSONObject jSONObject2 = null;
         try {
@@ -23,7 +23,7 @@ public class LaunchInfo {
         } catch (Exception unused) {
         }
         try {
-            jSONObject.put("type", String.valueOf(i));
+            jSONObject.put("type", String.valueOf(i2));
             if (str == null) {
                 str = "";
             }
@@ -46,35 +46,35 @@ public class LaunchInfo {
     }
 
     public int getLaunchType(Context context) {
-        if (TextUtils.isEmpty(this.f8384a)) {
+        if (TextUtils.isEmpty(this.f8685a)) {
             String packageName = context != null ? context.getPackageName() : "";
-            if (TextUtils.isEmpty(this.f8386c) || this.f8386c.equals(packageName)) {
+            if (TextUtils.isEmpty(this.f8687c) || this.f8687c.equals(packageName)) {
                 return 0;
             }
             String a2 = bj.a(context);
-            return !TextUtils.isEmpty(a2) ? !this.f8386c.equals(a2) ? 1 : 0 : !bj.a(context, this.f8386c) ? 1 : 0;
+            return !TextUtils.isEmpty(a2) ? !this.f8687c.equals(a2) ? 1 : 0 : !bj.a(context, this.f8687c) ? 1 : 0;
         }
         return 2;
     }
 
     public String getPushContent() {
-        return !TextUtils.isEmpty(this.f8385b) ? this.f8385b : "";
+        return !TextUtils.isEmpty(this.f8686b) ? this.f8686b : "";
     }
 
     public String getPushLandingPage() {
-        return !TextUtils.isEmpty(this.f8384a) ? this.f8384a : "";
+        return !TextUtils.isEmpty(this.f8685a) ? this.f8685a : "";
     }
 
     public String getRefererPkgName() {
-        return !TextUtils.isEmpty(this.f8386c) ? this.f8386c : "";
+        return !TextUtils.isEmpty(this.f8687c) ? this.f8687c : "";
     }
 
     public void setPushInfo(String str, String str2) {
-        this.f8384a = str;
-        this.f8385b = bx.a(str2, 1024);
+        this.f8685a = str;
+        this.f8686b = bx.a(str2, 1024);
     }
 
     public void setRefererPkgName(String str) {
-        this.f8386c = str;
+        this.f8687c = str;
     }
 }

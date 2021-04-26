@@ -6,21 +6,21 @@ import com.baidu.fsg.base.restnet.http.HttpStatus;
 public class f<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5276a = "f";
+    public static final String f5410a = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<T> f5277b;
+    public final Class<T> f5411b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.baidu.fsg.base.restnet.a.a<?> f5278c;
+    public final com.baidu.fsg.base.restnet.a.a<?> f5412c;
 
     public f(Class<T> cls, com.baidu.fsg.base.restnet.a.a<?> aVar) {
         if (cls == null) {
             throw new IllegalArgumentException("'responseType' must not be null");
         }
         if (aVar != null) {
-            this.f5277b = cls;
-            this.f5278c = aVar;
+            this.f5411b = cls;
+            this.f5412c = aVar;
             return;
         }
         throw new IllegalArgumentException("'messageConverters' must not be empty");
@@ -33,10 +33,10 @@ public class f<T> {
 
     public T a(e eVar) throws Exception {
         if (b(eVar)) {
-            if (eVar.d().i() == null && Log.isLoggable(f5276a, 3)) {
-                Log.d(f5276a, "No Content-Type header found, defaulting to application/octet-stream");
+            if (eVar.d().i() == null && Log.isLoggable(f5410a, 3)) {
+                Log.d(f5410a, "No Content-Type header found, defaulting to application/octet-stream");
             }
-            return (T) this.f5278c.a(this.f5277b, eVar);
+            return (T) this.f5412c.a(this.f5411b, eVar);
         }
         return null;
     }

@@ -13,25 +13,27 @@ import java.util.ArrayList;
 public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActivity> {
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<d.b.j0.a0.a> f14964h;
-    public d.b.j0.a0.b i;
+    public ArrayList<d.a.j0.a0.a> f15078h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public d.a.j0.a0.b f15079i;
     public b k;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14961e = 0;
+    public int f15075e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14962f = 1;
+    public int f15076f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14963g = 1;
+    public int f15077g = 1;
     public boolean j = false;
     public HttpMessageListener l = new a(CmdConfigHttp.CMD_GET_USER_ORDER);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -45,14 +47,14 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
                         ConsumptionRecordsModel.this.A(getUserOrderHttpResponseMessage.getOrderList(), getUserOrderHttpResponseMessage.getRecommendInfo(), getUserOrderHttpResponseMessage.getHasMore());
                     }
                     if (ConsumptionRecordsModel.this.k != null) {
-                        ConsumptionRecordsModel.this.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.f14964h, ConsumptionRecordsModel.this.i, ConsumptionRecordsModel.this.j);
+                        ConsumptionRecordsModel.this.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.f15078h, ConsumptionRecordsModel.this.f15079i, ConsumptionRecordsModel.this.j);
                         return;
                     }
                     return;
                 }
                 ConsumptionRecordsModel.s(ConsumptionRecordsModel.this);
                 if (ConsumptionRecordsModel.this.k != null) {
-                    ConsumptionRecordsModel.this.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.f14964h, ConsumptionRecordsModel.this.i, ConsumptionRecordsModel.this.j);
+                    ConsumptionRecordsModel.this.k.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), ConsumptionRecordsModel.this.f15078h, ConsumptionRecordsModel.this.f15079i, ConsumptionRecordsModel.this.j);
                 }
             }
         }
@@ -60,7 +62,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(int i, String str, ArrayList<d.b.j0.a0.a> arrayList, d.b.j0.a0.b bVar, boolean z);
+        void a(int i2, String str, ArrayList<d.a.j0.a0.a> arrayList, d.a.j0.a0.b bVar, boolean z);
 
         void b();
     }
@@ -73,26 +75,26 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     }
 
     public static /* synthetic */ int s(ConsumptionRecordsModel consumptionRecordsModel) {
-        int i = consumptionRecordsModel.f14961e;
-        consumptionRecordsModel.f14961e = i - 1;
-        return i;
+        int i2 = consumptionRecordsModel.f15075e;
+        consumptionRecordsModel.f15075e = i2 - 1;
+        return i2;
     }
 
-    public final void A(ArrayList<d.b.j0.a0.a> arrayList, d.b.j0.a0.b bVar, boolean z) {
+    public final void A(ArrayList<d.a.j0.a0.a> arrayList, d.a.j0.a0.b bVar, boolean z) {
         if (bVar != null) {
-            this.i = bVar;
+            this.f15079i = bVar;
         }
         this.j = z;
         if (arrayList == null) {
             return;
         }
-        if (this.f14964h == null) {
-            this.f14964h = new ArrayList<>();
+        if (this.f15078h == null) {
+            this.f15078h = new ArrayList<>();
         }
-        if (this.f14961e == 1) {
-            this.f14964h.clear();
+        if (this.f15075e == 1) {
+            this.f15078h.clear();
         }
-        this.f14964h.addAll(arrayList);
+        this.f15078h.addAll(arrayList);
     }
 
     public void B(b bVar) {
@@ -123,21 +125,21 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void setShowMember(int i) {
-        this.f14963g = i;
+    public void setShowMember(int i2) {
+        this.f15077g = i2;
     }
 
-    public void setType(int i) {
-        this.f14962f = i;
+    public void setType(int i2) {
+        this.f15076f = i2;
     }
 
     public void y() {
         NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
-        this.f14961e = 1;
+        this.f15075e = 1;
         newGetUserOrderRequestMessage.setPn(1);
         newGetUserOrderRequestMessage.setRn(10);
-        newGetUserOrderRequestMessage.setOrderType(this.f14962f);
-        newGetUserOrderRequestMessage.setShowMember(this.f14963g);
+        newGetUserOrderRequestMessage.setOrderType(this.f15076f);
+        newGetUserOrderRequestMessage.setShowMember(this.f15077g);
         sendMessage(newGetUserOrderRequestMessage);
     }
 
@@ -150,12 +152,12 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
             }
             return;
         }
-        this.f14961e++;
+        this.f15075e++;
         NewGetUserOrderRequestMessage newGetUserOrderRequestMessage = new NewGetUserOrderRequestMessage();
-        newGetUserOrderRequestMessage.setPn(this.f14961e);
+        newGetUserOrderRequestMessage.setPn(this.f15075e);
         newGetUserOrderRequestMessage.setRn(10);
-        newGetUserOrderRequestMessage.setOrderType(this.f14962f);
-        newGetUserOrderRequestMessage.setShowMember(this.f14963g);
+        newGetUserOrderRequestMessage.setOrderType(this.f15076f);
+        newGetUserOrderRequestMessage.setShowMember(this.f15077g);
         sendMessage(newGetUserOrderRequestMessage);
     }
 }

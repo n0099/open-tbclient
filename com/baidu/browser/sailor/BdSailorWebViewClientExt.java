@@ -5,7 +5,7 @@ import android.view.View;
 import android.webkit.SslErrorHandler;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebViewClient;
-import d.b.h.b.b;
+import d.a.h.b.b;
 /* loaded from: classes.dex */
 public class BdSailorWebViewClientExt implements INoProGuard {
     public static final BdSailorWebViewClientExt DEFAULT = new BdSailorWebViewClientExt();
@@ -19,8 +19,8 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     public void antiHijackSignExt(BdSailorWebView bdSailorWebView, String str) {
     }
 
-    public int computeHookH5NavigationStep(int i) {
-        return i;
+    public int computeHookH5NavigationStep(int i2) {
+        return i2;
     }
 
     public void doUpdateVisitedHistory(BdSailorWebView bdSailorWebView, String str, boolean z, boolean z2, boolean z3, boolean z4) {
@@ -29,14 +29,14 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     public void onAbortResourceRequest(BdSailorWebView bdSailorWebView, String str, String str2, long j) {
     }
 
-    public String onBrowserPageEventExt(BdSailorWebView bdSailorWebView, int i, String str) {
+    public String onBrowserPageEventExt(BdSailorWebView bdSailorWebView, int i2, String str) {
         return "";
     }
 
     public void onCheckHasManifestAndServiceWorker(BdSailorWebView bdSailorWebView, String str, String str2, boolean z) {
     }
 
-    public void onDidAsyncWiseSearchStatusChangedExt(BdSailorWebView bdSailorWebView, String str, int i, long j) {
+    public void onDidAsyncWiseSearchStatusChangedExt(BdSailorWebView bdSailorWebView, String str, int i2, long j) {
     }
 
     public void onDisplaySoftKeyboardExt(BdSailorWebView bdSailorWebView) {
@@ -60,19 +60,19 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     public void onFirstTextPaintExt(BdSailorWebView bdSailorWebView, String str) {
     }
 
-    public void onFullScreenModeExt(BdSailorWebView bdSailorWebView, boolean z, int i, int i2) {
+    public void onFullScreenModeExt(BdSailorWebView bdSailorWebView, boolean z, int i2, int i3) {
     }
 
-    public void onGestureFlingEnded(BdSailorWebView bdSailorWebView, int i, int i2) {
+    public void onGestureFlingEnded(BdSailorWebView bdSailorWebView, int i2, int i3) {
     }
 
-    public void onGestureScrollEnded(BdSailorWebView bdSailorWebView, int i, int i2) {
+    public void onGestureScrollEnded(BdSailorWebView bdSailorWebView, int i2, int i3) {
     }
 
-    public void onGestureScrollStarted(BdSailorWebView bdSailorWebView, int i, int i2) {
+    public void onGestureScrollStarted(BdSailorWebView bdSailorWebView, int i2, int i3) {
     }
 
-    public String onGetErrorHtmlExt(BdSailorWebView bdSailorWebView, int i, String str, String str2) {
+    public String onGetErrorHtmlExt(BdSailorWebView bdSailorWebView, int i2, String str, String str2) {
         return null;
     }
 
@@ -80,10 +80,10 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         return null;
     }
 
-    public void onGoBackOrForwardAnimationFinish(BdSailorWebView bdSailorWebView, int i) {
+    public void onGoBackOrForwardAnimationFinish(BdSailorWebView bdSailorWebView, int i2) {
     }
 
-    public void onGoBackOrForwardAnimationStart(BdSailorWebView bdSailorWebView, int i) {
+    public void onGoBackOrForwardAnimationStart(BdSailorWebView bdSailorWebView, int i2) {
         if (bdSailorWebView == null || !bdSailorWebView.isAutoShowTitlebar()) {
             return;
         }
@@ -96,7 +96,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     public void onGotNotResponse(BdSailorWebView bdSailorWebView) {
     }
 
-    public void onHandleBackForwardBeyondHistory(int i) {
+    public void onHandleBackForwardBeyondHistory(int i2) {
     }
 
     public void onHasVideoExt(BdSailorWebView bdSailorWebView) {
@@ -140,7 +140,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     public void onNextPagePreloadFinishedExt() {
     }
 
-    public void onPageBackOrForwardExt(BdSailorWebView bdSailorWebView, int i) {
+    public void onPageBackOrForwardExt(BdSailorWebView bdSailorWebView, int i2) {
     }
 
     public void onPageCanBeScaledExt(BdSailorWebView bdSailorWebView, boolean z) {
@@ -191,7 +191,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     public void onSecurityCheckResultExt(BdSailorWebView bdSailorWebView, String str, WebViewClient.SecurityInfo securityInfo) {
     }
 
-    public void onShowHotWordExt(BdSailorWebView bdSailorWebView, int i, int i2, int i3, int i4, String str, String str2, String str3) {
+    public void onShowHotWordExt(BdSailorWebView bdSailorWebView, int i2, int i3, int i4, int i5, String str, String str2, String str3) {
     }
 
     public void onShowNativeView(BdSailorWebView bdSailorWebView, View view, ENativeViewType eNativeViewType) {
@@ -212,7 +212,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         return false;
     }
 
-    public void onSubjectsCollectedExt(BdSailorWebView bdSailorWebView, boolean z, int i) {
+    public void onSubjectsCollectedExt(BdSailorWebView bdSailorWebView, boolean z, int i2) {
     }
 
     public boolean onSupportsForceZoomScale(BdSailorWebView bdSailorWebView) {

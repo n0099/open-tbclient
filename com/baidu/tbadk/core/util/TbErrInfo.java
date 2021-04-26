@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.content.res.Resources;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.c.e.p.f;
+import d.a.c.e.p.f;
 /* loaded from: classes3.dex */
 public class TbErrInfo {
     public static final int ERR_FILE_IO_SD = -25;
@@ -77,21 +77,21 @@ public class TbErrInfo {
     public static final int ERR_VOI_VOLUME = -1108;
     public static final int STATS_OK = 0;
 
-    public static String getErrMsg(int i) {
+    public static String getErrMsg(int i2) {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        if (i != -85) {
-            if (i != -84) {
-                if (i != -52) {
-                    if (i == -51) {
+        if (i2 != -85) {
+            if (i2 != -84) {
+                if (i2 != -52) {
+                    if (i2 == -51) {
                         return resources.getString(R.string.tb_err_unknown);
                     }
-                    if (i != -7) {
-                        if (i == -3) {
+                    if (i2 != -7) {
+                        if (i2 == -3) {
                             return resources.getString(R.string.tb_err_data_format);
                         }
-                        if (i != -2 && i != -1) {
-                            if (i != 0) {
-                                switch (i) {
+                        if (i2 != -2 && i2 != -1) {
+                            if (i2 != 0) {
+                                switch (i2) {
                                     case ERR_LIVE_PLAY_NO_STREAM /* -1129 */:
                                         return resources.getString(R.string.tb_err_play_no_stream);
                                     case ERR_LIVE_PLAY_INVALID_CODEC /* -1128 */:
@@ -117,7 +117,7 @@ public class TbErrInfo {
                                     case ERR_LIVE_NOT_SUPPORT /* -1118 */:
                                         return resources.getString(R.string.tb_err_not_support);
                                     default:
-                                        switch (i) {
+                                        switch (i2) {
                                             case ERR_UOP_CREATE_GROUP_FAIL /* -48 */:
                                                 return resources.getString(R.string.tb_err_create_group_failed);
                                             case ERR_UOP_SENDTEXT_INVALID /* -47 */:
@@ -127,7 +127,7 @@ public class TbErrInfo {
                                             case ERR_UOP_SENDTEXT_TOO_LONG /* -45 */:
                                                 return resources.getString(R.string.tb_err_send_too_long);
                                             default:
-                                                switch (i) {
+                                                switch (i2) {
                                                     case ERR_UOP_SENDMSG_TOO_MORE /* -42 */:
                                                         return resources.getString(R.string.tb_err_send_too_more);
                                                     case ERR_UOP_VOICE_TOO_SHORT /* -41 */:
@@ -135,7 +135,7 @@ public class TbErrInfo {
                                                     case ERR_USER_OPERATE /* -40 */:
                                                         return resources.getString(R.string.tb_err_user_operation);
                                                     default:
-                                                        switch (i) {
+                                                        switch (i2) {
                                                             case ERR_FILE_SD_FULL /* -26 */:
                                                                 return resources.getString(R.string.error_sd_full);
                                                             case ERR_FILE_IO_SD /* -25 */:

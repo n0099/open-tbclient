@@ -171,17 +171,17 @@ public class PacDownload implements IResourceTask, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
+    public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i2) {
         Log.w(LOG_TAG, "onNetDownloadError  " + bdNetTask.getUrl());
         mDownloading = false;
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
+    public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i2) {
         if (this.mData == null) {
             this.mData = new ByteArrayOutputStream();
         }
-        this.mData.write(bArr, 0, i);
+        this.mData.write(bArr, 0, i2);
     }
 
     @Override // com.baidu.webkit.net.INetListener
@@ -190,17 +190,17 @@ public class PacDownload implements IResourceTask, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i) {
+    public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i2) {
         return false;
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i) {
-        Log.w(LOG_TAG, "onNetResponseCode  " + i + " url " + bdNetTask.getUrl());
+    public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i2) {
+        Log.w(LOG_TAG, "onNetResponseCode  " + i2 + " url " + bdNetTask.getUrl());
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i) {
+    public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i2) {
     }
 
     @Override // com.baidu.webkit.net.INetListener
@@ -255,7 +255,7 @@ public class PacDownload implements IResourceTask, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i, int i2) {
+    public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i2, int i3) {
     }
 
     @Override // com.baidu.webkit.internal.resource.IResourceTask

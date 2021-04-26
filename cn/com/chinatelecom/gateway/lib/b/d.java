@@ -14,14 +14,14 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1509a = "d";
+    public static final String f1530a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f1510b = {15, 31, 94, 10, 90, 15, 91, 24, 10, 30, 88, 7, 89, 10, 95, 30};
+    public static final byte[] f1531b = {15, 31, 94, 10, 90, 15, 91, 24, 10, 30, 88, 7, 89, 10, 95, 30};
 
-    public static void a(Context context, int i) {
+    public static void a(Context context, int i2) {
         try {
-            cn.com.chinatelecom.gateway.lib.c.b.a(context, "key_c_l_l_v", i);
+            cn.com.chinatelecom.gateway.lib.c.b.a(context, "key_c_l_l_v", i2);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -30,7 +30,7 @@ public class d {
     public static void a(Context context, String str) {
         char c2;
         int hashCode = str.hashCode();
-        int i = 0;
+        int i2 = 0;
         if (hashCode == 64897) {
             if (str.equals("ALL")) {
                 c2 = 0;
@@ -49,12 +49,12 @@ public class d {
         }
         if (c2 != 0) {
             if (c2 == 1) {
-                i = -1;
+                i2 = -1;
             } else if (c2 == 2) {
-                i = -2;
+                i2 = -2;
             }
         }
-        a(context, i);
+        a(context, i2);
     }
 
     public static void a(Context context, List<String> list) {
@@ -97,7 +97,7 @@ public class d {
         String jSONArray3 = jSONArray.toString();
         if (!TextUtils.isEmpty(jSONArray3)) {
             try {
-                a2 = cn.com.chinatelecom.gateway.lib.a.b.a(cn.com.chinatelecom.gateway.lib.a.a.b(jSONArray3, f.a(f1510b)));
+                a2 = cn.com.chinatelecom.gateway.lib.a.b.a(cn.com.chinatelecom.gateway.lib.a.a.b(jSONArray3, f.a(f1531b)));
             } catch (Exception e3) {
                 e = e3;
             }
@@ -113,23 +113,23 @@ public class d {
         return b(context, jSONArray2);
     }
 
-    public static void b(final Context context, final List<String> list, final int i) {
+    public static void b(final Context context, final List<String> list, final int i2) {
         i.a(new Runnable() { // from class: cn.com.chinatelecom.gateway.lib.b.d.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    Queue c2 = d.c(context, list, i);
+                    Queue c2 = d.c(context, list, i2);
                     if (c2.isEmpty()) {
                         return;
                     }
                     String b2 = d.b(context, c2);
                     JSONObject jSONObject = null;
-                    int i2 = -1;
+                    int i3 = -1;
                     try {
                         if (!TextUtils.isEmpty(b2)) {
                             JSONObject jSONObject2 = new JSONObject(b2);
                             try {
-                                i2 = jSONObject2.getInt("code");
+                                i3 = jSONObject2.getInt("code");
                                 jSONObject = jSONObject2;
                             } catch (Exception e2) {
                                 e = e2;
@@ -137,15 +137,15 @@ public class d {
                                 e.printStackTrace();
                                 if (jSONObject != null) {
                                 }
-                                d.b(context, c2, i);
+                                d.b(context, c2, i2);
                                 return;
                             }
                         }
                     } catch (Exception e3) {
                         e = e3;
                     }
-                    if (jSONObject != null || i2 != 0) {
-                        d.b(context, c2, i);
+                    if (jSONObject != null || i3 != 0) {
+                        d.b(context, c2, i2);
                         return;
                     }
                     d.c(context);
@@ -157,22 +157,22 @@ public class d {
         });
     }
 
-    public static void b(Context context, Queue<String> queue, int i) {
+    public static void b(Context context, Queue<String> queue, int i2) {
         String str;
         JSONObject jSONObject;
         JSONArray jSONArray = new JSONArray();
         if (queue != null && !queue.isEmpty()) {
-            int i2 = 0;
+            int i3 = 0;
             for (String str2 : queue) {
                 try {
                     jSONObject = new JSONObject(str2);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                if (i != -1 || jSONObject.getInt("rt") != 0) {
+                if (i2 != -1 || jSONObject.getInt("rt") != 0) {
                     jSONArray.put(jSONObject);
-                    i2++;
-                    if (i2 > 10) {
+                    i3++;
+                    if (i3 > 10) {
                         break;
                     }
                 }
@@ -180,7 +180,7 @@ public class d {
         }
         if (jSONArray.length() > 0) {
             try {
-                str = cn.com.chinatelecom.gateway.lib.a.a.a(jSONArray.toString(), f.a(f1510b));
+                str = cn.com.chinatelecom.gateway.lib.a.a.a(jSONArray.toString(), f.a(f1531b));
             } catch (Exception e3) {
                 e3.printStackTrace();
                 str = null;
@@ -194,17 +194,17 @@ public class d {
         c.a(context, str);
     }
 
-    public static synchronized Queue<String> c(Context context, List<String> list, int i) {
+    public static synchronized Queue<String> c(Context context, List<String> list, int i2) {
         ConcurrentLinkedQueue concurrentLinkedQueue;
         synchronized (d.class) {
             concurrentLinkedQueue = new ConcurrentLinkedQueue();
             String a2 = c.a(context);
             if (!TextUtils.isEmpty(a2)) {
                 try {
-                    JSONArray jSONArray = new JSONArray(cn.com.chinatelecom.gateway.lib.a.a.c(a2, f.a(f1510b)));
+                    JSONArray jSONArray = new JSONArray(cn.com.chinatelecom.gateway.lib.a.a.c(a2, f.a(f1531b)));
                     int length = jSONArray.length();
-                    for (int i2 = 0; i2 < length && i2 <= 10; i2++) {
-                        JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                    for (int i3 = 0; i3 < length && i3 <= 10; i3++) {
+                        JSONObject jSONObject = jSONArray.getJSONObject(i3);
                         if (jSONObject != null) {
                             concurrentLinkedQueue.add(jSONObject.toString());
                         }
@@ -214,7 +214,7 @@ public class d {
                     e2.printStackTrace();
                 }
             }
-            if (i == -1) {
+            if (i2 == -1) {
                 for (String str : list) {
                     try {
                         if (new JSONObject(str).getInt("rt") != 0) {
@@ -224,7 +224,7 @@ public class d {
                         e3.printStackTrace();
                     }
                 }
-            } else if (i == 0) {
+            } else if (i2 == 0) {
                 concurrentLinkedQueue.addAll(list);
             }
             while (concurrentLinkedQueue.size() > 10) {

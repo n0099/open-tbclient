@@ -129,9 +129,9 @@ public class FileProvider extends ContentProvider {
         return file;
     }
 
-    public static String[] copyOf(String[] strArr, int i) {
-        String[] strArr2 = new String[i];
-        System.arraycopy(strArr, 0, strArr2, 0, i);
+    public static String[] copyOf(String[] strArr, int i2) {
+        String[] strArr2 = new String[i2];
+        System.arraycopy(strArr, 0, strArr2, 0, i2);
         return strArr2;
     }
 
@@ -158,7 +158,7 @@ public class FileProvider extends ContentProvider {
     }
 
     public static int modeToMode(String str) {
-        if (r.f7699a.equals(str)) {
+        if (r.f7975a.equals(str)) {
             return Label.FORWARD_REFERENCE_TYPE_SHORT;
         }
         if ("w".equals(str) || "wt".equals(str)) {
@@ -178,48 +178,53 @@ public class FileProvider extends ContentProvider {
 
     public static PathStrategy parsePathStrategy(Context context, String str) throws IOException, XmlPullParserException {
         SimplePathStrategy simplePathStrategy = new SimplePathStrategy(str);
-        XmlResourceParser loadXmlMetaData = context.getPackageManager().resolveContentProvider(str, 128).loadXmlMetaData(context.getPackageManager(), "android.support.FILE_PROVIDER_PATHS");
-        if (loadXmlMetaData == null) {
-            throw new IllegalArgumentException("Missing android.support.FILE_PROVIDER_PATHS meta-data");
-        }
-        while (true) {
-            int next = loadXmlMetaData.next();
-            if (next == 1) {
-                return simplePathStrategy;
+        ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(str, 128);
+        if (resolveContentProvider != null) {
+            XmlResourceParser loadXmlMetaData = resolveContentProvider.loadXmlMetaData(context.getPackageManager(), "android.support.FILE_PROVIDER_PATHS");
+            if (loadXmlMetaData == null) {
+                throw new IllegalArgumentException("Missing android.support.FILE_PROVIDER_PATHS meta-data");
             }
-            if (next == 2) {
-                String name = loadXmlMetaData.getName();
-                File file = null;
-                String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
-                String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
-                if ("root-path".equals(name)) {
-                    file = DEVICE_ROOT;
-                } else if ("files-path".equals(name)) {
-                    file = context.getFilesDir();
-                } else if ("cache-path".equals(name)) {
-                    file = context.getCacheDir();
-                } else if ("external-path".equals(name)) {
-                    file = Environment.getExternalStorageDirectory();
-                } else if ("external-files-path".equals(name)) {
-                    File[] externalFilesDirs = ContextCompat.getExternalFilesDirs(context, null);
-                    if (externalFilesDirs.length > 0) {
-                        file = externalFilesDirs[0];
+            while (true) {
+                int next = loadXmlMetaData.next();
+                if (next == 1) {
+                    return simplePathStrategy;
+                }
+                if (next == 2) {
+                    String name = loadXmlMetaData.getName();
+                    File file = null;
+                    String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
+                    String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
+                    if ("root-path".equals(name)) {
+                        file = DEVICE_ROOT;
+                    } else if ("files-path".equals(name)) {
+                        file = context.getFilesDir();
+                    } else if ("cache-path".equals(name)) {
+                        file = context.getCacheDir();
+                    } else if ("external-path".equals(name)) {
+                        file = Environment.getExternalStorageDirectory();
+                    } else if ("external-files-path".equals(name)) {
+                        File[] externalFilesDirs = ContextCompat.getExternalFilesDirs(context, null);
+                        if (externalFilesDirs.length > 0) {
+                            file = externalFilesDirs[0];
+                        }
+                    } else if ("external-cache-path".equals(name)) {
+                        File[] externalCacheDirs = ContextCompat.getExternalCacheDirs(context);
+                        if (externalCacheDirs.length > 0) {
+                            file = externalCacheDirs[0];
+                        }
+                    } else if (Build.VERSION.SDK_INT >= 21 && TAG_EXTERNAL_MEDIA.equals(name)) {
+                        File[] externalMediaDirs = context.getExternalMediaDirs();
+                        if (externalMediaDirs.length > 0) {
+                            file = externalMediaDirs[0];
+                        }
                     }
-                } else if ("external-cache-path".equals(name)) {
-                    File[] externalCacheDirs = ContextCompat.getExternalCacheDirs(context);
-                    if (externalCacheDirs.length > 0) {
-                        file = externalCacheDirs[0];
-                    }
-                } else if (Build.VERSION.SDK_INT >= 21 && TAG_EXTERNAL_MEDIA.equals(name)) {
-                    File[] externalMediaDirs = context.getExternalMediaDirs();
-                    if (externalMediaDirs.length > 0) {
-                        file = externalMediaDirs[0];
+                    if (file != null) {
+                        simplePathStrategy.addRoot(attributeValue, buildPath(file, attributeValue2));
                     }
                 }
-                if (file != null) {
-                    simplePathStrategy.addRoot(attributeValue, buildPath(file, attributeValue2));
-                }
             }
+        } else {
+            throw new IllegalArgumentException("Couldn't find meta-data for provider with authority " + str);
         }
     }
 
@@ -269,28 +274,28 @@ public class FileProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        int i;
+        int i2;
         File fileForUri = this.mStrategy.getFileForUri(uri);
         if (strArr == null) {
             strArr = COLUMNS;
         }
         String[] strArr3 = new String[strArr.length];
         Object[] objArr = new Object[strArr.length];
-        int i2 = 0;
+        int i3 = 0;
         for (String str3 : strArr) {
             if ("_display_name".equals(str3)) {
-                strArr3[i2] = "_display_name";
-                i = i2 + 1;
-                objArr[i2] = fileForUri.getName();
+                strArr3[i3] = "_display_name";
+                i2 = i3 + 1;
+                objArr[i3] = fileForUri.getName();
             } else if ("_size".equals(str3)) {
-                strArr3[i2] = "_size";
-                i = i2 + 1;
-                objArr[i2] = Long.valueOf(fileForUri.length());
+                strArr3[i3] = "_size";
+                i2 = i3 + 1;
+                objArr[i3] = Long.valueOf(fileForUri.length());
             }
-            i2 = i;
+            i3 = i2;
         }
-        String[] copyOf = copyOf(strArr3, i2);
-        Object[] copyOf2 = copyOf(objArr, i2);
+        String[] copyOf = copyOf(strArr3, i3);
+        Object[] copyOf2 = copyOf(objArr, i3);
         MatrixCursor matrixCursor = new MatrixCursor(copyOf, 1);
         matrixCursor.addRow(copyOf2);
         return matrixCursor;
@@ -301,9 +306,9 @@ public class FileProvider extends ContentProvider {
         throw new UnsupportedOperationException("No external updates");
     }
 
-    public static Object[] copyOf(Object[] objArr, int i) {
-        Object[] objArr2 = new Object[i];
-        System.arraycopy(objArr, 0, objArr2, 0, i);
+    public static Object[] copyOf(Object[] objArr, int i2) {
+        Object[] objArr2 = new Object[i2];
+        System.arraycopy(objArr, 0, objArr2, 0, i2);
         return objArr2;
     }
 }

@@ -58,5 +58,5 @@ public interface KsDrawAd {
 
     @KsAdSdkApi
     @Keep
-    void setBidEcpm(int i);
+    void setBidEcpm(int i2);
 }

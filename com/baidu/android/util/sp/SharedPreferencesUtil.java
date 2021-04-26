@@ -17,8 +17,8 @@ public final class SharedPreferencesUtil {
     public SharedPreferences mSharedPreferences;
 
     @SuppressLint({"CommitPrefEdits"})
-    public SharedPreferencesUtil(Context context, String str, int i) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(str, i);
+    public SharedPreferencesUtil(Context context, String str, int i2) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(str, i2);
         this.mSharedPreferences = sharedPreferences;
         this.mEditor = sharedPreferences.edit();
     }
@@ -43,8 +43,8 @@ public final class SharedPreferencesUtil {
         return this.mSharedPreferences.getFloat(str, f2);
     }
 
-    public int getIntPreference(String str, int i) {
-        return this.mSharedPreferences.getInt(str, i);
+    public int getIntPreference(String str, int i2) {
+        return this.mSharedPreferences.getInt(str, i2);
     }
 
     public long getLongPreference(String str, long j) {
@@ -70,8 +70,8 @@ public final class SharedPreferencesUtil {
         this.mEditor.commit();
     }
 
-    public void setIntPreference(String str, int i) {
-        this.mEditor.putInt(str, i);
+    public void setIntPreference(String str, int i2) {
+        this.mEditor.putInt(str, i2);
         this.mEditor.commit();
     }
 
@@ -89,13 +89,13 @@ public final class SharedPreferencesUtil {
         this.mEditor.putString(str, str2);
     }
 
-    public static SharedPreferencesUtil getInstance(Context context, String str, int i) {
+    public static SharedPreferencesUtil getInstance(Context context, String str, int i2) {
         SharedPreferencesUtil sharedPreferencesUtil = mPrefrencesUtil.get(str);
         if (sharedPreferencesUtil == null) {
             synchronized (SharedPreferencesUtil.class) {
                 sharedPreferencesUtil = mPrefrencesUtil.get(str);
                 if (sharedPreferencesUtil == null) {
-                    sharedPreferencesUtil = new SharedPreferencesUtil(context, str, i);
+                    sharedPreferencesUtil = new SharedPreferencesUtil(context, str, i2);
                     mPrefrencesUtil.put(str, sharedPreferencesUtil);
                 }
             }

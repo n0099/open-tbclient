@@ -38,10 +38,10 @@ public class ElasticTaskScheduler {
         public Runnable runnable;
         public String taskName;
 
-        public TaskMsgInfo(Runnable runnable, String str, int i) {
+        public TaskMsgInfo(Runnable runnable, String str, int i2) {
             this.runnable = runnable;
             this.taskName = str;
-            this.priority = i;
+            this.priority = i2;
         }
     }
 
@@ -169,12 +169,12 @@ public class ElasticTaskScheduler {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int scheduleConcurrentTasks() {
-        int i = 0;
+        int i2 = 0;
         while (scheduleNextConcurrentTask()) {
-            i++;
+            i2++;
         }
         postConcurrentDredge();
-        return i;
+        return i2;
     }
 
     private boolean scheduleNextConcurrentTask() {
@@ -240,14 +240,14 @@ public class ElasticTaskScheduler {
         this.mSchedulerHandler.sendMessageDelayed(obtain, j);
     }
 
-    public void postConcurrentTask(Runnable runnable, String str, int i) {
-        postConcurrentTaskDelay(runnable, str, i, 0L);
+    public void postConcurrentTask(Runnable runnable, String str, int i2) {
+        postConcurrentTaskDelay(runnable, str, i2, 0L);
     }
 
-    public void postConcurrentTaskDelay(Runnable runnable, String str, int i, long j) {
+    public void postConcurrentTaskDelay(Runnable runnable, String str, int i2, long j) {
         Message obtain = Message.obtain();
         obtain.what = 1;
-        obtain.obj = new TaskMsgInfo(runnable, str, i);
+        obtain.obj = new TaskMsgInfo(runnable, str, i2);
         this.mSchedulerHandler.sendMessageDelayed(obtain, j);
     }
 
@@ -277,14 +277,14 @@ public class ElasticTaskScheduler {
         this.mSchedulerHandler.sendMessageDelayed(obtain, j);
     }
 
-    public void postSerialTask(Runnable runnable, String str, int i) {
-        postSerialTaskDelay(runnable, str, i, 0L);
+    public void postSerialTask(Runnable runnable, String str, int i2) {
+        postSerialTaskDelay(runnable, str, i2, 0L);
     }
 
-    public void postSerialTaskDelay(Runnable runnable, String str, int i, long j) {
+    public void postSerialTaskDelay(Runnable runnable, String str, int i2, long j) {
         Message obtain = Message.obtain();
         obtain.what = 4;
-        obtain.obj = new TaskMsgInfo(runnable, str, i);
+        obtain.obj = new TaskMsgInfo(runnable, str, i2);
         this.mSchedulerHandler.sendMessageDelayed(obtain, j);
     }
 }

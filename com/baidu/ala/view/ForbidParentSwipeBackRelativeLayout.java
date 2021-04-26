@@ -26,9 +26,9 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
     }
 
     private void determinIntercept(MotionEvent motionEvent) {
-        int i = this.mActivePointerId;
-        int pointerIndex = getPointerIndex(motionEvent, i);
-        if (i == -1) {
+        int i2 = this.mActivePointerId;
+        int pointerIndex = getPointerIndex(motionEvent, i2);
+        if (i2 == -1) {
             return;
         }
         try {
@@ -45,8 +45,8 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
         }
     }
 
-    private int getPointerIndex(MotionEvent motionEvent, int i) {
-        int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i);
+    private int getPointerIndex(MotionEvent motionEvent, int i2) {
+        int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i2);
         if (findPointerIndex == -1) {
             this.mActivePointerId = -1;
         }
@@ -147,8 +147,8 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
         init();
     }
 
-    public ForbidParentSwipeBackRelativeLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ForbidParentSwipeBackRelativeLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mActivePointerId = -1;
         this.isIntercept = false;
         init();

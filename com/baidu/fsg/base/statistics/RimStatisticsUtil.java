@@ -20,7 +20,7 @@ public final class RimStatisticsUtil {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static RimStatisticsUtil f5298a = new RimStatisticsUtil();
+        public static RimStatisticsUtil f5432a = new RimStatisticsUtil();
     }
 
     public static boolean cacheAppContext(Context context) {
@@ -35,11 +35,11 @@ public final class RimStatisticsUtil {
     }
 
     public static RimStatisticsUtil getInstance() {
-        return a.f5298a;
+        return a.f5432a;
     }
 
     private String getSignKey1() {
-        return com.baidu.fsg.base.a.f5147h;
+        return com.baidu.fsg.base.a.f5276h;
     }
 
     private String getSignKey2() {
@@ -85,26 +85,26 @@ public final class RimStatisticsUtil {
         onEventWithValues(str, null);
     }
 
-    public static void onEventEnd(String str, int i) {
-        onEventEndWithValue(str, i, null);
+    public static void onEventEnd(String str, int i2) {
+        onEventEndWithValue(str, i2, null);
     }
 
-    public static void onEventEndWithValue(String str, int i, String str2) {
+    public static void onEventEndWithValue(String str, int i2, String str2) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
         try {
-            StatService.b(str, Integer.toString(i), str2);
+            StatService.b(str, Integer.toString(i2), str2);
         } catch (Exception unused) {
         }
     }
 
-    public static void onEventEndWithValues(String str, int i, Collection<String> collection) {
+    public static void onEventEndWithValues(String str, int i2, Collection<String> collection) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
         try {
-            StatService.b(str, Integer.toString(i), collection);
+            StatService.b(str, Integer.toString(i2), collection);
         } catch (Exception unused) {
         }
     }

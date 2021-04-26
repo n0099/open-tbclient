@@ -2,7 +2,7 @@ package com.vivo.push.model;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UPSNotificationMessage {
     public static final int CUSTOM = 3;
     public static final int OPENACTIVITY = 4;
@@ -99,8 +99,8 @@ public class UPSNotificationMessage {
         this.mMsgId = j;
     }
 
-    public void setNotifyType(int i) {
-        this.mNotifyType = i;
+    public void setNotifyType(int i2) {
+        this.mNotifyType = i2;
     }
 
     public void setParams(Map<String, String> map) {
@@ -119,12 +119,12 @@ public class UPSNotificationMessage {
         this.mSkipContent = str;
     }
 
-    public void setSkipType(int i) {
-        this.mSkipType = i;
+    public void setSkipType(int i2) {
+        this.mSkipType = i2;
     }
 
-    public void setTargetType(int i) {
-        this.mTargetType = i;
+    public void setTargetType(int i2) {
+        this.mTargetType = i2;
     }
 
     public void setTitle(String str) {

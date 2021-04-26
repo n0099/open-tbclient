@@ -29,19 +29,19 @@ public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
 
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         public void run() {
-            int i;
+            int i2;
             String str;
-            int i2 = 0;
+            int i3 = 0;
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
-                i = jSONObject.getInt("error_code");
+                i2 = jSONObject.getInt("error_code");
                 str = jSONObject.optString("error_msg", "");
-                if (i == 0 && jSONObject.has("response_params")) {
-                    i2 = jSONObject.getJSONObject("response_params").getInt("online_count");
+                if (i2 == 0 && jSONObject.has("response_params")) {
+                    i3 = jSONObject.getJSONObject("response_params").getInt("online_count");
                 }
             } catch (JSONException e2) {
                 LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e2);
-                i = 1010;
+                i2 = 1010;
                 new IMTrack.CrashBuilder(IMGetStarOnlineRequest.this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
@@ -49,7 +49,7 @@ public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
             if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
                 return;
             }
-            ((BIMValueCallBack) removeListener).onResult(i, str, Integer.valueOf(i2));
+            ((BIMValueCallBack) removeListener).onResult(i2, str, Integer.valueOf(i3));
         }
     }
 
@@ -81,8 +81,8 @@ public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
             return;
@@ -91,7 +91,7 @@ public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str = new String(bArr);
         String str2 = TAG;
         LogUtils.d(str2, "json is " + str);

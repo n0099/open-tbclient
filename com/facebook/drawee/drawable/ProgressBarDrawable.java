@@ -7,7 +7,7 @@ import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ProgressBarDrawable extends Drawable implements CloneableDrawable {
     public final Paint mPaint = new Paint(1);
     public final Path mPath = new Path();
@@ -21,8 +21,8 @@ public class ProgressBarDrawable extends Drawable implements CloneableDrawable {
     public boolean mHideWhenZero = false;
     public boolean mIsVertical = false;
 
-    private void drawBar(Canvas canvas, int i) {
-        this.mPaint.setColor(i);
+    private void drawBar(Canvas canvas, int i2) {
+        this.mPaint.setColor(i2);
         this.mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         this.mPath.reset();
         this.mPath.setFillType(Path.FillType.EVEN_ODD);
@@ -30,26 +30,26 @@ public class ProgressBarDrawable extends Drawable implements CloneableDrawable {
         canvas.drawPath(this.mPath, this.mPaint);
     }
 
-    private void drawHorizontalBar(Canvas canvas, int i, int i2) {
+    private void drawHorizontalBar(Canvas canvas, int i2, int i3) {
         Rect bounds = getBounds();
         int width = bounds.width();
-        int i3 = this.mPadding;
-        int i4 = bounds.left + i3;
-        int i5 = bounds.bottom - i3;
-        int i6 = this.mBarWidth;
-        int i7 = i5 - i6;
-        this.mRect.set(i4, i7, i4 + (((width - (i3 * 2)) * i) / 10000), i7 + i6);
-        drawBar(canvas, i2);
+        int i4 = this.mPadding;
+        int i5 = bounds.left + i4;
+        int i6 = bounds.bottom - i4;
+        int i7 = this.mBarWidth;
+        int i8 = i6 - i7;
+        this.mRect.set(i5, i8, i5 + (((width - (i4 * 2)) * i2) / 10000), i8 + i7);
+        drawBar(canvas, i3);
     }
 
-    private void drawVerticalBar(Canvas canvas, int i, int i2) {
+    private void drawVerticalBar(Canvas canvas, int i2, int i3) {
         Rect bounds = getBounds();
         int height = bounds.height();
-        int i3 = this.mPadding;
-        int i4 = bounds.left + i3;
-        int i5 = bounds.top + i3;
-        this.mRect.set(i4, i5, i4 + this.mBarWidth, i5 + (((height - (i3 * 2)) * i) / 10000));
-        drawBar(canvas, i2);
+        int i4 = this.mPadding;
+        int i5 = bounds.left + i4;
+        int i6 = bounds.top + i4;
+        this.mRect.set(i5, i6, i5 + this.mBarWidth, i6 + (((height - (i4 * 2)) * i2) / 10000));
+        drawBar(canvas, i3);
     }
 
     @Override // com.facebook.drawee.drawable.CloneableDrawable
@@ -107,8 +107,8 @@ public class ProgressBarDrawable extends Drawable implements CloneableDrawable {
 
     @Override // android.graphics.drawable.Drawable
     public boolean getPadding(Rect rect) {
-        int i = this.mPadding;
-        rect.set(i, i, i, i);
+        int i2 = this.mPadding;
+        rect.set(i2, i2, i2, i2);
         return this.mPadding != 0;
     }
 
@@ -117,34 +117,34 @@ public class ProgressBarDrawable extends Drawable implements CloneableDrawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean onLevelChange(int i) {
-        this.mLevel = i;
+    public boolean onLevelChange(int i2) {
+        this.mLevel = i2;
         invalidateSelf();
         return true;
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        this.mPaint.setAlpha(i);
+    public void setAlpha(int i2) {
+        this.mPaint.setAlpha(i2);
     }
 
-    public void setBackgroundColor(int i) {
-        if (this.mBackgroundColor != i) {
-            this.mBackgroundColor = i;
+    public void setBackgroundColor(int i2) {
+        if (this.mBackgroundColor != i2) {
+            this.mBackgroundColor = i2;
             invalidateSelf();
         }
     }
 
-    public void setBarWidth(int i) {
-        if (this.mBarWidth != i) {
-            this.mBarWidth = i;
+    public void setBarWidth(int i2) {
+        if (this.mBarWidth != i2) {
+            this.mBarWidth = i2;
             invalidateSelf();
         }
     }
 
-    public void setColor(int i) {
-        if (this.mColor != i) {
-            this.mColor = i;
+    public void setColor(int i2) {
+        if (this.mColor != i2) {
+            this.mColor = i2;
             invalidateSelf();
         }
     }
@@ -165,16 +165,16 @@ public class ProgressBarDrawable extends Drawable implements CloneableDrawable {
         }
     }
 
-    public void setPadding(int i) {
-        if (this.mPadding != i) {
-            this.mPadding = i;
+    public void setPadding(int i2) {
+        if (this.mPadding != i2) {
+            this.mPadding = i2;
             invalidateSelf();
         }
     }
 
-    public void setRadius(int i) {
-        if (this.mRadius != i) {
-            this.mRadius = i;
+    public void setRadius(int i2) {
+        if (this.mRadius != i2) {
+            this.mRadius = i2;
             invalidateSelf();
         }
     }

@@ -1,0 +1,49 @@
+package d.a.j0.t.d.f.c;
+
+import d.a.i0.r.q.a2;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public class a {
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f60699a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f60700b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<a2> f60701c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f60702d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f60703e;
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
+        }
+        this.f60699a = jSONObject.optString("head_pic");
+        jSONObject.optString("url_type");
+        this.f60700b = jSONObject.optString("url");
+        this.f60702d = jSONObject.optInt("head_type", 0);
+        this.f60703e = jSONObject.optInt("is_set", -1);
+        JSONArray optJSONArray = jSONObject.optJSONArray("head_thread");
+        if (optJSONArray == null || optJSONArray.length() <= 0) {
+            return;
+        }
+        this.f60701c = new ArrayList(optJSONArray.length());
+        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
+            if (jSONObject2 != null) {
+                a2 a2Var = new a2();
+                a2Var.Q2(jSONObject2);
+                this.f60701c.add(a2Var);
+            }
+        }
+    }
+}

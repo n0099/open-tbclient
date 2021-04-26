@@ -26,12 +26,12 @@ public class BigEndianDataOutputStream {
         this.mDos.write(bArr, 0, 1);
     }
 
-    public final void writeInt(int i) throws IOException {
+    public final void writeInt(int i2) throws IOException {
         byte[] bArr = this.buff;
-        bArr[0] = (byte) (i >> 24);
-        bArr[1] = (byte) (i >> 16);
-        bArr[2] = (byte) (i >> 8);
-        bArr[3] = (byte) i;
+        bArr[0] = (byte) (i2 >> 24);
+        bArr[1] = (byte) (i2 >> 16);
+        bArr[2] = (byte) (i2 >> 8);
+        bArr[3] = (byte) i2;
         this.mDos.write(bArr, 0, 4);
     }
 
@@ -48,10 +48,10 @@ public class BigEndianDataOutputStream {
         this.mDos.write(bArr, 0, 8);
     }
 
-    public final void writeShort(int i) throws IOException {
+    public final void writeShort(int i2) throws IOException {
         byte[] bArr = this.buff;
-        bArr[1] = (byte) (i >> 8);
-        bArr[0] = (byte) i;
+        bArr[1] = (byte) (i2 >> 8);
+        bArr[0] = (byte) i2;
         this.mDos.write(bArr, 0, 2);
     }
 }

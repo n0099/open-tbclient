@@ -23,8 +23,8 @@ public class LightAppCallIDPhotoModel implements NoProguard {
         return JsonUtils.toJson(this);
     }
 
-    public LightAppCallIDPhotoModel(int i) {
+    public LightAppCallIDPhotoModel(int i2) {
         this();
-        this.result = i;
+        this.result = i2;
     }
 }

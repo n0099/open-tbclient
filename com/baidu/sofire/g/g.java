@@ -4,7 +4,6 @@ import android.accounts.NetworkErrorException;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.sofire.ac.F;
@@ -93,7 +92,7 @@ public final class g {
             try {
                 com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
                 long currentTimeMillis = System.currentTimeMillis();
-                long j = eVar.f11398a.getLong("pu_cl_fd", 0L);
+                long j = eVar.f11221a.getLong("pu_cl_fd", 0L);
                 if (j == 0) {
                     j = System.currentTimeMillis();
                     eVar.g();
@@ -107,10 +106,10 @@ public final class g {
                         hashMap.put("0", Integer.valueOf(eVar.i()));
                         hashMap.put("1", Integer.valueOf(eVar.j() + 1));
                     }
-                    eVar.f11400c.putInt("mo_fa_pu_cl", 0);
-                    eVar.f11400c.commit();
-                    eVar.f11400c.putInt("wi_fa_pu_cl", 0);
-                    eVar.f11400c.commit();
+                    eVar.f11223c.putInt("mo_fa_pu_cl", 0);
+                    eVar.f11223c.commit();
+                    eVar.f11223c.putInt("wi_fa_pu_cl", 0);
+                    eVar.f11223c.commit();
                     eVar.g();
                     d.a(context, "1003112", (Map<String, Object>) hashMap, false);
                 } else if (d.f(context)) {
@@ -169,33 +168,33 @@ public final class g {
 
     public static byte[] a(byte[] bArr, byte[] bArr2) {
         byte[] bArr3 = new byte[256];
-        for (int i = 0; i < 256; i++) {
-            bArr3[i] = (byte) i;
+        for (int i2 = 0; i2 < 256; i2++) {
+            bArr3[i2] = (byte) i2;
         }
         if (bArr2 == null || bArr2.length == 0) {
             bArr3 = null;
         } else {
-            int i2 = 0;
             int i3 = 0;
-            for (int i4 = 0; i4 < 256; i4++) {
-                i3 = ((bArr2[i2] & 255) + (bArr3[i4] & 255) + i3) & 255;
-                byte b2 = bArr3[i4];
-                bArr3[i4] = bArr3[i3];
-                bArr3[i3] = b2;
-                i2 = (i2 + 1) % bArr2.length;
+            int i4 = 0;
+            for (int i5 = 0; i5 < 256; i5++) {
+                i4 = ((bArr2[i3] & 255) + (bArr3[i5] & 255) + i4) & 255;
+                byte b2 = bArr3[i5];
+                bArr3[i5] = bArr3[i4];
+                bArr3[i4] = b2;
+                i3 = (i3 + 1) % bArr2.length;
             }
         }
         byte[] bArr4 = new byte[bArr.length];
-        int i5 = 0;
         int i6 = 0;
-        for (int i7 = 0; i7 < bArr.length; i7++) {
-            i5 = (i5 + 1) & 255;
-            i6 = ((bArr3[i5] & 255) + i6) & 255;
-            byte b3 = bArr3[i5];
-            bArr3[i5] = bArr3[i6];
-            bArr3[i6] = b3;
-            bArr4[i7] = (byte) (bArr3[((bArr3[i5] & 255) + (bArr3[i6] & 255)) & 255] ^ bArr[i7]);
-            bArr4[i7] = (byte) (bArr4[i7] ^ ExifInterface.START_CODE);
+        int i7 = 0;
+        for (int i8 = 0; i8 < bArr.length; i8++) {
+            i6 = (i6 + 1) & 255;
+            i7 = ((bArr3[i6] & 255) + i7) & 255;
+            byte b3 = bArr3[i6];
+            bArr3[i6] = bArr3[i7];
+            bArr3[i7] = b3;
+            bArr4[i8] = (byte) (bArr3[((bArr3[i6] & 255) + (bArr3[i7] & 255)) & 255] ^ bArr[i8]);
+            bArr4[i8] = (byte) (bArr4[i8] ^ 42);
         }
         return bArr4;
     }

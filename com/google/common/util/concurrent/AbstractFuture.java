@@ -1,8 +1,8 @@
 package com.google.common.util.concurrent;
 
-import d.h.c.a.n;
-import d.h.c.a.s;
-import d.h.c.i.a.l;
+import d.g.c.a.n;
+import d.g.c.a.s;
+import d.g.c.i.a.l;
 import java.lang.reflect.Field;
 import java.security.AccessController;
 import java.security.PrivilegedActionException;
@@ -21,28 +21,30 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import sun.misc.Unsafe;
 /* loaded from: classes6.dex */
-public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
+public abstract class AbstractFuture<V> extends d.g.c.i.a.u.a implements l<V> {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f31251h = Boolean.parseBoolean(System.getProperty("guava.concurrent.generate_cancellation_cause", "false"));
-    public static final Logger i = Logger.getLogger(AbstractFuture.class.getName());
+    public static final boolean f32230h = Boolean.parseBoolean(System.getProperty("guava.concurrent.generate_cancellation_cause", "false"));
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final Logger f32231i = Logger.getLogger(AbstractFuture.class.getName());
     public static final b j;
     public static final Object k;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile Object f31252e;
+    public volatile Object f32232e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile d f31253f;
+    public volatile d f32233f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile k f31254g;
+    public volatile k f32234g;
 
     /* loaded from: classes6.dex */
     public static final class Failure {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final Failure f31255b = new Failure(new Throwable("Failure occurred while trying to finish a future.") { // from class: com.google.common.util.concurrent.AbstractFuture.Failure.1
+        public static final Failure f32235b = new Failure(new Throwable("Failure occurred while trying to finish a future.") { // from class: com.google.common.util.concurrent.AbstractFuture.Failure.1
             @Override // java.lang.Throwable
             public synchronized Throwable fillInStackTrace() {
                 return this;
@@ -50,11 +52,11 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
         });
 
         /* renamed from: a  reason: collision with root package name */
-        public final Throwable f31256a;
+        public final Throwable f32236a;
 
         public Failure(Throwable th) {
             n.p(th);
-            this.f31256a = th;
+            this.f32236a = th;
         }
     }
 
@@ -78,30 +80,30 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
     public static final class c {
 
         /* renamed from: c  reason: collision with root package name */
-        public static final c f31257c;
+        public static final c f32237c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final c f31258d;
+        public static final c f32238d;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f31259a;
+        public final boolean f32239a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Throwable f31260b;
+        public final Throwable f32240b;
 
         static {
-            if (AbstractFuture.f31251h) {
-                f31258d = null;
-                f31257c = null;
+            if (AbstractFuture.f32230h) {
+                f32238d = null;
+                f32237c = null;
                 return;
             }
-            f31258d = new c(false, null);
-            f31257c = new c(true, null);
+            f32238d = new c(false, null);
+            f32237c = new c(true, null);
         }
 
         public c(boolean z, Throwable th) {
-            this.f31259a = z;
-            this.f31260b = th;
+            this.f32239a = z;
+            this.f32240b = th;
         }
     }
 
@@ -109,20 +111,20 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
     public static final class d {
 
         /* renamed from: d  reason: collision with root package name */
-        public static final d f31261d = new d(null, null);
+        public static final d f32241d = new d(null, null);
 
         /* renamed from: a  reason: collision with root package name */
-        public final Runnable f31262a;
+        public final Runnable f32242a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Executor f31263b;
+        public final Executor f32243b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d f31264c;
+        public d f32244c;
 
         public d(Runnable runnable, Executor executor) {
-            this.f31262a = runnable;
-            this.f31263b = executor;
+            this.f32242a = runnable;
+            this.f32243b = executor;
         }
     }
 
@@ -130,52 +132,52 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
     public static final class e extends b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final AtomicReferenceFieldUpdater<k, Thread> f31265a;
+        public final AtomicReferenceFieldUpdater<k, Thread> f32245a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final AtomicReferenceFieldUpdater<k, k> f31266b;
+        public final AtomicReferenceFieldUpdater<k, k> f32246b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final AtomicReferenceFieldUpdater<AbstractFuture, k> f31267c;
+        public final AtomicReferenceFieldUpdater<AbstractFuture, k> f32247c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final AtomicReferenceFieldUpdater<AbstractFuture, d> f31268d;
+        public final AtomicReferenceFieldUpdater<AbstractFuture, d> f32248d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicReferenceFieldUpdater<AbstractFuture, Object> f31269e;
+        public final AtomicReferenceFieldUpdater<AbstractFuture, Object> f32249e;
 
         public e(AtomicReferenceFieldUpdater<k, Thread> atomicReferenceFieldUpdater, AtomicReferenceFieldUpdater<k, k> atomicReferenceFieldUpdater2, AtomicReferenceFieldUpdater<AbstractFuture, k> atomicReferenceFieldUpdater3, AtomicReferenceFieldUpdater<AbstractFuture, d> atomicReferenceFieldUpdater4, AtomicReferenceFieldUpdater<AbstractFuture, Object> atomicReferenceFieldUpdater5) {
             super();
-            this.f31265a = atomicReferenceFieldUpdater;
-            this.f31266b = atomicReferenceFieldUpdater2;
-            this.f31267c = atomicReferenceFieldUpdater3;
-            this.f31268d = atomicReferenceFieldUpdater4;
-            this.f31269e = atomicReferenceFieldUpdater5;
+            this.f32245a = atomicReferenceFieldUpdater;
+            this.f32246b = atomicReferenceFieldUpdater2;
+            this.f32247c = atomicReferenceFieldUpdater3;
+            this.f32248d = atomicReferenceFieldUpdater4;
+            this.f32249e = atomicReferenceFieldUpdater5;
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture.b
         public boolean a(AbstractFuture<?> abstractFuture, d dVar, d dVar2) {
-            return this.f31268d.compareAndSet(abstractFuture, dVar, dVar2);
+            return this.f32248d.compareAndSet(abstractFuture, dVar, dVar2);
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture.b
         public boolean b(AbstractFuture<?> abstractFuture, Object obj, Object obj2) {
-            return this.f31269e.compareAndSet(abstractFuture, obj, obj2);
+            return this.f32249e.compareAndSet(abstractFuture, obj, obj2);
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture.b
         public boolean c(AbstractFuture<?> abstractFuture, k kVar, k kVar2) {
-            return this.f31267c.compareAndSet(abstractFuture, kVar, kVar2);
+            return this.f32247c.compareAndSet(abstractFuture, kVar, kVar2);
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture.b
         public void d(k kVar, k kVar2) {
-            this.f31266b.lazySet(kVar, kVar2);
+            this.f32246b.lazySet(kVar, kVar2);
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture.b
         public void e(k kVar, Thread thread) {
-            this.f31265a.lazySet(kVar, thread);
+            this.f32245a.lazySet(kVar, thread);
         }
     }
 
@@ -183,23 +185,23 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
     public static final class f<V> implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final AbstractFuture<V> f31270e;
+        public final AbstractFuture<V> f32250e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final l<? extends V> f31271f;
+        public final l<? extends V> f32251f;
 
         public f(AbstractFuture<V> abstractFuture, l<? extends V> lVar) {
-            this.f31270e = abstractFuture;
-            this.f31271f = lVar;
+            this.f32250e = abstractFuture;
+            this.f32251f = lVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f31270e.f31252e != this) {
+            if (this.f32250e.f32232e != this) {
                 return;
             }
-            if (AbstractFuture.j.b(this.f31270e, this, AbstractFuture.t(this.f31271f))) {
-                AbstractFuture.q(this.f31270e);
+            if (AbstractFuture.j.b(this.f32250e, this, AbstractFuture.t(this.f32251f))) {
+                AbstractFuture.q(this.f32250e);
             }
         }
     }
@@ -213,8 +215,8 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
         @Override // com.google.common.util.concurrent.AbstractFuture.b
         public boolean a(AbstractFuture<?> abstractFuture, d dVar, d dVar2) {
             synchronized (abstractFuture) {
-                if (abstractFuture.f31253f == dVar) {
-                    abstractFuture.f31253f = dVar2;
+                if (abstractFuture.f32233f == dVar) {
+                    abstractFuture.f32233f = dVar2;
                     return true;
                 }
                 return false;
@@ -224,8 +226,8 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
         @Override // com.google.common.util.concurrent.AbstractFuture.b
         public boolean b(AbstractFuture<?> abstractFuture, Object obj, Object obj2) {
             synchronized (abstractFuture) {
-                if (abstractFuture.f31252e == obj) {
-                    abstractFuture.f31252e = obj2;
+                if (abstractFuture.f32232e == obj) {
+                    abstractFuture.f32232e = obj2;
                     return true;
                 }
                 return false;
@@ -235,8 +237,8 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
         @Override // com.google.common.util.concurrent.AbstractFuture.b
         public boolean c(AbstractFuture<?> abstractFuture, k kVar, k kVar2) {
             synchronized (abstractFuture) {
-                if (abstractFuture.f31254g == kVar) {
-                    abstractFuture.f31254g = kVar2;
+                if (abstractFuture.f32234g == kVar) {
+                    abstractFuture.f32234g = kVar2;
                     return true;
                 }
                 return false;
@@ -245,12 +247,12 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
 
         @Override // com.google.common.util.concurrent.AbstractFuture.b
         public void d(k kVar, k kVar2) {
-            kVar.f31280b = kVar2;
+            kVar.f32260b = kVar2;
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture.b
         public void e(k kVar, Thread thread) {
-            kVar.f31279a = thread;
+            kVar.f32259a = thread;
         }
     }
 
@@ -260,7 +262,7 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
 
     /* loaded from: classes6.dex */
     public static abstract class i<V> extends AbstractFuture<V> implements h<V> {
-        @Override // com.google.common.util.concurrent.AbstractFuture, d.h.c.i.a.l
+        @Override // com.google.common.util.concurrent.AbstractFuture, d.g.c.i.a.l
         public final void a(Runnable runnable, Executor executor) {
             super.a(runnable, executor);
         }
@@ -295,22 +297,22 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
     public static final class j extends b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final Unsafe f31272a;
+        public static final Unsafe f32252a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final long f31273b;
+        public static final long f32253b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final long f31274c;
+        public static final long f32254c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final long f31275d;
+        public static final long f32255d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final long f31276e;
+        public static final long f32256e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final long f31277f;
+        public static final long f32257f;
 
         /* loaded from: classes6.dex */
         public static class a implements PrivilegedExceptionAction<Unsafe> {
@@ -342,12 +344,12 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
                 unsafe = (Unsafe) AccessController.doPrivileged(new a());
             }
             try {
-                f31274c = unsafe.objectFieldOffset(AbstractFuture.class.getDeclaredField("g"));
-                f31273b = unsafe.objectFieldOffset(AbstractFuture.class.getDeclaredField("f"));
-                f31275d = unsafe.objectFieldOffset(AbstractFuture.class.getDeclaredField("e"));
-                f31276e = unsafe.objectFieldOffset(k.class.getDeclaredField("a"));
-                f31277f = unsafe.objectFieldOffset(k.class.getDeclaredField("b"));
-                f31272a = unsafe;
+                f32254c = unsafe.objectFieldOffset(AbstractFuture.class.getDeclaredField("g"));
+                f32253b = unsafe.objectFieldOffset(AbstractFuture.class.getDeclaredField("f"));
+                f32255d = unsafe.objectFieldOffset(AbstractFuture.class.getDeclaredField("e"));
+                f32256e = unsafe.objectFieldOffset(k.class.getDeclaredField("a"));
+                f32257f = unsafe.objectFieldOffset(k.class.getDeclaredField("b"));
+                f32252a = unsafe;
             } catch (Exception e3) {
                 s.e(e3);
                 throw new RuntimeException(e3);
@@ -360,27 +362,27 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
 
         @Override // com.google.common.util.concurrent.AbstractFuture.b
         public boolean a(AbstractFuture<?> abstractFuture, d dVar, d dVar2) {
-            return f31272a.compareAndSwapObject(abstractFuture, f31273b, dVar, dVar2);
+            return f32252a.compareAndSwapObject(abstractFuture, f32253b, dVar, dVar2);
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture.b
         public boolean b(AbstractFuture<?> abstractFuture, Object obj, Object obj2) {
-            return f31272a.compareAndSwapObject(abstractFuture, f31275d, obj, obj2);
+            return f32252a.compareAndSwapObject(abstractFuture, f32255d, obj, obj2);
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture.b
         public boolean c(AbstractFuture<?> abstractFuture, k kVar, k kVar2) {
-            return f31272a.compareAndSwapObject(abstractFuture, f31274c, kVar, kVar2);
+            return f32252a.compareAndSwapObject(abstractFuture, f32254c, kVar, kVar2);
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture.b
         public void d(k kVar, k kVar2) {
-            f31272a.putObject(kVar, f31277f, kVar2);
+            f32252a.putObject(kVar, f32257f, kVar2);
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture.b
         public void e(k kVar, Thread thread) {
-            f31272a.putObject(kVar, f31276e, thread);
+            f32252a.putObject(kVar, f32256e, thread);
         }
     }
 
@@ -388,13 +390,13 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
     public static final class k {
 
         /* renamed from: c  reason: collision with root package name */
-        public static final k f31278c = new k(false);
+        public static final k f32258c = new k(false);
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile Thread f31279a;
+        public volatile Thread f32259a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile k f31280b;
+        public volatile k f32260b;
 
         public k(boolean z) {
         }
@@ -404,9 +406,9 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
         }
 
         public void b() {
-            Thread thread = this.f31279a;
+            Thread thread = this.f32259a;
             if (thread != null) {
-                this.f31279a = null;
+                this.f32259a = null;
                 LockSupport.unpark(thread);
             }
         }
@@ -433,8 +435,8 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
         }
         j = gVar;
         if (th != null) {
-            i.log(Level.SEVERE, "UnsafeAtomicHelper is broken!", th);
-            i.log(Level.SEVERE, "SafeAtomicHelper is broken!", th);
+            f32231i.log(Level.SEVERE, "UnsafeAtomicHelper is broken!", th);
+            f32231i.log(Level.SEVERE, "SafeAtomicHelper is broken!", th);
         }
         k = new Object();
     }
@@ -458,20 +460,20 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
             abstractFuture.n();
             d p = abstractFuture.p(dVar);
             while (p != null) {
-                dVar = p.f31264c;
-                Runnable runnable = p.f31262a;
+                dVar = p.f32244c;
+                Runnable runnable = p.f32242a;
                 if (runnable instanceof f) {
                     f fVar = (f) runnable;
-                    abstractFuture = fVar.f31270e;
-                    if (abstractFuture.f31252e == fVar) {
-                        if (j.b(abstractFuture, fVar, t(fVar.f31271f))) {
+                    abstractFuture = fVar.f32250e;
+                    if (abstractFuture.f32232e == fVar) {
+                        if (j.b(abstractFuture, fVar, t(fVar.f32251f))) {
                             break;
                         }
                     } else {
                         continue;
                     }
                 } else {
-                    r(runnable, p.f31263b);
+                    r(runnable, p.f32243b);
                 }
                 p = dVar;
             }
@@ -483,7 +485,7 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
         try {
             executor.execute(runnable);
         } catch (RuntimeException e2) {
-            Logger logger = i;
+            Logger logger = f32231i;
             Level level = Level.SEVERE;
             logger.log(level, "RuntimeException while executing runnable " + runnable + " with executor " + executor, (Throwable) e2);
         }
@@ -492,18 +494,18 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
     public static Object t(l<?> lVar) {
         Throwable a2;
         if (lVar instanceof h) {
-            Object obj = ((AbstractFuture) lVar).f31252e;
+            Object obj = ((AbstractFuture) lVar).f32232e;
             if (obj instanceof c) {
                 c cVar = (c) obj;
-                return cVar.f31259a ? cVar.f31260b != null ? new c(false, cVar.f31260b) : c.f31258d : obj;
+                return cVar.f32239a ? cVar.f32240b != null ? new c(false, cVar.f32240b) : c.f32238d : obj;
             }
             return obj;
-        } else if ((lVar instanceof d.h.c.i.a.u.a) && (a2 = d.h.c.i.a.u.b.a((d.h.c.i.a.u.a) lVar)) != null) {
+        } else if ((lVar instanceof d.g.c.i.a.u.a) && (a2 = d.g.c.i.a.u.b.a((d.g.c.i.a.u.a) lVar)) != null) {
             return new Failure(a2);
         } else {
             boolean isCancelled = lVar.isCancelled();
-            if ((!f31251h) & isCancelled) {
-                return c.f31258d;
+            if ((!f32230h) & isCancelled) {
+                return c.f32238d;
             }
             try {
                 Object u = u(lVar);
@@ -572,7 +574,7 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
     public boolean C(l<? extends V> lVar) {
         Failure failure;
         n.p(lVar);
-        Object obj = this.f31252e;
+        Object obj = this.f32232e;
         if (obj == null) {
             if (lVar.isDone()) {
                 if (j.b(this, null, t(lVar))) {
@@ -589,16 +591,16 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
                     try {
                         failure = new Failure(th);
                     } catch (Throwable unused) {
-                        failure = Failure.f31255b;
+                        failure = Failure.f32235b;
                     }
                     j.b(this, fVar, failure);
                 }
                 return true;
             }
-            obj = this.f31252e;
+            obj = this.f32232e;
         }
         if (obj instanceof c) {
-            lVar.cancel(((c) obj).f31259a);
+            lVar.cancel(((c) obj).f32239a);
         }
         return false;
     }
@@ -608,35 +610,35 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
     }
 
     public final boolean E() {
-        Object obj = this.f31252e;
-        return (obj instanceof c) && ((c) obj).f31259a;
+        Object obj = this.f32232e;
+        return (obj instanceof c) && ((c) obj).f32239a;
     }
 
-    @Override // d.h.c.i.a.l
+    @Override // d.g.c.i.a.l
     public void a(Runnable runnable, Executor executor) {
         d dVar;
         n.q(runnable, "Runnable was null.");
         n.q(executor, "Executor was null.");
-        if (!isDone() && (dVar = this.f31253f) != d.f31261d) {
+        if (!isDone() && (dVar = this.f32233f) != d.f32241d) {
             d dVar2 = new d(runnable, executor);
             do {
-                dVar2.f31264c = dVar;
+                dVar2.f32244c = dVar;
                 if (j.a(this, dVar, dVar2)) {
                     return;
                 }
-                dVar = this.f31253f;
-            } while (dVar != d.f31261d);
+                dVar = this.f32233f;
+            } while (dVar != d.f32241d);
             r(runnable, executor);
         }
         r(runnable, executor);
     }
 
-    @Override // d.h.c.i.a.u.a
+    @Override // d.g.c.i.a.u.a
     public final Throwable b() {
         if (this instanceof h) {
-            Object obj = this.f31252e;
+            Object obj = this.f32232e;
             if (obj instanceof Failure) {
-                return ((Failure) obj).f31256a;
+                return ((Failure) obj).f32236a;
             }
             return null;
         }
@@ -645,11 +647,11 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
 
     @Override // java.util.concurrent.Future
     public boolean cancel(boolean z) {
-        Object obj = this.f31252e;
+        Object obj = this.f32232e;
         if (!(obj == null) && !(obj instanceof f)) {
             return false;
         }
-        c cVar = f31251h ? new c(z, new CancellationException("Future.cancel() was called.")) : z ? c.f31257c : c.f31258d;
+        c cVar = f32230h ? new c(z, new CancellationException("Future.cancel() was called.")) : z ? c.f32237c : c.f32238d;
         boolean z2 = false;
         AbstractFuture<V> abstractFuture = this;
         while (true) {
@@ -661,10 +663,10 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
                 if (!(obj instanceof f)) {
                     return true;
                 }
-                l<? extends V> lVar = ((f) obj).f31271f;
+                l<? extends V> lVar = ((f) obj).f32251f;
                 if (lVar instanceof h) {
                     abstractFuture = (AbstractFuture) lVar;
-                    obj = abstractFuture.f31252e;
+                    obj = abstractFuture.f32232e;
                     if (!(obj == null) && !(obj instanceof f)) {
                         return true;
                     }
@@ -674,7 +676,7 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
                     return true;
                 }
             } else {
-                obj = abstractFuture.f31252e;
+                obj = abstractFuture.f32232e;
                 if (!(obj instanceof f)) {
                     return z2;
                 }
@@ -686,14 +688,14 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
     public V get(long j2, TimeUnit timeUnit) throws InterruptedException, TimeoutException, ExecutionException {
         long nanos = timeUnit.toNanos(j2);
         if (!Thread.interrupted()) {
-            Object obj = this.f31252e;
+            Object obj = this.f32232e;
             if ((obj != null) & (!(obj instanceof f))) {
                 return s(obj);
             }
             long nanoTime = nanos > 0 ? System.nanoTime() + nanos : 0L;
             if (nanos >= 1000) {
-                k kVar = this.f31254g;
-                if (kVar != k.f31278c) {
+                k kVar = this.f32234g;
+                if (kVar != k.f32258c) {
                     k kVar2 = new k();
                     do {
                         kVar2.a(kVar);
@@ -701,7 +703,7 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
                             do {
                                 LockSupport.parkNanos(this, nanos);
                                 if (!Thread.interrupted()) {
-                                    Object obj2 = this.f31252e;
+                                    Object obj2 = this.f32232e;
                                     if ((obj2 != null) & (!(obj2 instanceof f))) {
                                         return s(obj2);
                                     }
@@ -713,15 +715,15 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
                             } while (nanos >= 1000);
                             z(kVar2);
                         } else {
-                            kVar = this.f31254g;
+                            kVar = this.f32234g;
                         }
-                    } while (kVar != k.f31278c);
-                    return s(this.f31252e);
+                    } while (kVar != k.f32258c);
+                    return s(this.f32232e);
                 }
-                return s(this.f31252e);
+                return s(this.f32232e);
             }
             while (nanos > 0) {
-                Object obj3 = this.f31252e;
+                Object obj3 = this.f32232e;
                 if ((obj3 != null) & (!(obj3 instanceof f))) {
                     return s(obj3);
                 }
@@ -763,12 +765,12 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
 
     @Override // java.util.concurrent.Future
     public boolean isCancelled() {
-        return this.f31252e instanceof c;
+        return this.f32232e instanceof c;
     }
 
     @Override // java.util.concurrent.Future
     public boolean isDone() {
-        Object obj = this.f31252e;
+        Object obj = this.f32232e;
         return (!(obj instanceof f)) & (obj != null);
     }
 
@@ -797,13 +799,13 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
     public final d p(d dVar) {
         d dVar2;
         do {
-            dVar2 = this.f31253f;
-        } while (!j.a(this, dVar2, d.f31261d));
+            dVar2 = this.f32233f;
+        } while (!j.a(this, dVar2, d.f32241d));
         d dVar3 = dVar;
         d dVar4 = dVar2;
         while (dVar4 != null) {
-            d dVar5 = dVar4.f31264c;
-            dVar4.f31264c = dVar3;
+            d dVar5 = dVar4.f32244c;
+            dVar4.f32244c = dVar3;
             dVar3 = dVar4;
             dVar4 = dVar5;
         }
@@ -820,9 +822,9 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
                 }
                 return obj;
             }
-            throw new ExecutionException(((Failure) obj).f31256a);
+            throw new ExecutionException(((Failure) obj).f32236a);
         }
-        throw o("Task was cancelled.", ((c) obj).f31260b);
+        throw o("Task was cancelled.", ((c) obj).f32240b);
     }
 
     public String toString() {
@@ -864,9 +866,9 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
     }
 
     public String x() {
-        Object obj = this.f31252e;
+        Object obj = this.f32232e;
         if (obj instanceof f) {
-            return "setFuture=[" + D(((f) obj).f31271f) + "]";
+            return "setFuture=[" + D(((f) obj).f32251f) + "]";
         } else if (this instanceof ScheduledFuture) {
             return "remaining delay=[" + ((ScheduledFuture) this).getDelay(TimeUnit.MILLISECONDS) + " ms]";
         } else {
@@ -877,29 +879,29 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
     public final void y() {
         k kVar;
         do {
-            kVar = this.f31254g;
-        } while (!j.c(this, kVar, k.f31278c));
+            kVar = this.f32234g;
+        } while (!j.c(this, kVar, k.f32258c));
         while (kVar != null) {
             kVar.b();
-            kVar = kVar.f31280b;
+            kVar = kVar.f32260b;
         }
     }
 
     public final void z(k kVar) {
-        kVar.f31279a = null;
+        kVar.f32259a = null;
         while (true) {
-            k kVar2 = this.f31254g;
-            if (kVar2 == k.f31278c) {
+            k kVar2 = this.f32234g;
+            if (kVar2 == k.f32258c) {
                 return;
             }
             k kVar3 = null;
             while (kVar2 != null) {
-                k kVar4 = kVar2.f31280b;
-                if (kVar2.f31279a != null) {
+                k kVar4 = kVar2.f32260b;
+                if (kVar2.f32259a != null) {
                     kVar3 = kVar2;
                 } else if (kVar3 != null) {
-                    kVar3.f31280b = kVar4;
-                    if (kVar3.f31279a == null) {
+                    kVar3.f32260b = kVar4;
+                    if (kVar3.f32259a == null) {
                         break;
                     }
                 } else if (!j.c(this, kVar2, kVar4)) {
@@ -915,12 +917,12 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
     public V get() throws InterruptedException, ExecutionException {
         Object obj;
         if (!Thread.interrupted()) {
-            Object obj2 = this.f31252e;
+            Object obj2 = this.f32232e;
             if ((obj2 != null) & (!(obj2 instanceof f))) {
                 return s(obj2);
             }
-            k kVar = this.f31254g;
-            if (kVar != k.f31278c) {
+            k kVar = this.f32234g;
+            if (kVar != k.f32258c) {
                 k kVar2 = new k();
                 do {
                     kVar2.a(kVar);
@@ -928,7 +930,7 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
                         do {
                             LockSupport.park(this);
                             if (!Thread.interrupted()) {
-                                obj = this.f31252e;
+                                obj = this.f32232e;
                             } else {
                                 z(kVar2);
                                 throw new InterruptedException();
@@ -936,11 +938,11 @@ public abstract class AbstractFuture<V> extends d.h.c.i.a.u.a implements l<V> {
                         } while (!((obj != null) & (!(obj instanceof f))));
                         return s(obj);
                     }
-                    kVar = this.f31254g;
-                } while (kVar != k.f31278c);
-                return s(this.f31252e);
+                    kVar = this.f32234g;
+                } while (kVar != k.f32258c);
+                return s(this.f32232e);
             }
-            return s(this.f31252e);
+            return s(this.f32232e);
         }
         throw new InterruptedException();
     }

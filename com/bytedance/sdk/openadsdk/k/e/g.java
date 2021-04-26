@@ -8,38 +8,38 @@ import java.util.List;
 public class g extends a {
 
     /* renamed from: c  reason: collision with root package name */
-    public d.c.c.b.d.b f29341c;
+    public d.b.c.b.d.b f30243c;
 
-    public g(d.c.c.b.d.b bVar, f fVar) {
-        this.f29341c = bVar;
-        this.f29332a = new ArrayList();
-        for (int i = 0; i < this.f29341c.c().size(); i++) {
-            d.c.c.b.d.a aVar = this.f29341c.c().get(i);
+    public g(d.b.c.b.d.b bVar, f fVar) {
+        this.f30243c = bVar;
+        this.f30234a = new ArrayList();
+        for (int i2 = 0; i2 < this.f30243c.c().size(); i2++) {
+            d.b.c.b.d.a aVar = this.f30243c.c().get(i2);
             if (aVar != null) {
-                this.f29332a.add(new i.b(aVar.a(), aVar.b()));
+                this.f30234a.add(new i.b(aVar.a(), aVar.b()));
             }
         }
-        this.f29333b = fVar;
+        this.f30235b = fVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.k.e.a
     public int a() {
-        return this.f29341c.d();
+        return this.f30243c.d();
     }
 
     @Override // com.bytedance.sdk.openadsdk.k.e.a
     public boolean b() {
-        return this.f29341c.d() >= 200 && this.f29341c.d() < 300;
+        return this.f30243c.d() >= 200 && this.f30243c.d() < 300;
     }
 
     @Override // com.bytedance.sdk.openadsdk.k.e.a
     public List<i.b> c() {
-        return this.f29332a;
+        return this.f30234a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.k.e.a
     public InputStream d() {
-        return this.f29341c.a();
+        return this.f30243c.a();
     }
 
     @Override // com.bytedance.sdk.openadsdk.k.e.a
@@ -49,11 +49,11 @@ public class g extends a {
 
     @Override // com.bytedance.sdk.openadsdk.k.e.a
     public String f() {
-        return a(this.f29341c.d());
+        return a(this.f30243c.d());
     }
 
     @Override // com.bytedance.sdk.openadsdk.k.e.a
     public String a(String str, String str2) {
-        return a(str) != null ? a(str).f29410b : str2;
+        return a(str) != null ? a(str).f30313b : str2;
     }
 }

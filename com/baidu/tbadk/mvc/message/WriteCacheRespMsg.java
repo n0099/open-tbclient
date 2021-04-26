@@ -5,8 +5,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 public class WriteCacheRespMsg<T> extends CustomResponsedMessage<T> {
     public boolean isSuccess;
 
-    public WriteCacheRespMsg(int i) {
-        super(i);
+    public WriteCacheRespMsg(int i2) {
+        super(i2);
         this.isSuccess = false;
     }
 

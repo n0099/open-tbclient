@@ -17,8 +17,8 @@ public final class DefaultFloatViewAnimator implements FloatViewAnimator {
     private final int initValue(View view, WindowManager.LayoutParams layoutParams, WindowManager windowManager) {
         Rect rect = new Rect();
         windowManager.getDefaultDisplay().getRectSize(rect);
-        int i = layoutParams.x;
-        return i < rect.right - (view.getRight() + i) ? -view.getRight() : rect.right;
+        int i2 = layoutParams.x;
+        return i2 < rect.right - (view.getRight() + i2) ? -view.getRight() : rect.right;
     }
 
     @Override // com.baidu.searchbox.floating.animator.FloatViewAnimator

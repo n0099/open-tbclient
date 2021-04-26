@@ -10,6 +10,16 @@ import org.json.JSONObject;
 @Keep
 /* loaded from: classes6.dex */
 public class SdkConfig {
+    public static final String DEF_NIGHT_THEME_STYLE_FILE_NAME = "ks_adsdk_night_styles.xml";
+    @KsAdSdkApi
+    @Keep
+    public static final int SCREEN_ORIENTATION_LANDSCAPE = 2;
+    @KsAdSdkApi
+    @Keep
+    public static final int SCREEN_ORIENTATION_PORTRAIT = 1;
+    @KsAdSdkApi
+    @Keep
+    public static final int SCREEN_ORIENTATION_UNKNOWN = 0;
     @Nullable
     @KsAdSdkApi
     @Keep
@@ -41,6 +51,10 @@ public class SdkConfig {
     @Nullable
     @KsAdSdkApi
     @Keep
+    public String nightThemeStyleAssetsFileName;
+    @Nullable
+    @KsAdSdkApi
+    @Keep
     public boolean showNotification;
 
     @KsAdSdkApi
@@ -60,6 +74,7 @@ public class SdkConfig {
         public boolean canReadMacAddress = true;
         public boolean canReadNearbyWifiList = true;
         public boolean canReadICCID = true;
+        public String nightThemeStyleAssetsFileName = SdkConfig.DEF_NIGHT_THEME_STYLE_FILE_NAME;
 
         @KsAdSdkApi
         @Keep
@@ -125,6 +140,13 @@ public class SdkConfig {
 
         @KsAdSdkApi
         @Keep
+        public Builder nightThemeStyleAssetsFileName(@Nullable String str) {
+            this.nightThemeStyleAssetsFileName = str;
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
         public Builder showNotification(boolean z) {
             this.showNotification = z;
             return this;
@@ -143,6 +165,7 @@ public class SdkConfig {
         this.canReadMacAddress = builder.canReadMacAddress;
         this.canReadNearbyWifiList = builder.canReadNearbyWifiList;
         this.canReadICCID = builder.canReadICCID;
+        this.nightThemeStyleAssetsFileName = builder.nightThemeStyleAssetsFileName;
     }
 
     public static SdkConfig create(String str) {
@@ -158,6 +181,7 @@ public class SdkConfig {
             builder.canReadMacAddress = jSONObject.optBoolean("canReadMacAddress");
             builder.canReadNearbyWifiList = jSONObject.optBoolean("canReadNearbyWifiList");
             builder.canReadICCID = jSONObject.optBoolean("canReadICCID");
+            builder.nightThemeStyleAssetsFileName = jSONObject.optString("nightThemeStyleAssetsFileName");
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -194,6 +218,7 @@ public class SdkConfig {
             jSONObject.put("canReadMacAddress", this.canReadMacAddress);
             jSONObject.put("canReadNearbyWifiList", this.canReadNearbyWifiList);
             jSONObject.put("canReadICCID", this.canReadICCID);
+            jSONObject.put("nightThemeStyleAssetsFileName", this.nightThemeStyleAssetsFileName);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

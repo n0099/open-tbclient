@@ -49,12 +49,12 @@ public interface IRemoteServiceCallback extends IInterface {
             }
 
             @Override // com.baidu.wallet.remotepay.IRemoteServiceCallback
-            public void onPayEnd(int i, String str) throws RemoteException {
+            public void onPayEnd(int i2, String str) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    obtain.writeInt(i);
+                    obtain.writeInt(i2);
                     obtain.writeString(str);
                     this.mRemote.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
@@ -65,14 +65,14 @@ public interface IRemoteServiceCallback extends IInterface {
             }
 
             @Override // com.baidu.wallet.remotepay.IRemoteServiceCallback
-            public void startActivity(String str, String str2, int i, Bundle bundle) throws RemoteException {
+            public void startActivity(String str, String str2, int i2, Bundle bundle) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    obtain.writeInt(i);
+                    obtain.writeInt(i2);
                     if (bundle != null) {
                         obtain.writeInt(1);
                         bundle.writeToParcel(obtain, 0);
@@ -109,20 +109,20 @@ public interface IRemoteServiceCallback extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            if (i == 1) {
+        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+            if (i2 == 1) {
                 parcel.enforceInterface(DESCRIPTOR);
                 startActivity(parcel.readString(), parcel.readString(), parcel.readInt(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
                 parcel2.writeNoException();
                 return true;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 parcel.enforceInterface(DESCRIPTOR);
                 onPayEnd(parcel.readInt(), parcel.readString());
                 parcel2.writeNoException();
                 return true;
-            } else if (i != 3) {
-                if (i != 1598968902) {
-                    return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i2 != 3) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
                 parcel2.writeString(DESCRIPTOR);
                 return true;
@@ -138,7 +138,7 @@ public interface IRemoteServiceCallback extends IInterface {
 
     boolean isHideLoadingDialog() throws RemoteException;
 
-    void onPayEnd(int i, String str) throws RemoteException;
+    void onPayEnd(int i2, String str) throws RemoteException;
 
-    void startActivity(String str, String str2, int i, Bundle bundle) throws RemoteException;
+    void startActivity(String str, String str2, int i2, Bundle bundle) throws RemoteException;
 }

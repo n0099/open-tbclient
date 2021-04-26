@@ -121,12 +121,12 @@ public class RetrieveReportRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
         LogUtils.d(TAG, "任务上传失败");
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         JSONObject optJSONObject;
         String str = new String(bArr);
         LogUtils.d(TAG, "retrieve-->onSuccess :" + str);

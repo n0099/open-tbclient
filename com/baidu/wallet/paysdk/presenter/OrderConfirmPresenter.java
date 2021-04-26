@@ -316,18 +316,18 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
         }
         WalletFingerprint.getInstance(this.mActivity).startListening(new com.baidu.wallet.paysdk.fingerprint.b() { // from class: com.baidu.wallet.paysdk.presenter.OrderConfirmPresenter.1
             @Override // com.baidu.wallet.paysdk.fingerprint.b
-            public void a(int i, String str) {
-                if (i == 0) {
+            public void a(int i2, String str) {
+                if (i2 == 0) {
                     OrderConfirmPresenter.this.onFpCheckSucces(str);
-                } else if (i == -5) {
+                } else if (i2 == -5) {
                     OrderConfirmPresenter.this.onFpCheckError();
-                } else if (i == -3) {
+                } else if (i2 == -3) {
                     OrderConfirmPresenter.this.gotoPayUsePwd(true, str);
-                } else if (i == -1) {
+                } else if (i2 == -1) {
                     OrderConfirmPresenter.this.changePwdMode();
-                } else if (i == -4 || i == -6) {
+                } else if (i2 == -4 || i2 == -6) {
                     OrderConfirmPresenter.this.gotoPayUsePwd(true, str);
-                } else if (i == -2) {
+                } else if (i2 == -2) {
                     OrderConfirmPresenter.this.gotoPayUsePwd(true, "");
                 }
             }

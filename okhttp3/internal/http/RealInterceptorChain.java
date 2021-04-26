@@ -27,18 +27,18 @@ public final class RealInterceptorChain implements Interceptor.Chain {
     public final StreamAllocation streamAllocation;
     public final int writeTimeout;
 
-    public RealInterceptorChain(List<Interceptor> list, StreamAllocation streamAllocation, HttpCodec httpCodec, RealConnection realConnection, int i, Request request, Call call, EventListener eventListener, int i2, int i3, int i4) {
+    public RealInterceptorChain(List<Interceptor> list, StreamAllocation streamAllocation, HttpCodec httpCodec, RealConnection realConnection, int i2, Request request, Call call, EventListener eventListener, int i3, int i4, int i5) {
         this.interceptors = list;
         this.connection = realConnection;
         this.streamAllocation = streamAllocation;
         this.httpCodec = httpCodec;
-        this.index = i;
+        this.index = i2;
         this.request = request;
         this.call = call;
         this.eventListener = eventListener;
-        this.connectTimeout = i2;
-        this.readTimeout = i3;
-        this.writeTimeout = i4;
+        this.connectTimeout = i3;
+        this.readTimeout = i4;
+        this.writeTimeout = i5;
     }
 
     @Override // okhttp3.Interceptor.Chain
@@ -84,18 +84,18 @@ public final class RealInterceptorChain implements Interceptor.Chain {
     }
 
     @Override // okhttp3.Interceptor.Chain
-    public Interceptor.Chain withConnectTimeout(int i, TimeUnit timeUnit) {
-        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, Util.checkDuration("timeout", i, timeUnit), this.readTimeout, this.writeTimeout);
+    public Interceptor.Chain withConnectTimeout(int i2, TimeUnit timeUnit) {
+        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, Util.checkDuration("timeout", i2, timeUnit), this.readTimeout, this.writeTimeout);
     }
 
     @Override // okhttp3.Interceptor.Chain
-    public Interceptor.Chain withReadTimeout(int i, TimeUnit timeUnit) {
-        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, Util.checkDuration("timeout", i, timeUnit), this.writeTimeout);
+    public Interceptor.Chain withReadTimeout(int i2, TimeUnit timeUnit) {
+        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, Util.checkDuration("timeout", i2, timeUnit), this.writeTimeout);
     }
 
     @Override // okhttp3.Interceptor.Chain
-    public Interceptor.Chain withWriteTimeout(int i, TimeUnit timeUnit) {
-        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, this.readTimeout, Util.checkDuration("timeout", i, timeUnit));
+    public Interceptor.Chain withWriteTimeout(int i2, TimeUnit timeUnit) {
+        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, this.readTimeout, Util.checkDuration("timeout", i2, timeUnit));
     }
 
     @Override // okhttp3.Interceptor.Chain

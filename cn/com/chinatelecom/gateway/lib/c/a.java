@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1519a = "a";
+    public static final String f1540a = "a";
 
     public static String a(Context context, String str, String str2, Network network) {
         return c(context, d.a(context, str, network), str2, network);
@@ -33,10 +33,10 @@ public final class a {
     public String a(Context context, String str, String str2, String str3, Network network, String str4) {
         String b2 = b();
         String a2 = g.a(context, str, str2, str3, b2);
-        String str5 = f1519a;
+        String str5 = f1540a;
         CtAuth.info(str5, "request params : " + a2);
         String a3 = d.a(context, "https://id6.me/auth/preauth.do", a2, network, str4);
-        String str6 = f1519a;
+        String str6 = f1540a;
         CtAuth.info(str6, "request result : " + a3);
         String b3 = b(context, a3, b2, network);
         if (TextUtils.isEmpty(b3)) {
@@ -47,20 +47,20 @@ public final class a {
     }
 
     public static String a(Context context, List<String> list, String str, Network network) {
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            if (i >= list.size()) {
+            if (i2 >= list.size()) {
                 return null;
             }
             try {
-                String str2 = list.get(i);
-                if (!TextUtils.isEmpty(list.get(i)) && context != null && Build.VERSION.SDK_INT < 21) {
+                String str2 = list.get(i2);
+                if (!TextUtils.isEmpty(list.get(i2)) && context != null && Build.VERSION.SDK_INT < 21) {
                     ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                     if (connectivityManager.getNetworkInfo(5).getState().compareTo(NetworkInfo.State.CONNECTED) == 0) {
                         ((Boolean) Class.forName("android.net.ConnectivityManager").getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(connectivityManager, 5, Integer.valueOf(e.a(e.b(str2))))).booleanValue();
                     }
                 }
-                String a2 = a(context, list.get(i), str, network);
+                String a2 = a(context, list.get(i2), str, network);
                 try {
                     JSONObject jSONObject = TextUtils.isEmpty(a2) ? null : new JSONObject(a2);
                     if (jSONObject != null && jSONObject.getInt("result") == 0) {
@@ -72,7 +72,7 @@ public final class a {
             } catch (Exception e3) {
                 e3.printStackTrace();
             }
-            i++;
+            i2++;
         }
     }
 
@@ -80,7 +80,7 @@ public final class a {
         return cn.com.chinatelecom.gateway.lib.a.a.c(str, str2);
     }
 
-    private void a(final Context context, final String str, final i.a aVar, final int i, final PreCodeListener preCodeListener) {
+    private void a(final Context context, final String str, final i.a aVar, final int i2, final PreCodeListener preCodeListener) {
         final Future b2 = i.b(aVar);
         i.a(new Runnable() { // from class: cn.com.chinatelecom.gateway.lib.c.a.4
             /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, INVOKE, IF, INVOKE, IF] complete} */
@@ -91,7 +91,7 @@ public final class a {
                 String str2;
                 PreCodeListener preCodeListener2;
                 try {
-                    b2.get(i, TimeUnit.MILLISECONDS);
+                    b2.get(i2, TimeUnit.MILLISECONDS);
                     Future future2 = b2;
                     if (future2 == null || future2.isDone()) {
                     }
@@ -112,7 +112,7 @@ public final class a {
                             sb.append("submitOnTimeoutInterrupted other exception : ");
                             sb.append(th.getMessage());
                             a2.h(sb.toString());
-                            CtAuth.warn(a.f1519a, "submitOnTimeoutInterrupted other exception", th);
+                            CtAuth.warn(a.f1540a, "submitOnTimeoutInterrupted other exception", th);
                             context2 = context;
                             str2 = str;
                             preCodeListener2 = preCodeListener;
@@ -142,7 +142,7 @@ public final class a {
             String replace = uuid.replace("-", "");
             return replace.length() >= 16 ? replace.substring(0, 16) : replace;
         } catch (Throwable th) {
-            CtAuth.warn(f1519a, "generateAesKey error", th);
+            CtAuth.warn(f1540a, "generateAesKey error", th);
             return "";
         }
     }
@@ -169,8 +169,8 @@ public final class a {
                         ArrayList arrayList = new ArrayList();
                         JSONArray optJSONArray = jSONObject2.optJSONArray("urls");
                         if (optJSONArray != null) {
-                            for (int i = 0; i < optJSONArray.length(); i++) {
-                                arrayList.add(optJSONArray.getString(i));
+                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                                arrayList.add(optJSONArray.getString(i2));
                             }
                         }
                         if (arrayList.isEmpty()) {
@@ -183,7 +183,7 @@ public final class a {
             }
             return jSONObject.toString();
         } catch (Throwable th) {
-            CtAuth.warn(f1519a, "decryptResult error", th);
+            CtAuth.warn(f1540a, "decryptResult error", th);
             return null;
         }
     }
@@ -209,14 +209,14 @@ public final class a {
             }
             return jSONObject.toString();
         } catch (Throwable th) {
-            CtAuth.warn(f1519a, "decryptResult error", th);
+            CtAuth.warn(f1540a, "decryptResult error", th);
             return null;
         }
     }
 
     public void a(final Context context, final String str, final String str2, final String str3, final PreCodeListener preCodeListener) {
-        int i = CtAuth.mTotalTimeout;
-        int i2 = i <= 0 ? 10000 : i;
+        int i2 = CtAuth.mTotalTimeout;
+        int i3 = i2 <= 0 ? 10000 : i2;
         final String a2 = c.a();
         cn.com.chinatelecom.gateway.lib.b.e.a(a2).a(str).b(c.a(context)).d("preauth").c(f.f(context));
         a(context, a2, new i.a() { // from class: cn.com.chinatelecom.gateway.lib.c.a.1
@@ -228,12 +228,12 @@ public final class a {
                 }
                 CtAuth.postResultOnMainThread(context, a3, a2, preCodeListener);
             }
-        }, i2, preCodeListener);
+        }, i3, preCodeListener);
     }
 
     public void b(final Context context, final String str, final String str2, final String str3, final PreCodeListener preCodeListener) {
-        int i = CtAuth.mTotalTimeout;
-        int i2 = i <= 0 ? 10000 : i;
+        int i2 = CtAuth.mTotalTimeout;
+        int i3 = i2 <= 0 ? 10000 : i2;
         final String a2 = c.a();
         cn.com.chinatelecom.gateway.lib.b.e.a(a2).a(str).b(c.a(context)).d("preauth").c(f.f(context));
         if (Build.VERSION.SDK_INT < 21) {
@@ -254,54 +254,56 @@ public final class a {
                         CtAuth.postResultOnMainThread(context, a3, a2, preCodeListener);
                     }
                 }
-            }, i2, preCodeListener);
+            }, i3, preCodeListener);
             return;
         }
         e eVar = new e();
         eVar.a(context, new e.a() { // from class: cn.com.chinatelecom.gateway.lib.c.a.2
 
             /* renamed from: h  reason: collision with root package name */
-            public boolean f1534h = false;
-            public boolean i = false;
+            public boolean f1555h = false;
+
+            /* renamed from: i  reason: collision with root package name */
+            public boolean f1556i = false;
 
             @Override // cn.com.chinatelecom.gateway.lib.c.e.a
             public synchronized void a() {
-                this.f1534h = true;
-                if (!this.i) {
+                this.f1555h = true;
+                if (!this.f1556i) {
                     cn.com.chinatelecom.gateway.lib.b.e.a(a2, "{\"result\":80000,\"msg\":\"请求超时\"}", "");
                     CtAuth.postResultOnMainThread(context, "{\"result\":80000,\"msg\":\"请求超时\"}", a2, preCodeListener);
                 }
             }
 
             @Override // cn.com.chinatelecom.gateway.lib.c.e.a
-            public synchronized void a(int i3, String str4, long j) {
-                if (!this.f1534h && !this.i) {
-                    this.i = true;
+            public synchronized void a(int i4, String str4, long j) {
+                if (!this.f1555h && !this.f1556i) {
+                    this.f1556i = true;
                     cn.com.chinatelecom.gateway.lib.b.b a3 = cn.com.chinatelecom.gateway.lib.b.e.a(a2);
-                    a3.h("switchToMobile_L  onFail()  expendTime : " + j).a(i3).f(str4).b(j);
-                    CtAuth.postResultOnMainThread(context, h.a(i3, str4), a2, preCodeListener);
-                    String str5 = a.f1519a;
+                    a3.h("switchToMobile_L  onFail()  expendTime : " + j).a(i4).f(str4).b(j);
+                    CtAuth.postResultOnMainThread(context, h.a(i4, str4), a2, preCodeListener);
+                    String str5 = a.f1540a;
                     CtAuth.info(str5, "Switching network failed (L), errorMsg :" + str4 + " , expendTime ：" + j);
                 }
             }
 
             @Override // cn.com.chinatelecom.gateway.lib.c.e.a
             public void a(Network network, long j) {
-                String str4 = a.f1519a;
+                String str4 = a.f1540a;
                 CtAuth.info(str4, "Switching network successfully (L) , expendTime ：" + j);
-                if (this.f1534h || this.i) {
+                if (this.f1555h || this.f1556i) {
                     return;
                 }
                 cn.com.chinatelecom.gateway.lib.b.e.a(a2).b(j);
                 String a3 = a.this.a(context, str, str2, str3, network, a2);
                 synchronized (this) {
-                    if (!this.f1534h && !this.i) {
-                        this.i = true;
+                    if (!this.f1555h && !this.f1556i) {
+                        this.f1556i = true;
                         CtAuth.postResultOnMainThread(context, a3, a2, preCodeListener);
                     }
                 }
             }
         });
-        eVar.a(i2);
+        eVar.a(i3);
     }
 }

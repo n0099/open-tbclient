@@ -8,30 +8,30 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.faceshop.FaceBuyQueryData;
-import d.b.c.e.p.k;
+import d.a.c.e.p.k;
 /* loaded from: classes4.dex */
 public class FaceBuyModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f15299e;
+    public c f15441e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f15300f;
+    public b f15442f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15301g;
+    public int f15443g;
 
     /* loaded from: classes4.dex */
     public class b extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f15302a;
+        public NetWork f15444a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f15303b;
+        public volatile boolean f15445b;
 
         public b() {
-            this.f15303b = false;
+            this.f15445b = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,10 +43,10 @@ public class FaceBuyModel extends BdBaseModel {
             FaceBuyQueryData faceBuyQueryData = null;
             if (!k.isEmpty(obj)) {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
-                this.f15302a = netWork;
+                this.f15444a = netWork;
                 netWork.addPostData("order_id", obj);
-                for (int i = 0; !this.f15303b && i < FaceBuyModel.this.f15301g; i++) {
-                    faceBuyQueryData = (FaceBuyQueryData) OrmObject.objectWithJsonStr(this.f15302a.postNetData(), FaceBuyQueryData.class);
+                for (int i2 = 0; !this.f15445b && i2 < FaceBuyModel.this.f15443g; i2++) {
+                    faceBuyQueryData = (FaceBuyQueryData) OrmObject.objectWithJsonStr(this.f15444a.postNetData(), FaceBuyQueryData.class);
                     if (faceBuyQueryData != null && (buyResult = faceBuyQueryData.buy_result) != null) {
                         if (buyResult.status == 2) {
                             break;
@@ -73,19 +73,19 @@ public class FaceBuyModel extends BdBaseModel {
         /* renamed from: c */
         public void onPostExecute(FaceBuyQueryData faceBuyQueryData) {
             super.onPostExecute(faceBuyQueryData);
-            FaceBuyModel.this.f15300f = null;
-            this.f15303b = true;
+            FaceBuyModel.this.f15442f = null;
+            this.f15445b = true;
             FaceBuyModel.this.mLoadDataCallBack.c(faceBuyQueryData);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            NetWork netWork = this.f15302a;
+            NetWork netWork = this.f15444a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
-            FaceBuyModel.this.f15300f = null;
+            FaceBuyModel.this.f15442f = null;
             FaceBuyModel.this.mLoadDataCallBack.c(null);
         }
     }
@@ -94,7 +94,7 @@ public class FaceBuyModel extends BdBaseModel {
     public class c extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f15305a;
+        public NetWork f15447a;
 
         public c() {
         }
@@ -106,9 +106,9 @@ public class FaceBuyModel extends BdBaseModel {
             String obj = objArr[0].toString();
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.BUY_FACE_PACKAGE_URL);
-                this.f15305a = netWork;
+                this.f15447a = netWork;
                 netWork.addPostData("pid", obj);
-                return (FaceBuyData) OrmObject.objectWithJsonStr(this.f15305a.postNetData(), FaceBuyData.class);
+                return (FaceBuyData) OrmObject.objectWithJsonStr(this.f15447a.postNetData(), FaceBuyData.class);
             } catch (Exception e2) {
                 BdLog.detailException(e2);
                 return null;
@@ -120,35 +120,35 @@ public class FaceBuyModel extends BdBaseModel {
         /* renamed from: c */
         public void onPostExecute(FaceBuyData faceBuyData) {
             super.onPostExecute(faceBuyData);
-            FaceBuyModel.this.f15299e = null;
+            FaceBuyModel.this.f15441e = null;
             FaceBuyModel.this.mLoadDataCallBack.c(faceBuyData);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            NetWork netWork = this.f15305a;
+            NetWork netWork = this.f15447a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
-            FaceBuyModel.this.f15299e = null;
+            FaceBuyModel.this.f15441e = null;
             FaceBuyModel.this.mLoadDataCallBack.c(null);
         }
     }
 
     public FaceBuyModel(Context context) {
         super(null);
-        this.f15301g = 3;
-        this.f15299e = null;
-        this.f15300f = null;
+        this.f15443g = 3;
+        this.f15441e = null;
+        this.f15442f = null;
     }
 
     public void A(String str) {
-        if (this.f15300f == null) {
+        if (this.f15442f == null) {
             b bVar = new b();
-            this.f15300f = bVar;
+            this.f15442f = bVar;
             bVar.setPriority(3);
-            this.f15300f.execute(str);
+            this.f15442f.execute(str);
         }
     }
 
@@ -159,7 +159,7 @@ public class FaceBuyModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        c cVar = this.f15299e;
+        c cVar = this.f15441e;
         if (cVar != null) {
             cVar.cancel();
             return true;
@@ -168,11 +168,11 @@ public class FaceBuyModel extends BdBaseModel {
     }
 
     public void z(String str) {
-        if (this.f15299e == null) {
+        if (this.f15441e == null) {
             c cVar = new c();
-            this.f15299e = cVar;
+            this.f15441e = cVar;
             cVar.setPriority(3);
-            this.f15299e.execute(str);
+            this.f15441e.execute(str);
         }
     }
 }

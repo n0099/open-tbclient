@@ -30,30 +30,30 @@ public final class o extends Handler {
             Log.e("VMS_IDLG_SDK_Client", "message type valid");
             return;
         }
-        int i = message.getData().getInt("type");
+        int i2 = message.getData().getInt("type");
         String string = message.getData().getString("appid");
         n nVar = p.j;
         nVar.getClass();
-        if (i != 0) {
-            if (i == 1) {
+        if (i2 != 0) {
+            if (i2 == 1) {
                 sb = new StringBuilder();
                 str2 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 sb = new StringBuilder();
                 str2 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
-            } else if (i != 4) {
+            } else if (i2 != 4) {
                 parse = null;
-                query = nVar.f30621a.getContentResolver().query(parse, null, null, null, null);
+                query = nVar.f31555a.getContentResolver().query(parse, null, null, null, null);
                 if (query == null) {
                     r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                     query.close();
                 } else {
                     Log.d("VMS_IDLG_SDK_DB", "return cursor is null,return");
                 }
-                p.f30628g = r2;
-                Context context = p.f30622a;
-                synchronized (p.f30625d) {
-                    p.f30625d.notify();
+                p.f31562g = r2;
+                Context context = p.f31556a;
+                synchronized (p.f31559d) {
+                    p.f31559d.notify();
                 }
                 return;
             } else {
@@ -66,12 +66,12 @@ public final class o extends Handler {
             str = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
         }
         parse = Uri.parse(str);
-        query = nVar.f30621a.getContentResolver().query(parse, null, null, null, null);
+        query = nVar.f31555a.getContentResolver().query(parse, null, null, null, null);
         if (query == null) {
         }
-        p.f30628g = r2;
-        Context context2 = p.f30622a;
-        synchronized (p.f30625d) {
+        p.f31562g = r2;
+        Context context2 = p.f31556a;
+        synchronized (p.f31559d) {
         }
     }
 }

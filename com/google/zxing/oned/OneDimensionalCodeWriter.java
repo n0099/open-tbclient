@@ -8,43 +8,43 @@ import com.google.zxing.common.BitMatrix;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public abstract class OneDimensionalCodeWriter implements Writer {
-    public static int appendPattern(boolean[] zArr, int i, int[] iArr, boolean z) {
-        int i2 = 0;
-        for (int i3 : iArr) {
-            int i4 = 0;
-            while (i4 < i3) {
-                zArr[i] = z;
-                i4++;
-                i++;
+    public static int appendPattern(boolean[] zArr, int i2, int[] iArr, boolean z) {
+        int i3 = 0;
+        for (int i4 : iArr) {
+            int i5 = 0;
+            while (i5 < i4) {
+                zArr[i2] = z;
+                i5++;
+                i2++;
             }
-            i2 += i3;
+            i3 += i4;
             z = !z;
         }
-        return i2;
+        return i3;
     }
 
-    public static BitMatrix renderResult(boolean[] zArr, int i, int i2, int i3) {
+    public static BitMatrix renderResult(boolean[] zArr, int i2, int i3, int i4) {
         int length = zArr.length;
-        int i4 = i3 + length;
-        int max = Math.max(i, i4);
-        int max2 = Math.max(1, i2);
-        int i5 = max / i4;
-        int i6 = (max - (length * i5)) / 2;
+        int i5 = i4 + length;
+        int max = Math.max(i2, i5);
+        int max2 = Math.max(1, i3);
+        int i6 = max / i5;
+        int i7 = (max - (length * i6)) / 2;
         BitMatrix bitMatrix = new BitMatrix(max, max2);
-        int i7 = 0;
-        while (i7 < length) {
-            if (zArr[i7]) {
-                bitMatrix.setRegion(i6, 0, i5, max2);
+        int i8 = 0;
+        while (i8 < length) {
+            if (zArr[i8]) {
+                bitMatrix.setRegion(i7, 0, i6, max2);
             }
-            i7++;
-            i6 += i5;
+            i8++;
+            i7 += i6;
         }
         return bitMatrix;
     }
 
     @Override // com.google.zxing.Writer
-    public final BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) throws WriterException {
-        return encode(str, barcodeFormat, i, i2, null);
+    public final BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3) throws WriterException {
+        return encode(str, barcodeFormat, i2, i3, null);
     }
 
     public abstract boolean[] encode(String str);
@@ -54,17 +54,17 @@ public abstract class OneDimensionalCodeWriter implements Writer {
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3, Map<EncodeHintType, ?> map) throws WriterException {
         if (str.isEmpty()) {
             throw new IllegalArgumentException("Found empty contents");
         }
-        if (i >= 0 && i2 >= 0) {
+        if (i2 >= 0 && i3 >= 0) {
             int defaultMargin = getDefaultMargin();
             if (map != null && map.containsKey(EncodeHintType.MARGIN)) {
                 defaultMargin = Integer.parseInt(map.get(EncodeHintType.MARGIN).toString());
             }
-            return renderResult(encode(str), i, i2, defaultMargin);
+            return renderResult(encode(str), i2, i3, defaultMargin);
         }
-        throw new IllegalArgumentException("Negative size is not allowed. Input: " + i + 'x' + i2);
+        throw new IllegalArgumentException("Negative size is not allowed. Input: " + i2 + 'x' + i3);
     }
 }

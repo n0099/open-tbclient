@@ -6,14 +6,14 @@ import android.util.Log;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.ubc.IRemoteUBCService;
-import d.b.c0.b.a.a;
+import d.a.c0.b.a.a;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class UBCIPCManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f22577a = "UBCIPCManager";
+    public static final String f23278a = "UBCIPCManager";
 
     public static void b() {
         IPCServiceManager.c(UBC.UBC_REMOTE_SERVICE_NAME, new IRemoteUBCService.Stub() { // from class: com.baidu.ubc.UBCIPCManager.1
@@ -22,7 +22,7 @@ public class UBCIPCManager {
                 if (flow != null) {
                     flow.addEvent(str, str2);
                     if (AppConfig.isDebug()) {
-                        String str3 = UBCIPCManager.f22577a;
+                        String str3 = UBCIPCManager.f23278a;
                         Log.d(str3, " [add Event] flow id " + flow.getId() + " handler id " + flow.getHandle());
                     }
                 }
@@ -47,7 +47,7 @@ public class UBCIPCManager {
                 if (flow != null) {
                     flow.end();
                     if (AppConfig.isDebug()) {
-                        String str = UBCIPCManager.f22577a;
+                        String str = UBCIPCManager.f23278a;
                         Log.d(str, " [end] flow id " + flow.getId() + " handler id " + flow.getHandle());
                     }
                 }
@@ -95,18 +95,18 @@ public class UBCIPCManager {
             }
 
             @Override // com.baidu.ubc.IRemoteUBCService
-            public Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException {
-                Flow beginFlow = UBC.beginFlow(str, str2, i);
+            public Flow ubcBeginFlow(String str, String str2, int i2) throws RemoteException {
+                Flow beginFlow = UBC.beginFlow(str, str2, i2);
                 if (AppConfig.isDebug() && beginFlow != null) {
-                    String str3 = UBCIPCManager.f22577a;
+                    String str3 = UBCIPCManager.f23278a;
                     Log.d(str3, " process name " + a.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
                 }
                 return beginFlow;
             }
 
             @Override // com.baidu.ubc.IRemoteUBCService
-            public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
-                UBC.onEvent(str, str2, i);
+            public void ubcOnEvent(String str, String str2, int i2) throws RemoteException {
+                UBC.onEvent(str, str2, i2);
             }
 
             @Override // com.baidu.ubc.IRemoteUBCService

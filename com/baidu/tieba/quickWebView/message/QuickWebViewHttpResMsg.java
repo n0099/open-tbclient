@@ -16,8 +16,8 @@ public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
         }
         int length = str.length();
         StringBuilder sb = new StringBuilder(length + 4);
-        for (int i = 0; i < length; i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            char charAt = str.charAt(i2);
             if (charAt == '\f') {
                 sb.append("\\f");
             } else if (charAt != '\r') {
@@ -69,8 +69,8 @@ public class QuickWebViewHttpResMsg extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        super.decodeInBackGround(i, bArr);
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+        super.decodeInBackGround(i2, bArr);
         String parseToString = parseToString(bArr);
         this.result = parseToString;
         this.result = quote(parseToString);

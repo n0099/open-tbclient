@@ -1,9 +1,9 @@
 package com.baidu.tieba.setting.forbiddenforum;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CancelForbiddenForumResMsg extends JsonHttpResponsedMessage {
-    public CancelForbiddenForumResMsg(int i) {
-        super(i);
+    public CancelForbiddenForumResMsg(int i2) {
+        super(i2);
     }
 }

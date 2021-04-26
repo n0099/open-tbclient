@@ -22,8 +22,8 @@ public class SignOptions {
         return this.timestamp;
     }
 
-    public void setExpirationInSeconds(int i) {
-        this.expirationInSeconds = i;
+    public void setExpirationInSeconds(int i2) {
+        this.expirationInSeconds = i2;
     }
 
     public void setHeadersToSign(Set<String> set) {

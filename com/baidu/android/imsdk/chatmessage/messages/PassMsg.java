@@ -15,8 +15,8 @@ public class PassMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public PassMsg[] newArray(int i) {
-            return new PassMsg[i];
+        public PassMsg[] newArray(int i2) {
+            return new PassMsg[i2];
         }
     };
 

@@ -6,12 +6,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
-import d.b.c.e.p.j;
-import d.b.c.e.p.l;
-import d.b.i0.r.q.e1;
-import d.b.i0.z0.w;
-import d.b.j0.s2.d0.a;
-import d.b.j0.s2.f0.b;
+import d.a.c.e.p.j;
+import d.a.c.e.p.l;
+import d.a.i0.r.q.e1;
+import d.a.i0.z0.w;
+import d.a.j0.s2.f0.a;
+import d.a.j0.s2.h0.b;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
 /* loaded from: classes4.dex */
@@ -59,10 +59,10 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.app_pos = a.e().c();
         if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
             e1 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
-            builder.from_tid = Long.valueOf(d.b.c.e.m.b.f(pbToHomeUpdateData.f51514a, 0L));
-            builder.query_eqid = pbToHomeUpdateData.f51515b;
-            builder.first_dir = pbToHomeUpdateData.f51516c;
-            builder.second_dir = pbToHomeUpdateData.f51517d;
+            builder.from_tid = Long.valueOf(d.a.c.e.m.b.f(pbToHomeUpdateData.f49140a, 0L));
+            builder.query_eqid = pbToHomeUpdateData.f49141b;
+            builder.first_dir = pbToHomeUpdateData.f49142c;
+            builder.second_dir = pbToHomeUpdateData.f49143d;
             TbSingleton.getInstance().setPbToHomeUpdateData(null);
         }
         AdExtParam.a b2 = AdExtParam.a.b();
@@ -85,41 +85,41 @@ public class RecPersonalizeRequest extends NetMessage {
         this.adFloorInfo = str;
     }
 
-    public void setLoadType(int i) {
-        this.loadType = i;
+    public void setLoadType(int i2) {
+        this.loadType = i2;
     }
 
-    public void setNeedForumlist(int i) {
-        if (i != 1) {
+    public void setNeedForumlist(int i2) {
+        if (i2 != 1) {
             this.needForumlist = 0;
         } else {
-            this.needForumlist = i;
+            this.needForumlist = i2;
         }
     }
 
-    public void setPn(int i) {
-        this.pn = i;
+    public void setPn(int i2) {
+        this.pn = i2;
     }
 
-    public void setPreAdThreadCount(int i) {
-        this.preAdThreadCount = i;
+    public void setPreAdThreadCount(int i2) {
+        this.preAdThreadCount = i2;
     }
 
-    public void setRequestTime(int i) {
-        this.requestTime = i;
+    public void setRequestTime(int i2) {
+        this.requestTime = i2;
     }
 
     public void setSourceFrom(String str) {
         this.sourceFrom = str;
     }
 
-    public void setSuggestCount(int i) {
-        this.suggestCount = i;
+    public void setSuggestCount(int i2) {
+        this.suggestCount = i2;
     }
 
-    public void setThreadCount(int i) {
-        if (i > 0) {
-            this.threadCount = i;
+    public void setThreadCount(int i2) {
+        if (i2 > 0) {
+            this.threadCount = i2;
         } else {
             this.threadCount = 0;
         }

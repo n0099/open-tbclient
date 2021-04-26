@@ -75,7 +75,7 @@ public class ContactUtil {
         permissionsDTO.dialogMsg = "如你选择通过通讯录添加联系人信息，则请允许" + SapiUtils.getAppName(context) + "使用通讯录权限。你可以通过系统\"设置\"进行权限的管理";
         PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback() { // from class: com.baidu.pass.ecommerce.ContactUtil.2
             @Override // com.baidu.pass.permissions.PermissionsCallback
-            public void onFailure(int i) {
+            public void onFailure(int i2) {
                 GetContactResult getContactResult = new GetContactResult();
                 getContactResult.setResultCode(-901);
                 ContactUtil.this.getContactCallback.onCall(getContactResult);

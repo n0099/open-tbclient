@@ -26,19 +26,19 @@ public class LiveIMController implements LiveIM {
     }
 
     @Override // com.baidu.livesdk.api.im.live.LiveIM
-    public void enterRoom(String str, String str2, int i, final IMCastSetListener iMCastSetListener, boolean z) {
+    public void enterRoom(String str, String str2, int i2, final IMCastSetListener iMCastSetListener, boolean z) {
         this.mCastId = str;
         this.mUrl = str2;
-        this.mPullInterval = i;
+        this.mPullInterval = i2;
         this.mCastSetListener = iMCastSetListener;
         this.mNecessary = z;
-        this.mConversation.setPullInterval(i);
+        this.mConversation.setPullInterval(i2);
         this.mConversation.beginWithCompletion(new IMCastSetListener() { // from class: com.baidu.livesdk.sdk.im.live.LiveIMController.1
             @Override // com.baidu.livesdk.api.im.IMCastSetListener
-            public void onResult(int i2, long j, long j2) {
+            public void onResult(int i3, long j, long j2) {
                 IMCastSetListener iMCastSetListener2 = iMCastSetListener;
                 if (iMCastSetListener2 != null) {
-                    iMCastSetListener2.onResult(i2, j, j2);
+                    iMCastSetListener2.onResult(i3, j, j2);
                 }
                 LiveIMController.this.mIsConnect = true;
             }
@@ -54,7 +54,7 @@ public class LiveIMController implements LiveIM {
         iMConversation.unregisterMsgReceiveListener(str);
         this.mConversation.endWithCompletion(new IMCastSetListener() { // from class: com.baidu.livesdk.sdk.im.live.LiveIMController.3
             @Override // com.baidu.livesdk.api.im.IMCastSetListener
-            public void onResult(int i, long j, long j2) {
+            public void onResult(int i2, long j, long j2) {
                 LiveIMController.this.mIsConnect = false;
             }
         });
@@ -77,11 +77,11 @@ public class LiveIMController implements LiveIM {
     public void registerMsgReceiveListener(String str, final LiveMsgReceiverListener liveMsgReceiverListener) {
         this.mConversation.registerMsgReceiveListener(str, new MsgReceiveListener() { // from class: com.baidu.livesdk.sdk.im.live.LiveIMController.5
             @Override // com.baidu.livesdk.api.im.MsgReceiveListener
-            public void onReceiveMessage(int i, Object obj) {
+            public void onReceiveMessage(int i2, Object obj) {
                 LiveMsgReceiverListener liveMsgReceiverListener2 = liveMsgReceiverListener;
                 if (liveMsgReceiverListener2 != null) {
                     try {
-                        liveMsgReceiverListener2.onReceiveMessage(i, (List) obj);
+                        liveMsgReceiverListener2.onReceiveMessage(i2, (List) obj);
                     } catch (Exception unused) {
                     }
                 }
@@ -95,11 +95,11 @@ public class LiveIMController implements LiveIM {
         if (iMConversation != null && liveSendMessage != null) {
             iMConversation.sendMessage(liveSendMessage, null, new SendMessageListener() { // from class: com.baidu.livesdk.sdk.im.live.LiveIMController.4
                 @Override // com.baidu.livesdk.api.im.SendMessageListener
-                public void onSendMessageResult(int i, Object obj) {
+                public void onSendMessageResult(int i2, Object obj) {
                     LiveSendMessageListener liveSendMessageListener2 = liveSendMessageListener;
                     if (liveSendMessageListener2 != null) {
                         try {
-                            liveSendMessageListener2.onSendSuccess(str, i, obj != null ? (List) obj : null);
+                            liveSendMessageListener2.onSendSuccess(str, i2, obj != null ? (List) obj : null);
                         } catch (Exception unused) {
                         }
                     }
@@ -118,9 +118,9 @@ public class LiveIMController implements LiveIM {
     public void enterRoom() {
         this.mConversation.beginWithCompletion(new IMCastSetListener() { // from class: com.baidu.livesdk.sdk.im.live.LiveIMController.2
             @Override // com.baidu.livesdk.api.im.IMCastSetListener
-            public void onResult(int i, long j, long j2) {
+            public void onResult(int i2, long j, long j2) {
                 if (LiveIMController.this.mCastSetListener != null) {
-                    LiveIMController.this.mCastSetListener.onResult(i, j, j2);
+                    LiveIMController.this.mCastSetListener.onResult(i2, j, j2);
                 }
                 LiveIMController.this.mIsConnect = true;
             }

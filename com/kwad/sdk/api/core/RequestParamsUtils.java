@@ -3,7 +3,7 @@ package com.kwad.sdk.api.core;
 import android.text.TextUtils;
 /* loaded from: classes6.dex */
 public final class RequestParamsUtils {
-    public static final String USER_AGENT = getUserAgentParams() + "ksad-android-3.3.9";
+    public static final String USER_AGENT = getUserAgentParams() + "ksad-android-3.3.8.3";
     public static final String USER_AGENT_KEY = "User-Agent";
 
     public static String getUserAgent() {
@@ -17,8 +17,8 @@ public final class RequestParamsUtils {
         }
         StringBuffer stringBuffer = new StringBuffer();
         int length = property.length();
-        for (int i = 0; i < length; i++) {
-            char charAt = property.charAt(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            char charAt = property.charAt(i2);
             if (charAt <= 31 || charAt >= 127) {
                 stringBuffer.append(String.format("\\u%04x", Integer.valueOf(charAt)));
             } else {

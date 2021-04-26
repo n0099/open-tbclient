@@ -1,10 +1,10 @@
 package com.baidu.lcp.sdk.connect;
 
 import android.content.Context;
-import d.b.s.a.c.b;
-import d.b.s.a.c.c;
-import d.b.s.a.c.d;
-import d.b.s.a.c.e;
+import d.a.s.a.c.b;
+import d.a.s.a.c.c;
+import d.a.s.a.c.d;
+import d.a.s.a.c.e;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,30 +19,30 @@ public class QuicMessageHandler extends d implements c {
         initGlobalRef(this);
     }
 
-    @Override // d.b.s.a.c.d
+    @Override // d.a.s.a.c.d
     public InputStream b() throws EOFException, IOException {
         return null;
     }
 
-    @Override // d.b.s.a.c.d
+    @Override // d.a.s.a.c.d
     public void c(e eVar) {
     }
 
-    public native void closeStream(int i);
+    public native void closeStream(int i2);
 
-    @Override // d.b.s.a.c.d
+    @Override // d.a.s.a.c.d
     public boolean d() throws IOException {
         return false;
     }
 
-    @Override // d.b.s.a.c.d
-    public e e(String str, int i) {
+    @Override // d.a.s.a.c.d
+    public e e(String str, int i2) {
         return null;
     }
 
     public native void enableQuicCache(boolean z, String str);
 
-    @Override // d.b.s.a.c.d
+    @Override // d.a.s.a.c.d
     public void f(b bVar) throws IOException {
     }
 

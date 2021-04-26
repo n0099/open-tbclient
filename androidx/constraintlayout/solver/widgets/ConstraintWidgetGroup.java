@@ -44,14 +44,14 @@ public class ConstraintWidgetGroup {
         }
         if (constraintWidget instanceof Helper) {
             Helper helper = (Helper) constraintWidget;
-            int i = helper.mWidgetsCount;
-            for (int i2 = 0; i2 < i; i2++) {
-                getWidgetsToSolveTraversal(arrayList, helper.mWidgets[i2]);
+            int i2 = helper.mWidgetsCount;
+            for (int i3 = 0; i3 < i2; i3++) {
+                getWidgetsToSolveTraversal(arrayList, helper.mWidgets[i3]);
             }
         }
         int length = constraintWidget.mListAnchors.length;
-        for (int i3 = 0; i3 < length; i3++) {
-            ConstraintAnchor constraintAnchor = constraintWidget.mListAnchors[i3].mTarget;
+        for (int i4 = 0; i4 < length; i4++) {
+            ConstraintAnchor constraintAnchor = constraintWidget.mListAnchors[i4].mTarget;
             if (constraintAnchor != null) {
                 ConstraintWidget constraintWidget2 = constraintAnchor.mOwner;
                 if (constraintAnchor != null && constraintWidget2 != constraintWidget.getParent()) {
@@ -70,7 +70,7 @@ public class ConstraintWidgetGroup {
     */
     private void updateResolvedDimension(ConstraintWidget constraintWidget) {
         ConstraintAnchor constraintAnchor;
-        int i;
+        int i2;
         int margin;
         ConstraintAnchor constraintAnchor2;
         ConstraintAnchor constraintAnchor3;
@@ -92,14 +92,14 @@ public class ConstraintWidgetGroup {
             ConstraintAnchor.Type type = constraintAnchor.mType;
             if (type == ConstraintAnchor.Type.RIGHT) {
                 ConstraintWidget constraintWidget3 = constraintAnchor.mOwner;
-                i = constraintWidget3.mX + constraintWidget3.getWidth();
+                i2 = constraintWidget3.mX + constraintWidget3.getWidth();
             } else if (type == ConstraintAnchor.Type.LEFT) {
-                i = constraintAnchor.mOwner.mX;
+                i2 = constraintAnchor.mOwner.mX;
             }
             if (!z) {
-                margin = i - constraintWidget.mRight.getMargin();
+                margin = i2 - constraintWidget.mRight.getMargin();
             } else {
-                margin = i + constraintWidget.mLeft.getMargin() + constraintWidget.getWidth();
+                margin = i2 + constraintWidget.mLeft.getMargin() + constraintWidget.getWidth();
             }
             constraintWidget.setHorizontalDimension(margin - constraintWidget.getWidth(), margin);
             constraintAnchor2 = constraintWidget.mBaseline.mTarget;
@@ -109,8 +109,8 @@ public class ConstraintWidgetGroup {
                     updateResolvedDimension(constraintWidget4);
                 }
                 ConstraintWidget constraintWidget5 = constraintAnchor2.mOwner;
-                int i2 = (constraintWidget5.mY + constraintWidget5.mBaselineDistance) - constraintWidget.mBaselineDistance;
-                constraintWidget.setVerticalDimension(i2, constraintWidget.mHeight + i2);
+                int i3 = (constraintWidget5.mY + constraintWidget5.mBaselineDistance) - constraintWidget.mBaselineDistance;
+                constraintWidget.setVerticalDimension(i3, constraintWidget.mHeight + i3);
                 constraintWidget.mOptimizerMeasured = true;
                 return;
             }
@@ -142,7 +142,7 @@ public class ConstraintWidgetGroup {
             constraintWidget.mOptimizerMeasured = true;
             return;
         }
-        i = 0;
+        i2 = 0;
         if (!z) {
         }
         constraintWidget.setHorizontalDimension(margin - constraintWidget.getWidth(), margin);
@@ -151,29 +151,29 @@ public class ConstraintWidgetGroup {
         }
     }
 
-    public void addWidgetsToSet(ConstraintWidget constraintWidget, int i) {
-        if (i == 0) {
+    public void addWidgetsToSet(ConstraintWidget constraintWidget, int i2) {
+        if (i2 == 0) {
             this.mWidgetsToSetHorizontal.add(constraintWidget);
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             this.mWidgetsToSetVertical.add(constraintWidget);
         }
     }
 
-    public List<ConstraintWidget> getStartWidgets(int i) {
-        if (i == 0) {
+    public List<ConstraintWidget> getStartWidgets(int i2) {
+        if (i2 == 0) {
             return this.mStartHorizontalWidgets;
         }
-        if (i == 1) {
+        if (i2 == 1) {
             return this.mStartVerticalWidgets;
         }
         return null;
     }
 
-    public Set<ConstraintWidget> getWidgetsToSet(int i) {
-        if (i == 0) {
+    public Set<ConstraintWidget> getWidgetsToSet(int i2) {
+        if (i2 == 0) {
             return this.mWidgetsToSetHorizontal;
         }
-        if (i == 1) {
+        if (i2 == 1) {
             return this.mWidgetsToSetVertical;
         }
         return null;
@@ -184,8 +184,8 @@ public class ConstraintWidgetGroup {
             return this.mWidgetsToSolve;
         }
         int size = this.mConstrainedGroup.size();
-        for (int i = 0; i < size; i++) {
-            ConstraintWidget constraintWidget = this.mConstrainedGroup.get(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            ConstraintWidget constraintWidget = this.mConstrainedGroup.get(i2);
             if (!constraintWidget.mOptimizerMeasurable) {
                 getWidgetsToSolveTraversal((ArrayList) this.mWidgetsToSolve, constraintWidget);
             }
@@ -198,8 +198,8 @@ public class ConstraintWidgetGroup {
 
     public void updateUnresolvedWidgets() {
         int size = this.mUnresolvedWidgets.size();
-        for (int i = 0; i < size; i++) {
-            updateResolvedDimension(this.mUnresolvedWidgets.get(i));
+        for (int i2 = 0; i2 < size; i2++) {
+            updateResolvedDimension(this.mUnresolvedWidgets.get(i2));
         }
     }
 

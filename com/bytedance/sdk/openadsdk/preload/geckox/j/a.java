@@ -1,6 +1,7 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.j;
 
 import android.util.Pair;
+import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
 import com.bytedance.sdk.openadsdk.preload.b.b;
 import com.bytedance.sdk.openadsdk.preload.b.h;
 import com.bytedance.sdk.openadsdk.preload.b.l;
@@ -56,7 +57,7 @@ public class a {
 
     public static h d(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
         l.b bVar3 = new l.b();
-        bVar3.a("patch").a(f(aVar, file, bVar, bVar2));
+        bVar3.a(SchemeDescPatchListener.PATCH).a(f(aVar, file, bVar, bVar2));
         bVar3.a("full").a(e(aVar, file, bVar, bVar2));
         return bVar3.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class);
     }
@@ -85,7 +86,7 @@ public class a {
 
     public static h g(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
         l.b bVar3 = new l.b();
-        bVar3.a("patch").a(b(aVar, file, bVar));
+        bVar3.a(SchemeDescPatchListener.PATCH).a(b(aVar, file, bVar));
         bVar3.a("full").a(a(aVar, file, bVar));
         return bVar3.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class);
     }
@@ -148,7 +149,7 @@ public class a {
 
     public static h a(com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar, File file, com.bytedance.sdk.openadsdk.preload.geckox.b bVar, com.bytedance.sdk.openadsdk.preload.geckox.e.b bVar2) {
         l.b bVar3 = new l.b();
-        bVar3.a("patch").a(c(aVar, file, bVar, bVar2));
+        bVar3.a(SchemeDescPatchListener.PATCH).a(c(aVar, file, bVar, bVar2));
         bVar3.a("full").a(b(aVar, file, bVar, bVar2));
         return bVar3.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class);
     }

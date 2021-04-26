@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class Utils {
     public static final String DEFAULT_DL_FILENAME = "downloadfile";
     public static final int NET = 2;
@@ -107,8 +107,8 @@ public class Utils {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:18:0x004c  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00ac  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00dd  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00af  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00e0  */
     /* JADX WARN: Removed duplicated region for block: B:50:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -128,7 +128,7 @@ public class Utils {
                     if (str4 != null) {
                         str4 = "." + str4;
                     } else if (str3.toLowerCase().startsWith("text/")) {
-                        if (str3.equalsIgnoreCase(SapiWebView.K)) {
+                        if (str3.equalsIgnoreCase(SapiWebView.DATA_MIME_TYPE)) {
                             str4 = DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
                         } else {
                             str4 = str3.equalsIgnoreCase("text/bin") ? DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION : DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION;
@@ -203,14 +203,14 @@ public class Utils {
         }
         if (new File(str3).exists()) {
             String str4 = str + "_";
-            int i = 1;
-            for (int i2 = 1; i2 < 1000000000; i2 *= 10) {
-                for (int i3 = 0; i3 < 9; i3++) {
-                    String str5 = str4 + i + str2;
+            int i2 = 1;
+            for (int i3 = 1; i3 < 1000000000; i3 *= 10) {
+                for (int i4 = 0; i4 < 9; i4++) {
+                    String str5 = str4 + i2 + str2;
                     if (!new File(str5).exists()) {
                         return str5;
                     }
-                    i += new Random(SystemClock.uptimeMillis()).nextInt(i2) + 1;
+                    i2 += new Random(SystemClock.uptimeMillis()).nextInt(i3) + 1;
                 }
             }
             return "";
@@ -236,23 +236,23 @@ public class Utils {
         return (str == null || port == -1) ? false : true;
     }
 
-    public static int extractPositiveInteger(String str, int i) {
+    public static int extractPositiveInteger(String str, int i2) {
         int length = str.length();
-        for (int i2 = 0; i2 < length; i2++) {
-            char charAt = str.charAt(i2);
+        for (int i3 = 0; i3 < length; i3++) {
+            char charAt = str.charAt(i3);
             if (charAt >= '0' && charAt <= '9') {
-                int i3 = i2 + 1;
-                while (i3 < length) {
-                    char charAt2 = str.charAt(i3);
+                int i4 = i3 + 1;
+                while (i4 < length) {
+                    char charAt2 = str.charAt(i4);
                     if (charAt2 < '0' || charAt2 > '9') {
                         break;
                     }
-                    i3++;
+                    i4++;
                 }
-                return Integer.parseInt(str.substring(i2, i3));
+                return Integer.parseInt(str.substring(i3, i4));
             }
         }
-        return i;
+        return i2;
     }
 
     public static byte[] gZip(byte[] bArr) {
@@ -352,7 +352,7 @@ public class Utils {
                         case 12:
                         case 14:
                         case 15:
-                            return g.f3909b;
+                            return g.f3962b;
                         case 4:
                         case 11:
                         default:
@@ -406,24 +406,24 @@ public class Utils {
             return false;
         }
         int indexOf = str.indexOf(46);
-        int i = 0;
         int i2 = 0;
-        while (i < str.length()) {
+        int i3 = 0;
+        while (i2 < str.length()) {
             if (indexOf == -1) {
                 indexOf = str.length();
             }
             try {
-                int parseInt = Integer.parseInt(str.substring(i, indexOf));
+                int parseInt = Integer.parseInt(str.substring(i2, indexOf));
                 if (parseInt <= 255 && parseInt >= 0) {
-                    i2++;
-                    i = indexOf + 1;
-                    indexOf = str.indexOf(46, i);
+                    i3++;
+                    i2 = indexOf + 1;
+                    indexOf = str.indexOf(46, i2);
                 }
             } catch (NumberFormatException unused) {
             }
             return false;
         }
-        return i2 == 4;
+        return i3 == 4;
     }
 
     public static boolean isUrlContainsQ(String str) {

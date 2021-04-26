@@ -39,9 +39,9 @@ public class ClassWriter {
         Item item = get(this.key2);
         if (item == null) {
             this.pool.put12(8, newUTF8(str));
-            int i = this.index;
-            this.index = i + 1;
-            Item item2 = new Item(i, this.key2);
+            int i2 = this.index;
+            this.index = i2 + 1;
+            Item item2 = new Item(i2, this.key2);
             put(item2);
             return item2;
         }
@@ -51,24 +51,24 @@ public class ClassWriter {
     private void put(Item item) {
         if (this.index > this.threshold) {
             int length = this.items.length;
-            int i = (length * 2) + 1;
-            Item[] itemArr = new Item[i];
-            for (int i2 = length - 1; i2 >= 0; i2--) {
-                Item item2 = this.items[i2];
+            int i2 = (length * 2) + 1;
+            Item[] itemArr = new Item[i2];
+            for (int i3 = length - 1; i3 >= 0; i3--) {
+                Item item2 = this.items[i3];
                 while (item2 != null) {
-                    int i3 = item2.hashCode % i;
+                    int i4 = item2.hashCode % i2;
                     Item item3 = item2.next;
-                    item2.next = itemArr[i3];
-                    itemArr[i3] = item2;
+                    item2.next = itemArr[i4];
+                    itemArr[i4] = item2;
                     item2 = item3;
                 }
             }
             this.items = itemArr;
-            this.threshold = (int) (i * 0.75d);
+            this.threshold = (int) (i2 * 0.75d);
         }
-        int i4 = item.hashCode;
+        int i5 = item.hashCode;
         Item[] itemArr2 = this.items;
-        int length2 = i4 % itemArr2.length;
+        int length2 = i5 % itemArr2.length;
         item.next = itemArr2[length2];
         itemArr2[length2] = item;
     }
@@ -78,9 +78,9 @@ public class ClassWriter {
         Item item = get(this.key2);
         if (item == null) {
             this.pool.put12(7, newUTF8(str));
-            int i = this.index;
-            this.index = i + 1;
-            Item item2 = new Item(i, this.key2);
+            int i2 = this.index;
+            this.index = i2 + 1;
+            Item item2 = new Item(i2, this.key2);
             put(item2);
             return item2;
         }
@@ -94,9 +94,9 @@ public class ClassWriter {
             Item item = get(this.key);
             if (item == null) {
                 this.pool.putByte(3).putInt(intValue);
-                int i = this.index;
-                this.index = i + 1;
-                Item item2 = new Item(i, this.key);
+                int i2 = this.index;
+                this.index = i2 + 1;
+                Item item2 = new Item(i2, this.key);
                 put(item2);
                 return item2;
             }
@@ -116,11 +116,11 @@ public class ClassWriter {
         this.key3.set(9, str, str2, str3);
         Item item = get(this.key3);
         if (item == null) {
-            int i = newClassItem(str).index;
-            this.pool.put12(9, i).putShort(newNameTypeItem(str2, str3).index);
-            int i2 = this.index;
-            this.index = i2 + 1;
-            Item item2 = new Item(i2, this.key3);
+            int i2 = newClassItem(str).index;
+            this.pool.put12(9, i2).putShort(newNameTypeItem(str2, str3).index);
+            int i3 = this.index;
+            this.index = i3 + 1;
+            Item item2 = new Item(i3, this.key3);
             put(item2);
             return item2;
         }
@@ -128,14 +128,14 @@ public class ClassWriter {
     }
 
     public Item newMethodItem(String str, String str2, String str3, boolean z) {
-        int i = z ? 11 : 10;
-        this.key3.set(i, str, str2, str3);
+        int i2 = z ? 11 : 10;
+        this.key3.set(i2, str, str2, str3);
         Item item = get(this.key3);
         if (item == null) {
-            this.pool.put12(i, newClassItem(str).index).putShort(newNameTypeItem(str2, str3).index);
-            int i2 = this.index;
-            this.index = i2 + 1;
-            Item item2 = new Item(i2, this.key3);
+            this.pool.put12(i2, newClassItem(str).index).putShort(newNameTypeItem(str2, str3).index);
+            int i3 = this.index;
+            this.index = i3 + 1;
+            Item item2 = new Item(i3, this.key3);
             put(item2);
             return item2;
         }
@@ -148,9 +148,9 @@ public class ClassWriter {
         if (item == null) {
             int newUTF8 = newUTF8(str);
             this.pool.put12(12, newUTF8).putShort(newUTF8(str2));
-            int i = this.index;
-            this.index = i + 1;
-            Item item2 = new Item(i, this.key2);
+            int i2 = this.index;
+            this.index = i2 + 1;
+            Item item2 = new Item(i2, this.key2);
             put(item2);
             return item2;
         }
@@ -162,41 +162,41 @@ public class ClassWriter {
         Item item = get(this.key);
         if (item == null) {
             this.pool.putByte(1).putUTF8(str);
-            int i = this.index;
-            this.index = i + 1;
-            item = new Item(i, this.key);
+            int i2 = this.index;
+            this.index = i2 + 1;
+            item = new Item(i2, this.key);
             put(item);
         }
         return item.index;
     }
 
     public byte[] toByteArray() {
-        int i = (this.interfaceCount * 2) + 24;
-        int i2 = 0;
-        for (FieldWriter fieldWriter = this.firstField; fieldWriter != null; fieldWriter = fieldWriter.next) {
-            i2++;
-            i += fieldWriter.getSize();
-        }
+        int i2 = (this.interfaceCount * 2) + 24;
         int i3 = 0;
-        for (MethodWriter methodWriter = this.firstMethod; methodWriter != null; methodWriter = methodWriter.next) {
+        for (FieldWriter fieldWriter = this.firstField; fieldWriter != null; fieldWriter = fieldWriter.next) {
             i3++;
-            i += methodWriter.getSize();
+            i2 += fieldWriter.getSize();
         }
-        ByteVector byteVector = new ByteVector(i + this.pool.length);
+        int i4 = 0;
+        for (MethodWriter methodWriter = this.firstMethod; methodWriter != null; methodWriter = methodWriter.next) {
+            i4++;
+            i2 += methodWriter.getSize();
+        }
+        ByteVector byteVector = new ByteVector(i2 + this.pool.length);
         byteVector.putInt(-889275714).putInt(this.version);
         ByteVector putShort = byteVector.putShort(this.index);
         ByteVector byteVector2 = this.pool;
         putShort.putByteArray(byteVector2.data, 0, byteVector2.length);
         byteVector.putShort(this.access & (-393217)).putShort(this.name).putShort(this.superName);
         byteVector.putShort(this.interfaceCount);
-        for (int i4 = 0; i4 < this.interfaceCount; i4++) {
-            byteVector.putShort(this.interfaces[i4]);
+        for (int i5 = 0; i5 < this.interfaceCount; i5++) {
+            byteVector.putShort(this.interfaces[i5]);
         }
-        byteVector.putShort(i2);
+        byteVector.putShort(i3);
         for (FieldWriter fieldWriter2 = this.firstField; fieldWriter2 != null; fieldWriter2 = fieldWriter2.next) {
             fieldWriter2.put(byteVector);
         }
-        byteVector.putShort(i3);
+        byteVector.putShort(i4);
         for (MethodWriter methodWriter2 = this.firstMethod; methodWriter2 != null; methodWriter2 = methodWriter2.next) {
             methodWriter2.put(byteVector);
         }
@@ -204,9 +204,9 @@ public class ClassWriter {
         return byteVector.data;
     }
 
-    public void visit(int i, int i2, String str, String str2, String[] strArr) {
-        this.version = i;
-        this.access = i2;
+    public void visit(int i2, int i3, String str, String str2, String[] strArr) {
+        this.version = i2;
+        this.access = i3;
         this.name = newClassItem(str).index;
         this.thisName = str;
         this.superName = str2 == null ? 0 : newClassItem(str2).index;
@@ -216,12 +216,12 @@ public class ClassWriter {
         int length = strArr.length;
         this.interfaceCount = length;
         this.interfaces = new int[length];
-        for (int i3 = 0; i3 < this.interfaceCount; i3++) {
-            this.interfaces[i3] = newClassItem(strArr[i3]).index;
+        for (int i4 = 0; i4 < this.interfaceCount; i4++) {
+            this.interfaces[i4] = newClassItem(strArr[i4]).index;
         }
     }
 
-    public ClassWriter(int i) {
+    public ClassWriter(int i2) {
         this.index = 1;
         this.pool = new ByteVector();
         Item[] itemArr = new Item[256];

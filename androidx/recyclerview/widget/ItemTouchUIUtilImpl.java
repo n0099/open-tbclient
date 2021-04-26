@@ -12,8 +12,8 @@ public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
     public static float findMaxElevation(RecyclerView recyclerView, View view) {
         int childCount = recyclerView.getChildCount();
         float f2 = 0.0f;
-        for (int i = 0; i < childCount; i++) {
-            View childAt = recyclerView.getChildAt(i);
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = recyclerView.getChildAt(i2);
             if (childAt != view) {
                 float elevation = ViewCompat.getElevation(childAt);
                 if (elevation > f2) {
@@ -28,7 +28,7 @@ public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
     public void clearView(View view) {
         if (Build.VERSION.SDK_INT >= 21) {
             Object tag = view.getTag(R.id.item_touch_helper_previous_elevation);
-            if (tag != null && (tag instanceof Float)) {
+            if (tag instanceof Float) {
                 ViewCompat.setElevation(view, ((Float) tag).floatValue());
             }
             view.setTag(R.id.item_touch_helper_previous_elevation, null);
@@ -38,7 +38,7 @@ public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchUIUtil
-    public void onDraw(Canvas canvas, RecyclerView recyclerView, View view, float f2, float f3, int i, boolean z) {
+    public void onDraw(Canvas canvas, RecyclerView recyclerView, View view, float f2, float f3, int i2, boolean z) {
         if (Build.VERSION.SDK_INT >= 21 && z && view.getTag(R.id.item_touch_helper_previous_elevation) == null) {
             Float valueOf = Float.valueOf(ViewCompat.getElevation(view));
             ViewCompat.setElevation(view, findMaxElevation(recyclerView, view) + 1.0f);
@@ -49,7 +49,7 @@ public class ItemTouchUIUtilImpl implements ItemTouchUIUtil {
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchUIUtil
-    public void onDrawOver(Canvas canvas, RecyclerView recyclerView, View view, float f2, float f3, int i, boolean z) {
+    public void onDrawOver(Canvas canvas, RecyclerView recyclerView, View view, float f2, float f3, int i2, boolean z) {
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchUIUtil

@@ -23,7 +23,7 @@ import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import d.b.c0.b.a.a;
+import d.a.c0.b.a.a;
 import java.io.File;
 import java.util.HashSet;
 import java.util.List;
@@ -113,7 +113,7 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
             if (LLog.sDebug) {
                 if (hashSet.size() > 0) {
                     Log.d(TAG, "uploadLogFiles.size() = " + hashSet.size());
-                    for (int i = 0; i < hashSet.size(); i++) {
+                    for (int i2 = 0; i2 < hashSet.size(); i2++) {
                     }
                 } else {
                     Log.d(TAG, "uploadLogFiles is null or uploadLogFiles.size() = 0");

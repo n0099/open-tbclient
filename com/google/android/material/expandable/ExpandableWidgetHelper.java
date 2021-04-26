@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewParent;
 import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 /* loaded from: classes6.dex */
 public final class ExpandableWidgetHelper {
     public boolean expanded = false;
     @IdRes
     public int expandedComponentIdHint = 0;
+    @NonNull
     public final View widget;
 
     public ExpandableWidgetHelper(ExpandableWidget expandableWidget) {
@@ -32,7 +34,7 @@ public final class ExpandableWidgetHelper {
         return this.expanded;
     }
 
-    public void onRestoreInstanceState(Bundle bundle) {
+    public void onRestoreInstanceState(@NonNull Bundle bundle) {
         this.expanded = bundle.getBoolean("expanded", false);
         this.expandedComponentIdHint = bundle.getInt("expandedComponentIdHint", 0);
         if (this.expanded) {
@@ -40,6 +42,7 @@ public final class ExpandableWidgetHelper {
         }
     }
 
+    @NonNull
     public Bundle onSaveInstanceState() {
         Bundle bundle = new Bundle();
         bundle.putBoolean("expanded", this.expanded);
@@ -56,7 +59,7 @@ public final class ExpandableWidgetHelper {
         return false;
     }
 
-    public void setExpandedComponentIdHint(@IdRes int i) {
-        this.expandedComponentIdHint = i;
+    public void setExpandedComponentIdHint(@IdRes int i2) {
+        this.expandedComponentIdHint = i2;
     }
 }

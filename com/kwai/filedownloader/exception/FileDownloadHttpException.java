@@ -12,9 +12,9 @@ public class FileDownloadHttpException extends IOException {
     public final Map<String, List<String>> mRequestHeaderMap;
     public final Map<String, List<String>> mResponseHeaderMap;
 
-    public FileDownloadHttpException(int i, Map<String, List<String>> map, Map<String, List<String>> map2) {
-        super(f.a("response requestHttpCode error: %d, \n request headers: %s \n response headers: %s", Integer.valueOf(i), map, map2));
-        this.mCode = i;
+    public FileDownloadHttpException(int i2, Map<String, List<String>> map, Map<String, List<String>> map2) {
+        super(f.a("response requestHttpCode error: %d, \n request headers: %s \n response headers: %s", Integer.valueOf(i2), map, map2));
+        this.mCode = i2;
         this.mRequestHeaderMap = cloneSerializableMap(map);
         this.mResponseHeaderMap = cloneSerializableMap(map);
     }

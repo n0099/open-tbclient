@@ -13,26 +13,26 @@ public class Base64OutputStream extends FilterOutputStream {
     public final Base64.Coder coder;
     public final int flags;
 
-    public Base64OutputStream(OutputStream outputStream, int i) {
-        this(outputStream, i, true);
+    public Base64OutputStream(OutputStream outputStream, int i2) {
+        this(outputStream, i2, true);
     }
 
-    private byte[] embiggen(byte[] bArr, int i) {
-        return (bArr == null || bArr.length < i) ? new byte[i] : bArr;
+    private byte[] embiggen(byte[] bArr, int i2) {
+        return (bArr == null || bArr.length < i2) ? new byte[i2] : bArr;
     }
 
     private void flushBuffer() throws IOException {
-        int i = this.bpos;
-        if (i > 0) {
-            internalWrite(this.buffer, 0, i, false);
+        int i2 = this.bpos;
+        if (i2 > 0) {
+            internalWrite(this.buffer, 0, i2, false);
             this.bpos = 0;
         }
     }
 
-    private void internalWrite(byte[] bArr, int i, int i2, boolean z) throws IOException {
+    private void internalWrite(byte[] bArr, int i2, int i3, boolean z) throws IOException {
         Base64.Coder coder = this.coder;
-        coder.output = embiggen(coder.output, coder.maxOutputSize(i2));
-        if (this.coder.process(bArr, i, i2, z)) {
+        coder.output = embiggen(coder.output, coder.maxOutputSize(i3));
+        if (this.coder.process(bArr, i2, i3, z)) {
             OutputStream outputStream = ((FilterOutputStream) this).out;
             Base64.Coder coder2 = this.coder;
             outputStream.write(coder2.output, 0, coder2.op);
@@ -67,40 +67,40 @@ public class Base64OutputStream extends FilterOutputStream {
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
-    public void write(int i) throws IOException {
+    public void write(int i2) throws IOException {
         if (this.buffer == null) {
             this.buffer = new byte[1024];
         }
-        int i2 = this.bpos;
+        int i3 = this.bpos;
         byte[] bArr = this.buffer;
-        if (i2 >= bArr.length) {
-            internalWrite(bArr, 0, i2, false);
+        if (i3 >= bArr.length) {
+            internalWrite(bArr, 0, i3, false);
             this.bpos = 0;
         }
         byte[] bArr2 = this.buffer;
-        int i3 = this.bpos;
-        this.bpos = i3 + 1;
-        bArr2[i3] = (byte) i;
+        int i4 = this.bpos;
+        this.bpos = i4 + 1;
+        bArr2[i4] = (byte) i2;
     }
 
-    public Base64OutputStream(OutputStream outputStream, int i, boolean z) {
+    public Base64OutputStream(OutputStream outputStream, int i2, boolean z) {
         super(outputStream);
         this.buffer = null;
         this.bpos = 0;
-        this.flags = i;
+        this.flags = i2;
         if (z) {
-            this.coder = new Base64.Encoder(i, null);
+            this.coder = new Base64.Encoder(i2, null);
         } else {
-            this.coder = new Base64.Decoder(i, null);
+            this.coder = new Base64.Decoder(i2, null);
         }
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
-        if (i2 <= 0) {
+    public void write(byte[] bArr, int i2, int i3) throws IOException {
+        if (i3 <= 0) {
             return;
         }
         flushBuffer();
-        internalWrite(bArr, i, i2, false);
+        internalWrite(bArr, i2, i3, false);
     }
 }

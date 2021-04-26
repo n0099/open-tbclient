@@ -1,9 +1,9 @@
 package com.vivo.push.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class n extends u {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39770a;
+    public int f37373a;
 
     public n() {
         super(2016);
@@ -12,16 +12,16 @@ public final class n extends u {
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("key_dispatch_environment", this.f39770a);
+        aVar.a("key_dispatch_environment", this.f37373a);
     }
 
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.f39770a = aVar.b("key_dispatch_environment", 0);
+        this.f37373a = aVar.b("key_dispatch_environment", 0);
     }
 
     public final int d() {
-        return this.f39770a;
+        return this.f37373a;
     }
 }

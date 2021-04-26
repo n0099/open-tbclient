@@ -19,41 +19,41 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d f8771a = new d();
+    public static d f9084a = new d();
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8772a;
+        public String f9085a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8773b;
+        public String f9086b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8774c;
+        public String f9087c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f8775d;
+        public String f9088d;
 
         public a(String str, String str2, String str3, String str4) {
             str = str == null ? "" : str;
             str2 = str2 == null ? "" : str2;
             str3 = str3 == null ? "" : str3;
             str4 = str4 == null ? "" : str4;
-            this.f8772a = str;
-            this.f8773b = str2;
-            this.f8774c = str3;
-            this.f8775d = str4;
+            this.f9085a = str;
+            this.f9086b = str2;
+            this.f9087c = str3;
+            this.f9088d = str4;
         }
 
         public JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("n", this.f8772a);
-                jSONObject.put("v", this.f8773b);
-                jSONObject.put("c", this.f8774c);
-                jSONObject.put("a", this.f8775d);
+                jSONObject.put("n", this.f9085a);
+                jSONObject.put("v", this.f9086b);
+                jSONObject.put("c", this.f9087c);
+                jSONObject.put("a", this.f9088d);
                 return jSONObject;
             } catch (JSONException e2) {
                 bb.c().b(e2);

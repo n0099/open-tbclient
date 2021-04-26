@@ -16,12 +16,12 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.switchs.FlutterMyTabEnableSwitch;
 import com.baidu.tieba.flutter.base.util.OpenFlutter;
 import com.idlefish.flutterboost.containers.FlutterFragment;
-import d.b.c.a.h;
-import d.b.c.e.p.l;
-import d.b.i0.e0.a;
-import d.b.i0.e0.b;
-import d.b.i0.e0.c;
-import d.b.i0.e0.d;
+import d.a.c.a.h;
+import d.a.c.e.p.l;
+import d.a.i0.e0.a;
+import d.a.i0.e0.b;
+import d.a.i0.e0.c;
+import d.a.i0.e0.d;
 /* loaded from: classes4.dex */
 public class FlutterDelegateStatic extends b {
     public static final int PERSON_INFO_TAB_MIDDLE_REDDOT_DISTANCE = 10;
@@ -48,33 +48,33 @@ public class FlutterDelegateStatic extends b {
         MessageManager.getInstance().registerListener(customMessageListener);
     }
 
-    @Override // d.b.i0.e0.b
+    @Override // d.a.i0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
         FlutterFragment.NewEngineFragmentBuilder newEngineFragmentBuilder = new FlutterFragment.NewEngineFragmentBuilder(TbFlutterFragment.class);
         newEngineFragmentBuilder.url(OpenFlutter.FRAGMENT_MYTAB);
         newEngineFragmentBuilder.isTabHost(true);
-        cVar.f50884a = newEngineFragmentBuilder.build();
+        cVar.f48462a = newEngineFragmentBuilder.build();
         isInited = false;
-        cVar.f50888e = 8;
+        cVar.f48466e = 8;
         Resources b2 = h.a().b();
-        cVar.f50885b = b2.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
-        cVar.f50889f = b2.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
-        cVar.i = c.m;
-        cVar.f50891h = d.b.i0.e0.e.c.d().c("person");
+        cVar.f48463b = b2.getIdentifier("mine", "string", BdBaseApplication.getInst().getPackageName());
+        cVar.f48467f = b2.getIdentifier("lottie_tab_my", "raw", BdBaseApplication.getInst().getPackageName());
+        cVar.f48470i = c.m;
+        cVar.f48469h = d.a.i0.e0.e.c.d().c("person");
         return cVar;
     }
 
-    @Override // d.b.i0.e0.b
+    @Override // d.a.i0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().b().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.f13630f = this.mIndicator;
-        aVar.f13627c = l.e(context, 10.0f);
-        aVar.f13625a = this.tipView;
+        aVar.f13628f = this.mIndicator;
+        aVar.f13625c = l.e(context, 10.0f);
+        aVar.f13623a = this.tipView;
         this.mIndicator.b(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
-        boolean g2 = d.b.i0.r.d0.b.j().g("key_feedback_tip_tab_show", false);
+        boolean g2 = d.a.i0.r.d0.b.j().g("key_feedback_tip_tab_show", false);
         if (!this.isNew.booleanValue() && !g2) {
             this.tipView.setVisibility(8);
         } else {
@@ -84,12 +84,12 @@ public class FlutterDelegateStatic extends b {
         return this.mIndicator;
     }
 
-    @Override // d.b.i0.e0.b
+    @Override // d.a.i0.e0.b
     public boolean isAvailable() {
         return MainTabActivityConfig.PERSON_TAB_AVAIBLE;
     }
 
-    @Override // d.b.i0.e0.b
+    @Override // d.a.i0.e0.b
     public void onAdd() {
         CustomMessageListener customMessageListener = new CustomMessageListener(2007014) { // from class: com.baidu.tieba.flutter.base.view.FlutterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -98,7 +98,7 @@ public class FlutterDelegateStatic extends b {
                 if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2007014 || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof a)) {
                     return;
                 }
-                FlutterDelegateStatic.this.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).f50883a);
+                FlutterDelegateStatic.this.isNew = Boolean.valueOf(((a) customResponsedMessage.getData()).f48461a);
                 if (FlutterDelegateStatic.this.isNew.booleanValue()) {
                     FlutterDelegateStatic.this.tipView.f(0);
                     FlutterDelegateStatic.this.tipView.setVisibility(0);
@@ -112,7 +112,7 @@ public class FlutterDelegateStatic extends b {
         MessageManager.getInstance().registerListener(this.maintabEmotionListener);
     }
 
-    @Override // d.b.i0.e0.b
+    @Override // d.a.i0.e0.b
     public void onRemove() {
         super.onRemove();
         MessageManager.getInstance().unRegisterListener(this.maintabEmotionListener);

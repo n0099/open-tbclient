@@ -102,24 +102,24 @@ public final class PerspectiveTransform {
         float f8 = this.a31;
         float f9 = this.a32;
         float f10 = this.a33;
-        for (int i = 0; i < length; i += 2) {
-            float f11 = fArr[i];
-            int i2 = i + 1;
-            float f12 = fArr[i2];
+        for (int i2 = 0; i2 < length; i2 += 2) {
+            float f11 = fArr[i2];
+            int i3 = i2 + 1;
+            float f12 = fArr[i3];
             float f13 = (f4 * f11) + (f7 * f12) + f10;
-            fArr[i] = (((f2 * f11) + (f5 * f12)) + f8) / f13;
-            fArr[i2] = (((f11 * f3) + (f12 * f6)) + f9) / f13;
+            fArr[i2] = (((f2 * f11) + (f5 * f12)) + f8) / f13;
+            fArr[i3] = (((f11 * f3) + (f12 * f6)) + f9) / f13;
         }
     }
 
     public void transformPoints(float[] fArr, float[] fArr2) {
         int length = fArr.length;
-        for (int i = 0; i < length; i++) {
-            float f2 = fArr[i];
-            float f3 = fArr2[i];
+        for (int i2 = 0; i2 < length; i2++) {
+            float f2 = fArr[i2];
+            float f3 = fArr2[i2];
             float f4 = (this.a13 * f2) + (this.a23 * f3) + this.a33;
-            fArr[i] = (((this.a11 * f2) + (this.a21 * f3)) + this.a31) / f4;
-            fArr2[i] = (((this.a12 * f2) + (this.a22 * f3)) + this.a32) / f4;
+            fArr[i2] = (((this.a11 * f2) + (this.a21 * f3)) + this.a31) / f4;
+            fArr2[i2] = (((this.a12 * f2) + (this.a22 * f3)) + this.a32) / f4;
         }
     }
 }

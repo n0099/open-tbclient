@@ -7,8 +7,8 @@ import android.os.IBinder;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import d.b.h0.a.k;
-import d.b.h0.e.a.l.i.c;
+import d.a.h0.a.k;
+import d.a.h0.e.a.l.i.c;
 /* loaded from: classes3.dex */
 public class AdDownloadService extends Service {
     public a mBinder = new a();
@@ -47,10 +47,10 @@ public class AdDownloadService extends Service {
 
     @Override // android.app.Service
     public void onCreate() {
-        if (k.f45772a) {
+        if (k.f43101a) {
             Log.d("AdDownload", "service create");
         }
-        this.mDownloadManager = d.b.h0.e.a.l.g.a.m(AppRuntime.getAppContext(), null);
+        this.mDownloadManager = d.a.h0.e.a.l.g.a.m(AppRuntime.getAppContext(), null);
         super.onCreate();
     }
 

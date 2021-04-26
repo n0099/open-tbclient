@@ -30,7 +30,7 @@ public final class a {
     }
 
     public static String a(InputStream inputStream) {
-        int i;
+        int i2;
         if (inputStream == null) {
             return null;
         }

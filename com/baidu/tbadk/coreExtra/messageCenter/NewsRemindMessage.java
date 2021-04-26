@@ -9,29 +9,31 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f13370a = 0;
+        public int f13339a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f13371b = false;
+        public boolean f13340b = false;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f13372c = 0;
+        public int f13341c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f13373d = 0;
+        public int f13342d = 0;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f13374e = 0;
+        public int f13343e = 0;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f13375f = 0;
+        public int f13344f = 0;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f13376g = 0;
+        public int f13345g = 0;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f13377h = false;
-        public int i = 0;
+        public boolean f13346h = false;
+
+        /* renamed from: i  reason: collision with root package name */
+        public int f13347i = 0;
         public boolean j = false;
 
         public a(NewsRemindMessage newsRemindMessage) {
@@ -44,82 +46,82 @@ public class NewsRemindMessage extends CustomResponsedMessage<Object> {
     }
 
     public int getChatCount() {
-        return this.mData.f13376g;
+        return this.mData.f13345g;
     }
 
     public int getMsgAgreeCount() {
-        return this.mData.f13372c;
+        return this.mData.f13341c;
     }
 
     public int getMsgAtCount() {
-        return this.mData.f13374e;
+        return this.mData.f13343e;
     }
 
     public int getMsgCount() {
-        return this.mData.f13370a;
+        return this.mData.f13339a;
     }
 
     public int getMsgFansCount() {
-        return this.mData.f13375f;
+        return this.mData.f13344f;
     }
 
     public int getMsgReplyCount() {
-        return this.mData.f13373d;
+        return this.mData.f13342d;
     }
 
     public int getNotificationCount() {
-        return this.mData.i;
+        return this.mData.f13347i;
     }
 
     public boolean hasChatRemind() {
-        return this.mData.f13377h;
+        return this.mData.f13346h;
     }
 
     public boolean hasMsgRemind() {
-        return this.mData.f13371b;
+        return this.mData.f13340b;
     }
 
     public boolean hasNotificationRemind() {
         return this.mData.j;
     }
 
-    public void setChatCount(int i) {
-        this.mData.f13376g = i;
+    public void setChatCount(int i2) {
+        this.mData.f13345g = i2;
     }
 
     public void setHasChatRemind(boolean z) {
-        this.mData.f13377h = z;
+        this.mData.f13346h = z;
     }
 
     public void setHasMsgRemind(boolean z) {
-        this.mData.f13371b = z;
+        this.mData.f13340b = z;
     }
 
     public void setHasNotificationRemind(boolean z) {
         this.mData.j = z;
     }
 
-    public void setMsgAgreeCount(int i) {
-        this.mData.f13372c = i;
+    public void setMsgAgreeCount(int i2) {
+        this.mData.f13341c = i2;
     }
 
-    public void setMsgAtCount(int i) {
-        this.mData.f13374e = i;
+    public void setMsgAtCount(int i2) {
+        this.mData.f13343e = i2;
     }
 
-    public void setMsgCount(int i) {
-        this.mData.f13370a = i;
+    public void setMsgCount(int i2) {
+        this.mData.f13339a = i2;
     }
 
-    public void setMsgFansCount(int i) {
-        this.mData.f13375f = i;
+    public void setMsgFansCount(int i2) {
+        this.mData.f13344f = i2;
     }
 
-    public void setMsgReplyCount(int i) {
-        this.mData.f13373d = i;
+    public void setMsgReplyCount(int i2) {
+        this.mData.f13342d = i2;
     }
 
-    public void setNotificationCount(int i) {
-        this.mData.i = i;
+    public void setNotificationCount(int i2) {
+        this.mData.f13347i = i2;
     }
 }

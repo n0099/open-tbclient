@@ -42,19 +42,19 @@ public class JSONPObject implements JSONSerializable {
     }
 
     @Override // com.alibaba.fastjson.serializer.JSONSerializable
-    public void write(JSONSerializer jSONSerializer, Object obj, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Type type, int i2) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
-        int i2 = SerializerFeature.BrowserSecure.mask;
-        if ((i & i2) != 0 || serializeWriter.isEnabled(i2)) {
+        int i3 = SerializerFeature.BrowserSecure.mask;
+        if ((i2 & i3) != 0 || serializeWriter.isEnabled(i3)) {
             serializeWriter.write(SECURITY_PREFIX);
         }
         serializeWriter.write(this.function);
         serializeWriter.write(40);
-        for (int i3 = 0; i3 < this.parameters.size(); i3++) {
-            if (i3 != 0) {
+        for (int i4 = 0; i4 < this.parameters.size(); i4++) {
+            if (i4 != 0) {
                 serializeWriter.write(44);
             }
-            jSONSerializer.write(this.parameters.get(i3));
+            jSONSerializer.write(this.parameters.get(i4));
         }
         serializeWriter.write(41);
     }

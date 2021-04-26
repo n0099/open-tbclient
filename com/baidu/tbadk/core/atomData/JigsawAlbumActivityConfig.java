@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class JigsawAlbumActivityConfig extends IntentConfig {
     public static final String SELECTED_URIS = "selected_uris";
 
-    public JigsawAlbumActivityConfig(Context context, int i) {
+    public JigsawAlbumActivityConfig(Context context, int i2) {
         super(context);
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

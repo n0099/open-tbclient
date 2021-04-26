@@ -1,6 +1,8 @@
 package com.baidu.tbadk;
 /* loaded from: classes3.dex */
 public class TbConstants {
+    public static final int FRS_POST_THREAD = 2;
+    public static final int HOME_PAGE_POST_THREAD = 1;
     public static final int LOGIN_STATUS_TYPE_ACCOUNT_CHANGE = 2;
     public static final int LOGIN_STATUS_TYPE_NEED_INIT = 1;
     public static final int STRETAGY_ALTERNATE_BEAR_FIRST = 103;

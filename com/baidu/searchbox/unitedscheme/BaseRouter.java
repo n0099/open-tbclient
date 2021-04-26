@@ -15,6 +15,7 @@ public class BaseRouter {
         return false;
     }
 
+    @Deprecated
     public static boolean invokeNextScheme(Context context, Intent intent) {
         return SchemeRouter.invokeNextScheme(context, intent);
     }
@@ -26,10 +27,12 @@ public class BaseRouter {
         return SchemeRouter.invokeScheme(context, uri, str, callbackHandler);
     }
 
+    @Deprecated
     public static boolean invokeSchemeForInner(Context context, Uri uri) {
         return SchemeRouter.invokeSchemeForInner(context, uri);
     }
 
+    @Deprecated
     public static boolean isAvailable(Context context, String str) {
         if (UnitedSchemeUtility.isUnitedScheme(str)) {
             return isSchemeAvailable(context, Uri.parse(str), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
@@ -46,5 +49,10 @@ public class BaseRouter {
 
     public static boolean invokeScheme(Context context, Uri uri, String str) {
         return invokeScheme(context, uri, str, null);
+    }
+
+    @Deprecated
+    public static boolean invokeScheme(Context context, Uri uri) {
+        return SchemeRouter.invokeSchemeForInner(context, uri);
     }
 }

@@ -52,7 +52,7 @@ public abstract class NativeRestore {
         return getString("time_crash");
     }
 
-    public int getInt(String str, int i) {
+    public int getInt(String str, int i2) {
         return 0;
     }
 
@@ -81,7 +81,7 @@ public abstract class NativeRestore {
         return false;
     }
 
-    public boolean putInt(String str, int i) {
+    public boolean putInt(String str, int i2) {
         return false;
     }
 

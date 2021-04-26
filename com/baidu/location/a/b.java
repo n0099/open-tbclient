@@ -5,31 +5,31 @@ import android.os.Bundle;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f6500a = new Object();
+    public static Object f6718a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f6501b;
+    public static b f6719b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f6502c = -1;
+    public int f6720c = -1;
 
     public static b a() {
         b bVar;
-        synchronized (f6500a) {
-            if (f6501b == null) {
-                f6501b = new b();
+        synchronized (f6718a) {
+            if (f6719b == null) {
+                f6719b = new b();
             }
-            bVar = f6501b;
+            bVar = f6719b;
         }
         return bVar;
     }
 
-    public void a(int i, int i2, String str) {
-        if (i2 != this.f6502c) {
-            this.f6502c = i2;
+    public void a(int i2, int i3, String str) {
+        if (i3 != this.f6720c) {
+            this.f6720c = i3;
             Bundle bundle = new Bundle();
-            bundle.putInt("loctype", i);
-            bundle.putInt("diagtype", i2);
+            bundle.putInt("loctype", i2);
+            bundle.putInt("diagtype", i3);
             bundle.putByteArray("diagmessage", str.getBytes());
             a.a().a(bundle, 303);
         }

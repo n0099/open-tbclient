@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class g extends RecyclerView {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f34329a;
+    public boolean f33310a;
 
     public g(Context context) {
         super(context);
@@ -19,17 +19,17 @@ public class g extends RecyclerView {
         super(context, attributeSet);
     }
 
-    public g(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public g(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup
     public void removeDetachedView(View view, boolean z) {
-        boolean z2 = this.f34329a;
+        boolean z2 = this.f33310a;
         super.removeDetachedView(view, z);
     }
 
     public void setIngoreTmpDetachedFlag(boolean z) {
-        this.f34329a = z;
+        this.f33310a = z;
     }
 }

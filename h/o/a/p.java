@@ -1,217 +1,183 @@
 package h.o.a;
 
+import h.a;
 import h.d;
-import h.g;
-import h.o.d.k.f0;
-import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.operators.NotificationLite;
+import rx.internal.util.BackpressureDrainManager;
 /* loaded from: classes7.dex */
-public final class p<T> implements d.b<T, T> {
+public class p<T> implements d.b<T, T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.g f68938e;
+    public final Long f67795e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f68939f;
+    public final h.n.a f67796f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f68940g;
+    public final a.d f67797g = h.a.f67677b;
 
     /* loaded from: classes7.dex */
-    public static final class a<T> extends h.j<T> implements h.n.a {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final h.j<? super T> f68941e;
+    public static final class a<T> extends h.j<T> implements BackpressureDrainManager.a {
 
         /* renamed from: f  reason: collision with root package name */
-        public final g.a f68942f;
+        public final AtomicLong f67799f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final boolean f68943g;
+        public final h.j<? super T> f67800g;
+
+        /* renamed from: i  reason: collision with root package name */
+        public final BackpressureDrainManager f67802i;
+        public final h.n.a j;
+        public final a.d k;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final ConcurrentLinkedQueue<Object> f67798e = new ConcurrentLinkedQueue<>();
 
         /* renamed from: h  reason: collision with root package name */
-        public final Queue<Object> f68944h;
-        public final int i;
-        public volatile boolean j;
-        public final AtomicLong k = new AtomicLong();
-        public final AtomicLong l = new AtomicLong();
-        public Throwable m;
-        public long n;
+        public final AtomicBoolean f67801h = new AtomicBoolean(false);
 
-        /* renamed from: h.o.a.p$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C1909a implements h.f {
-            public C1909a() {
-            }
-
-            @Override // h.f
-            public void request(long j) {
-                if (j > 0) {
-                    h.o.a.a.b(a.this.k, j);
-                    a.this.d();
-                }
-            }
+        public a(h.j<? super T> jVar, Long l, h.n.a aVar, a.d dVar) {
+            this.f67800g = jVar;
+            this.f67799f = l != null ? new AtomicLong(l.longValue()) : null;
+            this.j = aVar;
+            this.f67802i = new BackpressureDrainManager(this);
+            this.k = dVar;
         }
 
-        public a(h.g gVar, h.j<? super T> jVar, boolean z, int i) {
-            this.f68941e = jVar;
-            this.f68942f = gVar.createWorker();
-            this.f68943g = z;
-            i = i <= 0 ? h.o.d.g.f69092g : i;
-            this.i = i - (i >> 2);
-            if (f0.b()) {
-                this.f68944h = new h.o.d.k.r(i);
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public void a(Throwable th) {
+            if (th != null) {
+                this.f67800g.onError(th);
             } else {
-                this.f68944h = new h.o.d.j.c(i);
+                this.f67800g.onCompleted();
             }
-            request(i);
         }
 
-        public boolean b(boolean z, boolean z2, h.j<? super T> jVar, Queue<Object> queue) {
-            if (jVar.isUnsubscribed()) {
-                queue.clear();
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public boolean accept(Object obj) {
+            return NotificationLite.a(this.f67800g, obj);
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:32:0x0039 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:34:0x0049 A[SYNTHETIC] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final boolean b() {
+            long j;
+            boolean z;
+            h.n.a aVar;
+            if (this.f67799f == null) {
                 return true;
-            } else if (z) {
-                if (this.f68943g) {
-                    if (z2) {
-                        Throwable th = this.m;
-                        try {
-                            if (th != null) {
-                                jVar.onError(th);
-                            } else {
-                                jVar.onCompleted();
-                            }
-                            return false;
-                        } finally {
+            }
+            do {
+                j = this.f67799f.get();
+                if (j <= 0) {
+                    try {
+                    } catch (MissingBackpressureException e2) {
+                        if (this.f67801h.compareAndSet(false, true)) {
+                            unsubscribe();
+                            this.f67800g.onError(e2);
                         }
                     }
-                    return false;
-                }
-                Throwable th2 = this.m;
-                if (th2 != null) {
-                    queue.clear();
-                    try {
-                        jVar.onError(th2);
-                        return true;
-                    } finally {
+                    if (this.k.a() && poll() != null) {
+                        z = true;
+                        aVar = this.j;
+                        if (aVar != null) {
+                            try {
+                                aVar.call();
+                            } catch (Throwable th) {
+                                h.m.a.e(th);
+                                this.f67802i.terminateAndDrain(th);
+                                return false;
+                            }
+                        }
+                        if (!z) {
+                            return false;
+                        }
                     }
-                } else if (z2) {
-                    try {
-                        jVar.onCompleted();
-                        return true;
-                    } finally {
+                    z = false;
+                    aVar = this.j;
+                    if (aVar != null) {
                     }
-                } else {
-                    return false;
+                    if (!z) {
+                    }
                 }
-            } else {
-                return false;
-            }
+            } while (!this.f67799f.compareAndSet(j, j - 1));
+            return true;
         }
 
-        public void c() {
-            h.j<? super T> jVar = this.f68941e;
-            jVar.setProducer(new C1909a());
-            jVar.add(this.f68942f);
-            jVar.add(this);
-        }
-
-        @Override // h.n.a
-        public void call() {
-            int i;
-            long j = this.n;
-            Queue<Object> queue = this.f68944h;
-            h.j<? super T> jVar = this.f68941e;
-            long j2 = 1;
-            do {
-                long j3 = this.k.get();
-                while (true) {
-                    i = (j3 > j ? 1 : (j3 == j ? 0 : -1));
-                    if (i == 0) {
-                        break;
-                    }
-                    boolean z = this.j;
-                    Object poll = queue.poll();
-                    boolean z2 = poll == null;
-                    if (b(z, z2, jVar, queue)) {
-                        return;
-                    }
-                    if (z2) {
-                        break;
-                    }
-                    jVar.onNext((Object) NotificationLite.e(poll));
-                    j++;
-                    if (j == this.i) {
-                        j3 = h.o.a.a.g(this.k, j);
-                        request(j);
-                        j = 0;
-                    }
-                }
-                if (i == 0 && b(this.j, queue.isEmpty(), jVar, queue)) {
-                    return;
-                }
-                this.n = j;
-                j2 = this.l.addAndGet(-j2);
-            } while (j2 != 0);
-        }
-
-        public void d() {
-            if (this.l.getAndIncrement() == 0) {
-                this.f68942f.b(this);
-            }
+        public h.f c() {
+            return this.f67802i;
         }
 
         @Override // h.e
         public void onCompleted() {
-            if (isUnsubscribed() || this.j) {
+            if (this.f67801h.get()) {
                 return;
             }
-            this.j = true;
-            d();
+            this.f67802i.terminateAndDrain();
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            if (!isUnsubscribed() && !this.j) {
-                this.m = th;
-                this.j = true;
-                d();
+            if (this.f67801h.get()) {
                 return;
             }
-            h.r.c.j(th);
+            this.f67802i.terminateAndDrain(th);
         }
 
         @Override // h.e
         public void onNext(T t) {
-            if (isUnsubscribed() || this.j) {
-                return;
+            if (b()) {
+                this.f67798e.offer(NotificationLite.h(t));
+                this.f67802i.drain();
             }
-            if (!this.f68944h.offer(NotificationLite.h(t))) {
-                onError(new MissingBackpressureException());
-            } else {
-                d();
+        }
+
+        @Override // h.j
+        public void onStart() {
+            request(Long.MAX_VALUE);
+        }
+
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public Object peek() {
+            return this.f67798e.peek();
+        }
+
+        @Override // rx.internal.util.BackpressureDrainManager.a
+        public Object poll() {
+            Object poll = this.f67798e.poll();
+            AtomicLong atomicLong = this.f67799f;
+            if (atomicLong != null && poll != null) {
+                atomicLong.incrementAndGet();
             }
+            return poll;
         }
     }
 
-    public p(h.g gVar, boolean z, int i) {
-        this.f68938e = gVar;
-        this.f68939f = z;
-        this.f68940g = i <= 0 ? h.o.d.g.f69092g : i;
+    /* loaded from: classes7.dex */
+    public static final class b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final p<?> f67803a = new p<>();
+    }
+
+    public static <T> p<T> b() {
+        return (p<T>) b.f67803a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // h.n.f
     /* renamed from: a */
     public h.j<? super T> call(h.j<? super T> jVar) {
-        h.g gVar = this.f68938e;
-        if ((gVar instanceof h.o.c.e) || (gVar instanceof h.o.c.j)) {
-            return jVar;
-        }
-        a aVar = new a(gVar, jVar, this.f68939f, this.f68940g);
-        aVar.c();
+        a aVar = new a(jVar, this.f67795e, this.f67796f, this.f67797g);
+        jVar.add(aVar);
+        jVar.setProducer(aVar.c());
         return aVar;
     }
 }

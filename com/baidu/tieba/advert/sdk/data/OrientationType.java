@@ -7,8 +7,8 @@ public enum OrientationType {
     
     public int type;
 
-    OrientationType(int i) {
-        this.type = i;
+    OrientationType(int i2) {
+        this.type = i2;
     }
 
     public int getValue() {

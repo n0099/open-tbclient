@@ -8,21 +8,21 @@ public class RouteNode implements Parcelable {
     public static final Parcelable.Creator<RouteNode> CREATOR = new j();
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7195a;
+    public String f7451a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f7196b;
+    public LatLng f7452b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7197c;
+    public String f7453c;
 
     public RouteNode() {
     }
 
     public RouteNode(Parcel parcel) {
-        this.f7195a = parcel.readString();
-        this.f7196b = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f7197c = parcel.readString();
+        this.f7451a = parcel.readString();
+        this.f7452b = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f7453c = parcel.readString();
     }
 
     public static RouteNode location(LatLng latLng) {
@@ -44,33 +44,33 @@ public class RouteNode implements Parcelable {
     }
 
     public LatLng getLocation() {
-        return this.f7196b;
+        return this.f7452b;
     }
 
     public String getTitle() {
-        return this.f7195a;
+        return this.f7451a;
     }
 
     public String getUid() {
-        return this.f7197c;
+        return this.f7453c;
     }
 
     public void setLocation(LatLng latLng) {
-        this.f7196b = latLng;
+        this.f7452b = latLng;
     }
 
     public void setTitle(String str) {
-        this.f7195a = str;
+        this.f7451a = str;
     }
 
     public void setUid(String str) {
-        this.f7197c = str;
+        this.f7453c = str;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f7195a);
-        parcel.writeValue(this.f7196b);
-        parcel.writeString(this.f7197c);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeString(this.f7451a);
+        parcel.writeValue(this.f7452b);
+        parcel.writeString(this.f7453c);
     }
 }

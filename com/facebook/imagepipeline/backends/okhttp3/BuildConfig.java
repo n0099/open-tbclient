@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.backends.okhttp3;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.facebook.imagepipeline.backends.okhttp3";
     public static final String BUILD_TYPE = "release";

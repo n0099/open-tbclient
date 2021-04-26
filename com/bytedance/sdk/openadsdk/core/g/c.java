@@ -5,8 +5,8 @@ import java.io.File;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class c extends com.bytedance.sdk.openadsdk.b.c {
-    public c(int i, int i2) {
-        super(i, i2);
+    public c(int i2, int i3) {
+        super(i2, i3);
     }
 
     @Override // com.bytedance.sdk.openadsdk.b.c, com.bytedance.sdk.openadsdk.b.b

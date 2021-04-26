@@ -2,7 +2,7 @@ package com.facebook.drawee.backends.pipeline.debug;
 
 import com.facebook.drawee.backends.pipeline.info.ImageOriginListener;
 import com.facebook.drawee.backends.pipeline.info.ImageOriginUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DebugOverlayImageOriginListener implements ImageOriginListener {
     public int mImageOrigin = 1;
 
@@ -11,7 +11,7 @@ public class DebugOverlayImageOriginListener implements ImageOriginListener {
     }
 
     @Override // com.facebook.drawee.backends.pipeline.info.ImageOriginListener
-    public void onImageLoaded(String str, int i, boolean z) {
-        this.mImageOrigin = i;
+    public void onImageLoaded(String str, int i2, boolean z) {
+        this.mImageOrigin = i2;
     }
 }

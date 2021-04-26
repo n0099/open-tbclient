@@ -3,8 +3,8 @@ package com.baidu.tbadk;
 import android.content.Context;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import d.b.c.e.p.c;
-import d.b.c.e.p.l;
+import d.a.c.e.p.c;
+import d.a.c.e.p.l;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public class TiebaIMConfig {

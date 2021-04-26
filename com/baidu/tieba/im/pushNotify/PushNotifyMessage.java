@@ -18,7 +18,7 @@ public class PushNotifyMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
     }
 
     public String getContent() {
@@ -61,8 +61,8 @@ public class PushNotifyMessage extends SocketResponsedMessage {
         this.groupId = j;
     }
 
-    public void setGroupType(int i) {
-        this.groupType = i;
+    public void setGroupType(int i2) {
+        this.groupType = i2;
     }
 
     public void setNewestMsgId(long j) {
@@ -73,7 +73,7 @@ public class PushNotifyMessage extends SocketResponsedMessage {
         this.pushTime = j;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 }

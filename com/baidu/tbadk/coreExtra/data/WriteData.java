@@ -13,7 +13,7 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.google.gson.Gson;
-import d.b.c.e.p.k;
+import d.a.c.e.p.k;
 import java.io.File;
 import java.io.Serializable;
 import java.net.URLEncoder;
@@ -274,9 +274,9 @@ public class WriteData extends OrmObject implements Serializable {
         try {
             if (isHasImages()) {
                 LinkedList<ImageFileInfo> chosedFiles = this.writeImagesInfo.getChosedFiles();
-                int i = 0;
-                while (i < chosedFiles.size()) {
-                    ImageFileInfo imageFileInfo = chosedFiles.get(i);
+                int i2 = 0;
+                while (i2 < chosedFiles.size()) {
+                    ImageFileInfo imageFileInfo = chosedFiles.get(i2);
                     if (imageFileInfo.isTempFile() && imageFileInfo.isAlreadyUploadedToServer() && !k.isEmpty(imageFileInfo.getFilePath())) {
                         File file = new File(imageFileInfo.getFilePath());
                         if (file.exists()) {
@@ -284,10 +284,10 @@ public class WriteData extends OrmObject implements Serializable {
                         }
                     }
                     if (imageFileInfo.isAlreadyUploadedToServer()) {
-                        chosedFiles.remove(i);
-                        i--;
+                        chosedFiles.remove(i2);
+                        i2--;
                     }
-                    i++;
+                    i2++;
                 }
             }
         } catch (Exception e2) {
@@ -380,8 +380,8 @@ public class WriteData extends OrmObject implements Serializable {
                 linkedList.addAll(this.writeImagesInfo.getChosedFiles());
             }
             StringBuilder sb = new StringBuilder(linkedList.size() * 50);
-            for (int i = 0; i < linkedList.size(); i++) {
-                ImageFileInfo imageFileInfo = (ImageFileInfo) linkedList.get(i);
+            for (int i2 = 0; i2 < linkedList.size(); i2++) {
+                ImageFileInfo imageFileInfo = (ImageFileInfo) linkedList.get(i2);
                 if (imageFileInfo.isAlreadyUploadedToServer()) {
                     sb.append("\n");
                     sb.append(imageFileInfo.getServerImageCode());
@@ -794,12 +794,12 @@ public class WriteData extends OrmObject implements Serializable {
         this.canNoForum = z;
     }
 
-    public void setCategoryFrom(int i) {
-        this.mCategoryFrom = i;
+    public void setCategoryFrom(int i2) {
+        this.mCategoryFrom = i2;
     }
 
-    public void setCategoryTo(int i) {
-        this.mCategoryTo = i;
+    public void setCategoryTo(int i2) {
+        this.mCategoryTo = i2;
     }
 
     public void setComment_head(String str) {
@@ -810,12 +810,12 @@ public class WriteData extends OrmObject implements Serializable {
         this.mContent = str;
     }
 
-    public void setEntranceType(int i) {
-        this.entranceType = i;
+    public void setEntranceType(int i2) {
+        this.entranceType = i2;
     }
 
-    public void setEvaluationStar(int i) {
-        this.mEvaluationStar = i;
+    public void setEvaluationStar(int i2) {
+        this.mEvaluationStar = i2;
     }
 
     public void setFirstDir(String str) {
@@ -826,8 +826,8 @@ public class WriteData extends OrmObject implements Serializable {
         this.mFloor = str;
     }
 
-    public void setFloorNum(int i) {
-        this.mFloorNum = i;
+    public void setFloorNum(int i2) {
+        this.mFloorNum = i2;
     }
 
     public void setForumId(String str) {
@@ -882,8 +882,8 @@ public class WriteData extends OrmObject implements Serializable {
         this.mIsFrsReply = z;
     }
 
-    public void setIsGeneralTab(int i) {
-        this.isGeneralTab = i;
+    public void setIsGeneralTab(int i2) {
+        this.isGeneralTab = i2;
     }
 
     public void setIsGiftPost(boolean z) {
@@ -965,8 +965,8 @@ public class WriteData extends OrmObject implements Serializable {
         this.mOtherComment = str;
     }
 
-    public void setOtherGrade(int i) {
-        this.mOtherGrade = i;
+    public void setOtherGrade(int i2) {
+        this.mOtherGrade = i2;
     }
 
     public void setPostLatLng(boolean z) {
@@ -981,8 +981,8 @@ public class WriteData extends OrmObject implements Serializable {
         this.isPrivacy = z;
     }
 
-    public void setProZone(int i) {
-        this.proZone = i;
+    public void setProZone(int i2) {
+        this.proZone = i2;
     }
 
     public void setRecommendExt(String str) {
@@ -1013,8 +1013,8 @@ public class WriteData extends OrmObject implements Serializable {
         this.mShareAppName = str;
     }
 
-    public void setShareImageType(int i) {
-        this.mShareImageType = i;
+    public void setShareImageType(int i2) {
+        this.mShareImageType = i2;
     }
 
     public void setShareLocalImageData(byte[] bArr) {
@@ -1041,16 +1041,16 @@ public class WriteData extends OrmObject implements Serializable {
         this.mShareSummaryImg = str;
     }
 
-    public void setShareSummaryImgHeight(int i) {
-        this.mShareSummaryImgHeight = i;
+    public void setShareSummaryImgHeight(int i2) {
+        this.mShareSummaryImgHeight = i2;
     }
 
     public void setShareSummaryImgType(String str) {
         this.mShareSummaryImgType = str;
     }
 
-    public void setShareSummaryImgWidth(int i) {
-        this.mShareSummaryImgWidth = i;
+    public void setShareSummaryImgWidth(int i2) {
+        this.mShareSummaryImgWidth = i2;
     }
 
     public void setShareSummaryTitle(String str) {
@@ -1065,24 +1065,24 @@ public class WriteData extends OrmObject implements Serializable {
         this.mSpanGroupString = str;
     }
 
-    public void setStatisticFrom(int i) {
-        this.statisticFrom = i;
+    public void setStatisticFrom(int i2) {
+        this.statisticFrom = i2;
     }
 
     public void setSubPbReplyPrefix(String str) {
         this.mSubPbReplyPrefix = str;
     }
 
-    public void setTabId(int i) {
-        this.mTabId = i;
+    public void setTabId(int i2) {
+        this.mTabId = i2;
     }
 
     public void setTabName(String str) {
         this.mTabName = str;
     }
 
-    public void setTakePhotoNum(int i) {
-        this.mTakePhotoNum = i;
+    public void setTakePhotoNum(int i2) {
+        this.mTakePhotoNum = i2;
     }
 
     public void setTaskId(String str) {
@@ -1109,8 +1109,8 @@ public class WriteData extends OrmObject implements Serializable {
         this.transmitForumData = str;
     }
 
-    public void setType(int i) {
-        this.mType = i;
+    public void setType(int i2) {
+        this.mType = i2;
     }
 
     public void setVForumId(String str) {
@@ -1149,8 +1149,8 @@ public class WriteData extends OrmObject implements Serializable {
         this.mVideoInfo = videoInfo;
     }
 
-    public void setVideoReviewType(int i) {
-        this.mVideoReviewType = i;
+    public void setVideoReviewType(int i2) {
+        this.mVideoReviewType = i2;
     }
 
     public void setVoice(String str) {
@@ -1165,8 +1165,8 @@ public class WriteData extends OrmObject implements Serializable {
         this.mVoiceMd5 = str;
     }
 
-    public void setVoiceDuringTime(int i) {
-        this.mDuringTime = i;
+    public void setVoiceDuringTime(int i2) {
+        this.mDuringTime = i2;
     }
 
     public void setVoiceModel(VoiceData$VoiceModel voiceData$VoiceModel) {
@@ -1185,8 +1185,8 @@ public class WriteData extends OrmObject implements Serializable {
         this.mZhongcePrefix = str;
     }
 
-    public void setmBigEmtionCount(int i) {
-        this.mBigEmtionCount = i;
+    public void setmBigEmtionCount(int i2) {
+        this.mBigEmtionCount = i2;
     }
 
     public void setmUniversityComment(String str) {
@@ -1265,7 +1265,7 @@ public class WriteData extends OrmObject implements Serializable {
         return jSONObject.toString();
     }
 
-    public WriteData(int i) {
+    public WriteData(int i2) {
         this.mShareImageType = SHARE_SDK_NET_IMAGE;
         this.item_id = "";
         this.proZone = -1;
@@ -1277,7 +1277,7 @@ public class WriteData extends OrmObject implements Serializable {
         this.mBigEmtionCount = 0;
         this.isLinkThread = false;
         this.mPostLatLng = false;
-        this.mType = i;
+        this.mType = i2;
         this.mTitle = null;
         this.mContent = null;
         this.mReplyUid = null;

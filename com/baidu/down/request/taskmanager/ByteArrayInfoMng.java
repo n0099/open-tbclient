@@ -3,7 +3,7 @@ package com.baidu.down.request.taskmanager;
 import android.util.Log;
 import java.util.LinkedList;
 import java.util.Queue;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class ByteArrayInfoMng {
     public static final boolean DEBUG = false;
     public static final String TAG = "ByteArrayInfoMng";
@@ -46,11 +46,11 @@ public class ByteArrayInfoMng {
         return poll;
     }
 
-    public void initByteArray(int i) {
+    public void initByteArray(int i2) {
         if (this.mAllocateMemory) {
             return;
         }
-        for (int i2 = 0; i2 < i; i2++) {
+        for (int i3 = 0; i3 < i2; i3++) {
             this.mByteArrayGetList.offer(new ByteArrayInfo());
         }
         this.mCurDataCount = mMaxByteSize;

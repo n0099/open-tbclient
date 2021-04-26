@@ -51,8 +51,8 @@ public class APKStateManager {
 
     private String[] getAllOriginPkgList(Context context) {
         try {
-            int i = getInt(context, KEY_ORIGIN_INDEX_ARRAY, -1);
-            if (i == -1) {
+            int i2 = getInt(context, KEY_ORIGIN_INDEX_ARRAY, -1);
+            if (i2 == -1) {
                 List<String> iadStringList = AppCommonConfig.getInstance().getIadStringList();
                 if (iadStringList != null && iadStringList.size() > 1) {
                     this.defaultList = iadStringList.get(0);
@@ -60,10 +60,10 @@ public class APKStateManager {
                 }
                 return new String[]{this.defaultList, this.defaultListSecond};
             }
-            int i2 = i + 1;
-            String[] strArr = new String[i2];
-            for (int i3 = 0; i3 < i2; i3++) {
-                strArr[i3] = getString(context, KEY_ORIGIN_ENCODE_PKGLIST + i3);
+            int i3 = i2 + 1;
+            String[] strArr = new String[i3];
+            for (int i4 = 0; i4 < i3; i4++) {
+                strArr[i4] = getString(context, KEY_ORIGIN_ENCODE_PKGLIST + i4);
             }
             return strArr;
         } catch (Throwable th) {
@@ -87,8 +87,8 @@ public class APKStateManager {
         try {
             if (iADEXValue.contains(",")) {
                 String[] split = iADEXValue.split(",");
-                for (int i = 0; i < max; i++) {
-                    jArr[i] = Long.parseLong(split[i]);
+                for (int i2 = 0; i2 < max; i2++) {
+                    jArr[i2] = Long.parseLong(split[i2]);
                 }
             } else {
                 jArr[0] = Long.parseLong(iADEXValue);
@@ -111,8 +111,8 @@ public class APKStateManager {
         return sInstance;
     }
 
-    private int getInt(Context context, String str, int i) {
-        return context == null ? i : context.getSharedPreferences(APK_LIST_FILE_NAME, 0).getInt(str, i);
+    private int getInt(Context context, String str, int i2) {
+        return context == null ? i2 : context.getSharedPreferences(APK_LIST_FILE_NAME, 0).getInt(str, i2);
     }
 
     private long getLong(Context context, String str) {
@@ -126,32 +126,32 @@ public class APKStateManager {
         return context == null ? "" : context.getSharedPreferences(APK_LIST_FILE_NAME, 0).getString(str, "");
     }
 
-    private long judgeAppsState(PackageManager packageManager, String str, int i, long j) {
+    private long judgeAppsState(PackageManager packageManager, String str, int i2, long j) {
         try {
             RemoteXAdLogger remoteXAdLogger = RemoteXAdLogger.getInstance();
             String str2 = TAG;
             remoteXAdLogger.d(str2, "judge pkg :" + str);
             packageManager.getApplicationInfo(str, 0);
-            return setApkInstalled(j, i);
+            return setApkInstalled(j, i2);
         } catch (PackageManager.NameNotFoundException unused) {
-            return setApkUnInstalled(j, i);
+            return setApkUnInstalled(j, i2);
         } catch (Exception unused2) {
-            return setApkUnInstalled(j, i);
+            return setApkUnInstalled(j, i2);
         }
     }
 
-    private long setApkInstalled(long j, int i) {
+    private long setApkInstalled(long j, int i2) {
         RemoteXAdLogger remoteXAdLogger = RemoteXAdLogger.getInstance();
         String str = TAG;
-        remoteXAdLogger.d(str, "setApkInstalled, current state :" + j + ", position :" + i);
-        return j | (1 << i);
+        remoteXAdLogger.d(str, "setApkInstalled, current state :" + j + ", position :" + i2);
+        return j | (1 << i2);
     }
 
-    private long setApkUnInstalled(long j, int i) {
+    private long setApkUnInstalled(long j, int i2) {
         RemoteXAdLogger remoteXAdLogger = RemoteXAdLogger.getInstance();
         String str = TAG;
-        remoteXAdLogger.d(str, "setApkInstalled, current state :" + j + ", position :" + i);
-        return j & (~(1 << i));
+        remoteXAdLogger.d(str, "setApkInstalled, current state :" + j + ", position :" + i2);
+        return j & (~(1 << i2));
     }
 
     private void setBoolean(Context context, String str, boolean z) {
@@ -167,12 +167,12 @@ public class APKStateManager {
         }
     }
 
-    private void setInt(Context context, String str, int i) {
-        if (context == null || i <= 0) {
+    private void setInt(Context context, String str, int i2) {
+        if (context == null || i2 <= 0) {
             return;
         }
         SharedPreferences.Editor edit = context.getSharedPreferences(APK_LIST_FILE_NAME, 0).edit();
-        edit.putInt(str, i);
+        edit.putInt(str, i2);
         if (Build.VERSION.SDK_INT >= 9) {
             edit.apply();
         } else {
@@ -207,7 +207,7 @@ public class APKStateManager {
     }
 
     public void actionToSniff(Context context, boolean z) {
-        int i;
+        int i2;
         if (APK_INFO_TIMEOUT > System.currentTimeMillis() - getLong(context, KEY_ORIGIN_TIME_STAMP) && !z) {
             RemoteXAdLogger.getInstance().d(TAG, "Within the time protection period");
             return;
@@ -216,10 +216,10 @@ public class APKStateManager {
         if (allOriginPkgList != null && allOriginPkgList.length != 0) {
             StringBuilder sb = new StringBuilder();
             PackageManager packageManager = context.getPackageManager();
-            for (int i2 = 0; i2 < allOriginPkgList.length; i2++) {
-                String str = allOriginPkgList[i2];
+            for (int i3 = 0; i3 < allOriginPkgList.length; i3++) {
+                String str = allOriginPkgList[i3];
                 if (TextUtils.isEmpty(str)) {
-                    if (i2 > 0) {
+                    if (i3 > 0) {
                         sb.append(",");
                     }
                     sb.append(1L);
@@ -227,21 +227,21 @@ public class APKStateManager {
                     String[] doubleCheckPkgArrays = doubleCheckPkgArrays(str);
                     if (doubleCheckPkgArrays != null && doubleCheckPkgArrays.length != 0) {
                         long j = 1;
-                        int i3 = 0;
-                        while (i3 < doubleCheckPkgArrays.length && i3 < 64) {
-                            int i4 = i3 + 1;
-                            j = judgeAppsState(packageManager, doubleCheckPkgArrays[i3], i4, j);
+                        int i4 = 0;
+                        while (i4 < doubleCheckPkgArrays.length && i4 < 64) {
+                            int i5 = i4 + 1;
+                            j = judgeAppsState(packageManager, doubleCheckPkgArrays[i4], i5, j);
                             RemoteXAdLogger remoteXAdLogger = RemoteXAdLogger.getInstance();
                             String str2 = TAG;
-                            remoteXAdLogger.d(str2, "actionToProbo : i=" + i2 + ", j=" + i3 + "pkg=" + doubleCheckPkgArrays[i] + ", state=" + j);
-                            i3 = i4;
+                            remoteXAdLogger.d(str2, "actionToProbo : i=" + i3 + ", j=" + i4 + "pkg=" + doubleCheckPkgArrays[i2] + ", state=" + j);
+                            i4 = i5;
                         }
-                        if (i2 > 0) {
+                        if (i3 > 0) {
                             sb.append(",");
                         }
                         sb.append(j);
                     } else {
-                        if (i2 > 0) {
+                        if (i3 > 0) {
                             sb.append(",");
                         }
                         sb.append(1L);
@@ -263,26 +263,26 @@ public class APKStateManager {
                 StringBuilder sb = new StringBuilder();
                 PackageManager packageManager = context.getPackageManager();
                 boolean z = false;
-                for (int i = 0; i < allOriginPkgList.length && i < iADEXArray.length; i++) {
-                    String[] doubleCheckPkgArrays = doubleCheckPkgArrays(allOriginPkgList[i]);
+                for (int i2 = 0; i2 < allOriginPkgList.length && i2 < iADEXArray.length; i2++) {
+                    String[] doubleCheckPkgArrays = doubleCheckPkgArrays(allOriginPkgList[i2]);
                     if (doubleCheckPkgArrays != null && doubleCheckPkgArrays.length != 0) {
-                        long j = iADEXArray[i];
-                        int i2 = 0;
+                        long j = iADEXArray[i2];
+                        int i3 = 0;
                         while (true) {
-                            if (i2 >= doubleCheckPkgArrays.length || i2 >= 64) {
+                            if (i3 >= doubleCheckPkgArrays.length || i3 >= 64) {
                                 break;
-                            } else if (str.equals(doubleCheckPkgArrays[i2])) {
-                                iADEXArray[i] = judgeAppsState(packageManager, str, i2 + 1, j);
+                            } else if (str.equals(doubleCheckPkgArrays[i3])) {
+                                iADEXArray[i2] = judgeAppsState(packageManager, str, i3 + 1, j);
                                 z = true;
                                 break;
                             } else {
-                                i2++;
+                                i3++;
                             }
                         }
-                        if (i > 0) {
+                        if (i2 > 0) {
                             sb.append(",");
                         }
-                        sb.append(iADEXArray[i]);
+                        sb.append(iADEXArray[i2]);
                     }
                 }
                 if (z) {

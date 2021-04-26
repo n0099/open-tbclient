@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.completeTask;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.b.i0.a.b0.a;
+import d.a.i0.a.b0.a;
 import tbclient.CompleteTask.CompleteTaskResIdl;
 import tbclient.CompleteTask.DataRes;
 import tbclient.Error;
@@ -21,7 +21,7 @@ public class CompleteTaskHTTPResMsg extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         CompleteTaskResIdl completeTaskResIdl = (CompleteTaskResIdl) new Wire(new Class[0]).parseFrom(bArr, CompleteTaskResIdl.class);
         if (completeTaskResIdl != null) {
             Error error = completeTaskResIdl.error;
@@ -32,23 +32,23 @@ public class CompleteTaskHTTPResMsg extends HttpResponsedMessage {
             if (completeTaskResIdl.data != null) {
                 a aVar = new a();
                 this.mData = aVar;
-                aVar.f50241c = completeTaskResIdl.data.show_type.intValue();
-                this.mData.f50242d = completeTaskResIdl.data.ahead_type.intValue();
+                aVar.f47787c = completeTaskResIdl.data.show_type.intValue();
+                this.mData.f47788d = completeTaskResIdl.data.ahead_type.intValue();
                 a aVar2 = this.mData;
                 DataRes dataRes = completeTaskResIdl.data;
-                aVar2.f50243e = dataRes.message;
-                aVar2.f50244f = dataRes.btn_text;
-                aVar2.f50245g = dataRes.btn_confirm;
-                aVar2.f50246h = dataRes.btn_cancel;
-                aVar2.i = dataRes.toast_duration.intValue();
+                aVar2.f47789e = dataRes.message;
+                aVar2.f47790f = dataRes.btn_text;
+                aVar2.f47791g = dataRes.btn_confirm;
+                aVar2.f47792h = dataRes.btn_cancel;
+                aVar2.f47793i = dataRes.toast_duration.intValue();
                 a aVar3 = this.mData;
                 DataRes dataRes2 = completeTaskResIdl.data;
                 aVar3.j = dataRes2.img_url;
                 aVar3.k = dataRes2.url;
                 aVar3.l = dataRes2.schema;
                 aVar3.m = dataRes2.token;
-                aVar3.f50239a = dataRes2.activity_id.intValue();
-                this.mData.f50240b = completeTaskResIdl.data.mission_id.intValue();
+                aVar3.f47785a = dataRes2.activity_id.intValue();
+                this.mData.f47786b = completeTaskResIdl.data.mission_id.intValue();
                 a aVar4 = this.mData;
                 DataRes dataRes3 = completeTaskResIdl.data;
                 aVar4.o = dataRes3.btn_color;

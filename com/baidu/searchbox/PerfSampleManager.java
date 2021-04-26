@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ubc.ANRPerfSampleCallback;
 import com.baidu.searchbox.ruka.ubc.LooperPerfSampleCallback;
-import d.b.c0.a.a;
-import d.b.c0.a.b.d;
-import d.b.j0.y2.p;
-import d.b.o.b.b;
+import d.a.c0.a.a;
+import d.a.c0.a.b.d;
+import d.a.j0.y2.p;
+import d.a.o.b.b;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -22,7 +22,7 @@ public class PerfSampleManager {
 
     /* loaded from: classes2.dex */
     public class IPerfSampleCallback_PerfSampleManager_ListProvider implements a {
-        @Override // d.b.c0.a.a
+        @Override // d.a.c0.a.a
         public Object get() {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new b());
@@ -38,12 +38,12 @@ public class PerfSampleManager {
     }
 
     public String getSampleFlag() {
-        List<IPerfSampleCallback> a2;
+        List<IPerfSampleCallback> list;
         d<IPerfSampleCallback> dVar = this.mCallbackList;
         String str = 0;
-        if (dVar != null && (a2 = dVar.a()) != null && a2.size() != 0) {
-            for (int i = 0; i < a2.size(); i++) {
-                String sampleFlag = a2.get(i).getSampleFlag();
+        if (dVar != null && (list = dVar.getList()) != null && list.size() != 0) {
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                String sampleFlag = list.get(i2).getSampleFlag();
                 if (!TextUtils.isEmpty(sampleFlag)) {
                     if (TextUtils.isEmpty(str)) {
                         str = sampleFlag;
@@ -57,8 +57,8 @@ public class PerfSampleManager {
     }
 
     public void initmCallbackList() {
-        d.b.c0.a.b.b c2 = d.b.c0.a.b.b.c();
-        this.mCallbackList = c2;
-        c2.b(new IPerfSampleCallback_PerfSampleManager_ListProvider());
+        d.a.c0.a.b.b b2 = d.a.c0.a.b.b.b();
+        this.mCallbackList = b2;
+        b2.a(new IPerfSampleCallback_PerfSampleManager_ListProvider());
     }
 }

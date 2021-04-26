@@ -21,7 +21,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
-import d.b.j0.q0.i1.g;
+import d.a.j0.q0.i1.g;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -36,17 +36,19 @@ public class VideoMiddleModel extends BdBaseModel {
     public static final String TYPE_CALL_FROM_OTHER = "client_other";
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16336e;
+    public int f16558e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f16337f;
+    public String f16559f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f16338g;
+    public String f16560g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16339h;
-    public VideoSerializeVideoThreadInfo i;
+    public String f16561h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public VideoSerializeVideoThreadInfo f16562i;
     public boolean j;
     public b k;
     public String l;
@@ -58,12 +60,12 @@ public class VideoMiddleModel extends BdBaseModel {
         public List<BaseCardInfo> mDataList;
         public boolean mHasMore;
 
-        public VideoMiddleDataResponseMessage(int i) {
-            super(i);
+        public VideoMiddleDataResponseMessage(int i2) {
+            super(i2);
         }
 
         @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-        public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
@@ -74,9 +76,9 @@ public class VideoMiddleModel extends BdBaseModel {
                 }
                 this.mDataList = new ArrayList();
                 JSONArray jSONArray = new JSONArray(optString);
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                     g gVar = new g();
-                    gVar.t(jSONArray.optString(i2));
+                    gVar.t(jSONArray.optString(i3));
                     if (gVar.z != null) {
                         this.mDataList.add(gVar);
                     }
@@ -87,8 +89,8 @@ public class VideoMiddleModel extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -141,13 +143,13 @@ public class VideoMiddleModel extends BdBaseModel {
     }
 
     public static /* synthetic */ int u(VideoMiddleModel videoMiddleModel) {
-        int i = videoMiddleModel.f16336e;
-        videoMiddleModel.f16336e = i - 1;
-        return i;
+        int i2 = videoMiddleModel.f16558e;
+        videoMiddleModel.f16558e = i2 - 1;
+        return i2;
     }
 
     public void A(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
-        this.i = videoSerializeVideoThreadInfo;
+        this.f16562i = videoSerializeVideoThreadInfo;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -158,12 +160,12 @@ public class VideoMiddleModel extends BdBaseModel {
         }
         this.j = true;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION);
-        httpMessage.addParam("tid", this.f16337f);
-        httpMessage.addParam("st_type", this.f16338g);
-        httpMessage.addParam("yuelaou_locate", this.f16339h);
-        int i = this.f16336e + 1;
-        this.f16336e = i;
-        httpMessage.addParam(Config.PACKAGE_NAME, i);
+        httpMessage.addParam("tid", this.f16559f);
+        httpMessage.addParam("st_type", this.f16560g);
+        httpMessage.addParam("yuelaou_locate", this.f16561h);
+        int i2 = this.f16558e + 1;
+        this.f16558e = i2;
+        httpMessage.addParam(Config.PACKAGE_NAME, i2);
         httpMessage.addParam("user_view_data", v());
         if ("frs".equals(this.l)) {
             this.m = "client_frs";
@@ -174,12 +176,12 @@ public class VideoMiddleModel extends BdBaseModel {
         }
         httpMessage.addParam(IntentConfig.CALL_FROM, this.m);
         this.m = "client_index";
-        VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = this.i;
+        VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = this.f16562i;
         if (videoSerializeVideoThreadInfo != null && (baijiahaoData = videoSerializeVideoThreadInfo.mBaijiahaoData) != null) {
             httpMessage.addParam("ori_ugc_nid", baijiahaoData.oriUgcNid);
-            httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, this.i.mBaijiahaoData.oriUgcType);
-            httpMessage.addParam("ori_ugc_vid", this.i.mBaijiahaoData.oriUgcVid);
-            httpMessage.addParam("ori_ugc_tid", this.i.mBaijiahaoData.oriUgcTid);
+            httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, this.f16562i.mBaijiahaoData.oriUgcType);
+            httpMessage.addParam("ori_ugc_vid", this.f16562i.mBaijiahaoData.oriUgcVid);
+            httpMessage.addParam("ori_ugc_tid", this.f16562i.mBaijiahaoData.oriUgcTid);
         }
         sendMessage(httpMessage);
         return true;
@@ -203,13 +205,13 @@ public class VideoMiddleModel extends BdBaseModel {
 
     public final String v() {
         JSONArray jSONArray = new JSONArray();
-        LinkedList<d.b.i0.g.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+        LinkedList<d.a.i0.g.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
         if (videoRecordList != null) {
             try {
                 if (videoRecordList.size() > 0) {
-                    Iterator<d.b.i0.g.a> it = videoRecordList.iterator();
+                    Iterator<d.a.i0.g.a> it = videoRecordList.iterator();
                     while (it.hasNext()) {
-                        d.b.i0.g.a next = it.next();
+                        d.a.i0.g.a next = it.next();
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("tid", next.a());
                         jSONObject.put("duration", next.b());
@@ -224,18 +226,18 @@ public class VideoMiddleModel extends BdBaseModel {
     }
 
     public int w() {
-        return this.f16336e;
+        return this.f16558e;
     }
 
     public void x(String str) {
-        this.f16337f = str;
+        this.f16559f = str;
     }
 
     public void y(String str) {
-        this.f16339h = str;
+        this.f16561h = str;
     }
 
     public void z(String str) {
-        this.f16338g = str;
+        this.f16560g = str;
     }
 }

@@ -145,9 +145,9 @@ public class BaseKernelLayer extends AbsLayer {
             this.mVideoKernel.resume();
         } else if (!LayerEvent.ACTION_CHANGE_CLARITY.equals(videoEvent.getAction()) || (intValue = ((Integer) videoEvent.getExtra(19)).intValue()) <= 2) {
         } else {
-            int i = intValue - 2;
-            BdVideoLog.d("changePlayUrl seek :" + i);
-            this.mVideoKernel.seekTo(i);
+            int i2 = intValue - 2;
+            BdVideoLog.d("changePlayUrl seek :" + i2);
+            this.mVideoKernel.seekTo(i2);
         }
     }
 
@@ -240,23 +240,23 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @PublicMethod
-    public void seekTo(int i) {
+    public void seekTo(int i2) {
         int duration = this.mVideoKernel.getDuration();
-        int i2 = SEEK_TO_DELTA;
-        if (duration > i2 && i > duration - i2) {
-            i = duration - i2;
+        int i3 = SEEK_TO_DELTA;
+        if (duration > i3 && i2 > duration - i3) {
+            i2 = duration - i3;
         }
-        this.mVideoKernel.seekTo(i);
+        this.mVideoKernel.seekTo(i2);
     }
 
     @PublicMethod
-    public void seekToMs(int i) {
+    public void seekToMs(int i2) {
         int durationMs = this.mVideoKernel.getDurationMs();
-        int i2 = SEEK_TO_DELTA;
-        if (durationMs > i2 && i > durationMs - i2) {
-            i = durationMs - i2;
+        int i3 = SEEK_TO_DELTA;
+        if (durationMs > i3 && i2 > durationMs - i3) {
+            i2 = durationMs - i3;
         }
-        this.mVideoKernel.seekToMs(i);
+        this.mVideoKernel.seekToMs(i2);
     }
 
     @PublicMethod
@@ -265,8 +265,8 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @PublicMethod
-    public void setDecodeMode(int i) {
-        this.mVideoKernel.setDecodeMode(i);
+    public void setDecodeMode(int i2) {
+        this.mVideoKernel.setDecodeMode(i2);
     }
 
     @PublicMethod
@@ -325,13 +325,13 @@ public class BaseKernelLayer extends AbsLayer {
     }
 
     @PublicMethod
-    public void setVideoRotation(int i) {
-        this.mVideoKernel.setVideoRotation(i);
+    public void setVideoRotation(int i2) {
+        this.mVideoKernel.setVideoRotation(i2);
     }
 
     @PublicMethod
-    public void setVideoScalingMode(int i) {
-        this.mVideoKernel.setVideoScalingMode(i);
+    public void setVideoScalingMode(int i2) {
+        this.mVideoKernel.setVideoScalingMode(i2);
     }
 
     @PublicMethod

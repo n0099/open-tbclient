@@ -6,11 +6,11 @@ import android.view.View;
 import com.baidu.mapapi.map.MapView;
 /* loaded from: classes2.dex */
 public abstract class a extends com.baidu.platform.comapi.walknavi.a implements com.baidu.platform.comapi.wnplatform.c.a, com.baidu.platform.comapi.wnplatform.h.a, com.baidu.platform.comapi.wnplatform.h.b, com.baidu.platform.comapi.wnplatform.i.a {
-    public void a(Context context, View view, int i, int i2, int i3, int i4) {
+    public void a(Context context, View view, int i2, int i3, int i4, int i5) {
         if (view == null || !(view instanceof MapView)) {
             return;
         }
-        ((MapView) view).getMap().setViewPadding(a(context, i), a(context, i2), a(context, i3), a(context, i4));
+        ((MapView) view).getMap().setViewPadding(a(context, i2), a(context, i3), a(context, i4), a(context, i5));
     }
 
     public abstract void a(com.baidu.platform.comapi.walknavi.g.b.a aVar);
@@ -19,9 +19,9 @@ public abstract class a extends com.baidu.platform.comapi.walknavi.a implements 
 
     public abstract void a(boolean z);
 
-    public abstract void b(int i);
+    public abstract void b(int i2);
 
-    public abstract void c(int i);
+    public abstract void c(int i2);
 
     public abstract boolean c();
 
@@ -60,7 +60,7 @@ public abstract class a extends com.baidu.platform.comapi.walknavi.a implements 
 
     public abstract Handler t();
 
-    private int a(Context context, int i) {
-        return (int) ((context.getResources().getDisplayMetrics().density * i) + 0.5f);
+    private int a(Context context, int i2) {
+        return (int) ((context.getResources().getDisplayMetrics().density * i2) + 0.5f);
     }
 }

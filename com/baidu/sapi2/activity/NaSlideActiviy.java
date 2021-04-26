@@ -11,9 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import androidx.appcompat.app.AppCompatActivity;
+import com.baidu.sapi2.ActivityStackManager;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
-import com.baidu.sapi2.a;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.searchbox.widget.OnTranslucentListener;
 import com.baidu.searchbox.widget.SlideHelper;
@@ -27,29 +27,29 @@ import java.lang.reflect.Field;
 public class NaSlideActiviy extends AppCompatActivity {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f10601g = "NaSlideActivity";
+    public static final String f10719g = "NaSlideActivity";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final boolean f10602h = true;
+    public static final boolean f10720h = true;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f10603a = false;
+    public boolean f10721a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f10604b = false;
+    public boolean f10722b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f10605c = false;
+    public boolean f10723c = false;
     public SapiConfiguration configuration = SapiAccountManager.getInstance().getConfignation();
 
     /* renamed from: d  reason: collision with root package name */
-    public SlideInterceptor f10606d;
+    public SlideInterceptor f10724d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SlidingPaneLayout.PanelSlideListener f10607e;
+    public SlidingPaneLayout.PanelSlideListener f10725e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<Activity> f10608f;
+    public WeakReference<Activity> f10726f;
     public SlideHelper mSlideHelper;
 
     private void b() {
@@ -68,20 +68,20 @@ public class NaSlideActiviy extends AppCompatActivity {
     }
 
     public void forceActivityTransparent(boolean z) {
-        this.f10605c = z;
+        this.f10723c = z;
     }
 
     @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        Log.d(f10601g, "onConfigurationChanged: ");
+        Log.d(f10719g, "onConfigurationChanged: ");
         SlideHelper slideHelper = this.mSlideHelper;
         if (slideHelper != null) {
             slideHelper.setCanSlide(configuration.orientation != 2);
         }
     }
 
-    @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         if (Build.VERSION.SDK_INT == 26) {
             b();
@@ -89,9 +89,9 @@ public class NaSlideActiviy extends AppCompatActivity {
         super.onCreate(bundle);
         SapiConfiguration sapiConfiguration = this.configuration;
         if (sapiConfiguration != null && sapiConfiguration.supportGestureSlide) {
-            this.f10603a = true;
+            this.f10721a = true;
         } else {
-            this.f10603a = false;
+            this.f10721a = false;
         }
         Window window = getWindow();
         if (window != null) {
@@ -102,7 +102,7 @@ public class NaSlideActiviy extends AppCompatActivity {
     @Override // androidx.appcompat.app.AppCompatActivity, android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        Log.d(f10601g, "onPostCreate");
+        Log.d(f10719g, "onPostCreate");
         a();
     }
 
@@ -115,52 +115,52 @@ public class NaSlideActiviy extends AppCompatActivity {
     }
 
     public void setEnableSliding(boolean z) {
-        this.f10603a = z;
+        this.f10721a = z;
     }
 
     public void setEnableTaskRootSlide(boolean z) {
-        this.f10604b = z;
+        this.f10722b = z;
     }
 
     public void setSlideExtraListener(SlidingPaneLayout.PanelSlideListener panelSlideListener) {
-        this.f10607e = panelSlideListener;
+        this.f10725e = panelSlideListener;
     }
 
     public void setEnableSliding(boolean z, SlideInterceptor slideInterceptor) {
-        this.f10603a = z;
-        this.f10606d = slideInterceptor;
+        this.f10721a = z;
+        this.f10724d = slideInterceptor;
     }
 
     private void a() {
-        if (this.f10603a) {
+        if (this.f10721a) {
             boolean z = getResources().getConfiguration().orientation != 2;
-            if (!this.f10604b && isTaskRoot()) {
+            if (!this.f10722b && isTaskRoot()) {
                 z = false;
             }
             if ((getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) == 0) {
-                Log.e(f10601g, "Sliding failed, have you forgot the Activity Theme: @android:style/Theme.Translucent.NoTitleBar");
+                Log.e(f10719g, "Sliding failed, have you forgot the Activity Theme: @android:style/Theme.Translucent.NoTitleBar");
             }
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-            final int i = displayMetrics != null ? displayMetrics.widthPixels : 0;
+            final int i2 = displayMetrics != null ? displayMetrics.widthPixels : 0;
             SlideHelper slideHelper = new SlideHelper();
             this.mSlideHelper = slideHelper;
             slideHelper.attachSlideActivity(this);
             this.mSlideHelper.setCanSlide(z);
-            this.mSlideHelper.forceActivityTransparent(this.f10605c);
-            this.mSlideHelper.setSlideInterceptor(this.f10606d);
+            this.mSlideHelper.forceActivityTransparent(this.f10723c);
+            this.mSlideHelper.setSlideInterceptor(this.f10724d);
             this.mSlideHelper.setSlideListener(new SlidingPaneLayout.PanelSlideListener() { // from class: com.baidu.sapi2.activity.NaSlideActiviy.2
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
                 public void onPanelClosed(View view) {
-                    if (NaSlideActiviy.this.f10607e != null) {
-                        NaSlideActiviy.this.f10607e.onPanelClosed(view);
+                    if (NaSlideActiviy.this.f10725e != null) {
+                        NaSlideActiviy.this.f10725e.onPanelClosed(view);
                     }
                     NaSlideActiviy.this.a(0.0f);
                 }
 
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
                 public void onPanelOpened(View view) {
-                    if (NaSlideActiviy.this.f10607e != null) {
-                        NaSlideActiviy.this.f10607e.onPanelOpened(view);
+                    if (NaSlideActiviy.this.f10725e != null) {
+                        NaSlideActiviy.this.f10725e.onPanelOpened(view);
                     }
                     NaSlideActiviy.this.a(0.0f);
                     NaSlideActiviy.this.mSlideHelper.setShadowDrawable(null);
@@ -178,10 +178,10 @@ public class NaSlideActiviy extends AppCompatActivity {
                         }
                         maskView.setAlpha(f3);
                     }
-                    if (NaSlideActiviy.this.f10607e != null) {
-                        NaSlideActiviy.this.f10607e.onPanelSlide(view, f2);
+                    if (NaSlideActiviy.this.f10725e != null) {
+                        NaSlideActiviy.this.f10725e.onPanelSlide(view, f2);
                     }
-                    float f4 = i >> 2;
+                    float f4 = i2 >> 2;
                     NaSlideActiviy.this.a((f2 * f4) - f4);
                 }
             });
@@ -191,13 +191,13 @@ public class NaSlideActiviy extends AppCompatActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(float f2) {
         try {
-            if (this.f10608f == null || this.f10608f.get() == null) {
-                this.f10608f = new WeakReference<>(a.e().b());
+            if (this.f10726f == null || this.f10726f.get() == null) {
+                this.f10726f = new WeakReference<>(ActivityStackManager.getInstance().getPenultimateActivity());
             }
-            if (this.f10608f.get() != null) {
-                Activity c2 = a.e().c();
-                Activity activity = this.f10608f.get();
-                if (c2 != null && activity != null && c2.getLocalClassName().equals(activity.getLocalClassName())) {
+            if (this.f10726f.get() != null) {
+                Activity realTopActivity = ActivityStackManager.getInstance().getRealTopActivity();
+                Activity activity = this.f10726f.get();
+                if (realTopActivity != null && activity != null && realTopActivity.getLocalClassName().equals(activity.getLocalClassName())) {
                     a(activity, 0.0f);
                 } else {
                     a(activity, f2);

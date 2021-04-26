@@ -18,9 +18,9 @@ public class a {
         public static String a(byte[] bArr) {
             char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
             StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (int i = 0; i < bArr.length; i++) {
-                sb.append(cArr[(bArr[i] & 240) >> 4]);
-                sb.append(cArr[bArr[i] & 15]);
+            for (int i2 = 0; i2 < bArr.length; i2++) {
+                sb.append(cArr[(bArr[i2] & 240) >> 4]);
+                sb.append(cArr[bArr[i2] & 15]);
             }
             return sb.toString();
         }
@@ -56,9 +56,9 @@ public class a {
             return stringBuffer2.toString();
         }
         StringBuffer stringBuffer22 = new StringBuffer();
-        for (int i = 0; i < str2.length(); i++) {
-            stringBuffer22.append(str2.charAt(i));
-            if (i > 0 && i % 2 == 1 && i < str2.length() - 1) {
+        for (int i2 = 0; i2 < str2.length(); i2++) {
+            stringBuffer22.append(str2.charAt(i2));
+            if (i2 > 0 && i2 % 2 == 1 && i2 < str2.length() - 1) {
                 stringBuffer22.append(":");
             }
         }

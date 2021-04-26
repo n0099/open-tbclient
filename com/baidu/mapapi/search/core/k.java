@@ -14,7 +14,7 @@ public final class k implements Parcelable.Creator<RouteStep> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public RouteStep[] newArray(int i) {
-        return new RouteStep[i];
+    public RouteStep[] newArray(int i2) {
+        return new RouteStep[i2];
     }
 }

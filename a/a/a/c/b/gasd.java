@@ -21,9 +21,9 @@ public class gasd extends uiou {
     @Override // a.a.a.c.b.uiou
     public Map<String, String> a(lbvzx lbvzxVar) {
         HashMap hashMap = new HashMap();
-        long j = lbvzxVar.f1403b;
-        long j2 = lbvzxVar.f1405d;
-        long j3 = lbvzxVar.f1404c;
+        long j = lbvzxVar.f1421b;
+        long j2 = lbvzxVar.f1423d;
+        long j3 = lbvzxVar.f1422c;
         hashMap.put("Range", "bytes=" + (j + j2) + "-" + j3);
         return hashMap;
     }

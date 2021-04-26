@@ -13,7 +13,7 @@ public final class LangUtils {
         throw new RuntimeException("Stub!");
     }
 
-    public static int hashCode(int i, int i2) {
+    public static int hashCode(int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 
@@ -21,11 +21,11 @@ public final class LangUtils {
         throw new RuntimeException("Stub!");
     }
 
-    public static int hashCode(int i, boolean z) {
+    public static int hashCode(int i2, boolean z) {
         throw new RuntimeException("Stub!");
     }
 
-    public static int hashCode(int i, Object obj) {
+    public static int hashCode(int i2, Object obj) {
         throw new RuntimeException("Stub!");
     }
 }

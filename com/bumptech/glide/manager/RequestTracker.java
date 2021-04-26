@@ -18,29 +18,36 @@ public class RequestTracker {
     public final Set<Request> requests = Collections.newSetFromMap(new WeakHashMap());
     public final List<Request> pendingRequests = new ArrayList();
 
-    @VisibleForTesting
-    public void addRequest(Request request) {
-        this.requests.add(request);
-    }
-
-    public boolean clearAndRemove(@Nullable Request request) {
-        boolean z = true;
+    private boolean clearRemoveAndMaybeRecycle(@Nullable Request request, boolean z) {
+        boolean z2 = true;
         if (request == null) {
             return true;
         }
         boolean remove = this.requests.remove(request);
         if (!this.pendingRequests.remove(request) && !remove) {
-            z = false;
+            z2 = false;
         }
-        if (z) {
+        if (z2) {
             request.clear();
+            if (z) {
+                request.recycle();
+            }
         }
-        return z;
+        return z2;
+    }
+
+    @VisibleForTesting
+    public void addRequest(Request request) {
+        this.requests.add(request);
+    }
+
+    public boolean clearRemoveAndRecycle(@Nullable Request request) {
+        return clearRemoveAndMaybeRecycle(request, true);
     }
 
     public void clearRequests() {
         for (Request request : Util.getSnapshot(this.requests)) {
-            clearAndRemove(request);
+            clearRemoveAndMaybeRecycle(request, false);
         }
         this.pendingRequests.clear();
     }
@@ -63,7 +70,7 @@ public class RequestTracker {
         this.isPaused = true;
         for (Request request : Util.getSnapshot(this.requests)) {
             if (request.isRunning()) {
-                request.pause();
+                request.clear();
                 this.pendingRequests.add(request);
             }
         }

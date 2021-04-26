@@ -1,5 +1,5 @@
 package com.tencent.mm.opensdk.constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public final class Build {
     public static final int CHECK_TOKEN_SDK_INT = 620824064;
     public static final int CHOOSE_INVOICE_TILE_SUPPORT_SDK_INT = 620822528;

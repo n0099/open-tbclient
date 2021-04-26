@@ -1,6 +1,7 @@
 package com.baidu.wallet.lightapp.entrance;
 
 import android.content.Context;
+import androidx.lifecycle.SavedStateHandle;
 import com.baidu.wallet.lightapp.business.a;
 import com.baidu.wallet.paysdk.datamodel.SdkInitResponse;
 import com.baidu.wallet.router.RouterAction;
@@ -16,7 +17,7 @@ public class ConfigImapctJsAction implements RouterAction {
         HashMap hashMap2 = new HashMap();
         if (hashMap != null && hashMap.size() != 0) {
             String[] strArr = (String[]) hashMap.get("configs");
-            String[] strArr2 = (String[]) hashMap.get("keys");
+            String[] strArr2 = (String[]) hashMap.get(SavedStateHandle.KEYS);
             if (strArr != null && strArr.length != 0 && strArr2 != null && strArr2.length != 0) {
                 a.a(context, SdkInitResponse.getInstance().getJsHookURl(context), strArr, strArr2);
                 routerCallback.onResult(0, hashMap2);

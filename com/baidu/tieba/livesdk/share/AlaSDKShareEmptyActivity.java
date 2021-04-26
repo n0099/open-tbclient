@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.tbadk.BaseActivity;
@@ -16,8 +17,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.share.ImplicitShareMessage;
-import d.b.j0.m1.c;
-import d.b.j0.m1.f;
+import d.a.j0.m1.d;
+import d.a.j0.m1.g;
 /* loaded from: classes3.dex */
 public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActivity> {
     public String mContent;
@@ -25,9 +26,10 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public String mLinkUrl;
     public String mLiveExtInfo;
     public String mLiveId;
-    public d.b.j0.m1.k.a.a mSelectBarController;
+    public d.a.j0.m1.l.a.a mSelectBarController;
     public ShareItem mShareItem;
     public String mTitle;
+    public String mYyAnchorBdUid;
     public int mChannel = 0;
     public int mAction = 0;
 
@@ -38,7 +40,10 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
-            AlaSDKShareEmptyActivity.this.finish();
+            if (AlaSDKShareEmptyActivity.this.mShareItem == null || !AlaSDKShareEmptyActivity.this.mShareItem.d()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921550, 3));
+                AlaSDKShareEmptyActivity.this.finish();
+            }
         }
     }
 
@@ -66,7 +71,8 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         }
         shareItem.t = this.mLinkUrl;
         shareItem.q = this.mLiveId;
-        shareItem.i0 = this.mLiveExtInfo;
+        shareItem.k0 = this.mLiveExtInfo;
+        shareItem.z = this.mYyAnchorBdUid;
         return shareItem;
     }
 
@@ -80,38 +86,43 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
 
     /* JADX INFO: Access modifiers changed from: private */
     public void shareInBar() {
-        d.b.j0.m1.k.a.a aVar;
+        d.a.j0.m1.l.a.a aVar;
         if (!ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) || (aVar = this.mSelectBarController) == null) {
             return;
         }
         if (ListUtils.isEmpty(aVar.b())) {
             this.mSelectBarController.c();
         }
-        this.mSelectBarController.e(d.b.c.e.m.b.f(this.mLiveId, 0L));
+        this.mSelectBarController.e(d.a.c.e.m.b.f(this.mLiveId, 0L), this.mYyAnchorBdUid, this.mShareItem);
     }
 
     private void showSharePanel() {
-        if (this.mShareItem == null) {
+        ShareItem shareItem = this.mShareItem;
+        if (shareItem == null) {
             return;
         }
+        shareItem.j(false);
         ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this, this.mShareItem, true);
         shareDialogConfig.setAlaLiveRoomShare(true);
         shareDialogConfig.setIsSupportNightMode(false);
         shareDialogConfig.setIsLandscape(false);
         shareDialogConfig.setOnDismissListener(new a());
-        if (!TextUtils.isEmpty(this.mLiveId)) {
-            shareDialogConfig.addOutsideTextView(f.ala_share_to_tieba_frs_title, c.icon_pure_ala_share_morebar40_svg, new b());
+        if (!TextUtils.isEmpty(this.mLiveId) || !TextUtils.isEmpty(this.mYyAnchorBdUid)) {
+            shareDialogConfig.addOutsideTextView(g.ala_share_to_tieba_frs_title, d.icon_pure_ala_share_morebar40_svg, new b());
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        d.b.j0.m1.k.a.a aVar = this.mSelectBarController;
+        d.a.j0.m1.l.a.a aVar = this.mSelectBarController;
         if (aVar != null) {
             aVar.c();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i2 == 24007 && intent != null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921550, Integer.valueOf(intent.getIntExtra("extra_share_status", 2))));
+        }
         finish();
     }
 
@@ -119,7 +130,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
-        this.mSelectBarController = new d.b.j0.m1.k.a.a(getPageContext());
+        this.mSelectBarController = new d.a.j0.m1.l.a.a(getPageContext());
         if (bundle != null) {
             this.mTitle = bundle.getString("title");
             this.mContent = bundle.getString("content");
@@ -129,6 +140,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
             this.mAction = bundle.getInt("action");
             this.mLiveId = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID);
             this.mLiveExtInfo = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_EXT_INFO);
+            this.mYyAnchorBdUid = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_YY_ANCHOR_BDUID);
         } else if (getIntent() == null) {
             finish();
             return;
@@ -141,12 +153,13 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
             this.mAction = getIntent().getIntExtra("action", 0);
             this.mLiveId = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID);
             this.mLiveExtInfo = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_EXT_INFO);
+            this.mYyAnchorBdUid = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_YY_ANCHOR_BDUID);
         }
         this.mShareItem = dealShareEntity();
-        int i = this.mAction;
-        if (i == 1) {
+        int i2 = this.mAction;
+        if (i2 == 1) {
             showSharePanel();
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             sendChannelShareReq();
         } else {
             finish();
@@ -156,7 +169,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.j0.m1.k.a.a aVar = this.mSelectBarController;
+        d.a.j0.m1.l.a.a aVar = this.mSelectBarController;
         if (aVar != null) {
             aVar.d();
         }
@@ -173,10 +186,11 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         bundle.putInt("action", this.mAction);
         bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, this.mLiveId);
         bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_EXT_INFO, this.mLiveExtInfo);
+        bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_YY_ANCHOR_BDUID, this.mYyAnchorBdUid);
     }
 
     @Override // android.app.Activity
-    public void overridePendingTransition(int i, int i2) {
+    public void overridePendingTransition(int i2, int i3) {
         super.overridePendingTransition(0, 0);
     }
 }

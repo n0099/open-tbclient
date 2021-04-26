@@ -6,19 +6,22 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.view.View;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.shape.MaterialShapeDrawable;
+import com.google.android.material.shape.ShapeAppearanceModel;
 /* loaded from: classes6.dex */
-public class CutoutDrawable extends GradientDrawable {
+public class CutoutDrawable extends MaterialShapeDrawable {
+    @NonNull
     public final RectF cutoutBounds;
-    public final Paint cutoutPaint = new Paint(1);
+    @NonNull
+    public final Paint cutoutPaint;
     public int savedLayer;
 
     public CutoutDrawable() {
-        setPaintStyles();
-        this.cutoutBounds = new RectF();
+        this(null);
     }
 
     private void postDraw(@NonNull Canvas canvas) {
@@ -31,10 +34,14 @@ public class CutoutDrawable extends GradientDrawable {
     private void preDraw(@NonNull Canvas canvas) {
         Drawable.Callback callback = getCallback();
         if (useHardwareLayer(callback)) {
-            ((View) callback).setLayerType(2, null);
-        } else {
-            saveCanvasLayer(canvas);
+            View view = (View) callback;
+            if (view.getLayerType() != 2) {
+                view.setLayerType(2, null);
+                return;
+            }
+            return;
         }
+        saveCanvasLayer(canvas);
     }
 
     private void saveCanvasLayer(@NonNull Canvas canvas) {
@@ -55,7 +62,7 @@ public class CutoutDrawable extends GradientDrawable {
         return callback instanceof View;
     }
 
-    @Override // android.graphics.drawable.GradientDrawable, android.graphics.drawable.Drawable
+    @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
     public void draw(@NonNull Canvas canvas) {
         preDraw(canvas);
         super.draw(canvas);
@@ -80,7 +87,14 @@ public class CutoutDrawable extends GradientDrawable {
         invalidateSelf();
     }
 
-    public void setCutout(RectF rectF) {
+    public CutoutDrawable(@Nullable ShapeAppearanceModel shapeAppearanceModel) {
+        super(shapeAppearanceModel == null ? new ShapeAppearanceModel() : shapeAppearanceModel);
+        this.cutoutPaint = new Paint(1);
+        setPaintStyles();
+        this.cutoutBounds = new RectF();
+    }
+
+    public void setCutout(@NonNull RectF rectF) {
         setCutout(rectF.left, rectF.top, rectF.right, rectF.bottom);
     }
 }

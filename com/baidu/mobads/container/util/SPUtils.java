@@ -45,8 +45,8 @@ public class SPUtils {
         return this.mSharedPreferences.getFloat(str, f2);
     }
 
-    public int getInt(String str, int i) {
-        return this.mSharedPreferences.getInt(str, i);
+    public int getInt(String str, int i2) {
+        return this.mSharedPreferences.getInt(str, i2);
     }
 
     public long getLong(String str, long j) {
@@ -71,8 +71,8 @@ public class SPUtils {
         submit();
     }
 
-    public void putInt(String str, int i) {
-        this.editor.putInt(str, i);
+    public void putInt(String str, int i2) {
+        this.editor.putInt(str, i2);
         submit();
     }
 

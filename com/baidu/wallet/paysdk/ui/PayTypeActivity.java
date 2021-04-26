@@ -48,19 +48,19 @@ public class PayTypeActivity extends HalfScreenBaseActivity implements View.OnCl
     public static final String TAG = "PayTypeActivity";
 
     /* renamed from: a  reason: collision with root package name */
-    public PayRequest f25820a;
+    public PayRequest f26604a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25821b = "";
+    public String f26605b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25822c = false;
+    public boolean f26606c = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f25823e = false;
+    public boolean f26607e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f25824f;
+    public boolean f26608f;
     public PayTypeItemView mClickedItemView;
     public ViewGroup mPayTypeContainerView;
     public PayTypeContract.Presenter mPresenter;
@@ -72,7 +72,7 @@ public class PayTypeActivity extends HalfScreenBaseActivity implements View.OnCl
         this.mHalfScreenContainer.addView(viewGroup);
     }
 
-    public void dismissLoading(int i) {
+    public void dismissLoading(int i2) {
         PayTypeItemView payTypeItemView = this.mClickedItemView;
         if (payTypeItemView != null) {
             payTypeItemView.setItemState(false);
@@ -92,9 +92,9 @@ public class PayTypeActivity extends HalfScreenBaseActivity implements View.OnCl
         PayTypeItemView payTypeItemView;
         PayTypeItemView.PayTypeItemViewData payTypeItemViewData;
         CardData.BondCard bondCard;
-        this.f25824f = z;
+        this.f26608f = z;
         if (PayDataCache.getInstance().isFromPreCashier() && (payTypeItemView = this.mClickedItemView) != null && (payTypeItemViewData = payTypeItemView.mData) != null && (bondCard = payTypeItemViewData.card) != null && !TextUtils.isEmpty(bondCard.account_no)) {
-            if (this.f25822c) {
+            if (this.f26606c) {
                 String g2 = com.baidu.wallet.paysdk.banksign.a.a.a().g(this.mClickedItemView.mData.card.account_no);
                 if (!TextUtils.isEmpty(g2)) {
                     PayDataCache.getInstance().setOrderExtraInfo(g2);
@@ -116,17 +116,17 @@ public class PayTypeActivity extends HalfScreenBaseActivity implements View.OnCl
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
-    public void handleFailure(int i, int i2, String str) {
-        if (i == 768) {
+    public void handleFailure(int i2, int i3, String str) {
+        if (i2 == 768) {
             WalletGlobalUtils.safeDismissDialog(this.mAct, -1);
             GlobalUtils.toast(this.mAct, str);
         }
-        super.handleFailure(i, i2, str);
+        super.handleFailure(i2, i3, str);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
-        if (i == 768) {
+    public void handleResponse(int i2, Object obj, String str) {
+        if (i2 == 768) {
             WalletGlobalUtils.safeDismissDialog(this.mAct, -1);
             GetJumpUrlResponse getJumpUrlResponse = (GetJumpUrlResponse) obj;
             if (getJumpUrlResponse.agreement_trans_id != null) {
@@ -135,30 +135,30 @@ public class PayTypeActivity extends HalfScreenBaseActivity implements View.OnCl
             if (getJumpUrlResponse.is_signed == 0) {
                 String str2 = getJumpUrlResponse.form_data;
                 com.baidu.wallet.paysdk.banksign.a.a.a().a(str2 == null ? null : str2.getBytes());
-                if (!this.f25823e) {
+                if (!this.f26607e) {
                     com.baidu.wallet.paysdk.banksign.a.a.a().a(this);
                 } else {
                     com.baidu.wallet.paysdk.banksign.a.a.a().a((PayTypeActivity) null);
                 }
-                com.baidu.wallet.paysdk.banksign.a.a.a().a(this.f25823e);
+                com.baidu.wallet.paysdk.banksign.a.a.a().a(this.f26607e);
                 com.baidu.wallet.paysdk.banksign.a.a.a().d(getJumpUrlResponse.form_url);
                 com.baidu.wallet.paysdk.banksign.a.a.a().e(getJumpUrlResponse.webview_title);
                 BankSignPayFlow a2 = BankSignPayFlow.a();
                 a2.a(BankSignPayFlow.Action.ShowGuide);
                 a2.a(this.mAct);
-            } else if (PayDataCache.getInstance().isFromPreCashier() && !this.f25823e) {
+            } else if (PayDataCache.getInstance().isFromPreCashier() && !this.f26607e) {
                 jumpPwdPayActivity();
-            } else if (this.f25823e && !TextUtils.isEmpty(getJumpUrlResponse.signed_msg)) {
+            } else if (this.f26607e && !TextUtils.isEmpty(getJumpUrlResponse.signed_msg)) {
                 GlobalUtils.toast(this.mAct, getJumpUrlResponse.signed_msg);
             }
         }
-        super.handleResponse(i, obj, str);
+        super.handleResponse(i2, obj, str);
     }
 
     public void initView() {
         this.mActionBar.setVisibility(0);
         this.mLeftImg.setOnClickListener(this);
-        PayRequest payRequest = this.f25820a;
+        PayRequest payRequest = this.f26604a;
         if (payRequest != null && payRequest.isWithHoldingValidity()) {
             this.mRightTxt.setVisibility(8);
         } else if (com.baidu.wallet.paysdk.a.b.a()) {
@@ -177,7 +177,7 @@ public class PayTypeActivity extends HalfScreenBaseActivity implements View.OnCl
 
     public void jumpPwdPayActivity() {
         Intent intent = new Intent(this, PwdPayActivity.class);
-        intent.putExtra("IS_FOR_BIND_CARD_PAY", this.f25824f);
+        intent.putExtra("IS_FOR_BIND_CARD_PAY", this.f26608f);
         startActivity(intent);
     }
 
@@ -189,15 +189,15 @@ public class PayTypeActivity extends HalfScreenBaseActivity implements View.OnCl
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
         PayTypeContract.Presenter presenter = this.mPresenter;
         if (presenter != null) {
-            presenter.onActivityResult(i, i2, intent);
+            presenter.onActivityResult(i2, i3, intent);
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         if (this.mHalfScreenContainer.isClickable()) {
             if (PayRequestCache.getInstance().isPaying() && PayDataCache.getInstance().isFromPreCashier()) {
@@ -233,20 +233,20 @@ public class PayTypeActivity extends HalfScreenBaseActivity implements View.OnCl
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.HalfScreenBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.HalfScreenBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f25820a = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
-        this.f25822c = getIntent().getBooleanExtra("isGatewaySignPay", false);
+        this.f26604a = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+        this.f26606c = getIntent().getBooleanExtra("isGatewaySignPay", false);
         initView();
         if (PayDataCache.getInstance().isFromPreCashier()) {
-            this.f25821b = "FORM_PRECASHIER";
+            this.f26605b = "FORM_PRECASHIER";
         } else if (com.baidu.wallet.paysdk.a.b.a()) {
-            this.f25821b = "FROM_AUTHORIZE";
+            this.f26605b = "FROM_AUTHORIZE";
         } else {
-            this.f25821b = "";
+            this.f26605b = "";
         }
-        PayTypeContract.Presenter a2 = h.a(this.f25821b, this);
+        PayTypeContract.Presenter a2 = h.a(this.f26605b, this);
         this.mPresenter = a2;
         if (a2 == null) {
             finish();
@@ -266,7 +266,7 @@ public class PayTypeActivity extends HalfScreenBaseActivity implements View.OnCl
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         PayTypeContract.Presenter presenter = this.mPresenter;
         if (presenter != null) {
@@ -279,12 +279,12 @@ public class PayTypeActivity extends HalfScreenBaseActivity implements View.OnCl
         this.mHalfScreenContainer.setClickable(z);
     }
 
-    public void showLoading(int i) {
+    public void showLoading(int i2) {
         this.mClickedItemView.setItemState(true);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity
-    public void showPaySuccessPage(boolean z, PayResultContent payResultContent, int i) {
+    public void showPaySuccessPage(boolean z, PayResultContent payResultContent, int i2) {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -309,7 +309,7 @@ public class PayTypeActivity extends HalfScreenBaseActivity implements View.OnCl
                     public void onClick(View view) {
                         CardData.BondCard bondCard;
                         boolean z2 = true;
-                        PayTypeActivity.this.f25823e = true;
+                        PayTypeActivity.this.f26607e = true;
                         PayTypeItemView.PayTypeItemViewData payTypeItemViewData = next;
                         if ((payTypeItemViewData == null || (bondCard = payTypeItemViewData.card) == null || bondCard.is_sign_jump_bank != 1 || TextUtils.isEmpty(bondCard.account_no)) ? false : false) {
                             PayTypeActivity.this.a(next.card.account_no);
@@ -332,7 +332,7 @@ public class PayTypeActivity extends HalfScreenBaseActivity implements View.OnCl
                                 PayTypeActivity payTypeActivity = PayTypeActivity.this;
                                 PayTypeItemView.PayTypeItemViewData payTypeItemViewData2 = next;
                                 GlobalUtils.toast(payTypeActivity, payTypeItemViewData2.removeSeparator(payTypeItemViewData2.tips));
-                            } else if (PayTypeActivity.this.f25822c && PayDataCache.getInstance().isFromPreCashier()) {
+                            } else if (PayTypeActivity.this.f26606c && PayDataCache.getInstance().isFromPreCashier()) {
                                 String g2 = com.baidu.wallet.paysdk.banksign.a.a.a().g(next.card.account_no);
                                 if (!TextUtils.isEmpty(g2)) {
                                     PayDataCache.getInstance().setOrderExtraInfo(g2);
@@ -341,7 +341,7 @@ public class PayTypeActivity extends HalfScreenBaseActivity implements View.OnCl
                             } else {
                                 PayTypeActivity payTypeActivity2 = PayTypeActivity.this;
                                 payTypeActivity2.mClickedItemView = generateItemView;
-                                payTypeActivity2.f25823e = false;
+                                payTypeActivity2.f26607e = false;
                                 PayTypeItemView.ItemViewType itemViewType = next.type;
                                 if (itemViewType == PayTypeItemView.ItemViewType.ADD_NEWCARD) {
                                     PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_CLICK_NEWCARD_PAY);
@@ -381,7 +381,7 @@ public class PayTypeActivity extends HalfScreenBaseActivity implements View.OnCl
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
         WalletGlobalUtils.safeShowDialog(this.mAct, -1, "");
-        if (this.f25823e) {
+        if (this.f26607e) {
             PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_CLICK_BANK_SIGN);
         }
         com.baidu.wallet.paysdk.banksign.beans.b bVar = (com.baidu.wallet.paysdk.banksign.beans.b) BankSignFactory.getInstance().getBean((Context) this.mAct, 768, TAG);
@@ -391,15 +391,15 @@ public class PayTypeActivity extends HalfScreenBaseActivity implements View.OnCl
         bVar.execBean();
     }
 
-    private void a(String str, boolean z, final int i) {
+    private void a(String str, boolean z, final int i2) {
         LocalRouter.getInstance(this).route(this, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_getStartIntent").data("url", str).data("withAnim", Boolean.valueOf(z)).data("showShare", Boolean.TRUE), new RouterCallback() { // from class: com.baidu.wallet.paysdk.ui.PayTypeActivity.5
             @Override // com.baidu.wallet.router.RouterCallback
-            public void onResult(int i2, HashMap hashMap) {
+            public void onResult(int i3, HashMap hashMap) {
                 Intent intent;
-                if (i2 != 0 || hashMap == null || !(hashMap.get("result") instanceof Intent) || (intent = (Intent) hashMap.get("result")) == null) {
+                if (i3 != 0 || hashMap == null || !(hashMap.get("result") instanceof Intent) || (intent = (Intent) hashMap.get("result")) == null) {
                     return;
                 }
-                PayTypeActivity.this.startActivityForResult(intent, i);
+                PayTypeActivity.this.startActivityForResult(intent, i2);
             }
         });
     }

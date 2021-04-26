@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.VideoControllerView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OperableVideoMediaControllerView extends VideoControllerView {
     public OperableVideoMediaControllerView(Context context) {
         super(context);
@@ -20,7 +20,7 @@ public class OperableVideoMediaControllerView extends VideoControllerView {
         super(context, attributeSet);
     }
 
-    public OperableVideoMediaControllerView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public OperableVideoMediaControllerView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

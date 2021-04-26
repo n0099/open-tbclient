@@ -9,9 +9,9 @@ public interface LBSTransPresenter {
 
     void execBean();
 
-    void handleFailure(int i, int i2, String str);
+    void handleFailure(int i2, int i3, String str);
 
-    void handleResponse(int i, Object obj, String str);
+    void handleResponse(int i2, Object obj, String str);
 
     void init(Bundle bundle);
 }

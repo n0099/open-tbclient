@@ -1,7 +1,7 @@
 package com.facebook.common.file;
 
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FileTree {
     public static String sMaxLengthFileName;
 
@@ -27,8 +27,8 @@ public class FileTree {
         String path = file.getPath();
         int length = strArr.length;
         File[] fileArr = new File[length];
-        for (int i = 0; i < length; i++) {
-            fileArr[i] = new File(getSubFilePath(path, strArr[i]));
+        for (int i2 = 0; i2 < length; i2++) {
+            fileArr[i2] = new File(getSubFilePath(path, strArr[i2]));
         }
         return fileArr;
     }

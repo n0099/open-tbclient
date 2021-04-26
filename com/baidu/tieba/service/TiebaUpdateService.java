@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.j0.k;
+import d.a.c.e.p.l;
+import d.a.j0.k;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TiebaUpdateService extends BdBaseService {
     public static final int INSTALL_DELAY = 300;
     public static final long MAX_WAIT_MILLS = 20000;
@@ -60,25 +60,25 @@ public class TiebaUpdateService extends BdBaseService {
     public final Handler mMainApkHandler = new d();
     public final Handler mOtherApkHandler = new e();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<String, Integer, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20630a;
+        public NetWork f21184a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f20631b;
+        public volatile boolean f21185b;
 
         public b() {
-            this.f20631b = false;
+            this.f21185b = false;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
             TiebaUpdateService.this.mDowndMainApkTask = null;
-            this.f20631b = true;
-            NetWork netWork = this.f20630a;
+            this.f21185b = true;
+            NetWork netWork = this.f21184a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -90,18 +90,18 @@ public class TiebaUpdateService extends BdBaseService {
             Boolean bool = Boolean.FALSE;
             while (true) {
                 try {
-                    if (!this.f20631b) {
-                        this.f20630a = new NetWork(TiebaUpdateService.this.mMainApkUrl);
-                        bool = Boolean.valueOf(this.f20630a.downloadFile(FileHelper.CreateFileIfNotFound(TiebaUpdateService.this.mMainApkFileName + ".tmp").getAbsolutePath(), TiebaUpdateService.this.mMainApkHandler, 0, 5, 100, true));
-                        if (!bool.booleanValue() && this.f20630a.getServerErrorCode() != -2) {
-                            if (!this.f20630a.getNetContext().getResponse().isFileSegSuccess()) {
+                    if (!this.f21185b) {
+                        this.f21184a = new NetWork(TiebaUpdateService.this.mMainApkUrl);
+                        bool = Boolean.valueOf(this.f21184a.downloadFile(FileHelper.CreateFileIfNotFound(TiebaUpdateService.this.mMainApkFileName + ".tmp").getAbsolutePath(), TiebaUpdateService.this.mMainApkHandler, 0, 5, 100, true));
+                        if (!bool.booleanValue() && this.f21184a.getServerErrorCode() != -2) {
+                            if (!this.f21184a.getNetContext().getResponse().isFileSegSuccess()) {
                                 try {
                                     Thread.sleep(10000L);
                                 } catch (Exception unused) {
                                 }
                             }
                             if (TiebaUpdateService.sHasStart && System.currentTimeMillis() - TiebaUpdateService.this.mMainTaskWaitingTimestamp > 20000) {
-                                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.UPDATE_TIEFA_DOWNLOAD_FAILED).param("obj_param1", this.f20630a.getErrorString()));
+                                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.UPDATE_TIEFA_DOWNLOAD_FAILED).param("obj_param1", this.f21184a.getErrorString()));
                                 TiebaUpdateService.this.downloadError();
                                 break;
                             }
@@ -144,26 +144,26 @@ public class TiebaUpdateService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends BdAsyncTask<String, Integer, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f20633a;
+        public NetWork f21187a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f20634b;
+        public volatile boolean f21188b;
 
         public c() {
-            this.f20633a = null;
-            this.f20634b = false;
+            this.f21187a = null;
+            this.f21188b = false;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
             TiebaUpdateService.this.mDowndOtherApkTask = null;
-            this.f20634b = true;
-            NetWork netWork = this.f20633a;
+            this.f21188b = true;
+            NetWork netWork = this.f21187a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }
@@ -180,14 +180,14 @@ public class TiebaUpdateService extends BdBaseService {
             Boolean bool = Boolean.FALSE;
             while (true) {
                 try {
-                    if (!this.f20634b) {
+                    if (!this.f21188b) {
                         NetWork netWork = new NetWork(TiebaUpdateService.this.mOtherApkUrl);
-                        this.f20633a = netWork;
+                        this.f21187a = netWork;
                         bool = Boolean.valueOf(netWork.downloadFile(TiebaUpdateService.this.mOtherApkFileName + ".tmp", TiebaUpdateService.this.mOtherApkHandler, 0));
-                        if (bool.booleanValue() || this.f20633a.getServerErrorCode() == -2) {
+                        if (bool.booleanValue() || this.f21187a.getServerErrorCode() == -2) {
                             break;
                         }
-                        if (!this.f20633a.getNetContext().getResponse().isFileSegSuccess()) {
+                        if (!this.f21187a.getNetContext().getResponse().isFileSegSuccess()) {
                             try {
                                 Thread.sleep(10000L);
                             } catch (Exception unused) {
@@ -241,7 +241,7 @@ public class TiebaUpdateService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d extends Handler {
         public d() {
         }
@@ -249,11 +249,11 @@ public class TiebaUpdateService extends BdBaseService {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            int i = message.what;
-            if (i != 0) {
-                if (i != 1) {
-                    if (i == 3) {
-                        l.K(TbadkCoreApplication.getInst(), R.string.update_app_error);
+            int i2 = message.what;
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 == 3) {
+                        l.L(TbadkCoreApplication.getInst(), R.string.update_app_error);
                     }
                 } else if (TiebaUpdateService.this.mMainApkInstallEnable) {
                     if (TiebaUpdateService.this.mHasAs) {
@@ -273,7 +273,7 @@ public class TiebaUpdateService extends BdBaseService {
                 if (TiebaUpdateService.this.mMainApkSize <= TiebaUpdateService.this.mMainApkCurSize) {
                     TiebaUpdateService.this.mIsMainApkDone = true;
                 }
-                int i2 = (int) ((TiebaUpdateService.this.mMainApkCurSize * 100) / TiebaUpdateService.this.mMainApkSize);
+                int i3 = (int) ((TiebaUpdateService.this.mMainApkCurSize * 100) / TiebaUpdateService.this.mMainApkSize);
                 if (!TiebaUpdateService.this.mHasOther || TiebaUpdateService.this.mOtherApkSize == 0) {
                     if (!TiebaUpdateService.this.mHasOther || TiebaUpdateService.this.mOtherApkSize != 0) {
                         if (TiebaUpdateService.this.mHasOther) {
@@ -281,15 +281,15 @@ public class TiebaUpdateService extends BdBaseService {
                         }
                         TiebaUpdateService tiebaUpdateService = TiebaUpdateService.this;
                         tiebaUpdateService.updateProgress(tiebaUpdateService.mMainApkCurSize, TiebaUpdateService.this.mMainApkSize);
-                        TiebaUpdateService.this.sendBroadcast(i2);
+                        TiebaUpdateService.this.sendBroadcast(i3);
                         return;
                     }
-                    if (i2 < 60) {
+                    if (i3 < 60) {
                         TiebaUpdateService tiebaUpdateService2 = TiebaUpdateService.this;
                         tiebaUpdateService2.updateProgress(tiebaUpdateService2.mMainApkCurSize, TiebaUpdateService.this.mMainApkSize);
-                        TiebaUpdateService.this.sendBroadcast(i2);
+                        TiebaUpdateService.this.sendBroadcast(i3);
                     }
-                    TiebaUpdateService.this.mProgressBefore = i2;
+                    TiebaUpdateService.this.mProgressBefore = i3;
                     return;
                 }
                 TiebaUpdateService tiebaUpdateService3 = TiebaUpdateService.this;
@@ -306,7 +306,7 @@ public class TiebaUpdateService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e extends Handler {
         public e() {
         }
@@ -314,9 +314,9 @@ public class TiebaUpdateService extends BdBaseService {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            int i = message.what;
-            if (i != 0) {
-                if (i == 2) {
+            int i2 = message.what;
+            if (i2 != 0) {
+                if (i2 == 2) {
                     if (TiebaUpdateService.this.mHasTieba || TiebaUpdateService.this.mHasAs) {
                         if (!TiebaUpdateService.this.mMainApkInstallEnable) {
                             TiebaUpdateService.this.mMainApkInstallEnable = true;
@@ -379,7 +379,7 @@ public class TiebaUpdateService extends BdBaseService {
                     handler.sendMessageDelayed(handler.obtainMessage(1, null), 300L);
                     return;
                 }
-                l.K(this, R.string.download_begin_tip);
+                l.L(this, R.string.download_begin_tip);
                 if (GetFile != null) {
                     GetFile.delete();
                 }
@@ -462,13 +462,13 @@ public class TiebaUpdateService extends BdBaseService {
         if (j2 <= 0) {
             return;
         }
-        int i = (int) ((100 * j) / j2);
+        int i2 = (int) ((100 * j) / j2);
         StringBuffer stringBuffer = new StringBuffer(20);
         stringBuffer.append(String.valueOf(j / 1000));
         stringBuffer.append("K/");
         stringBuffer.append(String.valueOf(j2 / 1000));
         stringBuffer.append("K");
-        NotificationHelper.showProgressNotification(this, 10, null, i, i + "%", this.info, true);
+        NotificationHelper.showProgressNotification(this, 10, null, i2, i2 + "%", this.info, true);
     }
 
     @Override // android.app.Service
@@ -494,7 +494,7 @@ public class TiebaUpdateService extends BdBaseService {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
+    public void onStart(Intent intent, int i2) {
         String string;
         if (intent == null) {
             return;
@@ -531,7 +531,7 @@ public class TiebaUpdateService extends BdBaseService {
                 this.mMainApkInstallEnable = true;
             }
             if (!this.mHasTieba && !this.mHasAs && !this.mHasOther) {
-                stopSelf(i);
+                stopSelf(i2);
             } else if (!this.mHasTieba && !this.mHasAs) {
                 this.info = getString(R.string.downloading);
                 downloadOtherApk();
@@ -549,10 +549,10 @@ public class TiebaUpdateService extends BdBaseService {
         }
     }
 
-    public void sendBroadcast(int i) {
+    public void sendBroadcast(int i2) {
         Intent intent = new Intent();
         intent.setAction(TbConfig.APP_UPDATE_ACTION);
-        intent.putExtra("action_update_download_progress", i);
+        intent.putExtra("action_update_download_progress", i2);
         intent.setPackage(getPackageName());
         sendBroadcast(intent);
     }

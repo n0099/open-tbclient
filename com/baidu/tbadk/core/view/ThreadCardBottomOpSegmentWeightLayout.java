@@ -19,7 +19,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
 
         @Override // com.baidu.tbadk.core.view.AgreeView.d
         public void a(View view, boolean z) {
-            ThreadCardBottomOpSegmentWeightLayout.this.S(z);
+            ThreadCardBottomOpSegmentWeightLayout.this.Q(z);
         }
     }
 
@@ -29,26 +29,26 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void J() {
-        this.f13162h.setVisibilityListener(this.k0);
-        this.f13162h.j(true);
+    public void I() {
+        this.f13106h.setVisibilityListener(this.k0);
+        this.f13106h.j(true);
     }
 
-    public final void S(boolean z) {
-        if (T()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13162h.getLayoutParams();
+    public final void Q(boolean z) {
+        if (R()) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13106h.getLayoutParams();
             float f2 = z ? 1.0f : 2.0f;
             layoutParams.width = 0;
             layoutParams.weight = f2;
             layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
-            this.f13162h.setLayoutParams(layoutParams);
+            this.f13106h.setLayoutParams(layoutParams);
         }
     }
 
-    public final boolean T() {
-        boolean q = this.f13162h.q();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13162h.getLayoutParams();
+    public final boolean R() {
+        boolean q = this.f13106h.q();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13106h.getLayoutParams();
         return (layoutParams.weight == (q ? 1.0f : 2.0f) && layoutParams.width == 0) ? false : true;
     }
 
@@ -60,7 +60,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void p(View view) {
         super.p(view);
-        this.f13162h.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
+        this.f13106h.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
     }
 
     public ThreadCardBottomOpSegmentWeightLayout(Context context, AttributeSet attributeSet) {

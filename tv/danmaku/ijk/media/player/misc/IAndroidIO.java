@@ -8,7 +8,7 @@ public interface IAndroidIO {
 
     int open(String str);
 
-    int read(byte[] bArr, int i);
+    int read(byte[] bArr, int i2);
 
-    long seek(long j, int i);
+    long seek(long j, int i2);
 }

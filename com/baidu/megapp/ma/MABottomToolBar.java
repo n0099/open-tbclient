@@ -35,7 +35,7 @@ public class MABottomToolBar {
         public static final int TOOL_ITEM_BACK = 1;
         public static final int TOOL_ITEM_SHARE = 2;
 
-        boolean onItemClick(int i);
+        boolean onItemClick(int i2);
     }
 
     @Deprecated

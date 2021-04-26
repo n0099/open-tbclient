@@ -11,7 +11,7 @@ public class LoadMoreRecyclerView extends RecyclerView {
         super(context, attributeSet);
     }
 
-    public LoadMoreRecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public LoadMoreRecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

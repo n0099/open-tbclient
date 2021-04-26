@@ -9,23 +9,23 @@ import java.util.Locale;
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8972a = "Volley";
+    public static String f9302a = "Volley";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f8973b = Log.isLoggable("Volley", 2);
+    public static boolean f9303b = Log.isLoggable("Volley", 2);
 
     public static void a(String str, Object... objArr) {
-        if (f8973b) {
-            Log.v(f8972a, d(str, objArr));
+        if (f9303b) {
+            Log.v(f9302a, d(str, objArr));
         }
     }
 
     public static void b(String str, Object... objArr) {
-        Log.d(f8972a, d(str, objArr));
+        Log.d(f9302a, d(str, objArr));
     }
 
     public static void c(String str, Object... objArr) {
-        Log.e(f8972a, d(str, objArr));
+        Log.e(f9302a, d(str, objArr));
     }
 
     public static String d(String str, Object... objArr) {
@@ -34,69 +34,69 @@ public class w {
             str = String.format(Locale.US, str, objArr);
         }
         StackTraceElement[] stackTrace = new Throwable().fillInStackTrace().getStackTrace();
-        int i = 2;
+        int i2 = 2;
         while (true) {
-            if (i >= stackTrace.length) {
+            if (i2 >= stackTrace.length) {
                 str2 = "<unknown>";
                 break;
-            } else if (!stackTrace[i].getClass().equals(w.class)) {
-                String className = stackTrace[i].getClassName();
+            } else if (!stackTrace[i2].getClass().equals(w.class)) {
+                String className = stackTrace[i2].getClassName();
                 String substring = className.substring(className.lastIndexOf(46) + 1);
-                str2 = substring.substring(substring.lastIndexOf(36) + 1) + "." + stackTrace[i].getMethodName();
+                str2 = substring.substring(substring.lastIndexOf(36) + 1) + "." + stackTrace[i2].getMethodName();
                 break;
             } else {
-                i++;
+                i2++;
             }
         }
         return String.format(Locale.US, "[%d] %s: %s", Long.valueOf(Thread.currentThread().getId()), str2, str);
     }
 
     public static void a(Throwable th, String str, Object... objArr) {
-        Log.e(f8972a, d(str, objArr), th);
+        Log.e(f9302a, d(str, objArr), th);
     }
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final boolean f8974a = w.f8973b;
+        public static final boolean f9304a = w.f9303b;
 
         /* renamed from: b  reason: collision with root package name */
-        public final List<C0113a> f8975b = new ArrayList();
+        public final List<C0113a> f9305b = new ArrayList();
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f8976c = false;
+        public boolean f9306c = false;
 
         /* renamed from: com.baidu.pano.platform.a.w$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
         public static class C0113a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final String f8977a;
+            public final String f9307a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final long f8978b;
+            public final long f9308b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final long f8979c;
+            public final long f9309c;
 
             public C0113a(String str, long j, long j2) {
-                this.f8977a = str;
-                this.f8978b = j;
-                this.f8979c = j2;
+                this.f9307a = str;
+                this.f9308b = j;
+                this.f9309c = j2;
             }
         }
 
         public synchronized void a(String str, long j) {
-            if (!this.f8976c) {
-                this.f8975b.add(new C0113a(str, j, SystemClock.elapsedRealtime()));
+            if (!this.f9306c) {
+                this.f9305b.add(new C0113a(str, j, SystemClock.elapsedRealtime()));
             } else {
                 throw new IllegalStateException("Marker added to finished log");
             }
         }
 
         public void finalize() throws Throwable {
-            if (this.f8976c) {
+            if (this.f9306c) {
                 return;
             }
             a("Request on the loose");
@@ -104,27 +104,27 @@ public class w {
         }
 
         public synchronized void a(String str) {
-            this.f8976c = true;
+            this.f9306c = true;
             long a2 = a();
             if (a2 <= 0) {
                 return;
             }
-            long j = this.f8975b.get(0).f8979c;
+            long j = this.f9305b.get(0).f9309c;
             w.b("(%-4d ms) %s", Long.valueOf(a2), str);
-            for (C0113a c0113a : this.f8975b) {
-                long j2 = c0113a.f8979c;
-                w.b("(+%-4d) [%2d] %s", Long.valueOf(j2 - j), Long.valueOf(c0113a.f8978b), c0113a.f8977a);
+            for (C0113a c0113a : this.f9305b) {
+                long j2 = c0113a.f9309c;
+                w.b("(+%-4d) [%2d] %s", Long.valueOf(j2 - j), Long.valueOf(c0113a.f9308b), c0113a.f9307a);
                 j = j2;
             }
         }
 
         private long a() {
-            if (this.f8975b.size() == 0) {
+            if (this.f9305b.size() == 0) {
                 return 0L;
             }
-            long j = this.f8975b.get(0).f8979c;
-            List<C0113a> list = this.f8975b;
-            return list.get(list.size() - 1).f8979c - j;
+            long j = this.f9305b.get(0).f9309c;
+            List<C0113a> list = this.f9305b;
+            return list.get(list.size() - 1).f9309c - j;
         }
     }
 }

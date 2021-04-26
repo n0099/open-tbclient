@@ -4,7 +4,7 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.squareup.wire.Wire;
-import d.b.j0.e1.w.b;
+import d.a.j0.e1.w.b;
 import protobuf.BlockInfo;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
 import protobuf.CommitPersonalMsg.DataRes;
@@ -32,13 +32,13 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
         this.toUserId = str;
     }
 
-    public void setToUserType(int i) {
-        this.toUserType = i;
+    public void setToUserType(int i2) {
+        this.toUserType = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.message.ResponseCommitMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         CommitPersonalMsgResIdl commitPersonalMsgResIdl = (CommitPersonalMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, CommitPersonalMsgResIdl.class);
         setError(commitPersonalMsgResIdl.error.errorno.intValue());
         setErrorString(commitPersonalMsgResIdl.error.usermsg);

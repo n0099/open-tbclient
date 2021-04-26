@@ -157,7 +157,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     private void addAddress4ElementUpdateListener() {
         this.nameInputEt.addTextChangedListener(new SimpleTextWatcher() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.8
             @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                 if (!AddressEditActivity.this.isAutoSetNameText) {
                     AddressEditActivity.this.nameInput.updateCleanBtnStatus();
                 }
@@ -187,8 +187,8 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         });
         this.mobileInputEt.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.12
             @Override // android.view.View.OnKeyListener
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                if (i == 67 && AddressEditActivity.this.autoCleanMobileStr) {
+            public boolean onKey(View view, int i2, KeyEvent keyEvent) {
+                if (i2 == 67 && AddressEditActivity.this.autoCleanMobileStr) {
                     AddressEditActivity.this.autoCleanMobileStr = false;
                     AddressEditActivity.this.mobileInput.setText("");
                 }
@@ -197,7 +197,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         });
         this.mobileInputEt.addTextChangedListener(new SimpleTextWatcher() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.13
             @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                 String trim = charSequence.toString().trim();
                 if (AddressEditActivity.this.autoSetMobile) {
                     AddressEditActivity.this.autoSetMobile = false;
@@ -211,7 +211,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         });
         this.detailAddrEt.addTextChangedListener(new SimpleTextWatcher() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.14
             @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                 AddressEditActivity.this.inputDetailAddr = charSequence.toString().trim();
                 AddressEditActivity.this.newMapObject.putValue(AddressField.KEY_DETAIL_ADDR, AddressEditActivity.this.inputDetailAddr);
                 AddressEditActivity.this.updateTopRightBtnStatus(!TextUtils.isEmpty(AddressEditActivity.this.inputDetailAddr) && AddressEditActivity.this.inputDetailAddr.length() >= 4, 8);
@@ -815,7 +815,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         permissionsDTO.okBtnTxt = "去设置";
         PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.26
             @Override // com.baidu.pass.permissions.PermissionsCallback
-            public void onFailure(int i) {
+            public void onFailure(int i2) {
             }
 
             @Override // com.baidu.pass.permissions.PermissionsCallback
@@ -903,7 +903,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     private void setListener() {
         SoftKeyBoardListener.setListener(this, new SoftKeyBoardListener.OnSoftKeyBoardChangeListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.17
             @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
-            public void keyBoardHide(int i) {
+            public void keyBoardHide(int i2) {
                 AddressEditActivity.this.isKeyBoardShowing = false;
                 AddressEditActivity.this.scrollToAddrDetail(false);
                 if (AddressEditActivity.this.isShowImgOcrDialog) {
@@ -917,7 +917,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             }
 
             @Override // com.baidu.sapi2.utils.SoftKeyBoardListener.OnSoftKeyBoardChangeListener
-            public void keyBoardShow(int i) {
+            public void keyBoardShow(int i2) {
                 AddressEditActivity.this.isKeyBoardShowing = true;
                 if (AddressEditActivity.this.isFocusAddrDetailEt && AddressEditActivity.this.selectedRegion != null) {
                     AddressEditActivity.this.addrContentSv.smoothScrollTo(0, AddressEditActivity.this.regionLayout.getTop() + SapiUtils.dip2px(AddressEditActivity.this.getApplication(), 10.0f));
@@ -935,7 +935,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         });
         this.textOcrEt.addTextChangedListener(new SimpleTextWatcher() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.18
             @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                 if (TextUtils.isEmpty(charSequence.toString().trim())) {
                     AddressEditActivity.this.cleanLongTextBtn.setVisibility(8);
                     AddressEditActivity.this.useLongTextBtn.setVisibility(8);
@@ -974,32 +974,32 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         });
         this.suggestAddrListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.21
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
                 InputMethodManager inputMethodManager = (InputMethodManager) AddressEditActivity.this.getSystemService("input_method");
                 if (inputMethodManager != null) {
                     inputMethodManager.hideSoftInputFromWindow(AddressEditActivity.this.detailAddrEt.getWindowToken(), 0);
                 }
                 AddressEditActivity.this.scrollToAddrDetail(false);
-                ((AddressEditPresenter) AddressEditActivity.this.presenter).getSuggestAddrDetail(AddressEditActivity.this.listAdapter.getItem(i), AddressEditActivity.this.selectedRegion);
+                ((AddressEditPresenter) AddressEditActivity.this.presenter).getSuggestAddrDetail(AddressEditActivity.this.listAdapter.getItem(i2), AddressEditActivity.this.selectedRegion);
             }
         });
         this.addrTagGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.22
             @Override // android.widget.RadioGroup.OnCheckedChangeListener
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+            public void onCheckedChanged(RadioGroup radioGroup, int i2) {
                 if (AddressEditActivity.this.isClickConfirmCustomTag) {
                     AddressEditActivity.this.isClickConfirmCustomTag = false;
-                } else if (R.id.sapi_sdk_addr_tag_home_rb == i) {
+                } else if (R.id.sapi_sdk_addr_tag_home_rb == i2) {
                     AddressEditActivity.this.unCheckedCustomTag();
-                } else if (R.id.sapi_sdk_addr_tag_company_rb == i) {
+                } else if (R.id.sapi_sdk_addr_tag_company_rb == i2) {
                     AddressEditActivity.this.unCheckedCustomTag();
-                } else if (R.id.sapi_sdk_addr_tag_school_rb == i) {
+                } else if (R.id.sapi_sdk_addr_tag_school_rb == i2) {
                     AddressEditActivity.this.unCheckedCustomTag();
                 }
             }
         });
         this.editTagEt.addTextChangedListener(new SimpleTextWatcher() { // from class: com.baidu.sapi2.ecommerce.activity.AddressEditActivity.23
             @Override // com.baidu.pass.ecommerce.callback.SimpleTextWatcher, android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                 AddressEditActivity.this.editTagConfirmBtn.setEnabled(!TextUtils.isEmpty(charSequence.toString().trim()));
             }
         });
@@ -1082,23 +1082,23 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateTopRightBtnStatus(boolean z, int i) {
+    public void updateTopRightBtnStatus(boolean z, int i2) {
         if (z) {
-            this.addressElementStatus |= i;
+            this.addressElementStatus |= i2;
         } else {
-            this.addressElementStatus &= ~i;
+            this.addressElementStatus &= ~i2;
         }
         setTopRightBtnEnableStatus();
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void doFailure(int i, int i2, String str, String str2) {
+    public void doFailure(int i2, int i3, String str, String str2) {
         LoadingUtil.cancel();
-        if (i == 2001 || i == 2002) {
+        if (i2 == 2001 || i2 == 2002) {
             return;
         }
-        if (i != 3001) {
-            if (i == 3003 || TextUtils.isEmpty(str)) {
+        if (i2 != 3001) {
+            if (i2 == 3003 || TextUtils.isEmpty(str)) {
                 return;
             }
             ToastUtil.show(R.drawable.sapi_sdk_common_error_ic, str);
@@ -1108,18 +1108,18 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void doResult(int i, Object obj, String str) {
+    public void doResult(int i2, Object obj, String str) {
         LoadingUtil.cancel();
-        if (i == 1001) {
+        if (i2 == 1001) {
             processUpdateAddrResult();
-        } else if (i == 1002) {
+        } else if (i2 == 1002) {
             processDelAddrResult(str);
-        } else if (i == 1004) {
+        } else if (i2 == 1004) {
             processCreateAddrResult(obj);
-        } else if (i == 2001) {
+        } else if (i2 == 2001) {
             processSuggestAddrList(str, obj);
-        } else if (i != 2002) {
-            switch (i) {
+        } else if (i2 != 2002) {
+            switch (i2) {
                 case 3001:
                     processImgOcrResult(obj);
                     return;
@@ -1160,9 +1160,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     }
 
     @Override // com.baidu.sapi2.activity.BaseOptionActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, @Nullable Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i == 10001 && intent != null) {
+    public void onActivityResult(int i2, int i3, @Nullable Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i2 == 10001 && intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra(MAP_LOC_REGION_DETAIL);
             if (serializableExtra == null) {
                 return;
@@ -1172,7 +1172,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             this.detailAddrEt.setText(intent.getStringExtra(MAP_LOC_ADDR_DETAIL));
             this.mapAddrCheckValidTv.setVisibility(0);
             AddressStatUtil.onEventAutoStatistic(StatKey.ADDR_EDIT_INFO_FROM_MAP, this.isCreateAddress ? "0" : "1");
-        } else if (i == 10010 && checkGpsSwitcherStatus()) {
+        } else if (i2 == 10010 && checkGpsSwitcherStatus()) {
             openAddrMapLocationActivity();
         }
     }
@@ -1272,7 +1272,7 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
         }
     }
 
-    @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.sapi2.activity.BaseOptionActivity, com.baidu.sapi2.activity.NaSlideActiviy, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.sapi2.ecommerce.activity.BaseAddressActivity, com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.sapi2.activity.BaseOptionActivity, com.baidu.sapi2.activity.NaSlideActiviy, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.layout_sapi_sdk_address_edit_activity);
@@ -1328,10 +1328,10 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     }
 
     @Override // com.baidu.pass.ecommerce.dialog.ImgOcrOptionDialog.OptionOnClickListener
-    public void onOptionClick(int i) {
-        if (i == 1001) {
+    public void onOptionClick(int i2) {
+        if (i2 == 1001) {
             takePhoto();
-        } else if (i != 1002) {
+        } else if (i2 != 1002) {
         } else {
             pickPhoto();
         }
@@ -1351,8 +1351,8 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     }
 
     @Override // com.baidu.sapi2.activity.BaseOptionActivity
-    public void processImgBase64Data(int i, String str, String str2) {
-        if (10000 == i && !TextUtils.isEmpty(str2)) {
+    public void processImgBase64Data(int i2, String str, String str2) {
+        if (10000 == i2 && !TextUtils.isEmpty(str2)) {
             ((AddressEditPresenter) this.presenter).getImgOcrAddressResult(str2);
         } else if (TextUtils.isEmpty(str)) {
         } else {
@@ -1361,15 +1361,15 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void showLoading(int i) {
+    public void showLoading(int i2) {
         if (isFinishing() || isDestroyed()) {
             return;
         }
-        if (i == 1001 || i == 1004) {
+        if (i2 == 1001 || i2 == 1004) {
             LoadingUtil.show("地址保存中");
-        } else if (i == 3001) {
+        } else if (i2 == 3001) {
             LoadingUtil.show("图片识别中");
-        } else if (i != 3002) {
+        } else if (i2 != 3002) {
         } else {
             LoadingUtil.show("地址识别中");
         }

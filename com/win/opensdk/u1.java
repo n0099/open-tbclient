@@ -1,33 +1,38 @@
 package com.win.opensdk;
 
-import android.text.TextUtils;
-import com.qq.e.comm.constants.Constants;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes6.dex */
 public class u1 {
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f40430a = 101;
-
     /* renamed from: b  reason: collision with root package name */
-    public String f40431b;
+    public static final BlockingQueue f37953b = new LinkedBlockingQueue((int) Constants.METHOD_IM_SEND_QUIZ_ANSWER_CAST);
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f40432c;
+    public static final ThreadFactory f37954c = new t1();
 
-    public void a(String str) {
-        JSONObject jSONObject = new JSONObject(str);
-        this.f40430a = jSONObject.optInt(Constants.KEYS.RET);
-        this.f40431b = jSONObject.optString("msg");
-        String optString = jSONObject.optString("data");
-        try {
-            optString = G.b(optString);
-        } catch (Exception unused) {
+    /* renamed from: d  reason: collision with root package name */
+    public static u1 f37955d;
+
+    /* renamed from: a  reason: collision with root package name */
+    public ThreadPoolExecutor f37956a = new ThreadPoolExecutor(5, 60, 1, TimeUnit.SECONDS, f37953b, f37954c);
+
+    public static synchronized u1 a() {
+        u1 u1Var;
+        synchronized (u1.class) {
+            if (f37955d == null) {
+                f37955d = new u1();
+            }
+            u1Var = f37955d;
         }
-        if (TextUtils.isEmpty(optString)) {
-            this.f40432c = new JSONObject();
-        } else {
-            this.f40432c = new JSONObject(optString);
-        }
+        return u1Var;
+    }
+
+    public static void a(Runnable runnable) {
+        a().f37956a.execute(runnable);
     }
 }

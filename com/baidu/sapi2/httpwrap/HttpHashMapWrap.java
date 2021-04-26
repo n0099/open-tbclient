@@ -6,7 +6,7 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class HttpHashMapWrap extends HttpHashMap {
     public HttpHashMapWrap() {
-        putAll(Utils.a());
+        putAll(Utils.buildCommonParams());
     }
 
     @Override // com.baidu.pass.http.HttpHashMap

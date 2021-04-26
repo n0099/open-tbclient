@@ -103,12 +103,12 @@ public class PagerTabStrip extends PagerTitleStrip {
     }
 
     @Override // android.view.View
-    public void setBackgroundColor(@ColorInt int i) {
-        super.setBackgroundColor(i);
+    public void setBackgroundColor(@ColorInt int i2) {
+        super.setBackgroundColor(i2);
         if (this.mDrawFullUnderlineSet) {
             return;
         }
-        this.mDrawFullUnderline = (i & (-16777216)) == 0;
+        this.mDrawFullUnderline = (i2 & (-16777216)) == 0;
     }
 
     @Override // android.view.View
@@ -121,12 +121,12 @@ public class PagerTabStrip extends PagerTitleStrip {
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(@DrawableRes int i) {
-        super.setBackgroundResource(i);
+    public void setBackgroundResource(@DrawableRes int i2) {
+        super.setBackgroundResource(i2);
         if (this.mDrawFullUnderlineSet) {
             return;
         }
-        this.mDrawFullUnderline = i == 0;
+        this.mDrawFullUnderline = i2 == 0;
     }
 
     public void setDrawFullUnderline(boolean z) {
@@ -136,44 +136,44 @@ public class PagerTabStrip extends PagerTitleStrip {
     }
 
     @Override // android.view.View
-    public void setPadding(int i, int i2, int i3, int i4) {
-        int i5 = this.mMinPaddingBottom;
-        if (i4 < i5) {
-            i4 = i5;
+    public void setPadding(int i2, int i3, int i4, int i5) {
+        int i6 = this.mMinPaddingBottom;
+        if (i5 < i6) {
+            i5 = i6;
         }
-        super.setPadding(i, i2, i3, i4);
+        super.setPadding(i2, i3, i4, i5);
     }
 
-    public void setTabIndicatorColor(@ColorInt int i) {
-        this.mIndicatorColor = i;
-        this.mTabPaint.setColor(i);
+    public void setTabIndicatorColor(@ColorInt int i2) {
+        this.mIndicatorColor = i2;
+        this.mTabPaint.setColor(i2);
         invalidate();
     }
 
-    public void setTabIndicatorColorResource(@ColorRes int i) {
-        setTabIndicatorColor(ContextCompat.getColor(getContext(), i));
+    public void setTabIndicatorColorResource(@ColorRes int i2) {
+        setTabIndicatorColor(ContextCompat.getColor(getContext(), i2));
     }
 
     @Override // androidx.viewpager.widget.PagerTitleStrip
-    public void setTextSpacing(int i) {
-        int i2 = this.mMinTextSpacing;
-        if (i < i2) {
-            i = i2;
+    public void setTextSpacing(int i2) {
+        int i3 = this.mMinTextSpacing;
+        if (i2 < i3) {
+            i2 = i3;
         }
-        super.setTextSpacing(i);
+        super.setTextSpacing(i2);
     }
 
     @Override // androidx.viewpager.widget.PagerTitleStrip
-    public void updateTextPositions(int i, float f2, boolean z) {
+    public void updateTextPositions(int i2, float f2, boolean z) {
         Rect rect = this.mTempRect;
         int height = getHeight();
         int left = this.mCurrText.getLeft() - this.mTabPadding;
         int right = this.mCurrText.getRight() + this.mTabPadding;
-        int i2 = height - this.mIndicatorHeight;
-        rect.set(left, i2, right, height);
-        super.updateTextPositions(i, f2, z);
+        int i3 = height - this.mIndicatorHeight;
+        rect.set(left, i3, right, height);
+        super.updateTextPositions(i2, f2, z);
         this.mTabAlpha = (int) (Math.abs(f2 - 0.5f) * 2.0f * 255.0f);
-        rect.union(this.mCurrText.getLeft() - this.mTabPadding, i2, this.mCurrText.getRight() + this.mTabPadding, height);
+        rect.union(this.mCurrText.getLeft() - this.mTabPadding, i3, this.mCurrText.getRight() + this.mTabPadding, height);
         invalidate(rect);
     }
 
@@ -184,9 +184,9 @@ public class PagerTabStrip extends PagerTitleStrip {
         this.mTabAlpha = 255;
         this.mDrawFullUnderline = false;
         this.mDrawFullUnderlineSet = false;
-        int i = this.mTextColor;
-        this.mIndicatorColor = i;
-        this.mTabPaint.setColor(i);
+        int i2 = this.mTextColor;
+        this.mIndicatorColor = i2;
+        this.mTabPaint.setColor(i2);
         float f2 = context.getResources().getDisplayMetrics().density;
         this.mIndicatorHeight = (int) ((3.0f * f2) + 0.5f);
         this.mMinPaddingBottom = (int) ((6.0f * f2) + 0.5f);

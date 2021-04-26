@@ -6,20 +6,20 @@ import com.xiaomi.push.fe;
 public class fb {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f40877a = Log.isLoggable("BCompressed", 3);
+    public static final boolean f38399a = Log.isLoggable("BCompressed", 3);
 
     public static byte[] a(fa faVar, byte[] bArr) {
         try {
             byte[] a2 = fe.a.a(bArr);
-            if (f40877a) {
-                com.xiaomi.channel.commonutils.logger.b.m56a("BCompressed", "decompress " + bArr.length + " to " + a2.length + " for " + faVar);
+            if (f38399a) {
+                com.xiaomi.channel.commonutils.logger.b.m59a("BCompressed", "decompress " + bArr.length + " to " + a2.length + " for " + faVar);
                 if (faVar.f357a == 1) {
-                    com.xiaomi.channel.commonutils.logger.b.m56a("BCompressed", "decompress not support upStream");
+                    com.xiaomi.channel.commonutils.logger.b.m59a("BCompressed", "decompress not support upStream");
                 }
             }
             return a2;
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m56a("BCompressed", "decompress error " + e2);
+            com.xiaomi.channel.commonutils.logger.b.m59a("BCompressed", "decompress error " + e2);
             return bArr;
         }
     }

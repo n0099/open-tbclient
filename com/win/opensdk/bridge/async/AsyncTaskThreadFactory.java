@@ -2,7 +2,7 @@ package com.win.opensdk.bridge.async;
 
 import android.os.Process;
 import java.util.concurrent.ThreadFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AsyncTaskThreadFactory implements ThreadFactory {
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(final Runnable runnable) {

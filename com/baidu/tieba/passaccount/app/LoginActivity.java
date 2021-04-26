@@ -23,6 +23,7 @@ import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.ala.ILoginListener;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
@@ -35,11 +36,12 @@ import com.baidu.tbadk.switchs.LoginDefaultTypeSmsSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-import d.b.c.e.m.g;
-import d.b.c.e.m.h;
-import d.b.c.e.p.k;
-import d.b.i0.r.l.a;
-import d.b.i0.s.i.b;
+import d.a.c.e.m.g;
+import d.a.c.e.m.h;
+import d.a.c.e.p.k;
+import d.a.i0.r.l.a;
+import d.a.i0.s.i.b;
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -48,11 +50,12 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public static final int SOCIAL_TYPE_WEIBO = 1;
     public static final int SOCIAL_TYPE_WEIXIN = 2;
     public boolean isFromAiapp;
+    public ILoginListener loginListener;
     public BdAsyncTask<?, ?, ?> mAccountLoginTask;
     public String mActivityId;
     public String mCustomLoginCssUrl;
     public String mFromUrl;
-    public d.b.i0.s.i.b mInputUserNameDialog;
+    public d.a.i0.s.i.b mInputUserNameDialog;
     public Activity mPassActivity;
     public int mSocialType;
     public WebAuthResult mWebAuthResult;
@@ -62,7 +65,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public boolean mClose = false;
     public int jumpTo = -1;
     public int mTab = -1;
-    public final a.InterfaceC1117a mReLoginCallback = new c();
+    public final a.InterfaceC1056a mReLoginCallback = new c();
 
     /* loaded from: classes3.dex */
     public class a extends WebAuthListener {
@@ -81,7 +84,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.sapi2.callback.SapiCallback
         public void onFailure(WebAuthResult webAuthResult) {
-            d.b.i0.r.z.a.a("account", -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
+            d.a.i0.r.z.a.a("account", -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
             LoginActivity.this.loginResult = -1;
             LoginActivity.this.finishForResult(0);
         }
@@ -91,7 +94,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public void onSuccess(WebAuthResult webAuthResult) {
             LoginActivity.this.mWebAuthResult = webAuthResult;
             LoginActivity.this.mPassActivity = webAuthResult.activity;
-            d.b.i0.r.z.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
+            d.a.i0.r.z.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
             LoginActivity.this.passLoginSucc();
             LoginActivity.this.loginResult = 0;
         }
@@ -129,7 +132,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements a.InterfaceC1117a {
+    public class c implements a.InterfaceC1056a {
 
         /* loaded from: classes3.dex */
         public class a implements DialogInterface.OnCancelListener {
@@ -145,9 +148,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public c() {
         }
 
-        @Override // d.b.i0.r.l.a.InterfaceC1117a
-        public void a(String str, int i, String str2) {
-            d.b.i0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
+        @Override // d.a.i0.r.l.a.InterfaceC1056a
+        public void a(String str, int i2, String str2) {
+            d.a.i0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_fail", i2, str2, new Object[0]);
             LoginActivity.this.closeLoadingDialog();
             LoginActivity.this.showToast(str2);
             if (LoginActivity.this.mPassActivity instanceof BaseSSOLoginActivity) {
@@ -156,7 +159,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             LoginActivity.this.finishForResult(0);
         }
 
-        @Override // d.b.i0.r.l.a.InterfaceC1117a
+        @Override // d.a.i0.r.l.a.InterfaceC1056a
         public void b(String str) {
             if (LoginActivity.this.getLoadingDialog() == null || !LoginActivity.this.getLoadingDialog().c()) {
                 LoginActivity loginActivity = LoginActivity.this;
@@ -164,15 +167,15 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             }
         }
 
-        @Override // d.b.i0.r.l.a.InterfaceC1117a
+        @Override // d.a.i0.r.l.a.InterfaceC1056a
         public void c(AccountData accountData) {
-            d.b.i0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
+            d.a.i0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
             TiebaStatic.log(new StatisticItem("c12948").param("obj_type", LoginActivity.this.mLoginTypeForStatistic).param(TiebaStatic.Params.OBJ_URL, LoginActivity.this.mFromUrl));
             LoginActivity.this.closeLoadingDialog();
             if (!TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() || !TextUtils.isEmpty(accountData.getAccount())) {
                 LoginActivity.this.goToMainEntrance(accountData);
-                if (d.b.i0.b.d.f()) {
-                    d.b.i0.a.c.y().r();
+                if (d.a.i0.b.d.f()) {
+                    d.a.i0.a.c.y().r();
                     return;
                 }
                 return;
@@ -185,16 +188,16 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f19089e;
+        public final /* synthetic */ AccountData f19545e;
 
         public d(AccountData accountData) {
-            this.f19089e = accountData;
+            this.f19545e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.i0.r.l.c.g(this.f19089e);
-            d.b.i0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+            d.a.i0.r.l.c.g(this.f19545e);
+            d.a.i0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
         }
     }
 
@@ -203,7 +206,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         public e() {
         }
 
-        @Override // d.b.i0.s.i.b.e
+        @Override // d.a.i0.s.i.b.e
         public void a(AccountData accountData) {
             TbadkCoreApplication.getInst().setTbs(LoginActivity.this.mOldTbs);
             if (LoginActivity.this.mWebAuthResult != null) {
@@ -232,20 +235,31 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void finishForResult(int i) {
+    public void finishForResult(int i2) {
+        ILoginListener iLoginListener = this.loginListener;
+        if (iLoginListener != null) {
+            if (i2 == 0) {
+                iLoginListener.onFail();
+            } else if (i2 == -1) {
+                iLoginListener.onSuccess();
+            } else {
+                iLoginListener.onCancel();
+            }
+            this.loginListener = null;
+        }
         Intent intent = new Intent();
         intent.putExtra(HttpRequest.BDUSS, TbadkCoreApplication.getCurrentBduss());
         intent.putExtra("social_type", this.mSocialType);
         intent.putExtra("activity_id", this.mActivityId);
         intent.putExtra(LoginActivityConfig.IS_FROM_AIAPP, this.isFromAiapp);
-        setResult(i, intent);
+        setResult(i2, intent);
         finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void goToMainEntrance(AccountData accountData) {
         saveAccountInfo(accountData);
-        d.b.i0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+        d.a.i0.r.z.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.getInst().onUserChanged(getIntent());
         if (this.mClose) {
             WebAuthResult webAuthResult = this.mWebAuthResult;
@@ -258,10 +272,10 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         int intExtra = getIntent().getIntExtra("locate_type", -1);
         this.mTab = intExtra;
         if (intExtra == -1) {
-            d.b.i0.r.d0.b j = d.b.i0.r.d0.b.j();
+            d.a.i0.r.d0.b j = d.a.i0.r.d0.b.j();
             if (j.g("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
                 this.mTab = 2;
-                d.b.i0.r.d0.b j2 = d.b.i0.r.d0.b.j();
+                d.a.i0.r.d0.b j2 = d.a.i0.r.d0.b.j();
                 j2.t("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
             } else {
                 this.mTab = 2;
@@ -279,18 +293,18 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     private boolean isThirdLogin() {
-        int i = this.mSocialType;
-        return i == 1 || i == 2 || i == 3;
+        int i2 = this.mSocialType;
+        return i2 == 1 || i2 == 2 || i2 == 3;
     }
 
-    private void loadThirdPartyLogin(int i) {
+    private void loadThirdPartyLogin(int i2) {
         PassportSDK passportSDK = PassportSDK.getInstance();
         WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
-        if (i == 1) {
+        if (i2 == 1) {
             webSocialLoginDTO.socialType = SocialType.SINA_WEIBO_SSO;
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             webSocialLoginDTO.socialType = SocialType.WEIXIN;
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             webSocialLoginDTO.socialType = SocialType.QQ_SSO;
         }
         b bVar = new b();
@@ -324,6 +338,10 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         this.mCustomLoginCssUrl = intent.getStringExtra(LoginActivityConfig.CUSTOM_LOGIN_CSS_URL);
         this.mActivityId = intent.getStringExtra("activity_id");
         this.isFromAiapp = intent.getBooleanExtra(LoginActivityConfig.IS_FROM_AIAPP, false);
+        Serializable serializableExtra = getIntent().getSerializableExtra("login_dialog_login_listener");
+        if (serializableExtra instanceof ILoginListener) {
+            this.loginListener = (ILoginListener) serializableExtra;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -335,15 +353,15 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (bdAsyncTask != null) {
                 bdAsyncTask.cancel();
             }
-            this.mAccountLoginTask = d.b.i0.r.l.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
+            this.mAccountLoginTask = d.a.i0.r.l.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
         }
     }
 
     private void saveAccountInfo(AccountData accountData) {
         h.a().c(new d(accountData));
-        d.b.i0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+        d.a.i0.r.z.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
         TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
-        d.b.i0.l.a.f(TbadkCoreApplication.getInst());
+        d.a.i0.l.a.f(TbadkCoreApplication.getInst());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
     }
 
@@ -351,7 +369,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public void showInputDialog(AccountData accountData) {
         this.mOldTbs = TbadkCoreApplication.getCurrentTbs();
         if (this.mInputUserNameDialog == null) {
-            d.b.i0.s.i.b bVar = new d.b.i0.s.i.b(this.mPassActivity);
+            d.a.i0.s.i.b bVar = new d.a.i0.s.i.b(this.mPassActivity);
             this.mInputUserNameDialog = bVar;
             bVar.x(this.mReLoginCallback);
             this.mInputUserNameDialog.v(new e());
@@ -416,18 +434,18 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         if (this.jumpTo == 1) {
-            int i = this.mTab;
-            if (i == -1) {
-                i = 2;
+            int i2 = this.mTab;
+            if (i2 == -1) {
+                i2 = 2;
             }
-            this.mTab = i;
-            d.b.i0.r.a0.b.g(getPageContext().getPageActivity(), this.mTab, false);
+            this.mTab = i2;
+            d.a.i0.r.a0.b.g(getPageContext().getPageActivity(), this.mTab, false);
         }
         BdAsyncTask<?, ?, ?> bdAsyncTask = this.mAccountLoginTask;
         if (bdAsyncTask != null) {
             bdAsyncTask.cancel();
         }
-        d.b.i0.s.i.b bVar = this.mInputUserNameDialog;
+        d.a.i0.s.i.b bVar = this.mInputUserNameDialog;
         if (bVar != null) {
             bVar.s();
         }
@@ -448,7 +466,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             if (str == null) {
                 str = getString(R.string.Waiting);
             }
-            d.b.i0.r.f0.a aVar = new d.b.i0.r.f0.a(this.mPassActivity);
+            d.a.i0.r.f0.a aVar = new d.a.i0.r.f0.a(this.mPassActivity);
             this.mWaitingDialog = aVar;
             aVar.j(str);
             this.mWaitingDialog.e(onCancelListener);

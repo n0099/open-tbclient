@@ -3,8 +3,8 @@ package com.baidu.tieba.im.model;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import d.b.c.e.k.a;
-import d.b.c.e.m.b;
+import d.a.c.e.k.a;
+import d.a.c.e.m.b;
 /* loaded from: classes4.dex */
 public class PvCacheModel {
     public static PvCacheModel mCacheModel;

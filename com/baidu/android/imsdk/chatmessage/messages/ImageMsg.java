@@ -20,8 +20,8 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public ImageMsg[] newArray(int i) {
-            return new ImageMsg[i];
+        public ImageMsg[] newArray(int i2) {
+            return new ImageMsg[i2];
         }
     };
     public int mHeight;
@@ -89,15 +89,15 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public void setContent(String str, int i, int i2) {
-        this.mWidth = i;
-        this.mHeight = i2;
+    public void setContent(String str, int i2, int i3) {
+        this.mWidth = i2;
+        this.mHeight = i3;
         setMsgContent(getImgContent(str));
     }
 
-    public void setImgWH(int i, int i2) {
-        this.mWidth = i;
-        this.mHeight = i2;
+    public void setImgWH(int i2, int i3) {
+        this.mWidth = i2;
+        this.mHeight = i3;
     }
 
     public void setThumbUrl(String str) {
@@ -105,8 +105,8 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeInt(this.mHeight);
         parcel.writeInt(this.mWidth);
         parcel.writeString(this.mThumbUrl);
@@ -124,14 +124,14 @@ public class ImageMsg extends RichMediaMsg implements Parcelable, NoProGuard {
         setLocalUrl(str);
     }
 
-    public ImageMsg(String str, int i, int i2) {
+    public ImageMsg(String str, int i2, int i3) {
         this.mThumbUrl = null;
         this.mWidth = 0;
         this.mHeight = 0;
         setMsgType(1);
         setLocalUrl(str);
-        this.mWidth = i;
-        this.mHeight = i2;
+        this.mWidth = i2;
+        this.mHeight = i3;
     }
 
     public ImageMsg(Parcel parcel) {

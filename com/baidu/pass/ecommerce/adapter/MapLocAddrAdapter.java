@@ -77,8 +77,8 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.pass.ecommerce.common.adapter.BaseRecyclerViewHolder
-        public void bindData2View(int i, JSONObject jSONObject) {
-            super.bindData2View(i, (int) jSONObject);
+        public void bindData2View(int i2, JSONObject jSONObject) {
+            super.bindData2View(i2, (int) jSONObject);
             String selectedAddrId = MapLocAddrAdapter.this.presenter.getSelectedAddrId();
             if (!TextUtils.isEmpty(selectedAddrId) ? TextUtils.equals(jSONObject.optString(SuggestAddrField.KEY_MAP_ADDRID), selectedAddrId) : false) {
                 this.checkedIc.setVisibility(0);
@@ -167,12 +167,12 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
     }
 
     @Override // com.baidu.pass.ecommerce.common.adapter.BaseRecyclerViewAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemViewType(int i) {
-        int i2 = this.headerCount;
-        if (i < i2) {
+    public int getItemViewType(int i2) {
+        int i3 = this.headerCount;
+        if (i2 < i3) {
             return 0;
         }
-        return (i < i2 || i >= getDataCount() + this.headerCount) ? 2 : 1;
+        return (i2 < i3 || i2 >= getDataCount() + this.headerCount) ? 2 : 1;
     }
 
     public void setDatas(List<JSONObject> list, boolean z) {
@@ -197,24 +197,24 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onBindViewHolder(@NonNull BaseRecyclerViewHolder baseRecyclerViewHolder, int i) {
-        int itemViewType = getItemViewType(i);
+    public void onBindViewHolder(@NonNull BaseRecyclerViewHolder baseRecyclerViewHolder, int i2) {
+        int itemViewType = getItemViewType(i2);
         if (1 == itemViewType) {
-            int i2 = i - this.headerCount;
-            baseRecyclerViewHolder.bindData2View(i2, this.addrJsonObjs.get(i2));
+            int i3 = i2 - this.headerCount;
+            baseRecyclerViewHolder.bindData2View(i3, this.addrJsonObjs.get(i3));
         } else if (2 == itemViewType) {
-            baseRecyclerViewHolder.bindData2View(i, Boolean.valueOf(this.hasNextPage));
+            baseRecyclerViewHolder.bindData2View(i2, Boolean.valueOf(this.hasNextPage));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    public BaseRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        if (i == 0) {
+    public BaseRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
+        if (i2 == 0) {
             return new HeaderViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_sapi_sdk_addr_map_searchbox, viewGroup, false));
         }
-        if (i == 1) {
+        if (i2 == 1) {
             return new AddrPoiInfoViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_sapi_sdk_item_address_map, viewGroup, false));
         }
         return new CommonFootViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_sapi_sdk_item_address_map_load_more, viewGroup, false), this.isDarkMode);

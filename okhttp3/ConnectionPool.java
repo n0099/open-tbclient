@@ -34,14 +34,14 @@ public final class ConnectionPool {
 
     private int pruneAndGetAllocationCount(RealConnection realConnection, long j) {
         List<Reference<StreamAllocation>> list = realConnection.allocations;
-        int i = 0;
-        while (i < list.size()) {
-            Reference<StreamAllocation> reference = list.get(i);
+        int i2 = 0;
+        while (i2 < list.size()) {
+            Reference<StreamAllocation> reference = list.get(i2);
             if (reference.get() != null) {
-                i++;
+                i2++;
             } else {
                 Platform.get().logCloseableLeak("A connection to " + realConnection.route().address().url() + " was leaked. Did you forget to close a response body?", ((StreamAllocation.StreamAllocationReference) reference).callStackTrace);
-                list.remove(i);
+                list.remove(i2);
                 realConnection.noNewStreams = true;
                 if (list.isEmpty()) {
                     realConnection.idleAtNanos = j - this.keepAliveDurationNs;
@@ -56,13 +56,13 @@ public final class ConnectionPool {
         synchronized (this) {
             RealConnection realConnection = null;
             long j2 = Long.MIN_VALUE;
-            int i = 0;
             int i2 = 0;
+            int i3 = 0;
             for (RealConnection realConnection2 : this.connections) {
                 if (pruneAndGetAllocationCount(realConnection2, j) > 0) {
-                    i2++;
+                    i3++;
                 } else {
-                    i++;
+                    i2++;
                     long j3 = j - realConnection2.idleAtNanos;
                     if (j3 > j2) {
                         realConnection = realConnection2;
@@ -70,10 +70,10 @@ public final class ConnectionPool {
                     }
                 }
             }
-            if (j2 < this.keepAliveDurationNs && i <= this.maxIdleConnections) {
-                if (i > 0) {
+            if (j2 < this.keepAliveDurationNs && i2 <= this.maxIdleConnections) {
+                if (i2 > 0) {
                     return this.keepAliveDurationNs - j2;
-                } else if (i2 > 0) {
+                } else if (i3 > 0) {
                     return this.keepAliveDurationNs;
                 } else {
                     this.cleanupRunning = false;
@@ -139,14 +139,14 @@ public final class ConnectionPool {
     }
 
     public synchronized int idleConnectionCount() {
-        int i;
-        i = 0;
+        int i2;
+        i2 = 0;
         for (RealConnection realConnection : this.connections) {
             if (realConnection.allocations.isEmpty()) {
-                i++;
+                i2++;
             }
         }
-        return i;
+        return i2;
     }
 
     public void put(RealConnection realConnection) {
@@ -157,7 +157,7 @@ public final class ConnectionPool {
         this.connections.add(realConnection);
     }
 
-    public ConnectionPool(int i, long j, TimeUnit timeUnit) {
+    public ConnectionPool(int i2, long j, TimeUnit timeUnit) {
         this.cleanupRunnable = new Runnable() { // from class: okhttp3.ConnectionPool.1
             @Override // java.lang.Runnable
             public void run() {
@@ -181,7 +181,7 @@ public final class ConnectionPool {
         };
         this.connections = new ArrayDeque();
         this.routeDatabase = new RouteDatabase();
-        this.maxIdleConnections = i;
+        this.maxIdleConnections = i2;
         this.keepAliveDurationNs = timeUnit.toNanos(j);
         if (j > 0) {
             return;

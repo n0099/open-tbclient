@@ -3,22 +3,22 @@ package com.baidu.ar.npc;
 public class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f4255a;
+    public final /* synthetic */ int f4325a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f4256b;
+    public final /* synthetic */ int f4326b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ ArBridge f4257c;
+    public final /* synthetic */ ArBridge f4327c;
 
-    public v(ArBridge arBridge, int i, int i2) {
-        this.f4257c = arBridge;
-        this.f4255a = i;
-        this.f4256b = i2;
+    public v(ArBridge arBridge, int i2, int i3) {
+        this.f4327c = arBridge;
+        this.f4325a = i2;
+        this.f4326b = i3;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f4257c.nativeSetSize(this.f4255a, this.f4256b);
+        this.f4327c.nativeSetSize(this.f4325a, this.f4326b);
     }
 }

@@ -6,6 +6,9 @@ import android.view.accessibility.AccessibilityRecord;
 /* loaded from: classes.dex */
 public final class AccessibilityEventCompat {
     public static final int CONTENT_CHANGE_TYPE_CONTENT_DESCRIPTION = 4;
+    public static final int CONTENT_CHANGE_TYPE_PANE_APPEARED = 16;
+    public static final int CONTENT_CHANGE_TYPE_PANE_DISAPPEARED = 32;
+    public static final int CONTENT_CHANGE_TYPE_PANE_TITLE = 8;
     public static final int CONTENT_CHANGE_TYPE_SUBTREE = 1;
     public static final int CONTENT_CHANGE_TYPE_TEXT = 2;
     public static final int CONTENT_CHANGE_TYPE_UNDEFINED = 0;
@@ -68,8 +71,8 @@ public final class AccessibilityEventCompat {
     }
 
     @Deprecated
-    public static AccessibilityRecordCompat getRecord(AccessibilityEvent accessibilityEvent, int i) {
-        return new AccessibilityRecordCompat(accessibilityEvent.getRecord(i));
+    public static AccessibilityRecordCompat getRecord(AccessibilityEvent accessibilityEvent, int i2) {
+        return new AccessibilityRecordCompat(accessibilityEvent.getRecord(i2));
     }
 
     @Deprecated
@@ -77,21 +80,21 @@ public final class AccessibilityEventCompat {
         return accessibilityEvent.getRecordCount();
     }
 
-    public static void setAction(AccessibilityEvent accessibilityEvent, int i) {
+    public static void setAction(AccessibilityEvent accessibilityEvent, int i2) {
         if (Build.VERSION.SDK_INT >= 16) {
-            accessibilityEvent.setAction(i);
+            accessibilityEvent.setAction(i2);
         }
     }
 
-    public static void setContentChangeTypes(AccessibilityEvent accessibilityEvent, int i) {
+    public static void setContentChangeTypes(AccessibilityEvent accessibilityEvent, int i2) {
         if (Build.VERSION.SDK_INT >= 19) {
-            accessibilityEvent.setContentChangeTypes(i);
+            accessibilityEvent.setContentChangeTypes(i2);
         }
     }
 
-    public static void setMovementGranularity(AccessibilityEvent accessibilityEvent, int i) {
+    public static void setMovementGranularity(AccessibilityEvent accessibilityEvent, int i2) {
         if (Build.VERSION.SDK_INT >= 16) {
-            accessibilityEvent.setMovementGranularity(i);
+            accessibilityEvent.setMovementGranularity(i2);
         }
     }
 }

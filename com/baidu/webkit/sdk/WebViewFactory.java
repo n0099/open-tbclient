@@ -78,8 +78,8 @@ public final class WebViewFactory {
         if (Build.VERSION.SDK_INT != 19) {
             return;
         }
-        if (d.a(mContext).f26583a.a()) {
-            String str = aVar.f26590d + "libzeuswebviewchromium.so";
+        if (d.a(mContext).f27390a.a()) {
+            String str = aVar.f27397d + "libzeuswebviewchromium.so";
             try {
                 j = new File(str).length();
             } catch (Throwable th) {
@@ -107,7 +107,7 @@ public final class WebViewFactory {
             if (isVersionMatched(str, zeusNativeLibraryVersion, true) && isVersionMatched(str, zeusJarVersion, true) && isVersionMatched(sdkVersionCode, str, false)) {
                 return;
             }
-            SevenZipUtils.getInstance().clearTimestamp(d.a(mContext).f26583a.f26590d);
+            SevenZipUtils.getInstance().clearTimestamp(d.a(mContext).f27390a.f27397d);
             throw new Exception("sdk and native library dismatch " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusJarVersion + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusNativeLibraryVersion);
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -178,11 +178,11 @@ public final class WebViewFactory {
             return;
         }
         mPackageInfo = null;
-        int i = Build.VERSION.SDK_INT;
-        if (i > 20) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 > 20) {
             if (mPackageInfo == null) {
                 try {
-                    if (i > 23) {
+                    if (i2 > 23) {
                         Method declaredMethod = Class.forName("android.webkit.WebViewFactory").getDeclaredMethod("getWebViewContextAndSetProvider", null);
                         boolean isAccessible = declaredMethod.isAccessible();
                         declaredMethod.setAccessible(true);
@@ -343,7 +343,7 @@ public final class WebViewFactory {
         try {
             ApplicationInfo applicationInfo2 = context.getApplicationInfo();
             d a2 = d.a(context);
-            d.a aVar = a2.f26583a;
+            d.a aVar = a2.f27390a;
             mIsInstallUpdate = false;
             String str2 = applicationInfo2.nativeLibraryDir + SPLASH + "libcom.baidu.zeus.so";
             String downloadLibPath = UtilsBlink.getDownloadLibPath(context);
@@ -354,7 +354,7 @@ public final class WebViewFactory {
                     str2 = str3;
                 }
             }
-            if (!a2.f26583a.a() && !EngineManager.getInstance().isInstalled()) {
+            if (!a2.f27390a.a() && !EngineManager.getInstance().isInstalled()) {
                 LoadErrorCode.getInstance().trace(513);
             }
             packageInfo = context.getPackageManager().getPackageArchiveInfo(str2, 132);
@@ -368,7 +368,7 @@ public final class WebViewFactory {
                         applicationInfo.nativeLibraryDir = str;
                     }
                     applicationInfo = packageInfo.applicationInfo;
-                    str = aVar.f26590d + ":" + applicationInfo2.nativeLibraryDir;
+                    str = aVar.f27397d + ":" + applicationInfo2.nativeLibraryDir;
                     applicationInfo.nativeLibraryDir = str;
                 } catch (Throwable th2) {
                     th = th2;
@@ -396,13 +396,13 @@ public final class WebViewFactory {
         return getProcessName(mContext, Process.myPid());
     }
 
-    public static String getProcessName(Context context, int i) {
+    public static String getProcessName(Context context, int i2) {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         if (context == null || (runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) == null) {
             return null;
         }
         for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-            if (runningAppProcessInfo.pid == i) {
+            if (runningAppProcessInfo.pid == i2) {
                 return runningAppProcessInfo.processName;
             }
         }
@@ -762,7 +762,7 @@ public final class WebViewFactory {
                 if (file.exists() && file.isFile()) {
                     boolean installSync = EngineManager.getInstance().installSync(str, new WebKitFactory.WebkitInstallListener() { // from class: com.baidu.webkit.sdk.WebViewFactory.1
                         @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-                        public void onInstallFinish(int i, String str2) {
+                        public void onInstallFinish(int i2, String str2) {
                         }
 
                         @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
@@ -936,24 +936,24 @@ public final class WebViewFactory {
 
     public static void setUsingLzma(Context context, boolean z, WebKitUnzipCallback webKitUnzipCallback) {
         d a2 = d.a(context);
-        a2.f26583a.a(z);
+        a2.f27390a.a(z);
         if (!z || isRendererProcess()) {
             return;
         }
-        synchronized (d.f26580e) {
+        synchronized (d.f27387e) {
             if (context != null) {
-                if (a2.f26583a != null && a2.f26584b == null) {
-                    a2.f26584b = new d.b(context);
+                if (a2.f27390a != null && a2.f27391b == null) {
+                    a2.f27391b = new d.b(context);
                 }
             }
         }
-        synchronized (d.f26580e) {
-            if (a2.f26585c != webKitUnzipCallback) {
-                a2.f26585c = webKitUnzipCallback;
-                if (a2.f26586d == null) {
-                    a2.f26586d = new Handler(Looper.getMainLooper());
+        synchronized (d.f27387e) {
+            if (a2.f27392c != webKitUnzipCallback) {
+                a2.f27392c = webKitUnzipCallback;
+                if (a2.f27393d == null) {
+                    a2.f27393d = new Handler(Looper.getMainLooper());
                 }
-                a2.f26586d.postDelayed(new e(a2), 15000L);
+                a2.f27393d.postDelayed(new e(a2), 15000L);
             }
         }
     }
@@ -978,8 +978,8 @@ public final class WebViewFactory {
         IABTestInterface abTestInterface = getAbTestInterface();
         if (abTestInterface != null && abTestInterface.getSwitch(ABTestConstants.T7_V10_BLACK_LIST, false)) {
             String[] strArr = {"MI 6X", "MI 6X MIKU", "REDMI NOTE 5", "REDMI NOTE 7", "V1814A", "V1814T", "V1816A", "V1816T", "VIVO X21", "VIVO X21A", "VIVO X21UD", "VIVO X21UD A", "VIVO Z3X"};
-            for (int i = 0; i < 13; i++) {
-                if (strArr[i].equals(Build.MODEL.toUpperCase())) {
+            for (int i2 = 0; i2 < 13; i2++) {
+                if (strArr[i2].equals(Build.MODEL.toUpperCase())) {
                     LoadErrorCode.getInstance().trace(515);
                     z3 = true;
                     break;

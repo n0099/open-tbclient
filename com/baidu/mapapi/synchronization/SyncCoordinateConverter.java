@@ -7,10 +7,10 @@ import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 public class SyncCoordinateConverter {
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f7392a;
+    public LatLng f7656a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CoordType f7393b;
+    public CoordType f7657b;
 
     /* loaded from: classes2.dex */
     public enum CoordType {
@@ -37,29 +37,29 @@ public class SyncCoordinateConverter {
     }
 
     public LatLng convert() {
-        if (this.f7392a == null) {
+        if (this.f7656a == null) {
             return null;
         }
-        if (this.f7393b == null) {
-            this.f7393b = CoordType.BD09LL;
+        if (this.f7657b == null) {
+            this.f7657b = CoordType.BD09LL;
         }
-        int i = a.f7397a[this.f7393b.ordinal()];
-        if (i != 1) {
-            if (i != 2) {
+        int i2 = a.f7661a[this.f7657b.ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
                 return null;
             }
-            return b(this.f7392a);
+            return b(this.f7656a);
         }
-        return a(this.f7392a);
+        return a(this.f7656a);
     }
 
     public SyncCoordinateConverter coord(LatLng latLng) {
-        this.f7392a = latLng;
+        this.f7656a = latLng;
         return this;
     }
 
     public SyncCoordinateConverter from(CoordType coordType) {
-        this.f7393b = coordType;
+        this.f7657b = coordType;
         return this;
     }
 }

@@ -5,7 +5,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import java.io.InputStream;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PooledByteBufferInputStream extends InputStream {
     @VisibleForTesting
     public int mMark;
@@ -27,7 +27,7 @@ public class PooledByteBufferInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public void mark(int i) {
+    public void mark(int i2) {
         this.mMark = this.mOffset;
     }
 
@@ -42,9 +42,9 @@ public class PooledByteBufferInputStream extends InputStream {
             return -1;
         }
         PooledByteBuffer pooledByteBuffer = this.mPooledByteBuffer;
-        int i = this.mOffset;
-        this.mOffset = i + 1;
-        return pooledByteBuffer.read(i) & 255;
+        int i2 = this.mOffset;
+        this.mOffset = i2 + 1;
+        return pooledByteBuffer.read(i2) & 255;
     }
 
     @Override // java.io.InputStream
@@ -66,20 +66,20 @@ public class PooledByteBufferInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) {
-        if (i >= 0 && i2 >= 0 && i + i2 <= bArr.length) {
+    public int read(byte[] bArr, int i2, int i3) {
+        if (i2 >= 0 && i3 >= 0 && i2 + i3 <= bArr.length) {
             int available = available();
             if (available <= 0) {
                 return -1;
             }
-            if (i2 <= 0) {
+            if (i3 <= 0) {
                 return 0;
             }
-            int min = Math.min(available, i2);
-            this.mPooledByteBuffer.read(this.mOffset, bArr, i, min);
+            int min = Math.min(available, i3);
+            this.mPooledByteBuffer.read(this.mOffset, bArr, i2, min);
             this.mOffset += min;
             return min;
         }
-        throw new ArrayIndexOutOfBoundsException("length=" + bArr.length + "; regionStart=" + i + "; regionLength=" + i2);
+        throw new ArrayIndexOutOfBoundsException("length=" + bArr.length + "; regionStart=" + i2 + "; regionLength=" + i3);
     }
 }

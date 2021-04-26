@@ -30,22 +30,22 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
     public void cancleRequest() {
     }
 
-    public void handleFailure(int i, int i2, String str) {
-        if (i2 == 5003) {
+    public void handleFailure(int i2, int i3, String str) {
+        if (i3 == 5003) {
             BaseActivity baseActivity = ((BaseFragment) this).mAct;
             GlobalUtils.toast(baseActivity, ResUtils.getString(baseActivity, "wallet_base_please_login"));
             AccountManager.getInstance(((BaseFragment) this).mAct).logout();
             WalletLoginHelper.getInstance().logout(false);
-        } else if (i2 == -2) {
+        } else if (i3 == -2) {
             BaseActivity baseActivity2 = ((BaseFragment) this).mAct;
             GlobalUtils.toast(baseActivity2, ResUtils.getString(baseActivity2, "fp_get_data_fail"));
-        } else if (i2 == -3) {
+        } else if (i3 == -3) {
             BaseActivity baseActivity3 = ((BaseFragment) this).mAct;
             GlobalUtils.toast(baseActivity3, ResUtils.getString(baseActivity3, "fp_get_data_fail"));
-        } else if (i2 == -4) {
+        } else if (i3 == -4) {
             BaseActivity baseActivity4 = ((BaseFragment) this).mAct;
             GlobalUtils.toast(baseActivity4, ResUtils.getString(baseActivity4, "fp_get_data_fail"));
-        } else if (i2 == -8) {
+        } else if (i3 == -8) {
             WalletGlobalUtils.safeShowDialog(((BaseFragment) this).mAct, DIALOG_NO_NETWORK, "");
         } else {
             this.mDialogMsg = str;
@@ -56,7 +56,7 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
         }
     }
 
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
     }
 
     public void initActionBar(View view, String str) {
@@ -88,8 +88,8 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecFailure(final int i, final int i2, final String str) {
-        LogUtil.i("BeanActivity", "onBeanExecFailure. bean id = " + i + ", err code = " + i2 + ", err msg = " + str);
+    public void onBeanExecFailure(final int i2, final int i3, final String str) {
+        LogUtil.i("BeanActivity", "onBeanExecFailure. bean id = " + i2 + ", err code = " + i3 + ", err msg = " + str);
         BaseActivity baseActivity = ((BaseFragment) this).mAct;
         if (baseActivity == null) {
             return;
@@ -98,18 +98,18 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
             @Override // java.lang.Runnable
             public void run() {
                 if (((BaseFragment) DialogFragment.this).mAct != null) {
-                    DialogFragment.this.handleFailure(i, i2, str);
+                    DialogFragment.this.handleFailure(i2, i3, str);
                 }
             }
         });
     }
 
-    public void onBeanExecFailureWithErrContent(int i, int i2, String str, Object obj) {
-        handleFailure(i, i2, str);
+    public void onBeanExecFailureWithErrContent(int i2, int i3, String str, Object obj) {
+        handleFailure(i2, i3, str);
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecSuccess(final int i, final Object obj, final String str) {
+    public void onBeanExecSuccess(final int i2, final Object obj, final String str) {
         BaseActivity baseActivity = ((BaseFragment) this).mAct;
         if (baseActivity == null) {
             return;
@@ -118,15 +118,15 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
             @Override // java.lang.Runnable
             public void run() {
                 if (((BaseFragment) DialogFragment.this).mAct != null) {
-                    DialogFragment.this.handleResponse(i, obj, str);
+                    DialogFragment.this.handleResponse(i2, obj, str);
                 }
             }
         });
     }
 
-    public Dialog onCreateDialog(int i) {
-        LogUtil.d(TAG, "onCreateDalog. id = " + i);
-        if (i != -2 && i != -1 && i != 0) {
+    public Dialog onCreateDialog(int i2) {
+        LogUtil.d(TAG, "onCreateDalog. id = " + i2);
+        if (i2 != -2 && i2 != -1 && i2 != 0) {
             return new PromptDialog(((BaseFragment) this).mAct);
         }
         return new LoadingDialog(((BaseFragment) this).mAct);
@@ -150,9 +150,9 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
         EventBus.getInstance().unregister(this, "ev_bean_execut_err_content");
     }
 
-    public void onPrepareDialog(int i, Dialog dialog) {
-        LogUtil.d(TAG, "onPrepareDialog. id = " + i);
-        if (i == -2) {
+    public void onPrepareDialog(int i2, Dialog dialog) {
+        LogUtil.d(TAG, "onPrepareDialog. id = " + i2);
+        if (i2 == -2) {
             LoadingDialog loadingDialog = (LoadingDialog) dialog;
             loadingDialog.setCancelable(true);
             loadingDialog.setOnCancelListener(new DelegateOnCancleListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.wallet.base.widget.DialogFragment.4
@@ -161,7 +161,7 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                     DialogFragment.this.cancleRequest();
                 }
             }, loadingDialog));
-        } else if (i == -1) {
+        } else if (i2 == -1) {
             LoadingDialog loadingDialog2 = (LoadingDialog) dialog;
             loadingDialog2.setCancelable(true);
             loadingDialog2.setOnCancelListener(new DelegateOnCancleListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.wallet.base.widget.DialogFragment.3
@@ -172,9 +172,9 @@ public class DialogFragment extends BaseFragment implements IBeanResponseCallbac
                     }
                 }
             }, loadingDialog2));
-        } else if (i == 0) {
+        } else if (i2 == 0) {
             ((LoadingDialog) dialog).setCancelable(false);
-        } else if (i != 3851) {
+        } else if (i2 != 3851) {
         } else {
             PromptDialog promptDialog = (PromptDialog) dialog;
             promptDialog.setMessage(getString(ResUtils.string(((BaseFragment) this).mAct, "ebpay_no_network")));

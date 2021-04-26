@@ -37,7 +37,7 @@ public interface Request {
 
     boolean isAutoClose();
 
-    void setConnectionTimeOut(int i);
+    void setConnectionTimeOut(int i2);
 
-    void setSocketTimeOut(int i);
+    void setSocketTimeOut(int i2);
 }

@@ -40,7 +40,7 @@ public class MultipartEntity implements HttpEntity {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         int nextInt = random.nextInt(11) + 30;
-        for (int i = 0; i < nextInt; i++) {
+        for (int i2 = 0; i2 < nextInt; i2++) {
             char[] cArr = MULTIPART_CHARS;
             sb.append(cArr[random.nextInt(cArr.length)]);
         }

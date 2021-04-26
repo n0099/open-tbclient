@@ -13,7 +13,7 @@ import javax.crypto.spec.SecretKeySpec;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f33801a = Charset.forName("UTF-8");
+    public static final Charset f32814a = Charset.forName("UTF-8");
 
     public static void a(InputStream inputStream, OutputStream outputStream) {
         GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
@@ -31,7 +31,7 @@ public final class b {
     }
 
     public static byte[] a(String str, byte[] bArr) {
-        return a(str.getBytes(f33801a), bArr, 2);
+        return a(str.getBytes(f32814a), bArr, 2);
     }
 
     public static byte[] a(byte[] bArr) {
@@ -49,11 +49,11 @@ public final class b {
         return a(bArr, bArr2, 1);
     }
 
-    public static byte[] a(byte[] bArr, byte[] bArr2, int i) {
+    public static byte[] a(byte[] bArr, byte[] bArr2, int i2) {
         try {
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-            cipher.init(i, secretKeySpec);
+            cipher.init(i2, secretKeySpec);
             return cipher.doFinal(bArr2);
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);

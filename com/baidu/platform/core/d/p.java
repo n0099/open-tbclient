@@ -11,22 +11,22 @@ public class p extends com.baidu.platform.base.e {
     }
 
     private void a(WalkingRoutePlanOption walkingRoutePlanOption) {
-        this.f9379a.a("qt", "walk2");
-        this.f9379a.a(IAdRequestParam.SN, a(walkingRoutePlanOption.mFrom));
-        this.f9379a.a("en", a(walkingRoutePlanOption.mTo));
+        this.f9730a.a("qt", "walk2");
+        this.f9730a.a(IAdRequestParam.SN, a(walkingRoutePlanOption.mFrom));
+        this.f9730a.a("en", a(walkingRoutePlanOption.mTo));
         PlanNode planNode = walkingRoutePlanOption.mFrom;
         if (planNode != null) {
-            this.f9379a.a(Config.STAT_SDK_CHANNEL, planNode.getCity());
+            this.f9730a.a(Config.STAT_SDK_CHANNEL, planNode.getCity());
         }
         PlanNode planNode2 = walkingRoutePlanOption.mTo;
         if (planNode2 != null) {
-            this.f9379a.a("ec", planNode2.getCity());
+            this.f9730a.a("ec", planNode2.getCity());
         }
-        this.f9379a.a("ie", "utf-8");
-        this.f9379a.a("lrn", "20");
-        this.f9379a.a("version", "3");
-        this.f9379a.a("rp_format", "json");
-        this.f9379a.a("rp_filter", "mobile");
+        this.f9730a.a("ie", "utf-8");
+        this.f9730a.a("lrn", "20");
+        this.f9730a.a("version", "3");
+        this.f9730a.a("rp_format", "json");
+        this.f9730a.a("rp_filter", "mobile");
     }
 
     @Override // com.baidu.platform.base.e

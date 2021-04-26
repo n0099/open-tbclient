@@ -21,12 +21,12 @@ public final class ResourceCacheKey implements Key {
     public final Transformation<?> transformation;
     public final int width;
 
-    public ResourceCacheKey(ArrayPool arrayPool, Key key, Key key2, int i, int i2, Transformation<?> transformation, Class<?> cls, Options options) {
+    public ResourceCacheKey(ArrayPool arrayPool, Key key, Key key2, int i2, int i3, Transformation<?> transformation, Class<?> cls, Options options) {
         this.arrayPool = arrayPool;
         this.sourceKey = key;
         this.signature = key2;
-        this.width = i;
-        this.height = i2;
+        this.width = i2;
+        this.height = i3;
         this.transformation = transformation;
         this.decodedResourceClass = cls;
         this.options = options;

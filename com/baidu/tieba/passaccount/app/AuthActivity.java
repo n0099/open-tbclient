@@ -13,13 +13,13 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.openbduss.PASSMethodCallTransfer;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.Log;
+import com.baidu.sapi2.utils.SapiHost;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
-import com.baidu.sapi2.utils.h;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
-import d.b.y.a.f;
-import d.b.y.a.g;
+import d.a.y.a.f;
+import d.a.y.a.g;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -101,15 +101,15 @@ public class AuthActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finishActivity(boolean z, String str) {
-        int i = this.type;
-        if (i == 0) {
-            d.b.j0.b2.d.b.f().b(z, str);
-        } else if (i == 1) {
-            d.b.j0.b2.d.b.f().e(z);
-        } else if (i == 2) {
-            d.b.j0.b2.d.b.f().c(z);
+        int i2 = this.type;
+        if (i2 == 0) {
+            d.a.j0.b2.d.b.f().b(z, str);
+        } else if (i2 == 1) {
+            d.a.j0.b2.d.b.f().e(z);
+        } else if (i2 == 2) {
+            d.a.j0.b2.d.b.f().c(z);
         } else {
-            d.b.j0.b2.d.b.f().a(null);
+            d.a.j0.b2.d.b.f().a(null);
         }
         finish();
     }
@@ -122,7 +122,7 @@ public class AuthActivity extends BaseActivity {
             arrayList.add(new PassNameValuePair("isnew", "true"));
             arrayList.add(new PassNameValuePair("token", URLEncoder.encode(this.authToken, "UTF-8")));
             arrayList.add(new PassNameValuePair("tpl", URLEncoder.encode(this.tpl, "UTF-8")));
-            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(h.l) + "?" + SapiWebView.H + "=auth-widget", "UTF-8")));
+            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + SapiWebView.CALLBACK_PARAM_KEY + "=auth-widget", "UTF-8")));
         } catch (UnsupportedEncodingException e2) {
             Log.e(e2);
         }
@@ -141,7 +141,7 @@ public class AuthActivity extends BaseActivity {
     private String getModifyPwdUrl() {
         ArrayList arrayList = new ArrayList();
         try {
-            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(h.l) + "?" + SapiWebView.H + "=" + SapiWebView.J, "UTF-8")));
+            arrayList.add(new PassNameValuePair("u", URLEncoder.encode(getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?" + SapiWebView.CALLBACK_PARAM_KEY + "=" + SapiWebView.ACTION_MODIFY_PWD, "UTF-8")));
             arrayList.add(new PassNameValuePair("adapter", "3"));
             arrayList.add(new PassNameValuePair("banner", "1"));
             arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
@@ -238,17 +238,17 @@ public class AuthActivity extends BaseActivity {
         setBtnVisibility(4, 0, 4);
         this.sapiWebView.setOnBackCallback(new a());
         this.sapiWebView.setOnFinishCallback(new b());
-        int i = this.type;
-        if (i == 0) {
+        int i2 = this.type;
+        if (i2 == 0) {
             setTitleText("身份验证");
             this.sapiWebView.setWebviewClientCallback(new c());
             this.sapiWebView.loadUrl(getAuthUrl());
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             setTitleText(g.sapi_sdk_title_modify_pwd);
             SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
             this.sapiWebView.loadUrl(getModifyPwdUrl(), getBindBdussCookies());
             this.sapiWebView.setChangePwdCallback(new d());
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             setTitleText("绑定手机");
             this.sapiWebView.loadBindWidget(BindWidgetAction.BIND_MOBILE, this.bduss, null, true, null);
         } else {

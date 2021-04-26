@@ -75,11 +75,11 @@ public interface WebViewProvider {
 
         void onDraw(Canvas canvas);
 
-        void onDrawVerticalScrollBar(Canvas canvas, Drawable drawable, int i, int i2, int i3, int i4);
+        void onDrawVerticalScrollBar(Canvas canvas, Drawable drawable, int i2, int i3, int i4, int i5);
 
         void onFinishTemporaryDetach();
 
-        void onFocusChanged(boolean z, int i, Rect rect);
+        void onFocusChanged(boolean z, int i2, Rect rect);
 
         boolean onGenericMotionEvent(MotionEvent motionEvent);
 
@@ -91,21 +91,21 @@ public interface WebViewProvider {
 
         boolean onInterceptTouchEvent(MotionEvent motionEvent);
 
-        boolean onKeyDown(int i, KeyEvent keyEvent);
+        boolean onKeyDown(int i2, KeyEvent keyEvent);
 
-        boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent);
+        boolean onKeyMultiple(int i2, int i3, KeyEvent keyEvent);
 
-        boolean onKeyUp(int i, KeyEvent keyEvent);
+        boolean onKeyUp(int i2, KeyEvent keyEvent);
 
-        void onMeasure(int i, int i2);
+        void onMeasure(int i2, int i3);
 
-        void onOverScrolled(int i, int i2, boolean z, boolean z2);
+        void onOverScrolled(int i2, int i3, boolean z, boolean z2);
 
         void onProvideVirtualStructure(ViewStructure viewStructure);
 
-        void onScrollChanged(int i, int i2, int i3, int i4);
+        void onScrollChanged(int i2, int i3, int i4, int i5);
 
-        void onSizeChanged(int i, int i2, int i3, int i4);
+        void onSizeChanged(int i2, int i3, int i4, int i5);
 
         void onStartTemporaryDetach();
 
@@ -113,13 +113,13 @@ public interface WebViewProvider {
 
         boolean onTrackballEvent(MotionEvent motionEvent);
 
-        void onVisibilityChanged(View view, int i);
+        void onVisibilityChanged(View view, int i2);
 
         void onWindowFocusChanged(boolean z);
 
-        void onWindowVisibilityChanged(int i);
+        void onWindowVisibilityChanged(int i2);
 
-        boolean performAccessibilityAction(int i, Bundle bundle);
+        boolean performAccessibilityAction(int i2, Bundle bundle);
 
         boolean performLongClick();
 
@@ -127,19 +127,19 @@ public interface WebViewProvider {
 
         boolean requestChildRectangleOnScreen(View view, Rect rect, boolean z);
 
-        boolean requestFocus(int i, Rect rect);
+        boolean requestFocus(int i2, Rect rect);
 
-        void setBackgroundColor(int i);
+        void setBackgroundColor(int i2);
 
-        boolean setFrame(int i, int i2, int i3, int i4);
+        boolean setFrame(int i2, int i3, int i4, int i5);
 
-        void setLayerType(int i, Paint paint);
+        void setLayerType(int i2, Paint paint);
 
         void setLayoutParams(ViewGroup.LayoutParams layoutParams);
 
-        void setOverScrollMode(int i);
+        void setOverScrollMode(int i2);
 
-        void setScrollBarStyle(int i);
+        void setScrollBarStyle(int i2);
 
         boolean shouldDelayChildPressedState();
     }
@@ -154,7 +154,7 @@ public interface WebViewProvider {
 
     boolean canGoBack();
 
-    boolean canGoBackOrForward(int i);
+    boolean canGoBackOrForward(int i2);
 
     boolean canGoForward();
 
@@ -166,9 +166,9 @@ public interface WebViewProvider {
 
     void cancelCurrentNoStatePrefetch();
 
-    Picture captureHistoryPicture(int i, int i2, int i3);
+    Picture captureHistoryPicture(int i2, int i3, int i4);
 
-    Picture capturePicture(int i, int i2, boolean z);
+    Picture capturePicture(int i2, int i3, boolean z);
 
     void clearCache(boolean z);
 
@@ -186,7 +186,7 @@ public interface WebViewProvider {
 
     WebBackForwardList copyBackForwardListZeus();
 
-    void cutdownUserData(int i);
+    void cutdownUserData(int i2);
 
     void destroy();
 
@@ -194,7 +194,7 @@ public interface WebViewProvider {
 
     void documentHasImages(Message message);
 
-    void dumpViewHierarchyWithProperties(BufferedWriter bufferedWriter, int i);
+    void dumpViewHierarchyWithProperties(BufferedWriter bufferedWriter, int i2);
 
     void emulateShiftHeldOnLink();
 
@@ -214,11 +214,11 @@ public interface WebViewProvider {
 
     void findAllAsync(String str);
 
-    View findHierarchyView(String str, int i);
+    View findHierarchyView(String str, int i2);
 
     void findNext(boolean z);
 
-    void flingScroll(int i, int i2);
+    void flingScroll(int i2, int i3);
 
     void freeMemory();
 
@@ -272,7 +272,7 @@ public interface WebViewProvider {
 
     String getUrl();
 
-    Object getUserData(int i, int i2);
+    Object getUserData(int i2, int i3);
 
     ViewDelegate getViewDelegate();
 
@@ -288,7 +288,7 @@ public interface WebViewProvider {
 
     void goBack();
 
-    void goBackOrForward(int i);
+    void goBackOrForward(int i2);
 
     void goForward();
 
@@ -334,7 +334,7 @@ public interface WebViewProvider {
 
     void notifyPageLeave();
 
-    void notifyUnsafeInvolved(int i, String str);
+    void notifyUnsafeInvolved(int i2, String str);
 
     void onPageSwapFromWebview(WebView webView, String str, boolean z);
 
@@ -400,13 +400,13 @@ public interface WebViewProvider {
 
     void setBeginScale();
 
-    void setBottomControlsHeight(int i);
+    void setBottomControlsHeight(int i2);
 
     void setCanvasCacheBmp(Bitmap bitmap);
 
     void setCertificate(SslCertificate sslCertificate);
 
-    void setDefaultViewSize(int i, int i2);
+    void setDefaultViewSize(int i2, int i3);
 
     void setDownloadListener(DownloadListener downloadListener);
 
@@ -418,7 +418,7 @@ public interface WebViewProvider {
 
     void setHttpAuthUsernamePassword(String str, String str2, String str3, String str4);
 
-    void setInitialScale(int i);
+    void setInitialScale(int i2);
 
     void setMapTrackballToArrowKeys(boolean z);
 
@@ -432,17 +432,17 @@ public interface WebViewProvider {
 
     boolean setPreviewZoomScale(float f2);
 
-    void setRendererPriorityPolicy(int i, boolean z);
+    void setRendererPriorityPolicy(int i2, boolean z);
 
     boolean setSelectingText(boolean z);
 
-    void setStatusBar(View view, int i);
+    void setStatusBar(View view, int i2);
 
     void setTextFieldText(CharSequence charSequence);
 
-    void setTopControlsHeight(int i, boolean z);
+    void setTopControlsHeight(int i2, boolean z);
 
-    void setUserData(int i, int i2, Object obj);
+    void setUserData(int i2, int i3, Object obj);
 
     void setVerticalScrollbarOverlay(boolean z);
 
@@ -452,11 +452,11 @@ public interface WebViewProvider {
 
     void setWebViewClient(WebViewClient webViewClient);
 
-    void setWebViewMargin(int i, int i2, int i3, int i4);
+    void setWebViewMargin(int i2, int i3, int i4, int i5);
 
     void setWebViewPagerContainer(ViewGroup viewGroup);
 
-    void setWebViewPagerSize(int i, int i2);
+    void setWebViewPagerSize(int i2, int i3);
 
     boolean showFindDialog(String str, boolean z);
 
@@ -472,7 +472,7 @@ public interface WebViewProvider {
 
     void switchTitleBar(boolean z);
 
-    void updateTopControlOffset(int i);
+    void updateTopControlOffset(int i2);
 
     void updateTopControlsState(boolean z, boolean z2, boolean z3);
 

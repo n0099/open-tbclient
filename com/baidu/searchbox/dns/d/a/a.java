@@ -22,9 +22,9 @@ public class a {
     public String T;
     public List<String> m;
 
-    public a(String str, int i, String str2, long j, List<String> list, List<String> list2) {
+    public a(String str, int i2, String str2, long j, List<String> list, List<String> list2) {
         this.C = str;
-        this.B = i;
+        this.B = i2;
         this.R = str2;
         this.D = j;
         this.m = list;
@@ -94,16 +94,16 @@ public class a {
             this.D = jSONObject.optLong("cachetime", -1L);
             JSONArray optJSONArray = jSONObject.optJSONArray("ip");
             this.m = new ArrayList(optJSONArray.length());
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                this.m.add(optJSONArray.getString(i));
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                this.m.add(optJSONArray.getString(i2));
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
             if (optJSONArray2 == null || optJSONArray2.length() <= 0) {
                 return;
             }
             this.S = new ArrayList(optJSONArray2.length());
-            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                this.S.add(optJSONArray2.getString(i2));
+            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                this.S.add(optJSONArray2.getString(i3));
             }
         } catch (JSONException e2) {
             e2.printStackTrace();

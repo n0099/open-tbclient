@@ -37,8 +37,8 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
         GroupManagerImpl.getInstance(this.mContext).getGroupsInfo(1, arrayList, new BIMValueCallBack<ArrayList<GroupInfo>>() { // from class: com.baidu.android.imsdk.group.GetGroupfoForRecordHandler.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-            public void onResult(int i, String str, final ArrayList<GroupInfo> arrayList2) {
-                if (i == 0) {
+            public void onResult(int i2, String str, final ArrayList<GroupInfo> arrayList2) {
+                if (i2 == 0) {
                     GetGroupfoForRecordHandler.this.deleteUUid();
                     if (arrayList2.size() != 0) {
                         ShieldAndTopManager.getInstance(GetGroupfoForRecordHandler.this.mContext).getSingleContacterSetting(j, 3, new IGetShieldAndTopListener() { // from class: com.baidu.android.imsdk.group.GetGroupfoForRecordHandler.1.1
@@ -60,12 +60,12 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
     }
 
     @Override // com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler
-    public void updateChatRecord(ChatObject chatObject, int i, int i2, Object obj) {
+    public void updateChatRecord(ChatObject chatObject, int i2, int i3, Object obj) {
         if (obj == null || !(obj instanceof GroupInfo)) {
             return;
         }
         LogUtils.d("GetGroupfoForRecordHandler", "RECORDSESSION updatechatrecord " + obj.toString());
         GroupInfo groupInfo = (GroupInfo) obj;
-        updateChatRecord(chatObject, groupInfo.getGroupName(), groupInfo.getType() == 2 ? 4 : i, "", 0, "", "", 0, groupInfo.getMarkTop(), groupInfo.getMarkTopTime(), 0, 0L, "", "", "");
+        updateChatRecord(chatObject, groupInfo.getGroupName(), groupInfo.getType() == 2 ? 4 : i2, "", 0, "", "", 0, groupInfo.getMarkTop(), groupInfo.getMarkTopTime(), 0, 0L, "", "", "");
     }
 }

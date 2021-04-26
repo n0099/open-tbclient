@@ -24,8 +24,8 @@ public class LightAppCallCameraDetectModel implements NoProguard {
         return JsonUtils.toJson(this);
     }
 
-    public LightAppCallCameraDetectModel(int i) {
+    public LightAppCallCameraDetectModel(int i2) {
         this();
-        this.result = i;
+        this.result = i2;
     }
 }

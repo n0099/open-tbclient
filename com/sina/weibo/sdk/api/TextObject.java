@@ -16,8 +16,8 @@ public class TextObject extends BaseMediaObject {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public TextObject[] newArray(int i) {
-            return new TextObject[i];
+        public TextObject[] newArray(int i2) {
+            return new TextObject[i2];
         }
     };
     public String text;
@@ -56,7 +56,7 @@ public class TextObject extends BaseMediaObject {
     }
 
     @Override // com.sina.weibo.sdk.api.BaseMediaObject, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.text);
     }
 

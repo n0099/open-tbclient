@@ -3,27 +3,27 @@ package com.baidu.mobads.cid.cesium.a;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f8036a = 5;
+    public static int f8327a = 5;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f8037b = 40;
+    public static int f8328b = 40;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f8038c;
+    public b f8329c;
 
     public f() {
-        b bVar = new b(f8037b);
-        this.f8038c = bVar;
-        bVar.a(0, f8037b, true);
+        b bVar = new b(f8328b);
+        this.f8329c = bVar;
+        bVar.a(0, f8328b, true);
     }
 
-    public void a(b bVar, int i, int i2, int i3) {
-        b c2 = this.f8038c.c(i, i + i2);
-        if (i3 != 0) {
-            if (i3 != 1) {
-                if (i3 == 2) {
+    public void a(b bVar, int i2, int i3, int i4) {
+        b c2 = this.f8329c.c(i2, i2 + i3);
+        if (i4 != 0) {
+            if (i4 != 1) {
+                if (i4 == 2) {
                     c2.d(bVar);
-                } else if (i3 == 3) {
+                } else if (i4 == 3) {
                     c2.b(bVar);
                 }
             }
@@ -31,12 +31,12 @@ public class f {
         } else {
             c2.a(bVar);
         }
-        for (int i4 = 0; i4 < i2; i4++) {
-            this.f8038c.a(i + i4, c2.c(i4));
+        for (int i5 = 0; i5 < i3; i5++) {
+            this.f8329c.a(i2 + i5, c2.c(i5));
         }
     }
 
     public byte[] a() {
-        return this.f8038c.a();
+        return this.f8329c.a();
     }
 }

@@ -18,8 +18,8 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public GetSubscriptionResult[] newArray(int i) {
-            return new GetSubscriptionResult[i];
+        public GetSubscriptionResult[] newArray(int i2) {
+            return new GetSubscriptionResult[i2];
         }
     };
     public static final String TAG = "GetSubscriptionResult";
@@ -71,7 +71,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.mErrorCode);
         parcel.writeString(this.mErrorMsg);
         parcel.writeList(this.mSubscriptionList);
@@ -104,8 +104,8 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public SubscriptionInfo[] newArray(int i) {
-                return new SubscriptionInfo[i];
+            public SubscriptionInfo[] newArray(int i2) {
+                return new SubscriptionInfo[i2];
             }
         };
         public static final String TAG = "SubscriptionInfo";
@@ -115,13 +115,13 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         public long mTopicId;
         public String mTopicName;
 
-        public SubscriptionInfo(long j, String str, String str2, int i) {
+        public SubscriptionInfo(long j, String str, String str2, int i2) {
             this.mTopicName = "";
             this.mDescription = "";
             this.mTopicId = j;
             this.mTopicName = str;
             this.mDescription = str2;
-            this.mStatus = i;
+            this.mStatus = i2;
         }
 
         @Override // android.os.Parcelable
@@ -157,8 +157,8 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
             this.mMiNiTopicId = str;
         }
 
-        public void setStatus(int i) {
-            this.mStatus = i;
+        public void setStatus(int i2) {
+            this.mStatus = i2;
         }
 
         public void setTopicId(long j) {
@@ -170,7 +170,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeLong(this.mTopicId);
             parcel.writeString(this.mMiNiTopicId);
             parcel.writeString(this.mTopicName);

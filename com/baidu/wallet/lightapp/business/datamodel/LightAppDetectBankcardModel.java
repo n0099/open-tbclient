@@ -22,8 +22,8 @@ public class LightAppDetectBankcardModel implements NoProguard {
         return JsonUtils.toJson(this);
     }
 
-    public LightAppDetectBankcardModel(int i) {
+    public LightAppDetectBankcardModel(int i2) {
         this();
-        this.result = i;
+        this.result = i2;
     }
 }

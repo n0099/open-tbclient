@@ -8,9 +8,9 @@ import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.l.g;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.u;
-import d.c.c.b.b.i;
-import d.c.c.b.b.j;
-import d.c.c.b.d.o;
+import d.b.c.b.b.i;
+import d.b.c.b.b.j;
+import d.b.c.b.d.o;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -22,20 +22,20 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f28684a;
+    public static volatile d f29569a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicBoolean f28685b = new AtomicBoolean(false);
+    public AtomicBoolean f29570b = new AtomicBoolean(false);
 
     private JSONObject c(String str) {
         i c2 = i.c();
         new j(0, str, c2).setShouldCache(false).build(com.bytedance.sdk.openadsdk.i.e.c().e());
         try {
             o oVar = c2.get();
-            if (oVar == null || !oVar.f() || oVar.f66679a == 0) {
+            if (oVar == null || !oVar.f() || oVar.f65080a == 0) {
                 return null;
             }
-            return new JSONObject((String) oVar.f66679a);
+            return new JSONObject((String) oVar.f65080a);
         } catch (Exception e2) {
             e2.printStackTrace();
             return null;
@@ -50,14 +50,14 @@ public class d {
     }
 
     public static d a() {
-        if (f28684a == null) {
+        if (f29569a == null) {
             synchronized (d.class) {
-                if (f28684a == null) {
-                    f28684a = new d();
+                if (f29569a == null) {
+                    f29569a = new d();
                 }
             }
         }
-        return f28684a;
+        return f29569a;
     }
 
     private void b() {
@@ -76,10 +76,10 @@ public class d {
             }
             HashSet hashSet = new HashSet();
             int size = (int) (b2.size() - (E * 0.75f));
-            int i = 0;
+            int i2 = 0;
             for (Map.Entry entry : treeMap.entrySet()) {
-                if (entry != null && i < size) {
-                    i++;
+                if (entry != null && i2 < size) {
+                    i2++;
                     ((Long) entry.getKey()).longValue();
                     t tVar2 = (t) entry.getValue();
                     if (tVar2 != null) {
@@ -88,7 +88,7 @@ public class d {
                 }
             }
             a(hashSet);
-            this.f28685b.set(false);
+            this.f29570b.set(false);
             return;
         }
         u.b("TmplDiffManager", "end doCheckAndDeleteTask maxTplCnt,local size" + E + ", 目前存储的模版的个数 " + b2.size());
@@ -135,11 +135,11 @@ public class d {
             u.f("TmplDiffManager", "saveTemplate error: tplInfo == null");
             return;
         }
-        final String str2 = iVar.f28124a;
-        final String str3 = iVar.f28126c;
-        final String str4 = iVar.f28125b;
-        final String str5 = iVar.f28127d;
-        final String str6 = iVar.f28128e;
+        final String str2 = iVar.f28984a;
+        final String str3 = iVar.f28986c;
+        final String str4 = iVar.f28985b;
+        final String str5 = iVar.f28987d;
+        final String str6 = iVar.f28988e;
         if (TextUtils.isEmpty(str)) {
             str = com.bytedance.sdk.openadsdk.core.i.d().g();
         }

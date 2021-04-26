@@ -87,11 +87,11 @@ public class ConvertUtils {
 
     public static JSONArray list2Json(List<String[]> list) {
         JSONArray jSONArray = new JSONArray();
-        for (int i = 0; i < list.size(); i++) {
+        for (int i2 = 0; i2 < list.size(); i2++) {
             try {
                 JSONArray jSONArray2 = new JSONArray();
-                for (int i2 = 0; i2 < list.get(i).length; i2++) {
-                    jSONArray2.put(list.get(i)[i2]);
+                for (int i3 = 0; i3 < list.get(i2).length; i3++) {
+                    jSONArray2.put(list.get(i2)[i3]);
                 }
                 jSONArray.put(jSONArray2);
             } catch (Exception e2) {
@@ -105,7 +105,7 @@ public class ConvertUtils {
         return (jSONObject != null && jSONObject.has(str)) ? jSONObject.opt(str) : "";
     }
 
-    public static int readIntFromJson(JSONObject jSONObject, String str, int i) {
+    public static int readIntFromJson(JSONObject jSONObject, String str, int i2) {
         if (jSONObject != null && !TextUtils.isEmpty(str) && jSONObject.has(str)) {
             try {
                 if (jSONObject.opt(str) instanceof Integer) {
@@ -116,7 +116,7 @@ public class ConvertUtils {
             } catch (Exception unused) {
             }
         }
-        return i;
+        return i2;
     }
 
     public static String readStringFromJson(JSONObject jSONObject, String str, String str2) {

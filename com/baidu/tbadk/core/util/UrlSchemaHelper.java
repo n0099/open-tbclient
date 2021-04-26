@@ -24,6 +24,11 @@ public class UrlSchemaHelper {
     public static final String GOTO_TAIL_MANAGER = "jump_tail_edit=1";
     public static final String GOTO_TDOU_PAY_BUNDING_PHONE = "bunding_phone=1";
     public static final String GO_TO_MIX_LIVE = "unidispatch/mixlive";
+    public static final String GO_TO_YY_CUSTOMER_SERVICE = "video/yylive/customerservice";
+    public static final String GO_TO_YY_FEEDBACK = "video/yylive/feedback";
+    public static final String GO_TO_YY_LIVE = "video/yylive/joinlive";
+    public static final String GO_TO_YY_PERSONAL_CENTER_PAGE = "bdtiebalive://video/yylive/router?url=yymobile%3A%2F%2FWeb%2FView%3Furl%3Dhttps%3A%2F%2Fweb.yy.com%2Fbd_anchor_user_center%2Findex.html%26needLogin%3D1";
+    public static final String GO_TO_YY_ROUTER = "video/yylive/router";
     public static final String HTTPS_JUMP_TOPIC_DETAIL = "https://tieba.baidu.com/mo/q/newtopic/detail";
     public static final String HTTPS_JUMP_TO_CHAT = "https://tieba.baidu.com/mo/q/chat";
     public static final String HTTPS_JUMP_TO_HOT_TOPIC = "https://tieba.baidu.com/mo/q/hotmessage?topic_id=";
@@ -143,6 +148,7 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_TYPE_VIDEO_MIDDLE_PAGE = "tieba.baidu.com/videoMiddlePage";
     public static final String SCHEMA_TYPE_WEB = "web:";
     public static final String SCHEMA_TYPE_ZB = "zb:";
+    public static final String SCHEMA_YY_LIVE_JOIN_LIVE_PREFIX = "bdtiebalive://video/yylive/joinlive?";
     public static final String SCHEME_TYPE_ACCOUNT_SAFE = "tieba://accountsafe";
     public static final String SCHEME_TYPE_ID_CARD = "tieba://idcard?";
     public static final String TBEAN_TOAST = "pay=1";

@@ -29,10 +29,10 @@ public class DBManager extends DBBase {
             String string = cursor.getString(cursor.getColumnIndex("uuid"));
             String string2 = cursor.getString(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_PARAM));
             String string3 = !cursor.isNull(cursor.getColumnIndex("extra")) ? cursor.getString(cursor.getColumnIndex("extra")) : "";
-            int i = cursor.getInt(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_METHOD_ID));
+            int i2 = cursor.getInt(cursor.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_METHOD_ID));
             this.msg.setUuid(string);
             this.msg.setBody(string2);
-            this.msg.setMethodId(i);
+            this.msg.setMethodId(i2);
             this.msg.setExtra(string3);
         }
 
@@ -64,8 +64,8 @@ public class DBManager extends DBBase {
         }
         int length = iArr.length;
         String[] strArr = new String[length];
-        for (int i = 0; i < length; i++) {
-            strArr[i] = String.valueOf(iArr[i]);
+        for (int i2 = 0; i2 < length; i2++) {
+            strArr[i2] = String.valueOf(iArr[i2]);
         }
         return strArr;
     }
@@ -95,30 +95,30 @@ public class DBManager extends DBBase {
         return z;
     }
 
-    public CmdQueueMsg getCmdQueueMsg(int i) {
+    public CmdQueueMsg getCmdQueueMsg(int i2) {
         CmdQueueMsg result;
         synchronized (DBBase.mSyncLock) {
             CmdQueueMsgParse cmdQueueMsgParse = new CmdQueueMsgParse();
-            query(TableDefine.DB_TABLE_PA_CMD_QUEUE, null, "send_status=? AND type=?", new String[]{String.valueOf(1), String.valueOf(i)}, null, null, "priority desc", cmdQueueMsgParse);
+            query(TableDefine.DB_TABLE_PA_CMD_QUEUE, null, "send_status=? AND type=?", new String[]{String.valueOf(1), String.valueOf(i2)}, null, null, "priority desc", cmdQueueMsgParse);
             result = cmdQueueMsgParse.getResult();
         }
         return result;
     }
 
-    public boolean saveCmdMsg(String str, int i, String str2, String str3, int i2, int i3) {
+    public boolean saveCmdMsg(String str, int i2, String str2, String str3, int i3, int i4) {
         synchronized (DBBase.mSyncLock) {
-            LogUtils.d("DBManager", "saveCmdMsg( uuid:" + str + "  ,methodId:" + i + " , cmdMsgBody:" + str2 + " , extra" + str3 + SmallTailInfo.EMOTION_SUFFIX);
+            LogUtils.d("DBManager", "saveCmdMsg( uuid:" + str + "  ,methodId:" + i2 + " , cmdMsgBody:" + str2 + " , extra" + str3 + SmallTailInfo.EMOTION_SUFFIX);
             boolean z = true;
-            if (getCmdQueueMsg(str, i3) != null) {
+            if (getCmdQueueMsg(str, i4) != null) {
                 return true;
             }
             ContentValues contentValues = new ContentValues();
             contentValues.put("uuid", str);
-            contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_METHOD_ID, Integer.valueOf(i));
+            contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_METHOD_ID, Integer.valueOf(i2));
             contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_PARAM, str2);
             contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, (Integer) 1);
-            contentValues.put("priority", Integer.valueOf(i2));
-            contentValues.put("type", Integer.valueOf(i3));
+            contentValues.put("priority", Integer.valueOf(i3));
+            contentValues.put("type", Integer.valueOf(i4));
             if (str3 != null) {
                 contentValues.put("extra", str3);
             }
@@ -145,12 +145,12 @@ public class DBManager extends DBBase {
         }
     }
 
-    public boolean updateCmdMsgSendStatus(String str, int i) {
+    public boolean updateCmdMsgSendStatus(String str, int i2) {
         boolean z;
         synchronized (DBBase.mSyncLock) {
-            LogUtils.d("DBManager", "updateCmdMsgSendStatus( uuid:" + str + ", sendStatus:" + i + SmallTailInfo.EMOTION_SUFFIX);
+            LogUtils.d("DBManager", "updateCmdMsgSendStatus( uuid:" + str + ", sendStatus:" + i2 + SmallTailInfo.EMOTION_SUFFIX);
             ContentValues contentValues = new ContentValues();
-            contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(i));
+            contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(i2));
             z = true;
             if (update(TableDefine.DB_TABLE_PA_CMD_QUEUE, "uuid = ?", new String[]{str}, contentValues) <= 0) {
                 z = false;
@@ -159,22 +159,22 @@ public class DBManager extends DBBase {
         return z;
     }
 
-    public CmdQueueMsg getCmdQueueMsg(String str, int i) {
+    public CmdQueueMsg getCmdQueueMsg(String str, int i2) {
         CmdQueueMsg result;
         synchronized (DBBase.mSyncLock) {
             CmdQueueMsgParse cmdQueueMsgParse = new CmdQueueMsgParse();
-            query(TableDefine.DB_TABLE_PA_CMD_QUEUE, null, "uuid= ? AND type=?", new String[]{str, String.valueOf(i)}, null, null, null, cmdQueueMsgParse);
+            query(TableDefine.DB_TABLE_PA_CMD_QUEUE, null, "uuid= ? AND type=?", new String[]{str, String.valueOf(i2)}, null, null, null, cmdQueueMsgParse);
             result = cmdQueueMsgParse.getResult();
         }
         return result;
     }
 
-    public boolean updateCmdMsgSendStatus(String str, String str2, String str3, int i) {
+    public boolean updateCmdMsgSendStatus(String str, String str2, String str3, int i2) {
         boolean z;
         synchronized (DBBase.mSyncLock) {
-            LogUtils.d("DBManager", "updateCmdMsgSendStatus( uuid:" + str + ", sendStatus:" + i + SmallTailInfo.EMOTION_SUFFIX);
+            LogUtils.d("DBManager", "updateCmdMsgSendStatus( uuid:" + str + ", sendStatus:" + i2 + SmallTailInfo.EMOTION_SUFFIX);
             ContentValues contentValues = new ContentValues();
-            contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(i));
+            contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(i2));
             contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_PARAM, str2);
             contentValues.put("extra", str3);
             z = true;

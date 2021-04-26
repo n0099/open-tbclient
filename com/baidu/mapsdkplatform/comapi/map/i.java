@@ -18,10 +18,10 @@ import java.util.Arrays;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f7668a;
+    public static int f7943a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f7669b = BMapManager.getContext();
+    public static Context f7944b = BMapManager.getContext();
 
     static {
         if (!com.baidu.mapapi.VersionInfo.getApiVersion().equals(VersionInfo.getApiVersion())) {
@@ -36,16 +36,16 @@ public class i {
     }
 
     public static void a() {
-        if (f7668a == 0) {
-            if (f7669b == null) {
+        if (f7943a == 0) {
+            if (f7944b == null) {
                 throw new IllegalStateException("you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
             }
             VMsg.init();
-            AppEngine.InitEngine(f7669b);
+            AppEngine.InitEngine(f7944b);
             AppEngine.StartSocketProc();
-            NetworkUtil.updateNetworkProxy(f7669b);
+            NetworkUtil.updateNetworkProxy(f7944b);
         }
-        f7668a++;
+        f7943a++;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x00e5 A[Catch: Exception -> 0x015e, TryCatch #0 {Exception -> 0x015e, blocks: (B:10:0x006a, B:12:0x009f, B:14:0x00b6, B:16:0x00d6, B:21:0x00e5, B:23:0x00eb, B:24:0x00ee, B:26:0x011c, B:27:0x011f, B:29:0x013f), top: B:43:0x006a }] */
@@ -58,7 +58,7 @@ public class i {
     */
     public static void a(Context context) {
         boolean z;
-        int i;
+        int i2;
         if (context == null) {
             return;
         }
@@ -101,14 +101,14 @@ public class i {
                                     file5.mkdirs();
                                 }
                             }
-                            for (i = 0; i < 1; i++) {
-                                com.baidu.mapsdkplatform.comapi.commonutils.a.a(strArr2[i], strArr4[i], context);
+                            for (i2 = 0; i2 < 1; i2++) {
+                                com.baidu.mapsdkplatform.comapi.commonutils.a.a(strArr2[i2], strArr4[i2], context);
                             }
                             if (z) {
                                 return;
                             }
-                            for (int i2 = 0; i2 < 15; i2++) {
-                                com.baidu.mapsdkplatform.comapi.commonutils.a.a(strArr[i2], strArr3[i2], context);
+                            for (int i3 = 0; i3 < 15; i3++) {
+                                com.baidu.mapsdkplatform.comapi.commonutils.a.a(strArr[i3], strArr3[i3], context);
                             }
                             return;
                         }
@@ -117,7 +117,7 @@ public class i {
                 z = true;
                 if (z) {
                 }
-                while (i < 1) {
+                while (i2 < 1) {
                 }
                 if (z) {
                 }
@@ -134,9 +134,9 @@ public class i {
     }
 
     public static void b() {
-        int i = f7668a - 1;
-        f7668a = i;
-        if (i == 0) {
+        int i2 = f7943a - 1;
+        f7943a = i2;
+        if (i2 == 0) {
             AppEngine.UnInitEngine();
             VMsg.destroy();
         }

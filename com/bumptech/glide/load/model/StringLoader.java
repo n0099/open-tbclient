@@ -80,11 +80,11 @@ public class StringLoader<Data> implements ModelLoader<String, Data> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<Data> buildLoadData(@NonNull String str, int i, int i2, @NonNull Options options) {
+    public ModelLoader.LoadData<Data> buildLoadData(@NonNull String str, int i2, int i3, @NonNull Options options) {
         Uri parseUri = parseUri(str);
         if (parseUri == null || !this.uriLoader.handles(parseUri)) {
             return null;
         }
-        return this.uriLoader.buildLoadData(parseUri, i, i2, options);
+        return this.uriLoader.buildLoadData(parseUri, i2, i3, options);
     }
 }

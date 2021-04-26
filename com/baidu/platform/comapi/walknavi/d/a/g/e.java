@@ -13,25 +13,25 @@ import java.util.UUID;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static UUID f9566a;
+    public static UUID f9923a;
 
     public e(Context context) {
         UUID randomUUID;
         try {
-            if (f9566a != null || context == null) {
+            if (f9923a != null || context == null) {
                 return;
             }
             synchronized (e.class) {
-                if (f9566a == null && context != null) {
+                if (f9923a == null && context != null) {
                     SharedPreferences sharedPreferences = context.getSharedPreferences("bd_plugin_ar_device_id.xml", 0);
                     String string = sharedPreferences.getString(Constants.KEY_DEVICE_ID, null);
                     if (string != null) {
-                        f9566a = UUID.fromString(string);
+                        f9923a = UUID.fromString(string);
                     } else {
                         String string2 = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
                         try {
                             if (!"9774d56d682e549c".equals(string2) && !TextUtils.isEmpty(string2)) {
-                                f9566a = UUID.nameUUIDFromBytes(string2.getBytes("utf8"));
+                                f9923a = UUID.nameUUIDFromBytes(string2.getBytes("utf8"));
                             } else {
                                 String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
                                 if (deviceId != null) {
@@ -39,11 +39,11 @@ public final class e {
                                 } else {
                                     randomUUID = UUID.randomUUID();
                                 }
-                                f9566a = randomUUID;
+                                f9923a = randomUUID;
                             }
                         } catch (UnsupportedEncodingException unused) {
                         }
-                        sharedPreferences.edit().putString(Constants.KEY_DEVICE_ID, f9566a.toString()).commit();
+                        sharedPreferences.edit().putString(Constants.KEY_DEVICE_ID, f9923a.toString()).commit();
                     }
                 }
             }
@@ -53,6 +53,6 @@ public final class e {
     }
 
     public UUID a() {
-        return f9566a;
+        return f9923a;
     }
 }

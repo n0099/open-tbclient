@@ -17,40 +17,40 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.pay.PayConfigModel;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbean.BuyTBeanModel;
-import d.b.i0.r.s.a;
+import d.a.i0.r.s.a;
 /* loaded from: classes5.dex */
 public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements BuyTBeanModel.e {
     public static final String GIFT_TBEAN = "gift_tbean";
     public String mClickZone;
-    public long mGiftBbean;
+    public float mGiftBbean;
     public BuyTBeanModel mModel;
     public PayConfigModel mPayConfigModel;
     public String mReferPage;
-    public d.b.j0.f3.a mTBeanView;
+    public d.a.j0.f3.a mTBeanView;
     public boolean mIsPayDialog = true;
     public String SCENE_ID = "4001001000";
     public boolean isFromAlaLiveRoom = false;
     public int isFromDecreaseGiftStepStrategy = 0;
-    public long moneyLeft = 0;
+    public float moneyLeft = 0.0f;
     public CustomMessageListener roomClosedListener = new d(2921407);
 
     /* loaded from: classes5.dex */
-    public class a implements d.b.i0.l0.a {
+    public class a implements d.a.i0.l0.a {
         public a() {
         }
 
-        @Override // d.b.i0.l0.a
+        @Override // d.a.i0.l0.a
         public void a() {
-            d.b.i0.l0.c.c().b(String.format("http://tieba.baidu.com/mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s", String.valueOf(BuyTBeanActivity.this.mGiftBbean), d.b.i0.l0.b.f51038a) + "&refer_page=" + BuyTBeanActivity.this.mReferPage + "&click_zone=" + BuyTBeanActivity.this.mClickZone, BuyTBeanActivity.this.getPageContext());
+            d.a.i0.l0.d.c().b(String.format("http://tieba.baidu.com/mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s", String.valueOf(BuyTBeanActivity.this.mGiftBbean), d.a.i0.l0.c.f48625a) + "&refer_page=" + BuyTBeanActivity.this.mReferPage + "&click_zone=" + BuyTBeanActivity.this.mClickZone, BuyTBeanActivity.this.getPageContext());
             BuyTBeanActivity.this.finish();
         }
 
-        @Override // d.b.i0.l0.a
+        @Override // d.a.i0.l0.a
         public void b() {
             BuyTBeanActivity.this.mModel.F();
         }
 
-        @Override // d.b.i0.l0.a
+        @Override // d.a.i0.l0.a
         public void onError(String str) {
             BuyTBeanActivity.this.mModel.F();
         }
@@ -61,8 +61,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public b() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -72,16 +72,17 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         public c() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
+            aVar.dismiss();
             BuyTBeanActivity.this.finish();
         }
     }
 
     /* loaded from: classes5.dex */
     public class d extends CustomMessageListener {
-        public d(int i) {
-            super(i);
+        public d(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -94,11 +95,11 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     }
 
     private void getGiftTBean(Intent intent) {
-        this.mGiftBbean = intent.getLongExtra("gift_tbean", 0L);
+        this.mGiftBbean = intent.getFloatExtra("gift_tbean", 0.0f);
     }
 
     private void processClose() {
-        d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(this);
+        d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(this);
         aVar.setAutoNight(true);
         aVar.setCancelable(true);
         aVar.setTitleShowCenter(true);
@@ -145,8 +146,8 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
         if (intent == null || !intent.getBooleanExtra("success", false)) {
             return;
         }
@@ -154,16 +155,16 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        d.b.j0.f3.a aVar = this.mTBeanView;
+    public void onChangeSkinType(int i2) {
+        d.a.j0.f3.a aVar = this.mTBeanView;
         if (aVar != null) {
-            aVar.B(i);
+            aVar.B(i2);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        d.b.j0.f3.a aVar;
+        d.a.j0.f3.a aVar;
         if (view.getId() != R.id.buy_tbean_use_rule && view.getId() != R.id.t_dou_introduce_activity_right_button) {
             if ((view.getId() == R.id.buy_tbean_close_image || view.getId() == R.id.buy_tbean_root_view) && (aVar = this.mTBeanView) != null) {
                 if (aVar.A()) {
@@ -186,7 +187,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         this.mClickZone = getIntent().getStringExtra(MemberPayStatistic.CLICK_ZONE);
         this.isFromAlaLiveRoom = getIntent().getBooleanExtra(BuyTBeanActivityConfig.IS_FROM_ALA, false);
         this.isFromDecreaseGiftStepStrategy = getIntent().getIntExtra(BuyTBeanActivityConfig.IS_FROM_ALA_GIFT_PANEL, 0);
-        this.moneyLeft = getIntent().getLongExtra(BuyTBeanActivityConfig.TBEAN_LEFT_TO_BUY_ALA_GIFT, 0L);
+        this.moneyLeft = (float) getIntent().getLongExtra(BuyTBeanActivityConfig.TBEAN_LEFT_TO_BUY_ALA_GIFT, 0L);
         this.isFromAlaLiveRoom = false;
         setIsAddSwipeBackLayout(false);
         setUseStyleImmersiveSticky(false);
@@ -194,17 +195,17 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         adjustResizeForSoftInput();
         super.onCreate(bundle);
         if (bundle != null) {
-            this.mGiftBbean = bundle.getLong("gift_tbean");
+            this.mGiftBbean = (float) bundle.getLong("gift_tbean");
         }
         getGiftTBean(getIntent());
         showLoadingDialog(getPageContext().getString(R.string.flist_loading));
-        d.b.j0.f3.a aVar = new d.b.j0.f3.a(this);
+        d.a.j0.f3.a aVar = new d.a.j0.f3.a(this);
         this.mTBeanView = aVar;
         setContentView(aVar.v());
         if (this.isFromDecreaseGiftStepStrategy != 0) {
-            long j = this.moneyLeft;
-            if (j > 0) {
-                this.mTBeanView.H(j);
+            float f2 = this.moneyLeft;
+            if (f2 > 0.0f) {
+                this.mTBeanView.H(f2);
             }
         }
         this.mTBeanView.x();
@@ -226,7 +227,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         clearAnimatable();
         clearAnimation();
         super.onDestroy();
-        d.b.j0.f3.a aVar = this.mTBeanView;
+        d.a.j0.f3.a aVar = this.mTBeanView;
         if (aVar != null) {
             aVar.C();
         }
@@ -236,7 +237,7 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     public void onFailed(String str) {
         showToast(str);
         closeLoadingDialog();
-        d.b.j0.f3.a aVar = this.mTBeanView;
+        d.a.j0.f3.a aVar = this.mTBeanView;
         if (aVar != null) {
             aVar.J();
             this.mTBeanView.I();
@@ -252,18 +253,18 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4) {
             processClose();
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onKeyboardVisibilityChanged(boolean z) {
         super.onKeyboardVisibilityChanged(z);
-        d.b.j0.f3.a aVar = this.mTBeanView;
+        d.a.j0.f3.a aVar = this.mTBeanView;
         if (aVar != null) {
             aVar.D(z);
         }
@@ -277,13 +278,13 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putLong("gift_tbean", this.mGiftBbean);
+        bundle.putFloat("gift_tbean", this.mGiftBbean);
     }
 
     @Override // com.baidu.tieba.tbean.BuyTBeanModel.e
     public void onSuccess() {
         closeLoadingDialog();
-        d.b.j0.f3.a aVar = this.mTBeanView;
+        d.a.j0.f3.a aVar = this.mTBeanView;
         if (aVar != null) {
             aVar.J();
             this.mTBeanView.w();

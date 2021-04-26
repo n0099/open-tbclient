@@ -29,29 +29,29 @@ public class BetterImageSpan extends ReplacementSpan {
     }
 
     private int getOffsetAboveBaseline(Paint.FontMetricsInt fontMetricsInt) {
-        int i = this.mAlignment;
-        if (i != 0) {
-            if (i != 2) {
+        int i2 = this.mAlignment;
+        if (i2 != 0) {
+            if (i2 != 2) {
                 return -this.mHeight;
             }
-            int i2 = fontMetricsInt.descent;
-            int i3 = fontMetricsInt.ascent;
-            return i3 + (((i2 - i3) - this.mHeight) / 2);
+            int i3 = fontMetricsInt.descent;
+            int i4 = fontMetricsInt.ascent;
+            return i4 + (((i3 - i4) - this.mHeight) / 2);
         }
         return fontMetricsInt.descent - this.mHeight;
     }
 
-    public static final int normalizeAlignment(int i) {
-        if (i != 0) {
-            return i != 2 ? 1 : 2;
+    public static final int normalizeAlignment(int i2) {
+        if (i2 != 0) {
+            return i2 != 2 ? 1 : 2;
         }
         return 0;
     }
 
     @Override // android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f2, int i3, int i4, int i5, Paint paint) {
+    public void draw(Canvas canvas, CharSequence charSequence, int i2, int i3, float f2, int i4, int i5, int i6, Paint paint) {
         paint.getFontMetricsInt(this.mFontMetricsInt);
-        int offsetAboveBaseline = i4 + getOffsetAboveBaseline(this.mFontMetricsInt);
+        int offsetAboveBaseline = i5 + getOffsetAboveBaseline(this.mFontMetricsInt);
         canvas.translate(f2, offsetAboveBaseline);
         this.mDrawable.draw(canvas);
         canvas.translate(-f2, -offsetAboveBaseline);
@@ -62,24 +62,24 @@ public class BetterImageSpan extends ReplacementSpan {
     }
 
     @Override // android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+    public int getSize(Paint paint, CharSequence charSequence, int i2, int i3, Paint.FontMetricsInt fontMetricsInt) {
         updateBounds();
         if (fontMetricsInt == null) {
             return this.mWidth;
         }
         int offsetAboveBaseline = getOffsetAboveBaseline(fontMetricsInt);
-        int i3 = this.mHeight + offsetAboveBaseline;
+        int i4 = this.mHeight + offsetAboveBaseline;
         if (offsetAboveBaseline < fontMetricsInt.ascent) {
             fontMetricsInt.ascent = offsetAboveBaseline;
         }
         if (offsetAboveBaseline < fontMetricsInt.top) {
             fontMetricsInt.top = offsetAboveBaseline;
         }
-        if (i3 > fontMetricsInt.descent) {
-            fontMetricsInt.descent = i3;
+        if (i4 > fontMetricsInt.descent) {
+            fontMetricsInt.descent = i4;
         }
-        if (i3 > fontMetricsInt.bottom) {
-            fontMetricsInt.bottom = i3;
+        if (i4 > fontMetricsInt.bottom) {
+            fontMetricsInt.bottom = i4;
         }
         return this.mWidth;
     }
@@ -91,10 +91,10 @@ public class BetterImageSpan extends ReplacementSpan {
         this.mHeight = this.mBounds.height();
     }
 
-    public BetterImageSpan(Drawable drawable, int i) {
+    public BetterImageSpan(Drawable drawable, int i2) {
         this.mFontMetricsInt = new Paint.FontMetricsInt();
         this.mDrawable = drawable;
-        this.mAlignment = i;
+        this.mAlignment = i2;
         updateBounds();
     }
 }

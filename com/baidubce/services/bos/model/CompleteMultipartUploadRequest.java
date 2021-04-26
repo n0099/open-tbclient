@@ -28,12 +28,12 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
 
     public void setPartETags(List<PartETag> list) {
         CheckUtils.isNotNull(list, "partETags should not be null.");
-        for (int i = 0; i < list.size(); i++) {
-            PartETag partETag = list.get(i);
-            CheckUtils.isNotNull(partETag, "partETags[%s] should not be null.", Integer.valueOf(i));
+        for (int i2 = 0; i2 < list.size(); i2++) {
+            PartETag partETag = list.get(i2);
+            CheckUtils.isNotNull(partETag, "partETags[%s] should not be null.", Integer.valueOf(i2));
             int partNumber = partETag.getPartNumber();
-            CheckUtils.checkArgument(partNumber > 0, "partNumber should be positive. partETags[%s].partNumber:%s", Integer.valueOf(i), Integer.valueOf(partNumber));
-            CheckUtils.isNotNull(partETag.getETag(), "partETags[%s].eTag should not be null.", Integer.valueOf(i));
+            CheckUtils.checkArgument(partNumber > 0, "partNumber should be positive. partETags[%s].partNumber:%s", Integer.valueOf(i2), Integer.valueOf(partNumber));
+            CheckUtils.isNotNull(partETag.getETag(), "partETags[%s].eTag should not be null.", Integer.valueOf(i2));
         }
         Collections.sort(list, new Comparator<PartETag>() { // from class: com.baidubce.services.bos.model.CompleteMultipartUploadRequest.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -42,13 +42,13 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
                 return partETag2.getPartNumber() - partETag3.getPartNumber();
             }
         });
-        int i2 = 0;
         int i3 = 0;
-        while (i2 < list.size()) {
-            int partNumber2 = list.get(i2).getPartNumber();
-            CheckUtils.checkArgument(partNumber2 != i3, "Duplicated partNumber %s.", Integer.valueOf(partNumber2));
-            i2++;
-            i3 = partNumber2;
+        int i4 = 0;
+        while (i3 < list.size()) {
+            int partNumber2 = list.get(i3).getPartNumber();
+            CheckUtils.checkArgument(partNumber2 != i4, "Duplicated partNumber %s.", Integer.valueOf(partNumber2));
+            i3++;
+            i4 = partNumber2;
         }
         this.partETags = list;
     }

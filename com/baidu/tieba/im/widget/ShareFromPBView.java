@@ -12,16 +12,16 @@ import com.baidu.tieba.R;
 public final class ShareFromPBView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17821e;
+    public TextView f18153e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f17822f;
+    public HeadImageView f18154f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17823g;
+    public TextView f18155g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ShareFromPBMsgData f17824h;
+    public ShareFromPBMsgData f18156h;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -31,32 +31,32 @@ public final class ShareFromPBView extends LinearLayout {
     public final void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.share_from_pb_view, this);
         setOrientation(1);
-        this.f17821e = (TextView) findViewById(R.id.chat_title);
-        this.f17822f = (HeadImageView) findViewById(R.id.chat_group_img);
-        this.f17823g = (TextView) findViewById(R.id.chat_group_desc);
+        this.f18153e = (TextView) findViewById(R.id.chat_title);
+        this.f18154f = (HeadImageView) findViewById(R.id.chat_group_img);
+        this.f18155g = (TextView) findViewById(R.id.chat_group_desc);
     }
 
     public final void b() {
-        this.f17821e.setText(this.f17824h.getTitle());
-        this.f17822f.setPlaceHolder(1);
-        this.f17822f.setAutoChangeStyle(false);
-        this.f17822f.W(this.f17824h.getImageUrl(), 10, false);
-        this.f17823g.setText(this.f17824h.getContent());
+        this.f18153e.setText(this.f18156h.getTitle());
+        this.f18154f.setPlaceHolder(1);
+        this.f18154f.setAutoChangeStyle(false);
+        this.f18154f.V(this.f18156h.getImageUrl(), 10, false);
+        this.f18155g.setText(this.f18156h.getContent());
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.f17824h = shareFromPBMsgData;
+        this.f18156h = shareFromPBMsgData;
         b();
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
-            this.f17821e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
-            this.f17823g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+            this.f18153e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
+            this.f18155g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
             return;
         }
-        this.f17821e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-        this.f17823g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+        this.f18153e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+        this.f18155g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
     }
 
     public ShareFromPBView(Context context) {

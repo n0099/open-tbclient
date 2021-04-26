@@ -22,6 +22,7 @@ import com.baidu.searchbox.floating.utils.TouchHelper;
 import com.baidu.searchbox.floating.utils.UtilsKt;
 import com.baidu.searchbox.floating.widget.FloatContainer;
 import com.baidu.searchbox.videoplayer.floating.R;
+import com.google.android.material.badge.BadgeDrawable;
 import java.lang.ref.WeakReference;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
@@ -177,7 +178,7 @@ public final class ViewManager {
 
     private final Pair<Integer, Integer> getLocation() {
         int dpToPxByScale;
-        int i;
+        int i2;
         int dpToPxByScale2;
         Pair<Integer, Integer> location = FloatPrefs.Companion.getLocation();
         if (location.getFirst().intValue() <= 0 || location.getSecond().intValue() <= 0) {
@@ -188,7 +189,7 @@ public final class ViewManager {
                 if (layoutParams == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mParam");
                 }
-                i = screenHeight - layoutParams.height;
+                i2 = screenHeight - layoutParams.height;
                 dpToPxByScale2 = UtilsKt.dpToPxByScale(this.context, this.config.getLocation().getSecond().intValue());
             } else {
                 dpToPxByScale = UtilsKt.dpToPxByScale(this.context, this.config.getBlockOffset().left);
@@ -197,10 +198,10 @@ public final class ViewManager {
                 if (layoutParams2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mParam");
                 }
-                i = screenHeight2 - layoutParams2.height;
+                i2 = screenHeight2 - layoutParams2.height;
                 dpToPxByScale2 = UtilsKt.dpToPxByScale(this.context, this.config.getBlockOffset().bottom);
             }
-            return new Pair<>(Integer.valueOf(dpToPxByScale), Integer.valueOf(i - dpToPxByScale2));
+            return new Pair<>(Integer.valueOf(dpToPxByScale), Integer.valueOf(i2 - dpToPxByScale2));
         }
         return location;
     }
@@ -225,12 +226,12 @@ public final class ViewManager {
         if (layoutParams == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mParam");
         }
-        int i = layoutParams.x;
+        int i2 = layoutParams.x;
         WindowManager.LayoutParams layoutParams2 = this.mParam;
         if (layoutParams2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mParam");
         }
-        return new Point(i, layoutParams2.y);
+        return new Point(i2, layoutParams2.y);
     }
 
     private final Pair<Integer, Integer> getSize() {
@@ -244,7 +245,7 @@ public final class ViewManager {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.type = Build.VERSION.SDK_INT >= 26 ? 2038 : 2002;
         layoutParams.format = 1;
-        layoutParams.gravity = 8388659;
+        layoutParams.gravity = BadgeDrawable.TOP_START;
         layoutParams.flags = 40;
         layoutParams.width = -2;
         layoutParams.height = -2;
@@ -384,13 +385,13 @@ public final class ViewManager {
         this.config = config;
     }
 
-    public final void setVisible(int i) {
-        if (this.config.getFloatingView() == null || getMContainer().getVisibility() == i) {
+    public final void setVisible(int i2) {
+        if (this.config.getFloatingView() == null || getMContainer().getVisibility() == i2) {
             return;
         }
-        getMContainer().setVisibility(i);
+        getMContainer().setVisibility(i2);
         Point position = getPosition();
-        if (i == 0) {
+        if (i2 == 0) {
             for (FloatViewListener floatViewListener : this.config.getFloatViewListeners()) {
                 floatViewListener.onViewShow(getContentView(), this.config.getScaleMode().getSecond(), position);
             }
@@ -407,7 +408,7 @@ public final class ViewManager {
         if (layoutParams == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mParam");
         }
-        int i = layoutParams.width;
+        int i2 = layoutParams.width;
         WindowManager.LayoutParams layoutParams2 = this.mParam;
         if (layoutParams2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mParam");
@@ -435,13 +436,13 @@ public final class ViewManager {
         if (layoutParams4 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mParam");
         }
-        int i2 = layoutParams4.width;
+        int i3 = layoutParams4.width;
         Point position = getPosition();
-        if (i < i2) {
+        if (i2 < i3) {
             for (FloatViewListener floatViewListener : this.config.getFloatViewListeners()) {
                 floatViewListener.onScale(true, this.config.getScaleMode().getSecond(), position);
             }
-        } else if (i > i2) {
+        } else if (i2 > i3) {
             for (FloatViewListener floatViewListener2 : this.config.getFloatViewListeners()) {
                 floatViewListener2.onScale(false, this.config.getScaleMode().getSecond(), position);
             }

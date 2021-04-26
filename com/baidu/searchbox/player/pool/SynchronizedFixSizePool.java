@@ -6,8 +6,8 @@ import com.baidu.searchbox.player.pool.IPoolItem;
 public abstract class SynchronizedFixSizePool<T extends IPoolItem> extends FixSizePool<T> {
     public final Object mLock;
 
-    public SynchronizedFixSizePool(int i) {
-        super(i);
+    public SynchronizedFixSizePool(int i2) {
+        super(i2);
         this.mLock = new Object();
     }
 

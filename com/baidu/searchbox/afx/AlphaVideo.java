@@ -258,10 +258,10 @@ public class AlphaVideo extends GLTextureView {
         }
     }
 
-    public void setLoopSection(int i, int i2) {
+    public void setLoopSection(int i2, int i3) {
         IPlayer iPlayer = this.mPlayer;
         if (iPlayer != null) {
-            iPlayer.setLoopSection(i, i2);
+            iPlayer.setLoopSection(i2, i3);
         }
     }
 
@@ -274,10 +274,10 @@ public class AlphaVideo extends GLTextureView {
         init();
     }
 
-    public void setLoopSection(int i) {
+    public void setLoopSection(int i2) {
         IPlayer iPlayer = this.mPlayer;
         if (iPlayer != null) {
-            iPlayer.setLoopSection(i);
+            iPlayer.setLoopSection(i2);
         }
     }
 }

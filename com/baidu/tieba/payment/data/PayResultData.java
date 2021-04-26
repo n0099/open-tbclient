@@ -61,7 +61,7 @@ public class PayResultData extends OrmObject implements Serializable {
         this.vcode = payVcodeInfoData;
     }
 
-    public void setWrongtime(int i) {
-        this.wrongtime = i;
+    public void setWrongtime(int i2) {
+        this.wrongtime = i2;
     }
 }

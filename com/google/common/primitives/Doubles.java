@@ -3,8 +3,9 @@ package com.google.common.primitives;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.FieldBuilder;
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.common.base.Converter;
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.Arrays;
@@ -44,8 +45,8 @@ public final class Doubles {
                 if (doubleArrayAsList.size() != size) {
                     return false;
                 }
-                for (int i = 0; i < size; i++) {
-                    if (this.array[this.start + i] != doubleArrayAsList.array[doubleArrayAsList.start + i]) {
+                for (int i2 = 0; i2 < size; i2++) {
+                    if (this.array[this.start + i2] != doubleArrayAsList.array[doubleArrayAsList.start + i2]) {
                         return false;
                     }
                 }
@@ -56,11 +57,11 @@ public final class Doubles {
 
         @Override // java.util.AbstractList, java.util.Collection, java.util.List
         public int hashCode() {
-            int i = 1;
-            for (int i2 = this.start; i2 < this.end; i2++) {
-                i = (i * 31) + Doubles.d(this.array[i2]);
+            int i2 = 1;
+            for (int i3 = this.start; i3 < this.end; i3++) {
+                i2 = (i2 * 31) + Doubles.d(this.array[i3]);
             }
-            return i;
+            return i2;
         }
 
         @Override // java.util.AbstractList, java.util.List
@@ -92,14 +93,14 @@ public final class Doubles {
         }
 
         @Override // java.util.AbstractList, java.util.List
-        public List<Double> subList(int i, int i2) {
-            n.v(i, i2, size());
-            if (i == i2) {
+        public List<Double> subList(int i2, int i3) {
+            n.v(i2, i3, size());
+            if (i2 == i3) {
                 return Collections.emptyList();
             }
             double[] dArr = this.array;
-            int i3 = this.start;
-            return new DoubleArrayAsList(dArr, i + i3, i3 + i2);
+            int i4 = this.start;
+            return new DoubleArrayAsList(dArr, i2 + i4, i4 + i3);
         }
 
         public double[] toDoubleArray() {
@@ -111,12 +112,12 @@ public final class Doubles {
             StringBuilder sb = new StringBuilder(size() * 12);
             sb.append('[');
             sb.append(this.array[this.start]);
-            int i = this.start;
+            int i2 = this.start;
             while (true) {
-                i++;
-                if (i < this.end) {
+                i2++;
+                if (i2 < this.end) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(this.array[i]);
+                    sb.append(this.array[i2]);
                 } else {
                     sb.append(']');
                     return sb.toString();
@@ -124,28 +125,28 @@ public final class Doubles {
             }
         }
 
-        public DoubleArrayAsList(double[] dArr, int i, int i2) {
+        public DoubleArrayAsList(double[] dArr, int i2, int i3) {
             this.array = dArr;
-            this.start = i;
-            this.end = i2;
+            this.start = i2;
+            this.end = i3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Double get(int i) {
-            n.n(i, size());
-            return Double.valueOf(this.array[this.start + i]);
+        public Double get(int i2) {
+            n.n(i2, size());
+            return Double.valueOf(this.array[this.start + i2]);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Double set(int i, Double d2) {
-            n.n(i, size());
+        public Double set(int i2, Double d2) {
+            n.n(i2, size());
             double[] dArr = this.array;
-            int i2 = this.start;
-            double d3 = dArr[i2 + i];
+            int i3 = this.start;
+            double d3 = dArr[i3 + i2];
             n.p(d2);
-            dArr[i2 + i] = d2.doubleValue();
+            dArr[i3 + i2] = d2.doubleValue();
             return Double.valueOf(d3);
         }
     }
@@ -189,8 +190,8 @@ public final class Doubles {
         @Override // java.util.Comparator
         public int compare(double[] dArr, double[] dArr2) {
             int min = Math.min(dArr.length, dArr2.length);
-            for (int i = 0; i < min; i++) {
-                int compare = Double.compare(dArr[i], dArr2[i]);
+            for (int i2 = 0; i2 < min; i2++) {
+                int compare = Double.compare(dArr[i2], dArr2[i2]);
                 if (compare != 0) {
                     return compare;
                 }
@@ -204,19 +205,19 @@ public final class Doubles {
     }
 
     public static Pattern c() {
-        return Pattern.compile(("[+-]?(?:NaN|Infinity|" + ("(?:\\d+#(?:\\.\\d*#)?|\\.\\d+#)(?:[eE][+-]?\\d+#)?[fFdD]?") + FieldBuilder.SE + ("0[xX](?:[0-9a-fA-F]+#(?:\\.[0-9a-fA-F]*#)?|\\.[0-9a-fA-F]+#)[pP][+-]?\\d+#[fFdD]?") + SmallTailInfo.EMOTION_SUFFIX).replace("#", "+"));
+        return Pattern.compile(("[+-]?(?:NaN|Infinity|" + ("(?:\\d+#(?:\\.\\d*#)?|\\.\\d+#)(?:[eE][+-]?\\d+#)?[fFdD]?") + FieldBuilder.SE + ("0[xX](?:[0-9a-fA-F]+#(?:\\.[0-9a-fA-F]*#)?|\\.[0-9a-fA-F]+#)[pP][+-]?\\d+#[fFdD]?") + SmallTailInfo.EMOTION_SUFFIX).replace("#", BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX));
     }
 
     public static int d(double d2) {
         return Double.valueOf(d2).hashCode();
     }
 
-    public static int e(double[] dArr, double d2, int i, int i2) {
-        while (i < i2) {
-            if (dArr[i] == d2) {
-                return i;
+    public static int e(double[] dArr, double d2, int i2, int i3) {
+        while (i2 < i3) {
+            if (dArr[i2] == d2) {
+                return i2;
             }
-            i++;
+            i2++;
         }
         return -1;
     }
@@ -225,10 +226,10 @@ public final class Doubles {
         return Double.NEGATIVE_INFINITY < d2 && d2 < Double.POSITIVE_INFINITY;
     }
 
-    public static int g(double[] dArr, double d2, int i, int i2) {
-        for (int i3 = i2 - 1; i3 >= i; i3--) {
-            if (dArr[i3] == d2) {
-                return i3;
+    public static int g(double[] dArr, double d2, int i2, int i3) {
+        for (int i4 = i3 - 1; i4 >= i2; i4--) {
+            if (dArr[i4] == d2) {
+                return i4;
             }
         }
         return -1;
@@ -241,10 +242,10 @@ public final class Doubles {
         Object[] array = collection.toArray();
         int length = array.length;
         double[] dArr = new double[length];
-        for (int i = 0; i < length; i++) {
-            Object obj = array[i];
+        for (int i2 = 0; i2 < length; i2++) {
+            Object obj = array[i2];
             n.p(obj);
-            dArr[i] = ((Number) obj).doubleValue();
+            dArr[i2] = ((Number) obj).doubleValue();
         }
         return dArr;
     }

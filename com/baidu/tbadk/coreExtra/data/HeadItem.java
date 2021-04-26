@@ -7,10 +7,10 @@ public class HeadItem implements Serializable {
     public String name;
     public int type;
 
-    public HeadItem(String str, String str2, int i) {
+    public HeadItem(String str, String str2, int i2) {
         this.name = str;
         this.content = str2;
-        this.type = i;
+        this.type = i2;
     }
 
     public String getContent() {
@@ -33,7 +33,7 @@ public class HeadItem implements Serializable {
         this.name = str;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 }

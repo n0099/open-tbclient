@@ -15,52 +15,52 @@ public final class LogUtil {
     public static final boolean DEBUG;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5407a = "apollon_rest";
+    public static final String f5545a = "apollon_rest";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f5408b;
+    public static final boolean f5546b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f5409c;
+    public static final boolean f5547c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f5410d;
+    public static final boolean f5548d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f5411e;
+    public static final boolean f5549e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f5412f;
+    public static final boolean f5550f;
 
     static {
         boolean z = ApollonConstants.DEBUG;
         DEBUG = z;
-        f5408b = z;
-        f5409c = z;
-        f5410d = z;
-        f5411e = z;
-        f5412f = z;
+        f5546b = z;
+        f5547c = z;
+        f5548d = z;
+        f5549e = z;
+        f5550f = z;
     }
 
     public static StackTraceElement a() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         int length = stackTrace.length;
-        int i = 0;
+        int i2 = 0;
         boolean z = false;
-        while (i < length) {
-            StackTraceElement stackTraceElement = stackTrace[i];
+        while (i2 < length) {
+            StackTraceElement stackTraceElement = stackTrace[i2];
             boolean equals = stackTraceElement.getClassName().equals(LogUtil.class.getName());
             if (z && !equals) {
                 return stackTraceElement;
             }
-            i++;
+            i2++;
             z = equals;
         }
         return null;
     }
 
     public static void d(String str, String str2) {
-        if (f5409c) {
+        if (f5547c) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -73,7 +73,7 @@ public final class LogUtil {
     }
 
     public static void e(String str) {
-        if (f5412f) {
+        if (f5550f) {
             Log.e("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
         }
     }
@@ -99,7 +99,7 @@ public final class LogUtil {
     }
 
     public static void i(String str, String str2) {
-        if (f5410d) {
+        if (f5548d) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -124,7 +124,7 @@ public final class LogUtil {
     }
 
     public static void saveLog(String str) {
-        if (f5409c) {
+        if (f5547c) {
             String str2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS    ", Locale.ENGLISH).format(new Date()) + str + "\n";
             try {
                 FileOutputStream fileOutputStream = new FileOutputStream(new File(String.valueOf(Environment.getExternalStorageDirectory()) + "/wallet.log"), true);
@@ -143,10 +143,10 @@ public final class LogUtil {
             if (stackTrace != null) {
                 StackTraceElement stackTraceElement = stackTrace[3];
                 sb.append(stackTraceElement.getClassName() + "." + stackTraceElement.getMethodName() + "#line=" + stackTraceElement.getLineNumber() + "的调用：\n");
-                for (int i = 4; i < stackTrace.length && i < 15; i++) {
-                    StackTraceElement stackTraceElement2 = stackTrace[i];
+                for (int i2 = 4; i2 < stackTrace.length && i2 < 15; i2++) {
+                    StackTraceElement stackTraceElement2 = stackTrace[i2];
                     StringBuilder sb2 = new StringBuilder();
-                    sb2.append(i - 4);
+                    sb2.append(i2 - 4);
                     sb2.append("--");
                     sb2.append(stackTraceElement2.getClassName());
                     sb2.append(".");
@@ -162,7 +162,7 @@ public final class LogUtil {
     }
 
     public static void v(String str, String str2) {
-        if (f5408b) {
+        if (f5546b) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -175,7 +175,7 @@ public final class LogUtil {
     }
 
     public static void w(String str, String str2) {
-        if (f5411e) {
+        if (f5549e) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
@@ -206,31 +206,31 @@ public final class LogUtil {
     }
 
     public static void e(String str, String str2) {
-        if (f5412f) {
+        if (f5550f) {
             Log.e("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]" + str, str2);
         }
     }
 
     public static void d(String str) {
-        if (f5410d) {
+        if (f5548d) {
             Log.d("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
         }
     }
 
     public static void i(String str) {
-        if (f5410d) {
+        if (f5548d) {
             Log.i("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
         }
     }
 
     public static void w(String str) {
-        if (f5411e) {
+        if (f5549e) {
             Log.w("(" + a().getFileName() + ":" + a().getLineNumber() + ")[" + a().getMethodName() + "]", str);
         }
     }
 
     public static void e(String str, String str2, Throwable th) {
-        if (f5412f) {
+        if (f5550f) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }

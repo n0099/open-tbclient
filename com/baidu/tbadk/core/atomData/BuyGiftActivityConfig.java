@@ -14,9 +14,9 @@ public class BuyGiftActivityConfig extends IntentConfig {
         this(context, j, 1);
     }
 
-    public BuyGiftActivityConfig(Context context, long j, int i) {
+    public BuyGiftActivityConfig(Context context, long j, int i2) {
         super(context);
         getIntent().putExtra("gift_receiver_id", j);
-        getIntent().putExtra("from", i);
+        getIntent().putExtra("from", i2);
     }
 }

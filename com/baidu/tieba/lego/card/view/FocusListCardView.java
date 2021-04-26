@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.FocusListCard;
-import d.b.c.e.p.l;
-import d.b.j0.d3.v;
-import d.b.j0.j1.e;
-import d.b.j0.j1.i;
-import d.b.j0.x.t;
+import d.a.c.e.p.l;
+import d.a.j0.d3.v;
+import d.a.j0.j1.e;
+import d.a.j0.j1.i;
+import d.a.j0.x.t;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -34,28 +34,28 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FocusListCard f18332e;
+        public final /* synthetic */ FocusListCard f18692e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f18333f;
+        public final /* synthetic */ int f18693f;
 
-        public a(FocusListCard focusListCard, int i) {
-            this.f18332e = focusListCard;
-            this.f18333f = i;
+        public a(FocusListCard focusListCard, int i2) {
+            this.f18692e = focusListCard;
+            this.f18693f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f18332e.getFocusItemList().get(this.f18333f).f18288f)) {
+            if (TextUtils.isEmpty(this.f18692e.getFocusItemList().get(this.f18693f).f18644f)) {
                 return;
             }
             t.b().d(true);
-            e e2 = i.e(this.f18332e);
-            e2.c("obj_locate", this.f18333f + 1);
-            e2.a(TiebaStatic.Params.OBJ_URL, this.f18332e.getFocusItemList().get(this.f18333f).f18288f);
-            e2.d("obj_id", this.f18332e.getFocusItemList().get(this.f18333f).f18289g);
-            e2.b(this.f18332e);
-            v.c(FocusListCardView.this.m, this.f18332e.getFocusItemList().get(this.f18333f).f18288f);
+            e e2 = i.e(this.f18692e);
+            e2.b("obj_locate", this.f18693f + 1);
+            e2.d(TiebaStatic.Params.OBJ_URL, this.f18692e.getFocusItemList().get(this.f18693f).f18644f);
+            e2.c("obj_id", this.f18692e.getFocusItemList().get(this.f18693f).f18645g);
+            e2.a(this.f18692e);
+            v.c(FocusListCardView.this.m, this.f18692e.getFocusItemList().get(this.f18693f).f18644f);
         }
     }
 
@@ -63,7 +63,7 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
         super(tbPageContext);
     }
 
-    public final void K(FocusListCard focusListCard) {
+    public final void J(FocusListCard focusListCard) {
         if (focusListCard == null) {
             SkinManager.setBackgroundColor(this.s, R.color.CAM_X0308);
             SkinManager.setBackgroundColor(this.t, R.color.CAM_X0308);
@@ -72,10 +72,10 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
         } else {
             int bgColor = focusListCard.getBgColor();
             int bgColorNight = focusListCard.getBgColorNight();
-            E(this.s, bgColor, bgColorNight, R.color.CAM_X0308);
-            E(this.t, bgColor, bgColorNight, R.color.CAM_X0308);
-            E(this.u, bgColor, bgColorNight, R.color.CAM_X0308);
-            E(this.v, bgColor, bgColorNight, R.color.CAM_X0308);
+            B(this.s, bgColor, bgColorNight, R.color.CAM_X0308);
+            B(this.t, bgColor, bgColorNight, R.color.CAM_X0308);
+            B(this.u, bgColor, bgColorNight, R.color.CAM_X0308);
+            B(this.v, bgColor, bgColorNight, R.color.CAM_X0308);
         }
         if (focusListCard == null) {
             SkinManager.setViewTextColor(this.s, R.color.CAM_X0101);
@@ -87,81 +87,81 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (int i = 0; i < this.x.size(); i++) {
-            SkinManager.setBackgroundResource(this.x.get(i), R.drawable.addresslist_item_bg);
+        for (int i2 = 0; i2 < this.x.size(); i2++) {
+            SkinManager.setBackgroundResource(this.x.get(i2), R.drawable.addresslist_item_bg);
         }
     }
 
-    public final void L(TextView textView, TextView textView2, TextView textView3, FocusListCard.a aVar) {
+    public final void K(TextView textView, TextView textView2, TextView textView3, FocusListCard.a aVar) {
         SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
-        M(textView2, aVar);
+        L(textView2, aVar);
         SkinManager.setViewTextColor(textView3, R.color.CAM_X0109);
     }
 
-    public final void M(TextView textView, FocusListCard.a aVar) {
+    public final void L(TextView textView, FocusListCard.a aVar) {
         if (textView == null || aVar == null) {
             return;
         }
-        F(textView, aVar.f18286d, aVar.f18287e, R.color.CAM_X0308);
+        F(textView, aVar.f18642d, aVar.f18643e, R.color.CAM_X0308);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: O */
-    public void y(FocusListCard focusListCard, int i) {
-        d.b.i0.s0.a.a(this.m, getRootView());
+    /* renamed from: M */
+    public void x(FocusListCard focusListCard, int i2) {
+        d.a.i0.s0.a.a(this.m, getRootView());
         if (focusListCard != null) {
-            K(focusListCard);
+            J(focusListCard);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: P */
-    public void z(FocusListCard focusListCard) {
+    /* renamed from: N */
+    public void y(FocusListCard focusListCard) {
         if (focusListCard.getFocusItemList() != null && focusListCard.getFocusItemList().size() > 0) {
             this.s.setText(focusListCard.getCardTitle());
             int size = focusListCard.getFocusItemList().size();
-            for (int i = 0; i < size && i < 5; i++) {
-                this.x.get(i).setVisibility(0);
-                if (i < size - 1 && i < 4) {
-                    this.y.get(i).setVisibility(0);
-                    SkinManager.setBackgroundColor(this.y.get(i), R.color.CAM_X0204);
+            for (int i2 = 0; i2 < size && i2 < 5; i2++) {
+                this.x.get(i2).setVisibility(0);
+                if (i2 < size - 1 && i2 < 4) {
+                    this.y.get(i2).setVisibility(0);
+                    SkinManager.setBackgroundColor(this.y.get(i2), R.color.CAM_X0204);
                 } else {
-                    this.y.get(i).setVisibility(8);
+                    this.y.get(i2).setVisibility(8);
                 }
-                TextView textView = (TextView) o(this.x.get(i), R.id.focus_title);
-                TextView textView2 = (TextView) o(this.x.get(i), R.id.subtitle);
-                TextView textView3 = (TextView) o(this.x.get(i), R.id.right);
-                ImageView imageView = (ImageView) o(this.x.get(i), R.id.rightIcon);
-                L(textView, textView2, textView3, focusListCard.getFocusItemList().get(i));
-                textView.setText(focusListCard.getFocusItemList().get(i).f18283a);
-                textView2.setText(focusListCard.getFocusItemList().get(i).f18284b);
-                textView3.setText(focusListCard.getFocusItemList().get(i).f18285c);
-                if (!TextUtils.isEmpty(focusListCard.getFocusItemList().get(i).f18288f)) {
+                TextView textView = (TextView) o(this.x.get(i2), R.id.focus_title);
+                TextView textView2 = (TextView) o(this.x.get(i2), R.id.subtitle);
+                TextView textView3 = (TextView) o(this.x.get(i2), R.id.right);
+                ImageView imageView = (ImageView) o(this.x.get(i2), R.id.rightIcon);
+                K(textView, textView2, textView3, focusListCard.getFocusItemList().get(i2));
+                textView.setText(focusListCard.getFocusItemList().get(i2).f18639a);
+                textView2.setText(focusListCard.getFocusItemList().get(i2).f18640b);
+                textView3.setText(focusListCard.getFocusItemList().get(i2).f18641c);
+                if (!TextUtils.isEmpty(focusListCard.getFocusItemList().get(i2).f18644f)) {
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView3.getLayoutParams();
                     layoutParams.setMargins(0, 0, 0, 0);
                     textView3.setLayoutParams(layoutParams);
                     imageView.setVisibility(0);
                     SkinManager.setImageResource(imageView, R.drawable.icon_arrow_tab);
-                    this.x.get(i).setOnClickListener(new a(focusListCard, i));
+                    this.x.get(i2).setOnClickListener(new a(focusListCard, i2));
                 } else {
                     imageView.setVisibility(8);
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) textView3.getLayoutParams();
                     layoutParams2.setMargins(0, 0, l.g(getContext(), R.dimen.ds16), 0);
                     textView3.setLayoutParams(layoutParams2);
-                    this.x.get(i).setOnClickListener(null);
+                    this.x.get(i2).setOnClickListener(null);
                 }
             }
             for (int size2 = focusListCard.getFocusItemList().size(); size2 < 5; size2++) {
                 this.x.get(size2).setVisibility(8);
             }
         }
-        K(focusListCard);
+        J(focusListCard);
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View v() {
+    public View u() {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.card_focus_list, (ViewGroup) null);
         this.r = inflate;
         this.s = (TextView) o(inflate, R.id.left_title);

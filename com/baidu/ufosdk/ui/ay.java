@@ -5,18 +5,18 @@ import android.view.View;
 public final class ay implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackHotActivity f22766a;
+    public final /* synthetic */ FeedbackHotActivity f23476a;
 
     public ay(FeedbackHotActivity feedbackHotActivity) {
-        this.f22766a = feedbackHotActivity;
+        this.f23476a = feedbackHotActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        this.f22766a.finish();
+        this.f23476a.finish();
         try {
             com.baidu.ufosdk.f.c.d("执行动画...");
-            this.f22766a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f22766a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f22766a.getApplicationContext(), "ufo_slide_out_to_right"));
+            this.f23476a.overridePendingTransition(com.baidu.ufosdk.f.i.a(this.f23476a.getApplicationContext(), "ufo_slide_in_from_left"), com.baidu.ufosdk.f.i.a(this.f23476a.getApplicationContext(), "ufo_slide_out_to_right"));
         } catch (Exception unused) {
             com.baidu.ufosdk.f.c.d("执行动画失败！！");
         }

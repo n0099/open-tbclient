@@ -16,26 +16,26 @@ public class WidgetContainer extends ConstraintWidget {
             return rectangle;
         }
         int size = arrayList.size();
-        int i = Integer.MAX_VALUE;
         int i2 = Integer.MAX_VALUE;
-        int i3 = 0;
+        int i3 = Integer.MAX_VALUE;
         int i4 = 0;
-        for (int i5 = 0; i5 < size; i5++) {
-            ConstraintWidget constraintWidget = arrayList.get(i5);
-            if (constraintWidget.getX() < i) {
-                i = constraintWidget.getX();
+        int i5 = 0;
+        for (int i6 = 0; i6 < size; i6++) {
+            ConstraintWidget constraintWidget = arrayList.get(i6);
+            if (constraintWidget.getX() < i2) {
+                i2 = constraintWidget.getX();
             }
-            if (constraintWidget.getY() < i2) {
-                i2 = constraintWidget.getY();
+            if (constraintWidget.getY() < i3) {
+                i3 = constraintWidget.getY();
             }
-            if (constraintWidget.getRight() > i3) {
-                i3 = constraintWidget.getRight();
+            if (constraintWidget.getRight() > i4) {
+                i4 = constraintWidget.getRight();
             }
-            if (constraintWidget.getBottom() > i4) {
-                i4 = constraintWidget.getBottom();
+            if (constraintWidget.getBottom() > i5) {
+                i5 = constraintWidget.getBottom();
             }
         }
-        rectangle.setBounds(i, i2, i3 - i, i4 - i2);
+        rectangle.setBounds(i2, i3, i4 - i2, i5 - i3);
         return rectangle;
     }
 
@@ -50,16 +50,16 @@ public class WidgetContainer extends ConstraintWidget {
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r3v5 */
     public ConstraintWidget findWidget(float f2, float f3) {
-        int i;
+        int i2;
         int drawX = getDrawX();
         int drawY = getDrawY();
         WidgetContainer widgetContainer = (f2 < ((float) drawX) || f2 > ((float) (getWidth() + drawX)) || f3 < ((float) drawY) || f3 > ((float) (getHeight() + drawY))) ? null : this;
         int size = this.mChildren.size();
-        while (i < size) {
-            ConstraintWidget constraintWidget = this.mChildren.get(i);
+        while (i2 < size) {
+            ConstraintWidget constraintWidget = this.mChildren.get(i2);
             if (constraintWidget instanceof WidgetContainer) {
                 constraintWidget = ((WidgetContainer) constraintWidget).findWidget(f2, f3);
-                i = constraintWidget == null ? i + 1 : 0;
+                i2 = constraintWidget == null ? i2 + 1 : 0;
                 widgetContainer = constraintWidget;
             } else {
                 int drawX2 = constraintWidget.getDrawX();
@@ -80,13 +80,13 @@ public class WidgetContainer extends ConstraintWidget {
         return widgetContainer;
     }
 
-    public ArrayList<ConstraintWidget> findWidgets(int i, int i2, int i3, int i4) {
+    public ArrayList<ConstraintWidget> findWidgets(int i2, int i3, int i4, int i5) {
         ArrayList<ConstraintWidget> arrayList = new ArrayList<>();
         Rectangle rectangle = new Rectangle();
-        rectangle.setBounds(i, i2, i3, i4);
+        rectangle.setBounds(i2, i3, i4, i5);
         int size = this.mChildren.size();
-        for (int i5 = 0; i5 < size; i5++) {
-            ConstraintWidget constraintWidget = this.mChildren.get(i5);
+        for (int i6 = 0; i6 < size; i6++) {
+            ConstraintWidget constraintWidget = this.mChildren.get(i6);
             Rectangle rectangle2 = new Rectangle();
             rectangle2.setBounds(constraintWidget.getDrawX(), constraintWidget.getDrawY(), constraintWidget.getWidth(), constraintWidget.getHeight());
             if (rectangle.intersects(rectangle2)) {
@@ -120,8 +120,8 @@ public class WidgetContainer extends ConstraintWidget {
             return;
         }
         int size = arrayList.size();
-        for (int i = 0; i < size; i++) {
-            ConstraintWidget constraintWidget = this.mChildren.get(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            ConstraintWidget constraintWidget = this.mChildren.get(i2);
             if (constraintWidget instanceof WidgetContainer) {
                 ((WidgetContainer) constraintWidget).layout();
             }
@@ -147,17 +147,17 @@ public class WidgetContainer extends ConstraintWidget {
     public void resetSolverVariables(Cache cache) {
         super.resetSolverVariables(cache);
         int size = this.mChildren.size();
-        for (int i = 0; i < size; i++) {
-            this.mChildren.get(i).resetSolverVariables(cache);
+        for (int i2 = 0; i2 < size; i2++) {
+            this.mChildren.get(i2).resetSolverVariables(cache);
         }
     }
 
     @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
-    public void setOffset(int i, int i2) {
-        super.setOffset(i, i2);
+    public void setOffset(int i2, int i3) {
+        super.setOffset(i2, i3);
         int size = this.mChildren.size();
-        for (int i3 = 0; i3 < size; i3++) {
-            this.mChildren.get(i3).setOffset(getRootX(), getRootY());
+        for (int i4 = 0; i4 < size; i4++) {
+            this.mChildren.get(i4).setOffset(getRootX(), getRootY());
         }
     }
 
@@ -169,8 +169,8 @@ public class WidgetContainer extends ConstraintWidget {
             return;
         }
         int size = arrayList.size();
-        for (int i = 0; i < size; i++) {
-            ConstraintWidget constraintWidget = this.mChildren.get(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            ConstraintWidget constraintWidget = this.mChildren.get(i2);
             constraintWidget.setOffset(getDrawX(), getDrawY());
             if (!(constraintWidget instanceof ConstraintWidgetContainer)) {
                 constraintWidget.updateDrawPosition();
@@ -178,13 +178,13 @@ public class WidgetContainer extends ConstraintWidget {
         }
     }
 
-    public WidgetContainer(int i, int i2, int i3, int i4) {
-        super(i, i2, i3, i4);
+    public WidgetContainer(int i2, int i3, int i4, int i5) {
+        super(i2, i3, i4, i5);
         this.mChildren = new ArrayList<>();
     }
 
-    public WidgetContainer(int i, int i2) {
-        super(i, i2);
+    public WidgetContainer(int i2, int i3) {
+        super(i2, i3);
         this.mChildren = new ArrayList<>();
     }
 

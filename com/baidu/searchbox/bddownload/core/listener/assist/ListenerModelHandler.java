@@ -22,7 +22,7 @@ public class ListenerModelHandler<T extends ListenerModel> implements ListenerAs
 
     /* loaded from: classes2.dex */
     public interface ModelCreator<T extends ListenerModel> {
-        T create(int i);
+        T create(int i2);
     }
 
     public ListenerModelHandler(ModelCreator<T> modelCreator) {

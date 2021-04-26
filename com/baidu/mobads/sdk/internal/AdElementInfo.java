@@ -111,8 +111,8 @@ public class AdElementInfo {
                 JSONArray optJSONArray = jSONObject.optJSONArray("morepics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     adElementInfo.mMultiPics = new ArrayList();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        adElementInfo.mMultiPics.add(optJSONArray.getString(i));
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        adElementInfo.mMultiPics.add(optJSONArray.getString(i2));
                     }
                 }
             } catch (Exception unused) {
@@ -168,9 +168,9 @@ public class AdElementInfo {
     public static List<AdElementInfo> fromJsonArray(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList();
         if (jSONArray != null) {
-            for (int i = 0; i < jSONArray.length(); i++) {
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                 try {
-                    arrayList.add(fromJson(jSONArray.getJSONObject(i)));
+                    arrayList.add(fromJson(jSONArray.getJSONObject(i2)));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }

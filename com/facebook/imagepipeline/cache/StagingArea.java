@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class StagingArea {
     public static final Class<?> TAG = StagingArea.class;
     @GuardedBy("this")
@@ -31,8 +31,8 @@ public class StagingArea {
             arrayList = new ArrayList(this.mMap.values());
             this.mMap.clear();
         }
-        for (int i = 0; i < arrayList.size(); i++) {
-            EncodedImage encodedImage = (EncodedImage) arrayList.get(i);
+        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+            EncodedImage encodedImage = (EncodedImage) arrayList.get(i2);
             if (encodedImage != null) {
                 encodedImage.close();
             }

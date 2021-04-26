@@ -1,6 +1,7 @@
 package androidx.core.os;
 
 import android.os.Build;
+import androidx.annotation.Nullable;
 /* loaded from: classes.dex */
 public final class CancellationSignal {
     public boolean mCancelInProgress;
@@ -53,6 +54,7 @@ public final class CancellationSignal {
         }
     }
 
+    @Nullable
     public Object getCancellationSignalObject() {
         Object obj;
         if (Build.VERSION.SDK_INT < 16) {
@@ -79,7 +81,7 @@ public final class CancellationSignal {
         return z;
     }
 
-    public void setOnCancelListener(OnCancelListener onCancelListener) {
+    public void setOnCancelListener(@Nullable OnCancelListener onCancelListener) {
         synchronized (this) {
             waitForCancelFinishedLocked();
             if (this.mOnCancelListener == onCancelListener) {

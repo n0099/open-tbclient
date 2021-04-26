@@ -22,6 +22,7 @@ import androidx.appcompat.R;
 import androidx.appcompat.view.menu.MenuItemImpl;
 import androidx.appcompat.view.menu.MenuItemWrapperICS;
 import androidx.appcompat.widget.DrawableUtils;
+import androidx.appcompat.widget.TintTypedArray;
 import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.ActionProvider;
 import androidx.core.view.MenuItemCompat;
@@ -30,7 +31,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class SupportMenuInflater extends MenuInflater {
     public static final Class<?>[] ACTION_PROVIDER_CONSTRUCTOR_SIGNATURE;
@@ -133,7 +134,7 @@ public class SupportMenuInflater extends MenuInflater {
 
         private <T> T newInstance(String str, Class<?>[] clsArr, Object[] objArr) {
             try {
-                Constructor<?> constructor = SupportMenuInflater.this.mContext.getClassLoader().loadClass(str).getConstructor(clsArr);
+                Constructor<?> constructor = Class.forName(str, false, SupportMenuInflater.this.mContext.getClassLoader()).getConstructor(clsArr);
                 constructor.setAccessible(true);
                 return (T) constructor.newInstance(objArr);
             } catch (Exception e2) {
@@ -145,9 +146,9 @@ public class SupportMenuInflater extends MenuInflater {
         private void setItem(MenuItem menuItem) {
             boolean z = false;
             menuItem.setChecked(this.itemChecked).setVisible(this.itemVisible).setEnabled(this.itemEnabled).setCheckable(this.itemCheckable >= 1).setTitleCondensed(this.itemTitleCondensed).setIcon(this.itemIconResId);
-            int i = this.itemShowAsAction;
-            if (i >= 0) {
-                menuItem.setShowAsAction(i);
+            int i2 = this.itemShowAsAction;
+            if (i2 >= 0) {
+                menuItem.setShowAsAction(i2);
             }
             if (this.itemListenerMethodName != null) {
                 if (!SupportMenuInflater.this.mContext.isRestricted()) {
@@ -156,12 +157,8 @@ public class SupportMenuInflater extends MenuInflater {
                     throw new IllegalStateException("The android:onClick attribute cannot be used within a restricted context");
                 }
             }
-            boolean z2 = menuItem instanceof MenuItemImpl;
-            if (z2) {
-                MenuItemImpl menuItemImpl = (MenuItemImpl) menuItem;
-            }
             if (this.itemCheckable >= 2) {
-                if (z2) {
+                if (menuItem instanceof MenuItemImpl) {
                     ((MenuItemImpl) menuItem).setExclusiveCheckable(true);
                 } else if (menuItem instanceof MenuItemWrapperICS) {
                     ((MenuItemWrapperICS) menuItem).setExclusiveCheckable(true);
@@ -172,10 +169,10 @@ public class SupportMenuInflater extends MenuInflater {
                 menuItem.setActionView((View) newInstance(str, SupportMenuInflater.ACTION_VIEW_CONSTRUCTOR_SIGNATURE, SupportMenuInflater.this.mActionViewConstructorArguments));
                 z = true;
             }
-            int i2 = this.itemActionViewLayout;
-            if (i2 > 0) {
+            int i3 = this.itemActionViewLayout;
+            if (i3 > 0) {
                 if (!z) {
-                    menuItem.setActionView(i2);
+                    menuItem.setActionView(i3);
                 } else {
                     Log.w(SupportMenuInflater.LOG_TAG, "Ignoring attribute 'itemActionViewLayout'. Action view already specified.");
                 }
@@ -226,9 +223,9 @@ public class SupportMenuInflater extends MenuInflater {
         }
 
         public void readItem(AttributeSet attributeSet) {
-            TypedArray obtainStyledAttributes = SupportMenuInflater.this.mContext.obtainStyledAttributes(attributeSet, R.styleable.MenuItem);
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(SupportMenuInflater.this.mContext, attributeSet, R.styleable.MenuItem);
             this.itemId = obtainStyledAttributes.getResourceId(R.styleable.MenuItem_android_id, 0);
-            this.itemCategoryOrder = (obtainStyledAttributes.getInt(R.styleable.MenuItem_android_menuCategory, this.groupCategory) & (-65536)) | (obtainStyledAttributes.getInt(R.styleable.MenuItem_android_orderInCategory, this.groupOrder) & 65535);
+            this.itemCategoryOrder = (obtainStyledAttributes.getInt(R.styleable.MenuItem_android_menuCategory, this.groupCategory) & SupportMenu.CATEGORY_MASK) | (obtainStyledAttributes.getInt(R.styleable.MenuItem_android_orderInCategory, this.groupOrder) & 65535);
             this.itemTitle = obtainStyledAttributes.getText(R.styleable.MenuItem_android_title);
             this.itemTitleCondensed = obtainStyledAttributes.getText(R.styleable.MenuItem_android_titleCondensed);
             this.itemIconResId = obtainStyledAttributes.getResourceId(R.styleable.MenuItem_android_icon, 0);
@@ -434,16 +431,16 @@ public class SupportMenuInflater extends MenuInflater {
     }
 
     @Override // android.view.MenuInflater
-    public void inflate(@LayoutRes int i, Menu menu) {
+    public void inflate(@LayoutRes int i2, Menu menu) {
         if (!(menu instanceof SupportMenu)) {
-            super.inflate(i, menu);
+            super.inflate(i2, menu);
             return;
         }
         XmlResourceParser xmlResourceParser = null;
         try {
             try {
                 try {
-                    xmlResourceParser = this.mContext.getResources().getLayout(i);
+                    xmlResourceParser = this.mContext.getResources().getLayout(i2);
                     parseMenu(xmlResourceParser, Xml.asAttributeSet(xmlResourceParser), menu);
                 } catch (XmlPullParserException e2) {
                     throw new InflateException("Error inflating menu XML", e2);

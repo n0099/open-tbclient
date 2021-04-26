@@ -11,13 +11,13 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public final boolean mDataSourceLazy;
     public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
 
     @ThreadSafe
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class IncreasingQualityDataSource extends AbstractDataSource<T> {
         @GuardedBy("IncreasingQualityDataSource.this")
         @Nullable
@@ -29,12 +29,12 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
         public int mIndexOfDataSourceWithResult;
         public int mNumberOfDataSources;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
             public int mIndex;
 
-            public InternalDataSubscriber(int i) {
-                this.mIndex = i;
+            public InternalDataSubscriber(int i2) {
+                this.mIndex = i2;
             }
 
             @Override // com.facebook.datasource.DataSubscriber
@@ -87,10 +87,10 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
                     this.mNumberOfDataSources = size;
                     this.mIndexOfDataSourceWithResult = size;
                     this.mDataSources = new ArrayList<>(size);
-                    for (int i = 0; i < size; i++) {
-                        DataSource<T> dataSource = (DataSource) ((Supplier) IncreasingQualityDataSourceSupplier.this.mDataSourceSuppliers.get(i)).get();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        DataSource<T> dataSource = (DataSource) ((Supplier) IncreasingQualityDataSourceSupplier.this.mDataSourceSuppliers.get(i2)).get();
                         this.mDataSources.add(dataSource);
-                        dataSource.subscribe(new InternalDataSubscriber(i), CallerThreadExecutor.getInstance());
+                        dataSource.subscribe(new InternalDataSubscriber(i2), CallerThreadExecutor.getInstance());
                         if (dataSource.hasResult()) {
                             break;
                         }
@@ -100,18 +100,18 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
         }
 
         @Nullable
-        private synchronized DataSource<T> getAndClearDataSource(int i) {
+        private synchronized DataSource<T> getAndClearDataSource(int i2) {
             DataSource<T> dataSource;
             dataSource = null;
-            if (this.mDataSources != null && i < this.mDataSources.size()) {
-                dataSource = this.mDataSources.set(i, null);
+            if (this.mDataSources != null && i2 < this.mDataSources.size()) {
+                dataSource = this.mDataSources.set(i2, null);
             }
             return dataSource;
         }
 
         @Nullable
-        private synchronized DataSource<T> getDataSource(int i) {
-            return (this.mDataSources == null || i >= this.mDataSources.size()) ? null : this.mDataSources.get(i);
+        private synchronized DataSource<T> getDataSource(int i2) {
+            return (this.mDataSources == null || i2 >= this.mDataSources.size()) ? null : this.mDataSources.get(i2);
         }
 
         @Nullable
@@ -131,48 +131,48 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private void maybeSetIndexOfDataSourceWithResult(int i, DataSource<T> dataSource, boolean z) {
+        private void maybeSetIndexOfDataSourceWithResult(int i2, DataSource<T> dataSource, boolean z) {
             synchronized (this) {
-                int i2 = this.mIndexOfDataSourceWithResult;
-                if (dataSource == getDataSource(i) && i != this.mIndexOfDataSourceWithResult) {
-                    if (getDataSourceWithResult() != null && (!z || i >= this.mIndexOfDataSourceWithResult)) {
-                        i = i2;
-                        for (int i3 = this.mIndexOfDataSourceWithResult; i3 > i; i3--) {
-                            closeSafely(getAndClearDataSource(i3));
+                int i3 = this.mIndexOfDataSourceWithResult;
+                if (dataSource == getDataSource(i2) && i2 != this.mIndexOfDataSourceWithResult) {
+                    if (getDataSourceWithResult() != null && (!z || i2 >= this.mIndexOfDataSourceWithResult)) {
+                        i2 = i3;
+                        for (int i4 = this.mIndexOfDataSourceWithResult; i4 > i2; i4--) {
+                            closeSafely(getAndClearDataSource(i4));
                         }
                     }
-                    this.mIndexOfDataSourceWithResult = i;
-                    while (i3 > i) {
+                    this.mIndexOfDataSourceWithResult = i2;
+                    while (i4 > i2) {
                     }
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void onDataSourceFailed(int i, DataSource<T> dataSource) {
-            closeSafely(tryGetAndClearDataSource(i, dataSource));
-            if (i == 0) {
+        public void onDataSourceFailed(int i2, DataSource<T> dataSource) {
+            closeSafely(tryGetAndClearDataSource(i2, dataSource));
+            if (i2 == 0) {
                 this.mDelayedError = dataSource.getFailureCause();
             }
             maybeSetFailure();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void onDataSourceNewResult(int i, DataSource<T> dataSource) {
-            maybeSetIndexOfDataSourceWithResult(i, dataSource, dataSource.isFinished());
+        public void onDataSourceNewResult(int i2, DataSource<T> dataSource) {
+            maybeSetIndexOfDataSourceWithResult(i2, dataSource, dataSource.isFinished());
             if (dataSource == getDataSourceWithResult()) {
-                setResult(null, i == 0 && dataSource.isFinished());
+                setResult(null, i2 == 0 && dataSource.isFinished());
             }
             maybeSetFailure();
         }
 
         @Nullable
-        private synchronized DataSource<T> tryGetAndClearDataSource(int i, DataSource<T> dataSource) {
+        private synchronized DataSource<T> tryGetAndClearDataSource(int i2, DataSource<T> dataSource) {
             if (dataSource == getDataSourceWithResult()) {
                 return null;
             }
-            if (dataSource == getDataSource(i)) {
-                return getAndClearDataSource(i);
+            if (dataSource == getDataSource(i2)) {
+                return getAndClearDataSource(i2);
             }
             return dataSource;
         }
@@ -187,8 +187,8 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
                     ArrayList<DataSource<T>> arrayList = this.mDataSources;
                     this.mDataSources = null;
                     if (arrayList != null) {
-                        for (int i = 0; i < arrayList.size(); i++) {
-                            closeSafely(arrayList.get(i));
+                        for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                            closeSafely(arrayList.get(i2));
                         }
                         return true;
                     }

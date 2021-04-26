@@ -38,13 +38,13 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.compatible.menukey.MenuKeyUtils;
-import d.b.c.e.p.l;
-import d.b.c.j.e.q;
-import d.b.i0.d0.g;
-import d.b.i0.d0.h;
-import d.b.i0.r.a;
-import d.b.i0.r.c;
-import d.b.i0.r.f0.d;
+import d.a.c.e.p.l;
+import d.a.c.j.e.q;
+import d.a.i0.d0.g;
+import d.a.i0.d0.h;
+import d.a.i0.r.a;
+import d.a.i0.r.c;
+import d.a.i0.r.f0.d;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -160,8 +160,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public void ShowSoftKeyPadDelay(View view, int i) {
-        new Handler().postDelayed(new DelayRunnable(view), i);
+    public void ShowSoftKeyPadDelay(View view, int i2) {
+        new Handler().postDelayed(new DelayRunnable(view), i2);
     }
 
     public void addGlobalLayoutListener() {
@@ -179,10 +179,10 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
                         ProxyAdkBaseActivity.this.mMaxHeight = ProxyAdkBaseActivity.this.mMaxHeight < height ? height : ProxyAdkBaseActivity.this.mMaxHeight;
                     }
                     if (ProxyAdkBaseActivity.this.mLayoutHasInit && ProxyAdkBaseActivity.this.mMaxHeight > height && height != ProxyAdkBaseActivity.this.mPreHeight) {
-                        int i = ProxyAdkBaseActivity.this.mMaxHeight - height;
-                        if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i) && i < (height2 * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i) {
-                            TbadkCoreApplication.getInst().setKeyboardHeight(i);
-                            ProxyAdkBaseActivity.this.onKeyboardHeightChanged(i);
+                        int i2 = ProxyAdkBaseActivity.this.mMaxHeight - height;
+                        if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i2) && i2 < (height2 * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i2) {
+                            TbadkCoreApplication.getInst().setKeyboardHeight(i2);
+                            ProxyAdkBaseActivity.this.onKeyboardHeightChanged(i2);
                         }
                     }
                     ProxyAdkBaseActivity.this.mPreHeight = height;
@@ -198,9 +198,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public void changeSkinType(int i) {
-        if (i != this.mSkinType) {
-            this.mSkinType = i;
+    public void changeSkinType(int i2) {
+        if (i2 != this.mSkinType) {
+            this.mSkinType = i2;
             try {
                 if (this.mUseStyleImmersiveSticky) {
                     this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
@@ -221,8 +221,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         if (list != null) {
             try {
                 synchronized (list) {
-                    for (int i = 0; i < this.animatableList.size(); i++) {
-                        Animatable animatable = this.animatableList.get(i);
+                    for (int i2 = 0; i2 < this.animatableList.size(); i2++) {
+                        Animatable animatable = this.animatableList.get(i2);
                         if (animatable != null && animatable.isRunning()) {
                             animatable.stop();
                         }
@@ -240,9 +240,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         List<WeakReference<View>> list = this.animationList;
         if (list != null) {
             synchronized (list) {
-                for (int i = 0; i < this.animationList.size(); i++) {
+                for (int i2 = 0; i2 < this.animationList.size(); i2++) {
                     try {
-                        WeakReference<View> weakReference = this.animationList.get(i);
+                        WeakReference<View> weakReference = this.animationList.get(i2);
                         if (weakReference != null && (view = weakReference.get()) != null) {
                             view.clearAnimation();
                         }
@@ -266,7 +266,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         if (progressDialog != null) {
             try {
                 if (progressDialog.isShowing()) {
-                    d.b.c.e.m.g.a(this.mWaitingDialog, getActivity());
+                    d.a.c.e.m.g.a(this.mWaitingDialog, getActivity());
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -288,7 +288,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         List<Dialog> list = this.dialogList;
         if (list != null) {
             for (Dialog dialog : list) {
-                d.b.c.e.m.g.a(dialog, getActivity());
+                d.a.c.e.m.g.a(dialog, getActivity());
             }
             this.dialogList.clear();
         }
@@ -298,7 +298,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         List<PopupWindow> list = this.popupWindowList;
         if (list != null) {
             for (PopupWindow popupWindow : list) {
-                d.b.c.e.m.g.d(popupWindow, getActivity());
+                d.a.c.e.m.g.d(popupWindow, getActivity());
             }
             this.popupWindowList.clear();
         }
@@ -309,7 +309,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         if (list != null) {
             list.remove(dialog);
         }
-        d.b.c.e.m.g.a(dialog, getActivity());
+        d.a.c.e.m.g.a(dialog, getActivity());
     }
 
     public void dismissDialogInteface(DialogInterface dialogInterface) {
@@ -319,7 +319,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     }
 
     public void dismissPopupWindow(PopupWindow popupWindow) {
-        d.b.c.e.m.g.d(popupWindow, getActivity());
+        d.a.c.e.m.g.d(popupWindow, getActivity());
         List<PopupWindow> list = this.popupWindowList;
         if (list != null) {
             list.remove(popupWindow);
@@ -345,7 +345,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void finish() {
-        l.w(getApplicationContext(), getWindow().getDecorView());
+        l.x(getApplicationContext(), getWindow().getDecorView());
         dismissAllDialog();
         dismissAllPopupWindow();
         super.finish();
@@ -384,7 +384,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         if (alertDialog == null || !alertDialog.isShowing()) {
             return;
         }
-        d.b.c.e.m.g.a(this.mListMenu, getActivity());
+        d.a.c.e.m.g.a(this.mListMenu, getActivity());
     }
 
     public void hideLoadingView(View view) {
@@ -438,7 +438,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         return this.mListMenu;
     }
 
-    public void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i2) {
         g gVar = this.loadingView;
         if (gVar != null) {
             gVar.onChangeSkinType();
@@ -449,7 +449,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
         SwipeBackLayout swipeBackLayout = this.mSwipeBackLayout;
         if (swipeBackLayout != null) {
-            swipeBackLayout.l(i);
+            swipeBackLayout.l(i2);
         }
     }
 
@@ -509,29 +509,29 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 82) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 82) {
             try {
                 if (keyEvent.isLongPress()) {
                     return true;
                 }
             } catch (IllegalStateException unused) {
-                if (i == 4) {
+                if (i2 == 4) {
                     finish();
                     return true;
                 }
                 return false;
             }
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
         try {
-            return super.onKeyUp(i, keyEvent);
+            return super.onKeyUp(i2, keyEvent);
         } catch (IllegalStateException unused) {
-            if (i == 4) {
+            if (i2 == 4) {
                 finish();
                 return true;
             }
@@ -539,7 +539,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public void onKeyboardHeightChanged(int i) {
+    public void onKeyboardHeightChanged(int i2) {
     }
 
     public void onNetRefreshButtonClicked() {
@@ -553,7 +553,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         TbadkCoreApplication.getInst().DelResumeNum();
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.c.a.i
+    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.c.a.i
     public void onPreLoad(q qVar) {
         super.onPreLoad(qVar);
         PreLoadImageHelper.load(qVar, getUniqueId());
@@ -622,8 +622,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         ((ViewGroup.MarginLayoutParams) this.refreshView.b().getLayoutParams()).topMargin = a2;
     }
 
-    public void setSkinType(int i) {
-        this.mSkinType = i;
+    public void setSkinType(int i2) {
+        this.mSkinType = i2;
     }
 
     public void setSwipeBackEnabled(boolean z) {
@@ -641,7 +641,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     }
 
     public boolean showDialog(Dialog dialog) {
-        if (d.b.c.e.m.g.i(dialog, getActivity())) {
+        if (d.a.c.e.m.g.i(dialog, getActivity())) {
             if (this.dialogList == null) {
                 this.dialogList = new LinkedList();
             }
@@ -656,7 +656,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         if (alertDialog == null || alertDialog.isShowing()) {
             return;
         }
-        d.b.c.e.m.g.i(this.mListMenu, getActivity());
+        d.a.c.e.m.g.i(this.mListMenu, getActivity());
     }
 
     public void showLoadingDialog(String str) {
@@ -676,7 +676,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     }
 
     public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view) {
-        if (d.b.c.e.m.g.k(popupWindow, view)) {
+        if (d.a.c.e.m.g.k(popupWindow, view)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -686,8 +686,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         return false;
     }
 
-    public boolean showPopupWindowAtLocation(PopupWindow popupWindow, View view, int i, int i2, int i3) {
-        if (d.b.c.e.m.g.m(popupWindow, view, i, i2, i3)) {
+    public boolean showPopupWindowAtLocation(PopupWindow popupWindow, View view, int i2, int i3, int i4) {
+        if (d.a.c.e.m.g.m(popupWindow, view, i2, i3, i4)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -705,8 +705,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public void showProgressBarWithOffset(int i, int i2) {
-        showProgressBar(false, i, i2);
+    public void showProgressBarWithOffset(int i2, int i3) {
+        showProgressBar(false, i2, i3);
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity
@@ -714,26 +714,26 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         String name = getClass().getName();
         String str2 = getApplicationContext().getPackageName() + ".chat";
         if (!name.startsWith(getApplicationContext().getPackageName() + ".im") && !name.startsWith(str2)) {
-            l.L(getActivity(), str);
+            l.M(getActivity(), str);
         } else {
             this.customToast.showToast(str, 2000);
         }
     }
 
-    public void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.g(getActivity(), str, defaultIcon, i).q();
+    public void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i2) {
+        BdToast.g(getActivity(), str, defaultIcon, i2).q();
     }
 
     public void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
         BdToast.f(getActivity(), str, defaultIcon).q();
     }
 
-    public void showToastWithIcon(String str, int i) {
-        BdToast.i(getActivity(), str, i, false).q();
+    public void showToastWithIcon(String str, int i2) {
+        BdToast.i(getActivity(), str, i2, false).q();
     }
 
-    public void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.h(getActivity(), str, i, i2, false).q();
+    public void showToastWithIconDuration(String str, int i2, int i3) {
+        BdToast.h(getActivity(), str, i2, i3, false).q();
     }
 
     public void startAnimatable(Animatable animatable) {
@@ -803,7 +803,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.b.c.a.g
+    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, d.a.c.a.g
     public TbPageContext<T> getPageContext() {
         if (this.pageContext == null) {
             this.pageContext = new ProxyAdkBaseActivityPageContext(this);
@@ -812,7 +812,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     }
 
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
-        if (!isFinishing() && d.b.c.e.m.g.e(getActivity())) {
+        if (!isFinishing() && d.a.c.e.m.g.e(getActivity())) {
             if (str == null) {
                 str = TbadkCoreApplication.getInst().getResources().getString(R.string.Waiting);
             }
@@ -825,25 +825,25 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public void showLoadingView(View view, boolean z, int i) {
+    public void showLoadingView(View view, boolean z, int i2) {
         this.loadingRootView = view;
         if (this.loadingView == null) {
-            if (i < 0) {
+            if (i2 < 0) {
                 this.loadingView = new g(getPageContext().getContext());
             } else {
-                this.loadingView = new g(getPageContext().getContext(), i);
+                this.loadingView = new g(getPageContext().getContext(), i2);
             }
         }
         this.loadingView.attachView(view, z);
     }
 
-    public void adjustResizeForSoftInput(int i, boolean z) {
+    public void adjustResizeForSoftInput(int i2, boolean z) {
         if (this.mUseStyleImmersiveSticky) {
-            d.d(getPageContext().getPageActivity(), i, z);
+            d.d(getPageContext().getPageActivity(), i2, z);
         }
     }
 
-    public void showProgressBar(boolean z, int i, int i2) {
+    public void showProgressBar(boolean z, int i2, int i3) {
         ProgressBar progressBar;
         if (this.mProgressBar == null) {
             ProgressBar progressBar2 = new ProgressBar(getActivity());
@@ -857,7 +857,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
         ProgressBar progressBar3 = this.mProgressBar;
         if (progressBar3 != null) {
-            progressBar3.setPadding(l.e(getActivity(), i), l.e(getActivity(), i2), 0, 0);
+            progressBar3.setPadding(l.e(getActivity(), i2), l.e(getActivity(), i3), 0, 0);
             this.mProgressBar.setVisibility(0);
         }
     }
@@ -866,8 +866,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         showNetRefreshView(view, str, false);
     }
 
-    public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view, int i, int i2) {
-        if (d.b.c.e.m.g.l(popupWindow, view, i, i2)) {
+    public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view, int i2, int i3) {
+        if (d.a.c.e.m.g.l(popupWindow, view, i2, i3)) {
             if (this.popupWindowList == null) {
                 this.popupWindowList = new LinkedList();
             }
@@ -881,21 +881,21 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         showLoadingView(view, z, -1);
     }
 
-    public void showToast(String str, int i) {
-        this.customToast.showToast(str, 2000, i);
+    public void showToast(String str, int i2) {
+        this.customToast.showToast(str, 2000, i2);
     }
 
-    public void showToast(int i, int i2) {
-        this.customToast.showToast(i, 2000, i2);
+    public void showToast(int i2, int i3) {
+        this.customToast.showToast(i2, 2000, i3);
     }
 
-    public void showToast(int i) {
+    public void showToast(int i2) {
         String name = getClass().getName();
         String str = getApplicationContext().getPackageName() + ".chat";
         if (!name.startsWith(getApplicationContext().getPackageName() + ".im") && !name.startsWith(str)) {
-            l.K(getActivity(), i);
+            l.L(getActivity(), i2);
         } else {
-            this.customToast.showToast(i, 2000);
+            this.customToast.showToast(i2, 2000);
         }
     }
 
@@ -903,15 +903,15 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         if (z) {
             showToast(str);
         } else {
-            l.L(getActivity(), str);
+            l.M(getActivity(), str);
         }
     }
 
-    public void showToast(int i, boolean z) {
+    public void showToast(int i2, boolean z) {
         if (z) {
-            showToast(i);
+            showToast(i2);
         } else {
-            l.K(getActivity(), i);
+            l.L(getActivity(), i2);
         }
     }
 }

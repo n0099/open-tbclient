@@ -26,7 +26,7 @@ public class CommentUtils {
         try {
             try {
                 try {
-                    randomAccessFile = new RandomAccessFile(file, r.f7699a);
+                    randomAccessFile = new RandomAccessFile(file, r.f7975a);
                     try {
                         byte[] bArr = new byte[2];
                         long length = randomAccessFile.length() - 2;
@@ -87,15 +87,68 @@ public class CommentUtils {
         }
     }
 
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0035: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:29:0x0035 */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x0038 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String readComment(File file) {
+        ZipFile zipFile;
+        ZipFile zipFile2;
+        String str;
+        ZipFile zipFile3 = null;
         try {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return new ZipFile(file).getComment();
+            try {
+                if (Build.VERSION.SDK_INT >= 19) {
+                    zipFile = new ZipFile(file);
+                    try {
+                        str = zipFile.getComment();
+                        zipFile3 = zipFile;
+                    } catch (IOException e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        if (zipFile != null) {
+                            try {
+                                zipFile.close();
+                                return null;
+                            } catch (Exception e3) {
+                                e3.printStackTrace();
+                                return null;
+                            }
+                        }
+                        return null;
+                    }
+                } else {
+                    str = null;
+                }
+                if (zipFile3 != null) {
+                    try {
+                        zipFile3.close();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                return str;
+            } catch (Throwable th) {
+                th = th;
+                zipFile3 = zipFile2;
+                if (zipFile3 != null) {
+                    try {
+                        zipFile3.close();
+                    } catch (Exception e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                throw th;
             }
-            return null;
-        } catch (IOException e2) {
-            e2.printStackTrace();
-            return null;
+        } catch (IOException e6) {
+            e = e6;
+            zipFile = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (zipFile3 != null) {
+            }
+            throw th;
         }
     }
 
@@ -107,11 +160,11 @@ public class CommentUtils {
         return allocate.array();
     }
 
-    public static short stream2Short(byte[] bArr, int i) {
+    public static short stream2Short(byte[] bArr, int i2) {
         ByteBuffer allocate = ByteBuffer.allocate(2);
         allocate.order(ByteOrder.LITTLE_ENDIAN);
-        allocate.put(bArr[i]);
-        allocate.put(bArr[i + 1]);
+        allocate.put(bArr[i2]);
+        allocate.put(bArr[i2 + 1]);
         return allocate.getShort(0);
     }
 

@@ -34,10 +34,10 @@ public final class SoUtils implements NoProGuard {
         void onEvent(String str, String str2);
     }
 
-    public static long copyStream(InputStream inputStream, OutputStream outputStream, int i) {
+    public static long copyStream(InputStream inputStream, OutputStream outputStream, int i2) {
         if (inputStream != null && outputStream != null) {
             try {
-                byte[] bArr = new byte[i * 1024];
+                byte[] bArr = new byte[i2 * 1024];
                 long j = 0;
                 while (true) {
                     int read = inputStream.read(bArr);
@@ -75,8 +75,8 @@ public final class SoUtils implements NoProGuard {
         return str;
     }
 
-    public static String getUriName(String str, int i) {
-        return uris[i] + File.separator + str;
+    public static String getUriName(String str, int i2) {
+        return uris[i2] + File.separator + str;
     }
 
     public static boolean hasGingerbread() {

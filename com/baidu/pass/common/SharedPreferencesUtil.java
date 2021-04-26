@@ -7,34 +7,34 @@ import android.text.TextUtils;
 public class SharedPreferencesUtil implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SharedPreferencesUtil f9290a = null;
+    public static SharedPreferencesUtil f9635a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static SharedPreferences f9291b = null;
+    public static SharedPreferences f9636b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f9292c = "sapi_system";
+    public static final String f9637c = "sapi_system";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f9293d;
+    public static String f9638d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Context f9294e;
+    public static Context f9639e;
 
     public SharedPreferencesUtil(Context context, String str) {
-        f9291b = context.getSharedPreferences(str, 0);
-        f9294e = context.getApplicationContext();
+        f9636b = context.getSharedPreferences(str, 0);
+        f9639e = context.getApplicationContext();
     }
 
     public static String a() {
-        if (TextUtils.isEmpty(f9293d)) {
+        if (TextUtils.isEmpty(f9638d)) {
             try {
-                f9293d = SecurityUtil.md5((f9294e.getPackageName() + PassUtil.getPackageSign(f9294e, f9294e.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
+                f9638d = SecurityUtil.md5((f9639e.getPackageName() + PassUtil.getPackageSign(f9639e, f9639e.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
             } catch (Exception e2) {
                 Log.e(e2);
             }
         }
-        return f9293d;
+        return f9638d;
     }
 
     public static <T> T get(String str, T t) {
@@ -67,15 +67,15 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
                 if (c2 != 1) {
                     if (c2 != 2) {
                         if (c2 != 3) {
-                            return (T) f9291b.getString(str, (String) t);
+                            return (T) f9636b.getString(str, (String) t);
                         }
-                        return (T) Integer.valueOf(f9291b.getInt(str, ((Integer) t).intValue()));
+                        return (T) Integer.valueOf(f9636b.getInt(str, ((Integer) t).intValue()));
                     }
-                    return (T) Float.valueOf(f9291b.getFloat(str, ((Float) t).floatValue()));
+                    return (T) Float.valueOf(f9636b.getFloat(str, ((Float) t).floatValue()));
                 }
-                return (T) Long.valueOf(f9291b.getLong(str, ((Long) t).longValue()));
+                return (T) Long.valueOf(f9636b.getLong(str, ((Long) t).longValue()));
             }
-            return (T) Boolean.valueOf(f9291b.getBoolean(str, ((Boolean) t).booleanValue()));
+            return (T) Boolean.valueOf(f9636b.getBoolean(str, ((Boolean) t).booleanValue()));
         } catch (Exception e2) {
             e2.printStackTrace();
             return null;
@@ -96,15 +96,15 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
 
     public static synchronized void getInstance(Context context) {
         synchronized (SharedPreferencesUtil.class) {
-            if (f9290a == null) {
-                f9290a = new SharedPreferencesUtil(context, f9292c);
+            if (f9635a == null) {
+                f9635a = new SharedPreferencesUtil(context, f9637c);
             }
         }
     }
 
     public static boolean put(String str, Object obj) {
         char c2;
-        SharedPreferences.Editor edit = f9291b.edit();
+        SharedPreferences.Editor edit = f9636b.edit();
         String simpleName = obj.getClass().getSimpleName();
         boolean z = false;
         try {
@@ -160,6 +160,6 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
     }
 
     public static void remove(String str) {
-        f9291b.edit().remove(str).apply();
+        f9636b.edit().remove(str).apply();
     }
 }

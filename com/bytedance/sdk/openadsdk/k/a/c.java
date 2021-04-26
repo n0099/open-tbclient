@@ -25,29 +25,31 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class c extends com.bytedance.sdk.openadsdk.k.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final File f29259a;
+    public final File f30157a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedHashMap<String, File> f29260b = new LinkedHashMap<>(0, 0.75f, true);
+    public final LinkedHashMap<String, File> f30158b = new LinkedHashMap<>(0, 0.75f, true);
 
     /* renamed from: c  reason: collision with root package name */
-    public final ReentrantReadWriteLock f29261c;
+    public final ReentrantReadWriteLock f30159c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ReentrantReadWriteLock.ReadLock f29262d;
+    public final ReentrantReadWriteLock.ReadLock f30160d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ReentrantReadWriteLock.WriteLock f29263e;
+    public final ReentrantReadWriteLock.WriteLock f30161e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<a> f29264f;
+    public final Set<a> f30162f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f29265g;
+    public volatile long f30163g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile float f29266h;
-    public final b i;
+    public volatile float f30164h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final b f30165i;
     public final Runnable j;
     public final Handler k;
 
@@ -62,30 +64,30 @@ public class c extends com.bytedance.sdk.openadsdk.k.a.a {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Map<String, Integer> f29275a;
+        public final Map<String, Integer> f30174a;
 
         public b() {
-            this.f29275a = new HashMap();
+            this.f30174a = new HashMap();
         }
 
         public synchronized void a(String str) {
             if (!TextUtils.isEmpty(str)) {
-                Integer num = this.f29275a.get(str);
+                Integer num = this.f30174a.get(str);
                 if (num == null) {
-                    this.f29275a.put(str, 1);
+                    this.f30174a.put(str, 1);
                 } else {
-                    this.f29275a.put(str, Integer.valueOf(num.intValue() + 1));
+                    this.f30174a.put(str, Integer.valueOf(num.intValue() + 1));
                 }
             }
         }
 
         public synchronized void b(String str) {
             Integer num;
-            if (!TextUtils.isEmpty(str) && (num = this.f29275a.get(str)) != null) {
+            if (!TextUtils.isEmpty(str) && (num = this.f30174a.get(str)) != null) {
                 if (num.intValue() == 1) {
-                    this.f29275a.remove(str);
+                    this.f30174a.remove(str);
                 } else {
-                    this.f29275a.put(str, Integer.valueOf(num.intValue() - 1));
+                    this.f30174a.put(str, Integer.valueOf(num.intValue() - 1));
                 }
             }
         }
@@ -94,20 +96,20 @@ public class c extends com.bytedance.sdk.openadsdk.k.a.a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return this.f29275a.containsKey(str);
+            return this.f30174a.containsKey(str);
         }
     }
 
     public c(File file) throws IOException {
         String str;
         ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
-        this.f29261c = reentrantReadWriteLock;
-        this.f29262d = reentrantReadWriteLock.readLock();
-        this.f29263e = this.f29261c.writeLock();
-        this.f29264f = Collections.newSetFromMap(new ConcurrentHashMap());
-        this.f29265g = DownloadStrategy.FOUR_CONNECTION_UPPER_LIMIT;
-        this.f29266h = 0.5f;
-        this.i = new b();
+        this.f30159c = reentrantReadWriteLock;
+        this.f30160d = reentrantReadWriteLock.readLock();
+        this.f30161e = this.f30159c.writeLock();
+        this.f30162f = Collections.newSetFromMap(new ConcurrentHashMap());
+        this.f30163g = DownloadStrategy.FOUR_CONNECTION_UPPER_LIMIT;
+        this.f30164h = 0.5f;
+        this.f30165i = new b();
         this.j = new Runnable() { // from class: com.bytedance.sdk.openadsdk.k.a.c.1
             @Override // java.lang.Runnable
             public void run() {
@@ -115,14 +117,14 @@ public class c extends com.bytedance.sdk.openadsdk.k.a.a {
                     @Override // java.lang.Runnable
                     public void run() {
                         c cVar = c.this;
-                        cVar.b(cVar.f29265g);
+                        cVar.b(cVar.f30163g);
                     }
                 });
             }
         };
         this.k = new Handler(Looper.getMainLooper());
         if (file != null && file.exists() && file.isDirectory() && file.canRead() && file.canWrite()) {
-            this.f29259a = file;
+            this.f30157a = file;
             e.a(new g("DiskLruCache", 5) { // from class: com.bytedance.sdk.openadsdk.k.a.c.2
                 @Override // java.lang.Runnable
                 public void run() {
@@ -146,9 +148,9 @@ public class c extends com.bytedance.sdk.openadsdk.k.a.a {
 
     @Override // com.bytedance.sdk.openadsdk.k.a.a
     public File d(String str) {
-        if (this.f29262d.tryLock()) {
-            File file = this.f29260b.get(str);
-            this.f29262d.unlock();
+        if (this.f30160d.tryLock()) {
+            File file = this.f30158b.get(str);
+            this.f30160d.unlock();
             return file;
         }
         return null;
@@ -156,9 +158,9 @@ public class c extends com.bytedance.sdk.openadsdk.k.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        this.f29263e.lock();
+        this.f30161e.lock();
         try {
-            File[] listFiles = this.f29259a.listFiles();
+            File[] listFiles = this.f30157a.listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 final HashMap hashMap = new HashMap(listFiles.length);
                 ArrayList arrayList = new ArrayList(listFiles.length);
@@ -173,46 +175,46 @@ public class c extends com.bytedance.sdk.openadsdk.k.a.a {
                     @Override // java.util.Comparator
                     /* renamed from: a */
                     public int compare(File file2, File file3) {
-                        int i = ((((Long) hashMap.get(file2)).longValue() - ((Long) hashMap.get(file3)).longValue()) > 0L ? 1 : ((((Long) hashMap.get(file2)).longValue() - ((Long) hashMap.get(file3)).longValue()) == 0L ? 0 : -1));
-                        if (i < 0) {
+                        int i2 = ((((Long) hashMap.get(file2)).longValue() - ((Long) hashMap.get(file3)).longValue()) > 0L ? 1 : ((((Long) hashMap.get(file2)).longValue() - ((Long) hashMap.get(file3)).longValue()) == 0L ? 0 : -1));
+                        if (i2 < 0) {
                             return -1;
                         }
-                        return i > 0 ? 1 : 0;
+                        return i2 > 0 ? 1 : 0;
                     }
                 });
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     File file2 = (File) it.next();
-                    this.f29260b.put(a(file2), file2);
+                    this.f30158b.put(a(file2), file2);
                 }
             }
-            this.f29263e.unlock();
+            this.f30161e.unlock();
             c();
         } catch (Throwable th) {
-            this.f29263e.unlock();
+            this.f30161e.unlock();
             throw th;
         }
     }
 
     public void a(a aVar) {
         if (aVar != null) {
-            this.f29264f.add(aVar);
+            this.f30162f.add(aVar);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.k.a.a
     public File c(String str) {
-        this.f29262d.lock();
-        File file = this.f29260b.get(str);
-        this.f29262d.unlock();
+        this.f30160d.lock();
+        File file = this.f30158b.get(str);
+        this.f30160d.unlock();
         if (file != null) {
             return file;
         }
-        File file2 = new File(this.f29259a, str);
-        this.f29263e.lock();
-        this.f29260b.put(str, file2);
-        this.f29263e.unlock();
-        for (a aVar : this.f29264f) {
+        File file2 = new File(this.f30157a, str);
+        this.f30161e.lock();
+        this.f30158b.put(str, file2);
+        this.f30161e.unlock();
+        for (a aVar : this.f30162f) {
             aVar.a(str);
         }
         c();
@@ -220,7 +222,7 @@ public class c extends com.bytedance.sdk.openadsdk.k.a.a {
     }
 
     public void a(long j) {
-        this.f29265g = j;
+        this.f30163g = j;
         c();
     }
 
@@ -244,7 +246,7 @@ public class c extends com.bytedance.sdk.openadsdk.k.a.a {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.i.a(str);
+        this.f30165i.a(str);
     }
 
     private String a(File file) {
@@ -256,7 +258,7 @@ public class c extends com.bytedance.sdk.openadsdk.k.a.a {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.i.b(str);
+        this.f30165i.b(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -266,11 +268,11 @@ public class c extends com.bytedance.sdk.openadsdk.k.a.a {
     */
     public void b(long j) {
         final HashSet hashSet = new HashSet();
-        this.f29263e.lock();
+        this.f30161e.lock();
         long j2 = 0;
         HashSet hashSet2 = null;
         try {
-            for (Map.Entry<String, File> entry : this.f29260b.entrySet()) {
+            for (Map.Entry<String, File> entry : this.f30158b.entrySet()) {
                 j2 += entry.getValue().length();
             }
         } catch (Throwable th) {
@@ -279,13 +281,13 @@ public class c extends com.bytedance.sdk.openadsdk.k.a.a {
         if (j2 <= j) {
             return;
         }
-        long j3 = ((float) j) * this.f29266h;
+        long j3 = ((float) j) * this.f30164h;
         HashSet hashSet3 = new HashSet();
         try {
-            for (Map.Entry<String, File> entry2 : this.f29260b.entrySet()) {
+            for (Map.Entry<String, File> entry2 : this.f30158b.entrySet()) {
                 File value = entry2.getValue();
                 if (value != null && value.exists()) {
-                    if (!this.i.c(a(value))) {
+                    if (!this.f30165i.c(a(value))) {
                         long length = value.length();
                         File file = new File(value.getAbsolutePath() + "-tmp");
                         if (value.renameTo(file)) {
@@ -303,14 +305,14 @@ public class c extends com.bytedance.sdk.openadsdk.k.a.a {
             }
             Iterator it = hashSet3.iterator();
             while (it.hasNext()) {
-                this.f29260b.remove((String) it.next());
+                this.f30158b.remove((String) it.next());
             }
         } catch (Throwable th2) {
             th = th2;
             hashSet2 = hashSet3;
             try {
                 th.printStackTrace();
-                this.f29263e.unlock();
+                this.f30161e.unlock();
                 hashSet3 = hashSet2;
                 while (r13.hasNext()) {
                 }
@@ -327,10 +329,10 @@ public class c extends com.bytedance.sdk.openadsdk.k.a.a {
                     }
                 });
             } finally {
-                this.f29263e.unlock();
+                this.f30161e.unlock();
             }
         }
-        for (a aVar : this.f29264f) {
+        for (a aVar : this.f30162f) {
             aVar.a(hashSet3);
         }
         e.a(new g("trimSize", 1) { // from class: com.bytedance.sdk.openadsdk.k.a.c.5

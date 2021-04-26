@@ -10,29 +10,31 @@ public final class GroundOverlay extends Overlay {
     public static final String j = "GroundOverlay";
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6889a;
+    public int f7128a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BitmapDescriptor f6890b;
+    public BitmapDescriptor f7129b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f6891c;
+    public LatLng f7130c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f6892d;
+    public double f7131d;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f6893e;
+    public double f7132e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f6894f;
+    public float f7133f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f6895g;
+    public float f7134g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LatLngBounds f6896h;
-    public float i;
+    public LatLngBounds f7135h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public float f7136i;
 
     public GroundOverlay() {
         this.type = com.baidu.mapsdkplatform.comapi.map.h.ground;
@@ -41,90 +43,90 @@ public final class GroundOverlay extends Overlay {
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        bundle.putBundle("image_info", this.f6890b.b());
-        if (this.f6889a == 1) {
-            GeoPoint ll2mc = CoordUtil.ll2mc(this.f6896h.southwest);
+        bundle.putBundle("image_info", this.f7129b.b());
+        if (this.f7128a == 1) {
+            GeoPoint ll2mc = CoordUtil.ll2mc(this.f7135h.southwest);
             double longitudeE6 = ll2mc.getLongitudeE6();
             double latitudeE6 = ll2mc.getLatitudeE6();
-            GeoPoint ll2mc2 = CoordUtil.ll2mc(this.f6896h.northeast);
+            GeoPoint ll2mc2 = CoordUtil.ll2mc(this.f7135h.northeast);
             double longitudeE62 = ll2mc2.getLongitudeE6();
             double latitudeE62 = ll2mc2.getLatitudeE6();
             double d2 = longitudeE62 - longitudeE6;
-            this.f6892d = d2;
+            this.f7131d = d2;
             double d3 = latitudeE62 - latitudeE6;
-            this.f6893e = d3;
-            this.f6891c = CoordUtil.mc2ll(new GeoPoint(latitudeE6 + (d3 / 2.0d), longitudeE6 + (d2 / 2.0d)));
-            this.f6894f = 0.5f;
-            this.f6895g = 0.5f;
+            this.f7132e = d3;
+            this.f7130c = CoordUtil.mc2ll(new GeoPoint(latitudeE6 + (d3 / 2.0d), longitudeE6 + (d2 / 2.0d)));
+            this.f7133f = 0.5f;
+            this.f7134g = 0.5f;
         }
-        double d4 = this.f6892d;
-        if (d4 <= 0.0d || this.f6893e <= 0.0d) {
+        double d4 = this.f7131d;
+        if (d4 <= 0.0d || this.f7132e <= 0.0d) {
             throw new IllegalStateException("when you add ground overlay, the width and height must greater than 0");
         }
         bundle.putDouble("x_distance", d4);
-        if (this.f6893e == 2.147483647E9d) {
-            this.f6893e = (int) ((this.f6892d * this.f6890b.f6858a.getHeight()) / this.f6890b.f6858a.getWidth());
+        if (this.f7132e == 2.147483647E9d) {
+            this.f7132e = (int) ((this.f7131d * this.f7129b.f7097a.getHeight()) / this.f7129b.f7097a.getWidth());
         }
-        bundle.putDouble("y_distance", this.f6893e);
-        GeoPoint ll2mc3 = CoordUtil.ll2mc(this.f6891c);
+        bundle.putDouble("y_distance", this.f7132e);
+        GeoPoint ll2mc3 = CoordUtil.ll2mc(this.f7130c);
         bundle.putDouble("location_x", ll2mc3.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc3.getLatitudeE6());
-        bundle.putFloat("anchor_x", this.f6894f);
-        bundle.putFloat("anchor_y", this.f6895g);
-        bundle.putFloat("transparency", this.i);
+        bundle.putFloat("anchor_x", this.f7133f);
+        bundle.putFloat("anchor_y", this.f7134g);
+        bundle.putFloat("transparency", this.f7136i);
         return bundle;
     }
 
     public float getAnchorX() {
-        return this.f6894f;
+        return this.f7133f;
     }
 
     public float getAnchorY() {
-        return this.f6895g;
+        return this.f7134g;
     }
 
     public LatLngBounds getBounds() {
-        return this.f6896h;
+        return this.f7135h;
     }
 
     public double getHeight() {
-        return this.f6893e;
+        return this.f7132e;
     }
 
     public BitmapDescriptor getImage() {
-        return this.f6890b;
+        return this.f7129b;
     }
 
     public LatLng getPosition() {
-        return this.f6891c;
+        return this.f7130c;
     }
 
     public float getTransparency() {
-        return this.i;
+        return this.f7136i;
     }
 
     public double getWidth() {
-        return this.f6892d;
+        return this.f7131d;
     }
 
     public void setAnchor(float f2, float f3) {
         if (f2 < 0.0f || f2 > 1.0f || f3 < 0.0f || f3 > 1.0f) {
             return;
         }
-        this.f6894f = f2;
-        this.f6895g = f3;
+        this.f7133f = f2;
+        this.f7134g = f3;
         this.listener.b(this);
     }
 
-    public void setDimensions(int i) {
-        this.f6892d = i;
-        this.f6893e = 2.147483647E9d;
+    public void setDimensions(int i2) {
+        this.f7131d = i2;
+        this.f7132e = 2.147483647E9d;
         this.listener.b(this);
     }
 
-    public void setDimensions(int i, int i2) {
-        this.f6892d = i;
-        this.f6893e = i2;
+    public void setDimensions(int i2, int i3) {
+        this.f7131d = i2;
+        this.f7132e = i3;
         this.listener.b(this);
     }
 
@@ -132,7 +134,7 @@ public final class GroundOverlay extends Overlay {
         if (bitmapDescriptor == null) {
             throw new IllegalArgumentException("image can not be null");
         }
-        this.f6890b = bitmapDescriptor;
+        this.f7129b = bitmapDescriptor;
         this.listener.b(this);
     }
 
@@ -140,8 +142,8 @@ public final class GroundOverlay extends Overlay {
         if (latLng == null) {
             throw new IllegalArgumentException("position can not be null");
         }
-        this.f6889a = 2;
-        this.f6891c = latLng;
+        this.f7128a = 2;
+        this.f7130c = latLng;
         this.listener.b(this);
     }
 
@@ -149,8 +151,8 @@ public final class GroundOverlay extends Overlay {
         if (latLngBounds == null) {
             throw new IllegalArgumentException("bounds can not be null");
         }
-        this.f6889a = 1;
-        this.f6896h = latLngBounds;
+        this.f7128a = 1;
+        this.f7135h = latLngBounds;
         this.listener.b(this);
     }
 
@@ -158,7 +160,7 @@ public final class GroundOverlay extends Overlay {
         if (f2 > 1.0f || f2 < 0.0f) {
             return;
         }
-        this.i = f2;
+        this.f7136i = f2;
         this.listener.b(this);
     }
 }

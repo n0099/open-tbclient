@@ -33,8 +33,8 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public XAdInstanceInfoExt[] newArray(int i) {
-            return new XAdInstanceInfoExt[i];
+        public XAdInstanceInfoExt[] newArray(int i2) {
+            return new XAdInstanceInfoExt[i2];
         }
     };
     public static final String TAG = "XAdInstanceInfo";
@@ -683,23 +683,23 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setActionType(int i) {
-        this.actionType = i;
+    public void setActionType(int i2) {
+        this.actionType = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setAdContainerHeight(int i) {
-        this.mAdContainerHeight = i;
+    public void setAdContainerHeight(int i2) {
+        this.mAdContainerHeight = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setAdContainerSizeType(int i) {
-        this.mAdContainerSizeType = i;
+    public void setAdContainerSizeType(int i2) {
+        this.mAdContainerSizeType = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setAdContainerWidth(int i) {
-        this.mAdContainerWidth = i;
+    public void setAdContainerWidth(int i2) {
+        this.mAdContainerWidth = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
@@ -718,8 +718,8 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setAntiTag(int i) {
-        this.antiTag = i;
+    public void setAntiTag(int i2) {
+        this.antiTag = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
@@ -828,8 +828,8 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setCloseType(int i) {
-        this.closeType = i;
+    public void setCloseType(int i2) {
+        this.closeType = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
@@ -859,8 +859,8 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setDlTunnel(int i) {
-        this.dlTunnel = i;
+    public void setDlTunnel(int i2) {
+        this.dlTunnel = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
@@ -869,13 +869,13 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setExpiration(int i) {
-        this.expiration = i;
+    public void setExpiration(int i2) {
+        this.expiration = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setFeedAdStyleType(int i) {
-        this.mFeedAdStyleType = i;
+    public void setFeedAdStyleType(int i2) {
+        this.mFeedAdStyleType = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
@@ -889,8 +889,8 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setHoursInADayToShowAd(int i) {
-        this.hoursInADayToShowAd = i;
+    public void setHoursInADayToShowAd(int i2) {
+        this.hoursInADayToShowAd = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
@@ -929,13 +929,13 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setMainMaterialHeight(int i) {
-        this.mainMaterialHeight = i;
+    public void setMainMaterialHeight(int i2) {
+        this.mainMaterialHeight = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setMainMaterialWidth(int i) {
-        this.mainMaterialWidth = i;
+    public void setMainMaterialWidth(int i2) {
+        this.mainMaterialWidth = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
@@ -974,8 +974,8 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setPointsForWall(int i) {
-        this.pointsForWall = i;
+    public void setPointsForWall(int i2) {
+        this.pointsForWall = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
@@ -1023,8 +1023,8 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setSwitchButton(int i) {
-        this.switchButton = i;
+    public void setSwitchButton(int i2) {
+        this.switchButton = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
@@ -1058,13 +1058,13 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setVideoDuration(int i) {
-        this.videoDuration = i;
+    public void setVideoDuration(int i2) {
+        this.videoDuration = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setVideoHeight(int i) {
-        this.videoHeight = i;
+    public void setVideoHeight(int i2) {
+        this.videoHeight = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
@@ -1078,8 +1078,8 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setVideoWidth(int i) {
-        this.videoWidth = i;
+    public void setVideoWidth(int i2) {
+        this.videoWidth = i2;
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
@@ -1103,7 +1103,7 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.adId);
         parcel.writeString(this.adSource);
         parcel.writeString(this.appName);
@@ -1248,8 +1248,8 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
             this.phoneForLocalBranding = jSONObject.optString("lb_phone", "");
             JSONArray optJSONArray = jSONObject.optJSONArray("nwinurl");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.impressionUrls.add(optJSONArray.getString(i));
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    this.impressionUrls.add(optJSONArray.getString(i2));
                 }
             } else {
                 String optString = jSONObject.optString("winurl", "");
@@ -1263,8 +1263,8 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("mon");
             if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    JSONObject jSONObject2 = optJSONArray2.getJSONObject(i2);
+                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                    JSONObject jSONObject2 = optJSONArray2.getJSONObject(i3);
                     String optString3 = jSONObject2.optString("s", "");
                     String optString4 = jSONObject2.optString("c", "");
                     addThirdImpMonitorTrackers(optString3);
@@ -1278,63 +1278,63 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
                     String next2 = keys2.next();
                     if (next2.equals("s")) {
                         JSONArray optJSONArray3 = optJSONObject2.optJSONArray(next2);
-                        for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                            addThirdImpMonitorTrackers(optJSONArray3.optString(i3));
+                        for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
+                            addThirdImpMonitorTrackers(optJSONArray3.optString(i4));
                         }
                     } else if (next2.equals("vskip")) {
                         JSONArray optJSONArray4 = optJSONObject2.optJSONArray(next2);
-                        for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                            addSkipMonitorTrackers(optJSONArray4.optString(i4));
+                        for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
+                            addSkipMonitorTrackers(optJSONArray4.optString(i5));
                         }
                     } else if (next2.equals("scard")) {
                         JSONArray optJSONArray5 = optJSONObject2.optJSONArray(next2);
-                        for (int i5 = 0; i5 < optJSONArray5.length(); i5++) {
-                            addScardMonitorTrackers(optJSONArray5.optString(i5));
+                        for (int i6 = 0; i6 < optJSONArray5.length(); i6++) {
+                            addScardMonitorTrackers(optJSONArray5.optString(i6));
                         }
                     } else if (next2.equals("ccard")) {
                         JSONArray optJSONArray6 = optJSONObject2.optJSONArray(next2);
-                        for (int i6 = 0; i6 < optJSONArray6.length(); i6++) {
-                            addCcardMonitorTrackers(optJSONArray6.optString(i6));
+                        for (int i7 = 0; i7 < optJSONArray6.length(); i7++) {
+                            addCcardMonitorTrackers(optJSONArray6.optString(i7));
                         }
                     } else if (next2.equals("vstart")) {
                         JSONArray optJSONArray7 = optJSONObject2.optJSONArray(next2);
-                        for (int i7 = 0; i7 < optJSONArray7.length(); i7++) {
-                            addStartMonitorTrackers(optJSONArray7.optString(i7));
+                        for (int i8 = 0; i8 < optJSONArray7.length(); i8++) {
+                            addStartMonitorTrackers(optJSONArray7.optString(i8));
                         }
                     } else if (next2.equals("vfullscreen")) {
                         JSONArray optJSONArray8 = optJSONObject2.optJSONArray(next2);
-                        for (int i8 = 0; i8 < optJSONArray8.length(); i8++) {
-                            addFullScreenMonitorTrackers(optJSONArray8.optString(i8));
+                        for (int i9 = 0; i9 < optJSONArray8.length(); i9++) {
+                            addFullScreenMonitorTrackers(optJSONArray8.optString(i9));
                         }
                     } else if (next2.equals("vclose")) {
                         JSONArray optJSONArray9 = optJSONObject2.optJSONArray(next2);
-                        for (int i9 = 0; i9 < optJSONArray9.length(); i9++) {
-                            addCloseMonitorTrackers(optJSONArray9.optString(i9));
+                        for (int i10 = 0; i10 < optJSONArray9.length(); i10++) {
+                            addCloseMonitorTrackers(optJSONArray9.optString(i10));
                         }
                     } else if (next2.equals("cstartcard")) {
                         JSONArray optJSONArray10 = optJSONObject2.optJSONArray(next2);
-                        for (int i10 = 0; i10 < optJSONArray10.length(); i10++) {
-                            addCstartcardMonitorTrackers(optJSONArray10.optString(i10));
+                        for (int i11 = 0; i11 < optJSONArray10.length(); i11++) {
+                            addCstartcardMonitorTrackers(optJSONArray10.optString(i11));
                         }
                     } else if (next2.equals("c")) {
                         JSONArray optJSONArray11 = optJSONObject2.optJSONArray(next2);
-                        for (int i11 = 0; i11 < optJSONArray11.length(); i11++) {
-                            addThirdClickMonitorTrackers(optJSONArray11.optString(i11));
+                        for (int i12 = 0; i12 < optJSONArray11.length(); i12++) {
+                            addThirdClickMonitorTrackers(optJSONArray11.optString(i12));
                         }
                     } else if (next2.equals("vcache_succ")) {
                         JSONArray optJSONArray12 = optJSONObject2.optJSONArray(next2);
-                        for (int i12 = 0; i12 < optJSONArray12.length(); i12++) {
-                            addCacheSuccMonitorTrackers(optJSONArray12.optString(i12));
+                        for (int i13 = 0; i13 < optJSONArray12.length(); i13++) {
+                            addCacheSuccMonitorTrackers(optJSONArray12.optString(i13));
                         }
                     } else if (next2.equals("vcache_fail")) {
                         JSONArray optJSONArray13 = optJSONObject2.optJSONArray(next2);
-                        for (int i13 = 0; i13 < optJSONArray13.length(); i13++) {
-                            addCacheFailMonitorTrackers(optJSONArray13.optString(i13));
+                        for (int i14 = 0; i14 < optJSONArray13.length(); i14++) {
+                            addCacheFailMonitorTrackers(optJSONArray13.optString(i14));
                         }
                     } else if (next2.equals("vcache_expire")) {
                         JSONArray optJSONArray14 = optJSONObject2.optJSONArray(next2);
-                        for (int i14 = 0; i14 < optJSONArray14.length(); i14++) {
-                            addCacheExpireMonitorTrackers(optJSONArray14.optString(i14));
+                        for (int i15 = 0; i15 < optJSONArray14.length(); i15++) {
+                            addCacheExpireMonitorTrackers(optJSONArray14.optString(i15));
                         }
                     }
                 }

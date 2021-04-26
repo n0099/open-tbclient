@@ -1,6 +1,6 @@
 package com.baidu.helios.ids.gaid;
 
-import d.b.q.g.b.b;
+import d.a.q.g.b.b;
 /* loaded from: classes2.dex */
 public class c {
 

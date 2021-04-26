@@ -12,7 +12,7 @@ import com.xiaomi.mipush.sdk.MiPushMessage;
 public class el {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile el f40829a;
+    public static volatile el f38348a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f318a;
@@ -22,14 +22,14 @@ public class el {
     }
 
     public static el a(Context context) {
-        if (f40829a == null) {
+        if (f38348a == null) {
             synchronized (el.class) {
-                if (f40829a == null) {
-                    f40829a = new el(context);
+                if (f38348a == null) {
+                    f38348a = new el(context);
                 }
             }
         }
-        return f40829a;
+        return f38348a;
     }
 
     private void a(com.xiaomi.clientreport.data.a aVar) {
@@ -40,42 +40,42 @@ public class el {
         }
     }
 
-    public void a(String str, int i, long j, long j2) {
-        if (i < 0 || j2 < 0 || j <= 0) {
+    public void a(String str, int i2, long j, long j2) {
+        if (i2 < 0 || j2 < 0 || j <= 0) {
             return;
         }
-        PerfClientReport a2 = ek.a(this.f318a, i, j, j2);
+        PerfClientReport a2 = ek.a(this.f318a, i2, j, j2);
         a2.setAppPackageName(str);
         a2.setSdkVersion("3_8_5");
         a(a2);
     }
 
-    public void a(String str, Intent intent, int i, String str2) {
+    public void a(String str, Intent intent, int i2, String str2) {
         if (intent == null) {
             return;
         }
-        a(str, ek.m271a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), i, System.currentTimeMillis(), str2);
+        a(str, ek.m274a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), i2, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, Intent intent, String str2) {
         if (intent == null) {
             return;
         }
-        a(str, ek.m271a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), ErrorCode.SERVER_JSON_PARSE_ERROR, System.currentTimeMillis(), str2);
+        a(str, ek.m274a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), ErrorCode.SERVER_JSON_PARSE_ERROR, System.currentTimeMillis(), str2);
     }
 
-    public void a(String str, String str2, String str3, int i, long j, String str4) {
+    public void a(String str, String str2, String str3, int i2, long j, String str4) {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return;
         }
-        EventClientReport a2 = ek.a(this.f318a, str2, str3, i, j, str4);
+        EventClientReport a2 = ek.a(this.f318a, str2, str3, i2, j, str4);
         a2.setAppPackageName(str);
         a2.setSdkVersion("3_8_5");
         a(a2);
     }
 
-    public void a(String str, String str2, String str3, int i, String str4) {
-        a(str, str2, str3, i, System.currentTimeMillis(), str4);
+    public void a(String str, String str2, String str3, int i2, String str4) {
+        a(str, str2, str3, i2, System.currentTimeMillis(), str4);
     }
 
     public void a(String str, String str2, String str3, String str4) {

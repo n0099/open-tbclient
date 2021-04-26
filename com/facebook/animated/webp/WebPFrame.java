@@ -5,7 +5,7 @@ import com.facebook.common.internal.DoNotStrip;
 import com.facebook.imagepipeline.animated.base.AnimatedImageFrame;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class WebPFrame implements AnimatedImageFrame {
     @DoNotStrip
     public long mNativeContext;
@@ -31,7 +31,7 @@ public class WebPFrame implements AnimatedImageFrame {
 
     private native boolean nativeIsBlendWithPreviousFrame();
 
-    private native void nativeRenderFrame(int i, int i2, Bitmap bitmap);
+    private native void nativeRenderFrame(int i2, int i3, Bitmap bitmap);
 
     private native boolean nativeShouldDisposeToBackgroundColor();
 
@@ -74,8 +74,8 @@ public class WebPFrame implements AnimatedImageFrame {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
-    public void renderFrame(int i, int i2, Bitmap bitmap) {
-        nativeRenderFrame(i, i2, bitmap);
+    public void renderFrame(int i2, int i3, Bitmap bitmap) {
+        nativeRenderFrame(i2, i3, bitmap);
     }
 
     public boolean shouldDisposeToBackgroundColor() {

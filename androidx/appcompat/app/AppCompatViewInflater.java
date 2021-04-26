@@ -25,14 +25,14 @@ import androidx.appcompat.widget.AppCompatRatingBar;
 import androidx.appcompat.widget.AppCompatSeekBar;
 import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.appcompat.widget.AppCompatToggleButton;
 import androidx.appcompat.widget.TintContextWrapper;
-import androidx.collection.ArrayMap;
+import androidx.collection.SimpleArrayMap;
 import androidx.core.view.ViewCompat;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Map;
 /* loaded from: classes.dex */
 public class AppCompatViewInflater {
     public static final String LOG_TAG = "AppCompatViewInflater";
@@ -40,7 +40,7 @@ public class AppCompatViewInflater {
     public static final Class<?>[] sConstructorSignature = {Context.class, AttributeSet.class};
     public static final int[] sOnClickAttrs = {16843375};
     public static final String[] sClassPrefixList = {"android.widget.", "android.view.", "android.webkit."};
-    public static final Map<String, Constructor<? extends View>> sConstructorMap = new ArrayMap();
+    public static final SimpleArrayMap<String, Constructor<? extends View>> sConstructorMap = new SimpleArrayMap<>();
 
     /* loaded from: classes.dex */
     public static class DeclaredOnClickListener implements View.OnClickListener {
@@ -54,10 +54,9 @@ public class AppCompatViewInflater {
             this.mMethodName = str;
         }
 
-        @NonNull
-        private void resolveMethod(@Nullable Context context, @NonNull String str) {
+        private void resolveMethod(@Nullable Context context) {
             int id;
-            String str2;
+            String str;
             Method method;
             while (context != null) {
                 try {
@@ -71,17 +70,17 @@ public class AppCompatViewInflater {
                 context = context instanceof ContextWrapper ? ((ContextWrapper) context).getBaseContext() : null;
             }
             if (this.mHostView.getId() == -1) {
-                str2 = "";
+                str = "";
             } else {
-                str2 = " with id '" + this.mHostView.getContext().getResources().getResourceEntryName(id) + "'";
+                str = " with id '" + this.mHostView.getContext().getResources().getResourceEntryName(id) + "'";
             }
-            throw new IllegalStateException("Could not find method " + this.mMethodName + "(View) in a parent or ancestor Context for android:onClick attribute defined on view " + this.mHostView.getClass() + str2);
+            throw new IllegalStateException("Could not find method " + this.mMethodName + "(View) in a parent or ancestor Context for android:onClick attribute defined on view " + this.mHostView.getClass() + str);
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(@NonNull View view) {
             if (this.mResolvedMethod == null) {
-                resolveMethod(this.mHostView.getContext(), this.mMethodName);
+                resolveMethod(this.mHostView.getContext());
             }
             try {
                 this.mResolvedMethod.invoke(this.mResolvedContext, view);
@@ -111,18 +110,17 @@ public class AppCompatViewInflater {
         String str3;
         Constructor<? extends View> constructor = sConstructorMap.get(str);
         if (constructor == null) {
-            try {
-                ClassLoader classLoader = context.getClassLoader();
-                if (str2 != null) {
+            if (str2 != null) {
+                try {
                     str3 = str2 + str;
-                } else {
-                    str3 = str;
+                } catch (Exception unused) {
+                    return null;
                 }
-                constructor = classLoader.loadClass(str3).asSubclass(View.class).getConstructor(sConstructorSignature);
-                sConstructorMap.put(str, constructor);
-            } catch (Exception unused) {
-                return null;
+            } else {
+                str3 = str;
             }
+            constructor = Class.forName(str3, false, context.getClassLoader()).asSubclass(View.class).getConstructor(sConstructorSignature);
+            sConstructorMap.put(str, constructor);
         }
         constructor.setAccessible(true);
         return constructor.newInstance(this.mConstructorArgs);
@@ -136,8 +134,8 @@ public class AppCompatViewInflater {
             this.mConstructorArgs[0] = context;
             this.mConstructorArgs[1] = attributeSet;
             if (-1 == str.indexOf(46)) {
-                for (int i = 0; i < sClassPrefixList.length; i++) {
-                    View createViewByPrefix = createViewByPrefix(context, str, sClassPrefixList[i]);
+                for (int i2 = 0; i2 < sClassPrefixList.length; i2++) {
+                    View createViewByPrefix = createViewByPrefix(context, str, sClassPrefixList[i2]);
                     if (createViewByPrefix != null) {
                         return createViewByPrefix;
                     }
@@ -236,6 +234,11 @@ public class AppCompatViewInflater {
         return new AppCompatTextView(context, attributeSet);
     }
 
+    @NonNull
+    public AppCompatToggleButton createToggleButton(Context context, AttributeSet attributeSet) {
+        return new AppCompatToggleButton(context, attributeSet);
+    }
+
     @Nullable
     public View createView(Context context, String str, AttributeSet attributeSet) {
         return null;
@@ -297,6 +300,12 @@ public class AppCompatViewInflater {
             case 776382189:
                 if (str.equals("RadioButton")) {
                     c2 = 7;
+                    break;
+                }
+                break;
+            case 799298502:
+                if (str.equals("ToggleButton")) {
+                    c2 = '\r';
                     break;
                 }
                 break;
@@ -382,6 +391,10 @@ public class AppCompatViewInflater {
                 break;
             case '\f':
                 createTextView = createSeekBar(context2, attributeSet);
+                verifyNotNull(createTextView, str);
+                break;
+            case '\r':
+                createTextView = createToggleButton(context2, attributeSet);
                 verifyNotNull(createTextView, str);
                 break;
             default:

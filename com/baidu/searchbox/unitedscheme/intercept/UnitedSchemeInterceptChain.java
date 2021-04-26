@@ -1,14 +1,16 @@
 package com.baidu.searchbox.unitedscheme.intercept;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class UnitedSchemeInterceptChain {
-    public static final String TAG = "UnitedSchemeInterceptChain";
+    public static final String TAG = "InterceptChain";
     public Map<String, UnitedSchemeBaseInterceptor> mInterceptors = Collections.synchronizedMap(new LinkedHashMap());
 
     public void addInterceptor(UnitedSchemeBaseInterceptor unitedSchemeBaseInterceptor) {
@@ -18,19 +20,8 @@ public final class UnitedSchemeInterceptChain {
         this.mInterceptors.put(unitedSchemeBaseInterceptor.getInterceptorName(), unitedSchemeBaseInterceptor);
     }
 
-    public void clearChain() {
-        this.mInterceptors.clear();
-    }
-
     public boolean isEmpty() {
         return this.mInterceptors.isEmpty();
-    }
-
-    public void removeInterceptor(UnitedSchemeBaseInterceptor unitedSchemeBaseInterceptor) {
-        if (unitedSchemeBaseInterceptor == null) {
-            return;
-        }
-        this.mInterceptors.remove(unitedSchemeBaseInterceptor.getInterceptorName());
     }
 
     public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
@@ -42,7 +33,11 @@ public final class UnitedSchemeInterceptChain {
                 }
             }
             return false;
-        } catch (Exception unused) {
+        } catch (Exception e2) {
+            if (SchemeConfig.DEBUG) {
+                Log.e(TAG, "error:" + e2.getMessage());
+                return false;
+            }
             return false;
         }
     }

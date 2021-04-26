@@ -16,7 +16,7 @@ public final class FallbackThreadLocalRandom extends AbstractPlatformRandom {
     @Override // kotlin.random.AbstractPlatformRandom
     public java.util.Random getImpl() {
         java.util.Random random = get();
-        Intrinsics.checkExpressionValueIsNotNull(random, "implStorage.get()");
+        Intrinsics.checkNotNullExpressionValue(random, "implStorage.get()");
         return random;
     }
 }

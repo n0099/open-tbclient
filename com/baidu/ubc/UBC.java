@@ -11,11 +11,10 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.ubc.IRemoteUBCService;
-import d.b.j0.y2.r;
-import d.b.l0.d;
-import d.b.l0.d0;
-import d.b.l0.q;
-import d.b.m0.a;
+import d.a.l0.d;
+import d.a.l0.e0;
+import d.a.l0.r;
+import d.a.m0.a;
 import java.util.Map;
 import org.json.JSONObject;
 @Autowired
@@ -68,13 +67,13 @@ public class UBC {
     }
 
     @Inject
-    public static final q getUBCContext() {
-        return r.a();
+    public static final r getUBCContext() {
+        return d.a.j0.y2.r.a();
     }
 
     public static String getUploadType(String str) {
-        d0 d0Var = (d0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-        return d0Var != null ? d0Var.getUploadType(str) : "";
+        e0 e0Var = (e0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+        return e0Var != null ? e0Var.getUploadType(str) : "";
     }
 
     public static final void onEvent(String str) {
@@ -90,18 +89,18 @@ public class UBC {
     }
 
     public static void uploadLocalDatas() {
-        d0 d0Var = (d0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-        if (d0Var != null) {
-            d0Var.uploadLocalDatas();
+        e0 e0Var = (e0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+        if (e0Var != null) {
+            e0Var.uploadLocalDatas();
         }
     }
 
-    public static final Flow beginFlow(String str, int i) {
-        return beginFlow(str, "", i);
+    public static final Flow beginFlow(String str, int i2) {
+        return beginFlow(str, "", i2);
     }
 
-    public static final void onEvent(String str, int i) {
-        onEvent(str, "", i);
+    public static final void onEvent(String str, int i2) {
+        onEvent(str, "", i2);
     }
 
     public static final Flow beginFlow(String str, String str2) {
@@ -128,27 +127,27 @@ public class UBC {
         onEvent(str, map, 0);
     }
 
-    public static final Flow beginFlow(String str, Map<String, String> map, int i) {
-        return ((d0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, map, i);
+    public static final Flow beginFlow(String str, Map<String, String> map, int i2) {
+        return ((e0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, map, i2);
     }
 
-    public static final void onEvent(String str, Map<String, String> map, int i) {
-        ((d0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(str, map, i);
+    public static final void onEvent(String str, Map<String, String> map, int i2) {
+        ((e0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(str, map, i2);
     }
 
-    public static Flow beginFlow(String str, String str2, int i) {
-        return ((d0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i);
+    public static Flow beginFlow(String str, String str2, int i2) {
+        return ((e0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i2);
     }
 
-    public static void onEvent(String str, String str2, int i) {
-        ((d0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(str, str2, i);
+    public static void onEvent(String str, String str2, int i2) {
+        ((e0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(str, str2, i2);
     }
 
-    public static Flow beginFlow(String str, JSONObject jSONObject, int i) {
-        return ((d0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, jSONObject, i);
+    public static Flow beginFlow(String str, JSONObject jSONObject, int i2) {
+        return ((e0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, jSONObject, i2);
     }
 
-    public static void onEvent(String str, JSONObject jSONObject, int i) {
-        ((d0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(str, jSONObject, i);
+    public static void onEvent(String str, JSONObject jSONObject, int i2) {
+        ((e0) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(str, jSONObject, i2);
     }
 }

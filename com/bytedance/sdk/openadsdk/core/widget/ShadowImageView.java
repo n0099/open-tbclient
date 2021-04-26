@@ -14,10 +14,10 @@ import androidx.annotation.Nullable;
 public class ShadowImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f28520a;
+    public Paint f29394a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RectF f28521b;
+    public RectF f29395b;
 
     public ShadowImageView(Context context) {
         super(context);
@@ -26,28 +26,28 @@ public class ShadowImageView extends ImageView {
 
     private void a() {
         Paint paint = new Paint();
-        this.f28520a = paint;
+        this.f29394a = paint;
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        this.f28520a.setColor(Color.parseColor("#99333333"));
-        this.f28520a.setAntiAlias(true);
-        this.f28520a.setStrokeWidth(0.0f);
-        this.f28521b = new RectF();
+        this.f29394a.setColor(Color.parseColor("#99333333"));
+        this.f29394a.setAntiAlias(true);
+        this.f29394a.setStrokeWidth(0.0f);
+        this.f29395b = new RectF();
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        RectF rectF = this.f28521b;
-        canvas.drawRoundRect(rectF, rectF.right / 2.0f, rectF.bottom / 2.0f, this.f28520a);
+        RectF rectF = this.f29395b;
+        canvas.drawRoundRect(rectF, rectF.right / 2.0f, rectF.bottom / 2.0f, this.f29394a);
         super.onDraw(canvas);
     }
 
     @Override // android.widget.ImageView, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        if (this.f28521b.right == getMeasuredWidth() && this.f28521b.bottom == getMeasuredHeight()) {
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        if (this.f29395b.right == getMeasuredWidth() && this.f29395b.bottom == getMeasuredHeight()) {
             return;
         }
-        this.f28521b.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+        this.f29395b.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
     }
 
     public ShadowImageView(Context context, @Nullable AttributeSet attributeSet) {
@@ -55,8 +55,8 @@ public class ShadowImageView extends ImageView {
         a();
     }
 
-    public ShadowImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ShadowImageView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a();
     }
 }

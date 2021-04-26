@@ -2,11 +2,11 @@ package com.baidu.swan.apps.media.chooser.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImageModel extends MediaModel {
     public static final Parcelable.Creator<ImageModel> CREATOR = new a();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<ImageModel> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -18,8 +18,8 @@ public class ImageModel extends MediaModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public ImageModel[] newArray(int i) {
-            return new ImageModel[i];
+        public ImageModel[] newArray(int i2) {
+            return new ImageModel[i2];
         }
     }
 
@@ -29,8 +29,8 @@ public class ImageModel extends MediaModel {
     }
 
     @Override // com.baidu.swan.apps.media.chooser.model.MediaModel, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
     }
 
     public ImageModel(Parcel parcel) {

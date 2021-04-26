@@ -21,8 +21,6 @@ public final class GlideException extends Exception {
     public Class<?> dataClass;
     public DataSource dataSource;
     public String detailMessage;
-    @Nullable
-    public Exception exception;
     public Key key;
 
     public GlideException(String str) {
@@ -49,17 +47,17 @@ public final class GlideException extends Exception {
 
     public static void appendCausesWrapped(List<Throwable> list, Appendable appendable) throws IOException {
         int size = list.size();
-        int i = 0;
-        while (i < size) {
-            int i2 = i + 1;
-            appendable.append("Cause (").append(String.valueOf(i2)).append(" of ").append(String.valueOf(size)).append("): ");
-            Throwable th = list.get(i);
+        int i2 = 0;
+        while (i2 < size) {
+            int i3 = i2 + 1;
+            appendable.append("Cause (").append(String.valueOf(i3)).append(" of ").append(String.valueOf(size)).append("): ");
+            Throwable th = list.get(i2);
             if (th instanceof GlideException) {
                 ((GlideException) th).printStackTrace(appendable);
             } else {
                 appendExceptionMessage(th, appendable);
             }
-            i = i2;
+            i2 = i3;
         }
     }
 
@@ -109,11 +107,6 @@ public final class GlideException extends Exception {
         return sb.toString();
     }
 
-    @Nullable
-    public Exception getOrigin() {
-        return this.exception;
-    }
-
     public List<Throwable> getRootCauses() {
         ArrayList arrayList = new ArrayList();
         addRootCauses(this, arrayList);
@@ -123,17 +116,17 @@ public final class GlideException extends Exception {
     public void logRootCauses(String str) {
         List<Throwable> rootCauses = getRootCauses();
         int size = rootCauses.size();
-        int i = 0;
-        while (i < size) {
+        int i2 = 0;
+        while (i2 < size) {
             StringBuilder sb = new StringBuilder();
             sb.append("Root cause (");
-            int i2 = i + 1;
-            sb.append(i2);
+            int i3 = i2 + 1;
+            sb.append(i3);
             sb.append(" of ");
             sb.append(size);
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            Log.i(str, sb.toString(), rootCauses.get(i));
-            i = i2;
+            Log.i(str, sb.toString(), rootCauses.get(i2));
+            i2 = i3;
         }
     }
 
@@ -144,10 +137,6 @@ public final class GlideException extends Exception {
 
     public void setLoggingDetails(Key key, DataSource dataSource) {
         setLoggingDetails(key, dataSource, null);
-    }
-
-    public void setOrigin(@Nullable Exception exc) {
-        this.exception = exc;
     }
 
     public GlideException(String str, Throwable th) {
@@ -215,18 +204,18 @@ public final class GlideException extends Exception {
         }
 
         @Override // java.lang.Appendable
-        public Appendable append(@Nullable CharSequence charSequence, int i, int i2) throws IOException {
+        public Appendable append(@Nullable CharSequence charSequence, int i2, int i3) throws IOException {
             CharSequence safeSequence = safeSequence(charSequence);
             boolean z = false;
             if (this.printedNewLine) {
                 this.printedNewLine = false;
                 this.appendable.append(INDENT);
             }
-            if (safeSequence.length() > 0 && safeSequence.charAt(i2 - 1) == '\n') {
+            if (safeSequence.length() > 0 && safeSequence.charAt(i3 - 1) == '\n') {
                 z = true;
             }
             this.printedNewLine = z;
-            this.appendable.append(safeSequence, i, i2);
+            this.appendable.append(safeSequence, i2, i3);
             return this;
         }
     }

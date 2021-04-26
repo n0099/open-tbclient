@@ -5,16 +5,16 @@ public abstract class jl {
         return 0;
     }
 
-    public abstract int a(byte[] bArr, int i, int i2);
+    public abstract int a(byte[] bArr, int i2, int i3);
 
-    public void a(int i) {
+    public void a(int i2) {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract void m515a(byte[] bArr, int i, int i2);
+    public abstract void m518a(byte[] bArr, int i2, int i3);
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m516a() {
+    public byte[] m519a() {
         return null;
     }
 
@@ -22,15 +22,15 @@ public abstract class jl {
         return -1;
     }
 
-    public int b(byte[] bArr, int i, int i2) {
-        int i3 = 0;
-        while (i3 < i2) {
-            int a2 = a(bArr, i + i3, i2 - i3);
+    public int b(byte[] bArr, int i2, int i3) {
+        int i4 = 0;
+        while (i4 < i3) {
+            int a2 = a(bArr, i2 + i4, i3 - i4);
             if (a2 <= 0) {
-                throw new jm("Cannot read. Remote side has closed. Tried to read " + i2 + " bytes, but only got " + i3 + " bytes.");
+                throw new jm("Cannot read. Remote side has closed. Tried to read " + i3 + " bytes, but only got " + i4 + " bytes.");
             }
-            i3 += a2;
+            i4 += a2;
         }
-        return i3;
+        return i4;
     }
 }

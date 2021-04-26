@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import d.b.c.e.l.d;
-import d.b.c.e.p.l;
-import d.b.i0.a.s;
-/* loaded from: classes4.dex */
+import d.a.c.e.l.d;
+import d.a.c.e.p.l;
+import d.a.i0.a.s;
+/* loaded from: classes5.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public ImageView mBgImage;
     public ImageView mCloseBtnImage;
@@ -28,7 +28,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
     public View.OnClickListener mOnClickListener = new a();
     public RoundRelativeLayout mRoundCornerLayout;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -57,13 +57,13 @@ public class NewUserRedPackageActivity extends BaseActivity {
     }
 
     private void setData() {
-        d.b.c.j.d.a aVar;
+        d.a.c.j.d.a aVar;
         if (getIntent() == null) {
             return;
         }
         NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
         this.mData = newUserRedPackageData;
-        if (newUserRedPackageData == null || (aVar = (d.b.c.j.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
+        if (newUserRedPackageData == null || (aVar = (d.a.c.j.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
             return;
         }
         this.mBgImage.setImageBitmap(aVar.p());
@@ -80,9 +80,9 @@ public class NewUserRedPackageActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i != 25046 || this.mData == null) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i2 != 25046 || this.mData == null) {
             return;
         }
         this.mGetMoneyModel.a();
@@ -91,8 +91,8 @@ public class NewUserRedPackageActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         SkinManager.setBackgroundColor(this.mRoundCornerLayout, R.color.CAM_X0201);
     }
 

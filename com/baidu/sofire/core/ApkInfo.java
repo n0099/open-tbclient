@@ -63,11 +63,11 @@ public class ApkInfo {
         return (str == null ? 0 : str.hashCode()) + 31;
     }
 
-    public ApkInfo(int i, String str, String str2) {
+    public ApkInfo(int i2, String str, String str2) {
         this.priority = -1;
         this.isMem = false;
         this.isNextLoad = false;
-        this.key = i;
+        this.key = i2;
         this.versionName = str;
         this.pkgPath = str2;
     }
@@ -80,11 +80,11 @@ public class ApkInfo {
         this.pkgPath = str2;
     }
 
-    public ApkInfo(int i, String str, String str2, String str3, String str4) {
+    public ApkInfo(int i2, String str, String str2, String str3, String str4) {
         this.priority = -1;
         this.isMem = false;
         this.isNextLoad = false;
-        this.key = i;
+        this.key = i2;
         this.packageName = str;
         this.versionName = str2;
         this.downloadURL = str3;

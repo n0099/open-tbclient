@@ -62,8 +62,8 @@ public class DownloadInfo {
         this.name = str;
     }
 
-    public void setProgress(int i) {
-        this.progress = i;
+    public void setProgress(int i2) {
+        this.progress = i2;
     }
 
     public void setUri(String str) {

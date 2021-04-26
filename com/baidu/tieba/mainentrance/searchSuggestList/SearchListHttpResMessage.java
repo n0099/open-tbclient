@@ -13,7 +13,7 @@ public class SearchListHttpResMessage extends TbHttpResponsedMessage {
     public List<ForumInfo> forums;
     public List<String> suggests;
 
-    public SearchListHttpResMessage(int i) {
+    public SearchListHttpResMessage(int i2) {
         super(CmdConfigHttp.CMD_SEARCH_LIST);
         this.suggests = null;
         this.forums = null;
@@ -21,7 +21,7 @@ public class SearchListHttpResMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         SearchSugResIdl searchSugResIdl = (SearchSugResIdl) new Wire(new Class[0]).parseFrom(bArr, SearchSugResIdl.class);
         if (searchSugResIdl == null) {
             return;

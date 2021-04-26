@@ -102,12 +102,12 @@ public class DownloadUtils {
     public static ErrorInfo ubcFileExist(PackageInfo packageInfo) {
         String str;
         ErrorInfo errorInfo;
-        int i;
+        int i2;
         File file = new File(packageInfo.filePath);
         if (file.exists()) {
             errorInfo = null;
             str = String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_EXIST, packageInfo.toString());
-            i = ErrorConstant.Code.DOWNLOAD_FILE_EXIST;
+            i2 = ErrorConstant.Code.DOWNLOAD_FILE_EXIST;
         } else {
             String format = String.format(ErrorConstant.ErrorMsg.DOWNLOAD_FILE_INEXIST, packageInfo.toString());
             String createFileLayer = createFileLayer(file);
@@ -117,9 +117,9 @@ public class DownloadUtils {
             errorInfo2.tipMsg = ErrorConstant.TipMsg.DOWNLOAD_ERROR_WRITE;
             str = format;
             errorInfo = errorInfo2;
-            i = ErrorConstant.Code.DOWNLOAD_FILE_INEXIST;
+            i2 = ErrorConstant.Code.DOWNLOAD_FILE_INEXIST;
         }
-        PackageFileStatisticManager.getInstance().addDownloadStatistic2(i, str, packageInfo.channelId, packageInfo.packageName, packageInfo.version, packageInfo.downloadUrl, "", 0, packageInfo.retryCount);
+        PackageFileStatisticManager.getInstance().addDownloadStatistic2(i2, str, packageInfo.channelId, packageInfo.packageName, packageInfo.version, packageInfo.downloadUrl, "", 0, packageInfo.retryCount);
         return errorInfo;
     }
 

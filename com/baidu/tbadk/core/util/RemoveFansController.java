@@ -20,7 +20,7 @@ public class RemoveFansController {
 
     /* loaded from: classes3.dex */
     public interface IResultCallBack {
-        void onResultCallBack(int i, String str, long j, boolean z);
+        void onResultCallBack(int i2, String str, long j, boolean z);
     }
 
     public RemoveFansController(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {

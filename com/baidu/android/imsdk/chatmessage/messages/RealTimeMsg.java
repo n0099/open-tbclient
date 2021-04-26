@@ -19,11 +19,11 @@ public abstract class RealTimeMsg extends NormalMsg implements Parcelable, NoPro
         return this.mDuration;
     }
 
-    public String getRealTimeMsgJsonString(boolean z, int i) {
+    public String getRealTimeMsgJsonString(boolean z, int i2) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("sucess", z);
-            jSONObject.put("duration", i);
+            jSONObject.put("duration", i2);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -51,13 +51,13 @@ public abstract class RealTimeMsg extends NormalMsg implements Parcelable, NoPro
         }
     }
 
-    public void setContent(boolean z, int i) {
-        setMsgContent(getRealTimeMsgJsonString(z, i));
+    public void setContent(boolean z, int i2) {
+        setMsgContent(getRealTimeMsgJsonString(z, i2));
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeInt(this.mSucess ? 1 : 0);
         parcel.writeInt(this.mDuration);
     }

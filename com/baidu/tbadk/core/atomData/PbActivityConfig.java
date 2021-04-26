@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.b.i0.r.q.a2;
-import d.b.i0.r.q.k1;
+import d.a.i0.r.q.a2;
+import d.a.i0.r.q.k1;
 /* loaded from: classes3.dex */
 public class PbActivityConfig extends IntentConfig {
     public static final int ACTIVITY_RESULT_DELETE = 1;
@@ -159,20 +159,20 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createCfgForPbChosen(String str, int i) {
+    public PbActivityConfig createCfgForPbChosen(String str, int i2) {
         if (str == null) {
             return this;
         }
         Intent intent = getIntent();
         intent.putExtra("thread_id", str);
-        intent.putExtra("praise_data", i);
+        intent.putExtra("praise_data", i2);
         intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         addMoreIntentExtraParam();
         return this;
     }
 
-    public PbActivityConfig createCfgForPersonCenter(String str, String str2, String str3, int i) {
+    public PbActivityConfig createCfgForPersonCenter(String str, String str2, String str3, int i2) {
         if (str == null) {
             return this;
         }
@@ -181,7 +181,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("post_id", str2);
         intent.putExtra("st_type", str3);
         intent.putExtra("is_start_for_result", "1");
-        intent.putExtra("request_code", i);
+        intent.putExtra("request_code", i2);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         if (!(this.mContext instanceof Activity)) {
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
@@ -191,14 +191,14 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromInterviewCfg(String str, String str2, int i, int i2) {
+    public PbActivityConfig createFromInterviewCfg(String str, String str2, int i2, int i3) {
         if (str == null) {
             return this;
         }
         Intent intent = getIntent();
         intent.putExtra("thread_id", str);
-        intent.putExtra("is_top", i);
-        intent.putExtra("is_good", i2);
+        intent.putExtra("is_top", i2);
+        intent.putExtra("is_good", i3);
         intent.putExtra("from", str2);
         intent.putExtra("is_from_interview_live_config", true);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
@@ -209,7 +209,7 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(a2 a2Var, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+    public PbActivityConfig createFromThreadCfg(a2 a2Var, String str, String str2, int i2, boolean z, boolean z2, boolean z3) {
         if (a2Var == null) {
             return this;
         }
@@ -228,7 +228,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("from_forum_name", str);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         intent.putExtra("is_start_for_result", "1");
-        intent.putExtra("request_code", i);
+        intent.putExtra("request_code", i2);
         intent.putExtra("is_from_thread_config", true);
         long num = a2Var.P0() == null ? 0L : a2Var.P0().getNum();
         intent.putExtra("extra_pb_cache_key", "zan=" + num);
@@ -253,9 +253,9 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createGodHistoryCfg(String str, String str2, boolean z, boolean z2, String str3, boolean z3, int i) {
+    public PbActivityConfig createGodHistoryCfg(String str, String str2, boolean z, boolean z2, String str3, boolean z3, int i2) {
         Intent intent = getIntent();
-        intent.putExtra("is_good", i);
+        intent.putExtra("is_good", i2);
         intent.putExtra("is_top", z3);
         intent.putExtra("is_from_my_god_config", true);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
@@ -280,7 +280,7 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createMangaCfg(String str, String str2, String str3, String str4, int i, int i2, boolean z, boolean z2, boolean z3) {
+    public PbActivityConfig createMangaCfg(String str, String str2, String str3, String str4, int i2, int i3, boolean z, boolean z2, boolean z3) {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra("thread_id", str);
@@ -291,8 +291,8 @@ public class PbActivityConfig extends IntentConfig {
                 intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
             }
             intent.putExtra("key_manga_title", str4);
-            intent.putExtra("key_manga_prev_chapter", i);
-            intent.putExtra("key_manga_next_chapter", i2);
+            intent.putExtra("key_manga_prev_chapter", i2);
+            intent.putExtra("key_manga_next_chapter", i3);
             intent.putExtra("key_manga_is_pre_chapter_vip", z);
             intent.putExtra("key_manga_is_next_chapter_vip", z2);
             intent.putExtra("key_manga_is_user_vip", z3);
@@ -301,7 +301,7 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createMarkCfg(String str, String str2, boolean z, boolean z2, String str3, int i) {
+    public PbActivityConfig createMarkCfg(String str, String str2, boolean z, boolean z2, String str3, int i2) {
         Intent intent = getIntent();
         intent.putExtra("thread_id", str);
         intent.putExtra("post_id", str2);
@@ -316,7 +316,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("from_mark", true);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
         intent.putExtra("is_start_for_result", "1");
-        intent.putExtra("request_code", i);
+        intent.putExtra("request_code", i2);
         intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         addMoreIntentExtraParam();
         return this;
@@ -414,9 +414,9 @@ public class PbActivityConfig extends IntentConfig {
     public PbActivityConfig setBjhData(BaijiahaoData baijiahaoData) {
         Intent intent = getIntent();
         if (intent != null && baijiahaoData != null && baijiahaoData != null) {
-            int i = baijiahaoData.oriUgcType;
+            int i2 = baijiahaoData.oriUgcType;
             boolean z = true;
-            if (i != 1 && i != 2 && i != 3 && i != 4) {
+            if (i2 != 1 && i2 != 2 && i2 != 3 && i2 != 4) {
                 z = false;
             }
             intent.putExtra("key_is_from_dynamic", z);
@@ -428,10 +428,10 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public void setBjhFrom(int i) {
+    public void setBjhFrom(int i2) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra(KEY_BJH_FROM, i);
+            intent.putExtra(KEY_BJH_FROM, i2);
         }
     }
 
@@ -577,17 +577,17 @@ public class PbActivityConfig extends IntentConfig {
         k1Var.c(intent);
     }
 
-    public void setSmartFrsPosition(int i) {
+    public void setSmartFrsPosition(int i2) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra("KEY_SMART_FRS_POSITION", i);
+            intent.putExtra("KEY_SMART_FRS_POSITION", i2);
         }
     }
 
-    public void setSortType(int i) {
+    public void setSortType(int i2) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra("sort_type", i);
+            intent.putExtra("sort_type", i2);
         }
     }
 
@@ -599,10 +599,10 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public void setStartFrom(int i) {
+    public void setStartFrom(int i2) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra("key_start_from", i);
+            intent.putExtra("key_start_from", i2);
         }
     }
 
@@ -696,7 +696,7 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createNormalCfg(String str, String str2, int i, String str3) {
+    public PbActivityConfig createNormalCfg(String str, String str2, int i2, String str3) {
         if (str == null) {
             return this;
         }
@@ -704,7 +704,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("thread_id", str);
         intent.putExtra("sort_type", 0);
         intent.putExtra("post_id", str2);
-        intent.putExtra("thread_type", i);
+        intent.putExtra("thread_type", i2);
         intent.putExtra("st_type", str3);
         intent.putExtra(KEY_SHOULD_ADD_POST_ID, true);
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());

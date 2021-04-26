@@ -157,15 +157,15 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         this(Integer.MAX_VALUE);
     }
 
-    public LinkedBlockingDeque(int i) {
+    public LinkedBlockingDeque(int i2) {
         ReentrantLock reentrantLock = new ReentrantLock();
         this.lock = reentrantLock;
         this.notEmpty = reentrantLock.newCondition();
         this.notFull = this.lock.newCondition();
-        if (i <= 0) {
+        if (i2 <= 0) {
             throw new IllegalArgumentException();
         }
-        this.capacity = i;
+        this.capacity = i2;
     }
 
     public LinkedBlockingDeque(Collection<? extends E> collection) {
@@ -363,14 +363,14 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 
     /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: E, ? super E */
     @Override // java.util.concurrent.BlockingQueue
-    public int drainTo(Collection<? super E> collection, int i) {
+    public int drainTo(Collection<? super E> collection, int i2) {
         if (collection != null) {
             if (collection != this) {
                 ReentrantLock reentrantLock = this.lock;
                 reentrantLock.lock();
                 try {
-                    int min = Math.min(i, this.count);
-                    for (int i2 = 0; i2 < min; i2++) {
+                    int min = Math.min(i2, this.count);
+                    for (int i3 = 0; i3 < min; i3++) {
                         collection.add((E) this.first.item);
                         unlinkFirst();
                     }
@@ -792,13 +792,13 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         reentrantLock.lock();
         try {
             Object[] objArr = new Object[this.count];
-            int i = 0;
+            int i2 = 0;
             Node<E> node = this.first;
             while (node != null) {
-                int i2 = i + 1;
-                objArr[i] = node.item;
+                int i3 = i2 + 1;
+                objArr[i2] = node.item;
                 node = node.next;
-                i = i2;
+                i2 = i3;
             }
             return objArr;
         } finally {
@@ -816,15 +816,15 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
             if (tArr.length < this.count) {
                 tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), this.count));
             }
-            int i = 0;
+            int i2 = 0;
             Node<E> node = this.first;
             while (node != null) {
-                tArr[i] = node.item;
+                tArr[i2] = node.item;
                 node = node.next;
-                i++;
+                i2++;
             }
-            if (tArr.length > i) {
-                tArr[i] = null;
+            if (tArr.length > i2) {
+                tArr[i2] = null;
             }
             return tArr;
         } finally {

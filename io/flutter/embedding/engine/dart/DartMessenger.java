@@ -28,9 +28,9 @@ public class DartMessenger implements BinaryMessenger, PlatformMessageHandler {
         public final FlutterJNI flutterJNI;
         public final int replyId;
 
-        public Reply(@NonNull FlutterJNI flutterJNI, int i) {
+        public Reply(@NonNull FlutterJNI flutterJNI, int i2) {
             this.flutterJNI = flutterJNI;
-            this.replyId = i;
+            this.replyId = i2;
         }
 
         @Override // io.flutter.plugin.common.BinaryMessenger.BinaryReply
@@ -56,28 +56,28 @@ public class DartMessenger implements BinaryMessenger, PlatformMessageHandler {
     }
 
     @Override // io.flutter.embedding.engine.dart.PlatformMessageHandler
-    public void handleMessageFromDart(@NonNull String str, @Nullable byte[] bArr, int i) {
+    public void handleMessageFromDart(@NonNull String str, @Nullable byte[] bArr, int i2) {
         Log.v(TAG, "Received message from Dart over channel '" + str + "'");
         BinaryMessenger.BinaryMessageHandler binaryMessageHandler = this.messageHandlers.get(str);
         if (binaryMessageHandler != null) {
             try {
                 Log.v(TAG, "Deferring to registered handler to process message.");
-                binaryMessageHandler.onMessage(bArr == null ? null : ByteBuffer.wrap(bArr), new Reply(this.flutterJNI, i));
+                binaryMessageHandler.onMessage(bArr == null ? null : ByteBuffer.wrap(bArr), new Reply(this.flutterJNI, i2));
                 return;
             } catch (Exception e2) {
                 Log.e(TAG, "Uncaught exception in binary message listener", e2);
-                this.flutterJNI.invokePlatformMessageEmptyResponseCallback(i);
+                this.flutterJNI.invokePlatformMessageEmptyResponseCallback(i2);
                 return;
             }
         }
         Log.v(TAG, "No registered handler for message. Responding to Dart with empty reply message.");
-        this.flutterJNI.invokePlatformMessageEmptyResponseCallback(i);
+        this.flutterJNI.invokePlatformMessageEmptyResponseCallback(i2);
     }
 
     @Override // io.flutter.embedding.engine.dart.PlatformMessageHandler
-    public void handlePlatformMessageResponse(int i, @Nullable byte[] bArr) {
+    public void handlePlatformMessageResponse(int i2, @Nullable byte[] bArr) {
         Log.v(TAG, "Received message reply from Dart.");
-        BinaryMessenger.BinaryReply remove = this.pendingReplies.remove(Integer.valueOf(i));
+        BinaryMessenger.BinaryReply remove = this.pendingReplies.remove(Integer.valueOf(i2));
         if (remove != null) {
             try {
                 Log.v(TAG, "Invoking registered callback for reply from Dart.");
@@ -108,19 +108,19 @@ public class DartMessenger implements BinaryMessenger, PlatformMessageHandler {
 
     @Override // io.flutter.plugin.common.BinaryMessenger
     public void send(@NonNull String str, @Nullable ByteBuffer byteBuffer, @Nullable BinaryMessenger.BinaryReply binaryReply) {
-        int i;
+        int i2;
         Log.v(TAG, "Sending message with callback over channel '" + str + "'");
         if (binaryReply != null) {
-            i = this.nextReplyId;
-            this.nextReplyId = i + 1;
-            this.pendingReplies.put(Integer.valueOf(i), binaryReply);
+            i2 = this.nextReplyId;
+            this.nextReplyId = i2 + 1;
+            this.pendingReplies.put(Integer.valueOf(i2), binaryReply);
         } else {
-            i = 0;
+            i2 = 0;
         }
         if (byteBuffer == null) {
-            this.flutterJNI.dispatchEmptyPlatformMessage(str, i);
+            this.flutterJNI.dispatchEmptyPlatformMessage(str, i2);
         } else {
-            this.flutterJNI.dispatchPlatformMessage(str, byteBuffer, byteBuffer.position(), i);
+            this.flutterJNI.dispatchPlatformMessage(str, byteBuffer, byteBuffer.position(), i2);
         }
     }
 }

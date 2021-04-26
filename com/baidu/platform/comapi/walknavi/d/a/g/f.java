@@ -18,10 +18,10 @@ import java.util.Iterator;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f9567a;
+    public static String f9924a;
 
     public static void a(String str) {
-        f9567a = str;
+        f9924a = str;
     }
 
     public static String b() {
@@ -32,21 +32,21 @@ public final class f {
     }
 
     public static String a() {
-        return f9567a;
+        return f9924a;
     }
 
-    public static String a(String str, int i) {
+    public static String a(String str, int i2) {
         String str2;
         String b2 = b();
         if (b2 == null) {
             str2 = null;
-        } else if (i == 0) {
+        } else if (i2 == 0) {
             str2 = b2 + "/track";
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             str2 = b2 + "/track";
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             str2 = b2 + "/udt";
-        } else if (i != 4) {
+        } else if (i2 != 4) {
             str2 = b2 + "/normal";
         } else {
             str2 = b2 + "/npc";

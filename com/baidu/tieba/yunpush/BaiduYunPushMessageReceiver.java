@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.i0.r.d0.b;
+import d.a.i0.r.d0.b;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
@@ -22,24 +22,24 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public static final String TAG = "BaiduYunPush";
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onBind(Context context, int i, String str, String str2, String str3, String str4) {
-        String str5 = "onBind errorCode=" + i;
-        if (i == 0) {
+    public void onBind(Context context, int i2, String str, String str2, String str3, String str4) {
+        String str5 = "onBind errorCode=" + i2;
+        if (i2 == 0) {
             b.j().t(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
             TbadkCoreApplication.getInst().setYunpushChannelId(str3);
         }
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onDelTags(Context context, int i, List<String> list, List<String> list2, String str) {
+    public void onDelTags(Context context, int i2, List<String> list, List<String> list2, String str) {
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onListTags(Context context, int i, List<String> list, String str) {
+    public void onListTags(Context context, int i2, List<String> list, String str) {
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onMessage(Context context, String str, String str2, int i) {
+    public void onMessage(Context context, String str, String str2, int i2) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
@@ -61,14 +61,14 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     str4 = jSONObject3.getString("task_id");
                 }
             }
-            int d2 = d.b.c.e.m.b.d(str4, 2500);
+            int d2 = d.a.c.e.m.b.d(str4, 2500);
             if (d2 < 2500) {
                 d2 += 2500;
             }
-            int i2 = d2;
+            int i3 = d2;
             Intent parseUri = Intent.parseUri(str3, 1);
             parseUri.setFlags(276824064);
-            NotificationHelper.showNotification(context, i2, string, string2, string2, PendingIntent.getActivity(context, i2, parseUri, 134217728), false);
+            NotificationHelper.showNotification(context, i3, string, string2, string2, PendingIntent.getActivity(context, i3, parseUri, 134217728), false);
         } catch (Exception unused) {
         }
     }
@@ -102,10 +102,10 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onSetTags(Context context, int i, List<String> list, List<String> list2, String str) {
+    public void onSetTags(Context context, int i2, List<String> list, List<String> list2, String str) {
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onUnbind(Context context, int i, String str) {
+    public void onUnbind(Context context, int i2, String str) {
     }
 }

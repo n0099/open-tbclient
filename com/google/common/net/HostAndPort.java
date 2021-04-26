@@ -1,8 +1,9 @@
 package com.google.common.net;
 
-import d.h.c.a.k;
-import d.h.c.a.n;
-import d.h.c.a.q;
+import com.google.android.material.badge.BadgeDrawable;
+import d.g.c.a.k;
+import d.g.c.a.n;
+import d.g.c.a.q;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public final class HostAndPort implements Serializable {
@@ -12,9 +13,9 @@ public final class HostAndPort implements Serializable {
     public final String host;
     public final int port;
 
-    public HostAndPort(String str, int i, boolean z) {
+    public HostAndPort(String str, int i2, boolean z) {
         this.host = str;
-        this.port = i;
+        this.port = i2;
         this.hasBracketlessColons = z;
     }
 
@@ -24,18 +25,18 @@ public final class HostAndPort implements Serializable {
         return fromString;
     }
 
-    public static HostAndPort fromParts(String str, int i) {
-        n.f(isValidPort(i), "Port out of range: %s", i);
+    public static HostAndPort fromParts(String str, int i2) {
+        n.f(isValidPort(i2), "Port out of range: %s", i2);
         HostAndPort fromString = fromString(str);
         n.k(!fromString.hasPort(), "Host has a port: %s", str);
-        return new HostAndPort(fromString.host, i, fromString.hasBracketlessColons);
+        return new HostAndPort(fromString.host, i2, fromString.hasBracketlessColons);
     }
 
     public static HostAndPort fromString(String str) {
         String str2;
         String str3;
         n.p(str);
-        int i = -1;
+        int i2 = -1;
         if (str.startsWith("[")) {
             String[] hostAndPortFromBracketedHost = getHostAndPortFromBracketedHost(str);
             str3 = hostAndPortFromBracketedHost[0];
@@ -43,10 +44,10 @@ public final class HostAndPort implements Serializable {
         } else {
             int indexOf = str.indexOf(58);
             if (indexOf >= 0) {
-                int i2 = indexOf + 1;
-                if (str.indexOf(58, i2) == -1) {
+                int i3 = indexOf + 1;
+                if (str.indexOf(58, i3) == -1) {
                     str3 = str.substring(0, indexOf);
-                    str2 = str.substring(i2);
+                    str2 = str.substring(i3);
                 }
             }
             r3 = indexOf >= 0;
@@ -54,15 +55,15 @@ public final class HostAndPort implements Serializable {
             str3 = str;
         }
         if (!q.a(str2)) {
-            n.k(!str2.startsWith("+"), "Unparseable port number: %s", str);
+            n.k(!str2.startsWith(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX), "Unparseable port number: %s", str);
             try {
-                i = Integer.parseInt(str2);
-                n.k(isValidPort(i), "Port number out of range: %s", str);
+                i2 = Integer.parseInt(str2);
+                n.k(isValidPort(i2), "Port number out of range: %s", str);
             } catch (NumberFormatException unused) {
                 throw new IllegalArgumentException("Unparseable port number: " + str);
             }
         }
-        return new HostAndPort(str3, i, r3);
+        return new HostAndPort(str3, i2, r3);
     }
 
     public static String[] getHostAndPortFromBracketedHost(String str) {
@@ -71,20 +72,20 @@ public final class HostAndPort implements Serializable {
         int lastIndexOf = str.lastIndexOf(93);
         n.k(indexOf > -1 && lastIndexOf > indexOf, "Invalid bracketed host/port: %s", str);
         String substring = str.substring(1, lastIndexOf);
-        int i = lastIndexOf + 1;
-        if (i == str.length()) {
+        int i2 = lastIndexOf + 1;
+        if (i2 == str.length()) {
             return new String[]{substring, ""};
         }
-        n.k(str.charAt(i) == ':', "Only a colon may follow a close bracket: %s", str);
-        int i2 = lastIndexOf + 2;
-        for (int i3 = i2; i3 < str.length(); i3++) {
-            n.k(Character.isDigit(str.charAt(i3)), "Port must be numeric: %s", str);
+        n.k(str.charAt(i2) == ':', "Only a colon may follow a close bracket: %s", str);
+        int i3 = lastIndexOf + 2;
+        for (int i4 = i3; i4 < str.length(); i4++) {
+            n.k(Character.isDigit(str.charAt(i4)), "Port must be numeric: %s", str);
         }
-        return new String[]{substring, str.substring(i2)};
+        return new String[]{substring, str.substring(i3)};
     }
 
-    public static boolean isValidPort(int i) {
-        return i >= 0 && i <= 65535;
+    public static boolean isValidPort(int i2) {
+        return i2 >= 0 && i2 <= 65535;
     }
 
     public boolean equals(Object obj) {
@@ -107,8 +108,8 @@ public final class HostAndPort implements Serializable {
         return this.port;
     }
 
-    public int getPortOrDefault(int i) {
-        return hasPort() ? this.port : i;
+    public int getPortOrDefault(int i2) {
+        return hasPort() ? this.port : i2;
     }
 
     public boolean hasPort() {
@@ -140,8 +141,8 @@ public final class HostAndPort implements Serializable {
         return sb.toString();
     }
 
-    public HostAndPort withDefaultPort(int i) {
-        n.d(isValidPort(i));
-        return hasPort() ? this : new HostAndPort(this.host, i, this.hasBracketlessColons);
+    public HostAndPort withDefaultPort(int i2) {
+        n.d(isValidPort(i2));
+        return hasPort() ? this : new HostAndPort(this.host, i2, this.hasBracketlessColons);
     }
 }

@@ -25,8 +25,8 @@ public class AnimationSet extends Animation {
         this.bdAnimation.a(animationListener);
     }
 
-    public void setAnimatorSetMode(int i) {
-        this.bdAnimation.c(i);
+    public void setAnimatorSetMode(int i2) {
+        this.bdAnimation.c(i2);
     }
 
     @Override // com.baidu.mapapi.animation.Animation

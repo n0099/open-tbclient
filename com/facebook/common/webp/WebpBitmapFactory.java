@@ -5,15 +5,15 @@ import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import java.io.FileDescriptor;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface WebpBitmapFactory {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface WebpErrorLogger {
         void onWebpErrorLog(String str, String str2);
     }
 
-    Bitmap decodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options);
+    Bitmap decodeByteArray(byte[] bArr, int i2, int i3, BitmapFactory.Options options);
 
     Bitmap decodeFile(String str, BitmapFactory.Options options);
 

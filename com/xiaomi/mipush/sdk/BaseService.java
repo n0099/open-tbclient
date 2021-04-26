@@ -10,16 +10,16 @@ import java.lang.ref.WeakReference;
 public abstract class BaseService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f40520a;
+    public a f38035a;
 
     /* loaded from: classes7.dex */
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<BaseService> f40521a;
+        public WeakReference<BaseService> f38036a;
 
         public a(WeakReference<BaseService> weakReference) {
-            this.f40521a = weakReference;
+            this.f38036a = weakReference;
         }
 
         public void a() {
@@ -33,11 +33,11 @@ public abstract class BaseService extends Service {
         public void handleMessage(Message message) {
             WeakReference<BaseService> weakReference;
             BaseService baseService;
-            if (message.what != 1001 || (weakReference = this.f40521a) == null || (baseService = weakReference.get()) == null) {
+            if (message.what != 1001 || (weakReference = this.f38036a) == null || (baseService = weakReference.get()) == null) {
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler" + baseService.toString() + "  kill self");
-            if (!baseService.mo74a()) {
+            if (!baseService.mo77a()) {
                 baseService.stopSelf();
                 return;
             }
@@ -47,7 +47,7 @@ public abstract class BaseService extends Service {
     }
 
     /* renamed from: a */
-    public abstract boolean mo74a();
+    public abstract boolean mo77a();
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -55,11 +55,11 @@ public abstract class BaseService extends Service {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
-        super.onStart(intent, i);
-        if (this.f40520a == null) {
-            this.f40520a = new a(new WeakReference(this));
+    public void onStart(Intent intent, int i2) {
+        super.onStart(intent, i2);
+        if (this.f38035a == null) {
+            this.f38035a = new a(new WeakReference(this));
         }
-        this.f40520a.a();
+        this.f38035a.a();
     }
 }

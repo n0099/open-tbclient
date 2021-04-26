@@ -12,7 +12,7 @@ public interface WebViewRequestCallback {
 
     void onPageStartedCallBack(WebView webView, String str, Bitmap bitmap);
 
-    void onReceivedErrorCallBack(WebView webView, int i, String str, String str2);
+    void onReceivedErrorCallBack(WebView webView, int i2, String str, String str2);
 
     void onReceivedSslErrorCallBack(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError);
 

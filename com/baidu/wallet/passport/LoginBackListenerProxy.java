@@ -28,15 +28,15 @@ public class LoginBackListenerProxy implements ILoginBackListener, NoProguard {
     }
 
     @Override // com.baidu.wallet.api.ILoginBackListener
-    public void onFail(int i, String str) {
+    public void onFail(int i2, String str) {
         ILoginBackListener iLoginBackListener = this.loginBackListener;
         if (iLoginBackListener != null) {
-            iLoginBackListener.onFail(i, str);
+            iLoginBackListener.onFail(i2, str);
         }
     }
 
     @Override // com.baidu.wallet.api.ILoginBackListener
-    public void onSuccess(int i, String str) {
+    public void onSuccess(int i2, String str) {
         if (this.loginBackListener != null) {
             WalletLoginHelper.getInstance().getOpenBduss(true, this);
         }

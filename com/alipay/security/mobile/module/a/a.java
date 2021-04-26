@@ -36,8 +36,8 @@ public final class a {
     public static boolean a(String str) {
         int length;
         if (str != null && (length = str.length()) != 0) {
-            for (int i = 0; i < length; i++) {
-                if (!Character.isWhitespace(str.charAt(i))) {
+            for (int i2 = 0; i2 < length; i2++) {
+                if (!Character.isWhitespace(str.charAt(i2))) {
                     return false;
                 }
             }
@@ -84,8 +84,8 @@ public final class a {
             messageDigest.update(str.getBytes("UTF-8"));
             byte[] digest = messageDigest.digest();
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < digest.length; i++) {
-                sb.append(String.format("%02x", Byte.valueOf(digest[i])));
+            for (int i2 = 0; i2 < digest.length; i2++) {
+                sb.append(String.format("%02x", Byte.valueOf(digest[i2])));
             }
             return sb.toString();
         } catch (Exception unused) {

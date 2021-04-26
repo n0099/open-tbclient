@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.animated.base;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import com.facebook.common.references.CloseableReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public abstract class DelegatingAnimatedDrawableBackend implements AnimatedDrawableBackend {
     public final AnimatedDrawableBackend mAnimatedDrawableBackend;
 
@@ -31,8 +31,8 @@ public abstract class DelegatingAnimatedDrawableBackend implements AnimatedDrawa
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getDurationMsForFrame(int i) {
-        return this.mAnimatedDrawableBackend.getDurationMsForFrame(i);
+    public int getDurationMsForFrame(int i2) {
+        return this.mAnimatedDrawableBackend.getDurationMsForFrame(i2);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -46,13 +46,13 @@ public abstract class DelegatingAnimatedDrawableBackend implements AnimatedDrawa
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getFrameForTimestampMs(int i) {
-        return this.mAnimatedDrawableBackend.getFrameForTimestampMs(i);
+    public int getFrameForTimestampMs(int i2) {
+        return this.mAnimatedDrawableBackend.getFrameForTimestampMs(i2);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public AnimatedDrawableFrameInfo getFrameInfo(int i) {
-        return this.mAnimatedDrawableBackend.getFrameInfo(i);
+    public AnimatedDrawableFrameInfo getFrameInfo(int i2) {
+        return this.mAnimatedDrawableBackend.getFrameInfo(i2);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -71,8 +71,8 @@ public abstract class DelegatingAnimatedDrawableBackend implements AnimatedDrawa
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public CloseableReference<Bitmap> getPreDecodedFrame(int i) {
-        return this.mAnimatedDrawableBackend.getPreDecodedFrame(i);
+    public CloseableReference<Bitmap> getPreDecodedFrame(int i2) {
+        return this.mAnimatedDrawableBackend.getPreDecodedFrame(i2);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -86,8 +86,8 @@ public abstract class DelegatingAnimatedDrawableBackend implements AnimatedDrawa
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getTimestampMsForFrame(int i) {
-        return this.mAnimatedDrawableBackend.getTimestampMsForFrame(i);
+    public int getTimestampMsForFrame(int i2) {
+        return this.mAnimatedDrawableBackend.getTimestampMsForFrame(i2);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -96,12 +96,12 @@ public abstract class DelegatingAnimatedDrawableBackend implements AnimatedDrawa
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public boolean hasPreDecodedFrame(int i) {
-        return this.mAnimatedDrawableBackend.hasPreDecodedFrame(i);
+    public boolean hasPreDecodedFrame(int i2) {
+        return this.mAnimatedDrawableBackend.hasPreDecodedFrame(i2);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public void renderFrame(int i, Canvas canvas) {
-        this.mAnimatedDrawableBackend.renderFrame(i, canvas);
+    public void renderFrame(int i2, Canvas canvas) {
+        this.mAnimatedDrawableBackend.renderFrame(i2, canvas);
     }
 }

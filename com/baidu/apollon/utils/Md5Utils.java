@@ -13,7 +13,7 @@ import org.apache.commons.base.CharEncoding;
 public final class Md5Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f4002a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    public static char[] f4057a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static synchronized String a(byte[] bArr) {
         String sb;
@@ -183,14 +183,14 @@ public final class Md5Utils {
 
     public static String a(byte[] bArr, Character ch) {
         StringBuffer stringBuffer = new StringBuffer(bArr.length * (ch == null ? 2 : 3));
-        for (int i = 0; i < bArr.length; i++) {
-            int i2 = (bArr[i] >>> 4) & 15;
-            int i3 = bArr[i] & 15;
-            if (i > 0 && ch != null) {
+        for (int i2 = 0; i2 < bArr.length; i2++) {
+            int i3 = (bArr[i2] >>> 4) & 15;
+            int i4 = bArr[i2] & 15;
+            if (i2 > 0 && ch != null) {
                 stringBuffer.append(ch.charValue());
             }
-            stringBuffer.append(f4002a[i2]);
-            stringBuffer.append(f4002a[i3]);
+            stringBuffer.append(f4057a[i3]);
+            stringBuffer.append(f4057a[i4]);
         }
         return stringBuffer.toString();
     }

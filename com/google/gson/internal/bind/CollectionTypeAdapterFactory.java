@@ -4,77 +4,74 @@ import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.internal.C$Gson$Types;
+import com.google.gson.internal.ConstructorConstructor;
+import com.google.gson.internal.ObjectConstructor;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
-import d.h.d.b.b;
-import d.h.d.b.e;
-import d.h.d.d.a;
+import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Collection;
 /* loaded from: classes6.dex */
 public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
-
-    /* renamed from: e  reason: collision with root package name */
-    public final b f31329e;
+    public final ConstructorConstructor constructorConstructor;
 
     /* loaded from: classes6.dex */
     public static final class Adapter<E> extends TypeAdapter<Collection<E>> {
+        public final ObjectConstructor<? extends Collection<E>> constructor;
+        public final TypeAdapter<E> elementTypeAdapter;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final TypeAdapter<E> f31330a;
+        public Adapter(Gson gson, Type type, TypeAdapter<E> typeAdapter, ObjectConstructor<? extends Collection<E>> objectConstructor) {
+            this.elementTypeAdapter = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
+            this.constructor = objectConstructor;
+        }
 
-        /* renamed from: b  reason: collision with root package name */
-        public final e<? extends Collection<E>> f31331b;
-
-        public Adapter(Gson gson, Type type, TypeAdapter<E> typeAdapter, e<? extends Collection<E>> eVar) {
-            this.f31330a = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
-            this.f31331b = eVar;
+        @Override // com.google.gson.TypeAdapter
+        public /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) throws IOException {
+            write(jsonWriter, (Collection) ((Collection) obj));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
-        /* renamed from: a */
-        public Collection<E> read(a aVar) throws IOException {
-            if (aVar.M() == JsonToken.NULL) {
-                aVar.I();
+        public Collection<E> read(JsonReader jsonReader) throws IOException {
+            if (jsonReader.peek() == JsonToken.NULL) {
+                jsonReader.nextNull();
                 return null;
             }
-            Collection<E> a2 = this.f31331b.a();
-            aVar.n();
-            while (aVar.y()) {
-                a2.add(this.f31330a.read(aVar));
+            Collection<E> construct = this.constructor.construct();
+            jsonReader.beginArray();
+            while (jsonReader.hasNext()) {
+                construct.add(this.elementTypeAdapter.read(jsonReader));
             }
-            aVar.t();
-            return a2;
+            jsonReader.endArray();
+            return construct;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.gson.TypeAdapter
-        /* renamed from: b */
-        public void write(d.h.d.d.b bVar, Collection<E> collection) throws IOException {
+        public void write(JsonWriter jsonWriter, Collection<E> collection) throws IOException {
             if (collection == null) {
-                bVar.B();
+                jsonWriter.nullValue();
                 return;
             }
-            bVar.q();
+            jsonWriter.beginArray();
             for (E e2 : collection) {
-                this.f31330a.write(bVar, e2);
+                this.elementTypeAdapter.write(jsonWriter, e2);
             }
-            bVar.t();
+            jsonWriter.endArray();
         }
     }
 
-    public CollectionTypeAdapterFactory(b bVar) {
-        this.f31329e = bVar;
+    public CollectionTypeAdapterFactory(ConstructorConstructor constructorConstructor) {
+        this.constructorConstructor = constructorConstructor;
     }
 
     @Override // com.google.gson.TypeAdapterFactory
-    public <T> TypeAdapter<T> create(Gson gson, d.h.d.c.a<T> aVar) {
-        Type e2 = aVar.e();
-        Class<? super T> c2 = aVar.c();
-        if (Collection.class.isAssignableFrom(c2)) {
-            Type h2 = C$Gson$Types.h(e2, c2);
-            return new Adapter(gson, h2, gson.getAdapter(d.h.d.c.a.b(h2)), this.f31329e.a(aVar));
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+        Type type = typeToken.getType();
+        Class<? super T> rawType = typeToken.getRawType();
+        if (Collection.class.isAssignableFrom(rawType)) {
+            Type collectionElementType = C$Gson$Types.getCollectionElementType(type, rawType);
+            return new Adapter(gson, collectionElementType, gson.getAdapter(TypeToken.get(collectionElementType)), this.constructorConstructor.get(typeToken));
         }
         return null;
     }

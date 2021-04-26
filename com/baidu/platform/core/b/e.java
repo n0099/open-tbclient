@@ -61,8 +61,8 @@ public class e extends com.baidu.platform.base.d {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
             if (optJSONObject != null) {
                 PoiInfo poiInfo = new PoiInfo();
                 poiInfo.setAddress(optJSONObject.optString(DuPaBInfoMsg.B_ADDR));
@@ -130,8 +130,8 @@ public class e extends com.baidu.platform.base.d {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
             if (optJSONObject != null) {
                 ReverseGeoCodeResult.PoiRegionsInfo poiRegionsInfo = new ReverseGeoCodeResult.PoiRegionsInfo();
                 poiRegionsInfo.setDirectionDesc(optJSONObject.optString("direction_desc"));

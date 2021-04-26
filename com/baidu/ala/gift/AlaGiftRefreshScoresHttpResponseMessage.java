@@ -14,11 +14,11 @@ public class AlaGiftRefreshScoresHttpResponseMessage extends JsonHttpResponsedMe
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        if (i != 1021019 || jSONObject == null) {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        if (i2 != 1021019 || jSONObject == null) {
             return;
         }
-        super.decodeLogicInBackGround(i, jSONObject);
+        super.decodeLogicInBackGround(i2, jSONObject);
         this.data = new AlaUserScoreData();
         String optString = jSONObject.optString("scores_total");
         String optString2 = jSONObject.optString("petal_total");

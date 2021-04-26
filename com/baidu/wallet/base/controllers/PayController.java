@@ -60,16 +60,16 @@ public final class PayController {
     public static final int SELECT_PAY_WAY_FROM_WELCOME_ACT = 100;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f23293a;
+    public a f24010a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IModifyPayTypeCallback f23294b;
+    public IModifyPayTypeCallback f24011b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayCallBack f23295c;
+    public PayCallBack f24012c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f23296d;
+    public Context f24013d;
 
     /* loaded from: classes5.dex */
     public static final class PayResultWrapper implements Serializable {
@@ -77,9 +77,9 @@ public final class PayController {
         public PayResultContent payResultContent;
         public int payResultType;
 
-        public PayResultWrapper(int i, int i2, PayResultContent payResultContent) {
-            this.payResult = i;
-            this.payResultType = i2;
+        public PayResultWrapper(int i2, int i3, PayResultContent payResultContent) {
+            this.payResult = i2;
+            this.payResultType = i3;
             this.payResultContent = payResultContent;
         }
     }
@@ -93,7 +93,7 @@ public final class PayController {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PayController f23297a = new PayController();
+        public static PayController f24014a = new PayController();
     }
 
     private void a(Context context, Bundle bundle, Class<?> cls) {
@@ -104,10 +104,10 @@ public final class PayController {
         context.startActivity(intent);
     }
 
-    private void b(BaseActivity baseActivity, int i, int i2, PayResultContent payResultContent) {
+    private void b(BaseActivity baseActivity, int i2, int i3, PayResultContent payResultContent) {
         H5ResultParams h5ResultParams;
         if (payResultContent != null) {
-            payResultContent.isPaySuccess = i == 0;
+            payResultContent.isPaySuccess = i2 == 0;
         }
         PayDataCache.getInstance().setPayReslutContent(payResultContent);
         if (payResultContent != null && payResultContent.isPaySuccess && (h5ResultParams = PayDataCache.getInstance().getH5ResultParams()) != null && h5ResultParams.toShowH5ResultPage()) {
@@ -117,13 +117,13 @@ public final class PayController {
             return;
         }
         Bundle bundle = new Bundle();
-        bundle.putInt(BeanConstants.KEY_PAY_RESULT_TYPE, i2);
+        bundle.putInt(BeanConstants.KEY_PAY_RESULT_TYPE, i3);
         baseActivity.startActivityWithExtras(bundle, WalletPayResultCommonActivity.class);
         PayBaseBeanActivity.exitEbpay();
     }
 
     public static PayController getInstance() {
-        return b.f23297a;
+        return b.f24014a;
     }
 
     public static BigDecimal priceToBigDecimal(String str) {
@@ -192,8 +192,8 @@ public final class PayController {
     }
 
     public void clearPreModifiedCallBack() {
-        if (this.f23294b != null) {
-            this.f23294b = null;
+        if (this.f24011b != null) {
+            this.f24011b = null;
         }
     }
 
@@ -212,7 +212,7 @@ public final class PayController {
     }
 
     public a getIConfirmPayCallback() {
-        return this.f23293a;
+        return this.f24010a;
     }
 
     public void gotoDiscountPage(BaseActivity baseActivity) {
@@ -268,39 +268,39 @@ public final class PayController {
     }
 
     public void onConfirmPay() {
-        a aVar = this.f23293a;
+        a aVar = this.f24010a;
         if (aVar != null) {
             aVar.a();
-            this.f23293a = null;
+            this.f24010a = null;
         }
     }
 
     public void onPreModifiedPayType(PrecashierModifyPayTypeDefaultData precashierModifyPayTypeDefaultData) {
-        IModifyPayTypeCallback iModifyPayTypeCallback = this.f23294b;
+        IModifyPayTypeCallback iModifyPayTypeCallback = this.f24011b;
         if (iModifyPayTypeCallback == null) {
             return;
         }
         iModifyPayTypeCallback.onPayTypeModified(precashierModifyPayTypeDefaultData);
-        this.f23294b = null;
+        this.f24011b = null;
     }
 
     public void onPrePayMethodSetted() {
-        IModifyPayTypeCallback iModifyPayTypeCallback = this.f23294b;
+        IModifyPayTypeCallback iModifyPayTypeCallback = this.f24011b;
         if (iModifyPayTypeCallback == null) {
             return;
         }
         iModifyPayTypeCallback.onPayTypeSetted();
-        this.f23294b = null;
+        this.f24011b = null;
     }
 
-    public void payPaying(BaseActivity baseActivity, PayResultContent payResultContent, int i) {
+    public void payPaying(BaseActivity baseActivity, PayResultContent payResultContent, int i2) {
         WalletGlobalUtils.safeDismissDialog(baseActivity, 0);
-        a(baseActivity, 1, i, payResultContent);
+        a(baseActivity, 1, i2, payResultContent);
     }
 
-    public void paySucess(BaseActivity baseActivity, PayResultContent payResultContent, int i) {
+    public void paySucess(BaseActivity baseActivity, PayResultContent payResultContent, int i2) {
         StatisticManager.onEventEnd(StatServiceEvent.TIME_PAY, 0);
-        a(baseActivity, 0, i, payResultContent);
+        a(baseActivity, 0, i2, payResultContent);
     }
 
     public void selectCompletCards(Context context, Intent intent) {
@@ -325,12 +325,12 @@ public final class PayController {
     }
 
     public void setMiniPayCallback(PayCallBack payCallBack, Context context) {
-        this.f23295c = payCallBack;
-        this.f23296d = context;
+        this.f24012c = payCallBack;
+        this.f24013d = context;
     }
 
     public void setModifyPayTypeCallback(IModifyPayTypeCallback iModifyPayTypeCallback) {
-        this.f23294b = iModifyPayTypeCallback;
+        this.f24011b = iModifyPayTypeCallback;
     }
 
     public void startPaySettingActivity(Context context, PaySettingActivity.a aVar) {
@@ -377,8 +377,8 @@ public final class PayController {
     }
 
     public PayController() {
-        this.f23295c = null;
-        this.f23296d = null;
+        this.f24012c = null;
+        this.f24013d = null;
     }
 
     private void a(BaseActivity baseActivity, Bundle bundle, Class<?> cls) {
@@ -389,7 +389,7 @@ public final class PayController {
         baseActivity.startActivityWithoutAnim(intent);
     }
 
-    private void a(BaseActivity baseActivity, int i, int i2, PayResultContent payResultContent) {
+    private void a(BaseActivity baseActivity, int i2, int i3, PayResultContent payResultContent) {
         PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
         boolean z = false;
         if ((payResultContent == null || !"0".equalsIgnoreCase(payResultContent.redirect_sp_succpage_remain_time)) && payRequest != null && payRequest.FP_Guide_Strategy > 0 && !payRequest.supportFingerprintPay) {
@@ -398,16 +398,16 @@ public final class PayController {
         if (z) {
             int intValue = ((Integer) SharedPreferencesUtils.getParam(baseActivity, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, "resultPageShowFpCounts", 3)).intValue();
             if (intValue <= 0) {
-                b(baseActivity, i, i2, payResultContent);
+                b(baseActivity, i2, i3, payResultContent);
                 return;
             }
             SharedPreferencesUtils.setParam(baseActivity, FpConstancts.SHAREPREFRENCE_FOR_FINGERPRINT, "resultPageShowFpCounts", Integer.valueOf(intValue - 1));
             Intent intent = new Intent(baseActivity, FingerprintOpenGuideActivity.class);
-            intent.putExtra("payresultwrapper", new PayResultWrapper(i, i2, payResultContent));
+            intent.putExtra("payresultwrapper", new PayResultWrapper(i2, i3, payResultContent));
             baseActivity.startActivity(intent);
             return;
         }
-        b(baseActivity, i, i2, payResultContent);
+        b(baseActivity, i2, i3, payResultContent);
     }
 
     public void completeCardPay(Context context, CardData.BondCard bondCard, GetCardInfoResponse getCardInfoResponse) {

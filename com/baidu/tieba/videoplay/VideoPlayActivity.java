@@ -23,8 +23,8 @@ import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.VideoPlayModel;
 import com.baidu.tieba.videoplay.VideoPlayView;
-import d.b.c.e.p.l;
-import d.b.j0.q3.g;
+import d.a.c.e.p.l;
+import d.a.j0.q3.g;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
@@ -50,8 +50,8 @@ public class VideoPlayActivity extends BaseFragmentActivity {
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,7 +61,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 return;
             }
             g gVar = (g) customResponsedMessage.getData();
-            List<VideoItemData> list = gVar.f61002a;
+            List<VideoItemData> list = gVar.f59133a;
             if (!ListUtils.isEmpty(list)) {
                 if (VideoPlayActivity.this.mVideoDataList == null) {
                     VideoPlayActivity.this.mVideoDataList = new ArrayList();
@@ -70,9 +70,9 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 VideoPlayActivity.this.mVideoDataList.addAll(list);
             }
             if (VideoPlayActivity.this.mVideoPlayView != null) {
-                VideoPlayActivity.this.mVideoPlayView.y();
+                VideoPlayActivity.this.mVideoPlayView.x();
             }
-            VideoPlayActivity.this.mHasMore = gVar.f61003b;
+            VideoPlayActivity.this.mHasMore = gVar.f59134b;
         }
     }
 
@@ -113,7 +113,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             }
             VideoPlayActivity.this.mVideoDataList.addAll(list);
             if (VideoPlayActivity.this.mVideoPlayView != null) {
-                VideoPlayActivity.this.mVideoPlayView.y();
+                VideoPlayActivity.this.mVideoPlayView.x();
             }
         }
 
@@ -128,7 +128,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             VideoPlayActivity.this.mVideoDataList.clear();
             VideoPlayActivity.this.mVideoDataList.addAll(list);
             if (VideoPlayActivity.this.mVideoPlayView != null) {
-                VideoPlayActivity.this.mVideoPlayView.y();
+                VideoPlayActivity.this.mVideoPlayView.x();
             }
         }
     }
@@ -162,7 +162,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             arrayList.addAll(VideoPlayActivityConfig.bigDataList);
         }
         if (ListUtils.isEmpty(this.mVideoDataList)) {
-            l.K(this, R.string.net_error);
+            l.L(this, R.string.net_error);
             finish();
         } else if (VideoPlayActivityConfig.FROM_NANI_VIDEO.equals(this.mFrom)) {
             VideoPlayModel videoPlayModel = new VideoPlayModel(this);
@@ -180,10 +180,10 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     private void showData() {
         VideoPlayView videoPlayView = new VideoPlayView(this, this.mFromPage);
         this.mVideoPlayView = videoPlayView;
-        videoPlayView.L(new b());
-        this.mVideoPlayView.P(this.mVideoDataList, this.mVideoIndex, this.mRect);
-        this.mVideoPlayView.M(this.mFrom);
-        this.mVideoPlayView.K(this.mObjId);
+        videoPlayView.K(new b());
+        this.mVideoPlayView.N(this.mVideoDataList, this.mVideoIndex, this.mRect);
+        this.mVideoPlayView.L(this.mFrom);
+        this.mVideoPlayView.J(this.mObjId);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -210,27 +210,27 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         if (videoItemData == null || TextUtils.isEmpty(videoItemData.thread_id)) {
             return 0L;
         }
-        return d.b.c.e.m.b.f(videoItemData.thread_id, 0L);
+        return d.a.c.e.m.b.f(videoItemData.thread_id, 0L);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
         VideoPlayView videoPlayView = this.mVideoPlayView;
         if (videoPlayView != null) {
-            videoPlayView.q(i, i2, intent);
+            videoPlayView.q(i2, i3, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i2) {
         VideoPlayView videoPlayView = this.mVideoPlayView;
         if (videoPlayView != null) {
-            videoPlayView.z(i);
+            videoPlayView.y(i2);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         if (TbSingleton.getInstance().isNotchScreen(this) || TbSingleton.getInstance().isCutoutScreen(this)) {
             setUseStyleImmersiveSticky(false);
@@ -251,7 +251,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         super.onDestroy();
         VideoPlayView videoPlayView = this.mVideoPlayView;
         if (videoPlayView != null) {
-            videoPlayView.A();
+            videoPlayView.z();
         }
         String str = TextUtils.isEmpty(this.mNid) ? "0" : "1";
         long currentTimeMillis = System.currentTimeMillis() - this.mStartTime;
@@ -278,15 +278,15 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         VideoItemData videoItemData;
-        if (i == 4) {
+        if (i2 == 4) {
             VideoPlayView videoPlayView = this.mVideoPlayView;
             if (videoPlayView == null || !videoPlayView.r()) {
                 VideoPlayView videoPlayView2 = this.mVideoPlayView;
-                int i2 = videoPlayView2.i;
-                int i3 = videoPlayView2.f21689h;
-                if (i2 != i3 && i3 >= 0 && i3 < this.mVideoDataList.size() && (videoItemData = this.mVideoDataList.get(this.mVideoPlayView.f21689h)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
+                int i3 = videoPlayView2.f22333i;
+                int i4 = videoPlayView2.f22332h;
+                if (i3 != i4 && i4 >= 0 && i4 < this.mVideoDataList.size() && (videoItemData = this.mVideoDataList.get(this.mVideoPlayView.f22332h)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921321, videoItemData.thread_id));
                 }
                 finish();
@@ -294,7 +294,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             }
             return false;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -311,14 +311,14 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         super.onPause();
         VideoPlayView videoPlayView = this.mVideoPlayView;
         if (videoPlayView != null) {
-            videoPlayView.B();
+            videoPlayView.A();
         }
-        d.b.i0.a.c.y().E();
+        d.a.i0.a.c.y().E();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.b.i0.a.c.y().P(d.b.i0.a.b.Z, getMissionTid());
+        d.a.i0.a.c.y().P(d.a.i0.a.b.Z, getMissionTid());
     }
 }

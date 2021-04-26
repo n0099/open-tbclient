@@ -11,19 +11,19 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.i0.r.f0.m.b;
+import d.a.c.e.p.l;
+import d.a.i0.r.f0.m.b;
 /* loaded from: classes3.dex */
 public class LocationInfoView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f13526e;
+    public TBSpecificationBtn f13515e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f13527f;
+    public a f13516f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13528g;
+    public int f13517g;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -46,29 +46,29 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
         bVar.m(l.g(getContext(), R.dimen.M_H_X002));
         bVar.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
         TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
-        this.f13526e = tBSpecificationBtn;
+        this.f13515e = tBSpecificationBtn;
         tBSpecificationBtn.setConfig(bVar);
-        this.f13526e.setTextSize(R.dimen.T_X09);
-        this.f13526e.setOnClickListener(this);
-        this.f13526e.setText(getContext().getString(R.string.location_where_are_you));
-        addView(this.f13526e, new LinearLayout.LayoutParams(-2, l.g(getContext(), R.dimen.tbds62)));
+        this.f13515e.setTextSize(R.dimen.T_X09);
+        this.f13515e.setOnClickListener(this);
+        this.f13515e.setText(getContext().getString(R.string.location_where_are_you));
+        addView(this.f13515e, new LinearLayout.LayoutParams(-2, l.g(getContext(), R.dimen.tbds62)));
         b(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void b(int i) {
-        if (this.f13528g != i) {
-            this.f13526e.k();
-            this.f13528g = i;
+    public void b(int i2) {
+        if (this.f13517g != i2) {
+            this.f13515e.k();
+            this.f13517g = i2;
         }
     }
 
     public TBSpecificationBtn getLocationBtn() {
-        return this.f13526e;
+        return this.f13515e;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        a aVar = this.f13527f;
+        a aVar = this.f13516f;
         if (aVar == null) {
             return;
         }
@@ -76,27 +76,27 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
     }
 
     public void setLocationClickListener(a aVar) {
-        this.f13527f = aVar;
+        this.f13516f = aVar;
     }
 
-    public void setState(int i, String str) {
+    public void setState(int i2, String str) {
         if (!StringUtils.isNull(str)) {
             if (str.contains("·")) {
                 int indexOf = str.indexOf("·");
                 str = str.substring(0, indexOf) + str.substring(indexOf + 1, str.length());
             }
-            this.f13526e.setText(StringHelper.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
-        } else if (i == 1) {
-            this.f13526e.setText(getContext().getString(R.string.location_loading));
+            this.f13515e.setText(StringHelper.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
+        } else if (i2 == 1) {
+            this.f13515e.setText(getContext().getString(R.string.location_loading));
         } else {
-            this.f13526e.setText(getContext().getString(R.string.location_where_are_you));
+            this.f13515e.setText(getContext().getString(R.string.location_where_are_you));
         }
-        this.f13526e.f13270e = Integer.valueOf(i);
+        this.f13515e.f13229e = Integer.valueOf(i2);
     }
 
     public LocationInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13528g = 3;
+        this.f13517g = 3;
         a();
     }
 }

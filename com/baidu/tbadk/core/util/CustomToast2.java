@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.widget.Toast;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class CustomToast2 {
     public static Toast mToast;
@@ -17,7 +17,7 @@ public class CustomToast2 {
         }
     };
 
-    public static void showToast(Context context, String str, int i) {
+    public static void showToast(Context context, String str, int i2) {
         if (str == null || str.length() <= 0) {
             return;
         }
@@ -32,7 +32,7 @@ public class CustomToast2 {
             mToast = Toast.makeText(TbadkCoreApplication.getInst(), str, 0);
             mToast.setGravity(17, 0, l.e(context, 100.0f));
         }
-        mHandler.postDelayed(r, i);
+        mHandler.postDelayed(r, i2);
         mToast.show();
     }
 
@@ -40,11 +40,11 @@ public class CustomToast2 {
         showToast(context, str, 2000);
     }
 
-    public static void showToast(Context context, int i) {
-        showToast(context, context.getResources().getString(i));
+    public static void showToast(Context context, int i2) {
+        showToast(context, context.getResources().getString(i2));
     }
 
-    public static void showToast(Context context, int i, int i2) {
-        showToast(context, context.getResources().getString(i), i2);
+    public static void showToast(Context context, int i2, int i3) {
+        showToast(context, context.getResources().getString(i2), i3);
     }
 }

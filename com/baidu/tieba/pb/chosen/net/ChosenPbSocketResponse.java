@@ -3,8 +3,8 @@ package com.baidu.tieba.pb.chosen.net;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.pb.chosen.PbChosenActivity;
 import com.squareup.wire.Wire;
-import d.b.c.e.d.l;
-import d.b.j0.d2.g.c.a;
+import d.a.c.e.d.l;
+import d.a.j0.d2.g.c.a;
 import java.util.List;
 import tbclient.Error;
 import tbclient.ExcPbPage.DataRes;
@@ -25,37 +25,37 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements a 
         super(309093);
     }
 
-    @Override // d.b.j0.d2.g.c.a
+    @Override // d.a.j0.d2.g.c.a
     public int getErroCode() {
         return getError();
     }
 
-    @Override // d.b.j0.d2.g.c.a
+    @Override // d.a.j0.d2.g.c.a
     public String getErrorText() {
         return getErrorString();
     }
 
-    @Override // d.b.j0.d2.g.c.a
+    @Override // d.a.j0.d2.g.c.a
     public List<Post> getPostList() {
         return this.postList;
     }
 
-    @Override // d.b.j0.d2.g.c.a
+    @Override // d.a.j0.d2.g.c.a
     public ExcellentPbThreadInfo getThreadInfo() {
         return this.threadInfo;
     }
 
-    @Override // d.b.j0.d2.g.c.a
+    @Override // d.a.j0.d2.g.c.a
     public UserInfo getUserInfo() {
         return this.userInfo;
     }
 
-    @Override // d.b.j0.d2.g.c.a
+    @Override // d.a.j0.d2.g.c.a
     public List<User> getUserList() {
         return this.userList;
     }
 
-    @Override // d.b.j0.d2.g.c.a
+    @Override // d.a.j0.d2.g.c.a
     public boolean isEmpty() {
         List<ExcContent> list;
         ExcellentPbThreadInfo excellentPbThreadInfo = this.threadInfo;
@@ -64,19 +64,19 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements a 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        super.afterDispatchInBackGround(i, (int) bArr);
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+        super.afterDispatchInBackGround(i2, (int) bArr);
         if (bArr == null || bArr.length <= 0) {
             return;
         }
-        l<byte[]> d2 = d.b.i0.r.r.a.f().d("tb.pb_normal");
+        l<byte[]> d2 = d.a.i0.r.r.a.f().d("tb.pb_normal");
         d2.remove(PbChosenActivity.CHOSEN_PB_TABLE_NAME);
         d2.g(PbChosenActivity.CHOSEN_PB_TABLE_NAME, bArr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         ExcPbPageResIdl excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
         if (excPbPageResIdl == null) {
             return;

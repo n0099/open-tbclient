@@ -148,7 +148,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                         jsonWriter.name("stacktrace").value(logBasicData);
                     }
                     if (logObject.mLogType == LogType.NATIVE_CRASH && list != null && list.size() > 0) {
-                        int i = 0;
+                        int i2 = 0;
                         File file = null;
                         File file2 = null;
                         for (LogFile logFile : list) {
@@ -158,9 +158,9 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                                 } else if (logFile.mFile.getName().startsWith(CrashUtil.CrashpadConstant.JSON_EXTRA)) {
                                     file2 = logFile.mFile;
                                 }
-                                i++;
+                                i2++;
                             }
-                            if (i == 2) {
+                            if (i2 == 2) {
                                 break;
                             }
                         }
@@ -244,11 +244,11 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             RandomAccessFile randomAccessFile;
             File file = new File(LogPipelineSingleton.obtainFileDirWithProcessName(str), SnapshotConstant.ProcessConstants.PROC_UI_TRACE);
             if (file.exists()) {
-                int i = 0;
+                int i2 = 0;
                 RandomAccessFile randomAccessFile2 = null;
                 try {
                     try {
-                        randomAccessFile = new RandomAccessFile(file, r.f7699a);
+                        randomAccessFile = new RandomAccessFile(file, r.f7975a);
                     } catch (IOException e2) {
                         e = e2;
                     }
@@ -272,8 +272,8 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                                     jsonWriter.name("event").value(parse[3]);
                                     jsonWriter.endObject();
                                 }
-                                i++;
-                                if (i == 20) {
+                                i2++;
+                                if (i2 == 20) {
                                     break;
                                 }
                             }
@@ -607,14 +607,14 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
             try {
                 byte[] bArr = new byte[1024];
                 int round = Math.round(76800.0f);
-                int i = 0;
+                int i2 = 0;
                 while (true) {
                     int read = fileInputStream.read(bArr);
-                    if (read == -1 || i >= round) {
+                    if (read == -1 || i2 >= round) {
                         break;
                     }
                     byteArrayOutputStream.write(bArr, 0, read);
-                    i += read;
+                    i2 += read;
                 }
                 byteArrayOutputStream.flush();
                 String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 11);
@@ -670,11 +670,11 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
         public int compareTo(@NonNull FileEntity fileEntity) {
-            int i = ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) > 0L ? 1 : ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) == 0L ? 0 : -1));
-            if (i > 0) {
+            int i2 = ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) > 0L ? 1 : ((this.mFileName.mTimestamp.longValue() - fileEntity.mFileName.mTimestamp.longValue()) == 0L ? 0 : -1));
+            if (i2 > 0) {
                 return -1;
             }
-            return i < 0 ? 1 : 0;
+            return i2 < 0 ? 1 : 0;
         }
     }
 
@@ -723,8 +723,8 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         public long mLifeTime;
         public int mMaxCount;
 
-        public TrimConfig(int i, long j) {
-            this.mMaxCount = i;
+        public TrimConfig(int i2, long j) {
+            this.mMaxCount = i2;
             this.mLifeTime = j;
         }
     }
@@ -746,22 +746,22 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     /* JADX INFO: Access modifiers changed from: private */
     public void cleanDiskCache(Type type) {
         File[] listFiles;
-        int i;
-        int i2 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
-        if (i2 == 1) {
+        int i2;
+        int i3 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
+        if (i3 == 1) {
             listFiles = StoreUtil.getContentDir().listFiles();
-            i = 500;
-        } else if (i2 != 2) {
+            i2 = 500;
+        } else if (i3 != 2) {
             listFiles = null;
-            i = 0;
+            i2 = 0;
         } else {
             listFiles = StoreUtil.getAttachDir().listFiles();
-            i = 100;
+            i2 = 100;
         }
         if (listFiles == null || listFiles.length == 0) {
             return;
         }
-        Pair<LinkedList<FileEntity>, LinkedList<File>> fileCluster = fileCluster(listFiles, new TrimConfig(i, 2592000000L));
+        Pair<LinkedList<FileEntity>, LinkedList<File>> fileCluster = fileCluster(listFiles, new TrimConfig(i2, 2592000000L));
         if (((LinkedList) fileCluster.second).size() > 0) {
             Iterator it = ((LinkedList) fileCluster.second).iterator();
             while (it.hasNext()) {
@@ -810,11 +810,11 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                 linkedList.addAll(list);
             }
             if (list2 != null && list2.size() > 0) {
-                int i = 0;
+                int i2 = 0;
                 for (LogFile logFile : list2) {
                     if (logFile != null && (logFile.mFile.getName().startsWith(CrashUtil.CrashpadConstant.FULL_BDMP_PERFIX) || logFile.mFile.getName().startsWith(CrashUtil.CrashpadConstant.TXT_EXTRA))) {
                         linkedList.add(logFile);
-                        i++;
+                        i2++;
                     }
                 }
             }
@@ -869,25 +869,25 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean doUpload(Type type, int i) {
+    public boolean doUpload(Type type, int i2) {
         File[] listFiles;
-        int i2;
         int i3;
-        int i4 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
-        if (i4 == 1) {
+        int i4;
+        int i5 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
+        if (i5 == 1) {
             listFiles = StoreUtil.getContentDir().listFiles();
-            i2 = 500;
-        } else if (i4 != 2) {
+            i3 = 500;
+        } else if (i5 != 2) {
             listFiles = null;
-            i2 = 0;
+            i3 = 0;
         } else {
             listFiles = StoreUtil.getAttachDir().listFiles();
-            i2 = 100;
+            i3 = 100;
         }
         if (listFiles == null || listFiles.length == 0) {
             return false;
         }
-        Pair<LinkedList<FileEntity>, LinkedList<File>> fileCluster = fileCluster(listFiles, new TrimConfig(i2, 2592000000L));
+        Pair<LinkedList<FileEntity>, LinkedList<File>> fileCluster = fileCluster(listFiles, new TrimConfig(i3, 2592000000L));
         if (((LinkedList) fileCluster.second).size() > 0) {
             Iterator it = ((LinkedList) fileCluster.second).iterator();
             while (it.hasNext()) {
@@ -902,11 +902,11 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
         if (((LinkedList) fileCluster.first).size() > 0) {
             Iterator it2 = ((LinkedList) fileCluster.first).iterator();
-            i3 = 0;
-            while (it2.hasNext() && i3 < i) {
+            i4 = 0;
+            while (it2.hasNext() && i4 < i2) {
                 FileEntity fileEntity = (FileEntity) it2.next();
                 if (fileEntity != null) {
-                    i3++;
+                    i4++;
                     ResponseEntity uploadAction = uploadAction(type, fileEntity);
                     if (uploadAction == null || !uploadAction.isSuccess()) {
                         break;
@@ -915,9 +915,9 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
                 }
             }
         } else {
-            i3 = 0;
+            i4 = 0;
         }
-        return i3 == i;
+        return i4 == i2;
     }
 
     @NonNull
@@ -925,7 +925,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         LinkedList linkedList = new LinkedList();
         LinkedList linkedList2 = new LinkedList();
         long currentTimeMillis = System.currentTimeMillis();
-        int i = 0;
+        int i2 = 0;
         for (File file : fileArr) {
             if (file != null && file.exists()) {
                 FileEntity fileEntity = FileEntity.getFileEntity(file);
@@ -944,9 +944,9 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         if (linkedList.size() > trimConfig.mMaxCount) {
             Iterator it = linkedList.iterator();
             while (it.hasNext()) {
-                i++;
+                i2++;
                 FileEntity fileEntity2 = (FileEntity) it.next();
-                if (i > trimConfig.mMaxCount) {
+                if (i2 > trimConfig.mMaxCount) {
                     linkedList2.add(fileEntity2.mFile);
                     it.remove();
                     if (DEBUG) {
@@ -961,13 +961,13 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     /* JADX INFO: Access modifiers changed from: private */
     public void updateFileFlag(Type type) {
         File contentDir;
-        int i = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
+        int i2 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
         boolean z = true;
         File file = null;
-        if (i == 1) {
+        if (i2 == 1) {
             file = StoreUtil.getContentFlag();
             contentDir = StoreUtil.getContentDir();
-        } else if (i != 2) {
+        } else if (i2 != 2) {
             contentDir = null;
         } else {
             file = StoreUtil.getAttachFlag();
@@ -996,9 +996,9 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     @NonNull
     private ResponseEntity uploadAction(@NonNull Type type, @NonNull FileEntity fileEntity) {
         if (type != null && fileEntity != null) {
-            int i = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
-            if (i != 1) {
-                if (i == 2) {
+            int i2 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
+            if (i2 != 1) {
+                if (i2 == 2) {
                     return uploadAttachmentSync(fileEntity.mFileName.mFileID, fileEntity.mFile);
                 }
                 return new ResponseEntity(false);
@@ -1033,25 +1033,25 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         return this.mAttachmentExecutor.getQueue().size() == 0 && this.mAttachmentExecutor.getActiveCount() == 0 && this.mContentExecutor.getQueue().size() == 0 && this.mContentExecutor.getActiveCount() == 0;
     }
 
-    public void reUpload(final Type type, final int i) {
-        if (i <= 0) {
+    public void reUpload(final Type type, final int i2) {
+        if (i2 <= 0) {
             return;
         }
         ThreadPoolExecutor threadPoolExecutor = null;
-        int i2 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
-        if (i2 == 1) {
+        int i3 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type[type.ordinal()];
+        if (i3 == 1) {
             threadPoolExecutor = this.mContentExecutor;
-        } else if (i2 == 2) {
+        } else if (i3 == 2) {
             threadPoolExecutor = this.mAttachmentExecutor;
         }
         if (threadPoolExecutor != null) {
             threadPoolExecutor.execute(new Runnable() { // from class: com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (!LogSystemUploaderStrategy.this.doUpload(type, i)) {
+                    if (!LogSystemUploaderStrategy.this.doUpload(type, i2)) {
                         LogSystemUploaderStrategy.this.updateFileFlag(type);
                     } else {
-                        LogSystemUploaderStrategy.this.reUpload(type, i);
+                        LogSystemUploaderStrategy.this.reUpload(type, i2);
                     }
                 }
             });

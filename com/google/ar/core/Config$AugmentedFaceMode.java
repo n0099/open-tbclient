@@ -8,20 +8,20 @@ public enum Config$AugmentedFaceMode {
     
     public final int nativeCode;
 
-    Config$AugmentedFaceMode(int i) {
-        this.nativeCode = i;
+    Config$AugmentedFaceMode(int i2) {
+        this.nativeCode = i2;
     }
 
-    public static Config$AugmentedFaceMode forNumber(int i) {
+    public static Config$AugmentedFaceMode forNumber(int i2) {
         Config$AugmentedFaceMode[] values;
         for (Config$AugmentedFaceMode config$AugmentedFaceMode : values()) {
-            if (config$AugmentedFaceMode.nativeCode == i) {
+            if (config$AugmentedFaceMode.nativeCode == i2) {
                 return config$AugmentedFaceMode;
             }
         }
         StringBuilder sb = new StringBuilder(64);
         sb.append("Unexpected value for native AugmentedFaceMode, value=");
-        sb.append(i);
+        sb.append(i2);
         throw new FatalException(sb.toString());
     }
 }

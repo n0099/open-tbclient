@@ -3,8 +3,8 @@ package com.baidu.tieba.flutter.plugin.tiebaUtility.android;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityVideoAuto;
-import d.b.i0.z0.m0;
-import d.b.j0.j2.n;
+import d.a.i0.z0.m0;
+import d.a.j0.j2.n;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class UtilityVideo implements TiebaUtilityVideoAuto.HostUtilityVideo {

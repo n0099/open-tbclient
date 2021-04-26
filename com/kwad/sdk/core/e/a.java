@@ -15,7 +15,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (t == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f36601a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f34316a) {
             aVar.a();
         }
     }
@@ -25,7 +25,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (t == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f36601a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f34316a) {
             aVar.d();
         }
     }
@@ -35,7 +35,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (t == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f36601a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f34316a) {
             aVar.c();
         }
     }
@@ -45,7 +45,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (t == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f36601a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f34316a) {
             aVar.b();
         }
     }
@@ -66,7 +66,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
 
     public abstract Presenter onCreatePresenter();
 
-    @Override // com.kwad.sdk.api.proxy.IActivityProxy
+    @Override // com.kwad.sdk.b.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onDestroy() {
         notifyOnDestroy();
         T t = this.mCallerContext;
@@ -75,7 +75,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         }
         Presenter presenter = this.mPresenter;
         if (presenter != null) {
-            presenter.j();
+            presenter.g();
         }
     }
 

@@ -18,37 +18,21 @@ public class OneKeyLoginResult extends SapiResult {
     public static final int ONE_KEY_LOGIN_CODE_NOT_MEET_GRAY = -121;
     public static final int ONE_KEY_LOGIN_CODE_UNKNOW = -100;
     public static final int ONE_KEY_LOGIN_CODE_UNSUPPORT = -101;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static final String f10902a = "未知错误";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f10903b = "不支持一键登录";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f10904c = "获取token失败";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f10905d = "一键登录失败";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final String f10906e = "进行引导流程中";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final String f10907f = "获取JS代码失败";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final String f10908g = "JS代码校验失败";
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final String f10909h = "执行JS代码失败";
-    public static final String i = "sign签名校验失败";
-    public static final String j = "Android版本低于KITKAT";
-    public static final String k = "冷启预取号失败，二次取号时已登录";
-    public static final String l = "一键登录命中风控，登录失败";
-    public static final String m = "请求超时";
-    public static final String n = "非法的运营商信息";
-    public static final String o = "该TPL的运营商服务暂停";
+    public static final String ONE_KEY_LOGIN_MSG_ANDROID_VERSION_BELOW_KITKAT = "Android版本低于KITKAT";
+    public static final String ONE_KEY_LOGIN_MSG_CHECK_JS_FAIL = "JS代码校验失败";
+    public static final String ONE_KEY_LOGIN_MSG_CHECK_SIGN_FAIL = "sign签名校验失败";
+    public static final String ONE_KEY_LOGIN_MSG_CONNECTION_TIMEOUT = "请求超时";
+    public static final String ONE_KEY_LOGIN_MSG_EXECUTE_JS_FAIL = "执行JS代码失败";
+    public static final String ONE_KEY_LOGIN_MSG_GET_JS_CODE_FAIL = "获取JS代码失败";
+    public static final String ONE_KEY_LOGIN_MSG_GET_TOKEN_FAIL = "获取token失败";
+    public static final String ONE_KEY_LOGIN_MSG_HIT_RISK_MANAGEMENT = "一键登录命中风控，登录失败";
+    public static final String ONE_KEY_LOGIN_MSG_INVALID_OPERATOR = "非法的运营商信息";
+    public static final String ONE_KEY_LOGIN_MSG_IN_GUIDE_PROCESS = "进行引导流程中";
+    public static final String ONE_KEY_LOGIN_MSG_IS_LOGIN_WHEN_SECOND_PRE_PHONE = "冷启预取号失败，二次取号时已登录";
+    public static final String ONE_KEY_LOGIN_MSG_LOGIN_FAIL = "一键登录失败";
+    public static final String ONE_KEY_LOGIN_MSG_NOT_MEET_GRAY = "该TPL的运营商服务暂停";
+    public static final String ONE_KEY_LOGIN_MSG_UNKNOW = "未知错误";
+    public static final String ONE_KEY_LOGIN_MSG_UNSUPPORT = "不支持一键登录";
     public static String secondJsCode;
     public boolean enable;
     public String encryptPhoneNum;
@@ -59,19 +43,19 @@ public class OneKeyLoginResult extends SapiResult {
 
     public OneKeyLoginResult() {
         this.msgMap.put(-100, "未知错误");
-        this.msgMap.put(-101, f10903b);
-        this.msgMap.put(ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL, f10904c);
-        this.msgMap.put(-103, f10905d);
-        this.msgMap.put(ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, f10906e);
-        this.msgMap.put(ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, f10907f);
-        this.msgMap.put(ONE_KEY_LOGIN_CODE_CHECK_JS_FAIL, f10908g);
-        this.msgMap.put(ONE_KEY_LOGIN_CODE_EXECUTE_JS_FAIL, f10909h);
-        this.msgMap.put(ONE_KEY_LOGIN_CODE_CHECK_SIGN_FAIL, i);
-        this.msgMap.put(ONE_KEY_LOGIN_CODE_ANDROID_VERSION_BELOW_KITKAT, j);
-        this.msgMap.put(-110, k);
-        this.msgMap.put(-111, l);
-        this.msgMap.put(ONE_KEY_LOGIN_CODE_CONNECTION_TIMEOUT, m);
-        this.msgMap.put(ONE_KEY_LOGIN_CODE_NOT_MEET_GRAY, o);
-        this.msgMap.put(ONE_KEY_LOGIN_CODE_INVALID_OPERATOR, n);
+        this.msgMap.put(-101, ONE_KEY_LOGIN_MSG_UNSUPPORT);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL, ONE_KEY_LOGIN_MSG_GET_TOKEN_FAIL);
+        this.msgMap.put(-103, ONE_KEY_LOGIN_MSG_LOGIN_FAIL);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, ONE_KEY_LOGIN_MSG_IN_GUIDE_PROCESS);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, ONE_KEY_LOGIN_MSG_GET_JS_CODE_FAIL);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_CHECK_JS_FAIL, ONE_KEY_LOGIN_MSG_CHECK_JS_FAIL);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_EXECUTE_JS_FAIL, ONE_KEY_LOGIN_MSG_EXECUTE_JS_FAIL);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_CHECK_SIGN_FAIL, ONE_KEY_LOGIN_MSG_CHECK_SIGN_FAIL);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_ANDROID_VERSION_BELOW_KITKAT, ONE_KEY_LOGIN_MSG_ANDROID_VERSION_BELOW_KITKAT);
+        this.msgMap.put(-110, ONE_KEY_LOGIN_MSG_IS_LOGIN_WHEN_SECOND_PRE_PHONE);
+        this.msgMap.put(-111, ONE_KEY_LOGIN_MSG_HIT_RISK_MANAGEMENT);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_CONNECTION_TIMEOUT, ONE_KEY_LOGIN_MSG_CONNECTION_TIMEOUT);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_NOT_MEET_GRAY, ONE_KEY_LOGIN_MSG_NOT_MEET_GRAY);
+        this.msgMap.put(ONE_KEY_LOGIN_CODE_INVALID_OPERATOR, ONE_KEY_LOGIN_MSG_INVALID_OPERATOR);
     }
 }

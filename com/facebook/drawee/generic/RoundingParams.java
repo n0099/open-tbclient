@@ -4,7 +4,7 @@ import androidx.annotation.ColorInt;
 import com.facebook.common.internal.Preconditions;
 import java.util.Arrays;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RoundingParams {
     public RoundingMethod mRoundingMethod = RoundingMethod.BITMAP_ONLY;
     public boolean mRoundAsCircle = false;
@@ -16,7 +16,7 @@ public class RoundingParams {
     public boolean mScaleDownInsideBorders = false;
     public boolean mPaintFilterBitmap = false;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum RoundingMethod {
         OVERLAY_COLOR,
         BITMAP_ONLY
@@ -102,15 +102,15 @@ public class RoundingParams {
         return ((((floatToIntBits + (f3 != 0.0f ? Float.floatToIntBits(f3) : 0)) * 31) + (this.mScaleDownInsideBorders ? 1 : 0)) * 31) + (this.mPaintFilterBitmap ? 1 : 0);
     }
 
-    public RoundingParams setBorder(@ColorInt int i, float f2) {
+    public RoundingParams setBorder(@ColorInt int i2, float f2) {
         Preconditions.checkArgument(f2 >= 0.0f, "the border width cannot be < 0");
         this.mBorderWidth = f2;
-        this.mBorderColor = i;
+        this.mBorderColor = i2;
         return this;
     }
 
-    public RoundingParams setBorderColor(@ColorInt int i) {
-        this.mBorderColor = i;
+    public RoundingParams setBorderColor(@ColorInt int i2) {
+        this.mBorderColor = i2;
         return this;
     }
 
@@ -138,8 +138,8 @@ public class RoundingParams {
         return this;
     }
 
-    public RoundingParams setOverlayColor(@ColorInt int i) {
-        this.mOverlayColor = i;
+    public RoundingParams setOverlayColor(@ColorInt int i2) {
+        this.mOverlayColor = i2;
         this.mRoundingMethod = RoundingMethod.OVERLAY_COLOR;
         return this;
     }

@@ -14,7 +14,7 @@ public class RequestHistoryMessage extends TbSocketMessage {
     public long user_id;
     public int width;
 
-    public RequestHistoryMessage(int i, long j, int i2) {
+    public RequestHistoryMessage(int i2, long j, int i3) {
         super(208002);
         this.forum_id = 0;
         this.user_id = 0L;
@@ -23,9 +23,9 @@ public class RequestHistoryMessage extends TbSocketMessage {
         this.height = 0;
         this.sWidth = 0;
         this.sHeight = 0;
-        this.forum_id = i;
+        this.forum_id = i2;
         this.user_id = j;
-        this.id = i2;
+        this.id = i3;
         LocalViewSize.ImageSize msgBPicMaxSize = LocalViewSize.getInstance().getMsgBPicMaxSize();
         this.width = msgBPicMaxSize.width;
         this.height = msgBPicMaxSize.height;

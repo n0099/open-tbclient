@@ -5,11 +5,11 @@ import android.os.Parcelable;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import com.baidu.searchbox.live.interfaces.DI;
-import d.b.h0.n.e;
-import d.b.h0.n.l;
-import d.b.h0.n.n;
-import d.b.h0.n.r;
-import d.b.h0.o.d;
+import d.a.h0.n.e;
+import d.a.h0.n.l;
+import d.a.h0.n.n;
+import d.a.h0.n.r;
+import d.a.h0.o.d;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -43,8 +43,8 @@ public class Flow implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public Flow[] newArray(int i) {
-            return new Flow[i];
+        public Flow[] newArray(int i2) {
+            return new Flow[i2];
         }
     }
 
@@ -54,7 +54,7 @@ public class Flow implements Parcelable {
 
     public final void a(String str, String str2) {
         if (this.mValid) {
-            if (d.b.c0.b.a.a.g()) {
+            if (d.a.c0.b.a.a.g()) {
                 if (d.a()) {
                     n.k().q(this.mId, str, this.mHandle, str2, this.mOption);
                 }
@@ -62,7 +62,7 @@ public class Flow implements Parcelable {
                 if (lVar == null || this.mIsSampled) {
                     return;
                 }
-                lVar.f(this.mId, str, this.mHandle, str2, this.mOption);
+                lVar.e(this.mId, str, this.mHandle, str2, this.mOption);
                 return;
             }
             try {
@@ -75,7 +75,7 @@ public class Flow implements Parcelable {
 
     public final void b(String str, String str2, long j) {
         if (this.mValid) {
-            if (d.b.c0.b.a.a.g()) {
+            if (d.a.c0.b.a.a.g()) {
                 if (d.a()) {
                     n.k().r(this.mId, str, this.mHandle, str2, j, this.mOption);
                 }
@@ -96,7 +96,7 @@ public class Flow implements Parcelable {
 
     public final void c() {
         if (this.mValid) {
-            if (d.b.c0.b.a.a.g()) {
+            if (d.a.c0.b.a.a.g()) {
                 if (d.a()) {
                     n.k().h(this.mId, this.mHandle);
                 }
@@ -104,7 +104,7 @@ public class Flow implements Parcelable {
                 if (lVar == null || this.mIsSampled) {
                     return;
                 }
-                lVar.e(this.mId, this.mHandle);
+                lVar.d(this.mId, this.mHandle);
                 return;
             }
             try {
@@ -117,7 +117,7 @@ public class Flow implements Parcelable {
 
     public final void d() {
         if (this.mValid) {
-            if (d.b.c0.b.a.a.g()) {
+            if (d.a.c0.b.a.a.g()) {
                 JSONArray jSONArray = new JSONArray();
                 HashMap<String, Slot> hashMap = this.mSlotMaps;
                 if (hashMap != null && (r1 = hashMap.entrySet().iterator()) != null) {
@@ -139,7 +139,7 @@ public class Flow implements Parcelable {
                 if (lVar == null || this.mIsSampled) {
                     return;
                 }
-                lVar.d(this.mId, this.mHandle, jSONArray);
+                lVar.c(this.mId, this.mHandle, jSONArray);
                 return;
             }
             try {
@@ -197,7 +197,7 @@ public class Flow implements Parcelable {
 
     public final void n(String str) {
         if (this.mValid) {
-            if (d.b.c0.b.a.a.g()) {
+            if (d.a.c0.b.a.a.g()) {
                 if (d.a()) {
                     n.k().t(this.mId, this.mHandle, str);
                 }
@@ -205,7 +205,7 @@ public class Flow implements Parcelable {
                 if (lVar == null || this.mIsSampled) {
                     return;
                 }
-                lVar.k(this.mId, this.mHandle, str);
+                lVar.h(this.mId, this.mHandle, str);
                 return;
             }
             try {
@@ -218,7 +218,7 @@ public class Flow implements Parcelable {
 
     public void o(String str) {
         if (this.mValid) {
-            if (d.b.c0.b.a.a.g()) {
+            if (d.a.c0.b.a.a.g()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     float currentTimeMillis = ((float) (System.currentTimeMillis() - this.mStartTime)) / 1000.0f;
@@ -244,7 +244,7 @@ public class Flow implements Parcelable {
                 if (lVar == null || this.mIsSampled) {
                     return;
                 }
-                lVar.k(this.mId, this.mHandle, jSONObject.toString());
+                lVar.h(this.mId, this.mHandle, jSONObject.toString());
                 return;
             }
             try {
@@ -267,7 +267,7 @@ public class Flow implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.mId);
         parcel.writeInt(this.mHandle);
         parcel.writeInt(this.mOption);
@@ -287,13 +287,13 @@ public class Flow implements Parcelable {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public Flow(String str, int i, int i2) {
+    public Flow(String str, int i2, int i3) {
         this.mValid = true;
         this.mSlotMaps = new HashMap<>();
         this.mUbcContext = e.g();
         this.mId = str;
-        this.mHandle = i;
-        this.mOption = i2;
+        this.mHandle = i2;
+        this.mOption = i3;
         this.mStartTime = System.currentTimeMillis();
     }
 

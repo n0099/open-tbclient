@@ -41,13 +41,13 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$Alert, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12484e;
+        public int f12372e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f12485f;
+        public int f12373f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ByteString f12486g = ByteString.EMPTY;
+        public ByteString f12374g = ByteString.EMPTY;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -93,24 +93,24 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         /* renamed from: n */
         public Bdtls$Alert buildPartial() {
             Bdtls$Alert bdtls$Alert = new Bdtls$Alert(this);
-            int i = this.f12484e;
-            int i2 = (i & 1) != 1 ? 0 : 1;
-            bdtls$Alert.level_ = this.f12485f;
-            if ((i & 2) == 2) {
-                i2 |= 2;
+            int i2 = this.f12372e;
+            int i3 = (i2 & 1) != 1 ? 0 : 1;
+            bdtls$Alert.level_ = this.f12373f;
+            if ((i2 & 2) == 2) {
+                i3 |= 2;
             }
-            bdtls$Alert.description_ = this.f12486g;
-            bdtls$Alert.bitField0_ = i2;
+            bdtls$Alert.description_ = this.f12374g;
+            bdtls$Alert.bitField0_ = i3;
             return bdtls$Alert;
         }
 
         public b o() {
             super.clear();
-            this.f12485f = 0;
-            int i = this.f12484e & (-2);
-            this.f12484e = i;
-            this.f12486g = ByteString.EMPTY;
-            this.f12484e = i & (-3);
+            this.f12373f = 0;
+            int i2 = this.f12372e & (-2);
+            this.f12372e = i2;
+            this.f12374g = ByteString.EMPTY;
+            this.f12372e = i2 & (-3);
             return this;
         }
 
@@ -131,11 +131,11 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         }
 
         public boolean s() {
-            return (this.f12484e & 2) == 2;
+            return (this.f12372e & 2) == 2;
         }
 
         public boolean t() {
-            return (this.f12484e & 1) == 1;
+            return (this.f12372e & 1) == 1;
         }
 
         public b u(Bdtls$Alert bdtls$Alert) {
@@ -187,16 +187,16 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
 
         public b w(ByteString byteString) {
             if (byteString != null) {
-                this.f12484e |= 2;
-                this.f12486g = byteString;
+                this.f12372e |= 2;
+                this.f12374g = byteString;
                 return this;
             }
             throw null;
         }
 
-        public b x(int i) {
-            this.f12484e |= 1;
-            this.f12485f = i;
+        public b x(int i2) {
+            this.f12372e |= 1;
+            this.f12373f = i2;
             return this;
         }
 
@@ -263,9 +263,9 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
 
     @Override // com.google.protobuf.MessageLite
     public int getSerializedSize() {
-        int i = this.memoizedSerializedSize;
-        if (i != -1) {
-            return i;
+        int i2 = this.memoizedSerializedSize;
+        if (i2 != -1) {
+            return i2;
         }
         int computeUInt32Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeUInt32Size(1, this.level_) : 0;
         if ((this.bitField0_ & 2) == 2) {

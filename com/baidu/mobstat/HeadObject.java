@@ -13,14 +13,16 @@ public class HeadObject {
     public int D;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8377b;
+    public String f8677b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f8378c;
+    public String f8678c;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f8383h;
-    public String i;
+    public String f8683h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f8684i;
     public int j;
     public int k;
     public String m;
@@ -39,23 +41,23 @@ public class HeadObject {
     public String z;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f8376a = false;
+    public boolean f8676a = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f8379d = "0";
+    public String f8679d = "0";
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8380e = null;
+    public String f8680e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f8381f = null;
+    public String f8681f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f8382g = -1;
+    public int f8682g = -1;
     public String l = null;
 
     private synchronized void a(Context context) {
-        if (this.f8376a) {
+        if (this.f8676a) {
             return;
         }
         bo.e(context, "android.permission.READ_PHONE_STATE");
@@ -63,19 +65,19 @@ public class HeadObject {
         bo.e(context, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION);
         bo.e(context, "android.permission.WRITE_SETTINGS");
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-        this.f8377b = CooperService.instance().getOSVersion();
-        this.f8378c = CooperService.instance().getOSSysVersion();
+        this.f8677b = CooperService.instance().getOSVersion();
+        this.f8678c = CooperService.instance().getOSSysVersion();
         this.n = CooperService.instance().getPhoneModel();
         this.o = CooperService.instance().getManufacturer();
         this.z = CooperService.instance().getUUID();
         this.A = CooperService.instance().getHeaderExt(context);
         this.B = CooperService.instance().getPushId(context);
-        this.i = CooperService.instance().getDeviceId(telephonyManager, context);
-        this.f8379d = bq.a().i(context) ? "1" : "0";
+        this.f8684i = CooperService.instance().getDeviceId(telephonyManager, context);
+        this.f8679d = bq.a().i(context) ? "1" : "0";
         if (bw.w(context)) {
-            this.f8379d = "2";
+            this.f8679d = "2";
         }
-        this.f8379d += "-14";
+        this.f8679d += "-14";
         try {
             this.s = CooperService.instance().getMacAddress(context, CooperService.instance().isDeviceMacEnabled(context));
         } catch (Exception unused) {
@@ -88,7 +90,7 @@ public class HeadObject {
             this.v = bw.a(context, 1);
         } catch (Exception unused3) {
         }
-        this.f8381f = CooperService.instance().getCUID(context, true);
+        this.f8681f = CooperService.instance().getCUID(context, true);
         try {
             this.m = CooperService.instance().getOperator(telephonyManager);
         } catch (Exception unused4) {
@@ -97,19 +99,19 @@ public class HeadObject {
             this.j = bw.c(context);
             this.k = bw.d(context);
             if (context.getResources().getConfiguration().orientation == 2) {
-                int i = this.j ^ this.k;
-                this.j = i;
-                int i2 = this.k ^ i;
-                this.k = i2;
-                this.j = i ^ i2;
+                int i2 = this.j ^ this.k;
+                this.j = i2;
+                int i3 = this.k ^ i2;
+                this.k = i3;
+                this.j = i2 ^ i3;
             }
         } catch (Exception unused5) {
         }
         this.l = CooperService.instance().getAppChannel(context);
-        this.f8380e = CooperService.instance().getAppKey(context);
+        this.f8680e = CooperService.instance().getAppKey(context);
         try {
-            this.f8382g = CooperService.instance().getAppVersionCode(context);
-            this.f8383h = CooperService.instance().getAppVersionName(context);
+            this.f8682g = CooperService.instance().getAppVersionCode(context);
+            this.f8683h = CooperService.instance().getAppVersionName(context);
         } catch (Exception unused6) {
         }
         try {
@@ -136,7 +138,7 @@ public class HeadObject {
         this.x = android.os.Build.BOARD;
         this.y = android.os.Build.BRAND;
         this.C = CooperService.instance().getUserId(context);
-        this.f8376a = true;
+        this.f8676a = true;
     }
 
     public synchronized void installHeader(Context context, JSONObject jSONObject) {
@@ -170,22 +172,22 @@ public class HeadObject {
     public synchronized void updateHeader(Context context, JSONObject jSONObject) {
         try {
             jSONObject.put(Config.OS, "Android");
-            int i = 0;
+            int i2 = 0;
             jSONObject.put("st", 0);
-            jSONObject.put("s", this.f8377b == null ? "" : this.f8377b);
-            jSONObject.put("sv", this.f8378c == null ? "" : this.f8378c);
-            jSONObject.put(Config.APP_KEY, this.f8380e == null ? "" : this.f8380e);
-            jSONObject.put(Config.PLATFORM_TYPE, this.f8379d == null ? "0" : this.f8379d);
+            jSONObject.put("s", this.f8677b == null ? "" : this.f8677b);
+            jSONObject.put("sv", this.f8678c == null ? "" : this.f8678c);
+            jSONObject.put(Config.APP_KEY, this.f8680e == null ? "" : this.f8680e);
+            jSONObject.put(Config.PLATFORM_TYPE, this.f8679d == null ? "0" : this.f8679d);
             jSONObject.put("i", "");
             jSONObject.put("v", "3.9.5.1");
             jSONObject.put(Config.STAT_SDK_CHANNEL, 14);
-            jSONObject.put("a", this.f8382g);
-            jSONObject.put("n", this.f8383h == null ? "" : this.f8383h);
+            jSONObject.put("a", this.f8682g);
+            jSONObject.put("n", this.f8683h == null ? "" : this.f8683h);
             jSONObject.put("d", "");
             jSONObject.put(Config.DEVICE_MAC_ID, this.s == null ? "" : this.s);
             jSONObject.put(Config.DEVICE_BLUETOOTH_MAC, this.u == null ? "" : this.u);
-            jSONObject.put(Config.DEVICE_ID_SEC, this.i == null ? "" : this.i);
-            jSONObject.put(Config.CUID_SEC, this.f8381f == null ? "" : this.f8381f);
+            jSONObject.put(Config.DEVICE_ID_SEC, this.f8684i == null ? "" : this.f8684i);
+            jSONObject.put(Config.CUID_SEC, this.f8681f == null ? "" : this.f8681f);
             jSONObject.put(Config.SDK_TAG, 1);
             jSONObject.put("w", this.j);
             jSONObject.put("h", this.k);
@@ -204,9 +206,9 @@ public class HeadObject {
             jSONObject.put(Config.DEVICE_BRAND, this.y == null ? "" : this.y);
             jSONObject.put("td", bw.b(context));
             if (context != null && context.getApplicationInfo() != null) {
-                i = context.getApplicationInfo().targetSdkVersion;
+                i2 = context.getApplicationInfo().targetSdkVersion;
             }
-            jSONObject.put(Config.TARGET_SDK_VERSION, i);
+            jSONObject.put(Config.TARGET_SDK_VERSION, i2);
             jSONObject.put("at", "0");
             String u = bw.u(context);
             jSONObject.put(Config.PROCESS_LABEL, u);

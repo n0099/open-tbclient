@@ -11,20 +11,20 @@ public class AddLinkActivityConfig extends IntentConfig {
     public static final String ORIGINAL_LINK_CONTENT = "original_link_content";
     public static final String SPAN_ID = "span_id";
 
-    public AddLinkActivityConfig(Context context, int i, String str, boolean z, String str2) {
+    public AddLinkActivityConfig(Context context, int i2, String str, boolean z, String str2) {
         super(context);
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i);
+        setRequestCode(i2);
         getIntent().putExtra(ORIGINAL_LINK_CONTENT, str);
         getIntent().putExtra(IS_SHOW_FIND_NEW_LINK_BUBBLE, z);
         getIntent().putExtra(BUBBLE_NEW_LINK_CONTENT, str2);
     }
 
-    public AddLinkActivityConfig(Context context, int i, int i2, String str) {
+    public AddLinkActivityConfig(Context context, int i2, int i3, String str) {
         super(context);
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i);
-        getIntent().putExtra(SPAN_ID, i2);
+        setRequestCode(i2);
+        getIntent().putExtra(SPAN_ID, i3);
         getIntent().putExtra(ORIGINAL_LINK_CONTENT, str);
     }
 }

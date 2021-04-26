@@ -8,17 +8,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
-import d.b.j0.t.d.h.a.d;
+import d.a.j0.t.d.h.a.d;
 /* loaded from: classes4.dex */
 public class PagerSnapHelper extends SnapHelper {
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public d f14630c;
+    public d f14705c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public d f14631d;
+    public d f14706d;
 
     /* loaded from: classes4.dex */
     public class a extends LinearSmoothScroller {
@@ -32,19 +32,19 @@ public class PagerSnapHelper extends SnapHelper {
         }
 
         @Override // androidx.recyclerview.widget.LinearSmoothScroller
-        public int calculateTimeForScrolling(int i) {
-            return Math.min(100, super.calculateTimeForScrolling(i));
+        public int calculateTimeForScrolling(int i2) {
+            return Math.min(100, super.calculateTimeForScrolling(i2));
         }
 
         @Override // androidx.recyclerview.widget.LinearSmoothScroller, androidx.recyclerview.widget.RecyclerView.SmoothScroller
         public void onTargetFound(View view, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
             PagerSnapHelper pagerSnapHelper = PagerSnapHelper.this;
-            int[] calculateDistanceToFinalSnap = pagerSnapHelper.calculateDistanceToFinalSnap(pagerSnapHelper.f14633a.getLayoutManager(), view);
-            int i = calculateDistanceToFinalSnap[0];
-            int i2 = calculateDistanceToFinalSnap[1];
-            int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i), Math.abs(i2)));
+            int[] calculateDistanceToFinalSnap = pagerSnapHelper.calculateDistanceToFinalSnap(pagerSnapHelper.f14708a.getLayoutManager(), view);
+            int i2 = calculateDistanceToFinalSnap[0];
+            int i3 = calculateDistanceToFinalSnap[1];
+            int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i2), Math.abs(i3)));
             if (calculateTimeForDeceleration > 0) {
-                action.update(i, i2, calculateTimeForDeceleration, this.mDecelerateInterpolator);
+                action.update(i2, i3, calculateTimeForDeceleration, this.mDecelerateInterpolator);
             }
         }
     }
@@ -73,13 +73,13 @@ public class PagerSnapHelper extends SnapHelper {
         } else {
             e2 = dVar.e() / 2;
         }
-        int i = Integer.MAX_VALUE;
-        for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = layoutManager.getChildAt(i2);
+        int i2 = Integer.MAX_VALUE;
+        for (int i3 = 0; i3 < childCount; i3++) {
+            View childAt = layoutManager.getChildAt(i3);
             int abs = Math.abs((dVar.d(childAt) + (dVar.c(childAt) / 2)) - e2);
-            if (abs < i) {
+            if (abs < i2) {
                 view = childAt;
-                i = abs;
+                i2 = abs;
             }
         }
         return view;
@@ -92,13 +92,13 @@ public class PagerSnapHelper extends SnapHelper {
         if (childCount == 0) {
             return null;
         }
-        int i = Integer.MAX_VALUE;
-        for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = layoutManager.getChildAt(i2);
+        int i2 = Integer.MAX_VALUE;
+        for (int i3 = 0; i3 < childCount; i3++) {
+            View childAt = layoutManager.getChildAt(i3);
             int d2 = dVar.d(childAt);
-            if (d2 < i) {
+            if (d2 < i2) {
                 view = childAt;
-                i = d2;
+                i2 = d2;
             }
         }
         return view;
@@ -124,27 +124,27 @@ public class PagerSnapHelper extends SnapHelper {
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
     public LinearSmoothScroller createSnapScroller(RecyclerView.LayoutManager layoutManager) {
         if (layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) {
-            return new a(this.f14633a.getContext());
+            return new a(this.f14708a.getContext());
         }
         return null;
     }
 
     @NonNull
     public final d d(@NonNull RecyclerView.LayoutManager layoutManager) {
-        d dVar = this.f14631d;
-        if (dVar == null || dVar.f62654a != layoutManager) {
-            this.f14631d = d.a(layoutManager);
+        d dVar = this.f14706d;
+        if (dVar == null || dVar.f60842a != layoutManager) {
+            this.f14706d = d.a(layoutManager);
         }
-        return this.f14631d;
+        return this.f14706d;
     }
 
     @NonNull
     public final d e(@NonNull RecyclerView.LayoutManager layoutManager) {
-        d dVar = this.f14630c;
-        if (dVar == null || dVar.f62654a != layoutManager) {
-            this.f14630c = d.b(layoutManager);
+        d dVar = this.f14705c;
+        if (dVar == null || dVar.f60842a != layoutManager) {
+            this.f14705c = d.b(layoutManager);
         }
-        return this.f14630c;
+        return this.f14705c;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
@@ -160,7 +160,7 @@ public class PagerSnapHelper extends SnapHelper {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper
-    public int findTargetSnapPosition(RecyclerView.LayoutManager layoutManager, int i, int i2) {
+    public int findTargetSnapPosition(RecyclerView.LayoutManager layoutManager, int i2, int i3) {
         int position;
         PointF computeScrollVectorForPosition;
         int itemCount = layoutManager.getItemCount();
@@ -177,7 +177,7 @@ public class PagerSnapHelper extends SnapHelper {
             return -1;
         }
         boolean z = false;
-        boolean z2 = !layoutManager.canScrollHorizontally() ? i2 <= 0 : i <= 0;
+        boolean z2 = !layoutManager.canScrollHorizontally() ? i3 <= 0 : i2 <= 0;
         if ((layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) && (computeScrollVectorForPosition = ((RecyclerView.SmoothScroller.ScrollVectorProvider) layoutManager).computeScrollVectorForPosition(itemCount - 1)) != null && (computeScrollVectorForPosition.x < 0.0f || computeScrollVectorForPosition.y < 0.0f)) {
             z = true;
         }

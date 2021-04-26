@@ -57,8 +57,8 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
                 int readInt = dataInput.readInt();
                 if (readInt >= 0) {
                     Dso[] dsoArr = new Dso[readInt];
-                    for (int i = 0; i < readInt; i++) {
-                        dsoArr[i] = new Dso(dataInput.readUTF(), dataInput.readUTF());
+                    for (int i2 = 0; i2 < readInt; i2++) {
+                        dsoArr[i2] = new Dso(dataInput.readUTF(), dataInput.readUTF());
                     }
                     return new DsoManifest(dsoArr);
                 }
@@ -70,15 +70,15 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         public final void write(DataOutput dataOutput) throws IOException {
             dataOutput.writeByte(1);
             dataOutput.writeInt(this.dsos.length);
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 Dso[] dsoArr = this.dsos;
-                if (i >= dsoArr.length) {
+                if (i2 >= dsoArr.length) {
                     return;
                 }
-                dataOutput.writeUTF(dsoArr[i].name);
-                dataOutput.writeUTF(this.dsos[i].hash);
-                i++;
+                dataOutput.writeUTF(dsoArr[i2].name);
+                dataOutput.writeUTF(this.dsos[i2].hash);
+                i2++;
             }
         }
     }
@@ -133,8 +133,8 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
             for (String str : list) {
                 if (!str.equals(STATE_FILE_NAME) && !str.equals(LOCK_FILE_NAME) && !str.equals(DEPS_FILE_NAME) && !str.equals(MANIFEST_FILE_NAME)) {
                     boolean z = false;
-                    for (int i = 0; !z && i < dsoArr.length; i++) {
-                        if (dsoArr[i].name.equals(str)) {
+                    for (int i2 = 0; !z && i2 < dsoArr.length; i2++) {
+                        if (dsoArr[i2].name.equals(str)) {
                             z = true;
                         }
                     }
@@ -209,7 +209,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean refreshLocked(final FileLocker fileLocker, int i, final byte[] bArr) throws IOException {
+    private boolean refreshLocked(final FileLocker fileLocker, int i2, final byte[] bArr) throws IOException {
         byte b2;
         Unpacker makeUnpacker;
         InputDsoIterator openDsoIterator;
@@ -246,7 +246,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
             }
             try {
                 if (b2 != 0) {
-                    if ((i & 2) != 0) {
+                    if ((i2 & 2) != 0) {
                     }
                     dsoManifest = dsoManifest2;
                     randomAccessFile.close();
@@ -294,7 +294,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
                             }
                         }
                     };
-                    if ((i & 1) != 0) {
+                    if ((i2 & 1) != 0) {
                         new Thread(runnable, "SoSync:" + this.soDirectory.getName()).start();
                     } else {
                         runnable.run();
@@ -364,8 +364,8 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
                 while (inputDsoIterator.hasNext()) {
                     InputDso next = inputDsoIterator.next();
                     boolean z = true;
-                    for (int i = 0; z && i < read.dsos.length; i++) {
-                        if (read.dsos[i].name.equals(next.dso.name) && read.dsos[i].hash.equals(next.dso.hash)) {
+                    for (int i2 = 0; z && i2 < read.dsos.length; i2++) {
+                        if (read.dsos[i2].name.equals(next.dso.name) && read.dsos[i2].hash.equals(next.dso.hash)) {
                             z = false;
                         }
                     }
@@ -434,9 +434,9 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
             Dso[] dsoArr = makeUnpacker.getDsoManifest().dsos;
             obtain.writeByte((byte) 1);
             obtain.writeInt(dsoArr.length);
-            for (int i = 0; i < dsoArr.length; i++) {
-                obtain.writeString(dsoArr[i].name);
-                obtain.writeString(dsoArr[i].hash);
+            for (int i2 = 0; i2 < dsoArr.length; i2++) {
+                obtain.writeString(dsoArr[i2].name);
+                obtain.writeString(dsoArr[i2].hash);
             }
             if (makeUnpacker != null) {
                 makeUnpacker.close();
@@ -467,10 +467,10 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     }
 
     @Override // com.facebook.soloader.DirectorySoSource, com.facebook.soloader.SoSource
-    public int loadLibrary(String str, int i, StrictMode.ThreadPolicy threadPolicy) throws IOException {
+    public int loadLibrary(String str, int i2, StrictMode.ThreadPolicy threadPolicy) throws IOException {
         int loadLibraryFrom;
         synchronized (getLibraryLock(str)) {
-            loadLibraryFrom = loadLibraryFrom(str, i, this.soDirectory, threadPolicy);
+            loadLibraryFrom = loadLibraryFrom(str, i2, this.soDirectory, threadPolicy);
         }
         return loadLibraryFrom;
     }
@@ -478,12 +478,12 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     public abstract Unpacker makeUnpacker() throws IOException;
 
     @Override // com.facebook.soloader.SoSource
-    public void prepare(int i) throws IOException {
+    public void prepare(int i2) throws IOException {
         SysUtil.mkdirOrThrow(this.soDirectory);
         FileLocker lock = FileLocker.lock(new File(this.soDirectory, LOCK_FILE_NAME));
         try {
             Log.v(TAG, "locked dso store " + this.soDirectory);
-            if (refreshLocked(lock, i, getDepsBlock())) {
+            if (refreshLocked(lock, i2, getDepsBlock())) {
                 lock = null;
             } else {
                 Log.i(TAG, "dso store is up-to-date: " + this.soDirectory);

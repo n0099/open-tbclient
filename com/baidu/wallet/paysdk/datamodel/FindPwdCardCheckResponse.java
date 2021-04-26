@@ -38,13 +38,13 @@ public class FindPwdCardCheckResponse implements IBeanResponse {
             return null;
         }
         CardData.BondCard[] bondCardArr = new CardData.BondCard[cardArr.length];
-        int i = 0;
+        int i2 = 0;
         while (true) {
             Card[] cardArr2 = this.bind_card_arr;
-            if (i >= cardArr2.length) {
+            if (i2 >= cardArr2.length) {
                 return bondCardArr;
             }
-            Card card = cardArr2[i];
+            Card card = cardArr2[i2];
             CardData.BondCard bondCard = new CardData.BondCard();
             bondCard.account_no = card.account_no;
             bondCard.bank_code = card.bank_code;
@@ -58,8 +58,8 @@ public class FindPwdCardCheckResponse implements IBeanResponse {
             }
             bondCard.find_pwd_by_sms = card.find_pwd_by_sms;
             bondCard.unsupport_find_pwd_msg = card.unsupport_find_pwd_msg;
-            bondCardArr[i] = bondCard;
-            i++;
+            bondCardArr[i2] = bondCard;
+            i2++;
         }
     }
 

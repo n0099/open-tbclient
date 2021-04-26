@@ -10,51 +10,53 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.ListView;
 import androidx.annotation.NonNull;
-import d.b.h0.a.i2.h0;
+import d.a.h0.a.i2.h0;
 /* loaded from: classes3.dex */
 public class SwanAppRoundCornerListView extends ListView {
     public static final float j = h0.g(11.0f);
 
     /* renamed from: e  reason: collision with root package name */
-    public final Path f12360e;
+    public final Path f12236e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Paint f12361f;
+    public final Paint f12237f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final RectF f12362g;
+    public final RectF f12238g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float[] f12363h;
-    public PorterDuffXfermode i;
+    public float[] f12239h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public PorterDuffXfermode f12240i;
 
     public SwanAppRoundCornerListView(Context context) {
         super(context);
-        this.f12360e = new Path();
-        this.f12361f = new Paint(1);
-        this.f12362g = new RectF();
+        this.f12236e = new Path();
+        this.f12237f = new Paint(1);
+        this.f12238g = new RectF();
         float f2 = j;
-        this.f12363h = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
+        this.f12239h = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         canvas.save();
-        this.f12361f.setColor(-1);
-        this.f12361f.setXfermode(this.i);
-        canvas.drawPath(this.f12360e, this.f12361f);
-        this.f12361f.setXfermode(null);
+        this.f12237f.setColor(-1);
+        this.f12237f.setXfermode(this.f12240i);
+        canvas.drawPath(this.f12236e, this.f12237f);
+        this.f12237f.setXfermode(null);
         canvas.restore();
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        this.f12362g.set(0.0f, 0.0f, i, i2 + 1);
-        this.f12360e.reset();
-        this.f12360e.addRoundRect(this.f12362g, this.f12363h, Path.Direction.CW);
-        this.i = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        this.f12238g.set(0.0f, 0.0f, i2, i3 + 1);
+        this.f12236e.reset();
+        this.f12236e.addRoundRect(this.f12238g, this.f12239h, Path.Direction.CW);
+        this.f12240i = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
     }
 
     public void setListViewRadius(float f2, float f3, float f4, float f5) {
@@ -63,9 +65,9 @@ public class SwanAppRoundCornerListView extends ListView {
 
     public void setListViewRadius(@NonNull float[] fArr) {
         if (fArr.length >= 8) {
-            this.f12363h = new float[8];
-            for (int i = 0; i < 8; i++) {
-                this.f12363h[i] = fArr[i];
+            this.f12239h = new float[8];
+            for (int i2 = 0; i2 < 8; i2++) {
+                this.f12239h[i2] = fArr[i2];
             }
             return;
         }
@@ -74,19 +76,19 @@ public class SwanAppRoundCornerListView extends ListView {
 
     public SwanAppRoundCornerListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12360e = new Path();
-        this.f12361f = new Paint(1);
-        this.f12362g = new RectF();
+        this.f12236e = new Path();
+        this.f12237f = new Paint(1);
+        this.f12238g = new RectF();
         float f2 = j;
-        this.f12363h = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
+        this.f12239h = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
     }
 
-    public SwanAppRoundCornerListView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f12360e = new Path();
-        this.f12361f = new Paint(1);
-        this.f12362g = new RectF();
+    public SwanAppRoundCornerListView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f12236e = new Path();
+        this.f12237f = new Paint(1);
+        this.f12238g = new RectF();
         float f2 = j;
-        this.f12363h = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
+        this.f12239h = new float[]{f2, f2, f2, f2, 0.0f, 0.0f, 0.0f, 0.0f};
     }
 }

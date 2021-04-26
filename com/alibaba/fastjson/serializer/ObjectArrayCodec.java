@@ -26,23 +26,23 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
         }
         int size = jSONArray.size();
         T t = (T) Array.newInstance(cls, size);
-        for (int i = 0; i < size; i++) {
-            Object obj2 = jSONArray.get(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            Object obj2 = jSONArray.get(i2);
             if (obj2 == jSONArray) {
-                Array.set(t, i, t);
+                Array.set(t, i2, t);
             } else if (cls.isArray()) {
                 if (!cls.isInstance(obj2)) {
                     obj2 = toObjectArray(defaultJSONParser, cls, (JSONArray) obj2);
                 }
-                Array.set(t, i, obj2);
+                Array.set(t, i2, obj2);
             } else {
                 if (obj2 instanceof JSONArray) {
                     JSONArray jSONArray2 = (JSONArray) obj2;
                     int size2 = jSONArray2.size();
                     boolean z = false;
-                    for (int i2 = 0; i2 < size2; i2++) {
-                        if (jSONArray2.get(i2) == jSONArray) {
-                            jSONArray2.set(i, t);
+                    for (int i3 = 0; i3 < size2; i3++) {
+                        if (jSONArray2.get(i3) == jSONArray) {
+                            jSONArray2.set(i2, t);
                             z = true;
                         }
                     }
@@ -51,13 +51,13 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
                         if (obj == null) {
                             obj = TypeUtils.cast(obj2, (Class<Object>) cls, defaultJSONParser.getConfig());
                         }
-                        Array.set(t, i, obj);
+                        Array.set(t, i2, obj);
                     }
                 }
                 obj = null;
                 if (obj == null) {
                 }
-                Array.set(t, i, obj);
+                Array.set(t, i2, obj);
             }
         }
         jSONArray.setRelatedArray(t);
@@ -72,12 +72,12 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
         Type componentType;
         Class<?> cls;
         JSONLexer jSONLexer = defaultJSONParser.lexer;
-        int i = jSONLexer.token();
+        int i2 = jSONLexer.token();
         Type type2 = 0;
-        if (i == 8) {
+        if (i2 == 8) {
             jSONLexer.nextToken(16);
             return null;
-        } else if (i != 4 && i != 26) {
+        } else if (i2 != 4 && i2 != 26) {
             if (type instanceof GenericArrayType) {
                 componentType = ((GenericArrayType) type).getGenericComponentType();
                 if (componentType instanceof TypeVariable) {
@@ -88,9 +88,9 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
                         Type rawType = parameterizedType.getRawType();
                         if (rawType instanceof Class) {
                             TypeVariable<Class<T>>[] typeParameters = ((Class) rawType).getTypeParameters();
-                            for (int i2 = 0; i2 < typeParameters.length; i2++) {
-                                if (typeParameters[i2].getName().equals(typeVariable.getName())) {
-                                    type2 = parameterizedType.getActualTypeArguments()[i2];
+                            for (int i3 = 0; i3 < typeParameters.length; i3++) {
+                                if (typeParameters[i3].getName().equals(typeVariable.getName())) {
+                                    type2 = parameterizedType.getActualTypeArguments()[i3];
                                 }
                             }
                         }
@@ -128,7 +128,7 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public final void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public final void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         SerializeWriter serializeWriter = jSONSerializer.out;
         Object[] objArr = (Object[]) obj;
         if (obj == null) {
@@ -136,8 +136,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
             return;
         }
         int length = objArr.length;
-        int i2 = length - 1;
-        if (i2 == -1) {
+        int i3 = length - 1;
+        if (i3 == -1) {
             serializeWriter.append((CharSequence) "[]");
             return;
         }
@@ -148,12 +148,12 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
             if (serializeWriter.isEnabled(SerializerFeature.PrettyFormat)) {
                 jSONSerializer.incrementIndent();
                 jSONSerializer.println();
-                for (int i3 = 0; i3 < length; i3++) {
-                    if (i3 != 0) {
+                for (int i4 = 0; i4 < length; i4++) {
+                    if (i4 != 0) {
                         serializeWriter.write(44);
                         jSONSerializer.println();
                     }
-                    jSONSerializer.write(objArr[i3]);
+                    jSONSerializer.write(objArr[i4]);
                 }
                 jSONSerializer.decrementIdent();
                 jSONSerializer.println();
@@ -162,8 +162,8 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
             }
             Class<?> cls = null;
             ObjectSerializer objectSerializer = null;
-            for (int i4 = 0; i4 < i2; i4++) {
-                Object obj3 = objArr[i4];
+            for (int i5 = 0; i5 < i3; i5++) {
+                Object obj3 = objArr[i5];
                 if (obj3 == null) {
                     serializeWriter.append((CharSequence) "null,");
                 } else {
@@ -172,24 +172,24 @@ public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
                     } else {
                         Class<?> cls2 = obj3.getClass();
                         if (cls2 == cls) {
-                            objectSerializer.write(jSONSerializer, obj3, Integer.valueOf(i4), null, 0);
+                            objectSerializer.write(jSONSerializer, obj3, Integer.valueOf(i5), null, 0);
                         } else {
                             objectSerializer = jSONSerializer.getObjectWriter(cls2);
-                            objectSerializer.write(jSONSerializer, obj3, Integer.valueOf(i4), null, 0);
+                            objectSerializer.write(jSONSerializer, obj3, Integer.valueOf(i5), null, 0);
                             cls = cls2;
                         }
                     }
                     serializeWriter.append(',');
                 }
             }
-            Object obj4 = objArr[i2];
+            Object obj4 = objArr[i3];
             if (obj4 == null) {
                 serializeWriter.append((CharSequence) "null]");
             } else {
                 if (jSONSerializer.containsReference(obj4)) {
                     jSONSerializer.writeReference(obj4);
                 } else {
-                    jSONSerializer.writeWithFieldName(obj4, Integer.valueOf(i2));
+                    jSONSerializer.writeWithFieldName(obj4, Integer.valueOf(i3));
                 }
                 serializeWriter.append(']');
             }

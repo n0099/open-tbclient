@@ -7,12 +7,12 @@ import com.xiaomi.push.service.aq;
 public class g extends aq.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ f f40578a;
+    public final /* synthetic */ f f38093a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(f fVar, int i, String str) {
-        super(i, str);
-        this.f40578a = fVar;
+    public g(f fVar, int i2, String str) {
+        super(i2, str);
+        this.f38093a = fVar;
     }
 
     @Override // com.xiaomi.push.service.aq.a
@@ -20,12 +20,12 @@ public class g extends aq.a {
         Context context;
         boolean z;
         Context context2;
-        context = this.f40578a.f86a;
+        context = this.f38093a.f86a;
         boolean a2 = com.xiaomi.push.service.aq.a(context).a(hk.AggregatePushSwitch.a(), true);
-        z = this.f40578a.f89a;
+        z = this.f38093a.f89a;
         if (z != a2) {
-            this.f40578a.f89a = a2;
-            context2 = this.f40578a.f86a;
+            this.f38093a.f89a = a2;
+            context2 = this.f38093a.f86a;
             i.b(context2);
         }
     }

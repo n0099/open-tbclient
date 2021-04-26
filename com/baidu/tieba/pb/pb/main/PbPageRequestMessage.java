@@ -5,9 +5,9 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.AdExtParam;
 import com.squareup.wire.Wire;
-import d.b.i0.z0.w;
-import d.b.j0.s2.d0.a;
-import d.b.j0.s2.f0.b;
+import d.a.i0.z0.w;
+import d.a.j0.s2.f0.a;
+import d.a.j0.s2.h0.b;
 import tbclient.PbPage.AdParam;
 import tbclient.PbPage.DataReq;
 import tbclient.PbPage.PbPageReqIdl;
@@ -187,8 +187,8 @@ public class PbPageRequestMessage extends NetMessage {
         return this.kz;
     }
 
-    public void setAfterAdThreadCount(int i) {
-        this.mAfterAdThreadCount = i;
+    public void setAfterAdThreadCount(int i2) {
+        this.mAfterAdThreadCount = i2;
     }
 
     public void setCacheKey(String str) {
@@ -199,24 +199,24 @@ public class PbPageRequestMessage extends NetMessage {
         this.context = context;
     }
 
-    public void setFloorSortType(int i) {
-        this.mFloorSortType = i;
+    public void setFloorSortType(int i2) {
+        this.mFloorSortType = i2;
     }
 
-    public void setFloor_rn(int i) {
-        this.floor_rn = i;
+    public void setFloor_rn(int i2) {
+        this.floor_rn = i2;
     }
 
     public void setForumId(String str) {
-        this.forumId = Long.valueOf(d.b.c.e.m.b.f(str, 0L));
+        this.forumId = Long.valueOf(d.a.c.e.m.b.f(str, 0L));
     }
 
-    public void setFromSmartFrs(int i) {
-        this.fromSmartFrs = Integer.valueOf(i);
+    public void setFromSmartFrs(int i2) {
+        this.fromSmartFrs = Integer.valueOf(i2);
     }
 
-    public void setFrom_push(int i) {
-        this.from_push = i;
+    public void setFrom_push(int i2) {
+        this.from_push = i2;
     }
 
     public void setIsFromMark(Boolean bool) {
@@ -227,24 +227,24 @@ public class PbPageRequestMessage extends NetMessage {
         this.isJumpFloor = z;
     }
 
-    public void setIsReqAd(int i) {
-        this.isReqAd = Integer.valueOf(i);
+    public void setIsReqAd(int i2) {
+        this.isReqAd = Integer.valueOf(i2);
     }
 
     public void setIsSubPostDataReverse(boolean z) {
         this.isSubPostDataReverse = z;
     }
 
-    public void setJumpFloorNum(int i) {
-        this.jumpFloorNum = i;
+    public void setJumpFloorNum(int i2) {
+        this.jumpFloorNum = i2;
     }
 
     public void setLastids(String str) {
         this.lastids = str;
     }
 
-    public void setLoadCount(int i) {
-        this.loadCount = i;
+    public void setLoadCount(int i2) {
+        this.loadCount = i2;
     }
 
     public void setLocate(String str) {
@@ -267,8 +267,8 @@ public class PbPageRequestMessage extends NetMessage {
         this.opMessageID = j;
     }
 
-    public void setOpStat(int i) {
-        this.opStat = i;
+    public void setOpStat(int i2) {
+        this.opStat = i2;
     }
 
     public void setOpType(String str) {
@@ -287,28 +287,28 @@ public class PbPageRequestMessage extends NetMessage {
         this.oriUgcTid = str;
     }
 
-    public void setOriUgcType(int i) {
-        this.oriUgcType = i;
+    public void setOriUgcType(int i2) {
+        this.oriUgcType = i2;
     }
 
     public void setOriUgcVid(String str) {
         this.oriUgcVid = str;
     }
 
-    public void setRefreshCount(int i) {
-        this.refreshCount = i;
+    public void setRefreshCount(int i2) {
+        this.refreshCount = i2;
     }
 
     public void setSchemeUrl(String str) {
         this.mSchemeUrl = str;
     }
 
-    public void setSourceType(int i) {
-        this.sourceType = i;
+    public void setSourceType(int i2) {
+        this.sourceType = i2;
     }
 
-    public void setUpdateType(int i) {
-        this.updateType = i;
+    public void setUpdateType(int i2) {
+        this.updateType = i2;
     }
 
     public void set_arround(Integer num) {

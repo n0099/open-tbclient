@@ -12,7 +12,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IANRMonitor;
 import com.github.anrwatchdog.ANRError;
-import d.g.a.a;
+import d.f.a.a;
 import java.io.File;
 @Singleton
 @Service
@@ -34,7 +34,7 @@ public class ANRMonitor implements IANRMonitor {
         public ANRListenerImpl() {
         }
 
-        @Override // d.g.a.a.f
+        @Override // d.f.a.a.f
         public void onAppNotResponding(ANRError aNRError) {
             Context appContext;
             String str;
@@ -57,7 +57,7 @@ public class ANRMonitor implements IANRMonitor {
     }
 
     private void retryUpload() {
-        for (IANRRegister iANRRegister : ANRRuntime.getInstance().getIANRUploadList().a()) {
+        for (IANRRegister iANRRegister : ANRRuntime.getInstance().getIANRUploadList().getList()) {
             if (iANRRegister instanceof ANRBOSRegister) {
                 ((ANRBOSRegister) iANRRegister).retryUpload();
             }
@@ -70,16 +70,16 @@ public class ANRMonitor implements IANRMonitor {
     }
 
     @Override // com.baidu.searchbox.ruka.ioc.IANRMonitor
-    public void startANRMonitor(int i) {
+    public void startANRMonitor(int i2) {
         if (this.mMonitorStarted) {
             return;
         }
         retryUpload();
         this.mMonitorStarted = true;
-        if (i < 5000) {
+        if (i2 < 5000) {
             this.mAnrWatchTimeOut = 5000;
         } else {
-            this.mAnrWatchTimeOut = i;
+            this.mAnrWatchTimeOut = i2;
         }
         a aVar = new a(this.mAnrWatchTimeOut);
         this.mANRWatchDog = aVar;

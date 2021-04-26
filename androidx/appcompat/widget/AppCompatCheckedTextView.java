@@ -7,6 +7,8 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.CheckedTextView;
 import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.widget.TextViewCompat;
 /* loaded from: classes.dex */
@@ -14,7 +16,7 @@ public class AppCompatCheckedTextView extends CheckedTextView {
     public static final int[] TINT_ATTRS = {16843016};
     public final AppCompatTextHelper mTextHelper;
 
-    public AppCompatCheckedTextView(Context context) {
+    public AppCompatCheckedTextView(@NonNull Context context) {
         this(context, null);
     }
 
@@ -33,8 +35,8 @@ public class AppCompatCheckedTextView extends CheckedTextView {
     }
 
     @Override // android.widget.CheckedTextView
-    public void setCheckMarkDrawable(@DrawableRes int i) {
-        setCheckMarkDrawable(AppCompatResources.getDrawable(getContext(), i));
+    public void setCheckMarkDrawable(@DrawableRes int i2) {
+        setCheckMarkDrawable(AppCompatResources.getDrawable(getContext(), i2));
     }
 
     @Override // android.widget.TextView
@@ -43,25 +45,26 @@ public class AppCompatCheckedTextView extends CheckedTextView {
     }
 
     @Override // android.widget.TextView
-    public void setTextAppearance(Context context, int i) {
-        super.setTextAppearance(context, i);
+    public void setTextAppearance(Context context, int i2) {
+        super.setTextAppearance(context, i2);
         AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
         if (appCompatTextHelper != null) {
-            appCompatTextHelper.onSetTextAppearance(context, i);
+            appCompatTextHelper.onSetTextAppearance(context, i2);
         }
     }
 
-    public AppCompatCheckedTextView(Context context, AttributeSet attributeSet) {
+    public AppCompatCheckedTextView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 16843720);
     }
 
-    public AppCompatCheckedTextView(Context context, AttributeSet attributeSet, int i) {
-        super(TintContextWrapper.wrap(context), attributeSet, i);
+    public AppCompatCheckedTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(TintContextWrapper.wrap(context), attributeSet, i2);
+        ThemeUtils.checkAppCompatTheme(this, getContext());
         AppCompatTextHelper appCompatTextHelper = new AppCompatTextHelper(this);
         this.mTextHelper = appCompatTextHelper;
-        appCompatTextHelper.loadFromAttributes(attributeSet, i);
+        appCompatTextHelper.loadFromAttributes(attributeSet, i2);
         this.mTextHelper.applyCompoundDrawablesTints();
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, TINT_ATTRS, i, 0);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, TINT_ATTRS, i2, 0);
         setCheckMarkDrawable(obtainStyledAttributes.getDrawable(0));
         obtainStyledAttributes.recycle();
     }

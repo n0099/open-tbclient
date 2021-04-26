@@ -74,8 +74,8 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void handleFailure(int i, int i2, String str) {
-        if (i == 2) {
+    public void handleFailure(int i2, int i3, String str) {
+        if (i2 == 2) {
             LBSPayAli.getInstance().clearChannelPay();
             this.mChannelPay = null;
             if (!TextUtils.isEmpty(str)) {
@@ -97,18 +97,18 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void handlerResponse(int i, Object obj, String str) {
-        if (obj != null && i == 2) {
+    public void handlerResponse(int i2, Object obj, String str) {
+        if (obj != null && i2 == 2) {
             GetPayContent getPayContent = obj instanceof GetPayContent ? (GetPayContent) obj : null;
             GetPayOrderListener getPayOrderListener = this.getPayOrderListener;
             if (getPayOrderListener != null) {
                 getPayOrderListener.complete();
             }
             if (getPayContent != null) {
-                int i2 = getPayContent.authorize_err_no;
-                if (i2 == 100000) {
+                int i3 = getPayContent.authorize_err_no;
+                if (i3 == 100000) {
                     LBSPayResult.payResult(this.mAct, 0, getPayContent.authorize_return_data);
-                } else if (i2 > 100000 && i2 <= 110000) {
+                } else if (i3 > 100000 && i3 <= 110000) {
                     doPay(getPayContent);
                 } else {
                     doPay(getPayContent);
@@ -208,32 +208,32 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                     iChannelPay2.payCancel();
                 }
             } else {
-                string.equalsIgnoreCase(e.f1994a);
+                string.equalsIgnoreCase(e.f1950a);
             }
         }
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecFailure(final int i, final int i2, final String str) {
+    public void onBeanExecFailure(final int i2, final int i3, final String str) {
         Handler handler = this.mHandler;
         if (handler != null) {
             handler.post(new Runnable() { // from class: com.baidu.android.lbspay.view.PayChannelController.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    PayChannelController.this.handleFailure(i, i2, str);
+                    PayChannelController.this.handleFailure(i2, i3, str);
                 }
             });
         }
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponseCallback
-    public void onBeanExecSuccess(final int i, final Object obj, final String str) {
+    public void onBeanExecSuccess(final int i2, final Object obj, final String str) {
         Handler handler = this.mHandler;
         if (handler != null) {
             handler.post(new Runnable() { // from class: com.baidu.android.lbspay.view.PayChannelController.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    PayChannelController.this.handlerResponse(i, obj, str);
+                    PayChannelController.this.handlerResponse(i2, obj, str);
                 }
             });
         }

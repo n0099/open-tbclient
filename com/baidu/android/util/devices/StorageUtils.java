@@ -36,11 +36,11 @@ public final class StorageUtils {
         public final String mPath;
         public final boolean mReadonly;
 
-        public StorageInfo(String str, boolean z, boolean z2, int i) {
+        public StorageInfo(String str, boolean z, boolean z2, int i2) {
             this.mPath = str;
             this.mInternal = z;
             this.mReadonly = z2;
-            this.mDisplayNumber = i;
+            this.mDisplayNumber = i2;
         }
 
         public String getDisplayName() {
@@ -60,7 +60,14 @@ public final class StorageUtils {
     }
 
     public static boolean externalMemoryAvailable() {
-        return Environment.getExternalStorageState().equals("mounted");
+        try {
+            return Environment.getExternalStorageState().equals("mounted");
+        } catch (Exception e2) {
+            if (DEBUG) {
+                Log.d(TAG, e2.getMessage());
+            }
+            return false;
+        }
     }
 
     public static String formatSize(long j) {
@@ -148,170 +155,216 @@ public final class StorageUtils {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:106:0x01c3 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:115:0x0043 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x01bb */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:110:0x01ba */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:111:0x003b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:115:0x003b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:125:0x0053 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:126:0x0053 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x01c7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r9v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r9v14 */
-    /* JADX WARN: Type inference failed for: r9v15 */
-    /* JADX WARN: Type inference failed for: r9v16 */
-    /* JADX WARN: Type inference failed for: r9v17 */
-    /* JADX WARN: Type inference failed for: r9v5 */
-    /* JADX WARN: Type inference failed for: r9v8 */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:104:0x01be -> B:105:0x01c2). Please submit an issue!!! */
+    /* JADX WARN: Removed duplicated region for block: B:113:0x01bf A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r8v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r8v1 */
+    /* JADX WARN: Type inference failed for: r8v10 */
+    /* JADX WARN: Type inference failed for: r8v11 */
+    /* JADX WARN: Type inference failed for: r8v15 */
+    /* JADX WARN: Type inference failed for: r8v17 */
+    /* JADX WARN: Type inference failed for: r8v18 */
+    /* JADX WARN: Type inference failed for: r8v19 */
+    /* JADX WARN: Type inference failed for: r8v2 */
+    /* JADX WARN: Type inference failed for: r8v20 */
+    /* JADX WARN: Type inference failed for: r8v21 */
+    /* JADX WARN: Type inference failed for: r8v22 */
+    /* JADX WARN: Type inference failed for: r8v23 */
+    /* JADX WARN: Type inference failed for: r8v24 */
+    /* JADX WARN: Type inference failed for: r8v25 */
+    /* JADX WARN: Type inference failed for: r8v26 */
+    /* JADX WARN: Type inference failed for: r8v27 */
+    /* JADX WARN: Type inference failed for: r8v28 */
+    /* JADX WARN: Type inference failed for: r8v29 */
+    /* JADX WARN: Type inference failed for: r8v30 */
+    /* JADX WARN: Type inference failed for: r8v31 */
+    /* JADX WARN: Type inference failed for: r8v32 */
+    /* JADX WARN: Type inference failed for: r8v33 */
+    /* JADX WARN: Type inference failed for: r8v34 */
+    /* JADX WARN: Type inference failed for: r8v35 */
+    /* JADX WARN: Type inference failed for: r8v4 */
+    /* JADX WARN: Type inference failed for: r8v7 */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:100:0x01b6 -> B:110:0x01ba). Please submit an issue!!! */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static List<StorageInfo> getStorageList() {
-        BufferedReader bufferedReader;
-        BufferedReader bufferedReader2;
         Throwable th;
+        BufferedReader bufferedReader;
         HashSet hashSet;
-        BufferedReader bufferedReader3;
+        BufferedReader bufferedReader2;
         String str;
-        int i;
+        int i2;
         HashMap hashMap = new HashMap();
         ArrayList arrayList = new ArrayList();
         String path = Environment.getExternalStorageDirectory().getPath();
-        int i2 = 1;
-        boolean z = false;
-        boolean z2 = Build.VERSION.SDK_INT >= 9 ? !Environment.isExternalStorageRemovable() : false;
+        int i3 = 1;
+        boolean z = !Environment.isExternalStorageRemovable();
         String externalStorageState = Environment.getExternalStorageState();
-        BufferedReader bufferedReader4 = "mounted_ro";
+        String str2 = "mounted_ro";
+        boolean z2 = false;
         boolean z3 = externalStorageState.equals("mounted") || externalStorageState.equals("mounted_ro");
         boolean equals = Environment.getExternalStorageState().equals("mounted_ro");
         try {
+        } catch (Throwable th2) {
+            th = th2;
+        }
+        try {
             try {
-                try {
-                    hashSet = new HashSet();
-                    bufferedReader3 = new BufferedReader(new FileReader("/proc/mounts"));
-                } catch (Throwable th2) {
-                    th = th2;
-                    th = th;
-                    if (bufferedReader4 != null) {
-                        try {
-                            bufferedReader4.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                    throw th;
+                hashSet = new HashSet();
+                bufferedReader2 = new BufferedReader(new FileReader("/proc/mounts"));
+            } catch (IOException e2) {
+                e2.printStackTrace();
+                str2 = str2;
+            }
+            try {
+                if (DEBUG) {
+                    Log.d(TAG, "/proc/mounts");
                 }
+                while (true) {
+                    String readLine = bufferedReader2.readLine();
+                    if (readLine == null) {
+                        break;
+                    }
+                    if (DEBUG) {
+                        Log.d(TAG, readLine);
+                    }
+                    StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
+                    String nextToken = stringTokenizer.nextToken();
+                    str2 = stringTokenizer.nextToken();
+                    if (!hashSet.contains(str2)) {
+                        stringTokenizer.nextToken();
+                        boolean contains = Arrays.asList(stringTokenizer.nextToken().split(",")).contains("ro");
+                        if (!readLine.contains("vfat") && !readLine.contains("/mnt")) {
+                            boolean isFuseStorage = isFuseStorage(nextToken, str2);
+                            str2 = str2;
+                            if (isFuseStorage) {
+                                hashSet.add(str2);
+                                boolean isPathAccessable = isPathAccessable(str2);
+                                str2 = str2;
+                                if (isPathAccessable) {
+                                    i2 = i3 + 1;
+                                    arrayList.add(new StorageInfo(str2, z2, contains, i3));
+                                    i3 = i2;
+                                    str2 = str2;
+                                }
+                            }
+                            z2 = false;
+                        }
+                        if (str2.equals(path)) {
+                            hashSet.add(path);
+                            str2 = -1;
+                            hashMap.put(nextToken, new StorageInfo(path, z, contains, -1));
+                        } else if (readLine.contains("/dev/block/vold")) {
+                            str2 = str2;
+                            if (!readLine.contains("/mnt/secure")) {
+                                str2 = str2;
+                                if (!readLine.contains("/mnt/asec")) {
+                                    str2 = str2;
+                                    if (!readLine.contains("/mnt/obb")) {
+                                        str2 = str2;
+                                        if (!readLine.contains("/dev/mapper")) {
+                                            str2 = str2;
+                                            if (!readLine.contains("tmpfs")) {
+                                                hashSet.add(str2);
+                                                str2 = str2;
+                                                if (!hashMap.containsKey(nextToken)) {
+                                                    i2 = i3 + 1;
+                                                    hashMap.put(nextToken, new StorageInfo(str2, z2, contains, i3));
+                                                    i3 = i2;
+                                                    str2 = str2;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            str2 = str2;
+                            if (hashSet.contains(nextToken)) {
+                                Iterator it = hashMap.keySet().iterator();
+                                while (true) {
+                                    if (!it.hasNext()) {
+                                        str = null;
+                                        break;
+                                    }
+                                    str = (String) it.next();
+                                    if (TextUtils.equals(((StorageInfo) hashMap.get(str)).mPath, nextToken)) {
+                                        break;
+                                    }
+                                }
+                                hashMap.remove(str);
+                                hashSet.add(str2);
+                                str2 = str2;
+                                if (!hashMap.containsKey(nextToken)) {
+                                    hashMap.put(nextToken, new StorageInfo(str2, false, contains, i3));
+                                    i3++;
+                                    str2 = str2;
+                                }
+                            }
+                        }
+                        z2 = false;
+                    }
+                }
+                for (StorageInfo storageInfo : hashMap.values()) {
+                    if (isPathAccessable(storageInfo.mPath)) {
+                        arrayList.add(storageInfo);
+                    }
+                }
+                if (!hashSet.contains(path) && z3) {
+                    arrayList.add(0, new StorageInfo(path, z, equals, -1));
+                }
+                bufferedReader2.close();
+                str2 = str2;
             } catch (FileNotFoundException e3) {
                 e = e3;
-                bufferedReader2 = null;
+                str2 = bufferedReader2;
+                e.printStackTrace();
+                if (str2 != null) {
+                    str2.close();
+                    str2 = str2;
+                }
+                return arrayList;
             } catch (IOException e4) {
                 e = e4;
-                bufferedReader = null;
+                str2 = bufferedReader2;
+                e.printStackTrace();
+                if (str2 != null) {
+                    str2.close();
+                    str2 = str2;
+                }
+                return arrayList;
             } catch (Throwable th3) {
                 th = th3;
-                bufferedReader4 = null;
-                th = th;
-                if (bufferedReader4 != null) {
+                bufferedReader = bufferedReader2;
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
                 }
                 throw th;
             }
-        } catch (IOException e5) {
-            e5.printStackTrace();
-        }
-        try {
-            if (DEBUG) {
-                Log.d(TAG, "/proc/mounts");
-            }
-            while (true) {
-                String readLine = bufferedReader3.readLine();
-                if (readLine == null) {
-                    break;
-                }
-                if (DEBUG) {
-                    Log.d(TAG, readLine);
-                }
-                StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
-                String nextToken = stringTokenizer.nextToken();
-                String nextToken2 = stringTokenizer.nextToken();
-                if (!hashSet.contains(nextToken2)) {
-                    stringTokenizer.nextToken();
-                    boolean contains = Arrays.asList(stringTokenizer.nextToken().split(",")).contains("ro");
-                    if (!readLine.contains("vfat") && !readLine.contains("/mnt")) {
-                        if (isFuseStorage(nextToken, nextToken2)) {
-                            hashSet.add(nextToken2);
-                            if (isPathAccessable(nextToken2)) {
-                                i = i2 + 1;
-                                arrayList.add(new StorageInfo(nextToken2, z, contains, i2));
-                                i2 = i;
-                            }
-                        }
-                        z = false;
-                    }
-                    if (nextToken2.equals(path)) {
-                        hashSet.add(path);
-                        hashMap.put(nextToken, new StorageInfo(path, z2, contains, -1));
-                    } else if (readLine.contains("/dev/block/vold")) {
-                        if (!readLine.contains("/mnt/secure") && !readLine.contains("/mnt/asec") && !readLine.contains("/mnt/obb") && !readLine.contains("/dev/mapper") && !readLine.contains("tmpfs")) {
-                            hashSet.add(nextToken2);
-                            if (!hashMap.containsKey(nextToken)) {
-                                i = i2 + 1;
-                                hashMap.put(nextToken, new StorageInfo(nextToken2, z, contains, i2));
-                                i2 = i;
-                            }
-                        }
-                    } else if (hashSet.contains(nextToken)) {
-                        Iterator it = hashMap.keySet().iterator();
-                        while (true) {
-                            if (!it.hasNext()) {
-                                str = null;
-                                break;
-                            }
-                            str = (String) it.next();
-                            if (TextUtils.equals(((StorageInfo) hashMap.get(str)).mPath, nextToken)) {
-                                break;
-                            }
-                        }
-                        hashMap.remove(str);
-                        hashSet.add(nextToken2);
-                        if (!hashMap.containsKey(nextToken)) {
-                            hashMap.put(nextToken, new StorageInfo(nextToken2, false, contains, i2));
-                            i2++;
-                        }
-                    }
-                    z = false;
-                }
-            }
-            for (StorageInfo storageInfo : hashMap.values()) {
-                if (isPathAccessable(storageInfo.mPath)) {
-                    arrayList.add(storageInfo);
-                }
-            }
-            if (!hashSet.contains(path) && z3) {
-                arrayList.add(0, new StorageInfo(path, z2, equals, -1));
-            }
-            bufferedReader3.close();
         } catch (FileNotFoundException e6) {
             e = e6;
-            bufferedReader2 = bufferedReader3;
-            e.printStackTrace();
-            bufferedReader4 = bufferedReader2;
-            if (bufferedReader2 != null) {
-                bufferedReader2.close();
-                bufferedReader4 = bufferedReader2;
-            }
-            return arrayList;
+            str2 = null;
         } catch (IOException e7) {
             e = e7;
-            bufferedReader = bufferedReader3;
-            e.printStackTrace();
-            bufferedReader4 = bufferedReader;
-            if (bufferedReader != null) {
-                bufferedReader.close();
-                bufferedReader4 = bufferedReader;
-            }
-            return arrayList;
+            str2 = null;
         } catch (Throwable th4) {
             th = th4;
-            bufferedReader4 = bufferedReader3;
-            if (bufferedReader4 != null) {
+            str2 = 0;
+            th = th;
+            bufferedReader = str2;
+            if (bufferedReader != null) {
             }
             throw th;
         }

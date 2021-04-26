@@ -24,7 +24,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import d.b.c.e.p.k;
+import d.a.c.e.p.k;
 /* loaded from: classes5.dex */
 public class AddLinkActivity extends BaseActivity {
     public TextView mAddLinkTip;
@@ -63,8 +63,8 @@ public class AddLinkActivity extends BaseActivity {
 
     /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -128,19 +128,19 @@ public class AddLinkActivity extends BaseActivity {
         }
 
         @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
 
         @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             if (charSequence == null || charSequence.length() == 0) {
                 AddLinkActivity.this.mCompleteBtn.setEnabled(false);
                 AddLinkActivity.this.mDelBtn.setVisibility(8);
                 return;
             }
             AddLinkActivity.this.mDelBtn.setVisibility(0);
-            for (int i4 = 0; i4 < charSequence.length(); i4++) {
-                if (!Character.isWhitespace(charSequence.charAt(i4))) {
+            for (int i5 = 0; i5 < charSequence.length(); i5++) {
+                if (!Character.isWhitespace(charSequence.charAt(i5))) {
                     AddLinkActivity.this.mCompleteBtn.setEnabled(true);
                     return;
                 }
@@ -181,10 +181,10 @@ public class AddLinkActivity extends BaseActivity {
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f22093e;
+        public final /* synthetic */ String f22779e;
 
         public i(String str) {
-            this.f22093e = str;
+            this.f22779e = str;
         }
 
         @Override // java.lang.Runnable
@@ -195,7 +195,7 @@ public class AddLinkActivity extends BaseActivity {
             }
             WriteTipBubbleController writeTipBubbleController = AddLinkActivity.this.mFindNewLinkBubbleController;
             EditText editText = AddLinkActivity.this.mLinkEditView;
-            writeTipBubbleController.d(editText, AddLinkActivity.this.getPageContext().getString(R.string.find_new_link) + "\n" + this.f22093e, this.f22093e, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
+            writeTipBubbleController.d(editText, AddLinkActivity.this.getPageContext().getString(R.string.find_new_link) + "\n" + this.f22779e, this.f22779e, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
         }
     }
 
@@ -257,7 +257,7 @@ public class AddLinkActivity extends BaseActivity {
 
     private void setCompleteBtnColor() {
         int color = SkinManager.getColor(R.color.CAM_X0302);
-        this.mCompleteBtn.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{d.b.j0.d3.c.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), d.b.j0.d3.c.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+        this.mCompleteBtn.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{d.a.j0.d3.c.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), d.a.j0.d3.c.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -287,7 +287,7 @@ public class AddLinkActivity extends BaseActivity {
         setCompleteBtnColor();
         SkinManager.setViewTextColor(this.mLinkEditView, R.color.CAM_X0105);
         this.mLinkEditView.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
-        d.b.i0.r.u.c d2 = d.b.i0.r.u.c.d(this.mEditAreaLayout);
+        d.a.i0.r.u.c d2 = d.a.i0.r.u.c.d(this.mEditAreaLayout);
         d2.k(R.string.J_X01);
         d2.f(R.color.CAM_X0209);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mDelBtn, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);

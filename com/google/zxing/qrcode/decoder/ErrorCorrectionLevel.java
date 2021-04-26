@@ -15,15 +15,15 @@ public enum ErrorCorrectionLevel {
         FOR_BITS = new ErrorCorrectionLevel[]{M, errorCorrectionLevel2, errorCorrectionLevel, Q};
     }
 
-    ErrorCorrectionLevel(int i) {
-        this.bits = i;
+    ErrorCorrectionLevel(int i2) {
+        this.bits = i2;
     }
 
-    public static ErrorCorrectionLevel forBits(int i) {
-        if (i >= 0) {
+    public static ErrorCorrectionLevel forBits(int i2) {
+        if (i2 >= 0) {
             ErrorCorrectionLevel[] errorCorrectionLevelArr = FOR_BITS;
-            if (i < errorCorrectionLevelArr.length) {
-                return errorCorrectionLevelArr[i];
+            if (i2 < errorCorrectionLevelArr.length) {
+                return errorCorrectionLevelArr[i2];
             }
         }
         throw new IllegalArgumentException();

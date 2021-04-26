@@ -36,8 +36,8 @@ public final class TextUtilsCompat {
             return TextUtils.htmlEncode(str);
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < str.length(); i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            char charAt = str.charAt(i2);
             if (charAt == '\"') {
                 sb.append("&quot;");
             } else if (charAt == '<') {

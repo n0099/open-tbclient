@@ -22,29 +22,31 @@ public class TTCountdownView extends View {
     public AtomicBoolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28525a;
+    public int f29399a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28526b;
+    public int f29400b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28527c;
+    public int f29401c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28528d;
+    public int f29402d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f28529e;
+    public float f29403e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f28530f;
+    public float f29404f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f28531g;
+    public float f29405g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f28532h;
-    public boolean i;
+    public int f29406h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f29407i;
     public float j;
     public float k;
     public float l;
@@ -79,37 +81,37 @@ public class TTCountdownView extends View {
     private void e() {
         Paint paint = new Paint(1);
         this.o = paint;
-        paint.setColor(this.f28525a);
-        this.o.setStrokeWidth(this.f28529e);
+        paint.setColor(this.f29399a);
+        this.o.setStrokeWidth(this.f29403e);
         this.o.setAntiAlias(true);
         this.o.setStyle(Paint.Style.STROKE);
         Paint paint2 = new Paint(1);
         this.p = paint2;
-        paint2.setColor(this.f28527c);
+        paint2.setColor(this.f29401c);
         this.p.setAntiAlias(true);
-        this.p.setStrokeWidth(this.f28529e);
+        this.p.setStrokeWidth(this.f29403e);
         this.p.setStyle(Paint.Style.FILL);
         Paint paint3 = new Paint(1);
         this.q = paint3;
-        paint3.setColor(this.f28526b);
+        paint3.setColor(this.f29400b);
         this.q.setAntiAlias(true);
-        this.q.setStrokeWidth(this.f28529e / 2.0f);
+        this.q.setStrokeWidth(this.f29403e / 2.0f);
         this.q.setStyle(Paint.Style.STROKE);
         Paint paint4 = new Paint(1);
         this.r = paint4;
-        paint4.setColor(this.f28528d);
+        paint4.setColor(this.f29402d);
         this.q.setAntiAlias(true);
-        this.r.setTextSize(this.f28530f);
+        this.r.setTextSize(this.f29404f);
         this.r.setTextAlign(Paint.Align.CENTER);
     }
 
     private void f() {
-        float f2 = this.f28531g;
+        float f2 = this.f29405g;
         this.u = new RectF(-f2, -f2, f2, f2);
     }
 
     private int g() {
-        return (int) ((((this.f28529e / 2.0f) + this.f28531g) * 2.0f) + a(4.0f));
+        return (int) ((((this.f29403e / 2.0f) + this.f29405g) * 2.0f) + a(4.0f));
     }
 
     private ValueAnimator getArcAnim() {
@@ -156,8 +158,8 @@ public class TTCountdownView extends View {
         return f2 * f3;
     }
 
-    public float a(float f2, int i) {
-        return i * f2;
+    public float a(float f2, int i2) {
+        return i2 * f2;
     }
 
     public void c() {
@@ -199,12 +201,12 @@ public class TTCountdownView extends View {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        int size = View.MeasureSpec.getSize(i);
-        int mode = View.MeasureSpec.getMode(i);
-        int size2 = View.MeasureSpec.getSize(i2);
-        int mode2 = View.MeasureSpec.getMode(i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        int size = View.MeasureSpec.getSize(i2);
+        int mode = View.MeasureSpec.getMode(i2);
+        int size2 = View.MeasureSpec.getSize(i3);
+        int mode2 = View.MeasureSpec.getMode(i3);
         if (mode != 1073741824) {
             size = g();
         }
@@ -234,8 +236,8 @@ public class TTCountdownView extends View {
         }
     }
 
-    public void setCountDownTime(int i) {
-        float f2 = i;
+    public void setCountDownTime(int i2) {
+        float f2 = i2;
         this.k = f2;
         this.j = f2;
         b();
@@ -253,17 +255,17 @@ public class TTCountdownView extends View {
         this(context, attributeSet, 0);
     }
 
-    public TTCountdownView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f28525a = Color.parseColor("#fce8b6");
-        this.f28526b = Color.parseColor("#f0f0f0");
-        this.f28527c = Color.parseColor("#ffffff");
-        this.f28528d = Color.parseColor("#7c7c7c");
-        this.f28529e = 2.0f;
-        this.f28530f = 12.0f;
-        this.f28531g = 18.0f;
-        this.f28532h = 270;
-        this.i = false;
+    public TTCountdownView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f29399a = Color.parseColor("#fce8b6");
+        this.f29400b = Color.parseColor("#f0f0f0");
+        this.f29401c = Color.parseColor("#ffffff");
+        this.f29402d = Color.parseColor("#7c7c7c");
+        this.f29403e = 2.0f;
+        this.f29404f = 12.0f;
+        this.f29405g = 18.0f;
+        this.f29406h = 270;
+        this.f29407i = false;
         this.j = 5.0f;
         this.k = 5.0f;
         this.l = 0.8f;
@@ -273,10 +275,10 @@ public class TTCountdownView extends View {
         this.t = 1.0f;
         this.A = false;
         this.B = new AtomicBoolean(true);
-        this.f28529e = a(2.0f);
-        this.f28531g = a(18.0f);
-        this.f28530f = b(12.0f);
-        this.f28532h %= 360;
+        this.f29403e = a(2.0f);
+        this.f29405g = a(18.0f);
+        this.f29404f = b(12.0f);
+        this.f29406h %= 360;
         e();
         f();
     }
@@ -285,13 +287,13 @@ public class TTCountdownView extends View {
         float f2;
         canvas.save();
         float a2 = a(this.s, 360);
-        if (this.i) {
-            f2 = this.f28532h - a2;
+        if (this.f29407i) {
+            f2 = this.f29406h - a2;
         } else {
-            f2 = this.f28532h;
+            f2 = this.f29406h;
         }
-        canvas.drawCircle(0.0f, 0.0f, this.f28531g, this.p);
-        canvas.drawCircle(0.0f, 0.0f, this.f28531g, this.q);
+        canvas.drawCircle(0.0f, 0.0f, this.f29405g, this.p);
+        canvas.drawCircle(0.0f, 0.0f, this.f29405g, this.q);
         canvas.drawArc(this.u, f2, a2, false, this.o);
         canvas.restore();
     }

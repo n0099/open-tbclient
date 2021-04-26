@@ -21,12 +21,12 @@ public final class ExtensionRegistry {
         map2.put(extension.getName(), extension);
     }
 
-    public <T extends ExtendableMessage<?>, E> Extension<T, E> getExtension(Class<T> cls, int i) {
+    public <T extends ExtendableMessage<?>, E> Extension<T, E> getExtension(Class<T> cls, int i2) {
         Map<Integer, Extension<?, ?>> map = this.extensionsByTag.get(cls);
         if (map == null) {
             return null;
         }
-        return (Extension<T, E>) map.get(Integer.valueOf(i));
+        return (Extension<T, E>) map.get(Integer.valueOf(i2));
     }
 
     public <T extends ExtendableMessage<?>, E> Extension<T, E> getExtension(Class<T> cls, String str) {

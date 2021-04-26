@@ -7,8 +7,6 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.util.Log;
-import com.kwai.video.player.KsMediaMeta;
-import com.kwai.video.player.misc.IMediaFormat;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -54,8 +52,8 @@ public class Mp4ComposerEngine {
 
     public static MediaCodecInfo selectCodec(String str) {
         int codecCount = MediaCodecList.getCodecCount();
-        for (int i = 0; i < codecCount; i++) {
-            MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
+        for (int i2 = 0; i2 < codecCount; i2++) {
+            MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i2);
             if (codecInfoAt.isEncoder()) {
                 for (String str2 : codecInfoAt.getSupportedTypes()) {
                     if (str2.equalsIgnoreCase(str)) {
@@ -70,9 +68,9 @@ public class Mp4ComposerEngine {
 
     public static int selectVideoTrackIndex(MediaExtractor mediaExtractor) {
         int trackCount = mediaExtractor.getTrackCount();
-        for (int i = 0; i < trackCount; i++) {
-            if (mediaExtractor.getTrackFormat(i).getString(IMediaFormat.KEY_MIME).startsWith(FileUtils.VIDEO_FILE_START)) {
-                return i;
+        for (int i2 = 0; i2 < trackCount; i2++) {
+            if (mediaExtractor.getTrackFormat(i2).getString("mime").startsWith(FileUtils.VIDEO_FILE_START)) {
+                return i2;
             }
         }
         return -1;
@@ -112,18 +110,18 @@ public class Mp4ComposerEngine {
             int selectVideoTrackIndex = selectVideoTrackIndex(mediaExtractor);
             if (selectVideoTrackIndex >= 0) {
                 MediaFormat trackFormat = mediaExtractor.getTrackFormat(selectVideoTrackIndex);
-                String string = trackFormat.getString(IMediaFormat.KEY_MIME);
-                int i = 25;
+                String string = trackFormat.getString("mime");
+                int i2 = 25;
                 try {
-                    i = trackFormat.getInteger("frame-rate");
+                    i2 = trackFormat.getInteger("frame-rate");
                 } catch (Exception e2) {
                     Log.e(TAG, "get frame rate (FPS) failed.", e2);
                 }
                 this.mDurationUs = mp4Info.getDurationUs();
                 MediaFormat createVideoFormat = MediaFormat.createVideoFormat(string, mp4Info.getWidth(), mp4Info.getHeight());
                 createVideoFormat.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, 0);
-                createVideoFormat.setInteger(KsMediaMeta.KSM_KEY_BITRATE, mp4Info.getBitrate() * 3);
-                createVideoFormat.setInteger("frame-rate", i);
+                createVideoFormat.setInteger("bitrate", mp4Info.getBitrate() * 3);
+                createVideoFormat.setInteger("frame-rate", i2);
                 createVideoFormat.setInteger("i-frame-interval", 0);
                 createVideoFormat.setInteger("color-format", 2130708361);
                 mediaMuxer = new MediaMuxer(str, 0);

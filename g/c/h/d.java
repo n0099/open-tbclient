@@ -11,10 +11,10 @@ public abstract class d extends f {
 
     @Override // g.c.h.f
     public void h() throws InvalidDataException {
-        if (e()) {
-            if (!a()) {
-                if (!b()) {
-                    if (d()) {
+        if (f()) {
+            if (!b()) {
+                if (!c()) {
+                    if (e()) {
                         throw new InvalidFrameException("Control frame cant have rsv3==true set");
                     }
                     return;

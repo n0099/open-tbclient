@@ -1,5 +1,6 @@
 package com.baidu.searchbox.config;
 
+import androidx.annotation.NonNull;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.searchbox.aperf.bosuploader.BaseUrlManager;
 import com.baidu.searchbox.config.AppConfig;
@@ -18,6 +19,16 @@ public final class HostConfig {
     /* loaded from: classes2.dex */
     public interface ConfigInterceptor {
         boolean getBooleanConfig(String str, String str2);
+    }
+
+    @NonNull
+    public static String getAladdinCommonHost() {
+        return AppConfig.getStringConfig("ALADDIN_NA_COMMON_HOST", "https://sp0.baidu.com");
+    }
+
+    @NonNull
+    public static String getAladdinSportHost() {
+        return AppConfig.getStringConfig("ALADDIN_NA_SPORT_HOST", "https://tiyu.baidu.com");
     }
 
     public static String getAntiHijackHost() {
@@ -104,6 +115,11 @@ public final class HostConfig {
         return "http://m.baidu.com/pu=sz@1320_224,osname@android/app?tn=tophot";
     }
 
+    @NonNull
+    public static String getSearchFullVideoSetHost() {
+        return AppConfig.getStringConfig("SEARCH_VIDEO_FULL_VIDEO_SET", isSearchboxUseHttps() ? BaseUrlManager.ONLINE_URL : "http://mbd.baidu.com");
+    }
+
     public static String getSearchSimCardPreUrl() {
         return AppConfig.isDebug() ? AppConfig.getStringConfig(CONFIG_SEARCHBOX_HOST, "http://mbd.baidu.com") : "http://mbd.baidu.com";
     }
@@ -136,7 +152,7 @@ public final class HostConfig {
     }
 
     public static String getUrlAppMustRead() {
-        return String.format("%s/duty/wise/wise_index.html", "https://www.baidu.com");
+        return "https://m.baidu.com/sf?pd=sd_privacy_terms&ms=1&ms=1&word=%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E&title=%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E&openapi=1&from_sf=1&resource_id=37483&dsp=iphone&tn=wisexmlnew&ext=%7B%22pid%22%3A%22mianze-shengming%22%7D&lid=&referlid=9238571407366095574&frsrcid=37483&frorder=1";
     }
 
     public static String getUrlPrivacyPolicy() {

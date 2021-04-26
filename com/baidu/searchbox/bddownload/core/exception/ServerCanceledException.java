@@ -5,9 +5,9 @@ import java.io.IOException;
 public class ServerCanceledException extends IOException {
     public final int responseCode;
 
-    public ServerCanceledException(int i, long j) {
-        super("Response code can't handled on internal " + i + " with current offset " + j);
-        this.responseCode = i;
+    public ServerCanceledException(int i2, long j) {
+        super("Response code can't handled on internal " + i2 + " with current offset " + j);
+        this.responseCode = i2;
     }
 
     public int getResponseCode() {

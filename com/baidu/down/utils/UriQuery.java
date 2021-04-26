@@ -2,7 +2,7 @@ package com.baidu.down.utils;
 
 import android.text.TextUtils;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class UriQuery {
     public static final boolean DEBUG = false;
     public static final String TAG = "UriQuery";
@@ -33,12 +33,12 @@ public class UriQuery {
             return;
         }
         String[] split = this.mQuery.split("&");
-        for (int i = 0; i < split.length; i++) {
-            int indexOf = split[i].indexOf("=");
+        for (int i2 = 0; i2 < split.length; i2++) {
+            int indexOf = split[i2].indexOf("=");
             if (indexOf >= 0) {
-                this.mParams.put(UriHelper.getDecodedValue(split[i].substring(0, indexOf)), UriHelper.getDecodedValue(split[i].substring(indexOf + 1)));
+                this.mParams.put(UriHelper.getDecodedValue(split[i2].substring(0, indexOf)), UriHelper.getDecodedValue(split[i2].substring(indexOf + 1)));
             } else {
-                this.mParams.put(UriHelper.getDecodedValue(split[i]), "");
+                this.mParams.put(UriHelper.getDecodedValue(split[i2]), "");
             }
         }
         this.mBackupQueryDirty = true;

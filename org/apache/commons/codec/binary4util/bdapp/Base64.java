@@ -21,9 +21,9 @@ public class Base64 {
         public int op;
         public byte[] output;
 
-        public abstract int maxOutputSize(int i);
+        public abstract int maxOutputSize(int i2);
 
-        public abstract boolean process(byte[] bArr, int i, int i2, boolean z);
+        public abstract boolean process(byte[] bArr, int i2, int i3, boolean z);
     }
 
     /* loaded from: classes7.dex */
@@ -36,135 +36,135 @@ public class Base64 {
         public int state;
         public int value;
 
-        public Decoder(int i, byte[] bArr) {
+        public Decoder(int i2, byte[] bArr) {
             this.output = bArr;
-            this.alphabet = (i & 8) == 0 ? DECODE : DECODE_WEBSAFE;
+            this.alphabet = (i2 & 8) == 0 ? DECODE : DECODE_WEBSAFE;
             this.state = 0;
             this.value = 0;
         }
 
         @Override // org.apache.commons.codec.binary4util.bdapp.Base64.Coder
-        public int maxOutputSize(int i) {
-            return ((i * 3) / 4) + 10;
+        public int maxOutputSize(int i2) {
+            return ((i2 * 3) / 4) + 10;
         }
 
         @Override // org.apache.commons.codec.binary4util.bdapp.Base64.Coder
-        public boolean process(byte[] bArr, int i, int i2, boolean z) {
-            int i3 = this.state;
-            if (i3 == 6) {
+        public boolean process(byte[] bArr, int i2, int i3, boolean z) {
+            int i4 = this.state;
+            if (i4 == 6) {
                 return false;
             }
-            int i4 = i2 + i;
-            int i5 = this.value;
+            int i5 = i3 + i2;
+            int i6 = this.value;
             byte[] bArr2 = this.output;
             int[] iArr = this.alphabet;
-            int i6 = i5;
-            int i7 = 0;
-            int i8 = i3;
-            int i9 = i;
-            while (i9 < i4) {
-                if (i8 == 0) {
+            int i7 = i6;
+            int i8 = 0;
+            int i9 = i4;
+            int i10 = i2;
+            while (i10 < i5) {
+                if (i9 == 0) {
                     while (true) {
-                        int i10 = i9 + 4;
-                        if (i10 > i4 || (i6 = (iArr[bArr[i9] & 255] << 18) | (iArr[bArr[i9 + 1] & 255] << 12) | (iArr[bArr[i9 + 2] & 255] << 6) | iArr[bArr[i9 + 3] & 255]) < 0) {
+                        int i11 = i10 + 4;
+                        if (i11 > i5 || (i7 = (iArr[bArr[i10] & 255] << 18) | (iArr[bArr[i10 + 1] & 255] << 12) | (iArr[bArr[i10 + 2] & 255] << 6) | iArr[bArr[i10 + 3] & 255]) < 0) {
                             break;
                         }
-                        bArr2[i7 + 2] = (byte) i6;
-                        bArr2[i7 + 1] = (byte) (i6 >> 8);
-                        bArr2[i7] = (byte) (i6 >> 16);
-                        i7 += 3;
-                        i9 = i10;
+                        bArr2[i8 + 2] = (byte) i7;
+                        bArr2[i8 + 1] = (byte) (i7 >> 8);
+                        bArr2[i8] = (byte) (i7 >> 16);
+                        i8 += 3;
+                        i10 = i11;
                     }
-                    if (i9 >= i4) {
+                    if (i10 >= i5) {
                         break;
                     }
                 }
-                int i11 = i9 + 1;
-                int i12 = iArr[bArr[i9] & 255];
-                if (i8 != 0) {
-                    if (i8 == 1) {
-                        if (i12 < 0) {
-                            if (i12 != -1) {
+                int i12 = i10 + 1;
+                int i13 = iArr[bArr[i10] & 255];
+                if (i9 != 0) {
+                    if (i9 == 1) {
+                        if (i13 < 0) {
+                            if (i13 != -1) {
                                 this.state = 6;
                                 return false;
                             }
                         }
-                        i12 |= i6 << 6;
-                    } else if (i8 == 2) {
-                        if (i12 < 0) {
-                            if (i12 == -2) {
-                                bArr2[i7] = (byte) (i6 >> 4);
-                                i7++;
-                                i8 = 4;
-                            } else if (i12 != -1) {
+                        i13 |= i7 << 6;
+                    } else if (i9 == 2) {
+                        if (i13 < 0) {
+                            if (i13 == -2) {
+                                bArr2[i8] = (byte) (i7 >> 4);
+                                i8++;
+                                i9 = 4;
+                            } else if (i13 != -1) {
                                 this.state = 6;
                                 return false;
                             }
                         }
-                        i12 |= i6 << 6;
-                    } else if (i8 != 3) {
-                        if (i8 != 4) {
-                            if (i8 == 5 && i12 != -1) {
+                        i13 |= i7 << 6;
+                    } else if (i9 != 3) {
+                        if (i9 != 4) {
+                            if (i9 == 5 && i13 != -1) {
                                 this.state = 6;
                                 return false;
                             }
-                        } else if (i12 == -2) {
-                            i8++;
-                        } else if (i12 != -1) {
+                        } else if (i13 == -2) {
+                            i9++;
+                        } else if (i13 != -1) {
                             this.state = 6;
                             return false;
                         }
-                    } else if (i12 >= 0) {
-                        int i13 = i12 | (i6 << 6);
-                        bArr2[i7 + 2] = (byte) i13;
-                        bArr2[i7 + 1] = (byte) (i13 >> 8);
-                        bArr2[i7] = (byte) (i13 >> 16);
-                        i7 += 3;
-                        i6 = i13;
-                        i8 = 0;
-                    } else if (i12 == -2) {
-                        bArr2[i7 + 1] = (byte) (i6 >> 2);
-                        bArr2[i7] = (byte) (i6 >> 10);
-                        i7 += 2;
-                        i8 = 5;
-                    } else if (i12 != -1) {
+                    } else if (i13 >= 0) {
+                        int i14 = i13 | (i7 << 6);
+                        bArr2[i8 + 2] = (byte) i14;
+                        bArr2[i8 + 1] = (byte) (i14 >> 8);
+                        bArr2[i8] = (byte) (i14 >> 16);
+                        i8 += 3;
+                        i7 = i14;
+                        i9 = 0;
+                    } else if (i13 == -2) {
+                        bArr2[i8 + 1] = (byte) (i7 >> 2);
+                        bArr2[i8] = (byte) (i7 >> 10);
+                        i8 += 2;
+                        i9 = 5;
+                    } else if (i13 != -1) {
                         this.state = 6;
                         return false;
                     }
-                    i8++;
-                    i6 = i12;
+                    i9++;
+                    i7 = i13;
                 } else {
-                    if (i12 < 0) {
-                        if (i12 != -1) {
+                    if (i13 < 0) {
+                        if (i13 != -1) {
                             this.state = 6;
                             return false;
                         }
                     }
-                    i8++;
-                    i6 = i12;
+                    i9++;
+                    i7 = i13;
                 }
-                i9 = i11;
+                i10 = i12;
             }
             if (!z) {
-                this.state = i8;
-                this.value = i6;
-                this.op = i7;
+                this.state = i9;
+                this.value = i7;
+                this.op = i8;
                 return true;
-            } else if (i8 != 1) {
-                if (i8 == 2) {
-                    bArr2[i7] = (byte) (i6 >> 4);
-                    i7++;
-                } else if (i8 == 3) {
-                    int i14 = i7 + 1;
-                    bArr2[i7] = (byte) (i6 >> 10);
-                    i7 = i14 + 1;
-                    bArr2[i14] = (byte) (i6 >> 2);
-                } else if (i8 == 4) {
+            } else if (i9 != 1) {
+                if (i9 == 2) {
+                    bArr2[i8] = (byte) (i7 >> 4);
+                    i8++;
+                } else if (i9 == 3) {
+                    int i15 = i8 + 1;
+                    bArr2[i8] = (byte) (i7 >> 10);
+                    i8 = i15 + 1;
+                    bArr2[i15] = (byte) (i7 >> 2);
+                } else if (i9 == 4) {
                     this.state = 6;
                     return false;
                 }
-                this.state = i8;
-                this.op = i7;
+                this.state = i9;
+                this.op = i8;
                 return true;
             } else {
                 this.state = 6;
@@ -187,20 +187,20 @@ public class Base64 {
         public final byte[] tail;
         public int tailLen;
 
-        public Encoder(int i, byte[] bArr) {
+        public Encoder(int i2, byte[] bArr) {
             this.output = bArr;
-            this.do_padding = (i & 1) == 0;
-            this.do_newline = (i & 2) == 0;
-            this.do_cr = (i & 4) != 0;
-            this.alphabet = (i & 8) == 0 ? ENCODE : ENCODE_WEBSAFE;
+            this.do_padding = (i2 & 1) == 0;
+            this.do_newline = (i2 & 2) == 0;
+            this.do_cr = (i2 & 4) != 0;
+            this.alphabet = (i2 & 8) == 0 ? ENCODE : ENCODE_WEBSAFE;
             this.tail = new byte[2];
             this.tailLen = 0;
             this.count = this.do_newline ? 19 : -1;
         }
 
         @Override // org.apache.commons.codec.binary4util.bdapp.Base64.Coder
-        public int maxOutputSize(int i) {
-            return ((i * 8) / 5) + 10;
+        public int maxOutputSize(int i2) {
+            return ((i2 * 8) / 5) + 10;
         }
 
         /*  JADX ERROR: JadxOverflowException in pass: RegionMakerVisitor
@@ -526,68 +526,68 @@ public class Base64 {
         }
     }
 
-    public static byte[] decode(String str, int i) throws IllegalArgumentException {
-        return decode(str.getBytes(), i);
+    public static byte[] decode(String str, int i2) throws IllegalArgumentException {
+        return decode(str.getBytes(), i2);
     }
 
-    public static byte[] encode(byte[] bArr, int i) {
-        return encode(bArr, 0, bArr.length, i);
+    public static byte[] encode(byte[] bArr, int i2) {
+        return encode(bArr, 0, bArr.length, i2);
     }
 
-    public static String encodeToString(byte[] bArr, int i) {
+    public static String encodeToString(byte[] bArr, int i2) {
         try {
-            return new String(encode(bArr, i), "US-ASCII");
+            return new String(encode(bArr, i2), "US-ASCII");
         } catch (UnsupportedEncodingException e2) {
             throw new AssertionError(e2);
         }
     }
 
-    public static byte[] decode(byte[] bArr, int i) throws IllegalArgumentException {
-        return decode(bArr, 0, bArr.length, i);
+    public static byte[] decode(byte[] bArr, int i2) throws IllegalArgumentException {
+        return decode(bArr, 0, bArr.length, i2);
     }
 
     @SuppressLint({"Assert"})
-    public static byte[] encode(byte[] bArr, int i, int i2, int i3) {
-        Encoder encoder = new Encoder(i3, null);
-        int i4 = (i2 / 3) * 4;
+    public static byte[] encode(byte[] bArr, int i2, int i3, int i4) {
+        Encoder encoder = new Encoder(i4, null);
+        int i5 = (i3 / 3) * 4;
         if (encoder.do_padding) {
-            if (i2 % 3 > 0) {
-                i4 += 4;
+            if (i3 % 3 > 0) {
+                i5 += 4;
             }
         } else {
-            int i5 = i2 % 3;
-            if (i5 == 1) {
-                i4 += 2;
-            } else if (i5 == 2) {
-                i4 += 3;
+            int i6 = i3 % 3;
+            if (i6 == 1) {
+                i5 += 2;
+            } else if (i6 == 2) {
+                i5 += 3;
             }
         }
-        if (encoder.do_newline && i2 > 0) {
-            i4 += (((i2 - 1) / 57) + 1) * (encoder.do_cr ? 2 : 1);
+        if (encoder.do_newline && i3 > 0) {
+            i5 += (((i3 - 1) / 57) + 1) * (encoder.do_cr ? 2 : 1);
         }
-        encoder.output = new byte[i4];
-        encoder.process(bArr, i, i2, true);
+        encoder.output = new byte[i5];
+        encoder.process(bArr, i2, i3, true);
         return encoder.output;
     }
 
-    public static byte[] decode(byte[] bArr, int i, int i2, int i3) throws IllegalArgumentException {
-        Decoder decoder = new Decoder(i3, new byte[(i2 * 3) / 4]);
-        if (decoder.process(bArr, i, i2, true)) {
-            int i4 = decoder.op;
+    public static byte[] decode(byte[] bArr, int i2, int i3, int i4) throws IllegalArgumentException {
+        Decoder decoder = new Decoder(i4, new byte[(i3 * 3) / 4]);
+        if (decoder.process(bArr, i2, i3, true)) {
+            int i5 = decoder.op;
             byte[] bArr2 = decoder.output;
-            if (i4 == bArr2.length) {
+            if (i5 == bArr2.length) {
                 return bArr2;
             }
-            byte[] bArr3 = new byte[i4];
-            System.arraycopy(bArr2, 0, bArr3, 0, i4);
+            byte[] bArr3 = new byte[i5];
+            System.arraycopy(bArr2, 0, bArr3, 0, i5);
             return bArr3;
         }
         throw new IllegalArgumentException("bad base-64");
     }
 
-    public static String encodeToString(byte[] bArr, int i, int i2, int i3) {
+    public static String encodeToString(byte[] bArr, int i2, int i3, int i4) {
         try {
-            return new String(encode(bArr, i, i2, i3), "US-ASCII");
+            return new String(encode(bArr, i2, i3, i4), "US-ASCII");
         } catch (UnsupportedEncodingException e2) {
             throw new AssertionError(e2);
         }

@@ -37,8 +37,8 @@ public class LengthCheckInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public void mark(int i) {
-        super.mark(i);
+    public void mark(int i2) {
+        super.mark(i2);
         this.marked = this.dataLength;
     }
 
@@ -71,8 +71,8 @@ public class LengthCheckInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        int read = super.read(bArr, i, i2);
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
+        int read = super.read(bArr, i2, i3);
         this.dataLength += read >= 0 ? read : 0L;
         checkLength(read == -1);
         return read;

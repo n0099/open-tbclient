@@ -31,14 +31,14 @@ import kotlin.jvm.functions.Function9;
 @Deprecated
 /* loaded from: classes7.dex */
 public abstract class FunctionImpl implements Function, Serializable, Function0, Function1, Function2, Function3, Function4, Function5, Function6, Function7, Function8, Function9, Function10, Function11, Function12, Function13, Function14, Function15, Function16, Function17, Function18, Function19, Function20, Function21, Function22 {
-    private void checkArity(int i) {
-        if (getArity() != i) {
-            throwWrongArity(i);
+    private void checkArity(int i2) {
+        if (getArity() != i2) {
+            throwWrongArity(i2);
         }
     }
 
-    private void throwWrongArity(int i) {
-        throw new IllegalStateException("Wrong function arity, expected: " + i + ", actual: " + getArity());
+    private void throwWrongArity(int i2) {
+        throw new IllegalStateException("Wrong function arity, expected: " + i2 + ", actual: " + getArity());
     }
 
     public abstract int getArity();

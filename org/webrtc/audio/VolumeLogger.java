@@ -22,22 +22,22 @@ public class VolumeLogger {
         public final int maxRingVolume;
         public final int maxVoiceCallVolume;
 
-        public LogVolumeTask(int i, int i2) {
-            this.maxRingVolume = i;
-            this.maxVoiceCallVolume = i2;
+        public LogVolumeTask(int i2, int i3) {
+            this.maxRingVolume = i2;
+            this.maxVoiceCallVolume = i3;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             StringBuilder sb;
-            int i;
+            int i2;
             int mode = VolumeLogger.this.audioManager.getMode();
             if (mode == 1) {
                 sb = new StringBuilder();
                 sb.append("STREAM_RING stream volume: ");
                 sb.append(VolumeLogger.this.audioManager.getStreamVolume(2));
                 sb.append(" (max=");
-                i = this.maxRingVolume;
+                i2 = this.maxRingVolume;
             } else if (mode != 3) {
                 return;
             } else {
@@ -45,9 +45,9 @@ public class VolumeLogger {
                 sb.append("VOICE_CALL stream volume: ");
                 sb.append(VolumeLogger.this.audioManager.getStreamVolume(0));
                 sb.append(" (max=");
-                i = this.maxVoiceCallVolume;
+                i2 = this.maxVoiceCallVolume;
             }
-            sb.append(i);
+            sb.append(i2);
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
             Logging.d(VolumeLogger.TAG, sb.toString());
         }

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes4.dex */
 public class FrsBaseViewPager extends BdBaseViewPager {
     public int j;
@@ -18,9 +18,9 @@ public class FrsBaseViewPager extends BdBaseViewPager {
 
     /* loaded from: classes4.dex */
     public interface a {
-        boolean a();
+        void a();
 
-        void b();
+        boolean b();
     }
 
     public FrsBaseViewPager(Context context) {
@@ -35,7 +35,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         if (action == 0) {
             a aVar = this.n;
             if (aVar != null) {
-                aVar.b();
+                aVar.a();
             }
             if (this.k >= getMeasuredWidth() - this.j && this.k <= getMeasuredWidth()) {
                 setmDisallowSlip(false);
@@ -47,9 +47,9 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         } else if (action != 1) {
             if (action == 2 && this.p) {
                 a aVar2 = this.n;
-                boolean a2 = aVar2 != null ? aVar2.a() : true;
-                setmDisallowSlip((this.m && a2) ? true : true);
-                this.p = a2;
+                boolean b2 = aVar2 != null ? aVar2.b() : true;
+                setmDisallowSlip((this.m && b2) ? true : true);
+                this.p = b2;
             }
         } else {
             this.p = true;

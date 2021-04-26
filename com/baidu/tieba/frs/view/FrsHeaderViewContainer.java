@@ -18,8 +18,8 @@ public class FrsHeaderViewContainer extends LinearLayout {
         addView(view, new LinearLayout.LayoutParams(-1, -2));
     }
 
-    public void b(View view, int i) {
-        addView(view, i, new LinearLayout.LayoutParams(-1, -2));
+    public void b(View view, int i2) {
+        addView(view, i2, new LinearLayout.LayoutParams(-1, -2));
     }
 
     public void c() {
@@ -31,42 +31,42 @@ public class FrsHeaderViewContainer extends LinearLayout {
     }
 
     public View getHeadBgContainer() {
-        int i = 0;
+        int i2 = 0;
         while (true) {
             View view = null;
-            if (i >= getChildCount()) {
+            if (i2 >= getChildCount()) {
                 return null;
             }
-            if (R.id.container == getChildAt(i).getId()) {
-                ViewGroup viewGroup = (ViewGroup) getChildAt(i);
-                for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
-                    if (R.id.head_top_bg_container == viewGroup.getChildAt(i2).getId()) {
-                        view = viewGroup.getChildAt(i2);
+            if (R.id.container == getChildAt(i2).getId()) {
+                ViewGroup viewGroup = (ViewGroup) getChildAt(i2);
+                for (int i3 = 0; i3 < viewGroup.getChildCount(); i3++) {
+                    if (R.id.head_top_bg_container == viewGroup.getChildAt(i3).getId()) {
+                        view = viewGroup.getChildAt(i3);
                     }
                 }
                 return view;
             }
-            i++;
+            i2++;
         }
     }
 
     public View getHeaderEmptyView() {
-        int i = 0;
+        int i2 = 0;
         while (true) {
             View view = null;
-            if (i >= getChildCount()) {
+            if (i2 >= getChildCount()) {
                 return null;
             }
-            if (R.id.container == getChildAt(i).getId()) {
-                ViewGroup viewGroup = (ViewGroup) getChildAt(i);
-                for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
-                    if (R.id.frs_header_empty_view == viewGroup.getChildAt(i2).getId()) {
-                        view = viewGroup.getChildAt(i2);
+            if (R.id.container == getChildAt(i2).getId()) {
+                ViewGroup viewGroup = (ViewGroup) getChildAt(i2);
+                for (int i3 = 0; i3 < viewGroup.getChildCount(); i3++) {
+                    if (R.id.frs_header_empty_view == viewGroup.getChildAt(i3).getId()) {
+                        view = viewGroup.getChildAt(i3);
                     }
                 }
                 return view;
             }
-            i++;
+            i2++;
         }
     }
 
@@ -79,8 +79,8 @@ public class FrsHeaderViewContainer extends LinearLayout {
         c();
     }
 
-    public FrsHeaderViewContainer(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public FrsHeaderViewContainer(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         c();
     }
 }

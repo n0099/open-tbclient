@@ -1,6 +1,5 @@
 package com.alibaba.fastjson.parser.deserializer;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
@@ -23,7 +22,7 @@ public abstract class AbstractDateDeserializer extends ContextObjectDeserializer
     }
 
     @Override // com.alibaba.fastjson.parser.deserializer.ContextObjectDeserializer
-    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, String str, int i) {
+    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, String str, int i2) {
         SimpleDateFormat simpleDateFormat;
         Date date;
         SimpleDateFormat simpleDateFormat2;
@@ -45,9 +44,9 @@ public abstract class AbstractDateDeserializer extends ContextObjectDeserializer
                 try {
                     simpleDateFormat = new SimpleDateFormat(str, defaultJSONParser.lexer.getLocale());
                 } catch (IllegalArgumentException e2) {
-                    if (str.contains(ExifInterface.GPS_DIRECTION_TRUE)) {
+                    if (str.contains("T")) {
                         try {
-                            simpleDateFormat = new SimpleDateFormat(str.replaceAll(ExifInterface.GPS_DIRECTION_TRUE, "'T'"), defaultJSONParser.lexer.getLocale());
+                            simpleDateFormat = new SimpleDateFormat(str.replaceAll("T", "'T'"), defaultJSONParser.lexer.getLocale());
                         } catch (IllegalArgumentException unused) {
                             throw e2;
                         }
@@ -68,9 +67,9 @@ public abstract class AbstractDateDeserializer extends ContextObjectDeserializer
                         simpleDateFormat2 = new SimpleDateFormat(str, Locale.US);
                     } catch (IllegalArgumentException e3) {
                         simpleDateFormat2 = simpleDateFormat;
-                        if (str.contains(ExifInterface.GPS_DIRECTION_TRUE)) {
+                        if (str.contains("T")) {
                             try {
-                                simpleDateFormat2 = new SimpleDateFormat(str.replaceAll(ExifInterface.GPS_DIRECTION_TRUE, "'T'"), defaultJSONParser.lexer.getLocale());
+                                simpleDateFormat2 = new SimpleDateFormat(str.replaceAll("T", "'T'"), defaultJSONParser.lexer.getLocale());
                             } catch (IllegalArgumentException unused3) {
                                 throw e3;
                             }

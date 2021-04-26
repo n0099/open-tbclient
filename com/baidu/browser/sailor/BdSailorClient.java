@@ -5,7 +5,7 @@ import android.net.http.SslError;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebKitClient;
 import com.baidu.webkit.sdk.WebView;
-import d.b.h.b.d.c.b;
+import d.a.h.b.d.c.b;
 /* loaded from: classes.dex */
 public class BdSailorClient extends WebKitClient implements INoProGuard, ISailorUrlPushService, b {
 
@@ -37,7 +37,7 @@ public class BdSailorClient extends WebKitClient implements INoProGuard, ISailor
         return "";
     }
 
-    public String getErrorPageInfo(Context context, int i, String str, String str2, String str3) {
+    public String getErrorPageInfo(Context context, int i2, String str, String str2, String str3) {
         return null;
     }
 

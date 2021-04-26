@@ -11,88 +11,88 @@ import org.json.JSONObject;
 public class au {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final au f8577a = new au();
+    public static final au f8883a = new au();
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f8578b = new HashMap<>();
+    public HashMap<String, String> f8884b = new HashMap<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public HashMap<Character, Integer> f8579c = new HashMap<>();
+    public HashMap<Character, Integer> f8885c = new HashMap<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, String> f8580d = new HashMap<>();
+    public HashMap<String, String> f8886d = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<Character, Integer> f8581e = new HashMap<>();
+    public HashMap<Character, Integer> f8887e = new HashMap<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, String> f8582f = new HashMap<>();
+    public HashMap<String, String> f8888f = new HashMap<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<Character, Integer> f8583g = new HashMap<>();
+    public HashMap<Character, Integer> f8889g = new HashMap<>();
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static int f8585a = 0;
+        public static int f8891a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public static int f8586b = 1;
+        public static int f8892b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static int f8587c = 2;
+        public static int f8893c = 2;
     }
 
     public static au a() {
-        return f8577a;
+        return f8883a;
     }
 
-    public void b(int i) {
-        if (i == a.f8585a) {
-            this.f8579c.clear();
-            this.f8578b.clear();
-        } else if (i == a.f8587c) {
-            this.f8583g.clear();
-            this.f8582f.clear();
+    public void b(int i2) {
+        if (i2 == a.f8891a) {
+            this.f8885c.clear();
+            this.f8884b.clear();
+        } else if (i2 == a.f8893c) {
+            this.f8889g.clear();
+            this.f8888f.clear();
         } else {
-            this.f8581e.clear();
-            this.f8580d.clear();
+            this.f8887e.clear();
+            this.f8886d.clear();
         }
     }
 
-    public String a(String str, int i) {
+    public String a(String str, int i2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (i == a.f8585a) {
-            String str2 = this.f8578b.get(str);
+        if (i2 == a.f8891a) {
+            String str2 = this.f8884b.get(str);
             if (TextUtils.isEmpty(str2)) {
-                a(str, this.f8579c, this.f8578b);
-                return this.f8578b.get(str);
+                a(str, this.f8885c, this.f8884b);
+                return this.f8884b.get(str);
             }
             return str2;
-        } else if (i == a.f8587c) {
-            String str3 = this.f8582f.get(str);
+        } else if (i2 == a.f8893c) {
+            String str3 = this.f8888f.get(str);
             if (TextUtils.isEmpty(str3)) {
-                a(str, this.f8583g, this.f8582f);
-                return this.f8582f.get(str);
+                a(str, this.f8889g, this.f8888f);
+                return this.f8888f.get(str);
             }
             return str3;
         } else {
-            String str4 = this.f8580d.get(str);
+            String str4 = this.f8886d.get(str);
             if (TextUtils.isEmpty(str4)) {
-                a(str, this.f8581e, this.f8580d);
-                return this.f8580d.get(str);
+                a(str, this.f8887e, this.f8886d);
+                return this.f8886d.get(str);
             }
             return str4;
         }
     }
 
     public void b() {
-        b(a.f8585a);
-        b(a.f8587c);
-        b(a.f8586b);
+        b(a.f8891a);
+        b(a.f8893c);
+        b(a.f8892b);
     }
 
     private void a(String str, HashMap<Character, Integer> hashMap, HashMap<String, String> hashMap2) {
@@ -103,14 +103,14 @@ public class au {
         hashMap2.put(str, Character.toString(lowerCase) + intValue);
     }
 
-    public JSONObject a(int i) {
+    public JSONObject a(int i2) {
         HashMap<String, String> hashMap;
-        if (i == a.f8585a) {
-            hashMap = this.f8578b;
-        } else if (i == a.f8587c) {
-            hashMap = this.f8582f;
+        if (i2 == a.f8891a) {
+            hashMap = this.f8884b;
+        } else if (i2 == a.f8893c) {
+            hashMap = this.f8888f;
         } else {
-            hashMap = this.f8580d;
+            hashMap = this.f8886d;
         }
         JSONObject jSONObject = new JSONObject();
         if (hashMap == null) {

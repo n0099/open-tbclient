@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import d.b.c.a.f;
-import d.b.j0.e1.f.i.a;
-import d.b.j0.e1.f.i.b;
-import d.b.j0.e1.h.e;
+import d.a.c.a.f;
+import d.a.j0.e1.f.i.a;
+import d.a.j0.e1.f.i.b;
+import d.a.j0.e1.h.e;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -44,10 +44,10 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
 
     private ImMessageCenterShowItemData removeItem(ImMessageCenterPojo imMessageCenterPojo) {
         int size = this.mList.size();
-        for (int i = 0; i < size; i++) {
-            ImMessageCenterShowItemData imMessageCenterShowItemData = this.mList.get(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            ImMessageCenterShowItemData imMessageCenterShowItemData = this.mList.get(i2);
             if (imMessageCenterPojo.getGid().equals(imMessageCenterShowItemData.getFriendId()) && imMessageCenterPojo.getCustomGroupType() == getCustomGroupType(imMessageCenterShowItemData)) {
-                return this.mList.remove(i);
+                return this.mList.remove(i2);
             }
         }
         return null;
@@ -71,19 +71,19 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
             public final List<Pair<String, Integer>> mRemoveCache = new ArrayList();
             public int mLastProgress = 0;
 
-            private boolean checkMergeGroupMemoryChanged(int i) {
-                if (i == -7) {
+            private boolean checkMergeGroupMemoryChanged(int i2) {
+                if (i2 == -7) {
                     if (ImBaseMessageCenterModel.this.isEmpty()) {
                         ImBaseMessageCenterModel.this.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
                     } else {
-                        d.b.j0.e1.k.b.o().Q();
+                        d.a.j0.e1.k.b.o().Q();
                     }
                     return true;
-                } else if (i == -8) {
+                } else if (i2 == -8) {
                     if (ImBaseMessageCenterModel.this.isEmpty()) {
                         ImBaseMessageCenterModel.this.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
                     } else {
-                        d.b.j0.e1.k.b.o().N();
+                        d.a.j0.e1.k.b.o().N();
                     }
                     return true;
                 } else {
@@ -100,7 +100,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 this.mRemoveCache.clear();
             }
 
-            @Override // d.b.j0.e1.f.i.b
+            @Override // d.a.j0.e1.f.i.b
             public void onCanceled() {
                 clearRemoveCache();
                 checkMergeGroupMemoryChanged(ImBaseMessageCenterModel.this.getCustomGroupType(imMessageCenterShowItemData));
@@ -110,7 +110,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
             }
 
-            @Override // d.b.j0.e1.f.i.b
+            @Override // d.a.j0.e1.f.i.b
             public void onPostExecute() {
                 clearRemoveCache();
                 int customGroupType = ImBaseMessageCenterModel.this.getCustomGroupType(imMessageCenterShowItemData);
@@ -123,7 +123,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
             }
 
-            @Override // d.b.j0.e1.f.i.b
+            @Override // d.a.j0.e1.f.i.b
             public void onPreExecute() {
                 b bVar2 = bVar;
                 if (bVar2 != null) {
@@ -131,38 +131,38 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
             }
 
-            @Override // d.b.j0.e1.f.i.b
-            public void onProgressUpdate(int i, String str, int i2) {
-                this.mRemoveCache.add(new Pair<>(str, Integer.valueOf(i2)));
-                if (this.mRemoveCache.size() >= 20 || i != this.mLastProgress) {
+            @Override // d.a.j0.e1.f.i.b
+            public void onProgressUpdate(int i2, String str, int i3) {
+                this.mRemoveCache.add(new Pair<>(str, Integer.valueOf(i3)));
+                if (this.mRemoveCache.size() >= 20 || i2 != this.mLastProgress) {
                     clearRemoveCache();
                     b bVar2 = bVar;
                     if (bVar2 != null) {
-                        bVar2.onProgressUpdate(i, str, i2);
+                        bVar2.onProgressUpdate(i2, str, i3);
                     }
                 }
-                this.mLastProgress = i;
+                this.mLastProgress = i2;
             }
         });
     }
 
-    public void asyncDeleteMsgList(List<ImMessageCenterShowItemData> list, final int i, final b bVar) {
-        e.m().b(list, i, new b() { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.2
+    public void asyncDeleteMsgList(List<ImMessageCenterShowItemData> list, final int i2, final b bVar) {
+        e.m().b(list, i2, new b() { // from class: com.baidu.tieba.im.model.ImBaseMessageCenterModel.2
             public final List<Pair<String, Integer>> mRemoveCache = new ArrayList();
             public int mLastProgress = 0;
 
-            private void checkListMemoryChanged(int i2) {
-                if (i2 == 2) {
+            private void checkListMemoryChanged(int i3) {
+                if (i3 == 2) {
                     if (ImBaseMessageCenterModel.this.isEmpty()) {
                         ImBaseMessageCenterModel.this.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
                     } else {
-                        d.b.j0.e1.k.b.o().Q();
+                        d.a.j0.e1.k.b.o().Q();
                     }
-                } else if (i2 == 4) {
+                } else if (i3 == 4) {
                     if (ImBaseMessageCenterModel.this.isEmpty()) {
                         ImBaseMessageCenterModel.this.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
                     } else {
-                        d.b.j0.e1.k.b.o().N();
+                        d.a.j0.e1.k.b.o().N();
                     }
                 }
             }
@@ -177,27 +177,27 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 this.mRemoveCache.clear();
             }
 
-            @Override // d.b.j0.e1.f.i.b
+            @Override // d.a.j0.e1.f.i.b
             public void onCanceled() {
                 clearRemoveCache();
-                checkListMemoryChanged(i);
+                checkListMemoryChanged(i2);
                 b bVar2 = bVar;
                 if (bVar2 != null) {
                     bVar2.onCanceled();
                 }
             }
 
-            @Override // d.b.j0.e1.f.i.b
+            @Override // d.a.j0.e1.f.i.b
             public void onPostExecute() {
                 clearRemoveCache();
-                checkListMemoryChanged(i);
+                checkListMemoryChanged(i2);
                 b bVar2 = bVar;
                 if (bVar2 != null) {
                     bVar2.onPostExecute();
                 }
             }
 
-            @Override // d.b.j0.e1.f.i.b
+            @Override // d.a.j0.e1.f.i.b
             public void onPreExecute() {
                 b bVar2 = bVar;
                 if (bVar2 != null) {
@@ -205,17 +205,17 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
             }
 
-            @Override // d.b.j0.e1.f.i.b
-            public void onProgressUpdate(int i2, String str, int i3) {
-                this.mRemoveCache.add(new Pair<>(str, Integer.valueOf(i3)));
-                if (this.mRemoveCache.size() >= 20 || i2 != this.mLastProgress) {
+            @Override // d.a.j0.e1.f.i.b
+            public void onProgressUpdate(int i3, String str, int i4) {
+                this.mRemoveCache.add(new Pair<>(str, Integer.valueOf(i4)));
+                if (this.mRemoveCache.size() >= 20 || i3 != this.mLastProgress) {
                     clearRemoveCache();
                     b bVar2 = bVar;
                     if (bVar2 != null) {
-                        bVar2.onProgressUpdate(i2, str, i3);
+                        bVar2.onProgressUpdate(i3, str, i4);
                     }
                 }
-                this.mLastProgress = i2;
+                this.mLastProgress = i3;
             }
         });
     }
@@ -302,8 +302,8 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
         }
     }
 
-    public void removeByKeyMemoryChangedWithBroadcast(String str, int i) {
-        e.m().q(str, i);
+    public void removeByKeyMemoryChangedWithBroadcast(String str, int i2) {
+        e.m().q(str, i2);
     }
 
     public boolean removeItemInList(String str) {

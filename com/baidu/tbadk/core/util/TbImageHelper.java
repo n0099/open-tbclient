@@ -1,15 +1,15 @@
 package com.baidu.tbadk.core.util;
 
 import com.baidu.tbadk.TbConfig;
-import d.b.c.d.c;
-import d.b.c.e.p.j;
-import d.b.i0.r.k;
+import d.a.c.d.c;
+import d.a.c.e.p.j;
+import d.a.i0.r.k;
 /* loaded from: classes3.dex */
 public class TbImageHelper {
     public static TbImageHelper mInstance;
     public boolean mIsWifiCache = false;
     public boolean mShowBigImage = false;
-    public int mPostImageSize = TbConfig.POST_IMAGE_SMALL;
+    public int mPostImageSize = 1300;
     public String mUrlQuality = String.valueOf(45);
 
     public TbImageHelper() {
@@ -88,16 +88,16 @@ public class TbImageHelper {
     */
     public void updatePostImageSize() {
         int d2 = k.c().d();
-        int i = TbConfig.POST_IMAGE_SMALL;
+        int i2 = 1300;
         if (d2 != 0) {
             if (d2 != 1) {
                 if (d2 == 2 || d2 != 3) {
-                    i = 1800;
+                    i2 = 1800;
                 }
             }
-            i = 2000;
+            i2 = 2000;
         }
-        this.mPostImageSize = i;
+        this.mPostImageSize = i2;
     }
 
     public void updateUrlQuality() {

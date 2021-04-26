@@ -7,7 +7,7 @@ import com.baidu.cyberplayer.sdk.Keep;
 import java.io.FileDescriptor;
 import java.util.Map;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class CyberExtractor {
     public static final String KEY_DURATION = "duration";
     public static final String KEY_HEIGHT = "height";
@@ -16,18 +16,18 @@ public class CyberExtractor {
     public static final String OPT_KEY_PREPARE_TIME_OUT = "prepare_time_out";
 
     /* renamed from: a  reason: collision with root package name */
-    public ExtractorProvider f4964a;
+    public ExtractorProvider f5087a;
 
     public CyberExtractor() {
         this(true);
     }
 
     public CyberExtractor(boolean z) {
-        this.f4964a = a.a().a(z);
+        this.f5087a = a.a().a(z);
     }
 
     public Bundle getMetaData() {
-        ExtractorProvider extractorProvider = this.f4964a;
+        ExtractorProvider extractorProvider = this.f5087a;
         if (extractorProvider != null) {
             return extractorProvider.getMediaMeta();
         }
@@ -35,45 +35,45 @@ public class CyberExtractor {
     }
 
     public void release() {
-        ExtractorProvider extractorProvider = this.f4964a;
+        ExtractorProvider extractorProvider = this.f5087a;
         if (extractorProvider != null) {
             extractorProvider.release();
-            this.f4964a = null;
+            this.f5087a = null;
         }
     }
 
     public void setDataSource(Context context, Uri uri) {
-        ExtractorProvider extractorProvider = this.f4964a;
+        ExtractorProvider extractorProvider = this.f5087a;
         if (extractorProvider != null) {
             extractorProvider.setDataSource(context, uri);
         }
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
-        ExtractorProvider extractorProvider = this.f4964a;
+        ExtractorProvider extractorProvider = this.f5087a;
         if (extractorProvider != null) {
             extractorProvider.setDataSource(context, uri, map);
         }
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) {
-        ExtractorProvider extractorProvider = this.f4964a;
+        ExtractorProvider extractorProvider = this.f5087a;
         if (extractorProvider != null) {
             extractorProvider.setDataSource(fileDescriptor);
         }
     }
 
     public void setDataSource(String str) {
-        ExtractorProvider extractorProvider = this.f4964a;
+        ExtractorProvider extractorProvider = this.f5087a;
         if (extractorProvider != null) {
             extractorProvider.setDataSource(str);
         }
     }
 
-    public void setOption(int i, String str, long j) {
-        ExtractorProvider extractorProvider = this.f4964a;
+    public void setOption(int i2, String str, long j) {
+        ExtractorProvider extractorProvider = this.f5087a;
         if (extractorProvider != null) {
-            extractorProvider.setOption(i, str, j);
+            extractorProvider.setOption(i2, str, j);
         }
     }
 }

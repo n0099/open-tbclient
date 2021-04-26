@@ -33,8 +33,8 @@ public class RoundTbImageView extends TbClipImageView {
         this(context, attributeSet, 0);
     }
 
-    public RoundTbImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public RoundTbImageView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.x0 = R.drawable.transparent_bg;
         this.y0 = R.color.CAM_X0209;
         G();

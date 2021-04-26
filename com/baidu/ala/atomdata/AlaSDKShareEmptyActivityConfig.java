@@ -18,16 +18,18 @@ public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
     public static final String SHARE_ALA_SDK_LIVE_EXT_INFO = "liveextInfo";
     public static final String SHARE_ALA_SDK_LIVE_ID = "liveid";
     public static final String SHARE_ALA_SDK_TITLE_KEY = "title";
+    public static final String SHARE_ALA_SDK_YY_ANCHOR_BDUID = "yy_anchor_bduid";
 
-    public AlaSDKShareEmptyActivityConfig(Context context, ShareItem shareItem, int i, int i2) {
+    public AlaSDKShareEmptyActivityConfig(Context context, ShareItem shareItem, int i2, int i3) {
         super(context);
         getIntent().putExtra("title", shareItem.r);
         getIntent().putExtra("content", shareItem.s);
         getIntent().putExtra(SHARE_ALA_SDK_IMAGEURI_KEY, shareItem.w);
         getIntent().putExtra(SHARE_ALA_SDK_LINKURL_KEY, shareItem.t);
-        getIntent().putExtra("channel", i);
-        getIntent().putExtra("action", i2);
+        getIntent().putExtra("channel", i2);
+        getIntent().putExtra("action", i3);
         getIntent().putExtra(SHARE_ALA_SDK_LIVE_ID, shareItem.q);
-        getIntent().putExtra(SHARE_ALA_SDK_LIVE_EXT_INFO, shareItem.i0);
+        getIntent().putExtra(SHARE_ALA_SDK_LIVE_EXT_INFO, shareItem.k0);
+        getIntent().putExtra(SHARE_ALA_SDK_YY_ANCHOR_BDUID, shareItem.z);
     }
 }

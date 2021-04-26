@@ -3,13 +3,13 @@ package com.baidu.adp.framework.message;
 public class HttpProgressResponsedMessage extends CustomResponsedMessage<Object> {
     public float mProgress;
 
-    public HttpProgressResponsedMessage(int i) {
-        super(i);
+    public HttpProgressResponsedMessage(int i2) {
+        super(i2);
         this.mProgress = 0.0f;
     }
 
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, Object obj) throws Exception {
+    public void decodeInBackGround(int i2, Object obj) throws Exception {
     }
 
     public float getProgress() {

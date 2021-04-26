@@ -15,11 +15,11 @@ public class NoOpPoolStatsTracker implements PoolStatsTracker {
     }
 
     @Override // com.facebook.imagepipeline.memory.PoolStatsTracker
-    public void onAlloc(int i) {
+    public void onAlloc(int i2) {
     }
 
     @Override // com.facebook.imagepipeline.memory.PoolStatsTracker
-    public void onFree(int i) {
+    public void onFree(int i2) {
     }
 
     @Override // com.facebook.imagepipeline.memory.PoolStatsTracker
@@ -31,11 +31,11 @@ public class NoOpPoolStatsTracker implements PoolStatsTracker {
     }
 
     @Override // com.facebook.imagepipeline.memory.PoolStatsTracker
-    public void onValueRelease(int i) {
+    public void onValueRelease(int i2) {
     }
 
     @Override // com.facebook.imagepipeline.memory.PoolStatsTracker
-    public void onValueReuse(int i) {
+    public void onValueReuse(int i2) {
     }
 
     @Override // com.facebook.imagepipeline.memory.PoolStatsTracker

@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.j0.y1.g.i;
+import d.a.c.e.p.l;
+import d.a.j0.y1.g.i;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -67,8 +67,8 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) SelectSingleForumActivity.this.mDataList.get(i);
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+            BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) SelectSingleForumActivity.this.mDataList.get(i2);
             CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
             if (checkBox.isChecked()) {
                 return;
@@ -97,15 +97,15 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
         SkinManager.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
         SkinManager.setBackgroundResource(this.mTransmitConfirmButton, R.drawable.btn_all_blue);
         SkinManager.setViewTextColor(this.mTransmitConfirmButton, R.color.CAM_X0111, 1);
         SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
         SkinManager.setBackgroundColor(this.mDivider, R.color.CAM_X0204);
-        this.mAdapter.c(i);
+        this.mAdapter.c(i2);
         this.mListView.setSelector(SkinManager.getDrawable(R.drawable.selector_select_forum_item));
         SkinManager.setBackgroundColor(this.mLayoutConfirm, R.color.cp_bg_line_d_alpha95);
     }

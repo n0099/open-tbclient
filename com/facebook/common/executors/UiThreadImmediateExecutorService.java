@@ -3,7 +3,7 @@ package com.facebook.common.executors;
 import android.os.Handler;
 import android.os.Looper;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class UiThreadImmediateExecutorService extends HandlerExecutorServiceImpl {
     @Nullable
     public static UiThreadImmediateExecutorService sInstance;

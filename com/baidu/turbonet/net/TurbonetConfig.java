@@ -11,13 +11,13 @@ import org.json.JSONObject;
 public class TurbonetConfig {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f22533b;
+    public String f23231b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f22534c = false;
+    public boolean f23232c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f22532a = new JSONObject();
+    public JSONObject f23230a = new JSONObject();
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes5.dex */
@@ -36,22 +36,22 @@ public class TurbonetConfig {
         i(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
     }
 
-    public void d(int i, long j) {
-        if (i != 3 && i != 2) {
+    public void d(int i2, long j) {
+        if (i2 != 3 && i2 != 2) {
             if (l() != null) {
                 throw new IllegalArgumentException("Storage path must not be set");
             }
         } else if (l() != null) {
-            this.f22534c = true;
+            this.f23232c = true;
         } else {
             throw new IllegalArgumentException("Storage path must be set");
         }
-        i(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(!(i == 0 || i == 2)));
-        if (i == 0) {
+        i(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(!(i2 == 0 || i2 == 2)));
+        if (i2 == 0) {
             i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "DISABLED");
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "MEMORY");
-        } else if (i != 2 && i != 3) {
+        } else if (i2 != 2 && i2 != 3) {
             throw new IllegalArgumentException("Unknown cache mode");
         } else {
             i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "DISK");
@@ -68,43 +68,43 @@ public class TurbonetConfig {
     }
 
     public JSONObject g() {
-        return this.f22532a;
+        return this.f23230a;
     }
 
     public boolean h() {
-        return this.f22534c;
+        return this.f23232c;
     }
 
     public void i(String str, String str2, Object obj) {
         try {
-            JSONObject optJSONObject = this.f22532a.optJSONObject(str);
+            JSONObject optJSONObject = this.f23230a.optJSONObject(str);
             if (optJSONObject == null) {
                 optJSONObject = new JSONObject();
             }
             optJSONObject.put(str2, obj);
-            this.f22532a.put(str, optJSONObject);
+            this.f23230a.put(str, optJSONObject);
         } catch (JSONException e2) {
             throw new IllegalStateException("JSON expcetion:", e2);
         }
     }
 
-    public void j(int i) {
-        if (i >= 0) {
-            i("misc", "request_timeout", Integer.valueOf(i));
+    public void j(int i2) {
+        if (i2 >= 0) {
+            i("misc", "request_timeout", Integer.valueOf(i2));
             return;
         }
-        throw new IllegalArgumentException(String.format("Invalid timeout second, %d is negative.", Integer.valueOf(i)));
+        throw new IllegalArgumentException(String.format("Invalid timeout second, %d is negative.", Integer.valueOf(i2)));
     }
 
     public void k(String str) {
         if (new File(str).isDirectory()) {
-            this.f22533b = str;
+            this.f23231b = str;
             return;
         }
         throw new IllegalArgumentException("Storage path must be set to existing directory");
     }
 
     public String l() {
-        return this.f22533b;
+        return this.f23231b;
     }
 }

@@ -20,14 +20,14 @@ public class BdSailorWebChromeClientExt implements INoProGuard {
     }
 
     @Deprecated
-    public void hideMagnifierExt(BdSailorWebView bdSailorWebView, int i, int i2) {
+    public void hideMagnifierExt(BdSailorWebView bdSailorWebView, int i2, int i3) {
     }
 
     public void hideSelectionActionDialogExt(BdSailorWebView bdSailorWebView) {
     }
 
     @Deprecated
-    public void moveMagnifierExt(BdSailorWebView bdSailorWebView, int i, int i2, int i3, int i4) {
+    public void moveMagnifierExt(BdSailorWebView bdSailorWebView, int i2, int i3, int i4, int i5) {
     }
 
     @Deprecated
@@ -40,7 +40,7 @@ public class BdSailorWebChromeClientExt implements INoProGuard {
     }
 
     @Deprecated
-    public void notifyClientStatusExt(BdSailorWebView bdSailorWebView, int i) {
+    public void notifyClientStatusExt(BdSailorWebView bdSailorWebView, int i2) {
     }
 
     @Deprecated
@@ -64,10 +64,10 @@ public class BdSailorWebChromeClientExt implements INoProGuard {
     public void onNextPagePreloadFinishedExt() {
     }
 
-    public void onPrerenderChanged(int i, WebView.PrerenderStatus prerenderStatus) {
+    public void onPrerenderChanged(int i2, WebView.PrerenderStatus prerenderStatus) {
     }
 
-    public void onReceivedFocusNodeHrefExt(BdSailorWebView bdSailorWebView, int i, String str, String str2) {
+    public void onReceivedFocusNodeHrefExt(BdSailorWebView bdSailorWebView, int i2, String str, String str2) {
     }
 
     @Deprecated
@@ -84,16 +84,16 @@ public class BdSailorWebChromeClientExt implements INoProGuard {
     }
 
     @Deprecated
-    public void performLongClickExt(BdSailorWebView bdSailorWebView, int i, String str, String str2, int i2, int i3) {
+    public void performLongClickExt(BdSailorWebView bdSailorWebView, int i2, String str, String str2, int i3, int i4) {
     }
 
-    public void performLongClickExt(BdSailorWebView bdSailorWebView, WebView.HitTestResult hitTestResult, int i, int i2) {
+    public void performLongClickExt(BdSailorWebView bdSailorWebView, WebView.HitTestResult hitTestResult, int i2, int i3) {
     }
 
     @Deprecated
-    public void showMagnifierExt(BdSailorWebView bdSailorWebView, int i, int i2, int i3, int i4) {
+    public void showMagnifierExt(BdSailorWebView bdSailorWebView, int i2, int i3, int i4, int i5) {
     }
 
-    public void showSelectionActionDialogExt(BdSailorWebView bdSailorWebView, int i, int i2, int i3, int i4, String str) {
+    public void showSelectionActionDialogExt(BdSailorWebView bdSailorWebView, int i2, int i3, int i4, int i5, String str) {
     }
 }

@@ -26,10 +26,10 @@ public class FlutterTextureView extends TextureView implements RenderSurface {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void changeSurfaceSize(int i, int i2) {
+    public void changeSurfaceSize(int i2, int i3) {
         if (this.flutterRenderer != null) {
-            Log.v(TAG, "Notifying FlutterRenderer that Android surface size has changed to " + i + " x " + i2);
-            this.flutterRenderer.surfaceChanged(i, i2);
+            Log.v(TAG, "Notifying FlutterRenderer that Android surface size has changed to " + i2 + " x " + i3);
+            this.flutterRenderer.surfaceChanged(i2, i3);
             return;
         }
         throw new IllegalStateException("changeSurfaceSize() should only be called when flutterRenderer is non-null.");
@@ -103,7 +103,7 @@ public class FlutterTextureView extends TextureView implements RenderSurface {
         this.isAttachedToFlutterRenderer = false;
         this.surfaceTextureListener = new TextureView.SurfaceTextureListener() { // from class: io.flutter.embedding.android.FlutterTextureView.1
             @Override // android.view.TextureView.SurfaceTextureListener
-            public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
+            public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
                 Log.v(FlutterTextureView.TAG, "SurfaceTextureListener.onSurfaceTextureAvailable()");
                 FlutterTextureView.this.isSurfaceAvailableForRendering = true;
                 if (FlutterTextureView.this.isAttachedToFlutterRenderer) {
@@ -123,10 +123,10 @@ public class FlutterTextureView extends TextureView implements RenderSurface {
             }
 
             @Override // android.view.TextureView.SurfaceTextureListener
-            public void onSurfaceTextureSizeChanged(@NonNull SurfaceTexture surfaceTexture, int i, int i2) {
+            public void onSurfaceTextureSizeChanged(@NonNull SurfaceTexture surfaceTexture, int i2, int i3) {
                 Log.v(FlutterTextureView.TAG, "SurfaceTextureListener.onSurfaceTextureSizeChanged()");
                 if (FlutterTextureView.this.isAttachedToFlutterRenderer) {
-                    FlutterTextureView.this.changeSurfaceSize(i, i2);
+                    FlutterTextureView.this.changeSurfaceSize(i2, i3);
                 }
             }
 

@@ -8,10 +8,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class SplashAdFacade {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SplashAdFacade f2139b = new SplashAdFacade();
+    public static final SplashAdFacade f2102b = new SplashAdFacade();
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f2140a;
+    public volatile boolean f2103a;
 
     /* loaded from: classes.dex */
     public enum AdLoadState {
@@ -31,21 +31,21 @@ public class SplashAdFacade {
     public SplashAdFacade() {
         AdLoadState adLoadState = AdLoadState.INIT;
         AdLoadState adLoadState2 = AdLoadState.INIT;
-        this.f2140a = false;
+        this.f2103a = false;
         new AtomicInteger(0);
     }
 
     public static SplashAdFacade a() {
-        return f2139b;
+        return f2102b;
     }
 
-    public void b(d.b.b0.a.b.a aVar) {
+    public void b(d.a.b0.a.b.a aVar) {
         if (aVar == null) {
             Log.e("SplashAdFacade", "appContext is null ,init failed");
             return;
         }
-        d.b.b0.a.b.a.f42106a.set(aVar);
-        new BDAdConfig.Builder().setAppName(aVar.a()).setAppsid(aVar.C()).build(aVar.y()).init();
+        d.a.b0.a.b.a.f39288a.set(aVar);
+        new BDAdConfig.Builder().setAppName(aVar.u()).setAppsid(aVar.r()).build(aVar.o()).init();
         MobadsPermissionSettings.setPermissionReadDeviceID(true);
         MobadsPermissionSettings.setPermissionLocation(true);
         MobadsPermissionSettings.setPermissionStorage(true);
@@ -53,6 +53,6 @@ public class SplashAdFacade {
     }
 
     public boolean c() {
-        return this.f2140a;
+        return this.f2103a;
     }
 }

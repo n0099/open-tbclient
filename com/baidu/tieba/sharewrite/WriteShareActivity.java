@@ -35,27 +35,27 @@ import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import d.b.i0.s.c.h0;
-import d.b.j0.x2.a;
-import d.b.j0.x2.b;
+import d.a.i0.s.c.h0;
+import d.a.j0.x2.a;
+import d.a.j0.x2.b;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     public String mAppKey;
     public String mAppName;
     public String mAppSign;
     public int mCurrPrefixPos;
-    public d.b.j0.x2.b mGetForumPrefixModel;
+    public d.a.j0.x2.b mGetForumPrefixModel;
     public PostPrefixData mPrefixData;
     public String mShareContent;
-    public d.b.j0.x2.a mShareFailDialog;
+    public d.a.j0.x2.a mShareFailDialog;
     public String mShareImageUrl;
     public byte[] mShareLocalImageData;
-    public d.b.j0.x2.a mShareSuccessDialog;
+    public d.a.j0.x2.a mShareSuccessDialog;
     public String mShareTargetBaName;
     public String mShareTitle;
     public String mShareUrl;
-    public d.b.j0.x2.c mView;
+    public d.a.j0.x2.c mView;
     public NewWriteModel mWriteModel;
     public String packageName;
     public PackageInfo packageinfo;
@@ -76,7 +76,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     public View.OnClickListener mPostContentClickListener = new b();
     public final View.OnFocusChangeListener mFocusChangeListener = new c();
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -91,7 +91,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -104,7 +104,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnFocusChangeListener {
         public c() {
         }
@@ -136,26 +136,26 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements a.c {
         public d() {
         }
 
-        @Override // d.b.j0.x2.a.c
-        public void a(d.b.j0.x2.a aVar) {
+        @Override // d.a.j0.x2.a.c
+        public void a(d.a.j0.x2.a aVar) {
             WriteShareActivity.this.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(WriteShareActivity.this.getPageContext().getPageActivity()).createBackSpecialCfg(WriteShareActivity.this.mData.getForumName(), FrsActivityConfig.FRS_FROM_WRITESHARE, true, false)));
             aVar.d();
             WriteShareActivity.this.finish();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements a.c {
         public e() {
         }
 
-        @Override // d.b.j0.x2.a.c
-        public void a(d.b.j0.x2.a aVar) {
+        @Override // d.a.j0.x2.a.c
+        public void a(d.a.j0.x2.a aVar) {
             WriteShareActivity writeShareActivity = WriteShareActivity.this;
             writeShareActivity.HidenSoftKeyPad(writeShareActivity.mInputManager, WriteShareActivity.this.mView.q());
             WriteShareActivity writeShareActivity2 = WriteShareActivity.this;
@@ -165,23 +165,23 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f implements a.c {
         public f() {
         }
 
-        @Override // d.b.j0.x2.a.c
-        public void a(d.b.j0.x2.a aVar) {
+        @Override // d.a.j0.x2.a.c
+        public void a(d.a.j0.x2.a aVar) {
             aVar.d();
             if (!WriteShareActivity.this.mIsShareSuccess) {
                 WriteShareActivity.this.setResult(0);
             }
-            d.b.i0.r.a0.b.g(WriteShareActivity.this.getPageContext().getPageActivity(), 200, false);
+            d.a.i0.r.a0.b.g(WriteShareActivity.this.getPageContext().getPageActivity(), 200, false);
             WriteShareActivity.this.finish();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class g implements NewWriteModel.e {
         public g() {
         }
@@ -201,7 +201,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class h implements NewWriteModel.f {
         public h() {
         }
@@ -227,7 +227,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
                 writeData.setVcodeUrl(h0Var.c());
                 writeData.setVcodeExtra(h0Var.a());
                 WriteShareActivity.this.mIsGotoVcode = true;
-                if (d.b.i0.a1.a.b(h0Var.d())) {
+                if (d.a.i0.a1.a.b(h0Var.d())) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(WriteShareActivity.this.getPageContext().getPageActivity(), 12006, writeData, false, h0Var.d())));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(WriteShareActivity.this.getPageContext().getPageActivity(), writeData, 12006)));
@@ -236,16 +236,16 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class i implements DialogInterface.OnKeyListener {
         public i() {
         }
 
         @Override // android.content.DialogInterface.OnKeyListener
-        public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-            if (i == 4) {
+        public boolean onKey(DialogInterface dialogInterface, int i2, KeyEvent keyEvent) {
+            if (i2 == 4) {
                 if (WriteShareActivity.this.mView != null && WriteShareActivity.this.mView.s() != null && WriteShareActivity.this.mView.s().isShowing()) {
-                    d.b.c.e.m.g.d(WriteShareActivity.this.mView.s(), WriteShareActivity.this.getPageContext().getPageActivity());
+                    d.a.c.e.m.g.d(WriteShareActivity.this.mView.s(), WriteShareActivity.this.getPageContext().getPageActivity());
                     return true;
                 }
                 WriteShareActivity.this.stopTask();
@@ -254,7 +254,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
                 } else {
                     WriteShareActivity.this.setResult(0);
                 }
-                d.b.i0.r.a0.b.g(WriteShareActivity.this.getPageContext().getPageActivity(), 200, false);
+                d.a.i0.r.a0.b.g(WriteShareActivity.this.getPageContext().getPageActivity(), 200, false);
                 WriteShareActivity.this.finish();
                 return true;
             }
@@ -262,12 +262,12 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class j implements b.InterfaceC1732b {
+    /* loaded from: classes5.dex */
+    public class j implements b.InterfaceC1669b {
         public j() {
         }
 
-        @Override // d.b.j0.x2.b.InterfaceC1732b
+        @Override // d.a.j0.x2.b.InterfaceC1669b
         public void a(boolean z, PostPrefixData postPrefixData) {
             if (z) {
                 WriteShareActivity.this.mPrefixData = postPrefixData;
@@ -285,14 +285,14 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             WriteShareActivity.this.mView.F(null);
         }
 
-        @Override // d.b.j0.x2.b.InterfaceC1732b
+        @Override // d.a.j0.x2.b.InterfaceC1669b
         public void onFailure() {
             WriteShareActivity.this.mPrefixData = null;
             WriteShareActivity.this.mView.F(null);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class k implements DialogInterface.OnCancelListener {
         public k() {
         }
@@ -304,7 +304,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class l implements View.OnClickListener {
         public l() {
         }
@@ -315,28 +315,28 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             if (WriteShareActivity.this.mIsShareSuccess) {
                 WriteShareActivity.this.setResult(-1);
             }
-            d.b.i0.r.a0.b.g(WriteShareActivity.this.getPageContext().getPageActivity(), 200, false);
+            d.a.i0.r.a0.b.g(WriteShareActivity.this.getPageContext().getPageActivity(), 200, false);
             WriteShareActivity.this.finish();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class m implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public Activity f20818e;
+        public Activity f21379e;
 
         public m(Activity activity) {
-            this.f20818e = null;
-            this.f20818e = activity;
+            this.f21379e = null;
+            this.f21379e = activity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f20818e != null) {
+            if (this.f21379e != null) {
                 WriteShareActivity.this.setResult(0);
-                d.b.i0.r.a0.b.g(this.f20818e, 200, false);
-                this.f20818e.finish();
+                d.a.i0.r.a0.b.g(this.f21379e, 200, false);
+                this.f21379e.finish();
             }
         }
     }
@@ -364,7 +364,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void createShareFailDialog() {
         if (this.mShareFailDialog == null) {
-            d.b.j0.x2.a aVar = new d.b.j0.x2.a(getActivity());
+            d.a.j0.x2.a aVar = new d.a.j0.x2.a(getActivity());
             this.mShareFailDialog = aVar;
             aVar.h(R.drawable.icon_send_error);
             this.mShareFailDialog.m(R.drawable.btn_w_square);
@@ -380,7 +380,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void createShareSuccessDialog() {
         if (this.mShareSuccessDialog == null) {
-            d.b.j0.x2.a aVar = new d.b.j0.x2.a(getActivity());
+            d.a.j0.x2.a aVar = new d.a.j0.x2.a(getActivity());
             this.mShareSuccessDialog = aVar;
             aVar.g(false);
             this.mShareSuccessDialog.h(R.drawable.icon_send_ok);
@@ -439,7 +439,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         this.mWriteModel = newWriteModel;
         newWriteModel.c0(this.mOnPostWriteCallback);
         this.mWriteModel.a0(this.mOnImageUploadCallback);
-        this.mGetForumPrefixModel = new d.b.j0.x2.b(this, new j());
+        this.mGetForumPrefixModel = new d.a.j0.x2.b(this, new j());
         this.mDialogCancelListener = new k();
         WriteData writeData = new WriteData();
         this.mData = writeData;
@@ -493,7 +493,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
         setContentView(R.layout.write_share_activity);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        d.b.j0.x2.c cVar = new d.b.j0.x2.c(this);
+        d.a.j0.x2.c cVar = new d.a.j0.x2.c(this);
         this.mView = cVar;
         cVar.C(this.mNvBackClickListener);
         this.mView.D(this.mPostClickListener);
@@ -509,7 +509,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
 
     private void releaseResource() {
         ShareSDKImageView t;
-        d.b.j0.x2.c cVar = this.mView;
+        d.a.j0.x2.c cVar = this.mView;
         if (cVar == null || (t = cVar.t()) == null) {
             return;
         }
@@ -557,7 +557,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             this.mIsGotoVcode = false;
             if (i3 == -1) {
                 createShareSuccessDialog();
-                d.b.j0.x2.a aVar = this.mShareSuccessDialog;
+                d.a.j0.x2.a aVar = this.mShareSuccessDialog;
                 if (aVar != null) {
                     this.mIsShareSuccess = true;
                     aVar.o();
@@ -566,7 +566,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
                 return;
             }
             createShareFailDialog();
-            d.b.j0.x2.a aVar2 = this.mShareFailDialog;
+            d.a.j0.x2.a aVar2 = this.mShareFailDialog;
             if (aVar2 != null) {
                 this.mIsShareSuccess = false;
                 aVar2.o();
@@ -596,7 +596,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        d.b.j0.x2.c cVar = this.mView;
+        d.a.j0.x2.c cVar = this.mView;
         if (cVar != null) {
             cVar.z(i2);
         }
@@ -638,9 +638,9 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         if (i2 == 4) {
-            d.b.j0.x2.c cVar = this.mView;
+            d.a.j0.x2.c cVar = this.mView;
             if (cVar != null && cVar.s() != null && this.mView.s().isShowing()) {
-                d.b.c.e.m.g.d(this.mView.s(), getPageContext().getPageActivity());
+                d.a.c.e.m.g.d(this.mView.s(), getPageContext().getPageActivity());
                 return true;
             }
             stopTask();
@@ -649,7 +649,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
             } else {
                 setResult(0);
             }
-            d.b.i0.r.a0.b.g(getPageContext().getPageActivity(), 200, false);
+            d.a.i0.r.a0.b.g(getPageContext().getPageActivity(), 200, false);
             finish();
             return true;
         }
@@ -667,7 +667,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     public void onRestoreInstanceState(Bundle bundle) {
         String obj;
         super.onRestoreInstanceState(bundle);
-        d.b.j0.x2.c cVar = this.mView;
+        d.a.j0.x2.c cVar = this.mView;
         if (cVar == null || cVar.p() == null || (obj = this.mView.p().getEditableText().toString()) == null) {
             return;
         }
@@ -703,14 +703,14 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     }
 
     public void shareFailed(int i2) {
-        d.b.c.e.p.l.H(getPageContext().getContext(), i2);
+        d.a.c.e.p.l.I(getPageContext().getContext(), i2);
         new Handler().postDelayed(new m(getPageContext().getPageActivity()), 3500L);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
         super.showLoadingDialog(str, onCancelListener);
-        d.b.i0.r.f0.a aVar = this.mWaitingDialog;
+        d.a.i0.r.f0.a aVar = this.mWaitingDialog;
         if (aVar != null) {
             aVar.g(false);
         }

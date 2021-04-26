@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.response.model;
 
 import androidx.annotation.Nullable;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.kwad.sdk.core.b.d;
 import com.kwad.sdk.core.b.e;
 import com.kwad.sdk.core.network.BaseResultData;
@@ -13,6 +14,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
     public static final int DEFAULT_SPLASH_TIME_OUT = 5000;
     public static final long serialVersionUID = -7796837168148055391L;
     public JSONObject abConfig;
+    public JSONObject appConfig;
     public long requestInterval = 3600;
     public TemplateConfig templateConfig = new TemplateConfig();
     public TemplateConfig splashConfig = new TemplateConfig();
@@ -53,6 +55,9 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
             JSONObject optJSONObject = jSONObject2.optJSONObject("abConfig");
             this.abConfig = optJSONObject;
             com.kwad.sdk.core.config.b.a(optJSONObject);
+            JSONObject optJSONObject2 = jSONObject2.optJSONObject(PrefetchEvent.EVENT_KEY_APP_CONFIG);
+            this.appConfig = optJSONObject2;
+            com.kwad.sdk.core.config.b.a(optJSONObject2);
             this.templateConfig.parseJson(jSONObject2.optJSONObject("templateConfig"));
             this.splashConfig.parseJson(jSONObject2.optJSONObject("splashConfig"));
             this.rewardMiniCardConfig.parseJson(jSONObject2.optJSONObject("rewardMiniCardConfig"));
@@ -68,6 +73,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
         JSONObject json = super.toJson();
         o.a(json, "requestInterval", this.requestInterval);
         o.a(json, "abConfig", this.abConfig);
+        o.a(json, PrefetchEvent.EVENT_KEY_APP_CONFIG, this.appConfig);
         o.a(json, "templateConfig", this.templateConfig);
         o.a(json, "splashConfig", this.splashConfig);
         o.a(json, "rewardMiniCardConfig", this.rewardMiniCardConfig);

@@ -53,7 +53,7 @@ public class DragSortListView extends ListView {
     public int W;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f26155a;
+    public View f26953a;
     public float aa;
     public float ab;
     public a ac;
@@ -71,26 +71,28 @@ public class DragSortListView extends ListView {
     public boolean ao;
 
     /* renamed from: b  reason: collision with root package name */
-    public Point f26156b;
+    public Point f26954b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f26157c;
+    public Point f26955c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f26158d;
+    public int f26956d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f26159e;
+    public boolean f26957e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DataSetObserver f26160f;
+    public DataSetObserver f26958f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f26161g;
+    public float f26959g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f26162h;
-    public int i;
+    public float f26960h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f26961i;
     public int j;
     public int k;
     public boolean l;
@@ -113,10 +115,10 @@ public class DragSortListView extends ListView {
     public class a extends BaseAdapter {
 
         /* renamed from: b  reason: collision with root package name */
-        public ListAdapter f26166b;
+        public ListAdapter f26965b;
 
         public a(ListAdapter listAdapter) {
-            this.f26166b = listAdapter;
+            this.f26965b = listAdapter;
             listAdapter.registerDataSetObserver(new DataSetObserver() { // from class: com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.a.1
                 @Override // android.database.DataSetObserver
                 public void onChanged() {
@@ -131,42 +133,42 @@ public class DragSortListView extends ListView {
         }
 
         public ListAdapter a() {
-            return this.f26166b;
+            return this.f26965b;
         }
 
         @Override // android.widget.BaseAdapter, android.widget.ListAdapter
         public boolean areAllItemsEnabled() {
-            return this.f26166b.areAllItemsEnabled();
+            return this.f26965b.areAllItemsEnabled();
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return this.f26166b.getCount();
+            return this.f26965b.getCount();
         }
 
         @Override // android.widget.Adapter
-        public Object getItem(int i) {
-            return this.f26166b.getItem(i);
+        public Object getItem(int i2) {
+            return this.f26965b.getItem(i2);
         }
 
         @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            return this.f26166b.getItemId(i);
+        public long getItemId(int i2) {
+            return this.f26965b.getItemId(i2);
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
-        public int getItemViewType(int i) {
-            return this.f26166b.getItemViewType(i);
+        public int getItemViewType(int i2) {
+            return this.f26965b.getItemViewType(i2);
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(int i2, View view, ViewGroup viewGroup) {
             DragSortItemView dragSortItemView;
             DragSortItemView dragSortItemView2;
             if (view != null) {
                 dragSortItemView2 = (DragSortItemView) view;
                 View childAt = dragSortItemView2.getChildAt(0);
-                View view2 = this.f26166b.getView(i, childAt, DragSortListView.this);
+                View view2 = this.f26965b.getView(i2, childAt, DragSortListView.this);
                 if (view2 != childAt) {
                     if (childAt != null) {
                         dragSortItemView2.removeViewAt(0);
@@ -174,7 +176,7 @@ public class DragSortListView extends ListView {
                     dragSortItemView2.addView(view2);
                 }
             } else {
-                View view3 = this.f26166b.getView(i, null, DragSortListView.this);
+                View view3 = this.f26965b.getView(i2, null, DragSortListView.this);
                 if (view3 instanceof Checkable) {
                     dragSortItemView = new DragSortItemViewCheckable(DragSortListView.this.getContext());
                 } else {
@@ -185,34 +187,34 @@ public class DragSortListView extends ListView {
                 dragSortItemView2 = dragSortItemView;
             }
             DragSortListView dragSortListView = DragSortListView.this;
-            dragSortListView.a(i + dragSortListView.getHeaderViewsCount(), (View) dragSortItemView2, true);
+            dragSortListView.a(i2 + dragSortListView.getHeaderViewsCount(), (View) dragSortItemView2, true);
             return dragSortItemView2;
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
         public int getViewTypeCount() {
-            return this.f26166b.getViewTypeCount();
+            return this.f26965b.getViewTypeCount();
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
         public boolean hasStableIds() {
-            return this.f26166b.hasStableIds();
+            return this.f26965b.hasStableIds();
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
         public boolean isEmpty() {
-            return this.f26166b.isEmpty();
+            return this.f26965b.isEmpty();
         }
 
         @Override // android.widget.BaseAdapter, android.widget.ListAdapter
-        public boolean isEnabled(int i) {
-            return this.f26166b.isEnabled(i);
+        public boolean isEnabled(int i2) {
+            return this.f26965b.isEnabled(i2);
         }
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        void drag(int i, int i2);
+        void drag(int i2, int i3);
     }
 
     /* loaded from: classes5.dex */
@@ -224,26 +226,28 @@ public class DragSortListView extends ListView {
     public class d implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f26170b;
+        public boolean f26969b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f26171c;
+        public long f26970c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f26172d;
+        public long f26971d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f26173e;
+        public int f26972e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f26174f;
+        public float f26973f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f26175g;
+        public long f26974g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f26176h;
-        public float i;
+        public int f26975h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public float f26976i;
         public boolean j = false;
 
         public d() {
@@ -255,14 +259,14 @@ public class DragSortListView extends ListView {
 
         public int b() {
             if (this.j) {
-                return this.f26176h;
+                return this.f26975h;
             }
             return -1;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f26170b) {
+            if (this.f26969b) {
                 this.j = false;
                 return;
             }
@@ -271,9 +275,9 @@ public class DragSortListView extends ListView {
             int count = DragSortListView.this.getCount();
             int paddingTop = DragSortListView.this.getPaddingTop();
             int height = (DragSortListView.this.getHeight() - paddingTop) - DragSortListView.this.getPaddingBottom();
-            int min = Math.min(DragSortListView.this.N, DragSortListView.this.f26158d + DragSortListView.this.y);
-            int max = Math.max(DragSortListView.this.N, DragSortListView.this.f26158d - DragSortListView.this.y);
-            if (this.f26176h == 0) {
+            int min = Math.min(DragSortListView.this.N, DragSortListView.this.f26956d + DragSortListView.this.y);
+            int max = Math.max(DragSortListView.this.N, DragSortListView.this.f26956d - DragSortListView.this.y);
+            if (this.f26975h == 0) {
                 View childAt = DragSortListView.this.getChildAt(0);
                 if (childAt == null) {
                     this.j = false;
@@ -282,7 +286,7 @@ public class DragSortListView extends ListView {
                     this.j = false;
                     return;
                 } else {
-                    this.i = DragSortListView.this.L.a((DragSortListView.this.H - max) / DragSortListView.this.I, this.f26171c);
+                    this.f26976i = DragSortListView.this.L.a((DragSortListView.this.H - max) / DragSortListView.this.I, this.f26970c);
                 }
             } else {
                 View childAt2 = DragSortListView.this.getChildAt(lastVisiblePosition - firstVisiblePosition);
@@ -293,23 +297,23 @@ public class DragSortListView extends ListView {
                     this.j = false;
                     return;
                 } else {
-                    this.i = -DragSortListView.this.L.a((min - DragSortListView.this.G) / DragSortListView.this.J, this.f26171c);
+                    this.f26976i = -DragSortListView.this.L.a((min - DragSortListView.this.G) / DragSortListView.this.J, this.f26970c);
                 }
             }
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f26172d = uptimeMillis;
-            float f2 = (float) (uptimeMillis - this.f26171c);
-            this.f26174f = f2;
-            int round = Math.round(this.i * f2);
-            this.f26173e = round;
+            this.f26971d = uptimeMillis;
+            float f2 = (float) (uptimeMillis - this.f26970c);
+            this.f26973f = f2;
+            int round = Math.round(this.f26976i * f2);
+            this.f26972e = round;
             if (round >= 0) {
-                this.f26173e = Math.min(height, round);
+                this.f26972e = Math.min(height, round);
                 lastVisiblePosition = firstVisiblePosition;
             } else {
-                this.f26173e = Math.max(-height, round);
+                this.f26972e = Math.max(-height, round);
             }
             View childAt3 = DragSortListView.this.getChildAt(lastVisiblePosition - firstVisiblePosition);
-            int top = childAt3.getTop() + this.f26173e;
+            int top = childAt3.getTop() + this.f26972e;
             if (lastVisiblePosition == 0 && top > paddingTop) {
                 top = paddingTop;
             }
@@ -321,20 +325,20 @@ public class DragSortListView extends ListView {
             DragSortListView.this.invalidate();
             DragSortListView.this.af = false;
             DragSortListView.this.d(lastVisiblePosition, childAt3, false);
-            this.f26171c = this.f26172d;
+            this.f26970c = this.f26971d;
             DragSortListView.this.post(this);
         }
 
-        public void a(int i) {
+        public void a(int i2) {
             if (this.j) {
                 return;
             }
-            this.f26170b = false;
+            this.f26969b = false;
             this.j = true;
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.f26175g = uptimeMillis;
-            this.f26171c = uptimeMillis;
-            this.f26176h = i;
+            this.f26974g = uptimeMillis;
+            this.f26970c = uptimeMillis;
+            this.f26975h = i2;
             DragSortListView.this.post(this);
         }
 
@@ -344,7 +348,7 @@ public class DragSortListView extends ListView {
                 this.j = false;
                 return;
             }
-            this.f26170b = true;
+            this.f26969b = true;
         }
     }
 
@@ -356,141 +360,141 @@ public class DragSortListView extends ListView {
     public class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public StringBuilder f26177a;
+        public StringBuilder f26977a;
 
         /* renamed from: b  reason: collision with root package name */
-        public File f26178b;
+        public File f26978b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ DragSortListView f26179c;
+        public final /* synthetic */ DragSortListView f26979c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f26180d;
+        public int f26980d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f26181e;
+        public int f26981e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f26182f;
+        public boolean f26982f;
 
         public void a() {
-            this.f26177a.append("<DSLVStates>\n");
-            this.f26181e = 0;
-            this.f26182f = true;
+            this.f26977a.append("<DSLVStates>\n");
+            this.f26981e = 0;
+            this.f26982f = true;
         }
 
         public void b() {
-            if (this.f26182f) {
-                this.f26177a.append("<DSLVState>\n");
-                int childCount = this.f26179c.getChildCount();
-                int firstVisiblePosition = this.f26179c.getFirstVisiblePosition();
-                this.f26177a.append("    <Positions>");
-                for (int i = 0; i < childCount; i++) {
-                    StringBuilder sb = this.f26177a;
-                    sb.append(firstVisiblePosition + i);
+            if (this.f26982f) {
+                this.f26977a.append("<DSLVState>\n");
+                int childCount = this.f26979c.getChildCount();
+                int firstVisiblePosition = this.f26979c.getFirstVisiblePosition();
+                this.f26977a.append("    <Positions>");
+                for (int i2 = 0; i2 < childCount; i2++) {
+                    StringBuilder sb = this.f26977a;
+                    sb.append(firstVisiblePosition + i2);
                     sb.append(",");
                 }
-                this.f26177a.append("</Positions>\n");
-                this.f26177a.append("    <Tops>");
-                for (int i2 = 0; i2 < childCount; i2++) {
-                    StringBuilder sb2 = this.f26177a;
-                    sb2.append(this.f26179c.getChildAt(i2).getTop());
+                this.f26977a.append("</Positions>\n");
+                this.f26977a.append("    <Tops>");
+                for (int i3 = 0; i3 < childCount; i3++) {
+                    StringBuilder sb2 = this.f26977a;
+                    sb2.append(this.f26979c.getChildAt(i3).getTop());
                     sb2.append(",");
                 }
-                this.f26177a.append("</Tops>\n");
-                this.f26177a.append("    <Bottoms>");
-                for (int i3 = 0; i3 < childCount; i3++) {
-                    StringBuilder sb3 = this.f26177a;
-                    sb3.append(this.f26179c.getChildAt(i3).getBottom());
+                this.f26977a.append("</Tops>\n");
+                this.f26977a.append("    <Bottoms>");
+                for (int i4 = 0; i4 < childCount; i4++) {
+                    StringBuilder sb3 = this.f26977a;
+                    sb3.append(this.f26979c.getChildAt(i4).getBottom());
                     sb3.append(",");
                 }
-                this.f26177a.append("</Bottoms>\n");
-                StringBuilder sb4 = this.f26177a;
+                this.f26977a.append("</Bottoms>\n");
+                StringBuilder sb4 = this.f26977a;
                 sb4.append("    <FirstExpPos>");
-                sb4.append(this.f26179c.j);
+                sb4.append(this.f26979c.j);
                 sb4.append("</FirstExpPos>\n");
-                StringBuilder sb5 = this.f26177a;
+                StringBuilder sb5 = this.f26977a;
                 sb5.append("    <FirstExpBlankHeight>");
-                DragSortListView dragSortListView = this.f26179c;
+                DragSortListView dragSortListView = this.f26979c;
                 int a2 = dragSortListView.a(dragSortListView.j);
-                DragSortListView dragSortListView2 = this.f26179c;
+                DragSortListView dragSortListView2 = this.f26979c;
                 sb5.append(a2 - dragSortListView2.c(dragSortListView2.j));
                 sb5.append("</FirstExpBlankHeight>\n");
-                StringBuilder sb6 = this.f26177a;
+                StringBuilder sb6 = this.f26977a;
                 sb6.append("    <SecondExpPos>");
-                sb6.append(this.f26179c.k);
+                sb6.append(this.f26979c.k);
                 sb6.append("</SecondExpPos>\n");
-                StringBuilder sb7 = this.f26177a;
+                StringBuilder sb7 = this.f26977a;
                 sb7.append("    <SecondExpBlankHeight>");
-                DragSortListView dragSortListView3 = this.f26179c;
+                DragSortListView dragSortListView3 = this.f26979c;
                 int a3 = dragSortListView3.a(dragSortListView3.k);
-                DragSortListView dragSortListView4 = this.f26179c;
+                DragSortListView dragSortListView4 = this.f26979c;
                 sb7.append(a3 - dragSortListView4.c(dragSortListView4.k));
                 sb7.append("</SecondExpBlankHeight>\n");
-                StringBuilder sb8 = this.f26177a;
+                StringBuilder sb8 = this.f26977a;
                 sb8.append("    <SrcPos>");
-                sb8.append(this.f26179c.m);
+                sb8.append(this.f26979c.m);
                 sb8.append("</SrcPos>\n");
-                StringBuilder sb9 = this.f26177a;
+                StringBuilder sb9 = this.f26977a;
                 sb9.append("    <SrcHeight>");
-                sb9.append(this.f26179c.x + this.f26179c.getDividerHeight());
+                sb9.append(this.f26979c.x + this.f26979c.getDividerHeight());
                 sb9.append("</SrcHeight>\n");
-                StringBuilder sb10 = this.f26177a;
+                StringBuilder sb10 = this.f26977a;
                 sb10.append("    <ViewHeight>");
-                sb10.append(this.f26179c.getHeight());
+                sb10.append(this.f26979c.getHeight());
                 sb10.append("</ViewHeight>\n");
-                StringBuilder sb11 = this.f26177a;
+                StringBuilder sb11 = this.f26977a;
                 sb11.append("    <LastY>");
-                sb11.append(this.f26179c.P);
+                sb11.append(this.f26979c.P);
                 sb11.append("</LastY>\n");
-                StringBuilder sb12 = this.f26177a;
+                StringBuilder sb12 = this.f26977a;
                 sb12.append("    <FloatY>");
-                sb12.append(this.f26179c.f26158d);
+                sb12.append(this.f26979c.f26956d);
                 sb12.append("</FloatY>\n");
-                this.f26177a.append("    <ShuffleEdges>");
-                for (int i4 = 0; i4 < childCount; i4++) {
-                    StringBuilder sb13 = this.f26177a;
-                    DragSortListView dragSortListView5 = this.f26179c;
-                    sb13.append(dragSortListView5.a(firstVisiblePosition + i4, dragSortListView5.getChildAt(i4).getTop()));
+                this.f26977a.append("    <ShuffleEdges>");
+                for (int i5 = 0; i5 < childCount; i5++) {
+                    StringBuilder sb13 = this.f26977a;
+                    DragSortListView dragSortListView5 = this.f26979c;
+                    sb13.append(dragSortListView5.a(firstVisiblePosition + i5, dragSortListView5.getChildAt(i5).getTop()));
                     sb13.append(",");
                 }
-                this.f26177a.append("</ShuffleEdges>\n");
-                this.f26177a.append("</DSLVState>\n");
-                int i5 = this.f26180d + 1;
-                this.f26180d = i5;
-                if (i5 > 1000) {
+                this.f26977a.append("</ShuffleEdges>\n");
+                this.f26977a.append("</DSLVState>\n");
+                int i6 = this.f26980d + 1;
+                this.f26980d = i6;
+                if (i6 > 1000) {
                     c();
-                    this.f26180d = 0;
+                    this.f26980d = 0;
                 }
             }
         }
 
         public void c() {
-            if (this.f26182f) {
+            if (this.f26982f) {
                 try {
-                    FileWriter fileWriter = new FileWriter(this.f26178b, this.f26181e != 0);
-                    fileWriter.write(this.f26177a.toString());
-                    this.f26177a.delete(0, this.f26177a.length());
+                    FileWriter fileWriter = new FileWriter(this.f26978b, this.f26981e != 0);
+                    fileWriter.write(this.f26977a.toString());
+                    this.f26977a.delete(0, this.f26977a.length());
                     fileWriter.flush();
                     fileWriter.close();
-                    this.f26181e++;
+                    this.f26981e++;
                 } catch (IOException unused) {
                 }
             }
         }
 
         public void d() {
-            if (this.f26182f) {
-                this.f26177a.append("</DSLVStates>\n");
+            if (this.f26982f) {
+                this.f26977a.append("</DSLVStates>\n");
                 c();
-                this.f26182f = false;
+                this.f26982f = false;
             }
         }
     }
 
     /* loaded from: classes5.dex */
     public interface h {
-        void drop(int i, int i2);
+        void drop(int i2, int i3);
     }
 
     /* loaded from: classes5.dex */
@@ -499,59 +503,61 @@ public class DragSortListView extends ListView {
 
         void a(View view, Point point, Point point2);
 
-        View d(int i);
+        View d(int i2);
     }
 
     /* loaded from: classes5.dex */
     public interface m {
-        void remove(int i);
+        void remove(int i2);
     }
 
     /* loaded from: classes5.dex */
     public class n implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public float f26201a;
+        public float f27002a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f26202b;
+        public long f27003b;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f26204d;
+        public float f27005d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f26205e;
+        public float f27006e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f26206f;
+        public float f27007f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f26207g;
+        public float f27008g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f26208h;
-        public boolean i;
+        public float f27009h;
 
-        public n(float f2, int i) {
-            this.f26204d = f2;
-            this.f26201a = i;
+        /* renamed from: i  reason: collision with root package name */
+        public boolean f27010i;
+
+        public n(float f2, int i2) {
+            this.f27005d = f2;
+            this.f27002a = i2;
             float f3 = 1.0f / ((f2 * 2.0f) * (1.0f - f2));
-            this.f26208h = f3;
-            this.f26205e = f3;
-            this.f26206f = f2 / ((f2 - 1.0f) * 2.0f);
-            this.f26207g = 1.0f / (1.0f - f2);
+            this.f27009h = f3;
+            this.f27006e = f3;
+            this.f27007f = f2 / ((f2 - 1.0f) * 2.0f);
+            this.f27008g = 1.0f / (1.0f - f2);
         }
 
         public float a(float f2) {
-            float f3 = this.f26204d;
+            float f3 = this.f27005d;
             if (f2 < f3) {
-                return this.f26205e * f2 * f2;
+                return this.f27006e * f2 * f2;
             }
             if (f2 < 1.0f - f3) {
-                return this.f26206f + (this.f26207g * f2);
+                return this.f27007f + (this.f27008g * f2);
             }
             float f4 = f2 - 1.0f;
-            return 1.0f - ((this.f26208h * f4) * f4);
+            return 1.0f - ((this.f27009h * f4) * f4);
         }
 
         public void a() {
@@ -564,22 +570,22 @@ public class DragSortListView extends ListView {
         }
 
         public void c() {
-            this.f26202b = SystemClock.uptimeMillis();
-            this.i = false;
+            this.f27003b = SystemClock.uptimeMillis();
+            this.f27010i = false;
             a();
             DragSortListView.this.post(this);
         }
 
         public void d() {
-            this.i = true;
+            this.f27010i = true;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.i) {
+            if (this.f27010i) {
                 return;
             }
-            float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f26202b)) / this.f26201a;
+            float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f27003b)) / this.f27002a;
             if (uptimeMillis >= 1.0f) {
                 a(1.0f, 1.0f);
                 b();
@@ -592,11 +598,11 @@ public class DragSortListView extends ListView {
 
     public DragSortListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f26156b = new Point();
-        this.f26157c = new Point();
-        this.f26159e = false;
-        this.f26161g = 0.6f;
-        this.f26162h = 0.6f;
+        this.f26954b = new Point();
+        this.f26955c = new Point();
+        this.f26957e = false;
+        this.f26959g = 0.6f;
+        this.f26960h = 0.6f;
         this.l = false;
         this.u = true;
         this.v = 0;
@@ -637,7 +643,7 @@ public class DragSortListView extends ListView {
         this.ai = new l(0.5f, 150);
         this.ak = new g(0.5f, 150);
         this.V = MotionEvent.obtain(0L, 0L, 3, 0.0f, 0.0f, 0.0f, 0.0f, 0, 0.0f, 0.0f, 0, 0);
-        this.f26160f = new DataSetObserver() { // from class: com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.2
+        this.f26958f = new DataSetObserver() { // from class: com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.2
             private void a() {
                 if (DragSortListView.this.v == 4) {
                     DragSortListView.this.cancelDrag();
@@ -690,11 +696,11 @@ public class DragSortListView extends ListView {
                 a(i3, canvas);
             }
         }
-        View view = this.f26155a;
+        View view = this.f26953a;
         if (view != null) {
             int width = view.getWidth();
-            int height = this.f26155a.getHeight();
-            int i4 = this.f26156b.x;
+            int height = this.f26953a.getHeight();
+            int i4 = this.f26954b.x;
             int width2 = getWidth();
             if (i4 < 0) {
                 i4 = -i4;
@@ -706,18 +712,18 @@ public class DragSortListView extends ListView {
                 f2 = 0.0f;
             }
             canvas.save();
-            Point point = this.f26156b;
+            Point point = this.f26954b;
             canvas.translate(point.x, point.y);
             canvas.clipRect(0, 0, width, height);
-            canvas.saveLayerAlpha(0.0f, 0.0f, width, height, (int) (this.f26162h * 255.0f * f2), 31);
-            this.f26155a.draw(canvas);
+            canvas.saveLayerAlpha(0.0f, 0.0f, width, height, (int) (this.f26960h * 255.0f * f2), 31);
+            this.f26953a.draw(canvas);
             canvas.restore();
             canvas.restore();
         }
     }
 
     public float getFloatAlpha() {
-        return this.f26162h;
+        return this.f26960h;
     }
 
     public ListAdapter getInputAdapter() {
@@ -735,14 +741,14 @@ public class DragSortListView extends ListView {
     @Override // android.widget.ListView, android.widget.AbsListView
     public void layoutChildren() {
         super.layoutChildren();
-        View view = this.f26155a;
+        View view = this.f26953a;
         if (view != null) {
-            if (view.isLayoutRequested() && !this.f26159e) {
+            if (view.isLayoutRequested() && !this.f26957e) {
                 i();
             }
-            View view2 = this.f26155a;
-            view2.layout(0, 0, view2.getMeasuredWidth(), this.f26155a.getMeasuredHeight());
-            this.f26159e = false;
+            View view2 = this.f26953a;
+            view2.layout(0, 0, view2.getMeasuredWidth(), this.f26953a.getMeasuredHeight());
+            this.f26957e = false;
         }
     }
 
@@ -834,7 +840,7 @@ public class DragSortListView extends ListView {
             }
             this.T = true;
         }
-        if (this.f26155a != null) {
+        if (this.f26953a != null) {
             z = true;
         } else {
             if (super.onInterceptTouchEvent(motionEvent)) {
@@ -860,12 +866,12 @@ public class DragSortListView extends ListView {
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
-        View view = this.f26155a;
+        View view = this.f26953a;
         if (view != null) {
             if (view.isLayoutRequested()) {
                 i();
             }
-            this.f26159e = true;
+            this.f26957e = true;
         }
         this.z = i2;
     }
@@ -983,7 +989,7 @@ public class DragSortListView extends ListView {
     }
 
     public void setFloatAlpha(float f2) {
-        this.f26162h = f2;
+        this.f26960h = f2;
     }
 
     public void setFloatViewManager(i iVar) {
@@ -1021,29 +1027,29 @@ public class DragSortListView extends ListView {
     public class k extends n {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DragSortListView f26192a;
+        public final /* synthetic */ DragSortListView f26992a;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f26193d;
+        public float f26993d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f26194e;
+        public float f26994e;
 
         @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.n
         public void a() {
-            this.f26193d = this.f26192a.o;
-            this.f26194e = this.f26192a.y;
+            this.f26993d = this.f26992a.o;
+            this.f26994e = this.f26992a.y;
         }
 
         @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.n
         public void a(float f2, float f3) {
-            if (this.f26192a.v != 4) {
+            if (this.f26992a.v != 4) {
                 d();
                 return;
             }
-            this.f26192a.o = (int) ((this.f26194e * f3) + ((1.0f - f3) * this.f26193d));
-            this.f26192a.f26156b.y = this.f26192a.N - this.f26192a.o;
-            this.f26192a.a(true);
+            this.f26992a.o = (int) ((this.f26994e * f3) + ((1.0f - f3) * this.f26993d));
+            this.f26992a.f26954b.y = this.f26992a.N - this.f26992a.o;
+            this.f26992a.a(true);
         }
     }
 
@@ -1061,7 +1067,7 @@ public class DragSortListView extends ListView {
         if (this.v == 3) {
             this.v = 0;
         }
-        this.f26162h = this.f26161g;
+        this.f26960h = this.f26959g;
         this.an = false;
         this.ah.a();
     }
@@ -1094,10 +1100,10 @@ public class DragSortListView extends ListView {
     }
 
     private void i() {
-        View view = this.f26155a;
+        View view = this.f26953a;
         if (view != null) {
             a(view);
-            int measuredHeight = this.f26155a.getMeasuredHeight();
+            int measuredHeight = this.f26953a.getMeasuredHeight();
             this.x = measuredHeight;
             this.y = measuredHeight / 2;
         }
@@ -1107,17 +1113,17 @@ public class DragSortListView extends ListView {
         int i2;
         int i3;
         if (this.U != null) {
-            this.f26157c.set(this.M, this.N);
-            this.U.a(this.f26155a, this.f26156b, this.f26157c);
+            this.f26955c.set(this.M, this.N);
+            this.U.a(this.f26953a, this.f26954b, this.f26955c);
         }
-        Point point = this.f26156b;
+        Point point = this.f26954b;
         int i4 = point.x;
         int i5 = point.y;
         int paddingLeft = getPaddingLeft();
         if ((this.R & 1) == 0 && i4 > paddingLeft) {
-            this.f26156b.x = paddingLeft;
+            this.f26954b.x = paddingLeft;
         } else if ((this.R & 2) == 0 && i4 < paddingLeft) {
-            this.f26156b.x = paddingLeft;
+            this.f26954b.x = paddingLeft;
         }
         int headerViewsCount = getHeaderViewsCount();
         int footerViewsCount = getFooterViewsCount();
@@ -1138,26 +1144,26 @@ public class DragSortListView extends ListView {
             height = Math.min(getChildAt(i2 - firstVisiblePosition).getBottom(), height);
         }
         if (i5 < paddingTop) {
-            this.f26156b.y = paddingTop;
+            this.f26954b.y = paddingTop;
         } else {
             int i6 = this.x;
             if (i5 + i6 > height) {
-                this.f26156b.y = height - i6;
+                this.f26954b.y = height - i6;
             }
         }
-        this.f26158d = this.f26156b.y + this.y;
+        this.f26956d = this.f26954b.y + this.y;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
-        View view = this.f26155a;
+        View view = this.f26953a;
         if (view != null) {
             view.setVisibility(8);
             i iVar = this.U;
             if (iVar != null) {
-                iVar.a(this.f26155a);
+                iVar.a(this.f26953a);
             }
-            this.f26155a = null;
+            this.f26953a = null;
             invalidate();
         }
     }
@@ -1167,7 +1173,7 @@ public class DragSortListView extends ListView {
     public void setAdapter(ListAdapter listAdapter) {
         if (listAdapter != null) {
             this.ac = new a(listAdapter);
-            listAdapter.registerDataSetObserver(this.f26160f);
+            listAdapter.registerDataSetObserver(this.f26958f);
             if (listAdapter instanceof h) {
                 setDropListener((h) listAdapter);
             }
@@ -1196,7 +1202,7 @@ public class DragSortListView extends ListView {
                 this.m = headerViewsCount;
                 this.j = headerViewsCount;
                 this.k = headerViewsCount;
-                this.i = headerViewsCount;
+                this.f26961i = headerViewsCount;
                 View childAt = getChildAt(headerViewsCount - getFirstVisiblePosition());
                 if (childAt != null) {
                     childAt.setVisibility(4);
@@ -1222,7 +1228,7 @@ public class DragSortListView extends ListView {
     }
 
     public boolean stopDrag(boolean z, float f2) {
-        if (this.f26155a != null) {
+        if (this.f26953a != null) {
             this.B.a(true);
             if (z) {
                 removeItem(this.m - getHeaderViewsCount(), f2);
@@ -1246,9 +1252,9 @@ public class DragSortListView extends ListView {
     public void c() {
         int i2;
         this.v = 2;
-        if (this.s != null && (i2 = this.i) >= 0 && i2 < getCount()) {
+        if (this.s != null && (i2 = this.f26961i) >= 0 && i2 < getCount()) {
             int headerViewsCount = getHeaderViewsCount();
-            this.s.drop(this.m - headerViewsCount, this.i - headerViewsCount);
+            this.s.drop(this.m - headerViewsCount, this.f26961i - headerViewsCount);
         }
         k();
         e();
@@ -1280,7 +1286,7 @@ public class DragSortListView extends ListView {
     }
 
     public boolean startDrag(int i2, View view, int i3, int i4, int i5) {
-        if (this.v == 0 && this.T && this.f26155a == null && view != null && this.u) {
+        if (this.v == 0 && this.T && this.f26953a == null && view != null && this.u) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -1288,17 +1294,17 @@ public class DragSortListView extends ListView {
             this.j = headerViewsCount;
             this.k = headerViewsCount;
             this.m = headerViewsCount;
-            this.i = headerViewsCount;
+            this.f26961i = headerViewsCount;
             this.v = 4;
             this.R = 0;
             this.R = i3 | 0;
-            this.f26155a = view;
+            this.f26953a = view;
             i();
             this.n = i4;
             this.o = i5;
             int i6 = this.N;
             this.Q = i6;
-            Point point = this.f26156b;
+            Point point = this.f26954b;
             point.x = this.M - i4;
             point.y = i6 - i5;
             View childAt = getChildAt(this.m - getFirstVisiblePosition());
@@ -1328,33 +1334,33 @@ public class DragSortListView extends ListView {
     public class g extends n {
 
         /* renamed from: d  reason: collision with root package name */
-        public int f26184d;
+        public int f26984d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f26185e;
+        public int f26985e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f26186f;
+        public float f26986f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f26187g;
+        public float f26987g;
 
-        public g(float f2, int i) {
-            super(f2, i);
+        public g(float f2, int i2) {
+            super(f2, i2);
         }
 
         private int e() {
             int bottom;
             int firstVisiblePosition = DragSortListView.this.getFirstVisiblePosition();
             int dividerHeight = (DragSortListView.this.w + DragSortListView.this.getDividerHeight()) / 2;
-            View childAt = DragSortListView.this.getChildAt(this.f26184d - firstVisiblePosition);
+            View childAt = DragSortListView.this.getChildAt(this.f26984d - firstVisiblePosition);
             if (childAt != null) {
-                int i = this.f26184d;
-                int i2 = this.f26185e;
-                if (i == i2) {
+                int i2 = this.f26984d;
+                int i3 = this.f26985e;
+                if (i2 == i3) {
                     return childAt.getTop();
                 }
-                if (i < i2) {
+                if (i2 < i3) {
                     bottom = childAt.getTop();
                 } else {
                     bottom = childAt.getBottom() + dividerHeight;
@@ -1368,11 +1374,11 @@ public class DragSortListView extends ListView {
 
         @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.n
         public void a() {
-            this.f26184d = DragSortListView.this.i;
-            this.f26185e = DragSortListView.this.m;
+            this.f26984d = DragSortListView.this.f26961i;
+            this.f26985e = DragSortListView.this.m;
             DragSortListView.this.v = 2;
-            this.f26186f = DragSortListView.this.f26156b.y - e();
-            this.f26187g = DragSortListView.this.f26156b.x - DragSortListView.this.getPaddingLeft();
+            this.f26986f = DragSortListView.this.f26954b.y - e();
+            this.f26987g = DragSortListView.this.f26954b.x - DragSortListView.this.getPaddingLeft();
         }
 
         @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.n
@@ -1383,11 +1389,11 @@ public class DragSortListView extends ListView {
         @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.n
         public void a(float f2, float f3) {
             int e2 = e();
-            float paddingLeft = DragSortListView.this.f26156b.x - DragSortListView.this.getPaddingLeft();
+            float paddingLeft = DragSortListView.this.f26954b.x - DragSortListView.this.getPaddingLeft();
             float f4 = 1.0f - f3;
-            if (f4 < Math.abs((DragSortListView.this.f26156b.y - e2) / this.f26186f) || f4 < Math.abs(paddingLeft / this.f26187g)) {
-                DragSortListView.this.f26156b.y = e2 + ((int) (this.f26186f * f4));
-                DragSortListView.this.f26156b.x = DragSortListView.this.getPaddingLeft() + ((int) (this.f26187g * f4));
+            if (f4 < Math.abs((DragSortListView.this.f26954b.y - e2) / this.f26986f) || f4 < Math.abs(paddingLeft / this.f26987g)) {
+                DragSortListView.this.f26954b.y = e2 + ((int) (this.f26986f * f4));
+                DragSortListView.this.f26954b.x = DragSortListView.this.getPaddingLeft() + ((int) (this.f26987g * f4));
                 DragSortListView.this.a(true);
             }
         }
@@ -1397,49 +1403,49 @@ public class DragSortListView extends ListView {
         this.m = -1;
         this.j = -1;
         this.k = -1;
-        this.i = -1;
+        this.f26961i = -1;
     }
 
     /* loaded from: classes5.dex */
     public class j {
 
         /* renamed from: b  reason: collision with root package name */
-        public SparseIntArray f26189b;
+        public SparseIntArray f26989b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArrayList<Integer> f26190c;
+        public ArrayList<Integer> f26990c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f26191d;
+        public int f26991d;
 
-        public j(int i) {
-            this.f26189b = new SparseIntArray(i);
-            this.f26190c = new ArrayList<>(i);
-            this.f26191d = i;
+        public j(int i2) {
+            this.f26989b = new SparseIntArray(i2);
+            this.f26990c = new ArrayList<>(i2);
+            this.f26991d = i2;
         }
 
-        public void a(int i, int i2) {
-            int i3 = this.f26189b.get(i, -1);
-            if (i3 != i2) {
-                if (i3 == -1) {
-                    if (this.f26189b.size() == this.f26191d) {
-                        this.f26189b.delete(this.f26190c.remove(0).intValue());
+        public void a(int i2, int i3) {
+            int i4 = this.f26989b.get(i2, -1);
+            if (i4 != i3) {
+                if (i4 == -1) {
+                    if (this.f26989b.size() == this.f26991d) {
+                        this.f26989b.delete(this.f26990c.remove(0).intValue());
                     }
                 } else {
-                    this.f26190c.remove(Integer.valueOf(i));
+                    this.f26990c.remove(Integer.valueOf(i2));
                 }
-                this.f26189b.put(i, i2);
-                this.f26190c.add(Integer.valueOf(i));
+                this.f26989b.put(i2, i3);
+                this.f26990c.add(Integer.valueOf(i2));
             }
         }
 
-        public int a(int i) {
-            return this.f26189b.get(i, -1);
+        public int a(int i2) {
+            return this.f26989b.get(i2, -1);
         }
 
         public void a() {
-            this.f26189b.clear();
-            this.f26190c.clear();
+            this.f26989b.clear();
+            this.f26990c.clear();
         }
     }
 
@@ -1527,38 +1533,40 @@ public class DragSortListView extends ListView {
     public class l extends n {
 
         /* renamed from: d  reason: collision with root package name */
-        public float f26196d;
+        public float f26996d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f26197e;
+        public float f26997e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f26198f;
+        public float f26998f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f26199g;
+        public int f26999g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f26200h;
-        public int i;
+        public int f27000h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public int f27001i;
         public int j;
         public int k;
 
-        public l(float f2, int i) {
-            super(f2, i);
-            this.f26199g = -1;
-            this.f26200h = -1;
+        public l(float f2, int i2) {
+            super(f2, i2);
+            this.f26999g = -1;
+            this.f27000h = -1;
         }
 
         @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.n
         public void a() {
-            this.f26199g = -1;
-            this.f26200h = -1;
-            this.i = DragSortListView.this.j;
+            this.f26999g = -1;
+            this.f27000h = -1;
+            this.f27001i = DragSortListView.this.j;
             this.j = DragSortListView.this.k;
             this.k = DragSortListView.this.m;
             DragSortListView.this.v = 1;
-            this.f26196d = DragSortListView.this.f26156b.x;
+            this.f26996d = DragSortListView.this.f26954b.x;
             if (!DragSortListView.this.al) {
                 DragSortListView.this.k();
                 return;
@@ -1579,7 +1587,7 @@ public class DragSortListView extends ListView {
                 DragSortListView.this.am = f2;
                 return;
             }
-            DragSortListView.this.am = (this.f26196d >= 0.0f ? 1 : -1) * width;
+            DragSortListView.this.am = (this.f26996d >= 0.0f ? 1 : -1) * width;
         }
 
         @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.n
@@ -1592,9 +1600,9 @@ public class DragSortListView extends ListView {
             View childAt;
             float f4 = 1.0f - f3;
             int firstVisiblePosition = DragSortListView.this.getFirstVisiblePosition();
-            View childAt2 = DragSortListView.this.getChildAt(this.i - firstVisiblePosition);
+            View childAt2 = DragSortListView.this.getChildAt(this.f27001i - firstVisiblePosition);
             if (DragSortListView.this.al) {
-                float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f26202b)) / 1000.0f;
+                float uptimeMillis = ((float) (SystemClock.uptimeMillis() - this.f27003b)) / 1000.0f;
                 if (uptimeMillis == 0.0f) {
                     return;
                 }
@@ -1604,48 +1612,48 @@ public class DragSortListView extends ListView {
                 float f6 = (DragSortListView.this.am > 0.0f ? 1 : -1) * uptimeMillis;
                 float f7 = width;
                 dragSortListView.am = dragSortListView.am + (f6 * f7);
-                this.f26196d += f5;
-                Point point = DragSortListView.this.f26156b;
-                float f8 = this.f26196d;
+                this.f26996d += f5;
+                Point point = DragSortListView.this.f26954b;
+                float f8 = this.f26996d;
                 point.x = (int) f8;
                 if (f8 < f7 && f8 > (-width)) {
-                    this.f26202b = SystemClock.uptimeMillis();
+                    this.f27003b = SystemClock.uptimeMillis();
                     DragSortListView.this.a(true);
                     return;
                 }
             }
             if (childAt2 != null) {
-                if (this.f26199g == -1) {
-                    this.f26199g = DragSortListView.this.b(this.i, childAt2, false);
-                    this.f26197e = childAt2.getHeight() - this.f26199g;
+                if (this.f26999g == -1) {
+                    this.f26999g = DragSortListView.this.b(this.f27001i, childAt2, false);
+                    this.f26997e = childAt2.getHeight() - this.f26999g;
                 }
-                int max = Math.max((int) (this.f26197e * f4), 1);
+                int max = Math.max((int) (this.f26997e * f4), 1);
                 ViewGroup.LayoutParams layoutParams = childAt2.getLayoutParams();
-                layoutParams.height = this.f26199g + max;
+                layoutParams.height = this.f26999g + max;
                 childAt2.setLayoutParams(layoutParams);
             }
-            int i = this.j;
-            if (i == this.i || (childAt = DragSortListView.this.getChildAt(i - firstVisiblePosition)) == null) {
+            int i2 = this.j;
+            if (i2 == this.f27001i || (childAt = DragSortListView.this.getChildAt(i2 - firstVisiblePosition)) == null) {
                 return;
             }
-            if (this.f26200h == -1) {
-                this.f26200h = DragSortListView.this.b(this.j, childAt, false);
-                this.f26198f = childAt.getHeight() - this.f26200h;
+            if (this.f27000h == -1) {
+                this.f27000h = DragSortListView.this.b(this.j, childAt, false);
+                this.f26998f = childAt.getHeight() - this.f27000h;
             }
-            int max2 = Math.max((int) (f4 * this.f26198f), 1);
+            int max2 = Math.max((int) (f4 * this.f26998f), 1);
             ViewGroup.LayoutParams layoutParams2 = childAt.getLayoutParams();
-            layoutParams2.height = this.f26200h + max2;
+            layoutParams2.height = this.f27000h + max2;
             childAt.setLayoutParams(layoutParams2);
         }
     }
 
     private void b(int i2, int i3) {
-        Point point = this.f26156b;
+        Point point = this.f26954b;
         point.x = i2 - this.n;
         point.y = i3 - this.o;
         a(true);
-        int min = Math.min(i3, this.f26158d + this.y);
-        int max = Math.max(i3, this.f26158d - this.y);
+        int min = Math.min(i3, this.f26956d + this.y);
+        int max = Math.max(i3, this.f26956d - this.y);
         int b2 = this.B.b();
         if (min > this.P && min > this.F && b2 != 1) {
             if (b2 != -1) {
@@ -1766,7 +1774,7 @@ public class DragSortListView extends ListView {
         int height = childAt.getHeight();
         int a2 = a(i4, top);
         int dividerHeight = getDividerHeight();
-        if (this.f26158d < a2) {
+        if (this.f26956d < a2) {
             while (i4 >= 0) {
                 i4--;
                 int a3 = a(i4);
@@ -1779,7 +1787,7 @@ public class DragSortListView extends ListView {
                 }
                 top -= a3 + dividerHeight;
                 int a4 = a(i4, top);
-                if (this.f26158d >= a4) {
+                if (this.f26956d >= a4) {
                     i3 = a2;
                     a2 = a4;
                     break;
@@ -1801,7 +1809,7 @@ public class DragSortListView extends ListView {
                 int i6 = i4 + 1;
                 int a5 = a(i6);
                 int a6 = a(i6, top);
-                if (this.f26158d < a6) {
+                if (this.f26956d < a6) {
                     i3 = a2;
                     a2 = a6;
                     break;
@@ -1820,7 +1828,7 @@ public class DragSortListView extends ListView {
         float f2 = this.ab;
         if (this.l) {
             int abs = Math.abs(a2 - i3);
-            if (this.f26158d < a2) {
+            if (this.f26956d < a2) {
                 int i9 = a2;
                 a2 = i3;
                 i3 = i9;
@@ -1829,7 +1837,7 @@ public class DragSortListView extends ListView {
             float f3 = i10;
             int i11 = a2 + i10;
             int i12 = i3 - i10;
-            int i13 = this.f26158d;
+            int i13 = this.f26956d;
             if (i13 < i11) {
                 this.j = i4 - 1;
                 this.k = i4;
@@ -1856,13 +1864,13 @@ public class DragSortListView extends ListView {
             this.k = i4;
         }
         z = (this.j == i7 && this.k == i8 && this.ab == f2) ? true : true;
-        int i14 = this.i;
+        int i14 = this.f26961i;
         if (i4 != i14) {
             b bVar = this.r;
             if (bVar != null) {
                 bVar.drag(i14 - headerViewsCount, i4 - headerViewsCount);
             }
-            this.i = i4;
+            this.f26961i = i4;
             return true;
         }
         return z;
@@ -1903,7 +1911,7 @@ public class DragSortListView extends ListView {
         }
         int visibility = view.getVisibility();
         int i4 = 0;
-        if (i2 == this.m && this.f26155a != null) {
+        if (i2 == this.m && this.f26953a != null) {
             i4 = 4;
         }
         if (i4 != visibility) {

@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.sub;
 import android.content.Context;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.PbFloor.DataReq;
 import tbclient.PbFloor.PbFloorReqIdl;
 /* loaded from: classes3.dex */
@@ -26,18 +26,18 @@ public class SubPbRequestMessage extends NetMessage {
     public String stType;
     public boolean treatDelPage;
 
-    public SubPbRequestMessage(Context context, long j, long j2, long j3, int i, int i2, int i3, double d2, String str, int i4) {
+    public SubPbRequestMessage(Context context, long j, long j2, long j3, int i2, int i3, int i4, double d2, String str, int i5) {
         super(CmdConfigHttp.SubPb_HTTP_CMD, 302002);
         this.richTextClickListener = context;
         this.kz = j;
         this.pid = j2;
         this.spid = j3;
-        this.pn = i;
-        this.scr_w = i2;
-        this.scr_h = i3;
+        this.pn = i2;
+        this.scr_w = i3;
+        this.scr_h = i4;
         this.scr_dip = d2;
         this.stType = str;
-        this.is_comm_reverse = i4;
+        this.is_comm_reverse = i5;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -90,8 +90,8 @@ public class SubPbRequestMessage extends NetMessage {
         this.oriUgcTopPid = str;
     }
 
-    public void setOriUgcType(int i) {
-        this.oriUgcType = i;
+    public void setOriUgcType(int i2) {
+        this.oriUgcType = i2;
     }
 
     public void setOriUgcVid(String str) {

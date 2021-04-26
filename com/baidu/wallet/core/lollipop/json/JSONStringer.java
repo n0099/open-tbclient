@@ -61,7 +61,7 @@ public class JSONStringer {
             return;
         }
         this.out.append("\n");
-        for (int i = 0; i < this.stack.size(); i++) {
+        for (int i2 = 0; i2 < this.stack.size(); i2++) {
             this.out.append(this.indent);
         }
     }
@@ -82,8 +82,8 @@ public class JSONStringer {
     private void string(String str) {
         this.out.append("\"");
         int length = str.length();
-        for (int i = 0; i < length; i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            char charAt = str.charAt(i2);
             if (charAt == '\f') {
                 this.out.append("\\f");
             } else if (charAt == '\r') {
@@ -198,10 +198,10 @@ public class JSONStringer {
         throw new JSONException("Nesting problem");
     }
 
-    public JSONStringer(int i) {
+    public JSONStringer(int i2) {
         this.out = new StringBuilder();
         this.stack = new ArrayList();
-        char[] cArr = new char[i];
+        char[] cArr = new char[i2];
         Arrays.fill(cArr, ' ');
         this.indent = new String(cArr);
     }

@@ -15,10 +15,10 @@ public class RemoveImageTransformMetaDataProducer implements Producer<CloseableR
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(EncodedImage encodedImage, int i) {
+        public void onNewResultImpl(EncodedImage encodedImage, int i2) {
             try {
                 r0 = EncodedImage.isValid(encodedImage) ? encodedImage.getByteBufferRef() : null;
-                getConsumer().onNewResult(r0, i);
+                getConsumer().onNewResult(r0, i2);
             } finally {
                 CloseableReference.closeSafely(r0);
             }

@@ -20,23 +20,23 @@ public class AndroidKeyProcessor {
     }
 
     @Nullable
-    private Character applyCombiningCharacterToBaseCharacter(int i) {
-        if (i == 0) {
+    private Character applyCombiningCharacterToBaseCharacter(int i2) {
+        if (i2 == 0) {
             return null;
         }
-        Character valueOf = Character.valueOf((char) i);
-        if ((Integer.MIN_VALUE & i) != 0) {
-            int i2 = i & Integer.MAX_VALUE;
-            int i3 = this.combiningCharacter;
-            if (i3 != 0) {
-                this.combiningCharacter = KeyCharacterMap.getDeadChar(i3, i2);
-            } else {
-                this.combiningCharacter = i2;
-            }
-        } else {
+        Character valueOf = Character.valueOf((char) i2);
+        if ((Integer.MIN_VALUE & i2) != 0) {
+            int i3 = i2 & Integer.MAX_VALUE;
             int i4 = this.combiningCharacter;
             if (i4 != 0) {
-                int deadChar = KeyCharacterMap.getDeadChar(i4, i);
+                this.combiningCharacter = KeyCharacterMap.getDeadChar(i4, i3);
+            } else {
+                this.combiningCharacter = i3;
+            }
+        } else {
+            int i5 = this.combiningCharacter;
+            if (i5 != 0) {
+                int deadChar = KeyCharacterMap.getDeadChar(i5, i2);
                 if (deadChar > 0) {
                     valueOf = Character.valueOf((char) deadChar);
                 }

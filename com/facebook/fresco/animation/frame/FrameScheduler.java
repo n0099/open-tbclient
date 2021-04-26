@@ -1,5 +1,5 @@
 package com.facebook.fresco.animation.frame;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface FrameScheduler {
     public static final int FRAME_NUMBER_DONE = -1;
     public static final int NO_NEXT_TARGET_RENDER_TIME = -1;
@@ -10,7 +10,7 @@ public interface FrameScheduler {
 
     long getTargetRenderTimeForNextFrameMs(long j);
 
-    long getTargetRenderTimeMs(int i);
+    long getTargetRenderTimeMs(int i2);
 
     boolean isInfiniteAnimation();
 }

@@ -56,23 +56,23 @@ public class Base64Encoder {
         }
     }
 
-    public static final native byte[] nativeB64Decode(byte[] bArr, int i);
+    public static final native byte[] nativeB64Decode(byte[] bArr, int i2);
 
-    public static final native byte[] nativeB64Encode(byte[] bArr, int i);
+    public static final native byte[] nativeB64Encode(byte[] bArr, int i2);
 
     public static final native int nativeB64GetVersion();
 
-    public static final byte[] b64Decode(byte[] bArr, int i) {
+    public static final byte[] b64Decode(byte[] bArr, int i2) {
         try {
-            return nativeB64Decode(bArr, i);
+            return nativeB64Decode(bArr, i2);
         } catch (Error | Exception unused) {
             return bArr;
         }
     }
 
-    public static final byte[] b64Encode(byte[] bArr, int i) {
+    public static final byte[] b64Encode(byte[] bArr, int i2) {
         try {
-            return nativeB64Encode(bArr, i);
+            return nativeB64Encode(bArr, i2);
         } catch (Error | Exception unused) {
             return bArr;
         }

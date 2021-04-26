@@ -9,8 +9,9 @@ public final class ArrayLongIterator extends LongIterator {
     public final long[] array;
     public int index;
 
-    public ArrayLongIterator(long[] jArr) {
-        this.array = jArr;
+    public ArrayLongIterator(long[] array) {
+        Intrinsics.checkNotNullParameter(array, "array");
+        this.array = array;
     }
 
     @Override // java.util.Iterator
@@ -22,9 +23,9 @@ public final class ArrayLongIterator extends LongIterator {
     public long nextLong() {
         try {
             long[] jArr = this.array;
-            int i = this.index;
-            this.index = i + 1;
-            return jArr[i];
+            int i2 = this.index;
+            this.index = i2 + 1;
+            return jArr[i2];
         } catch (ArrayIndexOutOfBoundsException e2) {
             this.index--;
             throw new NoSuchElementException(e2.getMessage());

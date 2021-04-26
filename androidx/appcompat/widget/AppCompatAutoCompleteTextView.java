@@ -10,6 +10,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.AutoCompleteTextView;
 import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
@@ -22,7 +23,7 @@ public class AppCompatAutoCompleteTextView extends AutoCompleteTextView implemen
     public final AppCompatBackgroundHelper mBackgroundTintHelper;
     public final AppCompatTextHelper mTextHelper;
 
-    public AppCompatAutoCompleteTextView(Context context) {
+    public AppCompatAutoCompleteTextView(@NonNull Context context) {
         this(context, null);
     }
 
@@ -41,7 +42,7 @@ public class AppCompatAutoCompleteTextView extends AutoCompleteTextView implemen
 
     @Override // androidx.core.view.TintableBackgroundView
     @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public ColorStateList getSupportBackgroundTintList() {
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {
@@ -52,7 +53,7 @@ public class AppCompatAutoCompleteTextView extends AutoCompleteTextView implemen
 
     @Override // androidx.core.view.TintableBackgroundView
     @Nullable
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public PorterDuff.Mode getSupportBackgroundTintMode() {
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {
@@ -76,11 +77,11 @@ public class AppCompatAutoCompleteTextView extends AutoCompleteTextView implemen
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(@DrawableRes int i) {
-        super.setBackgroundResource(i);
+    public void setBackgroundResource(@DrawableRes int i2) {
+        super.setBackgroundResource(i2);
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {
-            appCompatBackgroundHelper.onSetBackgroundResource(i);
+            appCompatBackgroundHelper.onSetBackgroundResource(i2);
         }
     }
 
@@ -90,12 +91,12 @@ public class AppCompatAutoCompleteTextView extends AutoCompleteTextView implemen
     }
 
     @Override // android.widget.AutoCompleteTextView
-    public void setDropDownBackgroundResource(@DrawableRes int i) {
-        setDropDownBackgroundDrawable(AppCompatResources.getDrawable(getContext(), i));
+    public void setDropDownBackgroundResource(@DrawableRes int i2) {
+        setDropDownBackgroundDrawable(AppCompatResources.getDrawable(getContext(), i2));
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setSupportBackgroundTintList(@Nullable ColorStateList colorStateList) {
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {
@@ -104,7 +105,7 @@ public class AppCompatAutoCompleteTextView extends AutoCompleteTextView implemen
     }
 
     @Override // androidx.core.view.TintableBackgroundView
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setSupportBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         AppCompatBackgroundHelper appCompatBackgroundHelper = this.mBackgroundTintHelper;
         if (appCompatBackgroundHelper != null) {
@@ -113,31 +114,32 @@ public class AppCompatAutoCompleteTextView extends AutoCompleteTextView implemen
     }
 
     @Override // android.widget.TextView
-    public void setTextAppearance(Context context, int i) {
-        super.setTextAppearance(context, i);
+    public void setTextAppearance(Context context, int i2) {
+        super.setTextAppearance(context, i2);
         AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
         if (appCompatTextHelper != null) {
-            appCompatTextHelper.onSetTextAppearance(context, i);
+            appCompatTextHelper.onSetTextAppearance(context, i2);
         }
     }
 
-    public AppCompatAutoCompleteTextView(Context context, AttributeSet attributeSet) {
+    public AppCompatAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.autoCompleteTextViewStyle);
     }
 
-    public AppCompatAutoCompleteTextView(Context context, AttributeSet attributeSet, int i) {
-        super(TintContextWrapper.wrap(context), attributeSet, i);
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, TINT_ATTRS, i, 0);
+    public AppCompatAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(TintContextWrapper.wrap(context), attributeSet, i2);
+        ThemeUtils.checkAppCompatTheme(this, getContext());
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, TINT_ATTRS, i2, 0);
         if (obtainStyledAttributes.hasValue(0)) {
             setDropDownBackgroundDrawable(obtainStyledAttributes.getDrawable(0));
         }
         obtainStyledAttributes.recycle();
         AppCompatBackgroundHelper appCompatBackgroundHelper = new AppCompatBackgroundHelper(this);
         this.mBackgroundTintHelper = appCompatBackgroundHelper;
-        appCompatBackgroundHelper.loadFromAttributes(attributeSet, i);
+        appCompatBackgroundHelper.loadFromAttributes(attributeSet, i2);
         AppCompatTextHelper appCompatTextHelper = new AppCompatTextHelper(this);
         this.mTextHelper = appCompatTextHelper;
-        appCompatTextHelper.loadFromAttributes(attributeSet, i);
+        appCompatTextHelper.loadFromAttributes(attributeSet, i2);
         this.mTextHelper.applyCompoundDrawablesTints();
     }
 }

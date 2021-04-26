@@ -12,6 +12,7 @@ import android.util.SparseBooleanArray;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
+import androidx.collection.ArrayMap;
 import androidx.collection.ArraySet;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -23,11 +24,13 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectStreamClass;
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public abstract class VersionedParcel {
     public static final int EX_BAD_PARCELABLE = -2;
@@ -40,10 +43,15 @@ public abstract class VersionedParcel {
     public static final int EX_UNSUPPORTED_OPERATION = -7;
     public static final String TAG = "VersionedParcel";
     public static final int TYPE_BINDER = 5;
+    public static final int TYPE_FLOAT = 8;
+    public static final int TYPE_INTEGER = 7;
     public static final int TYPE_PARCELABLE = 2;
     public static final int TYPE_SERIALIZABLE = 3;
     public static final int TYPE_STRING = 4;
     public static final int TYPE_VERSIONED_PARCELABLE = 1;
+    public final ArrayMap<String, Class> mParcelizerCache;
+    public final ArrayMap<String, Method> mReadCache;
+    public final ArrayMap<String, Method> mWriteCache;
 
     /* loaded from: classes.dex */
     public static class ParcelException extends RuntimeException {
@@ -52,13 +60,19 @@ public abstract class VersionedParcel {
         }
     }
 
-    private Exception createException(int i, String str) {
-        switch (i) {
+    public VersionedParcel(ArrayMap<String, Method> arrayMap, ArrayMap<String, Method> arrayMap2, ArrayMap<String, Class> arrayMap3) {
+        this.mReadCache = arrayMap;
+        this.mWriteCache = arrayMap2;
+        this.mParcelizerCache = arrayMap3;
+    }
+
+    private Exception createException(int i2, String str) {
+        switch (i2) {
             case -9:
                 return (Exception) readParcelable();
             case -8:
             default:
-                return new RuntimeException("Unknown exception code: " + i + " msg " + str);
+                return new RuntimeException("Unknown exception code: " + i2 + " msg " + str);
             case -7:
                 return new UnsupportedOperationException(str);
             case -6:
@@ -76,8 +90,25 @@ public abstract class VersionedParcel {
         }
     }
 
-    public static <T extends VersionedParcelable> Class findParcelClass(T t) throws ClassNotFoundException {
-        return findParcelClass((Class<? extends VersionedParcelable>) t.getClass());
+    private Class findParcelClass(Class<? extends VersionedParcelable> cls) throws ClassNotFoundException {
+        Class cls2 = this.mParcelizerCache.get(cls.getName());
+        if (cls2 == null) {
+            Class<?> cls3 = Class.forName(String.format("%s.%sParcelizer", cls.getPackage().getName(), cls.getSimpleName()), false, cls.getClassLoader());
+            this.mParcelizerCache.put(cls.getName(), cls3);
+            return cls3;
+        }
+        return cls2;
+    }
+
+    private Method getReadMethod(String str) throws IllegalAccessException, NoSuchMethodException, ClassNotFoundException {
+        Method method = this.mReadCache.get(str);
+        if (method == null) {
+            System.currentTimeMillis();
+            Method declaredMethod = Class.forName(str, true, VersionedParcel.class.getClassLoader()).getDeclaredMethod("read", VersionedParcel.class);
+            this.mReadCache.put(str, declaredMethod);
+            return declaredMethod;
+        }
+        return method;
     }
 
     @NonNull
@@ -104,10 +135,28 @@ public abstract class VersionedParcel {
         if (t instanceof IBinder) {
             return 5;
         }
+        if (t instanceof Integer) {
+            return 7;
+        }
+        if (t instanceof Float) {
+            return 8;
+        }
         throw new IllegalArgumentException(t.getClass().getName() + " cannot be VersionedParcelled");
     }
 
-    private <T, S extends Collection<T>> S readCollection(int i, S s) {
+    private Method getWriteMethod(Class cls) throws IllegalAccessException, NoSuchMethodException, ClassNotFoundException {
+        Method method = this.mWriteCache.get(cls.getName());
+        if (method == null) {
+            Class findParcelClass = findParcelClass(cls);
+            System.currentTimeMillis();
+            Method declaredMethod = findParcelClass.getDeclaredMethod(AlbumActivityConfig.FROM_WRITE, cls, VersionedParcel.class);
+            this.mWriteCache.put(cls.getName(), declaredMethod);
+            return declaredMethod;
+        }
+        return method;
+    }
+
+    private <T, S extends Collection<T>> S readCollection(S s) {
         int readInt = readInt();
         if (readInt < 0) {
             return null;
@@ -151,78 +200,16 @@ public abstract class VersionedParcel {
         return readInt();
     }
 
-    public static <T extends VersionedParcelable> T readFromParcel(String str, VersionedParcel versionedParcel) {
-        try {
-            return (T) Class.forName(str, true, VersionedParcel.class.getClassLoader()).getDeclaredMethod("read", VersionedParcel.class).invoke(null, versionedParcel);
-        } catch (ClassNotFoundException e2) {
-            throw new RuntimeException("VersionedParcel encountered ClassNotFoundException", e2);
-        } catch (IllegalAccessException e3) {
-            throw new RuntimeException("VersionedParcel encountered IllegalAccessException", e3);
-        } catch (NoSuchMethodException e4) {
-            throw new RuntimeException("VersionedParcel encountered NoSuchMethodException", e4);
-        } catch (InvocationTargetException e5) {
-            if (e5.getCause() instanceof RuntimeException) {
-                throw ((RuntimeException) e5.getCause());
-            }
-            throw new RuntimeException("VersionedParcel encountered InvocationTargetException", e5);
-        }
+    private <T> void writeCollection(Collection<T> collection, int i2) {
+        setOutputField(i2);
+        writeCollection(collection);
     }
 
-    private <T> void writeCollection(Collection<T> collection, int i) {
-        setOutputField(i);
-        if (collection == null) {
-            writeInt(-1);
-            return;
-        }
-        int size = collection.size();
-        writeInt(size);
-        if (size > 0) {
-            int type = getType(collection.iterator().next());
-            writeInt(type);
-            if (type == 1) {
-                for (T t : collection) {
-                    writeVersionedParcelable(t);
-                }
-            } else if (type == 2) {
-                for (T t2 : collection) {
-                    writeParcelable(t2);
-                }
-            } else if (type == 3) {
-                for (T t3 : collection) {
-                    writeSerializable(t3);
-                }
-            } else if (type == 4) {
-                for (T t4 : collection) {
-                    writeString(t4);
-                }
-            } else if (type == 5) {
-                for (T t5 : collection) {
-                    writeStrongBinder(t5);
-                }
-            }
-        }
-    }
-
-    public static <T extends VersionedParcelable> void writeToParcel(T t, VersionedParcel versionedParcel) {
-        try {
-            findParcelClass(t).getDeclaredMethod(AlbumActivityConfig.FROM_WRITE, t.getClass(), VersionedParcel.class).invoke(null, t, versionedParcel);
-        } catch (ClassNotFoundException e2) {
-            throw new RuntimeException("VersionedParcel encountered ClassNotFoundException", e2);
-        } catch (IllegalAccessException e3) {
-            throw new RuntimeException("VersionedParcel encountered IllegalAccessException", e3);
-        } catch (NoSuchMethodException e4) {
-            throw new RuntimeException("VersionedParcel encountered NoSuchMethodException", e4);
-        } catch (InvocationTargetException e5) {
-            if (e5.getCause() instanceof RuntimeException) {
-                throw ((RuntimeException) e5.getCause());
-            }
-            throw new RuntimeException("VersionedParcel encountered InvocationTargetException", e5);
-        }
-    }
-
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: androidx.versionedparcelable.VersionedParcel */
+    /* JADX WARN: Multi-variable type inference failed */
     private void writeVersionedParcelableCreator(VersionedParcelable versionedParcelable) {
         try {
-            writeString(findParcelClass((Class<? extends VersionedParcelable>) versionedParcelable.getClass()).getName());
+            writeString(findParcelClass(versionedParcelable.getClass()).getName());
         } catch (ClassNotFoundException e2) {
             throw new RuntimeException(versionedParcelable.getClass().getSimpleName() + " does not have a Parcelizer", e2);
         }
@@ -236,106 +223,153 @@ public abstract class VersionedParcel {
         return false;
     }
 
-    public <T> T[] readArray(T[] tArr, int i) {
-        return !readField(i) ? tArr : (T[]) readArray(tArr);
+    public <T> T[] readArray(T[] tArr, int i2) {
+        return !readField(i2) ? tArr : (T[]) readArray(tArr);
     }
 
     public abstract boolean readBoolean();
 
-    public boolean readBoolean(boolean z, int i) {
-        return !readField(i) ? z : readBoolean();
+    public boolean readBoolean(boolean z, int i2) {
+        return !readField(i2) ? z : readBoolean();
     }
 
-    public boolean[] readBooleanArray(boolean[] zArr, int i) {
-        return !readField(i) ? zArr : readBooleanArray();
+    public boolean[] readBooleanArray(boolean[] zArr, int i2) {
+        return !readField(i2) ? zArr : readBooleanArray();
     }
 
     public abstract Bundle readBundle();
 
-    public Bundle readBundle(Bundle bundle, int i) {
-        return !readField(i) ? bundle : readBundle();
+    public Bundle readBundle(Bundle bundle, int i2) {
+        return !readField(i2) ? bundle : readBundle();
     }
 
-    public byte readByte(byte b2, int i) {
-        return !readField(i) ? b2 : (byte) (readInt() & 255);
+    public byte readByte(byte b2, int i2) {
+        return !readField(i2) ? b2 : (byte) (readInt() & 255);
     }
 
     public abstract byte[] readByteArray();
 
-    public byte[] readByteArray(byte[] bArr, int i) {
-        return !readField(i) ? bArr : readByteArray();
+    public byte[] readByteArray(byte[] bArr, int i2) {
+        return !readField(i2) ? bArr : readByteArray();
     }
 
-    public char[] readCharArray(char[] cArr, int i) {
-        if (readField(i)) {
+    public char[] readCharArray(char[] cArr, int i2) {
+        if (readField(i2)) {
             int readInt = readInt();
             if (readInt < 0) {
                 return null;
             }
             char[] cArr2 = new char[readInt];
-            for (int i2 = 0; i2 < readInt; i2++) {
-                cArr2[i2] = (char) readInt();
+            for (int i3 = 0; i3 < readInt; i3++) {
+                cArr2[i3] = (char) readInt();
             }
             return cArr2;
         }
         return cArr;
     }
 
+    public abstract CharSequence readCharSequence();
+
+    public CharSequence readCharSequence(CharSequence charSequence, int i2) {
+        return !readField(i2) ? charSequence : readCharSequence();
+    }
+
     public abstract double readDouble();
 
-    public double readDouble(double d2, int i) {
-        return !readField(i) ? d2 : readDouble();
+    public double readDouble(double d2, int i2) {
+        return !readField(i2) ? d2 : readDouble();
     }
 
-    public double[] readDoubleArray(double[] dArr, int i) {
-        return !readField(i) ? dArr : readDoubleArray();
+    public double[] readDoubleArray(double[] dArr, int i2) {
+        return !readField(i2) ? dArr : readDoubleArray();
     }
 
-    public Exception readException(Exception exc, int i) {
+    public Exception readException(Exception exc, int i2) {
         int readExceptionCode;
-        return (readField(i) && (readExceptionCode = readExceptionCode()) != 0) ? readException(readExceptionCode, readString()) : exc;
+        return (readField(i2) && (readExceptionCode = readExceptionCode()) != 0) ? readException(readExceptionCode, readString()) : exc;
     }
 
-    public abstract boolean readField(int i);
+    public abstract boolean readField(int i2);
 
     public abstract float readFloat();
 
-    public float readFloat(float f2, int i) {
-        return !readField(i) ? f2 : readFloat();
+    public float readFloat(float f2, int i2) {
+        return !readField(i2) ? f2 : readFloat();
     }
 
-    public float[] readFloatArray(float[] fArr, int i) {
-        return !readField(i) ? fArr : readFloatArray();
+    public float[] readFloatArray(float[] fArr, int i2) {
+        return !readField(i2) ? fArr : readFloatArray();
+    }
+
+    public <T extends VersionedParcelable> T readFromParcel(String str, VersionedParcel versionedParcel) {
+        try {
+            return (T) getReadMethod(str).invoke(null, versionedParcel);
+        } catch (ClassNotFoundException e2) {
+            throw new RuntimeException("VersionedParcel encountered ClassNotFoundException", e2);
+        } catch (IllegalAccessException e3) {
+            throw new RuntimeException("VersionedParcel encountered IllegalAccessException", e3);
+        } catch (NoSuchMethodException e4) {
+            throw new RuntimeException("VersionedParcel encountered NoSuchMethodException", e4);
+        } catch (InvocationTargetException e5) {
+            if (e5.getCause() instanceof RuntimeException) {
+                throw ((RuntimeException) e5.getCause());
+            }
+            throw new RuntimeException("VersionedParcel encountered InvocationTargetException", e5);
+        }
     }
 
     public abstract int readInt();
 
-    public int readInt(int i, int i2) {
-        return !readField(i2) ? i : readInt();
+    public int readInt(int i2, int i3) {
+        return !readField(i3) ? i2 : readInt();
     }
 
-    public int[] readIntArray(int[] iArr, int i) {
-        return !readField(i) ? iArr : readIntArray();
+    public int[] readIntArray(int[] iArr, int i2) {
+        return !readField(i2) ? iArr : readIntArray();
     }
 
-    public <T> List<T> readList(List<T> list, int i) {
-        return !readField(i) ? list : (List) readCollection(i, new ArrayList());
+    public <T> List<T> readList(List<T> list, int i2) {
+        return !readField(i2) ? list : (List) readCollection(new ArrayList());
     }
 
     public abstract long readLong();
 
-    public long readLong(long j, int i) {
-        return !readField(i) ? j : readLong();
+    public long readLong(long j, int i2) {
+        return !readField(i2) ? j : readLong();
     }
 
-    public long[] readLongArray(long[] jArr, int i) {
-        return !readField(i) ? jArr : readLongArray();
+    public long[] readLongArray(long[] jArr, int i2) {
+        return !readField(i2) ? jArr : readLongArray();
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r7v2, resolved type: androidx.collection.ArrayMap */
+    /* JADX WARN: Multi-variable type inference failed */
+    public <K, V> Map<K, V> readMap(Map<K, V> map, int i2) {
+        if (readField(i2)) {
+            int readInt = readInt();
+            if (readInt < 0) {
+                return null;
+            }
+            ArrayMap arrayMap = new ArrayMap();
+            if (readInt == 0) {
+                return arrayMap;
+            }
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            readCollection(arrayList);
+            readCollection(arrayList2);
+            for (int i3 = 0; i3 < readInt; i3++) {
+                arrayMap.put(arrayList.get(i3), arrayList2.get(i3));
+            }
+            return arrayMap;
+        }
+        return map;
     }
 
     public abstract <T extends Parcelable> T readParcelable();
 
-    public <T extends Parcelable> T readParcelable(T t, int i) {
-        return !readField(i) ? t : (T) readParcelable();
+    public <T extends Parcelable> T readParcelable(T t, int i2) {
+        return !readField(i2) ? t : (T) readParcelable();
     }
 
     public Serializable readSerializable() {
@@ -358,13 +392,13 @@ public abstract class VersionedParcel {
         }
     }
 
-    public <T> Set<T> readSet(Set<T> set, int i) {
-        return !readField(i) ? set : (Set) readCollection(i, new ArraySet());
+    public <T> Set<T> readSet(Set<T> set, int i2) {
+        return !readField(i2) ? set : (Set) readCollection(new ArraySet());
     }
 
     @RequiresApi(api = 21)
-    public Size readSize(Size size, int i) {
-        if (readField(i)) {
+    public Size readSize(Size size, int i2) {
+        if (readField(i2)) {
             if (readBoolean()) {
                 return new Size(readInt(), readInt());
             }
@@ -374,8 +408,8 @@ public abstract class VersionedParcel {
     }
 
     @RequiresApi(api = 21)
-    public SizeF readSizeF(SizeF sizeF, int i) {
-        if (readField(i)) {
+    public SizeF readSizeF(SizeF sizeF, int i2) {
+        if (readField(i2)) {
             if (readBoolean()) {
                 return new SizeF(readFloat(), readFloat());
             }
@@ -384,14 +418,14 @@ public abstract class VersionedParcel {
         return sizeF;
     }
 
-    public SparseBooleanArray readSparseBooleanArray(SparseBooleanArray sparseBooleanArray, int i) {
-        if (readField(i)) {
+    public SparseBooleanArray readSparseBooleanArray(SparseBooleanArray sparseBooleanArray, int i2) {
+        if (readField(i2)) {
             int readInt = readInt();
             if (readInt < 0) {
                 return null;
             }
             SparseBooleanArray sparseBooleanArray2 = new SparseBooleanArray(readInt);
-            for (int i2 = 0; i2 < readInt; i2++) {
+            for (int i3 = 0; i3 < readInt; i3++) {
                 sparseBooleanArray2.put(readInt(), readBoolean());
             }
             return sparseBooleanArray2;
@@ -401,65 +435,65 @@ public abstract class VersionedParcel {
 
     public abstract String readString();
 
-    public String readString(String str, int i) {
-        return !readField(i) ? str : readString();
+    public String readString(String str, int i2) {
+        return !readField(i2) ? str : readString();
     }
 
     public abstract IBinder readStrongBinder();
 
-    public IBinder readStrongBinder(IBinder iBinder, int i) {
-        return !readField(i) ? iBinder : readStrongBinder();
+    public IBinder readStrongBinder(IBinder iBinder, int i2) {
+        return !readField(i2) ? iBinder : readStrongBinder();
     }
 
-    public <T extends VersionedParcelable> T readVersionedParcelable(T t, int i) {
-        return !readField(i) ? t : (T) readVersionedParcelable();
+    public <T extends VersionedParcelable> T readVersionedParcelable(T t, int i2) {
+        return !readField(i2) ? t : (T) readVersionedParcelable();
     }
 
-    public abstract void setOutputField(int i);
+    public abstract void setOutputField(int i2);
 
     public void setSerializationFlags(boolean z, boolean z2) {
     }
 
-    public <T> void writeArray(T[] tArr, int i) {
-        setOutputField(i);
+    public <T> void writeArray(T[] tArr, int i2) {
+        setOutputField(i2);
         writeArray(tArr);
     }
 
     public abstract void writeBoolean(boolean z);
 
-    public void writeBoolean(boolean z, int i) {
-        setOutputField(i);
+    public void writeBoolean(boolean z, int i2) {
+        setOutputField(i2);
         writeBoolean(z);
     }
 
-    public void writeBooleanArray(boolean[] zArr, int i) {
-        setOutputField(i);
+    public void writeBooleanArray(boolean[] zArr, int i2) {
+        setOutputField(i2);
         writeBooleanArray(zArr);
     }
 
     public abstract void writeBundle(Bundle bundle);
 
-    public void writeBundle(Bundle bundle, int i) {
-        setOutputField(i);
+    public void writeBundle(Bundle bundle, int i2) {
+        setOutputField(i2);
         writeBundle(bundle);
     }
 
-    public void writeByte(byte b2, int i) {
-        setOutputField(i);
+    public void writeByte(byte b2, int i2) {
+        setOutputField(i2);
         writeInt(b2);
     }
 
     public abstract void writeByteArray(byte[] bArr);
 
-    public void writeByteArray(byte[] bArr, int i) {
-        setOutputField(i);
+    public void writeByteArray(byte[] bArr, int i2) {
+        setOutputField(i2);
         writeByteArray(bArr);
     }
 
-    public abstract void writeByteArray(byte[] bArr, int i, int i2);
+    public abstract void writeByteArray(byte[] bArr, int i2, int i3);
 
-    public void writeCharArray(char[] cArr, int i) {
-        setOutputField(i);
+    public void writeCharArray(char[] cArr, int i2) {
+        setOutputField(i2);
         if (cArr != null) {
             writeInt(cArr.length);
             for (char c2 : cArr) {
@@ -470,51 +504,58 @@ public abstract class VersionedParcel {
         writeInt(-1);
     }
 
+    public abstract void writeCharSequence(CharSequence charSequence);
+
+    public void writeCharSequence(CharSequence charSequence, int i2) {
+        setOutputField(i2);
+        writeCharSequence(charSequence);
+    }
+
     public abstract void writeDouble(double d2);
 
-    public void writeDouble(double d2, int i) {
-        setOutputField(i);
+    public void writeDouble(double d2, int i2) {
+        setOutputField(i2);
         writeDouble(d2);
     }
 
-    public void writeDoubleArray(double[] dArr, int i) {
-        setOutputField(i);
+    public void writeDoubleArray(double[] dArr, int i2) {
+        setOutputField(i2);
         writeDoubleArray(dArr);
     }
 
-    public void writeException(Exception exc, int i) {
-        setOutputField(i);
+    public void writeException(Exception exc, int i2) {
+        setOutputField(i2);
         if (exc == null) {
             writeNoException();
             return;
         }
-        int i2 = 0;
+        int i3 = 0;
         if ((exc instanceof Parcelable) && exc.getClass().getClassLoader() == Parcelable.class.getClassLoader()) {
-            i2 = -9;
+            i3 = -9;
         } else if (exc instanceof SecurityException) {
-            i2 = -1;
+            i3 = -1;
         } else if (exc instanceof BadParcelableException) {
-            i2 = -2;
+            i3 = -2;
         } else if (exc instanceof IllegalArgumentException) {
-            i2 = -3;
+            i3 = -3;
         } else if (exc instanceof NullPointerException) {
-            i2 = -4;
+            i3 = -4;
         } else if (exc instanceof IllegalStateException) {
-            i2 = -5;
+            i3 = -5;
         } else if (exc instanceof NetworkOnMainThreadException) {
-            i2 = -6;
+            i3 = -6;
         } else if (exc instanceof UnsupportedOperationException) {
-            i2 = -7;
+            i3 = -7;
         }
-        writeInt(i2);
-        if (i2 == 0) {
+        writeInt(i3);
+        if (i3 == 0) {
             if (exc instanceof RuntimeException) {
                 throw ((RuntimeException) exc);
             }
             throw new RuntimeException(exc);
         }
         writeString(exc.getMessage());
-        if (i2 != -9) {
+        if (i3 != -9) {
             return;
         }
         writeParcelable((Parcelable) exc);
@@ -522,42 +563,63 @@ public abstract class VersionedParcel {
 
     public abstract void writeFloat(float f2);
 
-    public void writeFloat(float f2, int i) {
-        setOutputField(i);
+    public void writeFloat(float f2, int i2) {
+        setOutputField(i2);
         writeFloat(f2);
     }
 
-    public void writeFloatArray(float[] fArr, int i) {
-        setOutputField(i);
+    public void writeFloatArray(float[] fArr, int i2) {
+        setOutputField(i2);
         writeFloatArray(fArr);
     }
 
-    public abstract void writeInt(int i);
+    public abstract void writeInt(int i2);
 
-    public void writeInt(int i, int i2) {
-        setOutputField(i2);
-        writeInt(i);
+    public void writeInt(int i2, int i3) {
+        setOutputField(i3);
+        writeInt(i2);
     }
 
-    public void writeIntArray(int[] iArr, int i) {
-        setOutputField(i);
+    public void writeIntArray(int[] iArr, int i2) {
+        setOutputField(i2);
         writeIntArray(iArr);
     }
 
-    public <T> void writeList(List<T> list, int i) {
-        writeCollection(list, i);
+    public <T> void writeList(List<T> list, int i2) {
+        writeCollection(list, i2);
     }
 
     public abstract void writeLong(long j);
 
-    public void writeLong(long j, int i) {
-        setOutputField(i);
+    public void writeLong(long j, int i2) {
+        setOutputField(i2);
         writeLong(j);
     }
 
-    public void writeLongArray(long[] jArr, int i) {
-        setOutputField(i);
+    public void writeLongArray(long[] jArr, int i2) {
+        setOutputField(i2);
         writeLongArray(jArr);
+    }
+
+    public <K, V> void writeMap(Map<K, V> map, int i2) {
+        setOutputField(i2);
+        if (map == null) {
+            writeInt(-1);
+            return;
+        }
+        int size = map.size();
+        writeInt(size);
+        if (size == 0) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        ArrayList arrayList2 = new ArrayList();
+        for (Map.Entry<K, V> entry : map.entrySet()) {
+            arrayList.add(entry.getKey());
+            arrayList2.add(entry.getValue());
+        }
+        writeCollection(arrayList);
+        writeCollection(arrayList2);
     }
 
     public void writeNoException() {
@@ -566,23 +628,23 @@ public abstract class VersionedParcel {
 
     public abstract void writeParcelable(Parcelable parcelable);
 
-    public void writeParcelable(Parcelable parcelable, int i) {
-        setOutputField(i);
+    public void writeParcelable(Parcelable parcelable, int i2) {
+        setOutputField(i2);
         writeParcelable(parcelable);
     }
 
-    public void writeSerializable(Serializable serializable, int i) {
-        setOutputField(i);
+    public void writeSerializable(Serializable serializable, int i2) {
+        setOutputField(i2);
         writeSerializable(serializable);
     }
 
-    public <T> void writeSet(Set<T> set, int i) {
-        writeCollection(set, i);
+    public <T> void writeSet(Set<T> set, int i2) {
+        writeCollection(set, i2);
     }
 
     @RequiresApi(api = 21)
-    public void writeSize(Size size, int i) {
-        setOutputField(i);
+    public void writeSize(Size size, int i2) {
+        setOutputField(i2);
         writeBoolean(size != null);
         if (size != null) {
             writeInt(size.getWidth());
@@ -591,8 +653,8 @@ public abstract class VersionedParcel {
     }
 
     @RequiresApi(api = 21)
-    public void writeSizeF(SizeF sizeF, int i) {
-        setOutputField(i);
+    public void writeSizeF(SizeF sizeF, int i2) {
+        setOutputField(i2);
         writeBoolean(sizeF != null);
         if (sizeF != null) {
             writeFloat(sizeF.getWidth());
@@ -600,48 +662,114 @@ public abstract class VersionedParcel {
         }
     }
 
-    public void writeSparseBooleanArray(SparseBooleanArray sparseBooleanArray, int i) {
-        setOutputField(i);
+    public void writeSparseBooleanArray(SparseBooleanArray sparseBooleanArray, int i2) {
+        setOutputField(i2);
         if (sparseBooleanArray == null) {
             writeInt(-1);
             return;
         }
         int size = sparseBooleanArray.size();
         writeInt(size);
-        for (int i2 = 0; i2 < size; i2++) {
-            writeInt(sparseBooleanArray.keyAt(i2));
-            writeBoolean(sparseBooleanArray.valueAt(i2));
+        for (int i3 = 0; i3 < size; i3++) {
+            writeInt(sparseBooleanArray.keyAt(i3));
+            writeBoolean(sparseBooleanArray.valueAt(i3));
         }
     }
 
     public abstract void writeString(String str);
 
-    public void writeString(String str, int i) {
-        setOutputField(i);
+    public void writeString(String str, int i2) {
+        setOutputField(i2);
         writeString(str);
     }
 
     public abstract void writeStrongBinder(IBinder iBinder);
 
-    public void writeStrongBinder(IBinder iBinder, int i) {
-        setOutputField(i);
+    public void writeStrongBinder(IBinder iBinder, int i2) {
+        setOutputField(i2);
         writeStrongBinder(iBinder);
     }
 
     public abstract void writeStrongInterface(IInterface iInterface);
 
-    public void writeStrongInterface(IInterface iInterface, int i) {
-        setOutputField(i);
+    public void writeStrongInterface(IInterface iInterface, int i2) {
+        setOutputField(i2);
         writeStrongInterface(iInterface);
     }
 
-    public void writeVersionedParcelable(VersionedParcelable versionedParcelable, int i) {
-        setOutputField(i);
+    public <T extends VersionedParcelable> void writeToParcel(T t, VersionedParcel versionedParcel) {
+        try {
+            getWriteMethod(t.getClass()).invoke(null, t, versionedParcel);
+        } catch (ClassNotFoundException e2) {
+            throw new RuntimeException("VersionedParcel encountered ClassNotFoundException", e2);
+        } catch (IllegalAccessException e3) {
+            throw new RuntimeException("VersionedParcel encountered IllegalAccessException", e3);
+        } catch (NoSuchMethodException e4) {
+            throw new RuntimeException("VersionedParcel encountered NoSuchMethodException", e4);
+        } catch (InvocationTargetException e5) {
+            if (e5.getCause() instanceof RuntimeException) {
+                throw ((RuntimeException) e5.getCause());
+            }
+            throw new RuntimeException("VersionedParcel encountered InvocationTargetException", e5);
+        }
+    }
+
+    public void writeVersionedParcelable(VersionedParcelable versionedParcelable, int i2) {
+        setOutputField(i2);
         writeVersionedParcelable(versionedParcelable);
     }
 
-    public static Class findParcelClass(Class<? extends VersionedParcelable> cls) throws ClassNotFoundException {
-        return Class.forName(String.format("%s.%sParcelizer", cls.getPackage().getName(), cls.getSimpleName()), false, cls.getClassLoader());
+    private <T> void writeCollection(Collection<T> collection) {
+        if (collection == null) {
+            writeInt(-1);
+            return;
+        }
+        int size = collection.size();
+        writeInt(size);
+        if (size > 0) {
+            int type = getType(collection.iterator().next());
+            writeInt(type);
+            switch (type) {
+                case 1:
+                    for (T t : collection) {
+                        writeVersionedParcelable(t);
+                    }
+                    return;
+                case 2:
+                    for (T t2 : collection) {
+                        writeParcelable(t2);
+                    }
+                    return;
+                case 3:
+                    for (T t3 : collection) {
+                        writeSerializable(t3);
+                    }
+                    return;
+                case 4:
+                    for (T t4 : collection) {
+                        writeString(t4);
+                    }
+                    return;
+                case 5:
+                    for (T t5 : collection) {
+                        writeStrongBinder(t5);
+                    }
+                    return;
+                case 6:
+                default:
+                    return;
+                case 7:
+                    for (T t6 : collection) {
+                        writeInt(t6.intValue());
+                    }
+                    return;
+                case 8:
+                    for (T t7 : collection) {
+                        writeFloat(t7.floatValue());
+                    }
+                    return;
+            }
+        }
     }
 
     private void writeSerializable(Serializable serializable) {
@@ -709,8 +837,8 @@ public abstract class VersionedParcel {
             return null;
         }
         boolean[] zArr = new boolean[readInt];
-        for (int i = 0; i < readInt; i++) {
-            zArr[i] = readInt() != 0;
+        for (int i2 = 0; i2 < readInt; i2++) {
+            zArr[i2] = readInt() != 0;
         }
         return zArr;
     }
@@ -721,8 +849,8 @@ public abstract class VersionedParcel {
             return null;
         }
         double[] dArr = new double[readInt];
-        for (int i = 0; i < readInt; i++) {
-            dArr[i] = readDouble();
+        for (int i2 = 0; i2 < readInt; i2++) {
+            dArr[i2] = readDouble();
         }
         return dArr;
     }
@@ -733,8 +861,8 @@ public abstract class VersionedParcel {
             return null;
         }
         float[] fArr = new float[readInt];
-        for (int i = 0; i < readInt; i++) {
-            fArr[i] = readFloat();
+        for (int i2 = 0; i2 < readInt; i2++) {
+            fArr[i2] = readFloat();
         }
         return fArr;
     }
@@ -745,8 +873,8 @@ public abstract class VersionedParcel {
             return null;
         }
         int[] iArr = new int[readInt];
-        for (int i = 0; i < readInt; i++) {
-            iArr[i] = readInt();
+        for (int i2 = 0; i2 < readInt; i2++) {
+            iArr[i2] = readInt();
         }
         return iArr;
     }
@@ -757,8 +885,8 @@ public abstract class VersionedParcel {
             return null;
         }
         long[] jArr = new long[readInt];
-        for (int i = 0; i < readInt; i++) {
-            jArr[i] = readLong();
+        for (int i2 = 0; i2 < readInt; i2++) {
+            jArr[i2] = readLong();
         }
         return jArr;
     }
@@ -779,34 +907,34 @@ public abstract class VersionedParcel {
         int length = tArr.length;
         writeInt(length);
         if (length > 0) {
-            int i = 0;
+            int i2 = 0;
             int type = getType(tArr[0]);
             writeInt(type);
             if (type == 1) {
-                while (i < length) {
-                    writeVersionedParcelable((VersionedParcelable) tArr[i]);
-                    i++;
+                while (i2 < length) {
+                    writeVersionedParcelable((VersionedParcelable) tArr[i2]);
+                    i2++;
                 }
             } else if (type == 2) {
-                while (i < length) {
-                    writeParcelable((Parcelable) tArr[i]);
-                    i++;
+                while (i2 < length) {
+                    writeParcelable((Parcelable) tArr[i2]);
+                    i2++;
                 }
             } else if (type == 3) {
-                while (i < length) {
-                    writeSerializable((Serializable) tArr[i]);
-                    i++;
+                while (i2 < length) {
+                    writeSerializable((Serializable) tArr[i2]);
+                    i2++;
                 }
             } else if (type == 4) {
-                while (i < length) {
-                    writeString((String) tArr[i]);
-                    i++;
+                while (i2 < length) {
+                    writeString((String) tArr[i2]);
+                    i2++;
                 }
             } else if (type != 5) {
             } else {
-                while (i < length) {
-                    writeStrongBinder((IBinder) tArr[i]);
-                    i++;
+                while (i2 < length) {
+                    writeStrongBinder((IBinder) tArr[i2]);
+                    i2++;
                 }
             }
         }
@@ -823,9 +951,9 @@ public abstract class VersionedParcel {
         writeInt(-1);
     }
 
-    public void writeByteArray(byte[] bArr, int i, int i2, int i3) {
-        setOutputField(i3);
-        writeByteArray(bArr, i, i2);
+    public void writeByteArray(byte[] bArr, int i2, int i3, int i4) {
+        setOutputField(i4);
+        writeByteArray(bArr, i2, i3);
     }
 
     public void writeDoubleArray(double[] dArr) {
@@ -853,8 +981,8 @@ public abstract class VersionedParcel {
     public void writeIntArray(int[] iArr) {
         if (iArr != null) {
             writeInt(iArr.length);
-            for (int i : iArr) {
-                writeInt(i);
+            for (int i2 : iArr) {
+                writeInt(i2);
             }
             return;
         }
@@ -883,7 +1011,7 @@ public abstract class VersionedParcel {
         createSubParcel.closeField();
     }
 
-    private Exception readException(int i, String str) {
-        return createException(i, str);
+    private Exception readException(int i2, String str) {
+        return createException(i2, str);
     }
 }

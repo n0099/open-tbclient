@@ -11,19 +11,19 @@ import com.baidu.tbadk.core.util.FieldBuilder;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1980a = "00:00:00:00:00:00";
+    public static final String f1935a = "00:00:00:00:00:00";
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f1981e;
+    public static a f1936e;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1982b;
+    public String f1937b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1983c;
+    public String f1938c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1984d;
+    public String f1939d;
 
     public a(Context context) {
         try {
@@ -32,37 +32,37 @@ public class a {
                 b(telephonyManager.getDeviceId());
                 a(telephonyManager.getSubscriberId());
                 String macAddress = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
-                this.f1984d = macAddress;
+                this.f1939d = macAddress;
                 if (!TextUtils.isEmpty(macAddress)) {
                     return;
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
-                if (!TextUtils.isEmpty(this.f1984d)) {
+                if (!TextUtils.isEmpty(this.f1939d)) {
                     return;
                 }
             }
-            this.f1984d = f1980a;
+            this.f1939d = f1935a;
         } catch (Throwable th) {
-            if (TextUtils.isEmpty(this.f1984d)) {
-                this.f1984d = f1980a;
+            if (TextUtils.isEmpty(this.f1939d)) {
+                this.f1939d = f1935a;
             }
             throw th;
         }
     }
 
     public static a a(Context context) {
-        if (f1981e == null) {
-            f1981e = new a(context);
+        if (f1936e == null) {
+            f1936e = new a(context);
         }
-        return f1981e;
+        return f1936e;
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.f1983c)) {
-            this.f1983c = "000000000000000";
+        if (TextUtils.isEmpty(this.f1938c)) {
+            this.f1938c = "000000000000000";
         }
-        return this.f1983c;
+        return this.f1938c;
     }
 
     public String c() {
@@ -75,7 +75,7 @@ public class a {
     }
 
     public String d() {
-        return this.f1984d;
+        return this.f1939d;
     }
 
     public static String d(Context context) {
@@ -90,24 +90,24 @@ public class a {
     }
 
     public String a() {
-        if (TextUtils.isEmpty(this.f1982b)) {
-            this.f1982b = "000000000000000";
+        if (TextUtils.isEmpty(this.f1937b)) {
+            this.f1937b = "000000000000000";
         }
-        return this.f1982b;
+        return this.f1937b;
     }
 
     public void b(String str) {
         if (str != null) {
             byte[] bytes = str.getBytes();
-            for (int i = 0; i < bytes.length; i++) {
-                if (bytes[i] < 48 || bytes[i] > 57) {
-                    bytes[i] = 48;
+            for (int i2 = 0; i2 < bytes.length; i2++) {
+                if (bytes[i2] < 48 || bytes[i2] > 57) {
+                    bytes[i2] = 48;
                 }
             }
             String str2 = new String(bytes);
             str = (str2 + "000000000000000").substring(0, 15);
         }
-        this.f1983c = str;
+        this.f1938c = str;
     }
 
     public static String c(Context context) {
@@ -118,7 +118,7 @@ public class a {
         if (str != null) {
             str = (str + "000000000000000").substring(0, 15);
         }
-        this.f1982b = str;
+        this.f1937b = str;
     }
 
     public static d b(Context context) {

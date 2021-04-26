@@ -4,5 +4,5 @@ import com.baidu.android.imsdk.IMListener;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public interface IGetUserStatusListener extends IMListener {
-    void onGetUsersStatusResult(int i, String str, ArrayList<UserStatus> arrayList);
+    void onGetUsersStatusResult(int i2, String str, ArrayList<UserStatus> arrayList);
 }

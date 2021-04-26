@@ -7,7 +7,7 @@ import com.baidu.cyberplayer.sdk.Keep;
 import java.io.FileDescriptor;
 import java.util.Map;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public abstract class ExtractorProvider {
     public abstract Bundle getMediaMeta();
 
@@ -21,6 +21,6 @@ public abstract class ExtractorProvider {
 
     public abstract void setDataSource(String str);
 
-    public void setOption(int i, String str, long j) {
+    public void setOption(int i2, String str, long j) {
     }
 }

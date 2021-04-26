@@ -12,7 +12,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     public MessageCenterFragment mFragment;
     public int mSkinType = 3;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.b.i0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.i0.k0.a
     public String getCurrentPageKey() {
         return "a079";
     }
@@ -28,24 +28,24 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
         MessageCenterFragment messageCenterFragment = this.mFragment;
         if (messageCenterFragment != null) {
-            messageCenterFragment.onActivityResult(i, i2, intent);
+            messageCenterFragment.onActivityResult(i2, i3, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        if (i == this.mSkinType) {
+    public void onChangeSkinType(int i2) {
+        if (i2 == this.mSkinType) {
             return;
         }
-        this.mSkinType = i;
-        this.mFragment.onChangeSkinType(i);
+        this.mSkinType = i2;
+        this.mFragment.onChangeSkinType(i2);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (!ViewHelper.checkUpIsLogin(this)) {

@@ -11,7 +11,7 @@ import java.util.List;
 public class aq {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile aq f41339a;
+    public static volatile aq f38883a;
 
     /* renamed from: a  reason: collision with other field name */
     public SharedPreferences f895a;
@@ -24,8 +24,8 @@ public class aq {
         public String mDescription;
         public int mId;
 
-        public a(int i, String str) {
-            this.mId = i;
+        public a(int i2, String str) {
+            this.mId = i2;
             this.mDescription = str;
         }
 
@@ -50,18 +50,18 @@ public class aq {
     }
 
     public static aq a(Context context) {
-        if (f41339a == null) {
+        if (f38883a == null) {
             synchronized (aq.class) {
-                if (f41339a == null) {
-                    f41339a = new aq(context);
+                if (f38883a == null) {
+                    f38883a = new aq(context);
                 }
             }
         }
-        return f41339a;
+        return f38883a;
     }
 
-    private String a(int i) {
-        return "normal_oc_" + i;
+    private String a(int i2) {
+        return "normal_oc_" + i2;
     }
 
     private void a(SharedPreferences.Editor editor, Pair<Integer, Object> pair, String str) {
@@ -83,34 +83,34 @@ public class aq {
         }
     }
 
-    private String b(int i) {
-        return "custom_oc_" + i;
+    private String b(int i2) {
+        return "custom_oc_" + i2;
     }
 
-    public int a(int i, int i2) {
+    public int a(int i2, int i3) {
         try {
-            String b2 = b(i);
+            String b2 = b(i2);
             if (this.f895a.contains(b2)) {
                 return this.f895a.getInt(b2, 0);
             }
-            String a2 = a(i);
-            return this.f895a.contains(a2) ? this.f895a.getInt(a2, 0) : i2;
+            String a2 = a(i2);
+            return this.f895a.contains(a2) ? this.f895a.getInt(a2, 0) : i3;
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m55a(i + " oc int error " + e2);
-            return i2;
+            com.xiaomi.channel.commonutils.logger.b.m58a(i2 + " oc int error " + e2);
+            return i3;
         }
     }
 
-    public String a(int i, String str) {
+    public String a(int i2, String str) {
         try {
-            String b2 = b(i);
+            String b2 = b(i2);
             if (this.f895a.contains(b2)) {
                 return this.f895a.getString(b2, null);
             }
-            String a2 = a(i);
+            String a2 = a(i2);
             return this.f895a.contains(a2) ? this.f895a.getString(a2, null) : str;
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m55a(i + " oc string error " + e2);
+            com.xiaomi.channel.commonutils.logger.b.m58a(i2 + " oc string error " + e2);
             return str;
         }
     }
@@ -139,16 +139,16 @@ public class aq {
         edit.commit();
     }
 
-    public boolean a(int i, boolean z) {
+    public boolean a(int i2, boolean z) {
         try {
-            String b2 = b(i);
+            String b2 = b(i2);
             if (this.f895a.contains(b2)) {
                 return this.f895a.getBoolean(b2, false);
             }
-            String a2 = a(i);
+            String a2 = a(i2);
             return this.f895a.contains(a2) ? this.f895a.getBoolean(a2, false) : z;
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m55a(i + " oc boolean error " + e2);
+            com.xiaomi.channel.commonutils.logger.b.m58a(i2 + " oc boolean error " + e2);
             return z;
         }
     }

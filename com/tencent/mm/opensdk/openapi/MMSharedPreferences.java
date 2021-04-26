@@ -51,7 +51,7 @@ public class MMSharedPreferences implements SharedPreferences {
         */
         public boolean commit() {
             String str;
-            int i;
+            int i2;
             boolean z;
             ContentValues contentValues = new ContentValues();
             if (this.clear) {
@@ -68,24 +68,24 @@ public class MMSharedPreferences implements SharedPreferences {
                     str = "unresolve failed, null value";
                 } else {
                     if (value instanceof Integer) {
-                        i = 1;
+                        i2 = 1;
                     } else if (value instanceof Long) {
-                        i = 2;
+                        i2 = 2;
                     } else if (value instanceof String) {
-                        i = 3;
+                        i2 = 3;
                     } else if (value instanceof Boolean) {
-                        i = 4;
+                        i2 = 4;
                     } else if (value instanceof Float) {
-                        i = 5;
+                        i2 = 5;
                     } else if (value instanceof Double) {
-                        i = 6;
+                        i2 = 6;
                     } else {
                         str = "unresolve failed, unknown type=" + value.getClass().toString();
                     }
-                    if (i != 0) {
+                    if (i2 != 0) {
                         z = false;
                     } else {
-                        contentValues.put("type", Integer.valueOf(i));
+                        contentValues.put("type", Integer.valueOf(i2));
                         contentValues.put("value", value.toString());
                         z = true;
                     }
@@ -94,8 +94,8 @@ public class MMSharedPreferences implements SharedPreferences {
                     }
                 }
                 Log.e("MicroMsg.SDK.PluginProvider.Resolver", str);
-                i = 0;
-                if (i != 0) {
+                i2 = 0;
+                if (i2 != 0) {
                 }
                 if (!z) {
                 }
@@ -118,8 +118,8 @@ public class MMSharedPreferences implements SharedPreferences {
         }
 
         @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor putInt(String str, int i) {
-            this.values.put(str, Integer.valueOf(i));
+        public SharedPreferences.Editor putInt(String str, int i2) {
+            this.values.put(str, Integer.valueOf(i2));
             this.remove.remove(str);
             return this;
         }
@@ -216,9 +216,9 @@ public class MMSharedPreferences implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public int getInt(String str, int i) {
+    public int getInt(String str, int i2) {
         Object value = getValue(str);
-        return (value == null || !(value instanceof Integer)) ? i : ((Integer) value).intValue();
+        return (value == null || !(value instanceof Integer)) ? i2 : ((Integer) value).intValue();
     }
 
     @Override // android.content.SharedPreferences

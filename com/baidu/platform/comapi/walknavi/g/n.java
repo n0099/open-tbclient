@@ -3,9 +3,9 @@ package com.baidu.platform.comapi.walknavi.g;
 public class n implements com.baidu.platform.comapi.wnplatform.walkmap.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f9699a;
+    public final /* synthetic */ a f10059a;
 
     public n(a aVar) {
-        this.f9699a = aVar;
+        this.f10059a = aVar;
     }
 }

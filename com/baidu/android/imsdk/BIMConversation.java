@@ -76,13 +76,13 @@ public class BIMConversation implements NoProGuard {
     private void handleUpload(final RichMediaMsg richMediaMsg, final ISendMessageListener iSendMessageListener) {
         new AsyncChatTask(this.mContext, richMediaMsg, new IUploadTransferListener() { // from class: com.baidu.android.imsdk.BIMConversation.1
             @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-            public void onFailed(int i, int i2, String str) {
+            public void onFailed(int i2, int i3, String str) {
                 richMediaMsg.setStatus(2);
-                ChatMsgManagerImpl.getInstance(BIMConversation.this.mContext).onSendMessageResult(i, richMediaMsg, -1L, null);
+                ChatMsgManagerImpl.getInstance(BIMConversation.this.mContext).onSendMessageResult(i2, richMediaMsg, -1L, null);
             }
 
             @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-            public void onFinished(int i, String str) {
+            public void onFinished(int i2, String str) {
                 if (richMediaMsg.getMsgType() == 1) {
                     ((ImageMsg) richMediaMsg).setContent(str);
                 } else if (richMediaMsg.getMsgType() == 2) {
@@ -93,8 +93,8 @@ public class BIMConversation implements NoProGuard {
             }
 
             @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
-            public void onProgress(int i) {
-                richMediaMsg.setProgress(i);
+            public void onProgress(int i2) {
+                richMediaMsg.setProgress(i2);
             }
         }).execute();
     }
@@ -141,7 +141,7 @@ public class BIMConversation implements NoProGuard {
     public void endWithCompletion(IMcastSetListener iMcastSetListener) {
     }
 
-    public void fetchMessage(MSGTYPE msgtype, ChatMsg chatMsg, int i, boolean z, IFetchMessageListener iFetchMessageListener) {
+    public void fetchMessage(MSGTYPE msgtype, ChatMsg chatMsg, int i2, boolean z, IFetchMessageListener iFetchMessageListener) {
     }
 
     public BIMManager.CATEGORY getCategory() {
@@ -205,7 +205,7 @@ public class BIMConversation implements NoProGuard {
         return -1;
     }
 
-    public void seekCastMessage(int i) {
+    public void seekCastMessage(int i2) {
     }
 
     public ChatMsg sendMessage(final ChatMsg chatMsg, final ISendMessageStatusListener iSendMessageStatusListener, final ISendMessageListener iSendMessageListener) {
@@ -214,8 +214,8 @@ public class BIMConversation implements NoProGuard {
                 if (BIMManager.CATEGORY.SINGLEPERSON == this.mCategory) {
                     ChatUserManagerImpl.getInstance(this.mContext).getUserByBuid(this.session.getContacterId(), 0, new IGetUserListener() { // from class: com.baidu.android.imsdk.BIMConversation.2
                         @Override // com.baidu.android.imsdk.chatuser.IGetUserListener
-                        public void onGetUserResult(int i, long j, ChatUser chatUser) {
-                            if (i == 0 && chatUser != null) {
+                        public void onGetUserResult(int i2, long j, ChatUser chatUser) {
+                            if (i2 == 0 && chatUser != null) {
                                 BIMConversation.this.session.setContacter(chatUser.getUk());
                                 BIMConversation.this.senMessageInternal(chatMsg, iSendMessageStatusListener, iSendMessageListener);
                                 return;
@@ -234,17 +234,17 @@ public class BIMConversation implements NoProGuard {
         return chatMsg;
     }
 
-    public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
+    public void sendQuizOpts(long j, long j2, int i2, String str, IMcastSetListener iMcastSetListener) {
     }
 
     public boolean setAllMessageReaded(ChatMsg chatMsg) {
         return false;
     }
 
-    public void setDisturb(int i, BIMValueCallBack<String> bIMValueCallBack) {
+    public void setDisturb(int i2, BIMValueCallBack<String> bIMValueCallBack) {
     }
 
-    public void setPullInterval(int i) {
+    public void setPullInterval(int i2) {
     }
 
     public boolean setSingleMessageReaded(ChatMsg chatMsg) {
@@ -281,7 +281,7 @@ public class BIMConversation implements NoProGuard {
         chatMsgManagerImpl.unregisterLiveMsgReceiveListener(j + "");
     }
 
-    public BIMConversation(Context context, BIMManager.CATEGORY category, String str, ChatSession chatSession, String str2, int i) {
+    public BIMConversation(Context context, BIMManager.CATEGORY category, String str, ChatSession chatSession, String str2, int i2) {
         this.mCategory = BIMManager.CATEGORY.UNKOWN;
         this.mContext = context.getApplicationContext();
         this.session = chatSession;

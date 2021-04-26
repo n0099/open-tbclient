@@ -5,22 +5,22 @@ import com.baidu.fsg.base.b.a;
 public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Runnable f5212a;
+    public final /* synthetic */ Runnable f5343a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a.b f5213b;
+    public final /* synthetic */ a.b f5344b;
 
     public e(a.b bVar, Runnable runnable) {
-        this.f5213b = bVar;
-        this.f5212a = runnable;
+        this.f5344b = bVar;
+        this.f5343a = runnable;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            this.f5212a.run();
+            this.f5343a.run();
         } finally {
-            this.f5213b.a();
+            this.f5344b.a();
         }
     }
 }

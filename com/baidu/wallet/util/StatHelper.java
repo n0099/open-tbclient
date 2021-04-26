@@ -51,12 +51,12 @@ public class StatHelper {
         a.a(Key.payAmount.name(), Double.valueOf(d2));
     }
 
-    public static void cachePayType(int i) {
-        a.a(Key.payType.name(), String.valueOf(i));
+    public static void cachePayType(int i2) {
+        a.a(Key.payType.name(), String.valueOf(i2));
     }
 
-    public static void cachePayWay(int i) {
-        a.a(Key.payWay.name(), String.valueOf(i));
+    public static void cachePayWay(int i2) {
+        a.a(Key.payWay.name(), String.valueOf(i2));
     }
 
     public static void cacheSessionId(String str) {

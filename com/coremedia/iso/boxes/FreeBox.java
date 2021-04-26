@@ -9,7 +9,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FreeBox implements Box {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE = "free";
@@ -118,8 +118,8 @@ public class FreeBox implements Box {
         this.parent = container;
     }
 
-    public FreeBox(int i) {
+    public FreeBox(int i2) {
         this.replacers = new LinkedList();
-        this.data = ByteBuffer.allocate(i);
+        this.data = ByteBuffer.allocate(i2);
     }
 }

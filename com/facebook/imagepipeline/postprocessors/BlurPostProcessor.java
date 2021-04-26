@@ -18,12 +18,12 @@ public class BlurPostProcessor extends BasePostprocessor {
     public final Context mContext;
     public final int mIterations;
 
-    public BlurPostProcessor(int i, Context context, int i2) {
-        Preconditions.checkArgument(i > 0 && i <= 25);
-        Preconditions.checkArgument(i2 > 0);
+    public BlurPostProcessor(int i2, Context context, int i3) {
+        Preconditions.checkArgument(i2 > 0 && i2 <= 25);
+        Preconditions.checkArgument(i3 > 0);
         Preconditions.checkNotNull(context);
-        this.mIterations = i2;
-        this.mBlurRadius = i;
+        this.mIterations = i3;
+        this.mBlurRadius = i2;
         this.mContext = context;
     }
 
@@ -50,7 +50,7 @@ public class BlurPostProcessor extends BasePostprocessor {
         IterativeBoxBlurFilter.boxBlurBitmapInPlace(bitmap, this.mIterations, this.mBlurRadius);
     }
 
-    public BlurPostProcessor(int i, Context context) {
-        this(i, context, 3);
+    public BlurPostProcessor(int i2, Context context) {
+        this(i2, context, 3);
     }
 }

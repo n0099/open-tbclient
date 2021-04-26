@@ -4,11 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PBMediaView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public S f40141a;
+    public K f37726a;
 
     public PBMediaView(Context context) {
         this(context, null);
@@ -18,22 +18,22 @@ public class PBMediaView extends FrameLayout {
         this(context, attributeSet, 0);
     }
 
-    public PBMediaView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f40141a = new S(context);
-        addView(this.f40141a.f40172c, new FrameLayout.LayoutParams(-1, -1));
+    public PBMediaView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f37726a = new K(context);
+        addView(this.f37726a.f37677c, new FrameLayout.LayoutParams(-1, -1));
         try {
             ImageView imageView = new ImageView(context);
-            int b2 = G.b(context, 15.0f);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b2, b2);
+            int i3 = (int) ((context.getResources().getDisplayMetrics().density * 15.0f) + 0.5f);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i3, i3);
             layoutParams.gravity = 3;
-            imageView.setImageResource(R.drawable.btn_op);
+            imageView.setImageResource(R.drawable.win_btn_op);
             addView(imageView, layoutParams);
         } catch (Exception unused) {
         }
     }
 
-    public S getHtmlWebView() {
-        return this.f40141a;
+    public K getHtmlWebView() {
+        return this.f37726a;
     }
 }

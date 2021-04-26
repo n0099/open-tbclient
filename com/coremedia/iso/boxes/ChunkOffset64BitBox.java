@@ -7,10 +7,10 @@ import com.googlecode.mp4parser.util.CastUtils;
 import g.a.a.a;
 import g.a.b.b.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ChunkOffset64BitBox extends ChunkOffsetBox {
     public static final String TYPE = "co64";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
     public long[] chunkOffsets;
 
     static {
@@ -31,8 +31,8 @@ public class ChunkOffset64BitBox extends ChunkOffsetBox {
         parseVersionAndFlags(byteBuffer);
         int l2i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
         this.chunkOffsets = new long[l2i];
-        for (int i = 0; i < l2i; i++) {
-            this.chunkOffsets[i] = IsoTypeReader.readUInt64(byteBuffer);
+        for (int i2 = 0; i2 < l2i; i2++) {
+            this.chunkOffsets[i2] = IsoTypeReader.readUInt64(byteBuffer);
         }
     }
 

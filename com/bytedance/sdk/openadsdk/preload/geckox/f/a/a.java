@@ -7,21 +7,21 @@ import java.io.InputStream;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public File f29974a;
+    public File f30890a;
 
     public a(File file) {
-        this.f29974a = file;
+        this.f30890a = file;
     }
 
     public abstract InputStream a(File file, String str) throws IOException;
 
     public final InputStream a(String str) throws IOException {
-        return a(this.f29974a, str);
+        return a(this.f30890a, str);
     }
 
     public abstract boolean b(File file, String str) throws IOException;
 
     public final boolean b(String str) throws IOException {
-        return b(this.f29974a, str);
+        return b(this.f30890a, str);
     }
 }

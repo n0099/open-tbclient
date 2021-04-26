@@ -16,33 +16,33 @@ import com.baidu.wallet.paysdk.ui.WebViewActivity;
 public class PromotionView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f23596a;
+    public NetImageView f24328a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f23597b;
+    public TextView f24329b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f23598c;
+    public ImageView f24330c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f23599d;
+    public View f24331d;
 
     /* renamed from: e  reason: collision with root package name */
-    public NetImageView f23600e;
+    public NetImageView f24332e;
 
-    public PromotionView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public PromotionView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a();
     }
 
     public void updatePromotionView(String str, String str2, String str3, final String str4) {
-        if (this.f23599d != null) {
+        if (this.f24331d != null) {
             if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2) && TextUtils.isEmpty(str3)) {
                 return;
             }
-            this.f23599d.setVisibility(0);
+            this.f24331d.setVisibility(0);
             if (!TextUtils.isEmpty(str4)) {
-                this.f23599d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.PromotionView.2
+                this.f24331d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.PromotionView.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Intent intent = new Intent(PromotionView.this.getContext(), WebViewActivity.class);
@@ -52,36 +52,36 @@ public class PromotionView extends RelativeLayout {
                 });
             }
             if (!TextUtils.isEmpty(str)) {
-                this.f23600e.setImageUrl(str);
-                this.f23600e.setVisibility(0);
+                this.f24332e.setImageUrl(str);
+                this.f24332e.setVisibility(0);
                 return;
             }
             if (!TextUtils.isEmpty(str2)) {
-                this.f23596a.setVisibility(0);
-                this.f23596a.setImageUrl(str2);
+                this.f24328a.setVisibility(0);
+                this.f24328a.setImageUrl(str2);
             } else {
-                this.f23596a.setVisibility(8);
+                this.f24328a.setVisibility(8);
             }
             if (TextUtils.isEmpty(str3)) {
                 return;
             }
-            this.f23597b.setText(str3);
-            this.f23597b.setVisibility(0);
+            this.f24329b.setText(str3);
+            this.f24329b.setVisibility(0);
         }
     }
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_promotion_view"), this);
-        this.f23599d = findViewById(ResUtils.id(getContext(), "wallet_promotion_all"));
-        this.f23600e = (NetImageView) findViewById(ResUtils.id(getContext(), "wallet_promotion_big_image"));
-        this.f23596a = (NetImageView) findViewById(ResUtils.id(getContext(), "wallet_promotion_img"));
-        this.f23597b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_promotion_txt"));
+        this.f24331d = findViewById(ResUtils.id(getContext(), "wallet_promotion_all"));
+        this.f24332e = (NetImageView) findViewById(ResUtils.id(getContext(), "wallet_promotion_big_image"));
+        this.f24328a = (NetImageView) findViewById(ResUtils.id(getContext(), "wallet_promotion_img"));
+        this.f24329b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_promotion_txt"));
         ImageView imageView = (ImageView) findViewById(ResUtils.id(getContext(), "wallet_promotion_image_del"));
-        this.f23598c = imageView;
+        this.f24330c = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.PromotionView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PromotionView.this.f23599d.setVisibility(8);
+                PromotionView.this.f24331d.setVisibility(8);
             }
         });
     }

@@ -6,17 +6,17 @@ import com.kwad.sdk.R;
 public class d extends com.kwad.sdk.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f32080b;
+    public View f32488b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.e f32081c = new com.kwad.sdk.contentalliance.detail.video.f() { // from class: com.kwad.sdk.a.b.d.1
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-        public void b() {
-            super.b();
+    public com.kwad.sdk.contentalliance.detail.video.d f32489c = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.a.b.d.1
+        @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
+        public void c() {
+            super.c();
             d.this.e();
         }
 
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
+        @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void d() {
             super.d();
             d.this.e();
@@ -25,32 +25,32 @@ public class d extends com.kwad.sdk.a.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f32080b.getVisibility() != 0) {
+        if (this.f32488b.getVisibility() != 0) {
             return;
         }
-        this.f32080b.setVisibility(8);
+        this.f32488b.setVisibility(8);
     }
 
     @Override // com.kwad.sdk.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        if (com.ksad.download.d.b.a(this.f32080b.getContext())) {
-            this.f32080b.setVisibility(8);
+        if (com.ksad.download.d.b.a(this.f32488b.getContext())) {
+            this.f32488b.setVisibility(8);
             return;
         }
-        this.f32080b.setVisibility(0);
-        ((com.kwad.sdk.a.a.a) this).f32049a.f32055f.a(this.f32081c);
+        this.f32488b.setVisibility(0);
+        ((com.kwad.sdk.a.a.a) this).f32456a.f32462f.a(this.f32489c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public void b_() {
-        super.b_();
-        ((com.kwad.sdk.a.a.a) this).f32049a.f32055f.b(this.f32081c);
+    public void b() {
+        super.b();
+        this.f32488b = a(R.id.ksad_video_network_unavailable);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32080b = b(R.id.ksad_video_network_unavailable);
+        ((com.kwad.sdk.a.a.a) this).f32456a.f32462f.b(this.f32489c);
     }
 }

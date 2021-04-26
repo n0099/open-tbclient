@@ -17,8 +17,8 @@ public enum VideoCodecStatus {
     
     public final int number;
 
-    VideoCodecStatus(int i) {
-        this.number = i;
+    VideoCodecStatus(int i2) {
+        this.number = i2;
     }
 
     @CalledByNative

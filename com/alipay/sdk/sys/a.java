@@ -12,29 +12,31 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1959a = "\"&";
+    public static final String f1912a = "\"&";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1960b = "&";
+    public static final String f1913b = "&";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1961c = "bizcontext=\"";
+    public static final String f1914c = "bizcontext=\"";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f1962d = "bizcontext=";
+    public static final String f1915d = "bizcontext=";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f1963e = "\"";
+    public static final String f1916e = "\"";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f1964f = "appkey";
+    public static final String f1917f = "appkey";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f1965g = "ty";
+    public static final String f1918g = "ty";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f1966h = "sv";
-    public static final String i = "an";
+    public static final String f1919h = "sv";
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final String f1920i = "an";
     public static final String j = "setting";
     public static final String k = "av";
     public static final String l = "sdk_start_time";
@@ -57,17 +59,17 @@ public class a {
     }
 
     private boolean b(String str) {
-        return !str.contains(f1959a);
+        return !str.contains(f1912a);
     }
 
     private String c(String str) {
         try {
-            String a2 = a(str, "&", f1962d);
+            String a2 = a(str, "&", f1915d);
             if (TextUtils.isEmpty(a2)) {
-                str = str + "&" + b(f1962d, "");
+                str = str + "&" + b(f1915d, "");
             } else {
                 int indexOf = str.indexOf(a2);
-                str = str.substring(0, indexOf) + a(a2, f1962d, "", true) + str.substring(indexOf + a2.length());
+                str = str.substring(0, indexOf) + a(a2, f1915d, "", true) + str.substring(indexOf + a2.length());
             }
         } catch (Throwable unused) {
         }
@@ -76,15 +78,15 @@ public class a {
 
     private String d(String str) {
         try {
-            String a2 = a(str, f1959a, f1961c);
+            String a2 = a(str, f1912a, f1914c);
             if (TextUtils.isEmpty(a2)) {
-                return str + "&" + b(f1961c, "\"");
+                return str + "&" + b(f1914c, "\"");
             }
             if (!a2.endsWith("\"")) {
                 a2 = a2 + "\"";
             }
             int indexOf = str.indexOf(a2);
-            return str.substring(0, indexOf) + a(a2, f1961c, "\"", false) + str.substring(indexOf + a2.length());
+            return str.substring(0, indexOf) + a(a2, f1914c, "\"", false) + str.substring(indexOf + a2.length());
         } catch (Throwable unused) {
             return str;
         }
@@ -121,11 +123,11 @@ public class a {
     public String a(String str, String str2) {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("appkey", com.alipay.sdk.cons.a.f1871d);
+            jSONObject.put("appkey", com.alipay.sdk.cons.a.f1818d);
             jSONObject.put("ty", "and_lite");
             jSONObject.put("sv", "h.a.3.6.5");
             if (!this.o.contains(j) || !n.b(this.p)) {
-                jSONObject.put(i, this.o);
+                jSONObject.put(f1920i, this.o);
             }
             jSONObject.put(k, this.n);
             jSONObject.put(l, System.currentTimeMillis());
@@ -151,7 +153,7 @@ public class a {
             jSONObject = new JSONObject(substring2);
         }
         if (!jSONObject.has("appkey")) {
-            jSONObject.put("appkey", com.alipay.sdk.cons.a.f1871d);
+            jSONObject.put("appkey", com.alipay.sdk.cons.a.f1818d);
         }
         if (!jSONObject.has("ty")) {
             jSONObject.put("ty", "and_lite");
@@ -159,8 +161,8 @@ public class a {
         if (!jSONObject.has("sv")) {
             jSONObject.put("sv", "h.a.3.6.5");
         }
-        if (!jSONObject.has(i) && (!this.o.contains(j) || !n.b(this.p))) {
-            jSONObject.put(i, this.o);
+        if (!jSONObject.has(f1920i) && (!this.o.contains(j) || !n.b(this.p))) {
+            jSONObject.put(f1920i, this.o);
         }
         if (!jSONObject.has(k)) {
             jSONObject.put(k, this.n);

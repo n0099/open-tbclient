@@ -5,11 +5,11 @@ import com.baidu.platform.comjni.bikenavi.JNINaviMap;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public JNINaviMap f9951a;
+    public JNINaviMap f10319a;
 
     public e() {
-        this.f9951a = null;
-        this.f9951a = new JNINaviMap();
+        this.f10319a = null;
+        this.f10319a = new JNINaviMap();
     }
 
     private long h() {
@@ -17,50 +17,50 @@ public class e {
     }
 
     public void a() {
-        this.f9951a = null;
+        this.f10319a = null;
     }
 
-    public boolean b(int i) {
-        return this.f9951a.ShowLayer(h(), i, false);
+    public boolean b(int i2) {
+        return this.f10319a.ShowLayer(h(), i2, false);
     }
 
     public boolean c() {
-        return this.f9951a.setBackgroundTransparent(h());
+        return this.f10319a.setBackgroundTransparent(h());
     }
 
     public boolean d() {
-        return this.f9951a.resetBackgroundColor(h());
+        return this.f10319a.resetBackgroundColor(h());
     }
 
     public boolean e() {
-        return this.f9951a.setArMapStatusLimits(h());
+        return this.f10319a.setArMapStatusLimits(h());
     }
 
     public boolean f() {
-        return this.f9951a.resetMapStatusLimits(h());
+        return this.f10319a.resetMapStatusLimits(h());
     }
 
     public float g() {
-        return this.f9951a.getRouteDirection(h());
+        return this.f10319a.getRouteDirection(h());
     }
 
-    public boolean a(int i) {
-        return this.f9951a.ShowLayer(h(), i, true);
+    public boolean a(int i2) {
+        return this.f10319a.ShowLayer(h(), i2, true);
     }
 
     public boolean b() {
-        return this.f9951a.UpdataBaseLayers(h());
+        return this.f10319a.UpdataBaseLayers(h());
     }
 
     public boolean a(boolean z) {
-        return this.f9951a.showBaseLayers(h(), z);
+        return this.f10319a.showBaseLayers(h(), z);
     }
 
     public boolean b(int[] iArr, int[] iArr2) {
-        return this.f9951a.convertScrPt2GeoPoint(h(), iArr, iArr2);
+        return this.f10319a.convertScrPt2GeoPoint(h(), iArr, iArr2);
     }
 
     public boolean a(int[] iArr, int[] iArr2) {
-        return this.f9951a.convertGeoPoint2ScrPt4Ar(h(), iArr, iArr2);
+        return this.f10319a.convertGeoPoint2ScrPt4Ar(h(), iArr, iArr2);
     }
 }

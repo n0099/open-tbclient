@@ -14,14 +14,14 @@ import com.baidu.tieba.R;
 public class ScanLoadingView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TBLottieAnimationView f20375e;
+    public TBLottieAnimationView f20916e;
 
     public ScanLoadingView(Context context) {
         this(context, null);
     }
 
     public void a() {
-        TBLottieAnimationView tBLottieAnimationView = this.f20375e;
+        TBLottieAnimationView tBLottieAnimationView = this.f20916e;
         if (tBLottieAnimationView != null) {
             tBLottieAnimationView.cancelAnimation();
         }
@@ -31,22 +31,22 @@ public class ScanLoadingView extends LinearLayout {
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_scan_loading, (ViewGroup) this, true);
         TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.loading_anim);
-        this.f20375e = tBLottieAnimationView;
+        this.f20916e = tBLottieAnimationView;
         tBLottieAnimationView.loop(true);
-        this.f20375e.setFrame(0);
-        SkinManager.setLottieAnimation(this.f20375e, R.raw.scan_refresh);
+        this.f20916e.setFrame(0);
+        SkinManager.setLottieAnimation(this.f20916e, R.raw.scan_refresh);
         SkinManager.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.CAM_X0108, 1);
         setVisibility(8);
     }
 
     public void c() {
         setVisibility(0);
-        TBLottieAnimationView tBLottieAnimationView = this.f20375e;
+        TBLottieAnimationView tBLottieAnimationView = this.f20916e;
         if (tBLottieAnimationView != null) {
             if (tBLottieAnimationView.isAnimating()) {
-                this.f20375e.cancelAnimation();
+                this.f20916e.cancelAnimation();
             }
-            this.f20375e.playAnimation();
+            this.f20916e.playAnimation();
         }
     }
 
@@ -54,8 +54,8 @@ public class ScanLoadingView extends LinearLayout {
         this(context, attributeSet, 0);
     }
 
-    public ScanLoadingView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ScanLoadingView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         b(context);
     }
 }

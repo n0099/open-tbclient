@@ -32,13 +32,13 @@ public abstract class UPCEANReader extends OneDReader {
         int[][] iArr2 = new int[20];
         L_AND_G_PATTERNS = iArr2;
         System.arraycopy(iArr, 0, iArr2, 0, 10);
-        for (int i = 10; i < 20; i++) {
-            int[] iArr3 = L_PATTERNS[i - 10];
+        for (int i2 = 10; i2 < 20; i2++) {
+            int[] iArr3 = L_PATTERNS[i2 - 10];
             int[] iArr4 = new int[iArr3.length];
-            for (int i2 = 0; i2 < iArr3.length; i2++) {
-                iArr4[i2] = iArr3[(iArr3.length - i2) - 1];
+            for (int i3 = 0; i3 < iArr3.length; i3++) {
+                iArr4[i3] = iArr3[(iArr3.length - i3) - 1];
             }
-            L_AND_G_PATTERNS[i] = iArr4;
+            L_AND_G_PATTERNS[i2] = iArr4;
         }
     }
 
@@ -47,62 +47,62 @@ public abstract class UPCEANReader extends OneDReader {
         if (length == 0) {
             return false;
         }
-        int i = 0;
-        for (int i2 = length - 2; i2 >= 0; i2 -= 2) {
-            int charAt = charSequence.charAt(i2) - '0';
+        int i2 = 0;
+        for (int i3 = length - 2; i3 >= 0; i3 -= 2) {
+            int charAt = charSequence.charAt(i3) - '0';
             if (charAt < 0 || charAt > 9) {
                 throw FormatException.getFormatInstance();
             }
-            i += charAt;
+            i2 += charAt;
         }
-        int i3 = i * 3;
-        for (int i4 = length - 1; i4 >= 0; i4 -= 2) {
-            int charAt2 = charSequence.charAt(i4) - '0';
+        int i4 = i2 * 3;
+        for (int i5 = length - 1; i5 >= 0; i5 -= 2) {
+            int charAt2 = charSequence.charAt(i5) - '0';
             if (charAt2 < 0 || charAt2 > 9) {
                 throw FormatException.getFormatInstance();
             }
-            i3 += charAt2;
+            i4 += charAt2;
         }
-        return i3 % 10 == 0;
+        return i4 % 10 == 0;
     }
 
-    public static int decodeDigit(BitArray bitArray, int[] iArr, int i, int[][] iArr2) throws NotFoundException {
-        OneDReader.recordPattern(bitArray, i, iArr);
+    public static int decodeDigit(BitArray bitArray, int[] iArr, int i2, int[][] iArr2) throws NotFoundException {
+        OneDReader.recordPattern(bitArray, i2, iArr);
         int length = iArr2.length;
         float f2 = 0.48f;
-        int i2 = -1;
-        for (int i3 = 0; i3 < length; i3++) {
-            float patternMatchVariance = OneDReader.patternMatchVariance(iArr, iArr2[i3], 0.7f);
+        int i3 = -1;
+        for (int i4 = 0; i4 < length; i4++) {
+            float patternMatchVariance = OneDReader.patternMatchVariance(iArr, iArr2[i4], 0.7f);
             if (patternMatchVariance < f2) {
-                i2 = i3;
+                i3 = i4;
                 f2 = patternMatchVariance;
             }
         }
-        if (i2 >= 0) {
-            return i2;
+        if (i3 >= 0) {
+            return i3;
         }
         throw NotFoundException.getNotFoundInstance();
     }
 
-    public static int[] findGuardPattern(BitArray bitArray, int i, boolean z, int[] iArr) throws NotFoundException {
-        return findGuardPattern(bitArray, i, z, iArr, new int[iArr.length]);
+    public static int[] findGuardPattern(BitArray bitArray, int i2, boolean z, int[] iArr) throws NotFoundException {
+        return findGuardPattern(bitArray, i2, z, iArr, new int[iArr.length]);
     }
 
     public static int[] findStartGuardPattern(BitArray bitArray) throws NotFoundException {
         int[] iArr = new int[START_END_PATTERN.length];
         int[] iArr2 = null;
         boolean z = false;
-        int i = 0;
+        int i2 = 0;
         while (!z) {
             Arrays.fill(iArr, 0, START_END_PATTERN.length, 0);
-            iArr2 = findGuardPattern(bitArray, i, false, START_END_PATTERN, iArr);
-            int i2 = iArr2[0];
-            int i3 = iArr2[1];
-            int i4 = i2 - (i3 - i2);
-            if (i4 >= 0) {
-                z = bitArray.isRange(i4, i2, false);
+            iArr2 = findGuardPattern(bitArray, i2, false, START_END_PATTERN, iArr);
+            int i3 = iArr2[0];
+            int i4 = iArr2[1];
+            int i5 = i3 - (i4 - i3);
+            if (i5 >= 0) {
+                z = bitArray.isRange(i5, i3, false);
             }
-            i = i3;
+            i2 = i4;
         }
         return iArr2;
     }
@@ -111,44 +111,44 @@ public abstract class UPCEANReader extends OneDReader {
         return checkStandardUPCEANChecksum(str);
     }
 
-    public int[] decodeEnd(BitArray bitArray, int i) throws NotFoundException {
-        return findGuardPattern(bitArray, i, false, START_END_PATTERN);
+    public int[] decodeEnd(BitArray bitArray, int i2) throws NotFoundException {
+        return findGuardPattern(bitArray, i2, false, START_END_PATTERN);
     }
 
     public abstract int decodeMiddle(BitArray bitArray, int[] iArr, StringBuilder sb) throws NotFoundException;
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
-        return decodeRow(i, bitArray, findStartGuardPattern(bitArray), map);
+    public Result decodeRow(int i2, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
+        return decodeRow(i2, bitArray, findStartGuardPattern(bitArray), map);
     }
 
     public abstract BarcodeFormat getBarcodeFormat();
 
-    public static int[] findGuardPattern(BitArray bitArray, int i, boolean z, int[] iArr, int[] iArr2) throws NotFoundException {
+    public static int[] findGuardPattern(BitArray bitArray, int i2, boolean z, int[] iArr, int[] iArr2) throws NotFoundException {
         int size = bitArray.getSize();
-        int nextUnset = z ? bitArray.getNextUnset(i) : bitArray.getNextSet(i);
+        int nextUnset = z ? bitArray.getNextUnset(i2) : bitArray.getNextSet(i2);
         int length = iArr.length;
         boolean z2 = z;
-        int i2 = 0;
-        int i3 = nextUnset;
+        int i3 = 0;
+        int i4 = nextUnset;
         while (nextUnset < size) {
             if (bitArray.get(nextUnset) ^ z2) {
-                iArr2[i2] = iArr2[i2] + 1;
+                iArr2[i3] = iArr2[i3] + 1;
             } else {
-                int i4 = length - 1;
-                if (i2 != i4) {
-                    i2++;
+                int i5 = length - 1;
+                if (i3 != i5) {
+                    i3++;
                 } else if (OneDReader.patternMatchVariance(iArr2, iArr, 0.7f) < 0.48f) {
-                    return new int[]{i3, nextUnset};
+                    return new int[]{i4, nextUnset};
                 } else {
-                    i3 += iArr2[0] + iArr2[1];
-                    int i5 = length - 2;
-                    System.arraycopy(iArr2, 2, iArr2, 0, i5);
+                    i4 += iArr2[0] + iArr2[1];
+                    int i6 = length - 2;
+                    System.arraycopy(iArr2, 2, iArr2, 0, i6);
+                    iArr2[i6] = 0;
                     iArr2[i5] = 0;
-                    iArr2[i4] = 0;
-                    i2--;
+                    i3--;
                 }
-                iArr2[i2] = 1;
+                iArr2[i3] = 1;
                 z2 = !z2;
             }
             nextUnset++;
@@ -156,54 +156,54 @@ public abstract class UPCEANReader extends OneDReader {
         throw NotFoundException.getNotFoundInstance();
     }
 
-    public Result decodeRow(int i, BitArray bitArray, int[] iArr, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
-        int i2;
+    public Result decodeRow(int i2, BitArray bitArray, int[] iArr, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
+        int i3;
         String lookupCountryIdentifier;
         ResultPointCallback resultPointCallback = map == null ? null : (ResultPointCallback) map.get(DecodeHintType.NEED_RESULT_POINT_CALLBACK);
         boolean z = true;
         if (resultPointCallback != null) {
-            resultPointCallback.foundPossibleResultPoint(new ResultPoint((iArr[0] + iArr[1]) / 2.0f, i));
+            resultPointCallback.foundPossibleResultPoint(new ResultPoint((iArr[0] + iArr[1]) / 2.0f, i2));
         }
         StringBuilder sb = this.decodeRowStringBuffer;
         sb.setLength(0);
         int decodeMiddle = decodeMiddle(bitArray, iArr, sb);
         if (resultPointCallback != null) {
-            resultPointCallback.foundPossibleResultPoint(new ResultPoint(decodeMiddle, i));
+            resultPointCallback.foundPossibleResultPoint(new ResultPoint(decodeMiddle, i2));
         }
         int[] decodeEnd = decodeEnd(bitArray, decodeMiddle);
         if (resultPointCallback != null) {
-            resultPointCallback.foundPossibleResultPoint(new ResultPoint((decodeEnd[0] + decodeEnd[1]) / 2.0f, i));
+            resultPointCallback.foundPossibleResultPoint(new ResultPoint((decodeEnd[0] + decodeEnd[1]) / 2.0f, i2));
         }
-        int i3 = decodeEnd[1];
-        int i4 = (i3 - decodeEnd[0]) + i3;
-        if (i4 < bitArray.getSize() && bitArray.isRange(i3, i4, false)) {
+        int i4 = decodeEnd[1];
+        int i5 = (i4 - decodeEnd[0]) + i4;
+        if (i5 < bitArray.getSize() && bitArray.isRange(i4, i5, false)) {
             String sb2 = sb.toString();
             if (sb2.length() >= 8) {
                 if (checkChecksum(sb2)) {
                     BarcodeFormat barcodeFormat = getBarcodeFormat();
-                    float f2 = i;
+                    float f2 = i2;
                     Result result = new Result(sb2, null, new ResultPoint[]{new ResultPoint((iArr[1] + iArr[0]) / 2.0f, f2), new ResultPoint((decodeEnd[1] + decodeEnd[0]) / 2.0f, f2)}, barcodeFormat);
                     try {
-                        Result decodeRow = this.extensionReader.decodeRow(i, bitArray, decodeEnd[1]);
+                        Result decodeRow = this.extensionReader.decodeRow(i2, bitArray, decodeEnd[1]);
                         result.putMetadata(ResultMetadataType.UPC_EAN_EXTENSION, decodeRow.getText());
                         result.putAllMetadata(decodeRow.getResultMetadata());
                         result.addResultPoints(decodeRow.getResultPoints());
-                        i2 = decodeRow.getText().length();
+                        i3 = decodeRow.getText().length();
                     } catch (ReaderException unused) {
-                        i2 = 0;
+                        i3 = 0;
                     }
                     int[] iArr2 = map != null ? (int[]) map.get(DecodeHintType.ALLOWED_EAN_EXTENSIONS) : null;
                     if (iArr2 != null) {
                         int length = iArr2.length;
-                        int i5 = 0;
+                        int i6 = 0;
                         while (true) {
-                            if (i5 >= length) {
+                            if (i6 >= length) {
                                 z = false;
                                 break;
-                            } else if (i2 == iArr2[i5]) {
+                            } else if (i3 == iArr2[i6]) {
                                 break;
                             } else {
-                                i5++;
+                                i6++;
                             }
                         }
                         if (!z) {

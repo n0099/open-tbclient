@@ -51,8 +51,8 @@ public final class ArraysKt___ArraysJvmKt$asList$7 extends AbstractList<Boolean>
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.collections.AbstractList, java.util.List
-    public Boolean get(int i) {
-        return Boolean.valueOf(this.$this_asList[i]);
+    public Boolean get(int i2) {
+        return Boolean.valueOf(this.$this_asList[i2]);
     }
 
     public int indexOf(boolean z) {

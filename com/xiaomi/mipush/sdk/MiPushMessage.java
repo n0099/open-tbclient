@@ -152,24 +152,24 @@ public class MiPushMessage implements PushMessageHandler.a {
         this.messageId = str;
     }
 
-    public void setMessageType(int i) {
-        this.messageType = i;
+    public void setMessageType(int i2) {
+        this.messageType = i2;
     }
 
     public void setNotified(boolean z) {
         this.isNotified = z;
     }
 
-    public void setNotifyId(int i) {
-        this.notifyId = i;
+    public void setNotifyId(int i2) {
+        this.notifyId = i2;
     }
 
-    public void setNotifyType(int i) {
-        this.notifyType = i;
+    public void setNotifyType(int i2) {
+        this.notifyType = i2;
     }
 
-    public void setPassThrough(int i) {
-        this.passThrough = i;
+    public void setPassThrough(int i2) {
+        this.passThrough = i2;
     }
 
     public void setTitle(String str) {

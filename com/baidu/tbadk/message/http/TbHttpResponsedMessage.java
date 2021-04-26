@@ -3,21 +3,21 @@ package com.baidu.tbadk.message.http;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.tbadk.core.util.NetWorkState;
-import d.b.c.e.j.a.d;
-import d.b.c.e.j.a.e;
-import d.b.c.e.p.j;
+import d.a.c.e.j.a.d;
+import d.a.c.e.j.a.e;
+import d.a.c.e.p.j;
 /* loaded from: classes3.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
-    public TbHttpResponsedMessage(int i) {
-        super(i);
+    public TbHttpResponsedMessage(int i2) {
+        super(i2);
     }
 
-    private int getMode(int i) {
-        if (i != 1) {
-            if (i == 2) {
+    private int getMode(int i2) {
+        if (i2 != 1) {
+            if (i2 == 2) {
                 return 2;
             }
-            if (i == 3) {
+            if (i2 == 3) {
                 return 3;
             }
         }
@@ -27,7 +27,7 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
     }
 
     public String getCharset() throws Exception {
@@ -44,15 +44,15 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, e eVar) {
+    public void logStatInBackground(int i2, e eVar) {
         if (eVar.d().size() > 0) {
             d dVar = eVar.d().get(eVar.d().size() - 1);
             NetWorkState.mErrorNums.addAndGet(eVar.d().size() - 1);
             NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
             statisticsData.mMode = getMode(j.I());
-            statisticsData.mSize = dVar.f42516b;
-            statisticsData.mTime = dVar.f42520f;
-            statisticsData.mTimesNum = dVar.f42519e;
+            statisticsData.mSize = dVar.f39713b;
+            statisticsData.mTime = dVar.f39717f;
+            statisticsData.mTimesNum = dVar.f39716e;
             statisticsData.mMethod = eVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
             NetWorkState.addStatisticsData(statisticsData);
         }

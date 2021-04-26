@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.huewu.pla.lib.internal.PLA_AdapterView;
-import d.b.c.j.e.a;
-import d.b.c.j.e.n;
+import d.a.c.j.e.a;
+import d.a.c.j.e.n;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -26,19 +26,19 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
         }
         super.setOnItemClickListener(new PLA_AdapterView.d() { // from class: com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView.1
             @Override // com.huewu.pla.lib.internal.PLA_AdapterView.d
-            public void onItemClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j) {
+            public void onItemClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i2, long j) {
                 TypeAdapter typeAdapter = BdTypeMultiColumnListView.this.mTypeAdapter;
                 if (typeAdapter != null) {
-                    typeAdapter.f(pLA_AdapterView, view, i, j);
+                    typeAdapter.f(pLA_AdapterView, view, i2, j);
                 }
             }
         });
         super.setOnItemLongClickListener(new PLA_AdapterView.e() { // from class: com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView.2
             @Override // com.huewu.pla.lib.internal.PLA_AdapterView.e
-            public boolean onItemLongClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j) {
+            public boolean onItemLongClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i2, long j) {
                 TypeAdapter typeAdapter = BdTypeMultiColumnListView.this.mTypeAdapter;
                 if (typeAdapter != null) {
-                    return typeAdapter.g(pLA_AdapterView, view, i, j);
+                    return typeAdapter.g(pLA_AdapterView, view, i2, j);
                 }
                 return false;
             }
@@ -62,8 +62,8 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
         return this.mTypeAdapter.d();
     }
 
-    public n getItem(int i) {
-        return this.mTypeAdapter.getItem(i);
+    public n getItem(int i2) {
+        return this.mTypeAdapter.getItem(i2);
     }
 
     public void setData(List<? extends n> list) {
@@ -86,8 +86,8 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
         init();
     }
 
-    public BdTypeMultiColumnListView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BdTypeMultiColumnListView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.mTypeAdapter = null;
         init();
     }

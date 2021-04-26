@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.i0.r.d0.b;
+import d.a.i0.r.d0.b;
 import java.util.Calendar;
 /* loaded from: classes4.dex */
 public class BigdayActivity extends BaseActivity {
@@ -77,7 +77,7 @@ public class BigdayActivity extends BaseActivity {
             this.bigdayId = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
         }
         this.bigdayImg.setTag(getPageContext().getUniqueId());
-        this.bigdayImg.W(this.imgUrl, 41, false);
+        this.bigdayImg.V(this.imgUrl, 41, false);
         this.bigdayImg.setOnClickListener(this);
         this.bigdayClose.setOnClickListener(this);
         TiebaStatic.log(new StatisticItem("c13111").param("obj_id", this.bigdayId).param(TiebaStatic.Params.OBJ_TO, this.jumpUrl));

@@ -10,7 +10,7 @@ public class MiPushClient4VR {
     public static void uploadData(Context context, String str) {
         ie ieVar = new ie();
         ieVar.c(hp.VRUpload.f506a);
-        ieVar.b(b.m96a(context).m97a());
+        ieVar.b(b.m99a(context).m100a());
         ieVar.d(context.getPackageName());
         ieVar.a("data", str);
         ieVar.a(com.xiaomi.push.service.at.a());

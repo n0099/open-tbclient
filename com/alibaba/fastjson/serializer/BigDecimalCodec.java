@@ -29,7 +29,7 @@ public class BigDecimalCodec implements ObjectSerializer, ObjectDeserializer {
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         String bigDecimal;
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (obj == null) {
@@ -38,12 +38,12 @@ public class BigDecimalCodec implements ObjectSerializer, ObjectDeserializer {
         }
         BigDecimal bigDecimal2 = (BigDecimal) obj;
         int scale = bigDecimal2.scale();
-        if (SerializerFeature.isEnabled(i, serializeWriter.features, SerializerFeature.WriteBigDecimalAsPlain) && scale >= -100 && scale < 100) {
+        if (SerializerFeature.isEnabled(i2, serializeWriter.features, SerializerFeature.WriteBigDecimalAsPlain) && scale >= -100 && scale < 100) {
             bigDecimal = bigDecimal2.toPlainString();
         } else {
             bigDecimal = bigDecimal2.toString();
         }
-        if (scale == 0 && bigDecimal.length() >= 16 && SerializerFeature.isEnabled(i, serializeWriter.features, SerializerFeature.BrowserCompatible) && (bigDecimal2.compareTo(LOW) < 0 || bigDecimal2.compareTo(HIGH) > 0)) {
+        if (scale == 0 && bigDecimal.length() >= 16 && SerializerFeature.isEnabled(i2, serializeWriter.features, SerializerFeature.BrowserCompatible) && (bigDecimal2.compareTo(LOW) < 0 || bigDecimal2.compareTo(HIGH) > 0)) {
             serializeWriter.writeString(bigDecimal);
             return;
         }

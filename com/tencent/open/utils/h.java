@@ -14,28 +14,28 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class h {
-    public static String a(int i) {
-        if (i == 10103) {
+    public static String a(int i2) {
+        if (i2 == 10103) {
             return "shareToQQ";
         }
-        if (i == 10104) {
+        if (i2 == 10104) {
             return "shareToQzone";
         }
-        if (i == 10105) {
+        if (i2 == 10105) {
             return "addToQQFavorites";
         }
-        if (i == 10106) {
+        if (i2 == 10106) {
             return "sendToMyComputer";
         }
-        if (i == 10107) {
+        if (i2 == 10107) {
             return "shareToTroopBar";
         }
-        if (i == 11101) {
+        if (i2 == 11101) {
             return "action_login";
         }
-        if (i == 10100) {
+        if (i2 == 10100) {
             return "action_request";
         }
         return null;
@@ -91,26 +91,26 @@ public class h {
             if (str != null || str2 == null) {
                 String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                int i = 0;
-                while (i < split.length && i < split2.length) {
+                int i2 = 0;
+                while (i2 < split.length && i2 < split2.length) {
                     try {
-                        int parseInt = Integer.parseInt(split[i]);
-                        int parseInt2 = Integer.parseInt(split2[i]);
+                        int parseInt = Integer.parseInt(split[i2]);
+                        int parseInt2 = Integer.parseInt(split2[i2]);
                         if (parseInt < parseInt2) {
                             return -1;
                         }
                         if (parseInt > parseInt2) {
                             return 1;
                         }
-                        i++;
+                        i2++;
                     } catch (NumberFormatException unused) {
                         return str.compareTo(str2);
                     }
                 }
-                if (split.length > i) {
+                if (split.length > i2) {
                     return 1;
                 }
-                return split2.length > i ? -1 : 0;
+                return split2.length > i2 ? -1 : 0;
             }
             return -1;
         }
@@ -144,7 +144,7 @@ public class h {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean a(String str, String str2, int i) {
+    public static boolean a(String str, String str2, int i2) {
         FileOutputStream fileOutputStream;
         com.tencent.open.a.f.c("openSDK_LOG.SystemUtils", "-->extractSecureLib, libName: " + str);
         Context a2 = e.a();
@@ -164,9 +164,9 @@ public class h {
                 }
             }
         } else {
-            int i2 = sharedPreferences.getInt("version", 0);
-            com.tencent.open.a.f.c("openSDK_LOG.SystemUtils", "-->extractSecureLib, libVersion: " + i + " | oldVersion: " + i2);
-            if (i == i2) {
+            int i3 = sharedPreferences.getInt("version", 0);
+            com.tencent.open.a.f.c("openSDK_LOG.SystemUtils", "-->extractSecureLib, libVersion: " + i2 + " | oldVersion: " + i3);
+            if (i2 == i3) {
                 return true;
             }
         }
@@ -180,7 +180,7 @@ public class h {
                 fileOutputStream2 = a2.openFileOutput(str2, 0);
                 a(open, fileOutputStream2);
                 SharedPreferences.Editor edit = sharedPreferences.edit();
-                edit.putInt("version", i);
+                edit.putInt("version", i2);
                 edit.commit();
                 if (open != null) {
                     try {
@@ -268,14 +268,26 @@ public class h {
 
     public static int a(String str) {
         if ("shareToQQ".equals(str)) {
-            return 10103;
+            return Constants.REQUEST_QQ_SHARE;
         }
         if ("shareToQzone".equals(str)) {
-            return 10104;
+            return Constants.REQUEST_QZONE_SHARE;
         }
         if ("addToQQFavorites".equals(str)) {
-            return 10105;
+            return Constants.REQUEST_QQ_FAVORITES;
         }
-        return "sendToMyComputer".equals(str) ? Constants.REQUEST_SEND_TO_MY_COMPUTER : "shareToTroopBar".equals(str) ? Constants.REQUEST_SHARE_TO_TROOP_BAR : "action_login".equals(str) ? Constants.REQUEST_LOGIN : "action_request".equals(str) ? 10100 : -1;
+        if ("sendToMyComputer".equals(str)) {
+            return Constants.REQUEST_SEND_TO_MY_COMPUTER;
+        }
+        if ("shareToTroopBar".equals(str)) {
+            return Constants.REQUEST_SHARE_TO_TROOP_BAR;
+        }
+        if ("action_login".equals(str)) {
+            return Constants.REQUEST_LOGIN;
+        }
+        if ("action_request".equals(str)) {
+            return Constants.REQUEST_API;
+        }
+        return -1;
     }
 }

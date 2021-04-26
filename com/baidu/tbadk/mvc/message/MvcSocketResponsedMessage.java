@@ -5,12 +5,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
-import d.b.c.e.d.l;
-import d.b.c.e.p.b;
-import d.b.c.e.p.n;
-import d.b.i0.g0.b.d;
-import d.b.i0.g0.b.h;
-import d.b.i0.r.r.a;
+import d.a.c.e.d.l;
+import d.a.c.e.p.b;
+import d.a.c.e.p.n;
+import d.a.i0.g0.b.d;
+import d.a.i0.g0.b.h;
+import d.a.i0.r.r.a;
 import java.lang.reflect.Field;
 import java.util.List;
 import protobuf.Error;
@@ -18,8 +18,8 @@ import protobuf.Error;
 public abstract class MvcSocketResponsedMessage<D extends h, M extends Message> extends TbSocketReponsedMessage {
     public D data;
 
-    public MvcSocketResponsedMessage(int i) {
-        super(i);
+    public MvcSocketResponsedMessage(int i2) {
+        super(i2);
     }
 
     public Object createData(Class<?> cls) {
@@ -49,10 +49,10 @@ public abstract class MvcSocketResponsedMessage<D extends h, M extends Message> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
+    public void afterDispatchInBackGround(int i2, byte[] bArr) {
         d dVar;
         l<byte[]> e2;
-        super.afterDispatchInBackGround(i, (int) bArr);
+        super.afterDispatchInBackGround(i2, (int) bArr);
         if (getError() != 0 || bArr == null) {
             return;
         }
@@ -73,9 +73,9 @@ public abstract class MvcSocketResponsedMessage<D extends h, M extends Message> 
         }
         if (dVar != null) {
             String cacheKey = dVar.getCacheKey();
-            String q = dVar.q();
+            String r = dVar.r();
             String currentAccount = dVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-            if (cacheKey == null || TextUtils.isEmpty(q) || bArr == null || (e2 = a.f().e(q, currentAccount)) == null) {
+            if (cacheKey == null || TextUtils.isEmpty(r) || bArr == null || (e2 = a.f().e(r, currentAccount)) == null) {
                 return;
             }
             e2.g(cacheKey, bArr);
@@ -84,7 +84,7 @@ public abstract class MvcSocketResponsedMessage<D extends h, M extends Message> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         boolean z;
         List<Field> c2;
         Message parseFrom = new Wire(new Class[0]).parseFrom(bArr, getProtobufResponseIdlClass());

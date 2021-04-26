@@ -18,29 +18,29 @@ public class SimpleFormatter extends Formatter {
     public synchronized String format(LogRecord logRecord) {
         String str;
         String str2;
-        int i;
+        int i2;
         StringBuffer stringBuffer;
         StackTraceElement[] stackTrace = new Throwable().getStackTrace();
         int length = stackTrace.length;
-        int i2 = 0;
+        int i3 = 0;
         boolean z = false;
         while (true) {
-            if (i2 >= length) {
+            if (i3 >= length) {
                 str = null;
                 str2 = null;
-                i = 0;
+                i2 = 0;
                 break;
             }
-            StackTraceElement stackTraceElement = stackTrace[i2];
+            StackTraceElement stackTraceElement = stackTrace[i3];
             if (stackTraceElement.getClassName().startsWith(Log.class.getName())) {
                 z = true;
             } else if (z) {
                 str = stackTraceElement.getClassName();
                 str2 = stackTraceElement.getMethodName();
-                i = stackTraceElement.getLineNumber();
+                i2 = stackTraceElement.getLineNumber();
                 break;
             }
-            i2++;
+            i3++;
         }
         logRecord.setSourceClassName(str);
         logRecord.setSourceMethodName(str2);
@@ -65,7 +65,7 @@ public class SimpleFormatter extends Formatter {
             stringBuffer.append(logRecord.getSourceMethodName());
         }
         stringBuffer.append(" ");
-        stringBuffer.append(i);
+        stringBuffer.append(i2);
         stringBuffer.append(" ");
         String formatMessage = formatMessage(logRecord);
         stringBuffer.append(logRecord.getLevel().getLocalizedName());

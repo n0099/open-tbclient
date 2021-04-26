@@ -12,26 +12,26 @@ import java.util.List;
 public class b extends BdMenu {
 
     /* renamed from: a  reason: collision with root package name */
-    public GetCardInfoResponse.CertificateTypeInfo[] f26150a;
+    public GetCardInfoResponse.CertificateTypeInfo[] f26948a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CertificateMenuView.b f26151b;
+    public CertificateMenuView.b f26949b;
 
     public b(View view, GetCardInfoResponse.CertificateTypeInfo[] certificateTypeInfoArr) {
         super(view);
-        this.f26150a = certificateTypeInfoArr;
+        this.f26948a = certificateTypeInfoArr;
         setDismissOnClick(true);
     }
 
     public void a(CertificateMenuView.b bVar) {
-        this.f26151b = bVar;
+        this.f26949b = bVar;
     }
 
     @Override // com.baidu.wallet.base.widget.BdMenu
     public void ensureMenuLoaded(View view, List<BdMenuItem> list) {
         CertificateMenuView certificateMenuView = (CertificateMenuView) view;
-        certificateMenuView.setCertificertSelectListener(this.f26151b);
-        certificateMenuView.layoutMenu(this.f26150a);
+        certificateMenuView.setCertificertSelectListener(this.f26949b);
+        certificateMenuView.layoutMenu(this.f26948a);
     }
 
     @Override // com.baidu.wallet.base.widget.BdMenu

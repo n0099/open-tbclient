@@ -42,22 +42,22 @@ public class m extends k {
             return null;
         }
         int length = optJSONArray.length();
-        int i = 0;
+        int i2 = 0;
         while (true) {
             f2 = 0.0f;
-            if (i >= length) {
+            if (i2 >= length) {
                 f3 = 0.0f;
                 f4 = 0.0f;
                 break;
             }
-            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
+            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
             if (jSONObject2 != null && jSONObject2.optString("desc").contains("白天")) {
                 f3 = (float) jSONObject2.optDouble("km_price");
                 f4 = (float) jSONObject2.optDouble("start_price");
                 f2 = (float) jSONObject2.optDouble("total_price");
                 break;
             }
-            i++;
+            i2++;
         }
         taxiInfo.setDesc(jSONObject.optString("remark"));
         taxiInfo.setDistance(jSONObject.optInt("distance"));
@@ -75,13 +75,13 @@ public class m extends k {
         StringBuilder sb = new StringBuilder();
         char[] charArray = str.toCharArray();
         boolean z = false;
-        for (int i = 0; i < charArray.length; i++) {
-            if (charArray[i] == '<') {
+        for (int i2 = 0; i2 < charArray.length; i2++) {
+            if (charArray[i2] == '<') {
                 z = true;
-            } else if (charArray[i] == '>') {
+            } else if (charArray[i2] == '>') {
                 z = false;
             } else if (!z) {
-                sb.append(charArray[i]);
+                sb.append(charArray[i2]);
             }
         }
         return sb.toString();
@@ -93,7 +93,7 @@ public class m extends k {
         JSONArray jSONArray2;
         RouteNode routeNode2;
         SearchResult.ERRORNO errorno;
-        int i = 0;
+        int i2 = 0;
         if (str == null || str.length() <= 0) {
             return false;
         }
@@ -134,9 +134,9 @@ public class m extends k {
                 return false;
             }
             ArrayList arrayList = new ArrayList();
-            int i2 = 0;
-            while (i2 < optJSONArray.length()) {
-                JSONObject jSONObject2 = (JSONObject) ((JSONObject) optJSONArray.opt(i2)).optJSONArray("legs").opt(i);
+            int i3 = 0;
+            while (i3 < optJSONArray.length()) {
+                JSONObject jSONObject2 = (JSONObject) ((JSONObject) optJSONArray.opt(i3)).optJSONArray("legs").opt(i2);
                 if (jSONObject2 != null) {
                     TransitRouteLine transitRouteLine = new TransitRouteLine();
                     transitRouteLine.setDistance(jSONObject2.optInt("distance"));
@@ -146,14 +146,14 @@ public class m extends k {
                     JSONArray optJSONArray2 = jSONObject2.optJSONArray("steps");
                     if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                         ArrayList arrayList2 = new ArrayList();
-                        int i3 = 0;
-                        while (i3 < optJSONArray2.length()) {
-                            JSONArray optJSONArray3 = optJSONArray2.optJSONObject(i3).optJSONArray("step");
+                        int i4 = 0;
+                        while (i4 < optJSONArray2.length()) {
+                            JSONArray optJSONArray3 = optJSONArray2.optJSONObject(i4).optJSONArray("step");
                             if (optJSONArray3 == null || optJSONArray3.length() <= 0) {
                                 jSONArray2 = optJSONArray;
                                 routeNode2 = a3;
                             } else {
-                                JSONObject optJSONObject5 = optJSONArray3.optJSONObject(i);
+                                JSONObject optJSONObject5 = optJSONArray3.optJSONObject(i2);
                                 TransitRouteLine.TransitStep transitStep = new TransitRouteLine.TransitStep();
                                 transitStep.setEntrace(RouteNode.location(CoordUtil.decodeLocation(optJSONObject5.optString("start_location"))));
                                 transitStep.setExit(RouteNode.location(CoordUtil.decodeLocation(optJSONObject5.optString("end_location"))));
@@ -176,27 +176,27 @@ public class m extends k {
                                 }
                                 arrayList2.add(transitStep);
                             }
-                            i3++;
+                            i4++;
                             optJSONArray = jSONArray2;
                             a3 = routeNode2;
-                            i = 0;
+                            i2 = 0;
                         }
                         jSONArray = optJSONArray;
                         routeNode = a3;
                         transitRouteLine.setSteps(arrayList2);
                         arrayList.add(transitRouteLine);
-                        i2++;
+                        i3++;
                         optJSONArray = jSONArray;
                         a3 = routeNode;
-                        i = 0;
+                        i2 = 0;
                     }
                 }
                 jSONArray = optJSONArray;
                 routeNode = a3;
-                i2++;
+                i3++;
                 optJSONArray = jSONArray;
                 a3 = routeNode;
-                i = 0;
+                i2 = 0;
             }
             transitRouteResult.setRoutelines(arrayList);
             return true;

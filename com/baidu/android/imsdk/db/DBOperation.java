@@ -44,7 +44,7 @@ public class DBOperation {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Integer call() throws Exception {
-            int i;
+            int i2;
             LogUtils.enter(this.mOperationId);
             SQLiteDatabase openDb = DBOperation.this.openDb();
             if (openDb != null) {
@@ -53,21 +53,21 @@ public class DBOperation {
                         if (this.mWhereArgs != null) {
                             LogUtils.d(DBOperation.TAG, this.mTable + " delete : mWhereClause" + this.mWhereClause + ",mWhereArgs : " + Arrays.asList(this.mWhereArgs));
                         }
-                        i = openDb.delete(this.mTable, this.mWhereClause, this.mWhereArgs);
+                        i2 = openDb.delete(this.mTable, this.mWhereClause, this.mWhereArgs);
                     } catch (SQLException e2) {
                         LogUtils.e(DBOperation.TAG, "delete", e2);
                         DBOperation.this.closeDbInternal();
-                        i = DBResponseCode.ERROR_SQLEXCEPTION;
+                        i2 = DBResponseCode.ERROR_SQLEXCEPTION;
                     }
                 } finally {
                     DBOperation.this.closeDbInternal();
                 }
             } else {
-                i = DBResponseCode.ERROR_DB_OPEN;
+                i2 = DBResponseCode.ERROR_DB_OPEN;
             }
-            LogUtils.d(DBOperation.TAG, "ret : " + i);
+            LogUtils.d(DBOperation.TAG, "ret : " + i2);
             LogUtils.leave(this.mOperationId);
-            return Integer.valueOf(i);
+            return Integer.valueOf(i2);
         }
     }
 
@@ -85,7 +85,7 @@ public class DBOperation {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Integer call() throws Exception {
-            int i;
+            int i2;
             LogUtils.enter(this.mOperationId);
             SQLiteDatabase openDb = DBOperation.this.openDb();
             if (openDb != null) {
@@ -93,21 +93,21 @@ public class DBOperation {
                     try {
                         LogUtils.d(DBOperation.TAG, " execSQL: " + this.mSql);
                         openDb.execSQL(this.mSql);
-                        i = 0;
+                        i2 = 0;
                     } catch (SQLException e2) {
                         LogUtils.e(DBOperation.TAG, "execSQL", e2);
                         DBOperation.this.closeDbInternal();
-                        i = DBResponseCode.ERROR_SQLEXCEPTION;
+                        i2 = DBResponseCode.ERROR_SQLEXCEPTION;
                     }
                 } finally {
                     DBOperation.this.closeDbInternal();
                 }
             } else {
-                i = DBResponseCode.ERROR_DB_OPEN;
+                i2 = DBResponseCode.ERROR_DB_OPEN;
             }
-            LogUtils.d(DBOperation.TAG, "ret : " + i);
+            LogUtils.d(DBOperation.TAG, "ret : " + i2);
             LogUtils.leave(this.mOperationId);
-            return Integer.valueOf(i);
+            return Integer.valueOf(i2);
         }
     }
 
@@ -125,7 +125,7 @@ public class DBOperation {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Integer call() throws Exception {
-            int i;
+            int i2;
             LogUtils.enter(this.mOperationId);
             SQLiteDatabase openDb = DBOperation.this.openDb();
             if (openDb != null) {
@@ -134,23 +134,23 @@ public class DBOperation {
                         openDb.beginTransaction();
                         this.mTransaction.execTransaction(openDb);
                         openDb.setTransactionSuccessful();
-                        i = 0;
+                        i2 = 0;
                     } catch (SQLException e2) {
                         LogUtils.e(DBOperation.TAG, "transaction", e2);
                         openDb.endTransaction();
                         DBOperation.this.closeDbInternal();
-                        i = DBResponseCode.ERROR_SQLEXCEPTION;
+                        i2 = DBResponseCode.ERROR_SQLEXCEPTION;
                     }
                 } finally {
                     openDb.endTransaction();
                     DBOperation.this.closeDbInternal();
                 }
             } else {
-                i = DBResponseCode.ERROR_DB_OPEN;
+                i2 = DBResponseCode.ERROR_DB_OPEN;
             }
-            LogUtils.d(DBOperation.TAG, "ret : " + i);
+            LogUtils.d(DBOperation.TAG, "ret : " + i2);
             LogUtils.leave(this.mOperationId);
-            return Integer.valueOf(i);
+            return Integer.valueOf(i2);
         }
     }
 
@@ -360,25 +360,25 @@ public class DBOperation {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // java.util.concurrent.Callable
         public Integer call() throws Exception {
-            int i;
+            int i2;
             LogUtils.enter(this.mOperationId);
             SQLiteDatabase openDb = DBOperation.this.openDb();
             try {
                 if (openDb != null) {
                     try {
                         LogUtils.d(DBOperation.TAG, this.mTable + " update : mWhereClause" + this.mWhereClause + ",mWhereArgs : " + this.mWhereArgs + " ,mCv : " + this.mCv);
-                        i = openDb.update(this.mTable, this.mCv, this.mWhereClause, this.mWhereArgs);
+                        i2 = openDb.update(this.mTable, this.mCv, this.mWhereClause, this.mWhereArgs);
                     } catch (SQLException e2) {
                         LogUtils.e(DBOperation.TAG, "UpdateTask", e2);
                         DBOperation.this.closeDbInternal();
-                        i = DBResponseCode.ERROR_SQLEXCEPTION;
+                        i2 = DBResponseCode.ERROR_SQLEXCEPTION;
                     }
                 } else {
-                    i = DBResponseCode.ERROR_DB_OPEN;
+                    i2 = DBResponseCode.ERROR_DB_OPEN;
                 }
-                LogUtils.d(DBOperation.TAG, "ret : " + i);
+                LogUtils.d(DBOperation.TAG, "ret : " + i2);
                 LogUtils.leave(this.mOperationId);
-                return Integer.valueOf(i);
+                return Integer.valueOf(i2);
             } finally {
                 DBOperation.this.closeDbInternal();
             }

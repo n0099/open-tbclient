@@ -17,15 +17,15 @@ public class ComponentModel {
         @c(a = "c")
 
         /* renamed from: a  reason: collision with root package name */
-        public String f30006a;
+        public String f30922a;
         @c(a = "clean_type")
 
         /* renamed from: b  reason: collision with root package name */
-        public int f30007b;
+        public int f30923b;
         @c(a = "version")
 
         /* renamed from: c  reason: collision with root package name */
-        public List<Long> f30008c;
+        public List<Long> f30924c;
     }
 
     /* loaded from: classes5.dex */
@@ -33,7 +33,7 @@ public class ComponentModel {
         @c(a = "specified_clean")
 
         /* renamed from: a  reason: collision with root package name */
-        public List<a> f30009a;
+        public List<a> f30925a;
     }
 
     public Map<String, List<UpdatePackage>> getPackages() {

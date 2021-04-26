@@ -14,7 +14,7 @@ public interface HttpConnection {
 
     boolean isStale();
 
-    void setSocketTimeout(int i);
+    void setSocketTimeout(int i2);
 
     void shutdown() throws IOException;
 }

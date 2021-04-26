@@ -6,7 +6,7 @@ import org.apache.http.protocol.HttpContext;
 @Deprecated
 /* loaded from: classes7.dex */
 public class DefaultHttpRequestRetryHandler implements HttpRequestRetryHandler {
-    public DefaultHttpRequestRetryHandler(int i, boolean z) {
+    public DefaultHttpRequestRetryHandler(int i2, boolean z) {
         throw new RuntimeException("Stub!");
     }
 
@@ -19,7 +19,7 @@ public class DefaultHttpRequestRetryHandler implements HttpRequestRetryHandler {
     }
 
     @Override // org.apache.http.client.HttpRequestRetryHandler
-    public boolean retryRequest(IOException iOException, int i, HttpContext httpContext) {
+    public boolean retryRequest(IOException iOException, int i2, HttpContext httpContext) {
         throw new RuntimeException("Stub!");
     }
 

@@ -79,7 +79,7 @@ public class ProducerFactory {
     public Resources mResources;
     public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
-    public ProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i, int i2, boolean z4, int i3, CloseableReferenceFactory closeableReferenceFactory) {
+    public ProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i2, int i3, boolean z4, int i4, CloseableReferenceFactory closeableReferenceFactory) {
         this.mContentResolver = context.getApplicationContext().getContentResolver();
         this.mResources = context.getApplicationContext().getResources();
         this.mAssetManager = context.getApplicationContext().getAssets();
@@ -97,10 +97,10 @@ public class ProducerFactory {
         this.mSmallImageBufferedDiskCache = bufferedDiskCache2;
         this.mCacheKeyFactory = cacheKeyFactory;
         this.mPlatformBitmapFactory = platformBitmapFactory;
-        this.mBitmapPrepareToDrawMinSizeBytes = i;
-        this.mBitmapPrepareToDrawMaxSizeBytes = i2;
+        this.mBitmapPrepareToDrawMinSizeBytes = i2;
+        this.mBitmapPrepareToDrawMaxSizeBytes = i3;
         this.mBitmapPrepareToDrawForPrefetch = z4;
-        this.mMaxBitmapSize = i3;
+        this.mMaxBitmapSize = i4;
         this.mCloseableReferenceFactory = closeableReferenceFactory;
     }
 

@@ -8,18 +8,18 @@ import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.SapiUtils;
-import d.b.y.a.f;
+import d.a.y.a.f;
 import java.net.URLDecoder;
 /* loaded from: classes2.dex */
 public class AuthWidgetActivity extends BaseActivity {
     public static final String EXTRA_PARAM_AUTH_URL = "auth_url";
-    public String p;
-    public String q;
-    public SapiResult r = new SapiResult();
+    public String t;
+    public String u;
+    public SapiResult v = new SapiResult();
 
     private void finishActivity() {
         if (CoreViewRouter.getInstance().getAuthWidgetCallback() != null) {
-            CoreViewRouter.getInstance().getAuthWidgetCallback().onFailure(this.r);
+            CoreViewRouter.getInstance().getAuthWidgetCallback().onFailure(this.v);
         }
         finish();
         CoreViewRouter.getInstance().release();
@@ -39,8 +39,8 @@ public class AuthWidgetActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
-        this.r.setResultCode(-301);
-        this.r.setResultMsg("您已取消操作");
+        this.v.setResultCode(-301);
+        this.v.setResultMsg("您已取消操作");
         finishActivity();
     }
 
@@ -50,15 +50,15 @@ public class AuthWidgetActivity extends BaseActivity {
         try {
             setContentView(f.layout_sapi_sdk_webview_with_title_bar);
             String stringExtra = getIntent().getStringExtra(EXTRA_PARAM_AUTH_URL);
-            this.p = stringExtra;
-            this.q = SapiUtils.urlParamsToMap(stringExtra).get("u");
-            if (!TextUtils.isEmpty(this.p) && !TextUtils.isEmpty(this.q)) {
+            this.t = stringExtra;
+            this.u = SapiUtils.urlParamsToMap(stringExtra).get("u");
+            if (!TextUtils.isEmpty(this.t) && !TextUtils.isEmpty(this.u)) {
                 init();
                 setupViews();
                 return;
             }
-            this.r.setResultCode(-204);
-            this.r.setResultMsg("参数错误，请稍后再试");
+            this.v.setResultCode(-204);
+            this.v.setResultMsg("参数错误，请稍后再试");
             finishActivity();
         } catch (Throwable th) {
             reportWebviewError(th);
@@ -91,8 +91,8 @@ public class AuthWidgetActivity extends BaseActivity {
         });
         this.sapiWebView.setLeftBtnVisibleCallback(new SapiWebView.LeftBtnVisibleCallback() { // from class: com.baidu.sapi2.activity.AuthWidgetActivity.3
             @Override // com.baidu.sapi2.SapiWebView.LeftBtnVisibleCallback
-            public void onLeftBtnVisible(int i) {
-                if (i == 0) {
+            public void onLeftBtnVisible(int i2) {
+                if (i2 == 0) {
                     AuthWidgetActivity.this.setBtnVisibility(4, 4, 4);
                 } else {
                     AuthWidgetActivity.this.setBtnVisibility(4, 0, 4);
@@ -110,14 +110,14 @@ public class AuthWidgetActivity extends BaseActivity {
 
             @Override // com.baidu.sapi2.SapiWebView.WebviewClientCallback
             public void shouldOverrideUrlLoading(WebView webView, String str) {
-                if (TextUtils.isEmpty(str) || !str.contains(URLDecoder.decode(AuthWidgetActivity.this.q))) {
+                if (TextUtils.isEmpty(str) || !str.contains(URLDecoder.decode(AuthWidgetActivity.this.u))) {
                     return;
                 }
                 CoreViewRouter.getInstance().getAuthWidgetCallback().onSuccess(SapiUtils.urlParamsToMap(str).get("authsid"));
                 AuthWidgetActivity.this.finish();
             }
         });
-        this.sapiWebView.loadUrl(this.p);
+        this.sapiWebView.loadUrl(this.t);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -127,8 +127,8 @@ public class AuthWidgetActivity extends BaseActivity {
             this.sapiWebView.goBack();
             return;
         }
-        this.r.setResultCode(-301);
-        this.r.setResultMsg("您已取消操作");
+        this.v.setResultCode(-301);
+        this.v.setResultMsg("您已取消操作");
         finishActivity();
     }
 }

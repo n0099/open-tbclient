@@ -7,7 +7,7 @@ import com.baidu.sapi2.activity.BaseActivity;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static JSONObject a(String str, String str2) {
         JSONObject jSONObject = new JSONObject();

@@ -18,7 +18,7 @@ public final class InputAwareWebView extends WebView {
 
     /* loaded from: classes7.dex */
     public interface OnScrollChangedCallback {
-        void onScroll(int i, int i2, int i3, int i4);
+        void onScroll(int i2, int i3, int i4, int i5);
     }
 
     public InputAwareWebView(Context context, View view) {
@@ -28,8 +28,8 @@ public final class InputAwareWebView extends WebView {
 
     private boolean isCalledFromListPopupWindowShow() {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-        for (int i = 0; i < stackTrace.length; i++) {
-            if (stackTrace[i].getClassName().equals(ListPopupWindow.class.getCanonicalName()) && stackTrace[i].getMethodName().equals("show")) {
+        for (int i2 = 0; i2 < stackTrace.length; i2++) {
+            if (stackTrace[i2].getClassName().equals(ListPopupWindow.class.getCanonicalName()) && stackTrace[i2].getMethodName().equals("show")) {
                 return true;
             }
         }
@@ -104,18 +104,18 @@ public final class InputAwareWebView extends WebView {
     }
 
     @Override // android.webkit.WebView, android.view.View
-    public void onFocusChanged(boolean z, int i, Rect rect) {
+    public void onFocusChanged(boolean z, int i2, Rect rect) {
         if (Build.VERSION.SDK_INT >= 27 || !isCalledFromListPopupWindowShow() || z) {
-            super.onFocusChanged(z, i, rect);
+            super.onFocusChanged(z, i2, rect);
         }
     }
 
     @Override // android.webkit.WebView, android.view.View
-    public void onScrollChanged(int i, int i2, int i3, int i4) {
-        super.onScrollChanged(i, i2, i3, i4);
+    public void onScrollChanged(int i2, int i3, int i4, int i5) {
+        super.onScrollChanged(i2, i3, i4, i5);
         OnScrollChangedCallback onScrollChangedCallback = this.mOnScrollChangedCallback;
         if (onScrollChangedCallback != null) {
-            onScrollChangedCallback.onScroll(i, i2, i3, i4);
+            onScrollChangedCallback.onScroll(i2, i3, i4, i5);
         }
     }
 

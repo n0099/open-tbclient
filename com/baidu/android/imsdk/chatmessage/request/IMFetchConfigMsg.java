@@ -32,10 +32,10 @@ public class IMFetchConfigMsg extends Message {
         public JSONObject mObj;
         public String mStrMsg;
 
-        public FetchConfigTask(Context context, JSONObject jSONObject, int i, String str) {
+        public FetchConfigTask(Context context, JSONObject jSONObject, int i2, String str) {
             this.mContext = context;
             this.mObj = jSONObject;
-            this.mErrorCode = i;
+            this.mErrorCode = i2;
             this.mStrMsg = str;
         }
 
@@ -79,9 +79,9 @@ public class IMFetchConfigMsg extends Message {
     }
 
     public static /* synthetic */ int access$008() {
-        int i = cur_count;
-        cur_count = i + 1;
-        return i;
+        int i2 = cur_count;
+        cur_count = i2 + 1;
+        return i2;
     }
 
     public static IMFetchConfigMsg newInstance(Context context, Intent intent) {
@@ -116,8 +116,8 @@ public class IMFetchConfigMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        super.handleMessageResult(context, jSONObject, i, str);
-        TaskManager.getInstance(this.mContext).submitForNetWork(new FetchConfigTask(context, jSONObject, i, str));
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+        super.handleMessageResult(context, jSONObject, i2, str);
+        TaskManager.getInstance(this.mContext).submitForNetWork(new FetchConfigTask(context, jSONObject, i2, str));
     }
 }

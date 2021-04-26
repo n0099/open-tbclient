@@ -53,6 +53,8 @@ public final class ZipUtils {
     }
 
     public static boolean unzipFile(String str, String str2) {
+        BufferedInputStream bufferedInputStream;
+        FileOutputStream fileOutputStream;
         BufferedOutputStream bufferedOutputStream;
         System.currentTimeMillis();
         if (str == null) {
@@ -64,8 +66,8 @@ public final class ZipUtils {
         try {
             ZipFile zipFile = new ZipFile(str);
             Enumeration<? extends ZipEntry> entries = zipFile.entries();
-            FileOutputStream fileOutputStream = null;
-            BufferedInputStream bufferedInputStream = null;
+            FileOutputStream fileOutputStream2 = null;
+            BufferedInputStream bufferedInputStream2 = null;
             BufferedOutputStream bufferedOutputStream2 = null;
             while (entries.hasMoreElements()) {
                 ZipEntry nextElement = entries.nextElement();
@@ -81,70 +83,71 @@ public final class ZipUtils {
                         }
                         try {
                             try {
-                                BufferedInputStream bufferedInputStream2 = new BufferedInputStream(zipFile.getInputStream(nextElement));
+                                bufferedInputStream = new BufferedInputStream(zipFile.getInputStream(nextElement));
                                 try {
-                                    FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                                    fileOutputStream = new FileOutputStream(file);
                                     try {
-                                        bufferedOutputStream = new BufferedOutputStream(fileOutputStream2, 2048);
+                                        bufferedOutputStream = new BufferedOutputStream(fileOutputStream, FileUtils.getFSBlockSize());
                                     } catch (IOException e2) {
                                         e = e2;
-                                        fileOutputStream = fileOutputStream2;
+                                        fileOutputStream2 = fileOutputStream;
                                     } catch (Throwable th) {
                                         th = th;
-                                        fileOutputStream = fileOutputStream2;
+                                        fileOutputStream2 = fileOutputStream;
                                     }
-                                    try {
-                                        byte[] bArr = new byte[2048];
-                                        while (true) {
-                                            int read = bufferedInputStream2.read(bArr, 0, 2048);
-                                            if (read == -1) {
-                                                break;
-                                            }
-                                            bufferedOutputStream.write(bArr, 0, read);
-                                        }
-                                        bufferedOutputStream.flush();
-                                        Closeables.closeSafely(bufferedOutputStream);
-                                        Closeables.closeSafely(bufferedInputStream2);
-                                        Closeables.closeSafely(fileOutputStream2);
-                                        bufferedOutputStream2 = bufferedOutputStream;
-                                        bufferedInputStream = bufferedInputStream2;
-                                    } catch (IOException e3) {
-                                        e = e3;
-                                        fileOutputStream = fileOutputStream2;
-                                        bufferedOutputStream2 = bufferedOutputStream;
-                                        bufferedInputStream = bufferedInputStream2;
-                                        e.printStackTrace();
-                                        Closeables.closeSafely(bufferedOutputStream2);
-                                        Closeables.closeSafely(bufferedInputStream);
-                                        Closeables.closeSafely(fileOutputStream);
-                                        return false;
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        fileOutputStream = fileOutputStream2;
-                                        bufferedOutputStream2 = bufferedOutputStream;
-                                        bufferedInputStream = bufferedInputStream2;
-                                        Closeables.closeSafely(bufferedOutputStream2);
-                                        Closeables.closeSafely(bufferedInputStream);
-                                        Closeables.closeSafely(fileOutputStream);
-                                        throw th;
-                                    }
-                                } catch (IOException e4) {
-                                    e = e4;
-                                } catch (Throwable th3) {
-                                    th = th3;
+                                } catch (IOException e3) {
+                                    e = e3;
+                                } catch (Throwable th2) {
+                                    th = th2;
                                 }
-                            } catch (Throwable th4) {
-                                th = th4;
+                            } catch (IOException e4) {
+                                e = e4;
                             }
+                        } catch (Throwable th3) {
+                            th = th3;
+                        }
+                        try {
+                            byte[] bArr = new byte[FileUtils.getFSBlockSize()];
+                            while (true) {
+                                int read = bufferedInputStream.read(bArr, 0, FileUtils.getFSBlockSize());
+                                if (read == -1) {
+                                    break;
+                                }
+                                bufferedOutputStream.write(bArr, 0, read);
+                            }
+                            bufferedOutputStream.flush();
+                            Closeables.closeSafely(bufferedOutputStream);
+                            Closeables.closeSafely(bufferedInputStream);
+                            Closeables.closeSafely(fileOutputStream);
+                            bufferedOutputStream2 = bufferedOutputStream;
+                            bufferedInputStream2 = bufferedInputStream;
                         } catch (IOException e5) {
                             e = e5;
+                            fileOutputStream2 = fileOutputStream;
+                            bufferedOutputStream2 = bufferedOutputStream;
+                            bufferedInputStream2 = bufferedInputStream;
+                            e.printStackTrace();
+                            Closeables.closeSafely(bufferedOutputStream2);
+                            Closeables.closeSafely(bufferedInputStream2);
+                            Closeables.closeSafely(fileOutputStream2);
+                            return false;
+                        } catch (Throwable th4) {
+                            th = th4;
+                            fileOutputStream2 = fileOutputStream;
+                            bufferedOutputStream2 = bufferedOutputStream;
+                            bufferedInputStream2 = bufferedInputStream;
+                            Closeables.closeSafely(bufferedOutputStream2);
+                            Closeables.closeSafely(bufferedInputStream2);
+                            Closeables.closeSafely(fileOutputStream2);
+                            throw th;
                         }
                     }
                 }
             }
+            zipFile.close();
             System.currentTimeMillis();
             return true;
-        } catch (IOException e6) {
+        } catch (Exception e6) {
             e6.printStackTrace();
             return false;
         } finally {
@@ -152,7 +155,7 @@ public final class ZipUtils {
         }
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:36:0x005c -> B:40:0x005f). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:38:0x005e -> B:42:0x0061). Please submit an issue!!! */
     public static void zip(String str, String str2) throws IOException {
         ZipOutputStream zipOutputStream = null;
         try {
@@ -172,8 +175,11 @@ public final class ZipUtils {
                 if (file2.isFile()) {
                     zipFileOrDirectory(zipOutputStream2, file2, "");
                 } else {
-                    for (File file3 : file2.listFiles()) {
-                        zipFileOrDirectory(zipOutputStream2, file3, "");
+                    File[] listFiles = file2.listFiles();
+                    if (listFiles != null) {
+                        for (File file3 : listFiles) {
+                            zipFileOrDirectory(zipOutputStream2, file3, "");
+                        }
                     }
                 }
                 zipOutputStream2.close();
@@ -198,7 +204,6 @@ public final class ZipUtils {
     }
 
     public static void zipFileOrDirectory(ZipOutputStream zipOutputStream, File file, String str) throws IOException {
-        File[] listFiles;
         FileInputStream fileInputStream = null;
         try {
             try {
@@ -235,8 +240,11 @@ public final class ZipUtils {
                         throw th;
                     }
                 } else {
-                    for (File file2 : file.listFiles()) {
-                        zipFileOrDirectory(zipOutputStream, file2, str + file.getName() + "/");
+                    File[] listFiles = file.listFiles();
+                    if (listFiles != null) {
+                        for (File file2 : listFiles) {
+                            zipFileOrDirectory(zipOutputStream, file2, str + file.getName() + "/");
+                        }
                     }
                 }
             } catch (IOException e3) {

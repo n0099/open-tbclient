@@ -5,23 +5,23 @@ import com.baidu.mapapi.walknavi.adapter.IWEngineInitListener;
 public class b implements com.baidu.platform.comapi.walknavi.c.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ IWEngineInitListener f7467a;
+    public final /* synthetic */ IWEngineInitListener f7734a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f7468b;
+    public final /* synthetic */ a f7735b;
 
     public b(a aVar, IWEngineInitListener iWEngineInitListener) {
-        this.f7468b = aVar;
-        this.f7467a = iWEngineInitListener;
+        this.f7735b = aVar;
+        this.f7734a = iWEngineInitListener;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.c.a
     public void a() {
-        this.f7467a.engineInitSuccess();
+        this.f7734a.engineInitSuccess();
     }
 
     @Override // com.baidu.platform.comapi.walknavi.c.a
     public void b() {
-        this.f7467a.engineInitFail();
+        this.f7734a.engineInitFail();
     }
 }

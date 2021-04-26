@@ -10,28 +10,28 @@ public class j {
         return context.getSharedPreferences("push_client_self_info", 4).getLong("token_save_time", System.currentTimeMillis());
     }
 
-    public static synchronized void a(Context context, int i, String str) {
+    public static synchronized void a(Context context, int i2, String str) {
         SharedPreferences.Editor edit;
         SharedPreferences.Editor putString;
         synchronized (j.class) {
             try {
                 SharedPreferences sharedPreferences = context.getSharedPreferences("push_client_self_info", 4);
-                int i2 = 5;
+                int i3 = 5;
                 do {
                     edit = sharedPreferences.edit();
-                    i2--;
+                    i3--;
                     if (edit != null) {
                         break;
                     }
-                } while (i2 > 0);
+                } while (i3 > 0);
                 if (edit != null) {
-                    if (i == 5) {
+                    if (i2 == 5) {
                         putString = edit.putString("bd_use_huawei_token", str);
-                    } else if (i == 6) {
+                    } else if (i2 == 6) {
                         putString = edit.putString("bd_use_xiaomi_regid", str);
-                    } else if (i == 7) {
+                    } else if (i2 == 7) {
                         putString = edit.putString("bd_use_meizu_pushid", str);
-                    } else if (i != 9) {
+                    } else if (i2 != 9) {
                         edit.putLong("token_save_time", System.currentTimeMillis()).commit();
                     } else {
                         putString = edit.putString("bd_use_vivo_regid", str);
@@ -49,14 +49,14 @@ public class j {
         SharedPreferences.Editor edit;
         try {
             SharedPreferences sharedPreferences = context.getSharedPreferences("push_client_self_info", 4);
-            int i = 2;
+            int i2 = 2;
             do {
                 edit = sharedPreferences.edit();
-                i--;
+                i2--;
                 if (edit != null) {
                     break;
                 }
-            } while (i > 0);
+            } while (i2 > 0);
             if (edit != null) {
                 edit.putBoolean(str, z).commit();
             }

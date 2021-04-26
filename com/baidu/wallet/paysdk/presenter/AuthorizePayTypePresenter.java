@@ -64,35 +64,35 @@ public class AuthorizePayTypePresenter extends PayTypeContract.Presenter {
             return null;
         }
         if (bondCards != null && bondCards.length > 0) {
-            for (int i = 0; i < bondCards.length; i++) {
+            for (int i2 = 0; i2 < bondCards.length; i2++) {
                 PayTypeItemView.PayTypeItemViewData payTypeItemViewData = new PayTypeItemView.PayTypeItemViewData();
                 payTypeItemViewData.type = PayTypeItemView.ItemViewType.BANKCARD;
-                if ("1".equals(bondCards[i].card_state)) {
+                if ("1".equals(bondCards[i2].card_state)) {
                     if (!payPrice.easypayIsEnable) {
                         payTypeItemViewData.isAvaible = false;
                         payTypeItemViewData.tips = payPrice.easyTipFromCalc;
                     } else {
                         payTypeItemViewData.isAvaible = true;
-                        if (!TextUtils.isEmpty(bondCards[i].channelDiscountDesc)) {
-                            payTypeItemViewData.tips = bondCards[i].channelDiscountDesc;
+                        if (!TextUtils.isEmpty(bondCards[i2].channelDiscountDesc)) {
+                            payTypeItemViewData.tips = bondCards[i2].channelDiscountDesc;
                             payTypeItemViewData.highlight = true;
                         } else {
-                            payTypeItemViewData.tips = !TextUtils.isEmpty(bondCards[i].bank_card_msg) ? bondCards[i].bank_card_msg : payPrice.easyTipFromCalc;
+                            payTypeItemViewData.tips = !TextUtils.isEmpty(bondCards[i2].bank_card_msg) ? bondCards[i2].bank_card_msg : payPrice.easyTipFromCalc;
                         }
                     }
                 } else {
                     payTypeItemViewData.isAvaible = false;
-                    payTypeItemViewData.tips = bondCards[i].bank_card_msg;
+                    payTypeItemViewData.tips = bondCards[i2].bank_card_msg;
                 }
-                payTypeItemViewData.name = bondCards[i].getCardDesc(this.mContext, true);
-                payTypeItemViewData.card = bondCards[i];
+                payTypeItemViewData.name = bondCards[i2].getCardDesc(this.mContext, true);
+                payTypeItemViewData.card = bondCards[i2];
                 CardData.BondCard bondCard = payRequest.mBondCard;
-                if (bondCard != null && bondCard == bondCards[i]) {
+                if (bondCard != null && bondCard == bondCards[i2]) {
                     payTypeItemViewData.isChecked = true;
                 } else {
                     payTypeItemViewData.isChecked = false;
                 }
-                payTypeItemViewData.logoUrl = bondCards[i].bank_url;
+                payTypeItemViewData.logoUrl = bondCards[i2].bank_url;
                 arrayList.add(payTypeItemViewData);
             }
         }
@@ -136,8 +136,8 @@ public class AuthorizePayTypePresenter extends PayTypeContract.Presenter {
     }
 
     @Override // com.baidu.wallet.paysdk.contract.PayTypeContract.Presenter
-    public void onActivityResult(int i, int i2, Intent intent) {
-        if (i == 1) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        if (i2 == 1) {
             reOrderPay();
         }
     }

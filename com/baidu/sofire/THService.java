@@ -12,13 +12,13 @@ public class THService extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(final Intent intent, int i, int i2) {
+    public int onStartCommand(final Intent intent, int i2, int i3) {
         try {
         } catch (Throwable unused) {
             com.baidu.sofire.g.d.a();
         }
         if (intent == null) {
-            return super.onStartCommand(intent, i, i2);
+            return super.onStartCommand(intent, i2, i3);
         }
         t.a(getApplicationContext()).a(new Runnable() { // from class: com.baidu.sofire.THService.1
             @Override // java.lang.Runnable
@@ -38,6 +38,6 @@ public class THService extends Service {
                 }
             }
         });
-        return super.onStartCommand(intent, i, i2);
+        return super.onStartCommand(intent, i2, i3);
     }
 }

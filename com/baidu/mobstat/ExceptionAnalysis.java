@@ -13,20 +13,20 @@ import org.json.JSONObject;
 public class ExceptionAnalysis {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ExceptionAnalysis f8362a = new ExceptionAnalysis();
+    public static ExceptionAnalysis f8661a = new ExceptionAnalysis();
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f8364c;
+    public Context f8663c;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f8366e;
+    public String f8665e;
     public Callback mCallback;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8363b = false;
+    public boolean f8662b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public HeadObject f8365d = new HeadObject();
+    public HeadObject f8664d = new HeadObject();
 
     /* loaded from: classes2.dex */
     public interface Callback {
@@ -50,30 +50,30 @@ public class ExceptionAnalysis {
     }
 
     public static ExceptionAnalysis getInstance() {
-        return f8362a;
+        return f8661a;
     }
 
     public void openExceptionAnalysis(Context context, boolean z) {
         if (context != null) {
-            this.f8364c = context.getApplicationContext();
+            this.f8663c = context.getApplicationContext();
         }
-        if (this.f8364c == null || this.f8363b) {
+        if (this.f8663c == null || this.f8662b) {
             return;
         }
-        this.f8363b = true;
-        ad.a().a(this.f8364c);
+        this.f8662b = true;
+        ad.a().a(this.f8663c);
         if (z) {
             return;
         }
-        NativeCrashHandler.init(this.f8364c);
+        NativeCrashHandler.init(this.f8663c);
     }
 
     public void saveCrashInfo(Context context, Throwable th, boolean z) {
-        int i;
+        int i2;
         if (context != null) {
-            this.f8364c = context.getApplicationContext();
+            this.f8663c = context.getApplicationContext();
         }
-        if (this.f8364c == null) {
+        if (this.f8663c == null) {
             return;
         }
         String th2 = th.toString();
@@ -90,13 +90,13 @@ public class ExceptionAnalysis {
         th.printStackTrace(new PrintWriter(stringWriter));
         String obj = stringWriter.toString();
         if (z) {
-            i = 0;
+            i2 = 0;
         } else if (th instanceof Exception) {
-            i = 11;
+            i2 = 11;
         } else {
-            i = th instanceof Error ? 12 : 13;
+            i2 = th instanceof Error ? 12 : 13;
         }
-        saveCrashInfo(this.f8364c, System.currentTimeMillis(), obj, str2, 0, i);
+        saveCrashInfo(this.f8663c, System.currentTimeMillis(), obj, str2, 0, i2);
     }
 
     public void setCrashExtraInfo(String str) {
@@ -106,7 +106,7 @@ public class ExceptionAnalysis {
         if (str.length() > 256) {
             str = str.substring(0, 256);
         }
-        this.f8366e = str;
+        this.f8665e = str;
     }
 
     public ExceptionAnalysis(Callback callback) {
@@ -133,15 +133,15 @@ public class ExceptionAnalysis {
         return jSONObject;
     }
 
-    public void saveCrashInfo(Context context, long j, String str, String str2, int i, int i2) {
+    public void saveCrashInfo(Context context, long j, String str, String str2, int i2, int i3) {
         BDStatCore.instance().autoTrackSessionEndTime(context);
         if (context != null && str != null && !str.trim().equals("")) {
             try {
                 StringBuilder sb = new StringBuilder(str);
-                if (!TextUtils.isEmpty(this.f8366e)) {
+                if (!TextUtils.isEmpty(this.f8665e)) {
                     sb.append("\n");
                     sb.append("ExtraInfo:");
-                    sb.append(this.f8366e);
+                    sb.append(this.f8665e);
                 }
                 String appVersionName = CooperService.instance().getAppVersionName(context);
                 JSONObject jSONObject = new JSONObject();
@@ -149,13 +149,13 @@ public class ExceptionAnalysis {
                 jSONObject.put("c", sb.toString());
                 jSONObject.put("y", str2);
                 jSONObject.put("v", appVersionName);
-                jSONObject.put(Config.EXCEPTION_CRASH_TYPE, i);
+                jSONObject.put(Config.EXCEPTION_CRASH_TYPE, i2);
                 jSONObject.put("mem", a(context));
-                jSONObject.put("ty", i2);
+                jSONObject.put("ty", i3);
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject);
                 JSONObject jSONObject2 = new JSONObject();
-                this.f8365d.installHeader(context, jSONObject2);
+                this.f8664d.installHeader(context, jSONObject2);
                 jSONObject2.put("ss", 0);
                 jSONObject2.put(Config.SEQUENCE_INDEX, 0);
                 JSONObject jSONObject3 = new JSONObject();

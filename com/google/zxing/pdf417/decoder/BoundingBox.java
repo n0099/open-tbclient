@@ -54,7 +54,7 @@ public final class BoundingBox {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public BoundingBox addMissingRows(int i, int i2, boolean z) throws NotFoundException {
+    public BoundingBox addMissingRows(int i2, int i3, boolean z) throws NotFoundException {
         ResultPoint resultPoint;
         ResultPoint resultPoint2;
         ResultPoint resultPoint3;
@@ -63,9 +63,9 @@ public final class BoundingBox {
         ResultPoint resultPoint6 = this.bottomLeft;
         ResultPoint resultPoint7 = this.topRight;
         ResultPoint resultPoint8 = this.bottomRight;
-        if (i > 0) {
+        if (i2 > 0) {
             ResultPoint resultPoint9 = z ? resultPoint5 : resultPoint7;
-            int y = ((int) resultPoint9.getY()) - i;
+            int y = ((int) resultPoint9.getY()) - i2;
             if (y < 0) {
                 y = 0;
             }
@@ -73,9 +73,9 @@ public final class BoundingBox {
             if (!z) {
                 resultPoint2 = resultPoint10;
                 resultPoint = resultPoint5;
-                if (i2 <= 0) {
+                if (i3 <= 0) {
                     ResultPoint resultPoint11 = z ? this.bottomLeft : this.bottomRight;
-                    int y2 = ((int) resultPoint11.getY()) + i2;
+                    int y2 = ((int) resultPoint11.getY()) + i3;
                     if (y2 >= this.image.getHeight()) {
                         y2 = this.image.getHeight() - 1;
                     }
@@ -99,7 +99,7 @@ public final class BoundingBox {
             resultPoint = resultPoint5;
         }
         resultPoint2 = resultPoint7;
-        if (i2 <= 0) {
+        if (i3 <= 0) {
         }
         resultPoint4 = resultPoint8;
         calculateMinMaxValues();

@@ -62,12 +62,12 @@ public class EmotionGroupData implements Serializable {
         return this.width;
     }
 
-    public void setBytesLength(int i) {
-        this.bytesLength = i;
+    public void setBytesLength(int i2) {
+        this.bytesLength = i2;
     }
 
-    public void setBytesReceived(int i) {
-        this.bytesReceived = i;
+    public void setBytesReceived(int i2) {
+        this.bytesReceived = i2;
     }
 
     public void setDownloadTime(long j) {
@@ -78,8 +78,8 @@ public class EmotionGroupData implements Serializable {
         this.downloadUrl = str;
     }
 
-    public void setEmotionsCount(int i) {
-        this.emotionsCount = i;
+    public void setEmotionsCount(int i2) {
+        this.emotionsCount = i2;
     }
 
     public void setGroupDesc(String str) {
@@ -94,15 +94,15 @@ public class EmotionGroupData implements Serializable {
         this.groupName = str;
     }
 
-    public void setHeight(int i) {
-        this.height = i;
+    public void setHeight(int i2) {
+        this.height = i2;
     }
 
-    public void setStatus(int i) {
-        this.status = i;
+    public void setStatus(int i2) {
+        this.status = i2;
     }
 
-    public void setWidth(int i) {
-        this.width = i;
+    public void setWidth(int i2) {
+        this.width = i2;
     }
 }

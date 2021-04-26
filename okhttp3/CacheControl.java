@@ -45,31 +45,31 @@ public final class CacheControl {
             return this;
         }
 
-        public Builder maxAge(int i, TimeUnit timeUnit) {
-            if (i >= 0) {
-                long seconds = timeUnit.toSeconds(i);
+        public Builder maxAge(int i2, TimeUnit timeUnit) {
+            if (i2 >= 0) {
+                long seconds = timeUnit.toSeconds(i2);
                 this.maxAgeSeconds = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
                 return this;
             }
-            throw new IllegalArgumentException("maxAge < 0: " + i);
+            throw new IllegalArgumentException("maxAge < 0: " + i2);
         }
 
-        public Builder maxStale(int i, TimeUnit timeUnit) {
-            if (i >= 0) {
-                long seconds = timeUnit.toSeconds(i);
+        public Builder maxStale(int i2, TimeUnit timeUnit) {
+            if (i2 >= 0) {
+                long seconds = timeUnit.toSeconds(i2);
                 this.maxStaleSeconds = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
                 return this;
             }
-            throw new IllegalArgumentException("maxStale < 0: " + i);
+            throw new IllegalArgumentException("maxStale < 0: " + i2);
         }
 
-        public Builder minFresh(int i, TimeUnit timeUnit) {
-            if (i >= 0) {
-                long seconds = timeUnit.toSeconds(i);
+        public Builder minFresh(int i2, TimeUnit timeUnit) {
+            if (i2 >= 0) {
+                long seconds = timeUnit.toSeconds(i2);
                 this.minFreshSeconds = seconds > 2147483647L ? Integer.MAX_VALUE : (int) seconds;
                 return this;
             }
-            throw new IllegalArgumentException("minFresh < 0: " + i);
+            throw new IllegalArgumentException("minFresh < 0: " + i2);
         }
 
         public Builder noCache() {
@@ -93,16 +93,16 @@ public final class CacheControl {
         }
     }
 
-    public CacheControl(boolean z, boolean z2, int i, int i2, boolean z3, boolean z4, boolean z5, int i3, int i4, boolean z6, boolean z7, boolean z8, @Nullable String str) {
+    public CacheControl(boolean z, boolean z2, int i2, int i3, boolean z3, boolean z4, boolean z5, int i4, int i5, boolean z6, boolean z7, boolean z8, @Nullable String str) {
         this.noCache = z;
         this.noStore = z2;
-        this.maxAgeSeconds = i;
-        this.sMaxAgeSeconds = i2;
+        this.maxAgeSeconds = i2;
+        this.sMaxAgeSeconds = i3;
         this.isPrivate = z3;
         this.isPublic = z4;
         this.mustRevalidate = z5;
-        this.maxStaleSeconds = i3;
-        this.minFreshSeconds = i4;
+        this.maxStaleSeconds = i4;
+        this.minFreshSeconds = i5;
         this.onlyIfCached = z6;
         this.noTransform = z7;
         this.immutable = z8;
@@ -167,48 +167,48 @@ public final class CacheControl {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static CacheControl parse(Headers headers) {
-        int i;
         int i2;
+        int i3;
         String str;
         Headers headers2 = headers;
         int size = headers.size();
-        int i3 = 0;
+        int i4 = 0;
         boolean z = true;
         String str2 = null;
         boolean z2 = false;
         boolean z3 = false;
-        int i4 = -1;
         int i5 = -1;
+        int i6 = -1;
         boolean z4 = false;
         boolean z5 = false;
         boolean z6 = false;
-        int i6 = -1;
         int i7 = -1;
+        int i8 = -1;
         boolean z7 = false;
         boolean z8 = false;
         boolean z9 = false;
-        while (i3 < size) {
-            String name = headers2.name(i3);
-            String value = headers2.value(i3);
+        while (i4 < size) {
+            String name = headers2.name(i4);
+            String value = headers2.value(i4);
             if (name.equalsIgnoreCase("Cache-Control")) {
                 if (str2 == null) {
                     str2 = value;
-                    for (i = 0; i < value.length(); i = i2) {
-                        int skipUntil = HttpHeaders.skipUntil(value, i, "=,;");
-                        String trim = value.substring(i, skipUntil).trim();
+                    for (i2 = 0; i2 < value.length(); i2 = i3) {
+                        int skipUntil = HttpHeaders.skipUntil(value, i2, "=,;");
+                        String trim = value.substring(i2, skipUntil).trim();
                         if (skipUntil == value.length() || value.charAt(skipUntil) == ',' || value.charAt(skipUntil) == ';') {
-                            i2 = skipUntil + 1;
+                            i3 = skipUntil + 1;
                             str = null;
                         } else {
                             int skipWhitespace = HttpHeaders.skipWhitespace(value, skipUntil + 1);
                             if (skipWhitespace < value.length() && value.charAt(skipWhitespace) == '\"') {
-                                int i8 = skipWhitespace + 1;
-                                int skipUntil2 = HttpHeaders.skipUntil(value, i8, "\"");
-                                str = value.substring(i8, skipUntil2);
-                                i2 = skipUntil2 + 1;
+                                int i9 = skipWhitespace + 1;
+                                int skipUntil2 = HttpHeaders.skipUntil(value, i9, "\"");
+                                str = value.substring(i9, skipUntil2);
+                                i3 = skipUntil2 + 1;
                             } else {
-                                i2 = HttpHeaders.skipUntil(value, skipWhitespace, ",;");
-                                str = value.substring(skipWhitespace, i2).trim();
+                                i3 = HttpHeaders.skipUntil(value, skipWhitespace, ",;");
+                                str = value.substring(skipWhitespace, i3).trim();
                             }
                         }
                         if ("no-cache".equalsIgnoreCase(trim)) {
@@ -216,9 +216,9 @@ public final class CacheControl {
                         } else if ("no-store".equalsIgnoreCase(trim)) {
                             z3 = true;
                         } else if (ClientCookie.MAX_AGE_ATTR.equalsIgnoreCase(trim)) {
-                            i4 = HttpHeaders.parseSeconds(str, -1);
-                        } else if ("s-maxage".equalsIgnoreCase(trim)) {
                             i5 = HttpHeaders.parseSeconds(str, -1);
+                        } else if ("s-maxage".equalsIgnoreCase(trim)) {
+                            i6 = HttpHeaders.parseSeconds(str, -1);
                         } else if (PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE.equalsIgnoreCase(trim)) {
                             z4 = true;
                         } else if ("public".equalsIgnoreCase(trim)) {
@@ -226,9 +226,9 @@ public final class CacheControl {
                         } else if ("must-revalidate".equalsIgnoreCase(trim)) {
                             z6 = true;
                         } else if ("max-stale".equalsIgnoreCase(trim)) {
-                            i6 = HttpHeaders.parseSeconds(str, Integer.MAX_VALUE);
+                            i7 = HttpHeaders.parseSeconds(str, Integer.MAX_VALUE);
                         } else if ("min-fresh".equalsIgnoreCase(trim)) {
-                            i7 = HttpHeaders.parseSeconds(str, -1);
+                            i8 = HttpHeaders.parseSeconds(str, -1);
                         } else if ("only-if-cached".equalsIgnoreCase(trim)) {
                             z7 = true;
                         } else if ("no-transform".equalsIgnoreCase(trim)) {
@@ -237,20 +237,20 @@ public final class CacheControl {
                             z9 = true;
                         }
                     }
-                    i3++;
+                    i4++;
                     headers2 = headers;
                 }
             } else if (!name.equalsIgnoreCase("Pragma")) {
-                i3++;
+                i4++;
                 headers2 = headers;
             }
             z = false;
-            while (i < value.length()) {
+            while (i2 < value.length()) {
             }
-            i3++;
+            i4++;
             headers2 = headers;
         }
-        return new CacheControl(z2, z3, i4, i5, z4, z5, z6, i6, i7, z7, z8, z9, !z ? null : str2);
+        return new CacheControl(z2, z3, i5, i6, z4, z5, z6, i7, i8, z7, z8, z9, !z ? null : str2);
     }
 
     public boolean immutable() {

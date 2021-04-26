@@ -9,22 +9,24 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class FragmentTabSwellingView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f12987e;
+    public Paint f12912e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f12988f;
+    public Path f12913f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Path f12989g;
+    public Path f12914g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f12990h;
-    public int i;
+    public Paint f12915h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f12916i;
     public int j;
     public int k;
     public int l;
@@ -43,39 +45,39 @@ public class FragmentTabSwellingView extends View {
         setLayerType(1, null);
     }
 
-    public void b(int i) {
-        if (i != 1 && i != 4) {
-            this.f12987e.setColor(SkinManager.getColor(R.color.CAM_X0205));
-            this.f12990h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.CAM_X0806));
+    public void b(int i2) {
+        if (i2 != 1 && i2 != 4) {
+            this.f12912e.setColor(SkinManager.getColor(R.color.CAM_X0205));
+            this.f12915h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.CAM_X0806));
         } else {
-            this.f12987e.setColor(SkinManager.getColor(R.color.CAM_X0206_1));
-            this.f12990h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.transparent));
+            this.f12912e.setColor(SkinManager.getColor(R.color.CAM_X0206_1));
+            this.f12915h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.transparent));
         }
         invalidate();
     }
 
     public final void c() {
         Paint paint = new Paint();
-        this.f12987e = paint;
+        this.f12912e = paint;
         paint.setColor(SkinManager.getColor(R.color.CAM_X0205));
-        this.f12987e.setAntiAlias(true);
-        this.f12987e.setStrokeWidth(1.0f);
-        this.f12987e.setDither(true);
-        this.f12987e.setStyle(Paint.Style.FILL);
+        this.f12912e.setAntiAlias(true);
+        this.f12912e.setStrokeWidth(1.0f);
+        this.f12912e.setDither(true);
+        this.f12912e.setStyle(Paint.Style.FILL);
         Paint paint2 = new Paint();
-        this.f12990h = paint2;
+        this.f12915h = paint2;
         paint2.setAntiAlias(true);
-        this.f12990h.setDither(true);
-        this.f12990h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.CAM_X0806));
+        this.f12915h.setDither(true);
+        this.f12915h.setShadowLayer(20.0f, 0.0f, -2.0f, getResources().getColor(R.color.CAM_X0806));
     }
 
     public final void d() {
-        this.f12988f = new Path();
-        this.f12989g = new Path();
+        this.f12913f = new Path();
+        this.f12914g = new Path();
     }
 
     public final void e() {
-        this.i = l.g(getContext().getApplicationContext(), R.dimen.tbds137);
+        this.f12916i = l.g(getContext().getApplicationContext(), R.dimen.tbds137);
         this.j = l.g(getContext().getApplicationContext(), R.dimen.tbds204);
         this.k = l.g(getContext().getApplicationContext(), R.dimen.tbds23);
         this.l = l.g(getContext().getApplicationContext(), R.dimen.tbds51);
@@ -90,36 +92,36 @@ public class FragmentTabSwellingView extends View {
         if (getWidth() > l.k(getContext())) {
             return;
         }
-        this.f12989g.reset();
-        this.f12988f.reset();
-        this.f12988f.moveTo(0.0f, getHeight() - this.i);
-        this.f12988f.lineTo((getWidth() / 2) - (this.j / 2), getHeight() - this.i);
-        this.f12988f.quadTo(((getWidth() / 2) - (this.j / 2)) + this.k, getHeight() - this.i, ((getWidth() / 2) - (this.j / 2)) + this.l, (getHeight() - this.i) - this.m);
-        this.f12988f.quadTo(getWidth() / 2, (getHeight() - this.i) - this.n, ((getWidth() / 2) + (this.j / 2)) - this.l, (getHeight() - this.i) - this.m);
-        this.f12988f.quadTo(((getWidth() / 2) + (this.j / 2)) - this.k, getHeight() - this.i, (getWidth() / 2) + (this.j / 2), getHeight() - this.i);
-        this.f12988f.lineTo(getWidth(), getHeight() - this.i);
-        this.f12988f.lineTo(getWidth(), getHeight());
-        this.f12988f.lineTo(0.0f, getHeight());
-        this.f12988f.close();
-        this.f12989g.moveTo(0.0f, (getHeight() - this.i) + this.o);
-        this.f12989g.lineTo((getWidth() / 2) - (this.j / 2), (getHeight() - this.i) + this.o);
-        this.f12989g.quadTo(((getWidth() / 2) - (this.j / 2)) + this.k, (getHeight() - this.i) + this.o, ((getWidth() / 2) - (this.j / 2)) + this.l, ((getHeight() - this.i) - this.m) + this.o);
-        this.f12989g.quadTo(getWidth() / 2, ((getHeight() - this.i) - this.n) + this.o, ((getWidth() / 2) + (this.j / 2)) - this.l, ((getHeight() - this.i) - this.m) + this.o);
-        this.f12989g.quadTo(((getWidth() / 2) + (this.j / 2)) - this.k, (getHeight() - this.i) + this.o, (getWidth() / 2) + (this.j / 2), (getHeight() - this.i) + this.o);
-        this.f12989g.lineTo(getWidth(), (getHeight() - this.i) + this.o);
-        this.f12989g.lineTo(getWidth(), getHeight());
-        this.f12989g.lineTo(0.0f, getHeight());
-        this.f12989g.close();
-        canvas.drawPath(this.f12989g, this.f12990h);
-        canvas.drawPath(this.f12988f, this.f12987e);
+        this.f12914g.reset();
+        this.f12913f.reset();
+        this.f12913f.moveTo(0.0f, getHeight() - this.f12916i);
+        this.f12913f.lineTo((getWidth() / 2) - (this.j / 2), getHeight() - this.f12916i);
+        this.f12913f.quadTo(((getWidth() / 2) - (this.j / 2)) + this.k, getHeight() - this.f12916i, ((getWidth() / 2) - (this.j / 2)) + this.l, (getHeight() - this.f12916i) - this.m);
+        this.f12913f.quadTo(getWidth() / 2, (getHeight() - this.f12916i) - this.n, ((getWidth() / 2) + (this.j / 2)) - this.l, (getHeight() - this.f12916i) - this.m);
+        this.f12913f.quadTo(((getWidth() / 2) + (this.j / 2)) - this.k, getHeight() - this.f12916i, (getWidth() / 2) + (this.j / 2), getHeight() - this.f12916i);
+        this.f12913f.lineTo(getWidth(), getHeight() - this.f12916i);
+        this.f12913f.lineTo(getWidth(), getHeight());
+        this.f12913f.lineTo(0.0f, getHeight());
+        this.f12913f.close();
+        this.f12914g.moveTo(0.0f, (getHeight() - this.f12916i) + this.o);
+        this.f12914g.lineTo((getWidth() / 2) - (this.j / 2), (getHeight() - this.f12916i) + this.o);
+        this.f12914g.quadTo(((getWidth() / 2) - (this.j / 2)) + this.k, (getHeight() - this.f12916i) + this.o, ((getWidth() / 2) - (this.j / 2)) + this.l, ((getHeight() - this.f12916i) - this.m) + this.o);
+        this.f12914g.quadTo(getWidth() / 2, ((getHeight() - this.f12916i) - this.n) + this.o, ((getWidth() / 2) + (this.j / 2)) - this.l, ((getHeight() - this.f12916i) - this.m) + this.o);
+        this.f12914g.quadTo(((getWidth() / 2) + (this.j / 2)) - this.k, (getHeight() - this.f12916i) + this.o, (getWidth() / 2) + (this.j / 2), (getHeight() - this.f12916i) + this.o);
+        this.f12914g.lineTo(getWidth(), (getHeight() - this.f12916i) + this.o);
+        this.f12914g.lineTo(getWidth(), getHeight());
+        this.f12914g.lineTo(0.0f, getHeight());
+        this.f12914g.close();
+        canvas.drawPath(this.f12914g, this.f12915h);
+        canvas.drawPath(this.f12913f, this.f12912e);
     }
 
     public FragmentTabSwellingView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public FragmentTabSwellingView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public FragmentTabSwellingView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         a();
     }
 }

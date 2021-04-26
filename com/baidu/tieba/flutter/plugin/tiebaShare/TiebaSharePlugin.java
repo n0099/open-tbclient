@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
 import com.baidu.tieba.flutter.plugin.tiebaShare.TiebaShareAuto;
-import d.b.c.e.p.k;
-import d.b.i0.r.q.a2;
-import d.b.j0.b0.f;
-import d.b.j0.m0.a.i.c;
+import d.a.c.e.p.k;
+import d.a.i0.r.q.a2;
+import d.a.j0.b0.f;
+import d.a.j0.m0.a.i.c;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.net.URLEncoder;
 import java.text.MessageFormat;
@@ -41,12 +41,12 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         }
         ArrayList<MediaData> K0 = a2Var.K0();
         int size = K0.size();
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            if (i >= size) {
+            if (i2 >= size) {
                 break;
             }
-            MediaData mediaData = K0.get(i);
+            MediaData mediaData = K0.get(i2);
             if (mediaData != null && (mediaData.getType() == 3 || mediaData.getType() == 5)) {
                 if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
                     str = mediaData.getThumbnails_url();
@@ -56,7 +56,7 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
                     break;
                 }
             }
-            i++;
+            i2++;
         }
         return (str != null || a2Var.u1() == null || TextUtils.isEmpty(a2Var.u1().thumbnail_url)) ? str : a2Var.u1().thumbnail_url;
     }
@@ -80,17 +80,17 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         if (a2Var.s1) {
             return 6;
         }
-        int i = a2Var.Z;
-        if (i == 0) {
+        int i2 = a2Var.Z;
+        if (i2 == 0) {
             return 1;
         }
-        if (i == 40) {
+        if (i2 == 40) {
             return 2;
         }
-        if (i == 49) {
+        if (i2 == 49 || i2 == 69) {
             return 3;
         }
-        return i == 54 ? 4 : 5;
+        return i2 == 54 ? 4 : 5;
     }
 
     private int getStateThreadType(a2 a2Var) {
@@ -132,12 +132,12 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         shareItem.l = true;
         TbadkCoreApplication.getInst().setShareItem(shareItem);
         Bundle bundle = new Bundle();
-        bundle.putInt("obj_param1", shareItem.E);
-        bundle.putInt("obj_type", shareItem.L);
-        bundle.putString("fid", shareItem.I);
-        bundle.putString("tid", shareItem.J);
+        bundle.putInt("obj_param1", shareItem.F);
+        bundle.putInt("obj_type", shareItem.M);
+        bundle.putString("fid", shareItem.J);
+        bundle.putString("tid", shareItem.K);
         bundle.putInt("obj_source", shareItem.o);
-        shareItem.i(bundle);
+        shareItem.k(bundle);
         ShareDialogConfig shareDialogConfig = new ShareDialogConfig(TbadkCoreApplication.getInst().getCurrentActivity(), shareItem, true);
         if (z) {
             f.b().k(shareDialogConfig);
@@ -216,49 +216,49 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
             shareItem.s = cutString2;
             int stateThreadType = getStateThreadType(a2Var);
             if (!a2Var.y2()) {
-                shareItem.Q = -1L;
-                shareItem.C = cutString2;
+                shareItem.R = -1L;
+                shareItem.D = cutString2;
             } else {
                 if (stateThreadType == 2 && a2Var.u1() != null) {
-                    shareItem.Q = a2Var.u1().play_count.intValue();
+                    shareItem.R = a2Var.u1().play_count.intValue();
                 } else if (stateThreadType == 1) {
-                    shareItem.Q = a2Var.G1();
+                    shareItem.R = a2Var.G1();
                 }
-                shareItem.C = C;
+                shareItem.D = C;
             }
             shareItem.t = str7;
             shareItem.q = str6;
-            shareItem.I = str3;
+            shareItem.J = str3;
             shareItem.p = str2;
-            shareItem.J = str6;
-            shareItem.f13386f = true;
+            shareItem.K = str6;
+            shareItem.f13356f = true;
             shareItem.o = 6;
-            shareItem.D = 8;
-            shareItem.L = stateThreadType;
-            shareItem.E = 3;
-            shareItem.F = getShareObjParam2(a2Var);
+            shareItem.E = 8;
+            shareItem.M = stateThreadType;
+            shareItem.F = 3;
+            shareItem.G = getShareObjParam2(a2Var);
             if (parse != null) {
                 shareItem.v = parse;
             }
             if (a2Var.y2()) {
                 z = false;
             }
-            shareItem.d0 = z;
+            shareItem.f0 = z;
             if (z) {
-                shareItem.c0 = a2Var.e1();
+                shareItem.e0 = a2Var.e1();
             }
-            shareItem.S = OriginalThreadInfo.ShareInfo.generateShareInfo(a2Var);
-            shareItem.T = ShareItem.ForwardInfo.generateForwardInfo(a2Var);
+            shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo(a2Var);
+            shareItem.U = ShareItem.ForwardInfo.generateForwardInfo(a2Var);
             TbadkCoreApplication.getInst().setShareItem(shareItem);
             Bundle bundle = new Bundle();
-            bundle.putInt("obj_param1", shareItem.E);
-            bundle.putInt("obj_type", shareItem.L);
-            bundle.putString("fid", shareItem.I);
-            bundle.putString("tid", shareItem.J);
+            bundle.putInt("obj_param1", shareItem.F);
+            bundle.putInt("obj_type", shareItem.M);
+            bundle.putString("fid", shareItem.J);
+            bundle.putString("tid", shareItem.K);
             bundle.putInt("obj_source", shareItem.o);
-            shareItem.i(bundle);
+            shareItem.k(bundle);
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(TbadkCoreApplication.getInst().getCurrentActivity(), shareItem, true);
-            shareDialogConfig.setIsAlaLive((a2Var.s1() != 49 || a2Var.s1() == 60) ? true : true);
+            shareDialogConfig.setIsAlaLive((a2Var.s1() != 49 || a2Var.s1() == 60 || a2Var.s1() == 69) ? true : true);
             shareDialogConfig.setFrom(ShareDialogConfig.From.PersonPolymeric);
             f.b().k(shareDialogConfig);
         }
@@ -282,34 +282,34 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         }
         shareItem2.t = str7;
         shareItem2.q = str6;
-        shareItem2.I = str3;
+        shareItem2.J = str3;
         shareItem2.p = str2;
-        shareItem2.J = str6;
-        shareItem2.f13386f = true;
+        shareItem2.K = str6;
+        shareItem2.f13356f = true;
         shareItem2.o = 6;
-        shareItem2.D = 8;
-        shareItem2.L = stateThreadType2;
-        shareItem2.E = 3;
-        shareItem2.F = getShareObjParam2(a2Var);
+        shareItem2.E = 8;
+        shareItem2.M = stateThreadType2;
+        shareItem2.F = 3;
+        shareItem2.G = getShareObjParam2(a2Var);
         if (parse != null) {
         }
         if (a2Var.y2()) {
         }
-        shareItem2.d0 = z;
+        shareItem2.f0 = z;
         if (z) {
         }
-        shareItem2.S = OriginalThreadInfo.ShareInfo.generateShareInfo(a2Var);
-        shareItem2.T = ShareItem.ForwardInfo.generateForwardInfo(a2Var);
+        shareItem2.T = OriginalThreadInfo.ShareInfo.generateShareInfo(a2Var);
+        shareItem2.U = ShareItem.ForwardInfo.generateForwardInfo(a2Var);
         TbadkCoreApplication.getInst().setShareItem(shareItem2);
         Bundle bundle2 = new Bundle();
-        bundle2.putInt("obj_param1", shareItem2.E);
-        bundle2.putInt("obj_type", shareItem2.L);
-        bundle2.putString("fid", shareItem2.I);
-        bundle2.putString("tid", shareItem2.J);
+        bundle2.putInt("obj_param1", shareItem2.F);
+        bundle2.putInt("obj_type", shareItem2.M);
+        bundle2.putString("fid", shareItem2.J);
+        bundle2.putString("tid", shareItem2.K);
         bundle2.putInt("obj_source", shareItem2.o);
-        shareItem2.i(bundle2);
+        shareItem2.k(bundle2);
         ShareDialogConfig shareDialogConfig2 = new ShareDialogConfig(TbadkCoreApplication.getInst().getCurrentActivity(), shareItem2, true);
-        shareDialogConfig2.setIsAlaLive((a2Var.s1() != 49 || a2Var.s1() == 60) ? true : true);
+        shareDialogConfig2.setIsAlaLive((a2Var.s1() != 49 || a2Var.s1() == 60 || a2Var.s1() == 69) ? true : true);
         shareDialogConfig2.setFrom(ShareDialogConfig.From.PersonPolymeric);
         f.b().k(shareDialogConfig2);
     }

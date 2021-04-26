@@ -9,5 +9,5 @@ public interface FingerprintCallback extends Serializable {
     public static final int FP_AUTHENCIATE_SUCCESS = 0;
     public static final int FP_AUTHENCIATE_TURNTO_PWD = 3;
 
-    void onAuthorizeResult(IFingerprintPay.Action action, int i, String str);
+    void onAuthorizeResult(IFingerprintPay.Action action, int i2, String str);
 }

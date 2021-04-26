@@ -43,9 +43,9 @@ public class MessageHandler extends IMessageHandler {
         this.mCurrentSocketState = null;
     }
 
-    private SocketState connectImpl(String str, int i) throws IOException, IllegalArgumentException, AssertionError {
-        LogUtils.i(TAG, "---------------ip:" + str + "  port:" + i + "-----------------");
-        this.mSocket = createSocket(str, i);
+    private SocketState connectImpl(String str, int i2) throws IOException, IllegalArgumentException, AssertionError {
+        LogUtils.i(TAG, "---------------ip:" + str + "  port:" + i2 + "-----------------");
+        this.mSocket = createSocket(str, i2);
         SocketState socketState = new SocketState();
         Socket socket = this.mSocket;
         if (socket == null) {
@@ -62,15 +62,15 @@ public class MessageHandler extends IMessageHandler {
         return socketState;
     }
 
-    private Socket createSocket(String str, int i) throws IOException, IllegalArgumentException, AssertionError {
+    private Socket createSocket(String str, int i2) throws IOException, IllegalArgumentException, AssertionError {
         int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
         if (readIntData != 0) {
             if (readIntData == 1 || readIntData == 2 || readIntData == 3) {
-                return createSocketRD(str, i);
+                return createSocketRD(str, i2);
             }
             return null;
         } else if (Utility.isCreateTlsSocket(this.mContext)) {
-            return createSocketOnLine(str, i);
+            return createSocketOnLine(str, i2);
         } else {
             LogUtils.d(TAG, "createSocketOnlineByTcp ip = " + str + " port = 8100");
             return createSocketOnlineByTcp(str, 8100);
@@ -84,7 +84,7 @@ public class MessageHandler extends IMessageHandler {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private Socket createSocketOnLine(String str, int i) throws IOException, IllegalArgumentException, AssertionError {
+    private Socket createSocketOnLine(String str, int i2) throws IOException, IllegalArgumentException, AssertionError {
         SSLCertificateSocketFactory sSLCertificateSocketFactory;
         SSLSessionCache sSLSessionCache = new SSLSessionCache(this.mContext);
         if (Constants.URL_SOCKET_SERVER.equals(str)) {
@@ -92,16 +92,16 @@ public class MessageHandler extends IMessageHandler {
                 InetAddress[] allByName = InetAddress.getAllByName(str);
                 if (allByName != null && allByName.length > 0 && Utility.isIpv4Reachable()) {
                     int length = allByName.length;
-                    int i2 = 0;
+                    int i3 = 0;
                     while (true) {
-                        if (i2 >= length) {
+                        if (i3 >= length) {
                             break;
                         }
-                        InetAddress inetAddress = allByName[i2];
+                        InetAddress inetAddress = allByName[i3];
                         if (inetAddress instanceof Inet4Address) {
                             break;
                         }
-                        i2++;
+                        i3++;
                     }
                 }
             } catch (Exception e2) {
@@ -116,7 +116,7 @@ public class MessageHandler extends IMessageHandler {
         }
         SSLSocket sSLSocket = null;
         if (sSLCertificateSocketFactory != null) {
-            sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(str, i);
+            sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(str, i2);
             sSLSocket.setEnabledCipherSuites(sSLSocket.getEnabledCipherSuites());
             sSLSocket.setEnabledProtocols(sSLSocket.getEnabledProtocols());
             enableSessionTicket(sSLCertificateSocketFactory, sSLSocket);
@@ -134,12 +134,12 @@ public class MessageHandler extends IMessageHandler {
         return sSLSocket;
     }
 
-    private Socket createSocketOnlineByTcp(String str, int i) throws IOException {
-        return new Socket(str, i);
+    private Socket createSocketOnlineByTcp(String str, int i2) throws IOException {
+        return new Socket(str, i2);
     }
 
-    private Socket createSocketRD(String str, int i) throws IOException {
-        return new Socket(str, i);
+    private Socket createSocketRD(String str, int i2) throws IOException {
+        return new Socket(str, i2);
     }
 
     @TargetApi(17)
@@ -178,8 +178,8 @@ public class MessageHandler extends IMessageHandler {
     }
 
     @Override // com.baidu.android.imsdk.internal.IMessageHandler
-    public SocketState socketConnect(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
-        return connectImpl(str, i);
+    public SocketState socketConnect(String str, int i2) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
+        return connectImpl(str, i2);
     }
 
     @Override // com.baidu.android.imsdk.internal.IMessageHandler

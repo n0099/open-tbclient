@@ -7,10 +7,10 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import g.a.a.a;
 import g.a.b.b.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AppleDataRateBox extends AbstractFullBox {
     public static final String TYPE = "rmdr";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
     public long dataRate;
 
     static {

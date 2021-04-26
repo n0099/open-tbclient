@@ -32,8 +32,8 @@ public class GlShader {
         throw new RuntimeException(GLES20.glGetProgramInfoLog(this.program));
     }
 
-    public static int compileShader(int i, String str) {
-        int glCreateShader = GLES20.glCreateShader(i);
+    public static int compileShader(int i2, String str) {
+        int glCreateShader = GLES20.glCreateShader(i2);
         if (glCreateShader == 0) {
             throw new RuntimeException("glCreateShader() failed. GLES20 error: " + GLES20.glGetError());
         }
@@ -50,9 +50,9 @@ public class GlShader {
     }
 
     public int getAttribLocation(String str) {
-        int i = this.program;
-        if (i != -1) {
-            int glGetAttribLocation = GLES20.glGetAttribLocation(i, str);
+        int i2 = this.program;
+        if (i2 != -1) {
+            int glGetAttribLocation = GLES20.glGetAttribLocation(i2, str);
             if (glGetAttribLocation >= 0) {
                 return glGetAttribLocation;
             }
@@ -62,9 +62,9 @@ public class GlShader {
     }
 
     public int getUniformLocation(String str) {
-        int i = this.program;
-        if (i != -1) {
-            int glGetUniformLocation = GLES20.glGetUniformLocation(i, str);
+        int i2 = this.program;
+        if (i2 != -1) {
+            int glGetUniformLocation = GLES20.glGetUniformLocation(i2, str);
             if (glGetUniformLocation >= 0) {
                 return glGetUniformLocation;
             }
@@ -75,33 +75,33 @@ public class GlShader {
 
     public void release() {
         Logging.d(TAG, "Deleting shader.");
-        int i = this.program;
-        if (i != -1) {
-            GLES20.glDeleteProgram(i);
+        int i2 = this.program;
+        if (i2 != -1) {
+            GLES20.glDeleteProgram(i2);
             this.program = -1;
         }
     }
 
-    public void setVertexAttribArray(String str, int i, int i2, FloatBuffer floatBuffer) {
+    public void setVertexAttribArray(String str, int i2, int i3, FloatBuffer floatBuffer) {
         if (this.program == -1) {
             throw new RuntimeException("The program has been released");
         }
         int attribLocation = getAttribLocation(str);
         GLES20.glEnableVertexAttribArray(attribLocation);
-        GLES20.glVertexAttribPointer(attribLocation, i, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i2, (Buffer) floatBuffer);
+        GLES20.glVertexAttribPointer(attribLocation, i2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i3, (Buffer) floatBuffer);
         GlUtil.checkNoGLES2Error("setVertexAttribArray");
     }
 
-    public void setVertexAttribArray(String str, int i, FloatBuffer floatBuffer) {
-        setVertexAttribArray(str, i, 0, floatBuffer);
+    public void setVertexAttribArray(String str, int i2, FloatBuffer floatBuffer) {
+        setVertexAttribArray(str, i2, 0, floatBuffer);
     }
 
     public void useProgram() {
-        int i = this.program;
-        if (i == -1) {
+        int i2 = this.program;
+        if (i2 == -1) {
             throw new RuntimeException("The program has been released");
         }
-        GLES20.glUseProgram(i);
+        GLES20.glUseProgram(i2);
         GlUtil.checkNoGLES2Error("glUseProgram");
     }
 }

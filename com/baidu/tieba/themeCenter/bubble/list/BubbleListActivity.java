@@ -5,15 +5,15 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.list.BubbleListModel;
-import d.b.i0.k0.d;
-import d.b.i0.r.f0.f;
-import d.b.j0.j3.h.e;
+import d.a.i0.k0.d;
+import d.a.i0.r.f0.f;
+import d.a.j0.j3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
-    public d.b.j0.j3.f.a.a mItemController;
+    public d.a.j0.j3.f.a.a mItemController;
     public BubbleListModel mModel;
-    public d.b.j0.j3.f.c.b mView;
+    public d.a.j0.j3.f.c.b mView;
     public BubbleListModel.c mCallback = new a();
     public BdListView.p mScrollToBottomListener = new b();
     public final f.g mOnPullRefreshListener = new c();
@@ -24,11 +24,11 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.list.BubbleListModel.c
-        public void a(int i, String str, e eVar, List<DressItemData> list) {
+        public void a(int i2, String str, e eVar, List<DressItemData> list) {
             BubbleListActivity.this.mView.j();
             BubbleListActivity bubbleListActivity = BubbleListActivity.this;
             bubbleListActivity.hideLoadingView(bubbleListActivity.mView.c());
-            if (i == 0) {
+            if (i2 == 0) {
                 BubbleListActivity.this.mView.i(eVar, list, BubbleListActivity.this.mModel.H());
                 return;
             }
@@ -55,7 +55,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         public c() {
         }
 
-        @Override // d.b.i0.r.f0.f.g
+        @Override // d.a.i0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (BubbleListActivity.this.mModel != null) {
                 BubbleListActivity.this.mModel.LoadData();
@@ -63,7 +63,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
     public String getCurrentPageKey() {
         return "b011";
     }
@@ -72,15 +72,15 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50982a = true;
+            pageStayDurationItem.f48564a = true;
         }
         return pageStayDurationItem;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        d.b.j0.j3.f.c.b bVar = this.mView;
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        d.a.j0.j3.f.c.b bVar = this.mView;
         if (bVar != null) {
             bVar.d();
         }
@@ -92,9 +92,9 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         BubbleListModel bubbleListModel = new BubbleListModel(this);
         this.mModel = bubbleListModel;
         bubbleListModel.J(this.mCallback);
-        d.b.j0.j3.f.a.a aVar = new d.b.j0.j3.f.a.a(getPageContext());
+        d.a.j0.j3.f.a.a aVar = new d.a.j0.j3.f.a.a(getPageContext());
         this.mItemController = aVar;
-        d.b.j0.j3.f.c.b bVar = new d.b.j0.j3.f.c.b(this, aVar);
+        d.a.j0.j3.f.c.b bVar = new d.a.j0.j3.f.c.b(this, aVar);
         this.mView = bVar;
         bVar.g(this.mScrollToBottomListener, this.mOnPullRefreshListener);
         showLoadingView(this.mView.c());
@@ -108,7 +108,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        d.b.j0.j3.f.c.b bVar;
+        d.a.j0.j3.f.c.b bVar;
         if (this.mModel == null || (bVar = this.mView) == null) {
             return;
         }

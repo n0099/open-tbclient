@@ -13,50 +13,50 @@ public final class LatLngBounds implements Parcelable {
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public double f7146a;
+        public double f7401a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f7147b;
+        public double f7402b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f7148c;
+        public double f7403c;
 
         /* renamed from: d  reason: collision with root package name */
-        public double f7149d;
+        public double f7404d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f7150e = true;
+        public boolean f7405e = true;
 
         public LatLngBounds build() {
-            return new LatLngBounds(new LatLng(this.f7147b, this.f7149d), new LatLng(this.f7146a, this.f7148c));
+            return new LatLngBounds(new LatLng(this.f7402b, this.f7404d), new LatLng(this.f7401a, this.f7403c));
         }
 
         public Builder include(LatLng latLng) {
             if (latLng == null) {
                 return this;
             }
-            if (this.f7150e) {
-                this.f7150e = false;
+            if (this.f7405e) {
+                this.f7405e = false;
                 double d2 = latLng.latitude;
-                this.f7146a = d2;
-                this.f7147b = d2;
+                this.f7401a = d2;
+                this.f7402b = d2;
                 double d3 = latLng.longitude;
-                this.f7148c = d3;
-                this.f7149d = d3;
+                this.f7403c = d3;
+                this.f7404d = d3;
             }
             double d4 = latLng.latitude;
             double d5 = latLng.longitude;
-            if (d4 < this.f7146a) {
-                this.f7146a = d4;
+            if (d4 < this.f7401a) {
+                this.f7401a = d4;
             }
-            if (d4 > this.f7147b) {
-                this.f7147b = d4;
+            if (d4 > this.f7402b) {
+                this.f7402b = d4;
             }
-            if (d5 < this.f7148c) {
-                this.f7148c = d5;
+            if (d5 < this.f7403c) {
+                this.f7403c = d5;
             }
-            if (d5 > this.f7149d) {
-                this.f7149d = d5;
+            if (d5 > this.f7404d) {
+                this.f7404d = d5;
             }
             return this;
         }
@@ -108,8 +108,8 @@ public final class LatLngBounds implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.northeast, i);
-        parcel.writeParcelable(this.southwest, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeParcelable(this.northeast, i2);
+        parcel.writeParcelable(this.southwest, i2);
     }
 }

@@ -37,12 +37,12 @@ public class LinkedMultiValueMap<K, V> implements MultiValueMap<K, V> {
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.MultiValueMap
-    public V getValue(K k, int i) {
+    public V getValue(K k, int i2) {
         List<V> list = this.mSource.get(k);
-        if (list == null || i >= list.size()) {
+        if (list == null || i2 >= list.size()) {
             return null;
         }
-        return list.get(i);
+        return list.get(i2);
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.MultiValueMap

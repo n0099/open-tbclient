@@ -15,14 +15,14 @@ import com.baidu.tieba.recapp.lego.view.form.FormItemBaseView;
 import com.baidu.tieba.recapp.lego.view.form.VerificationCodeView;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EditView extends FormItemBaseView {
     public String A;
     public EditText x;
     public VerificationCodeView y;
     public String z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnFocusChangeListener {
         public a() {
         }
@@ -39,7 +39,7 @@ public class EditView extends FormItemBaseView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements VerificationCodeView.c {
         public b() {
         }
@@ -50,56 +50,56 @@ public class EditView extends FormItemBaseView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements InputFilter {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f20510e;
+        public int f21054e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f20511f = "[\\u4e00-\\u9fa5]";
+        public String f21055f = "[\\u4e00-\\u9fa5]";
 
-        public c(int i) {
-            this.f20510e = i;
+        public c(int i2) {
+            this.f21054e = i2;
         }
 
         public final int a(String str) {
-            Matcher matcher = Pattern.compile(this.f20511f).matcher(str);
-            int i = 0;
+            Matcher matcher = Pattern.compile(this.f21055f).matcher(str);
+            int i2 = 0;
             while (matcher.find()) {
-                for (int i2 = 0; i2 <= matcher.groupCount(); i2++) {
-                    i++;
+                for (int i3 = 0; i3 <= matcher.groupCount(); i3++) {
+                    i2++;
                 }
             }
-            return i;
+            return i2;
         }
 
         public final boolean b(String str) {
-            return Pattern.matches(this.f20511f, str);
+            return Pattern.matches(this.f21055f, str);
         }
 
         @Override // android.text.InputFilter
-        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+        public CharSequence filter(CharSequence charSequence, int i2, int i3, Spanned spanned, int i4, int i5) {
             int length = spanned.toString().length() + a(spanned.toString());
             int length2 = charSequence.toString().length() + a(charSequence.toString());
-            int i5 = length + length2;
-            int i6 = this.f20510e;
-            if (i5 > i6) {
-                int i7 = i6 - length;
-                int i8 = 0;
+            int i6 = length + length2;
+            int i7 = this.f21054e;
+            if (i6 > i7) {
+                int i8 = i7 - length;
+                int i9 = 0;
                 String str = "";
-                while (i7 > 0) {
-                    char charAt = charSequence.charAt(i8);
+                while (i8 > 0) {
+                    char charAt = charSequence.charAt(i9);
                     if (b(charAt + "")) {
                         if (length2 >= 2) {
                             str = str + charAt;
                         }
-                        i7 -= 2;
+                        i8 -= 2;
                     } else {
                         str = str + charAt;
-                        i7--;
+                        i8--;
                     }
-                    i8++;
+                    i9++;
                 }
                 return str;
             }
@@ -130,7 +130,7 @@ public class EditView extends FormItemBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     public void e() {
-        this.x.setPadding(this.f20518g, 0, 0, 0);
+        this.x.setPadding(this.f21062g, 0, 0, 0);
         this.x.setText("");
         this.x.setGravity(19);
         this.x.setSingleLine(true);
@@ -141,51 +141,51 @@ public class EditView extends FormItemBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     public boolean g(FormCard.b bVar) {
-        int i;
+        int i2;
         if (super.g(bVar)) {
             FormCard.d dVar = (FormCard.d) bVar;
             this.x.setTextSize(0, this.n);
-            int i2 = dVar.f20423a;
-            if (i2 == 3) {
-                i = this.j;
+            int i3 = dVar.f20966a;
+            if (i3 == 3) {
+                i2 = this.j;
                 this.x.setInputType(1);
                 this.x.setFilters(new InputFilter[]{new c(20)});
-            } else if (i2 == 4) {
-                i = this.k;
+            } else if (i3 == 4) {
+                i2 = this.k;
                 this.x.setInputType(131072);
                 this.x.setFilters(new InputFilter[]{new c(100)});
                 this.x.setSingleLine(false);
                 this.x.setHorizontallyScrolling(false);
                 this.x.setGravity(51);
                 EditText editText = this.x;
-                int i3 = this.f20518g;
-                editText.setPadding(i3, i3, i3, i3);
-            } else if (i2 != 5) {
+                int i4 = this.f21062g;
+                editText.setPadding(i4, i4, i4, i4);
+            } else if (i3 != 5) {
                 return false;
             } else {
-                i = this.j;
+                i2 = this.j;
                 this.x.setInputType(2);
                 this.x.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
-                if (dVar.f20429e != null) {
+                if (dVar.f20972e != null) {
                     this.y.setVisibility(0);
                     this.y.f(this.w);
-                    this.y.g(dVar.f20429e);
+                    this.y.g(dVar.f20972e);
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.y.getLayoutParams();
-                    marginLayoutParams.topMargin = this.f20519h;
+                    marginLayoutParams.topMargin = this.f21063h;
                     marginLayoutParams.height = this.j;
                     this.y.setListener(new b());
                 }
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.x.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.height = i;
+                layoutParams.height = i2;
             } else {
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
-                layoutParams2.height = i;
+                layoutParams2.height = i2;
                 this.x.setLayoutParams(layoutParams2);
             }
-            this.x.setHint(dVar.f20424b);
-            this.z = dVar.f20428d;
+            this.x.setHint(dVar.f20967b);
+            this.z = dVar.f20971d;
             return true;
         }
         return false;
@@ -202,7 +202,7 @@ public class EditView extends FormItemBaseView {
     }
 
     public final void k() {
-        EditText editText = new EditText(this.f20516e);
+        EditText editText = new EditText(this.f21060e);
         this.x = editText;
         editText.setId(1);
         this.x.setTextSize(0, this.n);
@@ -215,9 +215,9 @@ public class EditView extends FormItemBaseView {
     }
 
     public final void l() {
-        this.y = new VerificationCodeView(this.f20516e);
+        this.y = new VerificationCodeView(this.f21060e);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.j);
-        layoutParams.topMargin = this.f20519h;
+        layoutParams.topMargin = this.f21063h;
         layoutParams.addRule(3, this.x.getId());
         addView(this.y, layoutParams);
     }
@@ -231,8 +231,8 @@ public class EditView extends FormItemBaseView {
         j();
     }
 
-    public EditView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public EditView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.x = null;
         this.y = null;
         this.z = "";

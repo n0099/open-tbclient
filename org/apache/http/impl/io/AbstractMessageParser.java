@@ -18,7 +18,7 @@ public abstract class AbstractMessageParser implements HttpMessageParser {
         throw new RuntimeException("Stub!");
     }
 
-    public static Header[] parseHeaders(SessionInputBuffer sessionInputBuffer, int i, int i2, LineParser lineParser) throws HttpException, IOException {
+    public static Header[] parseHeaders(SessionInputBuffer sessionInputBuffer, int i2, int i3, LineParser lineParser) throws HttpException, IOException {
         throw new RuntimeException("Stub!");
     }
 

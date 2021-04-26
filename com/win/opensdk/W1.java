@@ -1,15 +1,44 @@
 package com.win.opensdk;
 
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
-public final class W1 implements ThreadFactory {
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes6.dex */
+public class W1 {
+
+    /* renamed from: b  reason: collision with root package name */
+    public static W1 f37797b;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicInteger f40213a = new AtomicInteger(1);
+    public ConcurrentHashMap f37798a = new ConcurrentHashMap();
 
-    @Override // java.util.concurrent.ThreadFactory
-    public Thread newThread(Runnable runnable) {
-        return new Thread(runnable, "T#" + this.f40213a.getAndIncrement());
+    public static W1 a() {
+        if (f37797b == null) {
+            synchronized (W1.class) {
+                if (f37797b == null) {
+                    f37797b = new W1();
+                }
+            }
+        }
+        return f37797b;
+    }
+
+    public static String a(String str, String str2, String str3) {
+        if (str.length() > 16) {
+            str = str.substring(0, 16);
+        }
+        return str + str2 + str3;
+    }
+
+    public U1 a(String str) {
+        U1 u1;
+        synchronized (W1.class) {
+            u1 = (U1) this.f37798a.remove(str);
+        }
+        return u1;
+    }
+
+    public void a(String str, U1 u1) {
+        synchronized (W1.class) {
+            this.f37798a.put(str, u1);
+        }
     }
 }

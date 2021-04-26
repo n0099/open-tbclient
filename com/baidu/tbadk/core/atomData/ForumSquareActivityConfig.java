@@ -20,10 +20,10 @@ public class ForumSquareActivityConfig extends IntentConfig {
         }
     }
 
-    public void showCreateBar(int i) {
+    public void showCreateBar(int i2) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra(SHOW_CREATE_BAR, i);
+            intent.putExtra(SHOW_CREATE_BAR, i2);
         }
     }
 

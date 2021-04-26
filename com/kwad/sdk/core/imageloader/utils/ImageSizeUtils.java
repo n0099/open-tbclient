@@ -41,26 +41,26 @@ public final class ImageSizeUtils {
         int height = imageSize.getHeight();
         int width2 = imageSize2.getWidth();
         int height2 = imageSize2.getHeight();
-        int i = AnonymousClass1.$SwitchMap$com$kwad$sdk$core$imageloader$core$assist$ViewScaleType[viewScaleType.ordinal()];
-        if (i != 1) {
-            if (i != 2) {
+        int i2 = AnonymousClass1.$SwitchMap$com$kwad$sdk$core$imageloader$core$assist$ViewScaleType[viewScaleType.ordinal()];
+        if (i2 != 1) {
+            if (i2 != 2) {
                 max = 1;
             } else if (z) {
-                int i2 = width / 2;
-                int i3 = height / 2;
+                int i3 = width / 2;
+                int i4 = height / 2;
                 max = 1;
-                while (i2 / max > width2 && i3 / max > height2) {
+                while (i3 / max > width2 && i4 / max > height2) {
                     max *= 2;
                 }
             } else {
                 max = Math.min(width / width2, height / height2);
             }
         } else if (z) {
-            int i4 = width / 2;
-            int i5 = height / 2;
+            int i5 = width / 2;
+            int i6 = height / 2;
             max = 1;
             while (true) {
-                if (i4 / max <= width2 && i5 / max <= height2) {
+                if (i5 / max <= width2 && i6 / max <= height2) {
                     break;
                 }
                 max *= 2;
@@ -97,14 +97,14 @@ public final class ImageSizeUtils {
         return Math.max((int) Math.ceil(width / maxBitmapSize.getWidth()), (int) Math.ceil(height / maxBitmapSize.getHeight()));
     }
 
-    public static int considerMaxTextureSize(int i, int i2, int i3, boolean z) {
+    public static int considerMaxTextureSize(int i2, int i3, int i4, boolean z) {
         int width = maxBitmapSize.getWidth();
         int height = maxBitmapSize.getHeight();
         while (true) {
-            if (i / i3 <= width && i2 / i3 <= height) {
-                return i3;
+            if (i2 / i4 <= width && i3 / i4 <= height) {
+                return i4;
             }
-            i3 = z ? i3 * 2 : i3 + 1;
+            i4 = z ? i4 * 2 : i4 + 1;
         }
     }
 

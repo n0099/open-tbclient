@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.kwad.sdk.api.core.RequestParamsUtils;
 import com.kwad.sdk.api.core.SpeedLimitApiHolder;
+import com.kwad.sdk.api.core.TLSConnectionUtils;
 import java.io.BufferedInputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -29,7 +30,7 @@ import org.apache.http.protocol.HTTP;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f32180a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
+    public static final String f32591a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -42,14 +43,14 @@ public class h {
     public static class b implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final OutputStream f32184a;
+        public final OutputStream f32595a;
 
         public b(File file, boolean z) {
-            this.f32184a = new FileOutputStream(file, z);
+            this.f32595a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.api.loader.h.d
-        public void a(int i, Map<String, List<String>> map) {
+        public void a(int i2, Map<String, List<String>> map) {
         }
 
         @Override // com.kwad.sdk.api.loader.h.d
@@ -57,28 +58,28 @@ public class h {
         }
 
         @Override // com.kwad.sdk.api.loader.h.d
-        public void a(byte[] bArr, int i, int i2) {
-            this.f32184a.write(bArr, i, i2);
+        public void a(byte[] bArr, int i2, int i3) {
+            this.f32595a.write(bArr, i2, i3);
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            this.f32184a.close();
+            this.f32595a.close();
         }
     }
 
     /* loaded from: classes6.dex */
     public interface c {
-        boolean a(int i, int i2, Object obj);
+        boolean a(int i2, int i3, Object obj);
     }
 
     /* loaded from: classes6.dex */
     public interface d extends Closeable {
-        void a(int i, Map<String, List<String>> map);
+        void a(int i2, Map<String, List<String>> map);
 
         void a(long j);
 
-        void a(byte[] bArr, int i, int i2);
+        void a(byte[] bArr, int i2, int i3);
     }
 
     @NonNull
@@ -106,15 +107,16 @@ public class h {
         return str2 + File.separator + "ksadsdk";
     }
 
-    public static URLConnection a(String str, int i, int i2, boolean z, boolean z2) {
+    public static URLConnection a(String str, int i2, int i3, boolean z, boolean z2) {
         try {
             URLConnection openConnection = new URL(str).openConnection();
+            TLSConnectionUtils.wrapHttpURLConnection(openConnection);
             openConnection.setRequestProperty("Accept-Language", "zh-CN");
-            if (i > 0) {
-                openConnection.setConnectTimeout(i);
-            }
             if (i2 > 0) {
-                openConnection.setReadTimeout(i2);
+                openConnection.setConnectTimeout(i2);
+            }
+            if (i3 > 0) {
+                openConnection.setReadTimeout(i3);
             }
             openConnection.setUseCaches(z);
             openConnection.setDoInput(true);
@@ -163,7 +165,7 @@ public class h {
         });
     }
 
-    public static boolean a(String str, File file, c cVar, int i) {
+    public static boolean a(String str, File file, c cVar, int i2) {
         b bVar;
         b bVar2 = null;
         try {
@@ -172,7 +174,7 @@ public class h {
             th = th;
         }
         try {
-            boolean a2 = a(str, (String) null, bVar, cVar, i);
+            boolean a2 = a(str, (String) null, bVar, cVar, i2);
             a(bVar);
             return a2;
         } catch (Throwable th2) {
@@ -183,17 +185,17 @@ public class h {
         }
     }
 
-    public static boolean a(String str, String str2, d dVar, c cVar, int i) {
-        return a(str, str2, dVar, cVar, i, -1L, -1L, false);
+    public static boolean a(String str, String str2, d dVar, c cVar, int i2) {
+        return a(str, str2, dVar, cVar, i2, -1L, -1L, false);
     }
 
-    public static boolean a(String str, String str2, d dVar, c cVar, int i, long j, long j2, boolean z) {
+    public static boolean a(String str, String str2, d dVar, c cVar, int i2, long j, long j2, boolean z) {
         HttpURLConnection httpURLConnection = null;
         try {
-            HttpURLConnection httpURLConnection2 = (HttpURLConnection) a(str, 10000, i > 0 ? i : 120000, false, true);
+            HttpURLConnection httpURLConnection2 = (HttpURLConnection) a(str, 10000, i2 > 0 ? i2 : 120000, false, true);
             try {
                 if (httpURLConnection2 != null) {
-                    boolean a2 = a(httpURLConnection2, str2, dVar, cVar, i, j, j2, z);
+                    boolean a2 = a(httpURLConnection2, str2, dVar, cVar, i2, j, j2, z);
                     a(dVar);
                     if (httpURLConnection2 != null) {
                         httpURLConnection2.disconnect();
@@ -224,15 +226,15 @@ public class h {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean a(HttpURLConnection httpURLConnection, String str, d dVar, c cVar, int i, long j, long j2, boolean z) {
+    public static boolean a(HttpURLConnection httpURLConnection, String str, d dVar, c cVar, int i2, long j, long j2, boolean z) {
         Object valueOf;
         FileOutputStream fileOutputStream;
         File file;
         HashMap hashMap;
         File file2;
         InputStream inputStream = null;
-        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i2 > 0 || j2 > 0) {
+        int i3 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i3 > 0 || j2 > 0) {
             try {
                 Object[] objArr = new Object[2];
                 objArr[0] = Long.valueOf(j);
@@ -277,7 +279,7 @@ public class h {
             httpURLConnection.setRequestProperty("Host", str);
             httpURLConnection.setInstanceFollowRedirects(false);
             if (httpURLConnection.getResponseCode() == 302) {
-                boolean a2 = a(httpURLConnection.getHeaderField("Location"), (String) null, dVar, cVar, i);
+                boolean a2 = a(httpURLConnection.getHeaderField("Location"), (String) null, dVar, cVar, i2);
                 a(dVar);
                 a((Closeable) null);
                 if (httpURLConnection != null) {
@@ -311,7 +313,7 @@ public class h {
             if (contentLength <= 0) {
                 try {
                     Random random = new Random(System.currentTimeMillis());
-                    file2 = new File(f32180a, random.nextInt() + ".tmp");
+                    file2 = new File(f32591a, random.nextInt() + ".tmp");
                     try {
                         fileOutputStream = new FileOutputStream(file2);
                     } catch (Throwable th5) {
@@ -329,22 +331,22 @@ public class h {
                 }
                 try {
                     byte[] bArr = new byte[10240];
-                    int i3 = 0;
+                    int i4 = 0;
                     while (true) {
                         int read = bufferedInputStream2.read(bArr);
                         if (read == -1) {
                             break;
                         }
-                        i3 += read;
+                        i4 += read;
                         fileOutputStream.write(bArr, 0, read);
                     }
                     a(bufferedInputStream2);
                     a(fileOutputStream);
                     BufferedInputStream bufferedInputStream3 = new BufferedInputStream(new FileInputStream(file2));
                     try {
-                        hashMap.put("Content-Length", Collections.singletonList(String.valueOf(i3)));
+                        hashMap.put("Content-Length", Collections.singletonList(String.valueOf(i4)));
                         bufferedInputStream2 = bufferedInputStream3;
-                        contentLength = i3;
+                        contentLength = i4;
                         file2 = file2;
                     } catch (Throwable th7) {
                         th = th7;
@@ -364,12 +366,12 @@ public class h {
                 fileOutputStream = null;
                 file2 = null;
             }
-            int i4 = (i2 <= 0 || !z) ? 0 : (int) j;
-            int i5 = contentLength + i4;
-            dVar.a(i5);
+            int i5 = (i3 <= 0 || !z) ? 0 : (int) j;
+            int i6 = contentLength + i5;
+            dVar.a(i6);
             dVar.a(httpURLConnection.getResponseCode(), hashMap);
             if (cVar != null) {
-                cVar.a(i4, i5, null);
+                cVar.a(i5, i6, null);
             }
             byte[] bArr2 = new byte[10240];
             if (SpeedLimitApiHolder.getInstance() != null) {
@@ -380,14 +382,14 @@ public class h {
                 if (read2 == -1) {
                     break;
                 }
-                i4 += read2;
+                i5 += read2;
                 dVar.a(bArr2, 0, read2);
                 if (cVar != null) {
-                    cVar.a(i4, i5, null);
+                    cVar.a(i5, i6, null);
                 }
             }
             if (cVar != null) {
-                cVar.a(i5, i5, null);
+                cVar.a(i6, i6, null);
             }
             a(dVar);
             a(bufferedInputStream2);

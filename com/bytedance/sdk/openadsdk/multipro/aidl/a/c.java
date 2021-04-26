@@ -8,37 +8,37 @@ import java.util.HashMap;
 public class c extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, RemoteCallbackList<ICommonDialogListener>> f29506a = new HashMap<>();
+    public static HashMap<String, RemoteCallbackList<ICommonDialogListener>> f30411a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f29507b;
+    public static volatile c f30412b;
 
     public static c a() {
-        if (f29507b == null) {
+        if (f30412b == null) {
             synchronized (c.class) {
-                if (f29507b == null) {
-                    f29507b = new c();
+                if (f30412b == null) {
+                    f30412b = new c();
                 }
             }
         }
-        return f29507b;
+        return f30412b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
-    public void broadcastDialogListener(String str, int i) throws RemoteException {
-        RemoteCallbackList<ICommonDialogListener> remove = f29506a.remove(str);
+    public void broadcastDialogListener(String str, int i2) throws RemoteException {
+        RemoteCallbackList<ICommonDialogListener> remove = f30411a.remove(str);
         if (remove == null) {
             return;
         }
         int beginBroadcast = remove.beginBroadcast();
-        for (int i2 = 0; i2 < beginBroadcast; i2++) {
-            ICommonDialogListener broadcastItem = remove.getBroadcastItem(i2);
+        for (int i3 = 0; i3 < beginBroadcast; i3++) {
+            ICommonDialogListener broadcastItem = remove.getBroadcastItem(i3);
             if (broadcastItem != null) {
-                if (i == 1) {
+                if (i2 == 1) {
                     broadcastItem.onDialogBtnYes();
-                } else if (i == 2) {
+                } else if (i2 == 2) {
                     broadcastItem.onDialogBtnNo();
-                } else if (i != 3) {
+                } else if (i2 != 3) {
                     broadcastItem.onDialogCancel();
                 } else {
                     broadcastItem.onDialogCancel();
@@ -56,6 +56,6 @@ public class c extends a {
         }
         RemoteCallbackList<ICommonDialogListener> remoteCallbackList = new RemoteCallbackList<>();
         remoteCallbackList.register(iCommonDialogListener);
-        f29506a.put(str, remoteCallbackList);
+        f30411a.put(str, remoteCallbackList);
     }
 }

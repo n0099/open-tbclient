@@ -4,12 +4,14 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.R;
 /* loaded from: classes.dex */
 public class AppCompatSeekBar extends SeekBar {
     public final AppCompatSeekBarHelper mAppCompatSeekBarHelper;
 
-    public AppCompatSeekBar(Context context) {
+    public AppCompatSeekBar(@NonNull Context context) {
         this(context, null);
     }
 
@@ -31,14 +33,15 @@ public class AppCompatSeekBar extends SeekBar {
         this.mAppCompatSeekBarHelper.drawTickMarks(canvas);
     }
 
-    public AppCompatSeekBar(Context context, AttributeSet attributeSet) {
+    public AppCompatSeekBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.seekBarStyle);
     }
 
-    public AppCompatSeekBar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public AppCompatSeekBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        ThemeUtils.checkAppCompatTheme(this, getContext());
         AppCompatSeekBarHelper appCompatSeekBarHelper = new AppCompatSeekBarHelper(this);
         this.mAppCompatSeekBarHelper = appCompatSeekBarHelper;
-        appCompatSeekBarHelper.loadFromAttributes(attributeSet, i);
+        appCompatSeekBarHelper.loadFromAttributes(attributeSet, i2);
     }
 }

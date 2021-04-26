@@ -17,12 +17,12 @@ import com.baidu.tieba.lego.card.view.BaseLegoCardView;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.AdCloseView;
 import com.bumptech.glide.load.engine.GlideException;
-import d.b.c.e.p.j;
-import d.b.c.e.p.k;
-import d.b.c.e.p.l;
-import d.b.j0.s2.w;
+import d.a.c.e.p.j;
+import d.a.c.e.p.k;
+import d.a.c.e.p.l;
+import d.a.j0.s2.x;
 import tbclient.AdCloseInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public View r;
     public ViewStub s;
@@ -33,7 +33,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public LinearLayout x;
     public AdCloseView y;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -44,22 +44,22 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public AdCard f20468e;
+        public AdCard f21011e;
 
         public b(AdCard adCard) {
-            this.f20468e = adCard;
+            this.f21011e = adCard;
         }
 
         public final void a(AdvertAppInfo advertAppInfo) {
-            String scheme = this.f20468e.getScheme();
+            String scheme = this.f21011e.getScheme();
             if (k.isEmpty(scheme) && advertAppInfo != null) {
                 scheme = advertAppInfo.H3;
             }
-            int d2 = w.d(AdSimpleCardBaseView.this.m.getPageActivity(), scheme, AdSimpleCardBaseView.this.p(advertAppInfo), advertAppInfo.T3);
+            int d2 = x.d(AdSimpleCardBaseView.this.m.getPageActivity(), scheme, AdSimpleCardBaseView.this.p(advertAppInfo), advertAppInfo.T3);
             if (AdSimpleCardBaseView.this.o != null) {
                 AdSimpleCardBaseView.this.o.a(d2, null);
             }
@@ -71,7 +71,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
                 AdSimpleCardBaseView.this.m.showToast(R.string.neterror);
                 return;
             }
-            AdCard adCard = this.f20468e;
+            AdCard adCard = this.f21011e;
             if (adCard == null) {
                 return;
             }
@@ -83,7 +83,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         super(tbPageContext);
     }
 
-    public final void R(View view) {
+    public final void P(View view) {
         if (view == null || view.getVisibility() != 0) {
             return;
         }
@@ -96,9 +96,9 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         this.w.addView(view);
     }
 
-    public abstract void S(AdCard adCard);
+    public abstract void Q(AdCard adCard);
 
-    public final void T(AdvertAppInfo advertAppInfo) {
+    public final void R(AdvertAppInfo advertAppInfo) {
         AdvertAppInfo.a aVar;
         AdCloseInfo adCloseInfo;
         if (advertAppInfo != null && (aVar = advertAppInfo.U3) != null && (adCloseInfo = aVar.r) != null && adCloseInfo.support_close.intValue() > 0) {
@@ -112,21 +112,21 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         this.y.setVisibility(8);
     }
 
-    public abstract void U(View view);
+    public abstract void S(View view);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: V */
-    public void y(AdCard adCard, int i) {
+    /* renamed from: T */
+    public void x(AdCard adCard, int i2) {
         this.y.onChangeSkinType();
-        SkinManager.setViewTextColor(this.u, R.color.CAM_X0105, 1, i);
-        SkinManager.setViewTextColor(this.v, R.color.CAM_X0109, 1, i);
+        SkinManager.setViewTextColor(this.u, R.color.CAM_X0105, 1, i2);
+        SkinManager.setViewTextColor(this.v, R.color.CAM_X0109, 1, i2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: W */
-    public void z(AdCard adCard) {
+    /* renamed from: V */
+    public void y(AdCard adCard) {
         if (adCard == null) {
             return;
         }
@@ -143,10 +143,10 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
             str2 = str2 + GlideException.IndentedAppendable.INDENT;
         }
         this.v.setText(str2 + "广告");
-        R(this.x);
-        y(adCard, TbadkCoreApplication.getInst().getSkinType());
-        S(adCard);
-        T(adCard.getAdvertAppInfo());
+        P(this.x);
+        x(adCard, TbadkCoreApplication.getInst().getSkinType());
+        Q(adCard);
+        R(adCard.getAdvertAppInfo());
     }
 
     public abstract int getCustomLayout();
@@ -154,7 +154,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public abstract int getLayout();
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View v() {
+    public View u() {
         View inflate = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null);
         this.r = inflate;
         ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.ad_custom_view_stub);
@@ -162,7 +162,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         viewStub.setLayoutResource(getCustomLayout());
         View inflate2 = this.s.inflate();
         this.t = inflate2;
-        U(inflate2);
+        S(inflate2);
         this.u = (TextView) this.r.findViewById(R.id.ad_title);
         this.v = (TextView) this.r.findViewById(R.id.advert_app_name);
         this.w = (FrameLayout) this.r.findViewById(R.id.btn_pb_card_bottom_op_more_container);

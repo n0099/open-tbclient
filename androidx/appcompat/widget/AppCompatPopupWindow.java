@@ -20,13 +20,13 @@ public class AppCompatPopupWindow extends PopupWindow {
         COMPAT_OVERLAP_ANCHOR = Build.VERSION.SDK_INT < 21;
     }
 
-    public AppCompatPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
-        super(context, attributeSet, i);
-        init(context, attributeSet, i, 0);
+    public AppCompatPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i2) {
+        super(context, attributeSet, i2);
+        init(context, attributeSet, i2, 0);
     }
 
-    private void init(Context context, AttributeSet attributeSet, int i, int i2) {
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.PopupWindow, i, i2);
+    private void init(Context context, AttributeSet attributeSet, int i2, int i3) {
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.PopupWindow, i2, i3);
         if (obtainStyledAttributes.hasValue(R.styleable.PopupWindow_overlapAnchor)) {
             setSupportOverlapAnchor(obtainStyledAttributes.getBoolean(R.styleable.PopupWindow_overlapAnchor, false));
         }
@@ -43,31 +43,31 @@ public class AppCompatPopupWindow extends PopupWindow {
     }
 
     @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view, int i, int i2) {
+    public void showAsDropDown(View view, int i2, int i3) {
         if (COMPAT_OVERLAP_ANCHOR && this.mOverlapAnchor) {
-            i2 -= view.getHeight();
+            i3 -= view.getHeight();
         }
-        super.showAsDropDown(view, i, i2);
+        super.showAsDropDown(view, i2, i3);
     }
 
     @Override // android.widget.PopupWindow
-    public void update(View view, int i, int i2, int i3, int i4) {
+    public void update(View view, int i2, int i3, int i4, int i5) {
         if (COMPAT_OVERLAP_ANCHOR && this.mOverlapAnchor) {
-            i2 -= view.getHeight();
+            i3 -= view.getHeight();
         }
-        super.update(view, i, i2, i3, i4);
+        super.update(view, i2, i3, i4, i5);
     }
 
-    public AppCompatPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
-        super(context, attributeSet, i, i2);
-        init(context, attributeSet, i, i2);
+    public AppCompatPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i2, @StyleRes int i3) {
+        super(context, attributeSet, i2, i3);
+        init(context, attributeSet, i2, i3);
     }
 
     @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view, int i, int i2, int i3) {
+    public void showAsDropDown(View view, int i2, int i3, int i4) {
         if (COMPAT_OVERLAP_ANCHOR && this.mOverlapAnchor) {
-            i2 -= view.getHeight();
+            i3 -= view.getHeight();
         }
-        super.showAsDropDown(view, i, i2, i3);
+        super.showAsDropDown(view, i2, i3, i4);
     }
 }

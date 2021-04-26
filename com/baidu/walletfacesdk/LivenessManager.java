@@ -21,7 +21,7 @@ public class LivenessManager {
         public static final int RESULT_FAIL = 1;
         public static final int RESULT_SUCC = 0;
 
-        void onResult(int i, int i2, String str, Object obj);
+        void onResult(int i2, int i3, String str, Object obj);
     }
 
     public LivenessManager(Context context, boolean z, String str) {
@@ -47,9 +47,9 @@ public class LivenessManager {
         paramsWap.attributes.put(PASSMethodCallTransfer.ParamsWap.BDUSS, "bduss");
         pASSMethodCallTransfer.dynamicCallMethod(BaiduRIM.getInstance(), new Object[]{this.mContext, paramsWap, new RimServiceCallback() { // from class: com.baidu.walletfacesdk.LivenessManager.1
             @Override // com.baidu.fsg.api.RimServiceCallback
-            public void onResult(int i, Map<String, Object> map2) {
+            public void onResult(int i2, Map<String, Object> map2) {
                 IvoiceListener ivoiceListener2;
-                if (i == 0) {
+                if (i2 == 0) {
                     IvoiceListener ivoiceListener3 = ivoiceListener;
                     if (ivoiceListener3 != null) {
                         ivoiceListener3.onResult(0, 0, "ok", LivenessManager.this.toJSONObject(map2));
@@ -61,21 +61,21 @@ public class LivenessManager {
             }
         }}, "accessRimService", new PASSMethodCallTransfer.DynamicCallbak() { // from class: com.baidu.walletfacesdk.LivenessManager.2
             @Override // com.baidu.sapi2.openbduss.PASSMethodCallTransfer.DynamicCallbak
-            public void onFailure(int i, String str) {
-                int i2;
+            public void onFailure(int i2, String str) {
+                int i3;
                 String str2;
-                PayStatisticsUtil.onEventWithValue("callNativeVoiceTransferFail", String.valueOf(i));
-                if (i == -1001) {
-                    i2 = 101;
+                PayStatisticsUtil.onEventWithValue("callNativeVoiceTransferFail", String.valueOf(i2));
+                if (i2 == -1001) {
+                    i3 = 101;
                     str2 = "请重新登录！";
-                } else if (i == -1003) {
-                    i2 = 10001;
+                } else if (i2 == -1003) {
+                    i3 = 10001;
                     str2 = "参数非法";
                 } else {
-                    i2 = 10003;
+                    i3 = 10003;
                     str2 = "内部错误";
                 }
-                ivoiceListener.onResult(1, i2, str2, null);
+                ivoiceListener.onResult(1, i3, str2, null);
             }
         }, Context.class, Map.class, RimServiceCallback.class);
     }

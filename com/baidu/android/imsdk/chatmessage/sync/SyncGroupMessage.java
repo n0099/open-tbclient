@@ -45,9 +45,9 @@ public class SyncGroupMessage extends SyncStrategy {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public void onComplete(int i) {
+    public void onComplete(int i2) {
         String str = TAG;
-        LogUtils.d(str, "SYNCGROUP complete code is " + i);
+        LogUtils.d(str, "SYNCGROUP complete code is " + i2);
         SyncStrategy.CompleteListener completeListener = this.completeListener;
         if (completeListener != null) {
             completeListener.onComplete(this.mDialogRecord);

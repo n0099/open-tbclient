@@ -2,12 +2,12 @@ package com.tencent.open.web.security;
 
 import com.tencent.open.a;
 import com.tencent.open.a.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SecureJsInterface extends a.b {
     public static boolean isPWDEdit = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39724a;
+    public String f37326a;
 
     public void clearAllEdit() {
         f.c("openSDK_LOG.SecureJsInterface", "-->clear all edit.");
@@ -20,28 +20,28 @@ public class SecureJsInterface extends a.b {
     }
 
     public void curPosFromJS(String str) {
-        int i;
+        int i2;
         f.b("openSDK_LOG.SecureJsInterface", "-->curPosFromJS: " + str);
         try {
-            i = Integer.parseInt(str);
+            i2 = Integer.parseInt(str);
         } catch (NumberFormatException e2) {
             f.b("openSDK_LOG.SecureJsInterface", "-->curPosFromJS number format exception.", e2);
-            i = -1;
+            i2 = -1;
         }
-        if (i >= 0) {
-            boolean z = a.f39727c;
-            boolean z2 = a.f39726b;
+        if (i2 >= 0) {
+            boolean z = a.f37329c;
+            boolean z2 = a.f37328b;
             if (z2) {
-                if (Boolean.valueOf(JniInterface.BackSpaceChar(z2, i)).booleanValue()) {
-                    a.f39726b = false;
+                if (Boolean.valueOf(JniInterface.BackSpaceChar(z2, i2)).booleanValue()) {
+                    a.f37328b = false;
                     return;
                 }
                 return;
             }
-            String str2 = a.f39725a;
-            this.f39724a = str2;
-            JniInterface.insetTextToArray(i, str2, str2.length());
-            f.a("openSDK_LOG.SecureJsInterface", "curPosFromJS mKey: " + this.f39724a);
+            String str2 = a.f37327a;
+            this.f37326a = str2;
+            JniInterface.insetTextToArray(i2, str2, str2.length());
+            f.a("openSDK_LOG.SecureJsInterface", "curPosFromJS mKey: " + this.f37326a);
             return;
         }
         throw new RuntimeException("position is illegal.");
@@ -65,20 +65,20 @@ public class SecureJsInterface extends a.b {
     }
 
     public void isPasswordEdit(String str) {
-        int i;
+        int i2;
         f.c("openSDK_LOG.SecureJsInterface", "-->is pswd edit, flag: " + str);
         try {
-            i = Integer.parseInt(str);
+            i2 = Integer.parseInt(str);
         } catch (Exception e2) {
             f.e("openSDK_LOG.SecureJsInterface", "-->is pswd edit exception: " + e2.getMessage());
-            i = -1;
+            i2 = -1;
         }
-        if (i != 0 && i != 1) {
+        if (i2 != 0 && i2 != 1) {
             throw new RuntimeException("is pswd edit flag is illegal.");
         }
-        if (i == 0) {
+        if (i2 == 0) {
             isPWDEdit = false;
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             isPWDEdit = true;
         }
     }

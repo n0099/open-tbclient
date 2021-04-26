@@ -11,7 +11,7 @@ import android.widget.AbsListView;
 import android.widget.Scroller;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tieba.R$styleable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BdPersonListView extends BdTypeListView {
     public static int i0 = 1;
     public final Context N;
@@ -33,31 +33,31 @@ public class BdPersonListView extends BdTypeListView {
     public boolean g0;
     public boolean h0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void a();
+        void a(float f2);
 
-        void b(float f2);
+        void b();
 
         void onRefresh();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f19935a;
+        public int f20439a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f19936b;
+        public int f20440b;
 
-        public b(int i, int i2, int i3, int i4) {
-            this.f19935a = i2;
-            this.f19936b = i4;
+        public b(int i2, int i3, int i4, int i5) {
+            this.f20439a = i3;
+            this.f20440b = i5;
         }
 
         public int a(float f2) {
-            return (int) (this.f19935a + (f2 / 2.5f));
+            return (int) (this.f20439a + (f2 / 2.5f));
         }
     }
 
@@ -77,7 +77,7 @@ public class BdPersonListView extends BdTypeListView {
     }
 
     public final void I(float f2) {
-        this.e0.b(360.0f - ((f2 * 360.0f) / this.d0));
+        this.e0.a(360.0f - ((f2 * 360.0f) / this.d0));
     }
 
     public void J() {
@@ -91,13 +91,13 @@ public class BdPersonListView extends BdTypeListView {
         if (this.U == null) {
             return;
         }
-        if (this.Q.getHeight() >= this.U.f19936b - (this.d0 / 2)) {
+        if (this.Q.getHeight() >= this.U.f20440b - (this.d0 / 2)) {
             J();
         } else {
-            this.e0.a();
+            this.e0.b();
         }
-        this.O.startScroll(0, this.Q.getHeight(), 0, this.U.f19935a - this.Q.getHeight(), 200);
-        this.P.startScroll(0, this.R.getHeight(), 0, this.V.f19935a - this.R.getHeight(), 200);
+        this.O.startScroll(0, this.Q.getHeight(), 0, this.U.f20439a - this.Q.getHeight(), 200);
+        this.P.startScroll(0, this.R.getHeight(), 0, this.V.f20439a - this.R.getHeight(), 200);
         invalidate();
         this.W = false;
     }
@@ -144,7 +144,7 @@ public class BdPersonListView extends BdTypeListView {
                             if (this.Q.getParent() == this && this.U != null && this.Q.isShown() && this.Q.getTop() >= 0 && Math.abs(f4) >= this.c0 && Math.abs(f3) < this.c0) {
                                 int a2 = this.U.a(this.T - this.S);
                                 b bVar = this.U;
-                                if (a2 > bVar.f19935a && a2 <= bVar.f19936b) {
+                                if (a2 > bVar.f20439a && a2 <= bVar.f20440b) {
                                     this.W = true;
                                     this.Q.setLayoutParams(new AbsListView.LayoutParams(this.Q.getWidth(), a2));
                                     if (this.R != null) {
@@ -155,12 +155,12 @@ public class BdPersonListView extends BdTypeListView {
                                             this.R.setLayoutParams(layoutParams);
                                         }
                                     }
-                                    I(a2 - this.U.f19935a);
+                                    I(a2 - this.U.f20439a);
                                 } else {
                                     b bVar2 = this.U;
-                                    if (a2 <= bVar2.f19935a) {
+                                    if (a2 <= bVar2.f20439a) {
                                         this.W = false;
-                                    } else if (a2 > bVar2.f19936b) {
+                                    } else if (a2 > bVar2.f20440b) {
                                         this.W = true;
                                     } else {
                                         this.W = false;
@@ -177,7 +177,7 @@ public class BdPersonListView extends BdTypeListView {
                             return true;
                         }
                     } else {
-                        this.e0.a();
+                        this.e0.b();
                     }
                 } else {
                     int height = this.Q.getHeight();

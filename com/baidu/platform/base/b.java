@@ -6,33 +6,33 @@ import com.baidu.mapapi.http.HttpClient;
 public class b extends HttpClient.ProtoResultCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f9371a;
+    public final /* synthetic */ d f9722a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Object f9372b;
+    public final /* synthetic */ Object f9723b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ a f9373c;
+    public final /* synthetic */ a f9724c;
 
     public b(a aVar, d dVar, Object obj) {
-        this.f9373c = aVar;
-        this.f9371a = dVar;
-        this.f9372b = obj;
+        this.f9724c = aVar;
+        this.f9722a = dVar;
+        this.f9723b = obj;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
-        this.f9373c.a(httpStateError, this.f9371a, this.f9372b);
+        this.f9724c.a(httpStateError, this.f9722a, this.f9723b);
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onSuccess(String str) {
         AsyncHttpClient asyncHttpClient;
-        this.f9373c.a(str);
-        a aVar = this.f9373c;
-        d dVar = this.f9371a;
-        Object obj = this.f9372b;
-        asyncHttpClient = aVar.f9367b;
+        this.f9724c.a(str);
+        a aVar = this.f9724c;
+        d dVar = this.f9722a;
+        Object obj = this.f9723b;
+        asyncHttpClient = aVar.f9718b;
         aVar.a(str, dVar, obj, asyncHttpClient, this);
     }
 }

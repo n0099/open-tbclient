@@ -6,12 +6,10 @@ public enum LoginShareStrategy {
     DISABLED("disabled"),
     CHOICE("choice");
     
-
-    /* renamed from: a  reason: collision with root package name */
-    public String f11075a;
+    public String mStrValue;
 
     LoginShareStrategy(String str) {
-        this.f11075a = str;
+        this.mStrValue = str;
     }
 
     public static LoginShareStrategy getDefault() {
@@ -32,6 +30,6 @@ public enum LoginShareStrategy {
     }
 
     public String getStrValue() {
-        return this.f11075a;
+        return this.mStrValue;
     }
 }

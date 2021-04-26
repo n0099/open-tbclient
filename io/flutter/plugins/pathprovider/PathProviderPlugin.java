@@ -5,10 +5,10 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.NonNull;
-import d.h.c.i.a.f;
-import d.h.c.i.a.g;
-import d.h.c.i.a.q;
-import d.h.c.i.a.r;
+import d.g.c.i.a.f;
+import d.g.c.i.a.g;
+import d.g.c.i.a.q;
+import d.g.c.i.a.r;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -60,12 +60,12 @@ public class PathProviderPlugin implements FlutterPlugin, MethodChannel.MethodCa
     private <T> void executeInBackground(final Callable<T> callable, final MethodChannel.Result result) {
         final q F = q.F();
         g.a(F, new f<T>() { // from class: io.flutter.plugins.pathprovider.PathProviderPlugin.1
-            @Override // d.h.c.i.a.f
+            @Override // d.g.c.i.a.f
             public void onFailure(Throwable th) {
                 result.error(th.getClass().getName(), th.getMessage(), null);
             }
 
-            @Override // d.h.c.i.a.f
+            @Override // d.g.c.i.a.f
             public void onSuccess(T t) {
                 result.success(t);
             }

@@ -70,21 +70,21 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
         AbsListView.OnScrollListener onScrollListener = this.B;
         if (onScrollListener != null) {
-            onScrollListener.onScroll(absListView, i, i2, i3);
+            onScrollListener.onScroll(absListView, i2, i3, i4);
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (v() && O() && ((i == 0 || i == 2) && u())) {
+    public void onScrollStateChanged(AbsListView absListView, int i2) {
+        if (v() && O() && ((i2 == 0 || i2 == 2) && u())) {
             K();
         }
         AbsListView.OnScrollListener onScrollListener = this.B;
         if (onScrollListener != null) {
-            onScrollListener.onScrollStateChanged(absListView, i);
+            onScrollListener.onScrollStateChanged(absListView, i2);
         }
     }
 

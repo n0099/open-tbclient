@@ -9,14 +9,14 @@ public enum DownloadStatus {
     
     public final int status;
 
-    DownloadStatus(int i) {
-        this.status = i;
+    DownloadStatus(int i2) {
+        this.status = i2;
     }
 
-    public static DownloadStatus parse(int i) {
+    public static DownloadStatus parse(int i2) {
         DownloadStatus[] values;
         for (DownloadStatus downloadStatus : values()) {
-            if (downloadStatus.ordinal() == i) {
+            if (downloadStatus.ordinal() == i2) {
                 return downloadStatus;
             }
         }

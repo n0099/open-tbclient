@@ -34,4 +34,9 @@ public abstract class PropertyReference1 extends PropertyReference implements KP
     public KProperty1.Getter getGetter() {
         return ((KProperty1) getReflected()).getGetter();
     }
+
+    @SinceKotlin(version = "1.4")
+    public PropertyReference1(Object obj, Class cls, String str, String str2, int i2) {
+        super(obj, cls, str, str2, i2);
+    }
 }

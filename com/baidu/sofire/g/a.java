@@ -13,8 +13,8 @@ public final class a {
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
-            for (int i = 0; i < 16; i++) {
-                bArr3[i] = 0;
+            for (int i2 = 0; i2 < 16; i2++) {
+                bArr3[i2] = 0;
             }
             cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
             byte[] doFinal = cipher.doFinal(bArr2);
@@ -34,8 +34,8 @@ public final class a {
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
-            for (int i = 0; i < 16; i++) {
-                bArr3[i] = 0;
+            for (int i2 = 0; i2 < 16; i2++) {
+                bArr3[i2] = 0;
             }
             cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
             return cipher.doFinal(bArr2);
@@ -62,8 +62,8 @@ public final class a {
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
-            for (int i = 0; i < 16; i++) {
-                bArr3[i] = 0;
+            for (int i2 = 0; i2 < 16; i2++) {
+                bArr3[i2] = 0;
             }
             cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
             if (z) {

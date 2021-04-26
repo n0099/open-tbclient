@@ -29,8 +29,8 @@ public final class a {
                 if (jSONObject2.has("ar_resource_urls")) {
                     JSONArray jSONArray = jSONObject2.getJSONArray("ar_resource_urls");
                     String[] strArr = new String[jSONArray.length()];
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        strArr[i] = jSONArray.getString(i);
+                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                        strArr[i2] = jSONArray.getString(i2);
                     }
                     bVar.a(strArr);
                 }

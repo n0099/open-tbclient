@@ -26,16 +26,16 @@ public class VoiceMsgData extends OrmObject implements Serializable {
         return this.voice_md5;
     }
 
-    public void setDuring_time(int i) {
-        this.during_time = i;
+    public void setDuring_time(int i2) {
+        this.during_time = i2;
     }
 
-    public void setHas_read(int i) {
-        this.has_read = i;
+    public void setHas_read(int i2) {
+        this.has_read = i2;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 
     public void setVoice_md5(String str) {

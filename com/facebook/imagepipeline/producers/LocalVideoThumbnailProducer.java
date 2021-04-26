@@ -38,17 +38,17 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
 
     /* JADX INFO: Access modifiers changed from: private */
     public Bitmap baiduAppCreateVideoThumbnail(ImageRequest imageRequest) {
-        int i;
+        int i2;
         ResizeOptions resizeOptions = imageRequest.getResizeOptions();
-        int i2 = 0;
+        int i3 = 0;
         if (resizeOptions != null) {
-            i2 = resizeOptions.width;
-            i = resizeOptions.height;
+            i3 = resizeOptions.width;
+            i2 = resizeOptions.height;
         } else {
-            i = 0;
+            i2 = 0;
         }
-        if (i2 > 0 && i > 0) {
-            return createExtractVideoThumbnail(getLocalFilePath(imageRequest), i2, i);
+        if (i3 > 0 && i2 > 0) {
+            return createExtractVideoThumbnail(getLocalFilePath(imageRequest), i3, i2);
         }
         return ThumbnailUtils.createVideoThumbnail(getLocalFilePath(imageRequest), calculateKind(imageRequest));
     }
@@ -60,7 +60,7 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0006 */
     /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.lang.RuntimeException */
     /* JADX WARN: Multi-variable type inference failed */
-    private Bitmap createExtractVideoThumbnail(String str, int i, int i2) {
+    private Bitmap createExtractVideoThumbnail(String str, int i2, int i3) {
         Bitmap bitmap;
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
@@ -87,7 +87,7 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
             if (bitmap == null) {
                 return null;
             }
-            return ThumbnailUtils.extractThumbnail(bitmap, i, i2);
+            return ThumbnailUtils.extractThumbnail(bitmap, i2, i3);
         } catch (Throwable th) {
             try {
                 mediaMetadataRetriever.release();

@@ -7,10 +7,10 @@ import com.baidu.platform.comjni.jninative.tts.WNaviTTSPlayer;
 public class a extends com.baidu.platform.comapi.wnplatform.m.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f9384a = null;
+    public c f9735a = null;
 
     public int b() {
-        c cVar = this.f9384a;
+        c cVar = this.f9735a;
         if (cVar != null) {
             return cVar.b();
         }
@@ -18,7 +18,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.m.a {
     }
 
     public void c() {
-        c cVar = this.f9384a;
+        c cVar = this.f9735a;
         if (cVar != null) {
             cVar.c();
         }
@@ -35,31 +35,31 @@ public class a extends com.baidu.platform.comapi.wnplatform.m.a {
     public void release() {
         c();
         WNaviTTSPlayer.setTTSPlayerListener(null);
-        this.f9384a = null;
+        this.f9735a = null;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.m.a
     public void a(c cVar) {
-        this.f9384a = cVar;
+        this.f9735a = cVar;
     }
 
     public void a() {
-        c cVar = this.f9384a;
+        c cVar = this.f9735a;
         if (cVar != null) {
             cVar.a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int a(String str, int i) {
-        if (com.baidu.platform.comapi.walknavi.b.f9453a == com.baidu.platform.comapi.walknavi.b.a().r()) {
+    public int a(String str, int i2) {
+        if (com.baidu.platform.comapi.walknavi.b.f9807a == com.baidu.platform.comapi.walknavi.b.a().r()) {
             return a(str, false);
         }
-        if (com.baidu.platform.comapi.walknavi.b.f9454b == com.baidu.platform.comapi.walknavi.b.a().r()) {
-            if (i == 1) {
+        if (com.baidu.platform.comapi.walknavi.b.f9808b == com.baidu.platform.comapi.walknavi.b.a().r()) {
+            if (i2 == 1) {
                 i.a().b(com.baidu.platform.comapi.wnplatform.e.a.a().b());
                 return 1;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 i.a().c(com.baidu.platform.comapi.wnplatform.e.a.a().c());
                 return 1;
             } else if (i.a().b()) {
@@ -72,7 +72,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.m.a {
     }
 
     public int a(String str, boolean z) {
-        c cVar = this.f9384a;
+        c cVar = this.f9735a;
         if (cVar != null) {
             return cVar.a(str, z);
         }

@@ -12,7 +12,7 @@ public final class CharsetsKt {
     @InlineOnly
     public static final Charset charset(String str) {
         Charset forName = Charset.forName(str);
-        Intrinsics.checkExpressionValueIsNotNull(forName, "Charset.forName(charsetName)");
+        Intrinsics.checkNotNullExpressionValue(forName, "Charset.forName(charsetName)");
         return forName;
     }
 }

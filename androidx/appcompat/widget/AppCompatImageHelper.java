@@ -11,16 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.view.ViewCompat;
 import androidx.core.widget.ImageViewCompat;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class AppCompatImageHelper {
     public TintInfo mImageTint;
     public TintInfo mInternalImageTint;
     public TintInfo mTmpInfo;
+    @NonNull
     public final ImageView mView;
 
-    public AppCompatImageHelper(ImageView imageView) {
+    public AppCompatImageHelper(@NonNull ImageView imageView) {
         this.mView = imageView;
     }
 
@@ -48,8 +50,8 @@ public class AppCompatImageHelper {
     }
 
     private boolean shouldApplyFrameworkTintUsingColorFilter() {
-        int i = Build.VERSION.SDK_INT;
-        return i > 21 ? this.mInternalImageTint != null : i == 21;
+        int i2 = Build.VERSION.SDK_INT;
+        return i2 > 21 ? this.mInternalImageTint != null : i2 == 21;
     }
 
     public void applySupportImageTint() {
@@ -93,9 +95,11 @@ public class AppCompatImageHelper {
         return Build.VERSION.SDK_INT < 21 || !(this.mView.getBackground() instanceof RippleDrawable);
     }
 
-    public void loadFromAttributes(AttributeSet attributeSet, int i) {
+    public void loadFromAttributes(AttributeSet attributeSet, int i2) {
         int resourceId;
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.AppCompatImageView, i, 0);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.AppCompatImageView, i2, 0);
+        ImageView imageView = this.mView;
+        ViewCompat.saveAttributeDataForStyleable(imageView, imageView.getContext(), R.styleable.AppCompatImageView, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i2, 0);
         try {
             Drawable drawable = this.mView.getDrawable();
             if (drawable == null && (resourceId = obtainStyledAttributes.getResourceId(R.styleable.AppCompatImageView_srcCompat, -1)) != -1 && (drawable = AppCompatResources.getDrawable(this.mView.getContext(), resourceId)) != null) {
@@ -115,9 +119,9 @@ public class AppCompatImageHelper {
         }
     }
 
-    public void setImageResource(int i) {
-        if (i != 0) {
-            Drawable drawable = AppCompatResources.getDrawable(this.mView.getContext(), i);
+    public void setImageResource(int i2) {
+        if (i2 != 0) {
+            Drawable drawable = AppCompatResources.getDrawable(this.mView.getContext(), i2);
             if (drawable != null) {
                 DrawableUtils.fixDrawable(drawable);
             }

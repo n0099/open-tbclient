@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.k;
-import d.b.c.e.p.l;
-import d.b.i0.r.s.a;
+import d.a.c.e.p.k;
+import d.a.c.e.p.l;
+import d.a.i0.r.s.a;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
@@ -31,19 +31,21 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
     public static final Pattern n = Pattern.compile("[?|&]order_id=(\\w+)&+");
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseWebView f15307e;
+    public BaseWebView f15449e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f15308f;
+    public NavigationBar f15450f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15309g;
+    public String f15451g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f15310h;
-    public String i;
+    public String f15452h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f15453i;
     public int j;
-    public d.b.i0.r.s.a k;
+    public d.a.i0.r.s.a k;
     public final Handler l = new Handler();
     public final Runnable m = new a();
 
@@ -54,9 +56,9 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
 
         @Override // java.lang.Runnable
         public void run() {
-            String guessUrl = URLUtil.guessUrl(FaceBuyWebViewActivity.this.f15309g);
+            String guessUrl = URLUtil.guessUrl(FaceBuyWebViewActivity.this.f15451g);
             if (URLUtil.isNetworkUrl(guessUrl)) {
-                FaceBuyWebViewActivity.this.f15307e.loadUrl(guessUrl);
+                FaceBuyWebViewActivity.this.f15449e.loadUrl(guessUrl);
             }
         }
     }
@@ -77,8 +79,8 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
         public c() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             aVar.dismiss();
             FaceBuyWebViewActivity.this.closeActivity();
         }
@@ -89,8 +91,8 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
         public d() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -102,7 +104,7 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
 
     public void j() {
         try {
-            d.b.i0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
+            d.a.i0.r.l.a.b().d(TbadkCoreApplication.getCurrentBduss());
             CookieSyncManager.createInstance(getPageContext().getContext());
             CookieManager.getInstance().setAcceptCookie(true);
             CookieSyncManager.getInstance().sync();
@@ -113,37 +115,37 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
 
     public final void k(Bundle bundle) {
         if (bundle != null) {
-            this.f15309g = bundle.getString(WebViewActivityConfig.TAG_URL);
-            this.f15310h = bundle.getString("tag_hook_url");
-            this.i = bundle.getString(WebViewActivityConfig.TAG_TITLE);
+            this.f15451g = bundle.getString(WebViewActivityConfig.TAG_URL);
+            this.f15452h = bundle.getString("tag_hook_url");
+            this.f15453i = bundle.getString(WebViewActivityConfig.TAG_TITLE);
             this.j = bundle.getInt("tag_position");
         } else {
-            this.f15309g = getIntent().getStringExtra(WebViewActivityConfig.TAG_URL);
-            this.f15310h = getIntent().getStringExtra("tag_hook_url");
-            this.i = getIntent().getStringExtra(WebViewActivityConfig.TAG_TITLE);
+            this.f15451g = getIntent().getStringExtra(WebViewActivityConfig.TAG_URL);
+            this.f15452h = getIntent().getStringExtra("tag_hook_url");
+            this.f15453i = getIntent().getStringExtra(WebViewActivityConfig.TAG_TITLE);
             this.j = getIntent().getIntExtra("tag_position", -1);
         }
-        this.f15308f.setTitleText(this.i);
+        this.f15450f.setTitleText(this.f15453i);
         this.l.postDelayed(this.m, 150L);
     }
 
     public final void l() {
         setContentView(R.layout.face_buy_webview_activity);
         ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.top_view)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + l.g(getActivity(), R.dimen.ds98);
-        this.f15307e = (BaseWebView) findViewById(R.id.webview);
+        this.f15449e = (BaseWebView) findViewById(R.id.webview);
         NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.f15308f = navigationBar;
+        this.f15450f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b());
-        this.f15308f.setTitleText("");
-        this.f15307e.setOnLoadUrlListener(this);
-        this.f15307e.setOnPageFinishedListener(this);
-        this.f15307e.setOnPageStartedListener(this);
-        this.f15307e.setHorizontalScrollBarEnabled(false);
+        this.f15450f.setTitleText("");
+        this.f15449e.setOnLoadUrlListener(this);
+        this.f15449e.setOnPageFinishedListener(this);
+        this.f15449e.setOnPageStartedListener(this);
+        this.f15449e.setHorizontalScrollBarEnabled(false);
     }
 
     public final void m() {
         if (this.k == null) {
-            d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(getPageContext().getPageActivity());
+            d.a.i0.r.s.a aVar = new d.a.i0.r.s.a(getPageContext().getPageActivity());
             this.k = aVar;
             aVar.setTitle(R.string.inform);
             this.k.setCancelable(false);
@@ -156,15 +158,15 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        NavigationBar navigationBar = this.f15308f;
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        NavigationBar navigationBar = this.f15450f;
         if (navigationBar != null) {
-            navigationBar.onChangeSkinType(getPageContext(), i);
+            navigationBar.onChangeSkinType(getPageContext(), i2);
         }
-        BaseWebView baseWebView = this.f15307e;
+        BaseWebView baseWebView = this.f15449e;
         if (baseWebView != null) {
-            SkinManager.setBgColor(baseWebView, i);
+            SkinManager.setBgColor(baseWebView, i2);
         }
     }
 
@@ -183,12 +185,12 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (i2 == 4) {
             m();
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.e
@@ -209,17 +211,17 @@ public class FaceBuyWebViewActivity extends ProxyAdkBaseActivity<FaceBuyWebViewA
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString(WebViewActivityConfig.TAG_URL, this.f15309g);
-        bundle.putString("tag_hook_url", this.f15310h);
-        bundle.putString(WebViewActivityConfig.TAG_TITLE, this.i);
+        bundle.putString(WebViewActivityConfig.TAG_URL, this.f15451g);
+        bundle.putString("tag_hook_url", this.f15452h);
+        bundle.putString(WebViewActivityConfig.TAG_TITLE, this.f15453i);
         bundle.putInt("tag_position", this.j);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if (str != null && !k.isEmpty(str) && !k.isEmpty(this.f15310h)) {
+        if (str != null && !k.isEmpty(str) && !k.isEmpty(this.f15452h)) {
             String lowerCase = str.toLowerCase();
-            if (lowerCase.contains(this.f15310h.toLowerCase())) {
+            if (lowerCase.contains(this.f15452h.toLowerCase())) {
                 Matcher matcher = n.matcher(str);
                 if (matcher.find()) {
                     try {

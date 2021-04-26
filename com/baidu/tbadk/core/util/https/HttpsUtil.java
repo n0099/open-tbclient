@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util.https;
 import android.text.TextUtils;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.wallet.core.Domains;
-import d.b.i0.s.c.y;
+import d.a.i0.s.c.y;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.KeyManagementException;
@@ -196,20 +196,20 @@ public class HttpsUtil {
                 KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
                 keyStore.load(null);
                 int length = inputStreamArr.length;
-                int i = 0;
                 int i2 = 0;
-                while (i < length) {
-                    InputStream inputStream = inputStreamArr[i];
-                    int i3 = i2 + 1;
-                    keyStore.setCertificateEntry(Integer.toString(i2), certificateFactory.generateCertificate(inputStream));
+                int i3 = 0;
+                while (i2 < length) {
+                    InputStream inputStream = inputStreamArr[i2];
+                    int i4 = i3 + 1;
+                    keyStore.setCertificateEntry(Integer.toString(i3), certificateFactory.generateCertificate(inputStream));
                     if (inputStream != null) {
                         try {
                             inputStream.close();
                         } catch (IOException unused) {
                         }
                     }
-                    i++;
-                    i2 = i3;
+                    i2++;
+                    i3 = i4;
                 }
                 TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
                 trustManagerFactory.init(keyStore);

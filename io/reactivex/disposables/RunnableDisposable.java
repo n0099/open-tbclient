@@ -2,6 +2,7 @@ package io.reactivex.disposables;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
+import io.reactivex.annotations.NonNull;
 /* loaded from: classes7.dex */
 public final class RunnableDisposable extends ReferenceDisposable<Runnable> {
     public static final long serialVersionUID = -8219729196779211169L;
@@ -17,7 +18,7 @@ public final class RunnableDisposable extends ReferenceDisposable<Runnable> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // io.reactivex.disposables.ReferenceDisposable
-    public void onDisposed(Runnable runnable) {
+    public void onDisposed(@NonNull Runnable runnable) {
         runnable.run();
     }
 }

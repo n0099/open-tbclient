@@ -21,22 +21,22 @@ import java.net.URISyntaxException;
 public final class b extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f26564a = {"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
+    public final String[] f27371a = {"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
 
     private boolean a(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            String[] strArr = this.f26564a;
-            if (i >= strArr.length) {
+            String[] strArr = this.f27371a;
+            if (i2 >= strArr.length) {
                 return false;
             }
-            if (str.startsWith(strArr[i])) {
+            if (str.startsWith(strArr[i2])) {
                 return true;
             }
-            i++;
+            i2++;
         }
     }
 

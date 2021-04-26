@@ -7,8 +7,8 @@ public class PoiIndoorOption {
     public int currentPage = 0;
     public int pageSize = 10;
 
-    public PoiIndoorOption poiCurrentPage(int i) {
-        this.currentPage = i;
+    public PoiIndoorOption poiCurrentPage(int i2) {
+        this.currentPage = i2;
         return this;
     }
 
@@ -27,8 +27,8 @@ public class PoiIndoorOption {
         return this;
     }
 
-    public PoiIndoorOption poiPageSize(int i) {
-        this.pageSize = i;
+    public PoiIndoorOption poiPageSize(int i2) {
+        this.pageSize = i2;
         return this;
     }
 }

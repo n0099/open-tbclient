@@ -15,26 +15,26 @@ import java.util.concurrent.LinkedBlockingQueue;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<String> f29872a = new ArrayList();
+    public final List<String> f30785a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.e.b f29873b = new com.bytedance.sdk.openadsdk.preload.geckox.e.b();
+    public com.bytedance.sdk.openadsdk.preload.geckox.e.b f30786b = new com.bytedance.sdk.openadsdk.preload.geckox.e.b();
 
     /* renamed from: c  reason: collision with root package name */
-    public Queue<String> f29874c = new LinkedBlockingQueue();
+    public Queue<String> f30787c = new LinkedBlockingQueue();
 
     /* renamed from: d  reason: collision with root package name */
-    public b f29875d;
+    public b f30788d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f29876e;
+    public File f30789e;
 
     public a(b bVar) {
-        this.f29875d = bVar;
+        this.f30788d = bVar;
         File m = bVar.m();
-        this.f29876e = m;
+        this.f30789e = m;
         m.mkdirs();
-        c.a(this, this.f29875d);
+        c.a(this, this.f30788d);
     }
 
     public static a a(b bVar) {
@@ -51,7 +51,7 @@ public final class a {
 
     private boolean b(Map<String, List<CheckRequestBodyModel.TargetChannel>> map) {
         if (map != null && !map.isEmpty()) {
-            List<String> e2 = this.f29875d.e();
+            List<String> e2 = this.f30788d.e();
             for (Map.Entry<String, List<CheckRequestBodyModel.TargetChannel>> entry : map.entrySet()) {
                 boolean z = false;
                 for (String str : e2) {
@@ -70,7 +70,7 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         ArrayList arrayList = new ArrayList();
-        arrayList.addAll(this.f29875d.e());
+        arrayList.addAll(this.f30788d.e());
         a(com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(new com.bytedance.sdk.openadsdk.preload.geckox.k.a.a(arrayList)), 100);
     }
 
@@ -82,20 +82,20 @@ public final class a {
         if (!TextUtils.isEmpty(str)) {
             if (a()) {
                 if (b(map2)) {
-                    this.f29875d.g().execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.a.1
+                    this.f30788d.g().execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.a.1
                         @Override // java.lang.Runnable
                         public void run() {
                             com.bytedance.sdk.openadsdk.preload.geckox.a.a.b bVar;
                             com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "start check update...", str);
-                            if (a.this.f29875d.b() != null) {
-                                bVar = a.this.f29875d.b().a();
-                                bVar.a(a.this.f29875d.b(), a.this.f29875d.m(), a.this.f29875d.e());
+                            if (a.this.f30788d.b() != null) {
+                                bVar = a.this.f30788d.b().a();
+                                bVar.a(a.this.f30788d.b(), a.this.f30788d.m(), a.this.f30788d.e());
                             } else {
                                 bVar = null;
                             }
                             try {
                                 try {
-                                    com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "update finished", com.bytedance.sdk.openadsdk.preload.geckox.j.a.a(aVar, a.this.f29876e, a.this.f29875d, a.this.f29873b, map, map2, str).a((com.bytedance.sdk.openadsdk.preload.b.b<Object>) str));
+                                    com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "update finished", com.bytedance.sdk.openadsdk.preload.geckox.j.a.a(aVar, a.this.f30789e, a.this.f30788d, a.this.f30786b, map, map2, str).a((com.bytedance.sdk.openadsdk.preload.b.b<Object>) str));
                                     com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar2 = aVar;
                                     if (aVar2 != null) {
                                         aVar2.a();
@@ -139,8 +139,8 @@ public final class a {
     }
 
     private boolean a() {
-        List<String> d2 = this.f29875d.d();
-        List<String> e2 = this.f29875d.e();
+        List<String> d2 = this.f30788d.d();
+        List<String> e2 = this.f30788d.e();
         if (d2 == null || d2.isEmpty() || e2 == null || e2.isEmpty()) {
             return false;
         }
@@ -159,14 +159,14 @@ public final class a {
     }
 
     public void a(Class<? extends d<?, ?>> cls, com.bytedance.sdk.openadsdk.preload.b.b.a aVar) {
-        this.f29873b.a(cls, aVar);
+        this.f30786b.a(cls, aVar);
     }
 
-    private void a(String str, int i) {
-        if (this.f29875d.o() != null && this.f29875d.o().a()) {
-            this.f29875d.o().a(str, i);
-        } else if (this.f29874c.size() < 10) {
-            this.f29874c.add(str);
+    private void a(String str, int i2) {
+        if (this.f30788d.o() != null && this.f30788d.o().a()) {
+            this.f30788d.o().a(str, i2);
+        } else if (this.f30787c.size() < 10) {
+            this.f30787c.add(str);
         }
     }
 }

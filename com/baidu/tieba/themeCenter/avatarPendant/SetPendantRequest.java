@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.avatarPendant;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.SetPendant.DataReq;
 import tbclient.SetPendant.SetPendantReqIdl;
 /* loaded from: classes5.dex */
@@ -40,15 +40,15 @@ public class SetPendantRequest extends NetMessage {
         return this.type;
     }
 
-    public void setFreeUseLevel(int i) {
-        this.freeUseLevel = i;
+    public void setFreeUseLevel(int i2) {
+        this.freeUseLevel = i2;
     }
 
     public void setPendantId(long j) {
         this.pendantId = j;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 }

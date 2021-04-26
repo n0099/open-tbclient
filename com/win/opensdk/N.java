@@ -1,80 +1,100 @@
 package com.win.opensdk;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import com.win.opensdk.core.Info;
-import com.win.opensdk.downloader.WDownLoadService;
-import org.json.JSONException;
-/* loaded from: classes7.dex */
-public class N {
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+/* loaded from: classes6.dex */
+public final class N extends AsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Info f40108a;
+    public O f37709a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ WDownLoadService f40109b;
+    public final /* synthetic */ File f37710b;
 
-    public N(WDownLoadService wDownLoadService, Info info) {
-        this.f40109b = wDownLoadService;
-        this.f40108a = info;
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ Bitmap f37711c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ Bitmap.CompressFormat f37712d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ i f37713e;
+
+    public N(File file, Bitmap bitmap, Bitmap.CompressFormat compressFormat, i iVar) {
+        this.f37710b = file;
+        this.f37711c = bitmap;
+        this.f37712d = compressFormat;
+        this.f37713e = iVar;
     }
 
-    public void a() {
-        new Handler(Looper.getMainLooper()).post(new M(this));
-        H.f40058d.f40061c = false;
-        a1.a(this.f40109b.getApplicationContext()).a(new b1(this.f40108a), 2).a();
-        Info info = this.f40108a;
-        WDownLoadService wDownLoadService = this.f40109b;
-        wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.wdownload_failed), this.f40109b.getString(R.string.wdownload_failed_msg), 0);
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0040 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // android.os.AsyncTask
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public Object doInBackground(Object[] objArr) {
+        IOException e2;
+        FileOutputStream fileOutputStream;
+        Void[] voidArr = (Void[]) objArr;
+        FileOutputStream fileOutputStream2 = null;
         try {
-            WDownLoadService.a(this.f40109b);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-        this.f40109b.stopSelf();
-    }
-
-    public void b() {
-        H.f40058d.f40061c = false;
-        a1.a(this.f40109b.getApplicationContext()).a(new b1(this.f40108a), 200).a();
-        Info info = this.f40108a;
-        try {
-            G.a(info, 301, "");
-            if (info != null && !TextUtils.isEmpty(info.getVv_downf_urls())) {
-                G.i(info.getVv_downf_urls());
+            try {
+                fileOutputStream = new FileOutputStream(this.f37710b);
+                try {
+                    try {
+                        this.f37711c.compress(this.f37712d, 100, fileOutputStream);
+                        fileOutputStream.flush();
+                        fileOutputStream.close();
+                    } catch (IOException e3) {
+                        e2 = e3;
+                        this.f37709a = new O(e2);
+                        cancel(true);
+                        if (fileOutputStream != null) {
+                            fileOutputStream.flush();
+                            fileOutputStream.close();
+                        }
+                        return null;
+                    }
+                } catch (Throwable th) {
+                    FileOutputStream fileOutputStream3 = fileOutputStream;
+                    th = th;
+                    fileOutputStream2 = fileOutputStream3;
+                    if (fileOutputStream2 != null) {
+                        try {
+                            fileOutputStream2.flush();
+                            fileOutputStream2.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+            } catch (IOException e5) {
+                e5.printStackTrace();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (IOException e6) {
+            e2 = e6;
+            fileOutputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (fileOutputStream2 != null) {
+            }
+            throw th;
         }
-        WDownLoadService.a(this.f40109b, this.f40108a);
-        this.f40109b.stopSelf();
-        Z0 a2 = a1.a(this.f40109b.getApplicationContext());
-        b1 b1Var = new b1(this.f40108a);
-        String str = this.f40109b.f40305a;
-        try {
-            a2.f40234b = a1.a("witr", b1Var);
-            a2.a("msg", a1.a(str));
-        } catch (JSONException unused) {
-        }
-        a2.a();
-        G.b(this.f40108a, this.f40109b.getApplicationContext(), this.f40109b.f40305a);
+        return null;
     }
 
-    public void c() {
-        H.f40058d.f40061c = false;
-        Info info = this.f40108a;
-        WDownLoadService wDownLoadService = this.f40109b;
-        wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.wdownload_failed), this.f40109b.getString(R.string.wdownload_failed_msg), 0);
-        WDownLoadService.a(this.f40109b);
-        this.f40109b.stopSelf();
-        a1.a(this.f40109b.getApplicationContext()).a(new b1(this.f40108a), 1).a();
+    @Override // android.os.AsyncTask
+    public void onCancelled() {
+        this.f37713e.a();
     }
 
-    public void a(int i) {
-        H.f40058d.f40061c = true;
-        Info info = this.f40108a;
-        WDownLoadService wDownLoadService = this.f40109b;
-        wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.wdownload_processing), this.f40109b.getString(R.string.wdownload_processing), i);
+    @Override // android.os.AsyncTask
+    public void onPostExecute(Object obj) {
+        Void r1 = (Void) obj;
+        this.f37713e.b();
     }
 }

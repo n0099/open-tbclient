@@ -16,16 +16,16 @@ public final class g extends Handler {
     @Override // android.os.Handler
     public final void handleMessage(Message message) {
         f fVar = (f) message.obj;
-        int i = message.what;
-        if (i != 1) {
-            if (i != 2) {
+        int i2 = message.what;
+        if (i2 != 1) {
+            if (i2 != 2) {
                 return;
             }
-            fVar.f38821a.a((Object[]) fVar.f38822b);
+            fVar.f36402a.a((Object[]) fVar.f36403b);
             return;
         }
-        c cVar = fVar.f38821a;
-        Object obj = fVar.f38822b[0];
-        cVar.f38816f.get();
+        c cVar = fVar.f36402a;
+        Object obj = fVar.f36403b[0];
+        cVar.f36397f.get();
     }
 }

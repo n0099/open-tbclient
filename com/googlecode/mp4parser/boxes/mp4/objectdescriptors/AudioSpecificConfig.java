@@ -123,7 +123,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
         return readBits == 31 ? bitReaderBuffer.readBits(6) + 32 : readBits;
     }
 
-    private void parseErHvxcConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
+    private void parseErHvxcConfig(int i2, int i3, int i4, BitReaderBuffer bitReaderBuffer) throws IOException {
         this.hvxcVarMode = bitReaderBuffer.readBits(1);
         this.hvxcRateMode = bitReaderBuffer.readBits(2);
         int readBits = bitReaderBuffer.readBits(1);
@@ -133,7 +133,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
         }
     }
 
-    private void parseGaSpecificConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
+    private void parseGaSpecificConfig(int i2, int i3, int i4, BitReaderBuffer bitReaderBuffer) throws IOException {
         this.frameLengthFlag = bitReaderBuffer.readBits(1);
         int readBits = bitReaderBuffer.readBits(1);
         this.dependsOnCoreCoder = readBits;
@@ -141,16 +141,16 @@ public class AudioSpecificConfig extends BaseDescriptor {
             this.coreCoderDelay = bitReaderBuffer.readBits(14);
         }
         this.extensionFlag = bitReaderBuffer.readBits(1);
-        if (i2 != 0) {
-            if (i3 == 6 || i3 == 20) {
+        if (i3 != 0) {
+            if (i4 == 6 || i4 == 20) {
                 this.layerNr = bitReaderBuffer.readBits(3);
             }
             if (this.extensionFlag == 1) {
-                if (i3 == 22) {
+                if (i4 == 22) {
                     this.numOfSubFrame = bitReaderBuffer.readBits(5);
                     this.layer_length = bitReaderBuffer.readBits(11);
                 }
-                if (i3 == 17 || i3 == 19 || i3 == 20 || i3 == 23) {
+                if (i4 == 17 || i4 == 19 || i4 == 20 || i4 == 23) {
                     this.aacSectionDataResilienceFlag = bitReaderBuffer.readBits(1);
                     this.aacScalefactorDataResilienceFlag = bitReaderBuffer.readBits(1);
                     this.aacSpectralDataResilienceFlag = bitReaderBuffer.readBits(1);
@@ -163,7 +163,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
         throw new UnsupportedOperationException("can't parse program_config_element yet");
     }
 
-    private void parseHilnConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
+    private void parseHilnConfig(int i2, int i3, int i4, BitReaderBuffer bitReaderBuffer) throws IOException {
         this.hilnQuantMode = bitReaderBuffer.readBits(1);
         this.hilnMaxNumLine = bitReaderBuffer.readBits(8);
         this.hilnSampleRateCode = bitReaderBuffer.readBits(4);
@@ -171,7 +171,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
         this.hilnContMode = bitReaderBuffer.readBits(2);
     }
 
-    private void parseHilnEnexConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
+    private void parseHilnEnexConfig(int i2, int i3, int i4, BitReaderBuffer bitReaderBuffer) throws IOException {
         int readBits = bitReaderBuffer.readBits(1);
         this.hilnEnhaLayer = readBits;
         if (readBits == 1) {
@@ -179,26 +179,26 @@ public class AudioSpecificConfig extends BaseDescriptor {
         }
     }
 
-    private void parseParaConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
+    private void parseParaConfig(int i2, int i3, int i4, BitReaderBuffer bitReaderBuffer) throws IOException {
         int readBits = bitReaderBuffer.readBits(2);
         this.paraMode = readBits;
         if (readBits != 1) {
-            parseErHvxcConfig(i, i2, i3, bitReaderBuffer);
+            parseErHvxcConfig(i2, i3, i4, bitReaderBuffer);
         }
         if (this.paraMode != 0) {
-            parseHilnConfig(i, i2, i3, bitReaderBuffer);
+            parseHilnConfig(i2, i3, i4, bitReaderBuffer);
         }
         this.paraExtensionFlag = bitReaderBuffer.readBits(1);
         this.parametricSpecificConfig = true;
     }
 
-    private void parseParametricSpecificConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
+    private void parseParametricSpecificConfig(int i2, int i3, int i4, BitReaderBuffer bitReaderBuffer) throws IOException {
         int readBits = bitReaderBuffer.readBits(1);
         this.isBaseLayer = readBits;
         if (readBits == 1) {
-            parseParaConfig(i, i2, i3, bitReaderBuffer);
+            parseParaConfig(i2, i3, i4, bitReaderBuffer);
         } else {
-            parseHilnEnexConfig(i, i2, i3, bitReaderBuffer);
+            parseHilnEnexConfig(i2, i3, i4, bitReaderBuffer);
         }
     }
 
@@ -230,8 +230,8 @@ public class AudioSpecificConfig extends BaseDescriptor {
     }
 
     public int getSamplingFrequency() {
-        int i = this.samplingFrequencyIndex;
-        return i == 15 ? this.samplingFrequency : samplingFrequencyIndexMap.get(Integer.valueOf(i)).intValue();
+        int i2 = this.samplingFrequencyIndex;
+        return i2 == 15 ? this.samplingFrequency : samplingFrequencyIndexMap.get(Integer.valueOf(i2)).intValue();
     }
 
     public int getSbrPresentFlag() {
@@ -260,8 +260,8 @@ public class AudioSpecificConfig extends BaseDescriptor {
             this.samplingFrequency = bitReaderBuffer.readBits(24);
         }
         this.channelConfiguration = bitReaderBuffer.readBits(4);
-        int i = this.audioObjectType;
-        if (i != 5 && i != 29) {
+        int i2 = this.audioObjectType;
+        if (i2 != 5 && i2 != 29) {
             this.extensionAudioObjectType = 0;
         } else {
             this.extensionAudioObjectType = 5;
@@ -280,8 +280,8 @@ public class AudioSpecificConfig extends BaseDescriptor {
                 this.extensionChannelConfiguration = bitReaderBuffer.readBits(4);
             }
         }
-        int i2 = this.audioObjectType;
-        switch (i2) {
+        int i3 = this.audioObjectType;
+        switch (i3) {
             case 1:
             case 2:
             case 3:
@@ -294,7 +294,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
             case 21:
             case 22:
             case 23:
-                parseGaSpecificConfig(this.samplingFrequencyIndex, this.channelConfiguration, i2, bitReaderBuffer);
+                parseGaSpecificConfig(this.samplingFrequencyIndex, this.channelConfiguration, i3, bitReaderBuffer);
                 break;
             case 8:
                 throw new UnsupportedOperationException("can't parse CelpSpecificConfig yet");
@@ -313,7 +313,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
                 throw new UnsupportedOperationException("can't parse ErrorResilientHvxcSpecificConfig yet");
             case 26:
             case 27:
-                parseParametricSpecificConfig(this.samplingFrequencyIndex, this.channelConfiguration, i2, bitReaderBuffer);
+                parseParametricSpecificConfig(this.samplingFrequencyIndex, this.channelConfiguration, i3, bitReaderBuffer);
                 break;
             case 28:
                 throw new UnsupportedOperationException("can't parse SSCSpecificConfig yet");
@@ -338,9 +338,9 @@ public class AudioSpecificConfig extends BaseDescriptor {
             case 41:
                 throw new UnsupportedOperationException("can't parse SymbolicMusicSpecificConfig yet");
         }
-        int i3 = this.audioObjectType;
-        if (i3 != 17 && i3 != 39) {
-            switch (i3) {
+        int i4 = this.audioObjectType;
+        if (i4 != 17 && i4 != 39) {
+            switch (i4) {
                 case 19:
                 case 20:
                 case 21:
@@ -435,20 +435,20 @@ public class AudioSpecificConfig extends BaseDescriptor {
         throw new UnsupportedOperationException("can't serialize that yet");
     }
 
-    public void setAudioObjectType(int i) {
-        this.audioObjectType = i;
+    public void setAudioObjectType(int i2) {
+        this.audioObjectType = i2;
     }
 
-    public void setChannelConfiguration(int i) {
-        this.channelConfiguration = i;
+    public void setChannelConfiguration(int i2) {
+        this.channelConfiguration = i2;
     }
 
-    public void setSamplingFrequency(int i) {
-        this.samplingFrequency = i;
+    public void setSamplingFrequency(int i2) {
+        this.samplingFrequency = i2;
     }
 
-    public void setSamplingFrequencyIndex(int i) {
-        this.samplingFrequencyIndex = i;
+    public void setSamplingFrequencyIndex(int i2) {
+        this.samplingFrequencyIndex = i2;
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor

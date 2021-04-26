@@ -9,7 +9,7 @@ import java.util.List;
 public class a {
     public static boolean a(@NonNull Throwable th) {
         ArrayList arrayList = new ArrayList(5);
-        for (int i = 0; i < 5; i++) {
+        for (int i2 = 0; i2 < 5; i2++) {
             arrayList.add(th.getStackTrace());
             th = th.getCause();
             if (th == null) {

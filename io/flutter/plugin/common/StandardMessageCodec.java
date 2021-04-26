@@ -43,10 +43,10 @@ public class StandardMessageCodec implements MessageCodec<Object> {
         UTF8 = Charset.forName(StringUtils.UTF8);
     }
 
-    public static final void readAlignment(ByteBuffer byteBuffer, int i) {
-        int position = byteBuffer.position() % i;
+    public static final void readAlignment(ByteBuffer byteBuffer, int i2) {
+        int position = byteBuffer.position() % i2;
         if (position != 0) {
-            byteBuffer.position((byteBuffer.position() + i) - position);
+            byteBuffer.position((byteBuffer.position() + i2) - position);
         }
     }
 
@@ -58,11 +58,11 @@ public class StandardMessageCodec implements MessageCodec<Object> {
 
     public static final int readSize(ByteBuffer byteBuffer) {
         if (byteBuffer.hasRemaining()) {
-            int i = byteBuffer.get() & 255;
-            if (i < 254) {
-                return i;
+            int i2 = byteBuffer.get() & 255;
+            if (i2 < 254) {
+                return i2;
             }
-            if (i == 254) {
+            if (i2 == 254) {
                 return byteBuffer.getChar();
             }
             return byteBuffer.getInt();
@@ -70,10 +70,10 @@ public class StandardMessageCodec implements MessageCodec<Object> {
         throw new IllegalArgumentException("Message corrupted");
     }
 
-    public static final void writeAlignment(ByteArrayOutputStream byteArrayOutputStream, int i) {
-        int size = byteArrayOutputStream.size() % i;
+    public static final void writeAlignment(ByteArrayOutputStream byteArrayOutputStream, int i2) {
+        int size = byteArrayOutputStream.size() % i2;
         if (size != 0) {
-            for (int i2 = 0; i2 < i - size; i2++) {
+            for (int i3 = 0; i3 < i2 - size; i3++) {
                 byteArrayOutputStream.write(0);
             }
         }
@@ -84,32 +84,32 @@ public class StandardMessageCodec implements MessageCodec<Object> {
         byteArrayOutputStream.write(bArr, 0, bArr.length);
     }
 
-    public static final void writeChar(ByteArrayOutputStream byteArrayOutputStream, int i) {
+    public static final void writeChar(ByteArrayOutputStream byteArrayOutputStream, int i2) {
         if (LITTLE_ENDIAN) {
-            byteArrayOutputStream.write(i);
-            byteArrayOutputStream.write(i >>> 8);
+            byteArrayOutputStream.write(i2);
+            byteArrayOutputStream.write(i2 >>> 8);
             return;
         }
-        byteArrayOutputStream.write(i >>> 8);
-        byteArrayOutputStream.write(i);
+        byteArrayOutputStream.write(i2 >>> 8);
+        byteArrayOutputStream.write(i2);
     }
 
     public static final void writeDouble(ByteArrayOutputStream byteArrayOutputStream, double d2) {
         writeLong(byteArrayOutputStream, Double.doubleToLongBits(d2));
     }
 
-    public static final void writeInt(ByteArrayOutputStream byteArrayOutputStream, int i) {
+    public static final void writeInt(ByteArrayOutputStream byteArrayOutputStream, int i2) {
         if (LITTLE_ENDIAN) {
-            byteArrayOutputStream.write(i);
-            byteArrayOutputStream.write(i >>> 8);
-            byteArrayOutputStream.write(i >>> 16);
-            byteArrayOutputStream.write(i >>> 24);
+            byteArrayOutputStream.write(i2);
+            byteArrayOutputStream.write(i2 >>> 8);
+            byteArrayOutputStream.write(i2 >>> 16);
+            byteArrayOutputStream.write(i2 >>> 24);
             return;
         }
-        byteArrayOutputStream.write(i >>> 24);
-        byteArrayOutputStream.write(i >>> 16);
-        byteArrayOutputStream.write(i >>> 8);
-        byteArrayOutputStream.write(i);
+        byteArrayOutputStream.write(i2 >>> 24);
+        byteArrayOutputStream.write(i2 >>> 16);
+        byteArrayOutputStream.write(i2 >>> 8);
+        byteArrayOutputStream.write(i2);
     }
 
     public static final void writeLong(ByteArrayOutputStream byteArrayOutputStream, long j) {
@@ -134,15 +134,15 @@ public class StandardMessageCodec implements MessageCodec<Object> {
         byteArrayOutputStream.write((byte) j);
     }
 
-    public static final void writeSize(ByteArrayOutputStream byteArrayOutputStream, int i) {
-        if (i < 254) {
-            byteArrayOutputStream.write(i);
-        } else if (i <= 65535) {
+    public static final void writeSize(ByteArrayOutputStream byteArrayOutputStream, int i2) {
+        if (i2 < 254) {
+            byteArrayOutputStream.write(i2);
+        } else if (i2 <= 65535) {
             byteArrayOutputStream.write(254);
-            writeChar(byteArrayOutputStream, i);
+            writeChar(byteArrayOutputStream, i2);
         } else {
             byteArrayOutputStream.write(255);
-            writeInt(byteArrayOutputStream, i);
+            writeInt(byteArrayOutputStream, i2);
         }
     }
 
@@ -180,7 +180,7 @@ public class StandardMessageCodec implements MessageCodec<Object> {
 
     public Object readValueOfType(byte b2, ByteBuffer byteBuffer) {
         long[] jArr;
-        int i = 0;
+        int i2 = 0;
         switch (b2) {
             case 0:
                 return null;
@@ -227,17 +227,17 @@ public class StandardMessageCodec implements MessageCodec<Object> {
             case 12:
                 int readSize4 = readSize(byteBuffer);
                 ArrayList arrayList = new ArrayList(readSize4);
-                while (i < readSize4) {
+                while (i2 < readSize4) {
                     arrayList.add(readValue(byteBuffer));
-                    i++;
+                    i2++;
                 }
                 return arrayList;
             case 13:
                 int readSize5 = readSize(byteBuffer);
                 HashMap hashMap = new HashMap();
-                while (i < readSize5) {
+                while (i2 < readSize5) {
                     hashMap.put(readValue(byteBuffer), readValue(byteBuffer));
-                    i++;
+                    i2++;
                 }
                 return hashMap;
             default:
@@ -247,7 +247,7 @@ public class StandardMessageCodec implements MessageCodec<Object> {
     }
 
     public void writeValue(ByteArrayOutputStream byteArrayOutputStream, Object obj) {
-        int i = 0;
+        int i2 = 0;
         if (obj != null && !obj.equals(null)) {
             if (obj == Boolean.TRUE) {
                 byteArrayOutputStream.write(1);
@@ -292,9 +292,9 @@ public class StandardMessageCodec implements MessageCodec<Object> {
                 writeSize(byteArrayOutputStream, iArr.length);
                 writeAlignment(byteArrayOutputStream, 4);
                 int length = iArr.length;
-                while (i < length) {
-                    writeInt(byteArrayOutputStream, iArr[i]);
-                    i++;
+                while (i2 < length) {
+                    writeInt(byteArrayOutputStream, iArr[i2]);
+                    i2++;
                 }
                 return;
             } else if (obj instanceof long[]) {
@@ -303,9 +303,9 @@ public class StandardMessageCodec implements MessageCodec<Object> {
                 writeSize(byteArrayOutputStream, jArr.length);
                 writeAlignment(byteArrayOutputStream, 8);
                 int length2 = jArr.length;
-                while (i < length2) {
-                    writeLong(byteArrayOutputStream, jArr[i]);
-                    i++;
+                while (i2 < length2) {
+                    writeLong(byteArrayOutputStream, jArr[i2]);
+                    i2++;
                 }
                 return;
             } else if (obj instanceof double[]) {
@@ -314,9 +314,9 @@ public class StandardMessageCodec implements MessageCodec<Object> {
                 writeSize(byteArrayOutputStream, dArr.length);
                 writeAlignment(byteArrayOutputStream, 8);
                 int length3 = dArr.length;
-                while (i < length3) {
-                    writeDouble(byteArrayOutputStream, dArr[i]);
-                    i++;
+                while (i2 < length3) {
+                    writeDouble(byteArrayOutputStream, dArr[i2]);
+                    i2++;
                 }
                 return;
             } else if (obj instanceof List) {

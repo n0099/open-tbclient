@@ -73,10 +73,10 @@ public final class m {
         return bitmap;
     }
 
-    public static StateListDrawable a(int i) {
+    public static StateListDrawable a(int i2) {
         StateListDrawable stateListDrawable = new StateListDrawable();
         ColorDrawable colorDrawable = new ColorDrawable(-15066598);
-        stateListDrawable.addState(new int[]{16842919}, new ColorDrawable(i));
+        stateListDrawable.addState(new int[]{16842919}, new ColorDrawable(i2));
         stateListDrawable.addState(new int[0], colorDrawable);
         return stateListDrawable;
     }
@@ -205,7 +205,7 @@ public final class m {
     public static Bitmap c(Context context) {
         Throwable th;
         InputStream inputStream;
-        Bitmap bitmap = com.baidu.ufosdk.b.f22601g;
+        Bitmap bitmap = com.baidu.ufosdk.b.f23303g;
         if (bitmap != null) {
             return bitmap;
         }

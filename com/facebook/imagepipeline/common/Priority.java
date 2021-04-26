@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.common;
 
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public enum Priority {
     LOW,
     MEDIUM,

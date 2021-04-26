@@ -15,80 +15,82 @@ public class HybridADSetting implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public final HybridADSetting[] newArray(int i) {
-            return new HybridADSetting[i];
+        public final HybridADSetting[] newArray(int i2) {
+            return new HybridADSetting[i2];
         }
     };
     public static final int TYPE_REWARD_VIDEO = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38483a;
+    public int f36051a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38484b;
+    public int f36052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38485c;
+    public int f36053c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38486d;
+    public int f36054d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38487e;
+    public int f36055e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38488f;
+    public String f36056f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f38489g;
+    public String f36057g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f38490h;
-    public int i;
+    public String f36058h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f36059i;
     public int j;
 
     public HybridADSetting() {
-        this.f38483a = 1;
-        this.f38484b = 44;
-        this.f38485c = -1;
-        this.f38486d = -14013133;
-        this.f38487e = 16;
-        this.i = -1776153;
+        this.f36051a = 1;
+        this.f36052b = 44;
+        this.f36053c = -1;
+        this.f36054d = -14013133;
+        this.f36055e = 16;
+        this.f36059i = -1776153;
         this.j = 16;
     }
 
     public HybridADSetting(Parcel parcel) {
-        this.f38483a = 1;
-        this.f38484b = 44;
-        this.f38485c = -1;
-        this.f38486d = -14013133;
-        this.f38487e = 16;
-        this.i = -1776153;
+        this.f36051a = 1;
+        this.f36052b = 44;
+        this.f36053c = -1;
+        this.f36054d = -14013133;
+        this.f36055e = 16;
+        this.f36059i = -1776153;
         this.j = 16;
-        this.f38483a = parcel.readInt();
-        this.f38484b = parcel.readInt();
-        this.f38485c = parcel.readInt();
-        this.f38486d = parcel.readInt();
-        this.f38487e = parcel.readInt();
-        this.f38488f = parcel.readString();
-        this.f38489g = parcel.readString();
-        this.f38490h = parcel.readString();
-        this.i = parcel.readInt();
+        this.f36051a = parcel.readInt();
+        this.f36052b = parcel.readInt();
+        this.f36053c = parcel.readInt();
+        this.f36054d = parcel.readInt();
+        this.f36055e = parcel.readInt();
+        this.f36056f = parcel.readString();
+        this.f36057g = parcel.readString();
+        this.f36058h = parcel.readString();
+        this.f36059i = parcel.readInt();
         this.j = parcel.readInt();
     }
 
     public HybridADSetting backButtonImage(String str) {
-        this.f38489g = str;
+        this.f36057g = str;
         return this;
     }
 
-    public HybridADSetting backSeparatorLength(int i) {
-        this.j = i;
+    public HybridADSetting backSeparatorLength(int i2) {
+        this.j = i2;
         return this;
     }
 
     public HybridADSetting closeButtonImage(String str) {
-        this.f38490h = str;
+        this.f36058h = str;
         return this;
     }
 
@@ -98,7 +100,7 @@ public class HybridADSetting implements Parcelable {
     }
 
     public String getBackButtonImage() {
-        return this.f38489g;
+        return this.f36057g;
     }
 
     public int getBackSeparatorLength() {
@@ -106,83 +108,83 @@ public class HybridADSetting implements Parcelable {
     }
 
     public String getCloseButtonImage() {
-        return this.f38490h;
+        return this.f36058h;
     }
 
     public int getSeparatorColor() {
-        return this.i;
+        return this.f36059i;
     }
 
     public String getTitle() {
-        return this.f38488f;
+        return this.f36056f;
     }
 
     public int getTitleBarColor() {
-        return this.f38485c;
+        return this.f36053c;
     }
 
     public int getTitleBarHeight() {
-        return this.f38484b;
+        return this.f36052b;
     }
 
     public int getTitleColor() {
-        return this.f38486d;
+        return this.f36054d;
     }
 
     public int getTitleSize() {
-        return this.f38487e;
+        return this.f36055e;
     }
 
     public int getType() {
-        return this.f38483a;
+        return this.f36051a;
     }
 
-    public HybridADSetting separatorColor(int i) {
-        this.i = i;
+    public HybridADSetting separatorColor(int i2) {
+        this.f36059i = i2;
         return this;
     }
 
     public HybridADSetting title(String str) {
-        this.f38488f = str;
+        this.f36056f = str;
         return this;
     }
 
-    public HybridADSetting titleBarColor(int i) {
-        this.f38485c = i;
+    public HybridADSetting titleBarColor(int i2) {
+        this.f36053c = i2;
         return this;
     }
 
-    public HybridADSetting titleBarHeight(int i) {
-        this.f38484b = i;
+    public HybridADSetting titleBarHeight(int i2) {
+        this.f36052b = i2;
         return this;
     }
 
-    public HybridADSetting titleColor(int i) {
-        this.f38486d = i;
+    public HybridADSetting titleColor(int i2) {
+        this.f36054d = i2;
         return this;
     }
 
-    public HybridADSetting titleSize(int i) {
-        this.f38487e = i;
+    public HybridADSetting titleSize(int i2) {
+        this.f36055e = i2;
         return this;
     }
 
-    public HybridADSetting type(int i) {
-        this.f38483a = i;
+    public HybridADSetting type(int i2) {
+        this.f36051a = i2;
         return this;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f38483a);
-        parcel.writeInt(this.f38484b);
-        parcel.writeInt(this.f38485c);
-        parcel.writeInt(this.f38486d);
-        parcel.writeInt(this.f38487e);
-        parcel.writeString(this.f38488f);
-        parcel.writeString(this.f38489g);
-        parcel.writeString(this.f38490h);
-        parcel.writeInt(this.i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeInt(this.f36051a);
+        parcel.writeInt(this.f36052b);
+        parcel.writeInt(this.f36053c);
+        parcel.writeInt(this.f36054d);
+        parcel.writeInt(this.f36055e);
+        parcel.writeString(this.f36056f);
+        parcel.writeString(this.f36057g);
+        parcel.writeString(this.f36058h);
+        parcel.writeInt(this.f36059i);
         parcel.writeInt(this.j);
     }
 }

@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class VisualSampleEntry extends AbstractSampleEntry implements Container {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE1 = "mp4v";
@@ -140,16 +140,16 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
         this.compressorname = str;
     }
 
-    public void setDepth(int i) {
-        this.depth = i;
+    public void setDepth(int i2) {
+        this.depth = i2;
     }
 
-    public void setFrameCount(int i) {
-        this.frameCount = i;
+    public void setFrameCount(int i2) {
+        this.frameCount = i2;
     }
 
-    public void setHeight(int i) {
-        this.height = i;
+    public void setHeight(int i2) {
+        this.height = i2;
     }
 
     public void setHorizresolution(double d2) {
@@ -164,8 +164,8 @@ public final class VisualSampleEntry extends AbstractSampleEntry implements Cont
         this.vertresolution = d2;
     }
 
-    public void setWidth(int i) {
-        this.width = i;
+    public void setWidth(int i2) {
+        this.width = i2;
     }
 
     public VisualSampleEntry(String str) {

@@ -17,10 +17,10 @@ import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.tieba.ad.browser.newstyle.TBAdWebView;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 import com.baidu.tieba.recapp.view.WebViewContainer;
-import d.b.c.e.p.l;
-import d.b.j0.s2.c0.b.e;
+import d.a.c.e.p.l;
+import d.a.j0.s2.e0.b.e;
 import tbclient.VideoInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdWebVideoActivity extends AdWebViewActivity {
     public static b STATISTIC_DATA = null;
     public static final String TAG = "NewWebVideoActivity: ";
@@ -37,14 +37,14 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public WebViewContainer mWebContainer;
     public int mWebViewTopMargin;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements WebViewContainer.OnScrollChangedCallback {
         public a() {
         }
 
         @Override // com.baidu.tieba.recapp.view.WebViewContainer.OnScrollChangedCallback
-        public void onScroll(int i, int i2) {
-            AdWebVideoActivity.this.mWebViewTopMargin -= i2;
+        public void onScroll(int i2, int i3) {
+            AdWebVideoActivity.this.mWebViewTopMargin -= i3;
             if (AdWebVideoActivity.this.mWebViewTopMargin <= 0) {
                 AdWebVideoActivity.this.mVideoView.stopPlay(AdWebVideoActivity.this.mVideoView.getPlayStatus() != 2);
             } else if (AdWebVideoActivity.this.mWebViewTopMargin < AdWebVideoActivity.this.mPausePos) {
@@ -57,23 +57,23 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public AdvertAppInfo f20390a;
+        public AdvertAppInfo f20933a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f20391b;
+        public int f20934b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f20392c;
+        public String f20935c;
     }
 
-    private void configWebviewParams(int i) {
+    private void configWebviewParams(int i2) {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mWebView.getLayoutParams();
         if (layoutParams != null) {
-            layoutParams.topMargin = i;
+            layoutParams.topMargin = i2;
             layoutParams.height = (l.i(getActivity()) - l.r(getActivity())) - getToolBarHeight();
             this.mWebView.setLayoutParams(layoutParams);
         }
@@ -87,12 +87,12 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, adWebVideoActivityConfig));
     }
 
-    public static void setStaticInfo(AdvertAppInfo advertAppInfo, int i, String str) {
+    public static void setStaticInfo(AdvertAppInfo advertAppInfo, int i2, String str) {
         b bVar = new b();
         STATISTIC_DATA = bVar;
-        bVar.f20390a = advertAppInfo;
-        bVar.f20392c = str;
-        bVar.f20391b = i;
+        bVar.f20933a = advertAppInfo;
+        bVar.f20935c = str;
+        bVar.f20934b = i2;
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity, com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
@@ -110,7 +110,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             if (this.mGoodsStyle == 14) {
                 Integer valueOf = Integer.valueOf(l.k(getActivity()));
                 builder.video_height = valueOf;
-                builder.video_width = Integer.valueOf(d.b.j0.s2.c0.c.a.c(valueOf.intValue()));
+                builder.video_width = Integer.valueOf(d.a.j0.s2.e0.c.a.c(valueOf.intValue()));
             } else {
                 Integer valueOf2 = Integer.valueOf(l.k(getActivity()));
                 builder.video_width = valueOf2;
@@ -139,10 +139,10 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             this.mVideoView.initVideoViewLayout(this.mGoodsStyle == 14);
             b bVar = STATISTIC_DATA;
             if (bVar != null) {
-                this.mVideoView.updateTailFrameView(bVar.f20390a);
+                this.mVideoView.updateTailFrameView(bVar.f20933a);
                 DistributeVideoView distributeVideoView = this.mVideoView;
                 b bVar2 = STATISTIC_DATA;
-                distributeVideoView.setStatisticInfo(bVar2.f20390a, bVar2.f20391b, bVar2.f20392c);
+                distributeVideoView.setStatisticInfo(bVar2.f20933a, bVar2.f20934b, bVar2.f20935c);
             } else {
                 this.mVideoView.updateTailFrameView(null);
             }
@@ -200,11 +200,11 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity, com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
-    public void onReceivedError(int i) {
-        if (i == -2) {
+    public void onReceivedError(int i2) {
+        if (i2 == -2) {
             return;
         }
-        super.onReceivedError(i);
+        super.onReceivedError(i2);
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity, com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

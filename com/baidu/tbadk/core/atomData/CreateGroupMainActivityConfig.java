@@ -13,15 +13,15 @@ public class CreateGroupMainActivityConfig extends IntentConfig {
     public static final String NUM_CREATE_GROUP_OFFICAL = "num_create_group_offical";
     public static final String NUM_CREATE_GROUP_PERSONAL = "num_create_group_private";
 
-    public CreateGroupMainActivityConfig(Context context, boolean z, boolean z2, String str, String str2, int i, int i2, int i3, int i4) {
+    public CreateGroupMainActivityConfig(Context context, boolean z, boolean z2, String str, String str2, int i2, int i3, int i4, int i5) {
         super(context);
         getIntent().putExtra(CANCRRATEOFFICIALGROUP, z);
         getIntent().putExtra(CANCREATECOMMONGROUP, z2);
         getIntent().putExtra(CREATEGROUPOFFICIALTIP, str);
         getIntent().putExtra(CREATECOMMONGROUPTIP, str2);
-        getIntent().putExtra("num_create_group_normal", i2);
-        getIntent().putExtra("num_create_group_offical", i3);
-        getIntent().putExtra("num_create_group_private", i4);
-        getIntent().putExtra("forumid", i);
+        getIntent().putExtra("num_create_group_normal", i3);
+        getIntent().putExtra("num_create_group_offical", i4);
+        getIntent().putExtra("num_create_group_private", i5);
+        getIntent().putExtra("forumid", i2);
     }
 }

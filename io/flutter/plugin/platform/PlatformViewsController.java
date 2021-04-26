@@ -57,8 +57,8 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformViewsChannel.PlatformViewsHandler
-        public void clearFocus(int i) {
-            PlatformViewsController.this.vdControllers.get(Integer.valueOf(i)).getView().clearFocus();
+        public void clearFocus(int i2) {
+            PlatformViewsController.this.vdControllers.get(Integer.valueOf(i2)).getView().clearFocus();
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformViewsChannel.PlatformViewsHandler
@@ -100,19 +100,19 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformViewsChannel.PlatformViewsHandler
-        public void disposePlatformView(int i) {
+        public void disposePlatformView(int i2) {
             ensureValidAndroidVersion();
-            VirtualDisplayController virtualDisplayController = PlatformViewsController.this.vdControllers.get(Integer.valueOf(i));
+            VirtualDisplayController virtualDisplayController = PlatformViewsController.this.vdControllers.get(Integer.valueOf(i2));
             if (virtualDisplayController != null) {
                 if (PlatformViewsController.this.textInputPlugin != null) {
-                    PlatformViewsController.this.textInputPlugin.clearPlatformViewClient(i);
+                    PlatformViewsController.this.textInputPlugin.clearPlatformViewClient(i2);
                 }
                 PlatformViewsController.this.contextToPlatformView.remove(virtualDisplayController.getView().getContext());
                 virtualDisplayController.dispose();
-                PlatformViewsController.this.vdControllers.remove(Integer.valueOf(i));
+                PlatformViewsController.this.vdControllers.remove(Integer.valueOf(i2));
                 return;
             }
-            throw new IllegalStateException("Trying to dispose a platform view with unknown id: " + i);
+            throw new IllegalStateException("Trying to dispose a platform view with unknown id: " + i2);
         }
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformViewsChannel.PlatformViewsHandler
@@ -151,17 +151,17 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
 
         @Override // io.flutter.embedding.engine.systemchannels.PlatformViewsChannel.PlatformViewsHandler
         @TargetApi(17)
-        public void setDirection(int i, int i2) {
+        public void setDirection(int i2, int i3) {
             ensureValidAndroidVersion();
-            if (PlatformViewsController.validateDirection(i2)) {
-                View view = PlatformViewsController.this.vdControllers.get(Integer.valueOf(i)).getView();
+            if (PlatformViewsController.validateDirection(i3)) {
+                View view = PlatformViewsController.this.vdControllers.get(Integer.valueOf(i2)).getView();
                 if (view != null) {
-                    view.setLayoutDirection(i2);
+                    view.setLayoutDirection(i3);
                     return;
                 }
-                throw new IllegalStateException("Sending touch to an unknown view with id: " + i2);
+                throw new IllegalStateException("Sending touch to an unknown view with id: " + i3);
             }
-            throw new IllegalStateException("Trying to set unknown direction value: " + i2 + "(view id: " + i + SmallTailInfo.EMOTION_SUFFIX);
+            throw new IllegalStateException("Trying to set unknown direction value: " + i3 + "(view id: " + i2 + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 
@@ -236,15 +236,15 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
         virtualDisplayController.onInputConnectionUnlocked();
     }
 
-    public static boolean validateDirection(int i) {
-        return i == 0 || i == 1;
+    public static boolean validateDirection(int i2) {
+        return i2 == 0 || i2 == 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void validateVirtualDisplayDimensions(int i, int i2) {
+    public void validateVirtualDisplayDimensions(int i2, int i3) {
         DisplayMetrics displayMetrics = this.context.getResources().getDisplayMetrics();
-        if (i2 > displayMetrics.heightPixels || i > displayMetrics.widthPixels) {
-            Log.w("PlatformViewsController", "Creating a virtual display of size: [" + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + "] may result in problems(https://github.com/flutter/flutter/issues/2897).It is larger than the device screen size: [" + displayMetrics.widthPixels + StringUtil.ARRAY_ELEMENT_SEPARATOR + displayMetrics.heightPixels + "].");
+        if (i3 > displayMetrics.heightPixels || i2 > displayMetrics.widthPixels) {
+            Log.w("PlatformViewsController", "Creating a virtual display of size: [" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + "] may result in problems(https://github.com/flutter/flutter/issues/2897).It is larger than the device screen size: [" + displayMetrics.widthPixels + StringUtil.ARRAY_ELEMENT_SEPARATOR + displayMetrics.heightPixels + "].");
         }
     }
 

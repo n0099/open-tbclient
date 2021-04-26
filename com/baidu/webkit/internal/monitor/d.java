@@ -10,42 +10,42 @@ import java.io.IOException;
 public final class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f26640a;
+    public final /* synthetic */ String f27448a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f26641b;
+    public final /* synthetic */ String f27449b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f26642c;
+    public final /* synthetic */ String f27450c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ boolean f26643d;
+    public final /* synthetic */ boolean f27451d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ SessionMonitorNetWorker f26644e;
+    public final /* synthetic */ SessionMonitorNetWorker f27452e;
 
     public d(SessionMonitorNetWorker sessionMonitorNetWorker, String str, String str2, String str3, boolean z) {
-        this.f26644e = sessionMonitorNetWorker;
-        this.f26640a = str;
-        this.f26641b = str2;
-        this.f26642c = str3;
-        this.f26643d = z;
+        this.f27452e = sessionMonitorNetWorker;
+        this.f27448a = str;
+        this.f27449b = str2;
+        this.f27450c = str3;
+        this.f27451d = z;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         boolean z;
         boolean z2;
-        if (TextUtils.isEmpty(this.f26640a)) {
+        if (TextUtils.isEmpty(this.f27448a)) {
             return;
         }
         if (WebSettingsGlobalBlink.isSessionDataEnable()) {
-            Log.i(SessionMonitorNetWorker.LOG_TAG, "aContent=" + this.f26640a);
+            Log.i(SessionMonitorNetWorker.LOG_TAG, "aContent=" + this.f27448a);
             String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("gzip_support");
             if (GetCloudSettingsValue == null || !GetCloudSettingsValue.equals("false")) {
                 try {
                     if (!WebSettingsGlobalBlink.getLogsdkEnabled() && !WebSettingsGlobalBlink.getDoubleLogEnabled()) {
-                        this.f26644e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(this.f26640a.getBytes())), this.f26642c, this.f26643d);
+                        this.f27452e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(this.f27448a.getBytes())), this.f27450c, this.f27451d);
                     }
                     z = SessionMonitorNetWorker.mLogSdkInit;
                     if (!z) {
@@ -53,9 +53,9 @@ public final class d implements Runnable {
                         com.baidu.webkit.logsdk.a.a(WebKitFactory.getContext(), new c());
                         boolean unused = SessionMonitorNetWorker.mLogSdkInit = true;
                     }
-                    com.baidu.webkit.logsdk.a.a(this.f26641b, this.f26640a);
+                    com.baidu.webkit.logsdk.a.a(this.f27449b, this.f27448a);
                     if (WebSettingsGlobalBlink.getDoubleLogEnabled()) {
-                        this.f26644e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(this.f26640a.getBytes())), this.f26642c, this.f26643d);
+                        this.f27452e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(this.f27448a.getBytes())), this.f27450c, this.f27451d);
                     }
                 } catch (IOException e2) {
                     e2.printStackTrace();
@@ -67,13 +67,13 @@ public final class d implements Runnable {
                     com.baidu.webkit.logsdk.a.a(WebKitFactory.getContext(), new c());
                     boolean unused2 = SessionMonitorNetWorker.mLogSdkInit = true;
                 }
-                com.baidu.webkit.logsdk.a.a(this.f26641b, this.f26640a);
+                com.baidu.webkit.logsdk.a.a(this.f27449b, this.f27448a);
             } else {
-                this.f26644e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(Base64.encode(this.f26640a.getBytes(), false)), this.f26642c, this.f26643d);
+                this.f27452e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(Base64.encode(this.f27448a.getBytes(), false)), this.f27450c, this.f27451d);
             }
         }
         if (WebSettingsGlobalBlink.useT5Log()) {
-            this.f26644e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(Base64.encode(this.f26640a.getBytes(), false)), this.f26642c, this.f26643d);
+            this.f27452e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(Base64.encode(this.f27448a.getBytes(), false)), this.f27450c, this.f27451d);
         }
     }
 }

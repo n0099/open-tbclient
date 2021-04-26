@@ -41,8 +41,8 @@ public class SLConfigDescriptor extends BaseDescriptor {
         return 3;
     }
 
-    public void setPredefined(int i) {
-        this.predefined = i;
+    public void setPredefined(int i2) {
+        this.predefined = i2;
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor

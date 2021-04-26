@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SampleDescriptionBox extends AbstractContainerBox implements FullBox {
     public static final String TYPE = "stsd";
     public int flags;
@@ -66,12 +66,12 @@ public class SampleDescriptionBox extends AbstractContainerBox implements FullBo
     }
 
     @Override // com.coremedia.iso.boxes.FullBox
-    public void setFlags(int i) {
-        this.flags = i;
+    public void setFlags(int i2) {
+        this.flags = i2;
     }
 
     @Override // com.coremedia.iso.boxes.FullBox
-    public void setVersion(int i) {
-        this.version = i;
+    public void setVersion(int i2) {
+        this.version = i2;
     }
 }

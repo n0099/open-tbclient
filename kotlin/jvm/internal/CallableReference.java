@@ -18,9 +18,17 @@ import kotlin.reflect.KVisibility;
 public abstract class CallableReference implements KCallable, Serializable {
     @SinceKotlin(version = "1.1")
     public static final Object NO_RECEIVER = NoReceiver.INSTANCE;
+    @SinceKotlin(version = "1.4")
+    public final boolean isTopLevel;
+    @SinceKotlin(version = "1.4")
+    public final String name;
+    @SinceKotlin(version = "1.4")
+    public final Class owner;
     @SinceKotlin(version = "1.1")
     public final Object receiver;
     public transient KCallable reflected;
+    @SinceKotlin(version = "1.4")
+    public final String signature;
 
     @SinceKotlin(version = LibsInfoDef.CYBER_VIDEO_SR_MODEL_VERSION)
     /* loaded from: classes7.dex */
@@ -71,11 +79,15 @@ public abstract class CallableReference implements KCallable, Serializable {
 
     @Override // kotlin.reflect.KCallable
     public String getName() {
-        throw new AbstractMethodError();
+        return this.name;
     }
 
     public KDeclarationContainer getOwner() {
-        throw new AbstractMethodError();
+        Class cls = this.owner;
+        if (cls == null) {
+            return null;
+        }
+        return this.isTopLevel ? Reflection.getOrCreateKotlinPackage(cls) : Reflection.getOrCreateKotlinClass(cls);
     }
 
     @Override // kotlin.reflect.KCallable
@@ -98,7 +110,7 @@ public abstract class CallableReference implements KCallable, Serializable {
     }
 
     public String getSignature() {
-        throw new AbstractMethodError();
+        return this.signature;
     }
 
     @Override // kotlin.reflect.KCallable
@@ -139,6 +151,15 @@ public abstract class CallableReference implements KCallable, Serializable {
 
     @SinceKotlin(version = "1.1")
     public CallableReference(Object obj) {
+        this(obj, null, null, null, false);
+    }
+
+    @SinceKotlin(version = "1.4")
+    public CallableReference(Object obj, Class cls, String str, String str2, boolean z) {
         this.receiver = obj;
+        this.owner = cls;
+        this.name = str;
+        this.signature = str2;
+        this.isTopLevel = z;
     }
 }

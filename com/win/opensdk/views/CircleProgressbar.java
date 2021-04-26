@@ -10,38 +10,40 @@ import android.graphics.RectF;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.win.opensdk.G;
+import com.win.opensdk.J1;
+import com.win.opensdk.K1;
 import com.win.opensdk.R;
 import com.win.opensdk.l;
-import com.win.opensdk.n2;
-import com.win.opensdk.o2;
-/* loaded from: classes7.dex */
+import com.win.opensdk.z;
+/* loaded from: classes6.dex */
 public class CircleProgressbar extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40446a;
+    public int f37962a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ColorStateList f40447b;
+    public ColorStateList f37963b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40448c;
+    public int f37964c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f40449d;
+    public int f37965d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40450e;
+    public int f37966e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f40451f;
+    public Paint f37967f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RectF f40452g;
+    public RectF f37968g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40453h;
-    public o2 i;
+    public int f37969h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public K1 f37970i;
     public long j;
     public final Rect k;
     public l l;
@@ -56,37 +58,37 @@ public class CircleProgressbar extends TextView {
         this(context, attributeSet, 0);
     }
 
-    public CircleProgressbar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f40446a = 2;
-        this.f40447b = ColorStateList.valueOf(0);
-        this.f40449d = -16776961;
-        this.f40450e = 8;
-        this.f40451f = new Paint();
-        this.f40452g = new RectF();
-        this.f40453h = 100;
-        this.i = o2.COUNT_BACK;
+    public CircleProgressbar(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f37962a = 2;
+        this.f37963b = ColorStateList.valueOf(0);
+        this.f37965d = -16776961;
+        this.f37966e = 8;
+        this.f37967f = new Paint();
+        this.f37968g = new RectF();
+        this.f37969h = 100;
+        this.f37970i = K1.COUNT_BACK;
         this.j = 3000L;
         this.k = new Rect();
         this.m = 0;
-        this.n = new n2(this);
+        this.n = new J1(this);
         a(context, attributeSet);
     }
 
-    public CircleProgressbar(Context context, AttributeSet attributeSet, int i, int i2) {
-        super(context, attributeSet, i, i2);
-        this.f40446a = 2;
-        this.f40447b = ColorStateList.valueOf(0);
-        this.f40449d = -16776961;
-        this.f40450e = 8;
-        this.f40451f = new Paint();
-        this.f40452g = new RectF();
-        this.f40453h = 100;
-        this.i = o2.COUNT_BACK;
+    public CircleProgressbar(Context context, AttributeSet attributeSet, int i2, int i3) {
+        super(context, attributeSet, i2, i3);
+        this.f37962a = 2;
+        this.f37963b = ColorStateList.valueOf(0);
+        this.f37965d = -16776961;
+        this.f37966e = 8;
+        this.f37967f = new Paint();
+        this.f37968g = new RectF();
+        this.f37969h = 100;
+        this.f37970i = K1.COUNT_BACK;
         this.j = 3000L;
         this.k = new Rect();
         this.m = 0;
-        this.n = new n2(this);
+        this.n = new J1(this);
         a(context, attributeSet);
     }
 
@@ -95,30 +97,30 @@ public class CircleProgressbar extends TextView {
         c();
     }
 
-    public void a(int i, l lVar) {
-        this.m = i;
+    public void a(int i2, l lVar) {
+        this.m = i2;
         this.l = lVar;
     }
 
     public final void a(Context context, AttributeSet attributeSet) {
-        this.f40451f.setAntiAlias(true);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.CircleProgressbar);
-        this.f40447b = obtainStyledAttributes.hasValue(R.styleable.CircleProgressbar_win_in_circle_color) ? obtainStyledAttributes.getColorStateList(R.styleable.CircleProgressbar_win_in_circle_color) : ColorStateList.valueOf(0);
-        this.f40448c = this.f40447b.getColorForState(getDrawableState(), 0);
+        this.f37967f.setAntiAlias(true);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.win_CircleProgressbar);
+        this.f37963b = obtainStyledAttributes.hasValue(R.styleable.win_CircleProgressbar_win_in_circle_color) ? obtainStyledAttributes.getColorStateList(R.styleable.win_CircleProgressbar_win_in_circle_color) : ColorStateList.valueOf(0);
+        this.f37964c = this.f37963b.getColorForState(getDrawableState(), 0);
         obtainStyledAttributes.recycle();
     }
 
     public final void b() {
-        int i;
-        int ordinal = this.i.ordinal();
+        int i2;
+        int ordinal = this.f37970i.ordinal();
         if (ordinal == 0) {
-            i = 0;
+            i2 = 0;
         } else if (ordinal != 1) {
             return;
         } else {
-            i = 100;
+            i2 = 100;
         }
-        this.f40453h = i;
+        this.f37969h = i2;
     }
 
     public void c() {
@@ -133,19 +135,19 @@ public class CircleProgressbar extends TextView {
     @Override // android.widget.TextView, android.view.View
     public void drawableStateChanged() {
         super.drawableStateChanged();
-        int colorForState = this.f40447b.getColorForState(getDrawableState(), 0);
-        if (this.f40448c != colorForState) {
-            this.f40448c = colorForState;
+        int colorForState = this.f37963b.getColorForState(getDrawableState(), 0);
+        if (this.f37964c != colorForState) {
+            this.f37964c = colorForState;
             invalidate();
         }
     }
 
     public int getProgress() {
-        return this.f40453h;
+        return this.f37969h;
     }
 
-    public o2 getProgressType() {
-        return this.i;
+    public K1 getProgressType() {
+        return this.f37970i;
     }
 
     public long getTimeMillis() {
@@ -156,80 +158,80 @@ public class CircleProgressbar extends TextView {
     public void onDraw(Canvas canvas) {
         getDrawingRect(this.k);
         int width = this.k.height() > this.k.width() ? this.k.width() : this.k.height();
-        int colorForState = this.f40447b.getColorForState(getDrawableState(), 0);
-        this.f40451f.setStyle(Paint.Style.FILL);
-        this.f40451f.setColor(colorForState);
-        canvas.drawCircle(this.k.centerX(), this.k.centerY(), (width / 2) - this.f40446a, this.f40451f);
+        int colorForState = this.f37963b.getColorForState(getDrawableState(), 0);
+        this.f37967f.setStyle(Paint.Style.FILL);
+        this.f37967f.setColor(colorForState);
+        canvas.drawCircle(this.k.centerX(), this.k.centerY(), (width / 2) - this.f37962a, this.f37967f);
         TextPaint paint = getPaint();
         paint.setColor(getCurrentTextColor());
         paint.setAntiAlias(true);
         paint.setTextAlign(Paint.Align.CENTER);
         canvas.drawText(getText().toString(), this.k.centerX(), this.k.centerY() - ((paint.ascent() + paint.descent()) / 2.0f), paint);
-        this.f40451f.setColor(this.f40449d);
-        this.f40451f.setStyle(Paint.Style.STROKE);
-        this.f40451f.setStrokeWidth(this.f40450e);
-        this.f40451f.setAntiAlias(true);
-        int i = this.f40450e;
-        int i2 = this.f40446a;
-        int i3 = i + i2;
-        RectF rectF = this.f40452g;
+        this.f37967f.setColor(this.f37965d);
+        this.f37967f.setStyle(Paint.Style.STROKE);
+        this.f37967f.setStrokeWidth(this.f37966e);
+        this.f37967f.setAntiAlias(true);
+        int i2 = this.f37966e;
+        int i3 = this.f37962a;
+        int i4 = i2 + i3;
+        RectF rectF = this.f37968g;
         Rect rect = this.k;
-        int i4 = i3 / 2;
-        int i5 = (rect.top - i3) + i2 + i;
+        int i5 = i4 / 2;
+        int i6 = (rect.top - i4) + i3 + i2;
         Rect rect2 = this.k;
-        rectF.set(rect.left + i4, G.a(getContext(), 0.4f) + i5, rect2.right - i4, (((rect2.bottom + i3) - this.f40446a) - this.f40450e) - G.a(getContext(), 0.5f));
-        canvas.drawArc(this.f40452g, -90.0f, (this.f40453h * (-360)) / 100, false, this.f40451f);
+        rectF.set(rect.left + i5, z.a(getContext(), 0.4f) + i6, rect2.right - i5, (((rect2.bottom + i4) - this.f37962a) - this.f37966e) - z.a(getContext(), 0.5f));
+        canvas.drawArc(this.f37968g, -90.0f, (this.f37969h * (-360)) / 100, false, this.f37967f);
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        int i3 = (this.f40446a + this.f40450e) * 4;
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        int i4 = (this.f37962a + this.f37966e) * 4;
         int measuredWidth = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
         if (measuredWidth <= measuredHeight) {
             measuredWidth = measuredHeight;
         }
-        int i4 = measuredWidth + i3;
-        setMeasuredDimension(i4, i4);
+        int i5 = measuredWidth + i4;
+        setMeasuredDimension(i5, i5);
     }
 
-    public void setInCircleColor(int i) {
-        this.f40447b = ColorStateList.valueOf(i);
+    public void setInCircleColor(int i2) {
+        this.f37963b = ColorStateList.valueOf(i2);
         invalidate();
     }
 
-    public void setOutLineColor(int i) {
+    public void setOutLineColor(int i2) {
         invalidate();
     }
 
-    public void setOutLineWidth(int i) {
-        this.f40446a = i;
+    public void setOutLineWidth(int i2) {
+        this.f37962a = i2;
         invalidate();
     }
 
-    public void setProgress(int i) {
-        if (i > 100) {
-            i = 100;
-        } else if (i < 0) {
-            i = 0;
+    public void setProgress(int i2) {
+        if (i2 > 100) {
+            i2 = 100;
+        } else if (i2 < 0) {
+            i2 = 0;
         }
-        this.f40453h = i;
+        this.f37969h = i2;
         invalidate();
     }
 
-    public void setProgressColor(int i) {
-        this.f40449d = i;
+    public void setProgressColor(int i2) {
+        this.f37965d = i2;
         invalidate();
     }
 
-    public void setProgressLineWidth(int i) {
-        this.f40450e = i;
+    public void setProgressLineWidth(int i2) {
+        this.f37966e = i2;
         invalidate();
     }
 
-    public void setProgressType(o2 o2Var) {
-        this.i = o2Var;
+    public void setProgressType(K1 k1) {
+        this.f37970i = k1;
         b();
         invalidate();
     }

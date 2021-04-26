@@ -16,8 +16,8 @@ public class RealTimeAudioMsg extends RealTimeMsg implements Parcelable, NoProGu
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public RealTimeAudioMsg[] newArray(int i) {
-            return new RealTimeAudioMsg[i];
+        public RealTimeAudioMsg[] newArray(int i2) {
+            return new RealTimeAudioMsg[i2];
         }
     };
 

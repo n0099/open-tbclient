@@ -16,8 +16,8 @@ public class IpInfo implements Parcelable, NoProGuard {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public IpInfo[] newArray(int i) {
-            return new IpInfo[i];
+        public IpInfo[] newArray(int i2) {
+            return new IpInfo[i2];
         }
     };
     public String mCity;
@@ -93,7 +93,7 @@ public class IpInfo implements Parcelable, NoProGuard {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeLong(this.mUid);
         parcel.writeString(this.mIp);
         parcel.writeString(this.mIsp);

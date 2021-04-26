@@ -42,8 +42,8 @@ public class NotificationCompat {
         }
 
         @Override // androidx.media.app.NotificationCompat.MediaStyle
-        public int getBigContentViewLayoutResource(int i) {
-            return i <= 3 ? R.layout.notification_template_big_media_narrow_custom : R.layout.notification_template_big_media_custom;
+        public int getBigContentViewLayoutResource(int i2) {
+            return i2 <= 3 ? R.layout.notification_template_big_media_narrow_custom : R.layout.notification_template_big_media_custom;
         }
 
         @Override // androidx.media.app.NotificationCompat.MediaStyle
@@ -205,8 +205,8 @@ public class NotificationCompat {
             RemoteViews applyStandardTemplate = applyStandardTemplate(false, getBigContentViewLayoutResource(min), false);
             applyStandardTemplate.removeAllViews(R.id.media_actions);
             if (min > 0) {
-                for (int i = 0; i < min; i++) {
-                    applyStandardTemplate.addView(R.id.media_actions, generateMediaActionButton(this.mBuilder.mActions.get(i)));
+                for (int i2 = 0; i2 < min; i2++) {
+                    applyStandardTemplate.addView(R.id.media_actions, generateMediaActionButton(this.mBuilder.mActions.get(i2)));
                 }
             }
             if (this.mShowCancelButton) {
@@ -226,11 +226,11 @@ public class NotificationCompat {
             int min = iArr == null ? 0 : Math.min(iArr.length, 3);
             applyStandardTemplate.removeAllViews(R.id.media_actions);
             if (min > 0) {
-                for (int i = 0; i < min; i++) {
-                    if (i < size) {
-                        applyStandardTemplate.addView(R.id.media_actions, generateMediaActionButton(this.mBuilder.mActions.get(this.mActionsToShowInCompact[i])));
+                for (int i2 = 0; i2 < min; i2++) {
+                    if (i2 < size) {
+                        applyStandardTemplate.addView(R.id.media_actions, generateMediaActionButton(this.mBuilder.mActions.get(this.mActionsToShowInCompact[i2])));
                     } else {
-                        throw new IllegalArgumentException(String.format("setShowActionsInCompactView: action %d out of bounds (max %d)", Integer.valueOf(i), Integer.valueOf(size - 1)));
+                        throw new IllegalArgumentException(String.format("setShowActionsInCompactView: action %d out of bounds (max %d)", Integer.valueOf(i2), Integer.valueOf(size - 1)));
                     }
                 }
             }
@@ -246,8 +246,8 @@ public class NotificationCompat {
             return applyStandardTemplate;
         }
 
-        public int getBigContentViewLayoutResource(int i) {
-            return i <= 3 ? R.layout.notification_template_big_media_narrow : R.layout.notification_template_big_media;
+        public int getBigContentViewLayoutResource(int i2) {
+            return i2 <= 3 ? R.layout.notification_template_big_media_narrow : R.layout.notification_template_big_media;
         }
 
         public int getContentViewLayoutResource() {

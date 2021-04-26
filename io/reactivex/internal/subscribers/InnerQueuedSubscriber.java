@@ -1,30 +1,30 @@
 package io.reactivex.internal.subscribers;
 
-import f.b.g;
-import f.b.x.c.f;
-import f.b.x.h.a;
-import f.b.x.i.i;
-import g.d.d;
+import io.reactivex.FlowableSubscriber;
+import io.reactivex.internal.fuseable.QueueSubscription;
+import io.reactivex.internal.fuseable.SimpleQueue;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
+import io.reactivex.internal.util.QueueDrainHelper;
 import java.util.concurrent.atomic.AtomicReference;
+import org.reactivestreams.Subscription;
 /* loaded from: classes7.dex */
-public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implements g<T>, d {
+public final class InnerQueuedSubscriber<T> extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription {
     public static final long serialVersionUID = 22876611072430776L;
     public volatile boolean done;
     public int fusionMode;
     public final int limit;
-    public final a<T> parent;
+    public final InnerQueuedSubscriberSupport<T> parent;
     public final int prefetch;
     public long produced;
-    public volatile f<T> queue;
+    public volatile SimpleQueue<T> queue;
 
-    public InnerQueuedSubscriber(a<T> aVar, int i) {
-        this.parent = aVar;
-        this.prefetch = i;
-        this.limit = i - (i >> 2);
+    public InnerQueuedSubscriber(InnerQueuedSubscriberSupport<T> innerQueuedSubscriberSupport, int i2) {
+        this.parent = innerQueuedSubscriberSupport;
+        this.prefetch = i2;
+        this.limit = i2 - (i2 >> 2);
     }
 
-    @Override // g.d.d
+    @Override // org.reactivestreams.Subscription
     public void cancel() {
         SubscriptionHelper.cancel(this);
     }
@@ -33,17 +33,17 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implement
         return this.done;
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onComplete() {
         this.parent.innerComplete(this);
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onError(Throwable th) {
         this.parent.innerError(this, th);
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onNext(T t) {
         if (this.fusionMode == 0) {
             this.parent.innerNext(this, t);
@@ -52,35 +52,35 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implement
         }
     }
 
-    @Override // f.b.g, g.d.c
-    public void onSubscribe(d dVar) {
-        if (SubscriptionHelper.setOnce(this, dVar)) {
-            if (dVar instanceof f.b.x.c.d) {
-                f.b.x.c.d dVar2 = (f.b.x.c.d) dVar;
-                int requestFusion = dVar2.requestFusion(3);
+    @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
+    public void onSubscribe(Subscription subscription) {
+        if (SubscriptionHelper.setOnce(this, subscription)) {
+            if (subscription instanceof QueueSubscription) {
+                QueueSubscription queueSubscription = (QueueSubscription) subscription;
+                int requestFusion = queueSubscription.requestFusion(3);
                 if (requestFusion == 1) {
                     this.fusionMode = requestFusion;
-                    this.queue = dVar2;
+                    this.queue = queueSubscription;
                     this.done = true;
                     this.parent.innerComplete(this);
                     return;
                 } else if (requestFusion == 2) {
                     this.fusionMode = requestFusion;
-                    this.queue = dVar2;
-                    i.f(dVar, this.prefetch);
+                    this.queue = queueSubscription;
+                    QueueDrainHelper.request(subscription, this.prefetch);
                     return;
                 }
             }
-            this.queue = i.a(this.prefetch);
-            i.f(dVar, this.prefetch);
+            this.queue = QueueDrainHelper.createQueue(this.prefetch);
+            QueueDrainHelper.request(subscription, this.prefetch);
         }
     }
 
-    public f<T> queue() {
+    public SimpleQueue<T> queue() {
         return this.queue;
     }
 
-    @Override // g.d.d
+    @Override // org.reactivestreams.Subscription
     public void request(long j) {
         if (this.fusionMode != 1) {
             long j2 = this.produced + j;

@@ -21,10 +21,10 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
     public int mStatus;
     public int mSwitchCategory;
 
-    public IMSetMsgSettingSwitchRequest(Context context, int i, int i2, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
+    public IMSetMsgSettingSwitchRequest(Context context, int i2, int i3, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
         this.mContext = context;
-        this.mSwitchCategory = i;
-        this.mStatus = i2;
+        this.mSwitchCategory = i2;
+        this.mStatus = i3;
         this.mListener = iSetMsgSettingSwitchListener;
     }
 
@@ -87,8 +87,8 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener = this.mListener;
         if (iSetMsgSettingSwitchListener != null) {
             iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second);
@@ -96,23 +96,23 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
-        int i2;
+    public void onSuccess(int i2, byte[] bArr) {
+        int i3;
         String str;
         String str2 = new String(bArr);
         LogUtils.e(TAG, "IMSetMsgSettingSwitchRequest onSuccess :" + str2);
         try {
             JSONObject jSONObject = new JSONObject(str2);
-            i2 = jSONObject.getInt("error_code");
+            i3 = jSONObject.getInt("error_code");
             str = jSONObject.optString("error_msg", "");
         } catch (JSONException e2) {
             LogUtils.e(TAG, "JSONException", e2);
-            i2 = 1010;
+            i3 = 1010;
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
         }
         ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener = this.mListener;
         if (iSetMsgSettingSwitchListener != null) {
-            iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(i2, str);
+            iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(i3, str);
         }
     }
 

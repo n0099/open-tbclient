@@ -46,8 +46,8 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         mapObject2.putValue("region_list", RegionList.generateRegionList(addressSelectedBean).regionListStr);
         AddressRequestFactory.newAddAddrRequest(mapObject2).submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.3
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i, String str) {
-                AddressEditPresenter.this.doFailure(1004, i, str);
+            public void onFailure(int i2, String str) {
+                AddressEditPresenter.this.doFailure(1004, i2, str);
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
@@ -74,8 +74,8 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         mapObject.putValue("img", str);
         AddressRequestFactory.newOCRImg2Address(mapObject).submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.11
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i, String str2) {
-                AddressEditPresenter.this.doFailure(3001, i, str2);
+            public void onFailure(int i2, String str2) {
+                AddressEditPresenter.this.doFailure(3001, i2, str2);
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
@@ -91,24 +91,24 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void executeRecogniseTextRequest(String str, final int i) {
+    public void executeRecogniseTextRequest(String str, final int i2) {
         MapObject mapObject = new MapObject();
         mapObject.putValue("bdstoken", this.bdSTokenFromAddrList);
         mapObject.putValue("text", str);
         AddressRequestFactory.newRecogniseText2Address(mapObject).submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.13
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i2, String str2) {
-                AddressEditPresenter.this.doFailure(i, i2, str2);
+            public void onFailure(int i3, String str2) {
+                AddressEditPresenter.this.doFailure(i2, i3, str2);
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
             public void onShowLoading() {
-                AddressEditPresenter.this.showLoading(i);
+                AddressEditPresenter.this.showLoading(i2);
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
             public void onSuccess(JSONObject jSONObject) {
-                AddressEditPresenter.this.doResult(i, jSONObject.optJSONObject("data"));
+                AddressEditPresenter.this.doResult(i2, jSONObject.optJSONObject("data"));
             }
         });
     }
@@ -128,8 +128,8 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         mapObject.putValue(SuggestAddrField.KEY_NAME_LIST, generateRegionList.nameListStr);
         AddressRequestFactory.newSuggestDetailRequest(mapObject).submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.9
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i, String str) {
-                AddressEditPresenter.this.doFailure(2002, i, str);
+            public void onFailure(int i2, String str) {
+                AddressEditPresenter.this.doFailure(2002, i2, str);
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
@@ -158,8 +158,8 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         }
         AddressRequestFactory.newUpdateAddressRequest(mapObject2).submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.5
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i, String str2) {
-                AddressEditPresenter.this.doFailure(1001, i, str2);
+            public void onFailure(int i2, String str2) {
+                AddressEditPresenter.this.doFailure(1001, i2, str2);
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
@@ -178,7 +178,7 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         if (TextUtils.isEmpty(this.bdSTokenFromAddrList)) {
             getBdStokenFromServer(1004, new SyncActionCallBack() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.2
                 @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                public void doNext(int i) {
+                public void doNext(int i2) {
                     AddressEditPresenter.this.executeCreateAddrRequest(mapObject, addressSelectedBean);
                 }
             });
@@ -191,7 +191,7 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         if (TextUtils.isEmpty(this.bdSTokenFromAddrList)) {
             getBdStokenFromServer(1002, new SyncActionCallBack() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.14
                 @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                public void doNext(int i) {
+                public void doNext(int i2) {
                     AddressEditPresenter.this.executeDelAddrRequest(str);
                 }
             });
@@ -206,8 +206,8 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         mapObject.putValue(AddressField.KEY_ADDR_ID, str);
         AddressRequestFactory.newDelAddressRequest(mapObject).submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.15
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i, String str2) {
-                AddressEditPresenter.this.doFailure(1002, i, str2);
+            public void onFailure(int i2, String str2) {
+                AddressEditPresenter.this.doFailure(1002, i2, str2);
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
@@ -227,8 +227,8 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         mapObject.putValue(SuggestAddrField.KEY_NAME_LIST, generateRegionList.nameListStr);
         AddressRequestFactory.newSuggestListRequest(mapObject).submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.7
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i, String str2) {
-                AddressEditPresenter.this.doFailure(2001, i, str2);
+            public void onFailure(int i2, String str2) {
+                AddressEditPresenter.this.doFailure(2001, i2, str2);
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
@@ -237,12 +237,12 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                 JSONArray optJSONArray = jSONObject.optJSONArray(SuggestAddrField.KEY_SUGGEST_LIST);
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    for (int i2 = 0; i2 < length; i2++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                         if (optJSONObject != null) {
                             arrayList.add(optJSONObject);
                         } else {
-                            Log.d(AddressEditPresenter.TAG, "item of suggest address list is error, index=" + i);
+                            Log.d(AddressEditPresenter.TAG, "item of suggest address list is error, index=" + i2);
                         }
                     }
                 }
@@ -255,16 +255,16 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         return this.bdSTokenFromAddrList;
     }
 
-    public void getBdStokenFromServer(final int i, final SyncActionCallBack syncActionCallBack) {
+    public void getBdStokenFromServer(final int i2, final SyncActionCallBack syncActionCallBack) {
         AddressRequestFactory.newGetAddressListRequest().submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.1
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i2, String str) {
-                AddressEditPresenter.this.doFailure(i, i2, str);
+            public void onFailure(int i3, String str) {
+                AddressEditPresenter.this.doFailure(i2, i3, str);
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
             public void onShowLoading() {
-                AddressEditPresenter.this.showLoading(i);
+                AddressEditPresenter.this.showLoading(i2);
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
@@ -273,7 +273,7 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                 Log.d(AddressEditPresenter.TAG, "bdSToken from address list request is " + AddressEditPresenter.this.bdSTokenFromAddrList);
                 SyncActionCallBack syncActionCallBack2 = syncActionCallBack;
                 if (syncActionCallBack2 != null) {
-                    syncActionCallBack2.doNext(i);
+                    syncActionCallBack2.doNext(i2);
                 }
             }
         });
@@ -283,7 +283,7 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         if (TextUtils.isEmpty(this.bdSTokenFromAddrList)) {
             getBdStokenFromServer(3001, new SyncActionCallBack() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.10
                 @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                public void doNext(int i) {
+                public void doNext(int i2) {
                     AddressEditPresenter.this.executeImgOcrRequest(str);
                 }
             });
@@ -296,7 +296,7 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         if (TextUtils.isEmpty(this.bdSTokenFromAddrList)) {
             getBdStokenFromServer(2002, new SyncActionCallBack() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.8
                 @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                public void doNext(int i) {
+                public void doNext(int i2) {
                     AddressEditPresenter.this.executeSuggestAddrDetailRequest(jSONObject, addressSelectedBean);
                 }
             });
@@ -309,7 +309,7 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         if (TextUtils.isEmpty(this.bdSTokenFromAddrList)) {
             getBdStokenFromServer(2001, new SyncActionCallBack() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.6
                 @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                public void doNext(int i) {
+                public void doNext(int i2) {
                     AddressEditPresenter.this.executeSuggestAddrListRequest(str, addressSelectedBean);
                 }
             });
@@ -349,16 +349,16 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         }
     }
 
-    public void recogniseTextOcrAddressResult(final String str, final int i) {
+    public void recogniseTextOcrAddressResult(final String str, final int i2) {
         if (TextUtils.isEmpty(this.bdSTokenFromAddrList)) {
-            getBdStokenFromServer(i, new SyncActionCallBack() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.12
+            getBdStokenFromServer(i2, new SyncActionCallBack() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.12
                 @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                public void doNext(int i2) {
-                    AddressEditPresenter.this.executeRecogniseTextRequest(str, i);
+                public void doNext(int i3) {
+                    AddressEditPresenter.this.executeRecogniseTextRequest(str, i2);
                 }
             });
         } else {
-            executeRecogniseTextRequest(str, i);
+            executeRecogniseTextRequest(str, i2);
         }
     }
 
@@ -370,7 +370,7 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         if (TextUtils.isEmpty(this.bdSTokenFromAddrList)) {
             getBdStokenFromServer(1001, new SyncActionCallBack() { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.4
                 @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                public void doNext(int i) {
+                public void doNext(int i2) {
                     AddressEditPresenter.this.executeUpdateAddrRequest(str, mapObject, addressSelectedBean);
                 }
             });

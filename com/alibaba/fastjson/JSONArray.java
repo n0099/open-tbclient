@@ -115,46 +115,46 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
         return this;
     }
 
-    public JSONArray fluentSet(int i, Object obj) {
-        set(i, obj);
+    public JSONArray fluentSet(int i2, Object obj) {
+        set(i2, obj);
         return this;
     }
 
     @Override // java.util.List
-    public Object get(int i) {
-        return this.list.get(i);
+    public Object get(int i2) {
+        return this.list.get(i2);
     }
 
-    public BigDecimal getBigDecimal(int i) {
-        return TypeUtils.castToBigDecimal(get(i));
+    public BigDecimal getBigDecimal(int i2) {
+        return TypeUtils.castToBigDecimal(get(i2));
     }
 
-    public BigInteger getBigInteger(int i) {
-        return TypeUtils.castToBigInteger(get(i));
+    public BigInteger getBigInteger(int i2) {
+        return TypeUtils.castToBigInteger(get(i2));
     }
 
-    public Boolean getBoolean(int i) {
-        Object obj = get(i);
+    public Boolean getBoolean(int i2) {
+        Object obj = get(i2);
         if (obj == null) {
             return null;
         }
         return TypeUtils.castToBoolean(obj);
     }
 
-    public boolean getBooleanValue(int i) {
-        Object obj = get(i);
+    public boolean getBooleanValue(int i2) {
+        Object obj = get(i2);
         if (obj == null) {
             return false;
         }
         return TypeUtils.castToBoolean(obj).booleanValue();
     }
 
-    public Byte getByte(int i) {
-        return TypeUtils.castToByte(get(i));
+    public Byte getByte(int i2) {
+        return TypeUtils.castToByte(get(i2));
     }
 
-    public byte getByteValue(int i) {
-        Byte castToByte = TypeUtils.castToByte(get(i));
+    public byte getByteValue(int i2) {
+        Byte castToByte = TypeUtils.castToByte(get(i2));
         if (castToByte == null) {
             return (byte) 0;
         }
@@ -165,48 +165,48 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
         return this.componentType;
     }
 
-    public Date getDate(int i) {
-        return TypeUtils.castToDate(get(i));
+    public Date getDate(int i2) {
+        return TypeUtils.castToDate(get(i2));
     }
 
-    public Double getDouble(int i) {
-        return TypeUtils.castToDouble(get(i));
+    public Double getDouble(int i2) {
+        return TypeUtils.castToDouble(get(i2));
     }
 
-    public double getDoubleValue(int i) {
-        Double castToDouble = TypeUtils.castToDouble(get(i));
+    public double getDoubleValue(int i2) {
+        Double castToDouble = TypeUtils.castToDouble(get(i2));
         if (castToDouble == null) {
             return 0.0d;
         }
         return castToDouble.doubleValue();
     }
 
-    public Float getFloat(int i) {
-        return TypeUtils.castToFloat(get(i));
+    public Float getFloat(int i2) {
+        return TypeUtils.castToFloat(get(i2));
     }
 
-    public float getFloatValue(int i) {
-        Float castToFloat = TypeUtils.castToFloat(get(i));
+    public float getFloatValue(int i2) {
+        Float castToFloat = TypeUtils.castToFloat(get(i2));
         if (castToFloat == null) {
             return 0.0f;
         }
         return castToFloat.floatValue();
     }
 
-    public int getIntValue(int i) {
-        Integer castToInt = TypeUtils.castToInt(get(i));
+    public int getIntValue(int i2) {
+        Integer castToInt = TypeUtils.castToInt(get(i2));
         if (castToInt == null) {
             return 0;
         }
         return castToInt.intValue();
     }
 
-    public Integer getInteger(int i) {
-        return TypeUtils.castToInt(get(i));
+    public Integer getInteger(int i2) {
+        return TypeUtils.castToInt(get(i2));
     }
 
-    public JSONArray getJSONArray(int i) {
-        Object obj = this.list.get(i);
+    public JSONArray getJSONArray(int i2) {
+        Object obj = this.list.get(i2);
         if (obj instanceof JSONArray) {
             return (JSONArray) obj;
         }
@@ -216,8 +216,8 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
         return (JSONArray) JSON.toJSON(obj);
     }
 
-    public JSONObject getJSONObject(int i) {
-        Object obj = this.list.get(i);
+    public JSONObject getJSONObject(int i2) {
+        Object obj = this.list.get(i2);
         if (obj instanceof JSONObject) {
             return (JSONObject) obj;
         }
@@ -227,48 +227,48 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
         return (JSONObject) JSON.toJSON(obj);
     }
 
-    public Long getLong(int i) {
-        return TypeUtils.castToLong(get(i));
+    public Long getLong(int i2) {
+        return TypeUtils.castToLong(get(i2));
     }
 
-    public long getLongValue(int i) {
-        Long castToLong = TypeUtils.castToLong(get(i));
+    public long getLongValue(int i2) {
+        Long castToLong = TypeUtils.castToLong(get(i2));
         if (castToLong == null) {
             return 0L;
         }
         return castToLong.longValue();
     }
 
-    public <T> T getObject(int i, Class<T> cls) {
-        return (T) TypeUtils.castToJavaBean(this.list.get(i), cls);
+    public <T> T getObject(int i2, Class<T> cls) {
+        return (T) TypeUtils.castToJavaBean(this.list.get(i2), cls);
     }
 
     public Object getRelatedArray() {
         return this.relatedArray;
     }
 
-    public Short getShort(int i) {
-        return TypeUtils.castToShort(get(i));
+    public Short getShort(int i2) {
+        return TypeUtils.castToShort(get(i2));
     }
 
-    public short getShortValue(int i) {
-        Short castToShort = TypeUtils.castToShort(get(i));
+    public short getShortValue(int i2) {
+        Short castToShort = TypeUtils.castToShort(get(i2));
         if (castToShort == null) {
             return (short) 0;
         }
         return castToShort.shortValue();
     }
 
-    public java.sql.Date getSqlDate(int i) {
-        return TypeUtils.castToSqlDate(get(i));
+    public java.sql.Date getSqlDate(int i2) {
+        return TypeUtils.castToSqlDate(get(i2));
     }
 
-    public String getString(int i) {
-        return TypeUtils.castToString(get(i));
+    public String getString(int i2) {
+        return TypeUtils.castToString(get(i2));
     }
 
-    public Timestamp getTimestamp(int i) {
-        return TypeUtils.castToTimestamp(get(i));
+    public Timestamp getTimestamp(int i2) {
+        return TypeUtils.castToTimestamp(get(i2));
     }
 
     @Override // java.util.List, java.util.Collection
@@ -317,18 +317,18 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
     }
 
     @Override // java.util.List
-    public Object set(int i, Object obj) {
-        if (i == -1) {
+    public Object set(int i2, Object obj) {
+        if (i2 == -1) {
             this.list.add(obj);
             return null;
-        } else if (this.list.size() <= i) {
-            for (int size = this.list.size(); size < i; size++) {
+        } else if (this.list.size() <= i2) {
+            for (int size = this.list.size(); size < i2; size++) {
                 this.list.add(null);
             }
             this.list.add(obj);
             return null;
         } else {
-            return this.list.set(i, obj);
+            return this.list.set(i2, obj);
         }
     }
 
@@ -346,8 +346,8 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
     }
 
     @Override // java.util.List
-    public List<Object> subList(int i, int i2) {
-        return this.list.subList(i, i2);
+    public List<Object> subList(int i2, int i3) {
+        return this.list.subList(i2, i3);
     }
 
     @Override // java.util.List, java.util.Collection
@@ -366,39 +366,39 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
     }
 
     @Override // java.util.List
-    public void add(int i, Object obj) {
-        this.list.add(i, obj);
+    public void add(int i2, Object obj) {
+        this.list.add(i2, obj);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, java.util.Collection<?>] */
     @Override // java.util.List
-    public boolean addAll(int i, Collection<? extends Object> collection) {
-        return this.list.addAll(i, collection);
+    public boolean addAll(int i2, Collection<? extends Object> collection) {
+        return this.list.addAll(i2, collection);
     }
 
-    public JSONArray fluentAdd(int i, Object obj) {
-        this.list.add(i, obj);
+    public JSONArray fluentAdd(int i2, Object obj) {
+        this.list.add(i2, obj);
         return this;
     }
 
-    public JSONArray fluentAddAll(int i, Collection<?> collection) {
-        this.list.addAll(i, collection);
+    public JSONArray fluentAddAll(int i2, Collection<?> collection) {
+        this.list.addAll(i2, collection);
         return this;
     }
 
-    public JSONArray fluentRemove(int i) {
-        this.list.remove(i);
+    public JSONArray fluentRemove(int i2) {
+        this.list.remove(i2);
         return this;
     }
 
     @Override // java.util.List
-    public ListIterator<Object> listIterator(int i) {
-        return this.list.listIterator(i);
+    public ListIterator<Object> listIterator(int i2) {
+        return this.list.listIterator(i2);
     }
 
     @Override // java.util.List
-    public Object remove(int i) {
-        return this.list.remove(i);
+    public Object remove(int i2) {
+        return this.list.remove(i2);
     }
 
     @Override // java.util.List, java.util.Collection
@@ -414,15 +414,15 @@ public class JSONArray extends JSON implements List<Object>, Cloneable, RandomAc
         throw new IllegalArgumentException("list is null.");
     }
 
-    public <T> T getObject(int i, Type type) {
-        Object obj = this.list.get(i);
+    public <T> T getObject(int i2, Type type) {
+        Object obj = this.list.get(i2);
         if (type instanceof Class) {
             return (T) TypeUtils.castToJavaBean(obj, (Class) type);
         }
         return (T) JSON.parseObject(JSON.toJSONString(obj), type, new Feature[0]);
     }
 
-    public JSONArray(int i) {
-        this.list = new ArrayList(i);
+    public JSONArray(int i2) {
+        this.list = new ArrayList(i2);
     }
 }

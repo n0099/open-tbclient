@@ -55,16 +55,16 @@ public class DownloadChain implements Runnable {
     };
     public final CallbackDispatcher callbackDispatcher = BdDownload.with().callbackDispatcher();
 
-    public DownloadChain(int i, @NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadCache downloadCache, @NonNull DownloadStore downloadStore) {
-        this.blockIndex = i;
+    public DownloadChain(int i2, @NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadCache downloadCache, @NonNull DownloadStore downloadStore) {
+        this.blockIndex = i2;
         this.task = downloadTask;
         this.cache = downloadCache;
         this.info = breakpointInfo;
         this.store = downloadStore;
     }
 
-    public static DownloadChain createChain(int i, DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadCache downloadCache, @NonNull DownloadStore downloadStore) {
-        return new DownloadChain(i, downloadTask, breakpointInfo, downloadCache, downloadStore);
+    public static DownloadChain createChain(int i2, DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, @NonNull DownloadCache downloadCache, @NonNull DownloadStore downloadStore) {
+        return new DownloadChain(i2, downloadTask, breakpointInfo, downloadCache, downloadStore);
     }
 
     public void cancel() {
@@ -154,9 +154,9 @@ public class DownloadChain implements Runnable {
     public DownloadConnection.Connected processConnect() throws IOException {
         if (!this.cache.isInterrupt()) {
             List<Interceptor.Connect> list = this.connectInterceptorList;
-            int i = this.connectIndex;
-            this.connectIndex = i + 1;
-            return list.get(i).interceptConnect(this);
+            int i2 = this.connectIndex;
+            this.connectIndex = i2 + 1;
+            return list.get(i2).interceptConnect(this);
         }
         throw InterruptException.SIGNAL;
     }
@@ -164,9 +164,9 @@ public class DownloadChain implements Runnable {
     public long processFetch() throws IOException {
         if (!this.cache.isInterrupt()) {
             List<Interceptor.Fetch> list = this.fetchInterceptorList;
-            int i = this.fetchIndex;
-            this.fetchIndex = i + 1;
-            return list.get(i).interceptFetch(this);
+            int i2 = this.fetchIndex;
+            this.fetchIndex = i2 + 1;
+            return list.get(i2).interceptFetch(this);
         }
         throw InterruptException.SIGNAL;
     }

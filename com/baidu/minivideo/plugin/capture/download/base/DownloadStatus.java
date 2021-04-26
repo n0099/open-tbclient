@@ -86,16 +86,16 @@ public class DownloadStatus {
         this.length = j;
     }
 
-    public void setPercent(int i) {
-        this.percent = i;
+    public void setPercent(int i2) {
+        this.percent = i2;
     }
 
     public void setSavedPath(String str) {
         this.savedPath = str;
     }
 
-    public void setStatus(int i) {
-        this.status = i;
+    public void setStatus(int i2) {
+        this.status = i2;
     }
 
     public void setTime(long j) {

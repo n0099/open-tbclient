@@ -11,22 +11,25 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.adp.R;
-import d.b.c.j.j;
+import d.a.c.j.j;
+import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 /* loaded from: classes.dex */
 public class IndicatorView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2315e;
+    public int f2290e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f2316f;
+    public int f2291f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f2317g;
+    public float f2292g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f2318h;
-    public Drawable i;
+    public float f2293h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Drawable f2294i;
     public Drawable j;
     public final j k;
 
@@ -34,17 +37,19 @@ public class IndicatorView extends View {
     public class b implements j {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f2319e;
+        public final int f2295e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f2320f;
+        public long f2296f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f2321g;
+        public long f2297g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f2322h;
-        public float i;
+        public int f2298h;
+
+        /* renamed from: i  reason: collision with root package name */
+        public float f2299i;
         public final a j = new a();
 
         /* loaded from: classes.dex */
@@ -62,49 +67,62 @@ public class IndicatorView extends View {
         }
 
         public b() {
-            this.f2319e = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
+            this.f2295e = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
         }
 
-        @Override // d.b.c.j.j
-        public boolean b(MotionEvent motionEvent) {
+        @Override // d.a.c.j.j
+        public boolean a(MotionEvent motionEvent) {
             return false;
         }
 
-        @Override // d.b.c.j.j
-        public boolean c(MotionEvent motionEvent) {
-            return false;
-        }
-
-        @Override // d.b.c.j.j
-        public void d(int i, int i2) {
-            if (IndicatorView.this.i != null && IndicatorView.this.j != null && IndicatorView.this.f2316f != 0) {
+        @Override // d.a.c.j.j
+        public void b(int i2, int i3) {
+            if (IndicatorView.this.f2294i != null && IndicatorView.this.j != null && IndicatorView.this.f2291f != 0) {
                 IndicatorView.this.setWillNotDraw(false);
-                IndicatorView.this.setMeasuredDimension(i(i), h(i2));
+                IndicatorView.this.setMeasuredDimension(i(i2), h(i3));
                 return;
             }
             IndicatorView.this.setWillNotDraw(true);
             IndicatorView.this.setMeasuredDimension(0, 0);
         }
 
-        @Override // d.b.c.j.j
+        @Override // d.a.c.j.j
+        public void c(int i2) {
+            if (IndicatorView.this.f2293h <= IndicatorView.this.f2292g) {
+                if (IndicatorView.this.f2293h >= IndicatorView.this.f2292g) {
+                    return;
+                }
+                this.f2298h = -this.f2295e;
+            } else {
+                this.f2298h = this.f2295e;
+            }
+            this.f2299i = IndicatorView.this.f2292g;
+            long uptimeMillis = SystemClock.uptimeMillis();
+            this.f2296f = uptimeMillis;
+            this.f2297g = uptimeMillis + 16;
+            this.j.removeMessages(1000);
+            this.j.sendEmptyMessageAtTime(1000, this.f2297g);
+        }
+
+        @Override // d.a.c.j.j
         public boolean dispatchTouchEvent(MotionEvent motionEvent) {
             return false;
         }
 
-        @Override // d.b.c.j.j
+        @Override // d.a.c.j.j
         public void draw(Canvas canvas) {
             int save = canvas.save();
-            for (int i = 0; i < IndicatorView.this.f2316f; i++) {
-                if (i != 0) {
-                    canvas.translate(IndicatorView.this.i.getBounds().width() + IndicatorView.this.f2315e, 0.0f);
+            for (int i2 = 0; i2 < IndicatorView.this.f2291f; i2++) {
+                if (i2 != 0) {
+                    canvas.translate(IndicatorView.this.f2294i.getBounds().width() + IndicatorView.this.f2290e, 0.0f);
                 }
-                IndicatorView.this.i.draw(canvas);
+                IndicatorView.this.f2294i.draw(canvas);
             }
             if (save >= 1 && save <= canvas.getSaveCount()) {
                 canvas.restoreToCount(save);
             }
             int save2 = canvas.save();
-            canvas.translate((IndicatorView.this.j.getBounds().width() + IndicatorView.this.f2315e) * IndicatorView.this.f2317g, 0.0f);
+            canvas.translate((IndicatorView.this.j.getBounds().width() + IndicatorView.this.f2290e) * IndicatorView.this.f2292g, 0.0f);
             IndicatorView.this.j.draw(canvas);
             if (save2 < 1 || save2 > canvas.getSaveCount()) {
                 return;
@@ -112,94 +130,81 @@ public class IndicatorView extends View {
             canvas.restoreToCount(save2);
         }
 
-        @Override // d.b.c.j.j
-        public void e(int i) {
-            if (IndicatorView.this.f2318h <= IndicatorView.this.f2317g) {
-                if (IndicatorView.this.f2318h >= IndicatorView.this.f2317g) {
-                    return;
-                }
-                this.f2322h = -this.f2319e;
-            } else {
-                this.f2322h = this.f2319e;
-            }
-            this.i = IndicatorView.this.f2317g;
-            long uptimeMillis = SystemClock.uptimeMillis();
-            this.f2320f = uptimeMillis;
-            this.f2321g = uptimeMillis + 16;
-            this.j.removeMessages(1000);
-            this.j.sendEmptyMessageAtTime(1000, this.f2321g);
+        @Override // d.a.c.j.j
+        public boolean e(MotionEvent motionEvent) {
+            return false;
         }
 
         public final void g() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            float f2 = this.i;
-            int i = this.f2322h;
-            float f3 = f2 + (i * (((float) (uptimeMillis - this.f2320f)) / 1000.0f));
-            this.i = f3;
-            this.f2320f = uptimeMillis;
-            this.f2321g = uptimeMillis + 16;
-            if (i < 0) {
-                if (f3 < IndicatorView.this.f2318h) {
+            float f2 = this.f2299i;
+            int i2 = this.f2298h;
+            float f3 = f2 + (i2 * (((float) (uptimeMillis - this.f2296f)) / 1000.0f));
+            this.f2299i = f3;
+            this.f2296f = uptimeMillis;
+            this.f2297g = uptimeMillis + 16;
+            if (i2 < 0) {
+                if (f3 < IndicatorView.this.f2293h) {
                     IndicatorView indicatorView = IndicatorView.this;
-                    indicatorView.f2317g = indicatorView.f2318h;
+                    indicatorView.f2292g = indicatorView.f2293h;
                 } else {
-                    IndicatorView.this.f2317g = this.i;
+                    IndicatorView.this.f2292g = this.f2299i;
                     this.j.removeMessages(1000);
-                    this.j.sendEmptyMessageAtTime(1000, this.f2321g);
+                    this.j.sendEmptyMessageAtTime(1000, this.f2297g);
                 }
-            } else if (f3 > IndicatorView.this.f2318h) {
+            } else if (f3 > IndicatorView.this.f2293h) {
                 IndicatorView indicatorView2 = IndicatorView.this;
-                indicatorView2.f2317g = indicatorView2.f2318h;
+                indicatorView2.f2292g = indicatorView2.f2293h;
             } else {
-                IndicatorView.this.f2317g = this.i;
+                IndicatorView.this.f2292g = this.f2299i;
                 this.j.removeMessages(1000);
-                this.j.sendEmptyMessageAtTime(1000, this.f2321g);
+                this.j.sendEmptyMessageAtTime(1000, this.f2297g);
             }
             IndicatorView.this.invalidate();
         }
 
-        public final int h(int i) {
-            int i2 = (-1073741824) & i;
-            int i3 = i & 1073741823;
-            int max = Math.max(IndicatorView.this.i.getIntrinsicHeight(), IndicatorView.this.j.getIntrinsicHeight());
-            if (i2 == Integer.MIN_VALUE) {
-                int min = Math.min(i3, max);
-                IndicatorView.this.i.setBounds(0, 0, IndicatorView.this.i.getBounds().width(), min);
+        public final int h(int i2) {
+            int i3 = (-1073741824) & i2;
+            int i4 = i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
+            int max = Math.max(IndicatorView.this.f2294i.getIntrinsicHeight(), IndicatorView.this.j.getIntrinsicHeight());
+            if (i3 == Integer.MIN_VALUE) {
+                int min = Math.min(i4, max);
+                IndicatorView.this.f2294i.setBounds(0, 0, IndicatorView.this.f2294i.getBounds().width(), min);
                 IndicatorView.this.j.setBounds(0, 0, IndicatorView.this.j.getBounds().width(), min);
                 return min;
-            } else if (i2 == 0) {
-                IndicatorView.this.i.setBounds(0, 0, IndicatorView.this.i.getBounds().width(), max);
+            } else if (i3 == 0) {
+                IndicatorView.this.f2294i.setBounds(0, 0, IndicatorView.this.f2294i.getBounds().width(), max);
                 IndicatorView.this.j.setBounds(0, 0, IndicatorView.this.j.getBounds().width(), max);
                 return max;
-            } else if (i2 != 1073741824) {
-                return i3;
+            } else if (i3 != 1073741824) {
+                return i4;
             } else {
-                IndicatorView.this.i.setBounds(0, 0, IndicatorView.this.i.getBounds().width(), i3);
-                IndicatorView.this.j.setBounds(0, 0, IndicatorView.this.j.getBounds().width(), i3);
-                return i3;
+                IndicatorView.this.f2294i.setBounds(0, 0, IndicatorView.this.f2294i.getBounds().width(), i4);
+                IndicatorView.this.j.setBounds(0, 0, IndicatorView.this.j.getBounds().width(), i4);
+                return i4;
             }
         }
 
-        public final int i(int i) {
-            int i2 = (-1073741824) & i;
-            int i3 = i & 1073741823;
-            int max = (IndicatorView.this.f2315e * (IndicatorView.this.f2316f - 1)) + (Math.max(IndicatorView.this.i.getIntrinsicWidth(), IndicatorView.this.j.getIntrinsicWidth()) * IndicatorView.this.f2316f);
-            if (i2 == Integer.MIN_VALUE) {
-                int min = Math.min(i3, max);
-                IndicatorView.this.i.setBounds(0, 0, IndicatorView.this.i.getIntrinsicWidth(), IndicatorView.this.i.getBounds().height());
+        public final int i(int i2) {
+            int i3 = (-1073741824) & i2;
+            int i4 = i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
+            int max = (IndicatorView.this.f2290e * (IndicatorView.this.f2291f - 1)) + (Math.max(IndicatorView.this.f2294i.getIntrinsicWidth(), IndicatorView.this.j.getIntrinsicWidth()) * IndicatorView.this.f2291f);
+            if (i3 == Integer.MIN_VALUE) {
+                int min = Math.min(i4, max);
+                IndicatorView.this.f2294i.setBounds(0, 0, IndicatorView.this.f2294i.getIntrinsicWidth(), IndicatorView.this.f2294i.getBounds().height());
                 IndicatorView.this.j.setBounds(0, 0, IndicatorView.this.j.getIntrinsicWidth(), IndicatorView.this.j.getBounds().height());
                 return min;
-            } else if (i2 == 0) {
-                IndicatorView.this.i.setBounds(0, 0, IndicatorView.this.i.getIntrinsicWidth(), 0);
+            } else if (i3 == 0) {
+                IndicatorView.this.f2294i.setBounds(0, 0, IndicatorView.this.f2294i.getIntrinsicWidth(), 0);
                 IndicatorView.this.j.setBounds(0, 0, IndicatorView.this.j.getIntrinsicWidth(), 0);
                 return max;
-            } else if (i2 != 1073741824) {
-                return i3;
+            } else if (i3 != 1073741824) {
+                return i4;
             } else {
-                int i4 = (int) ((i3 - (IndicatorView.this.f2315e * (IndicatorView.this.f2316f - 1))) / IndicatorView.this.f2316f);
-                IndicatorView.this.j.setBounds(0, 0, i4, IndicatorView.this.j.getBounds().height());
-                IndicatorView.this.i.setBounds(0, 0, i4, IndicatorView.this.i.getBounds().height());
-                return i3;
+                int i5 = (int) ((i4 - (IndicatorView.this.f2290e * (IndicatorView.this.f2291f - 1))) / IndicatorView.this.f2291f);
+                IndicatorView.this.j.setBounds(0, 0, i5, IndicatorView.this.j.getBounds().height());
+                IndicatorView.this.f2294i.setBounds(0, 0, i5, IndicatorView.this.f2294i.getBounds().height());
+                return i4;
             }
         }
     }
@@ -209,15 +214,15 @@ public class IndicatorView extends View {
     }
 
     public int getCount() {
-        return this.f2316f;
+        return this.f2291f;
     }
 
     public Drawable getDrawable() {
-        return this.i;
+        return this.f2294i;
     }
 
     public float getPosition() {
-        return this.f2317g;
+        return this.f2292g;
     }
 
     public Drawable getSelector() {
@@ -225,7 +230,7 @@ public class IndicatorView extends View {
     }
 
     public int getSpacing() {
-        return this.f2315e;
+        return this.f2290e;
     }
 
     @Override // android.view.View
@@ -234,27 +239,27 @@ public class IndicatorView extends View {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        this.k.d(i, i2);
+    public void onMeasure(int i2, int i3) {
+        this.k.b(i2, i3);
     }
 
     public void setAutoHide(boolean z) {
     }
 
-    public void setCount(int i) {
-        this.f2316f = i;
+    public void setCount(int i2) {
+        this.f2291f = i2;
         requestLayout();
         invalidate();
     }
 
     public void setDrawable(Drawable drawable) {
-        this.i = drawable;
+        this.f2294i = drawable;
         requestLayout();
         invalidate();
     }
 
     public void setPosition(float f2) {
-        this.f2317g = f2;
+        this.f2292g = f2;
         invalidate();
     }
 
@@ -264,8 +269,8 @@ public class IndicatorView extends View {
         invalidate();
     }
 
-    public void setSpacing(int i) {
-        this.f2315e = i;
+    public void setSpacing(int i2) {
+        this.f2290e = i2;
         requestLayout();
         invalidate();
     }
@@ -274,16 +279,16 @@ public class IndicatorView extends View {
         this(context, attributeSet, 0);
     }
 
-    public IndicatorView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public IndicatorView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.k = new b();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.IndicatorView);
-        this.f2315e = obtainStyledAttributes.getDimensionPixelSize(R.styleable.IndicatorView_spacing, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
-        this.f2316f = obtainStyledAttributes.getInteger(R.styleable.IndicatorView_count, 0);
+        this.f2290e = obtainStyledAttributes.getDimensionPixelSize(R.styleable.IndicatorView_spacing, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
+        this.f2291f = obtainStyledAttributes.getInteger(R.styleable.IndicatorView_count, 0);
         Drawable drawable = obtainStyledAttributes.getDrawable(R.styleable.IndicatorView_drawable);
-        this.i = drawable;
+        this.f2294i = drawable;
         if (drawable != null) {
-            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), this.i.getIntrinsicHeight());
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), this.f2294i.getIntrinsicHeight());
         }
         Drawable drawable2 = obtainStyledAttributes.getDrawable(R.styleable.IndicatorView_selector);
         this.j = drawable2;

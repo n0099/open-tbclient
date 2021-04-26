@@ -6,15 +6,15 @@ import com.google.zxing.Result;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public final class AddressBookAUResultParser extends ResultParser {
-    public static String[] matchMultipleValuePrefix(String str, int i, String str2, boolean z) {
+    public static String[] matchMultipleValuePrefix(String str, int i2, String str2, boolean z) {
         ArrayList arrayList = null;
-        for (int i2 = 1; i2 <= i; i2++) {
-            String matchSinglePrefixedField = ResultParser.matchSinglePrefixedField(str + i2 + ':', str2, '\r', z);
+        for (int i3 = 1; i3 <= i2; i3++) {
+            String matchSinglePrefixedField = ResultParser.matchSinglePrefixedField(str + i3 + ':', str2, '\r', z);
             if (matchSinglePrefixedField == null) {
                 break;
             }
             if (arrayList == null) {
-                arrayList = new ArrayList(i);
+                arrayList = new ArrayList(i2);
             }
             arrayList.add(matchSinglePrefixedField);
         }

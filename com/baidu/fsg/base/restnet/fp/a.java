@@ -12,34 +12,34 @@ import java.util.List;
 public class a extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5249a = "/risk/init/v2/config";
+    public static final String f5381a = "/risk/init/v2/config";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5250b = 1;
+    public static final int f5382b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f5251c;
+    public Context f5383c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f5252d;
+    public String f5384d;
 
     public a(Context context) {
         super(context);
-        this.f5251c = context;
+        this.f5383c = context;
         BdWalletUtils.cleanExps(context);
     }
 
     public void a(String str) {
-        this.f5252d = str;
+        this.f5384d = str;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        if (!TextUtils.isEmpty(this.f5252d)) {
-            setSpParameter(this.f5252d);
+        if (!TextUtils.isEmpty(this.f5384d)) {
+            setSpParameter(this.f5384d);
         }
-        arrayList.add(new RestNameValuePair("confSign", BdWalletUtils.getRimAllConfigChangesign(this.f5251c)));
+        arrayList.add(new RestNameValuePair("confSign", BdWalletUtils.getRimAllConfigChangesign(this.f5383c)));
         return arrayList;
     }
 
@@ -50,7 +50,7 @@ public class a extends BaseBean {
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public String getUrl() {
-        return EnvConfig.getInstance(this.f5251c).getRimHttpsHost() + f5249a;
+        return EnvConfig.getInstance(this.f5383c).getRimHttpsHost() + f5381a;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean

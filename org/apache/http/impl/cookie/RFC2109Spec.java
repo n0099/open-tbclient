@@ -13,7 +13,7 @@ public class RFC2109Spec extends CookieSpecBase {
         throw new RuntimeException("Stub!");
     }
 
-    public void formatCookieAsVer(CharArrayBuffer charArrayBuffer, Cookie cookie, int i) {
+    public void formatCookieAsVer(CharArrayBuffer charArrayBuffer, Cookie cookie, int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -22,7 +22,7 @@ public class RFC2109Spec extends CookieSpecBase {
         throw new RuntimeException("Stub!");
     }
 
-    public void formatParamAsVer(CharArrayBuffer charArrayBuffer, String str, String str2, int i) {
+    public void formatParamAsVer(CharArrayBuffer charArrayBuffer, String str, String str2, int i2) {
         throw new RuntimeException("Stub!");
     }
 

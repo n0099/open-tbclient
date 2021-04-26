@@ -4,9 +4,9 @@ import com.bytedance.sdk.adnet.err.VAdError;
 import com.qq.e.comm.constants.ErrorCode;
 /* loaded from: classes6.dex */
 public class AdErrorConvertor {
-    public static AdError formatErrorCode(int i) {
+    public static AdError formatErrorCode(int i2) {
         AdError adError;
-        switch (i) {
+        switch (i2) {
             case 300:
             case 2001:
                 return new AdError(2001, "初始化错误");
@@ -117,12 +117,12 @@ public class AdErrorConvertor {
             case ErrorCode.APPID_NULL /* 400102 */:
             case ErrorCode.CONTEXT_NULL /* 400103 */:
             case ErrorCode.SPLASH_CONTAINER_NULL /* 400104 */:
-                adError = new AdError(4001, "传入的参数有错误，详细码：" + i);
+                adError = new AdError(4001, "传入的参数有错误，详细码：" + i2);
                 break;
             case ErrorCode.SPLASH_CONTAINER_HEIGHT_ERROR /* 400501 */:
                 return new AdError(4005, "开屏广告容器的高度低于400dp");
             default:
-                adError = new AdError(6000, "未知错误，详细码：" + i);
+                adError = new AdError(6000, "未知错误，详细码：" + i2);
                 break;
         }
         return adError;

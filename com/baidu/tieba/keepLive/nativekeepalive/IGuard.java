@@ -15,9 +15,9 @@ public interface IGuard {
             if (iGuard != null) {
                 return iGuard;
             }
-            int i = Build.VERSION.SDK_INT;
-            if (i != 21) {
-                if (i != 22) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 != 21) {
+                if (i2 != 22) {
                     if (Build.MODEL != null && isXiaomiModel()) {
                         GuardProxy guardProxy = new GuardProxy();
                         guardProxy.getClass();

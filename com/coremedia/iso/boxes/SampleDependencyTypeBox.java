@@ -12,20 +12,20 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SampleDependencyTypeBox extends AbstractFullBox {
     public static final String TYPE = "sdtp";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
     public List<Entry> entries;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         public int value;
 
-        public Entry(int i) {
-            this.value = i;
+        public Entry(int i2) {
+            this.value = i2;
         }
 
         public boolean equals(Object obj) {
@@ -55,20 +55,20 @@ public class SampleDependencyTypeBox extends AbstractFullBox {
             return this.value;
         }
 
-        public void setReserved(int i) {
-            this.value = ((i & 3) << 6) | (this.value & 63);
+        public void setReserved(int i2) {
+            this.value = ((i2 & 3) << 6) | (this.value & 63);
         }
 
-        public void setSampleDependsOn(int i) {
-            this.value = ((i & 3) << 4) | (this.value & 207);
+        public void setSampleDependsOn(int i2) {
+            this.value = ((i2 & 3) << 4) | (this.value & 207);
         }
 
-        public void setSampleHasRedundancy(int i) {
-            this.value = (i & 3) | (this.value & GDiffPatcher.COPY_INT_UBYTE);
+        public void setSampleHasRedundancy(int i2) {
+            this.value = (i2 & 3) | (this.value & GDiffPatcher.COPY_INT_UBYTE);
         }
 
-        public void setSampleIsDependentOn(int i) {
-            this.value = ((i & 3) << 2) | (this.value & LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK);
+        public void setSampleIsDependentOn(int i2) {
+            this.value = ((i2 & 3) << 2) | (this.value & LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK);
         }
 
         public String toString() {

@@ -21,7 +21,7 @@ import com.kwad.sdk.core.imageloader.core.download.BaseImageDownloader;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.utils.L;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import com.kwad.sdk.utils.ad;
+import com.kwad.sdk.utils.ae;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.Executor;
@@ -42,8 +42,8 @@ public class DefaultConfigurationFactory {
         public final AtomicInteger threadNumber = new AtomicInteger(1);
         public final ThreadGroup group = Thread.currentThread().getThreadGroup();
 
-        public DefaultThreadFactory(int i, String str) {
-            this.threadPriority = i;
+        public DefaultThreadFactory(int i2, String str) {
+            this.threadPriority = i2;
             this.namePrefix = str + poolNumber.getAndIncrement() + "-thread-";
         }
 
@@ -63,20 +63,20 @@ public class DefaultConfigurationFactory {
         return new SimpleBitmapDisplayer();
     }
 
-    public static DiskCache createDiskCache(Context context, FileNameGenerator fileNameGenerator, long j, int i) {
+    public static DiskCache createDiskCache(Context context, FileNameGenerator fileNameGenerator, long j, int i2) {
         File createReserveDiskCacheDir = createReserveDiskCacheDir(context);
-        if (j > 0 || i > 0) {
+        if (j > 0 || i2 > 0) {
             try {
-                return new LruDiskCache(StorageUtils.getIndividualCacheDirectory(context), createReserveDiskCacheDir, fileNameGenerator, j, i);
+                return new LruDiskCache(StorageUtils.getIndividualCacheDirectory(context), createReserveDiskCacheDir, fileNameGenerator, j, i2);
             } catch (IOException e2) {
                 L.e(e2);
             }
         }
-        return new UnlimitedDiskCache(ad.b(context), createReserveDiskCacheDir, fileNameGenerator);
+        return new UnlimitedDiskCache(ae.b(context), createReserveDiskCacheDir, fileNameGenerator);
     }
 
-    public static Executor createExecutor(int i, int i2, QueueProcessingType queueProcessingType) {
-        return new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, queueProcessingType == QueueProcessingType.LIFO ? new LIFOLinkedBlockingDeque() : new LinkedBlockingQueue(), createThreadFactory(i2, "uil-pool-"));
+    public static Executor createExecutor(int i2, int i3, QueueProcessingType queueProcessingType) {
+        return new ThreadPoolExecutor(i2, i2, 0L, TimeUnit.MILLISECONDS, queueProcessingType == QueueProcessingType.LIFO ? new LIFOLinkedBlockingDeque() : new LinkedBlockingQueue(), createThreadFactory(i3, "uil-pool-"));
     }
 
     public static FileNameGenerator createFileNameGenerator() {
@@ -91,20 +91,20 @@ public class DefaultConfigurationFactory {
         return new BaseImageDownloader(context);
     }
 
-    public static MemoryCache createMemoryCache(Context context, int i) {
-        if (i == 0) {
+    public static MemoryCache createMemoryCache(Context context, int i2) {
+        if (i2 == 0) {
             ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
             int memoryClass = activityManager.getMemoryClass();
             if (hasHoneycomb() && isLargeHeap(context)) {
                 memoryClass = getLargeMemoryClass(activityManager);
             }
-            i = (memoryClass * 1048576) / 8;
+            i2 = (memoryClass * 1048576) / 8;
         }
-        return new LruMemoryCache(i);
+        return new LruMemoryCache(i2);
     }
 
     public static File createReserveDiskCacheDir(Context context) {
-        File b2 = ad.b(context);
+        File b2 = ae.b(context);
         File file = new File(b2, StorageUtils.INDIVIDUAL_DIR_NAME);
         return (file.exists() || file.mkdir()) ? file : b2;
     }
@@ -113,8 +113,8 @@ public class DefaultConfigurationFactory {
         return Executors.newCachedThreadPool(createThreadFactory(5, "uil-pool-d-"));
     }
 
-    public static ThreadFactory createThreadFactory(int i, String str) {
-        return new DefaultThreadFactory(i, str);
+    public static ThreadFactory createThreadFactory(int i2, String str) {
+        return new DefaultThreadFactory(i2, str);
     }
 
     @TargetApi(11)

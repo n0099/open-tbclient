@@ -28,11 +28,11 @@ public class ReplaceSampleTrack extends AbstractTrack {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
         /* renamed from: a */
-        public Sample get(int i) {
-            if (ReplaceSampleTrack.this.sampleNumber == i) {
+        public Sample get(int i2) {
+            if (ReplaceSampleTrack.this.sampleNumber == i2) {
                 return ReplaceSampleTrack.this.sampleContent;
             }
-            return ReplaceSampleTrack.this.origTrack.getSamples().get(i);
+            return ReplaceSampleTrack.this.origTrack.getSamples().get(i2);
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.List

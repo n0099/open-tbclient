@@ -2,11 +2,11 @@ package com.bytedance.sdk.openadsdk.downloadnew.a.a;
 
 import android.content.Context;
 import android.text.TextUtils;
-import d.c.c.b.b.i;
-import d.c.c.b.b.j;
-import d.c.c.b.d.o;
-import d.p.a.a.a.a.g;
-import d.p.a.a.a.a.p;
+import d.b.c.b.b.i;
+import d.b.c.b.b.j;
+import d.b.c.b.d.o;
+import d.o.a.a.a.a.g;
+import d.o.a.a.a.a.p;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,13 +14,13 @@ import java.util.Map;
 public class c implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f28877a;
+    public final WeakReference<Context> f29766a;
 
     public c(Context context) {
-        this.f28877a = new WeakReference<>(context);
+        this.f29766a = new WeakReference<>(context);
     }
 
-    @Override // d.p.a.a.a.a.g
+    @Override // d.o.a.a.a.a.g
     public void a(String str, String str2, final Map<String, Object> map, p pVar) {
         char c2;
         int hashCode = str.hashCode();
@@ -35,9 +35,9 @@ public class c implements g {
             }
             c2 = 65535;
         }
-        int i = (c2 == 0 || c2 != 1) ? 0 : 1;
+        int i2 = (c2 == 0 || c2 != 1) ? 0 : 1;
         i c3 = i.c();
-        new j(i, str2, c3) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.c.1
+        new j(i2, str2, c3) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.c.1
             @Override // com.bytedance.sdk.adnet.core.Request
             public Map<String, String> c() throws com.bytedance.sdk.adnet.err.a {
                 HashMap hashMap = new HashMap();
@@ -55,8 +55,8 @@ public class c implements g {
         a(oVar, pVar);
     }
 
-    @Override // d.p.a.a.a.a.g
-    public void a(String str, final byte[] bArr, final String str2, int i, p pVar) {
+    @Override // d.o.a.a.a.a.g
+    public void a(String str, final byte[] bArr, final String str2, int i2, p pVar) {
         o<String> oVar;
         i c2 = i.c();
         new j(1, str, c2) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.c.2
@@ -82,17 +82,17 @@ public class c implements g {
         String valueOf;
         if (oVar != null && oVar.f()) {
             if (pVar != null) {
-                pVar.a(oVar.f66679a);
+                pVar.a(oVar.f65080a);
                 return;
             }
             return;
         }
-        boolean isEmpty = true ^ TextUtils.isEmpty(oVar != null && oVar.f66681c != null ? oVar.f66681c.getMessage() : null);
+        boolean isEmpty = true ^ TextUtils.isEmpty(oVar != null && oVar.f65082c != null ? oVar.f65082c.getMessage() : null);
         if (pVar != null) {
             if (isEmpty) {
-                valueOf = oVar.f66681c.getMessage();
+                valueOf = oVar.f65082c.getMessage();
             } else {
-                valueOf = oVar != null ? String.valueOf(oVar.f66686h) : "";
+                valueOf = oVar != null ? String.valueOf(oVar.f65087h) : "";
             }
             pVar.a(new Exception(valueOf));
         }

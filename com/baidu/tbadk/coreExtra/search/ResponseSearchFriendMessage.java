@@ -8,13 +8,13 @@ import org.json.JSONObject;
 public class ResponseSearchFriendMessage extends JsonHttpResponsedMessage {
     public SearchFriendResult mSearchFriendResult;
 
-    public ResponseSearchFriendMessage(int i) {
-        super(i);
+    public ResponseSearchFriendMessage(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i, jSONObject);
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (getStatusCode() != 200 || jSONObject == null) {
             return;
         }

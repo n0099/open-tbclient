@@ -13,8 +13,8 @@ public class LiveBarCheckTaskStatic implements CustomMessageTask.CustomRunnable<
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public CustomResponsedMessage<Boolean> commitResult(int i, boolean z) {
-        return new CustomResponsedMessage<>(i, Boolean.valueOf(z));
+    public CustomResponsedMessage<Boolean> commitResult(int i2, boolean z) {
+        return new CustomResponsedMessage<>(i2, Boolean.valueOf(z));
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable

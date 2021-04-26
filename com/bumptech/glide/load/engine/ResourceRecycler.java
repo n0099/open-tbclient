@@ -3,6 +3,7 @@ package com.bumptech.glide.load.engine;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import com.bumptech.glide.util.Util;
 /* loaded from: classes5.dex */
 public class ResourceRecycler {
     public final Handler handler = new Handler(Looper.getMainLooper(), new ResourceRecyclerCallback());
@@ -22,12 +23,14 @@ public class ResourceRecycler {
         }
     }
 
-    public synchronized void recycle(Resource<?> resource, boolean z) {
-        if (!this.isRecycling && !z) {
-            this.isRecycling = true;
-            resource.recycle();
-            this.isRecycling = false;
+    public void recycle(Resource<?> resource) {
+        Util.assertMainThread();
+        if (this.isRecycling) {
+            this.handler.obtainMessage(1, resource).sendToTarget();
+            return;
         }
-        this.handler.obtainMessage(1, resource).sendToTarget();
+        this.isRecycling = true;
+        resource.recycle();
+        this.isRecycling = false;
     }
 }

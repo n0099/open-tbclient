@@ -5,22 +5,22 @@ import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
 public class m implements IBeanResponseCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f5363a;
+    public final /* synthetic */ String f5501a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ l f5364b;
+    public final /* synthetic */ l f5502b;
 
     public m(l lVar, String str) {
-        this.f5364b = lVar;
-        this.f5363a = str;
+        this.f5502b = lVar;
+        this.f5501a = str;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
-    public void onBeanExecFailure(int i, int i2, String str) {
+    public void onBeanExecFailure(int i2, int i3, String str) {
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.IBeanResponseCallback
-    public void onBeanExecSuccess(int i, Object obj, String str, String str2) {
-        f.a().a(this.f5363a);
+    public void onBeanExecSuccess(int i2, Object obj, String str, String str2) {
+        f.a().a(this.f5501a);
     }
 }

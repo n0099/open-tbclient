@@ -1,10 +1,12 @@
 package com.baidu.searchbox.unitedscheme.moniter;
 
 import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.config.AppConfig;
 import java.util.Hashtable;
 /* loaded from: classes2.dex */
 public class TimeCostMonitor {
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "TimeCostMonitor";
     public Hashtable<String, Long> mEventRecorder = new Hashtable<>();
     public long mThresholdValue;
@@ -23,8 +25,12 @@ public class TimeCostMonitor {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - l.longValue() > this.mThresholdValue && (timeCostHandler = this.mTimeoutHandler) != null) {
+        long longValue = currentTimeMillis - l.longValue();
+        if (longValue > this.mThresholdValue && (timeCostHandler = this.mTimeoutHandler) != null) {
             timeCostHandler.handle(l.longValue(), currentTimeMillis, this.mThresholdValue, str);
+        }
+        if (DEBUG) {
+            Log.i(TAG, "执行耗时：" + longValue + "，开始时间：" + l + "，结束时间：" + currentTimeMillis + "，event：" + str);
         }
         this.mEventRecorder.remove(str);
     }

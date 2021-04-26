@@ -12,7 +12,7 @@ import java.util.Map;
 public class MethodUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Method> f4029a = new HashMap();
+    public static Map<String, Method> f4086a = new HashMap();
 
     public static String a(Class<?> cls, String str, Class<?>... clsArr) {
         StringBuilder sb = new StringBuilder();
@@ -46,12 +46,12 @@ public class MethodUtils {
     public static Method c(Class<?> cls, String str, Class<?>... clsArr) {
         while (cls != null) {
             Class<?>[] interfaces = cls.getInterfaces();
-            for (int i = 0; i < interfaces.length; i++) {
-                if (Modifier.isPublic(interfaces[i].getModifiers())) {
+            for (int i2 = 0; i2 < interfaces.length; i2++) {
+                if (Modifier.isPublic(interfaces[i2].getModifiers())) {
                     try {
-                        return interfaces[i].getDeclaredMethod(str, clsArr);
+                        return interfaces[i2].getDeclaredMethod(str, clsArr);
                     } catch (NoSuchMethodException unused) {
-                        Method c2 = c(interfaces[i], str, clsArr);
+                        Method c2 = c(interfaces[i2], str, clsArr);
                         if (c2 != null) {
                             return c2;
                         }
@@ -68,8 +68,8 @@ public class MethodUtils {
         Method[] methods;
         Method a2;
         String a3 = a(cls, str, clsArr);
-        synchronized (f4029a) {
-            method = f4029a.get(a3);
+        synchronized (f4086a) {
+            method = f4086a.get(a3);
         }
         if (method != null) {
             if (!method.isAccessible()) {
@@ -80,8 +80,8 @@ public class MethodUtils {
         try {
             Method method2 = cls.getMethod(str, clsArr);
             a.a((AccessibleObject) method2);
-            synchronized (f4029a) {
-                f4029a.put(a3, method2);
+            synchronized (f4086a) {
+                f4086a.put(a3, method2);
             }
             return method2;
         } catch (NoSuchMethodException unused) {
@@ -94,8 +94,8 @@ public class MethodUtils {
             if (method3 != null) {
                 a.a((AccessibleObject) method3);
             }
-            synchronized (f4029a) {
-                f4029a.put(a3, method3);
+            synchronized (f4086a) {
+                f4086a.put(a3, method3);
                 return method3;
             }
         }
@@ -104,8 +104,8 @@ public class MethodUtils {
     public static Method getAccessibleMethod(Class<?> cls, String str, Class<?>... clsArr) throws NoSuchMethodException {
         Method method;
         String a2 = a(cls, str, clsArr);
-        synchronized (f4029a) {
-            method = f4029a.get(a2);
+        synchronized (f4086a) {
+            method = f4086a.get(a2);
         }
         if (method != null) {
             if (!method.isAccessible()) {
@@ -114,8 +114,8 @@ public class MethodUtils {
             return method;
         }
         Method a3 = a(cls.getMethod(str, clsArr));
-        synchronized (f4029a) {
-            f4029a.put(a2, a3);
+        synchronized (f4086a) {
+            f4086a.put(a2, a3);
         }
         return a3;
     }

@@ -11,7 +11,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.Keep;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DpNetworkUtils {
     public static String a(Context context) {
         WifiInfo connectionInfo;
@@ -94,13 +94,13 @@ public class DpNetworkUtils {
 
     @Keep
     public static String getNetworkStatisticsData(Context context) {
-        int i;
+        int i2;
         TelephonyManager telephonyManager;
         String subscriberId;
         NetworkInfo b2 = b(context);
-        int i2 = 3;
+        int i3 = 3;
         if (b2 == null || b2.getState() != NetworkInfo.State.CONNECTED) {
-            i = 0;
+            i2 = 0;
         } else if (b2.getType() == 0) {
             switch (b2.getSubtype()) {
                 case 1:
@@ -108,7 +108,7 @@ public class DpNetworkUtils {
                 case 4:
                 case 7:
                 case 11:
-                    i = 2;
+                    i2 = 2;
                     break;
                 case 3:
                 case 5:
@@ -119,39 +119,39 @@ public class DpNetworkUtils {
                 case 12:
                 case 14:
                 case 15:
-                    i = 3;
+                    i2 = 3;
                     break;
                 case 13:
-                    i = 4;
+                    i2 = 4;
                     break;
                 default:
-                    i = 1;
+                    i2 = 1;
                     break;
             }
         } else {
-            i = b2.getType() == 1 ? 100 : b2.getType() == 9 ? 101 : 999;
+            i2 = b2.getType() == 1 ? 100 : b2.getType() == 9 ? 101 : 999;
         }
-        int i3 = 99;
+        int i4 = 99;
         try {
             if (!c(context) || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (subscriberId = telephonyManager.getSubscriberId()) == null) {
-                i2 = 0;
+                i3 = 0;
             } else {
                 if (!subscriberId.startsWith("46000") && !subscriberId.startsWith("46002") && !subscriberId.startsWith("46007") && !subscriberId.startsWith("46008")) {
                     if (!subscriberId.startsWith("46001") && !subscriberId.startsWith("46006") && !subscriberId.startsWith("46009")) {
                         if (!subscriberId.startsWith("46003") && !subscriberId.startsWith("46005")) {
                             if (!subscriberId.startsWith("460011")) {
-                                i2 = 99;
+                                i3 = 99;
                             }
                         }
-                        i2 = 2;
+                        i3 = 2;
                     }
                 }
-                i2 = 1;
+                i3 = 1;
             }
-            i3 = i2;
+            i4 = i3;
         } catch (Throwable th) {
             CyberLog.e("DpNetworkUtils", "network changed: " + th);
         }
-        return i + "_" + i3;
+        return i2 + "_" + i4;
     }
 }

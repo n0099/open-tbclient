@@ -8,14 +8,14 @@ import androidx.fragment.app.FragmentActivity;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog;
 import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
-import d.b.h0.a.i2.k0;
-import d.b.h0.a.i2.w;
-import d.b.h0.b.b;
-import d.b.h0.b.c;
-import d.b.h0.b.e;
-import d.b.h0.b.f;
-import d.b.h0.b.g;
-import d.b.h0.b.m.d.d;
+import d.a.h0.a.i2.k0;
+import d.a.h0.a.i2.w;
+import d.a.h0.b.b;
+import d.a.h0.b.c;
+import d.a.h0.b.e;
+import d.a.h0.b.f;
+import d.a.h0.b.g;
+import d.a.h0.b.m.d.d;
 /* loaded from: classes3.dex */
 public class LoginAndGetMobileActivity extends FragmentActivity implements SwanAppLoginAndGetMobileDialog.b {
     public static final String TAG = "LoginAndGetMobileActivity";
@@ -54,7 +54,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
     private void showLoginDialog() {
         String str;
         String str2;
-        this.mGetMobileDialog = d.b.h0.b.m.d.e.a(this.mAuthTip, this.mIsNightMode, this.mQuickLoginInfo, this.mLaunchFrom, this.mAppId);
+        this.mGetMobileDialog = d.a.h0.b.m.d.e.a(this.mAuthTip, this.mIsNightMode, this.mQuickLoginInfo, this.mLaunchFrom, this.mAppId);
         QuickLoginInfo quickLoginInfo = this.mQuickLoginInfo;
         if (quickLoginInfo == null || !quickLoginInfo.supportQuickLogin) {
             str = "swan_phone_login";
@@ -78,7 +78,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
         overridePendingTransition(0, b.login_get_mobile_act_exit);
     }
 
-    @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         int V = k0.V(this);
         super.onCreate(bundle);
@@ -96,7 +96,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
             this.mLaunchFrom = extras.getString("launch_from");
             this.mAppId = extras.getString("appid");
         }
-        this.mIsNightMode = d.b.h0.a.w0.a.z().a();
+        this.mIsNightMode = d.a.h0.a.w0.a.z().a();
         init();
     }
 
@@ -108,10 +108,10 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
     }
 
     @Override // com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog.b
-    public void onLoginResult(int i) {
-        d.b.h0.b.m.d.c.a().onResult(i);
-        if (i != 0) {
-            d.b.h0.a.q1.b.f.d.e(this, g.swanapp_login_fail).D(true);
+    public void onLoginResult(int i2) {
+        d.a.h0.b.m.d.c.a().onResult(i2);
+        if (i2 != 0) {
+            d.a.h0.a.q1.b.f.d.e(this, g.swanapp_login_fail).D(true);
         } else {
             finish();
         }
@@ -127,7 +127,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        boolean a2 = d.b.h0.a.w0.a.z().a();
+        boolean a2 = d.a.h0.a.w0.a.z().a();
         if (this.mIsNightMode != a2) {
             SwanAppLoginAndGetMobileDialog swanAppLoginAndGetMobileDialog = this.mGetMobileDialog;
             if (swanAppLoginAndGetMobileDialog != null) {

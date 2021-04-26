@@ -11,9 +11,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.KeyEventDealContainerView;
 import com.baidu.tieba.R;
-import d.b.c.e.m.g;
-import d.b.c.e.p.l;
-import d.b.i0.r.c;
+import d.a.c.e.m.g;
+import d.a.c.e.p.l;
+import d.a.i0.r.c;
 /* loaded from: classes3.dex */
 public class MorePopupWindow extends PopupWindow {
     public Activity mActivity;
@@ -40,10 +40,10 @@ public class MorePopupWindow extends PopupWindow {
         init(activity, view, drawable, aVar);
     }
 
-    private void applaySkin(c cVar, int i, Drawable drawable) {
+    private void applaySkin(c cVar, int i2, Drawable drawable) {
         if (this.mContentView != null) {
             setBackgroundDrawable(drawable);
-            cVar.k(i == 1);
+            cVar.k(i2 == 1);
             try {
                 cVar.j(this.mContentView);
             } catch (IllegalArgumentException e2) {
@@ -73,8 +73,8 @@ public class MorePopupWindow extends PopupWindow {
         return this.mIsIntercepted;
     }
 
-    public void onChangeSkinType(BaseActivity baseActivity, int i, Drawable drawable) {
-        applaySkin(baseActivity.getLayoutMode(), i, drawable);
+    public void onChangeSkinType(BaseActivity baseActivity, int i2, Drawable drawable) {
+        applaySkin(baseActivity.getLayoutMode(), i2, drawable);
     }
 
     public void reLayoutWidth() {
@@ -114,11 +114,11 @@ public class MorePopupWindow extends PopupWindow {
         setWidth(k);
     }
 
-    public void setWindowHeight(int i) {
-        setHeight(i);
+    public void setWindowHeight(int i2) {
+        setHeight(i2);
     }
 
-    public void showWindowInCustomPosition(int i, int i2) {
+    public void showWindowInCustomPosition(int i2, int i3) {
         if (isShowing()) {
             g.d(this, this.mActivity);
             return;
@@ -127,15 +127,15 @@ public class MorePopupWindow extends PopupWindow {
         if (view == null) {
             return;
         }
-        g.l(this, view, i, i2);
+        g.l(this, view, i2, i3);
     }
 
     public void showWindowInLeftCenterOfHost(View view, boolean z) {
         setAnimationStyle(R.style.pop_window_anim);
         setFocusable(z);
-        int i = this.mShowLeftCenterXOff;
-        int i2 = this.mWindowHeight;
-        g.l(this, view, i, (-i2) + ((i2 - view.getHeight()) / 2));
+        int i2 = this.mShowLeftCenterXOff;
+        int i3 = this.mWindowHeight;
+        g.l(this, view, i2, (-i3) + ((i3 - view.getHeight()) / 2));
     }
 
     public void showWindowInRightBottomOfHost() {
@@ -150,15 +150,15 @@ public class MorePopupWindow extends PopupWindow {
         g.l(this, view, this.mShowRightTopXOff, 0);
     }
 
-    public void onChangeSkinType(BaseFragmentActivity baseFragmentActivity, int i, Drawable drawable) {
-        applaySkin(baseFragmentActivity.getLayoutMode(), i, drawable);
+    public void onChangeSkinType(BaseFragmentActivity baseFragmentActivity, int i2, Drawable drawable) {
+        applaySkin(baseFragmentActivity.getLayoutMode(), i2, drawable);
     }
 
-    public void onChangeSkinType(c cVar, int i, Drawable drawable) {
-        applaySkin(cVar, i, drawable);
+    public void onChangeSkinType(c cVar, int i2, Drawable drawable) {
+        applaySkin(cVar, i2, drawable);
     }
 
-    public void showWindowInRightBottomOfHost(int i) {
+    public void showWindowInRightBottomOfHost(int i2) {
         if (isShowing()) {
             g.d(this, this.mActivity);
             return;
@@ -167,7 +167,7 @@ public class MorePopupWindow extends PopupWindow {
         if (view == null) {
             return;
         }
-        g.l(this, view, this.mShowRightTopXOff - i, 0);
+        g.l(this, view, this.mShowRightTopXOff - i2, 0);
     }
 
     public MorePopupWindow(Activity activity, View view, Drawable drawable, KeyEventDealContainerView.a aVar) {

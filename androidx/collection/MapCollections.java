@@ -23,8 +23,8 @@ public abstract class MapCollections<K, V> {
         public final int mOffset;
         public int mSize;
 
-        public ArrayIterator(int i) {
-            this.mOffset = i;
+        public ArrayIterator(int i2) {
+            this.mOffset = i2;
             this.mSize = MapCollections.this.colGetSize();
         }
 
@@ -47,11 +47,11 @@ public abstract class MapCollections<K, V> {
         @Override // java.util.Iterator
         public void remove() {
             if (this.mCanRemove) {
-                int i = this.mIndex - 1;
-                this.mIndex = i;
+                int i2 = this.mIndex - 1;
+                this.mIndex = i2;
                 this.mSize--;
                 this.mCanRemove = false;
-                MapCollections.this.colRemoveAt(i);
+                MapCollections.this.colRemoveAt(i2);
                 return;
             }
             throw new IllegalStateException();
@@ -113,13 +113,13 @@ public abstract class MapCollections<K, V> {
 
         @Override // java.util.Set, java.util.Collection
         public int hashCode() {
-            int i = 0;
+            int i2 = 0;
             for (int colGetSize = MapCollections.this.colGetSize() - 1; colGetSize >= 0; colGetSize--) {
                 Object colGetEntry = MapCollections.this.colGetEntry(colGetSize, 0);
                 Object colGetEntry2 = MapCollections.this.colGetEntry(colGetSize, 1);
-                i += (colGetEntry == null ? 0 : colGetEntry.hashCode()) ^ (colGetEntry2 == null ? 0 : colGetEntry2.hashCode());
+                i2 += (colGetEntry == null ? 0 : colGetEntry.hashCode()) ^ (colGetEntry2 == null ? 0 : colGetEntry2.hashCode());
             }
-            return i;
+            return i2;
         }
 
         @Override // java.util.Set, java.util.Collection
@@ -204,12 +204,12 @@ public abstract class MapCollections<K, V> {
 
         @Override // java.util.Set, java.util.Collection
         public int hashCode() {
-            int i = 0;
+            int i2 = 0;
             for (int colGetSize = MapCollections.this.colGetSize() - 1; colGetSize >= 0; colGetSize--) {
                 Object colGetEntry = MapCollections.this.colGetEntry(colGetSize, 0);
-                i += colGetEntry == null ? 0 : colGetEntry.hashCode();
+                i2 += colGetEntry == null ? 0 : colGetEntry.hashCode();
             }
-            return i;
+            return i2;
         }
 
         @Override // java.util.Set, java.util.Collection
@@ -406,16 +406,16 @@ public abstract class MapCollections<K, V> {
         @Override // java.util.Collection
         public boolean removeAll(Collection<?> collection) {
             int colGetSize = MapCollections.this.colGetSize();
-            int i = 0;
+            int i2 = 0;
             boolean z = false;
-            while (i < colGetSize) {
-                if (collection.contains(MapCollections.this.colGetEntry(i, 1))) {
-                    MapCollections.this.colRemoveAt(i);
-                    i--;
+            while (i2 < colGetSize) {
+                if (collection.contains(MapCollections.this.colGetEntry(i2, 1))) {
+                    MapCollections.this.colRemoveAt(i2);
+                    i2--;
                     colGetSize--;
                     z = true;
                 }
-                i++;
+                i2++;
             }
             return z;
         }
@@ -423,16 +423,16 @@ public abstract class MapCollections<K, V> {
         @Override // java.util.Collection
         public boolean retainAll(Collection<?> collection) {
             int colGetSize = MapCollections.this.colGetSize();
-            int i = 0;
+            int i2 = 0;
             boolean z = false;
-            while (i < colGetSize) {
-                if (!collection.contains(MapCollections.this.colGetEntry(i, 1))) {
-                    MapCollections.this.colRemoveAt(i);
-                    i--;
+            while (i2 < colGetSize) {
+                if (!collection.contains(MapCollections.this.colGetEntry(i2, 1))) {
+                    MapCollections.this.colRemoveAt(i2);
+                    i2--;
                     colGetSize--;
                     z = true;
                 }
-                i++;
+                i2++;
             }
             return z;
         }
@@ -504,7 +504,7 @@ public abstract class MapCollections<K, V> {
 
     public abstract void colClear();
 
-    public abstract Object colGetEntry(int i, int i2);
+    public abstract Object colGetEntry(int i2, int i3);
 
     public abstract Map<K, V> colGetMap();
 
@@ -516,9 +516,9 @@ public abstract class MapCollections<K, V> {
 
     public abstract void colPut(K k, V v);
 
-    public abstract void colRemoveAt(int i);
+    public abstract void colRemoveAt(int i2);
 
-    public abstract V colSetValue(int i, V v);
+    public abstract V colSetValue(int i2, V v);
 
     public Set<Map.Entry<K, V>> getEntrySet() {
         if (this.mEntrySet == null) {
@@ -541,24 +541,24 @@ public abstract class MapCollections<K, V> {
         return this.mValues;
     }
 
-    public Object[] toArrayHelper(int i) {
+    public Object[] toArrayHelper(int i2) {
         int colGetSize = colGetSize();
         Object[] objArr = new Object[colGetSize];
-        for (int i2 = 0; i2 < colGetSize; i2++) {
-            objArr[i2] = colGetEntry(i2, i);
+        for (int i3 = 0; i3 < colGetSize; i3++) {
+            objArr[i3] = colGetEntry(i3, i2);
         }
         return objArr;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v9, resolved type: T[] */
     /* JADX WARN: Multi-variable type inference failed */
-    public <T> T[] toArrayHelper(T[] tArr, int i) {
+    public <T> T[] toArrayHelper(T[] tArr, int i2) {
         int colGetSize = colGetSize();
         if (tArr.length < colGetSize) {
             tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), colGetSize));
         }
-        for (int i2 = 0; i2 < colGetSize; i2++) {
-            tArr[i2] = colGetEntry(i2, i);
+        for (int i3 = 0; i3 < colGetSize; i3++) {
+            tArr[i3] = colGetEntry(i3, i2);
         }
         if (tArr.length > colGetSize) {
             tArr[colGetSize] = null;

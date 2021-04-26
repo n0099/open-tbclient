@@ -36,39 +36,39 @@ public final class Code93Reader extends OneDReader {
         checkOneChecksum(charSequence, length - 1, 15);
     }
 
-    public static void checkOneChecksum(CharSequence charSequence, int i, int i2) throws ChecksumException {
-        int i3 = 0;
-        int i4 = 1;
-        for (int i5 = i - 1; i5 >= 0; i5--) {
-            i3 += ALPHABET_STRING.indexOf(charSequence.charAt(i5)) * i4;
-            i4++;
-            if (i4 > i2) {
-                i4 = 1;
+    public static void checkOneChecksum(CharSequence charSequence, int i2, int i3) throws ChecksumException {
+        int i4 = 0;
+        int i5 = 1;
+        for (int i6 = i2 - 1; i6 >= 0; i6--) {
+            i4 += ALPHABET_STRING.indexOf(charSequence.charAt(i6)) * i5;
+            i5++;
+            if (i5 > i3) {
+                i5 = 1;
             }
         }
-        if (charSequence.charAt(i) != ALPHABET[i3 % 47]) {
+        if (charSequence.charAt(i2) != ALPHABET[i4 % 47]) {
             throw ChecksumException.getChecksumInstance();
         }
     }
 
     public static String decodeExtended(CharSequence charSequence) throws FormatException {
-        int i;
+        int i2;
         char c2;
         int length = charSequence.length();
         StringBuilder sb = new StringBuilder(length);
-        int i2 = 0;
-        while (i2 < length) {
-            char charAt = charSequence.charAt(i2);
+        int i3 = 0;
+        while (i3 < length) {
+            char charAt = charSequence.charAt(i3);
             if (charAt < 'a' || charAt > 'd') {
                 sb.append(charAt);
-            } else if (i2 < length - 1) {
-                i2++;
-                char charAt2 = charSequence.charAt(i2);
+            } else if (i3 < length - 1) {
+                i3++;
+                char charAt2 = charSequence.charAt(i3);
                 switch (charAt) {
                     case 'a':
                         if (charAt2 >= 'A' && charAt2 <= 'Z') {
-                            i = charAt2 - '@';
-                            c2 = (char) i;
+                            i2 = charAt2 - '@';
+                            c2 = (char) i2;
                             break;
                         } else {
                             throw FormatException.getFormatInstance();
@@ -76,25 +76,25 @@ public final class Code93Reader extends OneDReader {
                         break;
                     case 'b':
                         if (charAt2 >= 'A' && charAt2 <= 'E') {
-                            i = charAt2 - '&';
+                            i2 = charAt2 - '&';
                         } else if (charAt2 >= 'F' && charAt2 <= 'J') {
-                            i = charAt2 + DecodedBitStreamParser.TWOSHIFTA;
+                            i2 = charAt2 + DecodedBitStreamParser.TWOSHIFTA;
                         } else if (charAt2 >= 'K' && charAt2 <= 'O') {
-                            i = charAt2 + 16;
+                            i2 = charAt2 + 16;
                         } else if (charAt2 >= 'P' && charAt2 <= 'S') {
-                            i = charAt2 + '+';
+                            i2 = charAt2 + '+';
                         } else if (charAt2 >= 'T' && charAt2 <= 'Z') {
                             c2 = 127;
                             break;
                         } else {
                             throw FormatException.getFormatInstance();
                         }
-                        c2 = (char) i;
+                        c2 = (char) i2;
                         break;
                     case 'c':
                         if (charAt2 >= 'A' && charAt2 <= 'O') {
-                            i = charAt2 - ' ';
-                            c2 = (char) i;
+                            i2 = charAt2 - ' ';
+                            c2 = (char) i2;
                             break;
                         } else if (charAt2 == 'Z') {
                             c2 = ':';
@@ -104,8 +104,8 @@ public final class Code93Reader extends OneDReader {
                         }
                     case 'd':
                         if (charAt2 >= 'A' && charAt2 <= 'Z') {
-                            i = charAt2 + ' ';
-                            c2 = (char) i;
+                            i2 = charAt2 + ' ';
+                            c2 = (char) i2;
                             break;
                         } else {
                             throw FormatException.getFormatInstance();
@@ -118,7 +118,7 @@ public final class Code93Reader extends OneDReader {
             } else {
                 throw FormatException.getFormatInstance();
             }
-            i2++;
+            i3++;
         }
         return sb.toString();
     }
@@ -129,27 +129,27 @@ public final class Code93Reader extends OneDReader {
         Arrays.fill(this.counters, 0);
         int[] iArr = this.counters;
         int length = iArr.length;
-        int i = nextSet;
+        int i2 = nextSet;
         boolean z = false;
-        int i2 = 0;
+        int i3 = 0;
         while (nextSet < size) {
             if (bitArray.get(nextSet) ^ z) {
-                iArr[i2] = iArr[i2] + 1;
+                iArr[i3] = iArr[i3] + 1;
             } else {
-                int i3 = length - 1;
-                if (i2 != i3) {
-                    i2++;
+                int i4 = length - 1;
+                if (i3 != i4) {
+                    i3++;
                 } else if (toPattern(iArr) == ASTERISK_ENCODING) {
-                    return new int[]{i, nextSet};
+                    return new int[]{i2, nextSet};
                 } else {
-                    i += iArr[0] + iArr[1];
-                    int i4 = length - 2;
-                    System.arraycopy(iArr, 2, iArr, 0, i4);
+                    i2 += iArr[0] + iArr[1];
+                    int i5 = length - 2;
+                    System.arraycopy(iArr, 2, iArr, 0, i5);
+                    iArr[i5] = 0;
                     iArr[i4] = 0;
-                    iArr[i3] = 0;
-                    i2--;
+                    i3--;
                 }
-                iArr[i2] = 1;
+                iArr[i3] = 1;
                 z = !z;
             }
             nextSet++;
@@ -157,15 +157,15 @@ public final class Code93Reader extends OneDReader {
         throw NotFoundException.getNotFoundInstance();
     }
 
-    public static char patternToChar(int i) throws NotFoundException {
-        int i2 = 0;
+    public static char patternToChar(int i2) throws NotFoundException {
+        int i3 = 0;
         while (true) {
             int[] iArr = CHARACTER_ENCODINGS;
-            if (i2 < iArr.length) {
-                if (iArr[i2] == i) {
-                    return ALPHABET[i2];
+            if (i3 < iArr.length) {
+                if (iArr[i3] == i2) {
+                    return ALPHABET[i3];
                 }
-                i2++;
+                i3++;
             } else {
                 throw NotFoundException.getNotFoundInstance();
             }
@@ -173,30 +173,30 @@ public final class Code93Reader extends OneDReader {
     }
 
     public static int toPattern(int[] iArr) {
-        int i = 0;
-        for (int i2 : iArr) {
-            i += i2;
+        int i2 = 0;
+        for (int i3 : iArr) {
+            i2 += i3;
         }
         int length = iArr.length;
-        int i3 = 0;
-        for (int i4 = 0; i4 < length; i4++) {
-            int round = Math.round((iArr[i4] * 9.0f) / i);
+        int i4 = 0;
+        for (int i5 = 0; i5 < length; i5++) {
+            int round = Math.round((iArr[i5] * 9.0f) / i2);
             if (round <= 0 || round > 4) {
                 return -1;
             }
-            if ((i4 & 1) == 0) {
-                for (int i5 = 0; i5 < round; i5++) {
-                    i3 = (i3 << 1) | 1;
+            if ((i5 & 1) == 0) {
+                for (int i6 = 0; i6 < round; i6++) {
+                    i4 = (i4 << 1) | 1;
                 }
             } else {
-                i3 <<= round;
+                i4 <<= round;
             }
         }
-        return i3;
+        return i4;
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
+    public Result decodeRow(int i2, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
         int[] findAsteriskPattern;
         int nextSet = bitArray.getNextSet(findAsteriskPattern(bitArray)[1]);
         int size = bitArray.getSize();
@@ -210,23 +210,23 @@ public final class Code93Reader extends OneDReader {
             if (pattern >= 0) {
                 char patternToChar = patternToChar(pattern);
                 sb.append(patternToChar);
-                int i2 = nextSet;
-                for (int i3 : iArr) {
-                    i2 += i3;
+                int i3 = nextSet;
+                for (int i4 : iArr) {
+                    i3 += i4;
                 }
-                int nextSet2 = bitArray.getNextSet(i2);
+                int nextSet2 = bitArray.getNextSet(i3);
                 if (patternToChar == '*') {
                     sb.deleteCharAt(sb.length() - 1);
-                    int i4 = 0;
-                    for (int i5 : iArr) {
-                        i4 += i5;
+                    int i5 = 0;
+                    for (int i6 : iArr) {
+                        i5 += i6;
                     }
                     if (nextSet2 != size && bitArray.get(nextSet2)) {
                         if (sb.length() >= 2) {
                             checkChecksums(sb);
                             sb.setLength(sb.length() - 2);
-                            float f2 = i;
-                            return new Result(decodeExtended(sb), null, new ResultPoint[]{new ResultPoint((findAsteriskPattern[1] + findAsteriskPattern[0]) / 2.0f, f2), new ResultPoint(nextSet + (i4 / 2.0f), f2)}, BarcodeFormat.CODE_93);
+                            float f2 = i2;
+                            return new Result(decodeExtended(sb), null, new ResultPoint[]{new ResultPoint((findAsteriskPattern[1] + findAsteriskPattern[0]) / 2.0f, f2), new ResultPoint(nextSet + (i5 / 2.0f), f2)}, BarcodeFormat.CODE_93);
                         }
                         throw NotFoundException.getNotFoundInstance();
                     }

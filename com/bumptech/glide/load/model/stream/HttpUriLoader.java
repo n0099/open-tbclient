@@ -36,8 +36,8 @@ public class HttpUriLoader implements ModelLoader<Uri, InputStream> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<InputStream> buildLoadData(@NonNull Uri uri, int i, int i2, @NonNull Options options) {
-        return this.urlLoader.buildLoadData(new GlideUrl(uri.toString()), i, i2, options);
+    public ModelLoader.LoadData<InputStream> buildLoadData(@NonNull Uri uri, int i2, int i3, @NonNull Options options) {
+        return this.urlLoader.buildLoadData(new GlideUrl(uri.toString()), i2, i3, options);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

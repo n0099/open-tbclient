@@ -5,22 +5,22 @@ import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
-import d.b.j0.t.j.c.a;
+import d.a.j0.t.j.c.a;
 /* loaded from: classes4.dex */
 public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivity> {
     public TbPageContext mContext;
     public a mPersonCenterController;
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void changeSkinType(int i) {
-        super.changeSkinType(i);
-        this.mPersonCenterController.m(i);
+    public void changeSkinType(int i2) {
+        super.changeSkinType(i2);
+        this.mPersonCenterController.m(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mPersonCenterController.m(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mPersonCenterController.m(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

@@ -9,7 +9,7 @@ import org.apache.http.params.HttpParams;
 @Deprecated
 /* loaded from: classes7.dex */
 public interface SocketFactory {
-    Socket connectSocket(Socket socket, String str, int i, InetAddress inetAddress, int i2, HttpParams httpParams) throws IOException, UnknownHostException, ConnectTimeoutException;
+    Socket connectSocket(Socket socket, String str, int i2, InetAddress inetAddress, int i3, HttpParams httpParams) throws IOException, UnknownHostException, ConnectTimeoutException;
 
     Socket createSocket() throws IOException;
 

@@ -2,7 +2,7 @@ package com.baidu.tieba.majorsearch.message;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.j0.p1.c.a;
+import d.a.j0.p1.c.a;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -14,8 +14,8 @@ public class SearchMajorHttpResponsedMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i, jSONObject);
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("major_list");
             a aVar = new a();

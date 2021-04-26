@@ -3,28 +3,30 @@ package com.baidu.apollon.beans;
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3602a = 0;
+    public static final int f3644a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3603b = -15;
+    public static final int f3645b = -15;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3604c = -16;
+    public static final int f3646c = -16;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3605d = -2;
+    public static final int f3647d = -2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f3606e = -3;
+    public static final int f3648e = -3;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f3607f = -4;
+    public static final int f3649f = -4;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f3608g = -5;
+    public static final int f3650g = -5;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f3609h = 5003;
-    public static final int i = -7;
+    public static final int f3651h = 5003;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final int f3652i = -7;
     public static final int j = -8;
 }

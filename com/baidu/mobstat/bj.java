@@ -95,7 +95,7 @@ public class bj {
 
     public static String f(View view) {
         int lastIndexOf;
-        int i;
+        int i2;
         String str = null;
         try {
             if (view.getId() != 0) {
@@ -103,8 +103,8 @@ public class bj {
             }
         } catch (Exception unused) {
         }
-        if (!TextUtils.isEmpty(str) && str.contains(":id/") && (lastIndexOf = str.lastIndexOf(":id/")) != -1 && (i = lastIndexOf + 4) < str.length()) {
-            str = str.substring(i);
+        if (!TextUtils.isEmpty(str) && str.contains(":id/") && (lastIndexOf = str.lastIndexOf(":id/")) != -1 && (i2 = lastIndexOf + 4) < str.length()) {
+            str = str.substring(i2);
         }
         return str == null ? "" : str;
     }
@@ -137,8 +137,8 @@ public class bj {
             ViewGroup viewGroup = (ViewGroup) view;
             int childCount = viewGroup.getChildCount();
             boolean z = false;
-            for (int i = 0; i < childCount && sb.length() < 128; i++) {
-                String h2 = h(viewGroup.getChildAt(i));
+            for (int i2 = 0; i2 < childCount && sb.length() < 128; i2++) {
+                String h2 = h(viewGroup.getChildAt(i2));
                 if (h2 != null && h2.length() > 0) {
                     if (z) {
                         sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
@@ -182,8 +182,8 @@ public class bj {
             ViewGroup viewGroup = (ViewGroup) view;
             int childCount = viewGroup.getChildCount();
             boolean z = false;
-            for (int i = 0; i < childCount && sb.length() < 128; i++) {
-                String k = k(viewGroup.getChildAt(i));
+            for (int i2 = 0; i2 < childCount && sb.length() < 128; i2++) {
+                String k = k(viewGroup.getChildAt(i2));
                 if (k != null && k.length() > 0) {
                     if (z) {
                         sb.append("| ");
@@ -307,16 +307,16 @@ public class bj {
             return "";
         }
         ArrayList<Map.Entry> arrayList = new ArrayList(linkedHashMap.entrySet());
-        int i = 0;
+        int i2 = 0;
         for (Map.Entry entry : arrayList) {
             int intValue = ((Integer) entry.getValue()).intValue();
-            if (intValue > i) {
-                i = intValue;
+            if (intValue > i2) {
+                i2 = intValue;
             }
         }
         StringBuilder sb = new StringBuilder();
         for (Map.Entry entry2 : arrayList) {
-            if (((Integer) entry2.getValue()).intValue() >= i && (view2 = (View) entry2.getKey()) != null && (view2 instanceof TextView)) {
+            if (((Integer) entry2.getValue()).intValue() >= i2 && (view2 = (View) entry2.getKey()) != null && (view2 instanceof TextView)) {
                 CharSequence text = ((TextView) view2).getText();
                 String charSequence = text != null ? text.toString() : "";
                 if (!TextUtils.isEmpty(charSequence)) {
@@ -443,9 +443,9 @@ public class bj {
         }
         String h2 = h(activity);
         if (TextUtils.isEmpty(h2)) {
-            Uri i = i(activity);
-            if (i != null) {
-                String host = i.getHost();
+            Uri i2 = i(activity);
+            if (i2 != null) {
+                String host = i2.getHost();
                 return !TextUtils.isEmpty(host) ? host : "";
             }
             return "";
@@ -487,9 +487,9 @@ public class bj {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < jSONArray.length(); i++) {
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             try {
-                JSONObject jSONObject = (JSONObject) jSONArray.get(i);
+                JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
                 String b2 = b(jSONObject.getString("p"));
                 String string = jSONObject.getString("i");
                 sb.append("/" + b2 + "[" + string + "]");
@@ -525,15 +525,15 @@ public class bj {
                 ViewPager viewPager = (ViewPager) viewGroup;
                 ArrayList arrayList = new ArrayList();
                 int childCount = viewPager.getChildCount();
-                int i = 0;
-                for (int i2 = 0; i2 < childCount; i2++) {
-                    View childAt = viewPager.getChildAt(i2);
+                int i2 = 0;
+                for (int i3 = 0; i3 < childCount; i3++) {
+                    View childAt = viewPager.getChildAt(i3);
                     arrayList.add(childAt);
                     if (e(childAt) != null) {
-                        i++;
+                        i2++;
                     }
                 }
-                if (arrayList.size() >= 2 && i >= 2) {
+                if (arrayList.size() >= 2 && i2 >= 2) {
                     try {
                         Collections.sort(arrayList, new Comparator<View>() { // from class: com.baidu.mobstat.bj.1
                             /* JADX DEBUG: Method merged with bridge method */
@@ -576,9 +576,9 @@ public class bj {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < jSONArray.length(); i++) {
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             try {
-                JSONObject jSONObject = (JSONObject) jSONArray.get(i);
+                JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
                 String string = jSONObject.getString("p");
                 String string2 = jSONObject.getString("i");
                 sb.append("/" + string + "[" + string2 + "]");
@@ -628,18 +628,18 @@ public class bj {
                 return String.valueOf(0);
             }
             ViewGroup viewGroup = (ViewGroup) parent;
-            int i = 0;
-            for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
-                View childAt = viewGroup.getChildAt(i2);
+            int i2 = 0;
+            for (int i3 = 0; i3 < viewGroup.getChildCount(); i3++) {
+                View childAt = viewGroup.getChildAt(i3);
                 if (childAt != null) {
                     if (childAt == view) {
                         break;
                     } else if (childAt.getClass() != null && b2.equals(b(childAt.getClass()))) {
-                        i++;
+                        i2++;
                     }
                 }
             }
-            return String.valueOf(i);
+            return String.valueOf(i2);
         }
         return String.valueOf(0);
     }
@@ -647,7 +647,7 @@ public class bj {
     public static String b(String str) {
         String a2 = ay.a().a(str);
         if (TextUtils.isEmpty(a2)) {
-            a2 = au.a().a(str, au.a.f8585a);
+            a2 = au.a().a(str, au.a.f8891a);
         }
         return a2 == null ? "" : a2;
     }
@@ -711,9 +711,9 @@ public class bj {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < jSONArray.length(); i++) {
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             try {
-                JSONObject jSONObject = (JSONObject) jSONArray.get(i);
+                JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
                 String b2 = b(jSONObject.getString("p"));
                 String string = jSONObject.getString("i");
                 sb.append("/" + b2 + "[" + string + "]");
@@ -730,9 +730,9 @@ public class bj {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static ArrayList<Integer> b(Activity activity, View view) {
-        int i;
         int i2;
         int i3;
+        int i4;
         ArrayList<Integer> arrayList = new ArrayList<>();
         if (view == null) {
             arrayList.add(0);
@@ -742,55 +742,55 @@ public class bj {
         int width = view.getWidth();
         int height = view.getHeight();
         if (view instanceof WebView) {
-            i = view.getScrollX();
-            i2 = view.getScrollY();
+            i2 = view.getScrollX();
+            i3 = view.getScrollY();
         } else {
             if (view instanceof ScrollView) {
                 ScrollView scrollView = (ScrollView) view;
                 if (scrollView.getChildCount() > 0) {
-                    i = scrollView.getScrollX();
-                    i2 = scrollView.getScrollY();
+                    i2 = scrollView.getScrollX();
+                    i3 = scrollView.getScrollY();
                 }
-                i2 = 0;
+                i3 = 0;
             } else if (view instanceof ListView) {
-                i2 = b((ListView) view);
+                i3 = b((ListView) view);
             } else if (view instanceof GridView) {
-                i2 = b((GridView) view);
+                i3 = b((GridView) view);
             } else {
                 if (q(view)) {
                     try {
                         RecyclerView recyclerView = (RecyclerView) view;
-                        i = recyclerView.computeHorizontalScrollOffset();
+                        i2 = recyclerView.computeHorizontalScrollOffset();
                         try {
-                            i2 = recyclerView.computeVerticalScrollOffset();
+                            i3 = recyclerView.computeVerticalScrollOffset();
                         } catch (Exception unused) {
-                            i2 = 0;
-                            i3 = width + i;
-                            int i4 = height + i2;
-                            if (i3 <= 0) {
+                            i3 = 0;
+                            i4 = width + i2;
+                            int i5 = height + i3;
+                            if (i4 <= 0) {
                             }
-                            if (i4 > 0) {
+                            if (i5 > 0) {
                             }
-                            arrayList.add(Integer.valueOf(i3));
+                            arrayList.add(Integer.valueOf(i4));
                             arrayList.add(Integer.valueOf(r0));
                             return arrayList;
                         }
                     } catch (Exception unused2) {
-                        i = 0;
+                        i2 = 0;
                     }
                 }
-                i2 = 0;
+                i3 = 0;
             }
-            i = 0;
+            i2 = 0;
         }
-        i3 = width + i;
-        int i42 = height + i2;
-        if (i3 <= 0) {
-            i3 = 0;
+        i4 = width + i2;
+        int i52 = height + i3;
+        if (i4 <= 0) {
+            i4 = 0;
         }
-        int i5 = i42 > 0 ? i42 : 0;
-        arrayList.add(Integer.valueOf(i3));
-        arrayList.add(Integer.valueOf(i5));
+        int i6 = i52 > 0 ? i52 : 0;
+        arrayList.add(Integer.valueOf(i4));
+        arrayList.add(Integer.valueOf(i6));
         return arrayList;
     }
 
@@ -921,11 +921,11 @@ public class bj {
         int numColumns;
         if (gridView != null && gridView.getChildCount() > 0) {
             View childAt = gridView.getChildAt(0);
-            int i = 1;
+            int i2 = 1;
             if (Build.VERSION.SDK_INT >= 11 && (numColumns = gridView.getNumColumns()) != 0) {
-                i = gridView.getFirstVisiblePosition() / numColumns;
+                i2 = gridView.getFirstVisiblePosition() / numColumns;
             }
-            return (-childAt.getTop()) + (i * childAt.getHeight());
+            return (-childAt.getTop()) + (i2 * childAt.getHeight());
         }
         return 0;
     }
@@ -935,9 +935,9 @@ public class bj {
             return "";
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < jSONArray.length(); i++) {
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
             try {
-                JSONObject jSONObject = (JSONObject) jSONArray.get(i);
+                JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
                 String string = jSONObject.getString("p");
                 String string2 = jSONObject.getString("i");
                 sb.append("/" + string + "[" + string2 + "]");
@@ -949,7 +949,7 @@ public class bj {
     }
 
     public static String a(String str) {
-        String a2 = au.a().a(str, au.a.f8586b);
+        String a2 = au.a().a(str, au.a.f8892b);
         return a2 == null ? "" : a2;
     }
 
@@ -1009,16 +1009,16 @@ public class bj {
             return height;
         }
         int height2 = gridView.getChildAt(0).getHeight();
-        int i = 1;
+        int i2 = 1;
         if (Build.VERSION.SDK_INT >= 11) {
             ListAdapter adapter = gridView.getAdapter();
             int numColumns = gridView.getNumColumns();
             if (adapter != null && numColumns != 0) {
-                i = (int) Math.ceil(adapter.getCount() / numColumns);
+                i2 = (int) Math.ceil(adapter.getCount() / numColumns);
             }
         }
-        int i2 = height2 * i;
-        return i2 >= height ? i2 : height;
+        int i3 = height2 * i2;
+        return i3 >= height ? i3 : height;
     }
 
     public static void a(View view, LinkedHashMap<View, Integer> linkedHashMap) {
@@ -1033,8 +1033,8 @@ public class bj {
         } else if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             int childCount = viewGroup.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                a(viewGroup.getChildAt(i), linkedHashMap);
+            for (int i2 = 0; i2 < childCount; i2++) {
+                a(viewGroup.getChildAt(i2), linkedHashMap);
             }
         }
     }

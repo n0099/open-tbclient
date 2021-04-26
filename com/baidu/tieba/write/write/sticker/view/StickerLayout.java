@@ -5,8 +5,8 @@ import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.tbadk.core.util.ListUtils;
-import d.b.i0.z0.h;
-import d.b.j0.v3.v.n.b.c;
+import d.a.i0.z0.h;
+import d.a.j0.v3.u.n.b.c;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -14,56 +14,56 @@ import java.util.List;
 public class StickerLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f22285e;
+    public Context f22975e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<StickerView> f22286f;
+    public List<StickerView> f22976f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout.LayoutParams f22287g;
+    public FrameLayout.LayoutParams f22977g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f22288h;
+    public int f22978h;
 
     /* loaded from: classes5.dex */
-    public class a implements d.b.j0.v3.v.n.b.a {
+    public class a implements d.a.j0.v3.u.n.b.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ StickerView f22289a;
+        public final /* synthetic */ StickerView f22979a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f22290b;
+        public final /* synthetic */ c f22980b;
 
         public a(StickerView stickerView, c cVar) {
-            this.f22289a = stickerView;
-            this.f22290b = cVar;
+            this.f22979a = stickerView;
+            this.f22980b = cVar;
         }
 
-        @Override // d.b.j0.v3.v.n.b.a
-        public void a() {
-            StickerLayout.this.removeView(this.f22289a);
-            StickerLayout.this.f22286f.remove(this.f22289a);
-            StickerLayout.this.e();
-            c cVar = this.f22290b;
-            if (cVar != null) {
-                cVar.a();
-            }
+        @Override // d.a.j0.v3.u.n.b.a
+        public void a(StickerView stickerView) {
         }
 
-        @Override // d.b.j0.v3.v.n.b.a
-        public void b(StickerView stickerView) {
-        }
-
-        @Override // d.b.j0.v3.v.n.b.a
-        public void c(StickerView stickerView, boolean z) {
+        @Override // d.a.j0.v3.u.n.b.a
+        public void b(StickerView stickerView, boolean z) {
             stickerView.setEdit(z);
             if (z) {
                 stickerView.bringToFront();
             }
         }
 
-        @Override // d.b.j0.v3.v.n.b.a
-        public void d(StickerView stickerView) {
+        @Override // d.a.j0.v3.u.n.b.a
+        public void c(StickerView stickerView) {
+        }
+
+        @Override // d.a.j0.v3.u.n.b.a
+        public void onDelete() {
+            StickerLayout.this.removeView(this.f22979a);
+            StickerLayout.this.f22976f.remove(this.f22979a);
+            StickerLayout.this.e();
+            c cVar = this.f22980b;
+            if (cVar != null) {
+                cVar.a();
+            }
         }
     }
 
@@ -72,12 +72,12 @@ public class StickerLayout extends FrameLayout {
     }
 
     public StickerView b(Bitmap bitmap, c cVar) {
-        StickerView stickerView = new StickerView(this.f22285e);
+        StickerView stickerView = new StickerView(this.f22975e);
         stickerView.setImageBitmap(bitmap);
-        stickerView.setLayoutParams(this.f22287g);
+        stickerView.setLayoutParams(this.f22977g);
         stickerView.setmOnStickerActionListener(new a(stickerView, cVar));
         addView(stickerView);
-        this.f22286f.add(stickerView);
+        this.f22976f.add(stickerView);
         e();
         if (cVar != null) {
             cVar.d();
@@ -86,7 +86,7 @@ public class StickerLayout extends FrameLayout {
     }
 
     public Bitmap c() {
-        if (ListUtils.isEmpty(this.f22286f)) {
+        if (ListUtils.isEmpty(this.f22976f)) {
             return null;
         }
         e();
@@ -94,25 +94,25 @@ public class StickerLayout extends FrameLayout {
     }
 
     public final void d(Context context) {
-        this.f22285e = context;
-        this.f22286f = new ArrayList();
-        this.f22287g = new FrameLayout.LayoutParams(-1, -1);
+        this.f22975e = context;
+        this.f22976f = new ArrayList();
+        this.f22977g = new FrameLayout.LayoutParams(-1, -1);
     }
 
     public void e() {
-        if (this.f22286f.size() <= 0) {
+        if (this.f22976f.size() <= 0) {
             return;
         }
-        for (StickerView stickerView : this.f22286f) {
+        for (StickerView stickerView : this.f22976f) {
             if (stickerView != null) {
-                stickerView.setRemoveRes(this.f22288h);
+                stickerView.setRemoveRes(this.f22978h);
                 stickerView.setEdit(false);
             }
         }
     }
 
     public void f(c cVar) {
-        Iterator<StickerView> it = this.f22286f.iterator();
+        Iterator<StickerView> it = this.f22976f.iterator();
         while (it.hasNext()) {
             StickerView next = it.next();
             if (next != null) {
@@ -127,19 +127,19 @@ public class StickerLayout extends FrameLayout {
     }
 
     public List<StickerView> getStickerViews() {
-        return this.f22286f;
+        return this.f22976f;
     }
 
-    public void setRemoveRes(int i) {
-        this.f22288h = i;
+    public void setRemoveRes(int i2) {
+        this.f22978h = i2;
     }
 
     public StickerLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public StickerLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public StickerLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         d(context);
     }
 }

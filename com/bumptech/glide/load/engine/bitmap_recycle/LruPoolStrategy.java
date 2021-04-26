@@ -5,11 +5,11 @@ import androidx.annotation.Nullable;
 /* loaded from: classes5.dex */
 public interface LruPoolStrategy {
     @Nullable
-    Bitmap get(int i, int i2, Bitmap.Config config);
+    Bitmap get(int i2, int i3, Bitmap.Config config);
 
     int getSize(Bitmap bitmap);
 
-    String logBitmap(int i, int i2, Bitmap.Config config);
+    String logBitmap(int i2, int i3, Bitmap.Config config);
 
     String logBitmap(Bitmap bitmap);
 

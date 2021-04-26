@@ -40,10 +40,10 @@ public final class DrawableCompat {
 
     public static void clearColorFilter(@NonNull Drawable drawable) {
         DrawableContainer.DrawableContainerState drawableContainerState;
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 23) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 23) {
             drawable.clearColorFilter();
-        } else if (i >= 21) {
+        } else if (i2 >= 21) {
             drawable.clearColorFilter();
             if (drawable instanceof InsetDrawable) {
                 clearColorFilter(((InsetDrawable) drawable).getDrawable());
@@ -51,8 +51,8 @@ public final class DrawableCompat {
                 clearColorFilter(((WrappedDrawable) drawable).getWrappedDrawable());
             } else if ((drawable instanceof DrawableContainer) && (drawableContainerState = (DrawableContainer.DrawableContainerState) ((DrawableContainer) drawable).getConstantState()) != null) {
                 int childCount = drawableContainerState.getChildCount();
-                for (int i2 = 0; i2 < childCount; i2++) {
-                    Drawable child = drawableContainerState.getChild(i2);
+                for (int i3 = 0; i3 < childCount; i3++) {
+                    Drawable child = drawableContainerState.getChild(i3);
                     if (child != null) {
                         clearColorFilter(child);
                     }
@@ -78,11 +78,11 @@ public final class DrawableCompat {
     }
 
     public static int getLayoutDirection(@NonNull Drawable drawable) {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 23) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 23) {
             return drawable.getLayoutDirection();
         }
-        if (i >= 17) {
+        if (i2 >= 17) {
             if (!sGetLayoutDirectionMethodFetched) {
                 try {
                     Method declaredMethod = Drawable.class.getDeclaredMethod("getLayoutDirection", new Class[0]);
@@ -138,18 +138,18 @@ public final class DrawableCompat {
         }
     }
 
-    public static void setHotspotBounds(@NonNull Drawable drawable, int i, int i2, int i3, int i4) {
+    public static void setHotspotBounds(@NonNull Drawable drawable, int i2, int i3, int i4, int i5) {
         if (Build.VERSION.SDK_INT >= 21) {
-            drawable.setHotspotBounds(i, i2, i3, i4);
+            drawable.setHotspotBounds(i2, i3, i4, i5);
         }
     }
 
-    public static boolean setLayoutDirection(@NonNull Drawable drawable, int i) {
-        int i2 = Build.VERSION.SDK_INT;
-        if (i2 >= 23) {
-            return drawable.setLayoutDirection(i);
+    public static boolean setLayoutDirection(@NonNull Drawable drawable, int i2) {
+        int i3 = Build.VERSION.SDK_INT;
+        if (i3 >= 23) {
+            return drawable.setLayoutDirection(i2);
         }
-        if (i2 >= 17) {
+        if (i3 >= 17) {
             if (!sSetLayoutDirectionMethodFetched) {
                 try {
                     Method declaredMethod = Drawable.class.getDeclaredMethod("setLayoutDirection", Integer.TYPE);
@@ -163,7 +163,7 @@ public final class DrawableCompat {
             Method method = sSetLayoutDirectionMethod;
             if (method != null) {
                 try {
-                    method.invoke(drawable, Integer.valueOf(i));
+                    method.invoke(drawable, Integer.valueOf(i2));
                     return true;
                 } catch (Exception e3) {
                     Log.i(TAG, "Failed to invoke setLayoutDirection(int) via reflection", e3);
@@ -174,11 +174,11 @@ public final class DrawableCompat {
         return false;
     }
 
-    public static void setTint(@NonNull Drawable drawable, @ColorInt int i) {
+    public static void setTint(@NonNull Drawable drawable, @ColorInt int i2) {
         if (Build.VERSION.SDK_INT >= 21) {
-            drawable.setTint(i);
+            drawable.setTint(i2);
         } else if (drawable instanceof TintAwareDrawable) {
-            ((TintAwareDrawable) drawable).setTint(i);
+            ((TintAwareDrawable) drawable).setTint(i2);
         }
     }
 
@@ -205,7 +205,7 @@ public final class DrawableCompat {
     }
 
     public static Drawable wrap(@NonNull Drawable drawable) {
-        int i = Build.VERSION.SDK_INT;
-        return i >= 23 ? drawable : i >= 21 ? !(drawable instanceof TintAwareDrawable) ? new WrappedDrawableApi21(drawable) : drawable : !(drawable instanceof TintAwareDrawable) ? new WrappedDrawableApi14(drawable) : drawable;
+        int i2 = Build.VERSION.SDK_INT;
+        return i2 >= 23 ? drawable : i2 >= 21 ? !(drawable instanceof TintAwareDrawable) ? new WrappedDrawableApi21(drawable) : drawable : !(drawable instanceof TintAwareDrawable) ? new WrappedDrawableApi14(drawable) : drawable;
     }
 }

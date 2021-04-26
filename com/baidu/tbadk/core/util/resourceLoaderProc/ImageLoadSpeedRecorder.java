@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import d.b.c.e.p.j;
+import d.a.c.e.p.j;
 import java.util.LinkedList;
 import java.util.Queue;
 /* loaded from: classes3.dex */
@@ -33,22 +33,22 @@ public class ImageLoadSpeedRecorder {
         return _speedRecorder;
     }
 
-    public synchronized void addSpeedRecordItem(int i, long j) {
+    public synchronized void addSpeedRecordItem(int i2, long j) {
         LoadSpeedRecordItem loadSpeedRecordItem = new LoadSpeedRecordItem();
-        loadSpeedRecordItem.downloadSize = i;
+        loadSpeedRecordItem.downloadSize = i2;
         loadSpeedRecordItem.timeCosts = j;
         this.mSpeedRecordQueue.offer(loadSpeedRecordItem);
         if (this.mSpeedRecordQueue.size() > 5) {
             this.mSpeedRecordQueue.poll();
         }
         if (speedRedordAvilable()) {
-            int i2 = 0;
+            int i3 = 0;
             for (LoadSpeedRecordItem loadSpeedRecordItem2 : this.mSpeedRecordQueue) {
                 if (j > 0) {
-                    i2 = (int) (i2 + (loadSpeedRecordItem2.downloadSize / loadSpeedRecordItem2.timeCosts));
+                    i3 = (int) (i3 + (loadSpeedRecordItem2.downloadSize / loadSpeedRecordItem2.timeCosts));
                 }
             }
-            this.mAverageSpeed = i2 / 5;
+            this.mAverageSpeed = i3 / 5;
         }
     }
 

@@ -10,30 +10,30 @@ import java.util.regex.Pattern;
 public class d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f34553d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
+    public static final Pattern f33543d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f34554e = Pattern.compile("GET /(.*) HTTP");
+    public static final Pattern f33544e = Pattern.compile("GET /(.*) HTTP");
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f34555a;
+    public final String f33545a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f34556b;
+    public final long f33546b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f34557c;
+    public final boolean f33547c;
 
     public d(String str) {
         j.a(str);
         long a2 = a(str);
-        this.f34556b = Math.max(0L, a2);
-        this.f34557c = a2 >= 0;
-        this.f34555a = b(str);
+        this.f33546b = Math.max(0L, a2);
+        this.f33547c = a2 >= 0;
+        this.f33545a = b(str);
     }
 
     private long a(String str) {
-        Matcher matcher = f34553d.matcher(str);
+        Matcher matcher = f33543d.matcher(str);
         if (matcher.find()) {
             return Long.parseLong(matcher.group(1));
         }
@@ -54,7 +54,7 @@ public class d {
     }
 
     private String b(String str) {
-        Matcher matcher = f34554e.matcher(str);
+        Matcher matcher = f33544e.matcher(str);
         if (matcher.find()) {
             return matcher.group(1);
         }
@@ -62,6 +62,6 @@ public class d {
     }
 
     public String toString() {
-        return "GetRequest{rangeOffset=" + this.f34556b + ", partial=" + this.f34557c + ", uri='" + this.f34555a + "'}";
+        return "GetRequest{rangeOffset=" + this.f33546b + ", partial=" + this.f33547c + ", uri='" + this.f33545a + "'}";
     }
 }

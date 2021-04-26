@@ -10,8 +10,8 @@ import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import d.b.j0.r.a.i.b;
-import d.b.j0.r.a.i.c;
+import d.a.j0.r.a.i.b;
+import d.a.j0.r.a.i.c;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -19,8 +19,8 @@ public class SplashStaticHttpRequest extends HttpMessage {
 
     /* loaded from: classes4.dex */
     public static class SplashStaticHttpResponse extends JsonHttpResponsedMessage {
-        public SplashStaticHttpResponse(int i) {
-            super(i);
+        public SplashStaticHttpResponse(int i2) {
+            super(i2);
         }
     }
 

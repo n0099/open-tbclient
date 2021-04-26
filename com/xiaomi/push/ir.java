@@ -13,7 +13,7 @@ import java.util.TreeSet;
 public final class ir {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Comparator f41238a = new a();
+    public static final Comparator f38782a = new a();
 
     /* loaded from: classes7.dex */
     public static class a implements Comparator {
@@ -42,11 +42,11 @@ public final class ir {
         return b3 < b2 ? 1 : 0;
     }
 
-    public static int a(int i, int i2) {
-        if (i < i2) {
+    public static int a(int i2, int i3) {
+        if (i2 < i3) {
             return -1;
         }
-        return i2 < i ? 1 : 0;
+        return i3 < i2 ? 1 : 0;
     }
 
     public static int a(long j, long j2) {
@@ -64,9 +64,9 @@ public final class ir {
         return str.compareTo(str2);
     }
 
-    public static int a(ByteBuffer byteBuffer, byte[] bArr, int i) {
+    public static int a(ByteBuffer byteBuffer, byte[] bArr, int i2) {
         int remaining = byteBuffer.remaining();
-        System.arraycopy(byteBuffer.array(), byteBuffer.arrayOffset() + byteBuffer.position(), bArr, i, remaining);
+        System.arraycopy(byteBuffer.array(), byteBuffer.arrayOffset() + byteBuffer.position(), bArr, i2, remaining);
         return remaining;
     }
 
@@ -75,8 +75,8 @@ public final class ir {
         if (a2 != 0) {
             return a2;
         }
-        for (int i = 0; i < list.size(); i++) {
-            int compare = f41238a.compare(list.get(i), list2.get(i));
+        for (int i2 = 0; i2 < list.size(); i2++) {
+            int compare = f38782a.compare(list.get(i2), list2.get(i2));
             if (compare != 0) {
                 return compare;
             }
@@ -89,20 +89,20 @@ public final class ir {
         if (a2 != 0) {
             return a2;
         }
-        TreeMap treeMap = new TreeMap(f41238a);
+        TreeMap treeMap = new TreeMap(f38782a);
         treeMap.putAll(map);
         Iterator it = treeMap.entrySet().iterator();
-        TreeMap treeMap2 = new TreeMap(f41238a);
+        TreeMap treeMap2 = new TreeMap(f38782a);
         treeMap2.putAll(map2);
         Iterator it2 = treeMap2.entrySet().iterator();
         while (it.hasNext() && it2.hasNext()) {
             Map.Entry entry = (Map.Entry) it.next();
             Map.Entry entry2 = (Map.Entry) it2.next();
-            int compare = f41238a.compare(entry.getKey(), entry2.getKey());
+            int compare = f38782a.compare(entry.getKey(), entry2.getKey());
             if (compare != 0) {
                 return compare;
             }
-            int compare2 = f41238a.compare(entry.getValue(), entry2.getValue());
+            int compare2 = f38782a.compare(entry.getValue(), entry2.getValue());
             if (compare2 != 0) {
                 return compare2;
             }
@@ -115,14 +115,14 @@ public final class ir {
         if (a2 != 0) {
             return a2;
         }
-        TreeSet treeSet = new TreeSet(f41238a);
+        TreeSet treeSet = new TreeSet(f38782a);
         treeSet.addAll(set);
-        TreeSet treeSet2 = new TreeSet(f41238a);
+        TreeSet treeSet2 = new TreeSet(f38782a);
         treeSet2.addAll(set2);
         Iterator it = treeSet.iterator();
         Iterator it2 = treeSet2.iterator();
         while (it.hasNext() && it2.hasNext()) {
-            int compare = f41238a.compare(it.next(), it2.next());
+            int compare = f38782a.compare(it.next(), it2.next());
             if (compare != 0) {
                 return compare;
             }
@@ -146,8 +146,8 @@ public final class ir {
         if (a2 != 0) {
             return a2;
         }
-        for (int i = 0; i < bArr.length; i++) {
-            int a3 = a(bArr[i], bArr2[i]);
+        for (int i2 = 0; i2 < bArr.length; i2++) {
+            int a3 = a(bArr[i2], bArr2[i2]);
             if (a3 != 0) {
                 return a3;
             }
@@ -160,33 +160,33 @@ public final class ir {
     }
 
     public static ByteBuffer a(ByteBuffer byteBuffer) {
-        return m499a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m500a(byteBuffer));
+        return m502a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m503a(byteBuffer));
     }
 
     public static void a(ByteBuffer byteBuffer, StringBuilder sb) {
         byte[] array = byteBuffer.array();
         int arrayOffset = byteBuffer.arrayOffset();
         int limit = byteBuffer.limit();
-        int i = limit - arrayOffset > 128 ? arrayOffset + 128 : limit;
-        for (int i2 = arrayOffset; i2 < i; i2++) {
-            if (i2 > arrayOffset) {
+        int i2 = limit - arrayOffset > 128 ? arrayOffset + 128 : limit;
+        for (int i3 = arrayOffset; i3 < i2; i3++) {
+            if (i3 > arrayOffset) {
                 sb.append(" ");
             }
-            sb.append(a(array[i2]));
+            sb.append(a(array[i3]));
         }
-        if (limit != i) {
+        if (limit != i2) {
             sb.append(StringHelper.STRING_MORE);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m499a(ByteBuffer byteBuffer) {
+    public static boolean m502a(ByteBuffer byteBuffer) {
         return byteBuffer.hasArray() && byteBuffer.position() == 0 && byteBuffer.arrayOffset() == 0 && byteBuffer.remaining() == byteBuffer.capacity();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m500a(ByteBuffer byteBuffer) {
-        if (m499a(byteBuffer)) {
+    public static byte[] m503a(ByteBuffer byteBuffer) {
+        if (m502a(byteBuffer)) {
             return byteBuffer.array();
         }
         byte[] bArr = new byte[byteBuffer.remaining()];

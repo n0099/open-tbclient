@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDraweeControllerBuilder<BUILDER, REQUEST, IMAGE, INFO>, REQUEST, IMAGE, INFO> implements SimpleDraweeControllerBuilder {
     public boolean mAutoPlayAnimations;
     public final Set<ControllerListener> mBoundControllerListeners;
@@ -55,7 +55,7 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     public static final NullPointerException NO_REQUEST_EXCEPTION = new NullPointerException("No image request was specified!");
     public static final AtomicLong sIdCounter = new AtomicLong();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum CacheLevel {
         FULL_FETCH,
         DISK_CACHE,

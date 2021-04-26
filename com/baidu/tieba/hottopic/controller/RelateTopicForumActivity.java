@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import d.b.c.a.e;
-import d.b.c.e.p.l;
-import d.b.j0.c1.a.j;
-import d.b.j0.c1.f.d;
+import d.a.c.a.e;
+import d.a.c.e.p.l;
+import d.a.j0.c1.a.j;
+import d.a.j0.c1.f.d;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActivity> {
@@ -29,8 +29,8 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -57,8 +57,8 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
 
     /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,13 +88,13 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         public c() {
         }
 
-        @Override // d.b.c.a.e
+        @Override // d.a.c.a.e
         public void c(Object obj) {
             if (AntiHelper.m(RelateTopicForumActivity.this.likeModel.getErrorCode(), RelateTopicForumActivity.this.likeModel.getErrorString())) {
                 AntiHelper.u(RelateTopicForumActivity.this.getActivity(), RelateTopicForumActivity.this.likeModel.getErrorString());
             } else if (StringUtils.isNull(RelateTopicForumActivity.this.likeModel.getErrorString())) {
             } else {
-                l.L(TbadkCoreApplication.getInst(), RelateTopicForumActivity.this.likeModel.getErrorString());
+                l.M(TbadkCoreApplication.getInst(), RelateTopicForumActivity.this.likeModel.getErrorString());
             }
         }
     }
@@ -104,17 +104,17 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
             return;
         }
         if (this.dataList.isEmpty()) {
-            this.mHotTopicMoreView.h();
+            this.mHotTopicMoreView.g();
         } else {
-            this.mHotTopicMoreView.k();
+            this.mHotTopicMoreView.j();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public RelateForumItemData getItemByForumId(long j) {
-        for (int i = 0; i < this.dataList.size(); i++) {
-            if (ListUtils.getItem(this.dataList, i) != null && (this.dataList.get(i) instanceof RelateForumItemData)) {
-                RelateForumItemData relateForumItemData = this.dataList.get(i);
+        for (int i2 = 0; i2 < this.dataList.size(); i2++) {
+            if (ListUtils.getItem(this.dataList, i2) != null && (this.dataList.get(i2) instanceof RelateForumItemData)) {
+                RelateForumItemData relateForumItemData = this.dataList.get(i2);
                 if (j == relateForumItemData.forumId) {
                     return relateForumItemData;
                 }
@@ -165,9 +165,9 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mHotTopicMoreView.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mHotTopicMoreView.onChangeSkinType(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

@@ -1,6 +1,6 @@
 package rx.internal.util.atomic;
 
-import h.o.d.k.i;
+import h.o.d.j.i;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Queue;
@@ -14,11 +14,11 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
     public final int mask;
     public final AtomicLong producerIndex;
 
-    public SpscExactAtomicArrayQueue(int i) {
-        super(i.b(i));
+    public SpscExactAtomicArrayQueue(int i2) {
+        super(i.b(i2));
         int length = length();
         this.mask = length - 1;
-        this.capacitySkip = length - i;
+        this.capacitySkip = length - i2;
         this.producerIndex = new AtomicLong();
         this.consumerIndex = new AtomicLong();
     }
@@ -71,12 +71,12 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
     public boolean offer(T t) {
         if (t != null) {
             long j = this.producerIndex.get();
-            int i = this.mask;
-            if (get(((int) (this.capacitySkip + j)) & i) != null) {
+            int i2 = this.mask;
+            if (get(((int) (this.capacitySkip + j)) & i2) != null) {
                 return false;
             }
             this.producerIndex.lazySet(j + 1);
-            lazySet(i & ((int) j), t);
+            lazySet(i2 & ((int) j), t);
             return true;
         }
         throw null;
@@ -90,13 +90,13 @@ public final class SpscExactAtomicArrayQueue<T> extends AtomicReferenceArray<T> 
     @Override // java.util.Queue
     public T poll() {
         long j = this.consumerIndex.get();
-        int i = ((int) j) & this.mask;
-        T t = get(i);
+        int i2 = ((int) j) & this.mask;
+        T t = get(i2);
         if (t == null) {
             return null;
         }
         this.consumerIndex.lazySet(j + 1);
-        lazySet(i, null);
+        lazySet(i2, null);
         return t;
     }
 

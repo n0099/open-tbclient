@@ -7,16 +7,16 @@ import androidx.annotation.NonNull;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3737a = 0;
+    public static final int f3785a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3738b = 1;
+    public static final int f3786b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3739c = 3;
+    public static final int f3787c = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f3740d;
+    public static final b f3788d;
 
     /* renamed from: com.baidu.apollon.permission.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -31,8 +31,8 @@ public final class a {
         }
 
         @Override // com.baidu.apollon.permission.a.b
-        public int a(Context context, String str, int i, String str2) {
-            return com.baidu.apollon.permission.b.a(context, str, i, str2);
+        public int a(Context context, String str, int i2, String str2) {
+            return com.baidu.apollon.permission.b.a(context, str, i2, str2);
         }
 
         @Override // com.baidu.apollon.permission.a.b
@@ -46,7 +46,7 @@ public final class a {
         public b() {
         }
 
-        public int a(Context context, String str, int i, String str2) {
+        public int a(Context context, String str, int i2, String str2) {
             return 1;
         }
 
@@ -61,21 +61,21 @@ public final class a {
 
     static {
         if (Build.VERSION.SDK_INT >= 23) {
-            f3740d = new C0062a();
+            f3788d = new C0062a();
         } else {
-            f3740d = new b();
+            f3788d = new b();
         }
     }
 
     public static String a(@NonNull String str) {
-        return f3740d.a(str);
+        return f3788d.a(str);
     }
 
-    public static int a(@NonNull Context context, @NonNull String str, int i, @NonNull String str2) {
-        return f3740d.a(context, str, i, str2);
+    public static int a(@NonNull Context context, @NonNull String str, int i2, @NonNull String str2) {
+        return f3788d.a(context, str, i2, str2);
     }
 
     public static int a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
-        return f3740d.a(context, str, str2);
+        return f3788d.a(context, str, str2);
     }
 }

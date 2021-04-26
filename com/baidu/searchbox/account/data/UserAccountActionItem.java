@@ -19,8 +19,8 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public UserAccountActionItem[] newArray(int i) {
-            return new UserAccountActionItem[i];
+        public UserAccountActionItem[] newArray(int i2) {
+            return new UserAccountActionItem[i2];
         }
     };
     public static final String KEY_ACTION = "action";
@@ -132,7 +132,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.mAction);
         parcel.writeString(this.mType);
         parcel.writeString(this.mSrc);

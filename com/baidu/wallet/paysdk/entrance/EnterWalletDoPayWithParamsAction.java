@@ -16,10 +16,10 @@ public class EnterWalletDoPayWithParamsAction implements RouterAction {
             }
 
             @Override // com.baidu.android.pay.PayCallBack
-            public void onPayResult(int i, String str2) {
+            public void onPayResult(int i2, String str2) {
                 if (routerCallback != null) {
                     HashMap hashMap2 = new HashMap();
-                    hashMap2.put("statusCode", Integer.valueOf(i));
+                    hashMap2.put("statusCode", Integer.valueOf(i2));
                     hashMap2.put("payDesc", str2);
                     routerCallback.onResult(0, hashMap2);
                 }

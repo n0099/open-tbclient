@@ -21,10 +21,10 @@ import java.lang.reflect.Method;
 public class v implements TTAdManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28337a = "com.union_test.toutiao";
+    public String f29206a = "com.union_test.toutiao";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28338b = "5001121";
+    public String f29207b = "5001121";
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
@@ -88,12 +88,12 @@ public class v implements TTAdManager {
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
-    public boolean onlyVerityPlayable(String str, int i, String str2, String str3, String str4) {
-        if (this.f28337a.equals(p.a().getPackageName()) && this.f28338b.equals(i.d().g()) && !TextUtils.isEmpty(str)) {
+    public boolean onlyVerityPlayable(String str, int i2, String str2, String str3, String str4) {
+        if (this.f29206a.equals(p.a().getPackageName()) && this.f29207b.equals(i.d().g()) && !TextUtils.isEmpty(str)) {
             try {
                 Method a2 = ai.a("com.bytedance.sdk.openadsdk.TTC3Proxy", "verityPlayable", String.class, Integer.TYPE, String.class, String.class, String.class);
                 if (a2 != null) {
-                    a2.invoke(null, str, Integer.valueOf(i), str2, str3, str4);
+                    a2.invoke(null, str, Integer.valueOf(i2), str2, str3, str4);
                 }
             } catch (Throwable th) {
                 com.bytedance.sdk.openadsdk.utils.u.b("TTAdManagerImpl", "reward component maybe not exist, pls check", th);
@@ -106,7 +106,7 @@ public class v implements TTAdManager {
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public TTAdManager openDebugMode() {
         com.bytedance.sdk.openadsdk.utils.u.b();
-        d.c.c.b.a.j();
+        d.b.c.b.a.j();
         return this;
     }
 
@@ -181,8 +181,8 @@ public class v implements TTAdManager {
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
-    public TTAdManager setTitleBarTheme(int i) {
-        i.d().a(i);
+    public TTAdManager setTitleBarTheme(int i2) {
+        i.d().a(i2);
         return this;
     }
 
@@ -200,10 +200,10 @@ public class v implements TTAdManager {
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
-    public String getBiddingToken(AdSlot adSlot, boolean z, int i) {
+    public String getBiddingToken(AdSlot adSlot, boolean z, int i2) {
         if (adSlot == null || p.f() == null) {
             return null;
         }
-        return p.f().a(adSlot, z, i);
+        return p.f().a(adSlot, z, i2);
     }
 }

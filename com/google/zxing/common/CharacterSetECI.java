@@ -43,8 +43,8 @@ public enum CharacterSetECI {
     static {
         CharacterSetECI[] values;
         for (CharacterSetECI characterSetECI : values()) {
-            for (int i : characterSetECI.values) {
-                VALUE_TO_ECI.put(Integer.valueOf(i), characterSetECI);
+            for (int i2 : characterSetECI.values) {
+                VALUE_TO_ECI.put(Integer.valueOf(i2), characterSetECI);
             }
             NAME_TO_ECI.put(characterSetECI.name(), characterSetECI);
             for (String str : characterSetECI.otherEncodingNames) {
@@ -53,17 +53,17 @@ public enum CharacterSetECI {
         }
     }
 
-    CharacterSetECI(int i) {
-        this(new int[]{i}, new String[0]);
+    CharacterSetECI(int i2) {
+        this(new int[]{i2}, new String[0]);
     }
 
     public static CharacterSetECI getCharacterSetECIByName(String str) {
         return NAME_TO_ECI.get(str);
     }
 
-    public static CharacterSetECI getCharacterSetECIByValue(int i) throws FormatException {
-        if (i >= 0 && i < 900) {
-            return VALUE_TO_ECI.get(Integer.valueOf(i));
+    public static CharacterSetECI getCharacterSetECIByValue(int i2) throws FormatException {
+        if (i2 >= 0 && i2 < 900) {
+            return VALUE_TO_ECI.get(Integer.valueOf(i2));
         }
         throw FormatException.getFormatInstance();
     }
@@ -72,8 +72,8 @@ public enum CharacterSetECI {
         return this.values[0];
     }
 
-    CharacterSetECI(int i, String... strArr) {
-        this.values = new int[]{i};
+    CharacterSetECI(int i2, String... strArr) {
+        this.values = new int[]{i2};
         this.otherEncodingNames = strArr;
     }
 

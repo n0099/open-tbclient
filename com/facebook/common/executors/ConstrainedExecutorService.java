@@ -9,7 +9,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ConstrainedExecutorService extends AbstractExecutorService {
     public static final Class<?> TAG = ConstrainedExecutorService.class;
     public final Executor mExecutor;
@@ -20,7 +20,7 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
     public final Worker mTaskRunner;
     public final BlockingQueue<Runnable> mWorkQueue;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class Worker implements Runnable {
         public Worker() {
         }
@@ -52,11 +52,11 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
         }
     }
 
-    public ConstrainedExecutorService(String str, int i, Executor executor, BlockingQueue<Runnable> blockingQueue) {
-        if (i > 0) {
+    public ConstrainedExecutorService(String str, int i2, Executor executor, BlockingQueue<Runnable> blockingQueue) {
+        if (i2 > 0) {
             this.mName = str;
             this.mExecutor = executor;
-            this.mMaxConcurrency = i;
+            this.mMaxConcurrency = i2;
             this.mWorkQueue = blockingQueue;
             this.mTaskRunner = new Worker();
             this.mPendingWorkers = new AtomicInteger(0);
@@ -66,22 +66,22 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
         throw new IllegalArgumentException("max concurrency must be > 0");
     }
 
-    public static ConstrainedExecutorService newConstrainedExecutor(String str, int i, int i2, Executor executor) {
-        return new ConstrainedExecutorService(str, i, executor, new LinkedBlockingQueue(i2));
+    public static ConstrainedExecutorService newConstrainedExecutor(String str, int i2, int i3, Executor executor) {
+        return new ConstrainedExecutorService(str, i2, executor, new LinkedBlockingQueue(i3));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startWorkerIfNeeded() {
-        int i = this.mPendingWorkers.get();
-        while (i < this.mMaxConcurrency) {
-            int i2 = i + 1;
-            if (this.mPendingWorkers.compareAndSet(i, i2)) {
-                FLog.v(TAG, "%s: starting worker %d of %d", this.mName, Integer.valueOf(i2), Integer.valueOf(this.mMaxConcurrency));
+        int i2 = this.mPendingWorkers.get();
+        while (i2 < this.mMaxConcurrency) {
+            int i3 = i2 + 1;
+            if (this.mPendingWorkers.compareAndSet(i2, i3)) {
+                FLog.v(TAG, "%s: starting worker %d of %d", this.mName, Integer.valueOf(i3), Integer.valueOf(this.mMaxConcurrency));
                 this.mExecutor.execute(this.mTaskRunner);
                 return;
             }
             FLog.v(TAG, "%s: race in startWorkerIfNeeded; retrying", this.mName);
-            i = this.mPendingWorkers.get();
+            i2 = this.mPendingWorkers.get();
         }
     }
 
@@ -95,8 +95,8 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
         if (runnable != null) {
             if (this.mWorkQueue.offer(runnable)) {
                 int size = this.mWorkQueue.size();
-                int i = this.mMaxQueueSize.get();
-                if (size > i && this.mMaxQueueSize.compareAndSet(i, size)) {
+                int i2 = this.mMaxQueueSize.get();
+                if (size > i2 && this.mMaxQueueSize.compareAndSet(i2, size)) {
                     FLog.v(TAG, "%s: max pending work in queue = %d", this.mName, Integer.valueOf(size));
                 }
                 startWorkerIfNeeded();

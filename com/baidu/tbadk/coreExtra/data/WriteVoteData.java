@@ -40,10 +40,10 @@ public class WriteVoteData extends OrmObject implements Serializable {
         this.is_multi = jSONObject.optInt("is_multi");
         JSONArray optJSONArray = jSONObject.optJSONArray("options");
         if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
                 try {
-                    writeVoteItemData.parseJson(optJSONArray.getJSONObject(i));
+                    writeVoteItemData.parseJson(optJSONArray.getJSONObject(i2));
                     this.options.add(writeVoteItemData);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
@@ -52,12 +52,12 @@ public class WriteVoteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setExpire_type(int i) {
-        this.expire_type = i;
+    public void setExpire_type(int i2) {
+        this.expire_type = i2;
     }
 
-    public void setIs_multi(int i) {
-        this.is_multi = i;
+    public void setIs_multi(int i2) {
+        this.is_multi = i2;
     }
 
     public void setOptions(List<WriteVoteItemData> list) {

@@ -14,7 +14,7 @@ public class b extends com.kwad.sdk.core.network.b {
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public String a() {
-        return d.j();
+        return d.e();
     }
 
     @Override // com.kwad.sdk.core.network.b
@@ -24,11 +24,11 @@ public class b extends com.kwad.sdk.core.network.b {
     @Override // com.kwad.sdk.core.network.b
     public void f() {
         b("protocolVersion", "2.0");
-        b("SDKVersion", "3.3.9");
-        a("SDKVersionCode", 3030900);
+        b("SDKVersion", "3.3.8.3");
+        a("SDKVersionCode", 3030803);
         b("sdkApiVersion", KsAdSDKImpl.get().getApiVersion());
         a("sdkApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-        a("sdkType", d.f34896a);
+        a("sdkType", d.f33864a);
         a(DI.APP_INFO_NAME, com.kwad.sdk.core.g.a.b.a());
         a("deviceInfo", com.kwad.sdk.core.g.a.d.a(false));
         a("networkInfo", i.a());

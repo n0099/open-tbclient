@@ -24,19 +24,19 @@ public class OAdTimer {
 
     /* loaded from: classes2.dex */
     public interface EventHandler {
-        void onTimer(int i);
+        void onTimer(int i2);
 
         void onTimerComplete();
     }
 
-    public OAdTimer(int i) {
-        this(i, 300);
+    public OAdTimer(int i2) {
+        this(i2, 300);
     }
 
     public static /* synthetic */ int access$410(OAdTimer oAdTimer) {
-        int i = oAdTimer.mCounteDown;
-        oAdTimer.mCounteDown = i - 1;
-        return i;
+        int i2 = oAdTimer.mCounteDown;
+        oAdTimer.mCounteDown = i2 - 1;
+        return i2;
     }
 
     public int getCurrentCount() {
@@ -121,15 +121,15 @@ public class OAdTimer {
         }
     }
 
-    public OAdTimer(int i, int i2) {
+    public OAdTimer(int i2, int i3) {
         this.interval = 300;
-        this.interval = i2;
-        int i3 = i / i2;
+        this.interval = i3;
+        int i4 = i2 / i3;
         RemoteXAdLogger remoteXAdLogger = RemoteXAdLogger.getInstance();
         String str = TAG;
-        remoteXAdLogger.d(str, "RendererTimer(duration=" + i3 + SmallTailInfo.EMOTION_SUFFIX);
-        this.mRepeatCount = i3;
-        this.mCounteDown = i3;
+        remoteXAdLogger.d(str, "RendererTimer(duration=" + i4 + SmallTailInfo.EMOTION_SUFFIX);
+        this.mRepeatCount = i4;
+        this.mCounteDown = i4;
         this.state = new AtomicInteger(-1);
     }
 }

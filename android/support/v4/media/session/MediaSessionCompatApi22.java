@@ -5,7 +5,7 @@ import androidx.annotation.RequiresApi;
 @RequiresApi(22)
 /* loaded from: classes.dex */
 public class MediaSessionCompatApi22 {
-    public static void setRatingType(Object obj, int i) {
-        ((MediaSession) obj).setRatingType(i);
+    public static void setRatingType(Object obj, int i2) {
+        ((MediaSession) obj).setRatingType(i2);
     }
 }

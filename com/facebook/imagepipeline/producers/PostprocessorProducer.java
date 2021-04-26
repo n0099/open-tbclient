@@ -84,10 +84,10 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void doPostprocessing(CloseableReference<CloseableImage> closeableReference, int i) {
+        public void doPostprocessing(CloseableReference<CloseableImage> closeableReference, int i2) {
             Preconditions.checkArgument(CloseableReference.isValid(closeableReference));
             if (!shouldPostprocess(closeableReference.get())) {
-                maybeNotifyOnNewResult(closeableReference, i);
+                maybeNotifyOnNewResult(closeableReference, i2);
                 return;
             }
             this.mListener.onProducerStart(this.mRequestId, PostprocessorProducer.NAME);
@@ -95,7 +95,7 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
                 try {
                     CloseableReference<CloseableImage> postprocessInternal = postprocessInternal(closeableReference.get());
                     this.mListener.onProducerFinishWithSuccess(this.mRequestId, PostprocessorProducer.NAME, getExtraMap(this.mListener, this.mRequestId, this.mPostprocessor));
-                    maybeNotifyOnNewResult(postprocessInternal, i);
+                    maybeNotifyOnNewResult(postprocessInternal, i2);
                     CloseableReference.closeSafely(postprocessInternal);
                 } catch (Exception e2) {
                     this.mListener.onProducerFinishWithFailure(this.mRequestId, PostprocessorProducer.NAME, e2, getExtraMap(this.mListener, this.mRequestId, this.mPostprocessor));
@@ -133,12 +133,12 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
             }
         }
 
-        private void maybeNotifyOnNewResult(CloseableReference<CloseableImage> closeableReference, int i) {
-            boolean isLast = BaseConsumer.isLast(i);
+        private void maybeNotifyOnNewResult(CloseableReference<CloseableImage> closeableReference, int i2) {
+            boolean isLast = BaseConsumer.isLast(i2);
             if ((isLast || isClosed()) && !(isLast && close())) {
                 return;
             }
-            getConsumer().onNewResult(closeableReference, i);
+            getConsumer().onNewResult(closeableReference, i2);
         }
 
         private CloseableReference<CloseableImage> postprocessInternal(CloseableImage closeableImage) {
@@ -168,16 +168,16 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
                 @Override // java.lang.Runnable
                 public void run() {
                     CloseableReference closeableReference;
-                    int i;
+                    int i2;
                     synchronized (PostprocessorConsumer.this) {
                         closeableReference = PostprocessorConsumer.this.mSourceImageRef;
-                        i = PostprocessorConsumer.this.mStatus;
+                        i2 = PostprocessorConsumer.this.mStatus;
                         PostprocessorConsumer.this.mSourceImageRef = null;
                         PostprocessorConsumer.this.mIsDirty = false;
                     }
                     if (CloseableReference.isValid(closeableReference)) {
                         try {
-                            PostprocessorConsumer.this.doPostprocessing(closeableReference, i);
+                            PostprocessorConsumer.this.doPostprocessing(closeableReference, i2);
                         } finally {
                             CloseableReference.closeSafely(closeableReference);
                         }
@@ -187,14 +187,14 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
             });
         }
 
-        private void updateSourceImageRef(@Nullable CloseableReference<CloseableImage> closeableReference, int i) {
+        private void updateSourceImageRef(@Nullable CloseableReference<CloseableImage> closeableReference, int i2) {
             synchronized (this) {
                 if (this.mIsClosed) {
                     return;
                 }
                 CloseableReference<CloseableImage> closeableReference2 = this.mSourceImageRef;
                 this.mSourceImageRef = CloseableReference.cloneOrNull(closeableReference);
-                this.mStatus = i;
+                this.mStatus = i2;
                 this.mIsDirty = true;
                 boolean runningIfDirtyAndNotRunning = setRunningIfDirtyAndNotRunning();
                 CloseableReference.closeSafely(closeableReference2);
@@ -216,15 +216,15 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i) {
+        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i2) {
             if (!CloseableReference.isValid(closeableReference)) {
-                if (BaseConsumer.isLast(i)) {
-                    maybeNotifyOnNewResult(null, i);
+                if (BaseConsumer.isLast(i2)) {
+                    maybeNotifyOnNewResult(null, i2);
                     return;
                 }
                 return;
             }
-            updateSourceImageRef(closeableReference, i);
+            updateSourceImageRef(closeableReference, i2);
         }
     }
 
@@ -311,8 +311,8 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i) {
-            if (BaseConsumer.isNotLast(i)) {
+        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i2) {
+            if (BaseConsumer.isNotLast(i2)) {
                 return;
             }
             setSourceImageRef(closeableReference);
@@ -328,11 +328,11 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i) {
-            if (BaseConsumer.isNotLast(i)) {
+        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i2) {
+            if (BaseConsumer.isNotLast(i2)) {
                 return;
             }
-            getConsumer().onNewResult(closeableReference, i);
+            getConsumer().onNewResult(closeableReference, i2);
         }
     }
 

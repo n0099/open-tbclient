@@ -116,12 +116,12 @@ public class WeiboParameters {
     }
 
     @Deprecated
-    public void add(String str, int i) {
-        this.mParams.put(str, String.valueOf(i));
+    public void add(String str, int i2) {
+        this.mParams.put(str, String.valueOf(i2));
     }
 
-    public void put(String str, int i) {
-        this.mParams.put(str, String.valueOf(i));
+    public void put(String str, int i2) {
+        this.mParams.put(str, String.valueOf(i2));
     }
 
     @Deprecated

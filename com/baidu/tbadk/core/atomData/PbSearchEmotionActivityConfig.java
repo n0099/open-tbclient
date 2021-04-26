@@ -13,10 +13,10 @@ public class PbSearchEmotionActivityConfig extends IntentConfig {
     public static final String KEEP_IMG_CACHE_LIST = "keep_img_cache_list";
     public static final String TOP_WORDS = "top_words";
 
-    public PbSearchEmotionActivityConfig(Context context, int i, String str, List<String> list, String str2, List<String> list2) {
+    public PbSearchEmotionActivityConfig(Context context, int i2, String str, List<String> list, String str2, List<String> list2) {
         super(context);
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i);
+        setRequestCode(i2);
         if (!TextUtils.isEmpty(str)) {
             getIntent().putExtra(CURRENT_QUERY_WORD, str);
         }

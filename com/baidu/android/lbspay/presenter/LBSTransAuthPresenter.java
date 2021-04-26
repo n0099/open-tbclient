@@ -51,13 +51,13 @@ public class LBSTransAuthPresenter implements LBSTransPresenter {
     }
 
     @Override // com.baidu.android.lbspay.presenter.LBSTransPresenter
-    public void handleFailure(int i, int i2, String str) {
+    public void handleFailure(int i2, int i3, String str) {
         LBSPayResult.payResult(null, 3, null);
         this.mAct.onBackPressedWithoutAnim();
     }
 
     @Override // com.baidu.android.lbspay.presenter.LBSTransPresenter
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
         AuthorizeSignContent authorizeSignContent = obj instanceof AuthorizeSignContent ? (AuthorizeSignContent) obj : null;
         if (authorizeSignContent != null) {
             if (AUTH_CHANNEL_ALI.equals(authorizeSignContent.sign_data.sign_channel)) {

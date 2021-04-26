@@ -33,11 +33,11 @@ public class RequestQueue implements RequestFeeder {
         throw new RuntimeException("Stub!");
     }
 
-    public RequestHandle queueRequest(String str, String str2, Map<String, String> map, EventHandler eventHandler, InputStream inputStream, int i) {
+    public RequestHandle queueRequest(String str, String str2, Map<String, String> map, EventHandler eventHandler, InputStream inputStream, int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public RequestHandle queueSynchronousRequest(String str, WebAddress webAddress, String str2, Map<String, String> map, EventHandler eventHandler, InputStream inputStream, int i) {
+    public RequestHandle queueSynchronousRequest(String str, WebAddress webAddress, String str2, Map<String, String> map, EventHandler eventHandler, InputStream inputStream, int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -58,7 +58,7 @@ public class RequestQueue implements RequestFeeder {
         throw new RuntimeException("Stub!");
     }
 
-    public RequestQueue(Context context, int i) {
+    public RequestQueue(Context context, int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -67,7 +67,7 @@ public class RequestQueue implements RequestFeeder {
         throw new RuntimeException("Stub!");
     }
 
-    public RequestHandle queueRequest(String str, WebAddress webAddress, String str2, Map<String, String> map, EventHandler eventHandler, InputStream inputStream, int i) {
+    public RequestHandle queueRequest(String str, WebAddress webAddress, String str2, Map<String, String> map, EventHandler eventHandler, InputStream inputStream, int i2) {
         throw new RuntimeException("Stub!");
     }
 

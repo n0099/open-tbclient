@@ -44,10 +44,10 @@ public class PersonInfoActivityConfig extends IntentConfig {
         getIntent().putExtra("nid", str6);
     }
 
-    public PersonInfoActivityConfig(Context context, String str, String str2, int i) {
+    public PersonInfoActivityConfig(Context context, String str, String str2, int i2) {
         super(context);
         getIntent().putExtra("user_id", str);
         getIntent().putExtra("user_name", str2);
-        getIntent().putExtra(FANS_NUM, i);
+        getIntent().putExtra(FANS_NUM, i2);
     }
 }

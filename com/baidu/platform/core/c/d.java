@@ -20,10 +20,10 @@ import org.json.JSONObject;
 public class d extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9970b = "d";
+    public static final String f10338b = "d";
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f9971c = false;
+    public boolean f10339c = false;
 
     private LatLng a(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -41,9 +41,9 @@ public class d extends com.baidu.platform.base.d {
             if (jSONObject.length() == 0 || jSONObject.optInt("status") != 0 || (optJSONArray = jSONObject.optJSONArray("result")) == null || optJSONArray.length() == 0) {
                 return false;
             }
-            return this.f9971c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
+            return this.f10339c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
         } catch (JSONException e2) {
-            Log.e(f9970b, "Parse detail search result error", e2);
+            Log.e(f10338b, "Parse detail search result error", e2);
             return false;
         }
     }
@@ -85,8 +85,8 @@ public class d extends com.baidu.platform.base.d {
 
     private boolean a(JSONArray jSONArray, PoiDetailSearchResult poiDetailSearchResult) {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < jSONArray.length(); i++) {
-            JSONObject jSONObject = (JSONObject) jSONArray.opt(i);
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            JSONObject jSONObject = (JSONObject) jSONArray.opt(i2);
             if (jSONObject != null && jSONObject.length() != 0) {
                 PoiDetailInfo poiDetailInfo = new PoiDetailInfo();
                 poiDetailInfo.setName(jSONObject.optString("name"));
@@ -133,12 +133,12 @@ public class d extends com.baidu.platform.base.d {
     public SearchResult a(String str) {
         SearchResult.ERRORNO errorno;
         JSONObject jSONObject;
-        SearchResult poiDetailSearchResult = this.f9971c ? new PoiDetailSearchResult() : new PoiDetailResult();
+        SearchResult poiDetailSearchResult = this.f10339c ? new PoiDetailSearchResult() : new PoiDetailResult();
         if (str != null && !str.isEmpty()) {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                Log.e(f9970b, "Parse detail search result failed", e2);
+                Log.e(f10338b, "Parse detail search result failed", e2);
             }
             if (jSONObject.length() == 0) {
                 poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
@@ -184,7 +184,7 @@ public class d extends com.baidu.platform.base.d {
             return;
         }
         OnGetPoiSearchResultListener onGetPoiSearchResultListener = (OnGetPoiSearchResultListener) obj;
-        if (this.f9971c) {
+        if (this.f10339c) {
             onGetPoiSearchResultListener.onGetPoiDetailResult((PoiDetailSearchResult) searchResult);
         } else {
             onGetPoiSearchResultListener.onGetPoiDetailResult((PoiDetailResult) searchResult);
@@ -192,6 +192,6 @@ public class d extends com.baidu.platform.base.d {
     }
 
     public void a(boolean z) {
-        this.f9971c = z;
+        this.f10339c = z;
     }
 }

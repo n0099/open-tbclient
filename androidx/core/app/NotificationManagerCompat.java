@@ -2,6 +2,8 @@ package androidx.core.app;
 
 import android.app.AppOpsManager;
 import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationChannelGroup;
 import android.app.NotificationManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -28,6 +30,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.io.ActionJsonData;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayDeque;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -70,9 +73,9 @@ public final class NotificationManagerCompat {
         public final String packageName;
         public final String tag;
 
-        public NotifyTask(String str, int i, String str2, Notification notification) {
+        public NotifyTask(String str, int i2, String str2, Notification notification) {
             this.packageName = str;
-            this.id = i;
+            this.id = i2;
             this.tag = str2;
             this.notif = notification;
         }
@@ -82,6 +85,7 @@ public final class NotificationManagerCompat {
             iNotificationSideChannel.notify(this.packageName, this.id, this.tag, this.notif);
         }
 
+        @NonNull
         public String toString() {
             return "NotifyTask[packageName:" + this.packageName + ", id:" + this.id + ", tag:" + this.tag + "]";
         }
@@ -225,18 +229,18 @@ public final class NotificationManagerCompat {
             if (this.mHandler.hasMessages(3, listenerRecord.componentName)) {
                 return;
             }
-            int i = listenerRecord.retryCount + 1;
-            listenerRecord.retryCount = i;
-            if (i > 6) {
+            int i2 = listenerRecord.retryCount + 1;
+            listenerRecord.retryCount = i2;
+            if (i2 > 6) {
                 Log.w(NotificationManagerCompat.TAG, "Giving up on delivering " + listenerRecord.taskQueue.size() + " tasks to " + listenerRecord.componentName + " after " + listenerRecord.retryCount + " retries");
                 listenerRecord.taskQueue.clear();
                 return;
             }
-            int i2 = (1 << (i - 1)) * 1000;
+            int i3 = (1 << (i2 - 1)) * 1000;
             if (Log.isLoggable(NotificationManagerCompat.TAG, 3)) {
-                Log.d(NotificationManagerCompat.TAG, "Scheduling retry for " + i2 + " ms");
+                Log.d(NotificationManagerCompat.TAG, "Scheduling retry for " + i3 + " ms");
             }
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3, listenerRecord.componentName), i2);
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3, listenerRecord.componentName), i3);
         }
 
         private void updateListenerMap() {
@@ -281,18 +285,18 @@ public final class NotificationManagerCompat {
 
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
-            int i = message.what;
-            if (i == 0) {
+            int i2 = message.what;
+            if (i2 == 0) {
                 handleQueueTask((Task) message.obj);
                 return true;
-            } else if (i == 1) {
+            } else if (i2 == 1) {
                 ServiceConnectedEvent serviceConnectedEvent = (ServiceConnectedEvent) message.obj;
                 handleServiceConnected(serviceConnectedEvent.componentName, serviceConnectedEvent.iBinder);
                 return true;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 handleServiceDisconnected((ComponentName) message.obj);
                 return true;
-            } else if (i != 3) {
+            } else if (i2 != 3) {
                 return false;
             } else {
                 handleRetryListenerQueue((ComponentName) message.obj);
@@ -375,18 +379,18 @@ public final class NotificationManagerCompat {
     }
 
     public boolean areNotificationsEnabled() {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 24) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 24) {
             return this.mNotificationManager.areNotificationsEnabled();
         }
-        if (i >= 19) {
+        if (i2 >= 19) {
             AppOpsManager appOpsManager = (AppOpsManager) this.mContext.getSystemService("appops");
             ApplicationInfo applicationInfo = this.mContext.getApplicationInfo();
             String packageName = this.mContext.getApplicationContext().getPackageName();
-            int i2 = applicationInfo.uid;
+            int i3 = applicationInfo.uid;
             try {
                 Class<?> cls = Class.forName(AppOpsManager.class.getName());
-                return ((Integer) cls.getMethod(CHECK_OP_NO_THROW, Integer.TYPE, Integer.TYPE, String.class).invoke(appOpsManager, Integer.valueOf(((Integer) cls.getDeclaredField(OP_POST_NOTIFICATION).get(Integer.class)).intValue()), Integer.valueOf(i2), packageName)).intValue() == 0;
+                return ((Integer) cls.getMethod(CHECK_OP_NO_THROW, Integer.TYPE, Integer.TYPE, String.class).invoke(appOpsManager, Integer.valueOf(((Integer) cls.getDeclaredField(OP_POST_NOTIFICATION).get(Integer.class)).intValue()), Integer.valueOf(i3), packageName)).intValue() == 0;
             } catch (ClassNotFoundException | IllegalAccessException | NoSuchFieldException | NoSuchMethodException | RuntimeException | InvocationTargetException unused) {
                 return true;
             }
@@ -394,14 +398,50 @@ public final class NotificationManagerCompat {
         return true;
     }
 
-    public void cancel(int i) {
-        cancel(null, i);
+    public void cancel(int i2) {
+        cancel(null, i2);
     }
 
     public void cancelAll() {
         this.mNotificationManager.cancelAll();
         if (Build.VERSION.SDK_INT <= 19) {
             pushSideChannelQueue(new CancelTask(this.mContext.getPackageName()));
+        }
+    }
+
+    public void createNotificationChannel(@NonNull NotificationChannel notificationChannel) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            this.mNotificationManager.createNotificationChannel(notificationChannel);
+        }
+    }
+
+    public void createNotificationChannelGroup(@NonNull NotificationChannelGroup notificationChannelGroup) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            this.mNotificationManager.createNotificationChannelGroup(notificationChannelGroup);
+        }
+    }
+
+    public void createNotificationChannelGroups(@NonNull List<NotificationChannelGroup> list) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            this.mNotificationManager.createNotificationChannelGroups(list);
+        }
+    }
+
+    public void createNotificationChannels(@NonNull List<NotificationChannel> list) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            this.mNotificationManager.createNotificationChannels(list);
+        }
+    }
+
+    public void deleteNotificationChannel(@NonNull String str) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            this.mNotificationManager.deleteNotificationChannel(str);
+        }
+    }
+
+    public void deleteNotificationChannelGroup(@NonNull String str) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            this.mNotificationManager.deleteNotificationChannelGroup(str);
         }
     }
 
@@ -412,24 +452,64 @@ public final class NotificationManagerCompat {
         return -1000;
     }
 
-    public void notify(int i, @NonNull Notification notification) {
-        notify(null, i, notification);
+    @Nullable
+    public NotificationChannel getNotificationChannel(@NonNull String str) {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return this.mNotificationManager.getNotificationChannel(str);
+        }
+        return null;
     }
 
-    public void cancel(@Nullable String str, int i) {
-        this.mNotificationManager.cancel(str, i);
+    @Nullable
+    public NotificationChannelGroup getNotificationChannelGroup(@NonNull String str) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 28) {
+            return this.mNotificationManager.getNotificationChannelGroup(str);
+        }
+        if (i2 >= 26) {
+            for (NotificationChannelGroup notificationChannelGroup : getNotificationChannelGroups()) {
+                if (notificationChannelGroup.getId().equals(str)) {
+                    return notificationChannelGroup;
+                }
+            }
+        }
+        return null;
+    }
+
+    @NonNull
+    public List<NotificationChannelGroup> getNotificationChannelGroups() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return this.mNotificationManager.getNotificationChannelGroups();
+        }
+        return Collections.emptyList();
+    }
+
+    @NonNull
+    public List<NotificationChannel> getNotificationChannels() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return this.mNotificationManager.getNotificationChannels();
+        }
+        return Collections.emptyList();
+    }
+
+    public void notify(int i2, @NonNull Notification notification) {
+        notify(null, i2, notification);
+    }
+
+    public void cancel(@Nullable String str, int i2) {
+        this.mNotificationManager.cancel(str, i2);
         if (Build.VERSION.SDK_INT <= 19) {
-            pushSideChannelQueue(new CancelTask(this.mContext.getPackageName(), i, str));
+            pushSideChannelQueue(new CancelTask(this.mContext.getPackageName(), i2, str));
         }
     }
 
-    public void notify(@Nullable String str, int i, @NonNull Notification notification) {
+    public void notify(@Nullable String str, int i2, @NonNull Notification notification) {
         if (useSideChannelForNotification(notification)) {
-            pushSideChannelQueue(new NotifyTask(this.mContext.getPackageName(), i, str, notification));
-            this.mNotificationManager.cancel(str, i);
+            pushSideChannelQueue(new NotifyTask(this.mContext.getPackageName(), i2, str, notification));
+            this.mNotificationManager.cancel(str, i2);
             return;
         }
-        this.mNotificationManager.notify(str, i, notification);
+        this.mNotificationManager.notify(str, i2, notification);
     }
 
     /* loaded from: classes.dex */
@@ -455,13 +535,14 @@ public final class NotificationManagerCompat {
             }
         }
 
+        @NonNull
         public String toString() {
             return "CancelTask[packageName:" + this.packageName + ", id:" + this.id + ", tag:" + this.tag + ", all:" + this.all + "]";
         }
 
-        public CancelTask(String str, int i, String str2) {
+        public CancelTask(String str, int i2, String str2) {
             this.packageName = str;
-            this.id = i;
+            this.id = i2;
             this.tag = str2;
             this.all = false;
         }

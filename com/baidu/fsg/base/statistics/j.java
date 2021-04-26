@@ -15,40 +15,42 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5350a = "cu";
+    public static final String f5487a = "cu";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5351b = "cu2";
+    public static final String f5488b = "cu2";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5352c = "ua";
+    public static final String f5489c = "ua";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5353d = "op";
+    public static final String f5490d = "op";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5354e = "bs";
+    public static final String f5491e = "bs";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5355f = "bk";
+    public static final String f5492f = "bk";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5356g = "lc";
+    public static final String f5493g = "lc";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5357h = "sd";
-    public static final String i = "j";
+    public static final String f5494h = "sd";
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final String f5495i = "j";
     public Pattern j;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static j f5358a = new j();
+        public static j f5496a = new j();
     }
 
     public static j c() {
-        return a.f5358a;
+        return a.f5496a;
     }
 
     private String d(Context context) {
@@ -108,7 +110,7 @@ public class j {
         try {
             return new JSONObject().toString();
         } catch (Throwable th) {
-            LogUtil.d(i, th.toString());
+            LogUtil.d(f5495i, th.toString());
             return null;
         }
     }

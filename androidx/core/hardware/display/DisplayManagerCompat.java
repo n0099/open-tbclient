@@ -32,12 +32,12 @@ public final class DisplayManagerCompat {
     }
 
     @Nullable
-    public Display getDisplay(int i) {
+    public Display getDisplay(int i2) {
         if (Build.VERSION.SDK_INT >= 17) {
-            return ((DisplayManager) this.mContext.getSystemService("display")).getDisplay(i);
+            return ((DisplayManager) this.mContext.getSystemService("display")).getDisplay(i2);
         }
         Display defaultDisplay = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay();
-        if (defaultDisplay.getDisplayId() == i) {
+        if (defaultDisplay.getDisplayId() == i2) {
             return defaultDisplay;
         }
         return null;

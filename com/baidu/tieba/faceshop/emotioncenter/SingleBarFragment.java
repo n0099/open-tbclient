@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class SingleBarFragment extends BaseFragment {
-    @Override // com.baidu.tbadk.core.BaseFragment, d.b.i0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, d.a.i0.k0.a
     public String getCurrentPageKey() {
         return null;
     }
@@ -19,8 +19,8 @@ public class SingleBarFragment extends BaseFragment {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment

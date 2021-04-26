@@ -13,16 +13,16 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SampleToChunkBox extends AbstractFullBox {
     public static final String TYPE = "stsc";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
     public List<Entry> entries;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         public long firstChunk;
         public long sampleDescriptionIndex;
@@ -103,24 +103,24 @@ public class SampleToChunkBox extends AbstractFullBox {
         parseVersionAndFlags(byteBuffer);
         int l2i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
         this.entries = new ArrayList(l2i);
-        for (int i = 0; i < l2i; i++) {
+        for (int i2 = 0; i2 < l2i; i2++) {
             this.entries.add(new Entry(IsoTypeReader.readUInt32(byteBuffer), IsoTypeReader.readUInt32(byteBuffer), IsoTypeReader.readUInt32(byteBuffer)));
         }
     }
 
-    public long[] blowup(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i)));
-        long[] jArr = new long[i];
+    public long[] blowup(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i2)));
+        long[] jArr = new long[i2];
         LinkedList linkedList = new LinkedList(this.entries);
         Collections.reverse(linkedList);
         Iterator it = linkedList.iterator();
         Entry entry = (Entry) it.next();
-        while (i > 1) {
-            jArr[i - 1] = entry.getSamplesPerChunk();
-            if (i == entry.getFirstChunk()) {
+        while (i2 > 1) {
+            jArr[i2 - 1] = entry.getSamplesPerChunk();
+            if (i2 == entry.getFirstChunk()) {
                 entry = (Entry) it.next();
             }
-            i--;
+            i2--;
         }
         jArr[0] = entry.getSamplesPerChunk();
         return jArr;

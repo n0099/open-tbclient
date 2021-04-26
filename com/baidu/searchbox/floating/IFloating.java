@@ -18,9 +18,9 @@ public interface IFloating {
     @Metadata(bv = {1, 0, 2}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
     /* loaded from: classes2.dex */
     public static final class DefaultImpls {
-        public static /* bridge */ /* synthetic */ void dismiss$default(IFloating iFloating, boolean z, int i, Object obj) {
+        public static /* bridge */ /* synthetic */ void dismiss$default(IFloating iFloating, boolean z, int i2, Object obj) {
             if (obj == null) {
-                if ((i & 1) != 0) {
+                if ((i2 & 1) != 0) {
                     z = false;
                 }
                 iFloating.dismiss(z);
@@ -46,13 +46,13 @@ public interface IFloating {
 
     void setAnimator(FloatViewAnimator floatViewAnimator);
 
-    void setBlockOffset(int i, int i2, int i3, int i4);
+    void setBlockOffset(int i2, int i3, int i4, int i5);
 
-    void setDefaultSize(int i, int i2);
+    void setDefaultSize(int i2, int i3);
 
     void setDragEnable(boolean z);
 
-    void setLocation(int i, int i2);
+    void setLocation(int i2, int i3);
 
     void setScaleMode(Pair<? extends ScaleMode, ? extends ScaleMode> pair);
 

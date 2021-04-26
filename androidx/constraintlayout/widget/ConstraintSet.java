@@ -278,8 +278,8 @@ public class ConstraintSet {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void fillFrom(int i, ConstraintLayout.LayoutParams layoutParams) {
-            this.mViewId = i;
+        public void fillFrom(int i2, ConstraintLayout.LayoutParams layoutParams) {
+            this.mViewId = i2;
             this.leftToLeft = layoutParams.leftToLeft;
             this.leftToRight = layoutParams.leftToRight;
             this.rightToLeft = layoutParams.rightToLeft;
@@ -334,8 +334,8 @@ public class ConstraintSet {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void fillFromConstraints(ConstraintHelper constraintHelper, int i, Constraints.LayoutParams layoutParams) {
-            fillFromConstraints(i, layoutParams);
+        public void fillFromConstraints(ConstraintHelper constraintHelper, int i2, Constraints.LayoutParams layoutParams) {
+            fillFromConstraints(i2, layoutParams);
             if (constraintHelper instanceof Barrier) {
                 this.mHelperType = 1;
                 Barrier barrier = (Barrier) constraintHelper;
@@ -487,8 +487,8 @@ public class ConstraintSet {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void fillFromConstraints(int i, Constraints.LayoutParams layoutParams) {
-            fillFrom(i, layoutParams);
+        public void fillFromConstraints(int i2, Constraints.LayoutParams layoutParams) {
+            fillFrom(i2, layoutParams);
             this.alpha = layoutParams.alpha;
             this.rotation = layoutParams.rotation;
             this.rotationX = layoutParams.rotationX;
@@ -585,31 +585,31 @@ public class ConstraintSet {
     }
 
     private int[] convertReferenceString(View view, String str) {
-        int i;
+        int i2;
         Object designInformation;
         String[] split = str.split(",");
         Context context = view.getContext();
         int[] iArr = new int[split.length];
-        int i2 = 0;
         int i3 = 0;
-        while (i2 < split.length) {
-            String trim = split[i2].trim();
+        int i4 = 0;
+        while (i3 < split.length) {
+            String trim = split[i3].trim();
             try {
-                i = R.id.class.getField(trim).getInt(null);
+                i2 = R.id.class.getField(trim).getInt(null);
             } catch (Exception unused) {
-                i = 0;
+                i2 = 0;
             }
-            if (i == 0) {
-                i = context.getResources().getIdentifier(trim, "id", context.getPackageName());
+            if (i2 == 0) {
+                i2 = context.getResources().getIdentifier(trim, "id", context.getPackageName());
             }
-            if (i == 0 && view.isInEditMode() && (view.getParent() instanceof ConstraintLayout) && (designInformation = ((ConstraintLayout) view.getParent()).getDesignInformation(0, trim)) != null && (designInformation instanceof Integer)) {
-                i = ((Integer) designInformation).intValue();
+            if (i2 == 0 && view.isInEditMode() && (view.getParent() instanceof ConstraintLayout) && (designInformation = ((ConstraintLayout) view.getParent()).getDesignInformation(0, trim)) != null && (designInformation instanceof Integer)) {
+                i2 = ((Integer) designInformation).intValue();
             }
-            iArr[i3] = i;
-            i2++;
+            iArr[i4] = i2;
             i3++;
+            i4++;
         }
-        return i3 != split.length ? Arrays.copyOf(iArr, i3) : iArr;
+        return i4 != split.length ? Arrays.copyOf(iArr, i4) : iArr;
     }
 
     private Constraint fillFromAttributeList(Context context, AttributeSet attributeSet) {
@@ -620,24 +620,24 @@ public class ConstraintSet {
         return constraint;
     }
 
-    private Constraint get(int i) {
-        if (!this.mConstraints.containsKey(Integer.valueOf(i))) {
-            this.mConstraints.put(Integer.valueOf(i), new Constraint());
+    private Constraint get(int i2) {
+        if (!this.mConstraints.containsKey(Integer.valueOf(i2))) {
+            this.mConstraints.put(Integer.valueOf(i2), new Constraint());
         }
-        return this.mConstraints.get(Integer.valueOf(i));
+        return this.mConstraints.get(Integer.valueOf(i2));
     }
 
-    public static int lookupID(TypedArray typedArray, int i, int i2) {
-        int resourceId = typedArray.getResourceId(i, i2);
-        return resourceId == -1 ? typedArray.getInt(i, -1) : resourceId;
+    public static int lookupID(TypedArray typedArray, int i2, int i3) {
+        int resourceId = typedArray.getResourceId(i2, i3);
+        return resourceId == -1 ? typedArray.getInt(i2, -1) : resourceId;
     }
 
     private void populateConstraint(Constraint constraint, TypedArray typedArray) {
         int indexCount = typedArray.getIndexCount();
-        for (int i = 0; i < indexCount; i++) {
-            int index = typedArray.getIndex(i);
-            int i2 = mapToConstant.get(index);
-            switch (i2) {
+        for (int i2 = 0; i2 < indexCount; i2++) {
+            int index = typedArray.getIndex(i2);
+            int i3 = mapToConstant.get(index);
+            switch (i3) {
                 case 1:
                     constraint.baselineToBaseline = lookupID(typedArray, index, constraint.baselineToBaseline);
                     break;
@@ -702,9 +702,9 @@ public class ConstraintSet {
                     constraint.mHeight = typedArray.getLayoutDimension(index, constraint.mHeight);
                     break;
                 case 22:
-                    int i3 = typedArray.getInt(index, constraint.visibility);
-                    constraint.visibility = i3;
-                    constraint.visibility = VISIBILITY_FLAGS[i3];
+                    int i4 = typedArray.getInt(index, constraint.visibility);
+                    constraint.visibility = i4;
+                    constraint.visibility = VISIBILITY_FLAGS[i4];
                     break;
                 case 23:
                     constraint.mWidth = typedArray.getLayoutDimension(index, constraint.mWidth);
@@ -801,7 +801,7 @@ public class ConstraintSet {
                     constraint.translationZ = typedArray.getDimension(index, constraint.translationZ);
                     break;
                 default:
-                    switch (i2) {
+                    switch (i3) {
                         case 60:
                             constraint.rotation = typedArray.getFloat(index, constraint.rotation);
                             continue;
@@ -815,7 +815,7 @@ public class ConstraintSet {
                             constraint.circleAngle = typedArray.getFloat(index, constraint.circleAngle);
                             continue;
                         default:
-                            switch (i2) {
+                            switch (i3) {
                                 case 69:
                                     constraint.widthPercent = typedArray.getFloat(index, 1.0f);
                                     continue;
@@ -847,8 +847,8 @@ public class ConstraintSet {
         }
     }
 
-    private String sideToString(int i) {
-        switch (i) {
+    private String sideToString(int i2) {
+        switch (i2) {
             case 1:
                 return CustomDialogData.POS_LEFT;
             case 2:
@@ -868,36 +868,36 @@ public class ConstraintSet {
         }
     }
 
-    public void addToHorizontalChain(int i, int i2, int i3) {
-        connect(i, 1, i2, i2 == 0 ? 1 : 2, 0);
-        connect(i, 2, i3, i3 == 0 ? 2 : 1, 0);
-        if (i2 != 0) {
-            connect(i2, 2, i, 1, 0);
-        }
+    public void addToHorizontalChain(int i2, int i3, int i4) {
+        connect(i2, 1, i3, i3 == 0 ? 1 : 2, 0);
+        connect(i2, 2, i4, i4 == 0 ? 2 : 1, 0);
         if (i3 != 0) {
-            connect(i3, 1, i, 2, 0);
+            connect(i3, 2, i2, 1, 0);
+        }
+        if (i4 != 0) {
+            connect(i4, 1, i2, 2, 0);
         }
     }
 
-    public void addToHorizontalChainRTL(int i, int i2, int i3) {
-        connect(i, 6, i2, i2 == 0 ? 6 : 7, 0);
-        connect(i, 7, i3, i3 == 0 ? 7 : 6, 0);
-        if (i2 != 0) {
-            connect(i2, 7, i, 6, 0);
-        }
+    public void addToHorizontalChainRTL(int i2, int i3, int i4) {
+        connect(i2, 6, i3, i3 == 0 ? 6 : 7, 0);
+        connect(i2, 7, i4, i4 == 0 ? 7 : 6, 0);
         if (i3 != 0) {
-            connect(i3, 6, i, 7, 0);
+            connect(i3, 7, i2, 6, 0);
+        }
+        if (i4 != 0) {
+            connect(i4, 6, i2, 7, 0);
         }
     }
 
-    public void addToVerticalChain(int i, int i2, int i3) {
-        connect(i, 3, i2, i2 == 0 ? 3 : 4, 0);
-        connect(i, 4, i3, i3 == 0 ? 4 : 3, 0);
-        if (i2 != 0) {
-            connect(i2, 4, i, 3, 0);
+    public void addToVerticalChain(int i2, int i3, int i4) {
+        connect(i2, 3, i3, i3 == 0 ? 3 : 4, 0);
+        connect(i2, 4, i4, i4 == 0 ? 4 : 3, 0);
+        if (i3 != 0) {
+            connect(i3, 4, i2, 3, 0);
         }
-        if (i2 != 0) {
-            connect(i3, 3, i, 4, 0);
+        if (i3 != 0) {
+            connect(i4, 3, i2, 4, 0);
         }
     }
 
@@ -909,8 +909,8 @@ public class ConstraintSet {
     public void applyToInternal(ConstraintLayout constraintLayout) {
         int childCount = constraintLayout.getChildCount();
         HashSet hashSet = new HashSet(this.mConstraints.keySet());
-        for (int i = 0; i < childCount; i++) {
-            View childAt = constraintLayout.getChildAt(i);
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = constraintLayout.getChildAt(i2);
             int id = childAt.getId();
             if (id != -1) {
                 if (this.mConstraints.containsKey(Integer.valueOf(id))) {
@@ -919,8 +919,8 @@ public class ConstraintSet {
                     if (childAt instanceof Barrier) {
                         constraint.mHelperType = 1;
                     }
-                    int i2 = constraint.mHelperType;
-                    if (i2 != -1 && i2 == 1) {
+                    int i3 = constraint.mHelperType;
+                    if (i3 != -1 && i3 == 1) {
                         Barrier barrier = (Barrier) childAt;
                         barrier.setId(id);
                         barrier.setType(constraint.mBarrierDirection);
@@ -972,8 +972,8 @@ public class ConstraintSet {
         while (it.hasNext()) {
             Integer num = (Integer) it.next();
             Constraint constraint2 = this.mConstraints.get(num);
-            int i3 = constraint2.mHelperType;
-            if (i3 != -1 && i3 == 1) {
+            int i4 = constraint2.mHelperType;
+            if (i4 != -1 && i4 == 1) {
                 Barrier barrier2 = new Barrier(constraintLayout.getContext());
                 barrier2.setId(num.intValue());
                 int[] iArr2 = constraint2.mReferenceIds;
@@ -1003,224 +1003,224 @@ public class ConstraintSet {
         }
     }
 
-    public void center(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f2) {
-        if (i4 < 0) {
+    public void center(int i2, int i3, int i4, int i5, int i6, int i7, int i8, float f2) {
+        if (i5 < 0) {
             throw new IllegalArgumentException("margin must be > 0");
         }
-        if (i7 < 0) {
+        if (i8 < 0) {
             throw new IllegalArgumentException("margin must be > 0");
         }
         if (f2 <= 0.0f || f2 > 1.0f) {
             throw new IllegalArgumentException("bias must be between 0 and 1 inclusive");
         }
-        if (i3 == 1 || i3 == 2) {
-            connect(i, 1, i2, i3, i4);
-            connect(i, 2, i5, i6, i7);
-            this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f2;
-        } else if (i3 != 6 && i3 != 7) {
-            connect(i, 3, i2, i3, i4);
-            connect(i, 4, i5, i6, i7);
-            this.mConstraints.get(Integer.valueOf(i)).verticalBias = f2;
+        if (i4 == 1 || i4 == 2) {
+            connect(i2, 1, i3, i4, i5);
+            connect(i2, 2, i6, i7, i8);
+            this.mConstraints.get(Integer.valueOf(i2)).horizontalBias = f2;
+        } else if (i4 != 6 && i4 != 7) {
+            connect(i2, 3, i3, i4, i5);
+            connect(i2, 4, i6, i7, i8);
+            this.mConstraints.get(Integer.valueOf(i2)).verticalBias = f2;
         } else {
-            connect(i, 6, i2, i3, i4);
-            connect(i, 7, i5, i6, i7);
-            this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f2;
+            connect(i2, 6, i3, i4, i5);
+            connect(i2, 7, i6, i7, i8);
+            this.mConstraints.get(Integer.valueOf(i2)).horizontalBias = f2;
         }
     }
 
-    public void centerHorizontally(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f2) {
-        connect(i, 1, i2, i3, i4);
-        connect(i, 2, i5, i6, i7);
-        this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f2;
+    public void centerHorizontally(int i2, int i3, int i4, int i5, int i6, int i7, int i8, float f2) {
+        connect(i2, 1, i3, i4, i5);
+        connect(i2, 2, i6, i7, i8);
+        this.mConstraints.get(Integer.valueOf(i2)).horizontalBias = f2;
     }
 
-    public void centerHorizontallyRtl(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f2) {
-        connect(i, 6, i2, i3, i4);
-        connect(i, 7, i5, i6, i7);
-        this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f2;
+    public void centerHorizontallyRtl(int i2, int i3, int i4, int i5, int i6, int i7, int i8, float f2) {
+        connect(i2, 6, i3, i4, i5);
+        connect(i2, 7, i6, i7, i8);
+        this.mConstraints.get(Integer.valueOf(i2)).horizontalBias = f2;
     }
 
-    public void centerVertically(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f2) {
-        connect(i, 3, i2, i3, i4);
-        connect(i, 4, i5, i6, i7);
-        this.mConstraints.get(Integer.valueOf(i)).verticalBias = f2;
+    public void centerVertically(int i2, int i3, int i4, int i5, int i6, int i7, int i8, float f2) {
+        connect(i2, 3, i3, i4, i5);
+        connect(i2, 4, i6, i7, i8);
+        this.mConstraints.get(Integer.valueOf(i2)).verticalBias = f2;
     }
 
-    public void clear(int i) {
-        this.mConstraints.remove(Integer.valueOf(i));
+    public void clear(int i2) {
+        this.mConstraints.remove(Integer.valueOf(i2));
     }
 
-    public void clone(Context context, int i) {
-        clone((ConstraintLayout) LayoutInflater.from(context).inflate(i, (ViewGroup) null));
+    public void clone(Context context, int i2) {
+        clone((ConstraintLayout) LayoutInflater.from(context).inflate(i2, (ViewGroup) null));
     }
 
-    public void connect(int i, int i2, int i3, int i4, int i5) {
-        if (!this.mConstraints.containsKey(Integer.valueOf(i))) {
-            this.mConstraints.put(Integer.valueOf(i), new Constraint());
+    public void connect(int i2, int i3, int i4, int i5, int i6) {
+        if (!this.mConstraints.containsKey(Integer.valueOf(i2))) {
+            this.mConstraints.put(Integer.valueOf(i2), new Constraint());
         }
-        Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
-        switch (i2) {
+        Constraint constraint = this.mConstraints.get(Integer.valueOf(i2));
+        switch (i3) {
             case 1:
-                if (i4 == 1) {
-                    constraint.leftToLeft = i3;
+                if (i5 == 1) {
+                    constraint.leftToLeft = i4;
                     constraint.leftToRight = -1;
-                } else if (i4 == 2) {
-                    constraint.leftToRight = i3;
+                } else if (i5 == 2) {
+                    constraint.leftToRight = i4;
                     constraint.leftToLeft = -1;
                 } else {
-                    throw new IllegalArgumentException("Left to " + sideToString(i4) + " undefined");
+                    throw new IllegalArgumentException("Left to " + sideToString(i5) + " undefined");
                 }
-                constraint.leftMargin = i5;
+                constraint.leftMargin = i6;
                 return;
             case 2:
-                if (i4 == 1) {
-                    constraint.rightToLeft = i3;
+                if (i5 == 1) {
+                    constraint.rightToLeft = i4;
                     constraint.rightToRight = -1;
-                } else if (i4 == 2) {
-                    constraint.rightToRight = i3;
+                } else if (i5 == 2) {
+                    constraint.rightToRight = i4;
                     constraint.rightToLeft = -1;
                 } else {
-                    throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                    throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
                 }
-                constraint.rightMargin = i5;
+                constraint.rightMargin = i6;
                 return;
             case 3:
-                if (i4 == 3) {
-                    constraint.topToTop = i3;
+                if (i5 == 3) {
+                    constraint.topToTop = i4;
                     constraint.topToBottom = -1;
                     constraint.baselineToBaseline = -1;
-                } else if (i4 == 4) {
-                    constraint.topToBottom = i3;
+                } else if (i5 == 4) {
+                    constraint.topToBottom = i4;
                     constraint.topToTop = -1;
                     constraint.baselineToBaseline = -1;
                 } else {
-                    throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                    throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
                 }
-                constraint.topMargin = i5;
+                constraint.topMargin = i6;
                 return;
             case 4:
-                if (i4 == 4) {
-                    constraint.bottomToBottom = i3;
+                if (i5 == 4) {
+                    constraint.bottomToBottom = i4;
                     constraint.bottomToTop = -1;
                     constraint.baselineToBaseline = -1;
-                } else if (i4 == 3) {
-                    constraint.bottomToTop = i3;
+                } else if (i5 == 3) {
+                    constraint.bottomToTop = i4;
                     constraint.bottomToBottom = -1;
                     constraint.baselineToBaseline = -1;
                 } else {
-                    throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                    throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
                 }
-                constraint.bottomMargin = i5;
+                constraint.bottomMargin = i6;
                 return;
             case 5:
-                if (i4 == 5) {
-                    constraint.baselineToBaseline = i3;
+                if (i5 == 5) {
+                    constraint.baselineToBaseline = i4;
                     constraint.bottomToBottom = -1;
                     constraint.bottomToTop = -1;
                     constraint.topToTop = -1;
                     constraint.topToBottom = -1;
                     return;
                 }
-                throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
             case 6:
-                if (i4 == 6) {
-                    constraint.startToStart = i3;
+                if (i5 == 6) {
+                    constraint.startToStart = i4;
                     constraint.startToEnd = -1;
-                } else if (i4 == 7) {
-                    constraint.startToEnd = i3;
+                } else if (i5 == 7) {
+                    constraint.startToEnd = i4;
                     constraint.startToStart = -1;
                 } else {
-                    throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                    throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
                 }
-                constraint.startMargin = i5;
+                constraint.startMargin = i6;
                 return;
             case 7:
-                if (i4 == 7) {
-                    constraint.endToEnd = i3;
+                if (i5 == 7) {
+                    constraint.endToEnd = i4;
                     constraint.endToStart = -1;
-                } else if (i4 == 6) {
-                    constraint.endToStart = i3;
+                } else if (i5 == 6) {
+                    constraint.endToStart = i4;
                     constraint.endToEnd = -1;
                 } else {
-                    throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                    throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
                 }
-                constraint.endMargin = i5;
+                constraint.endMargin = i6;
                 return;
             default:
-                throw new IllegalArgumentException(sideToString(i2) + " to " + sideToString(i4) + " unknown");
+                throw new IllegalArgumentException(sideToString(i3) + " to " + sideToString(i5) + " unknown");
         }
     }
 
-    public void constrainCircle(int i, int i2, int i3, float f2) {
-        Constraint constraint = get(i);
-        constraint.circleConstraint = i2;
-        constraint.circleRadius = i3;
+    public void constrainCircle(int i2, int i3, int i4, float f2) {
+        Constraint constraint = get(i2);
+        constraint.circleConstraint = i3;
+        constraint.circleRadius = i4;
         constraint.circleAngle = f2;
     }
 
-    public void constrainDefaultHeight(int i, int i2) {
-        get(i).heightDefault = i2;
+    public void constrainDefaultHeight(int i2, int i3) {
+        get(i2).heightDefault = i3;
     }
 
-    public void constrainDefaultWidth(int i, int i2) {
-        get(i).widthDefault = i2;
+    public void constrainDefaultWidth(int i2, int i3) {
+        get(i2).widthDefault = i3;
     }
 
-    public void constrainHeight(int i, int i2) {
-        get(i).mHeight = i2;
+    public void constrainHeight(int i2, int i3) {
+        get(i2).mHeight = i3;
     }
 
-    public void constrainMaxHeight(int i, int i2) {
-        get(i).heightMax = i2;
+    public void constrainMaxHeight(int i2, int i3) {
+        get(i2).heightMax = i3;
     }
 
-    public void constrainMaxWidth(int i, int i2) {
-        get(i).widthMax = i2;
+    public void constrainMaxWidth(int i2, int i3) {
+        get(i2).widthMax = i3;
     }
 
-    public void constrainMinHeight(int i, int i2) {
-        get(i).heightMin = i2;
+    public void constrainMinHeight(int i2, int i3) {
+        get(i2).heightMin = i3;
     }
 
-    public void constrainMinWidth(int i, int i2) {
-        get(i).widthMin = i2;
+    public void constrainMinWidth(int i2, int i3) {
+        get(i2).widthMin = i3;
     }
 
-    public void constrainPercentHeight(int i, float f2) {
-        get(i).heightPercent = f2;
+    public void constrainPercentHeight(int i2, float f2) {
+        get(i2).heightPercent = f2;
     }
 
-    public void constrainPercentWidth(int i, float f2) {
-        get(i).widthPercent = f2;
+    public void constrainPercentWidth(int i2, float f2) {
+        get(i2).widthPercent = f2;
     }
 
-    public void constrainWidth(int i, int i2) {
-        get(i).mWidth = i2;
+    public void constrainWidth(int i2, int i3) {
+        get(i2).mWidth = i3;
     }
 
-    public void create(int i, int i2) {
-        Constraint constraint = get(i);
+    public void create(int i2, int i3) {
+        Constraint constraint = get(i2);
         constraint.mIsGuideline = true;
-        constraint.orientation = i2;
+        constraint.orientation = i3;
     }
 
-    public void createBarrier(int i, int i2, int... iArr) {
-        Constraint constraint = get(i);
+    public void createBarrier(int i2, int i3, int... iArr) {
+        Constraint constraint = get(i2);
         constraint.mHelperType = 1;
-        constraint.mBarrierDirection = i2;
+        constraint.mBarrierDirection = i3;
         constraint.mIsGuideline = false;
         constraint.mReferenceIds = iArr;
     }
 
-    public void createHorizontalChain(int i, int i2, int i3, int i4, int[] iArr, float[] fArr, int i5) {
-        createHorizontalChain(i, i2, i3, i4, iArr, fArr, i5, 1, 2);
+    public void createHorizontalChain(int i2, int i3, int i4, int i5, int[] iArr, float[] fArr, int i6) {
+        createHorizontalChain(i2, i3, i4, i5, iArr, fArr, i6, 1, 2);
     }
 
-    public void createHorizontalChainRtl(int i, int i2, int i3, int i4, int[] iArr, float[] fArr, int i5) {
-        createHorizontalChain(i, i2, i3, i4, iArr, fArr, i5, 6, 7);
+    public void createHorizontalChainRtl(int i2, int i3, int i4, int i5, int[] iArr, float[] fArr, int i6) {
+        createHorizontalChain(i2, i3, i4, i5, iArr, fArr, i6, 6, 7);
     }
 
-    public void createVerticalChain(int i, int i2, int i3, int i4, int[] iArr, float[] fArr, int i5) {
+    public void createVerticalChain(int i2, int i3, int i4, int i5, int[] iArr, float[] fArr, int i6) {
         if (iArr.length >= 2) {
             if (fArr != null && fArr.length != iArr.length) {
                 throw new IllegalArgumentException("must have 2 or more widgets in a chain");
@@ -1228,33 +1228,33 @@ public class ConstraintSet {
             if (fArr != null) {
                 get(iArr[0]).verticalWeight = fArr[0];
             }
-            get(iArr[0]).verticalChainStyle = i5;
-            connect(iArr[0], 3, i, i2, 0);
-            for (int i6 = 1; i6 < iArr.length; i6++) {
-                int i7 = iArr[i6];
-                int i8 = i6 - 1;
-                connect(iArr[i6], 3, iArr[i8], 4, 0);
-                connect(iArr[i8], 4, iArr[i6], 3, 0);
+            get(iArr[0]).verticalChainStyle = i6;
+            connect(iArr[0], 3, i2, i3, 0);
+            for (int i7 = 1; i7 < iArr.length; i7++) {
+                int i8 = iArr[i7];
+                int i9 = i7 - 1;
+                connect(iArr[i7], 3, iArr[i9], 4, 0);
+                connect(iArr[i9], 4, iArr[i7], 3, 0);
                 if (fArr != null) {
-                    get(iArr[i6]).verticalWeight = fArr[i6];
+                    get(iArr[i7]).verticalWeight = fArr[i7];
                 }
             }
-            connect(iArr[iArr.length - 1], 4, i3, i4, 0);
+            connect(iArr[iArr.length - 1], 4, i4, i5, 0);
             return;
         }
         throw new IllegalArgumentException("must have 2 or more widgets in a chain");
     }
 
-    public boolean getApplyElevation(int i) {
-        return get(i).applyElevation;
+    public boolean getApplyElevation(int i2) {
+        return get(i2).applyElevation;
     }
 
-    public Constraint getParameters(int i) {
-        return get(i);
+    public Constraint getParameters(int i2) {
+        return get(i2);
     }
 
-    public void load(Context context, int i) {
-        XmlResourceParser xml = context.getResources().getXml(i);
+    public void load(Context context, int i2) {
+        XmlResourceParser xml = context.getResources().getXml(i2);
         try {
             for (int eventType = xml.getEventType(); eventType != 1; eventType = xml.next()) {
                 if (eventType == 0) {
@@ -1279,254 +1279,254 @@ public class ConstraintSet {
         }
     }
 
-    public void removeFromHorizontalChain(int i) {
-        if (this.mConstraints.containsKey(Integer.valueOf(i))) {
-            Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
-            int i2 = constraint.leftToRight;
-            int i3 = constraint.rightToLeft;
-            if (i2 == -1 && i3 == -1) {
-                int i4 = constraint.startToEnd;
-                int i5 = constraint.endToStart;
-                if (i4 != -1 || i5 != -1) {
-                    if (i4 != -1 && i5 != -1) {
-                        connect(i4, 7, i5, 6, 0);
-                        connect(i5, 6, i2, 7, 0);
-                    } else if (i2 != -1 || i5 != -1) {
-                        int i6 = constraint.rightToRight;
-                        if (i6 != -1) {
-                            connect(i2, 7, i6, 7, 0);
+    public void removeFromHorizontalChain(int i2) {
+        if (this.mConstraints.containsKey(Integer.valueOf(i2))) {
+            Constraint constraint = this.mConstraints.get(Integer.valueOf(i2));
+            int i3 = constraint.leftToRight;
+            int i4 = constraint.rightToLeft;
+            if (i3 == -1 && i4 == -1) {
+                int i5 = constraint.startToEnd;
+                int i6 = constraint.endToStart;
+                if (i5 != -1 || i6 != -1) {
+                    if (i5 != -1 && i6 != -1) {
+                        connect(i5, 7, i6, 6, 0);
+                        connect(i6, 6, i3, 7, 0);
+                    } else if (i3 != -1 || i6 != -1) {
+                        int i7 = constraint.rightToRight;
+                        if (i7 != -1) {
+                            connect(i3, 7, i7, 7, 0);
                         } else {
-                            int i7 = constraint.leftToLeft;
-                            if (i7 != -1) {
-                                connect(i5, 6, i7, 6, 0);
+                            int i8 = constraint.leftToLeft;
+                            if (i8 != -1) {
+                                connect(i6, 6, i8, 6, 0);
                             }
                         }
                     }
                 }
-                clear(i, 6);
-                clear(i, 7);
+                clear(i2, 6);
+                clear(i2, 7);
                 return;
             }
-            if (i2 != -1 && i3 != -1) {
-                connect(i2, 2, i3, 1, 0);
-                connect(i3, 1, i2, 2, 0);
-            } else if (i2 != -1 || i3 != -1) {
-                int i8 = constraint.rightToRight;
-                if (i8 != -1) {
-                    connect(i2, 2, i8, 2, 0);
+            if (i3 != -1 && i4 != -1) {
+                connect(i3, 2, i4, 1, 0);
+                connect(i4, 1, i3, 2, 0);
+            } else if (i3 != -1 || i4 != -1) {
+                int i9 = constraint.rightToRight;
+                if (i9 != -1) {
+                    connect(i3, 2, i9, 2, 0);
                 } else {
-                    int i9 = constraint.leftToLeft;
-                    if (i9 != -1) {
-                        connect(i3, 1, i9, 1, 0);
+                    int i10 = constraint.leftToLeft;
+                    if (i10 != -1) {
+                        connect(i4, 1, i10, 1, 0);
                     }
                 }
             }
-            clear(i, 1);
-            clear(i, 2);
+            clear(i2, 1);
+            clear(i2, 2);
         }
     }
 
-    public void removeFromVerticalChain(int i) {
-        if (this.mConstraints.containsKey(Integer.valueOf(i))) {
-            Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
-            int i2 = constraint.topToBottom;
-            int i3 = constraint.bottomToTop;
-            if (i2 != -1 || i3 != -1) {
-                if (i2 != -1 && i3 != -1) {
-                    connect(i2, 4, i3, 3, 0);
-                    connect(i3, 3, i2, 4, 0);
-                } else if (i2 != -1 || i3 != -1) {
-                    int i4 = constraint.bottomToBottom;
-                    if (i4 != -1) {
-                        connect(i2, 4, i4, 4, 0);
+    public void removeFromVerticalChain(int i2) {
+        if (this.mConstraints.containsKey(Integer.valueOf(i2))) {
+            Constraint constraint = this.mConstraints.get(Integer.valueOf(i2));
+            int i3 = constraint.topToBottom;
+            int i4 = constraint.bottomToTop;
+            if (i3 != -1 || i4 != -1) {
+                if (i3 != -1 && i4 != -1) {
+                    connect(i3, 4, i4, 3, 0);
+                    connect(i4, 3, i3, 4, 0);
+                } else if (i3 != -1 || i4 != -1) {
+                    int i5 = constraint.bottomToBottom;
+                    if (i5 != -1) {
+                        connect(i3, 4, i5, 4, 0);
                     } else {
-                        int i5 = constraint.topToTop;
-                        if (i5 != -1) {
-                            connect(i3, 3, i5, 3, 0);
+                        int i6 = constraint.topToTop;
+                        if (i6 != -1) {
+                            connect(i4, 3, i6, 3, 0);
                         }
                     }
                 }
             }
         }
-        clear(i, 3);
-        clear(i, 4);
+        clear(i2, 3);
+        clear(i2, 4);
     }
 
-    public void setAlpha(int i, float f2) {
-        get(i).alpha = f2;
+    public void setAlpha(int i2, float f2) {
+        get(i2).alpha = f2;
     }
 
-    public void setApplyElevation(int i, boolean z) {
-        get(i).applyElevation = z;
+    public void setApplyElevation(int i2, boolean z) {
+        get(i2).applyElevation = z;
     }
 
-    public void setBarrierType(int i, int i2) {
+    public void setBarrierType(int i2, int i3) {
     }
 
-    public void setDimensionRatio(int i, String str) {
-        get(i).dimensionRatio = str;
+    public void setDimensionRatio(int i2, String str) {
+        get(i2).dimensionRatio = str;
     }
 
-    public void setElevation(int i, float f2) {
-        get(i).elevation = f2;
-        get(i).applyElevation = true;
+    public void setElevation(int i2, float f2) {
+        get(i2).elevation = f2;
+        get(i2).applyElevation = true;
     }
 
-    public void setGoneMargin(int i, int i2, int i3) {
-        Constraint constraint = get(i);
-        switch (i2) {
+    public void setGoneMargin(int i2, int i3, int i4) {
+        Constraint constraint = get(i2);
+        switch (i3) {
             case 1:
-                constraint.goneLeftMargin = i3;
+                constraint.goneLeftMargin = i4;
                 return;
             case 2:
-                constraint.goneRightMargin = i3;
+                constraint.goneRightMargin = i4;
                 return;
             case 3:
-                constraint.goneTopMargin = i3;
+                constraint.goneTopMargin = i4;
                 return;
             case 4:
-                constraint.goneBottomMargin = i3;
+                constraint.goneBottomMargin = i4;
                 return;
             case 5:
                 throw new IllegalArgumentException("baseline does not support margins");
             case 6:
-                constraint.goneStartMargin = i3;
+                constraint.goneStartMargin = i4;
                 return;
             case 7:
-                constraint.goneEndMargin = i3;
+                constraint.goneEndMargin = i4;
                 return;
             default:
                 throw new IllegalArgumentException("unknown constraint");
         }
     }
 
-    public void setGuidelineBegin(int i, int i2) {
-        get(i).guideBegin = i2;
-        get(i).guideEnd = -1;
-        get(i).guidePercent = -1.0f;
+    public void setGuidelineBegin(int i2, int i3) {
+        get(i2).guideBegin = i3;
+        get(i2).guideEnd = -1;
+        get(i2).guidePercent = -1.0f;
     }
 
-    public void setGuidelineEnd(int i, int i2) {
-        get(i).guideEnd = i2;
-        get(i).guideBegin = -1;
-        get(i).guidePercent = -1.0f;
+    public void setGuidelineEnd(int i2, int i3) {
+        get(i2).guideEnd = i3;
+        get(i2).guideBegin = -1;
+        get(i2).guidePercent = -1.0f;
     }
 
-    public void setGuidelinePercent(int i, float f2) {
-        get(i).guidePercent = f2;
-        get(i).guideEnd = -1;
-        get(i).guideBegin = -1;
+    public void setGuidelinePercent(int i2, float f2) {
+        get(i2).guidePercent = f2;
+        get(i2).guideEnd = -1;
+        get(i2).guideBegin = -1;
     }
 
-    public void setHorizontalBias(int i, float f2) {
-        get(i).horizontalBias = f2;
+    public void setHorizontalBias(int i2, float f2) {
+        get(i2).horizontalBias = f2;
     }
 
-    public void setHorizontalChainStyle(int i, int i2) {
-        get(i).horizontalChainStyle = i2;
+    public void setHorizontalChainStyle(int i2, int i3) {
+        get(i2).horizontalChainStyle = i3;
     }
 
-    public void setHorizontalWeight(int i, float f2) {
-        get(i).horizontalWeight = f2;
+    public void setHorizontalWeight(int i2, float f2) {
+        get(i2).horizontalWeight = f2;
     }
 
-    public void setMargin(int i, int i2, int i3) {
-        Constraint constraint = get(i);
-        switch (i2) {
+    public void setMargin(int i2, int i3, int i4) {
+        Constraint constraint = get(i2);
+        switch (i3) {
             case 1:
-                constraint.leftMargin = i3;
+                constraint.leftMargin = i4;
                 return;
             case 2:
-                constraint.rightMargin = i3;
+                constraint.rightMargin = i4;
                 return;
             case 3:
-                constraint.topMargin = i3;
+                constraint.topMargin = i4;
                 return;
             case 4:
-                constraint.bottomMargin = i3;
+                constraint.bottomMargin = i4;
                 return;
             case 5:
                 throw new IllegalArgumentException("baseline does not support margins");
             case 6:
-                constraint.startMargin = i3;
+                constraint.startMargin = i4;
                 return;
             case 7:
-                constraint.endMargin = i3;
+                constraint.endMargin = i4;
                 return;
             default:
                 throw new IllegalArgumentException("unknown constraint");
         }
     }
 
-    public void setRotation(int i, float f2) {
-        get(i).rotation = f2;
+    public void setRotation(int i2, float f2) {
+        get(i2).rotation = f2;
     }
 
-    public void setRotationX(int i, float f2) {
-        get(i).rotationX = f2;
+    public void setRotationX(int i2, float f2) {
+        get(i2).rotationX = f2;
     }
 
-    public void setRotationY(int i, float f2) {
-        get(i).rotationY = f2;
+    public void setRotationY(int i2, float f2) {
+        get(i2).rotationY = f2;
     }
 
-    public void setScaleX(int i, float f2) {
-        get(i).scaleX = f2;
+    public void setScaleX(int i2, float f2) {
+        get(i2).scaleX = f2;
     }
 
-    public void setScaleY(int i, float f2) {
-        get(i).scaleY = f2;
+    public void setScaleY(int i2, float f2) {
+        get(i2).scaleY = f2;
     }
 
-    public void setTransformPivot(int i, float f2, float f3) {
-        Constraint constraint = get(i);
+    public void setTransformPivot(int i2, float f2, float f3) {
+        Constraint constraint = get(i2);
         constraint.transformPivotY = f3;
         constraint.transformPivotX = f2;
     }
 
-    public void setTransformPivotX(int i, float f2) {
-        get(i).transformPivotX = f2;
+    public void setTransformPivotX(int i2, float f2) {
+        get(i2).transformPivotX = f2;
     }
 
-    public void setTransformPivotY(int i, float f2) {
-        get(i).transformPivotY = f2;
+    public void setTransformPivotY(int i2, float f2) {
+        get(i2).transformPivotY = f2;
     }
 
-    public void setTranslation(int i, float f2, float f3) {
-        Constraint constraint = get(i);
+    public void setTranslation(int i2, float f2, float f3) {
+        Constraint constraint = get(i2);
         constraint.translationX = f2;
         constraint.translationY = f3;
     }
 
-    public void setTranslationX(int i, float f2) {
-        get(i).translationX = f2;
+    public void setTranslationX(int i2, float f2) {
+        get(i2).translationX = f2;
     }
 
-    public void setTranslationY(int i, float f2) {
-        get(i).translationY = f2;
+    public void setTranslationY(int i2, float f2) {
+        get(i2).translationY = f2;
     }
 
-    public void setTranslationZ(int i, float f2) {
-        get(i).translationZ = f2;
+    public void setTranslationZ(int i2, float f2) {
+        get(i2).translationZ = f2;
     }
 
-    public void setVerticalBias(int i, float f2) {
-        get(i).verticalBias = f2;
+    public void setVerticalBias(int i2, float f2) {
+        get(i2).verticalBias = f2;
     }
 
-    public void setVerticalChainStyle(int i, int i2) {
-        get(i).verticalChainStyle = i2;
+    public void setVerticalChainStyle(int i2, int i3) {
+        get(i2).verticalChainStyle = i3;
     }
 
-    public void setVerticalWeight(int i, float f2) {
-        get(i).verticalWeight = f2;
+    public void setVerticalWeight(int i2, float f2) {
+        get(i2).verticalWeight = f2;
     }
 
-    public void setVisibility(int i, int i2) {
-        get(i).visibility = i2;
+    public void setVisibility(int i2, int i3) {
+        get(i2).visibility = i3;
     }
 
-    private void createHorizontalChain(int i, int i2, int i3, int i4, int[] iArr, float[] fArr, int i5, int i6, int i7) {
+    private void createHorizontalChain(int i2, int i3, int i4, int i5, int[] iArr, float[] fArr, int i6, int i7, int i8) {
         if (iArr.length >= 2) {
             if (fArr != null && fArr.length != iArr.length) {
                 throw new IllegalArgumentException("must have 2 or more widgets in a chain");
@@ -1534,27 +1534,27 @@ public class ConstraintSet {
             if (fArr != null) {
                 get(iArr[0]).horizontalWeight = fArr[0];
             }
-            get(iArr[0]).horizontalChainStyle = i5;
-            connect(iArr[0], i6, i, i2, -1);
-            for (int i8 = 1; i8 < iArr.length; i8++) {
-                int i9 = iArr[i8];
-                int i10 = i8 - 1;
-                connect(iArr[i8], i6, iArr[i10], i7, -1);
-                connect(iArr[i10], i7, iArr[i8], i6, -1);
+            get(iArr[0]).horizontalChainStyle = i6;
+            connect(iArr[0], i7, i2, i3, -1);
+            for (int i9 = 1; i9 < iArr.length; i9++) {
+                int i10 = iArr[i9];
+                int i11 = i9 - 1;
+                connect(iArr[i9], i7, iArr[i11], i8, -1);
+                connect(iArr[i11], i8, iArr[i9], i7, -1);
                 if (fArr != null) {
-                    get(iArr[i8]).horizontalWeight = fArr[i8];
+                    get(iArr[i9]).horizontalWeight = fArr[i9];
                 }
             }
-            connect(iArr[iArr.length - 1], i7, i3, i4, -1);
+            connect(iArr[iArr.length - 1], i8, i4, i5, -1);
             return;
         }
         throw new IllegalArgumentException("must have 2 or more widgets in a chain");
     }
 
-    public void clear(int i, int i2) {
-        if (this.mConstraints.containsKey(Integer.valueOf(i))) {
-            Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
-            switch (i2) {
+    public void clear(int i2, int i3) {
+        if (this.mConstraints.containsKey(Integer.valueOf(i2))) {
+            Constraint constraint = this.mConstraints.get(Integer.valueOf(i2));
+            switch (i3) {
                 case 1:
                     constraint.leftToRight = -1;
                     constraint.leftToLeft = -1;
@@ -1607,35 +1607,35 @@ public class ConstraintSet {
         }
     }
 
-    public void centerHorizontally(int i, int i2) {
-        if (i2 == 0) {
-            center(i, 0, 1, 0, 0, 2, 0, 0.5f);
+    public void centerHorizontally(int i2, int i3) {
+        if (i3 == 0) {
+            center(i2, 0, 1, 0, 0, 2, 0, 0.5f);
         } else {
-            center(i, i2, 2, 0, i2, 1, 0, 0.5f);
+            center(i2, i3, 2, 0, i3, 1, 0, 0.5f);
         }
     }
 
-    public void centerHorizontallyRtl(int i, int i2) {
-        if (i2 == 0) {
-            center(i, 0, 6, 0, 0, 7, 0, 0.5f);
+    public void centerHorizontallyRtl(int i2, int i3) {
+        if (i3 == 0) {
+            center(i2, 0, 6, 0, 0, 7, 0, 0.5f);
         } else {
-            center(i, i2, 7, 0, i2, 6, 0, 0.5f);
+            center(i2, i3, 7, 0, i3, 6, 0, 0.5f);
         }
     }
 
-    public void centerVertically(int i, int i2) {
-        if (i2 == 0) {
-            center(i, 0, 3, 0, 0, 4, 0, 0.5f);
+    public void centerVertically(int i2, int i3) {
+        if (i3 == 0) {
+            center(i2, 0, 3, 0, 0, 4, 0, 0.5f);
         } else {
-            center(i, i2, 4, 0, i2, 3, 0, 0.5f);
+            center(i2, i3, 4, 0, i3, 3, 0, 0.5f);
         }
     }
 
     public void clone(ConstraintLayout constraintLayout) {
         int childCount = constraintLayout.getChildCount();
         this.mConstraints.clear();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = constraintLayout.getChildAt(i);
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = constraintLayout.getChildAt(i2);
             ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) childAt.getLayoutParams();
             int id = childAt.getId();
             if (id != -1) {
@@ -1682,8 +1682,8 @@ public class ConstraintSet {
     public void clone(Constraints constraints) {
         int childCount = constraints.getChildCount();
         this.mConstraints.clear();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = constraints.getChildAt(i);
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = constraints.getChildAt(i2);
             Constraints.LayoutParams layoutParams = (Constraints.LayoutParams) childAt.getLayoutParams();
             int id = childAt.getId();
             if (id != -1) {
@@ -1701,100 +1701,100 @@ public class ConstraintSet {
         }
     }
 
-    public void connect(int i, int i2, int i3, int i4) {
-        if (!this.mConstraints.containsKey(Integer.valueOf(i))) {
-            this.mConstraints.put(Integer.valueOf(i), new Constraint());
+    public void connect(int i2, int i3, int i4, int i5) {
+        if (!this.mConstraints.containsKey(Integer.valueOf(i2))) {
+            this.mConstraints.put(Integer.valueOf(i2), new Constraint());
         }
-        Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
-        switch (i2) {
+        Constraint constraint = this.mConstraints.get(Integer.valueOf(i2));
+        switch (i3) {
             case 1:
-                if (i4 == 1) {
-                    constraint.leftToLeft = i3;
+                if (i5 == 1) {
+                    constraint.leftToLeft = i4;
                     constraint.leftToRight = -1;
                     return;
-                } else if (i4 == 2) {
-                    constraint.leftToRight = i3;
+                } else if (i5 == 2) {
+                    constraint.leftToRight = i4;
                     constraint.leftToLeft = -1;
                     return;
                 } else {
-                    throw new IllegalArgumentException("left to " + sideToString(i4) + " undefined");
+                    throw new IllegalArgumentException("left to " + sideToString(i5) + " undefined");
                 }
             case 2:
-                if (i4 == 1) {
-                    constraint.rightToLeft = i3;
+                if (i5 == 1) {
+                    constraint.rightToLeft = i4;
                     constraint.rightToRight = -1;
                     return;
-                } else if (i4 == 2) {
-                    constraint.rightToRight = i3;
+                } else if (i5 == 2) {
+                    constraint.rightToRight = i4;
                     constraint.rightToLeft = -1;
                     return;
                 } else {
-                    throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                    throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
                 }
             case 3:
-                if (i4 == 3) {
-                    constraint.topToTop = i3;
+                if (i5 == 3) {
+                    constraint.topToTop = i4;
                     constraint.topToBottom = -1;
                     constraint.baselineToBaseline = -1;
                     return;
-                } else if (i4 == 4) {
-                    constraint.topToBottom = i3;
+                } else if (i5 == 4) {
+                    constraint.topToBottom = i4;
                     constraint.topToTop = -1;
                     constraint.baselineToBaseline = -1;
                     return;
                 } else {
-                    throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                    throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
                 }
             case 4:
-                if (i4 == 4) {
-                    constraint.bottomToBottom = i3;
+                if (i5 == 4) {
+                    constraint.bottomToBottom = i4;
                     constraint.bottomToTop = -1;
                     constraint.baselineToBaseline = -1;
                     return;
-                } else if (i4 == 3) {
-                    constraint.bottomToTop = i3;
+                } else if (i5 == 3) {
+                    constraint.bottomToTop = i4;
                     constraint.bottomToBottom = -1;
                     constraint.baselineToBaseline = -1;
                     return;
                 } else {
-                    throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                    throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
                 }
             case 5:
-                if (i4 == 5) {
-                    constraint.baselineToBaseline = i3;
+                if (i5 == 5) {
+                    constraint.baselineToBaseline = i4;
                     constraint.bottomToBottom = -1;
                     constraint.bottomToTop = -1;
                     constraint.topToTop = -1;
                     constraint.topToBottom = -1;
                     return;
                 }
-                throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
             case 6:
-                if (i4 == 6) {
-                    constraint.startToStart = i3;
+                if (i5 == 6) {
+                    constraint.startToStart = i4;
                     constraint.startToEnd = -1;
                     return;
-                } else if (i4 == 7) {
-                    constraint.startToEnd = i3;
+                } else if (i5 == 7) {
+                    constraint.startToEnd = i4;
                     constraint.startToStart = -1;
                     return;
                 } else {
-                    throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                    throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
                 }
             case 7:
-                if (i4 == 7) {
-                    constraint.endToEnd = i3;
+                if (i5 == 7) {
+                    constraint.endToEnd = i4;
                     constraint.endToStart = -1;
                     return;
-                } else if (i4 == 6) {
-                    constraint.endToStart = i3;
+                } else if (i5 == 6) {
+                    constraint.endToStart = i4;
                     constraint.endToEnd = -1;
                     return;
                 } else {
-                    throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
+                    throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
                 }
             default:
-                throw new IllegalArgumentException(sideToString(i2) + " to " + sideToString(i4) + " unknown");
+                throw new IllegalArgumentException(sideToString(i3) + " to " + sideToString(i5) + " unknown");
         }
     }
 }

@@ -34,9 +34,9 @@ public abstract class AbsHandlerTask implements ITimerTask {
 
     @Override // com.baidu.searchbox.player.helper.ITimerTask
     @PublicMethod
-    public void setInterval(int i) {
-        if (i > 0) {
-            this.mInterval = i;
+    public void setInterval(int i2) {
+        if (i2 > 0) {
+            this.mInterval = i2;
         }
     }
 

@@ -11,15 +11,15 @@ public class AlaAllLiveSimpleActivity extends BaseFragmentActivity {
     public NavigationBar mNavigationBar;
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
         AlaSquareLiveFragment alaSquareLiveFragment = this.mFragment;
         if (alaSquareLiveFragment != null) {
-            alaSquareLiveFragment.changeSkinType(i);
+            alaSquareLiveFragment.changeSkinType(i2);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.square_simple_live_activity);

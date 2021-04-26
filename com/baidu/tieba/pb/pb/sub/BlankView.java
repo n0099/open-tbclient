@@ -10,10 +10,10 @@ import android.widget.Scroller;
 public class BlankView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f19566e;
+    public Scroller f20046e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f19567f;
+    public a f20047f;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -27,12 +27,12 @@ public class BlankView extends View {
     @Override // android.view.View
     public void computeScroll() {
         super.computeScroll();
-        Scroller scroller = this.f19566e;
+        Scroller scroller = this.f20046e;
         if (scroller == null) {
             return;
         }
         if (scroller.computeScrollOffset()) {
-            int currY = this.f19566e.getCurrY();
+            int currY = this.f20046e.getCurrY();
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams != null) {
                 layoutParams.height = currY;
@@ -41,7 +41,7 @@ public class BlankView extends View {
             }
             return;
         }
-        a aVar = this.f19567f;
+        a aVar = this.f20047f;
         if (aVar != null) {
             aVar.a();
         }
@@ -53,14 +53,14 @@ public class BlankView extends View {
     }
 
     public void setScrollCallBack(a aVar) {
-        this.f19567f = aVar;
+        this.f20047f = aVar;
     }
 
     public BlankView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 
-    public BlankView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BlankView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

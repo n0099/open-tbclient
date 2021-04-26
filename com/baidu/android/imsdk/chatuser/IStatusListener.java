@@ -3,5 +3,5 @@ package com.baidu.android.imsdk.chatuser;
 import com.baidu.android.imsdk.IMListener;
 /* loaded from: classes.dex */
 public interface IStatusListener extends IMListener {
-    void onResult(int i, String str, int i2, long j);
+    void onResult(int i2, String str, int i3, long j);
 }

@@ -64,7 +64,7 @@ public final class DecodedBitStreamParser {
     }
 
     static {
-        char[] cArr = {'!', Typography.quote, SwanTaskDeadEvent.SEPARATOR, '$', '%', Typography.amp, '\'', '(', ')', '*', '+', ',', '-', IStringUtil.EXTENSION_SEPARATOR, '/', ':', ';', Typography.less, a.f1922h, Typography.greater, '?', '@', '[', '\\', ']', '^', '_'};
+        char[] cArr = {'!', Typography.quote, SwanTaskDeadEvent.SEPARATOR, '$', '%', Typography.amp, '\'', '(', ')', '*', '+', ',', '-', IStringUtil.EXTENSION_SEPARATOR, '/', ':', ';', Typography.less, a.f1873h, Typography.greater, '?', '@', '[', '\\', ']', '^', '_'};
         C40_SHIFT2_SET_CHARS = cArr;
         TEXT_BASIC_SET_CHARS = new char[]{'*', '*', '*', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         TEXT_SHIFT2_SET_CHARS = cArr;
@@ -81,16 +81,16 @@ public final class DecodedBitStreamParser {
             if (mode == Mode.ASCII_ENCODE) {
                 mode = decodeAsciiSegment(bitSource, sb, sb2);
             } else {
-                int i = AnonymousClass1.$SwitchMap$com$google$zxing$datamatrix$decoder$DecodedBitStreamParser$Mode[mode.ordinal()];
-                if (i == 1) {
+                int i2 = AnonymousClass1.$SwitchMap$com$google$zxing$datamatrix$decoder$DecodedBitStreamParser$Mode[mode.ordinal()];
+                if (i2 == 1) {
                     decodeC40Segment(bitSource, sb);
-                } else if (i == 2) {
+                } else if (i2 == 2) {
                     decodeTextSegment(bitSource, sb);
-                } else if (i == 3) {
+                } else if (i2 == 3) {
                     decodeAnsiX12Segment(bitSource, sb);
-                } else if (i == 4) {
+                } else if (i2 == 4) {
                     decodeEdifactSegment(bitSource, sb);
-                } else if (i == 5) {
+                } else if (i2 == 5) {
                     decodeBase256Segment(bitSource, sb, arrayList);
                 } else {
                     throw FormatException.getFormatInstance();
@@ -116,20 +116,20 @@ public final class DecodedBitStreamParser {
         int[] iArr = new int[3];
         while (bitSource.available() != 8 && (readBits = bitSource.readBits(8)) != 254) {
             parseTwoBytes(readBits, bitSource.readBits(8), iArr);
-            for (int i = 0; i < 3; i++) {
-                int i2 = iArr[i];
-                if (i2 == 0) {
+            for (int i2 = 0; i2 < 3; i2++) {
+                int i3 = iArr[i2];
+                if (i3 == 0) {
                     sb.append('\r');
-                } else if (i2 == 1) {
+                } else if (i3 == 1) {
                     sb.append('*');
-                } else if (i2 == 2) {
+                } else if (i3 == 2) {
                     sb.append(Typography.greater);
-                } else if (i2 == 3) {
+                } else if (i3 == 3) {
                     sb.append(' ');
-                } else if (i2 < 14) {
-                    sb.append((char) (i2 + 44));
-                } else if (i2 < 40) {
-                    sb.append((char) (i2 + 51));
+                } else if (i3 < 14) {
+                    sb.append((char) (i3 + 44));
+                } else if (i3 < 40) {
+                    sb.append((char) (i3 + 51));
                 } else {
                     throw FormatException.getFormatInstance();
                 }
@@ -157,11 +157,11 @@ public final class DecodedBitStreamParser {
                 return Mode.PAD_ENCODE;
             } else {
                 if (readBits <= 229) {
-                    int i = readBits - 130;
-                    if (i < 10) {
+                    int i2 = readBits - 130;
+                    if (i2 < 10) {
                         sb.append('0');
                     }
-                    sb.append(i);
+                    sb.append(i2);
                 } else if (readBits == 230) {
                     return Mode.C40_ENCODE;
                 } else {
@@ -201,22 +201,22 @@ public final class DecodedBitStreamParser {
 
     public static void decodeBase256Segment(BitSource bitSource, StringBuilder sb, Collection<byte[]> collection) throws FormatException {
         int byteOffset = bitSource.getByteOffset() + 1;
-        int i = byteOffset + 1;
+        int i2 = byteOffset + 1;
         int unrandomize255State = unrandomize255State(bitSource.readBits(8), byteOffset);
         if (unrandomize255State == 0) {
             unrandomize255State = bitSource.available() / 8;
         } else if (unrandomize255State >= 250) {
-            unrandomize255State = ((unrandomize255State - 249) * 250) + unrandomize255State(bitSource.readBits(8), i);
-            i++;
+            unrandomize255State = ((unrandomize255State - 249) * 250) + unrandomize255State(bitSource.readBits(8), i2);
+            i2++;
         }
         if (unrandomize255State >= 0) {
             byte[] bArr = new byte[unrandomize255State];
-            int i2 = 0;
-            while (i2 < unrandomize255State) {
+            int i3 = 0;
+            while (i3 < unrandomize255State) {
                 if (bitSource.available() >= 8) {
-                    bArr[i2] = (byte) unrandomize255State(bitSource.readBits(8), i);
+                    bArr[i3] = (byte) unrandomize255State(bitSource.readBits(8), i2);
+                    i3++;
                     i2++;
-                    i++;
                 } else {
                     throw FormatException.getFormatInstance();
                 }
@@ -236,57 +236,57 @@ public final class DecodedBitStreamParser {
         int readBits;
         int[] iArr = new int[3];
         boolean z = false;
-        int i = 0;
+        int i2 = 0;
         while (bitSource.available() != 8 && (readBits = bitSource.readBits(8)) != 254) {
             parseTwoBytes(readBits, bitSource.readBits(8), iArr);
-            for (int i2 = 0; i2 < 3; i2++) {
-                int i3 = iArr[i2];
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i == 2) {
+            for (int i3 = 0; i3 < 3; i3++) {
+                int i4 = iArr[i3];
+                if (i2 != 0) {
+                    if (i2 != 1) {
+                        if (i2 == 2) {
                             char[] cArr = C40_SHIFT2_SET_CHARS;
-                            if (i3 < cArr.length) {
-                                char c2 = cArr[i3];
+                            if (i4 < cArr.length) {
+                                char c2 = cArr[i4];
                                 if (z) {
                                     sb.append((char) (c2 + 128));
                                     z = false;
                                 } else {
                                     sb.append(c2);
                                 }
-                            } else if (i3 == 27) {
+                            } else if (i4 == 27) {
                                 sb.append(com.google.zxing.maxicode.decoder.DecodedBitStreamParser.GS);
-                            } else if (i3 != 30) {
+                            } else if (i4 != 30) {
                                 throw FormatException.getFormatInstance();
                             } else {
                                 z = true;
                             }
-                            i = 0;
-                        } else if (i != 3) {
+                            i2 = 0;
+                        } else if (i2 != 3) {
                             throw FormatException.getFormatInstance();
                         } else {
                             if (z) {
-                                sb.append((char) (i3 + 224));
+                                sb.append((char) (i4 + 224));
                                 z = false;
-                                i = 0;
+                                i2 = 0;
                             } else {
-                                sb.append((char) (i3 + 96));
-                                i = 0;
+                                sb.append((char) (i4 + 96));
+                                i2 = 0;
                             }
                         }
                     } else if (z) {
-                        sb.append((char) (i3 + 128));
+                        sb.append((char) (i4 + 128));
                         z = false;
-                        i = 0;
+                        i2 = 0;
                     } else {
-                        sb.append((char) i3);
-                        i = 0;
+                        sb.append((char) i4);
+                        i2 = 0;
                     }
-                } else if (i3 < 3) {
-                    i = i3 + 1;
+                } else if (i4 < 3) {
+                    i2 = i4 + 1;
                 } else {
                     char[] cArr2 = C40_BASIC_SET_CHARS;
-                    if (i3 < cArr2.length) {
-                        char c3 = cArr2[i3];
+                    if (i4 < cArr2.length) {
+                        char c3 = cArr2[i4];
                         if (z) {
                             sb.append((char) (c3 + 128));
                             z = false;
@@ -306,7 +306,7 @@ public final class DecodedBitStreamParser {
 
     public static void decodeEdifactSegment(BitSource bitSource, StringBuilder sb) {
         while (bitSource.available() > 16) {
-            for (int i = 0; i < 4; i++) {
+            for (int i2 = 0; i2 < 4; i2++) {
                 int readBits = bitSource.readBits(6);
                 if (readBits == 31) {
                     int bitOffset = 8 - bitSource.getBitOffset();
@@ -331,42 +331,42 @@ public final class DecodedBitStreamParser {
         int readBits;
         int[] iArr = new int[3];
         boolean z = false;
-        int i = 0;
+        int i2 = 0;
         while (bitSource.available() != 8 && (readBits = bitSource.readBits(8)) != 254) {
             parseTwoBytes(readBits, bitSource.readBits(8), iArr);
-            for (int i2 = 0; i2 < 3; i2++) {
-                int i3 = iArr[i2];
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i == 2) {
+            for (int i3 = 0; i3 < 3; i3++) {
+                int i4 = iArr[i3];
+                if (i2 != 0) {
+                    if (i2 != 1) {
+                        if (i2 == 2) {
                             char[] cArr = TEXT_SHIFT2_SET_CHARS;
-                            if (i3 < cArr.length) {
-                                char c2 = cArr[i3];
+                            if (i4 < cArr.length) {
+                                char c2 = cArr[i4];
                                 if (z) {
                                     sb.append((char) (c2 + 128));
                                     z = false;
                                 } else {
                                     sb.append(c2);
                                 }
-                            } else if (i3 == 27) {
+                            } else if (i4 == 27) {
                                 sb.append(com.google.zxing.maxicode.decoder.DecodedBitStreamParser.GS);
-                            } else if (i3 != 30) {
+                            } else if (i4 != 30) {
                                 throw FormatException.getFormatInstance();
                             } else {
                                 z = true;
                             }
-                            i = 0;
-                        } else if (i == 3) {
+                            i2 = 0;
+                        } else if (i2 == 3) {
                             char[] cArr2 = TEXT_SHIFT3_SET_CHARS;
-                            if (i3 < cArr2.length) {
-                                char c3 = cArr2[i3];
+                            if (i4 < cArr2.length) {
+                                char c3 = cArr2[i4];
                                 if (z) {
                                     sb.append((char) (c3 + 128));
                                     z = false;
-                                    i = 0;
+                                    i2 = 0;
                                 } else {
                                     sb.append(c3);
-                                    i = 0;
+                                    i2 = 0;
                                 }
                             } else {
                                 throw FormatException.getFormatInstance();
@@ -375,19 +375,19 @@ public final class DecodedBitStreamParser {
                             throw FormatException.getFormatInstance();
                         }
                     } else if (z) {
-                        sb.append((char) (i3 + 128));
+                        sb.append((char) (i4 + 128));
                         z = false;
-                        i = 0;
+                        i2 = 0;
                     } else {
-                        sb.append((char) i3);
-                        i = 0;
+                        sb.append((char) i4);
+                        i2 = 0;
                     }
-                } else if (i3 < 3) {
-                    i = i3 + 1;
+                } else if (i4 < 3) {
+                    i2 = i4 + 1;
                 } else {
                     char[] cArr3 = TEXT_BASIC_SET_CHARS;
-                    if (i3 < cArr3.length) {
-                        char c4 = cArr3[i3];
+                    if (i4 < cArr3.length) {
+                        char c4 = cArr3[i4];
                         if (z) {
                             sb.append((char) (c4 + 128));
                             z = false;
@@ -405,18 +405,18 @@ public final class DecodedBitStreamParser {
         }
     }
 
-    public static void parseTwoBytes(int i, int i2, int[] iArr) {
-        int i3 = ((i << 8) + i2) - 1;
-        int i4 = i3 / 1600;
-        iArr[0] = i4;
-        int i5 = i3 - (i4 * 1600);
-        int i6 = i5 / 40;
-        iArr[1] = i6;
-        iArr[2] = i5 - (i6 * 40);
+    public static void parseTwoBytes(int i2, int i3, int[] iArr) {
+        int i4 = ((i2 << 8) + i3) - 1;
+        int i5 = i4 / 1600;
+        iArr[0] = i5;
+        int i6 = i4 - (i5 * 1600);
+        int i7 = i6 / 40;
+        iArr[1] = i7;
+        iArr[2] = i6 - (i7 * 40);
     }
 
-    public static int unrandomize255State(int i, int i2) {
-        int i3 = i - (((i2 * Opcodes.FCMPL) % 255) + 1);
-        return i3 >= 0 ? i3 : i3 + 256;
+    public static int unrandomize255State(int i2, int i3) {
+        int i4 = i2 - (((i3 * Opcodes.FCMPL) % 255) + 1);
+        return i4 >= 0 ? i4 : i4 + 256;
     }
 }

@@ -8,45 +8,45 @@ public final class FormatInformation {
     public final byte dataMask;
     public final ErrorCorrectionLevel errorCorrectionLevel;
 
-    public FormatInformation(int i) {
-        this.errorCorrectionLevel = ErrorCorrectionLevel.forBits((i >> 3) & 3);
-        this.dataMask = (byte) (i & 7);
+    public FormatInformation(int i2) {
+        this.errorCorrectionLevel = ErrorCorrectionLevel.forBits((i2 >> 3) & 3);
+        this.dataMask = (byte) (i2 & 7);
     }
 
-    public static FormatInformation decodeFormatInformation(int i, int i2) {
-        FormatInformation doDecodeFormatInformation = doDecodeFormatInformation(i, i2);
-        return doDecodeFormatInformation != null ? doDecodeFormatInformation : doDecodeFormatInformation(i ^ 21522, i2 ^ 21522);
+    public static FormatInformation decodeFormatInformation(int i2, int i3) {
+        FormatInformation doDecodeFormatInformation = doDecodeFormatInformation(i2, i3);
+        return doDecodeFormatInformation != null ? doDecodeFormatInformation : doDecodeFormatInformation(i2 ^ 21522, i3 ^ 21522);
     }
 
-    public static FormatInformation doDecodeFormatInformation(int i, int i2) {
+    public static FormatInformation doDecodeFormatInformation(int i2, int i3) {
         int[][] iArr;
         int numBitsDiffering;
-        int i3 = Integer.MAX_VALUE;
-        int i4 = 0;
+        int i4 = Integer.MAX_VALUE;
+        int i5 = 0;
         for (int[] iArr2 : FORMAT_INFO_DECODE_LOOKUP) {
-            int i5 = iArr2[0];
-            if (i5 != i && i5 != i2) {
-                int numBitsDiffering2 = numBitsDiffering(i, i5);
-                if (numBitsDiffering2 < i3) {
-                    i4 = iArr2[1];
-                    i3 = numBitsDiffering2;
+            int i6 = iArr2[0];
+            if (i6 != i2 && i6 != i3) {
+                int numBitsDiffering2 = numBitsDiffering(i2, i6);
+                if (numBitsDiffering2 < i4) {
+                    i5 = iArr2[1];
+                    i4 = numBitsDiffering2;
                 }
-                if (i != i2 && (numBitsDiffering = numBitsDiffering(i2, i5)) < i3) {
-                    i4 = iArr2[1];
-                    i3 = numBitsDiffering;
+                if (i2 != i3 && (numBitsDiffering = numBitsDiffering(i3, i6)) < i4) {
+                    i5 = iArr2[1];
+                    i4 = numBitsDiffering;
                 }
             } else {
                 return new FormatInformation(iArr2[1]);
             }
         }
-        if (i3 <= 3) {
-            return new FormatInformation(i4);
+        if (i4 <= 3) {
+            return new FormatInformation(i5);
         }
         return null;
     }
 
-    public static int numBitsDiffering(int i, int i2) {
-        return Integer.bitCount(i ^ i2);
+    public static int numBitsDiffering(int i2, int i3) {
+        return Integer.bitCount(i2 ^ i3);
     }
 
     public boolean equals(Object obj) {

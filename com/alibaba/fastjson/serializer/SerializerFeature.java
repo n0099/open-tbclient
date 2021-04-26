@@ -45,34 +45,34 @@ public enum SerializerFeature {
     SerializerFeature() {
     }
 
-    public static int config(int i, SerializerFeature serializerFeature, boolean z) {
+    public static int config(int i2, SerializerFeature serializerFeature, boolean z) {
         if (z) {
-            return i | serializerFeature.mask;
+            return i2 | serializerFeature.mask;
         }
-        return i & (~serializerFeature.mask);
+        return i2 & (~serializerFeature.mask);
     }
 
-    public static boolean isEnabled(int i, SerializerFeature serializerFeature) {
-        return (i & serializerFeature.mask) != 0;
+    public static boolean isEnabled(int i2, SerializerFeature serializerFeature) {
+        return (i2 & serializerFeature.mask) != 0;
     }
 
     public static int of(SerializerFeature[] serializerFeatureArr) {
         if (serializerFeatureArr == null) {
             return 0;
         }
-        int i = 0;
+        int i2 = 0;
         for (SerializerFeature serializerFeature : serializerFeatureArr) {
-            i |= serializerFeature.mask;
+            i2 |= serializerFeature.mask;
         }
-        return i;
+        return i2;
     }
 
     public final int getMask() {
         return this.mask;
     }
 
-    public static boolean isEnabled(int i, int i2, SerializerFeature serializerFeature) {
-        int i3 = serializerFeature.mask;
-        return ((i & i3) == 0 && (i2 & i3) == 0) ? false : true;
+    public static boolean isEnabled(int i2, int i3, SerializerFeature serializerFeature) {
+        int i4 = serializerFeature.mask;
+        return ((i2 & i4) == 0 && (i3 & i4) == 0) ? false : true;
     }
 }

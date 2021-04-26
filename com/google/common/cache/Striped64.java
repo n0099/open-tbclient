@@ -11,13 +11,13 @@ import sun.misc.Unsafe;
 public abstract class Striped64 extends Number {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Unsafe f30752e;
+    public static final Unsafe f31699e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f30753f;
+    public static final long f31700f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final long f30754g;
+    public static final long f31701g;
     public volatile transient long base;
     public volatile transient int busy;
     public volatile transient b[] cells;
@@ -47,39 +47,39 @@ public abstract class Striped64 extends Number {
     public static final class b {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final Unsafe f30755b;
+        public static final Unsafe f31702b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final long f30756c;
+        public static final long f31703c;
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile long f30757a;
+        public volatile long f31704a;
 
         static {
             try {
                 Unsafe a2 = Striped64.a();
-                f30755b = a2;
-                f30756c = a2.objectFieldOffset(b.class.getDeclaredField("a"));
+                f31702b = a2;
+                f31703c = a2.objectFieldOffset(b.class.getDeclaredField("a"));
             } catch (Exception e2) {
                 throw new Error(e2);
             }
         }
 
         public b(long j) {
-            this.f30757a = j;
+            this.f31704a = j;
         }
 
         public final boolean a(long j, long j2) {
-            return f30755b.compareAndSwapLong(this, f30756c, j, j2);
+            return f31702b.compareAndSwapLong(this, f31703c, j, j2);
         }
     }
 
     static {
         try {
             Unsafe a2 = a();
-            f30752e = a2;
-            f30753f = a2.objectFieldOffset(Striped64.class.getDeclaredField(SchemeCollecter.CLASSIFY_BASE));
-            f30754g = f30752e.objectFieldOffset(Striped64.class.getDeclaredField("busy"));
+            f31699e = a2;
+            f31700f = a2.objectFieldOffset(Striped64.class.getDeclaredField(SchemeCollecter.CLASSIFY_BASE));
+            f31701g = f31699e.objectFieldOffset(Striped64.class.getDeclaredField("busy"));
         } catch (Exception e2) {
             throw new Error(e2);
         }
@@ -98,11 +98,11 @@ public abstract class Striped64 extends Number {
     }
 
     public final boolean casBase(long j, long j2) {
-        return f30752e.compareAndSwapLong(this, f30753f, j, j2);
+        return f31699e.compareAndSwapLong(this, f31700f, j, j2);
     }
 
     public final boolean casBusy() {
-        return f30752e.compareAndSwapInt(this, f30754g, 0, 1);
+        return f31699e.compareAndSwapInt(this, f31701g, 0, 1);
     }
 
     public abstract long fn(long j, long j2);
@@ -113,7 +113,7 @@ public abstract class Striped64 extends Number {
         if (bVarArr != null) {
             for (b bVar : bVarArr) {
                 if (bVar != null) {
-                    bVar.f30757a = j;
+                    bVar.f31704a = j;
                 }
             }
         }
@@ -125,7 +125,7 @@ public abstract class Striped64 extends Number {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void retryUpdate(long j, int[] iArr, boolean z) {
-        int i;
+        int i2;
         int[] iArr2;
         boolean z2;
         int length;
@@ -134,22 +134,22 @@ public abstract class Striped64 extends Number {
         if (iArr == null) {
             iArr2 = new int[1];
             threadHashCode.set(iArr2);
-            i = rng.nextInt();
-            if (i == 0) {
-                i = 1;
+            i2 = rng.nextInt();
+            if (i2 == 0) {
+                i2 = 1;
             }
-            iArr2[0] = i;
+            iArr2[0] = i2;
         } else {
-            i = iArr[0];
+            i2 = iArr[0];
             iArr2 = iArr;
         }
-        int i2 = i;
+        int i3 = i2;
         boolean z4 = false;
         boolean z5 = z;
         while (true) {
             b[] bVarArr = this.cells;
             if (bVarArr != null && (length = bVarArr.length) > 0) {
-                b bVar = bVarArr[(length - 1) & i2];
+                b bVar = bVarArr[(length - 1) & i3];
                 if (bVar == null) {
                     if (this.busy == 0) {
                         b bVar2 = new b(j);
@@ -157,9 +157,9 @@ public abstract class Striped64 extends Number {
                             try {
                                 b[] bVarArr2 = this.cells;
                                 if (bVarArr2 != null && (length2 = bVarArr2.length) > 0) {
-                                    int i3 = (length2 - 1) & i2;
-                                    if (bVarArr2[i3] == null) {
-                                        bVarArr2[i3] = bVar2;
+                                    int i4 = (length2 - 1) & i3;
+                                    if (bVarArr2[i4] == null) {
+                                        bVarArr2[i4] = bVar2;
                                         z3 = true;
                                         if (!z3) {
                                             return;
@@ -175,7 +175,7 @@ public abstract class Striped64 extends Number {
                     }
                     z4 = false;
                 } else if (z5) {
-                    long j2 = bVar.f30757a;
+                    long j2 = bVar.f31704a;
                     if (bVar.a(j2, fn(j2, j))) {
                         return;
                     }
@@ -186,8 +186,8 @@ public abstract class Striped64 extends Number {
                             try {
                                 if (this.cells == bVarArr) {
                                     b[] bVarArr3 = new b[length << 1];
-                                    for (int i4 = 0; i4 < length; i4++) {
-                                        bVarArr3[i4] = bVarArr[i4];
+                                    for (int i5 = 0; i5 < length; i5++) {
+                                        bVarArr3[i5] = bVarArr[i5];
                                     }
                                     this.cells = bVarArr3;
                                 }
@@ -201,15 +201,15 @@ public abstract class Striped64 extends Number {
                 } else {
                     z5 = true;
                 }
-                int i5 = i2 ^ (i2 << 13);
-                int i6 = i5 ^ (i5 >>> 17);
-                i2 = i6 ^ (i6 << 5);
-                iArr2[0] = i2;
+                int i6 = i3 ^ (i3 << 13);
+                int i7 = i6 ^ (i6 >>> 17);
+                i3 = i7 ^ (i7 << 5);
+                iArr2[0] = i3;
             } else if (this.busy == 0 && this.cells == bVarArr && casBusy()) {
                 try {
                     if (this.cells == bVarArr) {
                         b[] bVarArr4 = new b[2];
-                        bVarArr4[i2 & 1] = new b(j);
+                        bVarArr4[i3 & 1] = new b(j);
                         this.cells = bVarArr4;
                         z2 = true;
                     } else {

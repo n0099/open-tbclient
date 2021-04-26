@@ -20,8 +20,8 @@ public class NotificationStyle implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public NotificationStyle[] newArray(int i) {
-            return new NotificationStyle[i];
+        public NotificationStyle[] newArray(int i2) {
+            return new NotificationStyle[i2];
         }
     };
     public static final String EXPANDABLE_IMAGE_URL = "ei";
@@ -56,7 +56,7 @@ public class NotificationStyle implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                d.k.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                d.j.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -90,7 +90,7 @@ public class NotificationStyle implements Parcelable {
             return notificationStyle;
         }
         str = "no such tag notification_style";
-        d.k.a.a.a.b(TAG, str);
+        d.j.a.a.a.b(TAG, str);
         return notificationStyle;
     }
 
@@ -123,8 +123,8 @@ public class NotificationStyle implements Parcelable {
         this.bannerImageUrl = str;
     }
 
-    public void setBaseStyle(int i) {
-        this.baseStyle = i;
+    public void setBaseStyle(int i2) {
+        this.baseStyle = i2;
     }
 
     public void setExpandableImageUrl(String str) {
@@ -135,8 +135,8 @@ public class NotificationStyle implements Parcelable {
         this.expandableText = str;
     }
 
-    public void setInnerStyle(int i) {
-        this.innerStyle = i;
+    public void setInnerStyle(int i2) {
+        this.innerStyle = i2;
     }
 
     public String toString() {
@@ -144,7 +144,7 @@ public class NotificationStyle implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.baseStyle);
         parcel.writeInt(this.innerStyle);
         parcel.writeString(this.expandableText);

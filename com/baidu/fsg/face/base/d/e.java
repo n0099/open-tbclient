@@ -7,6 +7,7 @@ import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.os.Environment;
+import androidx.core.internal.view.SupportMenu;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -15,25 +16,25 @@ import java.io.IOException;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5644a = 480;
+    public static final int f5797a = 480;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5645b = 480;
+    public static final int f5798b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5646c = 192;
+    public static final int f5799c = 192;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5647d = 728;
+    public static final int f5800d = 728;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5648e = 750;
+    public static final int f5801e = 750;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5649f = 1335;
+    public static final int f5802f = 1335;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5650g = "LivenessFaceUtil";
+    public static final String f5803g = "LivenessFaceUtil";
 
     public static void a(int[] iArr, Bitmap bitmap) {
         Canvas canvas = new Canvas(bitmap);
@@ -44,34 +45,34 @@ public class e {
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(3.0f);
         paint.setColor(-16711936);
-        for (int i = 0; i < iArr.length / 2; i++) {
-            int i2 = i << 1;
-            canvas.drawCircle(iArr[i2], iArr[i2 + 1], 2.0f, paint);
+        for (int i2 = 0; i2 < iArr.length / 2; i2++) {
+            int i3 = i2 << 1;
+            canvas.drawCircle(iArr[i3], iArr[i3 + 1], 2.0f, paint);
         }
         Rect a2 = a(iArr);
         canvas.drawRect(a2, paint);
         Point point = new Point();
         point.set(a2.centerX(), a2.centerY());
-        paint.setColor(-65536);
+        paint.setColor(SupportMenu.CATEGORY_MASK);
         canvas.drawCircle(point.x, point.y, 5.0f, paint);
         bitmap.getWidth();
         bitmap.getHeight();
         Point point2 = new Point();
         point2.set(bitmap.getWidth() / 2, (bitmap.getHeight() * 728) / 1335);
-        paint.setColor(-65536);
+        paint.setColor(SupportMenu.CATEGORY_MASK);
         canvas.drawCircle(point2.x, point2.y, 5.0f, paint);
         int width = ((bitmap.getWidth() * 480) / 750) / 2;
-        int i3 = point2.x;
-        int i4 = point2.y;
-        canvas.drawRect(i3 - width, i4 - width, i3 + width, i4 + width, paint);
+        int i4 = point2.x;
+        int i5 = point2.y;
+        canvas.drawRect(i4 - width, i5 - width, i4 + width, i5 + width, paint);
         int width2 = ((bitmap.getWidth() * 192) / 750) / 2;
-        int i5 = point2.x;
-        int i6 = point2.y;
-        canvas.drawRect(i5 - width2, i6 - width2, i5 + width2, i6 + width2, paint);
+        int i6 = point2.x;
+        int i7 = point2.y;
+        canvas.drawRect(i6 - width2, i7 - width2, i6 + width2, i7 + width2, paint);
     }
 
     public static boolean b(b bVar) {
-        return (bVar == null || bVar.f5637a == null || bVar.f5638b == null) ? false : true;
+        return (bVar == null || bVar.f5790a == null || bVar.f5791b == null) ? false : true;
     }
 
     public static boolean c(int[] iArr, b bVar) {
@@ -98,37 +99,37 @@ public class e {
     public static Rect a(b bVar) {
         Rect rect = new Rect();
         if (b(bVar)) {
-            int i = bVar.f5637a.left;
-            Rect rect2 = bVar.f5638b;
-            int i2 = rect2.left;
-            if (i - i2 < 0) {
+            int i2 = bVar.f5790a.left;
+            Rect rect2 = bVar.f5791b;
+            int i3 = rect2.left;
+            if (i2 - i3 < 0) {
                 rect.left = 0;
             } else {
-                rect.left = (int) (((i - i2) / rect2.width()) * bVar.f5640d);
+                rect.left = (int) (((i2 - i3) / rect2.width()) * bVar.f5793d);
             }
-            int i3 = bVar.f5637a.top;
-            Rect rect3 = bVar.f5638b;
-            int i4 = rect3.top;
-            if (i3 > i4) {
+            int i4 = bVar.f5790a.top;
+            Rect rect3 = bVar.f5791b;
+            int i5 = rect3.top;
+            if (i4 > i5) {
                 rect.top = 0;
             } else {
-                rect.top = (int) (((i4 - i3) / rect3.height()) * bVar.f5639c);
+                rect.top = (int) (((i5 - i4) / rect3.height()) * bVar.f5792c);
             }
-            int i5 = bVar.f5637a.right;
-            Rect rect4 = bVar.f5638b;
-            int i6 = rect4.right;
-            if (i5 > i6) {
-                rect.right = bVar.f5640d;
+            int i6 = bVar.f5790a.right;
+            Rect rect4 = bVar.f5791b;
+            int i7 = rect4.right;
+            if (i6 > i7) {
+                rect.right = bVar.f5793d;
             } else {
-                rect.right = bVar.f5640d - ((int) (((i6 - i5) / rect4.width()) * bVar.f5640d));
+                rect.right = bVar.f5793d - ((int) (((i7 - i6) / rect4.width()) * bVar.f5793d));
             }
-            int i7 = bVar.f5637a.bottom;
-            Rect rect5 = bVar.f5638b;
-            int i8 = rect5.bottom;
-            if (i7 > i8) {
-                rect.bottom = bVar.f5639c;
+            int i8 = bVar.f5790a.bottom;
+            Rect rect5 = bVar.f5791b;
+            int i9 = rect5.bottom;
+            if (i8 > i9) {
+                rect.bottom = bVar.f5792c;
             } else {
-                rect.bottom = bVar.f5639c - ((int) (((i8 - i7) / rect5.height()) * bVar.f5639c));
+                rect.bottom = bVar.f5792c - ((int) (((i9 - i8) / rect5.height()) * bVar.f5792c));
             }
             return rect;
         }
@@ -144,10 +145,10 @@ public class e {
             point2.x = iArr[0];
             point2.y = iArr[1];
         }
-        for (int i = 0; i < iArr.length / 2; i++) {
-            int i2 = i << 1;
-            float f2 = iArr[i2];
-            float f3 = iArr[i2 + 1];
+        for (int i2 = 0; i2 < iArr.length / 2; i2++) {
+            int i3 = i2 << 1;
+            float f2 = iArr[i3];
+            float f3 = iArr[i3 + 1];
             if (f2 < point.x) {
                 point.x = (int) f2;
             }

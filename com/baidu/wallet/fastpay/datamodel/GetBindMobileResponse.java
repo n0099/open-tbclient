@@ -37,9 +37,9 @@ public class GetBindMobileResponse implements IBeanResponse, Serializable {
             return;
         }
         int length = priceInfoArr.length;
-        for (int i = 0; i < length; i++) {
-            BigDecimal multiply = new BigDecimal(this.price_info[i].sell_price).multiply(BigDecimal.TEN);
-            this.price_info[i].discount = multiply.divide(new BigDecimal(this.price_info[i].face), 2, 6).toString();
+        for (int i2 = 0; i2 < length; i2++) {
+            BigDecimal multiply = new BigDecimal(this.price_info[i2].sell_price).multiply(BigDecimal.TEN);
+            this.price_info[i2].discount = multiply.divide(new BigDecimal(this.price_info[i2].face), 2, 6).toString();
         }
     }
 

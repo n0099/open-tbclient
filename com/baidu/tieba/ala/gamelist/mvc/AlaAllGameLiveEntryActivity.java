@@ -31,7 +31,7 @@ import java.util.ArrayList;
 public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public ArrayList<AlaSquareTabInfo> mAlaSquareTabInfos;
     public View mCustomScrollView;
-    public d.b.j0.t.h.a.a mGameEntryAdapter;
+    public d.a.j0.t.h.a.a mGameEntryAdapter;
     public NoScrollGridView mGridView;
     public int mHasSearchTab;
     public NavigationBar mNavigationBar;
@@ -59,8 +59,8 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            AlaSquareTabInfo alaSquareTabInfo = (AlaSquareTabInfo) ListUtils.getItem(AlaAllGameLiveEntryActivity.this.mGameEntryAdapter.a(), i);
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+            AlaSquareTabInfo alaSquareTabInfo = (AlaSquareTabInfo) ListUtils.getItem(AlaAllGameLiveEntryActivity.this.mGameEntryAdapter.a(), i2);
             if (alaSquareTabInfo == null || AlaAllGameLiveEntryActivity.this.mSquareTabController == null) {
                 return;
             }
@@ -103,7 +103,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         }
         this.mNoDataRootView = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.ala_all_game_no_data, (ViewGroup) null);
         this.mCustomScrollView = this.mRootView.findViewById(R.id.scroll_grid_view_root);
-        this.mGameEntryAdapter = new d.b.j0.t.h.a.a(getPageContext());
+        this.mGameEntryAdapter = new d.a.j0.t.h.a.a(getPageContext());
         NoScrollGridView noScrollGridView = (NoScrollGridView) this.mRootView.findViewById(R.id.ala_live_list);
         this.mGridView = noScrollGridView;
         noScrollGridView.setOnItemClickListener(new b());
@@ -121,14 +121,14 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
         SkinManager.setImageResource(this.mSearchIcon, R.drawable.icon_search);
         SkinManager.setViewTextColor(this.mTextSearchHint, R.color.enter_forum_search_text_color);
         SkinManager.setBackgroundResource(this.mSearchRoot, R.drawable.all_game_search_frame);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         dealWithIntent();

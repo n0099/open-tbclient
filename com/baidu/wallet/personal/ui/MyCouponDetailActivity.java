@@ -97,16 +97,16 @@ public class MyCouponDetailActivity extends BeanActivity {
         this.now = System.currentTimeMillis();
     }
 
-    private void setStatusImage(int i) {
+    private void setStatusImage(int i2) {
         ImageView imageView;
         BeanActivity beanActivity;
         String str;
-        if (i == 0) {
+        if (i2 == 0) {
             imageView = this.invalidCouponImg;
             beanActivity = this.mAct;
             str = "wallet_personal_coupon_expired";
-        } else if (i != 1) {
-            if (i == 2) {
+        } else if (i2 != 1) {
+            if (i2 == 2) {
                 imageView = this.invalidCouponImg;
                 beanActivity = this.mAct;
                 str = "wallet_personal_coupon_disabled";
@@ -123,9 +123,9 @@ public class MyCouponDetailActivity extends BeanActivity {
 
     private void showEmptyView(String str) {
         this.mReloadView.setVisibility(0);
-        int i = this.mLoadStatus;
-        if (i != 3) {
-            if (i == 2) {
+        int i2 = this.mLoadStatus;
+        if (i2 != 3) {
+            if (i2 == 2) {
                 this.mReloadView.showTip1_Tip2_NextBtn(ResUtils.drawable(this.mAct, "wallet_base_no_net"), ResUtils.getString(this.mAct, "wallet_base_no_network"), ResUtils.getString(this.mAct, "wallet_base_no_network_reason"), ResUtils.getString(getActivity(), "bd_wallet_reload"), new WalletBaseEmptyView.EmptyBtnClickListener() { // from class: com.baidu.wallet.personal.ui.MyCouponDetailActivity.4
                     @Override // com.baidu.wallet.base.widget.WalletBaseEmptyView.EmptyBtnClickListener
                     public void onBtnClick() {
@@ -150,18 +150,18 @@ public class MyCouponDetailActivity extends BeanActivity {
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleFailure(int i, int i2, String str) {
+    public void handleFailure(int i2, int i3, String str) {
         DXMSdkSAUtils.onEventWithValues("CouponDetailRequestFail", Arrays.asList((System.currentTimeMillis() - this.now) + ""));
         PayStatisticsUtil.onEventWithValue("CouponDetailRequestFail", (System.currentTimeMillis() - this.now) + "");
         if (this.mAct == null) {
             return;
         }
-        super.handleFailure(i, i2, str);
+        super.handleFailure(i2, i3, str);
         WalletGlobalUtils.safeDismissDialog(this.mAct, -1);
         if (TextUtils.isEmpty(str)) {
             str = ResUtils.getString(this.mAct, "bd_wallet_coupon_detail_fail");
         }
-        if (i2 < 0) {
+        if (i3 < 0) {
             this.mLoadStatus = 2;
             showEmptyView(null);
             return;
@@ -171,7 +171,7 @@ public class MyCouponDetailActivity extends BeanActivity {
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
         DXMSdkSAUtils.onEventWithValues("CouponDetailRequestSuccess", Arrays.asList((System.currentTimeMillis() - this.now) + ""));
         PayStatisticsUtil.onEventWithValue("CouponDetailRequestSuccess", (System.currentTimeMillis() - this.now) + "");
         BeanActivity beanActivity = this.mAct;
@@ -179,7 +179,7 @@ public class MyCouponDetailActivity extends BeanActivity {
             return;
         }
         WalletGlobalUtils.safeDismissDialog(beanActivity, -1);
-        if (i == 516) {
+        if (i2 == 516) {
             this.mReloadView.setVisibility(8);
             CouponDetailResponse couponDetailResponse = (CouponDetailResponse) obj;
             this.mDetail = couponDetailResponse;
@@ -325,7 +325,7 @@ public class MyCouponDetailActivity extends BeanActivity {
             CouponDetailResponse couponDetailResponse = this.mDetail;
             if (couponDetailResponse.is_started) {
                 CouponDetailResponse.AppSceneService appSceneService = couponDetailResponse.app_scene_service;
-                if (appSceneService == null ? !((TextUtils.isEmpty(couponDetailResponse.sdk_para) || !this.mDetail.sdk_para.contains("type:1")) && TextUtils.isEmpty(this.mDetail.scene_service)) : !(appSceneService.f26272android <= 0 && TextUtils.isEmpty(appSceneService.url))) {
+                if (appSceneService == null ? !((TextUtils.isEmpty(couponDetailResponse.sdk_para) || !this.mDetail.sdk_para.contains("type:1")) && TextUtils.isEmpty(this.mDetail.scene_service)) : !(appSceneService.f27076android <= 0 && TextUtils.isEmpty(appSceneService.url))) {
                     this.isShowBtn = true;
                 }
                 if (this.isShowBtn) {
@@ -357,11 +357,11 @@ public class MyCouponDetailActivity extends BeanActivity {
                             DXMSdkSAUtils.onEventWithValues("CouponDetailToUseBtnClick", Arrays.asList(jSONObject.toString()));
                             PayStatisticsUtil.onEventWithValue("CouponDetailToUseBtnClick", jSONObject.toString());
                             if (MyCouponDetailActivity.this.mDetail.app_scene_service != null) {
-                                if (MyCouponDetailActivity.this.mDetail.app_scene_service.f26272android > 0) {
+                                if (MyCouponDetailActivity.this.mDetail.app_scene_service.f27076android > 0) {
                                     MyCouponDetailActivity.this.needRefresh = true;
                                     BaiduWalletServiceController baiduWalletServiceController = BaiduWalletServiceController.getInstance();
                                     MyCouponDetailActivity myCouponDetailActivity = MyCouponDetailActivity.this;
-                                    baiduWalletServiceController.gotoWalletService(myCouponDetailActivity.mAct, myCouponDetailActivity.mDetail.app_scene_service.f26272android, "");
+                                    baiduWalletServiceController.gotoWalletService(myCouponDetailActivity.mAct, myCouponDetailActivity.mDetail.app_scene_service.f27076android, "");
                                     return;
                                 } else if (TextUtils.isEmpty(MyCouponDetailActivity.this.mDetail.app_scene_service.url)) {
                                     return;
@@ -468,13 +468,13 @@ public class MyCouponDetailActivity extends BeanActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         finish();
         super.onBackPressed();
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(ResUtils.layout(this.mAct, "wallet_personal_coupon_detail1"));

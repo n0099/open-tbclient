@@ -3,7 +3,7 @@ package com.baidu.swan.apps.favordata;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.searchbox.NoProGuard;
-import d.b.h0.a.y0.e.c;
+import d.a.h0.a.y0.e.c;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public class SwanFavorItemData implements Serializable, NoProGuard {
@@ -68,8 +68,8 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
         return TextUtils.isEmpty(str) ? "" : c.X0(getAppKey(), str, getAppFrameType());
     }
 
-    public void setAppFrameType(int i) {
-        this.mAppFrameType = i;
+    public void setAppFrameType(int i2) {
+        this.mAppFrameType = i2;
     }
 
     public void setAppKey(String str) {
@@ -80,15 +80,15 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
         this.mAppName = str;
     }
 
-    public void setAppType(int i) {
-        this.mAppType = i;
+    public void setAppType(int i2) {
+        this.mAppType = i2;
     }
 
     public void setIconUrl(String str) {
         this.mIconUrl = str;
     }
 
-    public void setIndex(int i) {
-        this.mIndex = i;
+    public void setIndex(int i2) {
+        this.mIndex = i2;
     }
 }

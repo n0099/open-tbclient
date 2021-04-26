@@ -16,13 +16,13 @@ public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerA
 
     /* loaded from: classes2.dex */
     public interface Listener4SpeedCallback {
-        void blockEnd(@NonNull DownloadTask downloadTask, int i, BlockInfo blockInfo, @NonNull SpeedCalculator speedCalculator);
+        void blockEnd(@NonNull DownloadTask downloadTask, int i2, BlockInfo blockInfo, @NonNull SpeedCalculator speedCalculator);
 
         void infoReady(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, boolean z, @NonNull Listener4SpeedModel listener4SpeedModel);
 
         void progress(@NonNull DownloadTask downloadTask, long j, @NonNull SpeedCalculator speedCalculator);
 
-        void progressBlock(@NonNull DownloadTask downloadTask, int i, long j, @NonNull SpeedCalculator speedCalculator);
+        void progressBlock(@NonNull DownloadTask downloadTask, int i2, long j, @NonNull SpeedCalculator speedCalculator);
 
         void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc, @NonNull SpeedCalculator speedCalculator);
     }
@@ -32,12 +32,12 @@ public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerA
         public SparseArray<SpeedCalculator> blockSpeeds;
         public SpeedCalculator taskSpeed;
 
-        public Listener4SpeedModel(int i) {
-            super(i);
+        public Listener4SpeedModel(int i2) {
+            super(i2);
         }
 
-        public SpeedCalculator getBlockSpeed(int i) {
-            return this.blockSpeeds.get(i);
+        public SpeedCalculator getBlockSpeed(int i2) {
+            return this.blockSpeeds.get(i2);
         }
 
         public SpeedCalculator getTaskSpeed() {
@@ -50,32 +50,32 @@ public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerA
             this.taskSpeed = new SpeedCalculator();
             this.blockSpeeds = new SparseArray<>();
             int blockCount = breakpointInfo.getBlockCount();
-            for (int i = 0; i < blockCount; i++) {
-                this.blockSpeeds.put(i, new SpeedCalculator());
+            for (int i2 = 0; i2 < blockCount; i2++) {
+                this.blockSpeeds.put(i2, new SpeedCalculator());
             }
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.AssistExtend
-    public boolean dispatchBlockEnd(DownloadTask downloadTask, int i, DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
+    public boolean dispatchBlockEnd(DownloadTask downloadTask, int i2, DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
         Listener4SpeedModel listener4SpeedModel = (Listener4SpeedModel) listener4Model;
-        listener4SpeedModel.blockSpeeds.get(i).endTask();
+        listener4SpeedModel.blockSpeeds.get(i2).endTask();
         Listener4SpeedCallback listener4SpeedCallback = this.callback;
         if (listener4SpeedCallback != null) {
-            listener4SpeedCallback.blockEnd(downloadTask, i, listener4Model.info.getBlock(i), listener4SpeedModel.getBlockSpeed(i));
+            listener4SpeedCallback.blockEnd(downloadTask, i2, listener4Model.info.getBlock(i2), listener4SpeedModel.getBlockSpeed(i2));
             return true;
         }
         return true;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.AssistExtend
-    public boolean dispatchFetchProgress(@NonNull DownloadTask downloadTask, int i, long j, @NonNull DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
+    public boolean dispatchFetchProgress(@NonNull DownloadTask downloadTask, int i2, long j, @NonNull DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
         Listener4SpeedModel listener4SpeedModel = (Listener4SpeedModel) listener4Model;
-        listener4SpeedModel.blockSpeeds.get(i).downloading(j);
+        listener4SpeedModel.blockSpeeds.get(i2).downloading(j);
         listener4SpeedModel.taskSpeed.downloading(j);
         Listener4SpeedCallback listener4SpeedCallback = this.callback;
         if (listener4SpeedCallback != null) {
-            listener4SpeedCallback.progressBlock(downloadTask, i, listener4Model.blockCurrentOffsetMap.get(i).longValue(), listener4SpeedModel.getBlockSpeed(i));
+            listener4SpeedCallback.progressBlock(downloadTask, i2, listener4Model.blockCurrentOffsetMap.get(i2).longValue(), listener4SpeedModel.getBlockSpeed(i2));
             this.callback.progress(downloadTask, listener4Model.currentOffset, listener4SpeedModel.taskSpeed);
             return true;
         }
@@ -114,7 +114,7 @@ public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerA
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler.ModelCreator
-    public Listener4SpeedModel create(int i) {
-        return new Listener4SpeedModel(i);
+    public Listener4SpeedModel create(int i2) {
+        return new Listener4SpeedModel(i2);
     }
 }

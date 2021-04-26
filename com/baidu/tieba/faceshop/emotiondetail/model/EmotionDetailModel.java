@@ -15,12 +15,12 @@ import com.baidu.tieba.faceshop.emotiondetail.message.EmotionDetailResponseMessa
 public class EmotionDetailModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f15481e = new a(CmdConfigHttp.CMD_EMOTION_DETAIL);
+    public HttpMessageListener f15637e = new a(CmdConfigHttp.CMD_EMOTION_DETAIL);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -38,9 +38,9 @@ public class EmotionDetailModel extends BdBaseModel {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_EMOTION_DETAIL, TbConfig.SERVER_ADDRESS + TbConfig.EMOTION_DETAIL);
         tbHttpMessageTask.setResponsedClass(EmotionDetailResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        this.f15481e.setTag(getUniqueId());
-        this.f15481e.setSelfListener(true);
-        registerListener(this.f15481e);
+        this.f15637e.setTag(getUniqueId());
+        this.f15637e.setSelfListener(true);
+        registerListener(this.f15637e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -51,15 +51,15 @@ public class EmotionDetailModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_EMOTION_DETAIL);
-        MessageManager.getInstance().unRegisterListener(this.f15481e);
+        MessageManager.getInstance().unRegisterListener(this.f15637e);
         return true;
     }
 
-    public void u(long j, int i) {
-        if (j >= 0 || i >= 0) {
+    public void u(long j, int i2) {
+        if (j >= 0 || i2 >= 0) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_EMOTION_DETAIL);
             httpMessage.addParam(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, j);
-            httpMessage.addParam("pck_id", i);
+            httpMessage.addParam("pck_id", i2);
             sendMessage(httpMessage);
         }
     }

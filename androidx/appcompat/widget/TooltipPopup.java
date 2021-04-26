@@ -12,9 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TooltipPopup {
     public static final String TAG = "TooltipPopup";
@@ -26,7 +27,7 @@ public class TooltipPopup {
     public final int[] mTmpAnchorPos = new int[2];
     public final int[] mTmpAppPos = new int[2];
 
-    public TooltipPopup(Context context) {
+    public TooltipPopup(@NonNull Context context) {
         this.mContext = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.abc_tooltip, (ViewGroup) null);
         this.mContentView = inflate;
@@ -42,21 +43,21 @@ public class TooltipPopup {
         layoutParams.flags = 24;
     }
 
-    private void computePosition(View view, int i, int i2, boolean z, WindowManager.LayoutParams layoutParams) {
+    private void computePosition(View view, int i2, int i3, boolean z, WindowManager.LayoutParams layoutParams) {
         int height;
-        int i3;
+        int i4;
         layoutParams.token = view.getApplicationWindowToken();
         int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.tooltip_precise_anchor_threshold);
         if (view.getWidth() < dimensionPixelOffset) {
-            i = view.getWidth() / 2;
+            i2 = view.getWidth() / 2;
         }
         if (view.getHeight() >= dimensionPixelOffset) {
             int dimensionPixelOffset2 = this.mContext.getResources().getDimensionPixelOffset(R.dimen.tooltip_precise_anchor_extra_offset);
-            height = i2 + dimensionPixelOffset2;
-            i3 = i2 - dimensionPixelOffset2;
+            height = i3 + dimensionPixelOffset2;
+            i4 = i3 - dimensionPixelOffset2;
         } else {
             height = view.getHeight();
-            i3 = 0;
+            i4 = 0;
         }
         layoutParams.gravity = 49;
         int dimensionPixelOffset3 = this.mContext.getResources().getDimensionPixelOffset(z ? R.dimen.tooltip_y_offset_touch : R.dimen.tooltip_y_offset_non_touch);
@@ -77,27 +78,27 @@ public class TooltipPopup {
         appRootView.getLocationOnScreen(this.mTmpAppPos);
         view.getLocationOnScreen(this.mTmpAnchorPos);
         int[] iArr = this.mTmpAnchorPos;
-        int i4 = iArr[0];
+        int i5 = iArr[0];
         int[] iArr2 = this.mTmpAppPos;
-        iArr[0] = i4 - iArr2[0];
+        iArr[0] = i5 - iArr2[0];
         iArr[1] = iArr[1] - iArr2[1];
-        layoutParams.x = (iArr[0] + i) - (appRootView.getWidth() / 2);
+        layoutParams.x = (iArr[0] + i2) - (appRootView.getWidth() / 2);
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
         this.mContentView.measure(makeMeasureSpec, makeMeasureSpec);
         int measuredHeight = this.mContentView.getMeasuredHeight();
         int[] iArr3 = this.mTmpAnchorPos;
-        int i5 = ((iArr3[1] + i3) - dimensionPixelOffset3) - measuredHeight;
-        int i6 = iArr3[1] + height + dimensionPixelOffset3;
+        int i6 = ((iArr3[1] + i4) - dimensionPixelOffset3) - measuredHeight;
+        int i7 = iArr3[1] + height + dimensionPixelOffset3;
         if (z) {
-            if (i5 >= 0) {
-                layoutParams.y = i5;
-            } else {
+            if (i6 >= 0) {
                 layoutParams.y = i6;
+            } else {
+                layoutParams.y = i7;
             }
-        } else if (measuredHeight + i6 <= this.mTmpDisplayFrame.height()) {
-            layoutParams.y = i6;
+        } else if (measuredHeight + i7 <= this.mTmpDisplayFrame.height()) {
+            layoutParams.y = i7;
         } else {
-            layoutParams.y = i5;
+            layoutParams.y = i6;
         }
     }
 
@@ -125,12 +126,12 @@ public class TooltipPopup {
         return this.mContentView.getParent() != null;
     }
 
-    public void show(View view, int i, int i2, boolean z, CharSequence charSequence) {
+    public void show(View view, int i2, int i3, boolean z, CharSequence charSequence) {
         if (isShowing()) {
             hide();
         }
         this.mMessageView.setText(charSequence);
-        computePosition(view, i, i2, z, this.mLayoutParams);
+        computePosition(view, i2, i3, z, this.mLayoutParams);
         ((WindowManager) this.mContext.getSystemService("window")).addView(this.mContentView, this.mLayoutParams);
     }
 }

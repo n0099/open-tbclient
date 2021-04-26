@@ -16,7 +16,7 @@ public final class SVGAPlayer extends SVGAImageView {
         super(context, attributeSet);
     }
 
-    public SVGAPlayer(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public SVGAPlayer(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

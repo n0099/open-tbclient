@@ -5,48 +5,56 @@ import com.kwad.sdk.core.download.DownloadParams;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f31550a;
+    public f f32421a;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final e f31551a = new e();
+        public static final e f32422a = new e();
     }
 
     public static e a() {
-        return a.f31551a;
+        return a.f32422a;
     }
 
-    public synchronized void a(int i) {
-        if (this.f31550a != null) {
-            this.f31550a.a(i);
+    public synchronized void a(int i2) {
+        if (this.f32421a != null) {
+            this.f32421a.a(i2);
         }
     }
 
     public synchronized void a(DownloadTask downloadTask) {
         if (downloadTask.isCanceled()) {
             a(downloadTask.getId());
-        } else if (this.f31550a != null) {
-            this.f31550a.a(downloadTask);
+        } else if (this.f32421a != null) {
+            this.f32421a.a(downloadTask);
         }
     }
 
     public synchronized void a(DownloadTask downloadTask, boolean z) {
         if (downloadTask.isCanceled()) {
             a(downloadTask.getId());
-        } else if (this.f31550a != null) {
-            this.f31550a.a(downloadTask, z);
+        } else if (this.f32421a != null) {
+            this.f32421a.a(downloadTask, z);
         }
     }
 
     public void a(f fVar) {
-        this.f31550a = fVar;
+        this.f32421a = fVar;
     }
 
     public synchronized void b(DownloadTask downloadTask) {
-        if (this.f31550a != null) {
-            this.f31550a.b(downloadTask);
+        if (downloadTask.isCanceled()) {
+            a(downloadTask.getId());
+        } else if (this.f32421a != null) {
+            this.f32421a.b(downloadTask);
+        }
+    }
+
+    public synchronized void c(DownloadTask downloadTask) {
+        if (this.f32421a != null) {
+            this.f32421a.c(downloadTask);
         }
         Object tag = downloadTask.getTag();
         if (tag instanceof DownloadParams) {

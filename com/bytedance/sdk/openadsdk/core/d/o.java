@@ -3,104 +3,106 @@ package com.bytedance.sdk.openadsdk.core.d;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27895a;
+    public int f28745a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27896b;
+    public boolean f28746b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f27897c;
+    public double f28747c;
 
     /* renamed from: d  reason: collision with root package name */
-    public double f27898d;
+    public double f28748d;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f27899e;
+    public double f28749e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f27900f;
+    public double f28750f;
 
     /* renamed from: g  reason: collision with root package name */
-    public double f27901g;
+    public double f28751g;
 
     /* renamed from: h  reason: collision with root package name */
-    public double f27902h;
-    public String i;
+    public double f28752h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public String f28753i;
     public int j;
 
     public int a() {
-        return this.f27895a;
+        return this.f28745a;
     }
 
     public boolean b() {
-        return this.f27896b;
+        return this.f28746b;
     }
 
     public double c() {
-        return this.f27897c;
+        return this.f28747c;
     }
 
     public double d() {
-        return this.f27898d;
+        return this.f28748d;
     }
 
     public double e() {
-        return this.f27899e;
+        return this.f28749e;
     }
 
     public double f() {
-        return this.f27900f;
+        return this.f28750f;
     }
 
     public double g() {
-        return this.f27901g;
+        return this.f28751g;
     }
 
     public double h() {
-        return this.f27902h;
+        return this.f28752h;
     }
 
     public int i() {
         return this.j;
     }
 
-    public void a(int i) {
-        this.f27895a = i;
+    public void a(int i2) {
+        this.f28745a = i2;
     }
 
     public void b(double d2) {
-        this.f27898d = d2;
+        this.f28748d = d2;
     }
 
     public void c(double d2) {
-        this.f27899e = d2;
+        this.f28749e = d2;
     }
 
     public void d(double d2) {
-        this.f27900f = d2;
+        this.f28750f = d2;
     }
 
     public void e(double d2) {
-        this.f27901g = d2;
+        this.f28751g = d2;
     }
 
     public void f(double d2) {
-        this.f27902h = d2;
+        this.f28752h = d2;
     }
 
     public void a(boolean z) {
-        this.f27896b = z;
+        this.f28746b = z;
     }
 
-    public void b(int i) {
-        this.j = i;
+    public void b(int i2) {
+        this.j = i2;
     }
 
     public void a(double d2) {
-        this.f27897c = d2;
+        this.f28747c = d2;
     }
 
     public void a(String str) {
-        this.i = str;
+        this.f28753i = str;
     }
 }

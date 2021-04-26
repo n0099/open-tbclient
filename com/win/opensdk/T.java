@@ -1,114 +1,33 @@
 package com.win.opensdk;
-
-import android.view.MotionEvent;
-import android.view.View;
-import com.win.opensdk.core.Info;
-import java.util.HashMap;
-/* loaded from: classes7.dex */
-public class T implements View.OnTouchListener {
+/* loaded from: classes6.dex */
+public class T {
 
     /* renamed from: a  reason: collision with root package name */
-    public final P f40176a;
+    public int f37769a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f40177b = false;
+    public int f37770b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f40178c = 0;
+    public int f37771c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f40179d;
+    public int f37772d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f40180e;
+    public boolean f37773e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40181f;
+    public boolean f37774f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40182g;
+    public int f37775g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40183h;
-    public int i;
+    public int f37776h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f37777i;
     public int j;
-    public int k;
-    public int l;
-    public int m;
-    public long n;
-    public int o;
-    public int p;
-    public long q;
-
-    public T(Info info, P p) {
-        this.f40176a = p;
-    }
-
-    public HashMap a() {
-        HashMap hashMap = new HashMap();
-        hashMap.put("dx", Integer.valueOf(this.f40181f));
-        hashMap.put("dy", Integer.valueOf(this.f40182g));
-        hashMap.put("dts", Long.valueOf(this.n));
-        hashMap.put("ux", Integer.valueOf(this.o));
-        hashMap.put("uy", Integer.valueOf(this.p));
-        hashMap.put("uts", Long.valueOf(this.q));
-        G.a(hashMap, this.f40183h, this.i, this.j, this.k, this.l, this.m);
-        return hashMap;
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        int action = motionEvent.getAction();
-        if (action == 0) {
-            this.f40177b = true;
-            this.f40178c = System.currentTimeMillis();
-            this.f40179d = motionEvent.getX();
-            this.f40180e = motionEvent.getY();
-            this.f40183h = (int) motionEvent.getX();
-            this.i = (int) motionEvent.getY();
-            this.f40181f = (int) motionEvent.getRawX();
-            this.f40182g = (int) motionEvent.getRawY();
-            if (this.l <= 0 || this.m <= 0) {
-                this.m = view.getHeight();
-                this.l = view.getWidth();
-            }
-            this.n = System.currentTimeMillis();
-        } else if (action == 1) {
-            this.o = (int) motionEvent.getRawX();
-            this.p = (int) motionEvent.getRawY();
-            this.j = (int) motionEvent.getX();
-            this.k = (int) motionEvent.getY();
-            this.q = System.currentTimeMillis();
-            boolean z = Math.abs(motionEvent.getX() - this.f40179d) < 51.0f;
-            boolean z2 = Math.abs(motionEvent.getY() - this.f40180e) < 51.0f;
-            boolean z3 = System.currentTimeMillis() - this.f40178c < 2000;
-            if (z && z2 && z3 && this.f40177b) {
-                String str = null;
-                try {
-                    str = a().toString();
-                    A2 a2 = this.f40176a.f40119a.f40171b;
-                    if (a2 != null) {
-                        a2.a(str);
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                P p = this.f40176a;
-                p.f40119a.f40173d = true;
-                p.f40119a.f40174e = str;
-                return false;
-            } else if (this.f40176a != null) {
-                try {
-                    String hashMap = a().toString();
-                    A2 a22 = this.f40176a.f40119a.f40171b;
-                    if (a22 != null) {
-                        a22.a(hashMap);
-                    }
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                }
-            }
-        }
-        return false;
-    }
+    public int[] k;
 }

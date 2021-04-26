@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
     public static final boolean DEBUG = false;
     public static final String TAG = "BinaryHttpResponseHandler";
@@ -60,8 +60,8 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
         onDownload(byteArrayInfo);
     }
 
-    public void handleFailureMessage(Throwable th, byte[] bArr, int i) {
-        onFailure(th, bArr, i);
+    public void handleFailureMessage(Throwable th, byte[] bArr, int i2) {
+        onFailure(th, bArr, i2);
     }
 
     public void handleFileLengthMessage(long j, String str) {
@@ -70,11 +70,11 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
 
     @Override // com.baidu.down.loopj.android.http.AsyncHttpResponseHandler
     public void handleMessage(Message message) {
-        int i = message.what;
-        if (i == 0) {
+        int i2 = message.what;
+        if (i2 == 0) {
             Object[] objArr = (Object[]) message.obj;
             handleSuccessMessage(((Integer) objArr[0]).intValue(), (byte[]) objArr[1], ((Long) objArr[2]).longValue());
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             Object[] objArr2 = (Object[]) message.obj;
             if (objArr2[0] != null && objArr2[1] != null) {
                 handleFailureMessage((Throwable) objArr2[0], objArr2[1].toString(), ((Integer) objArr2[2]).intValue());
@@ -85,10 +85,10 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
             } else {
                 handleFailureMessage((Throwable) null, "error", ((Integer) objArr2[2]).intValue());
             }
-        } else if (i == 4) {
+        } else if (i2 == 4) {
             handleDownloadMessage((ByteArrayInfo) ((Object[]) message.obj)[0]);
-        } else if (i != 5) {
-            if (i != 6) {
+        } else if (i2 != 5) {
+            if (i2 != 6) {
                 super.handleMessage(message);
                 return;
             }
@@ -104,28 +104,28 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
         }
     }
 
-    public void handlePausedMessage(int i) {
-        onPaused(i);
+    public void handlePausedMessage(int i2) {
+        onPaused(i2);
     }
 
-    public void handleSuccessMessage(int i, byte[] bArr, long j) {
-        onSuccess(i, bArr, j);
+    public void handleSuccessMessage(int i2, byte[] bArr, long j) {
+        onSuccess(i2, bArr, j);
     }
 
     public void onDownload(ByteArrayInfo byteArrayInfo) {
     }
 
-    public void onFailure(Throwable th, byte[] bArr, int i) {
-        onFailure(th, i);
+    public void onFailure(Throwable th, byte[] bArr, int i2) {
+        onFailure(th, i2);
     }
 
     public void onFileLengthRec(long j, String str) {
     }
 
-    public void onPaused(int i) {
+    public void onPaused(int i2) {
     }
 
-    public void onSuccess(int i, byte[] bArr, long j) {
+    public void onSuccess(int i2, byte[] bArr, long j) {
         onSuccess(bArr, j);
     }
 
@@ -134,7 +134,7 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
 
     /* JADX DEBUG: Incorrect finally slice size: {[IF, INVOKE, INVOKE, IGET, INVOKE, IPUT, INVOKE, INVOKE, IGET] complete}, expected: {[IF, INVOKE, INVOKE, INVOKE, IPUT, INVOKE, INVOKE] complete} */
     /* JADX WARN: Finally extract failed */
-    public long receiveResponseData(ICommonRequestHandler iCommonRequestHandler, long j, int i, AsyncHttpRequest asyncHttpRequest) throws IOException {
+    public long receiveResponseData(ICommonRequestHandler iCommonRequestHandler, long j, int i2, AsyncHttpRequest asyncHttpRequest) throws IOException {
         int read;
         InputStream inputStream = iCommonRequestHandler.getInputStream();
         long contentLength = iCommonRequestHandler.getContentLength();
@@ -154,28 +154,28 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
             while (this.mRunning && (read = inputStream.read(bArr)) != -1) {
                 try {
                     try {
-                        int i2 = length - byteArray.mByteArrayLength;
-                        if (read <= i2) {
-                            i2 = read;
+                        int i3 = length - byteArray.mByteArrayLength;
+                        if (read <= i3) {
+                            i3 = read;
                         }
-                        if (byteArray.mByteArrayLength + i2 >= length) {
-                            System.arraycopy(bArr, 0, byteArray.mByteArray, byteArray.mByteArrayLength, i2);
-                            byteArray.mByteArrayLength += i2;
+                        if (byteArray.mByteArrayLength + i3 >= length) {
+                            System.arraycopy(bArr, 0, byteArray.mByteArray, byteArray.mByteArrayLength, i3);
+                            byteArray.mByteArrayLength += i3;
                             sendDownloadMessage(byteArray);
-                            j += i2;
+                            j += i3;
                             byteArray = TaskFacade.getInstance(null).getBinaryTaskMng().getByteArrayInfoMng().getByteArray();
                             byteArray.mFilePos = j;
                             byteArray.mByteArrayLength = 0;
                         } else {
-                            System.arraycopy(bArr, 0, byteArray.mByteArray, byteArray.mByteArrayLength, i2);
-                            byteArray.mByteArrayLength += i2;
-                            j += i2;
-                        }
-                        if (i2 < read) {
-                            int i3 = read - i2;
-                            System.arraycopy(bArr, i2, byteArray.mByteArray, byteArray.mByteArrayLength, i3);
+                            System.arraycopy(bArr, 0, byteArray.mByteArray, byteArray.mByteArrayLength, i3);
                             byteArray.mByteArrayLength += i3;
                             j += i3;
+                        }
+                        if (i3 < read) {
+                            int i4 = read - i3;
+                            System.arraycopy(bArr, i3, byteArray.mByteArray, byteArray.mByteArrayLength, i4);
+                            byteArray.mByteArrayLength += i4;
+                            j += i4;
                         }
                         if (threadSpeedStat != null) {
                             threadSpeedStat.dTempDownSize = j;
@@ -206,7 +206,7 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
                 threadSpeedStat.dend += threadSpeedStat.dTempDownSize;
                 threadSpeedStat.dTempDownSize = 0L;
             }
-            sendSuccessMessage(i, null, j);
+            sendSuccessMessage(i2, null, j);
         }
         if (this.mTrunked) {
             this.mRunning = false;
@@ -293,8 +293,8 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
     }
 
     @Override // com.baidu.down.loopj.android.http.AsyncHttpResponseHandler
-    public void sendSuccessMessage(int i, String str, long j) {
-        sendMessage(obtainMessage(0, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}));
+    public void sendSuccessMessage(int i2, String str, long j) {
+        sendMessage(obtainMessage(0, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j)}));
     }
 
     public void setCurTask(AbstractTask abstractTask) {
@@ -305,9 +305,9 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
         this.mRunning = true;
     }
 
-    public void setTestSpeedStage(int i) {
-        this.mTestSpeedStage = i;
-        if (i == 1) {
+    public void setTestSpeedStage(int i2) {
+        this.mTestSpeedStage = i2;
+        if (i2 == 1) {
             this.mTestSpeedStartTime = System.currentTimeMillis();
         }
     }

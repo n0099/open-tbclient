@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Keep;
-import d.b.h0.a.f;
+import d.a.h0.a.f;
 @Keep
 /* loaded from: classes2.dex */
 public class SwanAppSelectPopView extends LinearLayout implements View.OnClickListener {
@@ -90,28 +90,28 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
         this.mListener = aVar;
     }
 
-    public void setPopBottomY(int i) {
-        this.mPopBottomY = i;
+    public void setPopBottomY(int i2) {
+        this.mPopBottomY = i2;
     }
 
-    public void setPopLeftX(int i) {
-        this.mPopLeftX = i;
+    public void setPopLeftX(int i2) {
+        this.mPopLeftX = i2;
     }
 
-    public void setPopRightX(int i) {
-        this.mPopRightX = i;
+    public void setPopRightX(int i2) {
+        this.mPopRightX = i2;
     }
 
-    public void setPopTopY(int i) {
-        this.mPopTopY = i;
+    public void setPopTopY(int i2) {
+        this.mPopTopY = i2;
     }
 
-    public void setPopX(int i) {
-        this.mPopX = i;
+    public void setPopX(int i2) {
+        this.mPopX = i2;
     }
 
-    public void setPopY(int i) {
-        this.mPopY = i;
+    public void setPopY(int i2) {
+        this.mPopY = i2;
     }
 
     public void setSelection(String str) {

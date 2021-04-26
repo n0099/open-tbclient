@@ -7,9 +7,9 @@ public interface b {
 
     void W();
 
-    void a(View view, int i, int i2, int i3, int i4);
+    void a(View view, int i2, int i3, int i4, int i5);
 
     boolean a(long j, boolean z);
 
-    void f(int i);
+    void f(int i2);
 }

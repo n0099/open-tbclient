@@ -16,9 +16,9 @@ public class WhiteScreenConfig implements NoProguard {
     public int wsc_simple_count = 3;
 
     public boolean isValid() {
-        int i;
         int i2;
         int i3;
-        return this.wsc_delay_time >= 0 && (i = this.wsc_core_cache) >= 0 && i <= 5 && this.wsc_core_task >= 1 && this.wsc_max_task >= 1 && this.wsc_alive_time > 0 && (i2 = this.wsc_area_detect) > 0 && i2 <= 9 && this.wsc_general_detect >= 0 && (i3 = this.wsc_simple_count) >= 1 && i3 <= 9;
+        int i4;
+        return this.wsc_delay_time >= 0 && (i2 = this.wsc_core_cache) >= 0 && i2 <= 5 && this.wsc_core_task >= 1 && this.wsc_max_task >= 1 && this.wsc_alive_time > 0 && (i3 = this.wsc_area_detect) > 0 && i3 <= 9 && this.wsc_general_detect >= 0 && (i4 = this.wsc_simple_count) >= 1 && i4 <= 9;
     }
 }

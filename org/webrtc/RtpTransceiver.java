@@ -19,19 +19,19 @@ public class RtpTransceiver {
         
         public final int nativeIndex;
 
-        RtpTransceiverDirection(int i) {
-            this.nativeIndex = i;
+        RtpTransceiverDirection(int i2) {
+            this.nativeIndex = i2;
         }
 
         @CalledByNative("RtpTransceiverDirection")
-        public static RtpTransceiverDirection fromNativeIndex(int i) {
+        public static RtpTransceiverDirection fromNativeIndex(int i2) {
             RtpTransceiverDirection[] values;
             for (RtpTransceiverDirection rtpTransceiverDirection : values()) {
-                if (rtpTransceiverDirection.getNativeIndex() == i) {
+                if (rtpTransceiverDirection.getNativeIndex() == i2) {
                     return rtpTransceiverDirection;
                 }
             }
-            throw new IllegalArgumentException("Uknown native RtpTransceiverDirection type" + i);
+            throw new IllegalArgumentException("Uknown native RtpTransceiverDirection type" + i2);
         }
 
         @CalledByNative("RtpTransceiverDirection")

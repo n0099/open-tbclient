@@ -79,14 +79,14 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         return null;
     }
 
-    public static boolean isSetFlag(int i, int[] iArr) {
+    public static boolean isSetFlag(int i2, int[] iArr) {
         if (iArr == null) {
             return false;
         }
-        int i2 = i / 32;
-        int i3 = i % 32;
-        if (i2 < iArr.length) {
-            if (((1 << i3) & iArr[i2]) != 0) {
+        int i3 = i2 / 32;
+        int i4 = i2 % 32;
+        if (i3 < iArr.length) {
+            if (((1 << i4) & iArr[i3]) != 0) {
                 return true;
             }
         }
@@ -95,14 +95,14 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
 
     public static void parseArray(Collection collection, ObjectDeserializer objectDeserializer, DefaultJSONParser defaultJSONParser, Type type, Object obj) {
         JSONLexerBase jSONLexerBase = (JSONLexerBase) defaultJSONParser.lexer;
-        int i = jSONLexerBase.token();
-        if (i == 8) {
+        int i2 = jSONLexerBase.token();
+        if (i2 == 8) {
             jSONLexerBase.nextToken(16);
             jSONLexerBase.token();
             return;
         }
-        if (i != 14) {
-            defaultJSONParser.throwException(i);
+        if (i2 != 14) {
+            defaultJSONParser.throwException(i2);
         }
         if (jSONLexerBase.getCurrent() == '[') {
             jSONLexerBase.next();
@@ -114,10 +114,10 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
             jSONLexerBase.nextToken();
             return;
         }
-        int i2 = 0;
+        int i3 = 0;
         while (true) {
-            collection.add(objectDeserializer.deserialze(defaultJSONParser, type, Integer.valueOf(i2)));
-            i2++;
+            collection.add(objectDeserializer.deserialze(defaultJSONParser, type, Integer.valueOf(i3)));
+            i3++;
             if (jSONLexerBase.token() != 16) {
                 break;
             } else if (jSONLexerBase.getCurrent() == '[') {
@@ -127,9 +127,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                 jSONLexerBase.nextToken(14);
             }
         }
-        int i3 = jSONLexerBase.token();
-        if (i3 != 15) {
-            defaultJSONParser.throwException(i3);
+        int i4 = jSONLexerBase.token();
+        if (i4 != 15) {
+            defaultJSONParser.throwException(i4);
         }
         if (jSONLexerBase.getCurrent() == ',') {
             jSONLexerBase.next();
@@ -139,8 +139,8 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         jSONLexerBase.nextToken(16);
     }
 
-    public void check(JSONLexer jSONLexer, int i) {
-        if (jSONLexer.token() != i) {
+    public void check(JSONLexer jSONLexer, int i2) {
+        if (jSONLexer.token() != i2) {
             throw new JSONException("syntax error");
         }
     }
@@ -234,14 +234,14 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                 }
             }
             T t = (T) createInstance(defaultJSONParser, type);
-            int i = 0;
+            int i2 = 0;
             int length = this.sortedFieldDeserializers.length;
             while (true) {
-                if (i >= length) {
+                if (i2 >= length) {
                     break;
                 }
-                char c2 = i == length + (-1) ? ']' : ',';
-                FieldDeserializer fieldDeserializer = this.sortedFieldDeserializers[i];
+                char c2 = i2 == length + (-1) ? ']' : ',';
+                FieldDeserializer fieldDeserializer = this.sortedFieldDeserializers[i2];
                 Class<?> cls = fieldDeserializer.fieldInfo.fieldClass;
                 if (cls == Integer.TYPE) {
                     fieldDeserializer.setValue((Object) t, jSONLexer.scanInt(c2));
@@ -278,7 +278,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                     }
                     check(jSONLexer, c2 == ']' ? 15 : 16);
                 }
-                i++;
+                i2++;
             }
             jSONLexer.nextToken(16);
             return t;
@@ -295,16 +295,16 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         return getFieldDeserializer(str, null);
     }
 
-    public Type getFieldType(int i) {
-        return this.sortedFieldDeserializers[i].fieldInfo.fieldType;
+    public Type getFieldType(int i2) {
+        return this.sortedFieldDeserializers[i2].fieldInfo.fieldType;
     }
 
     public boolean parseField(DefaultJSONParser defaultJSONParser, String str, Object obj, Type type, Map<String, Object> map) {
         return parseField(defaultJSONParser, str, obj, type, map, null);
     }
 
-    public Object parseRest(DefaultJSONParser defaultJSONParser, Type type, Object obj, Object obj2, int i) {
-        return parseRest(defaultJSONParser, type, obj, obj2, i, new int[0]);
+    public Object parseRest(DefaultJSONParser defaultJSONParser, Type type, Object obj, Object obj2, int i2) {
+        return parseRest(defaultJSONParser, type, obj, obj2, i2, new int[0]);
     }
 
     public Enum<?> scanEnum(JSONLexer jSONLexer, char c2) {
@@ -319,8 +319,8 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         this(parserConfig, JavaBeanInfo.build(cls, type, parserConfig.propertyNamingStrategy, parserConfig.fieldBased, parserConfig.compatibleWithJavaBean, parserConfig.isJacksonCompatible()));
     }
 
-    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, int i) {
-        return (T) deserialze(defaultJSONParser, type, obj, null, i, null);
+    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, int i2) {
+        return (T) deserialze(defaultJSONParser, type, obj, null, i2, null);
     }
 
     public FieldDeserializer getFieldDeserializer(String str, int[] iArr) {
@@ -330,20 +330,20 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         }
         Map<String, FieldDeserializer> map = this.fieldDeserializerMap;
         if (map == null || (fieldDeserializer = map.get(str)) == null) {
-            int i = 0;
+            int i2 = 0;
             int length = this.sortedFieldDeserializers.length - 1;
-            while (i <= length) {
-                int i2 = (i + length) >>> 1;
-                int compareTo = this.sortedFieldDeserializers[i2].fieldInfo.name.compareTo(str);
+            while (i2 <= length) {
+                int i3 = (i2 + length) >>> 1;
+                int compareTo = this.sortedFieldDeserializers[i3].fieldInfo.name.compareTo(str);
                 if (compareTo < 0) {
-                    i = i2 + 1;
+                    i2 = i3 + 1;
                 } else if (compareTo <= 0) {
-                    if (isSetFlag(i2, iArr)) {
+                    if (isSetFlag(i3, iArr)) {
                         return null;
                     }
-                    return this.sortedFieldDeserializers[i2];
+                    return this.sortedFieldDeserializers[i3];
                 } else {
-                    length = i2 - 1;
+                    length = i3 - 1;
                 }
             }
             Map<String, FieldDeserializer> map2 = this.alterNameFieldDeserializers;
@@ -358,7 +358,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
     /* JADX WARN: Removed duplicated region for block: B:111:0x0212  */
     /* JADX WARN: Removed duplicated region for block: B:59:0x0125  */
     /* JADX WARN: Type inference failed for: r17v0 */
-    /* JADX WARN: Type inference failed for: r17v1, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r17v1, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r17v3 */
     /* JADX WARN: Type inference failed for: r17v4 */
     /*
@@ -373,10 +373,10 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         FieldDeserializer fieldDeserializer4;
         Field[] fieldArr;
         JSONLexer jSONLexer2 = defaultJSONParser.lexer;
-        int i = Feature.DisableFieldSmartMatch.mask;
-        int i2 = Feature.InitStringFieldAsEmpty.mask;
-        if (!jSONLexer2.isEnabled(i) && (i & this.beanInfo.parserFeatures) == 0) {
-            if (!jSONLexer2.isEnabled(i2) && (this.beanInfo.parserFeatures & i2) == 0) {
+        int i2 = Feature.DisableFieldSmartMatch.mask;
+        int i3 = Feature.InitStringFieldAsEmpty.mask;
+        if (!jSONLexer2.isEnabled(i2) && (i2 & this.beanInfo.parserFeatures) == 0) {
+            if (!jSONLexer2.isEnabled(i3) && (this.beanInfo.parserFeatures & i3) == 0) {
                 fieldDeserializer = smartMatch(str, iArr);
             } else {
                 fieldDeserializer = smartMatch(str);
@@ -384,8 +384,8 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         } else {
             fieldDeserializer = getFieldDeserializer(str);
         }
-        int i3 = Feature.SupportNonPublicField.mask;
-        if (fieldDeserializer != null || (!jSONLexer2.isEnabled(i3) && (i3 & this.beanInfo.parserFeatures) == 0)) {
+        int i4 = Feature.SupportNonPublicField.mask;
+        if (fieldDeserializer != null || (!jSONLexer2.isEnabled(i4) && (i4 & this.beanInfo.parserFeatures) == 0)) {
             fieldDeserializer2 = fieldDeserializer;
         } else {
             if (this.extraFieldDeserializers == null) {
@@ -393,9 +393,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                 for (Class<?> cls = this.clazz; cls != null && cls != Object.class; cls = cls.getSuperclass()) {
                     Field[] declaredFields = cls.getDeclaredFields();
                     int length = declaredFields.length;
-                    int i4 = 0;
-                    while (i4 < length) {
-                        Field field = declaredFields[i4];
+                    int i5 = 0;
+                    while (i5 < length) {
+                        Field field = declaredFields[i5];
                         String name = field.getName();
                         if (getFieldDeserializer(name) == null) {
                             int modifiers = field.getModifiers();
@@ -412,14 +412,14 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                     fieldArr = declaredFields;
                                 }
                                 concurrentHashMap.put(name, field);
-                                i4++;
+                                i5++;
                                 fieldDeserializer = fieldDeserializer4;
                                 declaredFields = fieldArr;
                             }
                         }
                         fieldDeserializer4 = fieldDeserializer;
                         fieldArr = declaredFields;
-                        i4++;
+                        i5++;
                         fieldDeserializer = fieldDeserializer4;
                         declaredFields = fieldArr;
                     }
@@ -447,14 +447,14 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                     if (!jSONLexer.isEnabled(Feature.IgnoreNotMatch)) {
                         throw new JSONException("setter not found, class " + this.clazz.getName() + ", property " + str);
                     }
-                    int i5 = 0;
-                    int i6 = -1;
+                    int i6 = 0;
+                    int i7 = -1;
                     while (true) {
                         FieldDeserializer[] fieldDeserializerArr = this.sortedFieldDeserializers;
-                        if (i5 >= fieldDeserializerArr.length) {
+                        if (i6 >= fieldDeserializerArr.length) {
                             break;
                         }
-                        FieldDeserializer fieldDeserializer5 = fieldDeserializerArr[i5];
+                        FieldDeserializer fieldDeserializer5 = fieldDeserializerArr[i6];
                         FieldInfo fieldInfo = fieldDeserializer5.fieldInfo;
                         if (fieldInfo.unwrapped && (fieldDeserializer5 instanceof DefaultFieldDeserializer)) {
                             if (fieldInfo.field != null) {
@@ -471,7 +471,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                             }
                                             jSONLexer.nextTokenWithColon(defaultFieldDeserializer.getFastMatchToken());
                                             fieldDeserializer6.parseField(defaultJSONParser, obj3, type, map);
-                                            i6 = i5;
+                                            i7 = i6;
                                         } catch (Exception e2) {
                                             throw new JSONException("parse unwrapped field error.", e2);
                                         }
@@ -488,7 +488,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                         }
                                         jSONLexer.nextTokenWithColon();
                                         map2.put(str, defaultJSONParser.parse(str));
-                                        i6 = i5;
+                                        i7 = i6;
                                     } catch (Exception e3) {
                                         throw new JSONException("parse unwrapped field error.", e3);
                                     }
@@ -504,7 +504,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                     objArr[0] = str;
                                     objArr[r17] = parse;
                                     method.invoke(obj, objArr);
-                                    i6 = i5;
+                                    i7 = i6;
                                 } catch (Exception e4) {
                                     throw new JSONException("parse unwrapped field error.", e4);
                                 }
@@ -512,40 +512,40 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                 continue;
                             }
                         }
-                        i5++;
+                        i6++;
                     }
-                    if (i6 == -1) {
+                    if (i7 == -1) {
                         defaultJSONParser.parseExtra(obj, str);
                         return false;
                     }
                     if (iArr != null) {
-                        int i7 = i6 / 32;
-                        iArr[i7] = iArr[i7] | (r17 << (i6 % 32));
+                        int i8 = i7 / 32;
+                        iArr[i8] = iArr[i8] | (r17 << (i7 % 32));
                     }
                     return r17;
                 }
                 JSONLexer jSONLexer3 = jSONLexer;
-                int i8 = 0;
+                int i9 = 0;
                 while (true) {
                     FieldDeserializer[] fieldDeserializerArr2 = this.sortedFieldDeserializers;
-                    if (i8 >= fieldDeserializerArr2.length) {
-                        i8 = -1;
+                    if (i9 >= fieldDeserializerArr2.length) {
+                        i9 = -1;
                         break;
-                    } else if (fieldDeserializerArr2[i8] == fieldDeserializer3) {
+                    } else if (fieldDeserializerArr2[i9] == fieldDeserializer3) {
                         break;
                     } else {
-                        i8++;
+                        i9++;
                     }
                 }
-                if (i8 != -1 && iArr != null && str.startsWith("_") && isSetFlag(i8, iArr)) {
+                if (i9 != -1 && iArr != null && str.startsWith("_") && isSetFlag(i9, iArr)) {
                     defaultJSONParser.parseExtra(obj, str);
                     return false;
                 }
                 jSONLexer3.nextTokenWithColon(fieldDeserializer3.getFastMatchToken());
                 fieldDeserializer3.parseField(defaultJSONParser, obj, type, map);
                 if (iArr != null) {
-                    int i9 = i8 / 32;
-                    iArr[i9] = iArr[i9] | (r17 << (i8 % 32));
+                    int i10 = i9 / 32;
+                    iArr[i10] = iArr[i10] | (r17 << (i9 % 32));
                 }
                 return r17;
             }
@@ -557,8 +557,8 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         }
     }
 
-    public Object parseRest(DefaultJSONParser defaultJSONParser, Type type, Object obj, Object obj2, int i, int[] iArr) {
-        return deserialze(defaultJSONParser, type, obj, obj2, i, iArr);
+    public Object parseRest(DefaultJSONParser defaultJSONParser, Type type, Object obj, Object obj2, int i2, int[] iArr) {
+        return deserialze(defaultJSONParser, type, obj, obj2, i2, iArr);
     }
 
     public Enum scanEnum(JSONLexerBase jSONLexerBase, char[] cArr, ObjectDeserializer objectDeserializer) {
@@ -590,17 +590,17 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         }
         FieldDeserializer fieldDeserializer = getFieldDeserializer(str, iArr);
         if (fieldDeserializer == null) {
-            int i = 0;
+            int i2 = 0;
             if (this.smartMatchHashArray == null) {
                 long[] jArr = new long[this.sortedFieldDeserializers.length];
-                int i2 = 0;
+                int i3 = 0;
                 while (true) {
                     FieldDeserializer[] fieldDeserializerArr = this.sortedFieldDeserializers;
-                    if (i2 >= fieldDeserializerArr.length) {
+                    if (i3 >= fieldDeserializerArr.length) {
                         break;
                     }
-                    jArr[i2] = fieldDeserializerArr[i2].fieldInfo.nameHashCode;
-                    i2++;
+                    jArr[i3] = fieldDeserializerArr[i3].fieldInfo.nameHashCode;
+                    i3++;
                 }
                 Arrays.sort(jArr);
                 this.smartMatchHashArray = jArr;
@@ -623,14 +623,14 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                     Arrays.fill(sArr, (short) -1);
                     while (true) {
                         FieldDeserializer[] fieldDeserializerArr2 = this.sortedFieldDeserializers;
-                        if (i >= fieldDeserializerArr2.length) {
+                        if (i2 >= fieldDeserializerArr2.length) {
                             break;
                         }
-                        int binarySearch2 = Arrays.binarySearch(this.smartMatchHashArray, fieldDeserializerArr2[i].fieldInfo.nameHashCode);
+                        int binarySearch2 = Arrays.binarySearch(this.smartMatchHashArray, fieldDeserializerArr2[i2].fieldInfo.nameHashCode);
                         if (binarySearch2 >= 0) {
-                            sArr[binarySearch2] = (short) i;
+                            sArr[binarySearch2] = (short) i2;
                         }
-                        i++;
+                        i2++;
                     }
                     this.smartMatchHashArrayMapping = sArr;
                 }
@@ -763,7 +763,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, Object obj2, int i, int[] iArr) {
+    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj, Object obj2, int i2, int[] iArr) {
         ParseContext parseContext;
         Throwable th;
         Object obj3;
@@ -783,14 +783,14 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         boolean z2;
         String str2;
         Class cls2;
-        int i2;
-        Object obj7;
         int i3;
+        Object obj7;
+        int i4;
         ParserConfig parserConfig2;
         int[] iArr3;
         Class cls3;
         Class cls4;
-        int i4;
+        int i5;
         String str3;
         ParserConfig parserConfig3;
         boolean z3;
@@ -799,7 +799,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         String str5;
         Object obj9;
         byte b2;
-        int i5;
+        int i6;
         Class cls5;
         Class cls6;
         Class cls7;
@@ -808,7 +808,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         boolean z4;
         Class cls8;
         Object obj10;
-        int i6;
+        int i7;
         T t;
         String str7;
         Object valueOf;
@@ -819,9 +819,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         if (type != JSON.class && type != JSONObject.class) {
             JSONLexerBase jSONLexerBase = (JSONLexerBase) defaultJSONParser.lexer;
             ParserConfig config = defaultJSONParser.getConfig();
-            int i7 = jSONLexerBase.token();
+            int i8 = jSONLexerBase.token();
             ParseContext parseContext3 = null;
-            if (i7 == 8) {
+            if (i8 == 8) {
                 jSONLexerBase.nextToken(16);
                 return null;
             }
@@ -834,16 +834,16 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
             } catch (Throwable th3) {
                 th = th3;
             }
-            if (i7 == 13) {
+            if (i8 == 13) {
                 jSONLexerBase.nextToken(16);
                 T t2 = obj2 == null ? (T) createInstance((DefaultJSONParser) defaultJSONParser, type) : (T) obj2;
                 defaultJSONParser.setContext(parseContext4);
                 return t2;
             }
-            int i8 = 14;
-            if (i7 == 14) {
-                int i9 = Feature.SupportArrayToBean.mask;
-                if ((this.beanInfo.parserFeatures & i9) == 0 && !jSONLexerBase.isEnabled(Feature.SupportArrayToBean) && (i & i9) == 0) {
+            int i9 = 14;
+            if (i8 == 14) {
+                int i10 = Feature.SupportArrayToBean.mask;
+                if ((this.beanInfo.parserFeatures & i10) == 0 && !jSONLexerBase.isEnabled(Feature.SupportArrayToBean) && (i2 & i10) == 0) {
                     z5 = false;
                     if (z5) {
                         T t3 = (T) deserialzeArrayMapping(defaultJSONParser, type, obj, obj2);
@@ -855,12 +855,12 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                 if (z5) {
                 }
             }
-            if (i7 != 12 && i7 != 16) {
+            if (i8 != 12 && i8 != 16) {
                 if (jSONLexerBase.isBlankInput()) {
                     defaultJSONParser.setContext(parseContext4);
                     return null;
                 }
-                if (i7 == 4) {
+                if (i8 == 4) {
                     try {
                         String stringVal = jSONLexerBase.stringVal();
                         if (stringVal.length() == 0) {
@@ -870,9 +870,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                         } else if (this.beanInfo.jsonType != null) {
                             Class<?>[] seeAlso = this.beanInfo.jsonType.seeAlso();
                             int length = seeAlso.length;
-                            int i10 = 0;
-                            while (i10 < length) {
-                                Class<?> cls12 = seeAlso[i10];
+                            int i11 = 0;
+                            while (i11 < length) {
+                                Class<?> cls12 = seeAlso[i11];
                                 if (Enum.class.isAssignableFrom(cls12)) {
                                     try {
                                         T t4 = (T) Enum.valueOf(cls12, stringVal);
@@ -882,8 +882,8 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                         continue;
                                     }
                                 }
-                                i10++;
-                                i8 = 14;
+                                i11++;
+                                i9 = 14;
                             }
                         }
                     } catch (Throwable th4) {
@@ -893,7 +893,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                         parseContext3 = null;
                     }
                 }
-                if (i7 == i8) {
+                if (i8 == i9) {
                     try {
                         if (jSONLexerBase.getCurrent() == ']') {
                             jSONLexerBase.next();
@@ -918,14 +918,14 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                     try {
                         FieldInfo fieldInfo2 = this.beanInfo.fields[0];
                         if (fieldInfo2.fieldClass == cls10) {
-                            if (i7 == 2) {
+                            if (i8 == 2) {
                                 int intValue = jSONLexerBase.intValue();
                                 jSONLexerBase.nextToken();
                                 T t5 = (T) createFactoryInstance(config, Integer.valueOf(intValue));
                                 defaultJSONParser.setContext(parseContext4);
                                 return t5;
                             }
-                        } else if (fieldInfo2.fieldClass == cls11 && i7 == 4) {
+                        } else if (fieldInfo2.fieldClass == cls11 && i8 == 4) {
                             String stringVal2 = jSONLexerBase.stringVal();
                             jSONLexerBase.nextToken();
                             T t6 = (T) createFactoryInstance(config, stringVal2);
@@ -958,13 +958,13 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                 int[] iArr4 = iArr;
                 ParseContext parseContext5 = null;
                 HashMap hashMap = null;
-                int i11 = 0;
                 int i12 = 0;
+                int i13 = 0;
                 while (true) {
                     try {
-                        if (i12 >= this.sortedFieldDeserializers.length || i11 >= 16) {
+                        if (i13 >= this.sortedFieldDeserializers.length || i12 >= 16) {
                             iArr2 = iArr4;
-                            obj5 = i12;
+                            obj5 = i13;
                             obj6 = obj3;
                             defaultFieldDeserializer = null;
                             cls = null;
@@ -973,8 +973,8 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                             jSONField = null;
                         } else {
                             try {
-                                ?? r10 = this.sortedFieldDeserializers[i12];
-                                int i13 = i12;
+                                ?? r10 = this.sortedFieldDeserializers[i13];
+                                int i14 = i13;
                                 FieldInfo fieldInfo3 = r10.fieldInfo;
                                 iArr2 = iArr4;
                                 Class cls13 = fieldInfo3.fieldClass;
@@ -989,7 +989,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                         z = z6;
                                         cls = cls9;
                                         jSONField = annotation;
-                                        obj5 = i13;
+                                        obj5 = i14;
                                     }
                                 } else {
                                     cls9 = cls13;
@@ -1000,7 +1000,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                 defaultFieldDeserializer = r10;
                                 fieldInfo = fieldInfo3;
                                 z = false;
-                                obj5 = i13;
+                                obj5 = i14;
                             } catch (Throwable th6) {
                                 th2 = th6;
                                 th = th2;
@@ -1027,9 +1027,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                     valueOf = jSONLexerBase.scanFieldString(cArr);
                                                     if (jSONLexerBase.matchStat <= 0) {
                                                         if (jSONLexerBase.matchStat == -2) {
-                                                            i3 = obj5;
+                                                            i4 = obj5;
                                                             parseContext = parseContext4;
-                                                            i2 = i11 + 1;
+                                                            i3 = i12 + 1;
                                                             cls2 = cls10;
                                                             cls3 = cls11;
                                                             parserConfig2 = parserConfig;
@@ -1042,7 +1042,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                         z3 = false;
                                                         str4 = str7;
                                                         if (z2) {
-                                                            i4 = i11;
+                                                            i5 = i12;
                                                             cls2 = cls10;
                                                             cls4 = cls11;
                                                             obj8 = obj6;
@@ -1050,18 +1050,18 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                             str3 = str;
                                                             str5 = null;
                                                         } else {
-                                                            i4 = i11;
+                                                            i5 = i12;
                                                             try {
                                                                 str5 = jSONLexerBase.scanSymbol(defaultJSONParser.symbolTable);
                                                                 if (str5 == null) {
                                                                     cls2 = cls10;
-                                                                    int i14 = jSONLexerBase.token();
+                                                                    int i15 = jSONLexerBase.token();
                                                                     cls4 = cls11;
-                                                                    if (i14 == 13) {
+                                                                    if (i15 == 13) {
                                                                         jSONLexerBase.nextToken(16);
                                                                         obj3 = (T) obj6;
                                                                         break;
-                                                                    } else if (i14 == 16) {
+                                                                    } else if (i15 == 16) {
                                                                     }
                                                                 } else {
                                                                     cls2 = cls10;
@@ -1097,15 +1097,15 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                                         } else {
                                                                             if (stringVal3.indexOf(92) > 0) {
                                                                                 StringBuilder sb2 = new StringBuilder();
-                                                                                int i15 = 0;
-                                                                                while (i15 < stringVal3.length()) {
-                                                                                    char charAt = stringVal3.charAt(i15);
+                                                                                int i16 = 0;
+                                                                                while (i16 < stringVal3.length()) {
+                                                                                    char charAt = stringVal3.charAt(i16);
                                                                                     if (charAt == '\\') {
-                                                                                        i15++;
-                                                                                        charAt = stringVal3.charAt(i15);
+                                                                                        i16++;
+                                                                                        charAt = stringVal3.charAt(i16);
                                                                                     }
                                                                                     sb2.append(charAt);
-                                                                                    i15++;
+                                                                                    i16++;
                                                                                 }
                                                                                 stringVal3 = sb2.toString();
                                                                             }
@@ -1130,7 +1130,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                                         }
                                                                         throw new JSONException("illegal ref");
                                                                     }
-                                                                    throw new JSONException("illegal ref, " + JSONToken.name(i6));
+                                                                    throw new JSONException("illegal ref, " + JSONToken.name(i7));
                                                                 }
                                                                 if (str != null) {
                                                                     str3 = str;
@@ -1155,13 +1155,13 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                                             jSONLexerBase.nextToken();
                                                                             break;
                                                                         }
-                                                                        i3 = obj5;
+                                                                        i4 = obj5;
                                                                         obj6 = obj3;
                                                                         parseContext2 = parseContext5;
                                                                         parserConfig2 = parserConfig3;
                                                                         parseContext = parseContext4;
                                                                         str2 = str3;
-                                                                        i2 = i4;
+                                                                        i3 = i5;
                                                                         cls3 = cls4;
                                                                         iArr3 = iArr2;
                                                                     } else {
@@ -1243,10 +1243,10 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                             Object obj11 = obj9;
                                                             parseContext = parseContext4;
                                                             obj7 = obj9;
-                                                            i2 = i4;
-                                                            i5 = 13;
+                                                            i3 = i5;
+                                                            i6 = 13;
                                                             HashMap hashMap4 = hashMap3;
-                                                            i3 = obj5;
+                                                            i4 = obj5;
                                                             cls5 = cls14;
                                                             if (!parseField(defaultJSONParser, str9, obj11, type, hashMap4, iArr3)) {
                                                                 if (jSONLexerBase.token() == 13) {
@@ -1265,11 +1265,11 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                         } else {
                                                             if (!z3) {
                                                                 defaultFieldDeserializer.parseField(defaultJSONParser, obj9, type, hashMap2);
-                                                                i3 = obj5;
+                                                                i4 = obj5;
                                                                 hashMap = hashMap2;
                                                                 parseContext = parseContext4;
                                                                 obj7 = obj9;
-                                                                i2 = i4;
+                                                                i3 = i5;
                                                                 cls5 = cls4;
                                                             } else {
                                                                 if (obj9 == null) {
@@ -1280,13 +1280,13 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                                     }
                                                                 } else {
                                                                     cls6 = cls4;
-                                                                    if (cls == cls6 && ((i & Feature.TrimStringFieldValue.mask) != 0 || (this.beanInfo.parserFeatures & Feature.TrimStringFieldValue.mask) != 0 || (fieldInfo.parserFeatures & Feature.TrimStringFieldValue.mask) != 0)) {
+                                                                    if (cls == cls6 && ((i2 & Feature.TrimStringFieldValue.mask) != 0 || (this.beanInfo.parserFeatures & Feature.TrimStringFieldValue.mask) != 0 || (fieldInfo.parserFeatures & Feature.TrimStringFieldValue.mask) != 0)) {
                                                                         str4 = str4.trim();
                                                                     }
                                                                     defaultFieldDeserializer.setValue(obj9, (Object) str4);
                                                                     if (iArr3 == null) {
-                                                                        int i16 = obj5 / 32;
-                                                                        iArr3[i16] = (1 << (obj5 % 32)) | iArr3[i16];
+                                                                        int i17 = obj5 / 32;
+                                                                        iArr3[i17] = (1 << (obj5 % 32)) | iArr3[i17];
                                                                     }
                                                                     if (jSONLexerBase.matchStat != 4) {
                                                                         hashMap = hashMap2;
@@ -1296,12 +1296,12 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                                         b2 = 0;
                                                                         break;
                                                                     }
-                                                                    i3 = obj5;
+                                                                    i4 = obj5;
                                                                     hashMap = hashMap2;
                                                                     cls5 = cls6;
                                                                     parseContext = parseContext4;
                                                                     obj7 = obj9;
-                                                                    i2 = i4;
+                                                                    i3 = i5;
                                                                 }
                                                                 cls6 = cls4;
                                                                 if (iArr3 == null) {
@@ -1310,11 +1310,11 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                                 }
                                                             }
                                                             b2 = 0;
-                                                            i5 = 13;
+                                                            i6 = 13;
                                                             if (jSONLexerBase.token() != 16) {
                                                                 cls3 = cls5;
                                                                 obj6 = obj7;
-                                                            } else if (jSONLexerBase.token() == i5) {
+                                                            } else if (jSONLexerBase.token() == i6) {
                                                                 jSONLexerBase.nextToken(16);
                                                                 break;
                                                             } else {
@@ -1359,9 +1359,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                         }
                                                     } else {
                                                         if (jSONLexerBase.matchStat == -2) {
-                                                            i3 = obj5;
+                                                            i4 = obj5;
                                                             parseContext = parseContext4;
-                                                            i2 = i11 + 1;
+                                                            i3 = i12 + 1;
                                                             cls2 = cls10;
                                                             cls3 = cls11;
                                                             parserConfig2 = parserConfig;
@@ -1404,9 +1404,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                         }
                                                     } else {
                                                         if (jSONLexerBase.matchStat == -2) {
-                                                            i3 = obj5;
+                                                            i4 = obj5;
                                                             parseContext = parseContext4;
-                                                            i2 = i11 + 1;
+                                                            i3 = i12 + 1;
                                                             cls2 = cls10;
                                                             cls3 = cls11;
                                                             parserConfig2 = parserConfig;
@@ -1449,9 +1449,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                         }
                                                     } else {
                                                         if (jSONLexerBase.matchStat == -2) {
-                                                            i3 = obj5;
+                                                            i4 = obj5;
                                                             parseContext = parseContext4;
-                                                            i2 = i11 + 1;
+                                                            i3 = i12 + 1;
                                                             cls2 = cls10;
                                                             cls3 = cls11;
                                                             parserConfig2 = parserConfig;
@@ -1499,9 +1499,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                                             }
                                                                         } else {
                                                                             if (jSONLexerBase.matchStat == -2) {
-                                                                                i3 = obj5;
+                                                                                i4 = obj5;
                                                                                 parseContext = parseContext4;
-                                                                                i2 = i11 + 1;
+                                                                                i3 = i12 + 1;
                                                                                 cls2 = cls10;
                                                                                 cls3 = cls11;
                                                                                 parserConfig2 = parserConfig;
@@ -1545,9 +1545,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                                         }
                                                                     } else {
                                                                         if (jSONLexerBase.matchStat == -2) {
-                                                                            i3 = obj5;
+                                                                            i4 = obj5;
                                                                             parseContext = parseContext4;
-                                                                            i2 = i11 + 1;
+                                                                            i3 = i12 + 1;
                                                                             cls2 = cls10;
                                                                             cls3 = cls11;
                                                                             parserConfig2 = parserConfig;
@@ -1590,9 +1590,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                                         }
                                                                     } else {
                                                                         if (jSONLexerBase.matchStat == -2) {
-                                                                            i3 = obj5;
+                                                                            i4 = obj5;
                                                                             parseContext = parseContext4;
-                                                                            i2 = i11 + 1;
+                                                                            i3 = i12 + 1;
                                                                             cls2 = cls10;
                                                                             cls3 = cls11;
                                                                             parserConfig2 = parserConfig;
@@ -1635,9 +1635,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                                         }
                                                                     } else {
                                                                         if (jSONLexerBase.matchStat == -2) {
-                                                                            i3 = obj5;
+                                                                            i4 = obj5;
                                                                             parseContext = parseContext4;
-                                                                            i2 = i11 + 1;
+                                                                            i3 = i12 + 1;
                                                                             cls2 = cls10;
                                                                             cls3 = cls11;
                                                                             parserConfig2 = parserConfig;
@@ -1662,19 +1662,19 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                                         }
                                                                     }
                                                                 } else if (!jSONLexerBase.matchField(cArr)) {
-                                                                    i4 = i11;
+                                                                    i5 = i12;
                                                                     cls2 = cls10;
                                                                     cls4 = cls11;
                                                                     obj3 = obj6;
                                                                     parserConfig3 = parserConfig;
                                                                     str3 = str;
-                                                                    i3 = obj5;
+                                                                    i4 = obj5;
                                                                     obj6 = obj3;
                                                                     parseContext2 = parseContext5;
                                                                     parserConfig2 = parserConfig3;
                                                                     parseContext = parseContext4;
                                                                     str2 = str3;
-                                                                    i2 = i4;
+                                                                    i3 = i5;
                                                                     cls3 = cls4;
                                                                     iArr3 = iArr2;
                                                                 }
@@ -1698,9 +1698,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                                 }
                                                             } else {
                                                                 if (jSONLexerBase.matchStat == -2) {
-                                                                    i3 = obj5;
+                                                                    i4 = obj5;
                                                                     parseContext = parseContext4;
-                                                                    i2 = i11 + 1;
+                                                                    i3 = i12 + 1;
                                                                     cls2 = cls10;
                                                                     cls3 = cls11;
                                                                     parserConfig2 = parserConfig;
@@ -1744,9 +1744,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                             }
                                                         } else {
                                                             if (jSONLexerBase.matchStat == -2) {
-                                                                i3 = obj5;
+                                                                i4 = obj5;
                                                                 parseContext = parseContext4;
-                                                                i2 = i11 + 1;
+                                                                i3 = i12 + 1;
                                                                 cls2 = cls10;
                                                                 cls3 = cls11;
                                                                 parserConfig2 = parserConfig;
@@ -1789,9 +1789,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                         }
                                                     } else {
                                                         if (jSONLexerBase.matchStat == -2) {
-                                                            i3 = obj5;
+                                                            i4 = obj5;
                                                             parseContext = parseContext4;
-                                                            i2 = i11 + 1;
+                                                            i3 = i12 + 1;
                                                             cls2 = cls10;
                                                             cls3 = cls11;
                                                             parserConfig2 = parserConfig;
@@ -1816,12 +1816,12 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                         }
                                                     }
                                                 }
-                                                i12 = i3 + 1;
+                                                i13 = i4 + 1;
                                                 cls11 = cls3;
                                                 parseContext4 = parseContext;
                                                 iArr4 = iArr3;
                                                 config = parserConfig2;
-                                                i11 = i2;
+                                                i12 = i3;
                                                 obj3 = obj6;
                                                 parseContext5 = parseContext2;
                                                 cls10 = cls2;
@@ -1844,33 +1844,33 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                 HashMap hashMap22222222222222222222222 = hashMap;
                                                 if (!z2) {
                                                 }
-                                                i12 = i3 + 1;
+                                                i13 = i4 + 1;
                                                 cls11 = cls3;
                                                 parseContext4 = parseContext;
                                                 iArr4 = iArr3;
                                                 config = parserConfig2;
-                                                i11 = i2;
+                                                i12 = i3;
                                                 obj3 = obj6;
                                                 parseContext5 = parseContext2;
                                                 cls10 = cls2;
                                                 str8 = str2;
                                             } else {
                                                 if (jSONLexerBase.matchStat == -2) {
-                                                    i3 = obj5;
+                                                    i4 = obj5;
                                                     parseContext = parseContext4;
-                                                    i2 = i11 + 1;
+                                                    i3 = i12 + 1;
                                                     cls2 = cls10;
                                                     cls3 = cls11;
                                                     parserConfig2 = parserConfig;
                                                     str2 = str;
                                                     iArr3 = iArr2;
                                                     parseContext2 = parseContext5;
-                                                    i12 = i3 + 1;
+                                                    i13 = i4 + 1;
                                                     cls11 = cls3;
                                                     parseContext4 = parseContext;
                                                     iArr4 = iArr3;
                                                     config = parserConfig2;
-                                                    i11 = i2;
+                                                    i12 = i3;
                                                     obj3 = obj6;
                                                     parseContext5 = parseContext2;
                                                     cls10 = cls2;
@@ -1891,12 +1891,12 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                 HashMap hashMap222222222222222222222222 = hashMap;
                                                 if (!z2) {
                                                 }
-                                                i12 = i3 + 1;
+                                                i13 = i4 + 1;
                                                 cls11 = cls3;
                                                 parseContext4 = parseContext;
                                                 iArr4 = iArr3;
                                                 config = parserConfig2;
-                                                i11 = i2;
+                                                i12 = i3;
                                                 obj3 = obj6;
                                                 parseContext5 = parseContext2;
                                                 cls10 = cls2;
@@ -1920,12 +1920,12 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                             HashMap hashMap2222222222222222222222222 = hashMap;
                                             if (!z2) {
                                             }
-                                            i12 = i3 + 1;
+                                            i13 = i4 + 1;
                                             cls11 = cls3;
                                             parseContext4 = parseContext;
                                             iArr4 = iArr3;
                                             config = parserConfig2;
-                                            i11 = i2;
+                                            i12 = i3;
                                             obj3 = obj6;
                                             parseContext5 = parseContext2;
                                             cls10 = cls2;
@@ -1947,12 +1947,12 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                     HashMap hashMap22222222222222222222222222 = hashMap;
                                     if (!z2) {
                                     }
-                                    i12 = i3 + 1;
+                                    i13 = i4 + 1;
                                     cls11 = cls3;
                                     parseContext4 = parseContext;
                                     iArr4 = iArr3;
                                     config = parserConfig2;
-                                    i11 = i2;
+                                    i12 = i3;
                                     obj3 = obj6;
                                     parseContext5 = parseContext2;
                                     cls10 = cls2;
@@ -1967,12 +1967,12 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                 str = str8;
                                 parserConfig = config;
                             }
-                            i12 = i3 + 1;
+                            i13 = i4 + 1;
                             cls11 = cls3;
                             parseContext4 = parseContext;
                             iArr4 = iArr3;
                             config = parserConfig2;
-                            i11 = i2;
+                            i12 = i3;
                             obj3 = obj6;
                             parseContext5 = parseContext2;
                             cls10 = cls2;
@@ -2032,12 +2032,12 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                             try {
                                 if (strArr != null) {
                                     objArr = new Object[strArr.length];
-                                    int i17 = 0;
-                                    while (i17 < strArr.length) {
-                                        Object remove = hashMap5.remove(strArr[i17]);
+                                    int i18 = 0;
+                                    while (i18 < strArr.length) {
+                                        Object remove = hashMap5.remove(strArr[i18]);
                                         if (remove == null) {
-                                            Type type2 = this.beanInfo.creatorConstructorParameterTypes[i17];
-                                            FieldInfo fieldInfo4 = this.beanInfo.fields[i17];
+                                            Type type2 = this.beanInfo.creatorConstructorParameterTypes[i18];
+                                            FieldInfo fieldInfo4 = this.beanInfo.fields[i18];
                                             if (type2 == Byte.TYPE) {
                                                 remove = Byte.valueOf(b2);
                                             } else if (type2 == Short.TYPE) {
@@ -2061,8 +2061,8 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                             cls8 = cls5;
                                         } else {
                                             cls8 = cls5;
-                                            if (this.beanInfo.creatorConstructorParameterTypes != null && i17 < this.beanInfo.creatorConstructorParameterTypes.length) {
-                                                Type type3 = this.beanInfo.creatorConstructorParameterTypes[i17];
+                                            if (this.beanInfo.creatorConstructorParameterTypes != null && i18 < this.beanInfo.creatorConstructorParameterTypes.length) {
+                                                Type type3 = this.beanInfo.creatorConstructorParameterTypes[i18];
                                                 if (type3 instanceof Class) {
                                                     Class cls15 = (Class) type3;
                                                     if (!cls15.isInstance(remove) && (remove instanceof List)) {
@@ -2072,14 +2072,14 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                                             if (cls15.isInstance(list.get(0))) {
                                                                 remove = list.get(0);
                                                             }
-                                                            objArr[i17] = remove;
-                                                            i17++;
+                                                            objArr[i18] = remove;
+                                                            i18++;
                                                             obj3 = (T) obj10;
                                                             cls5 = cls8;
                                                             b2 = 0;
                                                         }
-                                                        objArr[i17] = remove;
-                                                        i17++;
+                                                        objArr[i18] = remove;
+                                                        i18++;
                                                         obj3 = (T) obj10;
                                                         cls5 = cls8;
                                                         b2 = 0;
@@ -2088,8 +2088,8 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                             }
                                         }
                                         obj10 = obj3;
-                                        objArr[i17] = remove;
-                                        i17++;
+                                        objArr[i18] = remove;
+                                        i18++;
                                         obj3 = (T) obj10;
                                         cls5 = cls8;
                                         b2 = 0;
@@ -2102,9 +2102,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                     FieldInfo[] fieldInfoArr = this.beanInfo.fields;
                                     int length2 = fieldInfoArr.length;
                                     Object[] objArr2 = new Object[length2];
-                                    int i18 = 0;
-                                    while (i18 < length2) {
-                                        FieldInfo fieldInfo5 = fieldInfoArr[i18];
+                                    int i19 = 0;
+                                    while (i19 < length2) {
+                                        FieldInfo fieldInfo5 = fieldInfoArr[i19];
                                         Object obj13 = hashMap5.get(fieldInfo5.name);
                                         if (obj13 == null) {
                                             Type type4 = fieldInfo5.fieldType;
@@ -2129,21 +2129,21 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                         } else {
                                             str6 = str10;
                                         }
-                                        objArr2[i18] = obj13;
-                                        i18++;
+                                        objArr2[i19] = obj13;
+                                        i19++;
                                         str10 = str6;
                                     }
                                     objArr = objArr2;
                                 }
                                 if (this.beanInfo.creatorConstructor != null) {
-                                    if (this.beanInfo.f1649kotlin) {
-                                        int i19 = 0;
+                                    if (this.beanInfo.f1589kotlin) {
+                                        int i20 = 0;
                                         while (true) {
-                                            if (i19 >= objArr.length) {
+                                            if (i20 >= objArr.length) {
                                                 break;
-                                            } else if (objArr[i19] != null || this.beanInfo.fields == null || i19 >= this.beanInfo.fields.length) {
-                                                i19++;
-                                            } else if (this.beanInfo.fields[i19].fieldClass == cls7) {
+                                            } else if (objArr[i20] != null || this.beanInfo.fields == null || i20 >= this.beanInfo.fields.length) {
+                                                i20++;
+                                            } else if (this.beanInfo.fields[i20].fieldClass == cls7) {
                                                 z4 = true;
                                             }
                                         }
@@ -2153,11 +2153,11 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                         try {
                                             if (this.beanInfo.kotlinDefaultConstructor != null) {
                                                 obj3 = this.beanInfo.kotlinDefaultConstructor.newInstance(new Object[0]);
-                                                for (int i20 = 0; i20 < objArr.length; i20++) {
+                                                for (int i21 = 0; i21 < objArr.length; i21++) {
                                                     try {
-                                                        Object obj14 = objArr[i20];
-                                                        if (obj14 != null && this.beanInfo.fields != null && i20 < this.beanInfo.fields.length) {
-                                                            this.beanInfo.fields[i20].set(obj3, obj14);
+                                                        Object obj14 = objArr[i21];
+                                                        if (obj14 != null && this.beanInfo.fields != null && i21 < this.beanInfo.fields.length) {
+                                                            this.beanInfo.fields[i21].set(obj3, obj14);
                                                         }
                                                     } catch (Exception e3) {
                                                         e = e3;
@@ -2259,8 +2259,8 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
     public JavaBeanDeserializer(ParserConfig parserConfig, JavaBeanInfo javaBeanInfo) {
         ParserConfig.AutoTypeCheckHandler autoTypeCheckHandler;
         int length;
-        int i;
         int i2;
+        int i3;
         int length2;
         String[] strArr;
         this.clazz = javaBeanInfo.clazz;
@@ -2276,10 +2276,10 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
             FieldInfo[] fieldInfoArr = javaBeanInfo.sortedFields;
             this.sortedFieldDeserializers = new FieldDeserializer[fieldInfoArr.length];
             length = fieldInfoArr.length;
-            for (i2 = 0; i2 < length; i2++) {
-                FieldInfo fieldInfo = javaBeanInfo.sortedFields[i2];
+            for (i3 = 0; i3 < length; i3++) {
+                FieldInfo fieldInfo = javaBeanInfo.sortedFields[i3];
                 FieldDeserializer createFieldDeserializer = parserConfig.createFieldDeserializer(parserConfig, javaBeanInfo, fieldInfo);
-                this.sortedFieldDeserializers[i2] = createFieldDeserializer;
+                this.sortedFieldDeserializers[i3] = createFieldDeserializer;
                 if (length > 128) {
                     if (this.fieldDeserializerMap == null) {
                         this.fieldDeserializerMap = new HashMap();
@@ -2297,8 +2297,8 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
             FieldInfo[] fieldInfoArr2 = javaBeanInfo.fields;
             this.fieldDeserializers = new FieldDeserializer[fieldInfoArr2.length];
             length2 = fieldInfoArr2.length;
-            for (i = 0; i < length2; i++) {
-                this.fieldDeserializers[i] = getFieldDeserializer(javaBeanInfo.fields[i].name);
+            for (i2 = 0; i2 < length2; i2++) {
+                this.fieldDeserializers[i2] = getFieldDeserializer(javaBeanInfo.fields[i2].name);
             }
         }
         autoTypeCheckHandler = null;
@@ -2306,28 +2306,28 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         FieldInfo[] fieldInfoArr3 = javaBeanInfo.sortedFields;
         this.sortedFieldDeserializers = new FieldDeserializer[fieldInfoArr3.length];
         length = fieldInfoArr3.length;
-        while (i2 < length) {
+        while (i3 < length) {
         }
         this.alterNameFieldDeserializers = hashMap;
         FieldInfo[] fieldInfoArr22 = javaBeanInfo.fields;
         this.fieldDeserializers = new FieldDeserializer[fieldInfoArr22.length];
         length2 = fieldInfoArr22.length;
-        while (i < length2) {
+        while (i2 < length2) {
         }
     }
 
     public FieldDeserializer getFieldDeserializer(long j) {
-        int i = 0;
+        int i2 = 0;
         if (this.hashArray == null) {
             long[] jArr = new long[this.sortedFieldDeserializers.length];
-            int i2 = 0;
+            int i3 = 0;
             while (true) {
                 FieldDeserializer[] fieldDeserializerArr = this.sortedFieldDeserializers;
-                if (i2 >= fieldDeserializerArr.length) {
+                if (i3 >= fieldDeserializerArr.length) {
                     break;
                 }
-                jArr[i2] = TypeUtils.fnv1a_64(fieldDeserializerArr[i2].fieldInfo.name);
-                i2++;
+                jArr[i3] = TypeUtils.fnv1a_64(fieldDeserializerArr[i3].fieldInfo.name);
+                i3++;
             }
             Arrays.sort(jArr);
             this.hashArray = jArr;
@@ -2341,14 +2341,14 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
             Arrays.fill(sArr, (short) -1);
             while (true) {
                 FieldDeserializer[] fieldDeserializerArr2 = this.sortedFieldDeserializers;
-                if (i >= fieldDeserializerArr2.length) {
+                if (i2 >= fieldDeserializerArr2.length) {
                     break;
                 }
-                int binarySearch2 = Arrays.binarySearch(this.hashArray, TypeUtils.fnv1a_64(fieldDeserializerArr2[i].fieldInfo.name));
+                int binarySearch2 = Arrays.binarySearch(this.hashArray, TypeUtils.fnv1a_64(fieldDeserializerArr2[i2].fieldInfo.name));
                 if (binarySearch2 >= 0) {
-                    sArr[binarySearch2] = (short) i;
+                    sArr[binarySearch2] = (short) i2;
                 }
-                i++;
+                i2++;
             }
             this.hashArrayMapping = sArr;
         }
@@ -2512,8 +2512,8 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         int length = fieldInfoArr.length;
         Object[] objArr = new Object[length];
         HashMap hashMap = null;
-        for (int i = 0; i < length; i++) {
-            FieldInfo fieldInfo2 = fieldInfoArr[i];
+        for (int i2 = 0; i2 < length; i2++) {
+            FieldInfo fieldInfo2 = fieldInfoArr[i2];
             char c2 = map.get(fieldInfo2.name);
             if (c2 == null) {
                 Class<?> cls2 = fieldInfo2.fieldClass;
@@ -2537,9 +2537,9 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                 if (hashMap == null) {
                     hashMap = new HashMap();
                 }
-                hashMap.put(fieldInfo2.name, Integer.valueOf(i));
+                hashMap.put(fieldInfo2.name, Integer.valueOf(i2));
             }
-            objArr[i] = c2;
+            objArr[i2] = c2;
         }
         if (hashMap != null) {
             for (Map.Entry<String, Object> entry2 : map.entrySet()) {
@@ -2552,20 +2552,20 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
         }
         JavaBeanInfo javaBeanInfo2 = this.beanInfo;
         if (javaBeanInfo2.creatorConstructor != null) {
-            if (javaBeanInfo2.f1649kotlin) {
+            if (javaBeanInfo2.f1589kotlin) {
                 z = false;
-                for (int i2 = 0; i2 < length; i2++) {
-                    Object obj = objArr[i2];
+                for (int i3 = 0; i3 < length; i3++) {
+                    Object obj = objArr[i3];
                     if (obj == null) {
                         FieldInfo[] fieldInfoArr2 = this.beanInfo.fields;
-                        if (fieldInfoArr2 != null && i2 < fieldInfoArr2.length && fieldInfoArr2[i2].fieldClass == String.class) {
+                        if (fieldInfoArr2 != null && i3 < fieldInfoArr2.length && fieldInfoArr2[i3].fieldClass == String.class) {
                             z = true;
                         }
                     } else {
                         Class<?> cls3 = obj.getClass();
                         FieldInfo[] fieldInfoArr3 = this.beanInfo.fields;
-                        if (cls3 != fieldInfoArr3[i2].fieldClass) {
-                            objArr[i2] = TypeUtils.cast(obj, (Class<Object>) fieldInfoArr3[i2].fieldClass, parserConfig);
+                        if (cls3 != fieldInfoArr3[i3].fieldClass) {
+                            objArr[i3] = TypeUtils.cast(obj, (Class<Object>) fieldInfoArr3[i3].fieldClass, parserConfig);
                         }
                     }
                 }
@@ -2575,10 +2575,10 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
             if (z && (constructor = this.beanInfo.kotlinDefaultConstructor) != null) {
                 try {
                     Object newInstance = constructor.newInstance(new Object[0]);
-                    for (int i3 = 0; i3 < length; i3++) {
-                        Object obj2 = objArr[i3];
-                        if (obj2 != null && this.beanInfo.fields != null && i3 < this.beanInfo.fields.length) {
-                            this.beanInfo.fields[i3].set(newInstance, obj2);
+                    for (int i4 = 0; i4 < length; i4++) {
+                        Object obj2 = objArr[i4];
+                        if (obj2 != null && this.beanInfo.fields != null && i4 < this.beanInfo.fields.length) {
+                            this.beanInfo.fields[i4].set(newInstance, obj2);
                         }
                     }
                     return newInstance;

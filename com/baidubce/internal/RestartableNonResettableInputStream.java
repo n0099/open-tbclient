@@ -12,19 +12,19 @@ public class RestartableNonResettableInputStream extends RestartableInputStream 
     public int offset = 0;
     public int length = 0;
 
-    public RestartableNonResettableInputStream(InputStream inputStream, int i) {
+    public RestartableNonResettableInputStream(InputStream inputStream, int i2) {
         this.eof = false;
         CheckUtils.isNotNull(inputStream, "input should not be null.");
-        CheckUtils.checkArgument(i >= 0, "bufferSize should not be negative: " + i);
-        this.buffer = new byte[i];
+        CheckUtils.checkArgument(i2 >= 0, "bufferSize should not be negative: " + i2);
+        this.buffer = new byte[i2];
         this.input = inputStream;
         while (true) {
-            int i2 = this.length;
-            if (i2 >= i) {
+            int i3 = this.length;
+            if (i3 >= i2) {
                 return;
             }
             try {
-                int read = this.input.read(this.buffer, i2, i - i2);
+                int read = this.input.read(this.buffer, i3, i2 - i3);
                 if (read < 0) {
                     this.eof = true;
                     return;
@@ -42,28 +42,28 @@ public class RestartableNonResettableInputStream extends RestartableInputStream 
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
         CheckUtils.isNotNull(bArr, "b should not be null.");
-        if (i < 0 || i2 < 0 || i2 > bArr.length - i) {
+        if (i2 < 0 || i3 < 0 || i3 > bArr.length - i2) {
             throw new IndexOutOfBoundsException();
         }
-        if (i2 == 0) {
+        if (i3 == 0) {
             return 0;
         }
-        int i3 = this.offset;
-        int i4 = this.length;
-        if (i3 < i4) {
-            int i5 = i4 - i3;
-            if (i5 <= i2) {
-                i2 = i5;
+        int i4 = this.offset;
+        int i5 = this.length;
+        if (i4 < i5) {
+            int i6 = i5 - i4;
+            if (i6 <= i3) {
+                i3 = i6;
             }
-            System.arraycopy(this.buffer, this.offset, bArr, i, i2);
-            this.offset += i2;
-            return i2;
+            System.arraycopy(this.buffer, this.offset, bArr, i2, i3);
+            this.offset += i3;
+            return i3;
         } else if (this.eof) {
             return -1;
         } else {
-            int read = this.input.read(bArr, i, i2);
+            int read = this.input.read(bArr, i2, i3);
             if (read < 0) {
                 this.eof = true;
                 return -1;
@@ -84,11 +84,11 @@ public class RestartableNonResettableInputStream extends RestartableInputStream 
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        int i = this.offset;
-        if (i < this.length) {
+        int i2 = this.offset;
+        if (i2 < this.length) {
             byte[] bArr = this.buffer;
-            this.offset = i + 1;
-            return bArr[i] & 255;
+            this.offset = i2 + 1;
+            return bArr[i2] & 255;
         } else if (this.eof) {
             return -1;
         } else {

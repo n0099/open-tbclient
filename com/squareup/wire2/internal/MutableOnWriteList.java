@@ -21,32 +21,32 @@ public final class MutableOnWriteList<T> extends AbstractList<T> implements Rand
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public void add(int i, T t) {
+    public void add(int i2, T t) {
         if (this.mutableList == this.immutableList) {
             this.mutableList = new ArrayList(this.immutableList);
         }
-        this.mutableList.add(i, t);
+        this.mutableList.add(i2, t);
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public T get(int i) {
-        return this.mutableList.get(i);
+    public T get(int i2) {
+        return this.mutableList.get(i2);
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public T remove(int i) {
+    public T remove(int i2) {
         if (this.mutableList == this.immutableList) {
             this.mutableList = new ArrayList(this.immutableList);
         }
-        return this.mutableList.remove(i);
+        return this.mutableList.remove(i2);
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public T set(int i, T t) {
+    public T set(int i2, T t) {
         if (this.mutableList == this.immutableList) {
             this.mutableList = new ArrayList(this.immutableList);
         }
-        return this.mutableList.set(i, t);
+        return this.mutableList.set(i2, t);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List

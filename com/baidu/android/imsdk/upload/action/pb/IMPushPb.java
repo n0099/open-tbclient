@@ -281,26 +281,26 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Ack buildPartial() {
                 Ack ack = new Ack(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 ack.type = this.type;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
                 ack.value = this.value;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
                 }
                 ack.timestamp = this.timestamp;
-                if ((i & 8) == 8) {
-                    i2 |= 8;
+                if ((i2 & 8) == 8) {
+                    i3 |= 8;
                 }
                 ack.ext = this.ext;
-                if ((i & 16) == 16) {
-                    i2 |= 16;
+                if ((i2 & 16) == 16) {
+                    i3 |= 16;
                 }
                 ack.aliasId = this.aliasId;
-                ack.bitField0 = i2;
+                ack.bitField0 = i3;
                 return ack;
             }
 
@@ -309,19 +309,19 @@ public final class IMPushPb {
             public Builder clear() {
                 super.clear();
                 this.type = "";
-                int i = this.bitField0 & (-2);
-                this.bitField0 = i;
-                this.value = "";
-                int i2 = i & (-3);
+                int i2 = this.bitField0 & (-2);
                 this.bitField0 = i2;
-                this.timestamp = 0L;
-                int i3 = i2 & (-5);
+                this.value = "";
+                int i3 = i2 & (-3);
                 this.bitField0 = i3;
-                this.ext = "";
-                int i4 = i3 & (-9);
+                this.timestamp = 0L;
+                int i4 = i3 & (-5);
                 this.bitField0 = i4;
+                this.ext = "";
+                int i5 = i4 & (-9);
+                this.bitField0 = i5;
                 this.aliasId = 0L;
-                this.bitField0 = i4 & (-17);
+                this.bitField0 = i5 & (-17);
                 return this;
             }
 
@@ -468,9 +468,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getTypeBytes()) : 0;
             if ((this.bitField0 & 2) == 2) {
@@ -1086,38 +1086,38 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Action buildPartial() {
                 Action action = new Action(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 action.actionType = this.actionType;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
                 action.ui = this.ui;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
                 }
                 action.crash = this.crash;
-                if ((i & 8) == 8) {
-                    i2 |= 8;
+                if ((i2 & 8) == 8) {
+                    i3 |= 8;
                 }
                 action.db = this.db;
-                if ((i & 16) == 16) {
-                    i2 |= 16;
+                if ((i2 & 16) == 16) {
+                    i3 |= 16;
                 }
                 action.connection = this.connection;
-                if ((i & 32) == 32) {
-                    i2 |= 32;
+                if ((i2 & 32) == 32) {
+                    i3 |= 32;
                 }
                 action.request = this.request;
-                if ((i & 64) == 64) {
-                    i2 |= 64;
+                if ((i2 & 64) == 64) {
+                    i3 |= 64;
                 }
                 action.ack = this.ack;
-                if ((i & 128) == 128) {
-                    i2 |= 128;
+                if ((i2 & 128) == 128) {
+                    i3 |= 128;
                 }
                 action.msg = this.msg;
-                action.bitField0 = i2;
+                action.bitField0 = i3;
                 return action;
             }
 
@@ -1343,9 +1343,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeEnumSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeEnumSize(1, this.actionType.getNumber()) : 0;
             if ((this.bitField0 & 2) == 2) {
@@ -1683,14 +1683,14 @@ public final class IMPushPb {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.protobuf.Internal.EnumLiteMap
-            public ActionType findValueByNumber(int i) {
-                return ActionType.valueOf(i);
+            public ActionType findValueByNumber(int i2) {
+                return ActionType.valueOf(i2);
             }
         };
         public final int value;
 
-        ActionType(int i, int i2) {
-            this.value = i2;
+        ActionType(int i2, int i3) {
+            this.value = i3;
         }
 
         public static Internal.EnumLiteMap<ActionType> internalGetValueMap() {
@@ -1702,14 +1702,14 @@ public final class IMPushPb {
             return this.value;
         }
 
-        public static ActionType valueOf(int i) {
-            if (i != 101) {
-                if (i != 201) {
-                    if (i != 301) {
-                        if (i != 401) {
-                            if (i != 501) {
-                                if (i != 601) {
-                                    if (i != 701) {
+        public static ActionType valueOf(int i2) {
+            if (i2 != 101) {
+                if (i2 != 201) {
+                    if (i2 != 301) {
+                        if (i2 != 401) {
+                            if (i2 != 501) {
+                                if (i2 != 601) {
+                                    if (i2 != 701) {
                                         return null;
                                     }
                                     return MSG;
@@ -1939,18 +1939,18 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public AppInfo buildPartial() {
                 AppInfo appInfo = new AppInfo(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 appInfo.appName = this.appName;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
                 appInfo.appVersion = this.appVersion;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
                 }
                 appInfo.appChannel = this.appChannel;
-                appInfo.bitField0 = i2;
+                appInfo.bitField0 = i3;
                 return appInfo;
             }
 
@@ -1959,13 +1959,13 @@ public final class IMPushPb {
             public Builder clear() {
                 super.clear();
                 this.appName = "";
-                int i = this.bitField0 & (-2);
-                this.bitField0 = i;
-                this.appVersion = "";
-                int i2 = i & (-3);
+                int i2 = this.bitField0 & (-2);
                 this.bitField0 = i2;
+                this.appVersion = "";
+                int i3 = i2 & (-3);
+                this.bitField0 = i3;
                 this.appChannel = "";
-                this.bitField0 = i2 & (-5);
+                this.bitField0 = i3 & (-5);
                 return this;
             }
 
@@ -2149,9 +2149,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getAppNameBytes()) : 0;
             if ((this.bitField0 & 2) == 2) {
@@ -2695,38 +2695,38 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Common buildPartial() {
                 Common common2 = new Common(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 common2.productName = this.productName;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
                 common2.moduleName = this.moduleName;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
                 }
                 common2.deviceId = this.deviceId;
-                if ((i & 8) == 8) {
-                    i2 |= 8;
+                if ((i2 & 8) == 8) {
+                    i3 |= 8;
                 }
                 common2.timestamp = this.timestamp;
-                if ((i & 16) == 16) {
-                    i2 |= 16;
+                if ((i2 & 16) == 16) {
+                    i3 |= 16;
                 }
                 common2.userTimestamp = this.userTimestamp;
-                if ((i & 32) == 32) {
-                    i2 |= 32;
+                if ((i2 & 32) == 32) {
+                    i3 |= 32;
                 }
                 common2.terminalInfo = this.terminalInfo;
-                if ((i & 64) == 64) {
-                    i2 |= 64;
+                if ((i2 & 64) == 64) {
+                    i3 |= 64;
                 }
                 common2.appInfo = this.appInfo;
-                if ((i & 128) == 128) {
-                    i2 |= 128;
+                if ((i2 & 128) == 128) {
+                    i3 |= 128;
                 }
                 common2.netInfo = this.netInfo;
-                common2.bitField0 = i2;
+                common2.bitField0 = i3;
                 return common2;
             }
 
@@ -2735,18 +2735,18 @@ public final class IMPushPb {
             public Builder clear() {
                 super.clear();
                 this.productName = "";
-                int i = this.bitField0 & (-2);
-                this.bitField0 = i;
-                this.moduleName = "";
-                this.bitField0 = i & (-3);
-                this.deviceId = DeviceID.getDefaultInstance();
-                int i2 = this.bitField0 & (-5);
+                int i2 = this.bitField0 & (-2);
                 this.bitField0 = i2;
-                this.timestamp = 0L;
-                int i3 = i2 & (-9);
+                this.moduleName = "";
+                this.bitField0 = i2 & (-3);
+                this.deviceId = DeviceID.getDefaultInstance();
+                int i3 = this.bitField0 & (-5);
                 this.bitField0 = i3;
+                this.timestamp = 0L;
+                int i4 = i3 & (-9);
+                this.bitField0 = i4;
                 this.userTimestamp = 0L;
-                this.bitField0 = i3 & (-17);
+                this.bitField0 = i4 & (-17);
                 this.terminalInfo = TerminalInfo.getDefaultInstance();
                 this.bitField0 &= -33;
                 this.appInfo = AppInfo.getDefaultInstance();
@@ -2969,9 +2969,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getProductNameBytes()) : 0;
             if ((this.bitField0 & 2) == 2) {
@@ -3572,34 +3572,34 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Connection buildPartial() {
                 Connection connection = new Connection(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 connection.startTime = this.startTime;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
                 connection.stopTime = this.stopTime;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
                 }
                 connection.reason = this.reason;
-                if ((i & 8) == 8) {
-                    i2 |= 8;
+                if ((i2 & 8) == 8) {
+                    i3 |= 8;
                 }
                 connection.retryTime = this.retryTime;
-                if ((i & 16) == 16) {
-                    i2 |= 16;
+                if ((i2 & 16) == 16) {
+                    i3 |= 16;
                 }
                 connection.retryCount = this.retryCount;
-                if ((i & 32) == 32) {
-                    i2 |= 32;
+                if ((i2 & 32) == 32) {
+                    i3 |= 32;
                 }
                 connection.ext = this.ext;
-                if ((i & 64) == 64) {
-                    i2 |= 64;
+                if ((i2 & 64) == 64) {
+                    i3 |= 64;
                 }
                 connection.aliasId = this.aliasId;
-                connection.bitField0 = i2;
+                connection.bitField0 = i3;
                 return connection;
             }
 
@@ -3608,25 +3608,25 @@ public final class IMPushPb {
             public Builder clear() {
                 super.clear();
                 this.startTime = 0L;
-                int i = this.bitField0 & (-2);
-                this.bitField0 = i;
-                this.stopTime = 0L;
-                int i2 = i & (-3);
+                int i2 = this.bitField0 & (-2);
                 this.bitField0 = i2;
-                this.reason = "";
-                int i3 = i2 & (-5);
+                this.stopTime = 0L;
+                int i3 = i2 & (-3);
                 this.bitField0 = i3;
-                this.retryTime = 0L;
-                int i4 = i3 & (-9);
+                this.reason = "";
+                int i4 = i3 & (-5);
                 this.bitField0 = i4;
-                this.retryCount = 0L;
-                int i5 = i4 & (-17);
+                this.retryTime = 0L;
+                int i5 = i4 & (-9);
                 this.bitField0 = i5;
-                this.ext = "";
-                int i6 = i5 & (-33);
+                this.retryCount = 0L;
+                int i6 = i5 & (-17);
                 this.bitField0 = i6;
+                this.ext = "";
+                int i7 = i6 & (-33);
+                this.bitField0 = i7;
                 this.aliasId = 0L;
-                this.bitField0 = i6 & (-65);
+                this.bitField0 = i7 & (-65);
                 return this;
             }
 
@@ -3815,9 +3815,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeInt64Size = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.startTime) : 0;
             if ((this.bitField0 & 2) == 2) {
@@ -4286,22 +4286,22 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Crash buildPartial() {
                 Crash crash = new Crash(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 crash.exception = this.exception;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
                 crash.timestamp = this.timestamp;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
                 }
                 crash.ext = this.ext;
-                if ((i & 8) == 8) {
-                    i2 |= 8;
+                if ((i2 & 8) == 8) {
+                    i3 |= 8;
                 }
                 crash.aliasId = this.aliasId;
-                crash.bitField0 = i2;
+                crash.bitField0 = i3;
                 return crash;
             }
 
@@ -4310,16 +4310,16 @@ public final class IMPushPb {
             public Builder clear() {
                 super.clear();
                 this.exception = "";
-                int i = this.bitField0 & (-2);
-                this.bitField0 = i;
-                this.timestamp = 0L;
-                int i2 = i & (-3);
+                int i2 = this.bitField0 & (-2);
                 this.bitField0 = i2;
-                this.ext = "";
-                int i3 = i2 & (-5);
+                this.timestamp = 0L;
+                int i3 = i2 & (-3);
                 this.bitField0 = i3;
+                this.ext = "";
+                int i4 = i3 & (-5);
+                this.bitField0 = i4;
                 this.aliasId = 0L;
-                this.bitField0 = i3 & (-9);
+                this.bitField0 = i4 & (-9);
                 return this;
             }
 
@@ -4486,9 +4486,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getExceptionBytes()) : 0;
             if ((this.bitField0 & 2) == 2) {
@@ -5110,42 +5110,42 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Db buildPartial() {
                 Db db = new Db(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 db.table = this.table;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
                 db.className = this.className;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
                 }
                 db.method = this.method;
-                if ((i & 8) == 8) {
-                    i2 |= 8;
+                if ((i2 & 8) == 8) {
+                    i3 |= 8;
                 }
                 db.action = this.action;
-                if ((i & 16) == 16) {
-                    i2 |= 16;
+                if ((i2 & 16) == 16) {
+                    i3 |= 16;
                 }
                 db.startTime = this.startTime;
-                if ((i & 32) == 32) {
-                    i2 |= 32;
+                if ((i2 & 32) == 32) {
+                    i3 |= 32;
                 }
                 db.endTime = this.endTime;
-                if ((i & 64) == 64) {
-                    i2 |= 64;
+                if ((i2 & 64) == 64) {
+                    i3 |= 64;
                 }
                 db.duration = this.duration;
-                if ((i & 128) == 128) {
-                    i2 |= 128;
+                if ((i2 & 128) == 128) {
+                    i3 |= 128;
                 }
                 db.ext = this.ext;
-                if ((i & 256) == 256) {
-                    i2 |= 256;
+                if ((i2 & 256) == 256) {
+                    i3 |= 256;
                 }
                 db.aliasId = this.aliasId;
-                db.bitField0 = i2;
+                db.bitField0 = i3;
                 return db;
             }
 
@@ -5154,31 +5154,31 @@ public final class IMPushPb {
             public Builder clear() {
                 super.clear();
                 this.table = "";
-                int i = this.bitField0 & (-2);
-                this.bitField0 = i;
-                this.className = "";
-                int i2 = i & (-3);
+                int i2 = this.bitField0 & (-2);
                 this.bitField0 = i2;
-                this.method = "";
-                int i3 = i2 & (-5);
+                this.className = "";
+                int i3 = i2 & (-3);
                 this.bitField0 = i3;
-                this.action = "";
-                int i4 = i3 & (-9);
+                this.method = "";
+                int i4 = i3 & (-5);
                 this.bitField0 = i4;
-                this.startTime = 0L;
-                int i5 = i4 & (-17);
+                this.action = "";
+                int i5 = i4 & (-9);
                 this.bitField0 = i5;
-                this.endTime = 0L;
-                int i6 = i5 & (-33);
+                this.startTime = 0L;
+                int i6 = i5 & (-17);
                 this.bitField0 = i6;
-                this.duration = 0L;
-                int i7 = i6 & (-65);
+                this.endTime = 0L;
+                int i7 = i6 & (-33);
                 this.bitField0 = i7;
-                this.ext = "";
-                int i8 = i7 & (-129);
+                this.duration = 0L;
+                int i8 = i7 & (-65);
                 this.bitField0 = i8;
+                this.ext = "";
+                int i9 = i8 & (-129);
+                this.bitField0 = i9;
                 this.aliasId = 0L;
-                this.bitField0 = i8 & (-257);
+                this.bitField0 = i9 & (-257);
                 return this;
             }
 
@@ -5428,9 +5428,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getTableBytes()) : 0;
             if ((this.bitField0 & 2) == 2) {
@@ -5855,9 +5855,9 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public DeviceID buildPartial() {
                 DeviceID deviceID = new DeviceID(this);
-                int i = (this.bitField0 & 1) != 1 ? 0 : 1;
+                int i2 = (this.bitField0 & 1) != 1 ? 0 : 1;
                 deviceID.cuid = this.cuid;
-                deviceID.bitField0 = i;
+                deviceID.bitField0 = i2;
                 return deviceID;
             }
 
@@ -5987,9 +5987,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(4, getCuidBytes()) : 0;
             this.memoizedSerializedSize = computeBytesSize;
@@ -6259,9 +6259,9 @@ public final class IMPushPb {
                 return true;
             }
 
-            public Builder setLogModuleId(int i) {
+            public Builder setLogModuleId(int i2) {
                 this.bitField0 |= 1;
-                this.logModuleId = i;
+                this.logModuleId = i2;
                 return this;
             }
 
@@ -6315,18 +6315,18 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public MetaData buildPartial() {
                 MetaData metaData = new MetaData(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 metaData.logModuleId = this.logModuleId;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
                 metaData.logName = this.logName;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
                 }
                 metaData.productName = this.productName;
-                metaData.bitField0 = i2;
+                metaData.bitField0 = i3;
                 return metaData;
             }
 
@@ -6335,13 +6335,13 @@ public final class IMPushPb {
             public Builder clear() {
                 super.clear();
                 this.logModuleId = 7399;
-                int i = this.bitField0 & (-2);
-                this.bitField0 = i;
-                this.logName = "push_im_client";
-                int i2 = i & (-3);
+                int i2 = this.bitField0 & (-2);
                 this.bitField0 = i2;
+                this.logName = "push_im_client";
+                int i3 = i2 & (-3);
+                this.bitField0 = i3;
                 this.productName = "phonebaidu";
-                this.bitField0 = i2 & (-5);
+                this.bitField0 = i3 & (-5);
                 return this;
             }
 
@@ -6504,9 +6504,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeInt32Size = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.logModuleId) : 0;
             if ((this.bitField0 & 2) == 2) {
@@ -6968,34 +6968,34 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Msg buildPartial() {
                 Msg msg = new Msg(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 msg.msgCount = this.msgCount;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
                 msg.roomId = this.roomId;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
                 }
                 msg.duration = this.duration;
-                if ((i & 8) == 8) {
-                    i2 |= 8;
+                if ((i2 & 8) == 8) {
+                    i3 |= 8;
                 }
                 msg.endMsgid = this.endMsgid;
-                if ((i & 16) == 16) {
-                    i2 |= 16;
+                if ((i2 & 16) == 16) {
+                    i3 |= 16;
                 }
                 msg.ext = this.ext;
-                if ((i & 32) == 32) {
-                    i2 |= 32;
+                if ((i2 & 32) == 32) {
+                    i3 |= 32;
                 }
                 msg.aliasId = this.aliasId;
-                if ((i & 64) == 64) {
-                    i2 |= 64;
+                if ((i2 & 64) == 64) {
+                    i3 |= 64;
                 }
                 msg.startMsgid = this.startMsgid;
-                msg.bitField0 = i2;
+                msg.bitField0 = i3;
                 return msg;
             }
 
@@ -7004,25 +7004,25 @@ public final class IMPushPb {
             public Builder clear() {
                 super.clear();
                 this.msgCount = 0L;
-                int i = this.bitField0 & (-2);
-                this.bitField0 = i;
-                this.roomId = "";
-                int i2 = i & (-3);
+                int i2 = this.bitField0 & (-2);
                 this.bitField0 = i2;
-                this.duration = 0L;
-                int i3 = i2 & (-5);
+                this.roomId = "";
+                int i3 = i2 & (-3);
                 this.bitField0 = i3;
-                this.endMsgid = 0L;
-                int i4 = i3 & (-9);
+                this.duration = 0L;
+                int i4 = i3 & (-5);
                 this.bitField0 = i4;
-                this.ext = "";
-                int i5 = i4 & (-17);
+                this.endMsgid = 0L;
+                int i5 = i4 & (-9);
                 this.bitField0 = i5;
-                this.aliasId = 0L;
-                int i6 = i5 & (-33);
+                this.ext = "";
+                int i6 = i5 & (-17);
                 this.bitField0 = i6;
+                this.aliasId = 0L;
+                int i7 = i6 & (-33);
+                this.bitField0 = i7;
                 this.startMsgid = 0L;
-                this.bitField0 = i6 & (-65);
+                this.bitField0 = i7 & (-65);
                 return this;
             }
 
@@ -7216,9 +7216,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeInt64Size = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.msgCount) : 0;
             if ((this.bitField0 & 2) == 2) {
@@ -7630,14 +7630,14 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public NetInfo buildPartial() {
                 NetInfo netInfo = new NetInfo(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 netInfo.netType = this.netType;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
                 netInfo.netApn = this.netApn;
-                netInfo.bitField0 = i2;
+                netInfo.bitField0 = i3;
                 return netInfo;
             }
 
@@ -7646,10 +7646,10 @@ public final class IMPushPb {
             public Builder clear() {
                 super.clear();
                 this.netType = "";
-                int i = this.bitField0 & (-2);
-                this.bitField0 = i;
+                int i2 = this.bitField0 & (-2);
+                this.bitField0 = i2;
                 this.netApn = "";
-                this.bitField0 = i & (-3);
+                this.bitField0 = i2 & (-3);
                 return this;
             }
 
@@ -7803,9 +7803,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getNetTypeBytes()) : 0;
             if ((this.bitField0 & 2) == 2) {
@@ -7980,14 +7980,14 @@ public final class IMPushPb {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.protobuf.Internal.EnumLiteMap
-            public OSType findValueByNumber(int i) {
-                return OSType.valueOf(i);
+            public OSType findValueByNumber(int i2) {
+                return OSType.valueOf(i2);
             }
         };
         public final int value;
 
-        OSType(int i, int i2) {
-            this.value = i2;
+        OSType(int i2, int i3) {
+            this.value = i3;
         }
 
         public static Internal.EnumLiteMap<OSType> internalGetValueMap() {
@@ -7999,11 +7999,11 @@ public final class IMPushPb {
             return this.value;
         }
 
-        public static OSType valueOf(int i) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
+        public static OSType valueOf(int i2) {
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
                             return null;
                         }
                         return WINDOWSPHONE;
@@ -8036,7 +8036,7 @@ public final class IMPushPb {
         public int bitField0;
 
         /* renamed from: common  reason: collision with root package name */
-        public Common f2563common;
+        public Common f2560common;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
         public MetaData metadata;
@@ -8050,7 +8050,7 @@ public final class IMPushPb {
             public MetaData metadata = MetaData.getDefaultInstance();
 
             /* renamed from: common  reason: collision with root package name */
-            public Common f2564common = Common.getDefaultInstance();
+            public Common f2561common = Common.getDefaultInstance();
             public Object sdkName = "";
             public List<Action> actions = Collections.emptyList();
 
@@ -8094,7 +8094,7 @@ public final class IMPushPb {
             }
 
             public Builder clearCommon() {
-                this.f2564common = Common.getDefaultInstance();
+                this.f2561common = Common.getDefaultInstance();
                 this.bitField0 &= -3;
                 return this;
             }
@@ -8118,8 +8118,8 @@ public final class IMPushPb {
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
-            public Action getActions(int i) {
-                return this.actions.get(i);
+            public Action getActions(int i2) {
+                return this.actions.get(i2);
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
@@ -8134,7 +8134,7 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public Common getCommon() {
-                return this.f2564common;
+                return this.f2561common;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
@@ -8195,10 +8195,10 @@ public final class IMPushPb {
             }
 
             public Builder mergeCommon(Common common2) {
-                if ((this.bitField0 & 2) == 2 && this.f2564common != Common.getDefaultInstance()) {
-                    this.f2564common = Common.newBuilder(this.f2564common).mergeFrom(common2).buildPartial();
+                if ((this.bitField0 & 2) == 2 && this.f2561common != Common.getDefaultInstance()) {
+                    this.f2561common = Common.newBuilder(this.f2561common).mergeFrom(common2).buildPartial();
                 } else {
-                    this.f2564common = common2;
+                    this.f2561common = common2;
                 }
                 this.bitField0 |= 2;
                 return this;
@@ -8214,16 +8214,16 @@ public final class IMPushPb {
                 return this;
             }
 
-            public Builder removeActions(int i) {
+            public Builder removeActions(int i2) {
                 ensureActionsIsMutable();
-                this.actions.remove(i);
+                this.actions.remove(i2);
                 return this;
             }
 
-            public Builder setActions(int i, Action action) {
+            public Builder setActions(int i2, Action action) {
                 if (action != null) {
                     ensureActionsIsMutable();
-                    this.actions.set(i, action);
+                    this.actions.set(i2, action);
                     return this;
                 }
                 throw null;
@@ -8231,7 +8231,7 @@ public final class IMPushPb {
 
             public Builder setCommon(Common common2) {
                 if (common2 != null) {
-                    this.f2564common = common2;
+                    this.f2561common = common2;
                     this.bitField0 |= 2;
                     return this;
                 }
@@ -8285,19 +8285,19 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public PushImClient buildPartial() {
                 PushImClient pushImClient = new PushImClient(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 pushImClient.metadata = this.metadata;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
-                pushImClient.f2563common = this.f2564common;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
+                pushImClient.f2560common = this.f2561common;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
                 }
                 pushImClient.sdkName = this.sdkName;
-                if ((i & 8) == 8) {
-                    i2 |= 8;
+                if ((i2 & 8) == 8) {
+                    i3 |= 8;
                 }
                 pushImClient.sdkVersion = this.sdkVersion;
                 if ((this.bitField0 & 16) == 16) {
@@ -8305,7 +8305,7 @@ public final class IMPushPb {
                     this.bitField0 &= -17;
                 }
                 pushImClient.actions = this.actions;
-                pushImClient.bitField0 = i2;
+                pushImClient.bitField0 = i3;
                 return pushImClient;
             }
 
@@ -8315,14 +8315,14 @@ public final class IMPushPb {
                 super.clear();
                 this.metadata = MetaData.getDefaultInstance();
                 this.bitField0 &= -2;
-                this.f2564common = Common.getDefaultInstance();
-                int i = this.bitField0 & (-3);
-                this.bitField0 = i;
-                this.sdkName = "";
-                int i2 = i & (-5);
+                this.f2561common = Common.getDefaultInstance();
+                int i2 = this.bitField0 & (-3);
                 this.bitField0 = i2;
+                this.sdkName = "";
+                int i3 = i2 & (-5);
+                this.bitField0 = i3;
                 this.sdkVersion = 0L;
-                this.bitField0 = i2 & (-9);
+                this.bitField0 = i3 & (-9);
                 this.actions = Collections.emptyList();
                 this.bitField0 &= -17;
                 return this;
@@ -8334,10 +8334,10 @@ public final class IMPushPb {
                 return PushImClient.getDefaultInstance();
             }
 
-            public Builder addActions(int i, Action action) {
+            public Builder addActions(int i2, Action action) {
                 if (action != null) {
                     ensureActionsIsMutable();
-                    this.actions.add(i, action);
+                    this.actions.add(i2, action);
                     return this;
                 }
                 throw null;
@@ -8374,14 +8374,14 @@ public final class IMPushPb {
                 return this;
             }
 
-            public Builder setActions(int i, Action.Builder builder) {
+            public Builder setActions(int i2, Action.Builder builder) {
                 ensureActionsIsMutable();
-                this.actions.set(i, builder.build());
+                this.actions.set(i2, builder.build());
                 return this;
             }
 
             public Builder setCommon(Common.Builder builder) {
-                this.f2564common = builder.build();
+                this.f2561common = builder.build();
                 this.bitField0 |= 2;
                 return this;
             }
@@ -8404,9 +8404,9 @@ public final class IMPushPb {
                 return this;
             }
 
-            public Builder addActions(int i, Action.Builder builder) {
+            public Builder addActions(int i2, Action.Builder builder) {
                 ensureActionsIsMutable();
-                this.actions.add(i, builder.build());
+                this.actions.add(i2, builder.build());
                 return this;
             }
 
@@ -8459,7 +8459,7 @@ public final class IMPushPb {
 
         private void initFields() {
             this.metadata = MetaData.getDefaultInstance();
-            this.f2563common = Common.getDefaultInstance();
+            this.f2560common = Common.getDefaultInstance();
             this.sdkName = "";
             this.sdkVersion = 0L;
             this.actions = Collections.emptyList();
@@ -8478,8 +8478,8 @@ public final class IMPushPb {
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
-        public Action getActions(int i) {
-            return this.actions.get(i);
+        public Action getActions(int i2) {
+            return this.actions.get(i2);
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
@@ -8492,8 +8492,8 @@ public final class IMPushPb {
             return this.actions;
         }
 
-        public ActionOrBuilder getActionsOrBuilder(int i) {
-            return this.actions.get(i);
+        public ActionOrBuilder getActionsOrBuilder(int i2) {
+            return this.actions.get(i2);
         }
 
         public List<? extends ActionOrBuilder> getActionsOrBuilderList() {
@@ -8502,7 +8502,7 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public Common getCommon() {
-            return this.f2563common;
+            return this.f2560common;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
@@ -8547,13 +8547,13 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeMessageSize = (this.bitField0 & 1) == 1 ? CodedOutputStream.computeMessageSize(25, this.metadata) + 0 : 0;
             if ((this.bitField0 & 2) == 2) {
-                computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f2563common);
+                computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f2560common);
             }
             if ((this.bitField0 & 4) == 4) {
                 computeMessageSize += CodedOutputStream.computeBytesSize(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
@@ -8561,8 +8561,8 @@ public final class IMPushPb {
             if ((this.bitField0 & 8) == 8) {
                 computeMessageSize += CodedOutputStream.computeInt64Size(SDK_VERSION_FIELD_NUMBER, this.sdkVersion);
             }
-            for (int i2 = 0; i2 < this.actions.size(); i2++) {
-                computeMessageSize += CodedOutputStream.computeMessageSize(132, this.actions.get(i2));
+            for (int i3 = 0; i3 < this.actions.size(); i3++) {
+                computeMessageSize += CodedOutputStream.computeMessageSize(132, this.actions.get(i3));
             }
             this.memoizedSerializedSize = computeMessageSize;
             return computeMessageSize;
@@ -8617,7 +8617,7 @@ public final class IMPushPb {
                 codedOutputStream.writeMessage(25, this.metadata);
             }
             if ((this.bitField0 & 2) == 2) {
-                codedOutputStream.writeMessage(41, this.f2563common);
+                codedOutputStream.writeMessage(41, this.f2560common);
             }
             if ((this.bitField0 & 4) == 4) {
                 codedOutputStream.writeBytes(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
@@ -8625,8 +8625,8 @@ public final class IMPushPb {
             if ((this.bitField0 & 8) == 8) {
                 codedOutputStream.writeInt64(SDK_VERSION_FIELD_NUMBER, this.sdkVersion);
             }
-            for (int i = 0; i < this.actions.size(); i++) {
-                codedOutputStream.writeMessage(132, this.actions.get(i));
+            for (int i2 = 0; i2 < this.actions.size(); i2++) {
+                codedOutputStream.writeMessage(132, this.actions.get(i2));
             }
         }
 
@@ -8723,12 +8723,12 @@ public final class IMPushPb {
                                     }
                                     this.bitField0 |= 1;
                                 } else if (readTag == 330) {
-                                    builder = (this.bitField0 & 2) == 2 ? this.f2563common.toBuilder() : null;
+                                    builder = (this.bitField0 & 2) == 2 ? this.f2560common.toBuilder() : null;
                                     Common common2 = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
-                                    this.f2563common = common2;
+                                    this.f2560common = common2;
                                     if (builder != null) {
                                         builder.mergeFrom(common2);
-                                        this.f2563common = builder.buildPartial();
+                                        this.f2560common = builder.buildPartial();
                                     }
                                     this.bitField0 |= 2;
                                 } else if (readTag == 1042) {
@@ -8767,7 +8767,7 @@ public final class IMPushPb {
 
     /* loaded from: classes.dex */
     public interface PushImClientOrBuilder extends MessageLiteOrBuilder {
-        Action getActions(int i);
+        Action getActions(int i2);
 
         int getActionsCount();
 
@@ -9103,34 +9103,34 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Request buildPartial() {
                 Request request = new Request(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 request.method = this.method;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
                 request.requestId = this.requestId;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
                 }
                 request.timestamp = this.timestamp;
-                if ((i & 8) == 8) {
-                    i2 |= 8;
+                if ((i2 & 8) == 8) {
+                    i3 |= 8;
                 }
                 request.responseTime = this.responseTime;
-                if ((i & 16) == 16) {
-                    i2 |= 16;
+                if ((i2 & 16) == 16) {
+                    i3 |= 16;
                 }
                 request.errorCode = this.errorCode;
-                if ((i & 32) == 32) {
-                    i2 |= 32;
+                if ((i2 & 32) == 32) {
+                    i3 |= 32;
                 }
                 request.ext = this.ext;
-                if ((i & 64) == 64) {
-                    i2 |= 64;
+                if ((i2 & 64) == 64) {
+                    i3 |= 64;
                 }
                 request.aliasId = this.aliasId;
-                request.bitField0 = i2;
+                request.bitField0 = i3;
                 return request;
             }
 
@@ -9139,25 +9139,25 @@ public final class IMPushPb {
             public Builder clear() {
                 super.clear();
                 this.method = "";
-                int i = this.bitField0 & (-2);
-                this.bitField0 = i;
-                this.requestId = "";
-                int i2 = i & (-3);
+                int i2 = this.bitField0 & (-2);
                 this.bitField0 = i2;
-                this.timestamp = 0L;
-                int i3 = i2 & (-5);
+                this.requestId = "";
+                int i3 = i2 & (-3);
                 this.bitField0 = i3;
-                this.responseTime = 0L;
-                int i4 = i3 & (-9);
+                this.timestamp = 0L;
+                int i4 = i3 & (-5);
                 this.bitField0 = i4;
-                this.errorCode = 0L;
-                int i5 = i4 & (-17);
+                this.responseTime = 0L;
+                int i5 = i4 & (-9);
                 this.bitField0 = i5;
-                this.ext = "";
-                int i6 = i5 & (-33);
+                this.errorCode = 0L;
+                int i6 = i5 & (-17);
                 this.bitField0 = i6;
+                this.ext = "";
+                int i7 = i6 & (-33);
+                this.bitField0 = i7;
                 this.aliasId = 0L;
-                this.bitField0 = i6 & (-65);
+                this.bitField0 = i7 & (-65);
                 return this;
             }
 
@@ -9372,9 +9372,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getMethodBytes()) : 0;
             if ((this.bitField0 & 2) == 2) {
@@ -9895,21 +9895,21 @@ public final class IMPushPb {
                 throw null;
             }
 
-            public Builder setPpi(int i) {
+            public Builder setPpi(int i2) {
                 this.bitField0 |= 64;
-                this.ppi = i;
+                this.ppi = i2;
                 return this;
             }
 
-            public Builder setResolutionH(int i) {
+            public Builder setResolutionH(int i2) {
                 this.bitField0 |= 16;
-                this.resolutionH = i;
+                this.resolutionH = i2;
                 return this;
             }
 
-            public Builder setResolutionV(int i) {
+            public Builder setResolutionV(int i2) {
                 this.bitField0 |= 32;
-                this.resolutionV = i;
+                this.resolutionV = i2;
                 return this;
             }
 
@@ -9945,34 +9945,34 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public TerminalInfo buildPartial() {
                 TerminalInfo terminalInfo = new TerminalInfo(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 terminalInfo.os = this.os;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
                 terminalInfo.osVersion = this.osVersion;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
                 }
                 terminalInfo.manufacturer = this.manufacturer;
-                if ((i & 8) == 8) {
-                    i2 |= 8;
+                if ((i2 & 8) == 8) {
+                    i3 |= 8;
                 }
                 terminalInfo.terminalType = this.terminalType;
-                if ((i & 16) == 16) {
-                    i2 |= 16;
+                if ((i2 & 16) == 16) {
+                    i3 |= 16;
                 }
                 terminalInfo.resolutionH = this.resolutionH;
-                if ((i & 32) == 32) {
-                    i2 |= 32;
+                if ((i2 & 32) == 32) {
+                    i3 |= 32;
                 }
                 terminalInfo.resolutionV = this.resolutionV;
-                if ((i & 64) == 64) {
-                    i2 |= 64;
+                if ((i2 & 64) == 64) {
+                    i3 |= 64;
                 }
                 terminalInfo.ppi = this.ppi;
-                terminalInfo.bitField0 = i2;
+                terminalInfo.bitField0 = i3;
                 return terminalInfo;
             }
 
@@ -9981,25 +9981,25 @@ public final class IMPushPb {
             public Builder clear() {
                 super.clear();
                 this.os = OSType.OS_TYPE_UNKNWON;
-                int i = this.bitField0 & (-2);
-                this.bitField0 = i;
-                this.osVersion = "";
-                int i2 = i & (-3);
+                int i2 = this.bitField0 & (-2);
                 this.bitField0 = i2;
-                this.manufacturer = "";
-                int i3 = i2 & (-5);
+                this.osVersion = "";
+                int i3 = i2 & (-3);
                 this.bitField0 = i3;
-                this.terminalType = "";
-                int i4 = i3 & (-9);
+                this.manufacturer = "";
+                int i4 = i3 & (-5);
                 this.bitField0 = i4;
-                this.resolutionH = 0;
-                int i5 = i4 & (-17);
+                this.terminalType = "";
+                int i5 = i4 & (-9);
                 this.bitField0 = i5;
-                this.resolutionV = 0;
-                int i6 = i5 & (-33);
+                this.resolutionH = 0;
+                int i6 = i5 & (-17);
                 this.bitField0 = i6;
+                this.resolutionV = 0;
+                int i7 = i6 & (-33);
+                this.bitField0 = i7;
                 this.ppi = 0;
-                this.bitField0 = i6 & (-65);
+                this.bitField0 = i7 & (-65);
                 return this;
             }
 
@@ -10194,9 +10194,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeEnumSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeEnumSize(1, this.os.getNumber()) : 0;
             if ((this.bitField0 & 2) == 2) {
@@ -10789,34 +10789,34 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Ui buildPartial() {
                 Ui ui = new Ui(this);
-                int i = this.bitField0;
-                int i2 = (i & 1) != 1 ? 0 : 1;
+                int i2 = this.bitField0;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
                 ui.category = this.category;
-                if ((i & 2) == 2) {
-                    i2 |= 2;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
                 }
                 ui.page = this.page;
-                if ((i & 4) == 4) {
-                    i2 |= 4;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
                 }
                 ui.startTime = this.startTime;
-                if ((i & 8) == 8) {
-                    i2 |= 8;
+                if ((i2 & 8) == 8) {
+                    i3 |= 8;
                 }
                 ui.endTime = this.endTime;
-                if ((i & 16) == 16) {
-                    i2 |= 16;
+                if ((i2 & 16) == 16) {
+                    i3 |= 16;
                 }
                 ui.duration = this.duration;
-                if ((i & 32) == 32) {
-                    i2 |= 32;
+                if ((i2 & 32) == 32) {
+                    i3 |= 32;
                 }
                 ui.ext = this.ext;
-                if ((i & 64) == 64) {
-                    i2 |= 64;
+                if ((i2 & 64) == 64) {
+                    i3 |= 64;
                 }
                 ui.aliasId = this.aliasId;
-                ui.bitField0 = i2;
+                ui.bitField0 = i3;
                 return ui;
             }
 
@@ -10825,25 +10825,25 @@ public final class IMPushPb {
             public Builder clear() {
                 super.clear();
                 this.category = "";
-                int i = this.bitField0 & (-2);
-                this.bitField0 = i;
-                this.page = "";
-                int i2 = i & (-3);
+                int i2 = this.bitField0 & (-2);
                 this.bitField0 = i2;
-                this.startTime = 0L;
-                int i3 = i2 & (-5);
+                this.page = "";
+                int i3 = i2 & (-3);
                 this.bitField0 = i3;
-                this.endTime = 0L;
-                int i4 = i3 & (-9);
+                this.startTime = 0L;
+                int i4 = i3 & (-5);
                 this.bitField0 = i4;
-                this.duration = 0L;
-                int i5 = i4 & (-17);
+                this.endTime = 0L;
+                int i5 = i4 & (-9);
                 this.bitField0 = i5;
-                this.ext = "";
-                int i6 = i5 & (-33);
+                this.duration = 0L;
+                int i6 = i5 & (-17);
                 this.bitField0 = i6;
+                this.ext = "";
+                int i7 = i6 & (-33);
+                this.bitField0 = i7;
                 this.aliasId = 0L;
-                this.bitField0 = i6 & (-65);
+                this.bitField0 = i7 & (-65);
                 return this;
             }
 
@@ -11058,9 +11058,9 @@ public final class IMPushPb {
 
         @Override // com.google.protobuf.MessageLite
         public int getSerializedSize() {
-            int i = this.memoizedSerializedSize;
-            if (i != -1) {
-                return i;
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
             }
             int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getCategoryBytes()) : 0;
             if ((this.bitField0 & 2) == 2) {

@@ -10,8 +10,8 @@ public abstract class BaseUtils {
 
     public static boolean containsEmoji(String str) {
         int length = str.length();
-        for (int i = 0; i < length; i++) {
-            if (isEmojiCharacter(str.charAt(i))) {
+        for (int i2 = 0; i2 < length; i2++) {
+            if (isEmojiCharacter(str.charAt(i2))) {
                 return true;
             }
         }

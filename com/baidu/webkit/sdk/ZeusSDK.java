@@ -17,7 +17,7 @@ public final class ZeusSDK {
         public void onInitFinished(boolean z) {
         }
 
-        public void onInstallFinished(boolean z, int i) {
+        public void onInstallFinished(boolean z, int i2) {
         }
 
         public String requestZeusEngine(String str) {

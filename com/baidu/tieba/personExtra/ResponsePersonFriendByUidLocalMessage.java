@@ -1,8 +1,8 @@
 package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.b.i0.r.q.f1;
-/* loaded from: classes3.dex */
+import d.a.i0.r.q.f1;
+/* loaded from: classes4.dex */
 public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessage<String> {
     public f1 mData;
 
@@ -18,13 +18,13 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
         this.mData = f1Var;
     }
 
-    public ResponsePersonFriendByUidLocalMessage(int i) {
-        super(i);
+    public ResponsePersonFriendByUidLocalMessage(int i2) {
+        super(i2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, String str) throws Exception {
+    public void decodeInBackGround(int i2, String str) throws Exception {
         if (str != null) {
             f1 f1Var = new f1();
             this.mData = f1Var;

@@ -1,7 +1,7 @@
 package com.baidu.platform.comjni.bikenavi;
 /* loaded from: classes2.dex */
 public class JNINaviMap {
-    public native boolean ShowLayer(long j, int i, boolean z);
+    public native boolean ShowLayer(long j, int i2, boolean z);
 
     public native boolean UpdataBaseLayers(long j);
 

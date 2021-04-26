@@ -3,7 +3,6 @@ package com.kwad.sdk.core.videocache;
 import android.content.Context;
 import android.net.Uri;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.kwai.video.player.KsMediaMeta;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
@@ -24,55 +23,55 @@ import org.apache.http.protocol.HTTP;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f34562a;
+    public final Object f33552a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ExecutorService f34563b;
+    public final ExecutorService f33553b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, g> f34564c;
+    public final Map<String, g> f33554c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ServerSocket f34565d;
+    public final ServerSocket f33555d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f34566e;
+    public final int f33556e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Thread f34567f;
+    public final Thread f33557f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final com.kwad.sdk.core.videocache.c f34568g;
+    public final com.kwad.sdk.core.videocache.c f33558g;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public File f34569a;
+        public File f33559a;
 
         /* renamed from: d  reason: collision with root package name */
-        public com.kwad.sdk.core.videocache.d.b f34572d;
+        public com.kwad.sdk.core.videocache.d.b f33562d;
 
         /* renamed from: c  reason: collision with root package name */
-        public com.kwad.sdk.core.videocache.a.a f34571c = new com.kwad.sdk.core.videocache.a.g(KsMediaMeta.AV_CH_STEREO_LEFT);
+        public com.kwad.sdk.core.videocache.a.a f33561c = new com.kwad.sdk.core.videocache.a.g(536870912);
 
         /* renamed from: b  reason: collision with root package name */
-        public com.kwad.sdk.core.videocache.a.c f34570b = new com.kwad.sdk.core.videocache.a.f();
+        public com.kwad.sdk.core.videocache.a.c f33560b = new com.kwad.sdk.core.videocache.a.f();
 
         /* renamed from: e  reason: collision with root package name */
-        public com.kwad.sdk.core.videocache.b.b f34573e = new com.kwad.sdk.core.videocache.b.a();
+        public com.kwad.sdk.core.videocache.b.b f33563e = new com.kwad.sdk.core.videocache.b.a();
 
         public a(Context context) {
-            this.f34572d = com.kwad.sdk.core.videocache.d.c.a(context);
-            this.f34569a = o.a(context);
+            this.f33562d = com.kwad.sdk.core.videocache.d.c.a(context);
+            this.f33559a = o.a(context);
         }
 
         private com.kwad.sdk.core.videocache.c b() {
-            return new com.kwad.sdk.core.videocache.c(this.f34569a, this.f34570b, this.f34571c, this.f34572d, this.f34573e);
+            return new com.kwad.sdk.core.videocache.c(this.f33559a, this.f33560b, this.f33561c, this.f33562d, this.f33563e);
         }
 
         public a a(long j) {
-            this.f34571c = new com.kwad.sdk.core.videocache.a.g(j);
+            this.f33561c = new com.kwad.sdk.core.videocache.a.g(j);
             return this;
         }
 
@@ -85,15 +84,15 @@ public class f {
     public final class b implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public final Socket f34575b;
+        public final Socket f33565b;
 
         public b(Socket socket) {
-            this.f34575b = socket;
+            this.f33565b = socket;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            f.this.a(this.f34575b);
+            f.this.a(this.f33565b);
         }
     }
 
@@ -101,16 +100,16 @@ public class f {
     public final class c implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public final CountDownLatch f34577b;
+        public final CountDownLatch f33567b;
 
         public c(CountDownLatch countDownLatch) {
-            this.f34577b = countDownLatch;
+            this.f33567b = countDownLatch;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.f34577b.countDown();
+                this.f33567b.countDown();
                 f.this.a();
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.a(th);
@@ -119,23 +118,23 @@ public class f {
     }
 
     public f(com.kwad.sdk.core.videocache.c cVar) {
-        this.f34562a = new Object();
-        this.f34563b = Executors.newFixedThreadPool(8);
-        this.f34564c = new ConcurrentHashMap();
-        this.f34568g = (com.kwad.sdk.core.videocache.c) j.a(cVar);
+        this.f33552a = new Object();
+        this.f33553b = Executors.newFixedThreadPool(8);
+        this.f33554c = new ConcurrentHashMap();
+        this.f33558g = (com.kwad.sdk.core.videocache.c) j.a(cVar);
         try {
             ServerSocket serverSocket = new ServerSocket(0, 8, InetAddress.getByName("127.0.0.1"));
-            this.f34565d = serverSocket;
+            this.f33555d = serverSocket;
             int localPort = serverSocket.getLocalPort();
-            this.f34566e = localPort;
+            this.f33556e = localPort;
             i.a("127.0.0.1", localPort);
             CountDownLatch countDownLatch = new CountDownLatch(1);
             Thread thread = new Thread(new c(countDownLatch));
-            this.f34567f = thread;
+            this.f33557f = thread;
             thread.start();
             countDownLatch.await();
         } catch (IOException | InterruptedException e2) {
-            this.f34563b.shutdown();
+            this.f33553b.shutdown();
             throw new IllegalStateException("Error starting local proxy server", e2);
         }
     }
@@ -144,9 +143,9 @@ public class f {
     public void a() {
         while (!Thread.currentThread().isInterrupted()) {
             try {
-                Socket accept = this.f34565d.accept();
+                Socket accept = this.f33555d.accept();
                 com.kwad.sdk.core.d.a.a("HttpProxyCacheServer", "Accept new socket " + accept);
-                this.f34563b.submit(new b(accept));
+                this.f33553b.submit(new b(accept));
             } catch (IOException e2) {
                 a(new ProxyCacheException("Error during waiting connection", e2));
                 return;
@@ -156,14 +155,14 @@ public class f {
 
     private void a(File file) {
         try {
-            this.f34568g.f34549c.a(file);
+            this.f33558g.f33539c.a(file);
         } catch (IOException unused) {
-            com.kwad.sdk.core.d.a.d("HttpProxyCacheServer", "Error touching file " + file);
+            com.kwad.sdk.core.d.a.e("HttpProxyCacheServer", "Error touching file " + file);
         }
     }
 
     private void a(Throwable th) {
-        com.kwad.sdk.core.d.a.d("HttpProxyCacheServer", "HttpProxyCacheServer error");
+        com.kwad.sdk.core.d.a.e("HttpProxyCacheServer", "HttpProxyCacheServer error");
         com.kwad.sdk.core.d.a.a(th);
     }
 
@@ -186,7 +185,7 @@ public class f {
             try {
                 d a2 = d.a(socket.getInputStream());
                 com.kwad.sdk.core.d.a.a("HttpProxyCacheServer", "Request to cache proxy:" + a2);
-                f(l.c(a2.f34555a)).a(a2, socket);
+                f(l.c(a2.f33545a)).a(a2, socket);
                 b(socket);
                 sb = new StringBuilder();
             } catch (ProxyCacheException e2) {
@@ -220,14 +219,14 @@ public class f {
     }
 
     private int b() {
-        int i;
-        synchronized (this.f34562a) {
-            i = 0;
-            for (g gVar : this.f34564c.values()) {
-                i += gVar.b();
+        int i2;
+        synchronized (this.f33552a) {
+            i2 = 0;
+            for (g gVar : this.f33554c.values()) {
+                i2 += gVar.b();
             }
         }
-        return i;
+        return i2;
     }
 
     private void b(Socket socket) {
@@ -256,12 +255,12 @@ public class f {
             }
             socket.shutdownOutput();
         } catch (IOException unused) {
-            com.kwad.sdk.core.d.a.c("HttpProxyCacheServer", "Failed to close socket on proxy side: {}. It seems client have already closed connection.");
+            com.kwad.sdk.core.d.a.d("HttpProxyCacheServer", "Failed to close socket on proxy side: {}. It seems client have already closed connection.");
         }
     }
 
     private String e(String str) {
-        return String.format(Locale.US, "http://%s:%d/%s", "127.0.0.1", Integer.valueOf(this.f34566e), l.b(str));
+        return String.format(Locale.US, "http://%s:%d/%s", "127.0.0.1", Integer.valueOf(this.f33556e), l.b(str));
     }
 
     private void e(Socket socket) {
@@ -277,11 +276,11 @@ public class f {
 
     private g f(String str) {
         g gVar;
-        synchronized (this.f34562a) {
-            gVar = this.f34564c.get(str);
+        synchronized (this.f33552a) {
+            gVar = this.f33554c.get(str);
             if (gVar == null) {
-                gVar = new g(str, this.f34568g);
-                this.f34564c.put(str, gVar);
+                gVar = new g(str, this.f33558g);
+                this.f33554c.put(str, gVar);
             }
         }
         return gVar;
@@ -300,98 +299,88 @@ public class f {
         return e(str);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0076 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0095 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:49:0x0010 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r10v1, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r10v2 */
-    /* JADX WARN: Type inference failed for: r10v3 */
-    /* JADX WARN: Type inference failed for: r10v4 */
-    /* JADX WARN: Type inference failed for: r10v5, types: [java.net.HttpURLConnection] */
-    /* JADX WARN: Type inference failed for: r10v6, types: [java.net.HttpURLConnection] */
-    /* JADX WARN: Type inference failed for: r10v8, types: [java.net.HttpURLConnection] */
-    public boolean a(String str, int i) {
+    public boolean a(String str, int i2) {
+        HttpURLConnection httpURLConnection;
         BufferedInputStream bufferedInputStream;
         if (b(str)) {
             return true;
         }
-        ?? e2 = e(str);
         long j = 0;
         BufferedInputStream bufferedInputStream2 = null;
         try {
+            httpURLConnection = (HttpURLConnection) new URL(e(str)).openConnection();
             try {
-                e2 = (HttpURLConnection) new URL(e2).openConnection();
                 try {
-                    e2.setRequestProperty("Accept-Language", "zh-CN");
-                    e2.setConnectTimeout(10000);
-                    e2.setReadTimeout(120000);
-                    e2.setUseCaches(false);
-                    e2.setDoInput(true);
-                    e2.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-                    e2.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
-                    e2.setRequestProperty("User-Agent", com.kwad.sdk.core.network.k.a());
-                    bufferedInputStream = new BufferedInputStream(e2.getInputStream());
-                } catch (Exception e3) {
-                    e = e3;
+                    com.kwad.sdk.core.network.l.a(httpURLConnection);
+                    httpURLConnection.setRequestProperty("Accept-Language", "zh-CN");
+                    httpURLConnection.setConnectTimeout(10000);
+                    httpURLConnection.setReadTimeout(120000);
+                    httpURLConnection.setUseCaches(false);
+                    httpURLConnection.setDoInput(true);
+                    httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
+                    httpURLConnection.setRequestProperty("User-Agent", com.kwad.sdk.core.network.k.a());
+                    bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
+                } catch (Exception e2) {
+                    e = e2;
                 }
             } catch (Throwable th) {
                 th = th;
             }
+        } catch (Exception e3) {
+            e = e3;
+            httpURLConnection = null;
+        } catch (Throwable th2) {
+            th = th2;
+            httpURLConnection = null;
+        }
+        try {
+            byte[] bArr = new byte[1024];
             try {
-                byte[] bArr = new byte[1024];
-                try {
-                    do {
-                        int read = bufferedInputStream.read(bArr);
-                        if (read == -1) {
-                            break;
-                        }
-                        j += read;
-                    } while (j <= i);
-                    break;
-                    bufferedInputStream.close();
-                } catch (IOException unused) {
-                }
-                if (e2 != 0) {
-                    e2.disconnect();
-                    return true;
-                }
-                return true;
-            } catch (Exception e4) {
-                e = e4;
-                bufferedInputStream2 = bufferedInputStream;
-                com.kwad.sdk.core.d.a.a(e);
-                com.kwad.sdk.core.d.a.a("HttpProxyCacheServer", "downloadUrlToStream file crash", e);
-                if (bufferedInputStream2 != null) {
-                    try {
-                        bufferedInputStream2.close();
-                    } catch (IOException unused2) {
+                do {
+                    int read = bufferedInputStream.read(bArr);
+                    if (read == -1) {
+                        break;
                     }
-                }
-                if (e2 != 0) {
-                    e2.disconnect();
-                }
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedInputStream2 = bufferedInputStream;
-                if (bufferedInputStream2 != null) {
-                    try {
-                        bufferedInputStream2.close();
-                    } catch (IOException unused3) {
-                    }
-                }
-                if (e2 != 0) {
-                    e2.disconnect();
-                }
-                throw th;
+                    j += read;
+                } while (j <= i2);
+                break;
+                bufferedInputStream.close();
+            } catch (IOException unused) {
             }
-        } catch (Exception e5) {
-            e = e5;
-            e2 = 0;
+            if (httpURLConnection != null) {
+                httpURLConnection.disconnect();
+                return true;
+            }
+            return true;
+        } catch (Exception e4) {
+            e = e4;
+            bufferedInputStream2 = bufferedInputStream;
+            com.kwad.sdk.core.d.a.a(e);
+            com.kwad.sdk.core.d.a.a("HttpProxyCacheServer", "downloadUrlToStream file crash", e);
+            if (bufferedInputStream2 != null) {
+                try {
+                    bufferedInputStream2.close();
+                } catch (IOException unused2) {
+                }
+            }
+            if (httpURLConnection != null) {
+                httpURLConnection.disconnect();
+            }
+            return false;
         } catch (Throwable th3) {
             th = th3;
-            e2 = 0;
+            bufferedInputStream2 = bufferedInputStream;
+            if (bufferedInputStream2 != null) {
+                try {
+                    bufferedInputStream2.close();
+                } catch (IOException unused3) {
+                }
+            }
+            if (httpURLConnection != null) {
+                httpURLConnection.disconnect();
+            }
+            throw th;
         }
     }
 
@@ -401,17 +390,17 @@ public class f {
     }
 
     public boolean c(String str) {
-        g gVar = this.f34564c.get(str);
+        g gVar = this.f33554c.get(str);
         if (gVar != null) {
             gVar.a();
-            this.f34564c.remove(str);
+            this.f33554c.remove(str);
             return true;
         }
         return false;
     }
 
     public File d(String str) {
-        com.kwad.sdk.core.videocache.c cVar = this.f34568g;
-        return new File(cVar.f34547a, cVar.f34548b.a(str));
+        com.kwad.sdk.core.videocache.c cVar = this.f33558g;
+        return new File(cVar.f33537a, cVar.f33538b.a(str));
     }
 }

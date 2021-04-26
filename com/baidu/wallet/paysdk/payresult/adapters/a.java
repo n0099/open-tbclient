@@ -6,15 +6,15 @@ import com.baidu.wallet.paysdk.api.BaiduPay;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes5.dex */
 public class a {
-    public static IPayResultDataAdapter a(BaseActivity baseActivity, int i) {
+    public static IPayResultDataAdapter a(BaseActivity baseActivity, int i2) {
         try {
         } catch (Throwable th) {
             LogUtil.d(th.getMessage());
         }
-        if (i != 1) {
-            if (i != 3) {
-                if (i != 4) {
-                    if (i == 5) {
+        if (i2 != 1) {
+            if (i2 != 3) {
+                if (i2 != 4) {
+                    if (i2 == 5) {
                         return new HCEPayResultAdapter(baseActivity);
                     }
                     return null;

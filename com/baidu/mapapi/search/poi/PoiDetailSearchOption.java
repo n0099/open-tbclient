@@ -3,43 +3,43 @@ package com.baidu.mapapi.search.poi;
 public class PoiDetailSearchOption {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f7245a;
+    public boolean f7501a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7246b = "";
+    public String f7502b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7247c = "";
+    public String f7503c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f7248d = false;
+    public boolean f7504d = false;
 
     public String getUid() {
-        return this.f7246b;
+        return this.f7502b;
     }
 
     public String getUids() {
-        return this.f7247c;
+        return this.f7503c;
     }
 
     public boolean isSearchByUids() {
-        return this.f7248d;
+        return this.f7504d;
     }
 
     public PoiDetailSearchOption poiUid(String str) {
-        this.f7248d = false;
-        this.f7246b = str;
+        this.f7504d = false;
+        this.f7502b = str;
         return this;
     }
 
     public PoiDetailSearchOption poiUids(String str) {
-        this.f7248d = true;
-        this.f7247c = str;
+        this.f7504d = true;
+        this.f7503c = str;
         return this;
     }
 
     public PoiDetailSearchOption showPlaceCarter(boolean z) {
-        this.f7245a = z;
+        this.f7501a = z;
         return this;
     }
 }

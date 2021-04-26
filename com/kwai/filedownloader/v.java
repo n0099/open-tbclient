@@ -7,7 +7,7 @@ public interface v {
 
     void a(List<Integer> list);
 
-    boolean a(int i);
+    boolean a(int i2);
 
     int b();
 }

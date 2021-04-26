@@ -21,11 +21,11 @@ public interface Interceptor {
 
         Request request();
 
-        Chain withConnectTimeout(int i, TimeUnit timeUnit);
+        Chain withConnectTimeout(int i2, TimeUnit timeUnit);
 
-        Chain withReadTimeout(int i, TimeUnit timeUnit);
+        Chain withReadTimeout(int i2, TimeUnit timeUnit);
 
-        Chain withWriteTimeout(int i, TimeUnit timeUnit);
+        Chain withWriteTimeout(int i2, TimeUnit timeUnit);
 
         int writeTimeoutMillis();
     }

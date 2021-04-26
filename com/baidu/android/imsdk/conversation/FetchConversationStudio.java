@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import d.b.r.a;
+import d.a.r.a;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -31,12 +31,12 @@ public class FetchConversationStudio {
     public Runnable fetchRunnable = new Runnable() { // from class: com.baidu.android.imsdk.conversation.FetchConversationStudio.1
         @Override // java.lang.Runnable
         public void run() {
-            a.f65508c.removeCallbacks(FetchConversationStudio.this.fetchRunnable);
+            a.f63829c.removeCallbacks(FetchConversationStudio.this.fetchRunnable);
             if (FetchConversationStudio.this.mReliableFetchCount.get() > 0) {
                 FetchConversationStudio.this.mReliableFetchCount.set(0);
                 if (ConversationStudioManImpl.getInstance(FetchConversationStudio.this.mContext).isReliable(FetchConversationStudio.this.mCastId)) {
                     FetchConversationStudio.this.fetchCastMsgByMsgId();
-                    a.f65508c.postDelayed(FetchConversationStudio.this.fetchRunnable, 1000L);
+                    a.f63829c.postDelayed(FetchConversationStudio.this.fetchRunnable, 1000L);
                     return;
                 }
                 return;
@@ -47,35 +47,35 @@ public class FetchConversationStudio {
     };
     public IFetchMsgByIdListener mFetchMsgListener = new IFetchMsgByIdListener() { // from class: com.baidu.android.imsdk.conversation.FetchConversationStudio.2
         @Override // com.baidu.android.imsdk.chatmessage.IFetchMsgByIdListener
-        public void onFetchMsgByIdResult(int i, String str, String str2, int i2, long j, long j2, long j3, int i3, int i4, long j4, ArrayList<ChatMsg> arrayList) {
+        public void onFetchMsgByIdResult(int i2, String str, String str2, int i3, long j, long j2, long j3, int i4, int i5, long j4, ArrayList<ChatMsg> arrayList) {
             StringBuilder sb = new StringBuilder();
             sb.append("onFetchMsgByIdResult response :");
-            sb.append(i);
+            sb.append(i2);
             sb.append(", maxMsgid :");
             sb.append(j4);
             sb.append(", fetch :");
             sb.append(arrayList != null ? Integer.valueOf(arrayList.size()) : StringUtil.NULL_STRING);
             sb.append(", real :");
-            sb.append(i4);
+            sb.append(i5);
             sb.append(", count :");
-            sb.append(i3);
+            sb.append(i4);
             sb.append("，  mcastId ： ");
             sb.append(j);
             sb.append(", end :");
             sb.append(j3);
             LogUtils.w(FetchConversationStudio.TAG, sb.toString());
             FetchConversationStudio.this.mMaxMsgId = j3;
-            if (i == 0) {
-                if (i4 >= i3) {
-                    a.f65508c.removeCallbacks(FetchConversationStudio.this.fetchRunnable);
-                    a.f65508c.postDelayed(FetchConversationStudio.this.fetchRunnable, 1000L);
+            if (i2 == 0) {
+                if (i5 >= i4) {
+                    a.f63829c.removeCallbacks(FetchConversationStudio.this.fetchRunnable);
+                    a.f63829c.postDelayed(FetchConversationStudio.this.fetchRunnable, 1000L);
                 }
-            } else if (i == 1024) {
+            } else if (i2 == 1024) {
                 int unused = FetchConversationStudio.PULL_COUNT = 80;
                 LogUtils.e(FetchConversationStudio.TAG, "onFetchMsgByIdResult：fetch msg length over 1024*1024");
             } else if (FetchConversationStudio.this.mFetchNum == 0) {
                 LogUtils.e(FetchConversationStudio.TAG, "onFetchMsgByIdResult：fetch msg failed and first retry.");
-                a.f65508c.postDelayed(FetchConversationStudio.this.mReliableRunnable, 1000L);
+                a.f63829c.postDelayed(FetchConversationStudio.this.mReliableRunnable, 1000L);
             }
         }
     };
@@ -85,12 +85,12 @@ public class FetchConversationStudio {
             FetchConversationStudio.access$708(FetchConversationStudio.this);
             if (FetchConversationStudio.this.mFetchNum > 3) {
                 FetchConversationStudio.this.mFetchNum = 0;
-                a.f65508c.removeCallbacks(this);
+                a.f63829c.removeCallbacks(this);
                 return;
             }
             FetchConversationStudio.this.fetchCastMsgByMsgId();
-            a.f65508c.removeCallbacks(this);
-            a.f65508c.postDelayed(this, FetchConversationStudio.this.mFetchNum != 3 ? 5000L : 10000L);
+            a.f63829c.removeCallbacks(this);
+            a.f63829c.postDelayed(this, FetchConversationStudio.this.mFetchNum != 3 ? 5000L : 10000L);
         }
     };
 
@@ -101,9 +101,9 @@ public class FetchConversationStudio {
     }
 
     public static /* synthetic */ int access$708(FetchConversationStudio fetchConversationStudio) {
-        int i = fetchConversationStudio.mFetchNum;
-        fetchConversationStudio.mFetchNum = i + 1;
-        return i;
+        int i2 = fetchConversationStudio.mFetchNum;
+        fetchConversationStudio.mFetchNum = i2 + 1;
+        return i2;
     }
 
     private void fetchCastMsg(long j, long j2, long j3) {
@@ -134,7 +134,7 @@ public class FetchConversationStudio {
         }
         LogUtils.d(TAG, "begin set fetchRunnable");
         this.mReliableFetching.set(true);
-        a.f65508c.removeCallbacks(this.fetchRunnable);
-        a.f65508c.postDelayed(this.fetchRunnable, 1000L);
+        a.f63829c.removeCallbacks(this.fetchRunnable);
+        a.f63829c.postDelayed(this.fetchRunnable, 1000L);
     }
 }

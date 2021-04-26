@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class a {
-    public static final boolean b(String str, int i, int i2) {
+    public static final boolean b(String str, int i2, int i3) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -31,18 +31,18 @@ public class a {
         } catch (OutOfMemoryError e2) {
             e2.printStackTrace();
         }
-        int i3 = options.outWidth;
-        int i4 = options.outHeight;
-        if (options.mCancel || i3 == -1 || i4 == -1) {
+        int i4 = options.outWidth;
+        int i5 = options.outHeight;
+        if (options.mCancel || i4 == -1 || i5 == -1) {
             return false;
         }
-        int i5 = i3 > i4 ? i3 : i4;
-        if (i3 >= i4) {
-            i3 = i4;
+        int i6 = i4 > i5 ? i4 : i5;
+        if (i4 >= i5) {
+            i4 = i5;
         }
-        f.b("openSDK_LOG.AsynScaleCompressImage", "longSide=" + i5 + "shortSide=" + i3);
+        f.b("openSDK_LOG.AsynScaleCompressImage", "longSide=" + i6 + "shortSide=" + i4);
         options.inPreferredConfig = Bitmap.Config.RGB_565;
-        return i5 > i2 || i3 > i;
+        return i6 > i3 || i4 > i2;
     }
 
     public static final void a(Context context, final String str, final c cVar) {
@@ -55,10 +55,10 @@ public class a {
             final Handler handler = new Handler(context.getMainLooper()) { // from class: com.tencent.connect.share.a.1
                 @Override // android.os.Handler
                 public void handleMessage(Message message) {
-                    int i = message.what;
-                    if (i == 101) {
+                    int i2 = message.what;
+                    if (i2 == 101) {
                         cVar.a(0, (String) message.obj);
-                    } else if (i != 102) {
+                    } else if (i2 != 102) {
                         super.handleMessage(message);
                     } else {
                         cVar.a(message.arg1, (String) null);
@@ -116,8 +116,8 @@ public class a {
             @Override // java.lang.Runnable
             public void run() {
                 Bitmap a2;
-                for (int i = 0; i < arrayList.size(); i++) {
-                    String str = (String) arrayList.get(i);
+                for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                    String str = (String) arrayList.get(i2);
                     if (!j.g(str) && j.h(str) && (a2 = a.a(str, 10000)) != null) {
                         String str2 = Environment.getExternalStorageDirectory() + "/tmp/";
                         String str3 = "share2qzone_temp" + j.f(str) + ".jpg";
@@ -128,7 +128,7 @@ public class a {
                             str = a.a(a2, str2, str3);
                         }
                         if (str != null) {
-                            arrayList.set(i, str);
+                            arrayList.set(i2, str);
                         }
                     }
                 }
@@ -141,34 +141,34 @@ public class a {
         }).start();
     }
 
-    public static int b(BitmapFactory.Options options, int i, int i2) {
+    public static int b(BitmapFactory.Options options, int i2, int i3) {
         int min;
         double d2 = options.outWidth;
         double d3 = options.outHeight;
-        int ceil = i2 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d2 * d3) / i2));
-        if (i == -1) {
+        int ceil = i3 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d2 * d3) / i3));
+        if (i2 == -1) {
             min = 128;
         } else {
-            double d4 = i;
+            double d4 = i2;
             min = (int) Math.min(Math.floor(d2 / d4), Math.floor(d3 / d4));
         }
         if (min < ceil) {
             return ceil;
         }
-        if (i2 == -1 && i == -1) {
+        if (i3 == -1 && i2 == -1) {
             return 1;
         }
-        return i == -1 ? ceil : min;
+        return i2 == -1 ? ceil : min;
     }
 
-    public static Bitmap a(Bitmap bitmap, int i) {
+    public static Bitmap a(Bitmap bitmap, int i2) {
         Matrix matrix = new Matrix();
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         if (width <= height) {
             width = height;
         }
-        float f2 = i / width;
+        float f2 = i2 / width;
         matrix.postScale(f2, f2);
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
@@ -204,7 +204,7 @@ public class a {
         return null;
     }
 
-    public static final Bitmap a(String str, int i) {
+    public static final Bitmap a(String str, int i2) {
         Bitmap bitmap;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -216,17 +216,17 @@ public class a {
         } catch (OutOfMemoryError e2) {
             e2.printStackTrace();
         }
-        int i2 = options.outWidth;
-        int i3 = options.outHeight;
-        if (options.mCancel || i2 == -1 || i3 == -1) {
+        int i3 = options.outWidth;
+        int i4 = options.outHeight;
+        if (options.mCancel || i3 == -1 || i4 == -1) {
             return null;
         }
-        if (i2 <= i3) {
-            i2 = i3;
+        if (i3 <= i4) {
+            i3 = i4;
         }
         options.inPreferredConfig = Bitmap.Config.RGB_565;
-        if (i2 > i) {
-            options.inSampleSize = a(options, -1, i * i);
+        if (i3 > i2) {
+            options.inSampleSize = a(options, -1, i2 * i2);
         }
         options.inJustDecodeBounds = false;
         try {
@@ -238,22 +238,22 @@ public class a {
         if (bitmap == null) {
             return null;
         }
-        int i4 = options.outWidth;
-        int i5 = options.outHeight;
-        if (i4 <= i5) {
-            i4 = i5;
+        int i5 = options.outWidth;
+        int i6 = options.outHeight;
+        if (i5 <= i6) {
+            i5 = i6;
         }
-        return i4 > i ? a(bitmap, i) : bitmap;
+        return i5 > i2 ? a(bitmap, i2) : bitmap;
     }
 
-    public static final int a(BitmapFactory.Options options, int i, int i2) {
-        int b2 = b(options, i, i2);
+    public static final int a(BitmapFactory.Options options, int i2, int i3) {
+        int b2 = b(options, i2, i3);
         if (b2 <= 8) {
-            int i3 = 1;
-            while (i3 < b2) {
-                i3 <<= 1;
+            int i4 = 1;
+            while (i4 < b2) {
+                i4 <<= 1;
             }
-            return i3;
+            return i4;
         }
         return ((b2 + 7) / 8) * 8;
     }

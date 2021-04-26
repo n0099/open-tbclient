@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SecureHashUtil {
     public static final int BUFFER_SIZE = 4096;
     public static final byte[] HEX_CHAR_TABLE = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
@@ -15,9 +15,9 @@ public class SecureHashUtil {
     public static String convertToHex(byte[] bArr) throws UnsupportedEncodingException {
         StringBuilder sb = new StringBuilder(bArr.length);
         for (byte b2 : bArr) {
-            int i = b2 & 255;
-            sb.append((char) HEX_CHAR_TABLE[i >>> 4]);
-            sb.append((char) HEX_CHAR_TABLE[i & 15]);
+            int i2 = b2 & 255;
+            sb.append((char) HEX_CHAR_TABLE[i2 >>> 4]);
+            sb.append((char) HEX_CHAR_TABLE[i2 & 15]);
         }
         return sb.toString();
     }

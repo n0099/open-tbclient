@@ -113,7 +113,7 @@ public abstract class XAdservAdContainer extends XBaseHtmlAdContainer {
             }
 
             @Override // com.baidu.mobads.container.bridge.BridgeListener
-            public void setVisibility(int i) {
+            public void setVisibility(int i2) {
             }
         };
         initWebView(xAdContainerContext.getActivity());
@@ -154,8 +154,8 @@ public abstract class XAdservAdContainer extends XBaseHtmlAdContainer {
             }
 
             @Override // android.webkit.WebViewClient
-            public void onReceivedError(WebView webView, final int i, String str, String str2) {
-                XAdservAdContainer.this.mAdLogger.d("AdContainer onReceivedError", Integer.valueOf(i), str, str2);
+            public void onReceivedError(WebView webView, final int i2, String str, String str2) {
+                XAdservAdContainer.this.mAdLogger.d("AdContainer onReceivedError", Integer.valueOf(i2), str, str2);
                 if ("banner".equals(XAdservAdContainer.this.mAdContainerCxt.getAdProd()) && str2.startsWith(AdURIUtils.replaceURLWithSupportProtocol("http://mobads.baidu.com/ads/index.htm"))) {
                     if (!XAdservAdContainer.this.isRetrying && !XAdservAdContainer.this.hasAdFailured) {
                         XAdservAdContainer.this.mAdContainerCxt.getAdProdBase().post(new Runnable() { // from class: com.baidu.mobads.container.h5.XAdservAdContainer.2.2
@@ -163,13 +163,13 @@ public abstract class XAdservAdContainer extends XBaseHtmlAdContainer {
                             public void run() {
                                 XAdservAdContainer xAdservAdContainer = XAdservAdContainer.this;
                                 XAdErrorCode xAdErrorCode = XAdErrorCode.NETWORK_UNCONNECT;
-                                xAdservAdContainer.processAdError(xAdErrorCode, "html_onReceivedError-" + i);
+                                xAdservAdContainer.processAdError(xAdErrorCode, "html_onReceivedError-" + i2);
                             }
                         });
                     }
                     XAdservAdContainer.this.retryLoading();
                 }
-                super.onReceivedError(webView, i, str, str2);
+                super.onReceivedError(webView, i2, str, str2);
             }
 
             @Override // android.webkit.WebViewClient

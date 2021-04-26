@@ -50,10 +50,10 @@ public class IMFetchMsgByIdMsg extends Message {
         public JSONObject mObj;
         public String mStrMsg;
 
-        public FetchTask(Context context, JSONObject jSONObject, int i, String str) {
+        public FetchTask(Context context, JSONObject jSONObject, int i2, String str) {
             this.mContext = context;
             this.mObj = jSONObject;
-            this.mErrorCode = i;
+            this.mErrorCode = i2;
             this.mStrMsg = str;
         }
 
@@ -65,8 +65,8 @@ public class IMFetchMsgByIdMsg extends Message {
         */
         public void run() {
             ArrayList<ChatMsg> arrayList;
-            int i;
             int i2;
+            int i3;
             boolean z;
             ArrayList<ChatMsg> parserMessage;
             ArrayList<ChatMsg> addMsgs;
@@ -79,9 +79,9 @@ public class IMFetchMsgByIdMsg extends Message {
                     z = this.mObj.optBoolean("has_more", false);
                     try {
                         jSONArray = this.mObj.getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES);
-                        i2 = jSONArray.length();
+                        i3 = jSONArray.length();
                         try {
-                            LogUtils.d(IMFetchMsgByIdMsg.TAG, "fetch message result hasMore = " + z + " realMsgCount = " + i2 + " count = " + IMFetchMsgByIdMsg.this.mCount);
+                            LogUtils.d(IMFetchMsgByIdMsg.TAG, "fetch message result hasMore = " + z + " realMsgCount = " + i3 + " count = " + IMFetchMsgByIdMsg.this.mCount);
                         } catch (JSONException e2) {
                             e = e2;
                             LogUtils.e(IMFetchMsgByIdMsg.TAG, "Exception ", e);
@@ -91,26 +91,26 @@ public class IMFetchMsgByIdMsg extends Message {
                             parserMessage = MessageParser.parserMessage(this.mContext, jSONArray, type, true, true);
                             if (parserMessage != null) {
                             }
-                            i = i2;
+                            i2 = i3;
                             arrayList = parserMessage;
-                            ChatMsgManagerImpl.getInstance(this.mContext).onFetchMsgByIdResult(this.mContext, this.mErrorCode, this.mStrMsg, IMFetchMsgByIdMsg.this.mCategory, IMFetchMsgByIdMsg.this.mContacter, IMFetchMsgByIdMsg.this.mBeginId, IMFetchMsgByIdMsg.this.mEndId, IMFetchMsgByIdMsg.this.mCount, i, ((Long) type.t).longValue(), IMFetchMsgByIdMsg.this.getUUID(), arrayList, IMFetchMsgByIdMsg.this.getListenerKey());
+                            ChatMsgManagerImpl.getInstance(this.mContext).onFetchMsgByIdResult(this.mContext, this.mErrorCode, this.mStrMsg, IMFetchMsgByIdMsg.this.mCategory, IMFetchMsgByIdMsg.this.mContacter, IMFetchMsgByIdMsg.this.mBeginId, IMFetchMsgByIdMsg.this.mEndId, IMFetchMsgByIdMsg.this.mCount, i2, ((Long) type.t).longValue(), IMFetchMsgByIdMsg.this.getUUID(), arrayList, IMFetchMsgByIdMsg.this.getListenerKey());
                         }
                     } catch (JSONException e3) {
                         e = e3;
-                        i2 = 0;
+                        i3 = 0;
                     }
                 } catch (JSONException e4) {
                     e = e4;
-                    i2 = 0;
+                    i3 = 0;
                     z = false;
                 }
                 if (z) {
-                    i2 = Math.abs(IMFetchMsgByIdMsg.this.mCount);
+                    i3 = Math.abs(IMFetchMsgByIdMsg.this.mCount);
                     LogUtils.d(IMFetchMsgByIdMsg.TAG, "fetch message set realMsgCount = " + IMFetchMsgByIdMsg.this.mCount);
                 }
                 parserMessage = MessageParser.parserMessage(this.mContext, jSONArray, type, true, true);
                 if (parserMessage != null || parserMessage.size() == 0) {
-                    i = i2;
+                    i2 = i3;
                     arrayList = parserMessage;
                 } else {
                     if (1 != IMFetchMsgByIdMsg.this.mCategory) {
@@ -164,7 +164,7 @@ public class IMFetchMsgByIdMsg extends Message {
                             }
                             MessageExt.getInstance().setdBLatestMsgId(Utility.getReliableMaxMsgId(this.mContext, valueOf.longValue()));
                             MessageExt.getInstance().setLocalTimestamp(Long.valueOf(System.currentTimeMillis()));
-                            i = i2;
+                            i2 = i3;
                             arrayList = arrayList2;
                         } else {
                             addMsgs = ChatMessageDBManager.getInstance(this.mContext).addMsgs(this.mContext, parserMessage, true, IMFetchMsgByIdMsg.this.mTriggerReason);
@@ -175,26 +175,26 @@ public class IMFetchMsgByIdMsg extends Message {
                         addMsgs = GroupMessageManagerImpl.getInstance(this.mContext).addMsgs(parserMessage, true);
                     }
                     arrayList = addMsgs;
-                    i = i2;
+                    i2 = i3;
                 }
             } else {
                 arrayList = null;
-                i = 0;
+                i2 = 0;
             }
-            ChatMsgManagerImpl.getInstance(this.mContext).onFetchMsgByIdResult(this.mContext, this.mErrorCode, this.mStrMsg, IMFetchMsgByIdMsg.this.mCategory, IMFetchMsgByIdMsg.this.mContacter, IMFetchMsgByIdMsg.this.mBeginId, IMFetchMsgByIdMsg.this.mEndId, IMFetchMsgByIdMsg.this.mCount, i, ((Long) type.t).longValue(), IMFetchMsgByIdMsg.this.getUUID(), arrayList, IMFetchMsgByIdMsg.this.getListenerKey());
+            ChatMsgManagerImpl.getInstance(this.mContext).onFetchMsgByIdResult(this.mContext, this.mErrorCode, this.mStrMsg, IMFetchMsgByIdMsg.this.mCategory, IMFetchMsgByIdMsg.this.mContacter, IMFetchMsgByIdMsg.this.mBeginId, IMFetchMsgByIdMsg.this.mEndId, IMFetchMsgByIdMsg.this.mCount, i2, ((Long) type.t).longValue(), IMFetchMsgByIdMsg.this.getUUID(), arrayList, IMFetchMsgByIdMsg.this.getListenerKey());
         }
     }
 
-    public IMFetchMsgByIdMsg(Context context, long j, long j2, int i, int i2, long j3, int i3, int i4) {
+    public IMFetchMsgByIdMsg(Context context, long j, long j2, int i2, int i3, long j3, int i4, int i5) {
         this.mFetchNum = 0;
         initCommonParameter(context);
         this.mBeginId = j;
         this.mEndId = j2;
-        this.mCount = i;
-        this.mCategory = i2;
+        this.mCount = i2;
+        this.mCategory = i3;
         this.mContacter = j3;
-        this.mTriggerReason = i3;
-        this.mFetchNum = i4;
+        this.mTriggerReason = i4;
+        this.mFetchNum = i5;
         this.mContext = context;
         setNeedReplay(true);
         setType(93);
@@ -278,10 +278,10 @@ public class IMFetchMsgByIdMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        LogUtils.d(TAG, "fetch handleMessageResult err : " + i + ", msg :" + str);
-        super.handleMessageResult(context, jSONObject, i, str);
-        TaskManager.getInstance(this.mContext).submitForNetWork(new FetchTask(context, jSONObject, i, str));
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+        LogUtils.d(TAG, "fetch handleMessageResult err : " + i2 + ", msg :" + str);
+        super.handleMessageResult(context, jSONObject, i2, str);
+        TaskManager.getInstance(this.mContext).submitForNetWork(new FetchTask(context, jSONObject, i2, str));
     }
 
     @Override // com.baidu.android.imsdk.request.Message
@@ -289,7 +289,7 @@ public class IMFetchMsgByIdMsg extends Message {
         setSendingState(context);
     }
 
-    public void setJumpToNewMsg(int i) {
-        this.mJumpToRecent = i;
+    public void setJumpToNewMsg(int i2) {
+        this.mJumpToRecent = i2;
     }
 }

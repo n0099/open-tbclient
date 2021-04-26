@@ -11,9 +11,9 @@ public class TbAdvertStatic {
     /* loaded from: classes5.dex */
     public static class a implements CustomMessageTask.CustomRunnable<Context> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.b.i0.w0.a> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<d.a.i0.w0.a> run(CustomMessage<Context> customMessage) {
             if (customMessage.getData() != null) {
-                return new CustomResponsedMessage<>(2921390, new d.b.j0.e3.a(customMessage.getData()));
+                return new CustomResponsedMessage<>(2921390, new d.a.j0.e3.a(customMessage.getData()));
             }
             return null;
         }

@@ -188,15 +188,15 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
 
     public void doPay() {
         PwdRequest pwdRequest = new PwdRequest();
-        int i = 2;
+        int i2 = 2;
         if (PayDataCache.getInstance().isPassFree()) {
             pwdRequest.mPayPass = null;
         } else {
             pwdRequest.mPayPass = this.pwdword;
             PayRequest payRequest = this.mPayRequest;
-            i = (payRequest == null || payRequest.getPayWay() != 2) ? 0 : 1;
+            i2 = (payRequest == null || payRequest.getPayWay() != 2) ? 0 : 1;
         }
-        StatHelper.cachePayWay(i);
+        StatHelper.cachePayWay(i2);
         PayRequestCache.getInstance().addBeanRequestToCache(pwdRequest.getRequestId(), pwdRequest);
         if (this.mPayRequest == null) {
             PwdPayActivity pwdPayActivity = this.mActivity;
@@ -258,40 +258,40 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
     }
 
     @Override // com.baidu.wallet.paysdk.contract.PwdPayContract.Presenter, com.baidu.wallet.paysdk.presenter.NetWorkPresenter
-    public void handleFailure(int i, int i2, String str) {
+    public void handleFailure(int i2, int i3, String str) {
         this.mActivity.dismissLoading(-1);
         if ((PayDataCache.getInstance().isPassFree() || (this.mPayRequest != null && isFingerprintPay())) && PayDataCache.getInstance().isFromPreCashier() && this.mCheckForWhat == CheckForWhat.FOR_ONEKEYPAY) {
             this.mActivity.setPageTransparent(true);
         }
-        if (i != 14 && i != 13 && i != 263) {
-            super.handleFailure(i, i2, str);
+        if (i2 != 14 && i2 != 13 && i2 != 263) {
+            super.handleFailure(i2, i3, str);
             return;
         }
         this.mActivity.showPWdInputView(true);
-        clearPayPwdCache(i2);
-        if (i2 == 100015) {
+        clearPayPwdCache(i3);
+        if (i3 == 100015) {
             this.mActivity.showPassError(str);
-        } else if (i2 == 100018) {
+        } else if (i3 == 100018) {
             this.mActivity.setErrorTips(false, null);
             PwdPayActivity pwdPayActivity = this.mActivity;
             pwdPayActivity.mDialogMsg = str;
-            pwdPayActivity.mPayErrorCode = i2;
-            pwdPayActivity.mBeanId = i;
+            pwdPayActivity.mPayErrorCode = i3;
+            pwdPayActivity.mBeanId = i2;
             WalletGlobalUtils.safeShowDialog(pwdPayActivity, 17, "");
-        } else if (i2 == -8) {
+        } else if (i3 == -8) {
             WalletGlobalUtils.safeShowDialog(this.mActivity, 11, "");
-        } else if (i2 == 60500) {
+        } else if (i3 == 60500) {
             PwdPayActivity pwdPayActivity2 = this.mActivity;
             pwdPayActivity2.mDialogMsg = str;
-            pwdPayActivity2.mPayErrorCode = i2;
-            pwdPayActivity2.mBeanId = i;
+            pwdPayActivity2.mPayErrorCode = i3;
+            pwdPayActivity2.mBeanId = i2;
             WalletGlobalUtils.safeShowDialog(pwdPayActivity2, 37, "");
-        } else if (65312 == i2) {
+        } else if (65312 == i3) {
             StatisticManager.onEvent(StatServiceEvent.EVENT_65312_ON_FP_PWDPAY);
             PwdPayActivity pwdPayActivity3 = this.mActivity;
             GlobalUtils.toast(pwdPayActivity3, ResUtils.getString(pwdPayActivity3, "bd_wallet_fingerprint_auth_failed"));
             String str2 = this.TAG;
-            LogUtil.d(str2, "指纹验证失败, 切到密码输入模式   , wireless-pay接口请求失败 错误码是  : " + i2);
+            LogUtil.d(str2, "指纹验证失败, 切到密码输入模式   , wireless-pay接口请求失败 错误码是  : " + i3);
             this.mActivity.turntoPwdPay(true, null);
         } else {
             PwdPayActivity pwdPayActivity4 = this.mActivity;
@@ -301,18 +301,18 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
             pwdPayActivity4.mDialogMsg = str;
             WalletGlobalUtils.safeShowDialog(this.mActivity, 12, "");
         }
-        if (i == 13) {
-            StatisticManager.onEventEnd(StatServiceEvent.TIME_PAY, i2);
-        } else if (i == 263) {
-            StatisticManager.onEventEnd(StatServiceEvent.CREDIT_PAY, i2);
-        } else if (i == 14) {
-            StatisticManager.onEventEnd(StatServiceEvent.BALANCE_PAY, i2);
+        if (i2 == 13) {
+            StatisticManager.onEventEnd(StatServiceEvent.TIME_PAY, i3);
+        } else if (i2 == 263) {
+            StatisticManager.onEventEnd(StatServiceEvent.CREDIT_PAY, i3);
+        } else if (i2 == 14) {
+            StatisticManager.onEventEnd(StatServiceEvent.BALANCE_PAY, i3);
         }
     }
 
     @Override // com.baidu.wallet.paysdk.contract.PwdPayContract.Presenter, com.baidu.wallet.paysdk.presenter.NetWorkPresenter
-    public void handleResponse(int i, Object obj, String str) {
-        if (i == 257) {
+    public void handleResponse(int i2, Object obj, String str) {
+        if (i2 == 257) {
             StatisticManager.onEventEnd(StatServiceEvent.CHECK_PASSWORD, 0);
             CheckForWhat checkForWhat = this.mCheckForWhat;
             if (checkForWhat == CheckForWhat.FOR_BIND_CARD_PAY) {
@@ -326,7 +326,7 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
             } else if (checkForWhat == CheckForWhat.FOR_ONEKEYPAY) {
                 doPay();
             }
-        } else if (i == 14) {
+        } else if (i2 == 14) {
             BalancePayResponse balancePayResponse = (BalancePayResponse) obj;
             if (balancePayResponse == null || !balancePayResponse.checkResponseValidity()) {
                 return;
@@ -374,7 +374,7 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
             }
             this.mActivity.showPaySuccessPage(true, payResultContent, 1);
         } else {
-            super.handleResponse(i, obj, str);
+            super.handleResponse(i2, obj, str);
         }
     }
 
@@ -404,7 +404,7 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
     }
 
     @Override // com.baidu.wallet.paysdk.contract.PwdPayContract.Presenter
-    public boolean onBeanExecFailureWithErrContent(int i, int i2, String str, Object obj) {
+    public boolean onBeanExecFailureWithErrContent(int i2, int i3, String str, Object obj) {
         if (!PayDataCache.getInstance().isPassFree() && !isFingerprintPay()) {
             this.mActivity.showPWdInputView(true);
         }
@@ -412,8 +412,8 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
         if (obj != null && (obj instanceof ErrorContentResponse)) {
             errorContentResponse = (ErrorContentResponse) obj;
         }
-        clearPayPwdCache(i2);
-        if (i2 == 100015 && errorContentResponse != null && "1".equals(errorContentResponse.use_vcode_to_pay)) {
+        clearPayPwdCache(i3);
+        if (i3 == 100015 && errorContentResponse != null && "1".equals(errorContentResponse.use_vcode_to_pay)) {
             this.mActivity.showPassError(str);
             this.mPayRequest.mUseVcodeToPay = errorContentResponse.use_vcode_to_pay;
             triggleSmsPay();
@@ -425,7 +425,7 @@ public class PwdPayPresenterForCashdesk extends PwdPayContract.Presenter impleme
             WalletGlobalUtils.safeShowDialog(pwdPayActivity, 36, "");
             return true;
         } else {
-            return super.onBeanExecFailureWithErrContent(i, i2, str, obj);
+            return super.onBeanExecFailureWithErrContent(i2, i3, str, obj);
         }
     }
 

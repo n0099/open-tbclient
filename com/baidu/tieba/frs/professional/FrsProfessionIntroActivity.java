@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes4.dex */
 public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroActivity> {
     public static final String PROFESSION_THREAD_ID = "5977226324";
@@ -89,8 +89,8 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         SkinManager.setViewTextColor(this.mNavigationBar.mCenterText, R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.mProfessionDesc, R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.mFirstIndex, R.color.CAM_X0111);
@@ -106,7 +106,7 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         SkinManager.setBackgroundResource(this.mGotItButton, R.drawable.frs_profession_button_bg);
         SkinManager.setViewTextColor(this.mGoPublishButton, R.color.CAM_X0302);
         SkinManager.setBackgroundColor(this.mBottomView, R.color.CAM_X0201);
-        this.mGradientView.a(i);
+        this.mGradientView.a(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -140,6 +140,6 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         handleNotchScreen();
         String stringExtra = getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_PATTEN_BACKGROUND);
         this.mGradientView.setGradientColor(getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_DARK_COLOR));
-        this.mBackgroundContent.W(stringExtra, 10, false);
+        this.mBackgroundContent.V(stringExtra, 10, false);
     }
 }

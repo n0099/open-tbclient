@@ -5,24 +5,24 @@ import com.baidu.lbsapi.auth.LBSAuthManagerListener;
 public class a implements LBSAuthManagerListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ MKGeneralListener f6347a;
+    public final /* synthetic */ MKGeneralListener f6532a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ BMapManager f6348b;
+    public final /* synthetic */ BMapManager f6533b;
 
     public a(BMapManager bMapManager, MKGeneralListener mKGeneralListener) {
-        this.f6348b = bMapManager;
-        this.f6347a = mKGeneralListener;
+        this.f6533b = bMapManager;
+        this.f6532a = mKGeneralListener;
     }
 
     @Override // com.baidu.lbsapi.auth.LBSAuthManagerListener
-    public void onAuthResult(int i, String str) {
-        if (i == 0) {
-            boolean unused = BMapManager.f6345a = true;
-            this.f6347a.onGetPermissionState(i);
+    public void onAuthResult(int i2, String str) {
+        if (i2 == 0) {
+            boolean unused = BMapManager.f6530a = true;
+            this.f6532a.onGetPermissionState(i2);
             return;
         }
-        boolean unused2 = BMapManager.f6345a = false;
-        this.f6347a.onGetPermissionState(300);
+        boolean unused2 = BMapManager.f6530a = false;
+        this.f6532a.onGetPermissionState(300);
     }
 }

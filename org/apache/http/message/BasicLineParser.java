@@ -32,7 +32,7 @@ public class BasicLineParser implements LineParser {
         throw new RuntimeException("Stub!");
     }
 
-    public ProtocolVersion createProtocolVersion(int i, int i2) {
+    public ProtocolVersion createProtocolVersion(int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 
@@ -40,7 +40,7 @@ public class BasicLineParser implements LineParser {
         throw new RuntimeException("Stub!");
     }
 
-    public StatusLine createStatusLine(ProtocolVersion protocolVersion, int i, String str) {
+    public StatusLine createStatusLine(ProtocolVersion protocolVersion, int i2, String str) {
         throw new RuntimeException("Stub!");
     }
 

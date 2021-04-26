@@ -28,16 +28,14 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live.AlaAllLiveSimpleActivity;
 import com.baidu.tieba.ala.alasquare.live_tab.AlaLiveTabFragment;
-import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabGameSubFragment;
-import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabYanzhiSubFragment;
+import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabYYSubFragment;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.AlaLiveTabMyConcernActivity;
 import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialConcernResponse;
 import com.baidu.tieba.ala.alasquare.special_forum.message.AlaSpecialRecommendResponse;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
-import com.baidu.tieba.ala.alasquare.subtablist.message.SdkLiveInfoListResponsedMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListActivity;
-import d.b.j0.q0.j0;
+import d.a.j0.q0.j0;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import tbclient.FrsTabInfo;
@@ -45,18 +43,9 @@ import tbclient.FrsTabInfo;
 public class AlaSquareDelegateStatic {
 
     /* loaded from: classes4.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<BaseFragment> {
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<BaseFragment> run(CustomMessage<BaseFragment> customMessage) {
-            return new CustomResponsedMessage<>(2921399, new AlaLiveTabFragment());
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
+    public static class a extends CustomMessageListener {
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,8 +57,16 @@ public class AlaSquareDelegateStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
-                j0Var.a(new d.b.j0.t.d.f.a(j0Var.d(), j0Var.e()));
+                j0Var.a(new d.a.j0.t.d.f.a(j0Var.d(), j0Var.e()));
             }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements CustomMessageTask.CustomRunnable {
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<String> run(CustomMessage customMessage) {
+            return new CustomResponsedMessage<>(2911006, d.a.i0.r.d0.b.j().p("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播"));
         }
     }
 
@@ -77,31 +74,23 @@ public class AlaSquareDelegateStatic {
     public static class c implements CustomMessageTask.CustomRunnable {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
-            return new CustomResponsedMessage<>(2911006, d.b.i0.r.d0.b.j().p("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播"));
+            return new CustomResponsedMessage<>(2911008, d.a.i0.r.d0.b.j().p("show_live_forum_name", "百度直播"));
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class d implements CustomMessageTask.CustomRunnable {
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<String> run(CustomMessage customMessage) {
-            return new CustomResponsedMessage<>(2911008, d.b.i0.r.d0.b.j().p("show_live_forum_name", "百度直播"));
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class e implements UrlManager.UrlDealListener {
+    public static class d implements UrlManager.UrlDealListener {
         @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             if (strArr != null && strArr.length != 0 && strArr[0] != null && tbPageContext != null) {
                 String lowerCase = strArr[0].toLowerCase();
                 if (lowerCase.contains(UrlSchemaHelper.JUMP_TO_VIDEO_SQUARE)) {
-                    d.b.i0.r.a0.b.f(tbPageContext.getPageActivity(), 15, true);
+                    d.a.i0.r.a0.b.f(tbPageContext.getPageActivity(), 15, true);
                     return 1;
                 }
                 Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/video/square\\?tid=(\\d+)").matcher(lowerCase);
                 if (matcher.find()) {
-                    if (AlaSquareDelegateStatic.e()) {
+                    if (AlaSquareDelegateStatic.c()) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(2).buildVideoThreadId(matcher.group(1))));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(15).buildVideoThreadId(matcher.group(1))));
@@ -114,7 +103,7 @@ public class AlaSquareDelegateStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class f implements CustomMessageTask.CustomRunnable<IntentConfig> {
+    public static class e implements CustomMessageTask.CustomRunnable<IntentConfig> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
             if (customMessage != null && customMessage.getData() != null) {
@@ -125,126 +114,92 @@ public class AlaSquareDelegateStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class g extends CustomMessageListener {
-        public g(int i) {
-            super(i);
+    public static class f extends CustomMessageListener {
+        public f(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.b.j0.q0.g gVar;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.b.j0.q0.g) || (gVar = (d.b.j0.q0.g) customResponsedMessage.getData()) == null || ListUtils.isEmpty(gVar.e())) {
+            d.a.j0.q0.g gVar;
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.j0.q0.g) || (gVar = (d.a.j0.q0.g) customResponsedMessage.getData()) == null || ListUtils.isEmpty(gVar.e())) {
                 return;
             }
             for (FrsTabInfo frsTabInfo : gVar.e()) {
                 if (frsTabInfo.tab_id.intValue() == 1120) {
-                    AlaSquareDelegateStatic.d(gVar);
-                } else if (frsTabInfo.tab_id.intValue() == 1121) {
-                    AlaSquareDelegateStatic.c(gVar);
+                    AlaSquareDelegateStatic.b(gVar);
                 }
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class h extends d.b.i0.e0.b {
+    public static class g extends d.a.i0.e0.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.j0.q0.g f14376a;
+        public final /* synthetic */ d.a.j0.q0.g f14435a;
 
-        public h(d.b.j0.q0.g gVar) {
-            this.f14376a = gVar;
+        public g(d.a.j0.q0.g gVar) {
+            this.f14435a = gVar;
         }
 
-        @Override // d.b.i0.e0.b
-        public d.b.i0.e0.c createFragmentTabStructure() {
-            LiveTabGameSubFragment S0 = LiveTabGameSubFragment.S0(true);
-            S0.I0(this.f14376a.b(), this.f14376a.c());
-            d.b.i0.e0.c cVar = new d.b.i0.e0.c();
-            cVar.f50884a = S0;
-            cVar.f50888e = 1121;
-            cVar.i = d.b.i0.e0.c.k;
+        @Override // d.a.i0.e0.b
+        public d.a.i0.e0.c createFragmentTabStructure() {
+            LiveTabYYSubFragment W0 = LiveTabYYSubFragment.W0(true, 2);
+            W0.I0(this.f14435a.b(), this.f14435a.c());
+            d.a.i0.e0.c cVar = new d.a.i0.e0.c();
+            cVar.f48462a = W0;
+            cVar.f48466e = 1120;
+            cVar.f48470i = d.a.i0.e0.c.k;
             return cVar;
         }
 
-        @Override // d.b.i0.e0.b
+        @Override // d.a.i0.e0.b
         public TbFragmentTabIndicator getTabIndicator(Context context) {
             return null;
         }
 
-        @Override // d.b.i0.e0.b
+        @Override // d.a.i0.e0.b
         public boolean isAvailable() {
             return true;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class i extends d.b.i0.e0.b {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.j0.q0.g f14377a;
-
-        public i(d.b.j0.q0.g gVar) {
-            this.f14377a = gVar;
-        }
-
-        @Override // d.b.i0.e0.b
-        public d.b.i0.e0.c createFragmentTabStructure() {
-            LiveTabYanzhiSubFragment S0 = LiveTabYanzhiSubFragment.S0(true);
-            S0.I0(this.f14377a.b(), this.f14377a.c());
-            d.b.i0.e0.c cVar = new d.b.i0.e0.c();
-            cVar.f50884a = S0;
-            cVar.f50888e = 1120;
-            cVar.i = d.b.i0.e0.c.k;
-            return cVar;
-        }
-
-        @Override // d.b.i0.e0.b
-        public TbFragmentTabIndicator getTabIndicator(Context context) {
-            return null;
-        }
-
-        @Override // d.b.i0.e0.b
-        public boolean isAvailable() {
-            return true;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class j extends CustomMessageListener {
+    public static class h extends CustomMessageListener {
 
         /* loaded from: classes4.dex */
-        public class a extends d.b.i0.e0.b {
-            public a(j jVar) {
+        public class a extends d.a.i0.e0.b {
+            public a(h hVar) {
             }
 
-            @Override // d.b.i0.e0.b
-            public d.b.i0.e0.c createFragmentTabStructure() {
-                d.b.i0.e0.c cVar = new d.b.i0.e0.c();
-                cVar.f50884a = new MainBottomLiveTabFragment();
-                cVar.f50888e = 20;
-                cVar.f50885b = R.string.ala_live;
-                cVar.f50889f = R.raw.lottie_tab_live;
-                cVar.i = d.b.i0.e0.c.l;
+            @Override // d.a.i0.e0.b
+            public d.a.i0.e0.c createFragmentTabStructure() {
+                d.a.i0.e0.c cVar = new d.a.i0.e0.c();
+                cVar.f48462a = new MainBottomLiveTabFragment();
+                cVar.f48466e = 20;
+                cVar.f48463b = R.string.ala_live;
+                cVar.f48467f = R.raw.lottie_tab_live;
+                cVar.f48470i = d.a.i0.e0.c.l;
                 return cVar;
             }
 
-            @Override // d.b.i0.e0.b
+            @Override // d.a.i0.e0.b
             public TbFragmentTabIndicator getTabIndicator(Context context) {
                 MaintabBottomIndicator maintabBottomIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
                 this.mIndicator = maintabBottomIndicator;
                 return maintabBottomIndicator;
             }
 
-            @Override // d.b.i0.e0.b
+            @Override // d.a.i0.e0.b
             public boolean isAvailable() {
                 return true;
             }
         }
 
-        public j(int i) {
-            super(i);
+        public h(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -253,56 +208,58 @@ public class AlaSquareDelegateStatic {
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
-            ((d.b.i0.e0.d) customResponsedMessage.getData()).a(new a(this));
+            ((d.a.i0.e0.d) customResponsedMessage.getData()).a(new a(this));
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class i implements CustomMessageTask.CustomRunnable<BaseFragment> {
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<BaseFragment> run(CustomMessage<BaseFragment> customMessage) {
+            return new CustomResponsedMessage<>(2921399, new AlaLiveTabFragment());
         }
     }
 
     static {
-        l();
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921353));
-        i();
         j();
-        k();
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921353));
+        g();
+        h();
+        i();
         TbadkCoreApplication.getInst().RegisterIntent(AlaLiveTabMyConcernActivityConfig.class, AlaLiveTabMyConcernActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AlaNewSquareSubListActivityConfig.class, AlaNewSquareSubListActivity.class);
-        o();
-        n();
-        h();
+        l();
         f();
-        MessageManager.getInstance().registerListener(new b(2001616));
-        g();
-        m();
-        CustomMessageTask customMessageTask = new CustomMessageTask(2911006, new c());
+        d();
+        MessageManager.getInstance().registerListener(new a(2001616));
+        e();
+        k();
+        CustomMessageTask customMessageTask = new CustomMessageTask(2911006, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(2911008, new d());
+        CustomMessageTask customMessageTask2 = new CustomMessageTask(2911008, new c());
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
     }
 
-    public static void c(d.b.j0.q0.g gVar) {
+    public static void b(d.a.j0.q0.g gVar) {
         if (gVar != null) {
-            gVar.a(new h(gVar));
+            gVar.a(new g(gVar));
         }
     }
 
-    public static void d(d.b.j0.q0.g gVar) {
-        if (gVar != null) {
-            gVar.a(new i(gVar));
-        }
-    }
-
-    public static boolean e() {
+    public static boolean c() {
         return true;
     }
 
-    public static void f() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(AlaCmdConfigCustom.CMD_ALA_ALL_LIVE_SIMPLE, new f());
+    public static void d() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(AlaCmdConfigCustom.CMD_ALA_ALL_LIVE_SIMPLE, new e());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static void g() {
+    public static void e() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_SPECIAL_LIVE_CONCERN_TAB);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -311,23 +268,23 @@ public class AlaSquareDelegateStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
+    public static void f() {
+        f fVar = new f(2001623);
+        fVar.setPriority(1);
+        MessageManager.getInstance().registerListener(fVar);
+    }
+
+    public static void g() {
+        new h(2007002).setPriority(6);
+    }
+
     public static void h() {
-        g gVar = new g(2001623);
-        gVar.setPriority(1);
-        MessageManager.getInstance().registerListener(gVar);
-    }
-
-    public static void i() {
-        new j(2007002).setPriority(6);
-    }
-
-    public static void j() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921399, new a());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921399, new i());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static void k() {
+    public static void i() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_TAB_LIVE_INFO);
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -337,11 +294,11 @@ public class AlaSquareDelegateStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public static void l() {
-        UrlManager.getInstance().addListener(new e());
+    public static void j() {
+        UrlManager.getInstance().addListener(new d());
     }
 
-    public static void m() {
+    public static void k() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_SPECIAL_LIVE_RECOMMEND_TAB);
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
@@ -350,18 +307,7 @@ public class AlaSquareDelegateStatic {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public static void n() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GAME_LIVE_LIST);
-        tbHttpMessageTask.setIsNeedLogin(false);
-        tbHttpMessageTask.setIsNeedAddCommenParam(true);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        tbHttpMessageTask.setResponsedClass(SdkLiveInfoListResponsedMessage.class);
-        MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    public static void o() {
+    public static void l() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_NEW_SQUARE_SUB_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_NEW_SQUARE_SUB_LIVE_LIST);
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);

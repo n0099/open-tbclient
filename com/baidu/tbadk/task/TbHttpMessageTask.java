@@ -12,8 +12,8 @@ public class TbHttpMessageTask extends HttpMessageTask {
     public boolean mIsNeedTbs;
     public boolean mIsUseCurrentBDUSS;
 
-    public TbHttpMessageTask(int i, String str) {
-        super(i, str);
+    public TbHttpMessageTask(int i2, String str) {
+        super(i2, str);
         this.mIsNeedTbs = false;
         this.mIsUseCurrentBDUSS = true;
         this.mIsNeedAddStatisticsParam = true;

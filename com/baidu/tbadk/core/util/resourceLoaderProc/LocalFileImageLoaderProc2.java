@@ -5,11 +5,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import d.b.c.e.l.b;
-import d.b.c.e.l.e;
-import d.b.c.e.p.l;
-import d.b.c.j.d.a;
-import d.b.i0.a0.c;
+import d.a.c.e.l.b;
+import d.a.c.e.l.e;
+import d.a.c.e.p.l;
+import d.a.c.j.d.a;
+import d.a.i0.a0.c;
 /* loaded from: classes3.dex */
 public class LocalFileImageLoaderProc2 implements e<a> {
     public int height;
@@ -32,24 +32,24 @@ public class LocalFileImageLoaderProc2 implements e<a> {
         return null;
     }
 
-    @Override // d.b.c.e.l.e
+    @Override // d.a.c.e.l.e
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         return null;
     }
 
-    @Override // d.b.c.e.l.e
+    @Override // d.a.c.e.l.e
     public int getAsyncTaskPriority() {
         return 1;
     }
 
-    public a getBitmapFromFile(String str, int i, int i2) {
+    public a getBitmapFromFile(String str, int i2, int i3) {
         Bitmap loadResizedBitmap;
         try {
             if (str.toLowerCase().endsWith(".gif")) {
                 return new a(BitmapHelper.loadBitmap(str), true, str);
             }
-            if (i > 0 && i2 > 0 && i < this.width && i2 < this.height) {
-                loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, i, i2);
+            if (i2 > 0 && i3 > 0 && i2 < this.width && i3 < this.height) {
+                loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, i2, i3);
             } else {
                 loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, this.width, this.height);
             }
@@ -61,12 +61,12 @@ public class LocalFileImageLoaderProc2 implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.c.e.l.e
-    public a getFromRemote(String str, String str2, int i, int i2, b bVar, Object... objArr) {
+    @Override // d.a.c.e.l.e
+    public a getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         return null;
     }
 
-    @Override // d.b.c.e.l.e
+    @Override // d.a.c.e.l.e
     public boolean isNeedLoad() {
         return true;
     }
@@ -74,50 +74,50 @@ public class LocalFileImageLoaderProc2 implements e<a> {
     public void storeLocal(String str, byte[] bArr, Object... objArr) {
     }
 
-    public String toCacheKey(String str, int i, int i2) {
-        return "localimage_" + str + ":w=" + i + "&h=" + i2;
+    public String toCacheKey(String str, int i2, int i3) {
+        return "localimage_" + str + ":w=" + i2 + "&h=" + i3;
     }
 
-    @Override // d.b.c.e.l.e
-    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
+    @Override // d.a.c.e.l.e
+    public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
         if (obj == null || !(obj instanceof a)) {
             return;
         }
         a aVar = (a) obj;
         if (aVar.u()) {
-            aVar.A(i);
-            aVar.z(i2);
-            c.k().d(toCacheKey(str, i, i2), aVar);
+            aVar.A(i2);
+            aVar.z(i3);
+            c.k().d(toCacheKey(str, i2, i3), aVar);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.c.e.l.e
-    public a getFromLocal(String str, String str2, int i, int i2, b bVar, Object... objArr) {
+    @Override // d.a.c.e.l.e
+    public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return getBitmapFromFile(str, i, i2);
+        return getBitmapFromFile(str, i2, i3);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // d.b.c.e.l.e
-    public a getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
-        a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str, i, i2), c.k().m(toCacheKey(str, i, i2)), i, i2);
+    @Override // d.a.c.e.l.e
+    public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
+        a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str, i2, i3), c.k().m(toCacheKey(str, i2, i3)), i2, i3);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
             return null;
         }
         return checkIsValidPicMemoryCache;
     }
 
-    public LocalFileImageLoaderProc2(int i, int i2) {
+    public LocalFileImageLoaderProc2(int i2, int i3) {
         this.width = 0;
         this.height = 0;
-        if (i > 0 && i2 > 0) {
-            this.width = i;
-            this.height = i2;
+        if (i2 > 0 && i3 > 0) {
+            this.width = i2;
+            this.height = i3;
             return;
         }
         initDefalutMaxSize();

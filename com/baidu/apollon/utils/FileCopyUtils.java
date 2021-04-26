@@ -17,7 +17,7 @@ import java.io.Writer;
 public abstract class FileCopyUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3983a = 4096;
+    public static final int f4038a = 4096;
 
     public static int copy(File file, File file2) throws IOException {
         Assert.notNull(file, "No input File specified");
@@ -82,21 +82,21 @@ public abstract class FileCopyUtils {
         Assert.notNull(outputStream, "No OutputStream specified");
         try {
             byte[] bArr = new byte[4096];
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 int read = inputStream.read(bArr);
                 if (read == -1) {
                     break;
                 }
                 outputStream.write(bArr, 0, read);
-                i += read;
+                i2 += read;
             }
             outputStream.flush();
             try {
                 outputStream.close();
             } catch (IOException unused) {
             }
-            return i;
+            return i2;
         } finally {
             try {
                 inputStream.close();
@@ -150,21 +150,21 @@ public abstract class FileCopyUtils {
         Assert.notNull(writer, "No Writer specified");
         try {
             char[] cArr = new char[4096];
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 int read = reader.read(cArr);
                 if (read == -1) {
                     break;
                 }
                 writer.write(cArr, 0, read);
-                i += read;
+                i2 += read;
             }
             writer.flush();
             try {
                 writer.close();
             } catch (IOException unused) {
             }
-            return i;
+            return i2;
         } finally {
             try {
                 reader.close();

@@ -19,14 +19,14 @@ public abstract class LocalFetchProducer implements Producer<EncodedImage> {
         this.mPooledByteBufferFactory = pooledByteBufferFactory;
     }
 
-    public EncodedImage getByteBufferBackedEncodedImage(InputStream inputStream, int i) throws IOException {
+    public EncodedImage getByteBufferBackedEncodedImage(InputStream inputStream, int i2) throws IOException {
         CloseableReference of;
         CloseableReference closeableReference = null;
         try {
-            if (i <= 0) {
+            if (i2 <= 0) {
                 of = CloseableReference.of(this.mPooledByteBufferFactory.newByteBuffer(inputStream));
             } else {
-                of = CloseableReference.of(this.mPooledByteBufferFactory.newByteBuffer(inputStream, i));
+                of = CloseableReference.of(this.mPooledByteBufferFactory.newByteBuffer(inputStream, i2));
             }
             closeableReference = of;
             return new EncodedImage(closeableReference);
@@ -38,8 +38,8 @@ public abstract class LocalFetchProducer implements Producer<EncodedImage> {
 
     public abstract EncodedImage getEncodedImage(ImageRequest imageRequest) throws IOException;
 
-    public EncodedImage getEncodedImage(InputStream inputStream, int i) throws IOException {
-        return getByteBufferBackedEncodedImage(inputStream, i);
+    public EncodedImage getEncodedImage(InputStream inputStream, int i2) throws IOException {
+        return getByteBufferBackedEncodedImage(inputStream, i2);
     }
 
     public abstract String getProducerName();

@@ -5,15 +5,15 @@ import java.util.regex.Pattern;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f39366a = Pattern.compile("([\t\r\n])+");
+    public static final Pattern f36959a = Pattern.compile("([\t\r\n])+");
 
     public static int hashCode(String str) {
         if (str.length() > 0) {
-            int i = 0;
+            int i2 = 0;
             for (char c2 : str.toCharArray()) {
-                i = (i * 31) + c2;
+                i2 = (i2 * 31) + c2;
             }
-            return i;
+            return i2;
         }
         return 0;
     }

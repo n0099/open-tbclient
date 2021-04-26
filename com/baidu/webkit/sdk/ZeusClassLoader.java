@@ -37,17 +37,17 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
             DexPathListClass = cls;
             Class<?>[] declaredClasses = cls.getDeclaredClasses();
             int length = declaredClasses.length;
-            int i = 0;
+            int i2 = 0;
             while (true) {
-                if (i >= length) {
+                if (i2 >= length) {
                     break;
                 }
-                Class<?> cls2 = declaredClasses[i];
+                Class<?> cls2 = declaredClasses[i2];
                 if (cls2.getSimpleName().equals("Element")) {
                     ElementClass = cls2;
                     break;
                 }
-                i++;
+                i2++;
             }
             if (ElementClass == null) {
                 throw new AndroidRuntimeException("DexPathList$Element not found!");

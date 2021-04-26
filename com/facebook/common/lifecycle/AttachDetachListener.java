@@ -1,7 +1,7 @@
 package com.facebook.common.lifecycle;
 
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface AttachDetachListener {
     void onAttachToView(View view);
 

@@ -12,12 +12,12 @@ public class CAVLCReader extends BitstreamReader {
     }
 
     private int readUE() throws IOException {
-        int i = 0;
+        int i2 = 0;
         while (read1Bit() == 0) {
-            i++;
+            i2++;
         }
-        if (i > 0) {
-            return (int) (((1 << i) - 1) + readNBit(i));
+        if (i2 > 0) {
+            return (int) (((1 << i2) - 1) + readNBit(i2));
         }
         return 0;
     }
@@ -27,12 +27,12 @@ public class CAVLCReader extends BitstreamReader {
         String valueOf = String.valueOf(BitstreamReader.bitsRead - this.debugBits.length());
         int length = 8 - valueOf.length();
         sb.append("@" + valueOf);
-        for (int i = 0; i < length; i++) {
+        for (int i2 = 0; i2 < length; i2++) {
             sb.append(' ');
         }
         sb.append(str);
         int length2 = (100 - sb.length()) - this.debugBits.length();
-        for (int i2 = 0; i2 < length2; i2++) {
+        for (int i3 = 0; i3 < length2; i3++) {
             sb.append(' ');
         }
         sb.append(this.debugBits);
@@ -41,10 +41,10 @@ public class CAVLCReader extends BitstreamReader {
         Debug.println(sb.toString());
     }
 
-    public byte[] read(int i) throws IOException {
-        byte[] bArr = new byte[i];
-        for (int i2 = 0; i2 < i; i2++) {
-            bArr[i2] = (byte) readByte();
+    public byte[] read(int i2) throws IOException {
+        byte[] bArr = new byte[i2];
+        for (int i3 = 0; i3 < i2; i3++) {
+            bArr[i3] = (byte) readByte();
         }
         return bArr;
     }
@@ -81,22 +81,22 @@ public class CAVLCReader extends BitstreamReader {
         return readUE(str);
     }
 
-    public long readNBit(int i, String str) throws IOException {
-        long readNBit = readNBit(i);
+    public long readNBit(int i2, String str) throws IOException {
+        long readNBit = readNBit(i2);
         trace(str, String.valueOf(readNBit));
         return readNBit;
     }
 
     public int readSE(String str) throws IOException {
         int readUE = readUE();
-        int i = readUE & 1;
-        int i2 = ((readUE >> 1) + i) * ((i << 1) - 1);
-        trace(str, String.valueOf(i2));
-        return i2;
+        int i2 = readUE & 1;
+        int i3 = ((readUE >> 1) + i2) * ((i2 << 1) - 1);
+        trace(str, String.valueOf(i3));
+        return i3;
     }
 
-    public int readTE(int i) throws IOException {
-        if (i > 1) {
+    public int readTE(int i2) throws IOException {
+        if (i2 > 1) {
             return readUE();
         }
         return (~read1Bit()) & 1;
@@ -107,17 +107,17 @@ public class CAVLCReader extends BitstreamReader {
         readRemainingByte();
     }
 
-    public int readU(int i, String str) throws IOException {
-        return (int) readNBit(i, str);
+    public int readU(int i2, String str) throws IOException {
+        return (int) readNBit(i2, str);
     }
 
     public int readZeroBitCount(String str) throws IOException {
-        int i = 0;
+        int i2 = 0;
         while (read1Bit() == 0) {
-            i++;
+            i2++;
         }
-        trace(str, String.valueOf(i));
-        return i;
+        trace(str, String.valueOf(i2));
+        return i2;
     }
 
     public int readUE(String str) throws IOException {

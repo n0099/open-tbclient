@@ -46,12 +46,12 @@ public class AddressPresenter extends BasePresenter<IBaseView> {
         JSONArray optJSONArray = jSONObject.optJSONArray(AddressField.KEY_ADDR_LIST);
         if (optJSONArray != null) {
             int length = optJSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                 if (optJSONObject != null) {
                     arrayList.add(optJSONObject);
                 } else {
-                    Log.d(TAG, "item of address list is error, index=" + i);
+                    Log.d(TAG, "item of address list is error, index=" + i2);
                 }
             }
         }
@@ -85,8 +85,8 @@ public class AddressPresenter extends BasePresenter<IBaseView> {
         mapObject.putValue(AddressField.KEY_ADDR_ID, str);
         AddressRequestFactory.newDelAddressRequest(mapObject).submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.AddressPresenter.4
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i, String str2) {
-                AddressPresenter.this.doFailure(1002, i, str2);
+            public void onFailure(int i2, String str2) {
+                AddressPresenter.this.doFailure(1002, i2, str2);
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
@@ -104,9 +104,9 @@ public class AddressPresenter extends BasePresenter<IBaseView> {
     public void getAddressList(final boolean z) {
         AddressRequestFactory.newGetAddressListRequest().submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.AddressPresenter.1
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i, String str) {
+            public void onFailure(int i2, String str) {
                 if (z) {
-                    AddressPresenter.this.doFailure(1000, i, str);
+                    AddressPresenter.this.doFailure(1000, i2, str);
                 }
             }
 
@@ -129,7 +129,7 @@ public class AddressPresenter extends BasePresenter<IBaseView> {
     public void importNuoMiAddressStatus() {
         AddressRequestFactory.newImportNuoMiAddress().submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.AddressPresenter.2
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i, String str) {
+            public void onFailure(int i2, String str) {
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
@@ -142,8 +142,8 @@ public class AddressPresenter extends BasePresenter<IBaseView> {
                 JSONArray optJSONArray = jSONObject.optJSONArray(AddressField.KEY_IMPORT_NUOMI_ADDR_IDS);
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        arrayList.add(optJSONArray.optString(i));
+                    for (int i2 = 0; i2 < length; i2++) {
+                        arrayList.add(optJSONArray.optString(i2));
                     }
                 }
                 if (arrayList.size() > 0) {
@@ -175,8 +175,8 @@ public class AddressPresenter extends BasePresenter<IBaseView> {
         }
         AddressRequestFactory.newUpdateAddressRequest(mapObject).submit(new NetCallback() { // from class: com.baidu.pass.ecommerce.presenter.AddressPresenter.5
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-            public void onFailure(int i, String str) {
-                AddressPresenter.this.doFailure(1003, i, str);
+            public void onFailure(int i2, String str) {
+                AddressPresenter.this.doFailure(1003, i2, str);
             }
 
             @Override // com.baidu.pass.ecommerce.common.request.NetCallback

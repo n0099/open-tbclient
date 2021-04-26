@@ -1,6 +1,6 @@
 package com.google.common.collect;
 
-import d.h.c.c.b;
+import d.g.c.c.b;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public class ImmutableEntry<K, V> extends b<K, V> implements Serializable {
@@ -13,17 +13,17 @@ public class ImmutableEntry<K, V> extends b<K, V> implements Serializable {
         this.value = v;
     }
 
-    @Override // d.h.c.c.b, java.util.Map.Entry
+    @Override // d.g.c.c.b, java.util.Map.Entry
     public final K getKey() {
         return this.key;
     }
 
-    @Override // d.h.c.c.b, java.util.Map.Entry
+    @Override // d.g.c.c.b, java.util.Map.Entry
     public final V getValue() {
         return this.value;
     }
 
-    @Override // d.h.c.c.b, java.util.Map.Entry
+    @Override // d.g.c.c.b, java.util.Map.Entry
     public final V setValue(V v) {
         throw new UnsupportedOperationException();
     }

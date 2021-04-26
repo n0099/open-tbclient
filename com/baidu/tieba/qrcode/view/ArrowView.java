@@ -8,23 +8,25 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes3.dex */
 public class ArrowView extends View {
-    public static int i = 20;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static int f20911i = 20;
     public static int j = 13;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20371e;
+    public int f20912e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20372f;
+    public int f20913f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f20373g;
+    public Paint f20914g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Path f20374h;
+    public Path f20915h;
 
     public ArrowView(Context context) {
         super(context);
@@ -32,24 +34,24 @@ public class ArrowView extends View {
     }
 
     public final void a(Context context) {
-        i = l.g(context, R.dimen.tbds20);
+        f20911i = l.g(context, R.dimen.tbds20);
         j = l.g(context, R.dimen.tbds13);
         Paint paint = new Paint();
-        this.f20373g = paint;
+        this.f20914g = paint;
         paint.setColor(context.getResources().getColor(R.color.CAM_X0201));
-        this.f20373g.setAntiAlias(true);
-        this.f20374h = new Path();
+        this.f20914g.setAntiAlias(true);
+        this.f20915h = new Path();
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.f20374h.reset();
-        this.f20374h.moveTo(this.f20371e / 2, 0.0f);
-        this.f20374h.lineTo(0.0f, this.f20372f);
-        this.f20374h.lineTo(this.f20371e, this.f20372f);
-        this.f20374h.close();
-        canvas.drawPath(this.f20374h, this.f20373g);
+        this.f20915h.reset();
+        this.f20915h.moveTo(this.f20912e / 2, 0.0f);
+        this.f20915h.lineTo(0.0f, this.f20913f);
+        this.f20915h.lineTo(this.f20912e, this.f20913f);
+        this.f20915h.close();
+        canvas.drawPath(this.f20915h, this.f20914g);
     }
 
     @Override // android.view.View
@@ -60,9 +62,9 @@ public class ArrowView extends View {
         int mode2 = View.MeasureSpec.getMode(i3);
         int size2 = View.MeasureSpec.getSize(i3);
         if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-            setMeasuredDimension(i, j);
+            setMeasuredDimension(f20911i, j);
         } else if (mode == Integer.MIN_VALUE) {
-            setMeasuredDimension(i, size2);
+            setMeasuredDimension(f20911i, size2);
         } else if (mode2 == Integer.MIN_VALUE) {
             setMeasuredDimension(size, j);
         }
@@ -71,8 +73,8 @@ public class ArrowView extends View {
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        this.f20371e = i2;
-        this.f20372f = i3;
+        this.f20912e = i2;
+        this.f20913f = i3;
     }
 
     public ArrowView(Context context, @Nullable AttributeSet attributeSet) {

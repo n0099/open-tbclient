@@ -116,10 +116,10 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             AsyncTaskResult asyncTaskResult = (AsyncTaskResult) message.obj;
-            int i = message.what;
-            if (i == 1) {
+            int i2 = message.what;
+            if (i2 == 1) {
                 asyncTaskResult.mTask.finish(asyncTaskResult.mData[0]);
-            } else if (i != 2) {
+            } else if (i2 != 2) {
             } else {
                 asyncTaskResult.mTask.onProgressUpdate(asyncTaskResult.mData);
             }
@@ -173,9 +173,9 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
 
     public final ModernAsyncTask<Params, Progress, Result> executeOnExecutor(Executor executor, Params... paramsArr) {
         if (this.mStatus != Status.PENDING) {
-            int i = AnonymousClass4.$SwitchMap$androidx$loader$content$ModernAsyncTask$Status[this.mStatus.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
+            int i2 = AnonymousClass4.$SwitchMap$androidx$loader$content$ModernAsyncTask$Status[this.mStatus.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
                     throw new IllegalStateException("We should never reach this state");
                 }
                 throw new IllegalStateException("Cannot execute task: the task has already been executed (a task can be executed only once)");

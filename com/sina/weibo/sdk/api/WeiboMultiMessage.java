@@ -46,8 +46,8 @@ public final class WeiboMultiMessage implements Serializable {
         return this.msgType;
     }
 
-    public void setMsgType(int i) {
-        this.msgType = i;
+    public void setMsgType(int i2) {
+        this.msgType = i2;
     }
 
     public Bundle toBundle(Bundle bundle) {

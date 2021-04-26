@@ -17,8 +17,8 @@ public class PaInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public PaInfo[] newArray(int i) {
-            return new PaInfo[i];
+        public PaInfo[] newArray(int i2) {
+            return new PaInfo[i2];
         }
     };
     public boolean acceptPush;
@@ -265,12 +265,12 @@ public class PaInfo implements Parcelable {
         this.classavatar = str;
     }
 
-    public void setClassType(int i) {
-        this.classtype = i;
+    public void setClassType(int i2) {
+        this.classtype = i2;
     }
 
-    public void setClassshow(int i) {
-        this.classshow = i;
+    public void setClassshow(int i2) {
+        this.classshow = i2;
     }
 
     public void setClasstitle(String str) {
@@ -285,12 +285,12 @@ public class PaInfo implements Parcelable {
         this.detail = str;
     }
 
-    public void setDisturb(int i) {
-        this.disturb = i;
+    public void setDisturb(int i2) {
+        this.disturb = i2;
     }
 
-    public void setHasIdentity(int i) {
-        this.mHasIdentity = i;
+    public void setHasIdentity(int i2) {
+        this.mHasIdentity = i2;
     }
 
     public void setIdentity(String str) {
@@ -301,8 +301,8 @@ public class PaInfo implements Parcelable {
         this.mLastRefreshTime = j;
     }
 
-    public void setMarkTop(int i) {
-        this.markTop = i;
+    public void setMarkTop(int i2) {
+        this.markTop = i2;
     }
 
     public void setMarkTopTime(long j) {
@@ -325,8 +325,8 @@ public class PaInfo implements Parcelable {
         this.paId = j;
     }
 
-    public void setRejectMenu(int i) {
-        this.mRejectMenu = i;
+    public void setRejectMenu(int i2) {
+        this.mRejectMenu = i2;
     }
 
     public void setRepliesStr(String str) {
@@ -337,32 +337,32 @@ public class PaInfo implements Parcelable {
         this.mSchema = str;
     }
 
-    public void setShield(int i) {
-        this.mShield = i;
+    public void setShield(int i2) {
+        this.mShield = i2;
     }
 
     public void setShieldTime(long j) {
         this.mShieldTime = j;
     }
 
-    public void setStatus(int i) {
-        this.status = i;
+    public void setStatus(int i2) {
+        this.status = i2;
     }
 
     public void setSubcribeTime(long j) {
         this.subcribeTime = j;
     }
 
-    public void setSubscribe(int i) {
-        this.mSubscribe = i;
+    public void setSubscribe(int i2) {
+        this.mSubscribe = i2;
     }
 
-    public void setSubsetType(int i) {
-        this.subsetType = i;
+    public void setSubsetType(int i2) {
+        this.subsetType = i2;
     }
 
-    public void setSubtype(int i) {
-        this.subtype = i;
+    public void setSubtype(int i2) {
+        this.subtype = i2;
     }
 
     public void setTPL(long j) {
@@ -402,7 +402,7 @@ public class PaInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeLong(this.paId);
         parcel.writeString(this.nickName);
         parcel.writeString(this.avatar);

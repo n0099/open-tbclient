@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView;
-import d.b.c.e.m.b;
-import d.b.c.e.p.j;
-import d.b.c.e.p.k;
-import d.b.c.j.e.n;
-import d.b.i0.a.f;
+import d.a.c.e.m.b;
+import d.a.c.e.p.j;
+import d.a.c.e.p.k;
+import d.a.c.j.e.n;
+import d.a.i0.a.f;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -31,7 +31,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements d.b.j0.a1.j.a.a {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements d.a.j0.a1.j.a.a {
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
     public long mCurPageNum = 1;
@@ -46,7 +46,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         public a() {
         }
 
-        @Override // d.b.i0.a.f.b
+        @Override // d.a.i0.a.f.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             if (hashMap != null && (hashMap.get(f.u) instanceof String)) {
                 String str = (String) hashMap.get(f.u);
@@ -107,14 +107,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         super.finish();
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.i0.k0.a
     public String getCurrentPageKey() {
         return "a024";
     }
 
-    @Override // d.b.j0.a1.j.a.a
+    @Override // d.a.j0.a1.j.a.a
     public void loadData() {
-        int i;
+        int i2;
         String substring;
         Intent intent = getIntent();
         if (intent == null) {
@@ -138,10 +138,10 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                     substring = matcher.group(2);
                 } else {
                     int indexOf = decode.indexOf("topic_id=");
-                    if (indexOf < 0 || (i = indexOf + 9) > decode.length()) {
+                    if (indexOf < 0 || (i2 = indexOf + 9) > decode.length()) {
                         return;
                     }
-                    substring = decode.substring(i);
+                    substring = decode.substring(i2);
                 }
                 if (!StringUtils.isNull(substring)) {
                     this.topicID = b.f(substring, -1L);
@@ -154,10 +154,10 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             finish();
         } else if (!j.A()) {
             this.mTopicDetailView.r();
-            this.mTopicDetailView.E(true);
+            this.mTopicDetailView.B(true);
         } else {
             this.mTopicDetailView.s();
-            this.mTopicDetailView.B(false);
+            this.mTopicDetailView.A(false);
             TopicDetailView topicDetailView = this.mTopicDetailView;
             if (topicDetailView != null && topicDetailView.getEditor() != null) {
                 this.mTopicDetailView.getEditor().J(this.topicID);
@@ -166,36 +166,36 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // d.b.j0.a1.j.a.a
-    public void netCallback(int i, d.b.j0.a1.j.a.c.a aVar) {
+    @Override // d.a.j0.a1.j.a.a
+    public void netCallback(int i2, d.a.j0.a1.j.a.c.a aVar) {
         this.mTopicDetailView.r();
-        if (i == 0 && aVar != null && !ListUtils.isEmpty(aVar.f53349f)) {
+        if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f51070f)) {
             this.mTopicDetailView.s();
             this.mTopicDetailView.setData(aVar);
             return;
         }
-        this.mTopicDetailView.E(true);
+        this.mTopicDetailView.B(true);
     }
 
-    @Override // d.b.j0.a1.j.a.a
-    public void netThreadCallback(int i, boolean z, List<n> list) {
-        this.mTopicDetailView.setNextData(i, z, list);
+    @Override // d.a.j0.a1.j.a.a
+    public void netThreadCallback(int i2, boolean z, List<n> list) {
+        this.mTopicDetailView.setNextData(i2, z, list);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
         TopicDetailView topicDetailView = this.mTopicDetailView;
         if (topicDetailView == null || topicDetailView.getEditor() == null) {
             return;
         }
-        this.mTopicDetailView.getEditor().w(i, i2, intent);
+        this.mTopicDetailView.getEditor().w(i2, i3, intent);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mTopicDetailView.y();
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.mTopicDetailView.x();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -209,7 +209,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         adjustResizeForSoftInput();
         this.mTopicDetailModel.z(this);
         loadData();
-        if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !d.b.c.a.b.f().h("MainTabActivity")) {
+        if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !d.a.c.a.b.f().h("MainTabActivity")) {
             this.mIsFromSchema = true;
         }
         if (this.mIsFromSchema) {

@@ -18,8 +18,8 @@ import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
-import d.b.h.a.k.a;
-import d.b.h.b.e.b;
+import d.a.h.a.k.a;
+import d.a.h.b.e.b;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,19 +28,19 @@ import org.json.JSONObject;
 public class BdZeusUpdate {
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdZeusUpdate f4382e;
+    public static BdZeusUpdate f4461e;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4383a;
+    public String f4462a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4384b;
+    public String f4463b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4385c;
+    public String f4464c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f4386d;
+    public boolean f4465d;
 
     /* loaded from: classes.dex */
     public class BdZesuUpdateTask extends BdNetTask implements INetListener {
@@ -56,17 +56,17 @@ public class BdZeusUpdate {
         }
 
         @Override // com.baidu.webkit.net.INetListener
-        public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
+        public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i2) {
             this.mOutputStream.reset();
         }
 
         @Override // com.baidu.webkit.net.INetListener
-        public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
+        public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i2) {
             if (this.mOutputStream == null) {
                 this.mOutputStream = new ByteArrayOutputStream();
             }
-            if (i > 0) {
-                this.mOutputStream.write(bArr, 0, i);
+            if (i2 > 0) {
+                this.mOutputStream.write(bArr, 0, i2);
             }
         }
 
@@ -75,16 +75,16 @@ public class BdZeusUpdate {
         }
 
         @Override // com.baidu.webkit.net.INetListener
-        public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i) {
+        public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i2) {
             return false;
         }
 
         @Override // com.baidu.webkit.net.INetListener
-        public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i) {
+        public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i2) {
         }
 
         @Override // com.baidu.webkit.net.INetListener
-        public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i) {
+        public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i2) {
         }
 
         @Override // com.baidu.webkit.net.INetListener
@@ -99,13 +99,13 @@ public class BdZeusUpdate {
                         if (jSONObject.has("data")) {
                             JSONObject jSONObject2 = jSONObject.getJSONObject("data");
                             if (jSONObject2.has("version")) {
-                                BdZeusUpdate.this.f4384b = jSONObject2.getString("version");
+                                BdZeusUpdate.this.f4463b = jSONObject2.getString("version");
                             }
                             if (jSONObject2.has("link")) {
-                                BdZeusUpdate.this.f4383a = jSONObject2.getString("link");
+                                BdZeusUpdate.this.f4462a = jSONObject2.getString("link");
                             }
                             if (jSONObject2.has(PackageTable.MD5)) {
-                                BdZeusUpdate.this.f4385c = jSONObject2.getString(PackageTable.MD5);
+                                BdZeusUpdate.this.f4464c = jSONObject2.getString(PackageTable.MD5);
                             }
                         }
                     }
@@ -126,7 +126,7 @@ public class BdZeusUpdate {
         }
 
         @Override // com.baidu.webkit.net.INetListener
-        public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i, int i2) {
+        public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i2, int i3) {
         }
 
         public void release() {
@@ -144,14 +144,14 @@ public class BdZeusUpdate {
     }
 
     public static BdZeusUpdate a() {
-        if (f4382e == null) {
+        if (f4461e == null) {
             synchronized (BdZeusUpdate.class) {
-                if (f4382e == null) {
-                    f4382e = new BdZeusUpdate();
+                if (f4461e == null) {
+                    f4461e = new BdZeusUpdate();
                 }
             }
         }
-        return f4382e;
+        return f4461e;
     }
 
     public static String b(String str, Context context) {
@@ -175,14 +175,14 @@ public class BdZeusUpdate {
         }
         String str2 = Build.MODEL;
         String str3 = Build.VERSION.RELEASE;
-        int i = Build.VERSION.SDK_INT;
+        int i2 = Build.VERSION.SDK_INT;
         String str4 = Build.MANUFACTURER;
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(str2.replace("_", "-"));
         stringBuffer.append("_");
         stringBuffer.append(str3);
         stringBuffer.append("_");
-        stringBuffer.append(i);
+        stringBuffer.append(i2);
         stringBuffer.append("_");
         stringBuffer.append(str4.replace("_", "-"));
         String f3 = b.f(stringBuffer.toString().replace(" ", "-"));
@@ -229,8 +229,8 @@ public class BdZeusUpdate {
     public static boolean e(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             long[] jArr = new long[8];
-            for (int i = 0; i < 8; i++) {
-                jArr[i] = 0;
+            for (int i2 = 0; i2 < 8; i2++) {
+                jArr[i2] = 0;
             }
             try {
                 String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
@@ -339,7 +339,7 @@ public class BdZeusUpdate {
     }
 
     public final void c(Context context) {
-        ZeusThreadPoolUtil.executeIgnoreZeus(new d.b.h.b.f.c.b(this, context));
+        ZeusThreadPoolUtil.executeIgnoreZeus(new d.a.h.b.f.c.b(this, context));
     }
 
     public final void g() {
@@ -347,8 +347,8 @@ public class BdZeusUpdate {
             String zeusVersionName = WebKitFactory.getZeusVersionName();
             boolean z = false;
             if (WebKitFactory.getCurEngine() == 1) {
-                if (e(zeusVersionName, this.f4384b)) {
-                    BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).f(this.f4383a, this.f4385c);
+                if (e(zeusVersionName, this.f4463b)) {
+                    BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).f(this.f4462a, this.f4464c);
                     return;
                 }
                 return;
@@ -371,7 +371,7 @@ public class BdZeusUpdate {
             BdSailorPlatform.getStatic().c("download-webkit-start", String.valueOf(System.currentTimeMillis()));
             BdSailorPlatform.getStatic().a();
             Log.i(EngineManager.LOG_TAG, "start download zeus");
-            BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).f(this.f4383a, this.f4385c);
+            BdZeusDownloadHelper.b(BdSailor.getInstance().getAppContext()).f(this.f4462a, this.f4464c);
         }
     }
 }

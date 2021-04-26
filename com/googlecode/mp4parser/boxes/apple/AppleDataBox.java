@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.boxes.apple;
 
+import androidx.room.RoomMasterTable;
 import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.searchbox.http.HttpConfig;
 import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
@@ -19,14 +20,15 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Locale;
+import kotlin.UShort;
 /* loaded from: classes6.dex */
 public abstract class AppleDataBox extends AbstractBox {
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
     public static HashMap<String, String> language;
     public int dataCountry;
     public int dataLanguage;
@@ -78,7 +80,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("39", "Slovak");
         language.put("40", "Slovenian");
         language.put("41", "Yiddish");
-        language.put("42", "Serbian");
+        language.put(RoomMasterTable.DEFAULT_ID, "Serbian");
         language.put("43", "Macedonian");
         language.put("44", "Bulgarian");
         language.put("45", "Ukrainian");
@@ -145,9 +147,9 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("32767", "Unspecified");
     }
 
-    public AppleDataBox(String str, int i) {
+    public AppleDataBox(String str, int i2) {
         super(str);
-        this.dataType = i;
+        this.dataType = i2;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -213,33 +215,33 @@ public abstract class AppleDataBox extends AbstractBox {
 
     @DoNotParseDetail
     public ByteBuffer parseDataLength4ccTypeCountryLanguageAndReturnRest(ByteBuffer byteBuffer) {
-        int i = byteBuffer.getInt();
+        int i2 = byteBuffer.getInt();
         byteBuffer.getInt();
         this.dataType = byteBuffer.getInt();
         short s = byteBuffer.getShort();
         this.dataCountry = s;
         if (s < 0) {
-            this.dataCountry = s + 65536;
+            this.dataCountry = s + UShort.MIN_VALUE;
         }
         short s2 = byteBuffer.getShort();
         this.dataLanguage = s2;
         if (s2 < 0) {
-            this.dataLanguage = s2 + 65536;
+            this.dataLanguage = s2 + UShort.MIN_VALUE;
         }
-        int i2 = i - 16;
-        ByteBuffer byteBuffer2 = (ByteBuffer) byteBuffer.duplicate().slice().limit(i2);
-        byteBuffer.position(i2 + byteBuffer.position());
+        int i3 = i2 - 16;
+        ByteBuffer byteBuffer2 = (ByteBuffer) byteBuffer.duplicate().slice().limit(i3);
+        byteBuffer.position(i3 + byteBuffer.position());
         return byteBuffer2;
     }
 
-    public void setDataCountry(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i)));
-        this.dataCountry = i;
+    public void setDataCountry(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i2)));
+        this.dataCountry = i2;
     }
 
-    public void setDataLanguage(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.e(i)));
-        this.dataLanguage = i;
+    public void setDataLanguage(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.e(i2)));
+        this.dataLanguage = i2;
     }
 
     public abstract byte[] writeData();

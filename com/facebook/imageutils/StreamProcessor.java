@@ -4,22 +4,22 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes6.dex */
 public class StreamProcessor {
-    public static int readPackedInt(InputStream inputStream, int i, boolean z) throws IOException {
-        int i2;
-        int i3 = 0;
-        for (int i4 = 0; i4 < i; i4++) {
+    public static int readPackedInt(InputStream inputStream, int i2, boolean z) throws IOException {
+        int i3;
+        int i4 = 0;
+        for (int i5 = 0; i5 < i2; i5++) {
             int read = inputStream.read();
             if (read == -1) {
                 throw new IOException("no more bytes");
             }
             if (z) {
-                i2 = (read & 255) << (i4 * 8);
+                i3 = (read & 255) << (i5 * 8);
             } else {
-                i3 <<= 8;
-                i2 = read & 255;
+                i4 <<= 8;
+                i3 = read & 255;
             }
-            i3 |= i2;
+            i4 |= i3;
         }
-        return i3;
+        return i4;
     }
 }

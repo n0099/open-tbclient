@@ -3,35 +3,35 @@ package com.xiaomi.push;
 public final class jk extends jl {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41270a;
+    public int f38814a;
 
     /* renamed from: a  reason: collision with other field name */
     public byte[] f815a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41271b;
+    public int f38815b;
 
     @Override // com.xiaomi.push.jl
     public int a() {
-        return this.f41270a;
+        return this.f38814a;
     }
 
     @Override // com.xiaomi.push.jl
-    public int a(byte[] bArr, int i, int i2) {
+    public int a(byte[] bArr, int i2, int i3) {
         int b2 = b();
-        if (i2 > b2) {
-            i2 = b2;
+        if (i3 > b2) {
+            i3 = b2;
         }
-        if (i2 > 0) {
-            System.arraycopy(this.f815a, this.f41270a, bArr, i, i2);
-            a(i2);
+        if (i3 > 0) {
+            System.arraycopy(this.f815a, this.f38814a, bArr, i2, i3);
+            a(i3);
         }
-        return i2;
+        return i3;
     }
 
     @Override // com.xiaomi.push.jl
-    public void a(int i) {
-        this.f41270a += i;
+    public void a(int i2) {
+        this.f38814a += i2;
     }
 
     public void a(byte[] bArr) {
@@ -39,7 +39,7 @@ public final class jk extends jl {
     }
 
     @Override // com.xiaomi.push.jl
-    public void a(byte[] bArr, int i, int i2) {
+    public void a(byte[] bArr, int i2, int i3) {
         throw new UnsupportedOperationException("No writing allowed!");
     }
 
@@ -50,13 +50,13 @@ public final class jk extends jl {
 
     @Override // com.xiaomi.push.jl
     public int b() {
-        return this.f41271b - this.f41270a;
+        return this.f38815b - this.f38814a;
     }
 
     @Override // com.xiaomi.push.jl
-    public void b(byte[] bArr, int i, int i2) {
+    public void b(byte[] bArr, int i2, int i3) {
         this.f815a = bArr;
-        this.f41270a = i;
-        this.f41271b = i + i2;
+        this.f38814a = i2;
+        this.f38815b = i2 + i3;
     }
 }

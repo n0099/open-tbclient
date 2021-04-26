@@ -6,21 +6,21 @@ import java.util.List;
 public interface NUADI extends ADI {
     String getAdNetWorkName();
 
-    void loadData(int i);
+    void loadData(int i2);
 
-    void loadData(int i, LoadAdParams loadAdParams);
+    void loadData(int i2, LoadAdParams loadAdParams);
 
     void setCategories(List<String> list);
 
-    void setMaxVideoDuration(int i);
+    void setMaxVideoDuration(int i2);
 
-    void setMinVideoDuration(int i);
+    void setMinVideoDuration(int i2);
 
     void setVastClassName(String str);
 
     @Deprecated
-    void setVideoADContainerRender(int i);
+    void setVideoADContainerRender(int i2);
 
     @Deprecated
-    void setVideoPlayPolicy(int i);
+    void setVideoPlayPolicy(int i2);
 }

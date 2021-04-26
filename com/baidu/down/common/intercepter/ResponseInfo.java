@@ -2,7 +2,7 @@ package com.baidu.down.common.intercepter;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class ResponseInfo {
     public String method;
     public Map<String, String> requestHeaders;
@@ -10,7 +10,7 @@ public final class ResponseInfo {
     public int stateCode;
     public String url;
 
-    public ResponseInfo(String str, String str2, int i) {
+    public ResponseInfo(String str, String str2, int i2) {
         this.method = null;
         this.url = null;
         this.stateCode = 200;
@@ -18,7 +18,7 @@ public final class ResponseInfo {
         this.responseHeaders = null;
         this.method = str;
         this.url = str2;
-        this.stateCode = i;
+        this.stateCode = i2;
         this.requestHeaders = new HashMap();
         this.responseHeaders = new HashMap();
     }

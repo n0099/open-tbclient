@@ -6,60 +6,60 @@ import com.kwad.sdk.R;
 public class k extends com.kwad.sdk.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public ProgressBar f32115b;
+    public ProgressBar f32524b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.e f32116c = new com.kwad.sdk.contentalliance.detail.video.f() { // from class: com.kwad.sdk.a.b.k.1
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-        public void a() {
+    public com.kwad.sdk.contentalliance.detail.video.d f32525c = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.a.b.k.1
+        @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
+        public void a(int i2, int i3) {
             k.this.e();
         }
 
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
-        public void a(int i, int i2) {
-            k.this.e();
-        }
-
-        @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
+        @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void a(long j, long j2) {
-            k.this.a(j != 0 ? (int) ((((float) j2) * 100.0f) / ((float) j)) : 0);
+            k.this.b(j != 0 ? (int) ((((float) j2) * 100.0f) / ((float) j)) : 0);
+        }
+
+        @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
+        public void f() {
+            k.this.e();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i) {
-        this.f32115b.setProgress(i);
-        if (this.f32115b.getVisibility() == 0) {
+    public void b(int i2) {
+        this.f32524b.setProgress(i2);
+        if (this.f32524b.getVisibility() == 0) {
             return;
         }
-        this.f32115b.setVisibility(0);
+        this.f32524b.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f32115b.getVisibility() != 0) {
+        if (this.f32524b.getVisibility() != 0) {
             return;
         }
-        this.f32115b.setVisibility(8);
+        this.f32524b.setVisibility(8);
     }
 
     @Override // com.kwad.sdk.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f32115b.setProgress(0);
-        this.f32115b.setVisibility(8);
-        ((com.kwad.sdk.a.a.a) this).f32049a.f32055f.a(this.f32116c);
+        this.f32524b.setProgress(0);
+        this.f32524b.setVisibility(8);
+        ((com.kwad.sdk.a.a.a) this).f32456a.f32462f.a(this.f32525c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
-    public void b_() {
-        super.b_();
-        ((com.kwad.sdk.a.a.a) this).f32049a.f32055f.b(this.f32116c);
+    public void b() {
+        super.b();
+        this.f32524b = (ProgressBar) a(R.id.ksad_video_progress);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32115b = (ProgressBar) b(R.id.ksad_video_progress);
+        ((com.kwad.sdk.a.a.a) this).f32456a.f32462f.b(this.f32525c);
     }
 }

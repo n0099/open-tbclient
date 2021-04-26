@@ -54,8 +54,8 @@ public class MyGift extends OrmObject implements Serializable {
         this.mGiftName = str;
     }
 
-    public void setGiftNum(int i) {
-        this.mGiftNum = i;
+    public void setGiftNum(int i2) {
+        this.mGiftNum = i2;
     }
 
     public void setSender(String str) {

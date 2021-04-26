@@ -17,8 +17,8 @@ public final class SafeUtils {
         if (bArr == null || bArr2 == null) {
             return null;
         }
-        for (int i = 0; i < bArr.length; i++) {
-            bArr[i] = (byte) (bArr[i] ^ bArr2[i % bArr2.length]);
+        for (int i2 = 0; i2 < bArr.length; i2++) {
+            bArr[i2] = (byte) (bArr[i2] ^ bArr2[i2 % bArr2.length]);
         }
         Log.i(TAG, "xor cost time " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
         return bArr;

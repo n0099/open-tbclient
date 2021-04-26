@@ -70,8 +70,8 @@ public class BasicContainer implements Container, Iterator<Box> {
 
     public long getContainerSize() {
         long j = 0;
-        for (int i = 0; i < getBoxes().size(); i++) {
-            j += this.boxes.get(i).getSize();
+        for (int i2 = 0; i2 < getBoxes().size(); i2++) {
+            j += this.boxes.get(i2).getSize();
         }
         return j;
     }
@@ -120,11 +120,11 @@ public class BasicContainer implements Container, Iterator<Box> {
         StringBuilder sb = new StringBuilder();
         sb.append(getClass().getSimpleName());
         sb.append("[");
-        for (int i = 0; i < this.boxes.size(); i++) {
-            if (i > 0) {
+        for (int i2 = 0; i2 < this.boxes.size(); i2++) {
+            if (i2 > 0) {
                 sb.append(";");
             }
-            sb.append(this.boxes.get(i).toString());
+            sb.append(this.boxes.get(i2).toString());
         }
         sb.append("]");
         return sb.toString();

@@ -17,11 +17,11 @@ public interface SVSD {
 
     void onRebind(Intent intent);
 
-    int onStartCommand(Intent intent, int i, int i2);
+    int onStartCommand(Intent intent, int i2, int i3);
 
     void onTaskRemoved(Intent intent);
 
-    void onTrimMemory(int i);
+    void onTrimMemory(int i2);
 
     boolean onUnbind(Intent intent);
 }

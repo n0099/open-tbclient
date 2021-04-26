@@ -16,7 +16,7 @@ import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 import com.idlefish.flutterboost.containers.FlutterFragment;
 import com.idlefish.flutterboost.containers.ViewSplashScreen;
-import d.b.c.a.h;
+import d.a.c.a.h;
 import io.flutter.embedding.android.SplashScreen;
 import java.util.HashMap;
 import java.util.Map;
@@ -101,9 +101,9 @@ public class TbFlutterFragment extends FlutterFragment {
         this.loadingView.setSpeed(1.2f);
         this.loadingView.setLayoutParams(new FrameLayout.LayoutParams(b2.getDimensionPixelSize(b2.getIdentifier("tbds290", "dimen", BdBaseApplication.getInst().getPackageName())), b2.getDimensionPixelSize(b2.getIdentifier("tbds304", "dimen", BdBaseApplication.getInst().getPackageName())), 17));
         int identifier = b2.getIdentifier("cp_bg_line_c", "color", BdBaseApplication.getInst().getPackageName());
-        int i = TbadkCoreApplication.getInst().getSkinType() != 0 ? -16777216 : -1;
+        int i2 = TbadkCoreApplication.getInst().getSkinType() != 0 ? -16777216 : -1;
         if (identifier == 0) {
-            frameLayout.setBackgroundColor(i);
+            frameLayout.setBackgroundColor(i2);
         } else {
             frameLayout.setBackgroundColor(SkinManager.getColor(identifier));
         }

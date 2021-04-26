@@ -10,7 +10,7 @@ import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.U;
 /* loaded from: classes2.dex */
 public final class b {
-    public static void a(Context context, int i, boolean z) {
+    public static void a(Context context, int i2, boolean z) {
         try {
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
@@ -24,11 +24,11 @@ public final class b {
             intent.putExtra("from", 2);
             PendingIntent service = PendingIntent.getService(context, 1001, intent, 134217728);
             long j = 600000;
-            if (i == 0) {
+            if (i2 == 0) {
                 j = StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD;
-            } else if (i == 1) {
+            } else if (i2 == 1) {
                 j = 180000;
-            } else if (i == 2) {
+            } else if (i2 == 2) {
                 j = 300000;
             }
             long currentTimeMillis = System.currentTimeMillis() + j;

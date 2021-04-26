@@ -13,9 +13,9 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
 import com.tencent.open.SocialConstants;
-import d.b.i0.a0.d;
-import d.b.i0.l.c;
-import d.b.j0.l0.g;
+import d.a.i0.a0.d;
+import d.a.i0.l.c;
+import d.a.j0.l0.g;
 import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
@@ -24,7 +24,7 @@ public class UserCollectModel extends FaceBaseModel {
     public static final String ALL_DELETE = "all_delete";
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f15393e = new b(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
+    public final HttpMessageListener f15544e = new b(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -41,7 +41,7 @@ public class UserCollectModel extends FaceBaseModel {
             JSONArray jSONArray = new JSONArray();
             try {
                 for (CollectEmotionData collectEmotionData : n) {
-                    if (!d.f50412d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
+                    if (!d.f47966d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
                         jSONArray.put(collectEmotionData.toJSON());
                         hashSet.add(collectEmotionData.sharpText);
                     }
@@ -58,7 +58,7 @@ public class UserCollectModel extends FaceBaseModel {
             }
             httpMessage.addParam("pic_update_time", currentTimeMillis);
             UserCollectModel.this.sendMessage(httpMessage);
-            d.b.j0.y1.d.s(currentTimeMillis);
+            d.a.j0.y1.d.s(currentTimeMillis);
         }
     }
 
@@ -80,8 +80,8 @@ public class UserCollectModel extends FaceBaseModel {
             }
         }
 
-        public b(int i) {
-            super(i);
+        public b(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -97,9 +97,9 @@ public class UserCollectModel extends FaceBaseModel {
     public UserCollectModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f15393e.setTag(getUniqueId());
-        this.f15393e.setSelfListener(true);
-        registerListener(this.f15393e);
+        this.f15544e.setTag(getUniqueId());
+        this.f15544e.setSelfListener(true);
+        registerListener(this.f15544e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -109,7 +109,7 @@ public class UserCollectModel extends FaceBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f15393e);
+        MessageManager.getInstance().unRegisterListener(this.f15544e);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
         return true;
     }

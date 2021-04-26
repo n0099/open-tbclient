@@ -5,17 +5,15 @@ public enum AccountType {
     INCOMPLETE_USER(1),
     UNKNOWN(2);
     
+    public int type;
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f11046a;
-
-    AccountType(int i) {
-        this.f11046a = i;
+    AccountType(int i2) {
+        this.type = i2;
     }
 
-    public static AccountType getAccountType(int i) {
-        if (i != 0) {
-            if (i != 1) {
+    public static AccountType getAccountType(int i2) {
+        if (i2 != 0) {
+            if (i2 != 1) {
                 return UNKNOWN;
             }
             return INCOMPLETE_USER;
@@ -24,6 +22,6 @@ public enum AccountType {
     }
 
     public int getType() {
-        return this.f11046a;
+        return this.type;
     }
 }

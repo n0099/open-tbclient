@@ -38,9 +38,9 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
 
         public SecureObjectInputStream(ObjectInputStream objectInputStream) throws IOException {
             super(objectInputStream);
-            for (int i = 0; i < fields.length; i++) {
+            for (int i2 = 0; i2 < fields.length; i2++) {
                 try {
-                    Field field = fields[i];
+                    Field field = fields[i2];
                     field.set(this, field.get(objectInputStream));
                 } catch (IllegalAccessException unused) {
                     fields_error = true;
@@ -57,10 +57,10 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
                 Field[] declaredFields = ObjectInputStream.class.getDeclaredFields();
                 String[] strArr = {"bin", "passHandle", "handles", "curContext"};
                 Field[] fieldArr = new Field[4];
-                for (int i = 0; i < 4; i++) {
-                    Field field = TypeUtils.getField(ObjectInputStream.class, strArr[i], declaredFields);
+                for (int i2 = 0; i2 < 4; i2++) {
+                    Field field = TypeUtils.getField(ObjectInputStream.class, strArr[i2], declaredFields);
                     field.setAccessible(true);
-                    fieldArr[i] = field;
+                    fieldArr[i2] = field;
                 }
                 fields = fieldArr;
             } catch (Throwable unused) {
@@ -473,7 +473,7 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.alibaba.fastjson.JSONObject */
     /* JADX WARN: Multi-variable type inference failed */
-    public <T> T toJavaObject(Class<T> cls, ParserConfig parserConfig, int i) {
+    public <T> T toJavaObject(Class<T> cls, ParserConfig parserConfig, int i2) {
         return cls == Map.class ? this : (cls != Object.class || containsKey(JSON.DEFAULT_TYPE_KEY)) ? (T) TypeUtils.castToJavaBean(this, cls, parserConfig) : this;
     }
 
@@ -486,15 +486,15 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
         return typeReference == null ? t : (T) TypeUtils.cast(t, typeReference.getType(), ParserConfig.getGlobalInstance());
     }
 
-    public JSONObject(int i) {
-        this(i, false);
+    public JSONObject(int i2) {
+        this(i2, false);
     }
 
-    public JSONObject(int i, boolean z) {
+    public JSONObject(int i2, boolean z) {
         if (z) {
-            this.map = new LinkedHashMap(i);
+            this.map = new LinkedHashMap(i2);
         } else {
-            this.map = new HashMap(i);
+            this.map = new HashMap(i2);
         }
     }
 }

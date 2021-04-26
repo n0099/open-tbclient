@@ -5,17 +5,17 @@ import com.tencent.connect.auth.AuthAgent;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.e;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class JniInterface {
     public static boolean isJniOk = false;
 
-    public static native boolean BackSpaceChar(boolean z, int i);
+    public static native boolean BackSpaceChar(boolean z, int i2);
 
     public static native boolean clearAllPWD();
 
     public static native String getPWDKeyToMD5(String str);
 
-    public static native boolean insetTextToArray(int i, String str, int i2);
+    public static native boolean insetTextToArray(int i2, String str, int i3);
 
     public static void loadSo() {
         if (isJniOk) {

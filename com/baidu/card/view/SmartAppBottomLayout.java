@@ -14,25 +14,27 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
-import d.b.i.p;
-import d.b.i0.r.q.a;
-import d.b.i0.r.q.a2;
+import d.a.c.e.p.l;
+import d.a.i.p;
+import d.a.i0.r.q.a;
+import d.a.i0.r.q.a2;
 /* loaded from: classes.dex */
 public class SmartAppBottomLayout extends LinearLayout implements p<a> {
-    public static final int i = (l.k(TbadkCoreApplication.getInst()) - (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.tbds58);
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final int f4657i = (l.k(TbadkCoreApplication.getInst()) - (l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.tbds58);
 
     /* renamed from: e  reason: collision with root package name */
-    public View f4557e;
+    public View f4658e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f4558f;
+    public HeadImageView f4659f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f4559g;
+    public TextView f4660g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f4560h;
+    public int f4661h;
 
     public SmartAppBottomLayout(Context context) {
         this(context, null);
@@ -40,45 +42,45 @@ public class SmartAppBottomLayout extends LinearLayout implements p<a> {
     }
 
     public final void b(Context context) {
-        this.f4557e = LayoutInflater.from(context).inflate(R.layout.smart_app_bottom_layout, (ViewGroup) this, true);
+        this.f4658e = LayoutInflater.from(context).inflate(R.layout.smart_app_bottom_layout, (ViewGroup) this, true);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.f4558f = (HeadImageView) this.f4557e.findViewById(R.id.ai_smart_app_icon);
-        this.f4559g = (TextView) this.f4557e.findViewById(R.id.ai_smart_app_text);
-        this.f4558f.setIsBigV(false);
-        this.f4558f.setIsGod(false);
-        this.f4558f.setShowV(false);
+        this.f4659f = (HeadImageView) this.f4658e.findViewById(R.id.ai_smart_app_icon);
+        this.f4660g = (TextView) this.f4658e.findViewById(R.id.ai_smart_app_text);
+        this.f4659f.setIsBigV(false);
+        this.f4659f.setIsGod(false);
+        this.f4659f.setShowV(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.i.p
+    @Override // d.a.i.p
     /* renamed from: c */
     public void a(a aVar) {
-        a2 n = aVar.n();
-        if (n == null || n.j1() == null) {
+        a2 m = aVar.m();
+        if (m == null || m.j1() == null) {
             return;
         }
-        if (!TextUtils.isEmpty(n.j1().avatar)) {
-            this.f4558f.W(n.j1().avatar, 10, false);
+        if (!TextUtils.isEmpty(m.j1().avatar)) {
+            this.f4659f.V(m.j1().avatar, 10, false);
         } else {
-            SkinManager.setImageResource(this.f4558f, R.drawable.icon_avatar_smallapp_tie);
+            SkinManager.setImageResource(this.f4659f, R.drawable.icon_avatar_smallapp_tie);
         }
-        if (n.j1() != null && !TextUtils.isEmpty(n.j1().name)) {
-            ThreadCardUtils.cutAndSetTextByMaxLine(this.f4559g, n.j1().name, R.string.ai_smart_app, R.dimen.tbds0, 1, i, false);
+        if (m.j1() != null && !TextUtils.isEmpty(m.j1().name)) {
+            ThreadCardUtils.cutAndSetTextByMaxLine(this.f4660g, m.j1().name, R.string.ai_smart_app, R.dimen.tbds0, 1, f4657i, false);
         } else {
-            this.f4559g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
+            this.f4660g.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.ai_smart_app));
         }
     }
 
     public void d() {
-        if (this.f4560h != TbadkCoreApplication.getInst().getSkinType()) {
-            this.f4560h = TbadkCoreApplication.getInst().getSkinType();
-            SkinManager.setViewTextColor(this.f4559g, R.color.CAM_X0109);
+        if (this.f4661h != TbadkCoreApplication.getInst().getSkinType()) {
+            this.f4661h = TbadkCoreApplication.getInst().getSkinType();
+            SkinManager.setViewTextColor(this.f4660g, R.color.CAM_X0109);
         }
     }
 
     public SmartAppBottomLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f4560h = 3;
+        this.f4661h = 3;
         b(context);
     }
 }

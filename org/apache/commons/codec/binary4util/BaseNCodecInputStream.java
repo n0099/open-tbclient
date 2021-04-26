@@ -25,7 +25,7 @@ public class BaseNCodecInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public synchronized void mark(int i) {
+    public synchronized void mark(int i2) {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -66,17 +66,17 @@ public class BaseNCodecInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
         if (bArr != null) {
-            if (i >= 0 && i2 >= 0) {
-                if (i > bArr.length || i + i2 > bArr.length) {
+            if (i2 >= 0 && i3 >= 0) {
+                if (i2 > bArr.length || i2 + i3 > bArr.length) {
                     throw new IndexOutOfBoundsException();
                 }
-                if (i2 == 0) {
+                if (i3 == 0) {
                     return 0;
                 }
-                int i3 = 0;
-                while (i3 == 0) {
+                int i4 = 0;
+                while (i4 == 0) {
                     if (!this.baseNCodec.hasData(this.context)) {
                         byte[] bArr2 = new byte[this.doEncode ? 4096 : 8192];
                         int read = ((FilterInputStream) this).in.read(bArr2);
@@ -86,9 +86,9 @@ public class BaseNCodecInputStream extends FilterInputStream {
                             this.baseNCodec.decode(bArr2, 0, read, this.context);
                         }
                     }
-                    i3 = this.baseNCodec.readResults(bArr, i, i2, this.context);
+                    i4 = this.baseNCodec.readResults(bArr, i2, i3, this.context);
                 }
-                return i3;
+                return i4;
             }
             throw new IndexOutOfBoundsException();
         }

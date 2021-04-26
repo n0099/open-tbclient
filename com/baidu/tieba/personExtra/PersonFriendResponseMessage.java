@@ -3,25 +3,25 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.c.e.d.l;
-import d.b.i0.r.q.f1;
-import d.b.i0.r.r.a;
+import d.a.c.e.d.l;
+import d.a.i0.r.q.f1;
+import d.a.i0.r.r.a;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     public static final int CACHETIME = 604800000;
     public f1 data;
     public int errCode;
     public String resultString;
 
-    public PersonFriendResponseMessage(int i) {
-        super(i);
+    public PersonFriendResponseMessage(int i2) {
+        super(i2);
         this.errCode = -1;
         this.data = new f1();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode != 200 || error < 0 || jSONObject == null) {
@@ -44,8 +44,8 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
         return this.resultString;
     }
 
-    public void setErrCode(int i) {
-        this.errCode = i;
+    public void setErrCode(int i2) {
+        this.errCode = i2;
     }
 
     public void setPersonFriendData(f1 f1Var) {
@@ -58,7 +58,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void beforeDispatchInBackGround(int i, byte[] bArr) {
+    public void beforeDispatchInBackGround(int i2, byte[] bArr) {
         l<String> g2;
         if (isSuccess() && this.errCode == 0) {
             HttpMessage httpMessage = (HttpMessage) getOrginalMessage();

@@ -53,7 +53,7 @@ public class CircleTextProgressbar extends TextView {
     public interface OnCountdownProgressListener {
         void onEnd();
 
-        void onProgress(int i);
+        void onProgress(int i2);
     }
 
     /* loaded from: classes2.dex */
@@ -85,10 +85,10 @@ public class CircleTextProgressbar extends TextView {
     }
 
     private void resetProgress() {
-        int i = AnonymousClass2.$SwitchMap$com$baidu$mobads$container$components$CircleTextProgressbar$ProgressType[this.mProgressType.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass2.$SwitchMap$com$baidu$mobads$container$components$CircleTextProgressbar$ProgressType[this.mProgressType.ordinal()];
+        if (i2 == 1) {
             this.progress = 0;
-        } else if (i != 2) {
+        } else if (i2 != 2) {
             this.progress = 0;
         } else {
             this.progress = this.mProgressTotalPart;
@@ -97,17 +97,17 @@ public class CircleTextProgressbar extends TextView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateProTask() {
-        int i = AnonymousClass2.$SwitchMap$com$baidu$mobads$container$components$CircleTextProgressbar$ProgressType[this.mProgressType.ordinal()];
-        if (i == 1) {
+        int i2 = AnonymousClass2.$SwitchMap$com$baidu$mobads$container$components$CircleTextProgressbar$ProgressType[this.mProgressType.ordinal()];
+        if (i2 == 1) {
             this.progress++;
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             this.progress--;
         }
-        int i2 = this.progress;
-        if (i2 >= 0 && i2 <= this.mProgressTotalPart) {
+        int i3 = this.progress;
+        if (i3 >= 0 && i3 <= this.mProgressTotalPart) {
             OnCountdownProgressListener onCountdownProgressListener = this.mCountdownProgressListener;
             if (onCountdownProgressListener != null) {
-                onCountdownProgressListener.onProgress(i2);
+                onCountdownProgressListener.onProgress(i3);
             }
             postInvalidate();
             return;
@@ -128,15 +128,15 @@ public class CircleTextProgressbar extends TextView {
         }
     }
 
-    private int validateProgress(int i) {
-        int i2 = this.mProgressTotalPart;
-        if (i > i2) {
-            return i2;
+    private int validateProgress(int i2) {
+        int i3 = this.mProgressTotalPart;
+        if (i2 > i3) {
+            return i3;
         }
-        if (i < 0) {
+        if (i2 < 0) {
             return 0;
         }
-        return i;
+        return i2;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -183,9 +183,9 @@ public class CircleTextProgressbar extends TextView {
         this.mPaint.setStrokeCap(Paint.Cap.ROUND);
         this.mPaint.setAlpha(204);
         RectF rectF = this.mArcRect;
-        int i = this.bounds.left;
-        int i2 = this.progressLineWidth;
-        rectF.set(i + (i2 / 2), rect.top + (i2 / 2), rect.right - (i2 / 2), rect.bottom - (i2 / 2));
+        int i2 = this.bounds.left;
+        int i3 = this.progressLineWidth;
+        rectF.set(i2 + (i3 / 2), rect.top + (i3 / 2), rect.right - (i3 / 2), rect.bottom - (i3 / 2));
         canvas.drawArc(this.mArcRect, 270.0f, (this.progress * 360) / this.mProgressTotalPart, false, this.mPaint);
     }
 
@@ -198,38 +198,38 @@ public class CircleTextProgressbar extends TextView {
         this.mCountdownProgressListener = onCountdownProgressListener;
     }
 
-    public void setInCircleColor(int i) {
-        this.inCircleColors = ColorStateList.valueOf(i);
+    public void setInCircleColor(int i2) {
+        this.inCircleColors = ColorStateList.valueOf(i2);
         invalidate();
     }
 
-    public void setOutLineColor(int i) {
-        this.outLineColor = i;
+    public void setOutLineColor(int i2) {
+        this.outLineColor = i2;
         invalidate();
     }
 
-    public void setOutLineWidth(int i) {
-        this.outLineWidth = i;
+    public void setOutLineWidth(int i2) {
+        this.outLineWidth = i2;
         invalidate();
     }
 
-    public void setProgress(int i) {
-        this.progress = validateProgress(i);
+    public void setProgress(int i2) {
+        this.progress = validateProgress(i2);
         invalidate();
     }
 
-    public void setProgressColor(int i) {
-        this.progressLineColor = i;
+    public void setProgressColor(int i2) {
+        this.progressLineColor = i2;
         invalidate();
     }
 
-    public void setProgressLineWidth(int i) {
-        this.progressLineWidth = i;
+    public void setProgressLineWidth(int i2) {
+        this.progressLineWidth = i2;
         invalidate();
     }
 
-    public void setProgressTotalPart(int i) {
-        this.mProgressTotalPart = i;
+    public void setProgressTotalPart(int i2) {
+        this.mProgressTotalPart = i2;
         resetProgress();
     }
 
@@ -257,8 +257,8 @@ public class CircleTextProgressbar extends TextView {
         }
     }
 
-    public void updateProgres(int i, int i2) {
-        this.progress = (this.mProgressTotalPart * i2) / i;
+    public void updateProgres(int i2, int i3) {
+        this.progress = (this.mProgressTotalPart * i3) / i2;
         invalidate();
     }
 
@@ -266,8 +266,8 @@ public class CircleTextProgressbar extends TextView {
         this(context, attributeSet, 0);
     }
 
-    public CircleTextProgressbar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public CircleTextProgressbar(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.outLineColor = -16777216;
         this.outLineWidth = 2;
         this.inCircleColors = ColorStateList.valueOf(0);

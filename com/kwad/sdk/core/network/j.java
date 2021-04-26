@@ -10,7 +10,7 @@ public abstract class j<R extends g, T extends BaseResultData> implements h<R, T
     }
 
     @Override // com.kwad.sdk.core.network.h
-    public void a(@NonNull R r, int i, String str) {
+    public void a(@NonNull R r, int i2, String str) {
     }
 
     @Override // com.kwad.sdk.core.network.h

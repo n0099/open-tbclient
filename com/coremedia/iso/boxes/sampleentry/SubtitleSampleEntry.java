@@ -7,7 +7,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SubtitleSampleEntry extends AbstractSampleEntry {
     public static final String TYPE1 = "stpp";
     public String imageMimeType;
@@ -48,7 +48,7 @@ public class SubtitleSampleEntry extends AbstractSampleEntry {
 
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
-        int i = 8;
+        int i2 = 8;
         long containerSize = getContainerSize() + this.namespace.length() + 8 + this.schemaLocation.length() + this.imageMimeType.length() + 3;
         return containerSize + ((this.largeBox || 8 + containerSize >= 4294967296L) ? 16 : 16);
     }

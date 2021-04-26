@@ -1,46 +1,48 @@
 package kotlin.jvm;
 
-import androidx.exifinterface.media.ExifInterface;
 import java.lang.annotation.Annotation;
 import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
 import kotlin.Metadata;
 import kotlin.ReplaceWith;
-import kotlin.TypeCastException;
 import kotlin.jvm.internal.ClassBasedDeclarationContainer;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KClass;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000&\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0011\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u001b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0011\u001a!\u0010\u0004\u001a\u00020\u0003\"\n\b\u0000\u0010\u0001\u0018\u0001*\u00020\u0000*\u0006\u0012\u0002\b\u00030\u0002¢\u0006\u0004\b\u0004\u0010\u0005\")\u0010\n\u001a\n\u0012\u0006\b\u0001\u0012\u00028\u00000\u0007\"\b\b\u0000\u0010\u0001*\u00020\u0006*\u00028\u00008F@\u0006¢\u0006\u0006\u001a\u0004\b\b\u0010\t\"/\u0010\u0010\u001a\b\u0012\u0004\u0012\u00028\u00000\u000b\"\u0004\b\u0000\u0010\u0001*\b\u0012\u0004\u0012\u00028\u00000\u00078G@\u0006¢\u0006\f\u0012\u0004\b\u000e\u0010\u000f\u001a\u0004\b\f\u0010\r\"(\u0010\u0012\u001a\b\u0012\u0004\u0012\u00028\u00000\u000b\"\b\b\u0000\u0010\u0001*\u00020\u0000*\u00028\u00008Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b\f\u0010\u0011\"=\u0010\u0012\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u00070\u000b\"\b\b\u0000\u0010\u0001*\u00020\u0000*\b\u0012\u0004\u0012\u00028\u00000\u00078Ç\u0002@\u0007X\u0087\u0004¢\u0006\f\u0012\u0004\b\u0014\u0010\u000f\u001a\u0004\b\u0013\u0010\r\"-\u0010\u0016\u001a\b\u0012\u0004\u0012\u00028\u00000\u000b\"\b\b\u0000\u0010\u0001*\u00020\u0000*\b\u0012\u0004\u0012\u00028\u00000\u00078F@\u0006¢\u0006\u0006\u001a\u0004\b\u0015\u0010\r\"/\u0010\u0018\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u000b\"\b\b\u0000\u0010\u0001*\u00020\u0000*\b\u0012\u0004\u0012\u00028\u00000\u00078F@\u0006¢\u0006\u0006\u001a\u0004\b\u0017\u0010\r\"-\u0010\u001b\u001a\b\u0012\u0004\u0012\u00028\u00000\u0007\"\b\b\u0000\u0010\u0001*\u00020\u0000*\b\u0012\u0004\u0012\u00028\u00000\u000b8G@\u0006¢\u0006\u0006\u001a\u0004\b\u0019\u0010\u001a¨\u0006\u001c"}, d2 = {"", ExifInterface.GPS_DIRECTION_TRUE, "", "", "isArrayOf", "([Ljava/lang/Object;)Z", "", "Lkotlin/reflect/KClass;", "getAnnotationClass", "(Ljava/lang/annotation/Annotation;)Lkotlin/reflect/KClass;", "annotationClass", "Ljava/lang/Class;", "getJavaClass", "(Lkotlin/reflect/KClass;)Ljava/lang/Class;", "java$annotations", "(Lkotlin/reflect/KClass;)V", "java", "(Ljava/lang/Object;)Ljava/lang/Class;", "javaClass", "getRuntimeClassOfKClassInstance", "javaClass$annotations", "getJavaObjectType", "javaObjectType", "getJavaPrimitiveType", "javaPrimitiveType", "getKotlinClass", "(Ljava/lang/Class;)Lkotlin/reflect/KClass;", "kotlin", "kotlin-stdlib"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000&\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0011\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u001b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0011\u001a!\u0010\u0004\u001a\u00020\u0003\"\n\b\u0000\u0010\u0001\u0018\u0001*\u00020\u0000*\u0006\u0012\u0002\b\u00030\u0002¢\u0006\u0004\b\u0004\u0010\u0005\")\u0010\n\u001a\n\u0012\u0006\b\u0001\u0012\u00028\u00000\u0007\"\b\b\u0000\u0010\u0001*\u00020\u0006*\u00028\u00008F@\u0006¢\u0006\u0006\u001a\u0004\b\b\u0010\t\"/\u0010\u0010\u001a\b\u0012\u0004\u0012\u00028\u00000\u000b\"\u0004\b\u0000\u0010\u0001*\b\u0012\u0004\u0012\u00028\u00000\u00078G@\u0006¢\u0006\f\u0012\u0004\b\u000e\u0010\u000f\u001a\u0004\b\f\u0010\r\"(\u0010\u0012\u001a\b\u0012\u0004\u0012\u00028\u00000\u000b\"\b\b\u0000\u0010\u0001*\u00020\u0000*\u00028\u00008Æ\u0002@\u0006¢\u0006\u0006\u001a\u0004\b\f\u0010\u0011\"=\u0010\u0012\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u00070\u000b\"\b\b\u0000\u0010\u0001*\u00020\u0000*\b\u0012\u0004\u0012\u00028\u00000\u00078Ç\u0002@\u0007X\u0087\u0004¢\u0006\f\u0012\u0004\b\u0014\u0010\u000f\u001a\u0004\b\u0013\u0010\r\"-\u0010\u0016\u001a\b\u0012\u0004\u0012\u00028\u00000\u000b\"\b\b\u0000\u0010\u0001*\u00020\u0000*\b\u0012\u0004\u0012\u00028\u00000\u00078F@\u0006¢\u0006\u0006\u001a\u0004\b\u0015\u0010\r\"/\u0010\u0018\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u000b\"\b\b\u0000\u0010\u0001*\u00020\u0000*\b\u0012\u0004\u0012\u00028\u00000\u00078F@\u0006¢\u0006\u0006\u001a\u0004\b\u0017\u0010\r\"-\u0010\u001b\u001a\b\u0012\u0004\u0012\u00028\u00000\u0007\"\b\b\u0000\u0010\u0001*\u00020\u0000*\b\u0012\u0004\u0012\u00028\u00000\u000b8G@\u0006¢\u0006\u0006\u001a\u0004\b\u0019\u0010\u001a¨\u0006\u001c"}, d2 = {"", "T", "", "", "isArrayOf", "([Ljava/lang/Object;)Z", "", "Lkotlin/reflect/KClass;", "getAnnotationClass", "(Ljava/lang/annotation/Annotation;)Lkotlin/reflect/KClass;", "annotationClass", "Ljava/lang/Class;", "getJavaClass", "(Lkotlin/reflect/KClass;)Ljava/lang/Class;", "getJavaClass$annotations", "(Lkotlin/reflect/KClass;)V", "java", "(Ljava/lang/Object;)Ljava/lang/Class;", "javaClass", "getRuntimeClassOfKClassInstance", "getRuntimeClassOfKClassInstance$annotations", "getJavaObjectType", "javaObjectType", "getJavaPrimitiveType", "javaPrimitiveType", "getKotlinClass", "(Ljava/lang/Class;)Lkotlin/reflect/KClass;", "kotlin", "kotlin-stdlib"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 @JvmName(name = "JvmClassMappingKt")
 /* loaded from: classes7.dex */
 public final class JvmClassMappingKt {
-    public static final <T extends Annotation> KClass<? extends T> getAnnotationClass(T t) {
-        Class<? extends Annotation> annotationType = t.annotationType();
-        Intrinsics.checkExpressionValueIsNotNull(annotationType, "(this as java.lang.annot…otation).annotationType()");
-        KClass<? extends T> kotlinClass = getKotlinClass(annotationType);
+    public static final <T extends Annotation> KClass<? extends T> getAnnotationClass(T annotationClass) {
+        Intrinsics.checkNotNullParameter(annotationClass, "$this$annotationClass");
+        KClass<? extends T> kotlinClass = getKotlinClass(annotationClass.annotationType());
         if (kotlinClass != null) {
             return kotlinClass;
         }
-        throw new TypeCastException("null cannot be cast to non-null type kotlin.reflect.KClass<out T>");
+        throw new NullPointerException("null cannot be cast to non-null type kotlin.reflect.KClass<out T>");
     }
 
     @JvmName(name = "getJavaClass")
-    public static final <T> Class<T> getJavaClass(KClass<T> kClass) {
-        Class<T> cls = (Class<T>) ((ClassBasedDeclarationContainer) kClass).getJClass();
+    public static final <T> Class<T> getJavaClass(KClass<T> java) {
+        Intrinsics.checkNotNullParameter(java, "$this$java");
+        Class<T> cls = (Class<T>) ((ClassBasedDeclarationContainer) java).getJClass();
         if (cls != null) {
             return cls;
         }
-        throw new TypeCastException("null cannot be cast to non-null type java.lang.Class<T>");
+        throw new NullPointerException("null cannot be cast to non-null type java.lang.Class<T>");
     }
 
-    public static final <T> Class<T> getJavaObjectType(KClass<T> kClass) {
-        Class<T> cls = (Class<T>) ((ClassBasedDeclarationContainer) kClass).getJClass();
+    public static /* synthetic */ void getJavaClass$annotations(KClass kClass) {
+    }
+
+    public static final <T> Class<T> getJavaObjectType(KClass<T> javaObjectType) {
+        Intrinsics.checkNotNullParameter(javaObjectType, "$this$javaObjectType");
+        Class<T> cls = (Class<T>) ((ClassBasedDeclarationContainer) javaObjectType).getJClass();
         if (!cls.isPrimitive()) {
             if (cls != null) {
                 return cls;
             }
-            throw new TypeCastException("null cannot be cast to non-null type java.lang.Class<T>");
+            throw new NullPointerException("null cannot be cast to non-null type java.lang.Class<T>");
         }
         String name = cls.getName();
         if (name != null) {
@@ -104,16 +106,17 @@ public final class JvmClassMappingKt {
         if (cls != null) {
             return cls;
         }
-        throw new TypeCastException("null cannot be cast to non-null type java.lang.Class<T>");
+        throw new NullPointerException("null cannot be cast to non-null type java.lang.Class<T>");
     }
 
-    public static final <T> Class<T> getJavaPrimitiveType(KClass<T> kClass) {
-        Class<T> cls = (Class<T>) ((ClassBasedDeclarationContainer) kClass).getJClass();
+    public static final <T> Class<T> getJavaPrimitiveType(KClass<T> javaPrimitiveType) {
+        Intrinsics.checkNotNullParameter(javaPrimitiveType, "$this$javaPrimitiveType");
+        Class<T> cls = (Class<T>) ((ClassBasedDeclarationContainer) javaPrimitiveType).getJClass();
         if (cls.isPrimitive()) {
             if (cls != null) {
                 return cls;
             }
-            throw new TypeCastException("null cannot be cast to non-null type java.lang.Class<T>");
+            throw new NullPointerException("null cannot be cast to non-null type java.lang.Class<T>");
         }
         String name = cls.getName();
         if (name != null) {
@@ -169,31 +172,37 @@ public final class JvmClassMappingKt {
     }
 
     @JvmName(name = "getKotlinClass")
-    public static final <T> KClass<T> getKotlinClass(Class<T> cls) {
-        return Reflection.getOrCreateKotlinClass(cls);
+    public static final <T> KClass<T> getKotlinClass(Class<T> kotlin2) {
+        Intrinsics.checkNotNullParameter(kotlin2, "$this$kotlin");
+        return Reflection.getOrCreateKotlinClass(kotlin2);
     }
 
     @JvmName(name = "getRuntimeClassOfKClassInstance")
-    public static final <T> Class<KClass<T>> getRuntimeClassOfKClassInstance(KClass<T> kClass) {
-        Class<KClass<T>> cls = (Class<KClass<T>>) kClass.getClass();
+    public static final <T> Class<KClass<T>> getRuntimeClassOfKClassInstance(KClass<T> javaClass) {
+        Intrinsics.checkNotNullParameter(javaClass, "$this$javaClass");
+        Class<KClass<T>> cls = (Class<KClass<T>>) javaClass.getClass();
         if (cls != null) {
             return cls;
         }
-        throw new TypeCastException("null cannot be cast to non-null type java.lang.Class<kotlin.reflect.KClass<T>>");
-    }
-
-    public static /* synthetic */ void java$annotations(KClass kClass) {
+        throw new NullPointerException("null cannot be cast to non-null type java.lang.Class<kotlin.reflect.KClass<T>>");
     }
 
     @Deprecated(level = DeprecationLevel.ERROR, message = "Use 'java' property to get Java class corresponding to this Kotlin class or cast this instance to Any if you really want to get the runtime Java class of this implementation of KClass.", replaceWith = @ReplaceWith(expression = "(this as Any).javaClass", imports = {}))
-    public static /* synthetic */ void javaClass$annotations(KClass kClass) {
+    public static /* synthetic */ void getRuntimeClassOfKClassInstance$annotations(KClass kClass) {
     }
 
-    public static final <T> Class<T> getJavaClass(T t) {
-        Class<T> cls = (Class<T>) t.getClass();
+    public static final /* synthetic */ <T> boolean isArrayOf(Object[] isArrayOf) {
+        Intrinsics.checkNotNullParameter(isArrayOf, "$this$isArrayOf");
+        Intrinsics.reifiedOperationMarker(4, "T");
+        return Object.class.isAssignableFrom(isArrayOf.getClass().getComponentType());
+    }
+
+    public static final <T> Class<T> getJavaClass(T javaClass) {
+        Intrinsics.checkNotNullParameter(javaClass, "$this$javaClass");
+        Class<T> cls = (Class<T>) javaClass.getClass();
         if (cls != null) {
             return cls;
         }
-        throw new TypeCastException("null cannot be cast to non-null type java.lang.Class<T>");
+        throw new NullPointerException("null cannot be cast to non-null type java.lang.Class<T>");
     }
 }

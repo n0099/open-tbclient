@@ -7,14 +7,14 @@ import org.json.JSONObject;
 public class TbCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessage {
     public TbCdnIpListData ipListData;
 
-    public TbCdnGetIPListHttpResponseMsg(int i) {
-        super(i);
+    public TbCdnGetIPListHttpResponseMsg(int i2) {
+        super(i2);
         this.ipListData = new TbCdnIpListData();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        super.decodeLogicInBackGround(i, jSONObject);
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (jSONObject == null) {
             return;
         }

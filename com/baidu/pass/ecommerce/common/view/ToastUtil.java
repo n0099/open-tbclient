@@ -22,7 +22,7 @@ public class ToastUtil {
         mToast.setDuration(0);
     }
 
-    public static View createView(Context context, int i, String str) {
+    public static View createView(Context context, int i2, String str) {
         View inflate;
         LayoutInflater from = LayoutInflater.from(context);
         SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
@@ -33,11 +33,11 @@ public class ToastUtil {
         }
         ImageView imageView = (ImageView) inflate.findViewById(R.id.sapi_sdk_toast_msg_icon);
         TextView textView = (TextView) inflate.findViewById(R.id.sapi_sdk_toast_msg_tv);
-        if (-1 == i) {
+        if (-1 == i2) {
             imageView.setVisibility(8);
         } else {
             imageView.setVisibility(0);
-            imageView.setImageResource(i);
+            imageView.setImageResource(i2);
         }
         textView.setText(str);
         return inflate;
@@ -58,7 +58,7 @@ public class ToastUtil {
         mToast.show();
     }
 
-    public static void show(int i, String str) {
+    public static void show(int i2, String str) {
         SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
         if (confignation == null) {
             return;
@@ -69,7 +69,7 @@ public class ToastUtil {
         }
         Context context = confignation.getContext();
         createToast(context);
-        mToast.setView(createView(context, i, str));
+        mToast.setView(createView(context, i2, str));
         mToast.show();
     }
 }

@@ -4,9 +4,9 @@ import android.content.Context;
 import com.bytedance.sdk.openadsdk.l.e;
 import com.bytedance.sdk.openadsdk.l.g;
 import com.bytedance.sdk.openadsdk.video.d.c;
-import d.c.c.a.b.a0;
-import d.c.c.a.b.d;
-import d.c.c.a.b.y;
+import d.b.c.a.b.a0;
+import d.b.c.a.b.d;
+import d.b.c.a.b.y;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,49 +15,49 @@ import java.io.RandomAccessFile;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f30164a;
+    public Context f31081a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30165b;
+    public int f31082b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.video.b.a f30166c;
+    public com.bytedance.sdk.openadsdk.video.b.a f31083c;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f30168e;
+    public File f31085e;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f30167d = false;
+    public volatile boolean f31084d = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public InterfaceC0341a f30169f = null;
+    public InterfaceC0334a f31086f = null;
 
     /* renamed from: com.bytedance.sdk.openadsdk.video.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0341a {
-        void a(int i, com.bytedance.sdk.openadsdk.video.b.a aVar);
+    public interface InterfaceC0334a {
+        void a(int i2, com.bytedance.sdk.openadsdk.video.b.a aVar);
 
-        void a(int i, String str);
+        void a(int i2, String str);
     }
 
-    public a(Context context, com.bytedance.sdk.openadsdk.video.b.a aVar, int i) {
-        this.f30168e = null;
-        this.f30164a = context;
-        this.f30165b = i;
-        this.f30166c = aVar;
-        this.f30168e = c.a(context, aVar.b());
+    public a(Context context, com.bytedance.sdk.openadsdk.video.b.a aVar, int i2) {
+        this.f31085e = null;
+        this.f31081a = context;
+        this.f31082b = i2;
+        this.f31083c = aVar;
+        this.f31085e = c.a(context, aVar.b());
     }
 
     public boolean a() {
-        return this.f30168e.exists() && this.f30168e.length() != 0;
+        return this.f31085e.exists() && this.f31085e.length() != 0;
     }
 
     public void b() {
         if (a()) {
             com.bytedance.sdk.openadsdk.video.d.a.b("VideoPreload", "Cache file is exist");
-            InterfaceC0341a interfaceC0341a = this.f30169f;
-            if (interfaceC0341a != null) {
-                interfaceC0341a.a(200, this.f30166c);
+            InterfaceC0334a interfaceC0334a = this.f31086f;
+            if (interfaceC0334a != null) {
+                interfaceC0334a.a(200, this.f31083c);
                 return;
             }
             return;
@@ -70,18 +70,18 @@ public class a {
                 long j;
                 y yVar = new y();
                 a0.a aVar = new a0.a();
-                aVar.g("RANGE", "bytes=0-" + a.this.f30165b);
-                aVar.e(a.this.f30166c.a());
+                aVar.g("RANGE", "bytes=0-" + a.this.f31082b);
+                aVar.e(a.this.f31083c.a());
                 aVar.a();
-                d.c.c.a.b.c cVar = null;
+                d.b.c.a.b.c cVar = null;
                 InputStream inputStream2 = null;
                 try {
                     try {
-                        d.c.c.a.b.c a2 = yVar.c(aVar.p()).a();
+                        d.b.c.a.b.c a2 = yVar.c(aVar.p()).a();
                         try {
                             if (!a2.s()) {
-                                if (a.this.f30169f != null) {
-                                    a.this.f30169f.a(a2.r(), a2.t());
+                                if (a.this.f31086f != null) {
+                                    a.this.f31086f.a(a2.r(), a2.t());
                                 }
                                 if (a2 != null) {
                                     try {
@@ -91,7 +91,7 @@ public class a {
                                         return;
                                     }
                                 }
-                                com.bytedance.sdk.openadsdk.video.d.a.b("VideoPreload", "Pre finally ", a.this.f30166c.a(), " Preload size=", Integer.valueOf(a.this.f30165b));
+                                com.bytedance.sdk.openadsdk.video.d.a.b("VideoPreload", "Pre finally ", a.this.f31083c.a(), " Preload size=", Integer.valueOf(a.this.f31082b));
                                 return;
                             }
                             dVar = a2.x();
@@ -105,8 +105,8 @@ public class a {
                                     inputStream2 = x.q();
                                 }
                                 if (inputStream2 == null) {
-                                    if (a.this.f30169f != null) {
-                                        a.this.f30169f.a(a2.r(), a2.t());
+                                    if (a.this.f31086f != null) {
+                                        a.this.f31086f.a(a2.r(), a2.t());
                                     }
                                     if (inputStream2 != null) {
                                         try {
@@ -122,34 +122,34 @@ public class a {
                                     if (a2 != null) {
                                         a2.close();
                                     }
-                                    com.bytedance.sdk.openadsdk.video.d.a.b("VideoPreload", "Pre finally ", a.this.f30166c.a(), " Preload size=", Integer.valueOf(a.this.f30165b));
+                                    com.bytedance.sdk.openadsdk.video.d.a.b("VideoPreload", "Pre finally ", a.this.f31083c.a(), " Preload size=", Integer.valueOf(a.this.f31082b));
                                     return;
                                 }
-                                RandomAccessFile randomAccessFile = new RandomAccessFile(a.this.f30168e, "rw");
+                                RandomAccessFile randomAccessFile = new RandomAccessFile(a.this.f31085e, "rw");
                                 byte[] bArr = new byte[16384];
                                 long j2 = 0;
-                                int i = 0;
                                 int i2 = 0;
+                                int i3 = 0;
                                 while (true) {
-                                    int read = inputStream2.read(bArr, i, 16384 - i);
+                                    int read = inputStream2.read(bArr, i2, 16384 - i2);
                                     if (read == -1) {
                                         break;
-                                    } else if (a.this.f30167d) {
-                                        if (a.this.f30169f != null) {
-                                            a.this.f30169f.a(a2.r(), a.this.f30166c);
+                                    } else if (a.this.f31084d) {
+                                        if (a.this.f31086f != null) {
+                                            a.this.f31086f.a(a2.r(), a.this.f31083c);
                                         }
                                     } else {
-                                        i += read;
+                                        i2 += read;
                                         j2 += read;
                                         if (j2 % 16384 != 0 && j2 != j) {
                                         }
-                                        c.a(randomAccessFile, bArr, Long.valueOf(i2).intValue(), i, a.this.f30166c.b());
-                                        i2 += i;
-                                        i = 0;
+                                        c.a(randomAccessFile, bArr, Long.valueOf(i3).intValue(), i2, a.this.f31083c.b());
+                                        i3 += i2;
+                                        i2 = 0;
                                     }
                                 }
-                                if (a.this.f30169f != null) {
-                                    a.this.f30169f.a(a2.r(), a.this.f30166c);
+                                if (a.this.f31086f != null) {
+                                    a.this.f31086f.a(a2.r(), a.this.f31083c);
                                 }
                                 if (inputStream2 != null) {
                                     inputStream2.close();
@@ -160,15 +160,15 @@ public class a {
                                 if (a2 != null) {
                                     a2.close();
                                 }
-                                com.bytedance.sdk.openadsdk.video.d.a.b("VideoPreload", "Pre finally ", a.this.f30166c.a(), " Preload size=", Integer.valueOf(a.this.f30165b));
+                                com.bytedance.sdk.openadsdk.video.d.a.b("VideoPreload", "Pre finally ", a.this.f31083c.a(), " Preload size=", Integer.valueOf(a.this.f31082b));
                             } catch (Throwable th) {
                                 th = th;
                                 cVar = a2;
                                 inputStream = null;
                                 try {
                                     th.printStackTrace();
-                                    if (a.this.f30169f != null) {
-                                        a.this.f30169f.a(cVar.r(), th.getMessage());
+                                    if (a.this.f31086f != null) {
+                                        a.this.f31086f.a(cVar.r(), th.getMessage());
                                     }
                                     if (inputStream != null) {
                                         inputStream.close();
@@ -179,7 +179,7 @@ public class a {
                                     if (cVar != null) {
                                         cVar.close();
                                     }
-                                    com.bytedance.sdk.openadsdk.video.d.a.b("VideoPreload", "Pre finally ", a.this.f30166c.a(), " Preload size=", Integer.valueOf(a.this.f30165b));
+                                    com.bytedance.sdk.openadsdk.video.d.a.b("VideoPreload", "Pre finally ", a.this.f31083c.a(), " Preload size=", Integer.valueOf(a.this.f31082b));
                                 } catch (Throwable th2) {
                                     if (inputStream != null) {
                                         try {
@@ -195,7 +195,7 @@ public class a {
                                     if (cVar != null) {
                                         cVar.close();
                                     }
-                                    com.bytedance.sdk.openadsdk.video.d.a.b("VideoPreload", "Pre finally ", a.this.f30166c.a(), " Preload size=", Integer.valueOf(a.this.f30165b));
+                                    com.bytedance.sdk.openadsdk.video.d.a.b("VideoPreload", "Pre finally ", a.this.f31083c.a(), " Preload size=", Integer.valueOf(a.this.f31082b));
                                     throw th2;
                                 }
                             }
@@ -218,6 +218,6 @@ public class a {
     }
 
     public void a(boolean z) {
-        this.f30167d = z;
+        this.f31084d = z;
     }
 }

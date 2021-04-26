@@ -7,5 +7,5 @@ public interface ArrayAdapterInterface<T> {
 
     String getTag();
 
-    T newArray(int i);
+    T newArray(int i2);
 }

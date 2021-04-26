@@ -14,20 +14,20 @@ public final class d extends a {
     @Override // com.alipay.android.phone.mrpc.core.a.c
     public final Object a() {
         try {
-            String str = new String(this.f1661b);
+            String str = new String(this.f1601b);
             StringBuilder sb = new StringBuilder("threadid = ");
             sb.append(Thread.currentThread().getId());
             sb.append("; rpc response:  ");
             sb.append(str);
             JSONObject jSONObject = new JSONObject(str);
-            int i = jSONObject.getInt(l.f2017a);
-            if (i == 1000) {
-                return this.f1660a == String.class ? jSONObject.optString("result") : com.alipay.a.a.e.a(jSONObject.optString("result"), this.f1660a);
+            int i2 = jSONObject.getInt(l.f1974a);
+            if (i2 == 1000) {
+                return this.f1600a == String.class ? jSONObject.optString("result") : com.alipay.a.a.e.a(jSONObject.optString("result"), this.f1600a);
             }
-            throw new RpcException(Integer.valueOf(i), jSONObject.optString(TableDefine.MessageColumns.COLUME_TIPS));
+            throw new RpcException(Integer.valueOf(i2), jSONObject.optString(TableDefine.MessageColumns.COLUME_TIPS));
         } catch (Exception e2) {
             StringBuilder sb2 = new StringBuilder("response  =");
-            sb2.append(new String(this.f1661b));
+            sb2.append(new String(this.f1601b));
             sb2.append(":");
             sb2.append(e2);
             throw new RpcException((Integer) 10, sb2.toString() == null ? "" : e2.getMessage());

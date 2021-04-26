@@ -19,8 +19,8 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public ChatUser[] newArray(int i) {
-            return new ChatUser[i];
+        public ChatUser[] newArray(int i2) {
+            return new ChatUser[i2];
         }
     };
     public int mAccountType;
@@ -227,20 +227,20 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         return this.mIsIpLocatonExist == 0;
     }
 
-    public void setAccountType(int i) {
-        this.mAccountType = i;
+    public void setAccountType(int i2) {
+        this.mAccountType = i2;
     }
 
-    public void setBlack(int i) {
-        this.mAttrBlack = i;
+    public void setBlack(int i2) {
+        this.mAttrBlack = i2;
     }
 
-    public void setDisturb(int i) {
-        this.mAttrDisturb = i;
+    public void setDisturb(int i2) {
+        this.mAttrDisturb = i2;
     }
 
-    public void setHasSpecialIdentity(int i) {
-        this.mHasSpecialIdentity = i;
+    public void setHasSpecialIdentity(int i2) {
+        this.mHasSpecialIdentity = i2;
     }
 
     public void setIconUrl(String str) {
@@ -255,16 +255,16 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         this.mIpInfo = ipInfo;
     }
 
-    public void setIsIpLocationExist(int i) {
-        this.mIsIpLocatonExist = i;
+    public void setIsIpLocationExist(int i2) {
+        this.mIsIpLocatonExist = i2;
     }
 
     public void setLastUpdate(long j) {
         this.mLastUpdate = j;
     }
 
-    public void setMarkTop(int i) {
-        this.mMarkTop = i;
+    public void setMarkTop(int i2) {
+        this.mMarkTop = i2;
     }
 
     public void setMarkTopTime(long j) {
@@ -275,20 +275,20 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         this.mPhone = j;
     }
 
-    public void setPhoneRelation(int i) {
-        this.mPhoneRelation = i;
+    public void setPhoneRelation(int i2) {
+        this.mPhoneRelation = i2;
     }
 
     public void setSchema(String str) {
         this.mSchema = str;
     }
 
-    public void setSex(int i) {
-        this.mSex = i;
+    public void setSex(int i2) {
+        this.mSex = i2;
     }
 
-    public void setShield(int i) {
-        this.mShield = i;
+    public void setShield(int i2) {
+        this.mShield = i2;
     }
 
     public void setShieldTime(long j) {
@@ -299,8 +299,8 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         this.mSpecialIdentity = str;
     }
 
-    public void setSubscribe(int i) {
-        this.mSubscribe = i;
+    public void setSubscribe(int i2) {
+        this.mSubscribe = i2;
     }
 
     public void setTinyUrl(String str) {
@@ -341,7 +341,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeLong(this.mUk);
         parcel.writeLong(this.mBuid);
         parcel.writeString(this.mUserName);
@@ -353,7 +353,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         parcel.writeString(this.mUserNamePy);
         parcel.writeInt(this.mAccountType);
         parcel.writeInt(this.mIsIpLocatonExist);
-        parcel.writeParcelable(this.mIpInfo, i);
+        parcel.writeParcelable(this.mIpInfo, i2);
         parcel.writeString(this.mVipId);
         parcel.writeString(this.vPortrait);
         parcel.writeString(this.mIdentity);

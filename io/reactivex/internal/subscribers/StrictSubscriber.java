@@ -1,30 +1,30 @@
 package io.reactivex.internal.subscribers;
 
-import f.b.g;
-import f.b.x.i.e;
-import g.d.c;
-import g.d.d;
+import io.reactivex.FlowableSubscriber;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.AtomicThrowable;
+import io.reactivex.internal.util.HalfSerializer;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
 /* loaded from: classes7.dex */
-public class StrictSubscriber<T> extends AtomicInteger implements g<T>, d {
+public class StrictSubscriber<T> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
     public static final long serialVersionUID = -4945028590049415624L;
-    public final c<? super T> actual;
+    public final Subscriber<? super T> actual;
     public volatile boolean done;
     public final AtomicThrowable error = new AtomicThrowable();
     public final AtomicLong requested = new AtomicLong();
-    public final AtomicReference<d> s = new AtomicReference<>();
+    public final AtomicReference<Subscription> s = new AtomicReference<>();
     public final AtomicBoolean once = new AtomicBoolean();
 
-    public StrictSubscriber(c<? super T> cVar) {
-        this.actual = cVar;
+    public StrictSubscriber(Subscriber<? super T> subscriber) {
+        this.actual = subscriber;
     }
 
-    @Override // g.d.d
+    @Override // org.reactivestreams.Subscription
     public void cancel() {
         if (this.done) {
             return;
@@ -32,36 +32,36 @@ public class StrictSubscriber<T> extends AtomicInteger implements g<T>, d {
         SubscriptionHelper.cancel(this.s);
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onComplete() {
         this.done = true;
-        e.b(this.actual, this, this.error);
+        HalfSerializer.onComplete(this.actual, this, this.error);
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onError(Throwable th) {
         this.done = true;
-        e.d(this.actual, th, this, this.error);
+        HalfSerializer.onError(this.actual, th, this, this.error);
     }
 
-    @Override // g.d.c
+    @Override // org.reactivestreams.Subscriber
     public void onNext(T t) {
-        e.f(this.actual, t, this, this.error);
+        HalfSerializer.onNext(this.actual, t, this, this.error);
     }
 
-    @Override // f.b.g, g.d.c
-    public void onSubscribe(d dVar) {
+    @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
+    public void onSubscribe(Subscription subscription) {
         if (this.once.compareAndSet(false, true)) {
             this.actual.onSubscribe(this);
-            SubscriptionHelper.deferredSetOnce(this.s, this.requested, dVar);
+            SubscriptionHelper.deferredSetOnce(this.s, this.requested, subscription);
             return;
         }
-        dVar.cancel();
+        subscription.cancel();
         cancel();
         onError(new IllegalStateException("§2.12 violated: onSubscribe must be called at most once"));
     }
 
-    @Override // g.d.d
+    @Override // org.reactivestreams.Subscription
     public void request(long j) {
         if (j <= 0) {
             cancel();

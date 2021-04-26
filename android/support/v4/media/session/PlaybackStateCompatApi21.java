@@ -27,8 +27,8 @@ public class PlaybackStateCompatApi21 {
             return ((PlaybackState.CustomAction) obj).getName();
         }
 
-        public static Object newInstance(String str, CharSequence charSequence, int i, Bundle bundle) {
-            PlaybackState.CustomAction.Builder builder = new PlaybackState.CustomAction.Builder(str, charSequence, i);
+        public static Object newInstance(String str, CharSequence charSequence, int i2, Bundle bundle) {
+            PlaybackState.CustomAction.Builder builder = new PlaybackState.CustomAction.Builder(str, charSequence, i2);
             builder.setExtras(bundle);
             return builder.build();
         }
@@ -70,9 +70,9 @@ public class PlaybackStateCompatApi21 {
         return ((PlaybackState) obj).getState();
     }
 
-    public static Object newInstance(int i, long j, long j2, float f2, long j3, CharSequence charSequence, long j4, List<Object> list, long j5) {
+    public static Object newInstance(int i2, long j, long j2, float f2, long j3, CharSequence charSequence, long j4, List<Object> list, long j5) {
         PlaybackState.Builder builder = new PlaybackState.Builder();
-        builder.setState(i, j, f2, j4);
+        builder.setState(i2, j, f2, j4);
         builder.setBufferedPosition(j2);
         builder.setActions(j3);
         builder.setErrorMessage(charSequence);

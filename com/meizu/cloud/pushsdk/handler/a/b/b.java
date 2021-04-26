@@ -18,47 +18,47 @@ public class b implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public b[] newArray(int i) {
-            return new b[i];
+        public b[] newArray(int i2) {
+            return new b[i2];
         }
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38187a;
+    public String f35746a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f38188b;
+    public a f35747b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f38189c;
+    public f f35748c;
 
     public b() {
     }
 
     public b(Parcel parcel) {
-        this.f38187a = parcel.readString();
-        this.f38188b = (a) parcel.readParcelable(a.class.getClassLoader());
-        this.f38189c = (f) parcel.readParcelable(f.class.getClassLoader());
+        this.f35746a = parcel.readString();
+        this.f35747b = (a) parcel.readParcelable(a.class.getClassLoader());
+        this.f35748c = (f) parcel.readParcelable(f.class.getClassLoader());
     }
 
     public b(String str, String str2, String str3) {
-        this.f38187a = str;
+        this.f35746a = str;
         if (TextUtils.isEmpty(str)) {
-            this.f38188b = new a();
-            this.f38189c = new f();
+            this.f35747b = new a();
+            this.f35748c = new f();
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.f38188b = a.a(jSONObject.getJSONObject("ctl"));
+            this.f35747b = a.a(jSONObject.getJSONObject("ctl"));
             f a2 = f.a(jSONObject.getJSONObject("statics"));
-            this.f38189c = a2;
+            this.f35748c = a2;
             a2.c(str2);
-            this.f38189c.d(str3);
+            this.f35748c.d(str3);
         } catch (JSONException e2) {
-            this.f38188b = new a();
-            this.f38189c = new f();
-            d.k.a.a.a.b("ControlMessage", "parse control message error " + e2.getMessage());
+            this.f35747b = new a();
+            this.f35748c = new f();
+            d.j.a.a.a.b("ControlMessage", "parse control message error " + e2.getMessage());
         }
     }
 
@@ -69,7 +69,7 @@ public class b implements Parcelable {
             bVar.a(a.a(jSONObject.getJSONObject("ctl")));
             bVar.a(f.a(jSONObject.getJSONObject("statics")));
         } catch (Exception e2) {
-            d.k.a.a.a.b("ControlMessage", "parse control message error " + e2.getMessage());
+            d.j.a.a.a.b("ControlMessage", "parse control message error " + e2.getMessage());
             bVar.a(new f());
             bVar.a(new a());
         }
@@ -77,19 +77,19 @@ public class b implements Parcelable {
     }
 
     public a a() {
-        return this.f38188b;
+        return this.f35747b;
     }
 
     public void a(a aVar) {
-        this.f38188b = aVar;
+        this.f35747b = aVar;
     }
 
     public void a(f fVar) {
-        this.f38189c = fVar;
+        this.f35748c = fVar;
     }
 
     public f b() {
-        return this.f38189c;
+        return this.f35748c;
     }
 
     @Override // android.os.Parcelable
@@ -98,13 +98,13 @@ public class b implements Parcelable {
     }
 
     public String toString() {
-        return "ControlMessage{controlMessage='" + this.f38187a + "', control=" + this.f38188b + ", statics=" + this.f38189c + '}';
+        return "ControlMessage{controlMessage='" + this.f35746a + "', control=" + this.f35747b + ", statics=" + this.f35748c + '}';
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f38187a);
-        parcel.writeParcelable(this.f38188b, i);
-        parcel.writeParcelable(this.f38189c, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        parcel.writeString(this.f35746a);
+        parcel.writeParcelable(this.f35747b, i2);
+        parcel.writeParcelable(this.f35748c, i2);
     }
 }

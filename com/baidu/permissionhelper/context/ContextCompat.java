@@ -24,33 +24,33 @@ public class ContextCompat {
         throw new IllegalArgumentException("permission is null");
     }
 
-    public static final int getColor(Context context, int i) {
+    public static final int getColor(Context context, int i2) {
         if (Build.VERSION.SDK_INT >= 23) {
-            return ContextCompatApi23.getColor(context, i);
+            return ContextCompatApi23.getColor(context, i2);
         }
-        return context.getResources().getColor(i);
+        return context.getResources().getColor(i2);
     }
 
-    public static final ColorStateList getColorStateList(Context context, int i) {
+    public static final ColorStateList getColorStateList(Context context, int i2) {
         if (Build.VERSION.SDK_INT >= 23) {
-            return ContextCompatApi23.getColorStateList(context, i);
+            return ContextCompatApi23.getColorStateList(context, i2);
         }
-        return context.getResources().getColorStateList(i);
+        return context.getResources().getColorStateList(i2);
     }
 
-    public static final Drawable getDrawable(Context context, int i) {
+    public static final Drawable getDrawable(Context context, int i2) {
         if (Build.VERSION.SDK_INT >= 21) {
-            return ContextCompatApi21.getDrawable(context, i);
+            return ContextCompatApi21.getDrawable(context, i2);
         }
-        return context.getResources().getDrawable(i);
+        return context.getResources().getDrawable(i2);
     }
 
     public static boolean verifyPermissions(int[] iArr) {
         if (iArr == null || iArr.length < 1) {
             return false;
         }
-        for (int i : iArr) {
-            if (i != 0) {
+        for (int i2 : iArr) {
+            if (i2 != 0) {
                 return false;
             }
         }

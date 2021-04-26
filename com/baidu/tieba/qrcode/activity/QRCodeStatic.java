@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import d.b.j0.d3.h0.q;
+import d.a.j0.d3.h0.q;
 import java.net.URISyntaxException;
 /* loaded from: classes3.dex */
 public class QRCodeStatic {
@@ -22,7 +22,7 @@ public class QRCodeStatic {
     public static class a implements CustomMessageTask.CustomRunnable<String> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
-            return new CustomResponsedMessage<>(2921388, d.b.j0.p2.b.b.b.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
+            return new CustomResponsedMessage<>(2921388, d.a.j0.p2.b.b.b.b(customMessage.getData(), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds247)));
         }
     }
 
@@ -35,16 +35,16 @@ public class QRCodeStatic {
                 return null;
             }
             q data = customMessage.getData();
-            int i = data.f55279a;
-            if (i == 0) {
-                str = d.b.j0.p2.b.b.a.b(data.f55281c);
-            } else if (i == 1) {
-                str = d.b.j0.p2.b.b.a.c(data.f55282d);
+            int i2 = data.f53116a;
+            if (i2 == 0) {
+                str = d.a.j0.p2.b.b.a.b(data.f53118c);
+            } else if (i2 == 1) {
+                str = d.a.j0.p2.b.b.a.c(data.f53119d);
             }
             if (TextUtils.isEmpty(str)) {
-                data.f55283e = "qr_none";
+                data.f53120e = "qr_none";
             } else {
-                data.f55283e = str;
+                data.f53120e = str;
             }
             return new CustomResponsedMessage<>(2921403, data);
         }

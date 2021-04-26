@@ -81,30 +81,30 @@ public class GlobalOnItemClickListenerManager {
         return this.mEmotionSlideCount;
     }
 
-    public AdapterView.OnItemClickListener getOnItemClickListener(final EmotionType emotionType, final int i) {
+    public AdapterView.OnItemClickListener getOnItemClickListener(final EmotionType emotionType, final int i2) {
         return new AdapterView.OnItemClickListener() { // from class: com.baidu.spswitch.emotion.GlobalOnItemClickListenerManager.2
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
                 Object adapter = adapterView.getAdapter();
                 if (adapter instanceof BDEmotionBagLayout.EmotionGridViewAdapter) {
                     BDEmotionBagLayout.EmotionGridViewAdapter emotionGridViewAdapter = (BDEmotionBagLayout.EmotionGridViewAdapter) adapter;
                     if (GlobalOnItemClickListenerManager.this.mEditText == null) {
                         return;
                     }
-                    if (i2 < emotionGridViewAdapter.getCount() - 1) {
-                        String item = emotionGridViewAdapter.getItem(i2);
+                    if (i3 < emotionGridViewAdapter.getCount() - 1) {
+                        String item = emotionGridViewAdapter.getItem(i3);
                         if (TextUtils.isEmpty(item)) {
                             return;
                         }
                         GlobalOnItemClickListenerManager.this.mEditText.getEditableText().insert(GlobalOnItemClickListenerManager.this.mEditText.getSelectionStart(), EmotionLoader.getInstance().parseEmotion(EmotionType.EMOTION_CLASSIC_TYPE, AppRuntime.getAppContext(), item, GlobalOnItemClickListenerManager.this.mEditText));
                         if (GlobalOnItemClickListenerManager.this.mEmotionClickListener != null) {
-                            GlobalOnItemClickListenerManager.this.mEmotionClickListener.onEmotionClick(emotionType, i, EmotionUtils.getInstance().getEmotionIdByName(emotionType, item), item);
+                            GlobalOnItemClickListenerManager.this.mEmotionClickListener.onEmotionClick(emotionType, i2, EmotionUtils.getInstance().getEmotionIdByName(emotionType, item), item);
                         }
-                    } else if (i2 == emotionGridViewAdapter.getCount() - 1) {
+                    } else if (i3 == emotionGridViewAdapter.getCount() - 1) {
                         if (!GlobalOnItemClickListenerManager.this.mIsDeleteItemLongClick) {
                             GlobalOnItemClickListenerManager.this.mEditText.dispatchKeyEvent(new KeyEvent(0, 67));
                             if (GlobalOnItemClickListenerManager.this.mEmotionClickListener != null) {
-                                GlobalOnItemClickListenerManager.this.mEmotionClickListener.onEmotionClick(emotionType, i, "", GlobalOnItemClickListenerManager.DELETE_EMOTION);
+                                GlobalOnItemClickListenerManager.this.mEmotionClickListener.onEmotionClick(emotionType, i2, "", GlobalOnItemClickListenerManager.DELETE_EMOTION);
                             }
                         }
                         GlobalOnItemClickListenerManager.this.removeLongClickCallback();
@@ -117,9 +117,9 @@ public class GlobalOnItemClickListenerManager {
     public AdapterView.OnItemLongClickListener getOnItemLongClickListener(EmotionType emotionType) {
         return new AdapterView.OnItemLongClickListener() { // from class: com.baidu.spswitch.emotion.GlobalOnItemClickListenerManager.3
             @Override // android.widget.AdapterView.OnItemLongClickListener
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j) {
                 Object adapter = adapterView.getAdapter();
-                if ((adapter instanceof BDEmotionBagLayout.EmotionGridViewAdapter) && i == ((BDEmotionBagLayout.EmotionGridViewAdapter) adapter).getCount() - 1) {
+                if ((adapter instanceof BDEmotionBagLayout.EmotionGridViewAdapter) && i2 == ((BDEmotionBagLayout.EmotionGridViewAdapter) adapter).getCount() - 1) {
                     GlobalOnItemClickListenerManager.this.performDelLongClick();
                     return false;
                 }
@@ -144,9 +144,9 @@ public class GlobalOnItemClickListenerManager {
     public PopupEmotionManager.IShowListener getPopupEmotionShowListener() {
         return new PopupEmotionManager.IShowListener() { // from class: com.baidu.spswitch.emotion.GlobalOnItemClickListenerManager.5
             @Override // com.baidu.spswitch.emotion.view.PopupEmotionManager.IShowListener
-            public void show(int i, String str, int i2, int i3) {
+            public void show(int i2, String str, int i3, int i4) {
                 if (GlobalOnItemClickListenerManager.this.mVerticalEmotionListener != null) {
-                    GlobalOnItemClickListenerManager.this.mVerticalEmotionListener.onVerticalEmotionLongClick(EmotionType.EMOTION_CLASSIC_TYPE, i, EmotionUtils.getInstance().getEmotionIdByName(EmotionType.EMOTION_CLASSIC_TYPE, str), str, i2, i3);
+                    GlobalOnItemClickListenerManager.this.mVerticalEmotionListener.onVerticalEmotionLongClick(EmotionType.EMOTION_CLASSIC_TYPE, i2, EmotionUtils.getInstance().getEmotionIdByName(EmotionType.EMOTION_CLASSIC_TYPE, str), str, i3, i4);
                 }
             }
         };
@@ -204,13 +204,13 @@ public class GlobalOnItemClickListenerManager {
         this.mVerticalEmotionListener = onVerticalEmotionListener;
     }
 
-    public void updateEmotionShownMaxRow(int i) {
-        if (i > this.mEmotionShownMaxRow) {
-            this.mEmotionShownMaxRow = i;
+    public void updateEmotionShownMaxRow(int i2) {
+        if (i2 > this.mEmotionShownMaxRow) {
+            this.mEmotionShownMaxRow = i2;
         }
     }
 
-    public void verticalOnItemClick(String str, BDEmotionBagVerticalLayout.EmotionGridViewAdapter.StatisticData statisticData, int i) {
+    public void verticalOnItemClick(String str, BDEmotionBagVerticalLayout.EmotionGridViewAdapter.StatisticData statisticData, int i2) {
         if (this.mEditText == null || TextUtils.isEmpty(str)) {
             return;
         }
@@ -218,7 +218,7 @@ public class GlobalOnItemClickListenerManager {
         EmotionUtils.getInstance().playEmotionClickSound();
         EmotionUsageUtil.recordEmotionUsage(str);
         if (this.mVerticalEmotionListener != null) {
-            this.mVerticalEmotionListener.onVerticalEmotionClick(statisticData.type, statisticData.sectionType, EmotionUtils.getInstance().getEmotionIdByName(statisticData.type, str), str, statisticData.rowIndex, i);
+            this.mVerticalEmotionListener.onVerticalEmotionClick(statisticData.type, statisticData.sectionType, EmotionUtils.getInstance().getEmotionIdByName(statisticData.type, str), str, statisticData.rowIndex, i2);
         }
     }
 

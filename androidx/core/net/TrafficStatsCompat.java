@@ -20,13 +20,13 @@ public final class TrafficStatsCompat {
     }
 
     @Deprecated
-    public static void incrementOperationCount(int i) {
-        TrafficStats.incrementOperationCount(i);
+    public static void incrementOperationCount(int i2) {
+        TrafficStats.incrementOperationCount(i2);
     }
 
     @Deprecated
-    public static void setThreadStatsTag(int i) {
-        TrafficStats.setThreadStatsTag(i);
+    public static void setThreadStatsTag(int i2) {
+        TrafficStats.setThreadStatsTag(i2);
     }
 
     public static void tagDatagramSocket(@NonNull DatagramSocket datagramSocket) throws SocketException {
@@ -60,7 +60,7 @@ public final class TrafficStatsCompat {
     }
 
     @Deprecated
-    public static void incrementOperationCount(int i, int i2) {
-        TrafficStats.incrementOperationCount(i, i2);
+    public static void incrementOperationCount(int i2, int i3) {
+        TrafficStats.incrementOperationCount(i2, i3);
     }
 }

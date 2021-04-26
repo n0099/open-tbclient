@@ -67,8 +67,8 @@ public class SearchFriendResult extends OrmObject implements Serializable {
         this.errmsg = str;
     }
 
-    public void setErrorNo(int i) {
-        this.errorno = i;
+    public void setErrorNo(int i2) {
+        this.errorno = i2;
     }
 
     public void setUserInfo(List<UserInfo> list) {

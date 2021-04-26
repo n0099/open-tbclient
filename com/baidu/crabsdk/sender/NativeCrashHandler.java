@@ -21,7 +21,7 @@ public class NativeCrashHandler {
 
     private native boolean nRequiredVarParams(String str);
 
-    private native boolean nSetLogcatLineCount(int i);
+    private native boolean nSetLogcatLineCount(int i2);
 
     public static NativeCrashHandler r(Context context) {
         if (bZ == null) {
@@ -64,10 +64,10 @@ public class NativeCrashHandler {
         }
     }
 
-    public final void b(int i) {
+    public final void b(int i2) {
         if (this.ca) {
             try {
-                nSetLogcatLineCount(i);
+                nSetLogcatLineCount(i2);
             } catch (UnsatisfiedLinkError e2) {
                 com.baidu.crabsdk.c.a.d("nSetLogcatLineCount Error! " + e2.getMessage());
             }

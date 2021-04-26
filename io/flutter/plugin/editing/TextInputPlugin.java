@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import com.baidubce.auth.NTLMEngineImpl;
+import com.google.android.material.internal.ManufacturerUtils;
 import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.platform.PlatformViewsController;
@@ -52,9 +53,9 @@ public class TextInputPlugin {
             PLATFORM_VIEW
         }
 
-        public InputTarget(@NonNull Type type, int i) {
+        public InputTarget(@NonNull Type type, int i2) {
             this.type = type;
-            this.id = i;
+            this.id = i2;
         }
     }
 
@@ -76,8 +77,8 @@ public class TextInputPlugin {
             }
 
             @Override // io.flutter.embedding.engine.systemchannels.TextInputChannel.TextInputMethodHandler
-            public void setClient(int i, TextInputChannel.Configuration configuration) {
-                TextInputPlugin.this.setTextInputClient(i, configuration);
+            public void setClient(int i2, TextInputChannel.Configuration configuration) {
+                TextInputPlugin.this.setTextInputClient(i2, configuration);
             }
 
             @Override // io.flutter.embedding.engine.systemchannels.TextInputChannel.TextInputMethodHandler
@@ -87,8 +88,8 @@ public class TextInputPlugin {
             }
 
             @Override // io.flutter.embedding.engine.systemchannels.TextInputChannel.TextInputMethodHandler
-            public void setPlatformViewClient(int i) {
-                TextInputPlugin.this.setPlatformViewTextInputClient(i);
+            public void setPlatformViewClient(int i2) {
+                TextInputPlugin.this.setPlatformViewTextInputClient(i2);
             }
 
             @Override // io.flutter.embedding.engine.systemchannels.TextInputChannel.TextInputMethodHandler
@@ -104,10 +105,10 @@ public class TextInputPlugin {
     }
 
     private void applyStateToSelection(TextInputChannel.TextEditState textEditState) {
-        int i = textEditState.selectionStart;
-        int i2 = textEditState.selectionEnd;
-        if (i >= 0 && i <= this.mEditable.length() && i2 >= 0 && i2 <= this.mEditable.length()) {
-            Selection.setSelection(this.mEditable, i, i2);
+        int i2 = textEditState.selectionStart;
+        int i3 = textEditState.selectionEnd;
+        if (i2 >= 0 && i2 <= this.mEditable.length() && i3 >= 0 && i3 <= this.mEditable.length()) {
+            Selection.setSelection(this.mEditable, i2, i3);
         } else {
             Selection.removeSelection(this.mEditable);
         }
@@ -133,47 +134,47 @@ public class TextInputPlugin {
             return 4;
         }
         if (textInputType == TextInputChannel.TextInputType.NUMBER) {
-            int i = inputType.isSigned ? 4098 : 2;
-            return inputType.isDecimal ? i | 8192 : i;
+            int i2 = inputType.isSigned ? 4098 : 2;
+            return inputType.isDecimal ? i2 | 8192 : i2;
         } else if (textInputType == TextInputChannel.TextInputType.PHONE) {
             return 3;
         } else {
-            int i2 = 1;
+            int i3 = 1;
             if (textInputType == TextInputChannel.TextInputType.MULTILINE) {
-                i2 = 131073;
+                i3 = 131073;
             } else if (textInputType == TextInputChannel.TextInputType.EMAIL_ADDRESS) {
-                i2 = 33;
+                i3 = 33;
             } else if (textInputType == TextInputChannel.TextInputType.URL) {
-                i2 = 17;
+                i3 = 17;
             } else if (textInputType == TextInputChannel.TextInputType.VISIBLE_PASSWORD) {
-                i2 = 145;
+                i3 = 145;
             }
             if (z) {
-                i2 = i2 | 524288 | 128;
+                i3 = i3 | 524288 | 128;
             } else {
                 if (z2) {
-                    i2 |= 32768;
+                    i3 |= 32768;
                 }
                 if (!z3) {
-                    i2 |= 524288;
+                    i3 |= 524288;
                 }
             }
-            return textCapitalization == TextInputChannel.TextCapitalization.CHARACTERS ? i2 | 4096 : textCapitalization == TextInputChannel.TextCapitalization.WORDS ? i2 | 8192 : textCapitalization == TextInputChannel.TextCapitalization.SENTENCES ? i2 | 16384 : i2;
+            return textCapitalization == TextInputChannel.TextCapitalization.CHARACTERS ? i3 | 4096 : textCapitalization == TextInputChannel.TextCapitalization.WORDS ? i3 | 8192 : textCapitalization == TextInputChannel.TextCapitalization.SENTENCES ? i3 | 16384 : i3;
         }
     }
 
     @SuppressLint({"NewApi"})
     private boolean isRestartAlwaysRequired() {
-        if (this.mImm.getCurrentInputMethodSubtype() == null || Build.VERSION.SDK_INT < 21 || !Build.MANUFACTURER.equals("samsung")) {
+        if (this.mImm.getCurrentInputMethodSubtype() == null || Build.VERSION.SDK_INT < 21 || !Build.MANUFACTURER.equals(ManufacturerUtils.SAMSUNG)) {
             return false;
         }
         return Settings.Secure.getString(this.mView.getContext().getContentResolver(), "default_input_method").contains("Samsung");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setPlatformViewTextInputClient(int i) {
+    public void setPlatformViewTextInputClient(int i2) {
         this.mView.requestFocus();
-        this.inputTarget = new InputTarget(InputTarget.Type.PLATFORM_VIEW, i);
+        this.inputTarget = new InputTarget(InputTarget.Type.PLATFORM_VIEW, i2);
         this.mImm.restartInput(this.mView);
         this.mRestartInputPending = false;
     }
@@ -184,9 +185,9 @@ public class TextInputPlugin {
         this.mImm.showSoftInput(view, 0);
     }
 
-    public void clearPlatformViewClient(int i) {
+    public void clearPlatformViewClient(int i2) {
         InputTarget inputTarget = this.inputTarget;
-        if (inputTarget.type == InputTarget.Type.PLATFORM_VIEW && inputTarget.id == i) {
+        if (inputTarget.type == InputTarget.Type.PLATFORM_VIEW && inputTarget.id == i2) {
             this.inputTarget = new InputTarget(InputTarget.Type.NO_TARGET, 0);
             hideTextInput(this.mView);
             this.mImm.restartInput(this.mView);
@@ -259,8 +260,8 @@ public class TextInputPlugin {
     }
 
     @VisibleForTesting
-    public void setTextInputClient(int i, TextInputChannel.Configuration configuration) {
-        this.inputTarget = new InputTarget(InputTarget.Type.FRAMEWORK_CLIENT, i);
+    public void setTextInputClient(int i2, TextInputChannel.Configuration configuration) {
+        this.inputTarget = new InputTarget(InputTarget.Type.FRAMEWORK_CLIENT, i2);
         this.configuration = configuration;
         this.mEditable = Editable.Factory.getInstance().newEditable("");
         this.mRestartInputPending = true;

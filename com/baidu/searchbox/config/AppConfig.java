@@ -8,8 +8,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 import com.baidu.down.manage.DownloadConstants;
-import com.baidu.searchbox.aop.annotation.DebugTrace;
-import com.baidu.searchbox.aop.annotation.TimeSpendTrace;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.tbadk.core.util.FieldBuilder;
 import com.baidu.wallet.core.Domains;
@@ -130,8 +128,8 @@ public class AppConfig {
 
         public static boolean isInWhiteList(String str) {
             int length = WHITE_LIST.length;
-            for (int i = 0; i < length; i++) {
-                if (TextUtils.equals(WHITE_LIST[i], str)) {
+            for (int i2 = 0; i2 < length; i2++) {
+                if (TextUtils.equals(WHITE_LIST[i2], str)) {
                     return true;
                 }
             }
@@ -314,10 +312,10 @@ public class AppConfig {
         return getStringConfig("IMAGE_SEARCH_URL", null) != null;
     }
 
-    public static final int getIntConfig(String str, int i) {
+    public static final int getIntConfig(String str, int i2) {
         String str2;
         HashMap<String, String> hashMap = sConfigMap;
-        return (hashMap == null || (str2 = hashMap.get(str)) == null) ? i : Integer.parseInt(str2);
+        return (hashMap == null || (str2 = hashMap.get(str)) == null) ? i2 : Integer.parseInt(str2);
     }
 
     public static String getInternalConfigContent() {
@@ -390,8 +388,6 @@ public class AppConfig {
         return getStringConfig("XSEARCH_DATA_URL", "http://m.baidu.com/microapp");
     }
 
-    @DebugTrace
-    @TimeSpendTrace(tag = "AppInit")
     public static void init(boolean z, boolean z2, boolean z3, boolean z4) {
         sIsDaily = z;
         sIsWeekly = z2;

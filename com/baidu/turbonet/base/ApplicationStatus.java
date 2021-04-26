@@ -14,35 +14,35 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ApplicationStatus {
 
     /* renamed from: b  reason: collision with root package name */
-    public static Integer f22323b;
+    public static Integer f23015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Activity f22324c;
+    public static Activity f23016c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f22325d;
+    public static f f23017d;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f22322a = new Object();
+    public static Object f23014a = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Map<Activity, d> f22326e = new ConcurrentHashMap();
+    public static final Map<Activity, d> f23018e = new ConcurrentHashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public static final d.b.k0.a.b<e> f22327f = new d.b.k0.a.b<>();
+    public static final d.a.k0.a.b<e> f23019f = new d.a.k0.a.b<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final d.b.k0.a.b<f> f22328g = new d.b.k0.a.b<>();
+    public static final d.a.k0.a.b<f> f23020g = new d.a.k0.a.b<>();
 
     /* loaded from: classes5.dex */
     public static class a implements BaseChromiumApplication.c {
         @Override // com.baidu.turbonet.base.BaseChromiumApplication.c
         public void a(Activity activity, boolean z) {
             int h2;
-            if (!z || activity == ApplicationStatus.f22324c || (h2 = ApplicationStatus.h(activity)) == 6 || h2 == 5) {
+            if (!z || activity == ApplicationStatus.f23016c || (h2 = ApplicationStatus.h(activity)) == 6 || h2 == 5) {
                 return;
             }
-            Activity unused = ApplicationStatus.f22324c = activity;
+            Activity unused = ApplicationStatus.f23016c = activity;
         }
     }
 
@@ -92,35 +92,35 @@ public class ApplicationStatus {
             }
 
             @Override // com.baidu.turbonet.base.ApplicationStatus.f
-            public void a(int i) {
-                ApplicationStatus.nativeOnApplicationStateChange(i);
+            public void a(int i2) {
+                ApplicationStatus.nativeOnApplicationStateChange(i2);
             }
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (ApplicationStatus.f22325d != null) {
+            if (ApplicationStatus.f23017d != null) {
                 return;
             }
-            f unused = ApplicationStatus.f22325d = new a(this);
-            ApplicationStatus.k(ApplicationStatus.f22325d);
+            f unused = ApplicationStatus.f23017d = new a(this);
+            ApplicationStatus.k(ApplicationStatus.f23017d);
         }
     }
 
     /* loaded from: classes5.dex */
     public interface e {
-        void a(Activity activity, int i);
+        void a(Activity activity, int i2);
     }
 
     /* loaded from: classes5.dex */
     public interface f {
-        void a(int i);
+        void a(int i2);
     }
 
     public static int g() {
         boolean z = false;
         boolean z2 = false;
-        for (d dVar : f22326e.values()) {
+        for (d dVar : f23018e.values()) {
             int b2 = dVar.b();
             if (b2 != 4 && b2 != 5 && b2 != 6) {
                 return 1;
@@ -140,17 +140,17 @@ public class ApplicationStatus {
     @CalledByNative
     public static int getStateForApplication() {
         int intValue;
-        synchronized (f22322a) {
-            if (f22323b == null) {
-                f22323b = Integer.valueOf(g());
+        synchronized (f23014a) {
+            if (f23015b == null) {
+                f23015b = Integer.valueOf(g());
             }
-            intValue = f22323b.intValue();
+            intValue = f23015b.intValue();
         }
         return intValue;
     }
 
     public static int h(Activity activity) {
-        d dVar = f22326e.get(activity);
+        d dVar = f23018e.get(activity);
         if (dVar != null) {
             return dVar.b();
         }
@@ -162,39 +162,39 @@ public class ApplicationStatus {
         baseChromiumApplication.registerActivityLifecycleCallbacks(new b());
     }
 
-    public static void j(Activity activity, int i) {
+    public static void j(Activity activity, int i2) {
         if (activity != null) {
-            if (f22324c == null || i == 1 || i == 3 || i == 2) {
-                f22324c = activity;
+            if (f23016c == null || i2 == 1 || i2 == 3 || i2 == 2) {
+                f23016c = activity;
             }
             int stateForApplication = getStateForApplication();
-            if (i == 1) {
-                f22326e.put(activity, new d(null));
+            if (i2 == 1) {
+                f23018e.put(activity, new d(null));
             }
-            synchronized (f22322a) {
-                f22323b = null;
+            synchronized (f23014a) {
+                f23015b = null;
             }
-            d dVar = f22326e.get(activity);
-            dVar.c(i);
+            d dVar = f23018e.get(activity);
+            dVar.c(i2);
             Iterator<e> it = dVar.a().iterator();
             while (it.hasNext()) {
-                it.next().a(activity, i);
+                it.next().a(activity, i2);
             }
-            Iterator<e> it2 = f22327f.iterator();
+            Iterator<e> it2 = f23019f.iterator();
             while (it2.hasNext()) {
-                it2.next().a(activity, i);
+                it2.next().a(activity, i2);
             }
             int stateForApplication2 = getStateForApplication();
             if (stateForApplication2 != stateForApplication) {
-                Iterator<f> it3 = f22328g.iterator();
+                Iterator<f> it3 = f23020g.iterator();
                 while (it3.hasNext()) {
                     it3.next().a(stateForApplication2);
                 }
             }
-            if (i == 6) {
-                f22326e.remove(activity);
-                if (activity == f22324c) {
-                    f22324c = null;
+            if (i2 == 6) {
+                f23018e.remove(activity);
+                if (activity == f23016c) {
+                    f23016c = null;
                     return;
                 }
                 return;
@@ -205,10 +205,10 @@ public class ApplicationStatus {
     }
 
     public static void k(f fVar) {
-        f22328g.e(fVar);
+        f23020g.e(fVar);
     }
 
-    public static native void nativeOnApplicationStateChange(int i);
+    public static native void nativeOnApplicationStateChange(int i2);
 
     @CalledByNative
     public static void registerThreadSafeNativeApplicationStateListener() {
@@ -219,26 +219,26 @@ public class ApplicationStatus {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f22329a;
+        public int f23021a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.b.k0.a.b<e> f22330b;
+        public d.a.k0.a.b<e> f23022b;
 
         public d() {
-            this.f22329a = 6;
-            this.f22330b = new d.b.k0.a.b<>();
+            this.f23021a = 6;
+            this.f23022b = new d.a.k0.a.b<>();
         }
 
-        public d.b.k0.a.b<e> a() {
-            return this.f22330b;
+        public d.a.k0.a.b<e> a() {
+            return this.f23022b;
         }
 
         public int b() {
-            return this.f22329a;
+            return this.f23021a;
         }
 
-        public void c(int i) {
-            this.f22329a = i;
+        public void c(int i2) {
+            this.f23021a = i2;
         }
 
         public /* synthetic */ d(a aVar) {

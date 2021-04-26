@@ -16,18 +16,18 @@ public class UserMuteAddAndDelCustomMessage extends CustomMessage {
     public String threadId;
     public String userName;
 
-    public UserMuteAddAndDelCustomMessage(int i) {
-        super(i);
+    public UserMuteAddAndDelCustomMessage(int i2) {
+        super(i2);
         this.from = -1;
     }
 
-    public void setData(boolean z, String str, String str2, String str3, String str4, int i, String str5, BdUniqueId bdUniqueId) {
+    public void setData(boolean z, String str, String str2, String str3, String str4, int i2, String str5, BdUniqueId bdUniqueId) {
         this.isMute = z;
         this.muteUserId = str;
         this.userName = str2;
         this.threadId = str3;
         this.postId = str4;
-        this.from = i;
+        this.from = i2;
         this.msg = str5;
         this.mId = bdUniqueId;
     }

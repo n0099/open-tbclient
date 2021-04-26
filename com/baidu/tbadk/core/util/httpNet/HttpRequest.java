@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.INetWorkCore;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.c.e.p.j;
-import d.b.i0.f0.f;
-import d.b.i0.r.d0.b;
-import d.b.i0.r.l.c;
-import d.b.i0.r.l.e;
-import d.b.i0.s.b.a;
+import d.a.c.e.p.j;
+import d.a.i0.f0.f;
+import d.a.i0.r.d0.b;
+import d.a.i0.r.l.c;
+import d.a.i0.r.l.e;
+import d.a.i0.s.b.a;
 /* loaded from: classes3.dex */
 public class HttpRequest {
     public static final String BDUSS = "BDUSS";
@@ -112,8 +112,8 @@ public class HttpRequest {
             }
             z = false;
         }
-        d.b.c.e.j.b.a.s(z);
-        d.b.c.e.j.b.a.n(a2);
+        d.a.c.e.j.b.a.s(z);
+        d.a.c.e.j.b.a.n(a2);
         if (this.mIsNeedTbs) {
             if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
                 iNetWorkCore.addPostData(TBS, f.d());

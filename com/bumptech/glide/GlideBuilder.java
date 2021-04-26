@@ -4,8 +4,6 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.ArrayMap;
-import androidx.core.os.BuildCompat;
-import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.Engine;
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
@@ -21,12 +19,7 @@ import com.bumptech.glide.load.engine.executor.GlideExecutor;
 import com.bumptech.glide.manager.ConnectivityMonitorFactory;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import com.bumptech.glide.manager.RequestManagerRetriever;
-import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.util.Preconditions;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public final class GlideBuilder {
@@ -34,14 +27,10 @@ public final class GlideBuilder {
     public ArrayPool arrayPool;
     public BitmapPool bitmapPool;
     public ConnectivityMonitorFactory connectivityMonitorFactory;
-    @Nullable
-    public List<RequestListener<Object>> defaultRequestListeners;
     public GlideExecutor diskCacheExecutor;
     public DiskCache.Factory diskCacheFactory;
     public Engine engine;
     public boolean isActiveResourceRetentionAllowed;
-    public boolean isImageDecoderEnabledForBitmaps;
-    public boolean isLoggingRequestOriginsEnabled;
     public MemoryCache memoryCache;
     public MemorySizeCalculator memorySizeCalculator;
     @Nullable
@@ -49,22 +38,7 @@ public final class GlideBuilder {
     public GlideExecutor sourceExecutor;
     public final Map<Class<?>, TransitionOptions<?, ?>> defaultTransitionOptions = new ArrayMap();
     public int logLevel = 4;
-    public Glide.RequestOptionsFactory defaultRequestOptionsFactory = new Glide.RequestOptionsFactory() { // from class: com.bumptech.glide.GlideBuilder.1
-        @Override // com.bumptech.glide.Glide.RequestOptionsFactory
-        @NonNull
-        public RequestOptions build() {
-            return new RequestOptions();
-        }
-    };
-
-    @NonNull
-    public GlideBuilder addGlobalRequestListener(@NonNull RequestListener<Object> requestListener) {
-        if (this.defaultRequestListeners == null) {
-            this.defaultRequestListeners = new ArrayList();
-        }
-        this.defaultRequestListeners.add(requestListener);
-        return this;
-    }
+    public RequestOptions defaultRequestOptions = new RequestOptions();
 
     @NonNull
     public Glide build(@NonNull Context context) {
@@ -101,15 +75,9 @@ public final class GlideBuilder {
             this.diskCacheFactory = new InternalCacheDiskCacheFactory(context);
         }
         if (this.engine == null) {
-            this.engine = new Engine(this.memoryCache, this.diskCacheFactory, this.diskCacheExecutor, this.sourceExecutor, GlideExecutor.newUnlimitedSourceExecutor(), this.animationExecutor, this.isActiveResourceRetentionAllowed);
+            this.engine = new Engine(this.memoryCache, this.diskCacheFactory, this.diskCacheExecutor, this.sourceExecutor, GlideExecutor.newUnlimitedSourceExecutor(), GlideExecutor.newAnimationExecutor(), this.isActiveResourceRetentionAllowed);
         }
-        List<RequestListener<Object>> list = this.defaultRequestListeners;
-        if (list == null) {
-            this.defaultRequestListeners = Collections.emptyList();
-        } else {
-            this.defaultRequestListeners = Collections.unmodifiableList(list);
-        }
-        return new Glide(context, this.engine, this.memoryCache, this.bitmapPool, this.arrayPool, new RequestManagerRetriever(this.requestManagerFactory), this.connectivityMonitorFactory, this.logLevel, this.defaultRequestOptionsFactory, this.defaultTransitionOptions, this.defaultRequestListeners, this.isLoggingRequestOriginsEnabled, this.isImageDecoderEnabledForBitmaps);
+        return new Glide(context, this.engine, this.memoryCache, this.bitmapPool, this.arrayPool, new RequestManagerRetriever(this.requestManagerFactory), this.connectivityMonitorFactory, this.logLevel, this.defaultRequestOptions.lock(), this.defaultTransitionOptions);
     }
 
     @NonNull
@@ -137,15 +105,9 @@ public final class GlideBuilder {
     }
 
     @NonNull
-    public GlideBuilder setDefaultRequestOptions(@Nullable final RequestOptions requestOptions) {
-        return setDefaultRequestOptions(new Glide.RequestOptionsFactory() { // from class: com.bumptech.glide.GlideBuilder.2
-            @Override // com.bumptech.glide.Glide.RequestOptionsFactory
-            @NonNull
-            public RequestOptions build() {
-                RequestOptions requestOptions2 = requestOptions;
-                return requestOptions2 != null ? requestOptions2 : new RequestOptions();
-            }
-        });
+    public GlideBuilder setDefaultRequestOptions(@Nullable RequestOptions requestOptions) {
+        this.defaultRequestOptions = requestOptions;
+        return this;
     }
 
     @NonNull
@@ -171,14 +133,6 @@ public final class GlideBuilder {
         return this;
     }
 
-    public GlideBuilder setImageDecoderEnabledForBitmaps(boolean z) {
-        if (BuildCompat.isAtLeastQ()) {
-            this.isImageDecoderEnabledForBitmaps = z;
-            return this;
-        }
-        return this;
-    }
-
     @NonNull
     public GlideBuilder setIsActiveResourceRetentionAllowed(boolean z) {
         this.isActiveResourceRetentionAllowed = z;
@@ -186,17 +140,12 @@ public final class GlideBuilder {
     }
 
     @NonNull
-    public GlideBuilder setLogLevel(int i) {
-        if (i >= 2 && i <= 6) {
-            this.logLevel = i;
+    public GlideBuilder setLogLevel(int i2) {
+        if (i2 >= 2 && i2 <= 6) {
+            this.logLevel = i2;
             return this;
         }
         throw new IllegalArgumentException("Log level must be one of Log.VERBOSE, Log.DEBUG, Log.INFO, Log.WARN, or Log.ERROR");
-    }
-
-    public GlideBuilder setLogRequestOrigins(boolean z) {
-        this.isLoggingRequestOriginsEnabled = z;
-        return this;
     }
 
     @NonNull
@@ -222,12 +171,6 @@ public final class GlideBuilder {
     @NonNull
     public GlideBuilder setSourceExecutor(@Nullable GlideExecutor glideExecutor) {
         this.sourceExecutor = glideExecutor;
-        return this;
-    }
-
-    @NonNull
-    public GlideBuilder setDefaultRequestOptions(@NonNull Glide.RequestOptionsFactory requestOptionsFactory) {
-        this.defaultRequestOptionsFactory = (Glide.RequestOptionsFactory) Preconditions.checkNotNull(requestOptionsFactory);
         return this;
     }
 

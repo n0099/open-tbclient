@@ -185,10 +185,10 @@ public class AntiData implements Serializable {
         this.has_chance = anti.has_chance.intValue() == 1;
         this.ifaddition = anti.ifaddition.intValue();
         this.delThreadInfoList = new ArrayList();
-        for (int i = 0; i < anti.del_thread_text.size(); i++) {
+        for (int i2 = 0; i2 < anti.del_thread_text.size(); i2++) {
             DeleteThreadInfo deleteThreadInfo = new DeleteThreadInfo();
-            deleteThreadInfo.text_id = anti.del_thread_text.get(i).text_id.intValue();
-            deleteThreadInfo.text_info = anti.del_thread_text.get(i).text_info;
+            deleteThreadInfo.text_id = anti.del_thread_text.get(i2).text_id.intValue();
+            deleteThreadInfo.text_info = anti.del_thread_text.get(i2).text_info;
             this.delThreadInfoList.add(deleteThreadInfo);
         }
         this.poll_message = anti.poll_message;
@@ -220,8 +220,8 @@ public class AntiData implements Serializable {
         this.block_forum_name = str;
     }
 
-    public void setForbid_flag(int i) {
-        this.forbid_flag = i;
+    public void setForbid_flag(int i2) {
+        this.forbid_flag = i2;
     }
 
     public void setForbid_info(String str) {
@@ -232,20 +232,20 @@ public class AntiData implements Serializable {
         this.ifvoice = z ? 1 : 0;
     }
 
-    public void setIfpost(int i) {
-        this.ifpost = i;
+    public void setIfpost(int i2) {
+        this.ifpost = i2;
     }
 
-    public void setIfposta(int i) {
-        this.ifposta = i;
+    public void setIfposta(int i2) {
+        this.ifposta = i2;
     }
 
-    public void setNeed_vcode(int i) {
-        this.need_vcode = i;
+    public void setNeed_vcode(int i2) {
+        this.need_vcode = i2;
     }
 
-    public void setPollLevel(int i) {
-        this.pollLevel = i;
+    public void setPollLevel(int i2) {
+        this.pollLevel = i2;
     }
 
     public void setTbs(String str) {

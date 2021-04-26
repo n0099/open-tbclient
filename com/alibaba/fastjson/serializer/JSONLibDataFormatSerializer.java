@@ -2,13 +2,14 @@ package com.alibaba.fastjson.serializer;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baidu.mobstat.Config;
+import com.google.gson.internal.bind.TypeAdapters;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class JSONLibDataFormatSerializer implements ObjectSerializer {
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         if (obj == null) {
             jSONSerializer.out.writeNull();
             return;
@@ -19,11 +20,11 @@ public class JSONLibDataFormatSerializer implements ObjectSerializer {
         jSONObject.put(Config.TRACE_VISIT_RECENT_DAY, (Object) Integer.valueOf(date.getDay()));
         jSONObject.put("hours", (Object) Integer.valueOf(date.getHours()));
         jSONObject.put("minutes", (Object) Integer.valueOf(date.getMinutes()));
-        jSONObject.put("month", (Object) Integer.valueOf(date.getMonth()));
+        jSONObject.put(TypeAdapters.AnonymousClass27.MONTH, (Object) Integer.valueOf(date.getMonth()));
         jSONObject.put("seconds", (Object) Integer.valueOf(date.getSeconds()));
         jSONObject.put("time", (Object) Long.valueOf(date.getTime()));
         jSONObject.put("timezoneOffset", (Object) Integer.valueOf(date.getTimezoneOffset()));
-        jSONObject.put("year", (Object) Integer.valueOf(date.getYear()));
+        jSONObject.put(TypeAdapters.AnonymousClass27.YEAR, (Object) Integer.valueOf(date.getYear()));
         jSONSerializer.write(jSONObject);
     }
 }

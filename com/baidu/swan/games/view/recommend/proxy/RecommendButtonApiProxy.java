@@ -16,30 +16,31 @@ import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
-import d.b.h0.a.i2.k0;
-import d.b.h0.a.k;
-import d.b.h0.g.k0.i.b.a;
-import d.b.h0.g.k0.i.b.d;
-import d.b.h0.g.k0.i.b.e;
+import d.a.h0.a.i2.k0;
+import d.a.h0.a.k;
+import d.a.h0.g.k0.i.b.a;
+import d.a.h0.g.k0.i.b.d;
+import d.a.h0.g.k0.i.b.e;
 import java.util.Locale;
 /* loaded from: classes3.dex */
-public class RecommendButtonApiProxy extends EventTargetImpl implements d.a, a.b, d.b.h0.g.k0.i.a, d.b.h0.g.k0.a {
-    public static final boolean k = k.f45772a;
+public class RecommendButtonApiProxy extends EventTargetImpl implements d.a, a.b, d.a.h0.g.k0.i.a, d.a.h0.g.k0.a {
+    public static final boolean k = k.f43101a;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.h0.g.k0.i.b.b f12605e;
+    public d.a.h0.g.k0.i.b.b f12502e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.h0.g.k0.i.b.c f12606f;
+    public d.a.h0.g.k0.i.b.c f12503f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12607g;
+    public int f12504g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RecommendButtonState f12608h;
-    public d.b.h0.g.k0.i.e.a i;
-    public d.b.h0.g.i.b j;
+    public RecommendButtonState f12505h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public d.a.h0.g.k0.i.e.a f12506i;
+    public d.a.h0.g.i.b j;
     @V8JavascriptField
     public final d style;
 
@@ -63,31 +64,31 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements d.a, a.b
             if (RecommendButtonApiProxy.k) {
                 Log.d("RecommendButtonApiProxy", "load: onFail-" + str);
             }
-            if (RecommendButtonApiProxy.this.f12608h == RecommendButtonState.DESTROYED) {
+            if (RecommendButtonApiProxy.this.f12505h == RecommendButtonState.DESTROYED) {
                 return;
             }
-            RecommendButtonApiProxy.this.f12608h = RecommendButtonState.IDLE;
+            RecommendButtonApiProxy.this.f12505h = RecommendButtonState.IDLE;
             RecommendButtonApiProxy.this.L(String.format("RecommendationButton.load failed,%s", str));
         }
 
         @Override // com.baidu.swan.games.view.recommend.proxy.RecommendButtonApiProxy.c
         public void b(String str) {
-            d.b.h0.g.k0.i.e.c c2 = d.b.h0.g.k0.i.e.b.c(str);
+            d.a.h0.g.k0.i.e.c c2 = d.a.h0.g.k0.i.e.b.c(str);
             if (RecommendButtonApiProxy.k) {
                 Log.d("RecommendButtonApiProxy", "load: onSuccess-" + c2.a());
             }
-            if (RecommendButtonApiProxy.this.f12608h == RecommendButtonState.DESTROYED) {
+            if (RecommendButtonApiProxy.this.f12505h == RecommendButtonState.DESTROYED) {
                 return;
             }
             if (c2.a()) {
-                RecommendButtonApiProxy.this.f12608h = RecommendButtonState.HIDE;
-                RecommendButtonApiProxy.this.i = d.b.h0.g.k0.i.e.b.b(c2.f49027c);
-                RecommendButtonApiProxy.this.f12605e.h(RecommendButtonApiProxy.this.i);
+                RecommendButtonApiProxy.this.f12505h = RecommendButtonState.HIDE;
+                RecommendButtonApiProxy.this.f12506i = d.a.h0.g.k0.i.e.b.b(c2.f46504c);
+                RecommendButtonApiProxy.this.f12502e.e(RecommendButtonApiProxy.this.f12506i);
                 RecommendButtonApiProxy.this.M();
                 return;
             }
-            RecommendButtonApiProxy.this.f12608h = RecommendButtonState.IDLE;
-            RecommendButtonApiProxy.this.L(String.format("RecommendationButton.load failed,%s", c2.f49026b));
+            RecommendButtonApiProxy.this.f12505h = RecommendButtonState.IDLE;
+            RecommendButtonApiProxy.this.L(String.format("RecommendationButton.load failed,%s", c2.f46503b));
         }
     }
 
@@ -98,7 +99,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements d.a, a.b
 
         @Override // java.lang.Runnable
         public void run() {
-            RecommendButtonApiProxy.this.f12606f.e(RecommendButtonApiProxy.this.f12607g, RecommendButtonApiProxy.this.i);
+            RecommendButtonApiProxy.this.f12503f.e(RecommendButtonApiProxy.this.f12504g, RecommendButtonApiProxy.this.f12506i);
         }
     }
 
@@ -109,15 +110,15 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements d.a, a.b
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f12612e;
+            public final /* synthetic */ String f12510e;
 
             public a(String str) {
-                this.f12612e = str;
+                this.f12510e = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                c.this.b(this.f12612e);
+                c.this.b(this.f12510e);
             }
         }
 
@@ -125,15 +126,15 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements d.a, a.b
         public class b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Exception f12614e;
+            public final /* synthetic */ Exception f12512e;
 
             public b(Exception exc) {
-                this.f12614e = exc;
+                this.f12512e = exc;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                c.this.a(this.f12614e.getMessage());
+                c.this.a(this.f12512e.getMessage());
             }
         }
 
@@ -147,7 +148,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements d.a, a.b
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: c */
-        public void onSuccess(String str, int i) {
+        public void onSuccess(String str, int i2) {
             RecommendButtonApiProxy.this.j.runOnJSThread(new a(str));
         }
 
@@ -161,72 +162,72 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements d.a, a.b
         }
     }
 
-    public RecommendButtonApiProxy(d.b.h0.g.i.b bVar, JsObject jsObject) {
+    public RecommendButtonApiProxy(d.a.h0.g.i.b bVar, JsObject jsObject) {
         super(bVar);
-        this.f12606f = new d.b.h0.g.k0.i.b.c();
+        this.f12503f = new d.a.h0.g.k0.i.b.c();
         this.style = new d();
         this.j = bVar;
         if (Q(jsObject)) {
-            d.b.h0.g.k0.c.c(this);
+            d.a.h0.g.k0.c.c(this);
         }
     }
 
     public final void L(String str) {
-        d.b.h0.g.e.d.b bVar = new d.b.h0.g.e.d.b();
+        d.a.h0.g.e.d.b bVar = new d.a.h0.g.e.d.b();
         bVar.errMsg = str;
         dispatchEvent(new JSEvent("error", bVar));
     }
 
     public final void M() {
-        dispatchEvent(new JSEvent(TrackLoadSettingsAtom.TYPE));
+        dispatchEvent(new JSEvent("load"));
     }
 
     public final void N() {
         if (k) {
-            Log.d("RecommendButtonApiProxy", "destroy: state-" + this.f12608h);
+            Log.d("RecommendButtonApiProxy", "destroy: state-" + this.f12505h);
         }
-        RecommendButtonState recommendButtonState = this.f12608h;
+        RecommendButtonState recommendButtonState = this.f12505h;
         RecommendButtonState recommendButtonState2 = RecommendButtonState.DESTROYED;
         if (recommendButtonState == recommendButtonState2) {
             return;
         }
-        this.f12608h = recommendButtonState2;
-        d.b.h0.g.k0.i.b.b bVar = this.f12605e;
+        this.f12505h = recommendButtonState2;
+        d.a.h0.g.k0.i.b.b bVar = this.f12502e;
         if (bVar != null) {
             bVar.destroy();
         }
-        this.i = null;
+        this.f12506i = null;
     }
 
-    public final boolean O(d.b.h0.g.e.d.c cVar, String str) {
-        int i = cVar != null ? cVar.i(str) : 12;
-        return (i == 12 || i == 11) ? false : true;
+    public final boolean O(d.a.h0.g.e.d.c cVar, String str) {
+        int i2 = cVar != null ? cVar.i(str) : 12;
+        return (i2 == 12 || i2 == 11) ? false : true;
     }
 
     public final boolean P() {
-        RecommendButtonState recommendButtonState = this.f12608h;
+        RecommendButtonState recommendButtonState = this.f12505h;
         return recommendButtonState == RecommendButtonState.HIDE || recommendButtonState == RecommendButtonState.SHOW;
     }
 
     public final boolean Q(JsObject jsObject) {
-        this.f12608h = RecommendButtonState.IDLE;
+        this.f12505h = RecommendButtonState.IDLE;
         this.style.b(this);
-        d.b.h0.g.e.d.c F = d.b.h0.g.e.d.c.F(jsObject);
+        d.a.h0.g.e.d.c F = d.a.h0.g.e.d.c.F(jsObject);
         if (F == null) {
-            F = new d.b.h0.g.e.d.c();
+            F = new d.a.h0.g.e.d.c();
         }
         String B = F.B("type");
         if (O(F, "type")) {
-            this.f12607g = U(B);
+            this.f12504g = U(B);
         } else {
-            this.f12607g = 1;
+            this.f12504g = 1;
         }
-        if (this.f12607g == 0) {
+        if (this.f12504g == 0) {
             T("createRecommendationButton failed,parameter error: the 'type' is invalid.");
             return false;
         }
         if (O(F, "style")) {
-            d.b.h0.g.e.d.c w = F.w("style");
+            d.a.h0.g.e.d.c w = F.w("style");
             if (w == null) {
                 T("createRecommendationButton failed,parameter error: the 'style' is invalid.");
                 return false;
@@ -238,11 +239,11 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements d.a, a.b
         if (k) {
             Log.d("RecommendButtonApiProxy", "init: style-" + this.style);
         }
-        this.f12605e = new d.b.h0.g.k0.i.g.a(this.f12607g, this.style, this);
+        this.f12502e = new d.a.h0.g.k0.i.g.a(this.f12504g, this.style, this);
         return true;
     }
 
-    public final boolean R(d.b.h0.g.e.d.c cVar) {
+    public final boolean R(d.a.h0.g.e.d.c cVar) {
         if (cVar == null) {
             return true;
         }
@@ -264,9 +265,9 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements d.a, a.b
         if (recommendItemModel == null || TextUtils.isEmpty(recommendItemModel.appKey) || TextUtils.isEmpty(recommendItemModel.scheme)) {
             return;
         }
-        e.d(this.f12607g, recommendItemModel.appKey);
-        SchemeRouter.invokeScheme(d.b.h0.g.k0.c.b(), Uri.parse(recommendItemModel.scheme), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
-        this.f12606f.d(this.f12607g, str, recommendItemModel.appKey);
+        e.d(this.f12504g, recommendItemModel.appKey);
+        SchemeRouter.invokeScheme(d.a.h0.g.k0.c.b(), Uri.parse(recommendItemModel.scheme), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
+        this.f12503f.d(this.f12504g, str, recommendItemModel.appKey);
     }
 
     public final void T(String str) {
@@ -291,93 +292,93 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements d.a, a.b
         return 1;
     }
 
-    @Override // d.b.h0.g.k0.i.b.a.b
+    @Override // d.a.h0.g.k0.i.b.a.b
     @UiThread
-    public void c() {
-        d.b.h0.g.k0.i.e.a aVar = this.i;
-        if (aVar != null) {
-            S(aVar.f49023a, "game_center");
-        }
+    public void b() {
+        this.f12503f.d(this.f12504g, "list", d.a.h0.g.k0.i.b.c.f46488b);
     }
 
-    @Override // d.b.h0.g.k0.i.b.a.b
-    @UiThread
-    public void d() {
-        this.f12606f.d(this.f12607g, "list", d.b.h0.g.k0.i.b.c.f49011b);
-    }
-
-    @Override // d.b.h0.g.k0.i.a
+    @Override // d.a.h0.g.k0.i.a
     @JavascriptInterface
     public void destroy() {
         N();
-        d.b.h0.g.k0.c.e(this);
+        d.a.h0.g.k0.c.e(this);
     }
 
-    @Override // d.b.h0.g.k0.a
+    @Override // d.a.h0.g.k0.a
     public void f() {
-        z(false);
+        o(false);
     }
 
-    @Override // d.b.h0.g.k0.i.a
+    @Override // d.a.h0.g.k0.i.a
     @JavascriptInterface
     public void hide() {
         if (k) {
-            Log.d("RecommendButtonApiProxy", "hide: state-" + this.f12608h);
+            Log.d("RecommendButtonApiProxy", "hide: state-" + this.f12505h);
         }
-        if (this.f12608h == RecommendButtonState.SHOW) {
-            this.f12608h = RecommendButtonState.HIDE;
-            this.f12605e.hide();
+        if (this.f12505h == RecommendButtonState.SHOW) {
+            this.f12505h = RecommendButtonState.HIDE;
+            this.f12502e.hide();
         }
     }
 
-    @Override // d.b.h0.g.k0.a
-    public void k() {
+    @Override // d.a.h0.g.k0.a
+    public void j() {
         N();
     }
 
     @JavascriptInterface
     public void load() {
         if (k) {
-            Log.d("RecommendButtonApiProxy", "load: state-" + this.f12608h);
+            Log.d("RecommendButtonApiProxy", "load: state-" + this.f12505h);
         }
-        if (this.f12608h != RecommendButtonState.IDLE) {
+        if (this.f12505h != RecommendButtonState.IDLE) {
             return;
         }
-        this.f12608h = RecommendButtonState.LOADING;
-        e.b(this.f12607g, new a());
+        this.f12505h = RecommendButtonState.LOADING;
+        e.b(this.f12504g, new a());
     }
 
-    @Override // d.b.h0.g.k0.a
-    public void q() {
-        z(true);
+    @Override // d.a.h0.g.k0.a
+    public void m() {
+        o(true);
     }
 
-    @Override // d.b.h0.g.k0.i.b.a.b
+    public final void o(boolean z) {
+        if (P()) {
+            this.f12502e.o(z);
+        }
+    }
+
+    @Override // d.a.h0.g.k0.i.b.a.b
     @UiThread
-    public void s(int i) {
-        d.b.h0.g.k0.i.e.a aVar = this.i;
-        if (aVar == null || i < 0 || i >= aVar.f49024b.size()) {
-            return;
+    public void q() {
+        d.a.h0.g.k0.i.e.a aVar = this.f12506i;
+        if (aVar != null) {
+            S(aVar.f46500a, "game_center");
         }
-        S(this.i.f49024b.get(i), "game");
     }
 
-    @Override // d.b.h0.g.k0.i.a
+    @Override // d.a.h0.g.k0.i.a
     @JavascriptInterface
     public void show() {
         if (k) {
-            Log.d("RecommendButtonApiProxy", "show: state-" + this.f12608h);
+            Log.d("RecommendButtonApiProxy", "show: state-" + this.f12505h);
         }
-        if (this.f12608h == RecommendButtonState.HIDE) {
-            this.f12608h = RecommendButtonState.SHOW;
+        if (this.f12505h == RecommendButtonState.HIDE) {
+            this.f12505h = RecommendButtonState.SHOW;
             k0.X(new b());
-            this.f12605e.show();
+            this.f12502e.show();
         }
     }
 
-    public final void z(boolean z) {
-        if (P()) {
-            this.f12605e.z(z);
+    @Override // d.a.h0.g.k0.i.b.a.b
+    @UiThread
+    public void w(int i2) {
+        d.a.h0.g.k0.i.e.a aVar = this.f12506i;
+        if (aVar == null || i2 < 0 || i2 >= aVar.f46501b.size()) {
+            return;
         }
+        S(this.f12506i.f46501b.get(i2), "game");
     }
 }

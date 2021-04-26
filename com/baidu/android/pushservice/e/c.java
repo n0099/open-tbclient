@@ -37,13 +37,13 @@ public class c {
     public static class a extends SSLSocketFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        public HostnameVerifier f3042a = HttpsURLConnection.getDefaultHostnameVerifier();
+        public HostnameVerifier f3058a = HttpsURLConnection.getDefaultHostnameVerifier();
 
         /* renamed from: b  reason: collision with root package name */
-        public HttpsURLConnection f3043b;
+        public HttpsURLConnection f3059b;
 
         public a(HttpsURLConnection httpsURLConnection) {
-            this.f3043b = httpsURLConnection;
+            this.f3059b = httpsURLConnection;
         }
 
         @Override // javax.net.SocketFactory
@@ -52,28 +52,28 @@ public class c {
         }
 
         @Override // javax.net.SocketFactory
-        public Socket createSocket(String str, int i) throws IOException, UnknownHostException {
+        public Socket createSocket(String str, int i2) throws IOException, UnknownHostException {
             return null;
         }
 
         @Override // javax.net.SocketFactory
-        public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException, UnknownHostException {
+        public Socket createSocket(String str, int i2, InetAddress inetAddress, int i3) throws IOException, UnknownHostException {
             return null;
         }
 
         @Override // javax.net.SocketFactory
-        public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
+        public Socket createSocket(InetAddress inetAddress, int i2) throws IOException {
             return null;
         }
 
         @Override // javax.net.SocketFactory
-        public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
+        public Socket createSocket(InetAddress inetAddress, int i2, InetAddress inetAddress2, int i3) throws IOException {
             return null;
         }
 
         @Override // javax.net.ssl.SSLSocketFactory
-        public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-            String requestProperty = this.f3043b.getRequestProperty("Host");
+        public Socket createSocket(Socket socket, String str, int i2, boolean z) throws IOException {
+            String requestProperty = this.f3059b.getRequestProperty("Host");
             if (!TextUtils.isEmpty(requestProperty)) {
                 str = requestProperty;
             }
@@ -82,7 +82,7 @@ public class c {
                 socket.close();
             }
             SSLCertificateSocketFactory sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0);
-            SSLSocket sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(inetAddress, i);
+            SSLSocket sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(inetAddress, i2);
             sSLSocket.setEnabledProtocols(sSLSocket.getSupportedProtocols());
             if (Build.VERSION.SDK_INT >= 17) {
                 sSLCertificateSocketFactory.setHostname(sSLSocket, str);
@@ -92,7 +92,7 @@ public class c {
                 } catch (Throwable unused) {
                 }
             }
-            if (this.f3042a.verify(str, sSLSocket.getSession())) {
+            if (this.f3058a.verify(str, sSLSocket.getSession())) {
                 return sSLSocket;
             }
             throw new SSLPeerUnverifiedException("Cannot verify hostname: " + str);
@@ -187,19 +187,19 @@ public class c {
     }
 
     public static b a(Context context, HttpURLConnection httpURLConnection) {
-        int i;
+        int i2;
         InputStream inputStream;
         BufferedInputStream bufferedInputStream;
         b bVar = new b();
         GZIPInputStream gZIPInputStream = null;
         try {
-            i = httpURLConnection.getResponseCode();
+            i2 = httpURLConnection.getResponseCode();
             try {
-                bufferedInputStream = new BufferedInputStream(a(i) ? httpURLConnection.getErrorStream() : httpURLConnection.getInputStream());
+                bufferedInputStream = new BufferedInputStream(a(i2) ? httpURLConnection.getErrorStream() : httpURLConnection.getInputStream());
             } catch (Exception unused) {
             }
         } catch (Exception unused2) {
-            i = 0;
+            i2 = 0;
         }
         try {
             gZIPInputStream = a(httpURLConnection) ? new GZIPInputStream(bufferedInputStream) : bufferedInputStream;
@@ -207,11 +207,11 @@ public class c {
         } catch (Exception unused3) {
             gZIPInputStream = bufferedInputStream;
             inputStream = gZIPInputStream;
-            bVar.a(i);
+            bVar.a(i2);
             bVar.a(inputStream);
             return bVar;
         }
-        bVar.a(i);
+        bVar.a(i2);
         bVar.a(inputStream);
         return bVar;
     }
@@ -221,9 +221,9 @@ public class c {
             return "";
         }
         StringBuffer stringBuffer = new StringBuffer();
-        int i = 0;
+        int i2 = 0;
         for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-            if (i != 0) {
+            if (i2 != 0) {
                 stringBuffer.append("&");
             }
             String key = entry.getKey();
@@ -233,7 +233,7 @@ public class c {
                 String value = entry.getValue();
                 stringBuffer.append(!TextUtils.isEmpty(value) ? URLEncoder.encode(value, "UTF-8") : URLEncoder.encode("", "UTF-8"));
             }
-            i++;
+            i2++;
         }
         return stringBuffer.toString();
     }
@@ -377,9 +377,9 @@ public class c {
         }
     }
 
-    public static boolean a(int i) {
-        int i2 = i / 100;
-        return i2 == 4 || i2 == 5 || i2 == 6;
+    public static boolean a(int i2) {
+        int i3 = i2 / 100;
+        return i3 == 4 || i3 == 5 || i3 == 6;
     }
 
     public static boolean a(Context context, HttpURLConnection httpURLConnection, String str) {

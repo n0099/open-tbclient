@@ -1,59 +1,24 @@
 package com.win.opensdk;
 
-import android.content.Context;
-import android.text.TextUtils;
-import java.util.Date;
-/* loaded from: classes7.dex */
-public class F1 {
+import android.os.Handler;
+import android.os.Message;
+/* loaded from: classes6.dex */
+public class F1 extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public static F1 f40053a;
+    public final /* synthetic */ I1 f37647a;
 
-    public static F1 a() {
-        if (f40053a == null) {
-            synchronized (F1.class) {
-                if (f40053a == null) {
-                    f40053a = new F1();
-                }
-            }
-        }
-        return f40053a;
+    public F1(I1 i1) {
+        this.f37647a = i1;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0053, code lost:
-        if (((r6 / 60) / 60) >= r10.f40319a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L7;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(Context context, String str) {
-        if (context == null) {
-            throw new RuntimeException("Error:Context is not allowed to be null");
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        if (message.what == 11) {
+            this.f37647a.f37665e = true;
+            this.f37647a.k.removeMessages(11);
+            x0.a(this.f37647a.f37662b).a(new y0(this.f37647a.f37666f), 2002, (this.f37647a.b() ? this.f37647a.f37666f.getWt() : 0) * 1000).a();
+            this.f37647a.f37668h.onFail(PBError.TIMEOUT);
         }
-        context.getApplicationContext();
-        if (!TextUtils.isEmpty(str)) {
-            V1.e(context, str);
-        }
-        X1.a(new E1(this, context));
-        g1 a2 = g1.a(context);
-        long h2 = V1.h(a2.f40319a);
-        boolean z = true;
-        if (h2 > 0) {
-            try {
-                long time = (new Date().getTime() - h2) / 1000;
-                if (time < 0) {
-                    a2.b();
-                }
-                z = false;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-        if (z) {
-            a2.f40320b = System.currentTimeMillis();
-            X1.a(new f1(a2));
-        }
-        G.f(context);
-        Q1.a(context);
     }
 }

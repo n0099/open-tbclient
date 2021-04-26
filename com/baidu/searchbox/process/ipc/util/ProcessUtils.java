@@ -103,11 +103,11 @@ public final class ProcessUtils {
     }
 
     public static boolean is64Bit() {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 23) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 23) {
             return Process.is64Bit();
         }
-        if (i >= 21) {
+        if (i2 >= 21) {
             String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
             if (strArr.length > 0) {
                 return Build.CPU_ABI.equals(strArr[0]);

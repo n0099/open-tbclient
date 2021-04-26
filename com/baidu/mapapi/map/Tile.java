@@ -7,9 +7,9 @@ public class Tile {
     public final int height;
     public final int width;
 
-    public Tile(int i, int i2, byte[] bArr) {
-        this.width = i;
-        this.height = i2;
+    public Tile(int i2, int i3, byte[] bArr) {
+        this.width = i2;
+        this.height = i3;
         this.data = bArr;
     }
 

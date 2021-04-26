@@ -2,10 +2,10 @@ package com.baidu.tieba.gift.giftTab;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.r.q.i0;
-import d.b.i0.r.q.j0;
-import d.b.j0.u0.b.a;
-import d.b.j0.u0.b.e;
+import d.a.i0.r.q.i0;
+import d.a.i0.r.q.j0;
+import d.a.j0.u0.b.a;
+import d.a.j0.u0.b.e;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
@@ -60,7 +60,7 @@ public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         GetGiftListResIdl getGiftListResIdl = (GetGiftListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetGiftListResIdl.class);
         if (getGiftListResIdl == null) {
             return;
@@ -80,30 +80,31 @@ public class DefaultGiftListSocketResponseMessage extends SocketResponsedMessage
             this.urlTitleData = j0Var;
             DataRes dataRes2 = getGiftListResIdl.data;
             UrlTitle urlTitle = dataRes2.currency_txt;
-            j0Var.f51564a = urlTitle.name;
-            j0Var.f51565b = urlTitle.url;
+            j0Var.f49193a = urlTitle.name;
+            j0Var.f49194b = urlTitle.url;
             List<PresentGiftList1> list = dataRes2.gift_list;
             if (list != null && list.size() > 0) {
                 this.giftList = new ArrayList<>();
                 for (PresentGiftList1 presentGiftList1 : getGiftListResIdl.data.gift_list) {
                     if (presentGiftList1 != null) {
                         i0 i0Var = new i0();
-                        i0Var.f51552a = presentGiftList1.gift_id.intValue();
-                        i0Var.f51553b = presentGiftList1.gift_name;
-                        i0Var.f51554c = presentGiftList1.price.intValue();
-                        i0Var.f51555d = presentGiftList1.thumbnail_url;
+                        i0Var.f49180a = presentGiftList1.gift_id.intValue();
+                        i0Var.f49181b = presentGiftList1.gift_name;
+                        i0Var.f49182c = presentGiftList1.price.intValue();
+                        i0Var.f49183d = presentGiftList1.thumbnail_url;
                         presentGiftList1.ios_price.intValue();
-                        i0Var.f51556e = presentGiftList1.gift_desc;
-                        i0Var.f51557f = presentGiftList1.activity_type.intValue();
-                        i0Var.f51558g = presentGiftList1.mark_url;
-                        i0Var.f51559h = presentGiftList1.begin_time.intValue();
-                        i0Var.i = presentGiftList1.end_time.intValue();
+                        i0Var.f49184e = presentGiftList1.gift_desc;
+                        i0Var.f49185f = presentGiftList1.activity_type.intValue();
+                        i0Var.f49186g = presentGiftList1.mark_url;
+                        i0Var.f49187h = presentGiftList1.begin_time.intValue();
+                        i0Var.f49188i = presentGiftList1.end_time.intValue();
                         i0Var.j = presentGiftList1.discount.intValue();
                         presentGiftList1.ios_discount.intValue();
                         presentGiftList1.proportion.intValue();
                         presentGiftList1.pitch_on.intValue();
                         i0Var.k = presentGiftList1.gift_count.intValue();
                         i0Var.q = presentGiftList1.currency_unit.intValue();
+                        i0Var.s = presentGiftList1.currency.intValue();
                         this.giftList.add(i0Var);
                     }
                 }

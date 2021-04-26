@@ -43,22 +43,22 @@ public class ChatUserDBManager extends DBBase {
         String string3 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_TINY_URL));
         String string4 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_USER_DETAIL));
         long j3 = cursor.getLong(cursor.getColumnIndex("phone"));
-        int i = cursor.getInt(cursor.getColumnIndex("sex"));
-        int i2 = cursor.getInt(cursor.getColumnIndex("account_type"));
-        int i3 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_EXSIT));
-        int i4 = cursor.getInt(cursor.getColumnIndex("disturb"));
-        int i5 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_BLACKLIST));
+        int i2 = cursor.getInt(cursor.getColumnIndex("sex"));
+        int i3 = cursor.getInt(cursor.getColumnIndex("account_type"));
+        int i4 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_EXSIT));
+        int i5 = cursor.getInt(cursor.getColumnIndex("disturb"));
+        int i6 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_BLACKLIST));
         String string5 = cursor.getString(cursor.getColumnIndex("v_portrait"));
         String string6 = cursor.getString(cursor.getColumnIndex("vip_id"));
         String string7 = cursor.getString(cursor.getColumnIndex("identity"));
         long j4 = cursor.getLong(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME));
-        int i6 = cursor.getInt(cursor.getColumnIndex("shield"));
+        int i7 = cursor.getInt(cursor.getColumnIndex("shield"));
         long j5 = cursor.getLong(cursor.getColumnIndex("shield_time"));
-        int i7 = cursor.getInt(cursor.getColumnIndex("marktop"));
+        int i8 = cursor.getInt(cursor.getColumnIndex("marktop"));
         long j6 = cursor.getLong(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME));
-        int i8 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_SUBSCRIBE_STATUS));
-        int i9 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_PHONE_RELATION));
-        int i10 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_HAS_SPECIAL_IDENTITY));
+        int i9 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_SUBSCRIBE_STATUS));
+        int i10 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_PHONE_RELATION));
+        int i11 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_HAS_SPECIAL_IDENTITY));
         String string8 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_SPECIAL_IDENTITY));
         String string9 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_USER_EXT));
         ChatUser chatUser = new ChatUser(j, j2, string, string2);
@@ -66,16 +66,16 @@ public class ChatUserDBManager extends DBBase {
         chatUser.setVipId(string6);
         chatUser.setIdentity(string7);
         chatUser.setLastUpdate(j4);
-        chatUser.setShield(i6);
+        chatUser.setShield(i7);
         chatUser.setShieldTime(j5);
-        chatUser.setMarkTop(i7);
+        chatUser.setMarkTop(i8);
         chatUser.setMarkTopTime(j6);
-        chatUser.setSubscribe(i8);
-        chatUser.setPhoneRelation(i9);
-        chatUser.setHasSpecialIdentity(i10);
+        chatUser.setSubscribe(i9);
+        chatUser.setPhoneRelation(i10);
+        chatUser.setHasSpecialIdentity(i11);
         chatUser.setSpecialIdentity(string8);
         chatUser.setUserExt(string9);
-        if (i3 == 0) {
+        if (i4 == 0) {
             IpInfo ipInfo = new IpInfo();
             ipInfo.setUid(j);
             String string10 = cursor.getString(cursor.getColumnIndex("ip"));
@@ -92,14 +92,14 @@ public class ChatUserDBManager extends DBBase {
             ipInfo.setIsp(string11);
             chatUser.setIpInfo(ipInfo);
         }
-        chatUser.setIsIpLocationExist(i3);
+        chatUser.setIsIpLocationExist(i4);
         chatUser.setTinyUrl(string3);
         chatUser.setUserDetail(string4);
-        chatUser.setSex(i);
+        chatUser.setSex(i2);
         chatUser.setPhone(j3);
-        chatUser.setAccountType(i2);
-        chatUser.setDisturb(i4);
-        chatUser.setBlack(i5);
+        chatUser.setAccountType(i3);
+        chatUser.setDisturb(i5);
+        chatUser.setBlack(i6);
         return chatUser;
     }
 
@@ -155,16 +155,16 @@ public class ChatUserDBManager extends DBBase {
 
     private void getUserInfo(@NonNull final List<ChatSession> list, @NonNull final List<ChatSession> list2, @NonNull final IGetUserShieldListener iGetUserShieldListener) {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < list.size(); i++) {
-            arrayList.add(Long.valueOf(list.get(i).getContacter()));
+        for (int i2 = 0; i2 < list.size(); i2++) {
+            arrayList.add(Long.valueOf(list.get(i2).getContacter()));
         }
         String str = TAG;
         LogUtils.i(str, "getUserInfo uks " + arrayList.toString() + ", hasResult :" + list2.size());
         int size = arrayList.size();
         long[] jArr = new long[size];
-        for (int i2 = 0; i2 < arrayList.size(); i2++) {
-            if (arrayList.get(i2) != null) {
-                jArr[i2] = ((Long) arrayList.get(i2)).longValue();
+        for (int i3 = 0; i3 < arrayList.size(); i3++) {
+            if (arrayList.get(i3) != null) {
+                jArr[i3] = ((Long) arrayList.get(i3)).longValue();
             }
         }
         if (size <= 0) {
@@ -172,8 +172,8 @@ public class ChatUserDBManager extends DBBase {
         } else {
             AccountManagerImpl.getInstance(this.mContext).getUidByUk(jArr, new IGetUidByUkListener() { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.3
                 @Override // com.baidu.android.imsdk.account.IGetUidByUkListener
-                public void onGetUidByUkResult(int i3, String str2, long[] jArr2, Map<Long, Long> map) {
-                    if (i3 != 0) {
+                public void onGetUidByUkResult(int i4, String str2, long[] jArr2, Map<Long, Long> map) {
+                    if (i4 != 0) {
                         iGetUserShieldListener.onResult(-1, "getUser failed", list2);
                         return;
                     }
@@ -188,8 +188,8 @@ public class ChatUserDBManager extends DBBase {
                     if (arrayList2.size() > 0) {
                         ChatUserManagerImpl.getInstance(ChatUserDBManager.this.mContext).updateUserIdentity(arrayList2, new IGetUserIdentityListener() { // from class: com.baidu.android.imsdk.chatuser.db.ChatUserDBManager.3.1
                             @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-                            public void onGetUserIdentityResult(int i4, List<ChatUser> list3) {
-                                if (i4 != 0) {
+                            public void onGetUserIdentityResult(int i5, List<ChatUser> list3) {
+                                if (i5 != 0) {
                                     AnonymousClass3 anonymousClass3 = AnonymousClass3.this;
                                     iGetUserShieldListener.onResult(-1, "getUser failed", list2);
                                 } else if (list3 == null) {
@@ -316,8 +316,8 @@ public class ChatUserDBManager extends DBBase {
             return null;
         }
         StringBuilder sb = new StringBuilder(list.get(0) + "");
-        for (int i = 1; i < list.size(); i++) {
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i));
+        for (int i2 = 1; i2 < list.size(); i2++) {
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i2));
         }
         String str = "buid in (" + sb.toString() + ") ";
         LongSparseArray<ChatUser> longSparseArray = new LongSparseArray<>();
@@ -379,8 +379,8 @@ public class ChatUserDBManager extends DBBase {
             return null;
         }
         StringBuilder sb = new StringBuilder(list.get(0) + "");
-        for (int i = 1; i < list.size(); i++) {
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i));
+        for (int i2 = 1; i2 < list.size(); i2++) {
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i2));
         }
         String str = "buid in (" + sb.toString() + ") AND " + TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME + " > " + j;
         ArrayList arrayList = new ArrayList();
@@ -438,8 +438,8 @@ public class ChatUserDBManager extends DBBase {
                 if (list.size() > 0) {
                     try {
                         String str2 = "" + list.get(0).getContacter();
-                        for (int i = 1; i < list.size(); i++) {
-                            str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i).getContacter();
+                        for (int i2 = 1; i2 < list.size(); i2++) {
+                            str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i2).getContacter();
                         }
                         str = "uid in (" + str2 + ") ";
                     } catch (Exception e2) {
@@ -464,15 +464,15 @@ public class ChatUserDBManager extends DBBase {
                             }
                             long j = cursor.getLong(cursor.getColumnIndex("uid"));
                             ChatSession chatSession = new ChatSession();
-                            int i2 = 0;
+                            int i3 = 0;
                             while (true) {
-                                if (i2 >= list.size()) {
+                                if (i3 >= list.size()) {
                                     break;
-                                } else if (list.get(i2).getContacter() == j) {
-                                    chatSession = list.get(i2);
+                                } else if (list.get(i3).getContacter() == j) {
+                                    chatSession = list.get(i3);
                                     break;
                                 } else {
-                                    i2++;
+                                    i3++;
                                 }
                             }
                             list.remove(chatSession);
@@ -637,15 +637,15 @@ public class ChatUserDBManager extends DBBase {
         return z;
     }
 
-    public boolean updateMarkTop(long j, int i, long j2) {
+    public boolean updateMarkTop(long j, int i2, long j2) {
         boolean z;
         String str = TAG;
-        LogUtils.d(str, "updateMarkTop, uk =" + j + ", markToped=" + i + ", updateTime=" + j2);
+        LogUtils.d(str, "updateMarkTop, uk =" + j + ", markToped=" + i2 + ", updateTime=" + j2);
         ContentValues contentValues = new ContentValues();
-        contentValues.put("marktop", Integer.valueOf(i));
+        contentValues.put("marktop", Integer.valueOf(i2));
         contentValues.put(TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME, Long.valueOf(j2));
         ContentValues contentValues2 = new ContentValues();
-        contentValues2.put("marktop", Integer.valueOf(i));
+        contentValues2.put("marktop", Integer.valueOf(i2));
         contentValues2.put("marktoptime", Long.valueOf(j2));
         synchronized (DBBase.mSyncLock) {
             z = true;
@@ -704,10 +704,10 @@ public class ChatUserDBManager extends DBBase {
         return z2;
     }
 
-    public boolean updateSubscribedUser(long j, int i) {
+    public boolean updateSubscribedUser(long j, int i2) {
         boolean z;
         ContentValues contentValues = new ContentValues();
-        contentValues.put(TableDefine.UserInfoColumns.COLUMN_SUBSCRIBE_STATUS, Integer.valueOf(i));
+        contentValues.put(TableDefine.UserInfoColumns.COLUMN_SUBSCRIBE_STATUS, Integer.valueOf(i2));
         synchronized (DBBase.mSyncLock) {
             z = true;
             if (update(TableDefine.DB_TABLE_USERINFO, "uid =? ", new String[]{String.valueOf(j)}, contentValues) <= 0) {
@@ -741,12 +741,12 @@ public class ChatUserDBManager extends DBBase {
                 return 0;
             } else {
                 ArrayList arrayList2 = new ArrayList(arrayList.size());
-                for (int i = 0; i < arrayList.size(); i++) {
+                for (int i2 = 0; i2 < arrayList.size(); i2++) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put("username", arrayList.get(i).getUserName());
-                    contentValues.put(TableDefine.UserInfoColumns.COLUMN_HEAD_URL, arrayList.get(i).getIconUrl());
-                    contentValues.put(TableDefine.UserInfoColumns.COLUMN_TINY_URL, arrayList.get(i).getTinyUrl());
-                    arrayList2.add(i, new DBBase.UpdateArgs("uid = ? ", new String[]{String.valueOf(arrayList.get(i).getUk())}, contentValues));
+                    contentValues.put("username", arrayList.get(i2).getUserName());
+                    contentValues.put(TableDefine.UserInfoColumns.COLUMN_HEAD_URL, arrayList.get(i2).getIconUrl());
+                    contentValues.put(TableDefine.UserInfoColumns.COLUMN_TINY_URL, arrayList.get(i2).getTinyUrl());
+                    arrayList2.add(i2, new DBBase.UpdateArgs("uid = ? ", new String[]{String.valueOf(arrayList.get(i2).getUk())}, contentValues));
                 }
                 return updateBatch(TableDefine.DB_TABLE_USERINFO, arrayList2);
             }
@@ -791,7 +791,7 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    public int updateUserIp(long j, int i) {
+    public int updateUserIp(long j, int i2) {
         int update;
         synchronized (DBBase.mSyncLock) {
             update = update(TableDefine.DB_TABLE_USERINFO, "uid= ?", new String[]{String.valueOf(j)}, constructIpInfoContentValue(null, new ContentValues()));
@@ -808,8 +808,8 @@ public class ChatUserDBManager extends DBBase {
                 return 0;
             }
             ArrayList arrayList2 = new ArrayList(arrayList.size());
-            for (int i = 0; i < arrayList.size(); i++) {
-                arrayList2.add(i, new DBBase.UpdateArgs("uid= ?", new String[]{String.valueOf(arrayList.get(i).getUid())}, constructIpInfoContentValue(arrayList.get(i), new ContentValues())));
+            for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                arrayList2.add(i2, new DBBase.UpdateArgs("uid= ?", new String[]{String.valueOf(arrayList.get(i2).getUid())}, constructIpInfoContentValue(arrayList.get(i2), new ContentValues())));
             }
             return updateBatch(TableDefine.DB_TABLE_USERINFO, arrayList2);
         }

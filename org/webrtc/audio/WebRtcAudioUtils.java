@@ -14,8 +14,8 @@ import org.webrtc.Logging;
 public final class WebRtcAudioUtils {
     public static final String TAG = "WebRtcAudioUtilsExternal";
 
-    public static String deviceTypeToString(int i) {
-        switch (i) {
+    public static String deviceTypeToString(int i2) {
+        switch (i2) {
             case 1:
                 return "TYPE_BUILTIN_EARPIECE";
             case 2:
@@ -132,15 +132,15 @@ public final class WebRtcAudioUtils {
         if (z) {
             return;
         }
-        for (int i = 0; i < 6; i++) {
-            int i2 = iArr[i];
+        for (int i2 = 0; i2 < 6; i2++) {
+            int i3 = iArr[i2];
             StringBuilder sb = new StringBuilder();
-            sb.append(GlideException.IndentedAppendable.INDENT + streamTypeToString(i2) + ": ");
+            sb.append(GlideException.IndentedAppendable.INDENT + streamTypeToString(i3) + ": ");
             sb.append("volume=");
-            sb.append(audioManager.getStreamVolume(i2));
+            sb.append(audioManager.getStreamVolume(i3));
             sb.append(", max=");
-            sb.append(audioManager.getStreamMaxVolume(i2));
-            logIsStreamMute(str, audioManager, i2, sb);
+            sb.append(audioManager.getStreamMaxVolume(i3));
+            logIsStreamMute(str, audioManager, i3, sb);
             Logging.d(str, sb.toString());
         }
     }
@@ -150,15 +150,15 @@ public final class WebRtcAudioUtils {
     }
 
     @TargetApi(23)
-    public static void logIsStreamMute(String str, AudioManager audioManager, int i, StringBuilder sb) {
+    public static void logIsStreamMute(String str, AudioManager audioManager, int i2, StringBuilder sb) {
         if (runningOnMarshmallowOrHigher()) {
             sb.append(", muted=");
-            sb.append(audioManager.isStreamMute(i));
+            sb.append(audioManager.isStreamMute(i2));
         }
     }
 
-    public static String modeToString(int i) {
-        return i != 0 ? i != 1 ? i != 2 ? i != 3 ? "MODE_INVALID" : "MODE_IN_COMMUNICATION" : "MODE_IN_CALL" : "MODE_RINGTONE" : "MODE_NORMAL";
+    public static String modeToString(int i2) {
+        return i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? "MODE_INVALID" : "MODE_IN_COMMUNICATION" : "MODE_IN_CALL" : "MODE_RINGTONE" : "MODE_NORMAL";
     }
 
     public static boolean runningOnEmulator() {
@@ -193,7 +193,7 @@ public final class WebRtcAudioUtils {
         return Build.VERSION.SDK_INT >= 26;
     }
 
-    public static String streamTypeToString(int i) {
-        return i != 0 ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? "STREAM_INVALID" : "STREAM_NOTIFICATION" : "STREAM_ALARM" : "STREAM_MUSIC" : "STREAM_RING" : "STREAM_SYSTEM" : "STREAM_VOICE_CALL";
+    public static String streamTypeToString(int i2) {
+        return i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? "STREAM_INVALID" : "STREAM_NOTIFICATION" : "STREAM_ALARM" : "STREAM_MUSIC" : "STREAM_RING" : "STREAM_SYSTEM" : "STREAM_VOICE_CALL";
     }
 }

@@ -5,7 +5,7 @@ public class GroupChatMessage extends CommonGroupChatMessage {
         super(202001);
     }
 
-    public GroupChatMessage(int i) {
-        super(i);
+    public GroupChatMessage(int i2) {
+        super(i2);
     }
 }

@@ -36,10 +36,10 @@ public class AlaSharedPrefHelper {
         return sharedPreferences.getFloat(str, f2);
     }
 
-    public int getInt(String str, int i) {
+    public int getInt(String str, int i2) {
         SharedPreferences sharedPreferences = getSharedPreferences();
         this.mSP = sharedPreferences;
-        return sharedPreferences.getInt(str, i);
+        return sharedPreferences.getInt(str, i2);
     }
 
     public long getLong(String str, long j) {
@@ -77,10 +77,10 @@ public class AlaSharedPrefHelper {
         EditorHelper.putFloat(sharedPreferences, str, f2);
     }
 
-    public void putInt(String str, int i) {
+    public void putInt(String str, int i2) {
         SharedPreferences sharedPreferences = getSharedPreferences();
         this.mSP = sharedPreferences;
-        EditorHelper.putInt(sharedPreferences, str, i);
+        EditorHelper.putInt(sharedPreferences, str, i2);
     }
 
     public void putLong(String str, long j) {

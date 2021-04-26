@@ -2,7 +2,7 @@ package com.baidu.tbadk.ala;
 
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-import d.b.i0.r.q.o;
+import d.a.i0.r.q.o;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
@@ -56,7 +56,7 @@ public class AlaLiveInfoCoreData extends o implements Serializable {
         this.threadId = alaInfoData.thread_id;
     }
 
-    @Override // d.b.i0.r.q.o
+    @Override // d.a.i0.r.q.o
     public void parserJson(JSONObject jSONObject) {
     }
 

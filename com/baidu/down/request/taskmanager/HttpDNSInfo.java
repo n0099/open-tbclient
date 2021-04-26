@@ -5,7 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
     public static final int STATUS_IP_AVAILABLE = 2;
     public static final int STATUS_IP_INAVAILABLE = 3;
@@ -56,33 +56,33 @@ public class HttpDNSInfo implements Comparable<HttpDNSInfo> {
     }
 
     public long getTestAverageSpeed() {
-        int i;
+        int i2;
         long j = this.mDownloadTimes;
-        if (j == 0 || (i = this.mTestSpeedThread) == 0) {
+        if (j == 0 || (i2 = this.mTestSpeedThread) == 0) {
             return 0L;
         }
-        return (this.mDownloadBytes * 1000) / (j * i);
+        return (this.mDownloadBytes * 1000) / (j * i2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     public int compareTo(HttpDNSInfo httpDNSInfo) {
-        int i;
         int i2;
         int i3;
         int i4;
         int i5;
+        int i6;
         long j = this.mDownloadTimes;
-        if (j == 0 || (i = this.mTestSpeedThread) == 0) {
+        if (j == 0 || (i2 = this.mTestSpeedThread) == 0) {
             return 1;
         }
         long j2 = httpDNSInfo.mDownloadTimes;
-        if (j2 == 0 || (i2 = httpDNSInfo.mTestSpeedThread) == 0 || ((float) (this.mDownloadBytes / (j * i))) > ((float) (httpDNSInfo.mDownloadBytes / (j2 * i2)))) {
+        if (j2 == 0 || (i3 = httpDNSInfo.mTestSpeedThread) == 0 || ((float) (this.mDownloadBytes / (j * i2))) > ((float) (httpDNSInfo.mDownloadBytes / (j2 * i3)))) {
             return -1;
         }
-        if (i3 != 0 || (i4 = this.mCDNSequence) > (i5 = httpDNSInfo.mCDNSequence)) {
+        if (i4 != 0 || (i5 = this.mCDNSequence) > (i6 = httpDNSInfo.mCDNSequence)) {
             return 1;
         }
-        return i4 < i5 ? -1 : 0;
+        return i5 < i6 ? -1 : 0;
     }
 }

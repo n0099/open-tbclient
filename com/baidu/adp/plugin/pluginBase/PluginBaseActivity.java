@@ -42,12 +42,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
-import d.b.c.a.f;
-import d.b.c.a.g;
-import d.b.c.a.i;
-import d.b.c.h.f.a;
-import d.b.c.h.j.g.d;
-import d.b.c.j.e.q;
+import d.a.c.a.f;
+import d.a.c.a.g;
+import d.a.c.a.i;
+import d.a.c.h.f.a;
+import d.a.c.h.j.g.d;
+import d.a.c.j.e.q;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -78,12 +78,12 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
+    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i2) {
         Plugin plugin2;
         String pluginPackageName = getPluginPackageName();
         PluginSetting h2 = d.k().h(pluginPackageName);
         if (h2 == null || !h2.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartServiceIntent(intent))) {
-            return this.mProxyActivity.proxyBindService(intent, serviceConnection, i);
+            return this.mProxyActivity.proxyBindService(intent, serviceConnection, i2);
         }
         return false;
     }
@@ -96,8 +96,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         this.mProxyActivity.proxyCloseOptionsMenu();
     }
 
-    public PendingIntent createPendingResult(int i, Intent intent, int i2) {
-        return this.mProxyActivity.proxyCreatePendingResult(i, intent, i2);
+    public PendingIntent createPendingResult(int i2, Intent intent, int i3) {
+        return this.mProxyActivity.proxyCreatePendingResult(i2, intent, i3);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -120,8 +120,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         return this.mActivity.deleteFile(str);
     }
 
-    public final void dismissDialog(int i) {
-        this.mActivity.dismissDialog(i);
+    public final void dismissDialog(int i2) {
+        this.mActivity.dismissDialog(i2);
     }
 
     public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
@@ -148,20 +148,20 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         return this.mProxyActivity.proxyDispatchTrackballEvent(motionEvent);
     }
 
-    public View findViewById(int i) {
-        return this.mProxyActivity.proxyFindViewById(i);
+    public View findViewById(int i2) {
+        return this.mProxyActivity.proxyFindViewById(i2);
     }
 
     public void finish() {
         this.mProxyActivity.proxyFinish();
     }
 
-    public void finishActivity(int i) {
-        this.mProxyActivity.proxyFinishActivity(i);
+    public void finishActivity(int i2) {
+        this.mProxyActivity.proxyFinishActivity(i2);
     }
 
-    public void finishActivityFromChild(Activity activity, int i) {
-        this.mProxyActivity.proxyFinishActivityFromChild(activity, i);
+    public void finishActivityFromChild(Activity activity, int i2) {
+        this.mProxyActivity.proxyFinishActivityFromChild(activity, i2);
     }
 
     public void finishFromChild(Activity activity) {
@@ -236,13 +236,13 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public File getDir(String str, int i) {
+    public File getDir(String str, int i2) {
         PluginSetting h2 = d.k().h(getPluginPackageName());
         if (h2 != null && h2.isThird) {
             Activity activity = this.mActivity;
-            return activity.getDir(getPluginPackageName() + str, i);
+            return activity.getDir(getPluginPackageName() + str, i2);
         }
-        return this.mActivity.getDir(str, i);
+        return this.mActivity.getDir(str, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -290,7 +290,7 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         return this.mActivity.getPackageName();
     }
 
-    @Override // d.b.c.a.g
+    @Override // d.a.c.a.g
     public f getPageContext() {
         return null;
     }
@@ -307,8 +307,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         return ((a) parent).getTarget();
     }
 
-    public SharedPreferences getPreferences(int i) {
-        return this.mProxyActivity.proxyGetPreferences(i);
+    public SharedPreferences getPreferences(int i2) {
+        return this.mProxyActivity.proxyGetPreferences(i2);
     }
 
     public int getRequestedOrientation() {
@@ -316,13 +316,13 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SharedPreferences getSharedPreferences(String str, int i) {
+    public SharedPreferences getSharedPreferences(String str, int i2) {
         PluginSetting h2 = d.k().h(getPluginPackageName());
         if (h2 != null && h2.isThird) {
             a aVar = this.mProxyActivity;
-            return aVar.proxyGetSharedPreferences(getPluginPackageName() + str, i);
+            return aVar.proxyGetSharedPreferences(getPluginPackageName() + str, i2);
         }
-        return this.mProxyActivity.proxyGetSharedPreferences(str, i);
+        return this.mProxyActivity.proxyGetSharedPreferences(str, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -401,12 +401,12 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         return this.mProxyActivity.proxyMoveTaskToBack(z);
     }
 
-    public void onActivityResult(int i, int i2, Intent intent) {
-        this.mProxyActivity.proxyOnActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        this.mProxyActivity.proxyOnActivityResult(i2, i3, intent);
     }
 
-    public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
-        this.mProxyActivity.proxyOnApplyThemeResource(theme, i, z);
+    public void onApplyThemeResource(Resources.Theme theme, int i2, boolean z) {
+        this.mProxyActivity.proxyOnApplyThemeResource(theme, i2, z);
     }
 
     public void onAttachedToWindow() {
@@ -452,15 +452,15 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         return null;
     }
 
-    public Dialog onCreateDialog(int i) {
+    public Dialog onCreateDialog(int i2) {
         return null;
     }
 
-    public boolean onCreatePanelMenu(int i, Menu menu) {
-        return this.mProxyActivity.proxyOnCreatePanelMenu(i, menu);
+    public boolean onCreatePanelMenu(int i2, Menu menu) {
+        return this.mProxyActivity.proxyOnCreatePanelMenu(i2, menu);
     }
 
-    public View onCreatePanelView(int i) {
+    public View onCreatePanelView(int i2) {
         return null;
     }
 
@@ -482,23 +482,23 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
     }
 
     @Override // android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return this.mProxyActivity.proxyOnKeyDown(i, keyEvent);
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        return this.mProxyActivity.proxyOnKeyDown(i2, keyEvent);
     }
 
     @Override // android.view.KeyEvent.Callback
-    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
-        return this.mProxyActivity.proxyOnKeyLongPress(i, keyEvent);
+    public boolean onKeyLongPress(int i2, KeyEvent keyEvent) {
+        return this.mProxyActivity.proxyOnKeyLongPress(i2, keyEvent);
     }
 
     @Override // android.view.KeyEvent.Callback
-    public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
-        return this.mProxyActivity.proxyOnKeyMultiple(i, i2, keyEvent);
+    public boolean onKeyMultiple(int i2, int i3, KeyEvent keyEvent) {
+        return this.mProxyActivity.proxyOnKeyMultiple(i2, i3, keyEvent);
     }
 
     @Override // android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        return this.mProxyActivity.proxyOnKeyUp(i, keyEvent);
+    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
+        return this.mProxyActivity.proxyOnKeyUp(i2, keyEvent);
     }
 
     @Override // android.content.ComponentCallbacks
@@ -506,12 +506,12 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         this.mProxyActivity.proxyOnLowMemory();
     }
 
-    public boolean onMenuItemSelected(int i, MenuItem menuItem) {
-        return this.mProxyActivity.proxyOnMenuItemSelected(i, menuItem);
+    public boolean onMenuItemSelected(int i2, MenuItem menuItem) {
+        return this.mProxyActivity.proxyOnMenuItemSelected(i2, menuItem);
     }
 
-    public boolean onMenuOpened(int i, Menu menu) {
-        return this.mProxyActivity.proxyOnMenuOpened(i, menu);
+    public boolean onMenuOpened(int i2, Menu menu) {
+        return this.mProxyActivity.proxyOnMenuOpened(i2, menu);
     }
 
     public void onNewIntent(Intent intent) {
@@ -525,8 +525,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         this.mProxyActivity.proxyOnOptionsMenuClosed(menu);
     }
 
-    public void onPanelClosed(int i, Menu menu) {
-        this.mProxyActivity.proxyOnPanelClosed(i, menu);
+    public void onPanelClosed(int i2, Menu menu) {
+        this.mProxyActivity.proxyOnPanelClosed(i2, menu);
     }
 
     public void onPause() {
@@ -544,16 +544,16 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
     public void onPreLoad(q qVar) {
     }
 
-    public void onPrepareDialog(int i, Dialog dialog) {
-        this.mProxyActivity.proxyOnPrepareDialog(i, dialog);
+    public void onPrepareDialog(int i2, Dialog dialog) {
+        this.mProxyActivity.proxyOnPrepareDialog(i2, dialog);
     }
 
     public boolean onPrepareOptionsMenu(Menu menu) {
         return this.mProxyActivity.proxyOnPrepareOptionsMenu(menu);
     }
 
-    public boolean onPreparePanel(int i, View view, Menu menu) {
-        return this.mProxyActivity.proxyOnPreparePanel(i, view, menu);
+    public boolean onPreparePanel(int i2, View view, Menu menu) {
+        return this.mProxyActivity.proxyOnPreparePanel(i2, view, menu);
     }
 
     public void onRestart() {
@@ -588,8 +588,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         this.mProxyActivity.proxyOnStop();
     }
 
-    public void onTitleChanged(CharSequence charSequence, int i) {
-        this.mProxyActivity.proxyOnTitleChanged(charSequence, i);
+    public void onTitleChanged(CharSequence charSequence, int i2) {
+        this.mProxyActivity.proxyOnTitleChanged(charSequence, i2);
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
@@ -630,13 +630,13 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public FileOutputStream openFileOutput(String str, int i) throws FileNotFoundException {
+    public FileOutputStream openFileOutput(String str, int i2) throws FileNotFoundException {
         PluginSetting h2 = d.k().h(getPluginPackageName());
         if (h2 != null && h2.isThird) {
             Activity activity = this.mActivity;
-            return activity.openFileOutput(getPluginPackageName() + str, i);
+            return activity.openFileOutput(getPluginPackageName() + str, i2);
         }
-        return this.mActivity.openFileOutput(str, i);
+        return this.mActivity.openFileOutput(str, i2);
     }
 
     public void openOptionsMenu() {
@@ -644,17 +644,17 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
+    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory) {
         PluginSetting h2 = d.k().h(getPluginPackageName());
         if (h2 != null && h2.isThird) {
             Activity activity = this.mActivity;
-            return activity.openOrCreateDatabase(getPluginPackageName() + str, i, cursorFactory);
+            return activity.openOrCreateDatabase(getPluginPackageName() + str, i2, cursorFactory);
         }
-        return this.mActivity.openOrCreateDatabase(getPluginPackageName(), i, cursorFactory);
+        return this.mActivity.openOrCreateDatabase(getPluginPackageName(), i2, cursorFactory);
     }
 
-    public void overridePendingTransition(int i, int i2) {
-        this.mProxyActivity.proxyOverridePendingTransition(i, i2);
+    public void overridePendingTransition(int i2, int i3) {
+        this.mProxyActivity.proxyOverridePendingTransition(i2, i3);
     }
 
     public void registerForContextMenu(View view) {
@@ -666,12 +666,12 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         return this.mProxyActivity.registerReceiver(broadcastReceiver, intentFilter);
     }
 
-    public final void removeDialog(int i) {
-        this.mActivity.removeDialog(i);
+    public final void removeDialog(int i2) {
+        this.mActivity.removeDialog(i2);
     }
 
-    public final boolean requestWindowFeature(int i) {
-        return this.mActivity.requestWindowFeature(i);
+    public final boolean requestWindowFeature(int i2) {
+        return this.mActivity.requestWindowFeature(i2);
     }
 
     public final void runOnUiThread(Runnable runnable) {
@@ -688,28 +688,28 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         this.mProxyActivity = aVar;
     }
 
-    public void setContentView(int i) {
-        this.mProxyActivity.proxySetContentView(i);
+    public void setContentView(int i2) {
+        this.mProxyActivity.proxySetContentView(i2);
     }
 
-    public final void setDefaultKeyMode(int i) {
-        this.mActivity.setDefaultKeyMode(i);
+    public final void setDefaultKeyMode(int i2) {
+        this.mActivity.setDefaultKeyMode(i2);
     }
 
-    public final void setFeatureDrawable(int i, Drawable drawable) {
-        this.mActivity.setFeatureDrawable(i, drawable);
+    public final void setFeatureDrawable(int i2, Drawable drawable) {
+        this.mActivity.setFeatureDrawable(i2, drawable);
     }
 
-    public final void setFeatureDrawableAlpha(int i, int i2) {
-        this.mActivity.setFeatureDrawableAlpha(i, i2);
+    public final void setFeatureDrawableAlpha(int i2, int i3) {
+        this.mActivity.setFeatureDrawableAlpha(i2, i3);
     }
 
-    public final void setFeatureDrawableResource(int i, int i2) {
-        this.mActivity.setFeatureDrawableResource(i, i2);
+    public final void setFeatureDrawableResource(int i2, int i3) {
+        this.mActivity.setFeatureDrawableResource(i2, i3);
     }
 
-    public final void setFeatureDrawableUri(int i, Uri uri) {
-        this.mActivity.setFeatureDrawableUri(i, uri);
+    public final void setFeatureDrawableUri(int i2, Uri uri) {
+        this.mActivity.setFeatureDrawableUri(i2, uri);
     }
 
     public void setIntent(Intent intent) {
@@ -719,8 +719,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
     public void setIsScroll(boolean z) {
     }
 
-    public final void setProgress(int i) {
-        this.mActivity.setProgress(i);
+    public final void setProgress(int i2) {
+        this.mActivity.setProgress(i2);
     }
 
     public final void setProgressBarIndeterminate(boolean z) {
@@ -735,36 +735,36 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         this.mActivity.setProgressBarVisibility(z);
     }
 
-    public void setRequestedOrientation(int i) {
-        this.mProxyActivity.proxySetRequestedOrientation(i);
+    public void setRequestedOrientation(int i2) {
+        this.mProxyActivity.proxySetRequestedOrientation(i2);
     }
 
-    public final void setResult(int i) {
-        this.mActivity.setResult(i);
+    public final void setResult(int i2) {
+        this.mActivity.setResult(i2);
     }
 
-    public final void setSecondaryProgress(int i) {
-        this.mActivity.setSecondaryProgress(i);
+    public final void setSecondaryProgress(int i2) {
+        this.mActivity.setSecondaryProgress(i2);
     }
 
-    public void setTitle(int i) {
-        this.mProxyActivity.proxySetTitle(i);
+    public void setTitle(int i2) {
+        this.mProxyActivity.proxySetTitle(i2);
     }
 
-    public void setTitleColor(int i) {
-        this.mProxyActivity.proxySetTitleColor(i);
+    public void setTitleColor(int i2) {
+        this.mProxyActivity.proxySetTitleColor(i2);
     }
 
     public void setVisible(boolean z) {
         this.mProxyActivity.proxySetVisible(z);
     }
 
-    public final void setVolumeControlStream(int i) {
-        this.mActivity.setVolumeControlStream(i);
+    public final void setVolumeControlStream(int i2) {
+        this.mActivity.setVolumeControlStream(i2);
     }
 
-    public final void showDialog(int i) {
-        this.mActivity.showDialog(i);
+    public final void showDialog(int i2) {
+        this.mActivity.showDialog(i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -777,30 +777,30 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         }
     }
 
-    public void startActivityForResult(Intent intent, int i) {
+    public void startActivityForResult(Intent intent, int i2) {
         Plugin plugin2;
         String pluginPackageName = getPluginPackageName();
         PluginSetting h2 = d.k().h(pluginPackageName);
         if (h2 == null || !h2.isThird || ((plugin2 = PluginCenter.getInstance().getPlugin(pluginPackageName)) != null && plugin2.remapStartActivityIntent(intent))) {
-            this.mProxyActivity.proxyStartActivityForResult(intent, i);
+            this.mProxyActivity.proxyStartActivityForResult(intent, i2);
         }
     }
 
-    public void startActivityFromChild(Activity activity, Intent intent, int i) {
-        this.mProxyActivity.proxyStartActivityFromChild(activity, intent, i);
+    public void startActivityFromChild(Activity activity, Intent intent, int i2) {
+        this.mProxyActivity.proxyStartActivityFromChild(activity, intent, i2);
     }
 
-    public boolean startActivityIfNeeded(Intent intent, int i) {
-        return this.mProxyActivity.proxyStartActivityIfNeeded(intent, i);
+    public boolean startActivityIfNeeded(Intent intent, int i2) {
+        return this.mProxyActivity.proxyStartActivityIfNeeded(intent, i2);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
-        this.mProxyActivity.proxyStartIntentSender(intentSender, intent, i, i2, i3);
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
+        this.mProxyActivity.proxyStartIntentSender(intentSender, intent, i2, i3, i4);
     }
 
-    public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
-        this.mProxyActivity.proxyStartIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
+    public void startIntentSenderForResult(IntentSender intentSender, int i2, Intent intent, int i3, int i4, int i5) throws IntentSender.SendIntentException {
+        this.mProxyActivity.proxyStartIntentSenderForResult(intentSender, i2, intent, i3, i4, i5);
     }
 
     public void startManagingCursor(Cursor cursor) {
@@ -872,8 +872,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements LayoutIn
         this.mProxyActivity.proxySetContentView(view);
     }
 
-    public final void setResult(int i, Intent intent) {
-        this.mActivity.setResult(i, intent);
+    public final void setResult(int i2, Intent intent) {
+        this.mActivity.setResult(i2, intent);
     }
 
     public void setTitle(CharSequence charSequence) {

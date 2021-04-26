@@ -28,7 +28,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -40,7 +39,6 @@ import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.BuyTBeanActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.message.SendGiftSuccessMessage;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -49,12 +47,14 @@ import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gift.buyGift.GiftCommonList;
+import com.baidu.tieba.wallet.CurrencyJumpHelper;
 import com.baidu.ueg.encrypt.entity.EncryptAlgorithm;
-import d.b.i0.r.s.a;
+import d.a.i0.r.s.a;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.SendGiftAndroid.DataRes;
 import tbclient.SendGiftAndroid.SendGiftAndroidResIdl;
+@Deprecated
 /* loaded from: classes4.dex */
 public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements ViewPager.OnPageChangeListener {
     public static final int ERROR_GIFT_PRICE_CHANGED = 1990019;
@@ -79,13 +79,13 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     public int mCurrentPage;
     public int mFrom;
     public GiftCommonList mGiftCommonList;
-    public d.b.j0.u0.a.b mGiftNumAdapter;
+    public d.a.j0.u0.a.b mGiftNumAdapter;
     public GiftPagerAdapter mGiftPagerAdapter;
     public InputMethodManager mInputMethodManager;
     public String mPassword;
     public String mPublicKey;
     public View mPwdContentView;
-    public d.b.i0.r.s.a mPwdDialog;
+    public d.a.i0.r.s.a mPwdDialog;
     public EditText mPwdText;
     public long mReceiverId;
     public int mSelectedPage;
@@ -97,8 +97,8 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     public boolean mHasShowAnim = false;
     public SendGiftSuccessMessage.a mGiftInfo = new SendGiftSuccessMessage.a();
     public final HttpMessageListener mGetGiftsHttpListener = new g(CmdConfigHttp.GET_GIFT_LIST);
-    public final d.b.c.c.g.c mGetGiftsSocketListener = new h(308001);
-    public final d.b.c.c.g.a mSendGiftNetListener = new i(CmdConfigHttp.SEND_GIFT, 308007);
+    public final d.a.c.c.g.c mGetGiftsSocketListener = new h(308001);
+    public final d.a.c.c.g.a mSendGiftNetListener = new i(CmdConfigHttp.SEND_GIFT, 308007);
     public final CustomMessageListener mBuyTdouListener = new j(2001227);
 
     /* loaded from: classes4.dex */
@@ -128,8 +128,8 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         public c() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             BuyGiftActivity.this.mPassword = "";
             BuyGiftActivity.this.mPwdText.clearFocus();
             BuyGiftActivity buyGiftActivity = BuyGiftActivity.this;
@@ -143,15 +143,15 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         public d() {
         }
 
-        @Override // d.b.i0.r.s.a.e
-        public void onClick(d.b.i0.r.s.a aVar) {
+        @Override // d.a.i0.r.s.a.e
+        public void onClick(d.a.i0.r.s.a aVar) {
             BuyGiftActivity.this.showWarningOrNot(false);
             BuyGiftActivity buyGiftActivity = BuyGiftActivity.this;
             buyGiftActivity.mPassword = buyGiftActivity.mPwdText.getText().toString();
             if (StringUtils.isValidPassWord(BuyGiftActivity.this.mPassword)) {
                 if (!StringUtils.isNull(BuyGiftActivity.this.mPublicKey)) {
                     try {
-                        d.b.o0.a.a a2 = d.b.o0.a.b.a(new d.b.o0.a.d.a(EncryptAlgorithm.RSA, BuyGiftActivity.this.mPublicKey));
+                        d.a.o0.a.a a2 = d.a.o0.a.b.a(new d.a.o0.a.d.a(EncryptAlgorithm.RSA, BuyGiftActivity.this.mPublicKey));
                         BuyGiftActivity.this.mPassword = a2.a(BuyGiftActivity.this.mPassword);
                     } catch (Exception e2) {
                         BuyGiftActivity.this.mPassword = "";
@@ -191,8 +191,8 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
 
     /* loaded from: classes4.dex */
     public class g extends HttpMessageListener {
-        public g(int i) {
-            super(i);
+        public g(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -207,9 +207,9 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     /* loaded from: classes4.dex */
-    public class h extends d.b.c.c.g.c {
-        public h(int i) {
-            super(i);
+    public class h extends d.a.c.c.g.c {
+        public h(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -224,12 +224,12 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     /* loaded from: classes4.dex */
-    public class i extends d.b.c.c.g.a {
-        public i(int i, int i2) {
-            super(i, i2);
+    public class i extends d.a.c.c.g.a {
+        public i(int i2, int i3) {
+            super(i2, i3);
         }
 
-        @Override // d.b.c.c.g.a
+        @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof SendGiftSocketResponseMessage) {
                 BuyGiftActivity.this.gift_button.setEnabled(true);
@@ -245,8 +245,8 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
 
     /* loaded from: classes4.dex */
     public class j extends CustomMessageListener {
-        public j(int i) {
-            super(i);
+        public j(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -360,17 +360,17 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             BuyGiftActivity buyGiftActivity = BuyGiftActivity.this;
             buyGiftActivity.mSelectedPage = buyGiftActivity.mCurrentPage;
-            BuyGiftActivity.this.mSelectedPosition = i;
-            d.b.j0.u0.a.a aVar = (d.b.j0.u0.a.a) adapterView.getAdapter();
+            BuyGiftActivity.this.mSelectedPosition = i2;
+            d.a.j0.u0.a.a aVar = (d.a.j0.u0.a.a) adapterView.getAdapter();
             if (aVar != null) {
-                GiftCommonList.GiftItem item = aVar.getItem(i);
+                GiftCommonList.GiftItem item = aVar.getItem(i2);
                 if (item != null) {
                     BuyGiftActivity.this.mCurrentItem = item;
                 }
-                aVar.d(i);
+                aVar.d(i2);
                 aVar.notifyDataSetChanged();
             }
             BuyGiftActivity.this.countTotalPrice(true);
@@ -387,18 +387,18 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             if (BuyGiftActivity.this.mGiftCommonList == null || BuyGiftActivity.this.mGiftCommonList.getGiftInfo() == null) {
                 return;
             }
             List<GiftCommonList.NumInfo> numInfo = BuyGiftActivity.this.mGiftCommonList.getGiftInfo().getNumInfo();
-            if (i == numInfo.size()) {
+            if (i2 == numInfo.size()) {
                 BuyGiftActivity.this.changeEditTextFocusState(true);
                 Selection.selectAll(BuyGiftActivity.this.gift_count_input.getText());
             } else {
                 BuyGiftActivity.this.gift_count_input.setCursorVisible(true);
                 BuyGiftActivity.this.gift_count_input.setFocusable(true);
-                GiftCommonList.NumInfo numInfo2 = numInfo.get(i);
+                GiftCommonList.NumInfo numInfo2 = numInfo.get(i2);
                 if (numInfo2 != null) {
                     EditText editText = BuyGiftActivity.this.gift_count_input;
                     editText.setText("" + numInfo2.getNum());
@@ -420,23 +420,23 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
-            int d2 = d.b.c.e.m.b.d(editable.toString(), 0);
+            int d2 = d.a.c.e.m.b.d(editable.toString(), 0);
             if (editable.toString().length() == String.valueOf(d2).length()) {
                 BuyGiftActivity.this.countTotalPrice(true);
                 return;
             }
-            int i = d2 >= 0 ? d2 : 0;
+            int i2 = d2 >= 0 ? d2 : 0;
             EditText editText = BuyGiftActivity.this.gift_count_input;
-            editText.setText("" + i);
-            BuyGiftActivity.this.gift_count_input.setSelection(String.valueOf(i).length());
+            editText.setText("" + i2);
+            BuyGiftActivity.this.gift_count_input.setSelection(String.valueOf(i2).length());
         }
 
         @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
 
         @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
 
         public /* synthetic */ r(BuyGiftActivity buyGiftActivity, g gVar) {
@@ -448,20 +448,20 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     public class s implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f16545e;
+        public int f16791e;
 
-        public s(int i) {
-            this.f16545e = i;
+        public s(int i2) {
+            this.f16791e = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            int min = Math.min(this.f16545e, BuyGiftActivity.this.mPageInfos.size());
-            int i = 0;
-            for (int i2 = 0; i2 < min; i2++) {
-                i += BuyGiftActivity.this.mPageInfos.get(i2);
+            int min = Math.min(this.f16791e, BuyGiftActivity.this.mPageInfos.size());
+            int i2 = 0;
+            for (int i3 = 0; i3 < min; i3++) {
+                i2 += BuyGiftActivity.this.mPageInfos.get(i3);
             }
-            BuyGiftActivity.this.mCurrentPage = i;
+            BuyGiftActivity.this.mCurrentPage = i2;
             BuyGiftActivity.this.gift_viewpager.setCurrentItem(BuyGiftActivity.this.mCurrentPage);
             BuyGiftActivity.this.updateIndicatorAndTabs();
         }
@@ -507,7 +507,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
 
     /* JADX INFO: Access modifiers changed from: private */
     public int countTotalPrice(boolean z) {
-        int d2 = d.b.c.e.m.b.d(this.gift_count_input.getText().toString(), 1);
+        int d2 = d.a.c.e.m.b.d(this.gift_count_input.getText().toString(), 1);
         GiftCommonList.GiftItem giftItem = this.mCurrentItem;
         int price = ((giftItem == null || giftItem.getPrice() <= 0) ? 1 : this.mCurrentItem.getPrice()) * d2;
         if (z) {
@@ -560,7 +560,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     private GridView getPageView(List<GiftCommonList.GiftItem> list, int i2) {
-        d.b.j0.u0.a.a aVar = new d.b.j0.u0.a.a(getPageContext().getPageActivity());
+        d.a.j0.u0.a.a aVar = new d.a.j0.u0.a.a(getPageContext().getPageActivity());
         aVar.c(list);
         aVar.d(i2);
         GridView gridView = new GridView(getPageContext().getPageActivity());
@@ -599,7 +599,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         String str2;
         DataRes dataRes2;
         Integer num;
-        d.b.i0.r.s.a aVar = this.mPwdDialog;
+        d.a.i0.r.s.a aVar = this.mPwdDialog;
         if (aVar != null && aVar.isShowing()) {
             this.mPwdDialog.setYesBtnClickable(true);
             this.mPwdDialog.setNoBtnClickable(true);
@@ -612,12 +612,12 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             if (intValue > 0) {
                 showToast(String.format(getPageContext().getString(R.string.not_enough_tdou_format), Integer.valueOf(intValue)));
             }
-            sendMessage(new CustomMessage(2002001, new BuyTBeanActivityConfig(getPageContext().getPageActivity(), countTotalPrice)));
+            CurrencyJumpHelper.buyGiftGotoBuyTBeanPage(getPageContext().getPageActivity(), countTotalPrice);
             InputMethodManager inputMethodManager = this.mInputMethodManager;
             if (inputMethodManager != null) {
                 HidenSoftKeyPad(inputMethodManager, this.gift_count_input);
             }
-            d.b.i0.r.s.a aVar2 = this.mPwdDialog;
+            d.a.i0.r.s.a aVar2 = this.mPwdDialog;
             if (aVar2 == null || !aVar2.isShowing()) {
                 return;
             }
@@ -733,7 +733,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             }
             list.removeAll(arrayList);
         }
-        d.b.j0.u0.a.b bVar = new d.b.j0.u0.a.b(getPageContext().getPageActivity());
+        d.a.j0.u0.a.b bVar = new d.a.j0.u0.a.b(getPageContext().getPageActivity());
         this.mGiftNumAdapter = bVar;
         this.gift_num_list.setAdapter((ListAdapter) bVar);
         this.mGiftNumAdapter.b(list);
@@ -779,7 +779,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         ListView listView = (ListView) findViewById(R.id.gift_num_list);
         this.gift_num_list = listView;
         listView.setOnItemClickListener(new q(this, null));
-        this.mPwdDialog = new d.b.i0.r.s.a(getActivity());
+        this.mPwdDialog = new d.a.i0.r.s.a(getActivity());
         View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_tdou_pay_pwd, (ViewGroup) null);
         this.mPwdContentView = inflate;
         this.mPwdText = (EditText) inflate.findViewById(R.id.password_dialog_input);
@@ -803,7 +803,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_GIFT_LIST, TbConfig.SERVER_ADDRESS + TbConfig.GIFT_COMMONLIST + "?cmd=308001");
         tbHttpMessageTask.setResponsedClass(GetGiftCommonListHttpResponseMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        d.b.i0.v0.b bVar = new d.b.i0.v0.b(308001);
+        d.a.i0.v0.b bVar = new d.a.i0.v0.b(308001);
         bVar.setResponsedClass(GetGiftCommonListSocketResponseMessage.class);
         bVar.g(true);
         bVar.h(false);
@@ -812,7 +812,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.SEND_GIFT, TbConfig.SERVER_ADDRESS + TbConfig.SEND_GIFT + "?cmd=308007");
         tbHttpMessageTask2.setResponsedClass(SendGiftHttpResponseMessage.class);
         messageManager.registerTask(tbHttpMessageTask2);
-        d.b.i0.v0.b bVar2 = new d.b.i0.v0.b(308007);
+        d.a.i0.v0.b bVar2 = new d.a.i0.v0.b(308007);
         bVar2.setResponsedClass(SendGiftSocketResponseMessage.class);
         bVar2.g(true);
         bVar2.h(false);
@@ -825,7 +825,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         if (this.mCurrentItem == null || this.mReceiverId <= 0) {
             return;
         }
-        d.b.i0.r.s.a aVar = this.mPwdDialog;
+        d.a.i0.r.s.a aVar = this.mPwdDialog;
         if (aVar != null && aVar.isShowing()) {
             this.mPwdDialog.setYesBtnClickable(false);
             this.mPwdDialog.setNoBtnClickable(false);
@@ -833,7 +833,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         this.gift_button.setEnabled(false);
         this.gift_progress_layout.setVisibility(0);
         RequestSendGiftNetMessage requestSendGiftNetMessage = new RequestSendGiftNetMessage();
-        int d2 = d.b.c.e.m.b.d(String.valueOf(this.gift_count_input.getText()), 1);
+        int d2 = d.a.c.e.m.b.d(String.valueOf(this.gift_count_input.getText()), 1);
         requestSendGiftNetMessage.setParams(this.mReceiverId, this.mCurrentItem.getGiftId(), this.mCurrentItem.getPrice(), d2, readFromVal(), this.mPassword);
         this.mGiftInfo.a(d2);
         this.mGiftInfo.c(this.mCurrentItem.getName());
@@ -931,7 +931,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         boolean z = TbadkCoreApplication.getInst().getSkinType() == 1;
         getLayoutMode().k(z);
         getLayoutMode().j(this.gift_list_layout);
-        d.b.j0.u0.a.b bVar = this.mGiftNumAdapter;
+        d.a.j0.u0.a.b bVar = this.mGiftNumAdapter;
         if (bVar != null) {
             bVar.notifyDataSetChanged();
         }
@@ -959,7 +959,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         if (i2 == 4) {
-            d.b.i0.r.s.a aVar = this.mPwdDialog;
+            d.a.i0.r.s.a aVar = this.mPwdDialog;
             if (aVar != null && aVar.isShowing()) {
                 this.mPwdText.clearFocus();
                 this.mPwdDialog.dismiss();
@@ -995,7 +995,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         }
         GridView gridView = (GridView) this.mViewPagerContent.get(i2);
         if (gridView.getAdapter() != null) {
-            d.b.j0.u0.a.a aVar = (d.b.j0.u0.a.a) gridView.getAdapter();
+            d.a.j0.u0.a.a aVar = (d.a.j0.u0.a.a) gridView.getAdapter();
             if (aVar.b() >= 0 && i2 != this.mSelectedPage) {
                 aVar.d(-1);
                 aVar.notifyDataSetChanged();

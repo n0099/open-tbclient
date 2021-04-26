@@ -11,60 +11,60 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes6.dex */
-public class a extends com.kwad.sdk.core.view.b {
+public class a extends com.kwad.sdk.core.view.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Dialog f33921a;
+    public final Dialog f32948a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdBaseFrameLayout f33922b;
+    public AdBaseFrameLayout f32949b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f33923c;
+    public d f32950c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Presenter f33924d;
+    public Presenter f32951d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public AdTemplate f33925e;
+    public AdTemplate f32952e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdInfo f33926f;
+    public AdInfo f32953f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f33927g;
+    public final int f32954g;
 
-    public a(Context context, @NonNull b bVar, @NonNull AdTemplate adTemplate, int i) {
+    public a(Context context, @NonNull b bVar, @NonNull AdTemplate adTemplate, int i2) {
         super(context);
-        this.f33927g = i;
-        this.f33921a = bVar;
+        this.f32954g = i2;
+        this.f32948a = bVar;
         a(context);
         a(adTemplate);
     }
 
     private void a(Context context) {
         FrameLayout.inflate(context, R.layout.ksad_download_dialog_layout, this);
-        this.f33922b = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
+        this.f32949b = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
     }
 
     private d d() {
         d dVar = new d();
-        dVar.f33937d = this.f33922b;
-        dVar.f33938e = this.f33925e;
-        dVar.f33934a = this.f33927g;
-        if (com.kwad.sdk.core.response.b.a.y(this.f33926f)) {
-            dVar.f33939f = new com.kwad.sdk.core.download.b.b(this.f33925e);
+        dVar.f32964d = this.f32949b;
+        dVar.f32965e = this.f32952e;
+        dVar.f32961a = this.f32954g;
+        if (com.kwad.sdk.core.response.b.a.v(this.f32953f)) {
+            dVar.f32966f = new com.kwad.sdk.core.download.b.b(this.f32952e);
         }
-        dVar.f33935b = new e() { // from class: com.kwad.sdk.core.download.a.a.1
+        dVar.f32962b = new e() { // from class: com.kwad.sdk.core.download.a.a.1
             @Override // com.kwad.sdk.core.download.a.e
             public void a() {
                 com.kwad.sdk.core.d.a.a("DownloadDialogView", "onClose()");
-                com.kwad.sdk.core.report.b.o(a.this.f33925e);
-                if (a.this.f33921a == null || !a.this.f33921a.isShowing()) {
+                com.kwad.sdk.core.report.b.m(a.this.f32952e);
+                if (a.this.f32948a == null || !a.this.f32948a.isShowing()) {
                     return;
                 }
-                a.this.f33921a.dismiss();
+                a.this.f32948a.dismiss();
             }
         };
         return dVar;
@@ -76,29 +76,29 @@ public class a extends com.kwad.sdk.core.view.b {
         return presenter;
     }
 
-    @Override // com.kwad.sdk.core.view.b
+    @Override // com.kwad.sdk.core.view.a
     public void a() {
-        this.f33923c = d();
+        this.f32950c = d();
         Presenter e2 = e();
-        this.f33924d = e2;
-        e2.a((View) this.f33922b);
-        this.f33924d.a(this.f33923c);
+        this.f32951d = e2;
+        e2.a((View) this.f32949b);
+        this.f32951d.a(this.f32950c);
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
-        this.f33925e = adTemplate;
-        this.f33926f = com.kwad.sdk.core.response.b.c.j(adTemplate);
+        this.f32952e = adTemplate;
+        this.f32953f = com.kwad.sdk.core.response.b.c.g(adTemplate);
     }
 
-    @Override // com.kwad.sdk.core.view.b
+    @Override // com.kwad.sdk.core.view.a
     public void b() {
-        d dVar = this.f33923c;
+        d dVar = this.f32950c;
         if (dVar != null) {
             dVar.a();
         }
-        Presenter presenter = this.f33924d;
+        Presenter presenter = this.f32951d;
         if (presenter != null) {
-            presenter.j();
+            presenter.g();
         }
     }
 

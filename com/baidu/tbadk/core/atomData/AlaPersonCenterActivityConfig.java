@@ -10,7 +10,7 @@ public class AlaPersonCenterActivityConfig extends IntentConfig {
     public static final String PORTRAIT_URL = "key_protrait";
     public static final String USER_ID = "user_id";
 
-    public AlaPersonCenterActivityConfig(Context context, String str, String str2, String str3, int i, boolean z) {
+    public AlaPersonCenterActivityConfig(Context context, String str, String str2, String str3, int i2, boolean z) {
         super(context);
         getIntent().putExtra("user_id", str);
         getIntent().putExtra("user_name", str2);

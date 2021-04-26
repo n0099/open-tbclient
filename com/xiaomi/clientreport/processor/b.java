@@ -8,17 +8,17 @@ import com.xiaomi.push.bq;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b implements IPerfProcessor {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40519a;
+    public Context f38034a;
 
     /* renamed from: a  reason: collision with other field name */
     public HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f40a;
 
     public b(Context context) {
-        this.f40519a = context;
+        this.f38034a = context;
     }
 
     public static String a(com.xiaomi.clientreport.data.a aVar) {
@@ -27,14 +27,14 @@ public class b implements IPerfProcessor {
 
     private String b(com.xiaomi.clientreport.data.a aVar) {
         String str;
-        int i = aVar.production;
+        int i2 = aVar.production;
         String str2 = aVar.clientInterfaceId;
-        if (i <= 0 || TextUtils.isEmpty(str2)) {
+        if (i2 <= 0 || TextUtils.isEmpty(str2)) {
             str = "";
         } else {
-            str = String.valueOf(i) + "#" + str2;
+            str = String.valueOf(i2) + "#" + str2;
         }
-        File externalFilesDir = this.f40519a.getExternalFilesDir(PerformerBox.TYPE);
+        File externalFilesDir = this.f38034a.getExternalFilesDir(PerformerBox.TYPE);
         if (externalFilesDir == null) {
             com.xiaomi.channel.commonutils.logger.b.d("cannot get folder when to write perf");
             return null;
@@ -50,9 +50,9 @@ public class b implements IPerfProcessor {
         if (TextUtils.isEmpty(b2)) {
             return null;
         }
-        for (int i = 0; i < 20; i++) {
-            String str = b2 + i;
-            if (bq.m171a(this.f40519a, str)) {
+        for (int i2 = 0; i2 < 20; i2++) {
+            String str = b2 + i2;
+            if (bq.m174a(this.f38034a, str)) {
                 return str;
             }
         }
@@ -61,14 +61,14 @@ public class b implements IPerfProcessor {
 
     @Override // com.xiaomi.clientreport.processor.c
     public void a() {
-        bq.a(this.f40519a, PerformerBox.TYPE, "perfUploading");
-        File[] m172a = bq.m172a(this.f40519a, "perfUploading");
-        if (m172a == null || m172a.length <= 0) {
+        bq.a(this.f38034a, PerformerBox.TYPE, "perfUploading");
+        File[] m175a = bq.m175a(this.f38034a, "perfUploading");
+        if (m175a == null || m175a.length <= 0) {
             return;
         }
-        for (File file : m172a) {
+        for (File file : m175a) {
             if (file != null) {
-                List<String> a2 = e.a(this.f40519a, file.getAbsolutePath());
+                List<String> a2 = e.a(this.f38034a, file.getAbsolutePath());
                 file.delete();
                 a(a2);
             }
@@ -77,7 +77,7 @@ public class b implements IPerfProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     /* renamed from: a */
-    public void mo63a(com.xiaomi.clientreport.data.a aVar) {
+    public void mo66a(com.xiaomi.clientreport.data.a aVar) {
         if ((aVar instanceof PerfClientReport) && this.f40a != null) {
             PerfClientReport perfClientReport = (PerfClientReport) aVar;
             String a2 = a((com.xiaomi.clientreport.data.a) perfClientReport);
@@ -97,7 +97,7 @@ public class b implements IPerfProcessor {
     }
 
     public void a(List<String> list) {
-        bq.a(this.f40519a, list);
+        bq.a(this.f38034a, list);
     }
 
     public void a(com.xiaomi.clientreport.data.a[] aVarArr) {

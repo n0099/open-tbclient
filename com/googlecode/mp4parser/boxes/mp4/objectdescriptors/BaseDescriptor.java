@@ -27,17 +27,17 @@ public abstract class BaseDescriptor {
         return this.tag;
     }
 
-    public final void parse(int i, ByteBuffer byteBuffer) throws IOException {
-        this.tag = i;
+    public final void parse(int i2, ByteBuffer byteBuffer) throws IOException {
+        this.tag = i2;
         int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
         this.sizeOfInstance = readUInt8 & 127;
-        int i2 = 1;
+        int i3 = 1;
         while ((readUInt8 >>> 7) == 1) {
             readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-            i2++;
+            i3++;
             this.sizeOfInstance = (this.sizeOfInstance << 7) | (readUInt8 & 127);
         }
-        this.sizeBytes = i2;
+        this.sizeBytes = i3;
         ByteBuffer slice = byteBuffer.slice();
         slice.limit(this.sizeOfInstance);
         parseDetail(slice);

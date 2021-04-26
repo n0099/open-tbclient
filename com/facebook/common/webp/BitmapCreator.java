@@ -1,7 +1,7 @@
 package com.facebook.common.webp;
 
 import android.graphics.Bitmap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface BitmapCreator {
-    Bitmap createNakedBitmap(int i, int i2, Bitmap.Config config);
+    Bitmap createNakedBitmap(int i2, int i3, Bitmap.Config config);
 }

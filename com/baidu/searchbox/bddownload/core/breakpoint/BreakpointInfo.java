@@ -16,6 +16,7 @@ public class BreakpointInfo {
     public String etag;
     public final DownloadStrategy.FilenameHolder filenameHolder;
     public final int id;
+    public String mimeType;
     @NonNull
     public final File parentFile;
     @Nullable
@@ -23,8 +24,8 @@ public class BreakpointInfo {
     public final boolean taskOnlyProvidedParentPath;
     public final String url;
 
-    public BreakpointInfo(int i, @NonNull String str, @NonNull File file, @Nullable String str2) {
-        this.id = i;
+    public BreakpointInfo(int i2, @NonNull String str, @NonNull File file, @Nullable String str2) {
+        this.id = i2;
         this.url = str;
         this.parentFile = file;
         if (Util.isEmpty(str2)) {
@@ -50,8 +51,8 @@ public class BreakpointInfo {
         return breakpointInfo;
     }
 
-    public BreakpointInfo copyWithReplaceId(int i) {
-        BreakpointInfo breakpointInfo = new BreakpointInfo(i, this.url, this.parentFile, this.filenameHolder.get(), this.taskOnlyProvidedParentPath);
+    public BreakpointInfo copyWithReplaceId(int i2) {
+        BreakpointInfo breakpointInfo = new BreakpointInfo(i2, this.url, this.parentFile, this.filenameHolder.get(), this.taskOnlyProvidedParentPath);
         breakpointInfo.chunked = this.chunked;
         for (BlockInfo blockInfo : this.blockInfoList) {
             breakpointInfo.blockInfoList.add(blockInfo.copy());
@@ -59,8 +60,8 @@ public class BreakpointInfo {
         return breakpointInfo;
     }
 
-    public BreakpointInfo copyWithReplaceIdAndUrl(int i, String str) {
-        BreakpointInfo breakpointInfo = new BreakpointInfo(i, str, this.parentFile, this.filenameHolder.get(), this.taskOnlyProvidedParentPath);
+    public BreakpointInfo copyWithReplaceIdAndUrl(int i2, String str) {
+        BreakpointInfo breakpointInfo = new BreakpointInfo(i2, str, this.parentFile, this.filenameHolder.get(), this.taskOnlyProvidedParentPath);
         breakpointInfo.chunked = this.chunked;
         for (BlockInfo blockInfo : this.blockInfoList) {
             breakpointInfo.blockInfoList.add(blockInfo.copy());
@@ -68,8 +69,8 @@ public class BreakpointInfo {
         return breakpointInfo;
     }
 
-    public BlockInfo getBlock(int i) {
-        return this.blockInfoList.get(i);
+    public BlockInfo getBlock(int i2) {
+        return this.blockInfoList.get(i2);
     }
 
     public int getBlockCount() {
@@ -110,6 +111,11 @@ public class BreakpointInfo {
         return getTotalLength() - getTotalOffset();
     }
 
+    @Nullable
+    public String getMimeType() {
+        return this.mimeType;
+    }
+
     @NonNull
     public File getParentFile() {
         return this.parentFile;
@@ -131,8 +137,8 @@ public class BreakpointInfo {
         ArrayList arrayList = (ArrayList) ((ArrayList) this.blockInfoList).clone();
         int size = arrayList.size();
         long j = 0;
-        for (int i = 0; i < size; i++) {
-            j += ((BlockInfo) arrayList.get(i)).getCurrentOffset();
+        for (int i2 = 0; i2 < size; i2++) {
+            j += ((BlockInfo) arrayList.get(i2)).getCurrentOffset();
         }
         return j;
     }
@@ -145,8 +151,8 @@ public class BreakpointInfo {
         return this.chunked;
     }
 
-    public boolean isLastBlock(int i) {
-        return i == this.blockInfoList.size() - 1;
+    public boolean isLastBlock(int i2) {
+        return i2 == this.blockInfoList.size() - 1;
     }
 
     public boolean isSameFrom(DownloadTask downloadTask) {
@@ -193,12 +199,16 @@ public class BreakpointInfo {
         this.etag = str;
     }
 
+    public void setMimeType(String str) {
+        this.mimeType = str;
+    }
+
     public String toString() {
         return "id[" + this.id + "] url[" + this.url + "] etag[" + this.etag + "] taskOnlyProvidedParentPath[" + this.taskOnlyProvidedParentPath + "] parent path[" + this.parentFile + "] filename[" + this.filenameHolder.get() + "] block(s):" + this.blockInfoList.toString();
     }
 
-    public BreakpointInfo(int i, @NonNull String str, @NonNull File file, @Nullable String str2, boolean z) {
-        this.id = i;
+    public BreakpointInfo(int i2, @NonNull String str, @NonNull File file, @Nullable String str2, boolean z) {
+        this.id = i2;
         this.url = str;
         this.parentFile = file;
         if (Util.isEmpty(str2)) {

@@ -26,32 +26,34 @@ public class b {
     public static Set<b> j = Collections.synchronizedSet(new HashSet());
 
     /* renamed from: a  reason: collision with root package name */
-    public AdSlot f28207a;
+    public AdSlot f29072a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f28209c;
+    public Context f29074c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TTAdNative.NativeExpressAdListener f28210d;
+    public TTAdNative.NativeExpressAdListener f29075d;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<com.bytedance.sdk.openadsdk.core.d.l> f28212f;
+    public List<com.bytedance.sdk.openadsdk.core.d.l> f29077f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<com.bytedance.sdk.openadsdk.core.d.l> f28213g;
+    public List<com.bytedance.sdk.openadsdk.core.d.l> f29078g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f28214h;
+    public a f29079h;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicBoolean f28211e = new AtomicBoolean(false);
-    public int i = 5;
+    public final AtomicBoolean f29076e = new AtomicBoolean(false);
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f29080i = 5;
     public ScheduledFuture<?> k = null;
     public ScheduledFuture<?> l = null;
     public ScheduledFuture<?> m = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public final q f28208b = p.f();
+    public final q f29073b = p.f();
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -62,9 +64,9 @@ public class b {
 
     public b(Context context) {
         if (context != null) {
-            this.f28209c = context.getApplicationContext();
+            this.f29074c = context.getApplicationContext();
         } else {
-            this.f28209c = p.a();
+            this.f29074c = p.a();
         }
         j.add(this);
     }
@@ -82,11 +84,11 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        List<com.bytedance.sdk.openadsdk.core.d.l> list = this.f28212f;
+        List<com.bytedance.sdk.openadsdk.core.d.l> list = this.f29077f;
         if (list != null) {
             list.clear();
         }
-        List<com.bytedance.sdk.openadsdk.core.d.l> list2 = this.f28213g;
+        List<com.bytedance.sdk.openadsdk.core.d.l> list2 = this.f29078g;
         if (list2 != null) {
             list2.clear();
         }
@@ -104,21 +106,21 @@ public class b {
         return new b(context);
     }
 
-    public void a(AdSlot adSlot, int i, @NonNull TTAdNative.NativeExpressAdListener nativeExpressAdListener, int i2) {
-        a(adSlot, i, nativeExpressAdListener, null, i2);
+    public void a(AdSlot adSlot, int i2, @NonNull TTAdNative.NativeExpressAdListener nativeExpressAdListener, int i3) {
+        a(adSlot, i2, nativeExpressAdListener, null, i3);
     }
 
-    public void a(AdSlot adSlot, int i, @Nullable TTAdNative.NativeExpressAdListener nativeExpressAdListener, @Nullable a aVar, int i2) {
+    public void a(AdSlot adSlot, int i2, @Nullable TTAdNative.NativeExpressAdListener nativeExpressAdListener, @Nullable a aVar, int i3) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.f28211e.get()) {
+        if (this.f29076e.get()) {
             u.f("ExpressAdLoadManager", "express ad is loading...");
             return;
         }
-        this.i = i;
-        this.f28211e.set(true);
-        this.f28207a = adSlot;
-        this.f28210d = nativeExpressAdListener;
-        this.f28214h = aVar;
+        this.f29080i = i2;
+        this.f29076e.set(true);
+        this.f29072a = adSlot;
+        this.f29075d = nativeExpressAdListener;
+        this.f29079h = aVar;
         a(adSlot, currentTimeMillis);
     }
 
@@ -138,18 +140,18 @@ public class b {
             return;
         }
         com.bytedance.sdk.openadsdk.core.d.m mVar = new com.bytedance.sdk.openadsdk.core.d.m();
-        mVar.f27890e = 2;
-        this.f28208b.a(adSlot, mVar, this.i, new q.b() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.b.1
+        mVar.f28739e = 2;
+        this.f29073b.a(adSlot, mVar, this.f29080i, new q.b() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.b.1
             @Override // com.bytedance.sdk.openadsdk.core.q.b
-            public void a(int i, String str) {
-                b.this.a(i, str);
+            public void a(int i2, String str) {
+                b.this.a(i2, str);
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.q.b
             public void a(com.bytedance.sdk.openadsdk.core.d.a aVar) {
                 if (aVar.c() != null && !aVar.c().isEmpty()) {
-                    b.this.f28212f = aVar.c();
-                    b.this.f28213g = aVar.c();
+                    b.this.f29077f = aVar.c();
+                    b.this.f29078g = aVar.c();
                     b.this.a();
                     b.this.a(j2);
                     return;
@@ -161,7 +163,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        List<com.bytedance.sdk.openadsdk.core.d.l> list = this.f28212f;
+        List<com.bytedance.sdk.openadsdk.core.d.l> list = this.f29077f;
         if (list == null) {
             return;
         }
@@ -169,7 +171,7 @@ public class b {
             if (lVar.aH() && lVar.af() != null && !lVar.af().isEmpty()) {
                 for (com.bytedance.sdk.openadsdk.core.d.k kVar : lVar.af()) {
                     if (!TextUtils.isEmpty(kVar.a())) {
-                        com.bytedance.sdk.openadsdk.i.e.c().g().a(kVar.a(), (b.InterfaceC0326b) com.bytedance.sdk.openadsdk.i.a.b.a(), kVar.b(), kVar.c(), false);
+                        com.bytedance.sdk.openadsdk.i.e.c().g().a(kVar.a(), (b.InterfaceC0319b) com.bytedance.sdk.openadsdk.i.a.b.a(), kVar.b(), kVar.c(), false);
                     }
                 }
             }
@@ -183,34 +185,34 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final long j2) {
-        if (this.f28211e.getAndSet(false)) {
+        if (this.f29076e.getAndSet(false)) {
             new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.b.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (b.this.f28213g == null || b.this.f28213g.size() <= 0) {
-                        if (b.this.f28210d != null) {
-                            b.this.f28210d.onError(108, com.bytedance.sdk.openadsdk.core.h.a(108));
+                    if (b.this.f29078g == null || b.this.f29078g.size() <= 0) {
+                        if (b.this.f29075d != null) {
+                            b.this.f29075d.onError(108, com.bytedance.sdk.openadsdk.core.h.a(108));
                             b.this.a(108);
                         }
-                        if (b.this.f28214h != null) {
-                            b.this.f28214h.a();
+                        if (b.this.f29079h != null) {
+                            b.this.f29079h.a();
                         }
                     } else {
-                        if (b.this.f28210d != null) {
-                            ArrayList arrayList = new ArrayList(b.this.f28213g.size());
-                            for (com.bytedance.sdk.openadsdk.core.d.l lVar : b.this.f28213g) {
+                        if (b.this.f29075d != null) {
+                            ArrayList arrayList = new ArrayList(b.this.f29078g.size());
+                            for (com.bytedance.sdk.openadsdk.core.d.l lVar : b.this.f29078g) {
                                 arrayList.add(b.this.a(lVar));
                             }
                             if (!arrayList.isEmpty()) {
-                                com.bytedance.sdk.openadsdk.c.d.a(b.this.f28209c, (com.bytedance.sdk.openadsdk.core.d.l) b.this.f28213g.get(0), ak.b(b.this.f28207a.getDurationSlotType()), j2);
-                                b.this.f28210d.onNativeExpressAdLoad(arrayList);
+                                com.bytedance.sdk.openadsdk.c.d.a(b.this.f29074c, (com.bytedance.sdk.openadsdk.core.d.l) b.this.f29078g.get(0), ak.b(b.this.f29072a.getDurationSlotType()), j2);
+                                b.this.f29075d.onNativeExpressAdLoad(arrayList);
                             } else {
-                                b.this.f28210d.onError(103, com.bytedance.sdk.openadsdk.core.h.a(103));
+                                b.this.f29075d.onError(103, com.bytedance.sdk.openadsdk.core.h.a(103));
                                 b.this.a(103);
                             }
                         }
-                        if (b.this.f28214h != null) {
-                            b.this.f28214h.a(b.this.f28213g);
+                        if (b.this.f29079h != null) {
+                            b.this.f29079h.a(b.this.f29078g);
                         }
                     }
                     b.this.b();
@@ -220,21 +222,21 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i) {
-        List<com.bytedance.sdk.openadsdk.core.d.l> list = this.f28212f;
-        com.bytedance.sdk.openadsdk.h.a.c f2 = com.bytedance.sdk.openadsdk.h.a.c.b().a(this.i).c(this.f28207a.getCodeId()).f((list == null || list.size() <= 0) ? "" : ak.h(this.f28212f.get(0).ap()));
-        f2.b(i).g(com.bytedance.sdk.openadsdk.core.h.a(i));
+    public void a(int i2) {
+        List<com.bytedance.sdk.openadsdk.core.d.l> list = this.f29077f;
+        com.bytedance.sdk.openadsdk.h.a.c f2 = com.bytedance.sdk.openadsdk.h.a.c.b().a(this.f29080i).c(this.f29072a.getCodeId()).f((list == null || list.size() <= 0) ? "" : ak.h(this.f29077f.get(0).ap()));
+        f2.b(i2).g(com.bytedance.sdk.openadsdk.core.h.a(i2));
         com.bytedance.sdk.openadsdk.h.a.a().h(f2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, String str) {
-        if (this.f28211e.getAndSet(false)) {
-            TTAdNative.NativeExpressAdListener nativeExpressAdListener = this.f28210d;
+    public void a(int i2, String str) {
+        if (this.f29076e.getAndSet(false)) {
+            TTAdNative.NativeExpressAdListener nativeExpressAdListener = this.f29075d;
             if (nativeExpressAdListener != null) {
-                nativeExpressAdListener.onError(i, str);
+                nativeExpressAdListener.onError(i2, str);
             }
-            a aVar = this.f28214h;
+            a aVar = this.f29079h;
             if (aVar != null) {
                 aVar.a();
             }
@@ -244,26 +246,26 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public TTNativeExpressAd a(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        int i = this.i;
-        if (i == 1) {
+        int i2 = this.f29080i;
+        if (i2 == 1) {
             if (lVar.X() != null) {
-                return new com.bytedance.sdk.openadsdk.core.bannerexpress.c(this.f28209c, lVar, this.f28207a);
+                return new com.bytedance.sdk.openadsdk.core.bannerexpress.c(this.f29074c, lVar, this.f29072a);
             }
-            return new com.bytedance.sdk.openadsdk.core.bannerexpress.b(this.f28209c, lVar, this.f28207a);
-        } else if (i == 2) {
+            return new com.bytedance.sdk.openadsdk.core.bannerexpress.b(this.f29074c, lVar, this.f29072a);
+        } else if (i2 == 2) {
             if (lVar.X() != null) {
-                return new com.bytedance.sdk.openadsdk.core.c.c(this.f28209c, lVar, this.f28207a);
+                return new com.bytedance.sdk.openadsdk.core.c.c(this.f29074c, lVar, this.f29072a);
             }
-            return new com.bytedance.sdk.openadsdk.core.c.b(this.f28209c, lVar, this.f28207a);
-        } else if (i != 5) {
-            if (i != 9) {
+            return new com.bytedance.sdk.openadsdk.core.c.b(this.f29074c, lVar, this.f29072a);
+        } else if (i2 != 5) {
+            if (i2 != 9) {
                 return null;
             }
-            return new m(this.f28209c, lVar, this.f28207a);
+            return new m(this.f29074c, lVar, this.f29072a);
         } else if (lVar.X() != null) {
-            return new o(this.f28209c, lVar, this.f28207a);
+            return new o(this.f29074c, lVar, this.f29072a);
         } else {
-            return new k(this.f28209c, lVar, this.f28207a);
+            return new k(this.f29074c, lVar, this.f29072a);
         }
     }
 

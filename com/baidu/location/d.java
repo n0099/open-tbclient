@@ -14,7 +14,7 @@ public final class d implements Parcelable.Creator<Poi> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // android.os.Parcelable.Creator
-    public Poi[] newArray(int i) {
-        return new Poi[i];
+    public Poi[] newArray(int i2) {
+        return new Poi[i2];
     }
 }

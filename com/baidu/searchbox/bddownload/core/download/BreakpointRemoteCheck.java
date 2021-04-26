@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.bddownload.BdDownload;
 import com.baidu.searchbox.bddownload.DownloadTask;
+import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
 import com.baidu.searchbox.bddownload.core.cause.ResumeFailedCause;
+import com.baidu.searchbox.bddownload.core.exception.DownloadSecurityException;
 import com.baidu.searchbox.bddownload.core.exception.FileBusyAfterRunException;
 import com.baidu.searchbox.bddownload.core.exception.ServerCanceledException;
 import java.io.IOException;
@@ -26,34 +28,39 @@ public class BreakpointRemoteCheck {
     }
 
     public void check() throws IOException {
-        DownloadStrategy downloadStrategy = BdDownload.with().downloadStrategy();
-        ConnectTrial createConnectTrial = createConnectTrial();
-        createConnectTrial.executeTrial();
-        boolean isAcceptRange = createConnectTrial.isAcceptRange();
-        boolean isChunked = createConnectTrial.isChunked();
-        long instanceLength = createConnectTrial.getInstanceLength();
-        String responseEtag = createConnectTrial.getResponseEtag();
-        String responseFilename = createConnectTrial.getResponseFilename();
-        int responseCode = createConnectTrial.getResponseCode();
-        downloadStrategy.validFilenameFromResponse(responseFilename, this.task, this.info);
-        this.info.setChunked(isChunked);
-        this.info.setEtag(responseEtag);
-        if (!BdDownload.with().downloadDispatcher().isFileConflictAfterRun(this.task)) {
-            ResumeFailedCause preconditionFailedCause = downloadStrategy.getPreconditionFailedCause(responseCode, this.info.getTotalOffset() != 0, this.info, responseEtag);
-            boolean z = preconditionFailedCause == null;
-            this.resumable = z;
-            this.failedCause = preconditionFailedCause;
-            this.instanceLength = instanceLength;
-            this.acceptRange = isAcceptRange;
-            if (isTrialSpecialPass(responseCode, instanceLength, z)) {
+        if (!Util.isInvalidUrl(this.task.getUrl())) {
+            DownloadStrategy downloadStrategy = BdDownload.with().downloadStrategy();
+            ConnectTrial createConnectTrial = createConnectTrial();
+            createConnectTrial.executeTrial();
+            boolean isAcceptRange = createConnectTrial.isAcceptRange();
+            boolean isChunked = createConnectTrial.isChunked();
+            long instanceLength = createConnectTrial.getInstanceLength();
+            String responseEtag = createConnectTrial.getResponseEtag();
+            String responseFilename = createConnectTrial.getResponseFilename();
+            int responseCode = createConnectTrial.getResponseCode();
+            String responseContentType = createConnectTrial.getResponseContentType();
+            downloadStrategy.validFilenameFromResponse(responseFilename, this.task, this.info);
+            this.info.setChunked(isChunked);
+            this.info.setEtag(responseEtag);
+            this.info.setMimeType(responseContentType);
+            if (!BdDownload.with().downloadDispatcher().isFileConflictAfterRun(this.task)) {
+                ResumeFailedCause preconditionFailedCause = downloadStrategy.getPreconditionFailedCause(responseCode, this.info.getTotalOffset() != 0, this.info, responseEtag);
+                boolean z = preconditionFailedCause == null;
+                this.resumable = z;
+                this.failedCause = preconditionFailedCause;
+                this.instanceLength = instanceLength;
+                this.acceptRange = isAcceptRange;
+                if (isTrialSpecialPass(responseCode, instanceLength, z)) {
+                    return;
+                }
+                if (downloadStrategy.isServerCanceled(responseCode, this.info.getTotalOffset() != 0)) {
+                    throw new ServerCanceledException(responseCode, this.info.getTotalOffset());
+                }
                 return;
             }
-            if (downloadStrategy.isServerCanceled(responseCode, this.info.getTotalOffset() != 0)) {
-                throw new ServerCanceledException(responseCode, this.info.getTotalOffset());
-            }
-            return;
+            throw FileBusyAfterRunException.SIGNAL;
         }
-        throw FileBusyAfterRunException.SIGNAL;
+        throw new DownloadSecurityException("java.lang.IllegalArgumentException: Expected URL scheme 'http' or 'https' but no colon was found");
     }
 
     public ConnectTrial createConnectTrial() {
@@ -86,8 +93,8 @@ public class BreakpointRemoteCheck {
         return this.resumable;
     }
 
-    public boolean isTrialSpecialPass(int i, long j, boolean z) {
-        return i == 416 && j >= 0 && z;
+    public boolean isTrialSpecialPass(int i2, long j, boolean z) {
+        return i2 == 416 && j >= 0 && z;
     }
 
     public String toString() {

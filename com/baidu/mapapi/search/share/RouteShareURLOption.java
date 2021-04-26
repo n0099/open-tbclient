@@ -18,20 +18,20 @@ public class RouteShareURLOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public int f7369a;
+        public int f7631a;
 
-        RouteShareMode(int i) {
-            this.f7369a = -1;
-            this.f7369a = i;
+        RouteShareMode(int i2) {
+            this.f7631a = -1;
+            this.f7631a = i2;
         }
 
         public int getRouteShareMode() {
-            return this.f7369a;
+            return this.f7631a;
         }
     }
 
-    public RouteShareURLOption cityCode(int i) {
-        this.mCityCode = i;
+    public RouteShareURLOption cityCode(int i2) {
+        this.mCityCode = i2;
         return this;
     }
 
@@ -44,8 +44,8 @@ public class RouteShareURLOption {
         return this.mMode;
     }
 
-    public RouteShareURLOption pn(int i) {
-        this.mPn = i;
+    public RouteShareURLOption pn(int i2) {
+        this.mPn = i2;
         return this;
     }
 

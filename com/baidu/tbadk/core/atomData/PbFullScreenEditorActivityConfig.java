@@ -10,7 +10,7 @@ public class PbFullScreenEditorActivityConfig extends IntentConfig {
     public static final String EDITOR_DATA = "editor_data";
     public static final String POST_WRITE_CALLBACK_DATA = "post_write_callback_data";
 
-    public PbFullScreenEditorActivityConfig(Context context, int i, PbEditorData pbEditorData, PostWriteCallBackData postWriteCallBackData) {
+    public PbFullScreenEditorActivityConfig(Context context, int i2, PbEditorData pbEditorData, PostWriteCallBackData postWriteCallBackData) {
         super(context);
         setIntentAction(IntentAction.ActivityForResult);
         if (pbEditorData != null) {
@@ -19,6 +19,6 @@ public class PbFullScreenEditorActivityConfig extends IntentConfig {
         if (postWriteCallBackData != null) {
             getIntent().putExtra("post_write_callback_data", postWriteCallBackData);
         }
-        setRequestCode(i);
+        setRequestCode(i2);
     }
 }

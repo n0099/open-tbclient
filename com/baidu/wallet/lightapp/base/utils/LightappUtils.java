@@ -107,10 +107,10 @@ public final class LightappUtils {
         }
     }
 
-    public static String assembleResult(int i, JSONObject jSONObject) {
+    public static String assembleResult(int i2, JSONObject jSONObject) {
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put("result", i);
+            jSONObject2.put("result", i2);
             jSONObject2.put("cnt", jSONObject);
         } catch (JSONException e2) {
             LogUtil.e("LightappUtils", "error", e2);

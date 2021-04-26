@@ -8,21 +8,21 @@ public interface IStatistic {
 
     void onEvent(String str, String str2);
 
-    void onEventEnd(String str, int i);
+    void onEventEnd(String str, int i2);
 
-    void onEventEnd(String str, int i, String str2);
+    void onEventEnd(String str, int i2, String str2);
 
-    void onEventEndWithValue(String str, int i, String str2);
+    void onEventEndWithValue(String str, int i2, String str2);
 
-    void onEventEndWithValue(String str, int i, String str2, String str3);
+    void onEventEndWithValue(String str, int i2, String str2, String str3);
 
-    void onEventEndWithValues(String str, int i, Collection<String> collection);
+    void onEventEndWithValues(String str, int i2, Collection<String> collection);
 
-    void onEventEndWithValues(String str, int i, Collection<String> collection, String str2);
+    void onEventEndWithValues(String str, int i2, Collection<String> collection, String str2);
 
-    void onEventEndWithValues(String str, int i, Collection<String> collection, Map<String, Object> map);
+    void onEventEndWithValues(String str, int i2, Collection<String> collection, Map<String, Object> map);
 
-    void onEventEndWithValues(String str, int i, Collection<String> collection, Map<String, Object> map, String str2);
+    void onEventEndWithValues(String str, int i2, Collection<String> collection, Map<String, Object> map, String str2);
 
     void onEventStart(String str);
 

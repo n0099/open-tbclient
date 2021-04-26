@@ -5,27 +5,27 @@ import com.baidu.pano.platform.a.w;
 public class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f8955a;
+    public final /* synthetic */ String f9284a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ long f8956b;
+    public final /* synthetic */ long f9285b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ n f8957c;
+    public final /* synthetic */ n f9286c;
 
     public o(n nVar, String str, long j) {
-        this.f8957c = nVar;
-        this.f8955a = str;
-        this.f8956b = j;
+        this.f9286c = nVar;
+        this.f9284a = str;
+        this.f9285b = j;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         w.a aVar;
         w.a aVar2;
-        aVar = this.f8957c.f8942a;
-        aVar.a(this.f8955a, this.f8956b);
-        aVar2 = this.f8957c.f8942a;
+        aVar = this.f9286c.f9270a;
+        aVar.a(this.f9284a, this.f9285b);
+        aVar2 = this.f9286c.f9270a;
         aVar2.a(toString());
     }
 }

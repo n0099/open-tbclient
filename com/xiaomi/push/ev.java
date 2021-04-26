@@ -25,15 +25,15 @@ public enum ev {
 
     public static int a(String str) {
         ev[] values;
-        int i = -1;
+        int i2 = -1;
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
         for (ev evVar : values()) {
             if (evVar.f337a.equals(str)) {
-                i = ek.a(evVar);
+                i2 = ek.a(evVar);
             }
         }
-        return i;
+        return i2;
     }
 }

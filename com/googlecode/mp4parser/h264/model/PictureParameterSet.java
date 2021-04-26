@@ -94,31 +94,31 @@ public class PictureParameterSet extends BitstreamElement {
             int[] iArr = new int[1];
             int[] iArr2 = new int[1];
             int[] iArr3 = new int[1];
-            int i = this.slice_group_map_type;
-            if (i == 0) {
-                for (int i2 = 0; i2 <= this.num_slice_groups_minus1; i2++) {
-                    cAVLCWriter.writeUE(iArr3[i2], "PPS: ");
+            int i2 = this.slice_group_map_type;
+            if (i2 == 0) {
+                for (int i3 = 0; i3 <= this.num_slice_groups_minus1; i3++) {
+                    cAVLCWriter.writeUE(iArr3[i3], "PPS: ");
                 }
-            } else if (i == 2) {
-                for (int i3 = 0; i3 < this.num_slice_groups_minus1; i3++) {
-                    cAVLCWriter.writeUE(iArr[i3], "PPS: ");
-                    cAVLCWriter.writeUE(iArr2[i3], "PPS: ");
+            } else if (i2 == 2) {
+                for (int i4 = 0; i4 < this.num_slice_groups_minus1; i4++) {
+                    cAVLCWriter.writeUE(iArr[i4], "PPS: ");
+                    cAVLCWriter.writeUE(iArr2[i4], "PPS: ");
                 }
-            } else if (i == 3 || i == 4 || i == 5) {
+            } else if (i2 == 3 || i2 == 4 || i2 == 5) {
                 cAVLCWriter.writeBool(this.slice_group_change_direction_flag, "PPS: slice_group_change_direction_flag");
                 cAVLCWriter.writeUE(this.slice_group_change_rate_minus1, "PPS: slice_group_change_rate_minus1");
-            } else if (i == 6) {
-                int i4 = this.num_slice_groups_minus1;
-                int i5 = i4 + 1 <= 4 ? i4 + 1 > 2 ? 2 : 1 : 3;
+            } else if (i2 == 6) {
+                int i5 = this.num_slice_groups_minus1;
+                int i6 = i5 + 1 <= 4 ? i5 + 1 > 2 ? 2 : 1 : 3;
                 cAVLCWriter.writeUE(this.slice_group_id.length, "PPS: ");
-                int i6 = 0;
+                int i7 = 0;
                 while (true) {
                     int[] iArr4 = this.slice_group_id;
-                    if (i6 > iArr4.length) {
+                    if (i7 > iArr4.length) {
                         break;
                     }
-                    cAVLCWriter.writeU(iArr4[i6], i5);
-                    i6++;
+                    cAVLCWriter.writeU(iArr4[i7], i6);
+                    i7++;
                 }
             }
         }
@@ -137,27 +137,27 @@ public class PictureParameterSet extends BitstreamElement {
             cAVLCWriter.writeBool(pPSExt.transform_8x8_mode_flag, "PPS: transform_8x8_mode_flag");
             cAVLCWriter.writeBool(this.extended.scalindMatrix != null, "PPS: scalindMatrix");
             if (this.extended.scalindMatrix != null) {
-                int i7 = 0;
+                int i8 = 0;
                 while (true) {
                     PPSExt pPSExt2 = this.extended;
-                    if (i7 >= ((pPSExt2.transform_8x8_mode_flag ? 1 : 0) * 2) + 6) {
+                    if (i8 >= ((pPSExt2.transform_8x8_mode_flag ? 1 : 0) * 2) + 6) {
                         break;
                     }
-                    if (i7 < 6) {
-                        cAVLCWriter.writeBool(pPSExt2.scalindMatrix.ScalingList4x4[i7] != null, "PPS: ");
+                    if (i8 < 6) {
+                        cAVLCWriter.writeBool(pPSExt2.scalindMatrix.ScalingList4x4[i8] != null, "PPS: ");
                         ScalingList[] scalingListArr = this.extended.scalindMatrix.ScalingList4x4;
-                        if (scalingListArr[i7] != null) {
-                            scalingListArr[i7].write(cAVLCWriter);
+                        if (scalingListArr[i8] != null) {
+                            scalingListArr[i8].write(cAVLCWriter);
                         }
                     } else {
-                        int i8 = i7 - 6;
-                        cAVLCWriter.writeBool(pPSExt2.scalindMatrix.ScalingList8x8[i8] != null, "PPS: ");
+                        int i9 = i8 - 6;
+                        cAVLCWriter.writeBool(pPSExt2.scalindMatrix.ScalingList8x8[i9] != null, "PPS: ");
                         ScalingList[] scalingListArr2 = this.extended.scalindMatrix.ScalingList8x8;
-                        if (scalingListArr2[i8] != null) {
-                            scalingListArr2[i8].write(cAVLCWriter);
+                        if (scalingListArr2[i9] != null) {
+                            scalingListArr2[i9].write(cAVLCWriter);
                         }
                     }
-                    i7++;
+                    i8++;
                 }
             }
             cAVLCWriter.writeSE(this.extended.second_chroma_qp_index_offset, "PPS: ");
@@ -177,29 +177,29 @@ public class PictureParameterSet extends BitstreamElement {
         if (readUE > 0) {
             int readUE2 = cAVLCReader.readUE("PPS: slice_group_map_type");
             pictureParameterSet.slice_group_map_type = readUE2;
-            int i = pictureParameterSet.num_slice_groups_minus1;
-            pictureParameterSet.top_left = new int[i + 1];
-            pictureParameterSet.bottom_right = new int[i + 1];
-            pictureParameterSet.run_length_minus1 = new int[i + 1];
+            int i2 = pictureParameterSet.num_slice_groups_minus1;
+            pictureParameterSet.top_left = new int[i2 + 1];
+            pictureParameterSet.bottom_right = new int[i2 + 1];
+            pictureParameterSet.run_length_minus1 = new int[i2 + 1];
             if (readUE2 == 0) {
-                for (int i2 = 0; i2 <= pictureParameterSet.num_slice_groups_minus1; i2++) {
-                    pictureParameterSet.run_length_minus1[i2] = cAVLCReader.readUE("PPS: run_length_minus1");
+                for (int i3 = 0; i3 <= pictureParameterSet.num_slice_groups_minus1; i3++) {
+                    pictureParameterSet.run_length_minus1[i3] = cAVLCReader.readUE("PPS: run_length_minus1");
                 }
             } else if (readUE2 == 2) {
-                for (int i3 = 0; i3 < pictureParameterSet.num_slice_groups_minus1; i3++) {
-                    pictureParameterSet.top_left[i3] = cAVLCReader.readUE("PPS: top_left");
-                    pictureParameterSet.bottom_right[i3] = cAVLCReader.readUE("PPS: bottom_right");
+                for (int i4 = 0; i4 < pictureParameterSet.num_slice_groups_minus1; i4++) {
+                    pictureParameterSet.top_left[i4] = cAVLCReader.readUE("PPS: top_left");
+                    pictureParameterSet.bottom_right[i4] = cAVLCReader.readUE("PPS: bottom_right");
                 }
             } else if (readUE2 == 3 || readUE2 == 4 || readUE2 == 5) {
                 pictureParameterSet.slice_group_change_direction_flag = cAVLCReader.readBool("PPS: slice_group_change_direction_flag");
                 pictureParameterSet.slice_group_change_rate_minus1 = cAVLCReader.readUE("PPS: slice_group_change_rate_minus1");
             } else if (readUE2 == 6) {
-                int i4 = i + 1 <= 4 ? i + 1 > 2 ? 2 : 1 : 3;
+                int i5 = i2 + 1 <= 4 ? i2 + 1 > 2 ? 2 : 1 : 3;
                 int readUE3 = cAVLCReader.readUE("PPS: pic_size_in_map_units_minus1");
                 pictureParameterSet.slice_group_id = new int[readUE3 + 1];
-                for (int i5 = 0; i5 <= readUE3; i5++) {
+                for (int i6 = 0; i6 <= readUE3; i6++) {
                     int[] iArr = pictureParameterSet.slice_group_id;
-                    iArr[i5] = cAVLCReader.readU(i4, "PPS: slice_group_id [" + i5 + "]f");
+                    iArr[i6] = cAVLCReader.readU(i5, "PPS: slice_group_id [" + i6 + "]f");
                 }
             }
         }
@@ -218,17 +218,17 @@ public class PictureParameterSet extends BitstreamElement {
             pictureParameterSet.extended = pPSExt;
             pPSExt.transform_8x8_mode_flag = cAVLCReader.readBool("PPS: transform_8x8_mode_flag");
             if (cAVLCReader.readBool("PPS: pic_scaling_matrix_present_flag")) {
-                for (int i6 = 0; i6 < ((pictureParameterSet.extended.transform_8x8_mode_flag ? 1 : 0) * 2) + 6; i6++) {
+                for (int i7 = 0; i7 < ((pictureParameterSet.extended.transform_8x8_mode_flag ? 1 : 0) * 2) + 6; i7++) {
                     if (cAVLCReader.readBool("PPS: pic_scaling_list_present_flag")) {
                         ScalingMatrix scalingMatrix = pictureParameterSet.extended.scalindMatrix;
                         ScalingList[] scalingListArr = new ScalingList[8];
                         scalingMatrix.ScalingList4x4 = scalingListArr;
                         ScalingList[] scalingListArr2 = new ScalingList[8];
                         scalingMatrix.ScalingList8x8 = scalingListArr2;
-                        if (i6 < 6) {
-                            scalingListArr[i6] = ScalingList.read(cAVLCReader, 16);
+                        if (i7 < 6) {
+                            scalingListArr[i7] = ScalingList.read(cAVLCReader, 16);
                         } else {
-                            scalingListArr2[i6 - 6] = ScalingList.read(cAVLCReader, 64);
+                            scalingListArr2[i7 - 6] = ScalingList.read(cAVLCReader, 64);
                         }
                     }
                 }

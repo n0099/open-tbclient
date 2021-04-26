@@ -3,7 +3,7 @@ package com.coremedia.iso.boxes.fragment;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BitReaderBuffer;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BitWriterBuffer;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SampleFlags {
     public int reserved;
     public int sampleDegradationPriority;
@@ -70,32 +70,32 @@ public class SampleFlags {
         return this.sampleIsDifferenceSample;
     }
 
-    public void setReserved(int i) {
-        this.reserved = i;
+    public void setReserved(int i2) {
+        this.reserved = i2;
     }
 
-    public void setSampleDegradationPriority(int i) {
-        this.sampleDegradationPriority = i;
+    public void setSampleDegradationPriority(int i2) {
+        this.sampleDegradationPriority = i2;
     }
 
-    public void setSampleDependsOn(int i) {
-        this.sampleDependsOn = i;
+    public void setSampleDependsOn(int i2) {
+        this.sampleDependsOn = i2;
     }
 
-    public void setSampleHasRedundancy(int i) {
-        this.sampleHasRedundancy = i;
+    public void setSampleHasRedundancy(int i2) {
+        this.sampleHasRedundancy = i2;
     }
 
-    public void setSampleIsDependedOn(int i) {
-        this.sampleIsDependedOn = i;
+    public void setSampleIsDependedOn(int i2) {
+        this.sampleIsDependedOn = i2;
     }
 
     public void setSampleIsDifferenceSample(boolean z) {
         this.sampleIsDifferenceSample = z;
     }
 
-    public void setSamplePaddingValue(int i) {
-        this.samplePaddingValue = i;
+    public void setSamplePaddingValue(int i2) {
+        this.samplePaddingValue = i2;
     }
 
     public String toString() {

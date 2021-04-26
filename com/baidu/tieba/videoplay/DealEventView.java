@@ -10,17 +10,19 @@ import android.widget.FrameLayout;
 public class DealEventView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public long f21620e;
+    public long f22259e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f21621f;
+    public boolean f22260f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f21622g;
+    public b f22261g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f21623h;
-    public float i;
+    public float f22262h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public float f22263i;
     public boolean j;
 
     /* loaded from: classes5.dex */
@@ -30,10 +32,10 @@ public class DealEventView extends FrameLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (DealEventView.this.f21621f || !DealEventView.this.j || DealEventView.this.f21622g == null) {
+            if (DealEventView.this.f22260f || !DealEventView.this.j || DealEventView.this.f22261g == null) {
                 return;
             }
-            DealEventView.this.f21622g.k();
+            DealEventView.this.f22261g.l();
         }
     }
 
@@ -41,7 +43,7 @@ public class DealEventView extends FrameLayout {
     public interface b {
         void a();
 
-        void k();
+        void j();
 
         void l();
     }
@@ -58,25 +60,25 @@ public class DealEventView extends FrameLayout {
         b bVar;
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f21623h = motionEvent.getX();
-            this.i = motionEvent.getY();
+            this.f22262h = motionEvent.getX();
+            this.f22263i = motionEvent.getY();
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f21620e < 300) {
-                this.f21621f = true;
-                b bVar2 = this.f21622g;
+            if (currentTimeMillis - this.f22259e < 300) {
+                this.f22260f = true;
+                b bVar2 = this.f22261g;
                 if (bVar2 != null) {
                     bVar2.a();
                 }
             } else {
-                this.f21621f = false;
+                this.f22260f = false;
             }
-            this.f21620e = currentTimeMillis;
+            this.f22259e = currentTimeMillis;
         } else if (action != 1) {
-            if (action == 2 && this.f21623h - motionEvent.getX() > 60.0f && (this.f21623h - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.i) && !this.f21621f && (bVar = this.f21622g) != null) {
-                bVar.l();
+            if (action == 2 && this.f22262h - motionEvent.getX() > 60.0f && (this.f22262h - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.f22263i) && !this.f22260f && (bVar = this.f22261g) != null) {
+                bVar.j();
             }
         } else {
-            if (this.f21623h - motionEvent.getX() < 10.0f && this.i - motionEvent.getY() < 10.0f) {
+            if (this.f22262h - motionEvent.getX() < 10.0f && this.f22263i - motionEvent.getY() < 10.0f) {
                 this.j = true;
             } else {
                 this.j = false;
@@ -88,8 +90,8 @@ public class DealEventView extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public void removeAllViews() {
-        for (int i = 0; i < getChildCount(); i++) {
-            View childAt = getChildAt(i);
+        for (int i2 = 0; i2 < getChildCount(); i2++) {
+            View childAt = getChildAt(i2);
             if (childAt.getTag() instanceof AnimatorSet) {
                 ((AnimatorSet) childAt.getTag()).cancel();
             }
@@ -98,15 +100,15 @@ public class DealEventView extends FrameLayout {
     }
 
     public void setOnViewClickListener(b bVar) {
-        this.f21622g = bVar;
+        this.f22261g = bVar;
     }
 
     public DealEventView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public DealEventView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public DealEventView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         d();
     }
 }

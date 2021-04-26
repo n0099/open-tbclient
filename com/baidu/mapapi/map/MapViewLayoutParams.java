@@ -13,99 +13,99 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
     public static final int ALIGN_TOP = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f6963a;
+    public LatLng f7208a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Point f6964b;
+    public Point f7209b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ELayoutMode f6965c;
+    public ELayoutMode f7210c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f6966d;
+    public float f7211d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f6967e;
+    public float f7212e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6968f;
+    public int f7213f;
 
     /* loaded from: classes2.dex */
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f6969a;
+        public int f7214a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f6970b;
+        public int f7215b;
 
         /* renamed from: c  reason: collision with root package name */
-        public LatLng f6971c;
+        public LatLng f7216c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Point f6972d;
+        public Point f7217d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ELayoutMode f6973e = ELayoutMode.absoluteMode;
+        public ELayoutMode f7218e = ELayoutMode.absoluteMode;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f6974f = 4;
+        public int f7219f = 4;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f6975g = 16;
+        public int f7220g = 16;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f6976h;
+        public int f7221h;
 
-        public Builder align(int i, int i2) {
-            if (i == 1 || i == 2 || i == 4) {
-                this.f6974f = i;
+        public Builder align(int i2, int i3) {
+            if (i2 == 1 || i2 == 2 || i2 == 4) {
+                this.f7219f = i2;
             }
-            if (i2 == 8 || i2 == 16 || i2 == 32) {
-                this.f6975g = i2;
+            if (i3 == 8 || i3 == 16 || i3 == 32) {
+                this.f7220g = i3;
             }
             return this;
         }
 
         public MapViewLayoutParams build() {
-            ELayoutMode eLayoutMode = this.f6973e;
+            ELayoutMode eLayoutMode = this.f7218e;
             boolean z = true;
-            if (eLayoutMode != ELayoutMode.mapMode ? eLayoutMode != ELayoutMode.absoluteMode || this.f6972d != null : this.f6971c != null) {
+            if (eLayoutMode != ELayoutMode.mapMode ? eLayoutMode != ELayoutMode.absoluteMode || this.f7217d != null : this.f7216c != null) {
                 z = false;
             }
             if (z) {
                 throw new IllegalStateException("if it is map mode, you must supply position info; else if it is absolute mode, you must supply the point info");
             }
-            return new MapViewLayoutParams(this.f6969a, this.f6970b, this.f6971c, this.f6972d, this.f6973e, this.f6974f, this.f6975g, this.f6976h);
+            return new MapViewLayoutParams(this.f7214a, this.f7215b, this.f7216c, this.f7217d, this.f7218e, this.f7219f, this.f7220g, this.f7221h);
         }
 
-        public Builder height(int i) {
-            this.f6970b = i;
+        public Builder height(int i2) {
+            this.f7215b = i2;
             return this;
         }
 
         public Builder layoutMode(ELayoutMode eLayoutMode) {
-            this.f6973e = eLayoutMode;
+            this.f7218e = eLayoutMode;
             return this;
         }
 
         public Builder point(Point point) {
-            this.f6972d = point;
+            this.f7217d = point;
             return this;
         }
 
         public Builder position(LatLng latLng) {
-            this.f6971c = latLng;
+            this.f7216c = latLng;
             return this;
         }
 
-        public Builder width(int i) {
-            this.f6969a = i;
+        public Builder width(int i2) {
+            this.f7214a = i2;
             return this;
         }
 
-        public Builder yOffset(int i) {
-            this.f6976h = i;
+        public Builder yOffset(int i2) {
+            this.f7221h = i2;
             return this;
         }
     }
@@ -116,25 +116,25 @@ public final class MapViewLayoutParams extends ViewGroup.LayoutParams {
         absoluteMode
     }
 
-    public MapViewLayoutParams(int i, int i2, LatLng latLng, Point point, ELayoutMode eLayoutMode, int i3, int i4, int i5) {
-        super(i, i2);
-        this.f6963a = latLng;
-        this.f6964b = point;
-        this.f6965c = eLayoutMode;
-        if (i3 == 1) {
-            this.f6966d = 0.0f;
-        } else if (i3 != 2) {
-            this.f6966d = 0.5f;
+    public MapViewLayoutParams(int i2, int i3, LatLng latLng, Point point, ELayoutMode eLayoutMode, int i4, int i5, int i6) {
+        super(i2, i3);
+        this.f7208a = latLng;
+        this.f7209b = point;
+        this.f7210c = eLayoutMode;
+        if (i4 == 1) {
+            this.f7211d = 0.0f;
+        } else if (i4 != 2) {
+            this.f7211d = 0.5f;
         } else {
-            this.f6966d = 1.0f;
+            this.f7211d = 1.0f;
         }
-        if (i4 == 8) {
-            this.f6967e = 0.0f;
-        } else if (i4 == 16 || i4 != 32) {
-            this.f6967e = 1.0f;
+        if (i5 == 8) {
+            this.f7212e = 0.0f;
+        } else if (i5 == 16 || i5 != 32) {
+            this.f7212e = 1.0f;
         } else {
-            this.f6967e = 0.5f;
+            this.f7212e = 0.5f;
         }
-        this.f6968f = i5;
+        this.f7213f = i6;
     }
 }

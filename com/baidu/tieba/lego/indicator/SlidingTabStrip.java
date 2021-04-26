@@ -13,27 +13,27 @@ public class SlidingTabStrip extends LinearLayout {
         this(context, null);
     }
 
-    public void a(int i) {
+    public void a(int i2) {
     }
 
-    public void b(int i, int i2) {
-        if (i == i2) {
+    public void b(int i2, int i3) {
+        if (i2 == i3) {
             return;
         }
         int childCount = getChildCount();
-        if (i >= 0 && i < childCount) {
+        if (i2 >= 0 && i2 < childCount) {
             float dimension = getResources().getDimension(R.dimen.ds32);
-            View childAt = getChildAt(i);
+            View childAt = getChildAt(i2);
             if (childAt instanceof TextView) {
                 ((TextView) childAt).setTextSize(0, dimension);
             }
             SkinManager.setViewTextColor(childAt, R.color.CAM_X0308, 1);
         }
-        if (i2 < 0 || i2 >= childCount) {
+        if (i3 < 0 || i3 >= childCount) {
             return;
         }
         float dimension2 = getResources().getDimension(R.dimen.ds28);
-        View childAt2 = getChildAt(i2);
+        View childAt2 = getChildAt(i3);
         if (childAt2 instanceof TextView) {
             ((TextView) childAt2).setTextSize(0, dimension2);
         }

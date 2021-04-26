@@ -214,16 +214,16 @@ public class PoiDetailInfo implements Parcelable {
         this.area = str;
     }
 
-    public void setCheckinNum(int i) {
-        this.checkinNum = i;
+    public void setCheckinNum(int i2) {
+        this.checkinNum = i2;
     }
 
     public void setCity(String str) {
         this.city = str;
     }
 
-    public void setCommentNum(int i) {
-        this.commentNum = i;
+    public void setCommentNum(int i2) {
+        this.commentNum = i2;
     }
 
     public void setDetail(String str) {
@@ -238,12 +238,12 @@ public class PoiDetailInfo implements Parcelable {
         this.detailUrl = str;
     }
 
-    public void setDiscountNum(int i) {
-        this.discountNum = i;
+    public void setDiscountNum(int i2) {
+        this.discountNum = i2;
     }
 
-    public void setDistance(int i) {
-        this.distance = i;
+    public void setDistance(int i2) {
+        this.distance = i2;
     }
 
     public void setEnvironmentRating(double d2) {
@@ -254,20 +254,20 @@ public class PoiDetailInfo implements Parcelable {
         this.facilityRating = d2;
     }
 
-    public void setFavoriteNum(int i) {
-        this.favoriteNum = i;
+    public void setFavoriteNum(int i2) {
+        this.favoriteNum = i2;
     }
 
-    public void setGrouponNum(int i) {
-        this.grouponNum = i;
+    public void setGrouponNum(int i2) {
+        this.grouponNum = i2;
     }
 
     public void setHygieneRating(double d2) {
         this.hygieneRating = d2;
     }
 
-    public void setImageNum(int i) {
-        this.imageNum = i;
+    public void setImageNum(int i2) {
+        this.imageNum = i2;
     }
 
     public void setLocation(LatLng latLng) {
@@ -406,11 +406,11 @@ public class PoiDetailInfo implements Parcelable {
         stringBuffer.append(this.checkinNum);
         List<PoiChildrenInfo> list = this.poiChildrenInfoList;
         if (list != null && !list.isEmpty()) {
-            for (int i = 0; i < this.poiChildrenInfoList.size(); i++) {
+            for (int i2 = 0; i2 < this.poiChildrenInfoList.size(); i2++) {
                 stringBuffer.append("; The ");
-                stringBuffer.append(i);
+                stringBuffer.append(i2);
                 stringBuffer.append(" poiChildrenInfo is: ");
-                PoiChildrenInfo poiChildrenInfo = this.poiChildrenInfoList.get(i);
+                PoiChildrenInfo poiChildrenInfo = this.poiChildrenInfoList.get(i2);
                 if (poiChildrenInfo != null) {
                     stringBuffer.append(poiChildrenInfo.toString());
                 } else {
@@ -422,9 +422,9 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.name);
-        parcel.writeParcelable(this.location, i);
+        parcel.writeParcelable(this.location, i2);
         parcel.writeString(this.address);
         parcel.writeString(this.province);
         parcel.writeString(this.city);
@@ -436,7 +436,7 @@ public class PoiDetailInfo implements Parcelable {
         parcel.writeInt(this.distance);
         parcel.writeString(this.type);
         parcel.writeString(this.tag);
-        parcel.writeParcelable(this.naviLocation, i);
+        parcel.writeParcelable(this.naviLocation, i2);
         parcel.writeString(this.detailUrl);
         parcel.writeDouble(this.price);
         parcel.writeString(this.shopHours);

@@ -37,15 +37,15 @@ public class PackageFileStatisticManager {
         return sInstance;
     }
 
-    public void addDownloadStatistic2(int i, String str, String str2, String str3, long j, String str4, String str5, int i2, int i3) {
-        if (StatisticCallbackManager.getInstance(this.mContext).getStatisticCallback().addDownloadStatistic2(i, str, str2, str3, j, str4, str5, i2, i3)) {
+    public void addDownloadStatistic2(int i2, String str, String str2, String str3, long j, String str4, String str5, int i3, int i4) {
+        if (StatisticCallbackManager.getInstance(this.mContext).getStatisticCallback().addDownloadStatistic2(i2, str, str2, str3, j, str4, str5, i3, i4)) {
             return;
         }
         DebugUtils.log("Host Cannot Handle the addDownloadStatistic2 Callback");
     }
 
-    public void addFetchStatistic2(int i, String str, String str2, JSONObject jSONObject) {
-        if (StatisticCallbackManager.getInstance(this.mContext).getStatisticCallback().addFetchStatistic2InHost(i, str, str2, jSONObject)) {
+    public void addFetchStatistic2(int i2, String str, String str2, JSONObject jSONObject) {
+        if (StatisticCallbackManager.getInstance(this.mContext).getStatisticCallback().addFetchStatistic2InHost(i2, str, str2, jSONObject)) {
             return;
         }
         DebugUtils.log("Host Cannot Handle the addFetchStatistic2 Callback");

@@ -46,24 +46,24 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
         public final CacheKey mPartialImageCacheKey;
         public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-        private void copy(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
+        private void copy(InputStream inputStream, OutputStream outputStream, int i2) throws IOException {
             byte[] bArr = this.mByteArrayPool.get(16384);
-            int i2 = i;
-            while (i2 > 0) {
+            int i3 = i2;
+            while (i3 > 0) {
                 try {
-                    int read = inputStream.read(bArr, 0, Math.min(16384, i2));
+                    int read = inputStream.read(bArr, 0, Math.min(16384, i3));
                     if (read < 0) {
                         break;
                     } else if (read > 0) {
                         outputStream.write(bArr, 0, read);
-                        i2 -= read;
+                        i3 -= read;
                     }
                 } finally {
                     this.mByteArrayPool.release(bArr);
                 }
             }
-            if (i2 > 0) {
-                throw new IOException(String.format(null, "Failed to read %d bytes - finished %d short", Integer.valueOf(i), Integer.valueOf(i2)));
+            if (i3 > 0) {
+                throw new IOException(String.format(null, "Failed to read %d bytes - finished %d short", Integer.valueOf(i2), Integer.valueOf(i3)));
             }
         }
 
@@ -108,8 +108,8 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(EncodedImage encodedImage, int i) {
-            if (BaseConsumer.isNotLast(i)) {
+        public void onNewResultImpl(EncodedImage encodedImage, int i2) {
+            if (BaseConsumer.isNotLast(i2)) {
                 return;
             }
             if (this.mPartialEncodedImageFromCache != null) {
@@ -129,12 +129,12 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
                     this.mPartialEncodedImageFromCache.close();
                 }
             }
-            if (BaseConsumer.statusHasFlag(i, 8) && BaseConsumer.isLast(i) && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
+            if (BaseConsumer.statusHasFlag(i2, 8) && BaseConsumer.isLast(i2) && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
                 this.mDefaultBufferedDiskCache.put(this.mPartialImageCacheKey, encodedImage);
-                getConsumer().onNewResult(encodedImage, i);
+                getConsumer().onNewResult(encodedImage, i2);
                 return;
             }
-            getConsumer().onNewResult(encodedImage, i);
+            getConsumer().onNewResult(encodedImage, i2);
         }
     }
 
@@ -152,10 +152,10 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
 
     @VisibleForTesting
     @Nullable
-    public static Map<String, String> getExtraMap(ProducerListener producerListener, String str, boolean z, int i) {
+    public static Map<String, String> getExtraMap(ProducerListener producerListener, String str, boolean z, int i2) {
         if (producerListener.requiresExtraMap(str)) {
             if (z) {
-                return ImmutableMap.of("cached_value_found", String.valueOf(z), "encodedImageSize", String.valueOf(i));
+                return ImmutableMap.of("cached_value_found", String.valueOf(z), "encodedImageSize", String.valueOf(i2));
             }
             return ImmutableMap.of("cached_value_found", String.valueOf(z));
         }

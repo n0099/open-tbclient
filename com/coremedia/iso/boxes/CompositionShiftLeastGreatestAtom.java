@@ -5,19 +5,19 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import g.a.a.a;
 import g.a.b.b.b;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
     public static final String TYPE = "cslg";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_8 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_9 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_9 = null;
     public int compositionOffsetToDisplayOffsetShift;
     public int displayEndTime;
     public int displayStartTime;
@@ -96,28 +96,28 @@ public class CompositionShiftLeastGreatestAtom extends AbstractFullBox {
         return this.leastDisplayOffset;
     }
 
-    public void setCompositionOffsetToDisplayOffsetShift(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i)));
-        this.compositionOffsetToDisplayOffsetShift = i;
+    public void setCompositionOffsetToDisplayOffsetShift(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i2)));
+        this.compositionOffsetToDisplayOffsetShift = i2;
     }
 
-    public void setDisplayEndTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_9, this, this, g.a.b.a.a.e(i)));
-        this.displayEndTime = i;
+    public void setDisplayEndTime(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_9, this, this, g.a.b.a.a.e(i2)));
+        this.displayEndTime = i2;
     }
 
-    public void setDisplayStartTime(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_7, this, this, g.a.b.a.a.e(i)));
-        this.displayStartTime = i;
+    public void setDisplayStartTime(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_7, this, this, g.a.b.a.a.e(i2)));
+        this.displayStartTime = i2;
     }
 
-    public void setGreatestDisplayOffset(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.e(i)));
-        this.greatestDisplayOffset = i;
+    public void setGreatestDisplayOffset(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.e(i2)));
+        this.greatestDisplayOffset = i2;
     }
 
-    public void setLeastDisplayOffset(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i)));
-        this.leastDisplayOffset = i;
+    public void setLeastDisplayOffset(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i2)));
+        this.leastDisplayOffset = i2;
     }
 }

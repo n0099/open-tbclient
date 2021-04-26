@@ -105,8 +105,8 @@ public class XAdMaterialsLoader implements Observer {
         if (list == null || list.size() == 0) {
             return;
         }
-        for (int i = 0; i < this.materialsInfos.size(); i++) {
-            XAdMaterialsInfo xAdMaterialsInfo = this.materialsInfos.get(i);
+        for (int i2 = 0; i2 < this.materialsInfos.size(); i2++) {
+            XAdMaterialsInfo xAdMaterialsInfo = this.materialsInfos.get(i2);
             String url = xAdMaterialsInfo.getUrl();
             String md5 = EncryptUtils.getMD5(url);
             if (isDownload(xAdMaterialsInfo) && isMaterialExists(md5)) {

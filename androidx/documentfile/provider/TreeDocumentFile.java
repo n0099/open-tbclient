@@ -136,8 +136,8 @@ public class TreeDocumentFile extends DocumentFile {
             }
             Uri[] uriArr = (Uri[]) arrayList.toArray(new Uri[arrayList.size()]);
             DocumentFile[] documentFileArr = new DocumentFile[uriArr.length];
-            for (int i = 0; i < uriArr.length; i++) {
-                documentFileArr[i] = new TreeDocumentFile(this, this.mContext, uriArr[i]);
+            for (int i2 = 0; i2 < uriArr.length; i2++) {
+                documentFileArr[i2] = new TreeDocumentFile(this, this.mContext, uriArr[i2]);
             }
             return documentFileArr;
         } finally {

@@ -5,13 +5,13 @@ import android.os.Bundle;
 public class JNIBaseMap {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f7932a;
+    public long f8219a;
 
-    public static native int MapProc(long j, int i, int i2, int i3);
+    public static native int MapProc(long j, int i2, int i3, int i4);
 
     public static native void SetMapCustomEnable(long j, boolean z);
 
-    public native long AddLayer(long j, int i, int i2, String str);
+    public native long AddLayer(long j, int i2, int i3, String str);
 
     public native void ClearLayer(long j, long j2);
 
@@ -19,19 +19,19 @@ public class JNIBaseMap {
 
     public native long CreateDuplicate(long j);
 
-    public native String GeoPtToScrPoint(long j, int i, int i2);
+    public native String GeoPtToScrPoint(long j, int i2, int i3);
 
     public native boolean GetBaiduHotMapCityInfo(long j);
 
     public native Bundle GetMapStatus(long j);
 
-    public native String GetNearlyObjID(long j, long j2, int i, int i2, int i3);
+    public native String GetNearlyObjID(long j, long j2, int i2, int i3, int i4);
 
-    public native int[] GetScreenBuf(long j, int[] iArr, int i, int i2);
+    public native int[] GetScreenBuf(long j, int[] iArr, int i2, int i3);
 
     public native float GetZoomToBound(long j, Bundle bundle);
 
-    public native boolean Init(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, int i, int i2, int i3, int i4, int i5, int i6, int i7);
+    public native boolean Init(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, int i2, int i3, int i4, int i5, int i6, int i7, int i8);
 
     public native boolean IsBaseIndoorMapMode(long j);
 
@@ -45,21 +45,21 @@ public class JNIBaseMap {
 
     public native void OnPause(long j);
 
-    public native boolean OnRecordAdd(long j, int i);
+    public native boolean OnRecordAdd(long j, int i2);
 
     public native String OnRecordGetAll(long j);
 
-    public native String OnRecordGetAt(long j, int i);
+    public native String OnRecordGetAt(long j, int i2);
 
     public native boolean OnRecordImport(long j, boolean z, boolean z2);
 
-    public native boolean OnRecordReload(long j, int i, boolean z);
+    public native boolean OnRecordReload(long j, int i2, boolean z);
 
-    public native boolean OnRecordRemove(long j, int i, boolean z);
+    public native boolean OnRecordRemove(long j, int i2, boolean z);
 
-    public native boolean OnRecordStart(long j, int i, boolean z, int i2);
+    public native boolean OnRecordStart(long j, int i2, boolean z, int i3);
 
-    public native boolean OnRecordSuspend(long j, int i, boolean z, int i2);
+    public native boolean OnRecordSuspend(long j, int i2, boolean z, int i3);
 
     public native void OnResume(long j);
 
@@ -73,11 +73,11 @@ public class JNIBaseMap {
 
     public native void SaveScreenToLocal(long j, String str, Bundle bundle);
 
-    public native String ScrPtToGeoPoint(long j, int i, int i2);
+    public native String ScrPtToGeoPoint(long j, int i2, int i3);
 
     public native int SetCallback(long j, BaseMapCallback baseMapCallback);
 
-    public native int SetMapControlMode(long j, int i);
+    public native int SetMapControlMode(long j, int i2);
 
     public native void SetMapStatus(long j, Bundle bundle);
 
@@ -99,7 +99,7 @@ public class JNIBaseMap {
 
     public native void addOneOverlayItem(long j, Bundle bundle);
 
-    public native void addOverlayItems(long j, Bundle[] bundleArr, int i);
+    public native void addOverlayItems(long j, Bundle[] bundleArr, int i2);
 
     public native boolean addtileOverlay(long j, Bundle bundle);
 
@@ -115,9 +115,9 @@ public class JNIBaseMap {
 
     public native Bundle getMapStatusLimits(long j);
 
-    public native void getProjectionMatrix(long j, float[] fArr, int i);
+    public native void getProjectionMatrix(long j, float[] fArr, int i2);
 
-    public native void getViewMatrix(long j, float[] fArr, int i);
+    public native void getViewMatrix(long j, float[] fArr, int i2);
 
     public native String getfocusedBaseIndoorMapInfo(long j);
 

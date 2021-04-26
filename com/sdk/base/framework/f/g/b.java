@@ -5,11 +5,11 @@ import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class b extends com.sdk.base.framework.f.a {
     static {
-        boolean z = com.sdk.base.framework.c.f.f38904b;
+        boolean z = com.sdk.base.framework.c.f.f36488b;
     }
 
     public static c a(Context context, ArrayList<String> arrayList) {
-        c cVar = c.f38937c;
+        c cVar = c.f36522c;
         return a.a(context);
     }
 }

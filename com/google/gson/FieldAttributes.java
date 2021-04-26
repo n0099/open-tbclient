@@ -1,6 +1,6 @@
 package com.google.gson;
 
-import d.h.d.b.a;
+import com.google.gson.internal.C$Gson$Preconditions;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
@@ -11,7 +11,7 @@ public final class FieldAttributes {
     public final Field field;
 
     public FieldAttributes(Field field) {
-        a.b(field);
+        C$Gson$Preconditions.checkNotNull(field);
         this.field = field;
     }
 
@@ -43,8 +43,8 @@ public final class FieldAttributes {
         return this.field.getName();
     }
 
-    public boolean hasModifier(int i) {
-        return (i & this.field.getModifiers()) != 0;
+    public boolean hasModifier(int i2) {
+        return (i2 & this.field.getModifiers()) != 0;
     }
 
     public boolean isSynthetic() {

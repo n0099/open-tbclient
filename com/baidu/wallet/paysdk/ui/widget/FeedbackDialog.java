@@ -51,10 +51,10 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public FeedbackInfo f26080a;
+        public FeedbackInfo f26876a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f26081b;
+        public b f26877b;
     }
 
     /* loaded from: classes5.dex */
@@ -68,10 +68,10 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f26082a;
+        public int f26878a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f26083b;
+        public String[] f26879b;
     }
 
     public FeedbackDialog(Context context) {
@@ -91,17 +91,17 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
             return;
         }
         this.mTagGroup.setVisibility(0);
-        for (int i = 0; i < length; i++) {
+        for (int i2 = 0; i2 < length; i2++) {
             TagButton tagButton = new TagButton(getContext());
-            tagButton.setData(feedbackTagArr[i].desc, feedbackTagArr[i].key);
+            tagButton.setData(feedbackTagArr[i2].desc, feedbackTagArr[i2].key);
             this.mTagGroup.addView(tagButton, new ViewGroup.LayoutParams(DisplayUtils.dip2px(getContext(), 130.0f), DisplayUtils.dip2px(getContext(), 34.0f)));
             this.mTags.add(tagButton);
         }
     }
 
     public void initDialog(a aVar) {
-        this.mFeedbackInfo = aVar.f26080a;
-        this.mListener = aVar.f26081b;
+        this.mFeedbackInfo = aVar.f26876a;
+        this.mListener = aVar.f26877b;
         this.mCloseButton.setOnClickListener(this);
         this.mSubmit.setOnClickListener(this);
         FeedbackInfo feedbackInfo = this.mFeedbackInfo;
@@ -169,7 +169,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
             PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_PAY_FEEDBACK_SUBMIT_CLICK, this.isEntryClicked);
             if (this.mListener != null) {
                 c cVar = new c();
-                cVar.f26082a = this.mRatingBar.getRating();
+                cVar.f26878a = this.mRatingBar.getRating();
                 ArrayList arrayList = new ArrayList();
                 Iterator<TagButton> it = this.mTags.iterator();
                 while (it.hasNext()) {
@@ -179,7 +179,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
                     }
                 }
                 String[] strArr = new String[arrayList.size()];
-                cVar.f26083b = strArr;
+                cVar.f26879b = strArr;
                 arrayList.toArray(strArr);
                 this.mListener.a(cVar);
             }
@@ -195,34 +195,34 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
     }
 
     @Override // com.baidu.wallet.base.widget.SimpleRatingBar.OnSimpleRatingBarChangeListener
-    public void onRatingChanged(SimpleRatingBar simpleRatingBar, int i, boolean z) {
+    public void onRatingChanged(SimpleRatingBar simpleRatingBar, int i2, boolean z) {
         if (this.mFeedbackInfo == null) {
             return;
         }
         if (z && this.mPanel.getVisibility() != 0) {
             this.mPanel.setVisibility(0);
         }
-        if (z && i < 1) {
+        if (z && i2 < 1) {
             simpleRatingBar.setRating(1);
             return;
         }
         int length = this.mFeedbackInfo.score_desc.length - 1;
-        if (i <= length) {
-            length = i;
+        if (i2 <= length) {
+            length = i2;
         }
         this.mRatingText.setText(this.mFeedbackInfo.score_desc[length]);
-        if (i > 0) {
+        if (i2 > 0) {
             this.mRatingText.setTextColor(ResUtils.getColor(getContext(), "wallet_base_color_fc985d"));
         }
-        int i2 = this.mLastRating;
-        if (i2 < 0) {
+        int i3 = this.mLastRating;
+        if (i3 < 0) {
             fillTagGroup(this.mFeedbackInfo.negative);
-        } else if (i2 <= 2 && i > 2) {
+        } else if (i3 <= 2 && i2 > 2) {
             fillTagGroup(this.mFeedbackInfo.positive);
-        } else if (this.mLastRating > 2 && i <= 2) {
+        } else if (this.mLastRating > 2 && i2 <= 2) {
             fillTagGroup(this.mFeedbackInfo.negative);
         }
-        this.mLastRating = i;
+        this.mLastRating = i2;
     }
 
     /* loaded from: classes5.dex */
@@ -274,8 +274,8 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         }
     }
 
-    public FeedbackDialog(Context context, int i) {
-        super(context, i);
+    public FeedbackDialog(Context context, int i2) {
+        super(context, i2);
         this.isEntryClicked = "0";
         this.mTags = new ArrayList<>();
         this.mLastRating = -1;

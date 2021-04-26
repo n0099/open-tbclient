@@ -5,29 +5,31 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7705a;
+    public int f7981a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7706b;
+    public String f7982b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7707c;
+    public String f7983c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7708d;
+    public String f7984d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7709e;
+    public int f7985e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7710f;
+    public int f7986f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GeoPoint f7711g;
+    public GeoPoint f7987g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f7712h;
-    public int i;
+    public int f7988h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f7989i;
     public boolean j;
     public int k;
     public int l;

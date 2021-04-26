@@ -47,13 +47,13 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
     private void scancodePay() {
         LocalRouter.getInstance(this.mActivity).route(this.mActivity, new RouterRequest().provider("scancode").action("getLimitPayBean"), new RouterCallback() { // from class: com.baidu.wallet.paysdk.presenter.PwdPayPresenterForScancode.1
             @Override // com.baidu.wallet.router.RouterCallback
-            public void onResult(int i, HashMap hashMap) {
-                if (i != 0 || hashMap == null || hashMap.get("data") == null) {
-                    if (i == 5) {
+            public void onResult(int i2, HashMap hashMap) {
+                if (i2 != 0 || hashMap == null || hashMap.get("data") == null) {
+                    if (i2 == 5) {
                         HashMap hashMap2 = new HashMap();
                         hashMap2.put("provider", "scancode");
                         hashMap2.put("action", "getLimitPayBean");
-                        StatisticManager.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap2.values());
+                        StatisticManager.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
                         return;
                     }
                     return;
@@ -77,23 +77,23 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
     }
 
     @Override // com.baidu.wallet.paysdk.contract.PwdPayContract.Presenter, com.baidu.wallet.paysdk.presenter.NetWorkPresenter
-    public void handleFailure(int i, int i2, String str) {
+    public void handleFailure(int i2, int i3, String str) {
         this.mActivity.dismissLoading(-1);
-        if (i == 594) {
+        if (i2 == 594) {
             this.mActivity.showPWdInputView(true);
-            clearPayPwdCache(i2);
+            clearPayPwdCache(i3);
             if (TextUtils.isEmpty(str)) {
                 str = ResUtils.getString(this.mActivity, "fp_get_data_fail");
             }
-            if (i2 == 5003) {
+            if (i3 == 5003) {
                 AccountManager.getInstance(this.mActivity).logout();
                 WalletLoginHelper.getInstance().logout(false);
-            } else if (i2 == 15414 || i2 == 15432 || i2 == 100015) {
+            } else if (i3 == 15414 || i3 == 15432 || i3 == 100015) {
                 this.mActivity.showPassError(str);
-            } else if (i2 == 100018) {
+            } else if (i3 == 100018) {
                 this.mActivity.showPassError(str);
             }
-            if (i2 == 65235) {
+            if (i3 == 65235) {
                 this.mActivity.showPassError(str);
                 return;
             } else {
@@ -101,12 +101,12 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                 return;
             }
         }
-        super.handleFailure(i, i2, str);
+        super.handleFailure(i2, i3, str);
     }
 
     @Override // com.baidu.wallet.paysdk.contract.PwdPayContract.Presenter, com.baidu.wallet.paysdk.presenter.NetWorkPresenter
-    public void handleResponse(int i, Object obj, String str) {
-        if (i == 257) {
+    public void handleResponse(int i2, Object obj, String str) {
+        if (i2 == 257) {
             StatisticManager.onEventEnd(StatServiceEvent.CHECK_PASSWORD, 0);
             if (this.mCheckSMS) {
                 this.mActivity.dismissLoading(-1);
@@ -115,8 +115,8 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                 return;
             }
             scancodePay();
-        } else if (i != 594) {
-            if (i == 12) {
+        } else if (i2 != 594) {
+            if (i2 == 12) {
                 if (this.mOrderInfo == null) {
                     return;
                 }
@@ -126,7 +126,7 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                 PayRequestCache.getInstance().addBeanRequestToCache(payRequest.getRequestId(), payRequest);
                 return;
             }
-            super.handleResponse(i, obj, str);
+            super.handleResponse(i2, obj, str);
         } else {
             this.isQuerying = false;
             ScanCodeLimitPayResponse scanCodeLimitPayResponse = (ScanCodeLimitPayResponse) obj;
@@ -176,8 +176,8 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
     }
 
     @Override // com.baidu.wallet.paysdk.contract.PwdPayContract.Presenter
-    public boolean onBeanExecFailureWithErrContent(int i, int i2, String str, Object obj) {
-        clearPayPwdCache(i2);
+    public boolean onBeanExecFailureWithErrContent(int i2, int i3, String str, Object obj) {
+        clearPayPwdCache(i3);
         return false;
     }
 

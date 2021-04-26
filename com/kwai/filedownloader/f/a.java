@@ -5,8 +5,8 @@ public class a {
         d.d(a.class, str + ", but the download service isn't connected yet.\nYou can use FileDownloader#isServiceConnected() to check whether the service has been connected, \nbesides you can use following functions easier to control your requestHttpCode invoke after the service has been connected: \n1. FileDownloader#bindService(Runnable)\n2. FileDownloader#insureServiceBind()\n3. FileDownloader#insureServiceBindAsync()", objArr);
     }
 
-    public static boolean a(int i) {
-        a("request pause the task[%d] in the download service", Integer.valueOf(i));
+    public static boolean a(int i2) {
+        a("request pause the task[%d] in the download service", Integer.valueOf(i2));
         return false;
     }
 
@@ -15,13 +15,13 @@ public class a {
         return false;
     }
 
-    public static byte b(int i) {
-        a("request get the status for the task[%d] in the download service", Integer.valueOf(i));
+    public static byte b(int i2) {
+        a("request get the status for the task[%d] in the download service", Integer.valueOf(i2));
         return (byte) 0;
     }
 
-    public static boolean c(int i) {
-        a("request clear the task[%d] data in the database", Integer.valueOf(i));
+    public static boolean c(int i2) {
+        a("request clear the task[%d] data in the database", Integer.valueOf(i2));
         return false;
     }
 }

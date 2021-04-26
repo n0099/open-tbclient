@@ -9,7 +9,7 @@ import android.graphics.Region;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.RestrictTo;
 import androidx.core.graphics.drawable.DrawableCompat;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class DrawableWrapper extends Drawable implements Drawable.Callback {
     public Drawable mDrawable;
@@ -94,7 +94,7 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
 
     @Override // android.graphics.drawable.Drawable
     public void jumpToCurrentState() {
-        DrawableCompat.jumpToCurrentState(this.mDrawable);
+        this.mDrawable.jumpToCurrentState();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -103,8 +103,8 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean onLevelChange(int i) {
-        return this.mDrawable.setLevel(i);
+    public boolean onLevelChange(int i2) {
+        return this.mDrawable.setLevel(i2);
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
@@ -113,8 +113,8 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        this.mDrawable.setAlpha(i);
+    public void setAlpha(int i2) {
+        this.mDrawable.setAlpha(i2);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -123,8 +123,8 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setChangingConfigurations(int i) {
-        this.mDrawable.setChangingConfigurations(i);
+    public void setChangingConfigurations(int i2) {
+        this.mDrawable.setChangingConfigurations(i2);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -148,8 +148,8 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setHotspotBounds(int i, int i2, int i3, int i4) {
-        DrawableCompat.setHotspotBounds(this.mDrawable, i, i2, i3, i4);
+    public void setHotspotBounds(int i2, int i3, int i4, int i5) {
+        DrawableCompat.setHotspotBounds(this.mDrawable, i2, i3, i4, i5);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -158,8 +158,8 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setTint(int i) {
-        DrawableCompat.setTint(this.mDrawable, i);
+    public void setTint(int i2) {
+        DrawableCompat.setTint(this.mDrawable, i2);
     }
 
     @Override // android.graphics.drawable.Drawable

@@ -4,5 +4,5 @@ import com.baidu.android.imsdk.IMListener;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public interface ILiveMsgReceiveListener extends IMListener {
-    void onReceiveMessage(int i, JSONArray jSONArray);
+    void onReceiveMessage(int i2, JSONArray jSONArray);
 }

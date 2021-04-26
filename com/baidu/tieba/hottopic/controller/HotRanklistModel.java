@@ -9,23 +9,23 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.hottopic.message.RequestHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
-import d.b.j0.c1.c.j;
+import d.a.j0.c1.c.j;
 /* loaded from: classes4.dex */
 public class HotRanklistModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f17226e;
+    public b f17519e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.c.c.g.a f17227f;
+    public d.a.c.c.g.a f17520f;
 
     /* loaded from: classes4.dex */
-    public class a extends d.b.c.c.g.a {
-        public a(int i, int i2) {
-            super(i, i2);
+    public class a extends d.a.c.c.g.a {
+        public a(int i2, int i3) {
+            super(i2, i3);
         }
 
-        @Override // d.b.c.c.g.a
+        @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null) {
                 return;
@@ -34,7 +34,7 @@ public class HotRanklistModel extends BdBaseModel {
                 if (!responsedMessage.hasError()) {
                     HotRanklistModel.this.v(responsedMessage);
                 } else {
-                    HotRanklistModel.this.f17226e.loadNetDataCallback(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
+                    HotRanklistModel.this.f17519e.loadNetDataCallback(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
                 }
             }
         }
@@ -42,14 +42,14 @@ public class HotRanklistModel extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void loadNetDataCallback(boolean z, j jVar, int i, String str);
+        void loadNetDataCallback(boolean z, j jVar, int i2, String str);
     }
 
     public HotRanklistModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f17226e = null;
+        this.f17519e = null;
         a aVar = new a(CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, 309289);
-        this.f17227f = aVar;
+        this.f17520f = aVar;
         registerListener(aVar);
     }
 
@@ -95,12 +95,12 @@ public class HotRanklistModel extends BdBaseModel {
                         jVar = responseSocketHotRanklistMessage.getHotRanklistData();
                     }
                 }
-                if (!StringUtils.isNull(str) && !ListUtils.isEmpty(jVar.f53945b)) {
-                    jVar.f53944a = jVar.f53945b.get(0).f53968f;
+                if (!StringUtils.isNull(str) && !ListUtils.isEmpty(jVar.f51708b)) {
+                    jVar.f51707a = jVar.f51708b.get(0).f51733f;
                 } else {
-                    jVar.f53944a = str;
+                    jVar.f51707a = str;
                 }
-                this.f17226e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+                this.f17519e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
             }
         }
         str = null;
@@ -110,8 +110,8 @@ public class HotRanklistModel extends BdBaseModel {
         }
         if (!StringUtils.isNull(str)) {
         }
-        jVar.f53944a = str;
-        this.f17226e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+        jVar.f51707a = str;
+        this.f17519e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
     }
 
     public final void w(String str, String str2, String str3, long j) {
@@ -124,6 +124,6 @@ public class HotRanklistModel extends BdBaseModel {
     }
 
     public void x(b bVar) {
-        this.f17226e = bVar;
+        this.f17519e = bVar;
     }
 }

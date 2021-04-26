@@ -5,8 +5,8 @@ import androidx.annotation.NonNull;
 import com.baidu.prologue.service.network.Request;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
-import d.b.b0.d.a.f;
-import d.b.b0.d.a.l;
+import d.a.b0.d.a.f;
+import d.a.b0.d.a.l;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class Als {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10053a;
+    public static final boolean f10428a;
 
     /* loaded from: classes2.dex */
     public enum Area {
@@ -76,18 +76,18 @@ public class Als {
 
     /* loaded from: classes2.dex */
     public static class a implements l {
-        @Override // d.b.b0.d.a.i
+        @Override // d.a.b0.d.a.i
         public void a(Throwable th) {
-            if (Als.f10053a) {
+            if (Als.f10428a) {
                 Log.e("Als", "Als get error response, " + th);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b0.d.a.i
+        @Override // d.a.b0.d.a.i
         /* renamed from: c */
         public void b(String str) {
-            if (Als.f10053a) {
+            if (Als.f10428a) {
                 Log.d("Als", "Als get correct response.");
             }
         }
@@ -95,18 +95,18 @@ public class Als {
 
     /* loaded from: classes2.dex */
     public static class b implements l {
-        @Override // d.b.b0.d.a.i
+        @Override // d.a.b0.d.a.i
         public void a(Throwable th) {
-            if (Als.f10053a) {
+            if (Als.f10428a) {
                 Log.e("Als", "Als performance get error response, " + th);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.b0.d.a.i
+        @Override // d.a.b0.d.a.i
         /* renamed from: c */
         public void b(String str) {
-            if (Als.f10053a) {
+            if (Als.f10428a) {
                 Log.d("Als", "Als performance get correct response.");
             }
         }
@@ -116,7 +116,7 @@ public class Als {
     public static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final JSONObject f10054a = new JSONObject();
+        public final JSONObject f10429a = new JSONObject();
 
         public c(@NonNull Type type) {
             d("da_type", type.value);
@@ -124,13 +124,13 @@ public class Als {
         }
 
         public final <T> c b(String str, T t) {
-            if (Als.f10053a && this.f10054a.has(str)) {
+            if (Als.f10428a && this.f10429a.has(str)) {
                 throw new IllegalArgumentException("key " + str + " has been set!");
             }
             try {
-                this.f10054a.put(str, t);
+                this.f10429a.put(str, t);
             } catch (JSONException unused) {
-                if (Als.f10053a) {
+                if (Als.f10428a) {
                     throw new IllegalArgumentException("Json put create invalid exception");
                 }
             }
@@ -179,18 +179,18 @@ public class Als {
     }
 
     static {
-        f10053a = d.b.b0.a.b.a.f42106a.get() != null && d.b.b0.a.b.a.f42106a.get().D();
+        f10428a = d.a.b0.a.b.a.f39288a.get() != null && d.a.b0.a.b.a.f39288a.get().s();
     }
 
-    public static void b(Request.c cVar, d.b.b0.a.b.a aVar) {
+    public static void b(Request.c cVar, d.a.b0.a.b.a aVar) {
         cVar.j(HttpRequest.CLIENT_TYPE, "2");
         cVar.j(AdUploadHttpRequest.KEY_OS_TYPE, "2");
-        cVar.j(HttpRequest.CLIENT_VERSION, aVar.t());
-        cVar.j(AdUploadHttpRequest.KEY_OS_VERSION, aVar.k());
-        cVar.j("model", aVar.A());
-        cVar.j("cuid", aVar.j());
-        cVar.j("productId", aVar.z());
-        cVar.j("net_type", String.valueOf(new f(aVar.y()).d()));
+        cVar.j(HttpRequest.CLIENT_VERSION, aVar.D());
+        cVar.j(AdUploadHttpRequest.KEY_OS_VERSION, aVar.g());
+        cVar.j("model", aVar.q());
+        cVar.j("cuid", aVar.f());
+        cVar.j("productId", aVar.p());
+        cVar.j("net_type", String.valueOf(new f(aVar.o()).d()));
     }
 
     public static void c(Request.c cVar) {
@@ -207,31 +207,31 @@ public class Als {
     }
 
     public static void e(@NonNull c cVar) {
-        d.b.b0.a.b.a aVar = d.b.b0.a.b.a.f42106a.get();
+        d.a.b0.a.b.a aVar = d.a.b0.a.b.a.f39288a.get();
         if (aVar == null) {
-            if (f10053a) {
+            if (f10428a) {
                 throw new IllegalStateException("宿主App未初始化IAppContext");
             }
             return;
         }
-        Request.c cVar2 = new Request.c(aVar.y(), "https://als.baidu.com/clog/clog");
+        Request.c cVar2 = new Request.c(aVar.o(), "https://als.baidu.com/clog/clog");
         b(cVar2, aVar);
         JSONArray jSONArray = new JSONArray();
-        jSONArray.put(cVar.f10054a);
+        jSONArray.put(cVar.f10429a);
         cVar2.j("ad", jSONArray.toString());
         cVar2.n();
         cVar2.l().e(new a());
     }
 
     public static void f(String str, String str2, String str3, long j, String str4) {
-        d.b.b0.a.b.a aVar = d.b.b0.a.b.a.f42106a.get();
+        d.a.b0.a.b.a aVar = d.a.b0.a.b.a.f39288a.get();
         if (aVar == null) {
-            if (f10053a) {
+            if (f10428a) {
                 throw new IllegalStateException("宿主App未初始化IAppContext");
             }
             return;
         }
-        Request.c cVar = new Request.c(aVar.y(), "http://als.baidu.com/elog/plog");
+        Request.c cVar = new Request.c(aVar.o(), "http://als.baidu.com/elog/plog");
         b(cVar, aVar);
         c(cVar);
         d(cVar, str, str2, str3, j, str4);

@@ -44,8 +44,8 @@ public class HttpRequestEntity {
         return this.url;
     }
 
-    public void setConnectTimeout(int i) {
-        this.connectTimeout = i;
+    public void setConnectTimeout(int i2) {
+        this.connectTimeout = i2;
     }
 
     public void setHeader(HashMap<String, String> hashMap) {
@@ -56,20 +56,20 @@ public class HttpRequestEntity {
         this.mediaType = str;
     }
 
-    public void setMethod(int i) {
-        this.method = i;
+    public void setMethod(int i2) {
+        this.method = i2;
     }
 
     public void setPostParams(HashMap<String, String> hashMap) {
         this.postParams = hashMap;
     }
 
-    public void setReadTimeout(int i) {
-        this.readTimeout = i;
+    public void setReadTimeout(int i2) {
+        this.readTimeout = i2;
     }
 
-    public void setRetryCount(int i) {
-        this.retryCount = i;
+    public void setRetryCount(int i2) {
+        this.retryCount = i2;
     }
 
     public void setUrl(String str) {

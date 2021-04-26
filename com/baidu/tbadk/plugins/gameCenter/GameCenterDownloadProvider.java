@@ -7,7 +7,7 @@ import android.net.Uri;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
-import d.b.i0.p0.c.a;
+import d.a.i0.p0.c.a;
 /* loaded from: classes3.dex */
 public class GameCenterDownloadProvider extends ContentProvider {
     public boolean isPluginSetted = false;

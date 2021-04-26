@@ -1,7 +1,7 @@
 package com.baidu.tbadk;
 
 import android.content.SharedPreferences;
-import d.b.i0.r.d0.b;
+import d.a.i0.r.d0.b;
 /* loaded from: classes3.dex */
 public class TbadkSettings {
     public static TbadkSettings mSettings = new TbadkSettings();
@@ -19,8 +19,8 @@ public class TbadkSettings {
         return b.j().g(str, z);
     }
 
-    public int loadInt(String str, int i) {
-        return b.j().k(str, i);
+    public int loadInt(String str, int i2) {
+        return b.j().k(str, i2);
     }
 
     public long loadLong(String str, long j) {
@@ -35,8 +35,8 @@ public class TbadkSettings {
         b.j().t(str, z);
     }
 
-    public void saveInt(String str, int i) {
-        b.j().v(str, i);
+    public void saveInt(String str, int i2) {
+        b.j().v(str, i2);
     }
 
     public void saveLong(String str, long j) {

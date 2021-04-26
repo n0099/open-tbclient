@@ -5,7 +5,7 @@ import com.googlecode.mp4parser.util.IntHashMap;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class IsoTypeReader {
     public static IntHashMap codeCache = new IntHashMap();
     public static byte[] codeBytes = new byte[4];
@@ -17,14 +17,14 @@ public final class IsoTypeReader {
     public static String read4cc(ByteBuffer byteBuffer) {
         byteBuffer.get(codeBytes);
         byte[] bArr = codeBytes;
-        int i = (bArr[3] & 255) | ((bArr[0] << 24) & (-16777216)) | ((bArr[1] << 16) & ItemTouchHelper.ACTION_MODE_DRAG_MASK) | ((bArr[2] << 8) & 65280);
-        String str = (String) codeCache.get(i);
+        int i2 = (bArr[3] & 255) | ((bArr[0] << 24) & (-16777216)) | ((bArr[1] << 16) & ItemTouchHelper.ACTION_MODE_DRAG_MASK) | ((bArr[2] << 8) & 65280);
+        String str = (String) codeCache.get(i2);
         if (str != null) {
             return str;
         }
         try {
             String str2 = new String(codeBytes, "ISO-8859-1");
-            codeCache.put(i, str2);
+            codeCache.put(i2, str2);
             return str2;
         } catch (UnsupportedEncodingException e2) {
             throw new RuntimeException(e2);
@@ -52,8 +52,8 @@ public final class IsoTypeReader {
     public static String readIso639(ByteBuffer byteBuffer) {
         int readUInt16 = readUInt16(byteBuffer);
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < 3; i++) {
-            sb.append((char) (((readUInt16 >> ((2 - i) * 5)) & 31) + 96));
+        for (int i2 = 0; i2 < 3; i2++) {
+            sb.append((char) (((readUInt16 >> ((2 - i2) * 5)) & 31) + 96));
         }
         return sb.toString();
     }
@@ -102,8 +102,8 @@ public final class IsoTypeReader {
         return byte2int(byteBuffer.get());
     }
 
-    public static String readString(ByteBuffer byteBuffer, int i) {
-        byte[] bArr = new byte[i];
+    public static String readString(ByteBuffer byteBuffer, int i2) {
+        byte[] bArr = new byte[i2];
         byteBuffer.get(bArr);
         return Utf8.convert(bArr);
     }

@@ -3,6 +3,7 @@ package androidx.core.view;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.view.View;
 import android.view.animation.Interpolator;
@@ -10,7 +11,6 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public final class ViewPropertyAnimatorCompat {
     public static final int LISTENER_TAG_ID = 2113929216;
-    public static final String TAG = "ViewAnimatorCompat";
     public WeakReference<View> mView;
     public Runnable mStartAction = null;
     public Runnable mEndAction = null;
@@ -35,10 +35,11 @@ public final class ViewPropertyAnimatorCompat {
         }
 
         @Override // androidx.core.view.ViewPropertyAnimatorListener
+        @SuppressLint({"WrongConstant"})
         public void onAnimationEnd(View view) {
-            int i = this.mVpa.mOldLayerType;
-            if (i > -1) {
-                view.setLayerType(i, null);
+            int i2 = this.mVpa.mOldLayerType;
+            if (i2 > -1) {
+                view.setLayerType(i2, null);
                 this.mVpa.mOldLayerType = -1;
             }
             if (Build.VERSION.SDK_INT >= 16 || !this.mAnimEndCalled) {
@@ -349,6 +350,7 @@ public final class ViewPropertyAnimatorCompat {
         return this;
     }
 
+    @SuppressLint({"WrongConstant"})
     public ViewPropertyAnimatorCompat withLayer() {
         View view = this.mView.get();
         if (view != null) {

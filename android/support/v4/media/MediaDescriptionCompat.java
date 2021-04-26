@@ -36,8 +36,8 @@ public final class MediaDescriptionCompat implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public MediaDescriptionCompat[] newArray(int i) {
-            return new MediaDescriptionCompat[i];
+        public MediaDescriptionCompat[] newArray(int i2) {
+            return new MediaDescriptionCompat[i2];
         }
     };
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -253,19 +253,19 @@ public final class MediaDescriptionCompat implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         if (Build.VERSION.SDK_INT < 21) {
             parcel.writeString(this.mMediaId);
-            TextUtils.writeToParcel(this.mTitle, parcel, i);
-            TextUtils.writeToParcel(this.mSubtitle, parcel, i);
-            TextUtils.writeToParcel(this.mDescription, parcel, i);
-            parcel.writeParcelable(this.mIcon, i);
-            parcel.writeParcelable(this.mIconUri, i);
+            TextUtils.writeToParcel(this.mTitle, parcel, i2);
+            TextUtils.writeToParcel(this.mSubtitle, parcel, i2);
+            TextUtils.writeToParcel(this.mDescription, parcel, i2);
+            parcel.writeParcelable(this.mIcon, i2);
+            parcel.writeParcelable(this.mIconUri, i2);
             parcel.writeBundle(this.mExtras);
-            parcel.writeParcelable(this.mMediaUri, i);
+            parcel.writeParcelable(this.mMediaUri, i2);
             return;
         }
-        MediaDescriptionCompatApi21.writeToParcel(getMediaDescription(), parcel, i);
+        MediaDescriptionCompatApi21.writeToParcel(getMediaDescription(), parcel, i2);
     }
 
     public MediaDescriptionCompat(Parcel parcel) {

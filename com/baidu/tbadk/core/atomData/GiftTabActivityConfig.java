@@ -36,10 +36,10 @@ public class GiftTabActivityConfig extends IntentConfig {
         getIntent().putExtra("from", str3);
     }
 
-    public GiftTabActivityConfig(Context context, long j, String str, String str2, String str3, int i) {
+    public GiftTabActivityConfig(Context context, long j, String str, String str2, String str3, int i2) {
         super(context);
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i);
+        setRequestCode(i2);
         getIntent().putExtra("gift_receiver_id", j);
         getIntent().putExtra(GIFT_RECEIVER_NAME, str);
         getIntent().putExtra(GIFT_RECEIVER_NAME_SHOW, str2);

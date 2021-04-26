@@ -7,9 +7,9 @@ public final class c {
 
     /* loaded from: classes6.dex */
     public static final class a {
-        public static Object a(int i, String str) {
+        public static Object a(int i2, String str) {
             try {
-                switch (i) {
+                switch (i2) {
                     case 1:
                         return Integer.valueOf(str);
                     case 2:

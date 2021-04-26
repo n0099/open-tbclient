@@ -17,12 +17,12 @@ public class QuickWebViewSwitch extends BaseNormalSwitch {
         state = triState;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.b.c.e.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.a.c.e.f.a
     public int getDefaultType() {
         return super.getDefaultType();
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.b.c.e.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.a.c.e.f.a
     public String getName() {
         return "android_custom_offline_web_cache";
     }

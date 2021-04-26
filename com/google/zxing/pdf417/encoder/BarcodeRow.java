@@ -4,32 +4,32 @@ public final class BarcodeRow {
     public int currentLocation = 0;
     public final byte[] row;
 
-    public BarcodeRow(int i) {
-        this.row = new byte[i];
+    public BarcodeRow(int i2) {
+        this.row = new byte[i2];
     }
 
-    public void addBar(boolean z, int i) {
-        for (int i2 = 0; i2 < i; i2++) {
-            int i3 = this.currentLocation;
-            this.currentLocation = i3 + 1;
-            set(i3, z);
+    public void addBar(boolean z, int i2) {
+        for (int i3 = 0; i3 < i2; i3++) {
+            int i4 = this.currentLocation;
+            this.currentLocation = i4 + 1;
+            set(i4, z);
         }
     }
 
-    public byte[] getScaledRow(int i) {
-        int length = this.row.length * i;
+    public byte[] getScaledRow(int i2) {
+        int length = this.row.length * i2;
         byte[] bArr = new byte[length];
-        for (int i2 = 0; i2 < length; i2++) {
-            bArr[i2] = this.row[i2 / i];
+        for (int i3 = 0; i3 < length; i3++) {
+            bArr[i3] = this.row[i3 / i2];
         }
         return bArr;
     }
 
-    public void set(int i, byte b2) {
-        this.row[i] = b2;
+    public void set(int i2, byte b2) {
+        this.row[i2] = b2;
     }
 
-    private void set(int i, boolean z) {
-        this.row[i] = z ? (byte) 1 : (byte) 0;
+    private void set(int i2, boolean z) {
+        this.row[i2] = z ? (byte) 1 : (byte) 0;
     }
 }

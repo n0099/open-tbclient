@@ -3,9 +3,11 @@ package androidx.lifecycle;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.ReportFragment;
@@ -43,6 +45,7 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
         }
     };
 
+    @NonNull
     public static LifecycleOwner get() {
         return sInstance;
     }
@@ -52,17 +55,17 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
     }
 
     public void activityPaused() {
-        int i = this.mResumedCounter - 1;
-        this.mResumedCounter = i;
-        if (i == 0) {
+        int i2 = this.mResumedCounter - 1;
+        this.mResumedCounter = i2;
+        if (i2 == 0) {
             this.mHandler.postDelayed(this.mDelayedPauseRunnable, 700L);
         }
     }
 
     public void activityResumed() {
-        int i = this.mResumedCounter + 1;
-        this.mResumedCounter = i;
-        if (i == 1) {
+        int i2 = this.mResumedCounter + 1;
+        this.mResumedCounter = i2;
+        if (i2 == 1) {
             if (this.mPauseSent) {
                 this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_RESUME);
                 this.mPauseSent = false;
@@ -73,9 +76,9 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
     }
 
     public void activityStarted() {
-        int i = this.mStartedCounter + 1;
-        this.mStartedCounter = i;
-        if (i == 1 && this.mStopSent) {
+        int i2 = this.mStartedCounter + 1;
+        this.mStartedCounter = i2;
+        if (i2 == 1 && this.mStopSent) {
             this.mRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START);
             this.mStopSent = false;
         }
@@ -92,12 +95,29 @@ public class ProcessLifecycleOwner implements LifecycleOwner {
         ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new EmptyActivityLifecycleCallbacks() { // from class: androidx.lifecycle.ProcessLifecycleOwner.3
             @Override // androidx.lifecycle.EmptyActivityLifecycleCallbacks, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityCreated(Activity activity, Bundle bundle) {
-                ReportFragment.get(activity).setProcessListener(ProcessLifecycleOwner.this.mInitializationListener);
+                if (Build.VERSION.SDK_INT < 29) {
+                    ReportFragment.get(activity).setProcessListener(ProcessLifecycleOwner.this.mInitializationListener);
+                }
             }
 
             @Override // androidx.lifecycle.EmptyActivityLifecycleCallbacks, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityPaused(Activity activity) {
                 ProcessLifecycleOwner.this.activityPaused();
+            }
+
+            @Override // android.app.Application.ActivityLifecycleCallbacks
+            public void onActivityPreCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+                activity.registerActivityLifecycleCallbacks(new EmptyActivityLifecycleCallbacks() { // from class: androidx.lifecycle.ProcessLifecycleOwner.3.1
+                    @Override // android.app.Application.ActivityLifecycleCallbacks
+                    public void onActivityPostResumed(@NonNull Activity activity2) {
+                        ProcessLifecycleOwner.this.activityResumed();
+                    }
+
+                    @Override // android.app.Application.ActivityLifecycleCallbacks
+                    public void onActivityPostStarted(@NonNull Activity activity2) {
+                        ProcessLifecycleOwner.this.activityStarted();
+                    }
+                });
             }
 
             @Override // androidx.lifecycle.EmptyActivityLifecycleCallbacks, android.app.Application.ActivityLifecycleCallbacks

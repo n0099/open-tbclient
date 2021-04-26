@@ -3,7 +3,7 @@ package com.baidu.swan.apps.media.chooser.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MediaModel implements Parcelable, Comparable<Object> {
     public static final Parcelable.Creator<MediaModel> CREATOR = new a();
     public long addDate;
@@ -12,7 +12,7 @@ public class MediaModel implements Parcelable, Comparable<Object> {
     public String tempPath;
     public String type;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<MediaModel> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -24,8 +24,8 @@ public class MediaModel implements Parcelable, Comparable<Object> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public MediaModel[] newArray(int i) {
-            return new MediaModel[i];
+        public MediaModel[] newArray(int i2) {
+            return new MediaModel[i2];
         }
     }
 
@@ -87,7 +87,7 @@ public class MediaModel implements Parcelable, Comparable<Object> {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeString(this.path);
         parcel.writeString(this.tempPath);
         parcel.writeLong(this.addDate);

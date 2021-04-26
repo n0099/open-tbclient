@@ -18,31 +18,33 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.data.RelateForumItemData;
-import d.b.c.e.p.j;
-import d.b.c.e.p.l;
-import d.b.c.j.e.n;
-import d.b.i0.d0.h;
-import d.b.i0.r.f0.f;
-import d.b.j0.c1.f.c;
-import d.b.j0.x.t;
+import d.a.c.e.p.j;
+import d.a.c.e.p.l;
+import d.a.c.j.e.n;
+import d.a.i0.d0.h;
+import d.a.i0.r.f0.f;
+import d.a.j0.c1.f.c;
+import d.a.j0.x.t;
 /* loaded from: classes4.dex */
 public class HotTopicView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<HotTopicActivity> f17328e;
+    public TbPageContext<HotTopicActivity> f17629e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdTypeListView f17329f;
+    public BdTypeListView f17630f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.r.f0.g f17330g;
+    public d.a.i0.r.f0.g f17631g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.b.j0.c1.a.d f17331h;
-    public d.b.i0.d0.g i;
+    public d.a.j0.c1.a.d f17632h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public d.a.i0.d0.g f17633i;
     public h j;
-    public d.b.j0.c1.b.d k;
-    public d.b.j0.c1.c.e l;
+    public d.a.j0.c1.b.d k;
+    public d.a.j0.c1.c.e l;
     public c.f m;
     public int n;
     public PbListView o;
@@ -52,7 +54,7 @@ public class HotTopicView extends FrameLayout {
     public CustomMessageListener s;
     public CustomMessageListener t;
     public View u;
-    public d.b.j0.c1.f.c v;
+    public d.a.j0.c1.f.c v;
     public int w;
     public int x;
     public g y;
@@ -62,17 +64,17 @@ public class HotTopicView extends FrameLayout {
         public a() {
         }
 
-        @Override // d.b.i0.r.f0.f.g
+        @Override // d.a.i0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (j.z()) {
                 HotTopicView.this.k.i();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004012));
-                ((HotTopicActivity) HotTopicView.this.f17328e.getOrignalPage()).loadHotTopicData();
+                ((HotTopicActivity) HotTopicView.this.f17629e.getOrignalPage()).loadHotTopicData();
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
             HotTopicView.this.k.h(true);
-            HotTopicView.this.f17329f.A(0L);
+            HotTopicView.this.f17630f.A(0L);
         }
     }
 
@@ -82,36 +84,36 @@ public class HotTopicView extends FrameLayout {
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
-        public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-            HotTopicView.this.k.e(i, i2);
+        public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
+            HotTopicView.this.k.e(i2, i3);
             if (HotTopicView.this.m != null) {
-                HotTopicView.this.m.onScroll(absListView, i, i2, i3);
+                HotTopicView.this.m.onScroll(absListView, i2, i3, i4);
             }
-            HotTopicView.this.I(absListView, i);
+            HotTopicView.this.I(absListView, i2);
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
-        public void onScrollStateChanged(AbsListView absListView, int i) {
-            if (i == 0) {
+        public void onScrollStateChanged(AbsListView absListView, int i2) {
+            if (i2 == 0) {
                 HotTopicView.this.k.g();
                 t.b().c();
             }
             if (HotTopicView.this.m != null) {
-                HotTopicView.this.m.onScrollStateChanged(absListView, i);
+                HotTopicView.this.m.onScrollStateChanged(absListView, i2);
             }
         }
     }
 
     /* loaded from: classes4.dex */
     public class c extends CustomMessageListener {
-        public c(int i) {
-            super(i);
+        public c(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || HotTopicView.this.l == null || HotTopicView.this.l.k() == null || HotTopicView.this.l.k().f53961e == null) {
+            if (customResponsedMessage == null || HotTopicView.this.l == null || HotTopicView.this.l.k() == null || HotTopicView.this.l.k().f51725e == null) {
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -120,8 +122,8 @@ public class HotTopicView extends FrameLayout {
                 if (o != null) {
                     o.followNum++;
                     o.setIsLiked(true);
-                    HotTopicView.this.l.k().f53962f = true;
-                    HotTopicView.this.f17331h.d(HotTopicView.this.l);
+                    HotTopicView.this.l.k().f51726f = true;
+                    HotTopicView.this.f17632h.d(HotTopicView.this.l);
                 }
             }
         }
@@ -129,14 +131,14 @@ public class HotTopicView extends FrameLayout {
 
     /* loaded from: classes4.dex */
     public class d extends CustomMessageListener {
-        public d(int i) {
-            super(i);
+        public d(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || HotTopicView.this.l == null || HotTopicView.this.l.k() == null || HotTopicView.this.l.k().f53961e == null) {
+            if (customResponsedMessage == null || HotTopicView.this.l == null || HotTopicView.this.l.k() == null || HotTopicView.this.l.k().f51725e == null) {
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -145,8 +147,8 @@ public class HotTopicView extends FrameLayout {
                 if (o != null) {
                     o.followNum--;
                     o.setIsLiked(false);
-                    HotTopicView.this.l.k().f53962f = true;
-                    HotTopicView.this.f17331h.d(HotTopicView.this.l);
+                    HotTopicView.this.l.k().f51726f = true;
+                    HotTopicView.this.f17632h.d(HotTopicView.this.l);
                 }
             }
         }
@@ -159,7 +161,7 @@ public class HotTopicView extends FrameLayout {
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (view != HotTopicView.this.f17329f || HotTopicView.this.k == null) {
+            if (view != HotTopicView.this.f17630f || HotTopicView.this.k == null) {
                 return false;
             }
             HotTopicView.this.k.f(motionEvent);
@@ -177,7 +179,7 @@ public class HotTopicView extends FrameLayout {
             if (j.A()) {
                 HotTopicView.this.r();
                 HotTopicView.this.F(true);
-                ((HotTopicActivity) HotTopicView.this.f17328e.getOrignalPage()).loadHotTopicData();
+                ((HotTopicActivity) HotTopicView.this.f17629e.getOrignalPage()).loadHotTopicData();
             }
         }
     }
@@ -186,21 +188,21 @@ public class HotTopicView extends FrameLayout {
     public class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f17338e;
+        public int f17640e;
 
-        public g(int i) {
-            this.f17338e = i;
+        public g(int i2) {
+            this.f17640e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            HotTopicView.this.f17329f.smoothScrollBy(Math.abs(this.f17338e), 1);
+            HotTopicView.this.f17630f.smoothScrollBy(Math.abs(this.f17640e), 1);
             HotTopicView.this.l();
         }
     }
 
-    public HotTopicView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public HotTopicView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.p = 0;
         this.q = new a();
         this.r = new b();
@@ -210,7 +212,7 @@ public class HotTopicView extends FrameLayout {
     }
 
     private int getLoadingViewTopMargin() {
-        d.b.j0.c1.f.c cVar = this.v;
+        d.a.j0.c1.f.c cVar = this.v;
         if (cVar == null || cVar.s() == null) {
             return 0;
         }
@@ -218,59 +220,59 @@ public class HotTopicView extends FrameLayout {
     }
 
     private int getTopMargin() {
-        d.b.j0.c1.f.c cVar = this.v;
+        d.a.j0.c1.f.c cVar = this.v;
         if (cVar == null || cVar.s() == null) {
             return 0;
         }
         return (int) Math.abs(this.v.t() + this.v.s().getY());
     }
 
-    public void A(d.b.j0.c1.c.e eVar) {
-        if (this.f17331h == null) {
+    public void A(d.a.j0.c1.c.e eVar) {
+        if (this.f17632h == null) {
             return;
         }
         if (eVar == null) {
-            eVar = new d.b.j0.c1.c.e();
+            eVar = new d.a.j0.c1.c.e();
         }
         this.l = eVar;
-        this.f17331h.c(eVar.n());
-        this.f17331h.d(eVar);
-        this.f17329f.setVisibility(0);
+        this.f17632h.c(eVar.n());
+        this.f17632h.d(eVar);
+        this.f17630f.setVisibility(0);
         if (ListUtils.isEmpty(eVar.i())) {
             return;
         }
-        SkinManager.setBackgroundColor(this.f17329f, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(this.f17630f, R.color.CAM_X0204);
     }
 
     public void B() {
-        d.b.j0.c1.b.d dVar = this.k;
+        d.a.j0.c1.b.d dVar = this.k;
         if (dVar != null) {
             dVar.d(false);
         }
     }
 
-    public void C(int i) {
-        BdTypeListView bdTypeListView = this.f17329f;
+    public void C(int i2) {
+        BdTypeListView bdTypeListView = this.f17630f;
         if (bdTypeListView == null) {
             return;
         }
-        bdTypeListView.smoothScrollBy(i, 1);
+        bdTypeListView.smoothScrollBy(i2, 1);
         l();
     }
 
     public void D(float f2) {
-        d.b.j0.c1.c.e eVar;
-        if (this.f17329f == null || (eVar = this.l) == null || eVar.k() == null) {
+        d.a.j0.c1.c.e eVar;
+        if (this.f17630f == null || (eVar = this.l) == null || eVar.k() == null) {
             return;
         }
-        this.f17329f.setSelection(0);
+        this.f17630f.setSelection(0);
         this.y = new g((int) f2);
-        d.b.c.e.m.e.a().post(this.y);
+        d.a.c.e.m.e.a().post(this.y);
     }
 
     public void E() {
         PbListView pbListView;
-        BdTypeListView bdTypeListView = this.f17329f;
+        BdTypeListView bdTypeListView = this.f17630f;
         if (bdTypeListView == null || (pbListView = this.o) == null) {
             return;
         }
@@ -284,15 +286,15 @@ public class HotTopicView extends FrameLayout {
         if (u()) {
             return;
         }
-        if (this.i == null) {
-            d.b.i0.d0.g gVar = new d.b.i0.d0.g(getContext());
-            this.i = gVar;
+        if (this.f17633i == null) {
+            d.a.i0.d0.g gVar = new d.a.i0.d0.g(getContext());
+            this.f17633i = gVar;
             gVar.q(getLoadingViewTopMargin());
-            this.i.h();
-            this.i.onChangeSkinType();
+            this.f17633i.h();
+            this.f17633i.onChangeSkinType();
         }
-        this.i.attachView(this, z);
-        this.f17329f.setVisibility(8);
+        this.f17633i.attachView(this, z);
+        this.f17630f.setVisibility(8);
     }
 
     public void G(String str, boolean z) {
@@ -305,28 +307,28 @@ public class HotTopicView extends FrameLayout {
         this.j.j(getTopMargin());
         this.j.attachView(this, z);
         this.j.o();
-        this.f17329f.setVisibility(8);
+        this.f17630f.setVisibility(8);
     }
 
     public void H() {
         PbListView pbListView;
-        if (this.f17329f == null || (pbListView = this.o) == null) {
+        if (this.f17630f == null || (pbListView = this.o) == null) {
             return;
         }
-        int i = this.p;
-        if (i > 0) {
-            pbListView.J(i);
+        int i2 = this.p;
+        if (i2 > 0) {
+            pbListView.J(i2);
         }
-        this.f17329f.setNextPage(this.o);
+        this.f17630f.setNextPage(this.o);
         this.o.f();
         this.o.A(getContext().getResources().getString(R.string.list_no_more));
     }
 
-    public final void I(AbsListView absListView, int i) {
+    public final void I(AbsListView absListView, int i2) {
         if (this.v == null) {
             return;
         }
-        if (absListView != null && absListView.getChildCount() > 0 && absListView.getChildAt(0) != null && i == 0) {
+        if (absListView != null && absListView.getChildCount() > 0 && absListView.getChildAt(0) != null && i2 == 0) {
             int abs = Math.abs(absListView.getChildAt(0).getTop());
             this.n = abs;
             if (abs > this.x && this.w <= 1) {
@@ -336,11 +338,11 @@ public class HotTopicView extends FrameLayout {
             }
             this.x = this.n;
         }
-        this.w = i;
+        this.w = i2;
     }
 
     public BdTypeListView getListView() {
-        return this.f17329f;
+        return this.f17630f;
     }
 
     public final void j() {
@@ -348,12 +350,12 @@ public class HotTopicView extends FrameLayout {
         this.u = view;
         view.setId(R.id.view_header);
         this.u.setLayoutParams(new AbsListView.LayoutParams(-1, 0));
-        this.f17329f.x(this.u, 0);
+        this.f17630f.x(this.u, 0);
     }
 
-    public void k(int i) {
+    public void k(int i2) {
         ViewGroup.LayoutParams layoutParams = this.u.getLayoutParams();
-        layoutParams.height = i;
+        layoutParams.height = i2;
         this.u.setLayoutParams(layoutParams);
         l();
     }
@@ -363,39 +365,39 @@ public class HotTopicView extends FrameLayout {
             this.j.j(getTopMargin());
         }
         if (u()) {
-            this.i.q(getLoadingViewTopMargin());
+            this.f17633i.q(getLoadingViewTopMargin());
         }
     }
 
     public void m(boolean z) {
-        if (this.f17329f != null) {
+        if (this.f17630f != null) {
             this.k.h(true);
             if (z) {
-                this.f17329f.z();
+                this.f17630f.z();
             } else {
-                this.f17329f.A(0L);
+                this.f17630f.A(0L);
             }
         }
     }
 
     public void n() {
-        d.b.i0.r.f0.g gVar = this.f17330g;
+        d.a.i0.r.f0.g gVar = this.f17631g;
         if (gVar != null) {
-            gVar.b(null);
+            gVar.a(null);
         }
-        d.b.j0.c1.b.d dVar = this.k;
+        d.a.j0.c1.b.d dVar = this.k;
         if (dVar != null) {
             dVar.c();
         }
-        d.b.c.e.m.e.a().removeCallbacks(this.y);
+        d.a.c.e.m.e.a().removeCallbacks(this.y);
     }
 
     public final RelateForumItemData o(long j) {
-        d.b.j0.c1.c.e eVar = this.l;
-        if (eVar == null || eVar.k() == null || this.l.k().f53961e == null) {
+        d.a.j0.c1.c.e eVar = this.l;
+        if (eVar == null || eVar.k() == null || this.l.k().f51725e == null) {
             return null;
         }
-        for (n nVar : this.l.k().f53961e) {
+        for (n nVar : this.l.k().f51725e) {
             if (nVar != null && (nVar instanceof RelateForumItemData)) {
                 RelateForumItemData relateForumItemData = (RelateForumItemData) nVar;
                 if (relateForumItemData.forumId == j) {
@@ -413,7 +415,7 @@ public class HotTopicView extends FrameLayout {
     }
 
     public void p() {
-        BdTypeListView bdTypeListView = this.f17329f;
+        BdTypeListView bdTypeListView = this.f17630f;
         if (bdTypeListView == null || this.o == null) {
             return;
         }
@@ -422,16 +424,16 @@ public class HotTopicView extends FrameLayout {
     }
 
     public void q() {
-        d.b.j0.c1.f.c cVar;
-        d.b.i0.d0.g gVar = this.i;
+        d.a.j0.c1.f.c cVar;
+        d.a.i0.d0.g gVar = this.f17633i;
         if (gVar != null) {
             gVar.dettachView(this);
-            this.i = null;
+            this.f17633i = null;
         }
         if (t() || (cVar = this.v) == null || cVar.s() == null) {
             return;
         }
-        this.f17329f.smoothScrollBy((int) (-this.v.s().getY()), 1);
+        this.f17630f.smoothScrollBy((int) (-this.v.s().getY()), 1);
     }
 
     public void r() {
@@ -443,34 +445,34 @@ public class HotTopicView extends FrameLayout {
     }
 
     public final void s(Context context) {
-        d.b.c.a.f<?> a2 = d.b.c.a.j.a(context);
+        d.a.c.a.f<?> a2 = d.a.c.a.j.a(context);
         if (a2 instanceof TbPageContext) {
-            this.f17328e = (TbPageContext) a2;
+            this.f17629e = (TbPageContext) a2;
         }
-        if (this.f17328e == null) {
+        if (this.f17629e == null) {
             return;
         }
         BdTypeListView bdTypeListView = new BdTypeListView(context);
-        this.f17329f = bdTypeListView;
+        this.f17630f = bdTypeListView;
         bdTypeListView.setVerticalScrollBarEnabled(false);
-        this.f17329f.setDividerHeight(0);
-        this.f17329f.setSelector(17170445);
-        d.b.i0.r.f0.g gVar = new d.b.i0.r.f0.g(this.f17328e);
-        this.f17330g = gVar;
-        gVar.b(this.q);
-        this.f17329f.setPullRefresh(this.f17330g);
+        this.f17630f.setDividerHeight(0);
+        this.f17630f.setSelector(17170445);
+        d.a.i0.r.f0.g gVar = new d.a.i0.r.f0.g(this.f17629e);
+        this.f17631g = gVar;
+        gVar.a(this.q);
+        this.f17630f.setPullRefresh(this.f17631g);
         View view = new View(context);
         view.setLayoutParams(new AbsListView.LayoutParams(-1, context.getResources().getDimensionPixelSize(R.dimen.ds88)));
-        this.f17329f.addFooterView(view);
-        this.f17329f.setOnScrollListener(this.r);
-        this.f17329f.setOnSrollToBottomListener(this.f17328e.getOrignalPage());
-        this.f17329f.setOnTouchListener(new e());
-        this.f17331h = new d.b.j0.c1.a.d(this.f17328e.getOrignalPage(), this.f17329f);
-        addView(this.f17329f);
-        ((FrameLayout.LayoutParams) this.f17329f.getLayoutParams()).topMargin = getResources().getDimensionPixelOffset(R.dimen.line_magin_bottom);
-        this.k = new d.b.j0.c1.b.d(this.f17328e, this.f17329f);
-        this.f17328e.registerListener(this.s);
-        this.f17328e.registerListener(this.t);
+        this.f17630f.addFooterView(view);
+        this.f17630f.setOnScrollListener(this.r);
+        this.f17630f.setOnSrollToBottomListener(this.f17629e.getOrignalPage());
+        this.f17630f.setOnTouchListener(new e());
+        this.f17632h = new d.a.j0.c1.a.d(this.f17629e.getOrignalPage(), this.f17630f);
+        addView(this.f17630f);
+        ((FrameLayout.LayoutParams) this.f17630f.getLayoutParams()).topMargin = getResources().getDimensionPixelOffset(R.dimen.line_magin_bottom);
+        this.k = new d.a.j0.c1.b.d(this.f17629e, this.f17630f);
+        this.f17629e.registerListener(this.s);
+        this.f17629e.registerListener(this.t);
         j();
         PbListView pbListView = new PbListView(context);
         this.o = pbListView;
@@ -481,7 +483,7 @@ public class HotTopicView extends FrameLayout {
         this.o.y(R.color.CAM_X0110);
     }
 
-    public void setMainView(d.b.j0.c1.f.c cVar) {
+    public void setMainView(d.a.j0.c1.f.c cVar) {
         this.v = cVar;
     }
 
@@ -494,7 +496,7 @@ public class HotTopicView extends FrameLayout {
     }
 
     public boolean u() {
-        d.b.i0.d0.g gVar = this.i;
+        d.a.i0.d0.g gVar = this.f17633i;
         if (gVar != null) {
             return gVar.isViewAttached();
         }
@@ -509,12 +511,12 @@ public class HotTopicView extends FrameLayout {
         return false;
     }
 
-    public void w(int i) {
-        d.b.i0.r.f0.g gVar = this.f17330g;
+    public void w(int i2) {
+        d.a.i0.r.f0.g gVar = this.f17631g;
         if (gVar != null) {
-            gVar.I(i);
+            gVar.I(i2);
         }
-        d.b.i0.d0.g gVar2 = this.i;
+        d.a.i0.d0.g gVar2 = this.f17633i;
         if (gVar2 != null) {
             gVar2.onChangeSkinType();
         }
@@ -525,13 +527,13 @@ public class HotTopicView extends FrameLayout {
         PbListView pbListView = this.o;
         if (pbListView != null) {
             pbListView.C(SkinManager.getColor(R.color.CAM_X0109));
-            this.o.d(i);
+            this.o.d(i2);
         }
-        d.b.j0.c1.a.d dVar = this.f17331h;
+        d.a.j0.c1.a.d dVar = this.f17632h;
         if (dVar != null) {
             dVar.b();
         }
-        SkinManager.setBackgroundColor(this.f17329f, R.color.CAM_X0204);
+        SkinManager.setBackgroundColor(this.f17630f, R.color.CAM_X0204);
         SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
     }
 
@@ -539,16 +541,16 @@ public class HotTopicView extends FrameLayout {
         if (t()) {
             return;
         }
-        this.v.P(this.f17329f, Math.min(this.n, this.v.v()));
+        this.v.P(this.f17630f, Math.min(this.n, this.v.v()));
     }
 
     public final void y() {
-        d.b.j0.c1.f.c cVar = this.v;
-        cVar.P(this.f17329f, Math.min(this.n, cVar.v()));
+        d.a.j0.c1.f.c cVar = this.v;
+        cVar.P(this.f17630f, Math.min(this.n, cVar.v()));
     }
 
     public void z() {
-        d.b.j0.c1.b.d dVar = this.k;
+        d.a.j0.c1.b.d dVar = this.k;
         if (dVar != null) {
             dVar.d(true);
         }

@@ -12,26 +12,26 @@ import java.io.IOException;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f4768a;
+    public static Context f4881a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ActivityManager f4769b;
+    public static ActivityManager f4882b;
 
     public static void a(Context context) {
-        if (f4768a == null) {
-            f4768a = context;
-            f4769b = (ActivityManager) context.getSystemService("activity");
+        if (f4881a == null) {
+            f4881a = context;
+            f4882b = (ActivityManager) context.getSystemService("activity");
         }
     }
 
     public static String b() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (f4769b == null) {
+        if (f4882b == null) {
             return sb.toString();
         }
         ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-        f4769b.getMemoryInfo(memoryInfo2);
+        f4882b.getMemoryInfo(memoryInfo2);
         sb.append("isLowMem: ");
         sb.append(memoryInfo2.lowMemory ? "yes" : "no");
         sb.append("\navailMem: ");
@@ -39,7 +39,7 @@ public final class k {
         sb.append("\nthreshold: ");
         sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo2.threshold));
         sb.append("\n");
-        if (com.baidu.crabsdk.lite.b.c.g() >= 5 && (memoryInfo = f4769b.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+        if (com.baidu.crabsdk.lite.b.c.g() >= 5 && (memoryInfo = f4882b.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
             sb.append("totalPrivateDirty: ");
             sb.append(com.baidu.crabsdk.lite.b.c.a(memoryInfo.getTotalPrivateDirty() * 1024));
             sb.append("\ntotalPss: ");
@@ -66,20 +66,20 @@ public final class k {
                     fileReader = new FileReader("/proc/meminfo");
                     try {
                         bufferedReader2 = new BufferedReader(fileReader, 8192);
-                        int i = 0;
+                        int i2 = 0;
                         while (true) {
                             try {
                                 String readLine = bufferedReader2.readLine();
                                 if (readLine == null) {
                                     break;
                                 }
-                                int i2 = i + 1;
-                                if (i >= 5) {
+                                int i3 = i2 + 1;
+                                if (i2 >= 5) {
                                     break;
                                 }
                                 sb.append(readLine);
                                 sb.append("\n");
-                                i = i2;
+                                i2 = i3;
                             } catch (FileNotFoundException e4) {
                                 e3 = e4;
                                 com.baidu.crabsdk.lite.b.a.e(str, "getSysMemInfo fail.", e3);

@@ -7,10 +7,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static AtomicInteger f28115a = new AtomicInteger(1);
+    public static AtomicInteger f28974a = new AtomicInteger(1);
 
     public static boolean a() {
-        return f28115a.get() == 1;
+        return f28974a.get() == 1;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:19:0x0021  */
@@ -18,13 +18,13 @@ public class g {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(int i) {
+    public static void a(int i2) {
         boolean z = true;
-        if (i == 1 || i == 2) {
+        if (i2 == 1 || i2 == 2) {
             try {
-                if (f28115a.get() != i) {
+                if (f28974a.get() != i2) {
                     try {
-                        f28115a.set(i);
+                        f28974a.set(i2);
                     } catch (Throwable th) {
                         th = th;
                         th.printStackTrace();

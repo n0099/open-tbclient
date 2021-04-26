@@ -9,10 +9,10 @@ import com.baidu.mapframework.open.aidl.b;
 public class e extends b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f7436a;
+    public final /* synthetic */ d f7703a;
 
     public e(d dVar) {
-        this.f7436a = dVar;
+        this.f7703a = dVar;
     }
 
     @Override // com.baidu.mapframework.open.aidl.b
@@ -20,16 +20,16 @@ public class e extends b.a {
         String str;
         IComOpenClient iComOpenClient;
         boolean z;
-        str = b.f7429c;
+        str = b.f7695c;
         Log.d(str, "onClientReady");
-        iComOpenClient = b.f7431e;
+        iComOpenClient = b.f7697e;
         if (iComOpenClient != null) {
-            IComOpenClient unused = b.f7431e = null;
+            IComOpenClient unused = b.f7697e = null;
         }
-        IComOpenClient unused2 = b.f7431e = IComOpenClient.a.a(iBinder);
+        IComOpenClient unused2 = b.f7697e = IComOpenClient.a.a(iBinder);
         z = b.t;
         if (!z) {
-            b.a(b.f7427a);
+            b.a(b.f7693a);
         }
         boolean unused3 = b.t = true;
     }

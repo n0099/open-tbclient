@@ -29,8 +29,8 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
         public Proxy proxy;
         public Integer readTimeout;
 
-        public Configuration connectTimeout(int i) {
-            this.connectTimeout = Integer.valueOf(i);
+        public Configuration connectTimeout(int i2) {
+            this.connectTimeout = Integer.valueOf(i2);
             return this;
         }
 
@@ -39,8 +39,8 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
             return this;
         }
 
-        public Configuration readTimeout(int i) {
-            this.readTimeout = Integer.valueOf(i);
+        public Configuration readTimeout(int i2) {
+            this.readTimeout = Integer.valueOf(i2);
             return this;
         }
     }
@@ -81,18 +81,18 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
         @Override // com.baidu.searchbox.bddownload.IRedirectHandler
         public void handleRedirect(DownloadConnection downloadConnection, DownloadConnection.Connected connected, Map<String, List<String>> map) throws IOException {
             DownloadUrlConnection downloadUrlConnection = (DownloadUrlConnection) downloadConnection;
-            int i = 0;
+            int i2 = 0;
             for (int responseCode = connected.getResponseCode(); RedirectUtil.isRedirect(responseCode); responseCode = downloadUrlConnection.getResponseCode()) {
                 downloadUrlConnection.release();
-                i++;
-                if (i <= 10) {
+                i2++;
+                if (i2 <= 10) {
                     this.redirectLocation = RedirectUtil.getRedirectedUrl(connected, responseCode);
                     downloadUrlConnection.url = new URL(this.redirectLocation);
                     downloadUrlConnection.configUrlConnection();
                     Util.addRequestHeaderFields(map, downloadUrlConnection);
                     downloadUrlConnection.connection.connect();
                 } else {
-                    throw new ProtocolException("Too many redirect requests: " + i);
+                    throw new ProtocolException("Too many redirect requests: " + i2);
                 }
             }
         }

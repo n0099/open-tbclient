@@ -12,6 +12,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBox.c, ImageProvider, PreLoadImageProvider {
     public static final int TYPE_COMMON_ATTENTION = 1;
+    public static final int TYPE_FOLLOW_TIP_TEXT = 3;
     public static final int TYPE_NORMAL_USER = 0;
     public static final int TYPE_OHTER_ATTENTION = 2;
     public static final int TYPE_OTHER_TITLE = 0;
@@ -41,11 +42,11 @@ public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBo
             return null;
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        for (int i = 0; i < iconInfo.size(); i++) {
-            arrayList.add(iconInfo.get(i).getIcon());
-        }
         for (int i2 = 0; i2 < iconInfo.size(); i2++) {
-            arrayList.add(tShowInfoNew.get(i2).getIcon());
+            arrayList.add(iconInfo.get(i2).getIcon());
+        }
+        for (int i3 = 0; i3 < iconInfo.size(); i3++) {
+            arrayList.add(tShowInfoNew.get(i3).getIcon());
         }
         return arrayList;
     }
@@ -101,7 +102,7 @@ public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBo
         this.mIsChecked = z;
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, d.b.i0.r.f0.q.a
+    @Override // com.baidu.tbadk.data.MetaData, d.a.i0.r.f0.q.a
     public void setIsLike(boolean z) {
         super.setIsLike(z);
         if (z) {
@@ -110,8 +111,8 @@ public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBo
         setHave_attention(0);
     }
 
-    public UserData(long j, String str, String str2, int i) {
-        super(j, str, str2, i);
+    public UserData(long j, String str, String str2, int i2) {
+        super(j, str, str2, i2);
         this.mIsChecked = false;
         this.mAttentionType = 2;
     }

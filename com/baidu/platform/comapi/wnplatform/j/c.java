@@ -16,19 +16,19 @@ import java.util.Iterator;
 public class c extends a implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f9851a;
+    public static int f10216a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f9852b;
+    public Context f10217b;
 
     /* renamed from: f  reason: collision with root package name */
-    public SensorManager f9856f;
+    public SensorManager f10221f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Sensor f9857g;
+    public Sensor f10222g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f9858h;
+    public boolean f10223h;
     public Handler j;
     public com.baidu.platform.comapi.wnplatform.model.datastruct.a r;
     public double s;
@@ -36,14 +36,16 @@ public class c extends a implements SensorEventListener {
     public double u;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f9853c = -1;
+    public int f10218c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public float[] f9854d = new float[3];
+    public float[] f10219d = new float[3];
 
     /* renamed from: e  reason: collision with root package name */
-    public float[] f9855e = new float[9];
-    public Object i = new Object();
+    public float[] f10220e = new float[9];
+
+    /* renamed from: i  reason: collision with root package name */
+    public Object f10224i = new Object();
     public ArrayList<b> k = new ArrayList<>();
     public float[] l = new float[3];
     public float[] m = new float[3];
@@ -53,19 +55,19 @@ public class c extends a implements SensorEventListener {
     public float[] q = new float[3];
 
     public c() {
-        this.f9856f = null;
-        this.f9857g = null;
+        this.f10221f = null;
+        this.f10222g = null;
         Context a2 = com.baidu.platform.comapi.wnplatform.o.b.a.a();
-        this.f9852b = a2;
+        this.f10217b = a2;
         try {
             SensorManager sensorManager = (SensorManager) a2.getSystemService("sensor");
-            this.f9856f = sensorManager;
-            this.f9857g = sensorManager.getDefaultSensor(11);
+            this.f10221f = sensorManager;
+            this.f10222g = sensorManager.getDefaultSensor(11);
         } catch (Exception unused) {
-            this.f9856f = null;
-            this.f9857g = null;
+            this.f10221f = null;
+            this.f10222g = null;
         }
-        this.f9858h = false;
+        this.f10223h = false;
     }
 
     private double a(double d2) {
@@ -73,15 +75,15 @@ public class c extends a implements SensorEventListener {
     }
 
     private boolean b() {
-        synchronized (this.i) {
-            if (this.f9858h) {
+        synchronized (this.f10224i) {
+            if (this.f10223h) {
                 return true;
             }
-            if (((SensorManager) this.f9852b.getSystemService("sensor")) == null) {
+            if (((SensorManager) this.f10217b.getSystemService("sensor")) == null) {
                 return false;
             }
             boolean c2 = c();
-            this.f9858h = c2;
+            this.f10223h = c2;
             return c2;
         }
     }
@@ -90,7 +92,7 @@ public class c extends a implements SensorEventListener {
         SensorManager sensorManager;
         boolean registerListener;
         try {
-            sensorManager = (SensorManager) this.f9852b.getSystemService("sensor");
+            sensorManager = (SensorManager) this.f10217b.getSystemService("sensor");
         } catch (Exception unused) {
             sensorManager = null;
         }
@@ -125,13 +127,13 @@ public class c extends a implements SensorEventListener {
     }
 
     private void d() {
-        synchronized (this.i) {
-            if (this.f9858h) {
-                SensorManager sensorManager = (SensorManager) this.f9852b.getSystemService("sensor");
+        synchronized (this.f10224i) {
+            if (this.f10223h) {
+                SensorManager sensorManager = (SensorManager) this.f10217b.getSystemService("sensor");
                 if (sensorManager == null) {
                     return;
                 }
-                this.f9858h = false;
+                this.f10223h = false;
                 try {
                     sensorManager.unregisterListener(this);
                 } catch (Exception unused) {
@@ -146,9 +148,9 @@ public class c extends a implements SensorEventListener {
     }
 
     @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i) {
+    public void onAccuracyChanged(Sensor sensor, int i2) {
         Handler handler;
-        if ((i == 1 || i == 0) && com.baidu.platform.comapi.wnplatform.a.a().c() && (handler = this.j) != null) {
+        if ((i2 == 1 || i2 == 0) && com.baidu.platform.comapi.wnplatform.a.a().c() && (handler = this.j) != null) {
             handler.sendEmptyMessage(3);
         }
     }
@@ -156,7 +158,7 @@ public class c extends a implements SensorEventListener {
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
         com.baidu.platform.comapi.wnplatform.d.a.b("onSensorChanged acc:" + sensorEvent.accuracy);
-        if (this.f9856f == null) {
+        if (this.f10221f == null) {
             return;
         }
         com.baidu.platform.comapi.wnplatform.model.datastruct.a aVar = null;
@@ -206,16 +208,16 @@ public class c extends a implements SensorEventListener {
         SensorManager.getRotationMatrix(this.p, null, this.l, this.m);
         SensorManager.getOrientation(this.p, this.q);
         synchronized (this.o) {
-            this.o.f9882a = this.l[0];
-            this.o.f9883b = this.l[1];
-            this.o.f9884c = this.l[2];
+            this.o.f10249a = this.l[0];
+            this.o.f10250b = this.l[1];
+            this.o.f10251c = this.l[2];
             float degrees = (float) Math.toDegrees(this.q[0]);
             if (degrees < 0.0f && degrees > -180.0f) {
                 degrees += 360.0f;
             }
-            this.o.f9885d = degrees;
-            this.o.f9886e = (float) Math.toDegrees(this.q[1]);
-            this.o.f9887f = (float) Math.toDegrees(this.q[2]);
+            this.o.f10252d = degrees;
+            this.o.f10253e = (float) Math.toDegrees(this.q[1]);
+            this.o.f10254f = (float) Math.toDegrees(this.q[2]);
             clone = this.o.clone();
             this.n = clone;
         }
@@ -227,15 +229,15 @@ public class c extends a implements SensorEventListener {
         Display defaultDisplay;
         double degrees;
         int type = sensorEvent.sensor.getType();
-        if (this.f9857g != null && 11 == type) {
+        if (this.f10222g != null && 11 == type) {
             try {
-                SensorManager.getRotationMatrixFromVector(this.f9855e, sensorEvent.values);
-                SensorManager.getOrientation(this.f9855e, this.f9854d);
+                SensorManager.getRotationMatrixFromVector(this.f10220e, sensorEvent.values);
+                SensorManager.getOrientation(this.f10220e, this.f10219d);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
             try {
-                windowManager = (WindowManager) this.f9852b.getSystemService("window");
+                windowManager = (WindowManager) this.f10217b.getSystemService("window");
             } catch (Exception unused) {
                 windowManager = null;
             }
@@ -244,25 +246,25 @@ public class c extends a implements SensorEventListener {
             }
             try {
                 int rotation = defaultDisplay.getRotation() * 90;
-                int i = 0;
+                int i2 = 0;
                 if (type == 11) {
                     if (rotation == 0) {
-                        float[] fArr = this.f9854d;
+                        float[] fArr = this.f10219d;
                         degrees = Math.toDegrees(fArr[0] - fArr[2]);
                     } else {
-                        float[] fArr2 = this.f9854d;
+                        float[] fArr2 = this.f10219d;
                         degrees = Math.toDegrees(fArr2[0] - fArr2[1]);
                     }
-                    i = ((((int) degrees) + rotation) + 360) % 360;
+                    i2 = ((((int) degrees) + rotation) + 360) % 360;
                 }
-                this.f9853c = i;
-                double d2 = i;
-                a(d2, Math.toDegrees(this.f9854d[1]), Math.toDegrees(this.f9854d[2]));
+                this.f10218c = i2;
+                double d2 = i2;
+                a(d2, Math.toDegrees(this.f10219d[1]), Math.toDegrees(this.f10219d[2]));
                 com.baidu.platform.comapi.wnplatform.model.datastruct.a aVar = new com.baidu.platform.comapi.wnplatform.model.datastruct.a();
                 this.r = aVar;
-                aVar.f9885d = d2;
-                aVar.f9886e = a(this.t - 90.0d);
-                this.r.f9887f = 0.0d;
+                aVar.f10252d = d2;
+                aVar.f10253e = a(this.t - 90.0d);
+                this.r.f10254f = 0.0d;
                 if (com.baidu.platform.comapi.wnplatform.a.a().c()) {
                     if (this.j != null) {
                         Message message = new Message();
@@ -270,12 +272,12 @@ public class c extends a implements SensorEventListener {
                         message.obj = this.r;
                         this.j.sendMessage(message);
                     }
-                    int i2 = f9851a + 1;
-                    f9851a = i2;
-                    if (i2 % 50 == 0) {
+                    int i3 = f10216a + 1;
+                    f10216a = i3;
+                    if (i3 % 50 == 0) {
                         StringBuilder sb = new StringBuilder();
-                        sb.append("head:" + this.r.f9885d);
-                        sb.append("pitch:" + this.r.f9886e);
+                        sb.append("head:" + this.r.f10252d);
+                        sb.append("pitch:" + this.r.f10253e);
                         com.baidu.platform.comapi.wnplatform.d.a.b(WebGLImageLoader.DATA_URL + sb.toString());
                         com.baidu.platform.comapi.walknavi.b.a().b(WebGLImageLoader.DATA_URL + sb.toString());
                     }
@@ -332,8 +334,8 @@ public class c extends a implements SensorEventListener {
             return fArr;
         }
         int length = fArr2.length <= fArr.length ? fArr2.length : fArr.length;
-        for (int i = 0; i < length; i++) {
-            fArr2[i] = fArr2[i] + ((fArr[i] - fArr2[i]) * 0.1f);
+        for (int i2 = 0; i2 < length; i2++) {
+            fArr2[i2] = fArr2[i2] + ((fArr[i2] - fArr2[i2]) * 0.1f);
         }
         return fArr2;
     }

@@ -11,8 +11,8 @@ import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import d.b.c.c.g.a;
-import d.b.i0.r.c;
+import d.a.c.c.g.a;
+import d.a.i0.r.c;
 /* loaded from: classes3.dex */
 public class MainAPKFragmentActivityPageContext implements TbPageContext<BaseFragmentActivity> {
     public BaseFragmentActivity activity;
@@ -21,7 +21,7 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext<BaseFra
         this.activity = baseFragmentActivity;
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.a.c.a.f
     public Context getContext() {
         return this.activity.getActivity();
     }
@@ -31,22 +31,22 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext<BaseFra
         return this.activity.getLayoutMode();
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.a.c.a.f
     public Activity getPageActivity() {
         return this.activity.getActivity();
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.a.c.a.f
     public Resources getResources() {
         return this.activity.getResources();
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
-    public String getString(int i) {
-        return getResources().getString(i);
+    @Override // com.baidu.tbadk.TbPageContext, d.a.c.a.f
+    public String getString(int i2) {
+        return getResources().getString(i2);
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.a.c.a.f
     public BdUniqueId getUniqueId() {
         return this.activity.getUniqueId();
     }
@@ -56,14 +56,14 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext<BaseFra
         this.activity.registerListener(aVar);
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.a.c.a.f
     public void sendMessage(Message<?> message) {
         this.activity.sendMessage(message);
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public void showToast(int i) {
-        this.activity.showToast(i);
+    public void showToast(int i2) {
+        this.activity.showToast(i2);
     }
 
     @Override // com.baidu.tbadk.TbPageContext
@@ -77,14 +77,14 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext<BaseFra
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.a.c.a.f
     public BaseFragmentActivity getOrignalPage() {
         return this.activity;
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public void registerListener(int i, a aVar) {
-        this.activity.registerListener(i, aVar);
+    public void registerListener(int i2, a aVar) {
+        this.activity.registerListener(i2, aVar);
     }
 
     @Override // com.baidu.tbadk.TbPageContext
@@ -97,19 +97,19 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext<BaseFra
         this.activity.showToast(str, z);
     }
 
-    @Override // com.baidu.tbadk.TbPageContext, d.b.c.a.f
+    @Override // com.baidu.tbadk.TbPageContext, d.a.c.a.f
     public void registerListener(MessageListener<?> messageListener) {
         this.activity.registerListener(messageListener);
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public void showToast(int i, boolean z) {
-        this.activity.showToast(i, z);
+    public void showToast(int i2, boolean z) {
+        this.activity.showToast(i2, z);
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public void registerListener(int i, MessageListener<?> messageListener) {
-        this.activity.registerListener(i, messageListener);
+    public void registerListener(int i2, MessageListener<?> messageListener) {
+        this.activity.registerListener(i2, messageListener);
     }
 
     @Override // com.baidu.tbadk.TbPageContext

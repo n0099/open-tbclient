@@ -29,20 +29,20 @@ public class RequestGetLivableForumList extends TbSocketMessage {
         return builder2.build(false);
     }
 
-    public void setFilterFlag(int i) {
-        this.filterFlag = i;
+    public void setFilterFlag(int i2) {
+        this.filterFlag = i2;
     }
 
-    public void setGetLikeForum(int i) {
-        this.likeForumFlag = i;
+    public void setGetLikeForum(int i2) {
+        this.likeForumFlag = i2;
     }
 
-    public void setPageNo(int i) {
-        this.pageNo = i;
+    public void setPageNo(int i2) {
+        this.pageNo = i2;
     }
 
-    public void setPageSize(int i) {
-        this.pageSize = i;
+    public void setPageSize(int i2) {
+        this.pageSize = i2;
     }
 
     public void setUserId(long j) {

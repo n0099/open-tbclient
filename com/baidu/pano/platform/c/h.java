@@ -5,37 +5,37 @@ import android.content.Context;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f9013a;
+    public static float f9344a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f9014b;
+    public static float f9345b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f9015c;
+    public static int f9346c;
 
     public static float a(Context context) {
-        if (f9013a == 0.0f) {
-            f9013a = context.getResources().getDisplayMetrics().density;
+        if (f9344a == 0.0f) {
+            f9344a = context.getResources().getDisplayMetrics().density;
         }
-        return f9013a;
+        return f9344a;
     }
 
     public static int b(Context context) {
-        if (f9015c == 0) {
-            f9015c = context.getResources().getDisplayMetrics().densityDpi;
+        if (f9346c == 0) {
+            f9346c = context.getResources().getDisplayMetrics().densityDpi;
         }
-        return f9015c;
+        return f9346c;
     }
 
     public static float c(Context context) {
-        if (f9014b == 0.0f) {
-            f9014b = context.getResources().getDisplayMetrics().scaledDensity;
+        if (f9345b == 0.0f) {
+            f9345b = context.getResources().getDisplayMetrics().scaledDensity;
         }
-        return f9014b;
+        return f9345b;
     }
 
-    public static int a(int i, Context context) {
-        return (int) ((a(context) * i) + 0.5f);
+    public static int a(int i2, Context context) {
+        return (int) ((a(context) * i2) + 0.5f);
     }
 
     public static int a(float f2, Context context) {

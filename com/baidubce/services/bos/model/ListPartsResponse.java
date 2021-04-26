@@ -77,20 +77,20 @@ public class ListPartsResponse extends BosResponse {
         this.key = str;
     }
 
-    public void setMaxParts(int i) {
-        this.maxParts = Integer.valueOf(i);
+    public void setMaxParts(int i2) {
+        this.maxParts = Integer.valueOf(i2);
     }
 
-    public void setNextPartNumberMarker(int i) {
-        this.nextPartNumberMarker = i;
+    public void setNextPartNumberMarker(int i2) {
+        this.nextPartNumberMarker = i2;
     }
 
     public void setOwner(User user) {
         this.owner = user;
     }
 
-    public void setPartNumberMarker(int i) {
-        this.partNumberMarker = i;
+    public void setPartNumberMarker(int i2) {
+        this.partNumberMarker = i2;
     }
 
     public void setParts(List<PartSummary> list) {

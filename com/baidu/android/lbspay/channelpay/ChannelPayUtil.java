@@ -10,21 +10,21 @@ import com.baidu.android.util.io.PathUtils;
 import com.baidu.wallet.core.utils.LogUtil;
 /* loaded from: classes.dex */
 public class ChannelPayUtil {
-    public static IChannelPay getChannelPay(int i) {
-        LogUtil.logd("channelId=" + i);
-        if (i != -3) {
-            if (i != -2) {
-                if (i != -1) {
-                    if (i == 105) {
+    public static IChannelPay getChannelPay(int i2) {
+        LogUtil.logd("channelId=" + i2);
+        if (i2 != -3) {
+            if (i2 != -2) {
+                if (i2 != -1) {
+                    if (i2 == 105) {
                         return new ChannelAliPay();
                     }
-                    if (i != 107) {
-                        if (i != 126) {
-                            if (i == 158) {
+                    if (i2 != 107) {
+                        if (i2 != 126) {
+                            if (i2 == 158) {
                                 return ChannelWXPay.getInstance();
                             }
-                            if (i != 175 && i != 178) {
-                                switch (i) {
+                            if (i2 != 175 && i2 != 178) {
+                                switch (i2) {
                                     case 163:
                                     case IChannelPay.ID_IPAY_PAY_GAME /* 164 */:
                                     case 165:
@@ -51,16 +51,16 @@ public class ChannelPayUtil {
         return new ChannelFastPay();
     }
 
-    public static String getChannelTag(int i) {
-        LogUtil.logd("channelId=" + i);
-        if (i != -2) {
-            if (i != -1) {
-                if (i != 105) {
-                    if (i != 107) {
-                        if (i != 126) {
-                            if (i != 158) {
-                                if (i != 178) {
-                                    switch (i) {
+    public static String getChannelTag(int i2) {
+        LogUtil.logd("channelId=" + i2);
+        if (i2 != -2) {
+            if (i2 != -1) {
+                if (i2 != 105) {
+                    if (i2 != 107) {
+                        if (i2 != 126) {
+                            if (i2 != 158) {
+                                if (i2 != 178) {
+                                    switch (i2) {
                                         case 163:
                                         case IChannelPay.ID_IPAY_PAY_GAME /* 164 */:
                                         case 165:
@@ -85,19 +85,19 @@ public class ChannelPayUtil {
         return "wise_card";
     }
 
-    public static PayMode getPayMode(int i) {
-        LogUtil.logd("channelId=" + i);
-        if (getChannelPay(i) == null) {
+    public static PayMode getPayMode(int i2) {
+        LogUtil.logd("channelId=" + i2);
+        if (getChannelPay(i2) == null) {
             return PayMode.unknownPay;
         }
-        if (i != -2) {
-            if (i != -1) {
-                if (i != 105) {
-                    if (i != 107) {
-                        if (i != 126) {
-                            if (i != 158) {
-                                if (i != 178) {
-                                    switch (i) {
+        if (i2 != -2) {
+            if (i2 != -1) {
+                if (i2 != 105) {
+                    if (i2 != 107) {
+                        if (i2 != 126) {
+                            if (i2 != 158) {
+                                if (i2 != 178) {
+                                    switch (i2) {
                                         case 163:
                                             return PayMode.IPAYRECHARGECARD;
                                         case IChannelPay.ID_IPAY_PAY_GAME /* 164 */:

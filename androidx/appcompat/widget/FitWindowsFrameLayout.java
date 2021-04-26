@@ -4,14 +4,16 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.widget.FitWindowsViewGroup;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class FitWindowsFrameLayout extends FrameLayout implements FitWindowsViewGroup {
     public FitWindowsViewGroup.OnFitSystemWindowsListener mListener;
 
-    public FitWindowsFrameLayout(Context context) {
+    public FitWindowsFrameLayout(@NonNull Context context) {
         super(context);
     }
 
@@ -29,7 +31,7 @@ public class FitWindowsFrameLayout extends FrameLayout implements FitWindowsView
         this.mListener = onFitSystemWindowsListener;
     }
 
-    public FitWindowsFrameLayout(Context context, AttributeSet attributeSet) {
+    public FitWindowsFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 }

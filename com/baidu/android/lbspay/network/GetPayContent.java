@@ -49,8 +49,8 @@ public class GetPayContent implements IBeanResponse, Serializable {
         return this.payId;
     }
 
-    public void setPayId(int i) {
-        this.payId = i;
+    public void setPayId(int i2) {
+        this.payId = i2;
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponse

@@ -53,9 +53,9 @@ public final class Log {
         return processNameForPid.replace(':', '_');
     }
 
-    public static String getProcessNameForPid(int i) {
-        String str = "/proc/" + i + "/cmdline";
-        String str2 = "/proc/" + i + "/status";
+    public static String getProcessNameForPid(int i2) {
+        String str = "/proc/" + i2 + "/cmdline";
+        String str2 = "/proc/" + i2 + "/status";
         String str3 = "";
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(str)));

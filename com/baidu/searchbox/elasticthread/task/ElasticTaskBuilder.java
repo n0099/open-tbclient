@@ -18,13 +18,13 @@ public class ElasticTaskBuilder {
         return sInstance;
     }
 
-    public ElasticTask build(@NonNull Runnable runnable, @NonNull String str, int i) {
+    public ElasticTask build(@NonNull Runnable runnable, @NonNull String str, int i2) {
         ElasticTask elasticTask;
         if (runnable != null && !TextUtils.isEmpty(str)) {
             synchronized (this) {
                 long j = this.currentTaskId + 1;
                 this.currentTaskId = j;
-                elasticTask = new ElasticTask(runnable, str, j, i);
+                elasticTask = new ElasticTask(runnable, str, j, i2);
             }
             return elasticTask;
         }

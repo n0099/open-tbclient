@@ -13,30 +13,30 @@ public class DownloadException extends RuntimeException {
     public static final int EXCEPTION_URL_NULL = 0;
     public int code;
 
-    public DownloadException(int i) {
-        this.code = i;
+    public DownloadException(int i2) {
+        this.code = i2;
     }
 
     public int getCode() {
         return this.code;
     }
 
-    public void setCode(int i) {
-        this.code = i;
+    public void setCode(int i2) {
+        this.code = i2;
     }
 
-    public DownloadException(int i, String str) {
+    public DownloadException(int i2, String str) {
         super(str);
-        this.code = i;
+        this.code = i2;
     }
 
-    public DownloadException(int i, String str, Throwable th) {
+    public DownloadException(int i2, String str, Throwable th) {
         super(str, th);
-        this.code = i;
+        this.code = i2;
     }
 
-    public DownloadException(int i, Throwable th) {
+    public DownloadException(int i2, Throwable th) {
         super(th);
-        this.code = i;
+        this.code = i2;
     }
 }

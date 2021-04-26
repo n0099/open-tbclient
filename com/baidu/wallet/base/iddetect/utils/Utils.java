@@ -108,11 +108,11 @@ public final class Utils {
         return !TextUtils.isEmpty(str) && str.matches("^[A-Za-z][0-9A-Za-z]{5}$");
     }
 
-    public static void prepareMatrix(Matrix matrix, boolean z, int i, int i2, int i3) {
+    public static void prepareMatrix(Matrix matrix, boolean z, int i2, int i3, int i4) {
         matrix.setScale(z ? -1.0f : 1.0f, 1.0f);
-        matrix.postRotate(i);
-        float f2 = i2;
-        float f3 = i3;
+        matrix.postRotate(i2);
+        float f2 = i3;
+        float f3 = i4;
         matrix.postScale(f2 / 2000.0f, f3 / 2000.0f);
         matrix.postTranslate(f2 / 2.0f, f3 / 2.0f);
     }
@@ -121,21 +121,21 @@ public final class Utils {
         return (int) ((f2 / context.getResources().getDisplayMetrics().density) + 0.5f);
     }
 
-    public static int rank(int i, int[] iArr) {
+    public static int rank(int i2, int[] iArr) {
         if (iArr != null && iArr.length != 0) {
-            int i2 = 0;
+            int i3 = 0;
             if (iArr.length == 1) {
-                return iArr[0] != i ? -1 : 0;
+                return iArr[0] != i2 ? -1 : 0;
             }
             int length = iArr.length - 1;
-            while (i2 <= length) {
-                int i3 = ((length - i2) / 2) + i2;
-                if (i < iArr[i3]) {
-                    length = i3 - 1;
-                } else if (i <= iArr[i3]) {
-                    return i3;
+            while (i3 <= length) {
+                int i4 = ((length - i3) / 2) + i3;
+                if (i2 < iArr[i4]) {
+                    length = i4 - 1;
+                } else if (i2 <= iArr[i4]) {
+                    return i4;
                 } else {
-                    i2 = i3 + 1;
+                    i3 = i4 + 1;
                 }
             }
         }

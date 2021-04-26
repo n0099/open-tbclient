@@ -2,7 +2,7 @@ package org.apache.http.message;
 @Deprecated
 /* loaded from: classes7.dex */
 public class ParserCursor {
-    public ParserCursor(int i, int i2) {
+    public ParserCursor(int i2, int i3) {
         throw new RuntimeException("Stub!");
     }
 
@@ -26,7 +26,7 @@ public class ParserCursor {
         throw new RuntimeException("Stub!");
     }
 
-    public void updatePos(int i) {
+    public void updatePos(int i2) {
         throw new RuntimeException("Stub!");
     }
 }

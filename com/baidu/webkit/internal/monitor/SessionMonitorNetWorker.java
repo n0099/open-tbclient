@@ -71,12 +71,12 @@ public class SessionMonitorNetWorker implements INoProGuard, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
+    public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i2) {
         Log.i(LOG_TAG, "onNetDownloadError()");
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
+    public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i2) {
         Log.i(LOG_TAG, "onNetReceiveData()");
     }
 
@@ -85,17 +85,17 @@ public class SessionMonitorNetWorker implements INoProGuard, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i) {
+    public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i2) {
         Log.i(LOG_TAG, "onNetRedirect()");
         return false;
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i) {
+    public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i2) {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i) {
+    public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i2) {
     }
 
     @Override // com.baidu.webkit.net.INetListener
@@ -117,7 +117,7 @@ public class SessionMonitorNetWorker implements INoProGuard, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i, int i2) {
+    public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i2, int i3) {
     }
 
     public void upload(String str, String str2, String str3) {

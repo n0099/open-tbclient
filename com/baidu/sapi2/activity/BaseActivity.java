@@ -3,6 +3,8 @@ package com.baidu.sapi2.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,7 +21,10 @@ import android.webkit.ValueCallback;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+import com.alibaba.fastjson.asm.Label;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
+import com.baidu.pass.biometrics.base.utils.Base64Utils;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
@@ -27,6 +32,7 @@ import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.permissions.PassPermissions;
 import com.baidu.pass.permissions.PermissionsCallback;
 import com.baidu.pass.permissions.PermissionsDTO;
+import com.baidu.pass.view.CommonDialog;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -36,32 +42,39 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.bio.BiometricsManager;
 import com.baidu.sapi2.callback.ActivityResultCallback;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
+import com.baidu.sapi2.callback.IdCardOcrCallback;
+import com.baidu.sapi2.callback.IdcardOcrImageCallback;
 import com.baidu.sapi2.callback.ImageCropCallback;
 import com.baidu.sapi2.callback.TitleBtnCallback;
+import com.baidu.sapi2.dto.IdCardOcrDTO;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.WebLoginDTO;
-import com.baidu.sapi2.f.a;
-import com.baidu.sapi2.g.c;
 import com.baidu.sapi2.provider.FileProvider;
 import com.baidu.sapi2.result.GetTplStokenResult;
+import com.baidu.sapi2.result.IdCardOcrResult;
+import com.baidu.sapi2.result.IdcardOcrImageRusult;
+import com.baidu.sapi2.scheme.SapiScheme;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.shell.listener.IScreenShotListener;
+import com.baidu.sapi2.shell.manager.ScreenShotManager;
 import com.baidu.sapi2.social.SocialLoginBase;
 import com.baidu.sapi2.social.WXInvokeCallback;
+import com.baidu.sapi2.touchid.FingerprintCallback;
+import com.baidu.sapi2.touchid.FingerprintHelper;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sapi2.utils.a;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.sapi2.utils.i;
 import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.sapi2.views.FingerprintDialog;
 import com.baidu.sapi2.views.ViewUtility;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.b.y.a.b;
-import d.b.y.a.e;
-import d.b.y.a.g;
+import d.a.y.a.b;
+import d.a.y.a.e;
+import d.a.y.a.g;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -89,58 +102,64 @@ public class BaseActivity extends TitleActivity {
     public static final int REQUEST_CODE_FILECHOOSER_FOR_ANDROID_5 = 1011;
     public static final int REQUEST_CODE_LOGIN = 1004;
     public static final int RESULT_CODE_THIRD_PARTY_VERIFY = 3001;
-    public static final String j = BaseActivity.class.getSimpleName();
-    public static final String k = "javascript:(function(){if(window.Pass && window.Pass.client && window.Pass.client.screenShot){Pass.client.screenShot()}}())";
-    public static final String l = "camera_temp_image.jpg";
-    public static final int m = 1001;
-    public static final int n = 1002;
-    public static final int o = 1003;
+    public static final String k = BaseActivity.class.getSimpleName();
+    public static final String l = "javascript:(function(){if(window.Pass && window.Pass.client && window.Pass.client.screenShot){Pass.client.screenShot()}}())";
+    public static final String m = "camera_temp_image.jpg";
+    public static final int n = 1001;
+    public static final int o = 1002;
+    public static final int p = 1003;
+    public static final int q = 1005;
+    public static final int r = 1006;
+    public static final int s = 2001;
 
     /* renamed from: a  reason: collision with root package name */
-    public ValueCallback<Uri> f10506a;
+    public ValueCallback<Uri> f10598a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ValueCallback<Uri[]> f10507b;
+    public ValueCallback<Uri[]> f10599b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SapiWebView.PickPhotoResult f10508c;
+    public SapiWebView.PickPhotoResult f10600c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SapiWebView.BiometricsIdentifyResult f10509d;
+    public SapiWebView.BiometricsIdentifyResult f10601d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f10510e;
+    public SapiScheme f10602e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f10511f;
+    public int f10603f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f10512g;
+    public int f10604g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageCropCallback.ImageCropResult f10513h;
-    public com.baidu.sapi2.shell.a.a i;
+    public ImageCropCallback.ImageCropResult f10605h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public ScreenShotManager f10606i;
+    public IdcardOcrImageCallback j;
     public boolean loginStatusChange;
     public SapiWebView sapiWebView;
 
     public void initScreenShotManager() {
-        com.baidu.sapi2.shell.a.a aVar = new com.baidu.sapi2.shell.a.a();
-        this.i = aVar;
-        aVar.a(getContentResolver(), new IScreenShotListener() { // from class: com.baidu.sapi2.activity.BaseActivity.21
+        ScreenShotManager screenShotManager = new ScreenShotManager();
+        this.f10606i = screenShotManager;
+        screenShotManager.init(getContentResolver(), new IScreenShotListener() { // from class: com.baidu.sapi2.activity.BaseActivity.22
             @Override // com.baidu.sapi2.shell.listener.IScreenShotListener
             public void onScreenShot() {
-                BaseActivity.this.runOnUiThread(new Runnable() { // from class: com.baidu.sapi2.activity.BaseActivity.21.1
+                BaseActivity.this.runOnUiThread(new Runnable() { // from class: com.baidu.sapi2.activity.BaseActivity.22.1
                     @Override // java.lang.Runnable
                     public void run() {
                         SapiWebView sapiWebView = BaseActivity.this.sapiWebView;
                         if (sapiWebView != null) {
-                            sapiWebView.loadUrl(BaseActivity.k);
+                            sapiWebView.loadUrl(BaseActivity.l);
                         }
                     }
                 });
             }
         });
-        this.i.a();
+        this.f10606i.register();
     }
 
     public void livenessRecognize(String str, SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
@@ -158,13 +177,13 @@ public class BaseActivity extends TitleActivity {
             }
             str2 = null;
         }
-        biometricsManager.livenessRecognize(this, passFaceRecogType, biometricsIdentifyResult.subPro, null, "0", str2, str, biometricsIdentifyResult.authToken, "", biometricsIdentifyResult.realName, biometricsIdentifyResult.idCardNum, biometricsIdentifyResult.phoneNum, new PassFaceRecogCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.15
+        biometricsManager.livenessRecognize(this, passFaceRecogType, biometricsIdentifyResult.subPro, null, "0", str2, str, biometricsIdentifyResult.authToken, "", biometricsIdentifyResult.realName, biometricsIdentifyResult.idCardNum, biometricsIdentifyResult.phoneNum, new PassFaceRecogCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.16
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
             public void onFailure(PassFaceRecogResult passFaceRecogResult) {
                 JSONObject a2 = BaseActivity.this.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), null, null);
-                if (BaseActivity.this.f10509d != null) {
-                    BaseActivity.this.f10509d.setIdentifyToken(a2.toString());
+                if (BaseActivity.this.f10601d != null) {
+                    BaseActivity.this.f10601d.setIdentifyToken(a2.toString());
                 }
             }
 
@@ -172,16 +191,16 @@ public class BaseActivity extends TitleActivity {
             @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
             public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
                 JSONObject a2 = BaseActivity.this.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), passFaceRecogResult.callbackkey, passFaceRecogResult.authSid);
-                if (BaseActivity.this.f10509d != null) {
-                    BaseActivity.this.f10509d.setIdentifyToken(a2.toString());
+                if (BaseActivity.this.f10601d != null) {
+                    BaseActivity.this.f10601d.setIdentifyToken(a2.toString());
                 }
             }
         });
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
         ImageCropCallback imageCropCallback = CoreViewRouter.getInstance().getImageCropCallback();
         ActivityResultCallback activityResultCallback = CoreViewRouter.getInstance().getActivityResultCallback();
         if (imageCropCallback == null || activityResultCallback == null) {
@@ -190,46 +209,77 @@ public class BaseActivity extends TitleActivity {
         }
         ImageCropCallback imageCropCallback2 = imageCropCallback;
         if (activityResultCallback != null) {
-            activityResultCallback.onActivityResult(i, i2, intent);
+            activityResultCallback.onActivityResult(i2, i3, intent);
         }
-        if (i == 1001) {
-            if (this.f10508c == null) {
+        if (i2 == 1001) {
+            if (this.f10600c == null) {
                 return;
             }
-            if (i2 == -1 && imageCropCallback2 != null) {
-                imageCropCallback2.onImageCrop(this, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "camera_temp_image.jpg")), this.f10511f, this.f10512g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.17
+            if (i3 == -1 && imageCropCallback2 != null) {
+                imageCropCallback2.onImageCrop(this, Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "camera_temp_image.jpg")), this.f10603f, this.f10604g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.18
                     @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
                     public void onImageResult(String str) {
                         if (str != null) {
-                            BaseActivity.this.f10508c.setImageData(str);
+                            BaseActivity.this.f10600c.setImageData(str);
                         } else {
-                            BaseActivity.this.f10508c.setImageData("");
+                            BaseActivity.this.f10600c.setImageData("");
                         }
                     }
                 });
             } else {
-                this.f10508c.setImageData("");
+                this.f10600c.setImageData("");
             }
-        } else if (i != 1002) {
-            if (i == 2001 && i2 == 3001) {
-                a(intent);
+        } else if (i2 == 1002) {
+            if (this.f10600c == null) {
+                return;
             }
-        } else if (this.f10508c == null) {
+            if (i3 == -1 && intent.getData() != null && imageCropCallback2 != null) {
+                imageCropCallback2.onImageCrop(this, intent.getData(), this.f10603f, this.f10604g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.19
+                    @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
+                    public void onImageResult(String str) {
+                        if (str != null) {
+                            BaseActivity.this.f10600c.setImageData(str);
+                        } else {
+                            BaseActivity.this.f10600c.setImageData("");
+                        }
+                    }
+                });
+            } else {
+                this.f10600c.setImageData("");
+            }
+        } else if (i2 == 2001 && i3 == 3001) {
+            a(intent);
+        } else if (i2 == 1005) {
+            if (intent == null) {
+                if (this.j != null) {
+                    IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
+                    idcardOcrImageRusult.setResultCode(IdCardOcrResult.CODE_ALBUM_ERROR);
+                    idcardOcrImageRusult.setResultMsg(IdCardOcrResult.MESSAGE_ALBUM_ERROR);
+                    this.j.onFailure(idcardOcrImageRusult);
+                    return;
+                }
+                return;
+            }
+            a(intent.getData());
+        } else if (i2 != 1006 || this.j == null) {
         } else {
-            if (i2 == -1 && intent.getData() != null && imageCropCallback2 != null) {
-                imageCropCallback2.onImageCrop(this, intent.getData(), this.f10511f, this.f10512g, new ImageCropCallback.ImageCropResult() { // from class: com.baidu.sapi2.activity.BaseActivity.18
-                    @Override // com.baidu.sapi2.callback.ImageCropCallback.ImageCropResult
-                    public void onImageResult(String str) {
-                        if (str != null) {
-                            BaseActivity.this.f10508c.setImageData(str);
-                        } else {
-                            BaseActivity.this.f10508c.setImageData("");
-                        }
-                    }
-                });
-            } else {
-                this.f10508c.setImageData("");
+            if (intent != null && intent.getByteArrayExtra(ImageClipActivity.EXTRA_IMAGE) != null) {
+                byte[] byteArrayExtra = intent.getByteArrayExtra(ImageClipActivity.EXTRA_IMAGE);
+                Bitmap decodeByteArray = BitmapFactory.decodeByteArray(byteArrayExtra, 0, byteArrayExtra.length);
+                if (decodeByteArray.getHeight() > decodeByteArray.getWidth()) {
+                    decodeByteArray = a.b(decodeByteArray, -90);
+                }
+                byte[] a2 = a.a(decodeByteArray, 100);
+                IdcardOcrImageRusult idcardOcrImageRusult2 = new IdcardOcrImageRusult();
+                idcardOcrImageRusult2.setResultCode(0);
+                idcardOcrImageRusult2.image = Base64Utils.encodeToString(a2);
+                this.j.onSuccess(idcardOcrImageRusult2);
+                return;
             }
+            IdcardOcrImageRusult idcardOcrImageRusult3 = new IdcardOcrImageRusult();
+            idcardOcrImageRusult3.setResultCode(IdCardOcrResult.CODE_ALBUM_ERROR);
+            idcardOcrImageRusult3.setResultMsg(IdCardOcrResult.MESSAGE_ALBUM_ERROR);
+            this.j.onFailure(idcardOcrImageRusult3);
         }
     }
 
@@ -259,11 +309,11 @@ public class BaseActivity extends TitleActivity {
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.sapiWebView.onKeyUp(i)) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        if (this.sapiWebView.onKeyUp(i2)) {
             return true;
         }
-        return super.onKeyDown(i, keyEvent);
+        return super.onKeyDown(i2, keyEvent);
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity
@@ -287,6 +337,18 @@ public class BaseActivity extends TitleActivity {
         }
     }
 
+    @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(i2, strArr, iArr);
+        if (i2 == 2001) {
+            if (iArr.length > 0 && iArr[0] == 0) {
+                c();
+            } else {
+                e();
+            }
+        }
+    }
+
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
@@ -303,12 +365,12 @@ public class BaseActivity extends TitleActivity {
         permissionsDTO.permissions = new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION};
         permissionsDTO.dialogTitle = "存储权限";
         permissionsDTO.dialogMsg = "为了正常使用图片上传、图片识别服务，请允许使用存储权限。你可以通过系统\"设置\"进行权限的管理";
-        PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.13
+        PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.14
             @Override // com.baidu.pass.permissions.PermissionsCallback
-            public void onFailure(int i) {
+            public void onFailure(int i2) {
                 Toast.makeText(BaseActivity.this, BaseOptionActivity.NO_STORAGE_PERM_MSG, 1).show();
-                if (BaseActivity.this.f10508c != null) {
-                    BaseActivity.this.f10508c.setImageData("");
+                if (BaseActivity.this.f10600c != null) {
+                    BaseActivity.this.f10600c.setImageData("");
                 }
             }
 
@@ -333,9 +395,9 @@ public class BaseActivity extends TitleActivity {
     }
 
     public void releaseScreenShotManager() {
-        com.baidu.sapi2.shell.a.a aVar = this.i;
-        if (aVar != null) {
-            aVar.b();
+        ScreenShotManager screenShotManager = this.f10606i;
+        if (screenShotManager != null) {
+            screenShotManager.unRegister();
         }
     }
 
@@ -344,7 +406,7 @@ public class BaseActivity extends TitleActivity {
             try {
                 ((RelativeLayout.LayoutParams) findViewById(e.sapi_webview).getLayoutParams()).addRule(3, 0);
             } catch (Exception unused) {
-                Log.e(j, "子activity重写了webview布局");
+                Log.e(k, "子activity重写了webview布局");
             }
             this.sapiWebView.setHadMakeBarHide(true);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(e.root_view);
@@ -356,8 +418,8 @@ public class BaseActivity extends TitleActivity {
             if (relativeLayout2 != null && relativeLayout2.getChildCount() != 0) {
                 relativeLayout.removeView(this.mTitleLayout);
                 this.mTitleLayout.setBackgroundColor(0);
-                for (int i = 0; i < this.mTitleLayout.getChildCount(); i++) {
-                    View childAt = this.mTitleLayout.getChildAt(i);
+                for (int i2 = 0; i2 < this.mTitleLayout.getChildCount(); i2++) {
+                    View childAt = this.mTitleLayout.getChildAt(i2);
                     if (childAt.getId() == e.title_right_close && this.configuration.showBottomBack) {
                         childAt.setVisibility(0);
                         imageView = (ImageView) childAt;
@@ -368,12 +430,12 @@ public class BaseActivity extends TitleActivity {
                 try {
                     ((RelativeLayout.LayoutParams) this.mTitleLayout.getLayoutParams()).topMargin = ViewUtility.getStatusBarHeight(this);
                 } catch (Exception unused2) {
-                    Log.e(j, "子activity重写了title布局");
+                    Log.e(k, "子activity重写了title布局");
                 }
                 relativeLayout.addView(this.mTitleLayout);
             }
             ViewUtility.newLoginStatusBarTint(this);
-            this.sapiWebView.setSwitchStyleForCloseBtnAndStatusBarCallBack(new SapiJsCallBacks.SwitchStyleForCloseBtnAndStatusBarCallBack() { // from class: com.baidu.sapi2.activity.BaseActivity.22
+            this.sapiWebView.setSwitchStyleForCloseBtnAndStatusBarCallBack(new SapiJsCallBacks.SwitchStyleForCloseBtnAndStatusBarCallBack() { // from class: com.baidu.sapi2.activity.BaseActivity.23
                 @Override // com.baidu.sapi2.SapiJsCallBacks.SwitchStyleForCloseBtnAndStatusBarCallBack
                 public void switchStyle(String str) {
                     Window window;
@@ -410,7 +472,7 @@ public class BaseActivity extends TitleActivity {
         if (this.configuration.isDarkMode) {
             sapiWebView.setBackgroundColor(getResources().getColor(b.sapi_sdk_dark_mode_color));
         }
-        i.a(this, this.sapiWebView, getWebDTO() != null && getWebDTO().sweepLightLoading);
+        com.baidu.sapi2.utils.b.a(this, this.sapiWebView, getWebDTO() != null && getWebDTO().sweepLightLoading);
         this.sapiWebView.setWebViewTitleCallback(new SapiWebView.WebViewTitleCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.1
             @Override // com.baidu.sapi2.SapiWebView.WebViewTitleCallback
             public void onTitleChange(String str) {
@@ -435,11 +497,11 @@ public class BaseActivity extends TitleActivity {
         });
         this.sapiWebView.setPickPhotoCallback(new SapiWebView.PickPhotoCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.3
             @Override // com.baidu.sapi2.SapiWebView.PickPhotoCallback
-            public void onPickImage(int i, int i2, int i3, SapiWebView.PickPhotoResult pickPhotoResult) {
-                BaseActivity.this.f10508c = pickPhotoResult;
-                BaseActivity.this.f10511f = i2;
-                BaseActivity.this.f10512g = i3;
-                if (1 == i) {
+            public void onPickImage(int i2, int i3, int i4, SapiWebView.PickPhotoResult pickPhotoResult) {
+                BaseActivity.this.f10600c = pickPhotoResult;
+                BaseActivity.this.f10603f = i3;
+                BaseActivity.this.f10604g = i4;
+                if (1 == i2) {
                     BaseActivity.this.takePhoto();
                 } else {
                     BaseActivity.this.pickPhoto();
@@ -449,7 +511,7 @@ public class BaseActivity extends TitleActivity {
         this.sapiWebView.setBiometricsIdentifyCallback(new SapiWebView.BiometricsIdentifyCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.4
             @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyCallback
             public void onBiometricsIdentify(SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
-                BaseActivity.this.f10509d = biometricsIdentifyResult;
+                BaseActivity.this.f10601d = biometricsIdentifyResult;
                 if ("bduss".equals(biometricsIdentifyResult.livenessRecogType)) {
                     BaseActivity.this.a(biometricsIdentifyResult);
                 } else if ("certinfo".equals(biometricsIdentifyResult.livenessRecogType) || "authtoken".equals(biometricsIdentifyResult.livenessRecogType)) {
@@ -459,8 +521,8 @@ public class BaseActivity extends TitleActivity {
         });
         this.sapiWebView.setPageStateCallback(new SapiJsCallBacks.PageStateCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.5
             @Override // com.baidu.sapi2.SapiJsCallBacks.PageStateCallback
-            public void pageState(int i) {
-                BaseActivity.this.updateBottomBack(i);
+            public void pageState(int i2) {
+                BaseActivity.this.updateBottomBack(i2);
             }
         });
         this.sapiWebView.setBioScanFaceCallback(new SapiWebView.BioScanFaceCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.6
@@ -473,8 +535,8 @@ public class BaseActivity extends TitleActivity {
         this.sapiWebView.setInvokeScAppCallback(new SapiWebView.InvokeScAppCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.7
             @Override // com.baidu.sapi2.SapiWebView.InvokeScAppCallback
             public void onInvokeScApp(String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
-                BaseActivity.this.f10510e = new a();
-                BaseActivity.this.f10510e.a(BaseActivity.this, str, str2, list, invokeScAppResult);
+                BaseActivity.this.f10602e = new SapiScheme();
+                BaseActivity.this.f10602e.invokeScApp(BaseActivity.this, str, str2, list, invokeScAppResult);
             }
         });
         this.sapiWebView.setLoginStatusChangeCallback(new SapiJsCallBacks.LoginStatusChangeCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.8
@@ -487,10 +549,10 @@ public class BaseActivity extends TitleActivity {
             @Override // com.baidu.sapi2.SapiJsCallBacks.FingerprintCallback
             public void onCallback(final SapiJsCallBacks.FingerprintResult fingerprintResult) {
                 BaseActivity baseActivity = BaseActivity.this;
-                new c(baseActivity, new FingerprintDialog(baseActivity)).a(fingerprintResult.authType, new com.baidu.sapi2.g.a() { // from class: com.baidu.sapi2.activity.BaseActivity.9.1
-                    @Override // com.baidu.sapi2.g.a
-                    public void onCall(int i) {
-                        fingerprintResult.setResult(i);
+                new FingerprintHelper(baseActivity, new FingerprintDialog(baseActivity)).startAuthenticate(fingerprintResult.authType, new FingerprintCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.9.1
+                    @Override // com.baidu.sapi2.touchid.FingerprintCallback
+                    public void onCall(int i2) {
+                        fingerprintResult.setResult(i2);
                     }
                 });
             }
@@ -504,8 +566,8 @@ public class BaseActivity extends TitleActivity {
                     thirdPartyService.loadThirdPartyLogin(BaseActivity.this, (SocialType) message.obj, 2006, null, true);
                     SocialLoginBase.setWXLoginCallback(new WXInvokeCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.10.1
                         @Override // com.baidu.sapi2.social.WXInvokeCallback
-                        public void onResult(int i, Intent intent) {
-                            if (i == 3001) {
+                        public void onResult(int i2, Intent intent) {
+                            if (i2 == 3001) {
                                 BaseActivity.this.a(intent);
                             }
                         }
@@ -515,8 +577,19 @@ public class BaseActivity extends TitleActivity {
         });
         this.sapiWebView.setBiometricsIdentificationLiveCallBack(new SapiJsCallBacks.BiometricsIdentificationLiveCallBack() { // from class: com.baidu.sapi2.activity.BaseActivity.11
             @Override // com.baidu.sapi2.SapiJsCallBacks.BiometricsIdentificationLiveCallBack
-            public void getLiveImage(int i, PassFaceRecogCallback passFaceRecogCallback) {
-                BiometricsManager.getInstance().recogWithFaceLive(BaseActivity.this, i, passFaceRecogCallback);
+            public void getLiveImage(int i2, PassFaceRecogCallback passFaceRecogCallback) {
+                BiometricsManager.getInstance().recogWithFaceLive(BaseActivity.this, i2, passFaceRecogCallback);
+            }
+        });
+        this.sapiWebView.setIdcardOcrImageCallBack(new SapiJsCallBacks.IdcardOcrImageCallBack() { // from class: com.baidu.sapi2.activity.BaseActivity.12
+            @Override // com.baidu.sapi2.SapiJsCallBacks.IdcardOcrImageCallBack
+            public void getIdcardImage(String str, String str2, IdcardOcrImageCallback idcardOcrImageCallback) {
+                BaseActivity.this.j = idcardOcrImageCallback;
+                if ("album".equals(str)) {
+                    BaseActivity.this.d();
+                } else if (BdUploadHandler.MEDIA_SOURCE_VALUE_CAMERA.equals(str)) {
+                    BaseActivity.this.a(str2);
+                }
             }
         });
     }
@@ -527,12 +600,12 @@ public class BaseActivity extends TitleActivity {
         permissionsDTO.permissions = new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, StorageUtils.EXTERNAL_STORAGE_PERMISSION};
         permissionsDTO.dialogTitle = "权限申请";
         permissionsDTO.dialogMsg = "为了正常使用拍照服务、图片上传、图片识别服务，请允许使用摄像头和存储权限。你可以通过系统\"设置\"进行权限的管理";
-        PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.12
+        PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.13
             @Override // com.baidu.pass.permissions.PermissionsCallback
-            public void onFailure(int i) {
+            public void onFailure(int i2) {
                 Toast.makeText(BaseActivity.this, BaseOptionActivity.NO_CAMERA_PERM_MSG, 1).show();
-                if (BaseActivity.this.f10508c != null) {
-                    BaseActivity.this.f10508c.setImageData("");
+                if (BaseActivity.this.f10600c != null) {
+                    BaseActivity.this.f10600c.setImageData("");
                 }
             }
 
@@ -565,18 +638,99 @@ public class BaseActivity extends TitleActivity {
         });
     }
 
+    private void c() {
+        try {
+            if (Build.VERSION.SDK_INT == 19) {
+                Intent intent = new Intent("android.intent.action.PICK", MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
+                startActivityForResult(intent, 1005);
+            } else {
+                Intent intent2 = new Intent();
+                intent2.setType(BdUploadHandler.IMAGE_MIME_TYPE);
+                intent2.setAction("android.intent.action.GET_CONTENT");
+                startActivityForResult(intent2, 1005);
+            }
+        } catch (Throwable th) {
+            Log.e(th);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d() {
+        if (Build.VERSION.SDK_INT >= 23 && checkSelfPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION) != 0) {
+            if (shouldShowRequestPermissionRationale(StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
+                new CommonDialog.Builder(this).setTitle(String.format("%1$sApp将打开“%2$s", PassBiometricUtil.getAppName(this), "相册")).setMessage(String.format("为了您使用识别功能，请允许%1$sApp打开%2$s。您可以通过系统“设置”进行权限的管理", PassBiometricUtil.getAppName(this), "相册")).setPositiveBtn("继续", new View.OnClickListener() { // from class: com.baidu.sapi2.activity.BaseActivity.26
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        BaseActivity.this.requestPermissions(new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, 2001);
+                    }
+                }).setNegativeButton("关闭", new View.OnClickListener() { // from class: com.baidu.sapi2.activity.BaseActivity.25
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        if (BaseActivity.this.j != null) {
+                            IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
+                            idcardOcrImageRusult.setResultCode(-402);
+                            idcardOcrImageRusult.setResultMsg(IdCardOcrResult.MESSAGE_NO_ALBUM_PERMISSION);
+                            BaseActivity.this.j.onFailure(idcardOcrImageRusult);
+                        }
+                    }
+                }).build().show();
+                return;
+            } else {
+                requestPermissions(new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, 2001);
+                return;
+            }
+        }
+        c();
+    }
+
+    private void e() {
+        CommonDialog build = new CommonDialog.Builder(this).setTitle("开启文件权限").setMessage("为了使用相册服务\n请开启文件权限").setPositiveBtn("去设置", new View.OnClickListener() { // from class: com.baidu.sapi2.activity.BaseActivity.28
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
+                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.setData(Uri.fromParts("package", BaseActivity.this.getPackageName(), null));
+                if (intent.resolveActivity(BaseActivity.this.getPackageManager()) != null) {
+                    BaseActivity.this.startActivity(intent);
+                }
+                if (BaseActivity.this.j != null) {
+                    IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
+                    idcardOcrImageRusult.setResultCode(-402);
+                    idcardOcrImageRusult.setResultMsg(IdCardOcrResult.MESSAGE_NO_ALBUM_PERMISSION);
+                    BaseActivity.this.j.onFailure(idcardOcrImageRusult);
+                }
+            }
+        }).setNegativeButton("取消", new View.OnClickListener() { // from class: com.baidu.sapi2.activity.BaseActivity.27
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (BaseActivity.this.j != null) {
+                    IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
+                    idcardOcrImageRusult.setResultCode(-402);
+                    idcardOcrImageRusult.setResultMsg(IdCardOcrResult.MESSAGE_NO_ALBUM_PERMISSION);
+                    BaseActivity.this.j.onFailure(idcardOcrImageRusult);
+                }
+            }
+        }).build();
+        build.setCancelable(false);
+        if (isFinishing() || build.isShowing()) {
+            return;
+        }
+        build.show();
+    }
+
     private ImageCropCallback b() {
-        return new ImageCropCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.19
+        return new ImageCropCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.20
             @Override // com.baidu.sapi2.callback.ImageCropCallback
-            public void onImageCrop(Context context, Uri uri, int i, int i2, ImageCropCallback.ImageCropResult imageCropResult) {
-                BaseActivity.this.f10513h = imageCropResult;
+            public void onImageCrop(Context context, Uri uri, int i2, int i3, ImageCropCallback.ImageCropResult imageCropResult) {
+                BaseActivity.this.f10605h = imageCropResult;
                 Intent intent = new Intent(context, ImageClipActivity.class);
-                if (i == ClipBoxView.H) {
+                if (i2 == ClipBoxView.H) {
                     intent.putExtra(ImageClipActivity.EXTRA_PARAM_FROM_BUSINESS, 0);
                 } else {
                     intent.putExtra(ImageClipActivity.EXTRA_PARAM_FROM_BUSINESS, 1);
                 }
-                intent.putExtra(ImageClipActivity.EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, i2);
+                intent.putExtra(ImageClipActivity.EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, i3);
                 intent.setData(uri);
                 BaseActivity.this.startActivityForResult(intent, 1003);
             }
@@ -592,7 +746,7 @@ public class BaseActivity extends TitleActivity {
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add("pp");
-        SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.14
+        SapiAccountManager.getInstance().getAccountService().getTplStoken(new GetTplStokenCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.15
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onFinish() {
             }
@@ -611,8 +765,8 @@ public class BaseActivity extends TitleActivity {
                 } catch (JSONException e2) {
                     Log.e(e2);
                 }
-                if (BaseActivity.this.f10509d != null) {
-                    BaseActivity.this.f10509d.setIdentifyToken(jSONObject.toString());
+                if (BaseActivity.this.f10601d != null) {
+                    BaseActivity.this.f10601d.setIdentifyToken(jSONObject.toString());
                 }
             }
 
@@ -635,8 +789,8 @@ public class BaseActivity extends TitleActivity {
                 } catch (JSONException e2) {
                     Log.e(e2);
                 }
-                if (BaseActivity.this.f10509d != null) {
-                    BaseActivity.this.f10509d.setIdentifyToken(jSONObject.toString());
+                if (BaseActivity.this.f10601d != null) {
+                    BaseActivity.this.f10601d.setIdentifyToken(jSONObject.toString());
                 }
             }
         }, currentAccount.bduss, arrayList);
@@ -645,7 +799,7 @@ public class BaseActivity extends TitleActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Activity activity, final SapiWebView.BioScanFaceCallback.BioScanFaceResult bioScanFaceResult) {
         BiometricsManager biometricsManager = BiometricsManager.getInstance();
-        PassFaceRecogCallback passFaceRecogCallback = new PassFaceRecogCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.16
+        PassFaceRecogCallback passFaceRecogCallback = new PassFaceRecogCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.17
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
             public void onFailure(PassFaceRecogResult passFaceRecogResult) {
@@ -695,12 +849,12 @@ public class BaseActivity extends TitleActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject a(int i, String str, String str2, String str3) {
+    public JSONObject a(int i2, String str, String str2, String str3) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("errno", i);
+            jSONObject.put("errno", i2);
             jSONObject.put("errmsg", str);
-            if (i == 0) {
+            if (i2 == 0) {
                 if (!TextUtils.isEmpty(str2)) {
                     jSONObject.put("credentialKey", str2);
                     jSONObject.put("callbackkey", str2);
@@ -716,18 +870,18 @@ public class BaseActivity extends TitleActivity {
     }
 
     private ActivityResultCallback a() {
-        return new ActivityResultCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.20
+        return new ActivityResultCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.21
             @Override // com.baidu.sapi2.callback.ActivityResultCallback
-            public void onActivityResult(int i, int i2, Intent intent) {
-                if (i == 1003) {
-                    if (i2 == -1) {
+            public void onActivityResult(int i2, int i3, Intent intent) {
+                if (i2 == 1003) {
+                    if (i3 == -1) {
                         byte[] byteArrayExtra = intent.getByteArrayExtra(ImageClipActivity.EXTRA_IMAGE);
-                        if (byteArrayExtra == null || BaseActivity.this.f10513h == null) {
+                        if (byteArrayExtra == null || BaseActivity.this.f10605h == null) {
                             return;
                         }
-                        BaseActivity.this.f10513h.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
-                    } else if (BaseActivity.this.f10513h != null) {
-                        BaseActivity.this.f10513h.onImageResult(null);
+                        BaseActivity.this.f10605h.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
+                    } else if (BaseActivity.this.f10605h != null) {
+                        BaseActivity.this.f10605h.onImageResult(null);
                     }
                 }
             }
@@ -764,5 +918,44 @@ public class BaseActivity extends TitleActivity {
             promptResult.cancel();
             Toast.makeText(this, QueryResponse.Options.CANCEL, 0).show();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(String str) {
+        IdCardOcrDTO idCardOcrDTO = new IdCardOcrDTO();
+        idCardOcrDTO.context = this;
+        idCardOcrDTO.type = str;
+        CoreViewRouter.getInstance().loadIdCardOcr(idCardOcrDTO, new IdCardOcrCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.24
+            @Override // com.baidu.sapi2.callback.IdCardOcrCallback
+            public void onFailure(IdCardOcrResult idCardOcrResult) {
+                if (BaseActivity.this.j != null) {
+                    IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
+                    idcardOcrImageRusult.type = idCardOcrResult.type;
+                    idcardOcrImageRusult.image = idCardOcrResult.image;
+                    idcardOcrImageRusult.setResultCode(idCardOcrResult.getResultCode());
+                    idcardOcrImageRusult.setResultMsg(idCardOcrResult.getResultMsg());
+                    BaseActivity.this.j.onFailure(idcardOcrImageRusult);
+                }
+            }
+
+            @Override // com.baidu.sapi2.callback.IdCardOcrCallback
+            public void onSuccess(IdCardOcrResult idCardOcrResult) {
+                if (BaseActivity.this.j != null) {
+                    IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
+                    idcardOcrImageRusult.type = idCardOcrResult.type;
+                    idcardOcrImageRusult.image = idCardOcrResult.image;
+                    idcardOcrImageRusult.setResultCode(idCardOcrResult.getResultCode());
+                    idcardOcrImageRusult.setResultMsg(idCardOcrResult.getResultMsg());
+                    BaseActivity.this.j.onSuccess(idcardOcrImageRusult);
+                }
+            }
+        });
+    }
+
+    private void a(Uri uri) {
+        Intent intent = new Intent(this, ImageClipActivity.class);
+        intent.putExtra(ImageClipActivity.EXTRA_PARAM_FROM_BUSINESS, 2);
+        intent.setData(uri);
+        startActivityForResult(intent, 1006);
     }
 }

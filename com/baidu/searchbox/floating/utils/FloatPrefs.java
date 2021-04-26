@@ -39,14 +39,14 @@ public final class FloatPrefs {
         }
 
         public final Pair<ScaleMode, ScaleMode> getScaleMode() {
-            int i = FloatPrefs.Companion.getPrefs().getInt(FloatPrefs.FLOATING_SCALE_MODE, ScaleMode.S.ordinal());
-            if (i == ScaleMode.S.ordinal()) {
+            int i2 = FloatPrefs.Companion.getPrefs().getInt(FloatPrefs.FLOATING_SCALE_MODE, ScaleMode.S.ordinal());
+            if (i2 == ScaleMode.S.ordinal()) {
                 ScaleMode scaleMode = ScaleMode.S;
                 return new Pair<>(scaleMode, scaleMode);
-            } else if (i == ScaleMode.M.ordinal()) {
+            } else if (i2 == ScaleMode.M.ordinal()) {
                 return new Pair<>(ScaleMode.S, ScaleMode.M);
             } else {
-                if (i == ScaleMode.L.ordinal()) {
+                if (i2 == ScaleMode.L.ordinal()) {
                     return new Pair<>(ScaleMode.M, ScaleMode.L);
                 }
                 ScaleMode scaleMode2 = ScaleMode.S;

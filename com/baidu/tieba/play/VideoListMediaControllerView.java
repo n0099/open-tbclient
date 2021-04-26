@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoListMediaControllerView extends VideoControllerView {
     public VideoListMediaControllerView(Context context) {
         super(context);
@@ -19,7 +19,7 @@ public class VideoListMediaControllerView extends VideoControllerView {
         super(context, attributeSet);
     }
 
-    public VideoListMediaControllerView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public VideoListMediaControllerView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

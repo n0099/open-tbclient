@@ -43,7 +43,6 @@ import android.webkit.ValueCallback;
 import android.widget.AbsoluteLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.customview.widget.ExploreByTouchHelper;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.webkit.internal.Statistics;
@@ -197,8 +196,8 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final void onDrawVerticalScrollBar(Canvas canvas, Drawable drawable, int i, int i2, int i3, int i4) {
-            drawable.setBounds(i, i2, i3, i4);
+        public final void onDrawVerticalScrollBar(Canvas canvas, Drawable drawable, int i2, int i3, int i4, int i5) {
+            drawable.setBounds(i2, i3, i4, i5);
             drawable.draw(canvas);
         }
 
@@ -208,8 +207,8 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final void onFocusChanged(boolean z, int i, Rect rect) {
-            WebView.super.onFocusChanged(z, i, rect);
+        public final void onFocusChanged(boolean z, int i2, Rect rect) {
+            WebView.super.onFocusChanged(z, i2, rect);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
@@ -244,28 +243,28 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final boolean onKeyDown(int i, KeyEvent keyEvent) {
-            return WebView.super.onKeyDown(i, keyEvent);
+        public final boolean onKeyDown(int i2, KeyEvent keyEvent) {
+            return WebView.super.onKeyDown(i2, keyEvent);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
-            return WebView.super.onKeyMultiple(i, i2, keyEvent);
+        public final boolean onKeyMultiple(int i2, int i3, KeyEvent keyEvent) {
+            return WebView.super.onKeyMultiple(i2, i3, keyEvent);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final boolean onKeyUp(int i, KeyEvent keyEvent) {
-            return WebView.super.onKeyUp(i, keyEvent);
+        public final boolean onKeyUp(int i2, KeyEvent keyEvent) {
+            return WebView.super.onKeyUp(i2, keyEvent);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final void onMeasure(int i, int i2) {
-            WebView.super.onMeasure(i, i2);
+        public final void onMeasure(int i2, int i3) {
+            WebView.super.onMeasure(i2, i3);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final void onOverScrolled(int i, int i2, boolean z, boolean z2) {
-            this.mChildView.super_onOverScrolled(i, i2, z, z2);
+        public final void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
+            this.mChildView.super_onOverScrolled(i2, i3, z, z2);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
@@ -274,13 +273,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final void onScrollChanged(int i, int i2, int i3, int i4) {
-            this.mChildView.super_onScrollChanged(i, i2, i3, i4);
+        public final void onScrollChanged(int i2, int i3, int i4, int i5) {
+            this.mChildView.super_onScrollChanged(i2, i3, i4, i5);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final void onSizeChanged(int i, int i2, int i3, int i4) {
-            WebView.super.onSizeChanged(i3, i4, i3, i4);
+        public final void onSizeChanged(int i2, int i3, int i4, int i5) {
+            WebView.super.onSizeChanged(i4, i5, i4, i5);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
@@ -299,8 +298,8 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final void onVisibilityChanged(View view, int i) {
-            WebView.super.onVisibilityChanged(view, i);
+        public final void onVisibilityChanged(View view, int i2) {
+            WebView.super.onVisibilityChanged(view, i2);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
@@ -309,13 +308,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final void onWindowVisibilityChanged(int i) {
-            WebView.super.onWindowVisibilityChanged(i);
+        public final void onWindowVisibilityChanged(int i2) {
+            WebView.super.onWindowVisibilityChanged(i2);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final boolean performAccessibilityAction(int i, Bundle bundle) {
-            return WebView.super.performAccessibilityAction(i, bundle);
+        public final boolean performAccessibilityAction(int i2, Bundle bundle) {
+            return WebView.super.performAccessibilityAction(i2, bundle);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
@@ -334,25 +333,25 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final boolean requestFocus(int i, Rect rect) {
-            WebView.super.requestFocus(i, rect);
-            return this.mChildView.requestFocus(i, rect);
+        public final boolean requestFocus(int i2, Rect rect) {
+            WebView.super.requestFocus(i2, rect);
+            return this.mChildView.requestFocus(i2, rect);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final void setBackgroundColor(int i) {
-            WebView.super.setBackgroundColor(i);
+        public final void setBackgroundColor(int i2) {
+            WebView.super.setBackgroundColor(i2);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final boolean setFrame(int i, int i2, int i3, int i4) {
+        public final boolean setFrame(int i2, int i3, int i4, int i5) {
             return false;
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final void setLayerType(int i, Paint paint) {
+        public final void setLayerType(int i2, Paint paint) {
             if (Build.VERSION.SDK_INT >= 11) {
-                WebView.super.setLayerType(i, paint);
+                WebView.super.setLayerType(i2, paint);
             }
         }
 
@@ -362,13 +361,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final void setOverScrollMode(int i) {
-            WebView.super.setOverScrollMode(i);
+        public final void setOverScrollMode(int i2) {
+            WebView.super.setOverScrollMode(i2);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
-        public final void setScrollBarStyle(int i) {
-            WebView.super.setScrollBarStyle(i);
+        public final void setScrollBarStyle(int i2) {
+            WebView.super.setScrollBarStyle(i2);
         }
 
         @Override // com.baidu.webkit.sdk.WebViewProvider.ViewDelegate
@@ -382,7 +381,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     /* loaded from: classes5.dex */
     public interface FindListener {
-        void onFindResultReceived(int i, int i2, boolean z);
+        void onFindResultReceived(int i2, int i3, boolean z);
     }
 
     /* loaded from: classes5.dex */
@@ -394,14 +393,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
 
         @Override // com.baidu.webkit.sdk.WebView.FindListener
-        public void onFindResultReceived(int i, int i2, boolean z) {
+        public void onFindResultReceived(int i2, int i3, boolean z) {
             FindListener findListener = this.mFindDialogFindListener;
             if (findListener != null) {
-                findListener.onFindResultReceived(i, i2, z);
+                findListener.onFindResultReceived(i2, i3, z);
             }
             FindListener findListener2 = this.mUserFindListener;
             if (findListener2 != null) {
-                findListener2.onFindResultReceived(i, i2, z);
+                findListener2.onFindResultReceived(i2, i3, z);
             }
         }
     }
@@ -519,14 +518,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
             this.mPageUrl = str;
         }
 
-        public void setType(int i) {
-            this.mType = i;
+        public void setType(int i2) {
+            this.mType = i2;
         }
     }
 
     /* loaded from: classes5.dex */
     public interface IVirtualMemoryListener {
-        void onVirtualMemoryPressure(int i);
+        void onVirtualMemoryPressure(int i2);
     }
 
     /* loaded from: classes5.dex */
@@ -572,7 +571,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     /* loaded from: classes5.dex */
     public interface MainResourcePrefetchListener {
-        void onPrefetchFinished(String str, long j, boolean z, String str2, int i);
+        void onPrefetchFinished(String str, long j, boolean z, String str2, int i2);
     }
 
     /* loaded from: classes5.dex */
@@ -592,7 +591,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     /* loaded from: classes5.dex */
     public interface OnSystemUiVisibilityChangeListener {
-        void onSystemUiVisibilityChange(int i);
+        void onSystemUiVisibilityChange(int i2);
     }
 
     /* loaded from: classes5.dex */
@@ -641,17 +640,17 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         public PrivateAccess() {
         }
 
-        public void awakenScrollBars(int i) {
-            WebView.this.awakenScrollBars(i);
+        public void awakenScrollBars(int i2) {
+            WebView.this.awakenScrollBars(i2);
         }
 
-        public void awakenScrollBars(int i, boolean z) {
-            WebView.this.awakenScrollBars(i, z);
+        public void awakenScrollBars(int i2, boolean z) {
+            WebView.this.awakenScrollBars(i2, z);
         }
 
         public float getHorizontalScrollFactor() {
             try {
-                return ((Float) Class.forName(ExploreByTouchHelper.DEFAULT_CLASS_NAME).getMethod("getHorizontalScrollFactor", new Class[0]).invoke(WebView.this, null)).floatValue();
+                return ((Float) Class.forName("android.view.View").getMethod("getHorizontalScrollFactor", new Class[0]).invoke(WebView.this, null)).floatValue();
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return 1.0f;
@@ -664,7 +663,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
         public float getVerticalScrollFactor() {
             try {
-                return ((Float) Class.forName(ExploreByTouchHelper.DEFAULT_CLASS_NAME).getMethod("getVerticalScrollFactor", new Class[0]).invoke(WebView.this, null)).floatValue();
+                return ((Float) Class.forName("android.view.View").getMethod("getVerticalScrollFactor", new Class[0]).invoke(WebView.this, null)).floatValue();
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return 1.0f;
@@ -675,24 +674,24 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
             return WebView.this.mIsPrivateInit;
         }
 
-        public void onOverScrolled(int i, int i2, boolean z, boolean z2) {
-            WebView.this.onOverScrolled(i, i2, z, z2);
+        public void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
+            WebView.this.onOverScrolled(i2, i3, z, z2);
         }
 
-        public void onScrollChanged(int i, int i2, int i3, int i4) {
-            WebView.this.onScrollChanged(i, i2, i3, i4);
+        public void onScrollChanged(int i2, int i3, int i4, int i5) {
+            WebView.this.onScrollChanged(i2, i3, i4, i5);
         }
 
-        public void overScrollBy(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, boolean z) {
+        public void overScrollBy(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, boolean z) {
             try {
-                WebView.this.overScrollBy(i, i2, i3, i4, i5, i6, i7, i8, z);
+                WebView.this.overScrollBy(i2, i3, i4, i5, i6, i7, i8, i9, z);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
 
-        public void setMeasuredDimension(int i, int i2) {
-            WebView.this.setMeasuredDimension(i, i2);
+        public void setMeasuredDimension(int i2, int i3) {
+            WebView.this.setMeasuredDimension(i2, i3);
         }
 
         public void super_computeScroll() {
@@ -707,8 +706,8 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
             return WebView.super.getScrollBarStyle();
         }
 
-        public void super_onDrawVerticalScrollBar(Canvas canvas, Drawable drawable, int i, int i2, int i3, int i4) {
-            drawable.setBounds(i, i2, i3, i4);
+        public void super_onDrawVerticalScrollBar(Canvas canvas, Drawable drawable, int i2, int i3, int i4, int i5) {
+            drawable.setBounds(i2, i3, i4, i5);
             drawable.draw(canvas);
         }
 
@@ -724,23 +723,23 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
             return WebView.super.onInterceptTouchEvent(motionEvent);
         }
 
-        public boolean super_performAccessibilityAction(int i, Bundle bundle) {
-            return WebView.super.performAccessibilityAction(i, bundle);
+        public boolean super_performAccessibilityAction(int i2, Bundle bundle) {
+            return WebView.super.performAccessibilityAction(i2, bundle);
         }
 
         public boolean super_performLongClick() {
             return WebView.super.performLongClick();
         }
 
-        public boolean super_requestFocus(int i, Rect rect) {
-            return WebView.super.requestFocus(i, rect);
+        public boolean super_requestFocus(int i2, Rect rect) {
+            return WebView.super.requestFocus(i2, rect);
         }
 
-        public void super_scrollTo(int i, int i2) {
-            WebView.super.scrollTo(i, i2);
+        public void super_scrollTo(int i2, int i3) {
+            WebView.super.scrollTo(i2, i3);
         }
 
-        public boolean super_setFrame(int i, int i2, int i3, int i4) {
+        public boolean super_setFrame(int i2, int i3, int i4, int i5) {
             return false;
         }
 
@@ -820,13 +819,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         this(context, attributeSet, Resources.getSystem().getIdentifier("webViewStyle", "attr", "android"));
     }
 
-    public WebView(Context context, AttributeSet attributeSet, int i) {
-        this(context, attributeSet, i, false);
+    public WebView(Context context, AttributeSet attributeSet, int i2) {
+        this(context, attributeSet, i2, false);
     }
 
     @TargetApi(21)
-    public WebView(Context context, AttributeSet attributeSet, int i, int i2) {
-        super(context, attributeSet, i, i2);
+    public WebView(Context context, AttributeSet attributeSet, int i2, int i3) {
+        super(context, attributeSet, i2, i3);
         this.mSetOverScrollModeBeforeProviderReady = -1;
         this.mOnViewHierarchy = true;
         this.mSoftInputMode = 0;
@@ -835,8 +834,8 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Deprecated
-    public WebView(Context context, AttributeSet attributeSet, int i, boolean z) {
-        super(context, attributeSet, i);
+    public WebView(Context context, AttributeSet attributeSet, int i2, boolean z) {
+        super(context, attributeSet, i2);
         this.mSetOverScrollModeBeforeProviderReady = -1;
         this.mOnViewHierarchy = true;
         this.mSoftInputMode = 0;
@@ -980,8 +979,8 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return getFactory().getWebViewClassLoader();
     }
 
-    public static String getZeusSeriesNum(int i, int i2, int i3) {
-        return getFactory().getStatics().getZeusSeriesNum(i, i2, i3);
+    public static String getZeusSeriesNum(int i2, int i3, int i4) {
+        return getFactory().getStatics().getZeusSeriesNum(i2, i3, i4);
     }
 
     public static boolean hasGPU() {
@@ -1058,25 +1057,25 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         getFactory().getStatics().onMemoryPresure(2, null);
     }
 
-    public static void onMemoryPresure(int i, Activity activity) {
-        getFactory().getStatics().onMemoryPresure(i, activity);
+    public static void onMemoryPresure(int i2, Activity activity) {
+        getFactory().getStatics().onMemoryPresure(i2, activity);
     }
 
-    private void onOverScrolledDelegate(int i, int i2, boolean z, boolean z2) {
+    private void onOverScrolledDelegate(int i2, int i3, boolean z, boolean z2) {
         WebViewDelegate webViewDelegate = this.mViewDelegate;
         if (webViewDelegate != null) {
-            webViewDelegate.onOverScrolled(i, i2, z, z2);
+            webViewDelegate.onOverScrolled(i2, i3, z, z2);
         } else {
-            onOverScrolledSuper(i, i2, z, z2);
+            onOverScrolledSuper(i2, i3, z, z2);
         }
     }
 
-    private void onScrollChangedDelegate(int i, int i2, int i3, int i4) {
+    private void onScrollChangedDelegate(int i2, int i3, int i4, int i5) {
         WebViewDelegate webViewDelegate = this.mViewDelegate;
         if (webViewDelegate != null) {
-            webViewDelegate.onScrollChanged(i, i2, i3, i4);
+            webViewDelegate.onScrollChanged(i2, i3, i4, i5);
         } else {
-            onScrollChangedSuper(i, i2, i3, i4);
+            onScrollChangedSuper(i2, i3, i4, i5);
         }
     }
 
@@ -1165,38 +1164,38 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public void addJavascriptInterface(Object obj, String str) {
         JSInterfaceStatistics jSInterfaceStatistics;
         checkThread();
-        int i = 0;
+        int i2 = 0;
         try {
             StringBuilder sb = new StringBuilder();
             StackTraceElement[] stackTrace = new NullPointerException().getStackTrace();
             if (stackTrace != null && stackTrace.length > 0) {
-                int i2 = 0;
-                while (i < stackTrace.length - 1) {
+                int i3 = 0;
+                while (i2 < stackTrace.length - 1) {
                     try {
-                        StackTraceElement stackTraceElement = stackTrace[i];
+                        StackTraceElement stackTraceElement = stackTrace[i2];
                         sb.append("\tat " + stackTraceElement);
                         String methodName = stackTraceElement.getMethodName();
-                        i++;
-                        String methodName2 = stackTrace[i].getMethodName();
+                        i2++;
+                        String methodName2 = stackTrace[i2].getMethodName();
                         if (!methodName.equalsIgnoreCase("addJavascriptInterface")) {
-                            if (i2 == 0) {
+                            if (i3 == 0) {
                                 break;
                             }
-                        } else if (stackTrace[i].getClassName().equalsIgnoreCase("java.lang.reflect.Method") && methodName2.equalsIgnoreCase("invoke")) {
-                            i2 = 1;
+                        } else if (stackTrace[i2].getClassName().equalsIgnoreCase("java.lang.reflect.Method") && methodName2.equalsIgnoreCase("invoke")) {
+                            i3 = 1;
                         }
                     } catch (Throwable unused) {
-                        i = i2;
+                        i2 = i3;
                     }
                 }
-                i = i2;
+                i2 = i3;
             }
-            if (i != 0) {
+            if (i2 != 0) {
                 getJSInterfaceStatistics().mJSInfo.put(str, sb.toString());
             }
         } catch (Throwable unused2) {
         }
-        if (i != 0) {
+        if (i2 != 0) {
             Statistics.Client client = this.mStatisticClient;
             if (client == null || (jSInterfaceStatistics = this.mJSInterfaceStatistics) == null) {
                 return;
@@ -1208,7 +1207,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         boolean a2 = true ^ secureProcessor.a();
         if (obj != null && !TextUtils.isEmpty(str)) {
             secureProcessor.d().put(str, obj);
-            secureProcessor.f26616d = null;
+            secureProcessor.f27423d = null;
         }
         if (!a2 || getEnableJsPrompt()) {
             return;
@@ -1244,29 +1243,29 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i) {
+    public void addView(View view, int i2) {
         if (this.mProvider == null || view == getWebView() || this.mProvider.isZeusWebViewProvider()) {
-            super.addView(view, i);
+            super.addView(view, i2);
         } else {
-            getWebView().addView(view, i);
+            getWebView().addView(view, i2);
         }
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i, int i2) {
+    public void addView(View view, int i2, int i3) {
         if (this.mProvider == null || view == getWebView() || this.mProvider.isZeusWebViewProvider()) {
-            super.addView(view, i, i2);
+            super.addView(view, i2, i3);
         } else {
-            getWebView().addView(view, i, i2);
+            getWebView().addView(view, i2, i3);
         }
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view, int i2, ViewGroup.LayoutParams layoutParams) {
         if (this.mProvider == null || view == getWebView() || this.mProvider.isZeusWebViewProvider()) {
-            super.addView(view, i, layoutParams);
+            super.addView(view, i2, layoutParams);
         } else {
-            getWebView().addView(view, i, layoutParams);
+            getWebView().addView(view, i2, layoutParams);
         }
     }
 
@@ -1288,9 +1287,9 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return this.mProvider.canGoBack();
     }
 
-    public boolean canGoBackOrForward(int i) {
+    public boolean canGoBackOrForward(int i2) {
         checkThread();
-        return this.mProvider.canGoBackOrForward(i);
+        return this.mProvider.canGoBackOrForward(i2);
     }
 
     public boolean canGoForward() {
@@ -1329,11 +1328,11 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return captureBitmap(getMeasuredWidth(), getMeasuredHeight());
     }
 
-    public Bitmap captureBitmap(int i, int i2) {
+    public Bitmap captureBitmap(int i2, int i3) {
         checkThread();
         try {
             if (this.mProvider.isZeusWebViewProvider()) {
-                Picture capturePicture = this.mProvider.capturePicture(i, i2, false);
+                Picture capturePicture = this.mProvider.capturePicture(i2, i3, false);
                 Bitmap createBitmap = Bitmap.createBitmap(capturePicture.getWidth(), capturePicture.getHeight(), Bitmap.Config.RGB_565);
                 capturePicture.draw(new Canvas(createBitmap));
                 return createBitmap;
@@ -1349,12 +1348,12 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    public Bitmap captureHistoryBitmap(int i, int i2, int i3) {
+    public Bitmap captureHistoryBitmap(int i2, int i3, int i4) {
         Picture captureHistoryPicture;
         checkThread();
         try {
-            if (this.mProvider.isZeusWebViewProvider() && (captureHistoryPicture = this.mProvider.captureHistoryPicture(i, i2, i3)) != null && captureHistoryPicture.getWidth() > 0 && captureHistoryPicture.getHeight() > 0) {
-                Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.RGB_565);
+            if (this.mProvider.isZeusWebViewProvider() && (captureHistoryPicture = this.mProvider.captureHistoryPicture(i2, i3, i4)) != null && captureHistoryPicture.getWidth() > 0 && captureHistoryPicture.getHeight() > 0) {
+                Bitmap createBitmap = Bitmap.createBitmap(i3, i4, Bitmap.Config.RGB_565);
                 captureHistoryPicture.draw(new Canvas(createBitmap));
                 return createBitmap;
             }
@@ -1369,11 +1368,11 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    public Picture captureHistoryPicture(int i, int i2, int i3) {
+    public Picture captureHistoryPicture(int i2, int i3, int i4) {
         Picture captureHistoryPicture;
         checkThread();
         try {
-            if (this.mProvider.isZeusWebViewProvider() && (captureHistoryPicture = this.mProvider.captureHistoryPicture(i, i2, i3)) != null && captureHistoryPicture.getWidth() > 0) {
+            if (this.mProvider.isZeusWebViewProvider() && (captureHistoryPicture = this.mProvider.captureHistoryPicture(i2, i3, i4)) != null && captureHistoryPicture.getWidth() > 0) {
                 if (captureHistoryPicture.getHeight() > 0) {
                     return captureHistoryPicture;
                 }
@@ -1399,7 +1398,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return this.mProvider.capturePicture(z ? 0 : getMeasuredWidth(), z ? 0 : getMeasuredHeight(), z);
     }
 
-    public void changeWapPreloadUrlStyle(int i, String str) {
+    public void changeWapPreloadUrlStyle(int i2, String str) {
     }
 
     public void clearCache(boolean z) {
@@ -1509,10 +1508,10 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return null;
     }
 
-    public void cutdownUserData(int i) {
+    public void cutdownUserData(int i2) {
         WebViewProvider webViewProvider = this.mProvider;
         if (webViewProvider != null) {
-            webViewProvider.cutdownUserData(i);
+            webViewProvider.cutdownUserData(i2);
         }
     }
 
@@ -1523,14 +1522,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     public void destroy() {
         e secureProcessor = getSecureProcessor();
-        if (secureProcessor.f26615c.getContext().getPackageName().contains("com.baidu.searchbox")) {
-            HashMap<String, Object> hashMap = secureProcessor.f26614b;
+        if (secureProcessor.f27422c.getContext().getPackageName().contains("com.baidu.searchbox")) {
+            HashMap<String, Object> hashMap = secureProcessor.f27421b;
             if (hashMap != null) {
                 hashMap.clear();
-                secureProcessor.f26614b = null;
+                secureProcessor.f27421b = null;
             }
-            if (secureProcessor.f26615c.getWebViewClient() != null) {
-                secureProcessor.f26616d = null;
+            if (secureProcessor.f27422c.getWebViewClient() != null) {
+                secureProcessor.f27423d = null;
             }
         }
         checkThread();
@@ -1576,8 +1575,8 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         this.mProvider.documentHasImages(message);
     }
 
-    public void dumpViewHierarchyWithProperties(BufferedWriter bufferedWriter, int i) {
-        this.mProvider.dumpViewHierarchyWithProperties(bufferedWriter, i);
+    public void dumpViewHierarchyWithProperties(BufferedWriter bufferedWriter, int i2) {
+        this.mProvider.dumpViewHierarchyWithProperties(bufferedWriter, i2);
     }
 
     @Deprecated
@@ -1619,9 +1618,9 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         } else {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("javascript:" + str + "('");
-            for (int i = 0; i < strArr.length; i++) {
-                stringBuffer.append(strArr[i]);
-                if (i != strArr.length - 1) {
+            for (int i2 = 0; i2 < strArr.length; i2++) {
+                stringBuffer.append(strArr[i2]);
+                if (i2 != strArr.length - 1) {
                     stringBuffer.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
             }
@@ -1656,8 +1655,8 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return this.mProvider.getViewDelegate().findFocus(super.findFocus());
     }
 
-    public View findHierarchyView(String str, int i) {
-        return this.mProvider.findHierarchyView(str, i);
+    public View findHierarchyView(String str, int i2) {
+        return this.mProvider.findHierarchyView(str, i2);
     }
 
     public void findNext(boolean z) {
@@ -1665,9 +1664,9 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         this.mProvider.findNext(z);
     }
 
-    public void flingScroll(int i, int i2) {
+    public void flingScroll(int i2, int i3) {
         checkThread();
-        this.mProvider.flingScroll(i, i2);
+        this.mProvider.flingScroll(i2, i3);
     }
 
     @Deprecated
@@ -1866,10 +1865,10 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return webViewProvider == null ? "" : webViewProvider.getUrl();
     }
 
-    public Object getUserData(int i, int i2) {
+    public Object getUserData(int i2, int i3) {
         WebViewProvider webViewProvider = this.mProvider;
         if (webViewProvider != null) {
-            return webViewProvider.getUserData(i, i2);
+            return webViewProvider.getUserData(i2, i3);
         }
         return null;
     }
@@ -1947,9 +1946,9 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         this.mProvider.goBack();
     }
 
-    public void goBackOrForward(int i) {
+    public void goBackOrForward(int i2) {
         checkThread();
-        this.mProvider.goBackOrForward(i);
+        this.mProvider.goBackOrForward(i2);
     }
 
     public void goForward() {
@@ -1985,7 +1984,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return false;
     }
 
-    public void hideMagnifier(int i, int i2) {
+    public void hideMagnifier(int i2, int i3) {
     }
 
     public void hitAd(String str) {
@@ -2013,12 +2012,12 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Override // android.view.View
-    public void invalidate(int i, int i2, int i3, int i4) {
+    public void invalidate(int i2, int i3, int i4, int i5) {
         WebViewProvider webViewProvider = this.mProvider;
         if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
-            super.invalidate(i, i2, i3, i4);
+            super.invalidate(i2, i3, i4, i5);
         } else {
-            getWebView().invalidate(i, i2, i3, i4);
+            getWebView().invalidate(i2, i3, i4, i5);
         }
     }
 
@@ -2166,20 +2165,20 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    public void mediaPlayerStatusChanged(int i, float f2, float f3) {
+    public void mediaPlayerStatusChanged(int i2, float f2, float f3) {
     }
 
     public void mediaPlayerTimeChanged(float f2, float f3) {
     }
 
-    public void moveMagnifier(int i, int i2) {
+    public void moveMagnifier(int i2, int i3) {
     }
 
     public int nightModeColorStyle() {
         return 0;
     }
 
-    public boolean notifyNativeExitFullScreenIfNeeded(int i) {
+    public boolean notifyNativeExitFullScreenIfNeeded(int i2) {
         return true;
     }
 
@@ -2188,9 +2187,9 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         this.mProvider.notifyPageLeave();
     }
 
-    public void notifyUnsafeInvolved(int i, String str) {
+    public void notifyUnsafeInvolved(int i2, String str) {
         checkThread();
-        this.mProvider.notifyUnsafeInvolved(i, str);
+        this.mProvider.notifyUnsafeInvolved(i2, str);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -2269,8 +2268,8 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         this.mProvider.getViewDelegate().onDraw(canvas);
     }
 
-    public void onDrawVerticalScrollBar(Canvas canvas, Drawable drawable, int i, int i2, int i3, int i4) {
-        this.mProvider.getViewDelegate().onDrawVerticalScrollBar(canvas, drawable, i, i2, i3, i4);
+    public void onDrawVerticalScrollBar(Canvas canvas, Drawable drawable, int i2, int i3, int i4, int i5) {
+        this.mProvider.getViewDelegate().onDrawVerticalScrollBar(canvas, drawable, i2, i3, i4, i5);
     }
 
     @Override // android.view.View
@@ -2280,9 +2279,9 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Override // android.view.View
-    public void onFocusChanged(boolean z, int i, Rect rect) {
-        this.mProvider.getViewDelegate().onFocusChanged(z, i, rect);
-        super.onFocusChanged(z, i, rect);
+    public void onFocusChanged(boolean z, int i2, Rect rect) {
+        this.mProvider.getViewDelegate().onFocusChanged(z, i2, rect);
+        super.onFocusChanged(z, i2, rect);
     }
 
     @Override // android.view.View
@@ -2338,18 +2337,18 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Override // android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return this.mProvider.getViewDelegate().onKeyDown(i, keyEvent);
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        return this.mProvider.getViewDelegate().onKeyDown(i2, keyEvent);
     }
 
     @Override // android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
-        return this.mProvider.getViewDelegate().onKeyMultiple(i, i2, keyEvent);
+    public boolean onKeyMultiple(int i2, int i3, KeyEvent keyEvent) {
+        return this.mProvider.getViewDelegate().onKeyMultiple(i2, i3, keyEvent);
     }
 
     @Override // android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        return this.mProvider.getViewDelegate().onKeyUp(i, keyEvent);
+    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
+        return this.mProvider.getViewDelegate().onKeyUp(i2, keyEvent);
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -2374,18 +2373,18 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
 
     @Override // android.widget.AbsoluteLayout, android.view.View
     @SuppressLint({"WrongCall"})
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        this.mProvider.getViewDelegate().onMeasure(i, i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        this.mProvider.getViewDelegate().onMeasure(i2, i3);
     }
 
     @Override // android.view.View
-    public void onOverScrolled(int i, int i2, boolean z, boolean z2) {
-        onOverScrolledDelegate(i, i2, z, z2);
+    public void onOverScrolled(int i2, int i3, boolean z, boolean z2) {
+        onOverScrolledDelegate(i2, i3, z, z2);
     }
 
-    public void onOverScrolledSuper(int i, int i2, boolean z, boolean z2) {
-        this.mProvider.getViewDelegate().onOverScrolled(i, i2, z, z2);
+    public void onOverScrolledSuper(int i2, int i3, boolean z, boolean z2) {
+        this.mProvider.getViewDelegate().onOverScrolled(i2, i3, z, z2);
     }
 
     public void onPageSwapFromWebview(WebView webView, String str, boolean z) {
@@ -2419,29 +2418,29 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Override // android.view.View
-    public void onScrollChanged(int i, int i2, int i3, int i4) {
-        onScrollChangedDelegate(i, i2, i3, i4);
+    public void onScrollChanged(int i2, int i3, int i4, int i5) {
+        onScrollChangedDelegate(i2, i3, i4, i5);
     }
 
-    public void onScrollChangedSuper(int i, int i2, int i3, int i4) {
+    public void onScrollChangedSuper(int i2, int i3, int i4, int i5) {
         if (isDestroyed()) {
             Log.e(Log.LOG_TAG, "Webview has destoryed !!!");
             return;
         }
         try {
             if (this.mProvider == null || this.mProvider.isZeusWebViewProvider()) {
-                super.onScrollChanged(i, i2, i3, i4);
+                super.onScrollChanged(i2, i3, i4, i5);
             }
-            this.mProvider.getViewDelegate().onScrollChanged(i, i2, i3, i4);
+            this.mProvider.getViewDelegate().onScrollChanged(i2, i3, i4, i5);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        this.mProvider.getViewDelegate().onSizeChanged(i, i2, i3, i4);
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        this.mProvider.getViewDelegate().onSizeChanged(i2, i3, i4, i5);
     }
 
     @Override // android.view.View
@@ -2465,10 +2464,10 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Override // android.view.View
-    public void onVisibilityChanged(View view, int i) {
-        super.onVisibilityChanged(view, i);
+    public void onVisibilityChanged(View view, int i2) {
+        super.onVisibilityChanged(view, i2);
         ensureProviderCreated();
-        this.mProvider.getViewDelegate().onVisibilityChanged(view, i);
+        this.mProvider.getViewDelegate().onVisibilityChanged(view, i2);
     }
 
     @Override // android.view.View
@@ -2478,9 +2477,9 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Override // android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
-        this.mProvider.getViewDelegate().onWindowVisibilityChanged(i);
+    public void onWindowVisibilityChanged(int i2) {
+        super.onWindowVisibilityChanged(i2);
+        this.mProvider.getViewDelegate().onWindowVisibilityChanged(i2);
     }
 
     @Deprecated
@@ -2516,12 +2515,12 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Override // android.view.View
-    public boolean performAccessibilityAction(int i, Bundle bundle) {
+    public boolean performAccessibilityAction(int i2, Bundle bundle) {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
-                super.performAccessibilityAction(i, bundle);
+                super.performAccessibilityAction(i2, bundle);
                 if (getAccessibilityNodeProvider() == null) {
-                    return this.mProvider.getViewDelegate().performAccessibilityAction(i, bundle);
+                    return this.mProvider.getViewDelegate().performAccessibilityAction(i2, bundle);
                 }
                 return false;
             } catch (Exception e2) {
@@ -2577,11 +2576,11 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public void removeJavascriptInterface(String str) {
         e secureProcessor = getSecureProcessor();
         boolean z = true;
-        if (!"searchBoxJavaBridge_".equalsIgnoreCase(str) && secureProcessor.f26615c.getContext().getPackageName().contains("com.baidu.searchbox")) {
+        if (!"searchBoxJavaBridge_".equalsIgnoreCase(str) && secureProcessor.f27422c.getContext().getPackageName().contains("com.baidu.searchbox")) {
             boolean z2 = !secureProcessor.a();
             secureProcessor.d().remove(str);
-            if (secureProcessor.f26615c.getWebViewClient() != null) {
-                secureProcessor.f26616d = null;
+            if (secureProcessor.f27422c.getWebViewClient() != null) {
+                secureProcessor.f27423d = null;
             }
             z = z2;
         }
@@ -2614,8 +2613,8 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public boolean requestFocus(int i, Rect rect) {
-        return this.mProvider.getViewDelegate().requestFocus(i, rect);
+    public boolean requestFocus(int i2, Rect rect) {
+        return this.mProvider.getViewDelegate().requestFocus(i2, rect);
     }
 
     public void requestFocusNodeHref(Message message) {
@@ -2679,22 +2678,22 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Override // android.view.View
-    public void scrollBy(int i, int i2) {
+    public void scrollBy(int i2, int i3) {
         WebViewProvider webViewProvider = this.mProvider;
         if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
-            super.scrollBy(i, i2);
+            super.scrollBy(i2, i3);
         } else {
-            getWebView().scrollBy(i, i2);
+            getWebView().scrollBy(i2, i3);
         }
     }
 
     @Override // android.view.View
-    public void scrollTo(int i, int i2) {
+    public void scrollTo(int i2, int i3) {
         WebViewProvider webViewProvider = this.mProvider;
         if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
-            super.scrollTo(i, i2);
+            super.scrollTo(i2, i3);
         } else {
-            getWebView().scrollTo(i, i2);
+            getWebView().scrollTo(i2, i3);
         }
     }
 
@@ -2711,17 +2710,17 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Override // android.view.View
-    public void setBackgroundColor(int i) {
-        this.mProvider.getViewDelegate().setBackgroundColor(i);
+    public void setBackgroundColor(int i2) {
+        this.mProvider.getViewDelegate().setBackgroundColor(i2);
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(int i) {
+    public void setBackgroundResource(int i2) {
         WebViewProvider webViewProvider = this.mProvider;
         if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
-            super.setBackgroundResource(i);
+            super.setBackgroundResource(i2);
         } else {
-            getWebView().setBackgroundResource(i);
+            getWebView().setBackgroundResource(i2);
         }
     }
 
@@ -2729,8 +2728,8 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         this.mProvider.setBeginScale();
     }
 
-    public void setBottomControlsHeight(int i) {
-        this.mProvider.setBottomControlsHeight(i);
+    public void setBottomControlsHeight(int i2) {
+        this.mProvider.setBottomControlsHeight(i2);
     }
 
     @Deprecated
@@ -2751,9 +2750,9 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         this.mViewDelegate.setCurrentTitleBar(z);
     }
 
-    public void setDefaultViewSize(int i, int i2) {
+    public void setDefaultViewSize(int i2, int i3) {
         checkThread();
-        this.mProvider.setDefaultViewSize(i, i2);
+        this.mProvider.setDefaultViewSize(i2, i3);
     }
 
     public void setDownloadListener(DownloadListener downloadListener) {
@@ -2775,7 +2774,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         setEmbeddedTitleBar(view, 0);
     }
 
-    public void setEmbeddedTitleBar(View view, int i) {
+    public void setEmbeddedTitleBar(View view, int i2) {
     }
 
     public void setEndScale() {
@@ -2818,15 +2817,15 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         this.mProvider.setHttpAuthUsernamePassword(str, str2, str3, str4);
     }
 
-    public void setInitialScale(int i) {
+    public void setInitialScale(int i2) {
         checkThread();
-        this.mProvider.setInitialScale(i);
+        this.mProvider.setInitialScale(i2);
     }
 
     @Override // android.view.View
-    public void setLayerType(int i, Paint paint) {
-        super.setLayerType(i, paint);
-        this.mProvider.getViewDelegate().setLayerType(i, paint);
+    public void setLayerType(int i2, Paint paint) {
+        super.setLayerType(i2, paint);
+        this.mProvider.getViewDelegate().setLayerType(i2, paint);
     }
 
     @Override // android.view.View
@@ -2906,13 +2905,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Override // android.view.View
-    public void setOverScrollMode(int i) {
-        super.setOverScrollMode(i);
+    public void setOverScrollMode(int i2) {
+        super.setOverScrollMode(i2);
         WebViewProvider webViewProvider = this.mProvider;
         if (webViewProvider == null) {
-            this.mSetOverScrollModeBeforeProviderReady = i;
+            this.mSetOverScrollModeBeforeProviderReady = i2;
         } else {
-            webViewProvider.getViewDelegate().setOverScrollMode(i);
+            webViewProvider.getViewDelegate().setOverScrollMode(i2);
         }
     }
 
@@ -2935,14 +2934,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return this.mProvider.setPreviewZoomScale(f2);
     }
 
-    public void setRendererPriorityPolicy(int i, boolean z) {
-        this.mProvider.setRendererPriorityPolicy(i, z);
+    public void setRendererPriorityPolicy(int i2, boolean z) {
+        this.mProvider.setRendererPriorityPolicy(i2, z);
     }
 
     @Override // android.view.View
-    public void setScrollBarStyle(int i) {
-        this.mProvider.getViewDelegate().setScrollBarStyle(i);
-        super.setScrollBarStyle(i);
+    public void setScrollBarStyle(int i2) {
+        this.mProvider.getViewDelegate().setScrollBarStyle(i2);
+        super.setScrollBarStyle(i2);
     }
 
     @Override // android.view.View
@@ -2964,25 +2963,25 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         this.mStatisticClient = client;
     }
 
-    public void setStatusBar(View view, int i) {
-        this.mProvider.setStatusBar(view, i);
+    public void setStatusBar(View view, int i2) {
+        this.mProvider.setStatusBar(view, i2);
     }
 
-    public void setSubjectScrollToOnload(int i) {
+    public void setSubjectScrollToOnload(int i2) {
     }
 
     public void setTextFieldText(CharSequence charSequence) {
         this.mProvider.setTextFieldText(charSequence);
     }
 
-    public void setTopControlsHeight(int i, boolean z) {
-        this.mProvider.setTopControlsHeight(i, z);
+    public void setTopControlsHeight(int i2, boolean z) {
+        this.mProvider.setTopControlsHeight(i2, z);
     }
 
-    public void setUserData(int i, int i2, Object obj) {
+    public void setUserData(int i2, int i3, Object obj) {
         WebViewProvider webViewProvider = this.mProvider;
         if (webViewProvider != null) {
-            webViewProvider.setUserData(i, i2, obj);
+            webViewProvider.setUserData(i2, i3, obj);
         }
     }
 
@@ -3009,16 +3008,16 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Override // android.view.View
-    public void setVisibility(int i) {
+    public void setVisibility(int i2) {
         WebViewProvider webViewProvider = this.mProvider;
         if (webViewProvider == null || webViewProvider.isZeusWebViewProvider()) {
-            super.setVisibility(i);
+            super.setVisibility(i2);
         } else {
-            getWebView().setVisibility(i);
+            getWebView().setVisibility(i2);
         }
     }
 
-    public boolean setVisitedLinkNightColor(int i) {
+    public boolean setVisitedLinkNightColor(int i2) {
         return true;
     }
 
@@ -3035,16 +3034,16 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         this.mProvider.setWebViewClient(webViewClient);
     }
 
-    public void setWebViewMargin(int i, int i2, int i3, int i4) {
-        this.mProvider.setWebViewMargin(i, i2, i3, i4);
+    public void setWebViewMargin(int i2, int i3, int i4, int i5) {
+        this.mProvider.setWebViewMargin(i2, i3, i4, i5);
     }
 
     public void setWebViewPagerContainer(ViewGroup viewGroup) {
         this.mProvider.setWebViewPagerContainer(viewGroup);
     }
 
-    public void setWebViewPagerSize(int i, int i2) {
-        this.mProvider.setWebViewPagerSize(i, i2);
+    public void setWebViewPagerSize(int i2, int i3) {
+        this.mProvider.setWebViewPagerSize(i2, i3);
     }
 
     public void setWebViewState(WebViewState webViewState) {
@@ -3065,7 +3064,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         return this.mProvider.showFindDialog(str, z);
     }
 
-    public void showMagnifier(int i, int i2, int i3, int i4, boolean z) {
+    public void showMagnifier(int i2, int i3, int i4, int i5, boolean z) {
     }
 
     public void startLoadingAnimation(String str) {
@@ -3110,8 +3109,8 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         this.mProvider.switchTitleBar(z);
     }
 
-    public void updateTopControlOffset(int i) {
-        this.mProvider.updateTopControlOffset(i);
+    public void updateTopControlOffset(int i2) {
+        this.mProvider.updateTopControlOffset(i2);
     }
 
     public void updateTopControlsState(boolean z, boolean z2, boolean z3) {

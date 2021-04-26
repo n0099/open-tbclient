@@ -14,7 +14,7 @@ public final class o implements Parcelable.Creator<TransitBaseInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public TransitBaseInfo[] newArray(int i) {
-        return new TransitBaseInfo[i];
+    public TransitBaseInfo[] newArray(int i2) {
+        return new TransitBaseInfo[i2];
     }
 }

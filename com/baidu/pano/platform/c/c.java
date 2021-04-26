@@ -10,31 +10,31 @@ import java.util.concurrent.ExecutionException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile c f8997a;
+    public static volatile c f9327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f8998b;
+    public static Context f9328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public p f8999c = n.a(f8998b);
+    public p f9329c = n.a(f9328b);
 
     public static c a(Context context) {
-        if (f8997a == null) {
+        if (f9327a == null) {
             synchronized (c.class) {
-                if (f8997a == null) {
-                    f8998b = context;
-                    f8997a = new c();
+                if (f9327a == null) {
+                    f9328b = context;
+                    f9327a = new c();
                 }
             }
         }
-        return f8997a;
+        return f9327a;
     }
 
     public String b(String str) {
         l a2 = l.a();
         m mVar = new m(str, a2, a2);
         mVar.a(true);
-        this.f8999c.a(mVar);
+        this.f9329c.a(mVar);
         try {
             return (String) a2.get();
         } catch (InterruptedException e2) {
@@ -50,7 +50,7 @@ public class c {
         l a2 = l.a();
         com.baidu.pano.platform.a.a.d dVar = new com.baidu.pano.platform.a.a.d(str, a2, a2);
         dVar.a(true);
-        this.f8999c.a(dVar);
+        this.f9329c.a(dVar);
         try {
             return (byte[]) a2.get();
         } catch (InterruptedException e2) {

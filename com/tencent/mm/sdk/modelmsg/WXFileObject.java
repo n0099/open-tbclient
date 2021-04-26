@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.tencent.mm.sdk.b.a;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WXFileObject implements WXMediaMessage.IMediaObject {
     public static final int CONTENT_LENGTH_LIMIT = 10485760;
     public static final String TAG = "MicroMsg.SDK.WXFileObject";
@@ -68,8 +68,8 @@ public class WXFileObject implements WXMediaMessage.IMediaObject {
         bundle.putString("_wxfileobject_filePath", this.filePath);
     }
 
-    public void setContentLengthLimit(int i) {
-        this.contentLengthLimit = i;
+    public void setContentLengthLimit(int i2) {
+        this.contentLengthLimit = i2;
     }
 
     public void setFileData(byte[] bArr) {

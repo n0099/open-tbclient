@@ -8,7 +8,7 @@ public interface IUniversalPlayerStatDispatcher extends IPlayerStatisticsDispatc
     /* loaded from: classes2.dex */
     public static final class SimpleStatDispatcher implements IUniversalPlayerStatDispatcher {
         @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
-        public void end(int i) {
+        public void end(int i2) {
         }
 
         @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
@@ -20,11 +20,11 @@ public interface IUniversalPlayerStatDispatcher extends IPlayerStatisticsDispatc
         }
 
         @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
-        public void goBackOrForeground(boolean z, int i) {
+        public void goBackOrForeground(boolean z, int i2) {
         }
 
         @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
-        public void onError(int i, int i2, Object obj) {
+        public void onError(int i2, int i3, Object obj) {
         }
 
         @Override // com.baidu.searchbox.player.stat.IUniversalPlayerStatDispatcher
@@ -44,7 +44,7 @@ public interface IUniversalPlayerStatDispatcher extends IPlayerStatisticsDispatc
         }
 
         @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
-        public void onInfo(int i, int i2, Object obj) {
+        public void onInfo(int i2, int i3, Object obj) {
         }
 
         @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
@@ -72,7 +72,7 @@ public interface IUniversalPlayerStatDispatcher extends IPlayerStatisticsDispatc
         }
 
         @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
-        public void stop(int i) {
+        public void stop(int i2) {
         }
     }
 

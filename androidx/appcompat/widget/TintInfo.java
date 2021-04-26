@@ -2,6 +2,8 @@ package androidx.appcompat.widget;
 
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
+import androidx.annotation.RestrictTo;
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TintInfo {
     public boolean mHasTintList;

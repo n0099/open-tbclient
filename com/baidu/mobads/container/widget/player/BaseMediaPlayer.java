@@ -48,10 +48,10 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
         this.mVideoPlayer.setOnSeekCompleteListener(this);
     }
 
-    private void notifyPlayerEvent(int i) {
+    private void notifyPlayerEvent(int i2) {
         OnPlayStateListener onPlayStateListener = this.playStateListener;
         if (onPlayStateListener != null) {
-            onPlayStateListener.playStateChanged(i);
+            onPlayStateListener.playStateChanged(i2);
         }
     }
 
@@ -121,7 +121,7 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
     }
 
     @Override // android.media.MediaPlayer.OnErrorListener
-    public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
+    public boolean onError(MediaPlayer mediaPlayer, int i2, int i3) {
         RemoteXAdLogger remoteXAdLogger = this.mAdLogger;
         remoteXAdLogger.i(TAG, "onError" + this.mCurState);
         this.mCurState = State.ERROR;
@@ -130,14 +130,14 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
     }
 
     @Override // android.media.MediaPlayer.OnInfoListener
-    public boolean onInfo(MediaPlayer mediaPlayer, int i, int i2) {
-        if (i == 3) {
+    public boolean onInfo(MediaPlayer mediaPlayer, int i2, int i3) {
+        if (i2 == 3) {
             notifyPlayerEvent(260);
             return false;
-        } else if (i == 701) {
+        } else if (i2 == 701) {
             notifyPlayerEvent(PlayerEvent.PLAY_LOADING_START);
             return false;
-        } else if (i != 702) {
+        } else if (i2 != 702) {
             return false;
         } else {
             notifyPlayerEvent(PlayerEvent.PLAY_LOADING_END);
@@ -194,7 +194,7 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
         start();
     }
 
-    public void seekTo(int i) {
+    public void seekTo(int i2) {
         State state = this.mCurState;
         if (state != State.PREPARED && state != State.STARTED && state != State.PAUSED && state != State.PLAYBACKCOMPLETED) {
             RemoteXAdLogger remoteXAdLogger = this.mAdLogger;
@@ -204,7 +204,7 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
         MediaPlayer mediaPlayer = this.mVideoPlayer;
         if (mediaPlayer != null) {
             try {
-                mediaPlayer.seekTo(i);
+                mediaPlayer.seekTo(i2);
             } catch (Exception e2) {
                 RemoteXAdLogger remoteXAdLogger2 = this.mAdLogger;
                 remoteXAdLogger2.i(TAG, "seekTo异常" + e2.getMessage());
@@ -277,11 +277,11 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
         mediaPlayer.setVolume(f2, f3);
     }
 
-    public void setWakeMode(Context context, int i) {
+    public void setWakeMode(Context context, int i2) {
         if (this.mVideoPlayer == null || context == null || !PermissionUtils.checkPermission(context, "android.permission.WAKE_LOCK")) {
             return;
         }
-        this.mVideoPlayer.setWakeMode(context.getApplicationContext(), i);
+        this.mVideoPlayer.setWakeMode(context.getApplicationContext(), i2);
     }
 
     public void start() {

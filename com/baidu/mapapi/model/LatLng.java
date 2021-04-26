@@ -10,7 +10,7 @@ public final class LatLng implements Parcelable {
     public final double longitudeE6;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7145a = LatLng.class.getSimpleName();
+    public static final String f7400a = LatLng.class.getSimpleName();
     public static final Parcelable.Creator<LatLng> CREATOR = new a();
 
     public LatLng(double d2, double d3) {
@@ -46,7 +46,7 @@ public final class LatLng implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeDouble(this.latitude);
         parcel.writeDouble(this.longitude);
         parcel.writeDouble(this.latitudeE6);

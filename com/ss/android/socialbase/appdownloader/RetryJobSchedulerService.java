@@ -9,9 +9,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-import d.p.a.e.b.g.a;
-import d.p.a.e.b.g.d;
-import d.p.a.e.b.g.q;
+import d.o.a.e.b.g.a;
+import d.o.a.e.b.g.d;
+import d.o.a.e.b.g.q;
 @TargetApi(21)
 /* loaded from: classes6.dex */
 public class RetryJobSchedulerService extends JobService {
@@ -23,7 +23,7 @@ public class RetryJobSchedulerService extends JobService {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(DownloadInfo downloadInfo, long j, boolean z, int i) {
+    public static void a(DownloadInfo downloadInfo, long j, boolean z, int i2) {
         Context l;
         long j2;
         int schedule;
@@ -32,7 +32,7 @@ public class RetryJobSchedulerService extends JobService {
         if (downloadInfo == null || j <= 0 || (l = d.l()) == null) {
             return;
         }
-        int i2 = 2;
+        int i3 = 2;
         if (downloadInfo.L1() && (m2 = a.l(d.l()).m()) != null) {
             m2.a(downloadInfo, 2, 3);
         }
@@ -42,13 +42,13 @@ public class RetryJobSchedulerService extends JobService {
                 return;
             }
             jobScheduler.cancel(downloadInfo.c0());
-            if (i != 0 && (!z || i == 2)) {
+            if (i2 != 0 && (!z || i2 == 2)) {
                 j2 = 60000 + j;
                 JobInfo.Builder minimumLatency = new JobInfo.Builder(downloadInfo.c0(), new ComponentName(l.getPackageName(), RetryJobSchedulerService.class.getName())).setMinimumLatency(j);
                 if (z) {
-                    i2 = 1;
+                    i3 = 1;
                 }
-                JobInfo.Builder requiresDeviceIdle = minimumLatency.setRequiredNetworkType(i2).setRequiresCharging(false).setRequiresDeviceIdle(false);
+                JobInfo.Builder requiresDeviceIdle = minimumLatency.setRequiredNetworkType(i3).setRequiresCharging(false).setRequiresDeviceIdle(false);
                 if (j2 > 0) {
                     requiresDeviceIdle.setOverrideDeadline(j2);
                 }
@@ -57,7 +57,7 @@ public class RetryJobSchedulerService extends JobService {
                     m.a(downloadInfo, 3, 3);
                 }
                 if (schedule > 0) {
-                    d.p.a.e.b.c.a.i("RetrySchedulerService", "schedule err errCode = " + schedule);
+                    d.o.a.e.b.c.a.i("RetrySchedulerService", "schedule err errCode = " + schedule);
                     return;
                 }
                 return;
@@ -67,7 +67,7 @@ public class RetryJobSchedulerService extends JobService {
             JobInfo.Builder minimumLatency2 = new JobInfo.Builder(downloadInfo.c0(), new ComponentName(l.getPackageName(), RetryJobSchedulerService.class.getName())).setMinimumLatency(j);
             if (z) {
             }
-            JobInfo.Builder requiresDeviceIdle2 = minimumLatency2.setRequiredNetworkType(i2).setRequiresCharging(false).setRequiresDeviceIdle(false);
+            JobInfo.Builder requiresDeviceIdle2 = minimumLatency2.setRequiredNetworkType(i3).setRequiresCharging(false).setRequiresDeviceIdle(false);
             if (j2 > 0) {
             }
             schedule = jobScheduler.schedule(requiresDeviceIdle2.build());
@@ -88,8 +88,8 @@ public class RetryJobSchedulerService extends JobService {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
-        int onStartCommand = super.onStartCommand(intent, i, i2);
+    public int onStartCommand(Intent intent, int i2, int i3) {
+        int onStartCommand = super.onStartCommand(intent, i2, i3);
         if (d.u0()) {
             return 2;
         }
@@ -100,8 +100,8 @@ public class RetryJobSchedulerService extends JobService {
     public boolean onStartJob(JobParameters jobParameters) {
         if (jobParameters != null) {
             int jobId = jobParameters.getJobId();
-            d.p.a.e.b.c.a.h("RetrySchedulerService", "onStartJob, id = " + jobId);
-            d.p.a.e.b.m.q.d().e(jobId);
+            d.o.a.e.b.c.a.h("RetrySchedulerService", "onStartJob, id = " + jobId);
+            d.o.a.e.b.m.q.d().e(jobId);
             return false;
         }
         return false;

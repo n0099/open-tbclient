@@ -7,8 +7,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.proxy.ServiceProxy;
-import d.b.c.h.d;
-import d.b.c.h.h.a;
+import d.a.c.h.d;
+import d.a.c.h.h.a;
 /* loaded from: classes.dex */
 public class ThirdServiceProxy extends ServiceProxy {
     private Object createServiceInstance(Intent intent) {
@@ -50,11 +50,11 @@ public class ThirdServiceProxy extends ServiceProxy {
     }
 
     @Override // com.baidu.adp.plugin.proxy.ServiceProxy, android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
+    public int onStartCommand(Intent intent, int i2, int i3) {
         String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
         if (d.a().b() == 0) {
             d.a().d(stringExtra, new d.a(this, intent));
-            super.onStartCommand(intent, i, i2);
+            super.onStartCommand(intent, i2, i3);
             return 3;
         } else if (d.a().c(stringExtra) == null) {
             ThirdServiceProxy thirdServiceProxy = (ThirdServiceProxy) createServiceInstance(intent);
@@ -62,9 +62,9 @@ public class ThirdServiceProxy extends ServiceProxy {
                 BdLog.e("third_service_proxy_create_failed:" + stringExtra);
                 return 3;
             }
-            return thirdServiceProxy.onStartCommand(intent, i, i2);
+            return thirdServiceProxy.onStartCommand(intent, i2, i3);
         } else {
-            super.onStartCommand(intent, i, i2);
+            super.onStartCommand(intent, i2, i3);
             return 3;
         }
     }

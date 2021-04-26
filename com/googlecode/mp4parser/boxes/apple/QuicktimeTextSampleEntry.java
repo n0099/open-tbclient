@@ -170,16 +170,16 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         this.fontName = null;
     }
 
-    public void setBackgroundB(int i) {
-        this.backgroundB = i;
+    public void setBackgroundB(int i2) {
+        this.backgroundB = i2;
     }
 
-    public void setBackgroundG(int i) {
-        this.backgroundG = i;
+    public void setBackgroundG(int i2) {
+        this.backgroundG = i2;
     }
 
-    public void setBackgroundR(int i) {
-        this.backgroundR = i;
+    public void setBackgroundR(int i2) {
+        this.backgroundR = i2;
     }
 
     @Override // com.googlecode.mp4parser.BasicContainer, com.coremedia.iso.boxes.Container
@@ -191,8 +191,8 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         this.defaultTextBox = j;
     }
 
-    public void setDisplayFlags(int i) {
-        this.displayFlags = i;
+    public void setDisplayFlags(int i2) {
+        this.displayFlags = i2;
     }
 
     public void setFontFace(short s) {
@@ -207,16 +207,16 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         this.fontNumber = s;
     }
 
-    public void setForegroundB(int i) {
-        this.foregroundB = i;
+    public void setForegroundB(int i2) {
+        this.foregroundB = i2;
     }
 
-    public void setForegroundG(int i) {
-        this.foregroundG = i;
+    public void setForegroundG(int i2) {
+        this.foregroundG = i2;
     }
 
-    public void setForegroundR(int i) {
-        this.foregroundR = i;
+    public void setForegroundR(int i2) {
+        this.foregroundR = i2;
     }
 
     public void setReserved1(long j) {
@@ -231,7 +231,7 @@ public class QuicktimeTextSampleEntry extends AbstractSampleEntry {
         this.reserved3 = s;
     }
 
-    public void setTextJustification(int i) {
-        this.textJustification = i;
+    public void setTextJustification(int i2) {
+        this.textJustification = i2;
     }
 }

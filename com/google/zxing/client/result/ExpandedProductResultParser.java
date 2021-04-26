@@ -9,14 +9,14 @@ import java.util.HashMap;
 import kotlin.text.Typography;
 /* loaded from: classes6.dex */
 public final class ExpandedProductResultParser extends ResultParser {
-    public static String findAIvalue(int i, String str) {
-        if (str.charAt(i) != '(') {
+    public static String findAIvalue(int i2, String str) {
+        if (str.charAt(i2) != '(') {
             return null;
         }
-        String substring = str.substring(i + 1);
+        String substring = str.substring(i2 + 1);
         StringBuilder sb = new StringBuilder();
-        for (int i2 = 0; i2 < substring.length(); i2++) {
-            char charAt = substring.charAt(i2);
+        for (int i3 = 0; i3 < substring.length(); i3++) {
+            char charAt = substring.charAt(i3);
             if (charAt == ')') {
                 return sb.toString();
             }
@@ -28,13 +28,13 @@ public final class ExpandedProductResultParser extends ResultParser {
         return sb.toString();
     }
 
-    public static String findValue(int i, String str) {
+    public static String findValue(int i2, String str) {
         StringBuilder sb = new StringBuilder();
-        String substring = str.substring(i);
-        for (int i2 = 0; i2 < substring.length(); i2++) {
-            char charAt = substring.charAt(i2);
+        String substring = str.substring(i2);
+        for (int i3 = 0; i3 < substring.length(); i3++) {
+            char charAt = substring.charAt(i3);
             if (charAt == '(') {
-                if (findAIvalue(i2, substring) != null) {
+                if (findAIvalue(i3, substring) != null) {
                     break;
                 }
                 sb.append('(');
@@ -74,14 +74,14 @@ public final class ExpandedProductResultParser extends ResultParser {
         String str11 = null;
         String str12 = null;
         String str13 = null;
-        int i = 0;
-        while (i < massagedText.length()) {
-            String findAIvalue = findAIvalue(i, massagedText);
+        int i2 = 0;
+        while (i2 < massagedText.length()) {
+            String findAIvalue = findAIvalue(i2, massagedText);
             if (findAIvalue == null) {
                 return expandedProductParsedResult;
             }
             char c2 = 2;
-            int length = i + findAIvalue.length() + 2;
+            int length = i2 + findAIvalue.length() + 2;
             String findValue = findValue(length, massagedText);
             int length2 = length + findValue.length();
             int hashCode = findAIvalue.hashCode();
@@ -334,43 +334,43 @@ public final class ExpandedProductResultParser extends ResultParser {
             switch (c2) {
                 case 0:
                     str2 = findValue;
-                    i = length2;
+                    i2 = length2;
                     str11 = str14;
                     str10 = str15;
                     expandedProductParsedResult = null;
                 case 1:
                     str = findValue;
-                    i = length2;
+                    i2 = length2;
                     str11 = str14;
                     str10 = str15;
                     expandedProductParsedResult = null;
                 case 2:
                     str3 = findValue;
-                    i = length2;
+                    i2 = length2;
                     str11 = str14;
                     str10 = str15;
                     expandedProductParsedResult = null;
                 case 3:
                     str4 = findValue;
-                    i = length2;
+                    i2 = length2;
                     str11 = str14;
                     str10 = str15;
                     expandedProductParsedResult = null;
                 case 4:
                     str5 = findValue;
-                    i = length2;
+                    i2 = length2;
                     str11 = str14;
                     str10 = str15;
                     expandedProductParsedResult = null;
                 case 5:
                     str6 = findValue;
-                    i = length2;
+                    i2 = length2;
                     str11 = str14;
                     str10 = str15;
                     expandedProductParsedResult = null;
                 case 6:
                     str7 = findValue;
-                    i = length2;
+                    i2 = length2;
                     str11 = str14;
                     str10 = str15;
                     expandedProductParsedResult = null;
@@ -406,7 +406,7 @@ public final class ExpandedProductResultParser extends ResultParser {
                 case 30:
                     str12 = findAIvalue.substring(3);
                     str11 = findValue;
-                    i = length2;
+                    i2 = length2;
                     str10 = str15;
                     expandedProductParsedResult = null;
                 case 31:
@@ -419,18 +419,18 @@ public final class ExpandedProductResultParser extends ResultParser {
                     str11 = findValue.substring(3);
                     str13 = findValue.substring(0, 3);
                     str12 = findAIvalue.substring(3);
-                    i = length2;
+                    i2 = length2;
                     str10 = str15;
                     expandedProductParsedResult = null;
                 default:
                     hashMap.put(findAIvalue, findValue);
-                    i = length2;
+                    i2 = length2;
                     str11 = str14;
                     str10 = str15;
                     expandedProductParsedResult = null;
             }
             str8 = findValue;
-            i = length2;
+            i2 = length2;
             str11 = str14;
             expandedProductParsedResult = null;
         }

@@ -2,9 +2,9 @@ package com.google.common.collect;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.SortedLists;
-import d.h.c.a.n;
-import d.h.c.c.c1;
-import d.h.c.c.o0;
+import d.g.c.a.n;
+import d.g.c.c.c1;
+import d.g.c.c.o0;
 import java.io.Serializable;
 import java.lang.Comparable;
 import java.util.Collections;
@@ -49,22 +49,22 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
     public static final class a<K extends Comparable<?>, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<Map.Entry<Range<K>, V>> f30917a = Lists.i();
+        public final List<Map.Entry<Range<K>, V>> f31876a = Lists.i();
 
         public ImmutableRangeMap<K, V> a() {
-            Collections.sort(this.f30917a, Range.rangeLexOrdering().onKeys());
-            ImmutableList.a aVar = new ImmutableList.a(this.f30917a.size());
-            ImmutableList.a aVar2 = new ImmutableList.a(this.f30917a.size());
-            for (int i = 0; i < this.f30917a.size(); i++) {
-                Range<K> key = this.f30917a.get(i).getKey();
-                if (i > 0) {
-                    Range<K> key2 = this.f30917a.get(i - 1).getKey();
+            Collections.sort(this.f31876a, Range.rangeLexOrdering().onKeys());
+            ImmutableList.a aVar = new ImmutableList.a(this.f31876a.size());
+            ImmutableList.a aVar2 = new ImmutableList.a(this.f31876a.size());
+            for (int i2 = 0; i2 < this.f31876a.size(); i2++) {
+                Range<K> key = this.f31876a.get(i2).getKey();
+                if (i2 > 0) {
+                    Range<K> key2 = this.f31876a.get(i2 - 1).getKey();
                     if (key.isConnected(key2) && !key.intersection(key2).isEmpty()) {
                         throw new IllegalArgumentException("Overlapping ranges: range " + key2 + " overlaps with entry " + key);
                     }
                 }
                 aVar.h(key);
-                aVar2.h(this.f30917a.get(i).getValue());
+                aVar2.h(this.f31876a.get(i2).getValue());
             }
             return new ImmutableRangeMap<>(aVar.j(), aVar2.j());
         }
@@ -73,7 +73,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
             n.p(range);
             n.p(v);
             n.k(!range.isEmpty(), "Range must not be empty, but was %s", range);
-            this.f30917a.add(Maps.j(range, v));
+            this.f31876a.add(Maps.j(range, v));
             return this;
         }
     }
@@ -183,7 +183,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: asDescendingMapOfRanges */
-    public ImmutableMap<Range<K>, V> m35asDescendingMapOfRanges() {
+    public ImmutableMap<Range<K>, V> m36asDescendingMapOfRanges() {
         if (this.ranges.isEmpty()) {
             return ImmutableMap.of();
         }
@@ -191,7 +191,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.h.c.c.o0
+    @Override // d.g.c.c.o0
     public ImmutableMap<Range<K>, V> asMapOfRanges() {
         if (this.ranges.isEmpty()) {
             return ImmutableMap.of();
@@ -201,7 +201,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: subRangeMap */
-    public ImmutableRangeMap<K, V> m36subRangeMap(final Range<K> range) {
+    public ImmutableRangeMap<K, V> m37subRangeMap(final Range<K> range) {
         n.p(range);
         if (range.isEmpty()) {
             return of();
@@ -214,7 +214,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
         if (a2 >= a3) {
             return of();
         }
-        final int i = a3 - a2;
+        final int i2 = a3 - a2;
         return (ImmutableRangeMap<K, V>) new ImmutableRangeMap<K, V>(new ImmutableList<Range<K>>() { // from class: com.google.common.collect.ImmutableRangeMap.1
             @Override // com.google.common.collect.ImmutableCollection
             public boolean isPartialView() {
@@ -223,22 +223,22 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
             public int size() {
-                return i;
+                return i2;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.List
-            public Range<K> get(int i2) {
-                n.n(i2, i);
-                return (i2 == 0 || i2 == i + (-1)) ? ((Range) ImmutableRangeMap.this.ranges.get(i2 + a2)).intersection(range) : (Range) ImmutableRangeMap.this.ranges.get(i2 + a2);
+            public Range<K> get(int i3) {
+                n.n(i3, i2);
+                return (i3 == 0 || i3 == i2 + (-1)) ? ((Range) ImmutableRangeMap.this.ranges.get(i3 + a2)).intersection(range) : (Range) ImmutableRangeMap.this.ranges.get(i3 + a2);
             }
         }, this.values.subList(a2, a3)) { // from class: com.google.common.collect.ImmutableRangeMap.2
             @Override // com.google.common.collect.ImmutableRangeMap
             public /* bridge */ /* synthetic */ Map asDescendingMapOfRanges() {
-                return super.m35asDescendingMapOfRanges();
+                return super.m36asDescendingMapOfRanges();
             }
 
-            @Override // com.google.common.collect.ImmutableRangeMap, d.h.c.c.o0
+            @Override // com.google.common.collect.ImmutableRangeMap, d.g.c.c.o0
             public /* bridge */ /* synthetic */ Map asMapOfRanges() {
                 return super.asMapOfRanges();
             }
@@ -247,7 +247,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
             @Override // com.google.common.collect.ImmutableRangeMap
             public ImmutableRangeMap<K, V> subRangeMap(Range<K> range2) {
                 if (range.isConnected(range2)) {
-                    return this.m36subRangeMap((Range) range2.intersection(range));
+                    return this.m37subRangeMap((Range) range2.intersection(range));
                 }
                 return ImmutableRangeMap.of();
             }

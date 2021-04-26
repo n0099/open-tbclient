@@ -4,6 +4,7 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.loader.Loader;
 import java.io.Serializable;
+import java.util.Map;
 import org.json.JSONObject;
 @KsAdSdkApi
 @Keep
@@ -26,22 +27,22 @@ public interface KsScene extends Serializable {
 
         @KsAdSdkApi
         @Keep
-        public Builder action(int i) {
-            this.scene.setAction(i);
+        public Builder action(int i2) {
+            this.scene.setAction(i2);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder adNum(int i) {
-            this.scene.setAdNum(i);
+        public Builder adNum(int i2) {
+            this.scene.setAdNum(i2);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder adStyle(int i) {
-            this.scene.setAdNum(i);
+        public Builder adStyle(int i2) {
+            this.scene.setAdNum(i2);
             return this;
         }
 
@@ -53,8 +54,8 @@ public interface KsScene extends Serializable {
 
         @KsAdSdkApi
         @Keep
-        public Builder height(int i) {
-            this.scene.setHeight(i);
+        public Builder height(int i2) {
+            this.scene.setHeight(i2);
             return this;
         }
 
@@ -67,8 +68,22 @@ public interface KsScene extends Serializable {
 
         @KsAdSdkApi
         @Keep
-        public Builder width(int i) {
-            this.scene.setWidth(i);
+        public Builder rewardCallbackExtraData(Map<String, String> map) {
+            this.scene.setRewardCallbackExtraData(map);
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public Builder screenOrientation(int i2) {
+            this.scene.setScreenOrientation(i2);
+            return this;
+        }
+
+        @KsAdSdkApi
+        @Keep
+        public Builder width(int i2) {
+            this.scene.setWidth(i2);
             return this;
         }
     }
@@ -95,23 +110,31 @@ public interface KsScene extends Serializable {
 
     @KsAdSdkApi
     @Keep
+    Map<String, String> getRewardCallbackExtraData();
+
+    @KsAdSdkApi
+    @Keep
+    int getScreenOrientation();
+
+    @KsAdSdkApi
+    @Keep
     int getWidth();
 
     @KsAdSdkApi
     @Keep
-    void setAction(int i);
+    void setAction(int i2);
 
     @KsAdSdkApi
     @Keep
-    void setAdNum(int i);
+    void setAdNum(int i2);
 
     @KsAdSdkApi
     @Keep
-    void setAdStyle(int i);
+    void setAdStyle(int i2);
 
     @KsAdSdkApi
     @Keep
-    void setHeight(int i);
+    void setHeight(int i2);
 
     @KsAdSdkApi
     @Keep
@@ -119,7 +142,15 @@ public interface KsScene extends Serializable {
 
     @KsAdSdkApi
     @Keep
-    void setWidth(int i);
+    void setRewardCallbackExtraData(Map<String, String> map);
+
+    @KsAdSdkApi
+    @Keep
+    void setScreenOrientation(int i2);
+
+    @KsAdSdkApi
+    @Keep
+    void setWidth(int i2);
 
     @KsAdSdkApi
     @Keep

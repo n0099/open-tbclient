@@ -6,7 +6,7 @@ import rx.internal.operators.CompletableOnSubscribeConcatIterable;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final f f68818a;
+    public final f f67681a;
 
     /* loaded from: classes7.dex */
     public static class a implements f {
@@ -21,96 +21,96 @@ public class b {
 
     /* renamed from: h.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1903b implements f {
+    public class C1850b implements f {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f68819e;
+        public final /* synthetic */ g f67682e;
 
         /* renamed from: h.b$b$a */
         /* loaded from: classes7.dex */
         public class a implements h.c {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ g.a f68821e;
+            public final /* synthetic */ g.a f67684e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ h.c f68822f;
+            public final /* synthetic */ h.c f67685f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ h.o.d.i f68823g;
+            public final /* synthetic */ h.o.d.h f67686g;
 
             /* renamed from: h.b$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C1904a implements h.n.a {
-                public C1904a() {
+            public class C1851a implements h.n.a {
+                public C1851a() {
                 }
 
                 @Override // h.n.a
                 public void call() {
                     try {
-                        a.this.f68822f.onCompleted();
+                        a.this.f67685f.onCompleted();
                     } finally {
-                        a.this.f68823g.unsubscribe();
+                        a.this.f67686g.unsubscribe();
                     }
                 }
             }
 
             /* renamed from: h.b$b$a$b  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C1905b implements h.n.a {
+            public class C1852b implements h.n.a {
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ Throwable f68825e;
+                public final /* synthetic */ Throwable f67688e;
 
-                public C1905b(Throwable th) {
-                    this.f68825e = th;
+                public C1852b(Throwable th) {
+                    this.f67688e = th;
                 }
 
                 @Override // h.n.a
                 public void call() {
                     try {
-                        a.this.f68822f.onError(this.f68825e);
+                        a.this.f67685f.onError(this.f67688e);
                     } finally {
-                        a.this.f68823g.unsubscribe();
+                        a.this.f67686g.unsubscribe();
                     }
                 }
             }
 
-            public a(C1903b c1903b, g.a aVar, h.c cVar, h.o.d.i iVar) {
-                this.f68821e = aVar;
-                this.f68822f = cVar;
-                this.f68823g = iVar;
+            public a(C1850b c1850b, g.a aVar, h.c cVar, h.o.d.h hVar) {
+                this.f67684e = aVar;
+                this.f67685f = cVar;
+                this.f67686g = hVar;
             }
 
             @Override // h.c
             public void onCompleted() {
-                this.f68821e.b(new C1904a());
+                this.f67684e.b(new C1851a());
             }
 
             @Override // h.c
             public void onError(Throwable th) {
-                this.f68821e.b(new C1905b(th));
+                this.f67684e.b(new C1852b(th));
             }
 
             @Override // h.c
             public void onSubscribe(k kVar) {
-                this.f68823g.a(kVar);
+                this.f67686g.a(kVar);
             }
         }
 
-        public C1903b(g gVar) {
-            this.f68819e = gVar;
+        public C1850b(g gVar) {
+            this.f67682e = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(h.c cVar) {
-            h.o.d.i iVar = new h.o.d.i();
-            g.a createWorker = this.f68819e.createWorker();
-            iVar.a(createWorker);
-            cVar.onSubscribe(iVar);
-            b.this.j(new a(this, createWorker, cVar, iVar));
+            h.o.d.h hVar = new h.o.d.h();
+            g.a createWorker = this.f67682e.createWorker();
+            hVar.a(createWorker);
+            cVar.onSubscribe(hVar);
+            b.this.j(new a(this, createWorker, cVar, hVar));
         }
     }
 
@@ -118,27 +118,27 @@ public class b {
     public class c implements h.c {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h.u.c f68827e;
+        public final /* synthetic */ h.u.c f67690e;
 
         public c(b bVar, h.u.c cVar) {
-            this.f68827e = cVar;
+            this.f67690e = cVar;
         }
 
         @Override // h.c
         public void onCompleted() {
-            this.f68827e.unsubscribe();
+            this.f67690e.unsubscribe();
         }
 
         @Override // h.c
         public void onError(Throwable th) {
             h.r.c.j(th);
-            this.f68827e.unsubscribe();
+            this.f67690e.unsubscribe();
             b.c(th);
         }
 
         @Override // h.c
         public void onSubscribe(k kVar) {
-            this.f68827e.a(kVar);
+            this.f67690e.a(kVar);
         }
     }
 
@@ -156,41 +156,41 @@ public class b {
     public class e implements f {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f68828e;
+        public final /* synthetic */ g f67691e;
 
         /* loaded from: classes7.dex */
         public class a implements h.n.a {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h.c f68830e;
+            public final /* synthetic */ h.c f67693e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ g.a f68831f;
+            public final /* synthetic */ g.a f67694f;
 
             public a(h.c cVar, g.a aVar) {
-                this.f68830e = cVar;
-                this.f68831f = aVar;
+                this.f67693e = cVar;
+                this.f67694f = aVar;
             }
 
             @Override // h.n.a
             public void call() {
                 try {
-                    b.this.j(this.f68830e);
+                    b.this.j(this.f67693e);
                 } finally {
-                    this.f68831f.unsubscribe();
+                    this.f67694f.unsubscribe();
                 }
             }
         }
 
         public e(g gVar) {
-            this.f68828e = gVar;
+            this.f67691e = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.b
         /* renamed from: a */
         public void call(h.c cVar) {
-            g.a createWorker = this.f68828e.createWorker();
+            g.a createWorker = this.f67691e.createWorker();
             createWorker.b(new a(cVar, createWorker));
         }
     }
@@ -205,7 +205,7 @@ public class b {
     }
 
     public b(f fVar) {
-        this.f68818a = h.r.c.g(fVar);
+        this.f67681a = h.r.c.g(fVar);
     }
 
     public static b a(Iterable<? extends b> iterable) {
@@ -245,7 +245,7 @@ public class b {
 
     public final b d(g gVar) {
         e(gVar);
-        return b(new C1903b(gVar));
+        return b(new C1850b(gVar));
     }
 
     public final k f() {
@@ -269,7 +269,7 @@ public class b {
     public final void j(h.c cVar) {
         e(cVar);
         try {
-            h.r.c.e(this, this.f68818a).call(cVar);
+            h.r.c.e(this, this.f67681a).call(cVar);
         } catch (NullPointerException e2) {
             throw e2;
         } catch (Throwable th) {
@@ -281,6 +281,6 @@ public class b {
     }
 
     public b(f fVar, boolean z) {
-        this.f68818a = z ? h.r.c.g(fVar) : fVar;
+        this.f67681a = z ? h.r.c.g(fVar) : fVar;
     }
 }

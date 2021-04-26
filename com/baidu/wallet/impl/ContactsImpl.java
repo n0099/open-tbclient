@@ -379,24 +379,24 @@ public class ContactsImpl implements IContacts {
     }
 
     @Override // com.baidu.wallet.api.internal.IContacts
-    public boolean pickContactsByContactsContentUri(@NonNull Activity activity, int i) {
+    public boolean pickContactsByContactsContentUri(@NonNull Activity activity, int i2) {
         Intent intent = new Intent("android.intent.action.PICK");
         intent.setData(ContactsContract.Contacts.CONTENT_URI);
         if (activity == null || intent.resolveActivity(activity.getPackageManager()) == null) {
             return false;
         }
-        activity.startActivityForResult(intent, i);
+        activity.startActivityForResult(intent, i2);
         return true;
     }
 
     @Override // com.baidu.wallet.api.internal.IContacts
-    public boolean pickContactsByPhoneContentType(@NonNull Activity activity, int i) {
+    public boolean pickContactsByPhoneContentType(@NonNull Activity activity, int i2) {
         Intent intent = new Intent("android.intent.action.PICK");
         intent.setType("vnd.android.cursor.dir/phone_v2");
         if (activity == null || intent.resolveActivity(activity.getPackageManager()) == null) {
             return false;
         }
-        activity.startActivityForResult(intent, i);
+        activity.startActivityForResult(intent, i2);
         return true;
     }
 }

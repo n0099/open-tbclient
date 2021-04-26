@@ -7,67 +7,67 @@ import java.util.List;
 public class FilterWord {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26955a;
+    public String f27773a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26956b;
+    public String f27774b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f26957c;
+    public boolean f27775c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<FilterWord> f26958d;
+    public List<FilterWord> f27776d;
 
     public FilterWord(String str, String str2) {
-        this.f26955a = str;
-        this.f26956b = str2;
+        this.f27773a = str;
+        this.f27774b = str2;
     }
 
     public void addOption(FilterWord filterWord) {
         if (filterWord == null) {
             return;
         }
-        if (this.f26958d == null) {
-            this.f26958d = new ArrayList();
+        if (this.f27776d == null) {
+            this.f27776d = new ArrayList();
         }
-        this.f26958d.add(filterWord);
+        this.f27776d.add(filterWord);
     }
 
     public String getId() {
-        return this.f26955a;
+        return this.f27773a;
     }
 
     public boolean getIsSelected() {
-        return this.f26957c;
+        return this.f27775c;
     }
 
     public String getName() {
-        return this.f26956b;
+        return this.f27774b;
     }
 
     public List<FilterWord> getOptions() {
-        return this.f26958d;
+        return this.f27776d;
     }
 
     public boolean hasSecondOptions() {
-        List<FilterWord> list = this.f26958d;
+        List<FilterWord> list = this.f27776d;
         return (list == null || list.isEmpty()) ? false : true;
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.f26955a) || TextUtils.isEmpty(this.f26956b)) ? false : true;
+        return (TextUtils.isEmpty(this.f27773a) || TextUtils.isEmpty(this.f27774b)) ? false : true;
     }
 
     public void setId(String str) {
-        this.f26955a = str;
+        this.f27773a = str;
     }
 
     public void setIsSelected(boolean z) {
-        this.f26957c = z;
+        this.f27775c = z;
     }
 
     public void setName(String str) {
-        this.f26956b = str;
+        this.f27774b = str;
     }
 
     public FilterWord() {

@@ -1,12 +1,12 @@
 package com.win.opensdk;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PBError {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40136a;
+    public int f37721a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40137b;
+    public String f37722b;
     public static final PBError NO_FILL = new PBError(2001, "NO FILL");
     public static final PBError TIMEOUT = new PBError(2002, "TIME OUT");
     public static final PBError LOAD_TOO_FREQUENTLY = new PBError(2003, "LOAD TOO FREQUENTLY");
@@ -20,28 +20,28 @@ public class PBError {
     public static final PBError LOAD_TIME_OUT = new PBError(2031, "Load Time Out");
     public static final PBError LOAD_TYPE_ERROR = new PBError(2031, "Load Type error");
 
-    public PBError(int i, String str) {
-        this.f40136a = i;
-        this.f40137b = str;
+    public PBError(int i2, String str) {
+        this.f37721a = i2;
+        this.f37722b = str;
     }
 
     public int getCode() {
-        return this.f40136a;
+        return this.f37721a;
     }
 
     public String getMsg() {
-        return this.f40137b;
+        return this.f37722b;
     }
 
-    public void setCode(int i) {
-        this.f40136a = i;
+    public void setCode(int i2) {
+        this.f37721a = i2;
     }
 
     public void setMsg(String str) {
-        this.f40137b = str;
+        this.f37722b = str;
     }
 
     public String toString() {
-        return "PBError{code=" + this.f40136a + ", msg='" + this.f40137b + "'}";
+        return "PBError{code=" + this.f37721a + ", msg='" + this.f37722b + "'}";
     }
 }

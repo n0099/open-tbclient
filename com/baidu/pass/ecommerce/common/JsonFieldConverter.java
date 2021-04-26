@@ -31,11 +31,11 @@ public class JsonFieldConverter {
         }
     }
 
-    public static void putInt(String str, int i, JSONObject jSONObject) {
+    public static void putInt(String str, int i2, JSONObject jSONObject) {
         try {
-            jSONObject.put(str, i);
+            jSONObject.put(str, i2);
         } catch (JSONException e2) {
-            Log.e(TAG, "put int field key=" + str + " value=" + i + " is error " + e2.getMessage());
+            Log.e(TAG, "put int field key=" + str + " value=" + i2 + " is error " + e2.getMessage());
         }
     }
 

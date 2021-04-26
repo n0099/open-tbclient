@@ -31,8 +31,8 @@ public class DownloadUriOutputStream implements DownloadOutputStream {
     /* loaded from: classes2.dex */
     public static class Factory implements DownloadOutputStream.Factory {
         @Override // com.baidu.searchbox.bddownload.core.file.DownloadOutputStream.Factory
-        public DownloadOutputStream create(Context context, File file, int i) throws FileNotFoundException {
-            return new DownloadUriOutputStream(context, Uri.fromFile(file), i);
+        public DownloadOutputStream create(Context context, File file, int i2) throws FileNotFoundException {
+            return new DownloadUriOutputStream(context, Uri.fromFile(file), i2);
         }
 
         @Override // com.baidu.searchbox.bddownload.core.file.DownloadOutputStream.Factory
@@ -41,19 +41,19 @@ public class DownloadUriOutputStream implements DownloadOutputStream {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.file.DownloadOutputStream.Factory
-        public DownloadOutputStream create(Context context, Uri uri, int i) throws FileNotFoundException {
-            return new DownloadUriOutputStream(context, uri, i);
+        public DownloadOutputStream create(Context context, Uri uri, int i2) throws FileNotFoundException {
+            return new DownloadUriOutputStream(context, uri, i2);
         }
     }
 
-    public DownloadUriOutputStream(Context context, Uri uri, int i) throws FileNotFoundException {
+    public DownloadUriOutputStream(Context context, Uri uri, int i2) throws FileNotFoundException {
         ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, "rw");
         if (openFileDescriptor != null) {
             this.pdf = openFileDescriptor;
             FileOutputStream fileOutputStream = new FileOutputStream(openFileDescriptor.getFileDescriptor());
             this.fos = fileOutputStream;
             this.channel = fileOutputStream.getChannel();
-            this.out = new BufferedOutputStream(this.fos, i);
+            this.out = new BufferedOutputStream(this.fos, i2);
             return;
         }
         throw new FileNotFoundException("result of " + uri + " is null!");
@@ -85,8 +85,8 @@ public class DownloadUriOutputStream implements DownloadOutputStream {
                 return;
             } catch (Throwable th) {
                 if (th instanceof ErrnoException) {
-                    int i = th.errno;
-                    if (i == OsConstants.ENOSYS || i == OsConstants.ENOTSUP) {
+                    int i2 = th.errno;
+                    if (i2 == OsConstants.ENOSYS || i2 == OsConstants.ENOTSUP) {
                         Util.w("DownloadUriOutputStream", "fallocate() not supported; falling back to ftruncate()");
                         try {
                             Os.ftruncate(this.pdf.getFileDescriptor(), j);
@@ -106,8 +106,8 @@ public class DownloadUriOutputStream implements DownloadOutputStream {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.file.DownloadOutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
-        this.out.write(bArr, i, i2);
+    public void write(byte[] bArr, int i2, int i3) throws IOException {
+        this.out.write(bArr, i2, i3);
     }
 
     public DownloadUriOutputStream(@NonNull FileChannel fileChannel, @NonNull ParcelFileDescriptor parcelFileDescriptor, @NonNull FileOutputStream fileOutputStream, @NonNull BufferedOutputStream bufferedOutputStream) {

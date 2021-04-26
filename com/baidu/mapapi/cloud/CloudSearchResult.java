@@ -20,8 +20,8 @@ public class CloudSearchResult extends BaseSearchResult {
         if (optJSONArray == null) {
             return;
         }
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
             if (optJSONObject != null) {
                 CloudPoiInfo cloudPoiInfo = new CloudPoiInfo();
                 cloudPoiInfo.a(optJSONObject);

@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
-import d.b.i0.f0.i;
-import d.b.j0.e1.f.j.g;
+import d.a.i0.f0.i;
+import d.a.j0.e1.f.j.g;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
@@ -28,7 +28,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.f0.b
+        @Override // d.a.i0.f0.b
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             if (SingleForumBroadcastFeedActivity.this.feedView != null) {
@@ -44,21 +44,21 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         public b() {
         }
 
-        @Override // d.b.j0.e1.f.j.g.d
-        public void a(List<d.b.j0.e1.l.c.b> list) {
+        @Override // d.a.j0.e1.f.j.g.d
+        public void a(List<d.a.j0.e1.l.c.b> list) {
             SingleForumBroadcastFeedActivity.this.feedView.l(list, null);
         }
 
-        @Override // d.b.j0.e1.f.j.g.d
-        public void onReadCountLoad(LongSparseArray<d.b.j0.e1.i.a.b.b> longSparseArray) {
+        @Override // d.a.j0.e1.f.j.g.d
+        public void onReadCountLoad(LongSparseArray<d.a.j0.e1.i.a.b.b> longSparseArray) {
             SingleForumBroadcastFeedActivity.this.feedView.m(longSparseArray);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.feedView.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.feedView.onChangeSkinType(i2);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -72,7 +72,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             this.forumId = getIntent().getStringExtra("key_uid");
             this.source = getIntent().getByteExtra(SingleForumBroadcastFeedActivityConfig.KEY_SOURCE, (byte) 3);
             this.model.f(this.forumId);
-            this.feedView.q(this.forumId, System.currentTimeMillis());
+            this.feedView.p(this.forumId, System.currentTimeMillis());
         }
         registerResponsedEventListener(TopToastEvent.class, this.mTopToastEventListener);
     }

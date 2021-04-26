@@ -15,10 +15,10 @@ import javax.crypto.NoSuchPaddingException;
 public class b extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f38943a = "RSA/ECB/PKCS1Padding";
+    public static String f36528a = "RSA/ECB/PKCS1Padding";
 
     static {
-        boolean z = f.f38904b;
+        boolean z = f.f36488b;
     }
 
     public static String a(String str, String str2) {
@@ -32,7 +32,7 @@ public class b extends com.sdk.base.framework.f.a {
     public static byte[] a(RSAPublicKey rSAPublicKey, byte[] bArr) {
         if (rSAPublicKey != null) {
             try {
-                Cipher cipher = Cipher.getInstance(f38943a);
+                Cipher cipher = Cipher.getInstance(f36528a);
                 cipher.init(2, rSAPublicKey);
                 return cipher.doFinal(bArr);
             } catch (InvalidKeyException unused) {
@@ -52,7 +52,7 @@ public class b extends com.sdk.base.framework.f.a {
 
     public static String b(String str, String str2) {
         PublicKey a2 = a.a(str);
-        Cipher cipher = Cipher.getInstance(f38943a);
+        Cipher cipher = Cipher.getInstance(f36528a);
         cipher.init(1, a2);
         return com.sdk.base.framework.f.i.c.a(cipher.doFinal(str2.getBytes(Charset.defaultCharset()))).toString();
     }

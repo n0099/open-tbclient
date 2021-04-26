@@ -26,11 +26,11 @@ public final class PushConstants {
     public static final int PUSH_FREQUENCY_LOW = 1;
     public static final int PUSH_FREQUENCY_MED = 2;
 
-    public static String a(int i) {
-        if (i != 0) {
-            if (i != 30699) {
-                if (i != 110001) {
-                    switch (i) {
+    public static String a(int i2) {
+        if (i2 != 0) {
+            if (i2 != 30699) {
+                if (i2 != 110001) {
+                    switch (i2) {
                         case 10001:
                             return "Network Problem";
                         case 10002:
@@ -38,7 +38,7 @@ public final class PushConstants {
                         case 10003:
                             return "Service not available temporary";
                         default:
-                            switch (i) {
+                            switch (i2) {
                                 case 30600:
                                     return "Internal Server Error";
                                 case 30601:

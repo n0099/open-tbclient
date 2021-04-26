@@ -41,9 +41,9 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
         }
     };
 
-    public static String modifyString(char c2, String str, int i) {
-        if (i < str.length()) {
-            return c2 + str.substring(i);
+    public static String modifyString(char c2, String str, int i2) {
+        if (i2 < str.length()) {
+            return c2 + str.substring(i2);
         }
         return String.valueOf(c2);
     }
@@ -51,8 +51,8 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
     public static String separateCamelCase(String str, String str2) {
         StringBuilder sb = new StringBuilder();
         int length = str.length();
-        for (int i = 0; i < length; i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            char charAt = str.charAt(i2);
             if (Character.isUpperCase(charAt) && sb.length() != 0) {
                 sb.append(str2);
             }
@@ -63,18 +63,18 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
 
     public static String upperCaseFirstLetter(String str) {
         StringBuilder sb = new StringBuilder();
-        int i = 0;
+        int i2 = 0;
         char charAt = str.charAt(0);
         int length = str.length();
-        while (i < length - 1 && !Character.isLetter(charAt)) {
+        while (i2 < length - 1 && !Character.isLetter(charAt)) {
             sb.append(charAt);
-            i++;
-            charAt = str.charAt(i);
+            i2++;
+            charAt = str.charAt(i2);
         }
         if (Character.isUpperCase(charAt)) {
             return str;
         }
-        sb.append(modifyString(Character.toUpperCase(charAt), str, i + 1));
+        sb.append(modifyString(Character.toUpperCase(charAt), str, i2 + 1));
         return sb.toString();
     }
 }

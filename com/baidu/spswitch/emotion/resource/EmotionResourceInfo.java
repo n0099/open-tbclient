@@ -53,10 +53,10 @@ public final class EmotionResourceInfo {
     private long convertToLongValue(String str) {
         String[] split = str.split(VERSION_NAME_SEPARATOR_REGEX);
         long j = 0;
-        for (int i = 0; i < 4; i++) {
+        for (int i2 = 0; i2 < 4; i2++) {
             try {
-                if (i < split.length) {
-                    j = (j * 100) + Integer.valueOf(split[i]).intValue();
+                if (i2 < split.length) {
+                    j = (j * 100) + Integer.valueOf(split[i2]).intValue();
                 } else {
                     j *= 100;
                 }

@@ -24,26 +24,26 @@ public class MtjConfig {
         XINGE("xinge", 6),
         ALIYUN("aliyun", 7),
         OPPO(RomUtils.MANUFACTURER_OPPO, 8),
-        MEIZU(RomUtils.MANUFACTURER_MEIZU, 9);
+        MEIZU("meizu", 9);
         
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8412a;
+        public String f8713a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f8413b;
+        public int f8714b;
 
-        PushPlatform(String str, int i) {
-            this.f8412a = str;
-            this.f8413b = i;
+        PushPlatform(String str, int i2) {
+            this.f8713a = str;
+            this.f8714b = i2;
         }
 
         public String showName() {
-            return this.f8412a;
+            return this.f8713a;
         }
 
         public String value() {
-            return "p" + this.f8413b;
+            return "p" + this.f8714b;
         }
     }
 }

@@ -78,7 +78,7 @@ public interface ISailorWebSettingsExt extends INoProGuard {
 
     void setHtml5VideoEnabledExt(boolean z);
 
-    void setImageMaxWidthExt(int i);
+    void setImageMaxWidthExt(int i2);
 
     void setImagesEnabledExt(boolean z);
 
@@ -110,5 +110,5 @@ public interface ISailorWebSettingsExt extends INoProGuard {
 
     void setUserSelectEnabled(boolean z);
 
-    void setWiseSearchFirstScreenOptTypeEX(int i);
+    void setWiseSearchFirstScreenOptTypeEX(int i2);
 }

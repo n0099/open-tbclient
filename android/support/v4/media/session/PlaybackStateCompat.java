@@ -49,8 +49,8 @@ public final class PlaybackStateCompat implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public PlaybackStateCompat[] newArray(int i) {
-            return new PlaybackStateCompat[i];
+        public PlaybackStateCompat[] newArray(int i2) {
+            return new PlaybackStateCompat[i2];
         }
     };
     public static final int ERROR_CODE_ACTION_ABORTED = 10;
@@ -127,8 +127,8 @@ public final class PlaybackStateCompat implements Parcelable {
             this.mActiveItemId = -1L;
         }
 
-        public Builder addCustomAction(String str, String str2, int i) {
-            return addCustomAction(new CustomAction(str, str2, i, null));
+        public Builder addCustomAction(String str, String str2, int i2) {
+            return addCustomAction(new CustomAction(str, str2, i2, null));
         }
 
         public PlaybackStateCompat build() {
@@ -160,8 +160,8 @@ public final class PlaybackStateCompat implements Parcelable {
             return this;
         }
 
-        public Builder setState(int i, long j, float f2) {
-            return setState(i, j, f2, SystemClock.elapsedRealtime());
+        public Builder setState(int i2, long j, float f2) {
+            return setState(i2, j, f2, SystemClock.elapsedRealtime());
         }
 
         public Builder addCustomAction(CustomAction customAction) {
@@ -172,14 +172,14 @@ public final class PlaybackStateCompat implements Parcelable {
             throw new IllegalArgumentException("You may not add a null CustomAction to PlaybackStateCompat.");
         }
 
-        public Builder setErrorMessage(int i, CharSequence charSequence) {
-            this.mErrorCode = i;
+        public Builder setErrorMessage(int i2, CharSequence charSequence) {
+            this.mErrorCode = i2;
             this.mErrorMessage = charSequence;
             return this;
         }
 
-        public Builder setState(int i, long j, float f2, long j2) {
-            this.mState = i;
+        public Builder setState(int i2, long j, float f2, long j2) {
+            this.mState = i2;
             this.mPosition = j;
             this.mUpdateTime = j2;
             this.mRate = f2;
@@ -237,13 +237,13 @@ public final class PlaybackStateCompat implements Parcelable {
     public @interface State {
     }
 
-    public PlaybackStateCompat(int i, long j, long j2, float f2, long j3, int i2, CharSequence charSequence, long j4, List<CustomAction> list, long j5, Bundle bundle) {
-        this.mState = i;
+    public PlaybackStateCompat(int i2, long j, long j2, float f2, long j3, int i3, CharSequence charSequence, long j4, List<CustomAction> list, long j5, Bundle bundle) {
+        this.mState = i2;
         this.mPosition = j;
         this.mBufferedPosition = j2;
         this.mSpeed = f2;
         this.mActions = j3;
-        this.mErrorCode = i2;
+        this.mErrorCode = i3;
         this.mErrorMessage = charSequence;
         this.mUpdateTime = j4;
         this.mCustomActions = new ArrayList(list);
@@ -375,14 +375,14 @@ public final class PlaybackStateCompat implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.mState);
         parcel.writeLong(this.mPosition);
         parcel.writeFloat(this.mSpeed);
         parcel.writeLong(this.mUpdateTime);
         parcel.writeLong(this.mBufferedPosition);
         parcel.writeLong(this.mActions);
-        TextUtils.writeToParcel(this.mErrorMessage, parcel, i);
+        TextUtils.writeToParcel(this.mErrorMessage, parcel, i2);
         parcel.writeTypedList(this.mCustomActions);
         parcel.writeLong(this.mActiveItemId);
         parcel.writeBundle(this.mExtras);
@@ -402,8 +402,8 @@ public final class PlaybackStateCompat implements Parcelable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public CustomAction[] newArray(int i) {
-                return new CustomAction[i];
+            public CustomAction[] newArray(int i2) {
+                return new CustomAction[i2];
             }
         };
         public final String mAction;
@@ -419,15 +419,15 @@ public final class PlaybackStateCompat implements Parcelable {
             public final int mIcon;
             public final CharSequence mName;
 
-            public Builder(String str, CharSequence charSequence, int i) {
+            public Builder(String str, CharSequence charSequence, int i2) {
                 if (!TextUtils.isEmpty(str)) {
                     if (TextUtils.isEmpty(charSequence)) {
                         throw new IllegalArgumentException("You must specify a name to build a CustomAction.");
                     }
-                    if (i != 0) {
+                    if (i2 != 0) {
                         this.mAction = str;
                         this.mName = charSequence;
-                        this.mIcon = i;
+                        this.mIcon = i2;
                         return;
                     }
                     throw new IllegalArgumentException("You must specify an icon resource id to build a CustomAction.");
@@ -445,10 +445,10 @@ public final class PlaybackStateCompat implements Parcelable {
             }
         }
 
-        public CustomAction(String str, CharSequence charSequence, int i, Bundle bundle) {
+        public CustomAction(String str, CharSequence charSequence, int i2, Bundle bundle) {
             this.mAction = str;
             this.mName = charSequence;
-            this.mIcon = i;
+            this.mIcon = i2;
             this.mExtras = bundle;
         }
 
@@ -496,9 +496,9 @@ public final class PlaybackStateCompat implements Parcelable {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeString(this.mAction);
-            TextUtils.writeToParcel(this.mName, parcel, i);
+            TextUtils.writeToParcel(this.mName, parcel, i2);
             parcel.writeInt(this.mIcon);
             parcel.writeBundle(this.mExtras);
         }

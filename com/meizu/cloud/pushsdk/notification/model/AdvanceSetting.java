@@ -20,8 +20,8 @@ public class AdvanceSetting implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public AdvanceSetting[] newArray(int i) {
-            return new AdvanceSetting[i];
+        public AdvanceSetting[] newArray(int i2) {
+            return new AdvanceSetting[i2];
         }
     };
     public static final String HEAD_UP_NOTIFICATION = "hn";
@@ -55,7 +55,7 @@ public class AdvanceSetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                d.k.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                d.j.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -90,7 +90,7 @@ public class AdvanceSetting implements Parcelable {
             return advanceSetting;
         }
         str = "no such tag advance_setting";
-        d.k.a.a.a.b(TAG, str);
+        d.j.a.a.a.b(TAG, str);
         return advanceSetting;
     }
 
@@ -123,8 +123,8 @@ public class AdvanceSetting implements Parcelable {
         this.headUpNotification = z;
     }
 
-    public void setNetWorkType(int i) {
-        this.netWorkType = i;
+    public void setNetWorkType(int i2) {
+        this.netWorkType = i2;
     }
 
     public void setNotifyType(NotifyType notifyType) {
@@ -136,9 +136,9 @@ public class AdvanceSetting implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         parcel.writeInt(this.netWorkType);
-        parcel.writeParcelable(this.notifyType, i);
+        parcel.writeParcelable(this.notifyType, i2);
         parcel.writeByte(this.clearNotification ? (byte) 1 : (byte) 0);
         parcel.writeByte(this.headUpNotification ? (byte) 1 : (byte) 0);
     }

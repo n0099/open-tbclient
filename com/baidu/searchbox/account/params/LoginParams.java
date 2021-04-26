@@ -46,8 +46,8 @@ public final class LoginParams {
             if (this.mLoginSrc == null) {
                 this.mLoginSrc = new UserAccountActionItem(UserAccountActionItem.UserAccountAction.LOGIN, UserAccountActionItem.UserAccountType.NATIVE, "unknown");
             }
-            int i = this.mLoginPageAnim;
-            if (i != 10 && i != 11) {
+            int i2 = this.mLoginPageAnim;
+            if (i2 != 10 && i2 != 11) {
                 this.mLoginPageAnim = 11;
             }
             return new LoginParams(this);
@@ -58,13 +58,13 @@ public final class LoginParams {
             return this;
         }
 
-        public Builder setIntentFlags(int i) {
-            this.mIntentFlags = i;
+        public Builder setIntentFlags(int i2) {
+            this.mIntentFlags = i2;
             return this;
         }
 
-        public Builder setLoginAnim(int i) {
-            this.mLoginPageAnim = i;
+        public Builder setLoginAnim(int i2) {
+            this.mLoginPageAnim = i2;
             return this;
         }
 
@@ -73,8 +73,8 @@ public final class LoginParams {
             return this;
         }
 
-        public Builder setLoginMode(int i) {
-            this.mLoginMode = i;
+        public Builder setLoginMode(int i2) {
+            this.mLoginMode = i2;
             return this;
         }
 

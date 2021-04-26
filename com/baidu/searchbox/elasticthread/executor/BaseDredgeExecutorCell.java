@@ -16,8 +16,8 @@ public abstract class BaseDredgeExecutorCell extends BaseExecutorCell {
     public int openCountInRecordLifeCycle;
     public long openTimeInRecordLifeCycle;
 
-    public BaseDredgeExecutorCell(int i) {
-        super(i);
+    public BaseDredgeExecutorCell(int i2) {
+        super(i2);
         this.lastOpenTime = 0L;
         this.lastShutdownTime = 0L;
         this.isOpen = false;

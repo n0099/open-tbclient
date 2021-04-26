@@ -1,29 +1,56 @@
 package com.kwad.sdk.utils;
 
+import android.content.Context;
+import android.net.wifi.ScanResult;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Build;
-import android.webkit.ValueCallback;
-import android.webkit.WebView;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import org.json.JSONObject;
+import android.text.TextUtils;
+import androidx.core.content.ContextCompat;
+import com.kwad.sdk.api.SdkConfig;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class as {
-    public static void a(final WebView webView, final String str, final ValueCallback<String> valueCallback) {
-        if (Build.VERSION.SDK_INT >= 19) {
-            ak.a(new Runnable() { // from class: com.kwad.sdk.utils.as.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    webView.evaluateJavascript(str, valueCallback);
+
+    /* renamed from: a  reason: collision with root package name */
+    public static boolean f34881a = true;
+
+    public static List<com.kwad.sdk.core.g.a.a> a(Context context, int i2) {
+        WifiManager wifiManager;
+        ArrayList arrayList = new ArrayList();
+        if (context == null || !f34881a || com.kwad.sdk.core.config.c.a(32L)) {
+            return arrayList;
+        }
+        try {
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
+        }
+        if ((Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") == -1 && ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_COARSE_LOCATION") == -1) || (wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi")) == null) {
+            return arrayList;
+        }
+        WifiInfo connectionInfo = wifiManager.getConnectionInfo();
+        List<ScanResult> scanResults = wifiManager.getScanResults();
+        if (scanResults != null) {
+            for (ScanResult scanResult : scanResults) {
+                com.kwad.sdk.core.g.a.a aVar = new com.kwad.sdk.core.g.a.a();
+                aVar.f33047b = scanResult.SSID;
+                aVar.f33048c = scanResult.BSSID;
+                aVar.f33046a = scanResult.level;
+                if (connectionInfo.getBSSID() == null || scanResult.BSSID == null || !TextUtils.equals(connectionInfo.getBSSID().replace("\"", ""), scanResult.BSSID.replace("\"", "")) || connectionInfo.getSSID() == null || scanResult.SSID == null || !TextUtils.equals(connectionInfo.getSSID().replace("\"", ""), scanResult.SSID.replace("\"", ""))) {
+                    arrayList.add(aVar);
+                } else {
+                    arrayList.add(0, aVar);
                 }
-            });
-            return;
+                if (arrayList.size() >= i2) {
+                    return arrayList;
+                }
+            }
         }
-        webView.loadUrl(str);
-        if (valueCallback != null) {
-            valueCallback.onReceiveValue(null);
-        }
+        return arrayList;
     }
 
-    public static void a(WebView webView, String str, String str2) {
-        a(webView, "javascript:" + str + "(" + JSONObject.quote(str2) + SmallTailInfo.EMOTION_SUFFIX, (ValueCallback<String>) null);
+    public static void a(SdkConfig sdkConfig) {
+        f34881a = sdkConfig.canReadNearbyWifiList();
     }
 }

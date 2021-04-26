@@ -13,27 +13,26 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
-import com.kwai.video.player.PlayerPostEvent;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class SelectImageHelper {
     public static final int REQUEST_WRITE_EXTERNAL_STORGE_AND_CAMERA_PERMISSON = 1;
     public static final String TMP_IMAGE_NAME = "camera.jpg";
 
-    public static Bitmap AlbumImageResult(Context context, Uri uri, int i) {
+    public static Bitmap AlbumImageResult(Context context, Uri uri, int i2) {
         try {
-            return BitmapHelper.subSampleBitmap(context, uri, i);
+            return BitmapHelper.subSampleBitmap(context, uri, i2);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
             return null;
         }
     }
 
-    public static Bitmap ImageResult(int i, Context context, Uri uri, int i2) {
-        if (i == 12001) {
-            return photoResult(i2);
+    public static Bitmap ImageResult(int i2, Context context, Uri uri, int i3) {
+        if (i2 == 12001) {
+            return photoResult(i3);
         }
-        return AlbumImageResult(context, uri, i2);
+        return AlbumImageResult(context, uri, i3);
     }
 
     public static void getAlbumImage(Activity activity) {
@@ -45,16 +44,16 @@ public class SelectImageHelper {
             Intent intent = new Intent();
             intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
             intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, PlayerPostEvent.MEDIA_REP_CHANGE_END);
+            activity.startActivityForResult(intent, 12002);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
     }
 
-    public static Bitmap photoResult(int i) {
+    public static Bitmap photoResult(int i2) {
         try {
             int readPictureDegree = readPictureDegree(FileHelper.getFileDireciory(TMP_IMAGE_NAME));
-            Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(TMP_IMAGE_NAME, i);
+            Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(TMP_IMAGE_NAME, i2);
             return (readPictureDegree == 0 || subSampleBitmap == null) ? subSampleBitmap : BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
@@ -64,7 +63,7 @@ public class SelectImageHelper {
 
     public static int readPictureDegree(String str) {
         try {
-            int attributeInt = new ExifInterface(str).getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
+            int attributeInt = new ExifInterface(str).getAttributeInt("Orientation", 1);
             if (attributeInt != 3) {
                 if (attributeInt != 6) {
                     return attributeInt != 8 ? 0 : 270;
@@ -95,7 +94,7 @@ public class SelectImageHelper {
             if (CreateFile != null) {
                 Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                 intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
-                tbPageContext.getPageActivity().startActivityForResult(intent, PlayerPostEvent.MEDIA_REP_CHANGE_START);
+                tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
             } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                 ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
             } else if (tbPageContext instanceof BaseFragmentActivity) {
@@ -127,7 +126,7 @@ public class SelectImageHelper {
                 if (z) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, PlayerPostEvent.MEDIA_REP_CHANGE_START);
+                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 }
             }
             if (z) {

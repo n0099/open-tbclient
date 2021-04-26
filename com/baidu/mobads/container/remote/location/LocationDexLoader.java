@@ -60,9 +60,9 @@ public class LocationDexLoader {
                 StringBuffer stringBuffer = new StringBuffer(128);
                 stringBuffer.append(this.mNetworkType);
                 stringBuffer.append("h");
-                int i = this.mMcc;
-                if (i != 460) {
-                    stringBuffer.append(i);
+                int i2 = this.mMcc;
+                if (i2 != 460) {
+                    stringBuffer.append(i2);
                 }
                 stringBuffer.append(String.format(Locale.CHINA, "h%xh%xh%x", Integer.valueOf(this.mMnc), Integer.valueOf(this.mLac), Integer.valueOf(this.mCid)));
                 return stringBuffer.toString();
@@ -87,40 +87,40 @@ public class LocationDexLoader {
     public static String data2Base64(byte[] bArr) {
         boolean z;
         char[] cArr = new char[((bArr.length + 2) / 3) * 4];
-        int i = 0;
         int i2 = 0;
-        while (i < bArr.length) {
-            int i3 = (bArr[i] & 255) << 8;
-            int i4 = i + 1;
+        int i3 = 0;
+        while (i2 < bArr.length) {
+            int i4 = (bArr[i2] & 255) << 8;
+            int i5 = i2 + 1;
             boolean z2 = true;
-            if (i4 < bArr.length) {
-                i3 |= bArr[i4] & 255;
+            if (i5 < bArr.length) {
+                i4 |= bArr[i5] & 255;
                 z = true;
             } else {
                 z = false;
             }
-            int i5 = i3 << 8;
-            int i6 = i + 2;
-            if (i6 < bArr.length) {
-                i5 |= bArr[i6] & 255;
+            int i6 = i4 << 8;
+            int i7 = i2 + 2;
+            if (i7 < bArr.length) {
+                i6 |= bArr[i7] & 255;
             } else {
                 z2 = false;
             }
-            int i7 = 64;
-            cArr[i2 + 3] = alphabet[z2 ? 63 - (i5 & 63) : 64];
-            int i8 = i5 >> 6;
-            int i9 = i2 + 2;
+            int i8 = 64;
+            cArr[i3 + 3] = alphabet[z2 ? 63 - (i6 & 63) : 64];
+            int i9 = i6 >> 6;
+            int i10 = i3 + 2;
             char[] cArr2 = alphabet;
             if (z) {
-                i7 = 63 - (i8 & 63);
+                i8 = 63 - (i9 & 63);
             }
-            cArr[i9] = cArr2[i7];
-            int i10 = i8 >> 6;
+            cArr[i10] = cArr2[i8];
+            int i11 = i9 >> 6;
             char[] cArr3 = alphabet;
-            cArr[i2 + 1] = cArr3[63 - (i10 & 63)];
-            cArr[i2 + 0] = cArr3[63 - ((i10 >> 6) & 63)];
-            i += 3;
-            i2 += 4;
+            cArr[i3 + 1] = cArr3[63 - (i11 & 63)];
+            cArr[i3 + 0] = cArr3[63 - ((i11 >> 6) & 63)];
+            i2 += 3;
+            i3 += 4;
         }
         return new String(cArr);
     }
@@ -134,15 +134,15 @@ public class LocationDexLoader {
         byte nextInt2 = (byte) new Random().nextInt(255);
         byte[] bArr = new byte[bytes.length + 2];
         int length = bytes.length;
-        int i = 0;
         int i2 = 0;
-        while (i < length) {
-            bArr[i2] = (byte) (bytes[i] ^ nextInt);
-            i++;
+        int i3 = 0;
+        while (i2 < length) {
+            bArr[i3] = (byte) (bytes[i2] ^ nextInt);
             i2++;
+            i3++;
         }
-        bArr[i2] = nextInt;
-        bArr[i2 + 1] = nextInt2;
+        bArr[i3] = nextInt;
+        bArr[i3 + 1] = nextInt2;
         return data2Base64(bArr);
     }
 
@@ -209,7 +209,7 @@ public class LocationDexLoader {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String getLocStringData(int i) {
+    private String getLocStringData(int i2) {
         String str;
         BDCellInfo registeredBDCellInfo;
         try {
@@ -264,11 +264,11 @@ public class LocationDexLoader {
         }
     }
 
-    private int getValidValue(int i) {
-        if (i == Integer.MAX_VALUE) {
+    private int getValidValue(int i2) {
+        if (i2 == Integer.MAX_VALUE) {
             return -1;
         }
-        return i;
+        return i2;
     }
 
     private void setCellInfo(CellLocation cellLocation) {
@@ -289,11 +289,11 @@ public class LocationDexLoader {
                 String substring = networkOperator.substring(3);
                 if (substring != null) {
                     char[] charArray = substring.toCharArray();
-                    int i = 0;
-                    while (i < charArray.length && Character.isDigit(charArray[i])) {
-                        i++;
+                    int i2 = 0;
+                    while (i2 < charArray.length && Character.isDigit(charArray[i2])) {
+                        i2++;
                     }
-                    int intValue2 = Integer.valueOf(substring.substring(0, i)).intValue();
+                    int intValue2 = Integer.valueOf(substring.substring(0, i2)).intValue();
                     if (intValue2 < 0) {
                         intValue2 = this.mCellInfo.mMnc;
                     }

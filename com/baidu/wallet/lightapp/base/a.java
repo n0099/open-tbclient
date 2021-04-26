@@ -18,22 +18,22 @@ import java.util.Arrays;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f24577a;
+    public int f25336a;
 
     /* renamed from: com.baidu.wallet.lightapp.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0254a {
+    public static class C0249a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f24578a = new a();
+        public static a f25337a = new a();
     }
 
     public static a a() {
-        return C0254a.f24578a;
+        return C0249a.f25337a;
     }
 
     public a() {
-        this.f24577a = -1;
+        this.f25336a = -1;
     }
 
     public void a(Context context) {
@@ -46,8 +46,8 @@ public class a {
             sb.append(Base64Utils.encodeToString(("{\"ua\":\"" + BussinessUtils.getUA(context) + "\",\"cu\":\"" + PhoneUtils.getCUID(context) + "\",\"cu2\":\"" + PhoneUtils.getCUID2(context) + "\"}").getBytes()));
             String sb2 = sb.toString();
             String[] strArr = {Domains.BAIDU, Domains.BAIFUBAO, Domains.DU_XIAO_MAN, Domains.DU_XIAO_MAN_PAY, "duxiaoman-int.com"};
-            for (int i = 0; i < 5; i++) {
-                String str = strArr[i];
+            for (int i2 = 0; i2 < 5; i2++) {
+                String str = strArr[i2];
                 cookieManager.setCookie(str, sb2 + ";path=/;domain=" + str + ";secure;httponly");
             }
             String str2 = "" + System.currentTimeMillis();
@@ -69,9 +69,9 @@ public class a {
         }
     }
 
-    public int a(Context context, String str, int i) {
+    public int a(Context context, String str, int i2) {
         int bdussState = WalletLoginHelper.getInstance().getBdussState();
-        if (i != bdussState && (bdussState == 0 || bdussState == 3 || bdussState == 4)) {
+        if (i2 != bdussState && (bdussState == 0 || bdussState == 3 || bdussState == 4)) {
             WalletLoginHelper.getInstance().getOpenBduss(false, null);
         }
         DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.SYNC_WEB_LOGIN_STATUS_TO_NATIVE, Arrays.asList(str));

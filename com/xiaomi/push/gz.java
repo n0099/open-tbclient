@@ -8,60 +8,60 @@ import java.util.Hashtable;
 public class gz {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f41004a = ew.PING_RTT.a();
+    public static final int f38529a = ew.PING_RTT.a();
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Hashtable<Integer, Long> f41005a = new Hashtable<>();
+        public static Hashtable<Integer, Long> f38530a = new Hashtable<>();
     }
 
     public static void a() {
-        a(0, f41004a);
+        a(0, f38529a);
     }
 
-    public static void a(int i) {
-        ex m350a = gx.m348a().m350a();
-        m350a.a(ew.CHANNEL_STATS_COUNTER.a());
-        m350a.c(i);
-        gx.m348a().a(m350a);
+    public static void a(int i2) {
+        ex m353a = gx.m351a().m353a();
+        m353a.a(ew.CHANNEL_STATS_COUNTER.a());
+        m353a.c(i2);
+        gx.m351a().a(m353a);
     }
 
-    public static synchronized void a(int i, int i2) {
+    public static synchronized void a(int i2, int i3) {
         synchronized (gz.class) {
-            if (i2 < 16777215) {
-                a.f41005a.put(Integer.valueOf((i << 24) | i2), Long.valueOf(System.currentTimeMillis()));
+            if (i3 < 16777215) {
+                a.f38530a.put(Integer.valueOf((i2 << 24) | i3), Long.valueOf(System.currentTimeMillis()));
             } else {
                 com.xiaomi.channel.commonutils.logger.b.d("stats key should less than 16777215");
             }
         }
     }
 
-    public static void a(int i, int i2, int i3, String str, int i4) {
-        ex m350a = gx.m348a().m350a();
-        m350a.a((byte) i);
-        m350a.a(i2);
-        m350a.b(i3);
-        m350a.b(str);
-        m350a.c(i4);
-        gx.m348a().a(m350a);
+    public static void a(int i2, int i3, int i4, String str, int i5) {
+        ex m353a = gx.m351a().m353a();
+        m353a.a((byte) i2);
+        m353a.a(i3);
+        m353a.b(i4);
+        m353a.b(str);
+        m353a.c(i5);
+        gx.m351a().a(m353a);
     }
 
-    public static synchronized void a(int i, int i2, String str, int i3) {
+    public static synchronized void a(int i2, int i3, String str, int i4) {
         synchronized (gz.class) {
             long currentTimeMillis = System.currentTimeMillis();
-            int i4 = (i << 24) | i2;
-            if (a.f41005a.containsKey(Integer.valueOf(i4))) {
-                ex m350a = gx.m348a().m350a();
-                m350a.a(i2);
-                m350a.b((int) (currentTimeMillis - a.f41005a.get(Integer.valueOf(i4)).longValue()));
-                m350a.b(str);
-                if (i3 > -1) {
-                    m350a.c(i3);
+            int i5 = (i2 << 24) | i3;
+            if (a.f38530a.containsKey(Integer.valueOf(i5))) {
+                ex m353a = gx.m351a().m353a();
+                m353a.a(i3);
+                m353a.b((int) (currentTimeMillis - a.f38530a.get(Integer.valueOf(i5)).longValue()));
+                m353a.b(str);
+                if (i4 > -1) {
+                    m353a.c(i4);
                 }
-                gx.m348a().a(m350a);
-                a.f41005a.remove(Integer.valueOf(i2));
+                gx.m351a().a(m353a);
+                a.f38530a.remove(Integer.valueOf(i3));
             } else {
                 com.xiaomi.channel.commonutils.logger.b.d("stats key not found");
             }
@@ -72,21 +72,21 @@ public class gz {
         new gs(xMPushService, bVar).a();
     }
 
-    public static void a(String str, int i, Exception exc) {
-        ex m350a = gx.m348a().m350a();
-        if (i > 0) {
-            m350a.a(ew.GSLB_REQUEST_SUCCESS.a());
-            m350a.b(str);
-            m350a.b(i);
-            gx.m348a().a(m350a);
+    public static void a(String str, int i2, Exception exc) {
+        ex m353a = gx.m351a().m353a();
+        if (i2 > 0) {
+            m353a.a(ew.GSLB_REQUEST_SUCCESS.a());
+            m353a.b(str);
+            m353a.b(i2);
+            gx.m351a().a(m353a);
             return;
         }
         try {
             gv.a a2 = gv.a(exc);
-            m350a.a(a2.f40994a.a());
-            m350a.c(a2.f452a);
-            m350a.b(str);
-            gx.m348a().a(m350a);
+            m353a.a(a2.f38519a.a());
+            m353a.c(a2.f452a);
+            m353a.b(str);
+            gx.m351a().a(m353a);
         } catch (NullPointerException unused) {
         }
     }
@@ -94,36 +94,36 @@ public class gz {
     public static void a(String str, Exception exc) {
         try {
             gv.a b2 = gv.b(exc);
-            ex m350a = gx.m348a().m350a();
-            m350a.a(b2.f40994a.a());
-            m350a.c(b2.f452a);
-            m350a.b(str);
-            gx.m348a().a(m350a);
+            ex m353a = gx.m351a().m353a();
+            m353a.a(b2.f38519a.a());
+            m353a.c(b2.f452a);
+            m353a.b(str);
+            gx.m351a().a(m353a);
         } catch (NullPointerException unused) {
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m354a() {
-        ey m351a = gx.m348a().m351a();
-        if (m351a != null) {
-            return ip.a(m351a);
+    public static byte[] m357a() {
+        ey m354a = gx.m351a().m354a();
+        if (m354a != null) {
+            return ip.a(m354a);
         }
         return null;
     }
 
     public static void b() {
-        a(0, f41004a, null, -1);
+        a(0, f38529a, null, -1);
     }
 
     public static void b(String str, Exception exc) {
         try {
             gv.a d2 = gv.d(exc);
-            ex m350a = gx.m348a().m350a();
-            m350a.a(d2.f40994a.a());
-            m350a.c(d2.f452a);
-            m350a.b(str);
-            gx.m348a().a(m350a);
+            ex m353a = gx.m351a().m353a();
+            m353a.a(d2.f38519a.a());
+            m353a.c(d2.f452a);
+            m353a.b(str);
+            gx.m351a().a(m353a);
         } catch (NullPointerException unused) {
         }
     }

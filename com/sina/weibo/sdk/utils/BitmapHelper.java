@@ -10,11 +10,11 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes6.dex */
 public final class BitmapHelper {
-    public static int getSampleSizeAutoFitToScreen(int i, int i2, int i3, int i4) {
-        if (i2 == 0 || i == 0) {
+    public static int getSampleSizeAutoFitToScreen(int i2, int i3, int i4, int i5) {
+        if (i3 == 0 || i2 == 0) {
             return 1;
         }
-        return Math.min(Math.max(i3 / i, i4 / i2), Math.max(i4 / i, i3 / i2));
+        return Math.min(Math.max(i4 / i2, i5 / i3), Math.max(i5 / i2, i4 / i3));
     }
 
     public static int getSampleSizeOfNotTooLarge(Rect rect) {

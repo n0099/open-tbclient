@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.m.b;
-import d.b.c.e.p.l;
-import d.b.j0.d3.j0.a;
+import d.a.c.e.m.b;
+import d.a.c.e.p.l;
+import d.a.j0.d3.j0.a;
 import tbclient.SkinInfo;
 /* loaded from: classes3.dex */
 public class ThreadSkinView extends TbImageView {
@@ -77,7 +77,7 @@ public class ThreadSkinView extends TbImageView {
                 layoutParams.height = (int) tbPageContext.getResources().getDimension(R.dimen.ds80);
             }
             setLayoutParams(layoutParams);
-            W(skinInfo.skin, 10, false);
+            V(skinInfo.skin, 10, false);
             setOnClickListener(this);
             setScaleType(ImageView.ScaleType.CENTER_CROP);
             setVisibility(0);
@@ -86,8 +86,8 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public ThreadSkinView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ThreadSkinView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         G();
     }
 

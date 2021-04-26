@@ -19,11 +19,11 @@ public class ChannelBaiduPayForTransCashier {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static ChannelBaiduPayForTransCashier f2646a = new ChannelBaiduPayForTransCashier();
+        public static ChannelBaiduPayForTransCashier f2643a = new ChannelBaiduPayForTransCashier();
     }
 
     public static ChannelBaiduPayForTransCashier getInstance() {
-        return a.f2646a;
+        return a.f2643a;
     }
 
     private String getNotify(String str) {
@@ -44,12 +44,12 @@ public class ChannelBaiduPayForTransCashier {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void handlepayResult(Context context, int i, String str) {
-        if (i == 0) {
+    public void handlepayResult(Context context, int i2, String str) {
+        if (i2 == 0) {
             paySuccess(context, str);
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             paying(context);
-        } else if (i != 2) {
+        } else if (i2 != 2) {
         } else {
             payCancel(context);
         }
@@ -83,8 +83,8 @@ public class ChannelBaiduPayForTransCashier {
             }
 
             @Override // com.baidu.android.pay.PayCallBack
-            public void onPayResult(int i, String str3) {
-                ChannelBaiduPayForTransCashier.this.handlepayResult(context, i, str3);
+            public void onPayResult(int i2, String str3) {
+                ChannelBaiduPayForTransCashier.this.handlepayResult(context, i2, str3);
             }
         }, new HashMap(), precashierCreateOrderResponse, null);
     }

@@ -1,45 +1,27 @@
 package a.a.a.a;
 
-import a.a.a.a.s.e;
-import java.util.HashMap;
-import java.util.Map;
+import a.a.a.a.u.e;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeAdInflater;
 /* loaded from: classes.dex */
-public class m {
+public interface m {
+    void a();
 
-    /* renamed from: a  reason: collision with root package name */
-    public final Map<String, a> f1079a;
+    void a(n nVar);
 
-    /* renamed from: b  reason: collision with root package name */
-    public final Map<e.a, k> f1080b = new HashMap();
+    boolean a(Activity activity, ViewGroup viewGroup, String str, FunNativeAdInflater funNativeAdInflater);
 
-    /* loaded from: classes.dex */
-    public interface a {
-        k a(e.a aVar);
-    }
+    boolean a(Context context, FunAdSlot funAdSlot);
 
-    public m(Map<String, a> map) {
-        this.f1079a = map;
-    }
+    e.a b();
 
-    public k a(e.a aVar) {
-        synchronized (this.f1080b) {
-            k kVar = this.f1080b.get(aVar);
-            if (kVar != null) {
-                return kVar;
-            }
-            a aVar2 = this.f1079a.get(aVar.k.f1317c);
-            if (aVar2 == null) {
-                a.a.a.a.v.d.a("Cannot create PidLoader, because the ssp of pid.type:%s hasn't initialized.", aVar.f1321d);
-                return null;
-            }
-            k a2 = aVar2.a(aVar);
-            if (a2 == null) {
-                a.a.a.a.v.d.a("The creator of ssp:%s should't create null for pid:%s", aVar.k.f1317c, aVar.f1321d);
-                return null;
-            }
-            c cVar = new c(a2);
-            this.f1080b.put(aVar, cVar);
-            return cVar;
-        }
-    }
+    boolean c();
+
+    a.a.a.a.w.p d();
+
+    FunNativeAd getNativeAd(Context context, String str);
 }

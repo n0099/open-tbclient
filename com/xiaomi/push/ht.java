@@ -9,14 +9,14 @@ public enum ht {
     /* renamed from: a  reason: collision with other field name */
     public final int f552a;
 
-    ht(int i) {
-        this.f552a = i;
+    ht(int i2) {
+        this.f552a = i2;
     }
 
-    public static ht a(int i) {
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
+    public static ht a(int i2) {
+        if (i2 != 0) {
+            if (i2 != 1) {
+                if (i2 != 2) {
                     return null;
                 }
                 return Init;

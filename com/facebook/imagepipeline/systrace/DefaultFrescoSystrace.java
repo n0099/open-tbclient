@@ -38,7 +38,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
             StringBuilder sb = this.mStringBuilder;
             sb.append(';');
             sb.append(str);
-            sb.append(a.f1922h);
+            sb.append(a.f1873h);
             sb.append(obj == null ? StringUtil.NULL_STRING : obj.toString());
             return this;
         }
@@ -54,12 +54,12 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
         }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
-        public FrescoSystrace.ArgsBuilder arg(String str, int i) {
+        public FrescoSystrace.ArgsBuilder arg(String str, int i2) {
             StringBuilder sb = this.mStringBuilder;
             sb.append(';');
             sb.append(str);
-            sb.append(a.f1922h);
-            sb.append(Integer.toString(i));
+            sb.append(a.f1873h);
+            sb.append(Integer.toString(i2));
             return this;
         }
 
@@ -68,7 +68,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
             StringBuilder sb = this.mStringBuilder;
             sb.append(';');
             sb.append(str);
-            sb.append(a.f1922h);
+            sb.append(a.f1873h);
             sb.append(Long.toString(j));
             return this;
         }
@@ -78,7 +78,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
             StringBuilder sb = this.mStringBuilder;
             sb.append(';');
             sb.append(str);
-            sb.append(a.f1922h);
+            sb.append(a.f1873h);
             sb.append(Double.toString(d2));
             return this;
         }

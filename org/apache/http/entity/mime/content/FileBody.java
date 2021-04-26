@@ -55,7 +55,7 @@ public class FileBody extends AbstractContentBody {
     }
 
     @Deprecated
-    public void writeTo(OutputStream outputStream, int i) throws IOException {
+    public void writeTo(OutputStream outputStream, int i2) throws IOException {
         writeTo(outputStream);
     }
 

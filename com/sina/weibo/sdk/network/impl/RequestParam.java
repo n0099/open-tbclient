@@ -86,16 +86,16 @@ public class RequestParam implements IRequestParam {
             this.needIntercept = z;
         }
 
-        public void setRequestTimeout(int i) {
-            this.requestTimeout = i;
+        public void setRequestTimeout(int i2) {
+            this.requestTimeout = i2;
         }
 
         public void setRequestType(IRequestParam.RequestType requestType) {
             this.type = requestType;
         }
 
-        public void setResponseTimeout(int i) {
-            this.responseTimeout = i;
+        public void setResponseTimeout(int i2) {
+            this.responseTimeout = i2;
         }
 
         public void setShortUrl(String str) {
@@ -116,16 +116,16 @@ public class RequestParam implements IRequestParam {
             return this;
         }
 
-        public void addExtParam(String str, int i) {
-            this.extraBundle.putInt(str, i);
+        public void addExtParam(String str, int i2) {
+            this.extraBundle.putInt(str, i2);
         }
 
-        public void addGetParam(String str, int i) {
-            this.getBundle.putInt(str, i);
+        public void addGetParam(String str, int i2) {
+            this.getBundle.putInt(str, i2);
         }
 
-        public void addPostParam(String str, int i) {
-            this.postBundle.putInt(str, i);
+        public void addPostParam(String str, int i2) {
+            this.postBundle.putInt(str, i2);
         }
 
         public void addExtParam(String str, long j) {

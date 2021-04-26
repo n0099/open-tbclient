@@ -10,33 +10,33 @@ import java.io.File;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f9527a;
+    public final Context f9884a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C0123b f9528b;
+    public C0123b f9885b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f9529c;
+    public a f9886c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f9530d;
+    public g f9887d;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void a(int i);
+        void a(int i2);
 
         void a(boolean z, boolean z2);
     }
 
     public b(Context context) {
-        this.f9527a = context;
-        this.f9530d = new g(context);
+        this.f9884a = context;
+        this.f9887d = new g(context);
     }
 
     private void d(String str) {
         b();
-        C0123b c0123b = new C0123b(this.f9527a, str);
-        this.f9528b = c0123b;
+        C0123b c0123b = new C0123b(this.f9884a, str);
+        this.f9885b = c0123b;
         c0123b.start();
     }
 
@@ -50,25 +50,25 @@ public class b {
     }
 
     public void b(String str) {
-        if (com.baidu.platform.comapi.walknavi.d.a.d.a.a(this.f9529c)) {
+        if (com.baidu.platform.comapi.walknavi.d.a.d.a.a(this.f9886c)) {
             return;
         }
         if (c()) {
             a(true, false);
-        } else if (!TextUtils.equals(this.f9530d.b(), com.baidu.platform.comapi.walknavi.d.a.g.b.b())) {
+        } else if (!TextUtils.equals(this.f9887d.b(), com.baidu.platform.comapi.walknavi.d.a.g.b.b())) {
             d(str);
         } else {
-            String a2 = this.f9530d.a();
+            String a2 = this.f9887d.a();
             String e2 = e(str);
             if (!TextUtils.isEmpty(a2) && TextUtils.equals(a2, e2)) {
-                File file = new File(b(this.f9527a), a2);
+                File file = new File(b(this.f9884a), a2);
                 if (file.exists()) {
                     File[] a3 = a(new File(file, UriUtil.LOCAL_RESOURCE_SCHEME));
                     if (a3 != null && a3.length > 0) {
                         a(a(a3), false);
                         return;
                     }
-                    this.f9530d.a("");
+                    this.f9887d.a("");
                 }
             }
             d(str);
@@ -80,17 +80,17 @@ public class b {
     public class C0123b extends Thread {
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f9532b;
+        public Context f9889b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f9533c;
+        public String f9890c;
 
         /* renamed from: d  reason: collision with root package name */
-        public volatile boolean f9534d = false;
+        public volatile boolean f9891d = false;
 
         public C0123b(Context context, String str) {
-            this.f9532b = context;
-            this.f9533c = str;
+            this.f9889b = context;
+            this.f9890c = str;
         }
 
         private boolean a(String str, File file) {
@@ -98,18 +98,18 @@ public class b {
         }
 
         public boolean b() {
-            return this.f9534d;
+            return this.f9891d;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             super.run();
             h hVar = new h();
-            String str = this.f9533c;
-            hVar.f9545b = str;
-            hVar.f9544a = b.e(str);
-            String str2 = hVar.f9545b;
-            File file = new File(b.b(this.f9532b), hVar.f9544a);
+            String str = this.f9890c;
+            hVar.f9902b = str;
+            hVar.f9901a = b.e(str);
+            String str2 = hVar.f9902b;
+            File file = new File(b.b(this.f9889b), hVar.f9901a);
             File file2 = new File(file, "res.zip");
             com.baidu.platform.comapi.walknavi.d.a.d.a.a.a(file2);
             boolean a2 = a(str2, file2);
@@ -123,7 +123,7 @@ public class b {
         }
 
         public void a() {
-            this.f9534d = true;
+            this.f9891d = true;
         }
 
         private void a(boolean z, h hVar) {
@@ -149,7 +149,7 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.f9529c = aVar;
+        this.f9886c = aVar;
     }
 
     public static boolean c() {
@@ -166,11 +166,11 @@ public class b {
         if (c()) {
             return true;
         }
-        String a3 = this.f9530d.a();
+        String a3 = this.f9887d.a();
         if (TextUtils.isEmpty(a3)) {
             return false;
         }
-        File file = new File(b(this.f9527a), a3);
+        File file = new File(b(this.f9884a), a3);
         if (!file.exists() || (a2 = a(new File(file, UriUtil.LOCAL_RESOURCE_SCHEME))) == null || a2.length <= 0) {
             return false;
         }
@@ -181,8 +181,8 @@ public class b {
         if (TextUtils.isEmpty(str) || c()) {
             return false;
         }
-        if (TextUtils.equals(this.f9530d.b(), com.baidu.platform.comapi.walknavi.d.a.g.b.b())) {
-            String a2 = this.f9530d.a();
+        if (TextUtils.equals(this.f9887d.b(), com.baidu.platform.comapi.walknavi.d.a.g.b.b())) {
+            String a2 = this.f9887d.a();
             return TextUtils.isEmpty(a2) || !TextUtils.equals(a2, e(str));
         }
         return true;
@@ -194,16 +194,16 @@ public class b {
     }
 
     public void b() {
-        C0123b c0123b = this.f9528b;
+        C0123b c0123b = this.f9885b;
         if (c0123b != null) {
             c0123b.a();
-            this.f9528b = null;
+            this.f9885b = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, boolean z2) {
-        a aVar = this.f9529c;
+        a aVar = this.f9886c;
         if (aVar != null) {
             aVar.a(z, z2);
         }
@@ -216,10 +216,10 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i) {
-        a aVar = this.f9529c;
+    public void a(int i2) {
+        a aVar = this.f9886c;
         if (aVar != null) {
-            aVar.a(i);
+            aVar.a(i2);
         }
     }
 

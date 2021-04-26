@@ -1,77 +1,179 @@
 package a.a.a.a.u;
 
-import a.a.a.a.s.e;
-import android.util.Pair;
+import a.a.a.a.u.c;
+import a.a.a.a.u.d;
+import a.a.a.a.u.e;
+import android.text.TextUtils;
+import androidx.annotation.VisibleForTesting;
 import java.util.HashMap;
-import java.util.Random;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class b implements a {
-
-    /* renamed from: c  reason: collision with root package name */
-    public static a f1339c = new d();
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final Random f1340d = new Random();
+public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final e.a f1341a;
+    public long f1307a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<Object, o> f1342b = new HashMap<>();
+    public int f1308b;
 
-    public b(e.a aVar) {
-        this.f1341a = aVar;
+    /* renamed from: c  reason: collision with root package name */
+    public int f1309c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Set<e> f1310d = new HashSet();
+
+    /* renamed from: e  reason: collision with root package name */
+    public final Set<d> f1311e = new HashSet();
+
+    /* renamed from: f  reason: collision with root package name */
+    public final Set<c> f1312f = new HashSet();
+
+    public static float a(float f2, float f3, float f4) {
+        return f2 < f3 ? f3 : f2 > f4 ? f4 : f2;
     }
 
-    @Override // a.a.a.a.u.a
-    public final void a(Object obj) {
-        synchronized (this.f1342b) {
-            this.f1342b.remove(obj);
+    public static int a(int i2, int i3) {
+        if (i2 < i3) {
+            return i3;
         }
-    }
-
-    @Override // a.a.a.a.u.a
-    public void a(Object obj, String str) {
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.util.HashMap<java.lang.Object, a.a.a.a.u.o> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // a.a.a.a.u.a
-    public final o b(Object obj) {
-        synchronized (this.f1342b) {
-            o oVar = this.f1342b.get(obj);
-            if (oVar != null) {
-                return oVar;
-            }
-            Pair<o, JSONObject> c2 = c(obj);
-            if (c2 != null && c2.first != null) {
-                this.f1342b.put(obj, c2.first);
-                return (o) c2.first;
-            }
-            return null;
+        if (i2 > Integer.MAX_VALUE) {
+            return Integer.MAX_VALUE;
         }
+        return i2;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.util.HashMap<java.lang.Object, a.a.a.a.u.o> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // a.a.a.a.u.a
-    public final void b(Object obj, String str) {
-        Pair<o, JSONObject> c2;
-        if (f1340d.nextFloat() < this.f1341a.f1323f && (c2 = c(obj)) != null) {
-            Object obj2 = c2.second;
-            if (obj2 != null) {
-                JSONObject jSONObject = (JSONObject) obj2;
+    public static long a(long j, long j2) {
+        if (j < j2) {
+            return j2;
+        }
+        if (j > Long.MAX_VALUE) {
+            return Long.MAX_VALUE;
+        }
+        return j;
+    }
+
+    public static long a(long j, long j2, long j3) {
+        return j < j2 ? j2 : j > j3 ? j3 : j;
+    }
+
+    @VisibleForTesting
+    public boolean a() {
+        HashSet hashSet = new HashSet();
+        HashSet hashSet2 = new HashSet();
+        for (e eVar : this.f1310d) {
+            if (hashSet.contains(eVar.f1331c)) {
+                a.a.a.a.x.d.b("Duplicate ssp:type(%s) found.", eVar.f1331c);
+                return false;
             }
-            Object obj3 = c2.first;
-            if (obj3 != null) {
-                o oVar = (o) obj3;
-                synchronized (this.f1342b) {
-                    this.f1342b.put(obj, c2.first);
+            hashSet.add(eVar.f1331c);
+            for (e.a aVar : eVar.f1332d) {
+                if (hashSet2.contains(Long.valueOf(aVar.f1333b))) {
+                    a.a.a.a.x.d.b("Duplicate pid(%d) found.", Long.valueOf(aVar.f1333b));
+                    return false;
+                }
+                hashSet2.add(Long.valueOf(aVar.f1333b));
+            }
+        }
+        HashSet hashSet3 = new HashSet();
+        for (d dVar : this.f1311e) {
+            if (hashSet3.contains(dVar.f1320b)) {
+                a.a.a.a.x.d.b("Duplicate sid(%s) found in SlotId", dVar.f1320b);
+                return false;
+            }
+            hashSet3.add(dVar.f1320b);
+            for (d.b bVar : dVar.f1323e) {
+                HashSet hashSet4 = new HashSet();
+                for (d.a aVar2 : bVar.f1329c) {
+                    if (!hashSet2.contains(Long.valueOf(aVar2.f1324b))) {
+                        a.a.a.a.x.d.b("Unregistered adId:(%d) in SlotId", Long.valueOf(aVar2.f1324b));
+                        return false;
+                    } else if (hashSet4.contains(Long.valueOf(aVar2.f1324b))) {
+                        a.a.a.a.x.d.b("Duplicate adId:(%d) found in one sid:(%s) in SlotId", Long.valueOf(aVar2.f1324b), dVar.f1320b);
+                        return false;
+                    } else {
+                        hashSet4.add(Long.valueOf(aVar2.f1324b));
+                    }
                 }
             }
         }
+        if (this.f1309c == 2) {
+            for (c cVar : this.f1312f) {
+                if (hashSet3.contains(cVar.f1313b)) {
+                    a.a.a.a.x.d.b("Duplicate sid(%s) found in SerialSlotId.", cVar.f1313b);
+                    return false;
+                }
+                hashSet3.add(cVar.f1313b);
+                for (c.b bVar2 : cVar.f1314c) {
+                    for (c.a aVar3 : bVar2.f1319c) {
+                        if (!hashSet2.contains(Long.valueOf(aVar3.f1315b))) {
+                            a.a.a.a.x.d.b("Unregistered adId:(%d) in SerialSlotId", Long.valueOf(aVar3.f1315b));
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
     }
 
-    public abstract Pair<o, JSONObject> c(Object obj);
+    public boolean a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        try {
+            b(str);
+            a.a.a.a.x.d.c("Config parsed over.", new Object[0]);
+            if (a()) {
+                a.a.a.a.x.b.a(this.f1307a, this.f1308b, this.f1309c, new a(this.f1310d, this.f1311e, this.f1312f));
+                a.a.a.a.x.d.c("Config persisted over.", new Object[0]);
+                return true;
+            }
+        } catch (JSONException e2) {
+            a.a.a.a.x.d.a(e2);
+        }
+        this.f1310d.clear();
+        this.f1311e.clear();
+        this.f1312f.clear();
+        return false;
+    }
+
+    @VisibleForTesting
+    public void b(String str) {
+        JSONArray optJSONArray;
+        JSONObject jSONObject = new JSONObject(str);
+        JSONObject jSONObject2 = jSONObject.getJSONObject("config");
+        this.f1307a = a(jSONObject2.getLong("ver"), 0L);
+        int i2 = jSONObject2.getInt("interval");
+        if (i2 < 1) {
+            i2 = 1;
+        } else if (i2 > 1440) {
+            i2 = 1440;
+        }
+        this.f1308b = i2;
+        this.f1309c = a(jSONObject2.optInt("V", 1), 1);
+        JSONObject jSONObject3 = jSONObject.getJSONObject("adConfig");
+        JSONArray jSONArray = jSONObject3.getJSONArray("ssps");
+        HashMap hashMap = new HashMap();
+        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+            e eVar = new e(jSONArray.getJSONObject(i3));
+            for (e.a aVar : eVar.f1332d) {
+                hashMap.put(Long.valueOf(aVar.f1333b), aVar);
+            }
+            this.f1310d.add(eVar);
+        }
+        JSONArray jSONArray2 = jSONObject3.getJSONArray("sids");
+        for (int i4 = 0; i4 < jSONArray2.length(); i4++) {
+            this.f1311e.add(new d(jSONArray2.getJSONObject(i4), hashMap));
+        }
+        if (this.f1309c != 2 || (optJSONArray = jSONObject3.optJSONArray("serialSids")) == null) {
+            return;
+        }
+        for (int i5 = 0; i5 < optJSONArray.length(); i5++) {
+            this.f1312f.add(new c(optJSONArray.getJSONObject(i5), hashMap));
+        }
+    }
 }

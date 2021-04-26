@@ -2,7 +2,7 @@ package com.baidu.tieba.barselect.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.ElectionInfo.DataReq;
 import tbclient.ElectionInfo.ElectionInfoReqIdl;
 /* loaded from: classes4.dex */
@@ -31,11 +31,11 @@ public class VoteElectionRequestMessage extends NetMessage {
         this.fid = j;
     }
 
-    public void setPn(int i) {
-        this.pn = i;
+    public void setPn(int i2) {
+        this.pn = i2;
     }
 
-    public void setRn(int i) {
-        this.rn = i;
+    public void setRn(int i2) {
+        this.rn = i2;
     }
 }

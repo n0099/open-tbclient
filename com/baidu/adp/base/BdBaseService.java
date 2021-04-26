@@ -2,7 +2,7 @@ package com.baidu.adp.base;
 
 import android.app.Service;
 import android.content.Intent;
-import d.b.c.c.e.c.k.e;
+import d.a.c.c.e.c.k.e;
 /* loaded from: classes.dex */
 public abstract class BdBaseService extends Service {
     public static e sCallBack = null;
@@ -22,8 +22,8 @@ public abstract class BdBaseService extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
-        super.onStartCommand(intent, i, i2);
+    public int onStartCommand(Intent intent, int i2, int i3) {
+        super.onStartCommand(intent, i2, i3);
         return serviceStartFlag;
     }
 }

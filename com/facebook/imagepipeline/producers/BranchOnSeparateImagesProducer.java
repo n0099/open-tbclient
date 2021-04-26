@@ -23,15 +23,15 @@ public class BranchOnSeparateImagesProducer implements Producer<EncodedImage> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(EncodedImage encodedImage, int i) {
+        public void onNewResultImpl(EncodedImage encodedImage, int i2) {
             ImageRequest imageRequest = this.mProducerContext.getImageRequest();
-            boolean isLast = BaseConsumer.isLast(i);
+            boolean isLast = BaseConsumer.isLast(i2);
             boolean isImageBigEnough = ThumbnailSizeChecker.isImageBigEnough(encodedImage, imageRequest.getResizeOptions());
             if (encodedImage != null && (isImageBigEnough || imageRequest.getLocalThumbnailPreviewsEnabled())) {
                 if (isLast && isImageBigEnough) {
-                    getConsumer().onNewResult(encodedImage, i);
+                    getConsumer().onNewResult(encodedImage, i2);
                 } else {
-                    getConsumer().onNewResult(encodedImage, BaseConsumer.turnOffStatusFlag(i, 1));
+                    getConsumer().onNewResult(encodedImage, BaseConsumer.turnOffStatusFlag(i2, 1));
                 }
             }
             if (!isLast || isImageBigEnough) {

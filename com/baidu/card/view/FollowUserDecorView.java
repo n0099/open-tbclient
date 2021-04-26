@@ -7,11 +7,11 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.view.FollowUserButton;
-import d.b.i0.r.f0.m.b;
-import d.b.i0.r.f0.q.c;
-import d.b.i0.r.q.a2;
+import d.a.i0.r.f0.m.b;
+import d.a.i0.r.f0.q.c;
+import d.a.i0.r.q.a2;
 /* loaded from: classes.dex */
 public class FollowUserDecorView extends FollowUserButton {
     public BdUniqueId v;
@@ -22,7 +22,7 @@ public class FollowUserDecorView extends FollowUserButton {
         super(context);
     }
 
-    @Override // com.baidu.tieba.view.FollowUserButton
+    @Override // com.baidu.tbadk.core.view.FollowUserButton
     public void s(boolean z) {
         super.s(z);
         if (!this.x || z) {
@@ -36,7 +36,7 @@ public class FollowUserDecorView extends FollowUserButton {
     public void setData(a2 a2Var) {
         if (a2Var != null && a2Var.T() != null) {
             if (this.w == null) {
-                c cVar = new c(u(getContext()), this);
+                c cVar = new c(t(getContext()), this);
                 this.w = cVar;
                 cVar.l(this.v);
             }
@@ -60,7 +60,7 @@ public class FollowUserDecorView extends FollowUserButton {
         this.x = z;
     }
 
-    public final TbPageContext u(Context context) {
+    public final TbPageContext t(Context context) {
         if (context instanceof BaseActivity) {
             return ((BaseActivity) context).getPageContext();
         }
@@ -74,7 +74,7 @@ public class FollowUserDecorView extends FollowUserButton {
         super(context, attributeSet);
     }
 
-    public FollowUserDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public FollowUserDecorView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

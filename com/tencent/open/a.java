@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, b> f39564a = new HashMap<>();
+    public HashMap<String, b> f37162a = new HashMap<>();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         /* JADX WARN: Code restructure failed: missing block: B:44:0x013c, code lost:
             r13.a((java.lang.Object) null);
@@ -29,26 +29,26 @@ public class a {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void call(String str, List<String> list, C0533a c0533a) {
+        public void call(String str, List<String> list, C0477a c0477a) {
             Method method;
             Object invoke;
             Method[] declaredMethods = getClass().getDeclaredMethods();
             int length = declaredMethods.length;
-            int i = 0;
+            int i2 = 0;
             while (true) {
-                if (i >= length) {
+                if (i2 >= length) {
                     method = null;
                     break;
                 }
-                method = declaredMethods[i];
+                method = declaredMethods[i2];
                 if (method.getName().equals(str) && method.getParameterTypes().length == list.size()) {
                     break;
                 }
-                i++;
+                i2++;
             }
             if (method == null) {
-                if (c0533a != null) {
-                    c0533a.a();
+                if (c0477a != null) {
+                    c0477a.a();
                     return;
                 }
                 return;
@@ -63,15 +63,15 @@ public class a {
                 Class<?> returnType = method.getReturnType();
                 f.b("openSDK_LOG.JsBridge", "-->call, result: " + invoke + " | ReturnType: " + returnType.getName());
                 if (!"void".equals(returnType.getName()) && returnType != Void.class) {
-                    if (c0533a == null || !customCallback()) {
+                    if (c0477a == null || !customCallback()) {
                         return;
                     }
-                    c0533a.a(invoke != null ? invoke.toString() : null);
+                    c0477a.a(invoke != null ? invoke.toString() : null);
                 }
             } catch (Exception e2) {
                 f.b("openSDK_LOG.JsBridge", "-->handler call mehtod ex. targetMethod: " + method, e2);
-                if (c0533a != null) {
-                    c0533a.a();
+                if (c0477a != null) {
+                    c0477a.a();
                 }
             }
         }
@@ -82,53 +82,53 @@ public class a {
     }
 
     public void a(b bVar, String str) {
-        this.f39564a.put(str, bVar);
+        this.f37162a.put(str, bVar);
     }
 
-    public void a(String str, String str2, List<String> list, C0533a c0533a) {
+    public void a(String str, String str2, List<String> list, C0477a c0477a) {
         f.a("openSDK_LOG.JsBridge", "getResult---objName = " + str + " methodName = " + str2);
         int size = list.size();
-        for (int i = 0; i < size; i++) {
+        for (int i2 = 0; i2 < size; i2++) {
             try {
-                list.set(i, URLDecoder.decode(list.get(i), "UTF-8"));
+                list.set(i2, URLDecoder.decode(list.get(i2), "UTF-8"));
             } catch (UnsupportedEncodingException e2) {
                 e2.printStackTrace();
             }
         }
-        b bVar = this.f39564a.get(str);
+        b bVar = this.f37162a.get(str);
         if (bVar != null) {
             f.b("openSDK_LOG.JsBridge", "call----");
-            bVar.call(str2, list, c0533a);
+            bVar.call(str2, list, c0477a);
             return;
         }
         f.b("openSDK_LOG.JsBridge", "not call----objName NOT FIND");
-        if (c0533a != null) {
-            c0533a.a();
+        if (c0477a != null) {
+            c0477a.a();
         }
     }
 
     /* renamed from: com.tencent.open.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0533a {
+    /* loaded from: classes6.dex */
+    public static class C0477a {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<WebView> f39573a;
+        public WeakReference<WebView> f37172a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f39574b;
+        public long f37173b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f39575c;
+        public String f37174c;
 
-        public C0533a(WebView webView, long j, String str) {
-            this.f39573a = new WeakReference<>(webView);
-            this.f39574b = j;
-            this.f39575c = str;
+        public C0477a(WebView webView, long j, String str) {
+            this.f37172a = new WeakReference<>(webView);
+            this.f37173b = j;
+            this.f37174c = str;
         }
 
         public void a(Object obj) {
             String obj2;
-            WebView webView = this.f39573a.get();
+            WebView webView = this.f37172a.get();
             if (webView == null) {
                 return;
             }
@@ -140,19 +140,19 @@ public class a {
             } else {
                 obj2 = obj.toString();
             }
-            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f39574b + ",{'r':0,'result':" + obj2 + "});");
+            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f37173b + ",{'r':0,'result':" + obj2 + "});");
         }
 
         public void a() {
-            WebView webView = this.f39573a.get();
+            WebView webView = this.f37172a.get();
             if (webView == null) {
                 return;
             }
-            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f39574b + ",{'r':1,'result':'no such method'})");
+            webView.loadUrl("javascript:window.JsBridge&&JsBridge.callback(" + this.f37173b + ",{'r':1,'result':'no such method'})");
         }
 
         public void a(String str) {
-            WebView webView = this.f39573a.get();
+            WebView webView = this.f37172a.get();
             if (webView != null) {
                 webView.loadUrl("javascript:" + str);
             }
@@ -167,9 +167,9 @@ public class a {
                 return false;
             }
             List<String> subList = arrayList.subList(4, arrayList.size() - 1);
-            C0533a c0533a = new C0533a(webView, 4L, str);
+            C0477a c0477a = new C0477a(webView, 4L, str);
             webView.getUrl();
-            a((String) arrayList.get(2), (String) arrayList.get(3), subList, c0533a);
+            a((String) arrayList.get(2), (String) arrayList.get(3), subList, c0477a);
             return true;
         }
         return false;

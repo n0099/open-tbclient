@@ -68,13 +68,13 @@ public class Camera2Session implements CameraSession {
         public CameraStateCallback() {
         }
 
-        private String getErrorDescription(int i) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                return "Unknown camera error: " + i;
+        private String getErrorDescription(int i2) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 != 4) {
+                            if (i2 != 5) {
+                                return "Unknown camera error: " + i2;
                             }
                             return "Camera service has encountered a fatal error.";
                         }
@@ -108,9 +108,9 @@ public class Camera2Session implements CameraSession {
         }
 
         @Override // android.hardware.camera2.CameraDevice.StateCallback
-        public void onError(CameraDevice cameraDevice, int i) {
+        public void onError(CameraDevice cameraDevice, int i2) {
             Camera2Session.this.checkIsOnCameraThread();
-            Camera2Session.this.reportError(getErrorDescription(i));
+            Camera2Session.this.reportError(getErrorDescription(i2));
         }
 
         @Override // android.hardware.camera2.CameraDevice.StateCallback
@@ -138,17 +138,17 @@ public class Camera2Session implements CameraSession {
             String str;
             int[] iArr = (int[]) Camera2Session.this.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AF_AVAILABLE_MODES);
             int length = iArr.length;
-            int i = 0;
+            int i2 = 0;
             while (true) {
-                if (i >= length) {
+                if (i2 >= length) {
                     str = "Auto-focus is not available.";
                     break;
-                } else if (iArr[i] == 3) {
+                } else if (iArr[i2] == 3) {
                     builder.set(CaptureRequest.CONTROL_AF_MODE, 3);
                     str = "Using continuous video auto-focus.";
                     break;
                 } else {
-                    i++;
+                    i2++;
                 }
             }
             Logging.d(Camera2Session.TAG, str);
@@ -157,10 +157,10 @@ public class Camera2Session implements CameraSession {
         private void chooseStabilizationMode(CaptureRequest.Builder builder) {
             String str;
             int[] iArr = (int[]) Camera2Session.this.cameraCharacteristics.get(CameraCharacteristics.LENS_INFO_AVAILABLE_OPTICAL_STABILIZATION);
-            int i = 0;
+            int i2 = 0;
             if (iArr != null) {
-                for (int i2 : iArr) {
-                    if (i2 == 1) {
+                for (int i3 : iArr) {
+                    if (i3 == 1) {
                         builder.set(CaptureRequest.LENS_OPTICAL_STABILIZATION_MODE, 1);
                         builder.set(CaptureRequest.CONTROL_VIDEO_STABILIZATION_MODE, 0);
                         str = "Using optical stabilization.";
@@ -171,16 +171,16 @@ public class Camera2Session implements CameraSession {
             int[] iArr2 = (int[]) Camera2Session.this.cameraCharacteristics.get(CameraCharacteristics.CONTROL_AVAILABLE_VIDEO_STABILIZATION_MODES);
             int length = iArr2.length;
             while (true) {
-                if (i >= length) {
+                if (i2 >= length) {
                     str = "Stabilization not available.";
                     break;
-                } else if (iArr2[i] == 1) {
+                } else if (iArr2[i2] == 1) {
                     builder.set(CaptureRequest.CONTROL_VIDEO_STABILIZATION_MODE, 1);
                     builder.set(CaptureRequest.LENS_OPTICAL_STABILIZATION_MODE, 0);
                     str = "Using video stabilization.";
                     break;
                 } else {
-                    i++;
+                    i2++;
                 }
             }
             Logging.d(Camera2Session.TAG, str);
@@ -243,7 +243,7 @@ public class Camera2Session implements CameraSession {
         STOPPED
     }
 
-    public Camera2Session(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, CameraManager cameraManager, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3) {
+    public Camera2Session(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, CameraManager cameraManager, SurfaceTextureHelper surfaceTextureHelper, String str, int i2, int i3, int i4) {
         Logging.d(TAG, "Create new camera2 session on camera " + str);
         this.constructionTimeNs = System.nanoTime();
         this.cameraThreadHandler = new Handler();
@@ -253,9 +253,9 @@ public class Camera2Session implements CameraSession {
         this.cameraManager = cameraManager;
         this.surfaceTextureHelper = surfaceTextureHelper;
         this.cameraId = str;
-        this.width = i;
-        this.height = i2;
-        this.framerate = i3;
+        this.width = i2;
+        this.height = i3;
+        this.framerate = i4;
         start();
     }
 
@@ -266,8 +266,8 @@ public class Camera2Session implements CameraSession {
         }
     }
 
-    public static void create(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, CameraManager cameraManager, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3) {
-        new Camera2Session(createSessionCallback, events, context, cameraManager, surfaceTextureHelper, str, i, i2, i3);
+    public static void create(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, CameraManager cameraManager, SurfaceTextureHelper surfaceTextureHelper, String str, int i2, int i3, int i4) {
+        new Camera2Session(createSessionCallback, events, context, cameraManager, surfaceTextureHelper, str, i2, i3, i4);
     }
 
     private void findCaptureFormat() {

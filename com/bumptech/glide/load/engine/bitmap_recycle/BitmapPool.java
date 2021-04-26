@@ -7,10 +7,10 @@ public interface BitmapPool {
     void clearMemory();
 
     @NonNull
-    Bitmap get(int i, int i2, Bitmap.Config config);
+    Bitmap get(int i2, int i3, Bitmap.Config config);
 
     @NonNull
-    Bitmap getDirty(int i, int i2, Bitmap.Config config);
+    Bitmap getDirty(int i2, int i3, Bitmap.Config config);
 
     long getMaxSize();
 
@@ -18,5 +18,5 @@ public interface BitmapPool {
 
     void setSizeMultiplier(float f2);
 
-    void trimMemory(int i);
+    void trimMemory(int i2);
 }

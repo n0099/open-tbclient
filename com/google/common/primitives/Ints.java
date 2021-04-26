@@ -2,7 +2,7 @@ package com.google.common.primitives;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.google.common.base.Converter;
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.Arrays;
@@ -41,8 +41,8 @@ public final class Ints {
                 if (intArrayAsList.size() != size) {
                     return false;
                 }
-                for (int i = 0; i < size; i++) {
-                    if (this.array[this.start + i] != intArrayAsList.array[intArrayAsList.start + i]) {
+                for (int i2 = 0; i2 < size; i2++) {
+                    if (this.array[this.start + i2] != intArrayAsList.array[intArrayAsList.start + i2]) {
                         return false;
                     }
                 }
@@ -53,13 +53,13 @@ public final class Ints {
 
         @Override // java.util.AbstractList, java.util.Collection, java.util.List
         public int hashCode() {
-            int i = 1;
-            for (int i2 = this.start; i2 < this.end; i2++) {
-                int i3 = this.array[i2];
-                Ints.f(i3);
-                i = (i * 31) + i3;
+            int i2 = 1;
+            for (int i3 = this.start; i3 < this.end; i3++) {
+                int i4 = this.array[i3];
+                Ints.f(i4);
+                i2 = (i2 * 31) + i4;
             }
-            return i;
+            return i2;
         }
 
         @Override // java.util.AbstractList, java.util.List
@@ -91,14 +91,14 @@ public final class Ints {
         }
 
         @Override // java.util.AbstractList, java.util.List
-        public List<Integer> subList(int i, int i2) {
-            n.v(i, i2, size());
-            if (i == i2) {
+        public List<Integer> subList(int i2, int i3) {
+            n.v(i2, i3, size());
+            if (i2 == i3) {
                 return Collections.emptyList();
             }
             int[] iArr = this.array;
-            int i3 = this.start;
-            return new IntArrayAsList(iArr, i + i3, i3 + i2);
+            int i4 = this.start;
+            return new IntArrayAsList(iArr, i2 + i4, i4 + i3);
         }
 
         public int[] toIntArray() {
@@ -110,12 +110,12 @@ public final class Ints {
             StringBuilder sb = new StringBuilder(size() * 5);
             sb.append('[');
             sb.append(this.array[this.start]);
-            int i = this.start;
+            int i2 = this.start;
             while (true) {
-                i++;
-                if (i < this.end) {
+                i2++;
+                if (i2 < this.end) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(this.array[i]);
+                    sb.append(this.array[i2]);
                 } else {
                     sb.append(']');
                     return sb.toString();
@@ -123,29 +123,29 @@ public final class Ints {
             }
         }
 
-        public IntArrayAsList(int[] iArr, int i, int i2) {
+        public IntArrayAsList(int[] iArr, int i2, int i3) {
             this.array = iArr;
-            this.start = i;
-            this.end = i2;
+            this.start = i2;
+            this.end = i3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Integer get(int i) {
-            n.n(i, size());
-            return Integer.valueOf(this.array[this.start + i]);
+        public Integer get(int i2) {
+            n.n(i2, size());
+            return Integer.valueOf(this.array[this.start + i2]);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Integer set(int i, Integer num) {
-            n.n(i, size());
+        public Integer set(int i2, Integer num) {
+            n.n(i2, size());
             int[] iArr = this.array;
-            int i2 = this.start;
-            int i3 = iArr[i2 + i];
+            int i3 = this.start;
+            int i4 = iArr[i3 + i2];
             n.p(num);
-            iArr[i2 + i] = num.intValue();
-            return Integer.valueOf(i3);
+            iArr[i3 + i2] = num.intValue();
+            return Integer.valueOf(i4);
         }
     }
 
@@ -188,8 +188,8 @@ public final class Ints {
         @Override // java.util.Comparator
         public int compare(int[] iArr, int[] iArr2) {
             int min = Math.min(iArr.length, iArr2.length);
-            for (int i = 0; i < min; i++) {
-                int d2 = Ints.d(iArr[i], iArr2[i]);
+            for (int i2 = 0; i2 < min; i2++) {
+                int d2 = Ints.d(iArr[i2], iArr2[i2]);
                 if (d2 != 0) {
                     return d2;
                 }
@@ -199,40 +199,40 @@ public final class Ints {
     }
 
     public static int c(long j) {
-        int i = (int) j;
-        n.h(((long) i) == j, "Out of range: %s", j);
-        return i;
+        int i2 = (int) j;
+        n.h(((long) i2) == j, "Out of range: %s", j);
+        return i2;
     }
 
-    public static int d(int i, int i2) {
-        if (i < i2) {
+    public static int d(int i2, int i3) {
+        if (i2 < i3) {
             return -1;
         }
-        return i > i2 ? 1 : 0;
+        return i2 > i3 ? 1 : 0;
     }
 
     public static int e(byte b2, byte b3, byte b4, byte b5) {
         return (b2 << 24) | ((b3 & 255) << 16) | ((b4 & 255) << 8) | (b5 & 255);
     }
 
-    public static int f(int i) {
-        return i;
+    public static int f(int i2) {
+        return i2;
     }
 
-    public static int g(int[] iArr, int i, int i2, int i3) {
-        while (i2 < i3) {
-            if (iArr[i2] == i) {
-                return i2;
+    public static int g(int[] iArr, int i2, int i3, int i4) {
+        while (i3 < i4) {
+            if (iArr[i3] == i2) {
+                return i3;
             }
-            i2++;
+            i3++;
         }
         return -1;
     }
 
-    public static int h(int[] iArr, int i, int i2, int i3) {
-        for (int i4 = i3 - 1; i4 >= i2; i4--) {
-            if (iArr[i4] == i) {
-                return i4;
+    public static int h(int[] iArr, int i2, int i3, int i4) {
+        for (int i5 = i4 - 1; i5 >= i3; i5--) {
+            if (iArr[i5] == i2) {
+                return i5;
             }
         }
         return -1;
@@ -240,13 +240,13 @@ public final class Ints {
 
     public static int i(int... iArr) {
         n.d(iArr.length > 0);
-        int i = iArr[0];
-        for (int i2 = 1; i2 < iArr.length; i2++) {
-            if (iArr[i2] < i) {
-                i = iArr[i2];
+        int i2 = iArr[0];
+        for (int i3 = 1; i3 < iArr.length; i3++) {
+            if (iArr[i3] < i2) {
+                i2 = iArr[i3];
             }
         }
-        return i;
+        return i2;
     }
 
     public static int j(long j) {
@@ -266,10 +266,10 @@ public final class Ints {
         Object[] array = collection.toArray();
         int length = array.length;
         int[] iArr = new int[length];
-        for (int i = 0; i < length; i++) {
-            Object obj = array[i];
+        for (int i2 = 0; i2 < length; i2++) {
+            Object obj = array[i2];
             n.p(obj);
-            iArr[i] = ((Number) obj).intValue();
+            iArr[i2] = ((Number) obj).intValue();
         }
         return iArr;
     }

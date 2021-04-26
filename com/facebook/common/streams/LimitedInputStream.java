@@ -3,18 +3,18 @@ package com.facebook.common.streams;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LimitedInputStream extends FilterInputStream {
     public int mBytesToRead;
     public int mBytesToReadWhenMarked;
 
-    public LimitedInputStream(InputStream inputStream, int i) {
+    public LimitedInputStream(InputStream inputStream, int i2) {
         super(inputStream);
         if (inputStream == null) {
             throw null;
         }
-        if (i >= 0) {
-            this.mBytesToRead = i;
+        if (i2 >= 0) {
+            this.mBytesToRead = i2;
             this.mBytesToReadWhenMarked = -1;
             return;
         }
@@ -27,9 +27,9 @@ public class LimitedInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public void mark(int i) {
+    public void mark(int i2) {
         if (((FilterInputStream) this).in.markSupported()) {
-            ((FilterInputStream) this).in.mark(i);
+            ((FilterInputStream) this).in.mark(i2);
             this.mBytesToReadWhenMarked = this.mBytesToRead;
         }
     }
@@ -67,12 +67,12 @@ public class LimitedInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        int i3 = this.mBytesToRead;
-        if (i3 == 0) {
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
+        int i4 = this.mBytesToRead;
+        if (i4 == 0) {
             return -1;
         }
-        int read = ((FilterInputStream) this).in.read(bArr, i, Math.min(i2, i3));
+        int read = ((FilterInputStream) this).in.read(bArr, i2, Math.min(i3, i4));
         if (read > 0) {
             this.mBytesToRead -= read;
         }

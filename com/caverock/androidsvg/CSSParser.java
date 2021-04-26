@@ -12,16 +12,16 @@ import java.util.List;
 import java.util.Locale;
 import kotlin.text.Typography;
 import org.xml.sax.SAXException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CSSParser {
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaType f30221a;
+    public MediaType f31140a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f30222b = false;
+    public boolean f31141b = false;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum AttribOp {
         EXISTS,
         EQUALS,
@@ -29,14 +29,14 @@ public class CSSParser {
         DASHMATCH
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum Combinator {
         DESCENDANT,
         CHILD,
         FOLLOWS
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum MediaType {
         all,
         aural,
@@ -50,76 +50,76 @@ public class CSSParser {
         tv
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30224a;
+        public static final /* synthetic */ int[] f31143a;
 
         static {
             int[] iArr = new int[AttribOp.values().length];
-            f30224a = iArr;
+            f31143a = iArr;
             try {
                 iArr[AttribOp.EQUALS.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f30224a[AttribOp.INCLUDES.ordinal()] = 2;
+                f31143a[AttribOp.INCLUDES.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f30224a[AttribOp.DASHMATCH.ordinal()] = 3;
+                f31143a[AttribOp.DASHMATCH.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f30225a;
+        public String f31144a;
 
         /* renamed from: b  reason: collision with root package name */
-        public AttribOp f30226b;
+        public AttribOp f31145b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f30227c;
+        public String f31146c;
 
         public b(String str, AttribOp attribOp, String str2) {
-            this.f30225a = null;
-            this.f30227c = null;
-            this.f30225a = str;
-            this.f30226b = attribOp;
-            this.f30227c = str2;
+            this.f31144a = null;
+            this.f31146c = null;
+            this.f31144a = str;
+            this.f31145b = attribOp;
+            this.f31146c = str2;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class c extends SVGParser.f {
         public c(String str) {
             super(str.replaceAll("(?s)/\\*.*?\\*/", ""));
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:85:0x0156, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:85:0x0154, code lost:
             if (r4 == null) goto L81;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:86:0x0158, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:86:0x0156, code lost:
             r11.a(r4);
          */
-        /* JADX WARN: Code restructure failed: missing block: B:87:0x015b, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:87:0x0159, code lost:
             return true;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:88:0x015c, code lost:
-            r10.f30305b = r0;
+        /* JADX WARN: Code restructure failed: missing block: B:88:0x015a, code lost:
+            r10.f31229b = r0;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:89:0x015e, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:89:0x015c, code lost:
             return false;
          */
         /* JADX WARN: Removed duplicated region for block: B:16:0x0036  */
         /* JADX WARN: Removed duplicated region for block: B:17:0x003c  */
         /* JADX WARN: Removed duplicated region for block: B:23:0x0054  */
-        /* JADX WARN: Removed duplicated region for block: B:90:0x0156 A[EDGE_INSN: B:90:0x0156->B:85:0x0156 ?: BREAK  , SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:90:0x0154 A[EDGE_INSN: B:90:0x0154->B:85:0x0154 ?: BREAK  , SYNTHETIC] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -131,7 +131,7 @@ public class CSSParser {
             if (g()) {
                 return false;
             }
-            int i = this.f30305b;
+            int i2 = this.f31229b;
             if (!fVar.f()) {
                 if (e(Typography.greater)) {
                     combinator = Combinator.CHILD;
@@ -185,7 +185,7 @@ public class CSSParser {
                                 String y4 = y();
                                 if (y4 != null) {
                                     w();
-                                    if (e(com.alipay.sdk.encrypt.a.f1922h)) {
+                                    if (e(com.alipay.sdk.encrypt.a.f1873h)) {
                                         attribOp = AttribOp.EQUALS;
                                     } else if (f("~=")) {
                                         attribOp = AttribOp.INCLUDES;
@@ -216,18 +216,18 @@ public class CSSParser {
                                     throw new SAXException("Invalid attribute selector in <style> element");
                                 }
                             } else if (e(':')) {
-                                int i2 = this.f30305b;
+                                int i3 = this.f31229b;
                                 if (y() != null) {
                                     if (e('(')) {
                                         w();
                                         if (y() != null) {
                                             w();
                                             if (!e(')')) {
-                                                this.f30305b = i2 - 1;
+                                                this.f31229b = i3 - 1;
                                             }
                                         }
                                     }
-                                    gVar.b(this.f30304a.substring(i2, this.f30305b));
+                                    gVar.b(this.f31228a.substring(i3, this.f31229b));
                                     fVar.b();
                                 }
                             }
@@ -247,17 +247,17 @@ public class CSSParser {
         }
 
         public final int B() {
-            int i;
+            int i2;
             if (g()) {
-                return this.f30305b;
+                return this.f31229b;
             }
-            int i2 = this.f30305b;
-            int charAt = this.f30304a.charAt(i2);
+            int i3 = this.f31229b;
+            int charAt = this.f31228a.charAt(i3);
             if (charAt == 45) {
                 charAt = a();
             }
             if ((charAt < 65 || charAt > 90) && ((charAt < 97 || charAt > 122) && charAt != 95)) {
-                i = i2;
+                i2 = i3;
             } else {
                 int a2 = a();
                 while (true) {
@@ -266,10 +266,10 @@ public class CSSParser {
                     }
                     a2 = a();
                 }
-                i = this.f30305b;
+                i2 = this.f31229b;
             }
-            this.f30305b = i2;
-            return i;
+            this.f31229b = i3;
+            return i2;
         }
 
         public final String x() {
@@ -282,12 +282,12 @@ public class CSSParser {
 
         public String y() {
             int B = B();
-            int i = this.f30305b;
-            if (B == i) {
+            int i2 = this.f31229b;
+            if (B == i2) {
                 return null;
             }
-            String substring = this.f30304a.substring(i, B);
-            this.f30305b = B;
+            String substring = this.f31228a.substring(i2, B);
+            this.f31229b = B;
             return substring;
         }
 
@@ -295,90 +295,90 @@ public class CSSParser {
             if (g()) {
                 return null;
             }
-            int i = this.f30305b;
-            int charAt = this.f30304a.charAt(i);
-            int i2 = i;
+            int i2 = this.f31229b;
+            int charAt = this.f31228a.charAt(i2);
+            int i3 = i2;
             while (charAt != -1 && charAt != 59 && charAt != 125 && charAt != 33 && !i(charAt)) {
                 if (!j(charAt)) {
-                    i2 = this.f30305b + 1;
+                    i3 = this.f31229b + 1;
                 }
                 charAt = a();
             }
-            if (this.f30305b > i) {
-                return this.f30304a.substring(i, i2);
+            if (this.f31229b > i2) {
+                return this.f31228a.substring(i2, i3);
             }
-            this.f30305b = i;
+            this.f31229b = i2;
             return null;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public f f30228a;
+        public f f31147a;
 
         /* renamed from: b  reason: collision with root package name */
-        public SVG.Style f30229b;
+        public SVG.Style f31148b;
 
         public d(f fVar, SVG.Style style) {
-            this.f30228a = null;
-            this.f30229b = null;
-            this.f30228a = fVar;
-            this.f30229b = style;
+            this.f31147a = null;
+            this.f31148b = null;
+            this.f31147a = fVar;
+            this.f31148b = style;
         }
 
         public String toString() {
-            return this.f30228a + " {}";
+            return this.f31147a + " {}";
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<d> f30230a = null;
+        public List<d> f31149a = null;
 
         public void a(d dVar) {
-            if (this.f30230a == null) {
-                this.f30230a = new ArrayList();
+            if (this.f31149a == null) {
+                this.f31149a = new ArrayList();
             }
-            for (int i = 0; i < this.f30230a.size(); i++) {
-                if (this.f30230a.get(i).f30228a.f30232b > dVar.f30228a.f30232b) {
-                    this.f30230a.add(i, dVar);
+            for (int i2 = 0; i2 < this.f31149a.size(); i2++) {
+                if (this.f31149a.get(i2).f31147a.f31151b > dVar.f31147a.f31151b) {
+                    this.f31149a.add(i2, dVar);
                     return;
                 }
             }
-            this.f30230a.add(dVar);
+            this.f31149a.add(dVar);
         }
 
         public void b(e eVar) {
-            if (eVar.f30230a == null) {
+            if (eVar.f31149a == null) {
                 return;
             }
-            if (this.f30230a == null) {
-                this.f30230a = new ArrayList(eVar.f30230a.size());
+            if (this.f31149a == null) {
+                this.f31149a = new ArrayList(eVar.f31149a.size());
             }
-            for (d dVar : eVar.f30230a) {
-                this.f30230a.add(dVar);
+            for (d dVar : eVar.f31149a) {
+                this.f31149a.add(dVar);
             }
         }
 
         public List<d> c() {
-            return this.f30230a;
+            return this.f31149a;
         }
 
         public boolean d() {
-            List<d> list = this.f30230a;
+            List<d> list = this.f31149a;
             return list == null || list.isEmpty();
         }
 
         public String toString() {
-            if (this.f30230a == null) {
+            if (this.f31149a == null) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (d dVar : this.f30230a) {
+            for (d dVar : this.f31149a) {
                 sb.append(dVar.toString());
                 sb.append('\n');
             }
@@ -386,40 +386,40 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<g> f30231a = null;
+        public List<g> f31150a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f30232b = 0;
+        public int f31151b = 0;
 
         public void a(g gVar) {
-            if (this.f30231a == null) {
-                this.f30231a = new ArrayList();
+            if (this.f31150a == null) {
+                this.f31150a = new ArrayList();
             }
-            this.f30231a.add(gVar);
+            this.f31150a.add(gVar);
         }
 
         public void b() {
-            this.f30232b += 100;
+            this.f31151b += 100;
         }
 
         public void c() {
-            this.f30232b++;
+            this.f31151b++;
         }
 
         public void d() {
-            this.f30232b += 10000;
+            this.f31151b += 10000;
         }
 
-        public g e(int i) {
-            return this.f30231a.get(i);
+        public g e(int i2) {
+            return this.f31150a.get(i2);
         }
 
         public boolean f() {
-            List<g> list = this.f30231a;
+            List<g> list = this.f31150a;
             if (list == null) {
                 return true;
             }
@@ -427,7 +427,7 @@ public class CSSParser {
         }
 
         public int g() {
-            List<g> list = this.f30231a;
+            List<g> list = this.f31150a;
             if (list == null) {
                 return 0;
             }
@@ -436,86 +436,86 @@ public class CSSParser {
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            for (g gVar : this.f30231a) {
+            for (g gVar : this.f31150a) {
                 sb.append(gVar);
                 sb.append(' ');
             }
             sb.append('(');
-            sb.append(this.f30232b);
+            sb.append(this.f31151b);
             sb.append(')');
             return sb.toString();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public Combinator f30233a;
+        public Combinator f31152a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f30234b;
+        public String f31153b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<b> f30235c = null;
+        public List<b> f31154c = null;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<String> f30236d = null;
+        public List<String> f31155d = null;
 
         public g(Combinator combinator, String str) {
-            this.f30233a = null;
-            this.f30234b = null;
-            this.f30233a = combinator == null ? Combinator.DESCENDANT : combinator;
-            this.f30234b = str;
+            this.f31152a = null;
+            this.f31153b = null;
+            this.f31152a = combinator == null ? Combinator.DESCENDANT : combinator;
+            this.f31153b = str;
         }
 
         public void a(String str, AttribOp attribOp, String str2) {
-            if (this.f30235c == null) {
-                this.f30235c = new ArrayList();
+            if (this.f31154c == null) {
+                this.f31154c = new ArrayList();
             }
-            this.f30235c.add(new b(str, attribOp, str2));
+            this.f31154c.add(new b(str, attribOp, str2));
         }
 
         public void b(String str) {
-            if (this.f30236d == null) {
-                this.f30236d = new ArrayList();
+            if (this.f31155d == null) {
+                this.f31155d = new ArrayList();
             }
-            this.f30236d.add(str);
+            this.f31155d.add(str);
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            Combinator combinator = this.f30233a;
+            Combinator combinator = this.f31152a;
             if (combinator == Combinator.CHILD) {
                 sb.append("> ");
             } else if (combinator == Combinator.FOLLOWS) {
                 sb.append("+ ");
             }
-            String str = this.f30234b;
+            String str = this.f31153b;
             if (str == null) {
                 str = "*";
             }
             sb.append(str);
-            List<b> list = this.f30235c;
+            List<b> list = this.f31154c;
             if (list != null) {
                 for (b bVar : list) {
                     sb.append('[');
-                    sb.append(bVar.f30225a);
-                    int i = a.f30224a[bVar.f30226b.ordinal()];
-                    if (i == 1) {
-                        sb.append(com.alipay.sdk.encrypt.a.f1922h);
-                        sb.append(bVar.f30227c);
-                    } else if (i == 2) {
+                    sb.append(bVar.f31144a);
+                    int i2 = a.f31143a[bVar.f31145b.ordinal()];
+                    if (i2 == 1) {
+                        sb.append(com.alipay.sdk.encrypt.a.f1873h);
+                        sb.append(bVar.f31146c);
+                    } else if (i2 == 2) {
                         sb.append("~=");
-                        sb.append(bVar.f30227c);
-                    } else if (i == 3) {
+                        sb.append(bVar.f31146c);
+                    } else if (i2 == 3) {
                         sb.append("|=");
-                        sb.append(bVar.f30227c);
+                        sb.append(bVar.f31146c);
                     }
                     sb.append(']');
                 }
             }
-            List<String> list2 = this.f30236d;
+            List<String> list2 = this.f31155d;
             if (list2 != null) {
                 for (String str2 : list2) {
                     sb.append(':');
@@ -527,25 +527,25 @@ public class CSSParser {
     }
 
     public CSSParser(MediaType mediaType) {
-        this.f30221a = null;
-        this.f30221a = mediaType;
+        this.f31140a = null;
+        this.f31140a = mediaType;
     }
 
-    public static int a(List<SVG.h0> list, int i, SVG.j0 j0Var) {
-        if (i < 0) {
+    public static int a(List<SVG.h0> list, int i2, SVG.j0 j0Var) {
+        if (i2 < 0) {
             return -1;
         }
-        SVG.h0 h0Var = list.get(i);
-        SVG.h0 h0Var2 = j0Var.f30273b;
+        SVG.h0 h0Var = list.get(i2);
+        SVG.h0 h0Var2 = j0Var.f31196b;
         if (h0Var != h0Var2) {
             return -1;
         }
-        int i2 = 0;
-        for (SVG.l0 l0Var : h0Var2.a()) {
+        int i3 = 0;
+        for (SVG.l0 l0Var : h0Var2.getChildren()) {
             if (l0Var == j0Var) {
-                return i2;
+                return i3;
             }
-            i2++;
+            i3++;
         }
         return -1;
     }
@@ -605,29 +605,29 @@ public class CSSParser {
         return arrayList;
     }
 
-    public static boolean l(f fVar, int i, List<SVG.h0> list, int i2, SVG.j0 j0Var) {
-        g e2 = fVar.e(i);
-        if (o(e2, list, i2, j0Var)) {
-            Combinator combinator = e2.f30233a;
+    public static boolean l(f fVar, int i2, List<SVG.h0> list, int i3, SVG.j0 j0Var) {
+        g e2 = fVar.e(i2);
+        if (o(e2, list, i3, j0Var)) {
+            Combinator combinator = e2.f31152a;
             if (combinator == Combinator.DESCENDANT) {
-                if (i == 0) {
+                if (i2 == 0) {
                     return true;
                 }
-                while (i2 >= 0) {
-                    if (n(fVar, i - 1, list, i2)) {
+                while (i3 >= 0) {
+                    if (n(fVar, i2 - 1, list, i3)) {
                         return true;
                     }
-                    i2--;
+                    i3--;
                 }
                 return false;
             } else if (combinator == Combinator.CHILD) {
-                return n(fVar, i - 1, list, i2);
+                return n(fVar, i2 - 1, list, i3);
             } else {
-                int a2 = a(list, i2, j0Var);
+                int a2 = a(list, i3, j0Var);
                 if (a2 <= 0) {
                     return false;
                 }
-                return l(fVar, i - 1, list, i2, (SVG.j0) j0Var.f30273b.a().get(a2 - 1));
+                return l(fVar, i2 - 1, list, i3, (SVG.j0) j0Var.f31196b.getChildren().get(a2 - 1));
             }
         }
         return false;
@@ -635,7 +635,7 @@ public class CSSParser {
 
     public static boolean m(f fVar, SVG.j0 j0Var) {
         ArrayList arrayList = new ArrayList();
-        for (SVG.h0 h0Var = j0Var.f30273b; h0Var != null; h0Var = ((SVG.l0) h0Var).f30273b) {
+        for (SVG.h0 h0Var = j0Var.f31196b; h0Var != null; h0Var = ((SVG.l0) h0Var).f31196b) {
             arrayList.add(0, h0Var);
         }
         int size = arrayList.size() - 1;
@@ -645,30 +645,30 @@ public class CSSParser {
         return l(fVar, fVar.g() - 1, arrayList, size, j0Var);
     }
 
-    public static boolean n(f fVar, int i, List<SVG.h0> list, int i2) {
-        g e2 = fVar.e(i);
-        SVG.j0 j0Var = (SVG.j0) list.get(i2);
-        if (o(e2, list, i2, j0Var)) {
-            Combinator combinator = e2.f30233a;
+    public static boolean n(f fVar, int i2, List<SVG.h0> list, int i3) {
+        g e2 = fVar.e(i2);
+        SVG.j0 j0Var = (SVG.j0) list.get(i3);
+        if (o(e2, list, i3, j0Var)) {
+            Combinator combinator = e2.f31152a;
             if (combinator == Combinator.DESCENDANT) {
-                if (i == 0) {
+                if (i2 == 0) {
                     return true;
                 }
-                while (i2 > 0) {
-                    i2--;
-                    if (n(fVar, i - 1, list, i2)) {
+                while (i3 > 0) {
+                    i3--;
+                    if (n(fVar, i2 - 1, list, i3)) {
                         return true;
                     }
                 }
                 return false;
             } else if (combinator == Combinator.CHILD) {
-                return n(fVar, i - 1, list, i2 - 1);
+                return n(fVar, i2 - 1, list, i3 - 1);
             } else {
-                int a2 = a(list, i2, j0Var);
+                int a2 = a(list, i3, j0Var);
                 if (a2 <= 0) {
                     return false;
                 }
-                return l(fVar, i - 1, list, i2, (SVG.j0) j0Var.f30273b.a().get(a2 - 1));
+                return l(fVar, i2 - 1, list, i3, (SVG.j0) j0Var.f31196b.getChildren().get(a2 - 1));
             }
         }
         return false;
@@ -678,35 +678,35 @@ public class CSSParser {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean o(g gVar, List<SVG.h0> list, int i, SVG.j0 j0Var) {
+    public static boolean o(g gVar, List<SVG.h0> list, int i2, SVG.j0 j0Var) {
         List<String> list2;
-        String str = gVar.f30234b;
+        String str = gVar.f31153b;
         if (str != null) {
             if (str.equalsIgnoreCase("G")) {
                 if (!(j0Var instanceof SVG.l)) {
                     return false;
                 }
-            } else if (!gVar.f30234b.equals(j0Var.getClass().getSimpleName().toLowerCase(Locale.US))) {
+            } else if (!gVar.f31153b.equals(j0Var.getClass().getSimpleName().toLowerCase(Locale.US))) {
                 return false;
             }
         }
-        List<b> list3 = gVar.f30235c;
+        List<b> list3 = gVar.f31154c;
         if (list3 != null) {
             for (b bVar : list3) {
-                String str2 = bVar.f30225a;
+                String str2 = bVar.f31144a;
                 if (str2 == "id") {
-                    if (!bVar.f30227c.equals(j0Var.f30267c)) {
+                    if (!bVar.f31146c.equals(j0Var.f31190c)) {
                         return false;
                     }
-                } else if (str2 != DealIntentService.KEY_CLASS || (list2 = j0Var.f30271g) == null || !list2.contains(bVar.f30227c)) {
+                } else if (str2 != DealIntentService.KEY_CLASS || (list2 = j0Var.f31194g) == null || !list2.contains(bVar.f31146c)) {
                     return false;
                 }
             }
         }
-        List<String> list4 = gVar.f30236d;
+        List<String> list4 = gVar.f31155d;
         if (list4 != null) {
             for (String str3 : list4) {
-                if (!str3.equals("first-child") || a(list, i, j0Var) != 0) {
+                if (!str3.equals("first-child") || a(list, i2, j0Var) != 0) {
                     return false;
                 }
                 while (r5.hasNext()) {
@@ -731,14 +731,14 @@ public class CSSParser {
         String y = cVar.y();
         cVar.w();
         if (y != null) {
-            if (!this.f30222b && y.equals(VodClient.PATH_MEDIA)) {
+            if (!this.f31141b && y.equals(VodClient.PATH_MEDIA)) {
                 List<MediaType> h2 = h(cVar);
                 if (cVar.e('{')) {
                     cVar.w();
-                    if (c(h2, this.f30221a)) {
-                        this.f30222b = true;
+                    if (c(h2, this.f31140a)) {
+                        this.f31141b = true;
                         eVar.b(j(cVar));
-                        this.f30222b = false;
+                        this.f31141b = false;
                     } else {
                         j(cVar);
                     }
@@ -840,15 +840,15 @@ public class CSSParser {
     }
 
     public final void p(c cVar) {
-        int i = 0;
+        int i2 = 0;
         while (!cVar.g()) {
             int intValue = cVar.k().intValue();
-            if (intValue == 59 && i == 0) {
+            if (intValue == 59 && i2 == 0) {
                 return;
             }
             if (intValue == 123) {
-                i++;
-            } else if (intValue == 125 && i > 0 && i - 1 == 0) {
+                i2++;
+            } else if (intValue == 125 && i2 > 0 && i2 - 1 == 0) {
                 return;
             }
         }

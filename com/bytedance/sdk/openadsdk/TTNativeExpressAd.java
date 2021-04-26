@@ -17,11 +17,11 @@ public interface TTNativeExpressAd {
 
     /* loaded from: classes5.dex */
     public interface ExpressAdInteractionListener {
-        void onAdClicked(View view, int i);
+        void onAdClicked(View view, int i2);
 
-        void onAdShow(View view, int i);
+        void onAdShow(View view, int i2);
 
-        void onRenderFail(View view, String str, int i);
+        void onRenderFail(View view, String str, int i2);
 
         void onRenderSuccess(View view, float f2, float f3);
     }
@@ -40,7 +40,7 @@ public interface TTNativeExpressAd {
 
         void onVideoAdStartPlay();
 
-        void onVideoError(int i, int i2);
+        void onVideoError(int i2, int i3);
 
         void onVideoLoad();
     }
@@ -77,7 +77,7 @@ public interface TTNativeExpressAd {
 
     void setExpressInteractionListener(ExpressAdInteractionListener expressAdInteractionListener);
 
-    void setSlideIntervalTime(int i);
+    void setSlideIntervalTime(int i2);
 
     void setVideoAdListener(ExpressVideoAdListener expressVideoAdListener);
 

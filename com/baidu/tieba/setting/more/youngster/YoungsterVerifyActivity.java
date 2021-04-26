@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.atomData.YoungsterVerifyActivityConfig;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.hybrid.BridgeWebView;
 import com.baidu.tieba.setting.more.youngster.model.YoungsterVerifyModel;
-import d.b.i0.l.e;
-/* loaded from: classes4.dex */
+import d.a.i0.l.e;
+/* loaded from: classes5.dex */
 public class YoungsterVerifyActivity extends TbWebViewActivity {
     public int from;
     public YoungsterVerifyModel youngsterVerifyModel;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements YoungsterVerifyModel.b {
         public a() {
         }
@@ -44,7 +44,7 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends TbWebViewActivity.t {
         public b() {
             super();
@@ -72,8 +72,8 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
     }
 
     @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         e eVar = this.mView;
         if (eVar != null) {
             eVar.E();

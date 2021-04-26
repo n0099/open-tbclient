@@ -10,18 +10,18 @@ public class IntHashMap {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f31454a;
+        public int f32323a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Object f31455b;
+        public Object f32324b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a f31456c;
+        public a f32325c;
 
-        public a(int i, int i2, Object obj, a aVar) {
-            this.f31454a = i;
-            this.f31455b = obj;
-            this.f31456c = aVar;
+        public a(int i2, int i3, Object obj, a aVar) {
+            this.f32323a = i2;
+            this.f32324b = obj;
+            this.f32325c = aVar;
         }
     }
 
@@ -47,26 +47,26 @@ public class IntHashMap {
             a[] aVarArr = this.table;
             int length = aVarArr.length;
             while (true) {
-                int i = length - 1;
+                int i2 = length - 1;
                 if (length <= 0) {
                     return false;
                 }
-                for (a aVar = aVarArr[i]; aVar != null; aVar = aVar.f31456c) {
-                    if (aVar.f31455b.equals(obj)) {
+                for (a aVar = aVarArr[i2]; aVar != null; aVar = aVar.f32325c) {
+                    if (aVar.f32324b.equals(obj)) {
                         return true;
                     }
                 }
-                length = i;
+                length = i2;
             }
         } else {
             throw null;
         }
     }
 
-    public boolean containsKey(int i) {
+    public boolean containsKey(int i2) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.f31456c) {
-            if (aVar.f31454a == i) {
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i2) % aVarArr.length]; aVar != null; aVar = aVar.f32325c) {
+            if (aVar.f32323a == i2) {
                 return true;
             }
         }
@@ -77,11 +77,11 @@ public class IntHashMap {
         return contains(obj);
     }
 
-    public Object get(int i) {
+    public Object get(int i2) {
         a[] aVarArr = this.table;
-        for (a aVar = aVarArr[(Integer.MAX_VALUE & i) % aVarArr.length]; aVar != null; aVar = aVar.f31456c) {
-            if (aVar.f31454a == i) {
-                return aVar.f31455b;
+        for (a aVar = aVarArr[(Integer.MAX_VALUE & i2) % aVarArr.length]; aVar != null; aVar = aVar.f32325c) {
+            if (aVar.f32323a == i2) {
+                return aVar.f32324b;
             }
         }
         return null;
@@ -91,23 +91,23 @@ public class IntHashMap {
         return this.count == 0;
     }
 
-    public Object put(int i, Object obj) {
+    public Object put(int i2, Object obj) {
         a[] aVarArr = this.table;
-        int i2 = Integer.MAX_VALUE & i;
-        int length = i2 % aVarArr.length;
-        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.f31456c) {
-            if (aVar.f31454a == i) {
-                Object obj2 = aVar.f31455b;
-                aVar.f31455b = obj;
+        int i3 = Integer.MAX_VALUE & i2;
+        int length = i3 % aVarArr.length;
+        for (a aVar = aVarArr[length]; aVar != null; aVar = aVar.f32325c) {
+            if (aVar.f32323a == i2) {
+                Object obj2 = aVar.f32324b;
+                aVar.f32324b = obj;
                 return obj2;
             }
         }
         if (this.count >= this.threshold) {
             rehash();
             aVarArr = this.table;
-            length = i2 % aVarArr.length;
+            length = i3 % aVarArr.length;
         }
-        aVarArr[length] = new a(i, i, obj, aVarArr[length]);
+        aVarArr[length] = new a(i2, i2, obj, aVarArr[length]);
         this.count++;
         return null;
     }
@@ -115,41 +115,41 @@ public class IntHashMap {
     public void rehash() {
         a[] aVarArr = this.table;
         int length = aVarArr.length;
-        int i = (length * 2) + 1;
-        a[] aVarArr2 = new a[i];
-        this.threshold = (int) (i * this.loadFactor);
+        int i2 = (length * 2) + 1;
+        a[] aVarArr2 = new a[i2];
+        this.threshold = (int) (i2 * this.loadFactor);
         this.table = aVarArr2;
         while (true) {
-            int i2 = length - 1;
+            int i3 = length - 1;
             if (length <= 0) {
                 return;
             }
-            a aVar = aVarArr[i2];
+            a aVar = aVarArr[i3];
             while (aVar != null) {
-                a aVar2 = aVar.f31456c;
-                int i3 = (aVar.f31454a & Integer.MAX_VALUE) % i;
-                aVar.f31456c = aVarArr2[i3];
-                aVarArr2[i3] = aVar;
+                a aVar2 = aVar.f32325c;
+                int i4 = (aVar.f32323a & Integer.MAX_VALUE) % i2;
+                aVar.f32325c = aVarArr2[i4];
+                aVarArr2[i4] = aVar;
                 aVar = aVar2;
             }
-            length = i2;
+            length = i3;
         }
     }
 
-    public Object remove(int i) {
+    public Object remove(int i2) {
         a[] aVarArr = this.table;
-        int length = (Integer.MAX_VALUE & i) % aVarArr.length;
+        int length = (Integer.MAX_VALUE & i2) % aVarArr.length;
         a aVar = null;
-        for (a aVar2 = aVarArr[length]; aVar2 != null; aVar2 = aVar2.f31456c) {
-            if (aVar2.f31454a == i) {
+        for (a aVar2 = aVarArr[length]; aVar2 != null; aVar2 = aVar2.f32325c) {
+            if (aVar2.f32323a == i2) {
                 if (aVar != null) {
-                    aVar.f31456c = aVar2.f31456c;
+                    aVar.f32325c = aVar2.f32325c;
                 } else {
-                    aVarArr[length] = aVar2.f31456c;
+                    aVarArr[length] = aVar2.f32325c;
                 }
                 this.count--;
-                Object obj = aVar2.f31455b;
-                aVar2.f31455b = null;
+                Object obj = aVar2.f32324b;
+                aVar2.f32324b = null;
                 return obj;
             }
             aVar = aVar2;
@@ -161,18 +161,18 @@ public class IntHashMap {
         return this.count;
     }
 
-    public IntHashMap(int i) {
-        this(i, 0.75f);
+    public IntHashMap(int i2) {
+        this(i2, 0.75f);
     }
 
-    public IntHashMap(int i, float f2) {
-        if (i < 0) {
-            throw new IllegalArgumentException("Illegal Capacity: " + i);
+    public IntHashMap(int i2, float f2) {
+        if (i2 < 0) {
+            throw new IllegalArgumentException("Illegal Capacity: " + i2);
         } else if (f2 > 0.0f) {
-            i = i == 0 ? 1 : i;
+            i2 = i2 == 0 ? 1 : i2;
             this.loadFactor = f2;
-            this.table = new a[i];
-            this.threshold = (int) (i * f2);
+            this.table = new a[i2];
+            this.threshold = (int) (i2 * f2);
         } else {
             throw new IllegalArgumentException("Illegal Load: " + f2);
         }

@@ -2,6 +2,8 @@ package org.apache.commons.codec.digest4util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Locale;
+@Deprecated
 /* loaded from: classes7.dex */
 public class Sha256Utils {
     public static String toHash(byte[] bArr, boolean z) {
@@ -20,7 +22,7 @@ public class Sha256Utils {
         for (byte b2 : bArr) {
             String hexString = Integer.toHexString(b2 & 255);
             if (z) {
-                hexString = hexString.toUpperCase();
+                hexString = hexString.toUpperCase(Locale.getDefault());
             }
             if (hexString.length() == 1) {
                 sb.append("0");

@@ -1,13 +1,13 @@
 package com.baidu.tbadk.mvc.message;
 
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import d.b.i0.g0.b.h;
+import d.a.i0.g0.b.h;
 /* loaded from: classes3.dex */
 public abstract class MvcHttpResponsedMessage<D extends h> extends TbHttpResponsedMessage {
     public D data;
 
-    public MvcHttpResponsedMessage(int i) {
-        super(i);
+    public MvcHttpResponsedMessage(int i2) {
+        super(i2);
     }
 
     public Object createData(Class<?> cls) {

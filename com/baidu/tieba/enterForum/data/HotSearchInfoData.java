@@ -7,10 +7,10 @@ import tbclient.ForumRecommend.SearchValue;
 public class HotSearchInfoData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f15047e;
+    public String f15168e;
 
     public String s() {
-        return this.f15047e;
+        return this.f15168e;
     }
 
     public void t(HotSearch hotSearch) {
@@ -18,7 +18,7 @@ public class HotSearchInfoData extends OrmObject {
         if (hotSearch == null || (searchValue = hotSearch.search_value) == null) {
             return;
         }
-        this.f15047e = hotSearch.search_title;
+        this.f15168e = hotSearch.search_title;
         searchValue.id.longValue();
         SearchValue searchValue2 = hotSearch.search_value;
         String str = searchValue2.name;

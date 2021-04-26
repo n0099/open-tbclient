@@ -12,5 +12,5 @@ public interface BIMRtcTokenListener {
         public long useId = -1;
     }
 
-    void onResult(int i, String str, @NonNull BIMRTCGetTokeResult bIMRTCGetTokeResult);
+    void onResult(int i2, String str, @NonNull BIMRTCGetTokeResult bIMRTCGetTokeResult);
 }

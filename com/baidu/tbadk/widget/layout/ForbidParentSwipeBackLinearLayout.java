@@ -28,7 +28,7 @@ public class ForbidParentSwipeBackLinearLayout extends LinearLayout {
         super(context, attributeSet);
     }
 
-    public ForbidParentSwipeBackLinearLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public ForbidParentSwipeBackLinearLayout(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

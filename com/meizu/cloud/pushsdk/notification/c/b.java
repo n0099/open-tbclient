@@ -15,56 +15,56 @@ import java.util.concurrent.ConcurrentHashMap;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Field f38235a;
+    public static Field f35794a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Field f38236b;
+    public static Field f35795b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Field f38237c;
+    public static Field f35796c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Object f38238d = new Object();
+    public static Object f35797d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public static Map<String, Set<String>> f38239e = new ConcurrentHashMap();
+    public static Map<String, Set<String>> f35798e = new ConcurrentHashMap();
 
     static {
         try {
-            f38235a = Notification.class.getDeclaredField("mFlymeNotification");
+            f35794a = Notification.class.getDeclaredField("mFlymeNotification");
             Field declaredField = Class.forName("android.app.NotificationExt").getDeclaredField("internalApp");
-            f38236b = declaredField;
+            f35795b = declaredField;
             declaredField.setAccessible(true);
             Field declaredField2 = Notification.class.getDeclaredField("replyIntent");
-            f38237c = declaredField2;
+            f35796c = declaredField2;
             declaredField2.setAccessible(true);
         } catch (ClassNotFoundException e2) {
             e2.printStackTrace();
         } catch (NoSuchFieldException e3) {
-            d.k.a.a.a.b("NotificationUtils", "init NotificationUtils error " + e3.getMessage());
+            d.j.a.a.a.b("NotificationUtils", "init NotificationUtils error " + e3.getMessage());
         }
     }
 
     public static void a(Notification notification, PendingIntent pendingIntent) {
-        Field field = f38237c;
+        Field field = f35796c;
         if (field != null) {
             try {
                 field.set(notification, pendingIntent);
             } catch (IllegalAccessException e2) {
-                d.k.a.a.a.b("NotificationUtils", "setReplyIntent error " + e2.getMessage());
+                d.j.a.a.a.b("NotificationUtils", "setReplyIntent error " + e2.getMessage());
             }
         }
     }
 
     public static void a(Notification notification, boolean z) {
-        Field field = f38235a;
-        if (field == null || f38236b == null) {
+        Field field = f35794a;
+        if (field == null || f35795b == null) {
             return;
         }
         try {
-            f38236b.set(field.get(notification), Integer.valueOf(z ? 1 : 0));
+            f35795b.set(field.get(notification), Integer.valueOf(z ? 1 : 0));
         } catch (IllegalAccessException e2) {
-            d.k.a.a.a.b("NotificationUtils", "setInternalApp error " + e2.getMessage());
+            d.j.a.a.a.b("NotificationUtils", "setInternalApp error " + e2.getMessage());
         }
     }
 
@@ -78,57 +78,57 @@ public class b {
     public static void a(Context context, String str) {
         Set<String> set;
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
-        if (notificationManager == null || TextUtils.isEmpty(str) || (set = f38239e.get(str)) == null) {
+        if (notificationManager == null || TextUtils.isEmpty(str) || (set = f35798e.get(str)) == null) {
             return;
         }
         for (String str2 : set) {
-            d.k.a.a.a.d("NotificationUtils", "clear notifyId " + str2 + " notification");
+            d.j.a.a.a.d("NotificationUtils", "clear notifyId " + str2 + " notification");
             notificationManager.cancel(Integer.parseInt(str2));
         }
         set.clear();
     }
 
-    public static void a(Context context, String str, int i) {
+    public static void a(Context context, String str, int i2) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
         if (notificationManager != null) {
-            d.k.a.a.a.d("NotificationUtils", "clear clearNotification notifyId " + i);
-            notificationManager.cancel(i);
-            Set<String> set = f38239e.get(str);
+            d.j.a.a.a.d("NotificationUtils", "clear clearNotification notifyId " + i2);
+            notificationManager.cancel(i2);
+            Set<String> set = f35798e.get(str);
             if (set != null) {
-                set.remove(String.valueOf(i));
+                set.remove(String.valueOf(i2));
             }
         }
     }
 
     public static boolean a(Context context, String str, String str2) {
-        synchronized (f38238d) {
+        synchronized (f35797d) {
             if (TextUtils.isEmpty(str2)) {
                 return false;
             }
-            int i = com.meizu.cloud.pushsdk.util.b.i(context, str, str2);
-            d.k.a.a.a.b("NotificationUtils", "removeNotifyKey " + str2 + " notifyId " + i);
-            c(context, str, i);
+            int i2 = com.meizu.cloud.pushsdk.util.b.i(context, str, str2);
+            d.j.a.a.a.b("NotificationUtils", "removeNotifyKey " + str2 + " notifyId " + i2);
+            c(context, str, i2);
             return com.meizu.cloud.pushsdk.util.b.j(context, str, str2);
         }
     }
 
-    public static void b(Context context, String str, int i) {
-        Set<String> set = f38239e.get(str);
-        d.k.a.a.a.d("NotificationUtils", "store notifyId " + i);
+    public static void b(Context context, String str, int i2) {
+        Set<String> set = f35798e.get(str);
+        d.j.a.a.a.d("NotificationUtils", "store notifyId " + i2);
         if (set != null) {
-            set.add(String.valueOf(i));
+            set.add(String.valueOf(i2));
             return;
         }
         HashSet hashSet = new HashSet();
-        hashSet.add(String.valueOf(i));
-        f38239e.put(str, hashSet);
+        hashSet.add(String.valueOf(i2));
+        f35798e.put(str, hashSet);
     }
 
-    public static void c(Context context, String str, int i) {
-        Set<String> set = f38239e.get(str);
+    public static void c(Context context, String str, int i2) {
+        Set<String> set = f35798e.get(str);
         if (set != null) {
-            set.remove(String.valueOf(i));
-            d.k.a.a.a.d("NotificationUtils", "remove notifyId " + i);
+            set.remove(String.valueOf(i2));
+            d.j.a.a.a.d("NotificationUtils", "remove notifyId " + i2);
         }
     }
 }

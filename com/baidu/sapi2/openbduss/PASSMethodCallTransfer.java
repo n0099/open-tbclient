@@ -20,7 +20,7 @@ public class PASSMethodCallTransfer implements NoProguard {
         public static final String ERROR_MSG_NOT_LOGIN = "未登录";
         public static final String ERROR_MSG_PARAMS_ERROR = "参数错误";
 
-        public abstract void onFailure(int i, String str);
+        public abstract void onFailure(int i2, String str);
     }
 
     /* loaded from: classes2.dex */
@@ -34,15 +34,15 @@ public class PASSMethodCallTransfer implements NoProguard {
     private Object[] buildParams(Object[] objArr, SapiAccount sapiAccount) {
         Object[] objArr2 = new Object[objArr.length];
         int length = objArr.length;
-        for (int i = 0; i < length; i++) {
-            Object obj = objArr[i];
+        for (int i2 = 0; i2 < length; i2++) {
+            Object obj = objArr[i2];
             if (!(obj instanceof ParamsWap)) {
-                objArr2[i] = obj;
+                objArr2[i2] = obj;
             } else {
                 ParamsWap paramsWap = (ParamsWap) obj;
                 Map<String, String> map = paramsWap.attributes;
                 if (map == null) {
-                    objArr2[i] = paramsWap.param;
+                    objArr2[i2] = paramsWap.param;
                 } else {
                     for (String str : map.keySet()) {
                         Object obj2 = null;
@@ -51,7 +51,7 @@ public class PASSMethodCallTransfer implements NoProguard {
                         } else if (ParamsWap.BDUSS.equals(str)) {
                             obj2 = setObjectValue(paramsWap.param, paramsWap.attributes.get(str), sapiAccount.bduss);
                         }
-                        objArr2[i] = obj2;
+                        objArr2[i2] = obj2;
                     }
                 }
             }

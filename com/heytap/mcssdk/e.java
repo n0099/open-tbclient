@@ -3,10 +3,10 @@ package com.heytap.mcssdk;
 public final class e {
 
     /* renamed from: a */
-    public static final PushManager f31471a = new PushManager(null);
+    public static final PushManager f32340a = new PushManager(null);
 
     /* JADX DEBUG: Method not inlined, still used in: [com.heytap.mcssdk.PushManager.getInstance():com.heytap.mcssdk.PushManager] */
     public static /* synthetic */ PushManager a() {
-        return f31471a;
+        return f32340a;
     }
 }

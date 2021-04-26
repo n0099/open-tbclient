@@ -3,10 +3,10 @@ package g.b.a;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f68744a = {0, 0, 0, 0, 0, 4096, 9216, 21504, 35840, 44032, 53248, 63488, 74752, 87040, 93696, 100864, 104704, 106752, 108928, 113536, 115968, 118528, 119872, 121280, 122016};
+    public static final int[] f67602a = {0, 0, 0, 0, 0, 4096, 9216, 21504, 35840, 44032, 53248, 63488, 74752, 87040, 93696, 100864, 104704, 106752, 108928, 113536, 115968, 118528, 119872, 121280, 122016};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f68745b = {0, 0, 0, 0, 10, 10, 11, 11, 10, 10, 10, 10, 10, 9, 9, 8, 7, 7, 8, 7, 7, 6, 6, 5, 5};
+    public static final int[] f67603b = {0, 0, 0, 0, 10, 10, 11, 11, 10, 10, 10, 10, 10, 9, 9, 8, 7, 7, 8, 7, 7, 6, 6, 5, 5};
 
     /* loaded from: classes7.dex */
     public static class a {
@@ -33,31 +33,31 @@ public final class e {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final byte[] f68746a = new byte[122784];
+        public static final byte[] f67604a = new byte[122784];
 
         static {
             String[] strArr = {a.a(), b.a(), c.a()};
-            int i = 0;
-            for (int i2 = 0; i2 < 3; i2++) {
-                i += strArr[i2].length();
+            int i2 = 0;
+            for (int i3 = 0; i3 < 3; i3++) {
+                i2 += strArr[i3].length();
             }
-            if (i != f68746a.length) {
+            if (i2 != f67604a.length) {
                 throw new RuntimeException("Corrupted brotli dictionary");
             }
-            int i3 = 0;
-            for (int i4 = 0; i4 < 3; i4++) {
-                String str = strArr[i4];
-                int i5 = 0;
-                while (i5 < str.length()) {
-                    f68746a[i3] = (byte) str.charAt(i5);
-                    i5++;
-                    i3++;
+            int i4 = 0;
+            for (int i5 = 0; i5 < 3; i5++) {
+                String str = strArr[i5];
+                int i6 = 0;
+                while (i6 < str.length()) {
+                    f67604a[i4] = (byte) str.charAt(i6);
+                    i6++;
+                    i4++;
                 }
             }
         }
     }
 
     public static byte[] a() {
-        return d.f68746a;
+        return d.f67604a;
     }
 }

@@ -259,9 +259,9 @@ public class AndroidPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
-    public void connectSocket(Socket socket, InetSocketAddress inetSocketAddress, int i) throws IOException {
+    public void connectSocket(Socket socket, InetSocketAddress inetSocketAddress, int i2) throws IOException {
         try {
-            socket.connect(inetSocketAddress, i);
+            socket.connect(inetSocketAddress, i2);
         } catch (AssertionError e2) {
             if (!Util.isAndroidGetsocknameError(e2)) {
                 throw e2;
@@ -283,8 +283,8 @@ public class AndroidPlatform extends Platform {
 
     @Override // okhttp3.internal.platform.Platform
     public SSLContext getSSLContext() {
-        int i = Build.VERSION.SDK_INT;
-        if (i >= 16 && i < 22) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 16 && i2 < 22) {
             try {
                 return SSLContext.getInstance("TLSv1.2");
             } catch (NoSuchAlgorithmException unused) {
@@ -333,28 +333,28 @@ public class AndroidPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
-    public void log(int i, String str, Throwable th) {
+    public void log(int i2, String str, Throwable th) {
         int min;
-        int i2 = i != 5 ? 3 : 5;
+        int i3 = i2 != 5 ? 3 : 5;
         if (th != null) {
             str = str + '\n' + Log.getStackTraceString(th);
         }
-        int i3 = 0;
+        int i4 = 0;
         int length = str.length();
-        while (i3 < length) {
-            int indexOf = str.indexOf(10, i3);
+        while (i4 < length) {
+            int indexOf = str.indexOf(10, i4);
             if (indexOf == -1) {
                 indexOf = length;
             }
             while (true) {
-                min = Math.min(indexOf, i3 + 4000);
-                Log.println(i2, "OkHttp", str.substring(i3, min));
+                min = Math.min(indexOf, i4 + 4000);
+                Log.println(i3, "OkHttp", str.substring(i4, min));
                 if (min >= indexOf) {
                     break;
                 }
-                i3 = min;
+                i4 = min;
             }
-            i3 = min + 1;
+            i4 = min + 1;
         }
     }
 

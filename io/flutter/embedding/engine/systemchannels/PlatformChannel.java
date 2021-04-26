@@ -281,8 +281,8 @@ public class PlatformChannel {
         @NonNull
         public final String label;
 
-        public AppSwitcherDescription(int i, @NonNull String str) {
-            this.color = i;
+        public AppSwitcherDescription(int i2, @NonNull String str) {
+            this.color = i2;
             this.label = str;
         }
     }
@@ -405,7 +405,7 @@ public class PlatformChannel {
 
         void setClipboardData(@NonNull String str);
 
-        void setPreferredOrientations(int i);
+        void setPreferredOrientations(int i2);
 
         void setSystemGestureExclusionRects(@NonNull ArrayList<Rect> arrayList);
 
@@ -494,19 +494,19 @@ public class PlatformChannel {
     /* JADX INFO: Access modifiers changed from: private */
     @NonNull
     public AppSwitcherDescription decodeAppSwitcherDescription(@NonNull JSONObject jSONObject) throws JSONException {
-        int i = jSONObject.getInt("primaryColor");
-        if (i != 0) {
-            i |= -16777216;
+        int i2 = jSONObject.getInt("primaryColor");
+        if (i2 != 0) {
+            i2 |= -16777216;
         }
-        return new AppSwitcherDescription(i, jSONObject.getString(NotificationCompatJellybean.KEY_LABEL));
+        return new AppSwitcherDescription(i2, jSONObject.getString(NotificationCompatJellybean.KEY_LABEL));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @NonNull
     public ArrayList<Rect> decodeExclusionRects(@NonNull JSONArray jSONArray) throws JSONException {
         ArrayList<Rect> arrayList = new ArrayList<>();
-        for (int i = 0; i < jSONArray.length(); i++) {
-            JSONObject jSONObject = jSONArray.getJSONObject(i);
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            JSONObject jSONObject = jSONArray.getJSONObject(i2);
             try {
                 arrayList.add(new Rect(jSONObject.getInt(CustomDialogData.POS_LEFT), jSONObject.getInt("top"), jSONObject.getInt("right"), jSONObject.getInt(TipsConfigItem.TipConfigData.BOTTOM)));
             } catch (JSONException unused) {
@@ -524,15 +524,15 @@ public class PlatformChannel {
     public int decodeOrientations(@NonNull JSONArray jSONArray) throws JSONException, NoSuchFieldException {
         boolean z = false;
         boolean z2 = false;
-        for (int i = 0; i < jSONArray.length(); i++) {
-            int i2 = AnonymousClass2.$SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$DeviceOrientation[DeviceOrientation.fromValue(jSONArray.getString(i)).ordinal()];
-            if (i2 == 1) {
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            int i3 = AnonymousClass2.$SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$DeviceOrientation[DeviceOrientation.fromValue(jSONArray.getString(i2)).ordinal()];
+            if (i3 == 1) {
                 z |= true;
-            } else if (i2 == 2) {
+            } else if (i3 == 2) {
                 z |= true;
-            } else if (i2 == 3) {
+            } else if (i3 == 3) {
                 z |= true;
-            } else if (i2 == 4) {
+            } else if (i3 == 4) {
                 z |= true;
             }
             if (!z2) {
@@ -586,11 +586,11 @@ public class PlatformChannel {
     @NonNull
     public List<SystemUiOverlay> decodeSystemUiOverlays(@NonNull JSONArray jSONArray) throws JSONException, NoSuchFieldException {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < jSONArray.length(); i++) {
-            int i2 = AnonymousClass2.$SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiOverlay[SystemUiOverlay.fromValue(jSONArray.getString(i)).ordinal()];
-            if (i2 == 1) {
+        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            int i3 = AnonymousClass2.$SwitchMap$io$flutter$embedding$engine$systemchannels$PlatformChannel$SystemUiOverlay[SystemUiOverlay.fromValue(jSONArray.getString(i2)).ordinal()];
+            if (i3 == 1) {
                 arrayList.add(SystemUiOverlay.TOP_OVERLAYS);
-            } else if (i2 == 2) {
+            } else if (i3 == 2) {
                 arrayList.add(SystemUiOverlay.BOTTOM_OVERLAYS);
             }
         }

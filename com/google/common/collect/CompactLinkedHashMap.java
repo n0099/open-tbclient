@@ -16,23 +16,23 @@ public class CompactLinkedHashMap<K, V> extends CompactHashMap<K, V> {
         return new CompactLinkedHashMap<>();
     }
 
-    public static <K, V> CompactLinkedHashMap<K, V> createWithExpectedSize(int i) {
-        return new CompactLinkedHashMap<>(i);
+    public static <K, V> CompactLinkedHashMap<K, V> createWithExpectedSize(int i2) {
+        return new CompactLinkedHashMap<>(i2);
     }
 
     @Override // com.google.common.collect.CompactHashMap
-    public void accessEntry(int i) {
+    public void accessEntry(int i2) {
         if (this.accessOrder) {
-            n(l(i), getSuccessor(i));
-            n(this.k, i);
-            n(i, -2);
+            n(l(i2), getSuccessor(i2));
+            n(this.k, i2);
+            n(i2, -2);
             this.modCount++;
         }
     }
 
     @Override // com.google.common.collect.CompactHashMap
-    public int adjustAfterRemove(int i, int i2) {
-        return i >= size() ? i2 : i;
+    public int adjustAfterRemove(int i2, int i3) {
+        return i2 >= size() ? i3 : i2;
     }
 
     @Override // com.google.common.collect.CompactHashMap
@@ -60,81 +60,81 @@ public class CompactLinkedHashMap<K, V> extends CompactHashMap<K, V> {
     }
 
     @Override // com.google.common.collect.CompactHashMap
-    public int getSuccessor(int i) {
-        return (int) this.links[i];
+    public int getSuccessor(int i2) {
+        return (int) this.links[i2];
     }
 
     @Override // com.google.common.collect.CompactHashMap
-    public void init(int i) {
-        super.init(i);
+    public void init(int i2) {
+        super.init(i2);
         this.j = -2;
         this.k = -2;
     }
 
     @Override // com.google.common.collect.CompactHashMap
-    public void insertEntry(int i, K k, V v, int i2) {
-        super.insertEntry(i, k, v, i2);
-        n(this.k, i);
-        n(i, -2);
+    public void insertEntry(int i2, K k, V v, int i3) {
+        super.insertEntry(i2, k, v, i3);
+        n(this.k, i2);
+        n(i2, -2);
     }
 
-    public final int l(int i) {
-        return (int) (this.links[i] >>> 32);
+    public final int l(int i2) {
+        return (int) (this.links[i2] >>> 32);
     }
 
-    public final void m(int i, int i2) {
+    public final void m(int i2, int i3) {
         long[] jArr = this.links;
-        jArr[i] = (jArr[i] & 4294967295L) | (i2 << 32);
+        jArr[i2] = (jArr[i2] & 4294967295L) | (i3 << 32);
     }
 
     @Override // com.google.common.collect.CompactHashMap
-    public void moveLastEntry(int i) {
+    public void moveLastEntry(int i2) {
         int size = size() - 1;
-        super.moveLastEntry(i);
-        n(l(i), getSuccessor(i));
-        if (i < size) {
-            n(l(size), i);
-            n(i, getSuccessor(size));
+        super.moveLastEntry(i2);
+        n(l(i2), getSuccessor(i2));
+        if (i2 < size) {
+            n(l(size), i2);
+            n(i2, getSuccessor(size));
         }
         this.links[size] = -1;
     }
 
-    public final void n(int i, int i2) {
-        if (i == -2) {
-            this.j = i2;
-        } else {
-            o(i, i2);
-        }
+    public final void n(int i2, int i3) {
         if (i2 == -2) {
-            this.k = i;
+            this.j = i3;
         } else {
-            m(i2, i);
+            o(i2, i3);
+        }
+        if (i3 == -2) {
+            this.k = i2;
+        } else {
+            m(i3, i2);
         }
     }
 
-    public final void o(int i, int i2) {
+    public final void o(int i2, int i3) {
         long[] jArr = this.links;
-        jArr[i] = (jArr[i] & (-4294967296L)) | (i2 & 4294967295L);
+        jArr[i2] = (jArr[i2] & (-4294967296L)) | (i3 & 4294967295L);
     }
 
     @Override // com.google.common.collect.CompactHashMap
-    public void resizeEntries(int i) {
-        super.resizeEntries(i);
+    public void resizeEntries(int i2) {
+        super.resizeEntries(i2);
         long[] jArr = this.links;
         int length = jArr.length;
-        long[] copyOf = Arrays.copyOf(jArr, i);
+        long[] copyOf = Arrays.copyOf(jArr, i2);
         this.links = copyOf;
-        if (length < i) {
-            Arrays.fill(copyOf, length, i, -1L);
+        if (length < i2) {
+            Arrays.fill(copyOf, length, i2, -1L);
         }
     }
 
-    public CompactLinkedHashMap(int i) {
-        this(i, false);
+    public CompactLinkedHashMap(int i2) {
+        this(i2, false);
     }
 
-    public CompactLinkedHashMap(int i, boolean z) {
-        super(i);
+    public CompactLinkedHashMap(int i2, boolean z) {
+        super(i2);
         this.accessOrder = z;
     }
 }

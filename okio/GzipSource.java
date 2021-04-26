@@ -31,9 +31,9 @@ public final class GzipSource implements Source {
         throw new IllegalArgumentException("source == null");
     }
 
-    private void checkEqual(String str, int i, int i2) throws IOException {
-        if (i2 != i) {
-            throw new IOException(String.format("%s: actual 0x%08x != expected 0x%08x", str, Integer.valueOf(i2), Integer.valueOf(i)));
+    private void checkEqual(String str, int i2, int i3) throws IOException {
+        if (i3 != i2) {
+            throw new IOException(String.format("%s: actual 0x%08x != expected 0x%08x", str, Integer.valueOf(i3), Integer.valueOf(i2)));
         }
     }
 
@@ -92,19 +92,19 @@ public final class GzipSource implements Source {
     }
 
     private void updateCrc(Buffer buffer, long j, long j2) {
-        int i;
+        int i2;
         Segment segment = buffer.head;
         while (true) {
-            int i2 = segment.limit;
-            int i3 = segment.pos;
-            if (j < i2 - i3) {
+            int i3 = segment.limit;
+            int i4 = segment.pos;
+            if (j < i3 - i4) {
                 break;
             }
-            j -= i2 - i3;
+            j -= i3 - i4;
             segment = segment.next;
         }
         while (j2 > 0) {
-            int min = (int) Math.min(segment.limit - i, j2);
+            int min = (int) Math.min(segment.limit - i2, j2);
             this.crc.update(segment.data, (int) (segment.pos + j), min);
             j2 -= min;
             segment = segment.next;
@@ -119,10 +119,10 @@ public final class GzipSource implements Source {
 
     @Override // okio.Source
     public long read(Buffer buffer, long j) throws IOException {
-        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i < 0) {
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i2 < 0) {
             throw new IllegalArgumentException("byteCount < 0: " + j);
-        } else if (i == 0) {
+        } else if (i2 == 0) {
             return 0L;
         } else {
             if (this.section == 0) {

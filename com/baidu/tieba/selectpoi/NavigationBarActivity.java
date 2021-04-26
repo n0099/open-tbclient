@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public RelativeLayout contentRootView;
     public NavigationBar navigationBar;
@@ -21,7 +21,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public NoNetworkView noNetWorkView;
     public RelativeLayout rootView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -52,18 +52,18 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.navigationBar.onChangeSkinType(getPageContext(), i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
+        this.navigationBar.onChangeSkinType(getPageContext(), i2);
         NoNetworkView noNetworkView = this.noNetWorkView;
         if (noNetworkView != null) {
-            noNetworkView.c(getPageContext(), i);
+            noNetworkView.c(getPageContext(), i2);
         }
         NoDataView noDataView = this.noDataView;
         if (noDataView != null) {
-            noDataView.f(getPageContext(), i);
+            noDataView.f(getPageContext(), i2);
         }
-        getLayoutMode().k(i == 1);
+        getLayoutMode().k(i2 == 1);
         getLayoutMode().j(this.rootView);
     }
 
@@ -98,7 +98,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void setContentView(int i) {
+    public void setContentView(int i2) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         if (needNoNetWorkView()) {
             layoutParams.addRule(3, R.id.no_network_view);
@@ -107,7 +107,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         }
         RelativeLayout relativeLayout = new RelativeLayout(getPageContext().getContext());
         this.contentRootView = relativeLayout;
-        relativeLayout.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
+        relativeLayout.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i2, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
         this.rootView.addView(this.contentRootView, layoutParams);
     }
 }

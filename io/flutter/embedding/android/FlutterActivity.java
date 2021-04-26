@@ -118,12 +118,12 @@ public class FlutterActivity extends Activity implements FlutterActivityAndFragm
     private Drawable getSplashScreenFromManifest() {
         try {
             Bundle bundle = getPackageManager().getActivityInfo(getComponentName(), 128).metaData;
-            int i = bundle != null ? bundle.getInt("io.flutter.embedding.android.SplashScreenDrawable") : 0;
-            if (i != 0) {
+            int i2 = bundle != null ? bundle.getInt("io.flutter.embedding.android.SplashScreenDrawable") : 0;
+            if (i2 != 0) {
                 if (Build.VERSION.SDK_INT > 21) {
-                    return getResources().getDrawable(i, getTheme());
+                    return getResources().getDrawable(i2, getTheme());
                 }
-                return getResources().getDrawable(i);
+                return getResources().getDrawable(i2);
             }
             return null;
         } catch (PackageManager.NameNotFoundException unused) {
@@ -147,9 +147,9 @@ public class FlutterActivity extends Activity implements FlutterActivityAndFragm
         try {
             ActivityInfo activityInfo = getPackageManager().getActivityInfo(getComponentName(), 128);
             if (activityInfo.metaData != null) {
-                int i = activityInfo.metaData.getInt("io.flutter.embedding.android.NormalTheme", -1);
-                if (i != -1) {
-                    setTheme(i);
+                int i2 = activityInfo.metaData.getInt("io.flutter.embedding.android.NormalTheme", -1);
+                if (i2 != -1) {
+                    setTheme(i2);
                 }
             } else {
                 Log.v("FlutterActivity", "Using the launch theme as normal theme.");
@@ -267,8 +267,8 @@ public class FlutterActivity extends Activity implements FlutterActivityAndFragm
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        this.delegate.onActivityResult(i, i2, intent);
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        this.delegate.onActivityResult(i2, i3, intent);
     }
 
     @Override // android.app.Activity
@@ -337,8 +337,8 @@ public class FlutterActivity extends Activity implements FlutterActivityAndFragm
     }
 
     @Override // android.app.Activity
-    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        this.delegate.onRequestPermissionsResult(i, strArr, iArr);
+    public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+        this.delegate.onRequestPermissionsResult(i2, strArr, iArr);
     }
 
     @Override // android.app.Activity
@@ -369,9 +369,9 @@ public class FlutterActivity extends Activity implements FlutterActivityAndFragm
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks2
-    public void onTrimMemory(int i) {
-        super.onTrimMemory(i);
-        this.delegate.onTrimMemory(i);
+    public void onTrimMemory(int i2) {
+        super.onTrimMemory(i2);
+        this.delegate.onTrimMemory(i2);
     }
 
     @Override // android.app.Activity

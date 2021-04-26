@@ -14,19 +14,19 @@ import android.widget.TextView;
 public class SpannableClickTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f21923e;
+    public boolean f22593e;
 
     /* loaded from: classes5.dex */
     public static class a extends LinkMovementMethod {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f21924a;
+        public static a f22594a;
 
         public static a a() {
-            if (f21924a == null) {
-                f21924a = new a();
+            if (f22594a == null) {
+                f22594a = new a();
             }
-            return f21924a;
+            return f22594a;
         }
 
         @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
@@ -49,7 +49,7 @@ public class SpannableClickTextView extends TextView {
                     Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                 }
                 if (textView instanceof SpannableClickTextView) {
-                    ((SpannableClickTextView) textView).f21923e = true;
+                    ((SpannableClickTextView) textView).f22593e = true;
                 }
                 return true;
             }
@@ -65,13 +65,13 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.f21923e = false;
+        this.f22593e = false;
         return super.onTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public boolean performClick() {
-        if (this.f21923e) {
+        if (this.f22593e) {
             return true;
         }
         return super.performClick();
@@ -85,7 +85,7 @@ public class SpannableClickTextView extends TextView {
         super(context, attributeSet);
     }
 
-    public SpannableClickTextView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public SpannableClickTextView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

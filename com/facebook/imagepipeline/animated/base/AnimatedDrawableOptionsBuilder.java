@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.animated.base;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AnimatedDrawableOptionsBuilder {
     public boolean mEnableDebugging;
     public boolean mForceKeepAllFramesInMemory;
@@ -41,8 +41,8 @@ public class AnimatedDrawableOptionsBuilder {
         return this;
     }
 
-    public AnimatedDrawableOptionsBuilder setMaximumBytes(int i) {
-        this.mMaximumBytes = i;
+    public AnimatedDrawableOptionsBuilder setMaximumBytes(int i2) {
+        this.mMaximumBytes = i2;
         return this;
     }
 }

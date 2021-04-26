@@ -79,15 +79,15 @@ public class WebRtcAudioEffects {
         return isEffectTypeAvailable(AudioEffect.EFFECT_TYPE_NS, AOSP_NOISE_SUPPRESSOR);
     }
 
-    public void enable(int i) {
-        Logging.d(TAG, "enable(audioSession=" + i + SmallTailInfo.EMOTION_SUFFIX);
+    public void enable(int i2) {
+        Logging.d(TAG, "enable(audioSession=" + i2 + SmallTailInfo.EMOTION_SUFFIX);
         boolean z = true;
         assertTrue(this.aec == null);
         assertTrue(this.ns == null);
         boolean isAcousticEchoCancelerSupported = isAcousticEchoCancelerSupported();
-        String str = SapiOptions.t;
+        String str = SapiOptions.KEY_CACHE_ENABLED;
         if (isAcousticEchoCancelerSupported) {
-            AcousticEchoCanceler create = AcousticEchoCanceler.create(i);
+            AcousticEchoCanceler create = AcousticEchoCanceler.create(i2);
             this.aec = create;
             if (create != null) {
                 boolean enabled = create.getEnabled();
@@ -97,18 +97,18 @@ public class WebRtcAudioEffects {
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append("AcousticEchoCanceler: was ");
-                sb.append(enabled ? SapiOptions.t : "disabled");
+                sb.append(enabled ? SapiOptions.KEY_CACHE_ENABLED : "disabled");
                 sb.append(", enable: ");
                 sb.append(z2);
                 sb.append(", is now: ");
-                sb.append(this.aec.getEnabled() ? SapiOptions.t : "disabled");
+                sb.append(this.aec.getEnabled() ? SapiOptions.KEY_CACHE_ENABLED : "disabled");
                 Logging.d(TAG, sb.toString());
             } else {
                 Logging.e(TAG, "Failed to create the AcousticEchoCanceler instance");
             }
         }
         if (isNoiseSuppressorSupported()) {
-            NoiseSuppressor create2 = NoiseSuppressor.create(i);
+            NoiseSuppressor create2 = NoiseSuppressor.create(i2);
             this.ns = create2;
             if (create2 == null) {
                 Logging.e(TAG, "Failed to create the NoiseSuppressor instance");
@@ -121,7 +121,7 @@ public class WebRtcAudioEffects {
             }
             StringBuilder sb2 = new StringBuilder();
             sb2.append("NoiseSuppressor: was ");
-            sb2.append(enabled2 ? SapiOptions.t : "disabled");
+            sb2.append(enabled2 ? SapiOptions.KEY_CACHE_ENABLED : "disabled");
             sb2.append(", enable: ");
             sb2.append(z);
             sb2.append(", is now: ");

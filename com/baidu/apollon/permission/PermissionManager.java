@@ -15,26 +15,26 @@ public class PermissionManager implements NoProguard {
     public static final int REQUEST_CODE_WRITE_EXTERNAL_STORAGE = 4;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3735a = 0;
+    public static final int f3783a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f3736b;
+    public static int f3784b;
 
     @TargetApi(23)
-    public static boolean checkCallingOrSelfPermission(Activity activity, String[] strArr, int i) {
+    public static boolean checkCallingOrSelfPermission(Activity activity, String[] strArr, int i2) {
         if (activity == null || strArr == null || Build.VERSION.SDK_INT < 23) {
             return false;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i2 = 0; i2 < strArr.length; i2++) {
-            if (!checkCallingPermission(activity, strArr[i2])) {
-                arrayList.add(strArr[i2]);
+        for (int i3 = 0; i3 < strArr.length; i3++) {
+            if (!checkCallingPermission(activity, strArr[i3])) {
+                arrayList.add(strArr[i3]);
             }
         }
         if (arrayList.isEmpty()) {
             return true;
         }
-        activity.requestPermissions((String[]) arrayList.toArray(new String[arrayList.size()]), i);
+        activity.requestPermissions((String[]) arrayList.toArray(new String[arrayList.size()]), i2);
         return true;
     }
 
@@ -61,13 +61,13 @@ public class PermissionManager implements NoProguard {
     }
 
     public static int getTargetSdkVersion(Context context) {
-        if (f3736b == 0) {
+        if (f3784b == 0) {
             try {
-                f3736b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
+                f3784b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
             } catch (PackageManager.NameNotFoundException e2) {
                 e2.printStackTrace();
             }
         }
-        return f3736b;
+        return f3784b;
     }
 }

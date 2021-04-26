@@ -15,8 +15,8 @@ public class Static {
 
     /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
-        public a(int i) {
-            super(i);
+        public a(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */

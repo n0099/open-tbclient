@@ -1,0 +1,40 @@
+package i.a.a.e;
+/* loaded from: classes7.dex */
+public final class e {
+    public static final int abc_action_bar_home_description = 2131689531;
+    public static final int abc_action_bar_up_description = 2131689532;
+    public static final int abc_action_menu_overflow_description = 2131689533;
+    public static final int abc_action_mode_done = 2131689534;
+    public static final int abc_activity_chooser_view_see_all = 2131689535;
+    public static final int abc_activitychooserview_choose_application = 2131689536;
+    public static final int abc_capital_off = 2131689537;
+    public static final int abc_capital_on = 2131689538;
+    public static final int abc_search_hint = 2131689549;
+    public static final int abc_searchview_description_clear = 2131689550;
+    public static final int abc_searchview_description_query = 2131689551;
+    public static final int abc_searchview_description_search = 2131689552;
+    public static final int abc_searchview_description_submit = 2131689553;
+    public static final int abc_searchview_description_voice = 2131689554;
+    public static final int abc_shareactionprovider_share_with = 2131689555;
+    public static final int abc_shareactionprovider_share_with_application = 2131689556;
+    public static final int abc_toolbar_collapse_description = 2131689557;
+    public static final int app_name = 2131690142;
+    public static final int my_wallet = 2131692544;
+    public static final int recharge = 2131693327;
+    public static final int search_menu_title = 2131693837;
+    public static final int status_bar_notification_info_overflow = 2131694097;
+    public static final int str_wallet_balance = 2131694104;
+    public static final int string_choose_recharge_amount = 2131694108;
+    public static final int string_choose_recharge_way = 2131694109;
+    public static final int string_confirm_recharge = 2131694110;
+    public static final int string_custom_amount = 2131694111;
+    public static final int string_query = 2131694112;
+    public static final int string_want_recharge = 2131694113;
+    public static final int yy_dialog_pay_title = 2131695325;
+    public static final int yy_dialog_title = 2131695326;
+    public static final int yy_string_pay_error_oversize = 2131695327;
+    public static final int yy_string_pls_input_correct_recharge_amount = 2131695328;
+    public static final int yy_string_recharge_max_amount_hint = 2131695329;
+    public static final int yy_y_coin_pay_agreement = 2131695330;
+    public static final int yy_y_coin_use_item = 2131695331;
+}

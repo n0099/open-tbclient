@@ -10,16 +10,18 @@ public final class MatchGroup {
     public final IntRange range;
     public final String value;
 
-    public MatchGroup(String str, IntRange intRange) {
-        this.value = str;
-        this.range = intRange;
+    public MatchGroup(String value, IntRange range) {
+        Intrinsics.checkNotNullParameter(value, "value");
+        Intrinsics.checkNotNullParameter(range, "range");
+        this.value = value;
+        this.range = range;
     }
 
-    public static /* synthetic */ MatchGroup copy$default(MatchGroup matchGroup, String str, IntRange intRange, int i, Object obj) {
-        if ((i & 1) != 0) {
+    public static /* synthetic */ MatchGroup copy$default(MatchGroup matchGroup, String str, IntRange intRange, int i2, Object obj) {
+        if ((i2 & 1) != 0) {
             str = matchGroup.value;
         }
-        if ((i & 2) != 0) {
+        if ((i2 & 2) != 0) {
             intRange = matchGroup.range;
         }
         return matchGroup.copy(str, intRange);
@@ -33,8 +35,10 @@ public final class MatchGroup {
         return this.range;
     }
 
-    public final MatchGroup copy(String str, IntRange intRange) {
-        return new MatchGroup(str, intRange);
+    public final MatchGroup copy(String value, IntRange range) {
+        Intrinsics.checkNotNullParameter(value, "value");
+        Intrinsics.checkNotNullParameter(range, "range");
+        return new MatchGroup(value, range);
     }
 
     public boolean equals(Object obj) {

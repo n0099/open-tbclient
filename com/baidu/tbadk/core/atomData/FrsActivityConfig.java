@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.mc.FrsNetModel;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-import d.b.c.e.m.b;
-import d.b.c.e.p.l;
-import d.b.i0.b.d;
-import d.b.i0.b.g.a;
-import d.b.i0.r.q.a2;
-import d.b.i0.z0.c0;
-import d.b.j0.q0.n2.k;
-import d.b.j0.s2.v;
+import d.a.c.e.m.b;
+import d.a.c.e.p.l;
+import d.a.i0.b.d;
+import d.a.i0.b.g.a;
+import d.a.i0.r.q.a2;
+import d.a.i0.z0.c0;
+import d.a.j0.q0.n2.k;
+import d.a.j0.s2.w;
 /* loaded from: classes3.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static final String ALA_IS_ONLIVING = "ala_is_living";
@@ -142,27 +142,27 @@ public class FrsActivityConfig extends IntentConfig {
         if (TextUtils.isEmpty(stringExtra3)) {
             stringExtra3 = "";
         }
-        int i = -1;
+        int i2 = -1;
         FrsRequestData frsRequestData = new FrsRequestData();
         if (FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD.equals(stringExtra2)) {
-            i = 3;
+            i2 = 3;
         } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
-            i = 6;
+            i2 = 6;
         }
-        if (d.n() && a.f50481c != a.d()) {
+        if (d.n() && a.f48035c != a.d()) {
             frsRequestData.D(k.d(a.d()));
         }
-        frsRequestData.setSortType(k.d(i));
-        if (i == 5) {
+        frsRequestData.setSortType(k.d(i2));
+        if (i2 == 5) {
             frsRequestData.G(1);
         } else {
             frsRequestData.G(0);
         }
-        frsRequestData.s("forum_name", d.b.c.e.p.k.getUrlEncode(stringExtra));
+        frsRequestData.s("forum_name", d.a.c.e.p.k.getUrlEncode(stringExtra));
         frsRequestData.s("client_type", "2");
         frsRequestData.setPn(1);
         frsRequestData.setCallFrom(intExtra);
-        k.e(i, frsRequestData);
+        k.e(i2, frsRequestData);
         frsRequestData.O("2");
         frsRequestData.P("-2");
         frsRequestData.I(stringExtra);
@@ -183,11 +183,11 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.setNeedCache(true);
         frsRequestData.setUpdateType(3);
         frsRequestData.E(longExtra);
-        k.e(i, frsRequestData);
+        k.e(i2, frsRequestData);
         frsRequestData.M(1);
-        if (a2.u3.get() && v.p().b() != null) {
-            int d2 = v.p().b().d(stringExtra, false);
-            int e2 = v.p().b().e(stringExtra, false);
+        if (a2.u3.get() && w.p().b() != null) {
+            int d2 = w.p().b().d(stringExtra, false);
+            int e2 = w.p().b().e(stringExtra, false);
             if (frsRequestData.w() == 1) {
                 d2++;
             } else if (frsRequestData.w() == 2) {
@@ -210,13 +210,13 @@ public class FrsActivityConfig extends IntentConfig {
         }
     }
 
-    public FrsActivityConfig setCallFrom(int i) {
-        getIntent().putExtra(FRS_CALL_FROM, i);
+    public FrsActivityConfig setCallFrom(int i2) {
+        getIntent().putExtra(FRS_CALL_FROM, i2);
         return this;
     }
 
-    public FrsActivityConfig setDefaultGameTabId(int i) {
-        getIntent().putExtra(FRS_GAME_DEFAULT_TAB_ID, i);
+    public FrsActivityConfig setDefaultGameTabId(int i2) {
+        getIntent().putExtra(FRS_GAME_DEFAULT_TAB_ID, i2);
         return this;
     }
 

@@ -3,8 +3,8 @@ package g.a.b.b;
 public class e extends a implements g.a.a.c.a {
     public Class k;
 
-    public e(int i, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2, Class cls2) {
-        super(i, str, cls, clsArr, strArr, clsArr2);
+    public e(int i2, String str, Class cls, Class[] clsArr, String[] strArr, Class[] clsArr2, Class cls2) {
+        super(i2, str, cls, clsArr, strArr, clsArr2);
         this.k = cls2;
     }
 
@@ -12,10 +12,10 @@ public class e extends a implements g.a.a.c.a {
     public String a(h hVar) {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(hVar.e(i()));
-        if (hVar.f68721b) {
+        if (hVar.f67578b) {
             stringBuffer.append(hVar.g(n()));
         }
-        if (hVar.f68721b) {
+        if (hVar.f67578b) {
             stringBuffer.append(" ");
         }
         stringBuffer.append(hVar.f(f(), g()));

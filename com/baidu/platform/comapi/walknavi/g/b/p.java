@@ -6,19 +6,19 @@ import com.baidu.platform.comapi.walknavi.g.b.c;
 public class p implements c.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ o f9666a;
+    public final /* synthetic */ o f10026a;
 
     public p(o oVar) {
-        this.f9666a = oVar;
+        this.f10026a = oVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.b.c.d
     public void a() {
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener;
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener2;
-        iWNPCLoadAndInitListener = this.f9666a.f9665a.W;
+        iWNPCLoadAndInitListener = this.f10026a.f10025a.W;
         if (iWNPCLoadAndInitListener != null) {
-            iWNPCLoadAndInitListener2 = this.f9666a.f9665a.W;
+            iWNPCLoadAndInitListener2 = this.f10026a.f10025a.W;
             iWNPCLoadAndInitListener2.onSuccess();
         }
     }
@@ -27,13 +27,13 @@ public class p implements c.d {
     public void b() {
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener;
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener2;
-        iWNPCLoadAndInitListener = this.f9666a.f9665a.W;
+        iWNPCLoadAndInitListener = this.f10026a.f10025a.W;
         if (iWNPCLoadAndInitListener != null) {
             com.baidu.platform.comapi.walknavi.d.e.c().a("");
-            this.f9666a.f9665a.b(true);
+            this.f10026a.f10025a.b(true);
             com.baidu.platform.comapi.walknavi.b.a().D().a(0, 0);
-            this.f9666a.f9665a.o();
-            iWNPCLoadAndInitListener2 = this.f9666a.f9665a.W;
+            this.f10026a.f10025a.o();
+            iWNPCLoadAndInitListener2 = this.f10026a.f10025a.W;
             iWNPCLoadAndInitListener2.onFail();
         }
     }

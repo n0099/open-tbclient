@@ -59,7 +59,7 @@ public final class DelegateUtils implements DelegateDef {
 
     @NonNull
     public static d<DelegateResult> safeCallOnMainWithContentProvider(@NonNull final Context context, @NonNull final Class<? extends ProviderDelegation> cls, @Nullable final Bundle bundle) {
-        return d.c(new d.a<DelegateResult>() { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
+        return d.b(new d.a<DelegateResult>() { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // h.n.b
             public void call(j<? super DelegateResult> jVar) {
@@ -87,14 +87,14 @@ public final class DelegateUtils implements DelegateDef {
             }
             resultDispatcher.addConsumer(new ActivityResultConsumer() { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.2
                 @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
-                public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
+                public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i2, Intent intent) {
                     if (intent == null || !name.equals(intent.getStringExtra(DelegateDef.EXTRA_DELEGATION_NAME))) {
                         return false;
                     }
-                    if (-1 != i) {
+                    if (-1 != i2) {
                         DelegateListener delegateListener2 = delegateListener;
                         DelegateResult delegateResult = new DelegateResult(3, cls2, bundle);
-                        DelegateUtils.notifyResult(delegateListener2, delegateResult.addDesc("activity resultCode = " + i));
+                        DelegateUtils.notifyResult(delegateListener2, delegateResult.addDesc("activity resultCode = " + i2));
                         return true;
                     }
                     DelegateResult delegateResult2 = new DelegateResult(intent.getIntExtra(DelegateDef.EXTRA_RESULT_CODE, 0), cls2, bundle, intent.getBundleExtra(DelegateDef.EXTRA_RESULT));

@@ -133,8 +133,8 @@ public class FlutterSplashView extends FrameLayout {
         this(context, attributeSet, 0);
     }
 
-    public FlutterSplashView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public FlutterSplashView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.handler = new Handler();
         this.forceShowSplash = false;
         this.removeDelay = 0L;

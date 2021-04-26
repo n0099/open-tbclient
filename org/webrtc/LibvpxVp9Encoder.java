@@ -43,7 +43,7 @@ public class LibvpxVp9Encoder extends WrappedNativeVideoEncoder {
     }
 
     @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
-    public /* bridge */ /* synthetic */ VideoCodecStatus setRateAllocation(VideoEncoder.BitrateAllocation bitrateAllocation, int i) {
-        return super.setRateAllocation(bitrateAllocation, i);
+    public /* bridge */ /* synthetic */ VideoCodecStatus setRateAllocation(VideoEncoder.BitrateAllocation bitrateAllocation, int i2) {
+        return super.setRateAllocation(bitrateAllocation, i2);
     }
 }

@@ -93,23 +93,31 @@ public class ChangeImageTransform extends Transition {
         return matrix;
     }
 
-    public static Matrix copyImageMatrix(ImageView imageView) {
-        int i = AnonymousClass3.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()];
-        if (i != 1) {
-            if (i != 2) {
-                return new Matrix(imageView.getImageMatrix());
+    @NonNull
+    public static Matrix copyImageMatrix(@NonNull ImageView imageView) {
+        Drawable drawable = imageView.getDrawable();
+        if (drawable.getIntrinsicWidth() > 0 && drawable.getIntrinsicHeight() > 0) {
+            int i2 = AnonymousClass3.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()];
+            if (i2 == 1) {
+                return fitXYMatrix(imageView);
             }
-            return centerCropMatrix(imageView);
+            if (i2 == 2) {
+                return centerCropMatrix(imageView);
+            }
         }
-        return fitXYMatrix(imageView);
+        return new Matrix(imageView.getImageMatrix());
     }
 
     private ObjectAnimator createMatrixAnimator(ImageView imageView, Matrix matrix, Matrix matrix2) {
         return ObjectAnimator.ofObject(imageView, (Property<ImageView, V>) ANIMATED_TRANSFORM_PROPERTY, (TypeEvaluator) new TransitionUtils.MatrixEvaluator(), (Object[]) new Matrix[]{matrix, matrix2});
     }
 
-    private ObjectAnimator createNullAnimator(ImageView imageView) {
-        return ObjectAnimator.ofObject(imageView, (Property<ImageView, V>) ANIMATED_TRANSFORM_PROPERTY, (TypeEvaluator) NULL_MATRIX_EVALUATOR, (Object[]) new Matrix[]{null, null});
+    @NonNull
+    private ObjectAnimator createNullAnimator(@NonNull ImageView imageView) {
+        Property<ImageView, Matrix> property = ANIMATED_TRANSFORM_PROPERTY;
+        TypeEvaluator<Matrix> typeEvaluator = NULL_MATRIX_EVALUATOR;
+        Matrix matrix = MatrixUtils.IDENTITY_MATRIX;
+        return ObjectAnimator.ofObject(imageView, (Property<ImageView, V>) property, (TypeEvaluator) typeEvaluator, (Object[]) new Matrix[]{matrix, matrix});
     }
 
     public static Matrix fitXYMatrix(ImageView imageView) {
@@ -131,39 +139,35 @@ public class ChangeImageTransform extends Transition {
 
     @Override // androidx.transition.Transition
     public Animator createAnimator(@NonNull ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
-        ObjectAnimator createNullAnimator;
-        if (transitionValues != null && transitionValues2 != null) {
-            Rect rect = (Rect) transitionValues.values.get("android:changeImageTransform:bounds");
-            Rect rect2 = (Rect) transitionValues2.values.get("android:changeImageTransform:bounds");
-            if (rect != null && rect2 != null) {
-                Matrix matrix = (Matrix) transitionValues.values.get("android:changeImageTransform:matrix");
-                Matrix matrix2 = (Matrix) transitionValues2.values.get("android:changeImageTransform:matrix");
-                boolean z = (matrix == null && matrix2 == null) || (matrix != null && matrix.equals(matrix2));
-                if (rect.equals(rect2) && z) {
-                    return null;
-                }
-                ImageView imageView = (ImageView) transitionValues2.view;
-                Drawable drawable = imageView.getDrawable();
-                int intrinsicWidth = drawable.getIntrinsicWidth();
-                int intrinsicHeight = drawable.getIntrinsicHeight();
-                ImageViewUtils.startAnimateTransform(imageView);
-                if (intrinsicWidth != 0 && intrinsicHeight != 0) {
-                    if (matrix == null) {
-                        matrix = MatrixUtils.IDENTITY_MATRIX;
-                    }
-                    if (matrix2 == null) {
-                        matrix2 = MatrixUtils.IDENTITY_MATRIX;
-                    }
-                    ANIMATED_TRANSFORM_PROPERTY.set(imageView, matrix);
-                    createNullAnimator = createMatrixAnimator(imageView, matrix, matrix2);
-                } else {
-                    createNullAnimator = createNullAnimator(imageView);
-                }
-                ImageViewUtils.reserveEndAnimateTransform(imageView, createNullAnimator);
-                return createNullAnimator;
-            }
+        if (transitionValues == null || transitionValues2 == null) {
+            return null;
         }
-        return null;
+        Rect rect = (Rect) transitionValues.values.get("android:changeImageTransform:bounds");
+        Rect rect2 = (Rect) transitionValues2.values.get("android:changeImageTransform:bounds");
+        if (rect == null || rect2 == null) {
+            return null;
+        }
+        Matrix matrix = (Matrix) transitionValues.values.get("android:changeImageTransform:matrix");
+        Matrix matrix2 = (Matrix) transitionValues2.values.get("android:changeImageTransform:matrix");
+        boolean z = (matrix == null && matrix2 == null) || (matrix != null && matrix.equals(matrix2));
+        if (rect.equals(rect2) && z) {
+            return null;
+        }
+        ImageView imageView = (ImageView) transitionValues2.view;
+        Drawable drawable = imageView.getDrawable();
+        int intrinsicWidth = drawable.getIntrinsicWidth();
+        int intrinsicHeight = drawable.getIntrinsicHeight();
+        if (intrinsicWidth > 0 && intrinsicHeight > 0) {
+            if (matrix == null) {
+                matrix = MatrixUtils.IDENTITY_MATRIX;
+            }
+            if (matrix2 == null) {
+                matrix2 = MatrixUtils.IDENTITY_MATRIX;
+            }
+            ANIMATED_TRANSFORM_PROPERTY.set(imageView, matrix);
+            return createMatrixAnimator(imageView, matrix, matrix2);
+        }
+        return createNullAnimator(imageView);
     }
 
     @Override // androidx.transition.Transition

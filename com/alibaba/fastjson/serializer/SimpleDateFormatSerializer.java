@@ -13,7 +13,7 @@ public class SimpleDateFormatSerializer implements ObjectSerializer {
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
-    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
+    public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i2) throws IOException {
         if (obj == null) {
             jSONSerializer.out.writeNull();
             return;

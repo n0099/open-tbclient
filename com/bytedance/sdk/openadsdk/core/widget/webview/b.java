@@ -15,26 +15,26 @@ import com.bytedance.sdk.openadsdk.utils.r;
 public class b extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f28700a = WebChromeClient.class.getSimpleName();
+    public static final String f29585a = WebChromeClient.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public final x f28701b;
+    public final x f29586b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f28702c;
+    public j f29587c;
 
     public b(x xVar, j jVar) {
-        this.f28701b = xVar;
-        this.f28702c = jVar;
+        this.f29586b = xVar;
+        this.f29587c = jVar;
     }
 
     private boolean a(@NonNull String str) {
         try {
-            String str2 = f28700a;
+            String str2 = f29585a;
             Log.w(str2, "message:" + str);
             Uri parse = Uri.parse(str);
             if ("bytedance".equals(parse.getScheme().toLowerCase())) {
-                r.a(parse, this.f28701b);
+                r.a(parse, this.f29586b);
                 return true;
             }
             return false;
@@ -44,19 +44,19 @@ public class b extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public void onConsoleMessage(String str, int i, String str2) {
+    public void onConsoleMessage(String str, int i2, String str2) {
         if (!TextUtils.isEmpty(str)) {
             a(str);
         }
-        super.onConsoleMessage(str, i, str2);
+        super.onConsoleMessage(str, i2, str2);
     }
 
     @Override // android.webkit.WebChromeClient
-    public void onProgressChanged(WebView webView, int i) {
-        super.onProgressChanged(webView, i);
-        j jVar = this.f28702c;
+    public void onProgressChanged(WebView webView, int i2) {
+        super.onProgressChanged(webView, i2);
+        j jVar = this.f29587c;
         if (jVar != null) {
-            jVar.a(webView, i);
+            jVar.a(webView, i2);
         }
     }
 

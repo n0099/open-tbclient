@@ -41,7 +41,7 @@ public class JsFunction extends JsReleaser {
     public native void invokeJsFunctionParamFloatArray(long j, float[] fArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamInteger(long j, int i);
+    public native void invokeJsFunctionParamInteger(long j, int i2);
 
     /* JADX INFO: Access modifiers changed from: private */
     public native void invokeJsFunctionParamIntegerArray(long j, int[] iArr);
@@ -132,7 +132,7 @@ public class JsFunction extends JsReleaser {
         });
     }
 
-    public void call(final int i) {
+    public void call(final int i2) {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.3
             @Override // java.lang.Runnable
             public void run() {
@@ -140,7 +140,7 @@ public class JsFunction extends JsReleaser {
                 if (j != 0) {
                     JsFunction jsFunction = JsFunction.this;
                     V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamInteger(j, i);
+                    JsFunction.this.invokeJsFunctionParamInteger(j, i2);
                     JsFunction.this.freeIfNeeded();
                 }
             }

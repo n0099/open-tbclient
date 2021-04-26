@@ -5,7 +5,7 @@ import java.io.File;
 /* loaded from: classes6.dex */
 public class NoopSoSource extends SoSource {
     @Override // com.facebook.soloader.SoSource
-    public int loadLibrary(String str, int i, StrictMode.ThreadPolicy threadPolicy) {
+    public int loadLibrary(String str, int i2, StrictMode.ThreadPolicy threadPolicy) {
         return 1;
     }
 

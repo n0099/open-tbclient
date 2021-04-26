@@ -28,6 +28,11 @@ public class ContextThemeWrapper extends ContextWrapper {
                 this.mResources = super.getResources();
             } else if (Build.VERSION.SDK_INT >= 17) {
                 this.mResources = createConfigurationContext(configuration).getResources();
+            } else {
+                Resources resources = super.getResources();
+                Configuration configuration2 = new Configuration(resources.getConfiguration());
+                configuration2.updateFrom(this.mOverrideConfiguration);
+                this.mResources = new Resources(resources.getAssets(), resources.getDisplayMetrics(), configuration2);
             }
         }
         return this.mResources;
@@ -99,21 +104,21 @@ public class ContextThemeWrapper extends ContextWrapper {
         return this.mThemeResource;
     }
 
-    public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
-        theme.applyStyle(i, true);
+    public void onApplyThemeResource(Resources.Theme theme, int i2, boolean z) {
+        theme.applyStyle(i2, true);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i) {
-        if (this.mThemeResource != i) {
-            this.mThemeResource = i;
+    public void setTheme(int i2) {
+        if (this.mThemeResource != i2) {
+            this.mThemeResource = i2;
             initializeTheme();
         }
     }
 
-    public ContextThemeWrapper(Context context, @StyleRes int i) {
+    public ContextThemeWrapper(Context context, @StyleRes int i2) {
         super(context);
-        this.mThemeResource = i;
+        this.mThemeResource = i2;
     }
 
     public ContextThemeWrapper(Context context, Resources.Theme theme) {

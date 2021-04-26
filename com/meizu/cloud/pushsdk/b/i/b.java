@@ -15,8 +15,8 @@ import java.io.InputStream;
 import java.net.URLConnection;
 /* loaded from: classes6.dex */
 public class b {
-    public static int a(int i, int i2, int i3, int i4) {
-        double min = Math.min(i / i3, i2 / i4);
+    public static int a(int i2, int i3, int i4, int i5) {
+        double min = Math.min(i2 / i4, i3 / i5);
         float f2 = 1.0f;
         while (true) {
             float f3 = 2.0f * f2;
@@ -27,28 +27,28 @@ public class b {
         }
     }
 
-    public static int a(int i, int i2, int i3, int i4, ImageView.ScaleType scaleType) {
-        if (i == 0 && i2 == 0) {
-            return i3;
+    public static int a(int i2, int i3, int i4, int i5, ImageView.ScaleType scaleType) {
+        if (i2 == 0 && i3 == 0) {
+            return i4;
         }
         if (scaleType == ImageView.ScaleType.FIT_XY) {
-            return i == 0 ? i3 : i;
-        } else if (i == 0) {
-            return (int) (i3 * (i2 / i4));
+            return i2 == 0 ? i4 : i2;
         } else if (i2 == 0) {
-            return i;
+            return (int) (i4 * (i3 / i5));
+        } else if (i3 == 0) {
+            return i2;
         } else {
-            double d2 = i4 / i3;
+            double d2 = i5 / i4;
             if (scaleType == ImageView.ScaleType.CENTER_CROP) {
-                double d3 = i2;
-                return ((double) i) * d2 < d3 ? (int) (d3 / d2) : i;
+                double d3 = i3;
+                return ((double) i2) * d2 < d3 ? (int) (d3 / d2) : i2;
             }
-            double d4 = i2;
-            return ((double) i) * d2 > d4 ? (int) (d4 / d2) : i;
+            double d4 = i3;
+            return ((double) i2) * d2 > d4 ? (int) (d4 / d2) : i2;
         }
     }
 
-    public static c<Bitmap> a(k kVar, int i, int i2, Bitmap.Config config, ImageView.ScaleType scaleType) {
+    public static c<Bitmap> a(k kVar, int i2, int i3, Bitmap.Config config, ImageView.ScaleType scaleType) {
         Bitmap bitmap;
         byte[] bArr = new byte[0];
         try {
@@ -57,18 +57,18 @@ public class b {
             e2.printStackTrace();
         }
         BitmapFactory.Options options = new BitmapFactory.Options();
-        if (i == 0 && i2 == 0) {
+        if (i2 == 0 && i3 == 0) {
             options.inPreferredConfig = config;
             bitmap = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
         } else {
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-            int i3 = options.outWidth;
-            int i4 = options.outHeight;
-            int a2 = a(i, i2, i3, i4, scaleType);
-            int a3 = a(i2, i, i4, i3, scaleType);
+            int i4 = options.outWidth;
+            int i5 = options.outHeight;
+            int a2 = a(i2, i3, i4, i5, scaleType);
+            int a3 = a(i3, i2, i5, i4, scaleType);
             options.inJustDecodeBounds = false;
-            options.inSampleSize = a(i3, i4, a2, a3);
+            options.inSampleSize = a(i4, i5, a2, a3);
             Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
             if (decodeByteArray == null || (decodeByteArray.getWidth() <= a2 && decodeByteArray.getHeight() <= a3)) {
                 bitmap = decodeByteArray;
@@ -87,9 +87,9 @@ public class b {
         return aVar;
     }
 
-    public static com.meizu.cloud.pushsdk.b.b.a a(com.meizu.cloud.pushsdk.b.b.a aVar, com.meizu.cloud.pushsdk.b.a.b bVar, int i) {
+    public static com.meizu.cloud.pushsdk.b.b.a a(com.meizu.cloud.pushsdk.b.b.a aVar, com.meizu.cloud.pushsdk.b.a.b bVar, int i2) {
         com.meizu.cloud.pushsdk.b.b.a a2 = bVar.a(aVar);
-        a2.a(i);
+        a2.a(i2);
         a2.a("responseFromServerError");
         return a2;
     }

@@ -26,13 +26,13 @@ public abstract class TransitionOptions<CHILD extends TransitionOptions<CHILD, T
     }
 
     @NonNull
-    public final CHILD transition(int i) {
-        return transition(new ViewAnimationFactory(i));
+    public final CHILD transition(int i2) {
+        return transition(new ViewAnimationFactory(i2));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public final CHILD m32clone() {
+    public final CHILD m33clone() {
         try {
             return (CHILD) super.clone();
         } catch (CloneNotSupportedException e2) {

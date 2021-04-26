@@ -12,10 +12,10 @@ public class MediaStoreSignature implements Key {
     public final String mimeType;
     public final int orientation;
 
-    public MediaStoreSignature(@Nullable String str, long j, int i) {
+    public MediaStoreSignature(@Nullable String str, long j, int i2) {
         this.mimeType = str == null ? "" : str;
         this.dateModified = j;
-        this.orientation = i;
+        this.orientation = i2;
     }
 
     @Override // com.bumptech.glide.load.Key

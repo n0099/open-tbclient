@@ -37,18 +37,18 @@ public class bv {
         return (RSAPublicKey) keyFactory.generatePublic(new X509EncodedKeySpec(bArr));
     }
 
-    public static byte[] a(int i, Key key, int i2, byte[] bArr) throws Exception {
+    public static byte[] a(int i2, Key key, int i3, byte[] bArr) throws Exception {
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-        cipher.init(i, key);
+        cipher.init(i2, key);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        int i3 = 0;
-        while (i3 < bArr.length) {
-            int length = bArr.length - i3;
-            if (length > i2) {
-                length = i2;
+        int i4 = 0;
+        while (i4 < bArr.length) {
+            int length = bArr.length - i4;
+            if (length > i3) {
+                length = i3;
             }
-            byteArrayOutputStream.write(cipher.doFinal(bArr, i3, length));
-            i3 += i2;
+            byteArrayOutputStream.write(cipher.doFinal(bArr, i4, length));
+            i4 += i3;
         }
         return byteArrayOutputStream.toByteArray();
     }

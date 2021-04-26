@@ -17,23 +17,23 @@ import java.util.List;
 public class c extends BdMenu {
 
     /* renamed from: a  reason: collision with root package name */
-    public HomeCfgResponse.TitleItemData[] f24316a;
+    public HomeCfgResponse.TitleItemData[] f25068a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24317b;
+    public String f25069b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f24318c;
+    public Context f25070c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f24319d;
+    public d f25071d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f24320e;
+    public String f25072e;
 
     public c(View view) {
         super(view);
-        this.f24318c = view.getContext();
+        this.f25070c = view.getContext();
         setDismissOnClick(true);
         setMenuItemClickListener(new BdMenuItem.OnItemClickListener() { // from class: com.baidu.wallet.home.ui.widget.c.1
             @Override // com.baidu.wallet.base.widget.BdMenuItem.OnItemClickListener
@@ -45,15 +45,15 @@ public class c extends BdMenu {
     @Override // com.baidu.wallet.base.widget.BdMenu
     public void ensureMenuLoaded(View view, List<BdMenuItem> list) {
         WalletHomeMenuView walletHomeMenuView = (WalletHomeMenuView) view;
-        walletHomeMenuView.layoutMenu(this.f24317b, this.f24316a);
+        walletHomeMenuView.layoutMenu(this.f25069b, this.f25068a);
         walletHomeMenuView.setMenuSelectListener(new WalletMenuLayout.a() { // from class: com.baidu.wallet.home.ui.widget.c.2
             @Override // com.baidu.wallet.home.ui.widget.WalletMenuLayout.a
             public void a(HomeCfgResponse.TitleItemData titleItemData) {
-                if (c.this.f24319d != null && c.this.f24319d.a(titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr)) {
+                if (c.this.f25071d != null && c.this.f25071d.a(titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr)) {
                     DXMSdkSAUtils.onEventWithValues("clickHomeMenu", Arrays.asList(titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr));
                     PayStatisticsUtil.onEventWithValues("clickHomeMenu", Arrays.asList(titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr));
                 } else {
-                    com.baidu.wallet.home.a.a().a(c.this.f24318c, titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr, titleItemData.getPrevlogin(), c.this.f24320e);
+                    com.baidu.wallet.home.a.a().a(c.this.f25070c, titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr, titleItemData.getPrevlogin(), c.this.f25072e);
                 }
                 c.this.dismiss();
             }
@@ -73,23 +73,23 @@ public class c extends BdMenu {
     }
 
     public void a(String str, HomeCfgResponse.TitleItemData[] titleItemDataArr, String str2) {
-        this.f24320e = str2;
+        this.f25072e = str2;
         removeAllItem();
-        this.f24317b = str;
-        this.f24316a = titleItemDataArr;
+        this.f25069b = str;
+        this.f25068a = titleItemDataArr;
         if (titleItemDataArr == null || titleItemDataArr.length <= 0) {
             return;
         }
-        int i = 0;
+        int i2 = 0;
         while (true) {
-            HomeCfgResponse.TitleItemData[] titleItemDataArr2 = this.f24316a;
-            if (i >= titleItemDataArr2.length) {
+            HomeCfgResponse.TitleItemData[] titleItemDataArr2 = this.f25068a;
+            if (i2 >= titleItemDataArr2.length) {
                 return;
             }
-            if (!TextUtils.isEmpty(titleItemDataArr2[i].setting_name)) {
-                add(i, this.f24316a[i].setting_name);
+            if (!TextUtils.isEmpty(titleItemDataArr2[i2].setting_name)) {
+                add(i2, this.f25068a[i2].setting_name);
             }
-            i++;
+            i2++;
         }
     }
 }

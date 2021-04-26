@@ -1,98 +1,73 @@
 package com.kwad.sdk.utils;
 
 import android.content.Context;
+import android.os.Environment;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class ae {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static String f37084a = "";
-
-    public static int a(@NonNull Context context, int i) {
-        return context.getSharedPreferences("ksadsdk_pref", 0).getInt("profile_guide_times", i);
-    }
-
-    public static long a(Context context, String str) {
-        return context.getSharedPreferences("ksadsdk_pref", 0).getLong(str, 0L);
-    }
-
-    public static void a(Context context, String str, long j) {
-        context.getSharedPreferences("ksadsdk_pref", 0).edit().putLong(str, j).apply();
-    }
-
-    public static void a(Context context, String str, String str2) {
-        context.getSharedPreferences("ksadsdk_download_package_md5", 0).edit().putString(str, str2).apply();
-    }
-
-    public static boolean a(Context context) {
-        return context.getSharedPreferences("ksadsdk_pref", 0).getBoolean("ksadsdk_guider_slide_left", true);
-    }
-
-    public static long b(Context context, String str) {
-        return context.getSharedPreferences("ksadsdk_download_package_length", 0).getLong(str, 0L);
-    }
-
-    public static void b(Context context) {
-        context.getSharedPreferences("ksadsdk_pref", 0).edit().putBoolean("ksadsdk_guider_slide_left", false).apply();
-    }
-
-    public static void b(@NonNull Context context, int i) {
-        context.getSharedPreferences("ksadsdk_pref", 0).edit().putInt("profile_guide_times", i).apply();
-    }
-
-    public static void b(Context context, String str, long j) {
-        context.getSharedPreferences("ksadsdk_download_package_length", 0).edit().putLong(str, j).apply();
-    }
-
-    public static String c(Context context, String str) {
-        return context.getSharedPreferences("ksadsdk_download_package_md5", 0).getString(str, "");
-    }
-
-    public static boolean c(Context context) {
-        return context.getSharedPreferences("ksadsdk_pref", 0).getBoolean("ksadsdk_guider_slideup", true);
-    }
-
-    public static void d(Context context) {
-        context.getSharedPreferences("ksadsdk_pref", 0).edit().putBoolean("ksadsdk_guider_slideup", false).apply();
-    }
-
-    public static void d(@NonNull Context context, String str) {
-        context.getSharedPreferences("ksadsdk_egid", 0).edit().putString("KEY_SDK_EGID", str).apply();
-    }
-
-    public static String e(@NonNull Context context) {
-        return context.getSharedPreferences("ksadsdk_egid", 0).getString("KEY_SDK_EGID", "");
-    }
-
-    public static void e(@NonNull Context context, String str) {
-        context.getSharedPreferences("ksadsdk_device_sig", 0).edit().putString("KEY_SDK_DEVICE_SIG", str).apply();
-    }
-
-    public static String f(@NonNull Context context) {
-        return context.getSharedPreferences("ksadsdk_device_sig", 0).getString("KEY_SDK_DEVICE_SIG", "");
-    }
-
-    public static void f(Context context, String str) {
-        f37084a = str;
-        if (context == null) {
-            return;
+    @NonNull
+    public static String a(Context context) {
+        File file;
+        String str = "";
+        try {
+            str = Environment.getExternalStorageState();
+        } catch (IncompatibleClassChangeError | NullPointerException unused) {
         }
-        context.getSharedPreferences("ksadsdk_pref", 0).edit().putString("appTag", str).apply();
-    }
-
-    public static String g(Context context) {
-        return !TextUtils.isEmpty(f37084a) ? f37084a : context == null ? "" : context.getSharedPreferences("ksadsdk_pref", 0).getString("appTag", "");
-    }
-
-    public static void g(Context context, String str) {
-        if (context == null) {
-            return;
+        String str2 = null;
+        if ("mounted".equals(str) || !Environment.isExternalStorageRemovable()) {
+            try {
+                file = context.getExternalFilesDir(null);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
+                file = null;
+            }
+            if (file != null) {
+                str2 = file.getPath();
+            }
         }
-        context.getSharedPreferences("ksadsdk_pref", 0).edit().putString("oaid", str).apply();
+        if (TextUtils.isEmpty(str2)) {
+            str2 = context.getFilesDir().getPath();
+        }
+        return str2 + File.separator + "ksadsdk";
     }
 
-    public static String h(Context context) {
-        return context == null ? "" : context.getSharedPreferences("ksadsdk_pref", 0).getString("oaid", "");
+    public static File b(Context context) {
+        File file;
+        String str = "";
+        try {
+            str = Environment.getExternalStorageState();
+        } catch (IncompatibleClassChangeError | NullPointerException unused) {
+        }
+        String str2 = null;
+        if ("mounted".equals(str) || !Environment.isExternalStorageRemovable()) {
+            try {
+                file = context.getExternalCacheDir();
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
+                file = null;
+            }
+            if (file != null) {
+                str2 = file.getPath();
+            }
+        }
+        if (TextUtils.isEmpty(str2)) {
+            str2 = context.getCacheDir().getPath();
+        }
+        return new File(str2 + File.separator + "ksadsdk");
+    }
+
+    public static File c(Context context) {
+        String a2 = a(context);
+        return new File(a2 + File.separator + "Download");
+    }
+
+    public static String d(Context context) {
+        if (context == null) {
+            return "";
+        }
+        String path = context.getFilesDir().getPath();
+        return path + File.separator + "ksadsdk";
     }
 }

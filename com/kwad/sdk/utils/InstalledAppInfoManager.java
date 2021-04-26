@@ -55,8 +55,11 @@ public class InstalledAppInfoManager {
 
     @NonNull
     public static JSONArray a(Context context) {
+        if (com.kwad.sdk.core.config.c.a(16L)) {
+            return new JSONArray();
+        }
         Map<String, AppPackageInfo> b2 = b(context);
-        b2.putAll(b(context, com.kwad.sdk.core.config.c.n()));
+        b2.putAll(b(context, com.kwad.sdk.core.config.c.e()));
         return a(b2);
     }
 

@@ -27,11 +27,11 @@ public class GetContactActivty extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i == 4002) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
+        super.onActivityResult(i2, i3, intent);
+        if (i2 == 4002) {
             GetContactResult getContactResult = new GetContactResult();
-            if (i2 == -1 && intent != null) {
+            if (i3 == -1 && intent != null) {
                 String[] phoneContacts = getPhoneContacts(intent.getData());
                 String str = phoneContacts[0];
                 getContactResult.name = str;

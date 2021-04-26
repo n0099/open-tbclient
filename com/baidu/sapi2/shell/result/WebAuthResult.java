@@ -2,7 +2,7 @@ package com.baidu.sapi2.shell.result;
 
 import android.app.Activity;
 import com.baidu.sapi2.result.SapiResult;
-import com.baidu.sapi2.share.a;
+import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 /* loaded from: classes2.dex */
@@ -20,19 +20,19 @@ public class WebAuthResult extends SapiResult {
         LOGIN_PROTECT("apilogin"),
         FORCE_BIND("AccountBind"),
         GUIDE_BIND("apibind"),
-        SHARE_V1_CHOICE(a.j),
-        SHARE_V2_CHOICE(a.k);
+        SHARE_V1_CHOICE(ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE),
+        SHARE_V2_CHOICE(ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
         
 
         /* renamed from: a  reason: collision with root package name */
-        public String f10993a;
+        public String f10891a;
 
         LoginType(String str) {
-            this.f10993a = str;
+            this.f10891a = str;
         }
 
         public String getLoginType() {
-            return this.f10993a;
+            return this.f10891a;
         }
     }
 

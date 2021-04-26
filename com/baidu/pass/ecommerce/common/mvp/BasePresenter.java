@@ -20,10 +20,10 @@ public abstract class BasePresenter<V extends IBaseView> implements IPresenter<V
         }
     }
 
-    public void doFailure(int i, String str) {
+    public void doFailure(int i2, String str) {
         V view = getView();
         if (view != null) {
-            view.doFailure(i, str);
+            view.doFailure(i2, str);
         }
     }
 
@@ -43,31 +43,31 @@ public abstract class BasePresenter<V extends IBaseView> implements IPresenter<V
         return weakReference.get();
     }
 
-    public void showLoading(int i) {
+    public void showLoading(int i2) {
         V view = getView();
         if (view != null) {
-            view.showLoading(i);
+            view.showLoading(i2);
         }
     }
 
-    public void doFailure(int i, int i2, String str) {
+    public void doFailure(int i2, int i3, String str) {
         V view = getView();
         if (view != null) {
-            view.doFailure(i, i2, str);
+            view.doFailure(i2, i3, str);
         }
     }
 
-    public void doResult(int i, Object obj) {
+    public void doResult(int i2, Object obj) {
         V view = getView();
         if (view != null) {
-            view.doResult(i, obj);
+            view.doResult(i2, obj);
         }
     }
 
-    public void doResult(int i, Object obj, String str) {
+    public void doResult(int i2, Object obj, String str) {
         V view = getView();
         if (view != null) {
-            view.doResult(i, obj, str);
+            view.doResult(i2, obj, str);
         }
     }
 }

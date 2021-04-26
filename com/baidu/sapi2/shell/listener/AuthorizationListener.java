@@ -7,7 +7,7 @@ public abstract class AuthorizationListener {
     public void beforeSuccess(SapiAccount sapiAccount) {
     }
 
-    public abstract void onFailed(int i, String str);
+    public abstract void onFailed(int i2, String str);
 
     public boolean onForgetPwd() {
         return false;

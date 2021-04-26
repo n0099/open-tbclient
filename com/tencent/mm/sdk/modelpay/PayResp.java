@@ -2,7 +2,7 @@ package com.tencent.mm.sdk.modelpay;
 
 import android.os.Bundle;
 import com.tencent.mm.sdk.modelbase.BaseResp;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PayResp extends BaseResp {
     public String extData;
     public String prepayId;

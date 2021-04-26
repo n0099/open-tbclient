@@ -11,8 +11,8 @@ import android.net.Uri;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import d.b.h0.l.f;
-import d.b.h0.l.i.e.b;
+import d.a.h0.l.f;
+import d.a.h0.l.i.e.b;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PMSDBProviderProxy extends ContentProvider {
@@ -25,7 +25,7 @@ public class PMSDBProviderProxy extends ContentProvider {
         SQLiteDatabase writableDatabase = getProvider().b().getWritableDatabase();
         try {
             try {
-                if (f.f49610a) {
+                if (f.f47117a) {
                     Log.e(TAG, "applyBatch beginTransaction");
                 }
                 writableDatabase.beginTransaction();
@@ -33,7 +33,7 @@ public class PMSDBProviderProxy extends ContentProvider {
                 for (ContentProviderResult contentProviderResult : applyBatch) {
                     if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
                         writableDatabase.endTransaction();
-                        if (f.f49610a) {
+                        if (f.f47117a) {
                             Log.e(TAG, "applyBatch endTransaction");
                         }
                         return applyBatch;
@@ -41,16 +41,16 @@ public class PMSDBProviderProxy extends ContentProvider {
                 }
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
-                if (f.f49610a) {
+                if (f.f47117a) {
                     Log.e(TAG, "applyBatch endTransaction");
                 }
                 return applyBatch;
             } catch (Exception e2) {
-                if (f.f49610a) {
+                if (f.f47117a) {
                     Log.e(TAG, "applyBatch Exception:" + e2.getMessage());
                 }
                 writableDatabase.endTransaction();
-                if (f.f49610a) {
+                if (f.f47117a) {
                     Log.e(TAG, "applyBatch endTransaction");
                     return null;
                 }
@@ -58,7 +58,7 @@ public class PMSDBProviderProxy extends ContentProvider {
             }
         } catch (Throwable th) {
             writableDatabase.endTransaction();
-            if (f.f49610a) {
+            if (f.f47117a) {
                 Log.e(TAG, "applyBatch endTransaction");
             }
             throw th;

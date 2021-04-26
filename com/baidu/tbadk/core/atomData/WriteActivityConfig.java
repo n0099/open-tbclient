@@ -22,10 +22,10 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import d.b.c.e.p.l;
-import d.b.j0.d3.q0.a;
-import d.b.j0.d3.q0.b;
-import d.b.j0.d3.q0.c;
+import d.a.c.e.p.l;
+import d.a.j0.d3.q0.a;
+import d.a.j0.d3.q0.b;
+import d.a.j0.d3.q0.c;
 /* loaded from: classes3.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
@@ -88,7 +88,7 @@ public class WriteActivityConfig extends IntentConfig {
     }
 
     public void send() {
-        c.f55453g = new Intent(getIntent());
+        c.f53297g = new Intent(getIntent());
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
     }
 
@@ -99,8 +99,8 @@ public class WriteActivityConfig extends IntentConfig {
         return this;
     }
 
-    public WriteActivityConfig setAlbumThread(int i) {
-        getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, i);
+    public WriteActivityConfig setAlbumThread(int i2) {
+        getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, i2);
         return this;
     }
 
@@ -123,8 +123,8 @@ public class WriteActivityConfig extends IntentConfig {
         return this;
     }
 
-    public WriteActivityConfig setCategoryId(int i) {
-        getIntent().putExtra("category_id", i);
+    public WriteActivityConfig setCategoryId(int i2) {
+        getIntent().putExtra("category_id", i2);
         return this;
     }
 
@@ -143,8 +143,8 @@ public class WriteActivityConfig extends IntentConfig {
         return this;
     }
 
-    public WriteActivityConfig setFloorNum(int i) {
-        getIntent().putExtra("floor_num", i);
+    public WriteActivityConfig setFloorNum(int i2) {
+        getIntent().putExtra("floor_num", i2);
         return this;
     }
 
@@ -276,13 +276,13 @@ public class WriteActivityConfig extends IntentConfig {
         return this;
     }
 
-    public WriteActivityConfig setPrivateThread(int i) {
-        getIntent().putExtra("private_thread", i);
+    public WriteActivityConfig setPrivateThread(int i2) {
+        getIntent().putExtra("private_thread", i2);
         return this;
     }
 
-    public WriteActivityConfig setProfessionZone(int i) {
-        getIntent().putExtra(KEY_PROFESSION_ZONE, i);
+    public WriteActivityConfig setProfessionZone(int i2) {
+        getIntent().putExtra(KEY_PROFESSION_ZONE, i2);
         return this;
     }
 
@@ -301,13 +301,13 @@ public class WriteActivityConfig extends IntentConfig {
         return this;
     }
 
-    public WriteActivityConfig setStarCount(int i) {
-        getIntent().putExtra(STAR_COUNT, i);
+    public WriteActivityConfig setStarCount(int i2) {
+        getIntent().putExtra(STAR_COUNT, i2);
         return this;
     }
 
-    public WriteActivityConfig setStatisticFrom(int i) {
-        getIntent().putExtra(KEY_STATISTIS_FROM, i);
+    public WriteActivityConfig setStatisticFrom(int i2) {
+        getIntent().putExtra(KEY_STATISTIS_FROM, i2);
         return this;
     }
 
@@ -331,8 +331,8 @@ public class WriteActivityConfig extends IntentConfig {
         return this;
     }
 
-    public WriteActivityConfig setType(int i) {
-        getIntent().putExtra("type", i);
+    public WriteActivityConfig setType(int i2) {
+        getIntent().putExtra("type", i2);
         return this;
     }
 
@@ -353,7 +353,7 @@ public class WriteActivityConfig extends IntentConfig {
         boolean l = a.f().l();
         b.a("发帖阻拦状态 = " + l);
         if (l && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
-            l.L(currentActivity, "正在发布，请稍后");
+            l.M(currentActivity, "正在发布，请稍后");
         }
         return l;
     }

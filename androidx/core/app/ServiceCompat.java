@@ -13,16 +13,16 @@ public final class ServiceCompat {
     public static final int STOP_FOREGROUND_REMOVE = 1;
 
     @Retention(RetentionPolicy.SOURCE)
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public @interface StopForegroundFlags {
     }
 
-    public static void stopForeground(@NonNull Service service, int i) {
+    public static void stopForeground(@NonNull Service service, int i2) {
         if (Build.VERSION.SDK_INT >= 24) {
-            service.stopForeground(i);
+            service.stopForeground(i2);
         } else {
-            service.stopForeground((i & 1) != 0);
+            service.stopForeground((i2 & 1) != 0);
         }
     }
 }

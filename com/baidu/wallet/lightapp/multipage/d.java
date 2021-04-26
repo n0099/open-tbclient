@@ -19,11 +19,11 @@ public interface d {
 
     String getOwnerTag();
 
-    void historyGo(int i);
+    void historyGo(int i2);
 
     boolean isActiveCell(c cVar);
 
     boolean isBottomCell(c cVar);
 
-    void setRnAuthResult(int i, String str);
+    void setRnAuthResult(int i2, String str);
 }

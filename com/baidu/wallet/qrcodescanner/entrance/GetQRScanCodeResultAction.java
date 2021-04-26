@@ -27,11 +27,11 @@ public class GetQRScanCodeResultAction implements RouterAction {
             }
 
             @Override // com.baidu.wallet.qrcodescanner.IScanCodeListener
-            public void onResult(int i, String str) {
+            public void onResult(int i2, String str) {
                 QRScanCodeActivity.mLightAppListener = null;
                 if (routerCallback != null) {
                     HashMap hashMap2 = new HashMap();
-                    hashMap2.put(RouterCallback.KEY_ERROR_CODE, Integer.valueOf(i));
+                    hashMap2.put(RouterCallback.KEY_ERROR_CODE, Integer.valueOf(i2));
                     hashMap2.put("errorMsg", str);
                     routerCallback.onResult(1, hashMap2);
                 }

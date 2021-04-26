@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.facebook.imagepipeline.producers.ProducerConstants;
-import d.b.c.e.l.d;
-import d.b.c.e.p.k;
+import d.a.c.e.l.d;
+import d.a.c.e.p.k;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -255,9 +255,9 @@ public class ImageFileInfo extends MediaFileInfo {
         JSONArray optJSONArray = jSONObject.optJSONArray("actionsList");
         this.persistActionsList = new LinkedList<>();
         if (optJSONArray != null) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 ImageOperation imageOperation = new ImageOperation();
-                imageOperation.parseJson(optJSONArray.optJSONObject(i));
+                imageOperation.parseJson(optJSONArray.optJSONObject(i2));
                 this.persistActionsList.add(imageOperation);
             }
         }
@@ -289,8 +289,8 @@ public class ImageFileInfo extends MediaFileInfo {
         this.hasAddPostQualityAction = z;
     }
 
-    public void setImageType(int i) {
-        this.mImageType = i;
+    public void setImageType(int i2) {
+        this.mImageType = i2;
     }
 
     public void setIsFromCamera(boolean z) {
@@ -350,7 +350,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         if (next != null) {
                             sb.append(':');
                             sb.append(next.actionName);
-                            sb.append(a.f1922h);
+                            sb.append(a.f1873h);
                             sb.append(next.actionParam);
                         }
                     }
@@ -362,7 +362,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         if (next2 != null) {
                             sb.append(':');
                             sb.append(next2.actionName);
-                            sb.append(a.f1922h);
+                            sb.append(a.f1873h);
                             sb.append(next2.actionParam);
                         }
                     }
@@ -376,11 +376,11 @@ public class ImageFileInfo extends MediaFileInfo {
             sb2.append("page_");
             sb2.append(this.filePath);
             if (this.pageActionsList != null) {
-                for (int i = 0; i < this.pageActionsList.size(); i++) {
-                    ImageOperation imageOperation = this.pageActionsList.get(i);
+                for (int i2 = 0; i2 < this.pageActionsList.size(); i2++) {
+                    ImageOperation imageOperation = this.pageActionsList.get(i2);
                     sb2.append(':');
                     sb2.append(imageOperation.actionName);
-                    sb2.append(a.f1922h);
+                    sb2.append(a.f1873h);
                     sb2.append(imageOperation.actionParam);
                 }
             }
@@ -408,8 +408,8 @@ public class ImageFileInfo extends MediaFileInfo {
             }
             if (this.persistActionsList != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (int i = 0; i < this.persistActionsList.size(); i++) {
-                    jSONArray.put(this.persistActionsList.get(i).toJson());
+                for (int i2 = 0; i2 < this.persistActionsList.size(); i2++) {
+                    jSONArray.put(this.persistActionsList.get(i2).toJson());
                 }
                 jSONObject.put("actionsList", jSONArray);
             }

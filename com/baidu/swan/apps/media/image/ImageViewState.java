@@ -2,18 +2,18 @@ package com.baidu.swan.apps.media.image;
 
 import android.graphics.PointF;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImageViewState implements Serializable {
     public float centerX;
     public float centerY;
     public int orientation;
     public float scale;
 
-    public ImageViewState(float f2, PointF pointF, int i) {
+    public ImageViewState(float f2, PointF pointF, int i2) {
         this.scale = f2;
         this.centerX = pointF.x;
         this.centerY = pointF.y;
-        this.orientation = i;
+        this.orientation = i2;
     }
 
     public PointF getCenter() {

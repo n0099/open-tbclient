@@ -4,20 +4,20 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.RequestAddMsgRecordMessage;
-import d.b.j0.e1.k.b;
+import d.a.j0.e1.k.b;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AddMsgRecord.MsgRecord;
 /* loaded from: classes4.dex */
 public class AddMsgRecordModel extends BdBaseModel {
-    private MsgRecord generateMsgRecord(int i, String str) {
-        if ((i != 1 && i != 2 && i != 3) || str == null || str.length() == 0) {
+    private MsgRecord generateMsgRecord(int i2, String str) {
+        if ((i2 != 1 && i2 != 2 && i2 != 3) || str == null || str.length() == 0) {
             return null;
         }
         MsgRecord.Builder builder = new MsgRecord.Builder();
-        builder.type = Integer.valueOf(i);
+        builder.type = Integer.valueOf(i2);
         builder.task_ids = str;
-        BdLog.e("type is " + i + ", taskId is " + str);
+        BdLog.e("type is " + i2 + ", taskId is " + str);
         return builder.build(false);
     }
 

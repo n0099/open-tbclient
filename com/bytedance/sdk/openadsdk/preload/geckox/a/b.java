@@ -14,22 +14,22 @@ import java.util.List;
 public class b extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f29902a;
+    public static volatile b f30815a;
 
-    public b(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i) {
-        super(context, str, cursorFactory, i);
+    public b(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2) {
+        super(context, str, cursorFactory, i2);
     }
 
     public static b a(Context context) {
-        if (f29902a == null) {
+        if (f30815a == null) {
             synchronized (b.class) {
-                if (f29902a == null) {
+                if (f30815a == null) {
                     Context applicationContext = context.getApplicationContext();
-                    f29902a = new b(applicationContext, "geckox_clean_statistic" + com.bytedance.sdk.openadsdk.preload.geckox.utils.a.c(context) + ".db", null, 1);
+                    f30815a = new b(applicationContext, "geckox_clean_statistic" + com.bytedance.sdk.openadsdk.preload.geckox.utils.a.c(context) + ".db", null, 1);
                 }
             }
         }
-        return f29902a;
+        return f30815a;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -38,20 +38,20 @@ public class b extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
     }
 
-    public void a(String str, String str2, int i, int i2, long j, int i3, String str3, long j2, int i4) {
+    public void a(String str, String str2, int i2, int i3, long j, int i4, String str3, long j2, int i5) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("access_key", str);
         contentValues.put("channel", str2);
-        contentValues.put("clean_type", Integer.valueOf(i));
-        contentValues.put("status", Integer.valueOf(i2));
+        contentValues.put("clean_type", Integer.valueOf(i2));
+        contentValues.put("status", Integer.valueOf(i3));
         contentValues.put(IntentConfig.PKG_ID, Long.valueOf(j));
-        contentValues.put(PmsConstant.Statistic.STATISTIC_ERRCODE, Integer.valueOf(i3));
+        contentValues.put(PmsConstant.Statistic.STATISTIC_ERRCODE, Integer.valueOf(i4));
         contentValues.put(PmsConstant.Statistic.STATISTIC_ERRMSG, str3);
         contentValues.put("clean_duration", Long.valueOf(j2));
-        contentValues.put("clean_strategy", Integer.valueOf(i4));
+        contentValues.put("clean_strategy", Integer.valueOf(i5));
         try {
             getWritableDatabase().insert("geckox_clean_statistic", null, contentValues);
         } catch (Exception e2) {
@@ -76,27 +76,27 @@ public class b extends SQLiteOpenHelper {
             try {
                 String string = cursor.getString(cursor.getColumnIndex("access_key"));
                 String string2 = cursor.getString(cursor.getColumnIndex("channel"));
-                int i = cursor.getInt(cursor.getColumnIndex("clean_type"));
-                int i2 = cursor.getInt(cursor.getColumnIndex("status"));
-                int i3 = cursor.getInt(cursor.getColumnIndex(PmsConstant.Statistic.STATISTIC_ERRCODE));
+                int i2 = cursor.getInt(cursor.getColumnIndex("clean_type"));
+                int i3 = cursor.getInt(cursor.getColumnIndex("status"));
+                int i4 = cursor.getInt(cursor.getColumnIndex(PmsConstant.Statistic.STATISTIC_ERRCODE));
                 String string3 = cursor.getString(cursor.getColumnIndex(PmsConstant.Statistic.STATISTIC_ERRMSG));
-                int i4 = cursor.getInt(cursor.getColumnIndex("clean_strategy"));
+                int i5 = cursor.getInt(cursor.getColumnIndex("clean_strategy"));
                 long j = cursor.getLong(cursor.getColumnIndex("clean_duration"));
                 StatisticModel.PackageStatisticModel packageStatisticModel = new StatisticModel.PackageStatisticModel();
                 packageStatisticModel.accessKey = string;
                 packageStatisticModel.channel = string2;
-                packageStatisticModel.statsType = Integer.valueOf(i2);
+                packageStatisticModel.statsType = Integer.valueOf(i3);
                 packageStatisticModel.id = Long.valueOf(cursor.getInt(cursor.getColumnIndex(IntentConfig.PKG_ID)));
-                if (i3 == 0) {
+                if (i4 == 0) {
                     str = null;
                 } else {
-                    str = i3 + "";
+                    str = i4 + "";
                 }
                 packageStatisticModel.errCode = str;
                 packageStatisticModel.errMsg = string3;
-                packageStatisticModel.cleanType = Integer.valueOf(i);
+                packageStatisticModel.cleanType = Integer.valueOf(i2);
                 packageStatisticModel.cleanDuration = Long.valueOf(j);
-                packageStatisticModel.cleanStrategy = Integer.valueOf(i4);
+                packageStatisticModel.cleanStrategy = Integer.valueOf(i5);
                 arrayList.add(packageStatisticModel);
             } catch (Exception e3) {
                 e = e3;

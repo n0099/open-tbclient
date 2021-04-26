@@ -21,8 +21,8 @@ public class RateShareEntry extends GroupEntry {
         public int availableBitrate;
         public short targetRateShare;
 
-        public Entry(int i, short s) {
-            this.availableBitrate = i;
+        public Entry(int i2, short s) {
+            this.availableBitrate = i2;
             this.targetRateShare = s;
         }
 
@@ -49,8 +49,8 @@ public class RateShareEntry extends GroupEntry {
             return (this.availableBitrate * 31) + this.targetRateShare;
         }
 
-        public void setAvailableBitrate(int i) {
-            this.availableBitrate = i;
+        public void setAvailableBitrate(int i2) {
+            this.availableBitrate = i2;
         }
 
         public void setTargetRateShare(short s) {
@@ -123,9 +123,9 @@ public class RateShareEntry extends GroupEntry {
     }
 
     public int hashCode() {
-        int i = ((this.operationPointCut * 31) + this.targetRateShare) * 31;
+        int i2 = ((this.operationPointCut * 31) + this.targetRateShare) * 31;
         List<Entry> list = this.entries;
-        return ((((((i + (list != null ? list.hashCode() : 0)) * 31) + this.maximumBitrate) * 31) + this.minimumBitrate) * 31) + this.discardPriority;
+        return ((((((i2 + (list != null ? list.hashCode() : 0)) * 31) + this.maximumBitrate) * 31) + this.minimumBitrate) * 31) + this.discardPriority;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -159,12 +159,12 @@ public class RateShareEntry extends GroupEntry {
         this.entries = list;
     }
 
-    public void setMaximumBitrate(int i) {
-        this.maximumBitrate = i;
+    public void setMaximumBitrate(int i2) {
+        this.maximumBitrate = i2;
     }
 
-    public void setMinimumBitrate(int i) {
-        this.minimumBitrate = i;
+    public void setMinimumBitrate(int i2) {
+        this.minimumBitrate = i2;
     }
 
     public void setOperationPointCut(short s) {

@@ -21,7 +21,7 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class TypefaceCompatUtil {
     public static final String CACHE_FILE_PREFIX = ".font";
@@ -38,13 +38,13 @@ public class TypefaceCompatUtil {
 
     @Nullable
     @RequiresApi(19)
-    public static ByteBuffer copyToDirectBuffer(Context context, Resources resources, int i) {
+    public static ByteBuffer copyToDirectBuffer(Context context, Resources resources, int i2) {
         File tempFile = getTempFile(context);
         if (tempFile == null) {
             return null;
         }
         try {
-            if (copyToFile(tempFile, resources, i)) {
+            if (copyToFile(tempFile, resources, i2)) {
                 return mmap(tempFile);
             }
             return null;
@@ -96,9 +96,13 @@ public class TypefaceCompatUtil {
 
     @Nullable
     public static File getTempFile(Context context) {
+        File cacheDir = context.getCacheDir();
+        if (cacheDir == null) {
+            return null;
+        }
         String str = CACHE_FILE_PREFIX + Process.myPid() + "-" + Process.myTid() + "-";
-        for (int i = 0; i < 100; i++) {
-            File file = new File(context.getCacheDir(), str + i);
+        for (int i2 = 0; i2 < 100; i2++) {
+            File file = new File(cacheDir, str + i2);
             if (file.createNewFile()) {
                 return file;
             }
@@ -124,7 +128,7 @@ public class TypefaceCompatUtil {
     @RequiresApi(19)
     public static ByteBuffer mmap(Context context, CancellationSignal cancellationSignal, Uri uri) {
         try {
-            ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7699a, cancellationSignal);
+            ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7975a, cancellationSignal);
             if (openFileDescriptor == null) {
                 if (openFileDescriptor != null) {
                     openFileDescriptor.close();
@@ -132,22 +136,31 @@ public class TypefaceCompatUtil {
                 return null;
             }
             FileInputStream fileInputStream = new FileInputStream(openFileDescriptor.getFileDescriptor());
-            FileChannel channel = fileInputStream.getChannel();
-            MappedByteBuffer map = channel.map(FileChannel.MapMode.READ_ONLY, 0L, channel.size());
-            fileInputStream.close();
-            if (openFileDescriptor != null) {
-                openFileDescriptor.close();
+            try {
+                FileChannel channel = fileInputStream.getChannel();
+                MappedByteBuffer map = channel.map(FileChannel.MapMode.READ_ONLY, 0L, channel.size());
+                fileInputStream.close();
+                if (openFileDescriptor != null) {
+                    openFileDescriptor.close();
+                }
+                return map;
+            } catch (Throwable th) {
+                try {
+                    fileInputStream.close();
+                } catch (Throwable th2) {
+                    th.addSuppressed(th2);
+                }
+                throw th;
             }
-            return map;
         } catch (IOException unused) {
             return null;
         }
     }
 
-    public static boolean copyToFile(File file, Resources resources, int i) {
+    public static boolean copyToFile(File file, Resources resources, int i2) {
         InputStream inputStream;
         try {
-            inputStream = resources.openRawResource(i);
+            inputStream = resources.openRawResource(i2);
             try {
                 boolean copyToFile = copyToFile(file, inputStream);
                 closeQuietly(inputStream);

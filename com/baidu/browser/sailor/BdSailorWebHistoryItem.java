@@ -40,7 +40,7 @@ public class BdSailorWebHistoryItem implements INoProGuard {
         return this.mItem.getUrl();
     }
 
-    public Object getUserData(int i) {
+    public Object getUserData(int i2) {
         return null;
     }
 
@@ -49,7 +49,7 @@ public class BdSailorWebHistoryItem implements INoProGuard {
         return this.mItem.getVisibleTitleHeight();
     }
 
-    public void setUserData(int i, Object obj) {
+    public void setUserData(int i2, Object obj) {
     }
 
     public String toString() {

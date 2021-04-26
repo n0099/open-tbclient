@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class al {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40612a;
+    public int f38127a;
 
     /* renamed from: a  reason: collision with other field name */
     public Handler f109a;
@@ -23,7 +23,7 @@ public class al {
     public volatile boolean f112a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f40613b;
+    public final boolean f38128b;
 
     /* loaded from: classes7.dex */
     public class a extends Thread {
@@ -36,9 +36,9 @@ public class al {
             this.f113a = new LinkedBlockingQueue<>();
         }
 
-        private void a(int i, b bVar) {
+        private void a(int i2, b bVar) {
             try {
-                al.this.f109a.sendMessage(al.this.f109a.obtainMessage(i, bVar));
+                al.this.f109a.sendMessage(al.this.f109a.obtainMessage(i2, bVar));
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
             }
@@ -54,7 +54,7 @@ public class al {
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            long j = al.this.f40612a > 0 ? al.this.f40612a : Long.MAX_VALUE;
+            long j = al.this.f38127a > 0 ? al.this.f38127a : Long.MAX_VALUE;
             while (!al.this.f112a) {
                 try {
                     b poll = this.f113a.poll(j, TimeUnit.SECONDS);
@@ -63,7 +63,7 @@ public class al {
                         a(0, poll);
                         poll.b();
                         a(1, poll);
-                    } else if (al.this.f40612a > 0) {
+                    } else if (al.this.f38127a > 0) {
                         al.this.a();
                     }
                 } catch (InterruptedException e2) {
@@ -81,7 +81,7 @@ public class al {
         public abstract void b();
 
         /* renamed from: c */
-        public void mo227c() {
+        public void mo230c() {
         }
     }
 
@@ -93,13 +93,13 @@ public class al {
         this(z, 0);
     }
 
-    public al(boolean z, int i) {
+    public al(boolean z, int i2) {
         this.f109a = null;
         this.f112a = false;
-        this.f40612a = 0;
+        this.f38127a = 0;
         this.f109a = new am(this, Looper.getMainLooper());
-        this.f40613b = z;
-        this.f40612a = i;
+        this.f38128b = z;
+        this.f38127a = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -112,7 +112,7 @@ public class al {
         if (this.f110a == null) {
             a aVar = new a();
             this.f110a = aVar;
-            aVar.setDaemon(this.f40613b);
+            aVar.setDaemon(this.f38128b);
             this.f112a = false;
             this.f110a.start();
         }

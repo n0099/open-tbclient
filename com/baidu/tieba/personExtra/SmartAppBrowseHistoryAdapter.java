@@ -11,74 +11,74 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import d.b.c.e.p.k;
+import d.a.c.e.p.k;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.SmartApp;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRecordViewHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f20089a;
+    public Context f20600a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<SmartApp> f20090b;
+    public List<SmartApp> f20601b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f20091c;
+    public View.OnClickListener f20602c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnLongClickListener f20092d;
+    public View.OnLongClickListener f20603d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class HistoryRecordViewHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f20093a;
+        public View f20604a;
 
         /* renamed from: b  reason: collision with root package name */
-        public HeadImageView f20094b;
+        public HeadImageView f20605b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f20095c;
+        public TextView f20606c;
 
         public HistoryRecordViewHolder(View view) {
             super(view);
-            this.f20093a = view;
+            this.f20604a = view;
             HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.f20094b = headImageView;
+            this.f20605b = headImageView;
             headImageView.setIsRound(true);
-            this.f20094b.setPlaceHolder(1);
-            this.f20095c = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
+            this.f20605b.setPlaceHolder(1);
+            this.f20606c = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
         public void a(SmartApp smartApp) {
-            this.f20093a.setTag(smartApp);
+            this.f20604a.setTag(smartApp);
             if (!k.isEmpty(smartApp.avatar)) {
-                this.f20094b.setPlaceHolder(1);
-                this.f20094b.X(smartApp.avatar, 10, false, false);
+                this.f20605b.setPlaceHolder(1);
+                this.f20605b.W(smartApp.avatar, 10, false, false);
             }
             if (!k.isEmpty(smartApp.name)) {
-                this.f20095c.setText(smartApp.name);
+                this.f20606c.setText(smartApp.name);
             } else {
-                this.f20095c.setText(R.string.intelligent_smart_app);
+                this.f20606c.setText(R.string.intelligent_smart_app);
             }
         }
 
         public void b() {
-            SkinManager.setBackgroundResource(this.f20093a, R.drawable.person_center_action_item_selector);
-            SkinManager.setViewTextColor(this.f20095c, R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.f20604a, R.drawable.person_center_action_item_selector);
+            SkinManager.setViewTextColor(this.f20606c, R.color.CAM_X0105);
         }
 
         public void c(View.OnClickListener onClickListener) {
-            View view = this.f20093a;
+            View view = this.f20604a;
             if (view != null) {
                 view.setOnClickListener(onClickListener);
             }
         }
 
         public void d(View.OnLongClickListener onLongClickListener) {
-            View view = this.f20093a;
+            View view = this.f20604a;
             if (view != null) {
                 view.setOnLongClickListener(onLongClickListener);
             }
@@ -86,53 +86,48 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
     }
 
     public SmartAppBrowseHistoryAdapter(Context context) {
-        this.f20089a = context;
+        this.f20600a = context;
     }
 
-    public final SmartApp g(int i) {
-        return (SmartApp) ListUtils.getItem(this.f20090b, i);
+    public final SmartApp c(int i2) {
+        return (SmartApp) ListUtils.getItem(this.f20601b, i2);
     }
 
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        return ListUtils.getCount(this.f20090b);
-    }
-
-    public void h(SmartApp smartApp) {
+    public void d(SmartApp smartApp) {
         List<SmartApp> list;
-        SmartApp k = k(smartApp.id);
-        if (k == null || (list = this.f20090b) == null) {
+        SmartApp g2 = g(smartApp.id);
+        if (g2 == null || (list = this.f20601b) == null) {
             return;
         }
-        ListUtils.add(list, 0, k);
+        ListUtils.add(list, 0, g2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: i */
-    public void onBindViewHolder(HistoryRecordViewHolder historyRecordViewHolder, int i) {
-        SmartApp g2;
-        if (historyRecordViewHolder == null || (g2 = g(i)) == null) {
+    /* renamed from: e */
+    public void onBindViewHolder(HistoryRecordViewHolder historyRecordViewHolder, int i2) {
+        SmartApp c2;
+        if (historyRecordViewHolder == null || (c2 = c(i2)) == null) {
             return;
         }
-        historyRecordViewHolder.a(g2);
-        historyRecordViewHolder.c(this.f20091c);
-        historyRecordViewHolder.d(this.f20092d);
+        historyRecordViewHolder.a(c2);
+        historyRecordViewHolder.c(this.f20602c);
+        historyRecordViewHolder.d(this.f20603d);
         historyRecordViewHolder.b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: j */
-    public HistoryRecordViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new HistoryRecordViewHolder(LayoutInflater.from(this.f20089a).inflate(R.layout.smart_app_history_record_item, viewGroup, false));
+    /* renamed from: f */
+    public HistoryRecordViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
+        return new HistoryRecordViewHolder(LayoutInflater.from(this.f20600a).inflate(R.layout.smart_app_history_record_item, viewGroup, false));
     }
 
-    public SmartApp k(String str) {
-        if (ListUtils.isEmpty(this.f20090b)) {
+    public SmartApp g(String str) {
+        if (ListUtils.isEmpty(this.f20601b)) {
             return null;
         }
-        Iterator<SmartApp> it = this.f20090b.iterator();
+        Iterator<SmartApp> it = this.f20601b.iterator();
         while (it.hasNext()) {
             SmartApp next = it.next();
             if (next != null && StringHelper.equals(next.id, str)) {
@@ -143,15 +138,20 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         return null;
     }
 
-    public void l(List<SmartApp> list) {
-        this.f20090b = list;
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        return ListUtils.getCount(this.f20601b);
     }
 
-    public void m(View.OnClickListener onClickListener) {
-        this.f20091c = onClickListener;
+    public void h(List<SmartApp> list) {
+        this.f20601b = list;
     }
 
-    public void n(View.OnLongClickListener onLongClickListener) {
-        this.f20092d = onLongClickListener;
+    public void i(View.OnClickListener onClickListener) {
+        this.f20602c = onClickListener;
+    }
+
+    public void j(View.OnLongClickListener onLongClickListener) {
+        this.f20603d = onLongClickListener;
     }
 }

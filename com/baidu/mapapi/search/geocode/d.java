@@ -15,7 +15,7 @@ public final class d implements Parcelable.Creator<ReverseGeoCodeResult.PoiRegio
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public ReverseGeoCodeResult.PoiRegionsInfo[] newArray(int i) {
-        return new ReverseGeoCodeResult.PoiRegionsInfo[i];
+    public ReverseGeoCodeResult.PoiRegionsInfo[] newArray(int i2) {
+        return new ReverseGeoCodeResult.PoiRegionsInfo[i2];
     }
 }

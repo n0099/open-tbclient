@@ -9,12 +9,12 @@ import java.util.ArrayList;
 public class PickFaceTabActivityConfig extends IntentConfig {
     public static final String CHOOSED_LIST = "choosed_list";
 
-    public PickFaceTabActivityConfig(Context context, int i, ArrayList<FaceData> arrayList) {
+    public PickFaceTabActivityConfig(Context context, int i2, ArrayList<FaceData> arrayList) {
         super(context);
         setIntentAction(IntentAction.ActivityForResult);
         if (arrayList != null) {
             getIntent().putExtra(CHOOSED_LIST, arrayList);
         }
-        setRequestCode(i);
+        setRequestCode(i2);
     }
 }

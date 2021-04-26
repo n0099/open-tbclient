@@ -24,7 +24,7 @@ public final class WebSocketRequest$Companion$fromJSON$1$2 extends Lambda implem
         return invoke(num.intValue());
     }
 
-    public final String invoke(int i) {
-        return ((JSONArray) this.$protocolsArray.element).getString(i);
+    public final String invoke(int i2) {
+        return ((JSONArray) this.$protocolsArray.element).getString(i2);
     }
 }

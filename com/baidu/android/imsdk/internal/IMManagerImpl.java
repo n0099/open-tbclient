@@ -22,13 +22,13 @@ public class IMManagerImpl {
     private List<Integer> getIndex() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(0);
-        int i = 1;
+        int i2 = 1;
         arrayList.add(1);
-        for (int i2 = 0; i2 <= 29; i2++) {
-            if ((536870937 & i) != 0) {
-                arrayList.add(Integer.valueOf(i2 + 2));
+        for (int i3 = 0; i3 <= 29; i3++) {
+            if ((536870937 & i2) != 0) {
+                arrayList.add(Integer.valueOf(i3 + 2));
             }
-            i <<= 1;
+            i2 <<= 1;
         }
         return arrayList;
     }
@@ -72,8 +72,8 @@ public class IMManagerImpl {
             return;
         }
         String[] strArr = {"com.baidu.android.imsdk.account.AccountManager", "com.baidu.android.imsdk.chatmessage.ChatMsgManager", "com.baidu.android.imsdk.chatuser.ChatUserManager", "com.baidu.android.imsdk.friend.FriendManager", "com.baidu.android.imsdk.group.GroupManager", "com.baidu.android.imsdk.pubaccount.PaManager"};
-        for (int i = 0; i < index.size() && index.get(i).intValue() < 6; i++) {
-            loadClassForName(strArr[index.get(i).intValue()]);
+        for (int i2 = 0; i2 < index.size() && index.get(i2).intValue() < 6; i2++) {
+            loadClassForName(strArr[index.get(i2).intValue()]);
         }
     }
 
@@ -91,8 +91,8 @@ public class IMManagerImpl {
         return null;
     }
 
-    public boolean setProductLine(int i) {
-        return IMConfigInternal.getInstance().setProductLine(sContext, i);
+    public boolean setProductLine(int i2) {
+        return IMConfigInternal.getInstance().setProductLine(sContext, i2);
     }
 
     public void start(Context context) {

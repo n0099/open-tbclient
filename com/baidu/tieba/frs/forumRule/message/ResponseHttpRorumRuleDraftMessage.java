@@ -13,7 +13,7 @@ public class ResponseHttpRorumRuleDraftMessage extends JsonHttpResponsedMessage 
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         if (jSONObject == null) {
             return;
         }

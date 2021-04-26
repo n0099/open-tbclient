@@ -22,8 +22,8 @@ public class CookieJarImpl implements CookieJar {
         }
         StringBuilder sb = new StringBuilder();
         int length = str.length();
-        for (int i = 0; i < length; i++) {
-            char charAt = str.charAt(i);
+        for (int i2 = 0; i2 < length; i2++) {
+            char charAt = str.charAt(i2);
             if (charAt <= 31 || charAt >= 127) {
                 sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
             } else {
@@ -36,11 +36,11 @@ public class CookieJarImpl implements CookieJar {
     private List<Cookie> getCookies(HttpUrl httpUrl, String str) {
         ArrayList arrayList = new ArrayList();
         int length = str.length();
-        int i = 0;
-        while (i < length) {
-            int delimiterOffset = Util.delimiterOffset(str, i, length, ';');
-            int delimiterOffset2 = Util.delimiterOffset(str, i, delimiterOffset, (char) a.f1922h);
-            String trimSubstring = Util.trimSubstring(str, i, delimiterOffset2);
+        int i2 = 0;
+        while (i2 < length) {
+            int delimiterOffset = Util.delimiterOffset(str, i2, length, ';');
+            int delimiterOffset2 = Util.delimiterOffset(str, i2, delimiterOffset, (char) a.f1873h);
+            String trimSubstring = Util.trimSubstring(str, i2, delimiterOffset2);
             String trimSubstring2 = delimiterOffset2 < delimiterOffset ? Util.trimSubstring(str, delimiterOffset2 + 1, delimiterOffset) : "";
             if (trimSubstring2.startsWith("\"") && trimSubstring2.endsWith("\"")) {
                 trimSubstring2 = trimSubstring2.substring(1, trimSubstring2.length() - 1);
@@ -50,7 +50,7 @@ public class CookieJarImpl implements CookieJar {
             if (!TextUtils.isEmpty(encodeIllegalInfo) && this.cookieManager.shouldSendCookie(httpUrl.toString(), encodeIllegalInfo)) {
                 arrayList.add(new Cookie.Builder().name(encodeIllegalInfo).value(encodeIllegalInfo2).domain(httpUrl.host()).build());
             }
-            i = delimiterOffset + 1;
+            i2 = delimiterOffset + 1;
         }
         return arrayList;
     }

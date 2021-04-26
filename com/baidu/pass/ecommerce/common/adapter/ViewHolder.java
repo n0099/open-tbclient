@@ -12,7 +12,7 @@ public class ViewHolder<D> {
     public void bindView(D d2) {
     }
 
-    public <T extends View> T findViewById(int i) {
-        return (T) this.convertView.findViewById(i);
+    public <T extends View> T findViewById(int i2) {
+        return (T) this.convertView.findViewById(i2);
     }
 }

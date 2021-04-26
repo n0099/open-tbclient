@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.walknavi;
 public interface IWNavigatorListener {
     void onNaviExit();
 
-    void onPageJump(int i, Object obj);
+    void onPageJump(int i2, Object obj);
 
-    void onWalkNaviModeChange(int i, WalkNaviModeSwitchListener walkNaviModeSwitchListener);
+    void onWalkNaviModeChange(int i2, WalkNaviModeSwitchListener walkNaviModeSwitchListener);
 }

@@ -39,7 +39,7 @@ public class DownTaskActivity implements IActivityImpl {
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl
@@ -126,12 +126,12 @@ public class DownTaskActivity implements IActivityImpl {
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         return false;
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
         return false;
     }
 
@@ -173,7 +173,7 @@ public class DownTaskActivity implements IActivityImpl {
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl
-    public void overridePendingTransition(int i, int i2) {
+    public void overridePendingTransition(int i2, int i3) {
     }
 
     @Override // com.baidu.mobads.sdk.api.IActivityImpl

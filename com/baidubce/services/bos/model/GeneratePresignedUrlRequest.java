@@ -77,8 +77,8 @@ public class GeneratePresignedUrlRequest extends AbstractBceRequest {
         this.contentType = str;
     }
 
-    public void setExpiration(int i) {
-        this.expirationInSeconds = i;
+    public void setExpiration(int i2) {
+        this.expirationInSeconds = i2;
     }
 
     public void setKey(String str) {
@@ -108,8 +108,8 @@ public class GeneratePresignedUrlRequest extends AbstractBceRequest {
         return this;
     }
 
-    public GeneratePresignedUrlRequest withExpiration(int i) {
-        setExpiration(i);
+    public GeneratePresignedUrlRequest withExpiration(int i2) {
+        setExpiration(i2);
         return this;
     }
 

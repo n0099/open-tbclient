@@ -11,19 +11,19 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
     public static int B = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f27717a;
+    public static float f28557a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f27718b;
+    public static float f28558b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static float f27719c;
+    public static float f28559c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f27720d;
+    public static float f28560d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f27721e;
+    public static long f28561e;
     public int A;
     public SparseArray<a> C = new SparseArray<>();
     public int s;
@@ -39,23 +39,23 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f27722a;
+        public int f28562a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f27723b;
+        public double f28563b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f27724c;
+        public double f28564c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f27725d;
+        public long f28565d;
 
-        public a(int i, double d2, double d3, long j) {
-            this.f27722a = -1;
-            this.f27722a = i;
-            this.f27723b = d2;
-            this.f27724c = d3;
-            this.f27725d = j;
+        public a(int i2, double d2, double d3, long j) {
+            this.f28562a = -1;
+            this.f28562a = i2;
+            this.f28563b = d2;
+            this.f28564c = d3;
+            this.f28565d = j;
         }
     }
 
@@ -63,14 +63,14 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
         if (ViewConfiguration.get(p.a()) != null) {
             B = ViewConfiguration.get(p.a()).getScaledTouchSlop();
         }
-        f27717a = 0.0f;
-        f27718b = 0.0f;
-        f27719c = 0.0f;
-        f27720d = 0.0f;
-        f27721e = 0L;
+        f28557a = 0.0f;
+        f28558b = 0.0f;
+        f28559c = 0.0f;
+        f28560d = 0.0f;
+        f28561e = 0L;
     }
 
-    public abstract void a(View view, int i, int i2, int i3, int i4);
+    public abstract void a(View view, int i2, int i3, int i4, int i5);
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
@@ -81,7 +81,7 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        int i;
+        int i2;
         int actionMasked = motionEvent.getActionMasked();
         if (actionMasked == 0) {
             this.s = (int) motionEvent.getRawX();
@@ -90,31 +90,31 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
             this.y = motionEvent.getToolType(0);
             this.z = motionEvent.getDeviceId();
             this.A = motionEvent.getSource();
-            f27721e = System.currentTimeMillis();
-            i = 0;
+            f28561e = System.currentTimeMillis();
+            i2 = 0;
         } else if (actionMasked == 1) {
             this.u = (int) motionEvent.getRawX();
             this.v = (int) motionEvent.getRawY();
             this.x = System.currentTimeMillis();
-            i = 3;
+            i2 = 3;
         } else if (actionMasked != 2) {
-            i = actionMasked != 3 ? -1 : 4;
+            i2 = actionMasked != 3 ? -1 : 4;
         } else {
-            f27719c += Math.abs(motionEvent.getX() - f27717a);
-            f27720d += Math.abs(motionEvent.getY() - f27718b);
-            f27717a = motionEvent.getX();
-            f27718b = motionEvent.getY();
-            if (System.currentTimeMillis() - f27721e > 200) {
-                float f2 = f27719c;
-                int i2 = B;
-                if (f2 > i2 || f27720d > i2) {
-                    i = 1;
+            f28559c += Math.abs(motionEvent.getX() - f28557a);
+            f28560d += Math.abs(motionEvent.getY() - f28558b);
+            f28557a = motionEvent.getX();
+            f28558b = motionEvent.getY();
+            if (System.currentTimeMillis() - f28561e > 200) {
+                float f2 = f28559c;
+                int i3 = B;
+                if (f2 > i3 || f28560d > i3) {
+                    i2 = 1;
                 }
             }
-            i = 2;
+            i2 = 2;
         }
         if (this.C.get(motionEvent.getActionMasked()) == null) {
-            this.C.put(motionEvent.getActionMasked(), new a(i, motionEvent.getSize(), motionEvent.getPressure(), System.currentTimeMillis()));
+            this.C.put(motionEvent.getActionMasked(), new a(i2, motionEvent.getSize(), motionEvent.getPressure(), System.currentTimeMillis()));
         }
         return false;
     }

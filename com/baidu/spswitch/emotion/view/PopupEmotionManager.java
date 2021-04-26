@@ -39,15 +39,15 @@ public class PopupEmotionManager {
         public Object extra;
         public int taskType;
 
-        public DelayedTask(int i, Object obj) {
-            this.taskType = i;
+        public DelayedTask(int i2, Object obj) {
+            this.taskType = i2;
             this.extra = obj;
         }
     }
 
     /* loaded from: classes2.dex */
     public interface IShowListener {
-        void show(int i, String str, int i2, int i3);
+        void show(int i2, String str, int i3, int i4);
     }
 
     /* loaded from: classes2.dex */
@@ -105,14 +105,14 @@ public class PopupEmotionManager {
             return;
         }
         DelayedTask poll = this.mDelayedTaskQueue.poll();
-        int i = poll.taskType;
-        if (i == 0) {
+        int i2 = poll.taskType;
+        if (i2 == 0) {
             show((ShowParam) poll.extra);
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             show((ShowParam) poll.extra);
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             dismiss();
-        } else if (i == 3) {
+        } else if (i2 == 3) {
             dismissWithoutAnim();
         }
     }

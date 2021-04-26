@@ -20,7 +20,7 @@ public class myOuterRTCVideoCapture extends RTCVideoCapture {
     };
 
     @Override // com.baidu.rtc.RTCVideoCapture, org.webrtc.VideoCapturer
-    public void changeCaptureFormat(int i, int i2, int i3) {
+    public void changeCaptureFormat(int i2, int i3, int i4) {
     }
 
     @Override // com.baidu.rtc.RTCVideoCapture, org.webrtc.VideoCapturer
@@ -50,7 +50,7 @@ public class myOuterRTCVideoCapture extends RTCVideoCapture {
     }
 
     @Override // com.baidu.rtc.RTCVideoCapture, org.webrtc.VideoCapturer
-    public void startCapture(int i, int i2, int i3) {
+    public void startCapture(int i2, int i3, int i4) {
         Log.e("selfVideoCapture", "startCapture.");
         this.timer.schedule(this.tickTask, 0L, 66L);
     }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat;
 
-import d.b.j0.e1.s.a;
-import d.b.j0.e1.s.c;
+import d.a.j0.e1.s.a;
+import d.a.j0.e1.s.c;
 /* loaded from: classes4.dex */
 public class OfficialMsgImageActivity extends AbsMsgImageActivity {
     @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity

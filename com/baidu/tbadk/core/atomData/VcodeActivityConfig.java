@@ -8,9 +8,9 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 public class VcodeActivityConfig extends IntentConfig {
     public static final String SAVE_KEY = "model";
 
-    public VcodeActivityConfig(Context context, WriteData writeData, int i) {
+    public VcodeActivityConfig(Context context, WriteData writeData, int i2) {
         super(context);
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
         if (writeData == null) {
             return;

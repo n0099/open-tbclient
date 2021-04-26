@@ -111,7 +111,7 @@ public class StateMachine {
                 }
                 if (mAdStatusList.size() > 100) {
                     int size = mAdStatusList.size() - 100;
-                    for (int i = 0; i < size; i++) {
+                    for (int i2 = 0; i2 < size; i2++) {
                         mAdOrderList.remove(0);
                         mAdStatusList.remove(mAdOrderList.getFirst());
                     }

@@ -26,10 +26,10 @@ public class FlutterSurfaceView extends SurfaceView implements RenderSurface {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void changeSurfaceSize(int i, int i2) {
+    public void changeSurfaceSize(int i2, int i3) {
         if (this.flutterRenderer != null) {
-            Log.v(TAG, "Notifying FlutterRenderer that Android surface size has changed to " + i + " x " + i2);
-            this.flutterRenderer.surfaceChanged(i, i2);
+            Log.v(TAG, "Notifying FlutterRenderer that Android surface size has changed to " + i2 + " x " + i3);
+            this.flutterRenderer.surfaceChanged(i2, i3);
             return;
         }
         throw new IllegalStateException("changeSurfaceSize() should only be called when flutterRenderer is non-null.");
@@ -116,10 +116,10 @@ public class FlutterSurfaceView extends SurfaceView implements RenderSurface {
         this.isAttachedToFlutterRenderer = false;
         this.surfaceCallback = new SurfaceHolder.Callback() { // from class: io.flutter.embedding.android.FlutterSurfaceView.1
             @Override // android.view.SurfaceHolder.Callback
-            public void surfaceChanged(@NonNull SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+            public void surfaceChanged(@NonNull SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
                 Log.v(FlutterSurfaceView.TAG, "SurfaceHolder.Callback.surfaceChanged()");
                 if (FlutterSurfaceView.this.isAttachedToFlutterRenderer) {
-                    FlutterSurfaceView.this.changeSurfaceSize(i2, i3);
+                    FlutterSurfaceView.this.changeSurfaceSize(i3, i4);
                 }
             }
 

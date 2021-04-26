@@ -10,14 +10,14 @@ public class AlaMGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessa
     public List<Long> closeLives;
     public long interval;
 
-    public AlaMGetLiveStatusHttpResponseMessage(int i) {
-        super(i);
+    public AlaMGetLiveStatusHttpResponseMessage(int i2) {
+        super(i2);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         JSONObject optJSONObject;
-        super.decodeLogicInBackGround(i, jSONObject);
+        super.decodeLogicInBackGround(i2, jSONObject);
         if (jSONObject == null) {
             return;
         }
@@ -30,9 +30,9 @@ public class AlaMGetLiveStatusHttpResponseMessage extends JsonHttpResponsedMessa
                     this.closeLives = new ArrayList();
                 }
                 this.closeLives.clear();
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    if (optJSONArray.get(i2) instanceof Integer) {
-                        this.closeLives.add(Long.valueOf(((Integer) optJSONArray.get(i2)).longValue()));
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    if (optJSONArray.get(i3) instanceof Integer) {
+                        this.closeLives.add(Long.valueOf(((Integer) optJSONArray.get(i3)).longValue()));
                     }
                 }
             }

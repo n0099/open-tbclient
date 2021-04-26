@@ -78,8 +78,8 @@ public class DataChannel {
         CLOSED;
 
         @CalledByNative("State")
-        public static State fromNativeIndex(int i) {
-            return values()[i];
+        public static State fromNativeIndex(int i2) {
+            return values()[i2];
         }
     }
 

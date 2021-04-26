@@ -19,8 +19,8 @@ public class ConfigMsg extends NormalMsg {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
-        public ConfigMsg[] newArray(int i) {
-            return new ConfigMsg[i];
+        public ConfigMsg[] newArray(int i2) {
+            return new ConfigMsg[i2];
         }
     };
     public String dataList;

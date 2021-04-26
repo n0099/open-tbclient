@@ -23,29 +23,31 @@ import org.json.JSONObject;
 public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    public UIADI f38491a;
+    public UIADI f36060a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38492b;
+    public boolean f36061b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f38493c;
+    public boolean f36062c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f38494d;
+    public boolean f36063d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicInteger f38495e;
+    public AtomicInteger f36064e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f38496f;
+    public AtomicInteger f36065f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile UnifiedInterstitialMediaListener f38497g;
+    public volatile UnifiedInterstitialMediaListener f36066g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile VideoOption f38498h;
-    public volatile int i;
+    public volatile VideoOption f36067h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public volatile int f36068i;
     public volatile int j;
 
     public UnifiedInterstitialAD(Activity activity, String str, UnifiedInterstitialADListener unifiedInterstitialADListener) {
@@ -53,11 +55,11 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     }
 
     public UnifiedInterstitialAD(Activity activity, String str, UnifiedInterstitialADListener unifiedInterstitialADListener, Map map) {
-        this.f38492b = false;
-        this.f38493c = false;
-        this.f38494d = false;
-        this.f38495e = new AtomicInteger(0);
-        this.f38496f = new AtomicInteger(0);
+        this.f36061b = false;
+        this.f36062c = false;
+        this.f36063d = false;
+        this.f36064e = new AtomicInteger(0);
+        this.f36065f = new AtomicInteger(0);
         if (GDTADManager.getInstance().isInitialized()) {
             a(activity, GDTADManager.getInstance().getAppStatus().getAPPID(), str, unifiedInterstitialADListener, map);
             return;
@@ -73,11 +75,11 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
 
     @Deprecated
     public UnifiedInterstitialAD(Activity activity, String str, String str2, UnifiedInterstitialADListener unifiedInterstitialADListener, Map map) {
-        this.f38492b = false;
-        this.f38493c = false;
-        this.f38494d = false;
-        this.f38495e = new AtomicInteger(0);
-        this.f38496f = new AtomicInteger(0);
+        this.f36061b = false;
+        this.f36062c = false;
+        this.f36063d = false;
+        this.f36064e = new AtomicInteger(0);
+        this.f36065f = new AtomicInteger(0);
         GDTLogger.w("此构造方法即将废弃，请在 Application 中初始化 SDK 后，使用不带 appId 的构造方法，详细请参考Demo");
         a(activity, str, str2, unifiedInterstitialADListener, map);
     }
@@ -87,12 +89,12 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
             GDTLogger.e(String.format("UnifiedInterstitialAD Constructor paras error, appid=%s,posId=%s,context=%s,listener=%s", str, str2, activity, unifiedInterstitialADListener));
             return;
         }
-        this.f38492b = true;
+        this.f36061b = true;
         if (!a.a(activity)) {
             GDTLogger.e("Required Activity/Service/Permission Not Declared in AndroidManifest.xml");
             return;
         }
-        this.f38493c = true;
+        this.f36062c = true;
         GDTADManager.INIT_EXECUTOR.execute(new Runnable() { // from class: com.qq.e.ads.interstitial2.UnifiedInterstitialAD.1
             @Override // java.lang.Runnable
             public void run() {
@@ -107,17 +109,17 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
                         public void run() {
                             try {
                                 if (pOFactory != null) {
-                                    UnifiedInterstitialAD.this.f38491a = pOFactory.getUnifiedInterstitialADDelegate(activity, str, str2, unifiedInterstitialADListener);
-                                    UnifiedInterstitialAD.this.f38494d = true;
+                                    UnifiedInterstitialAD.this.f36060a = pOFactory.getUnifiedInterstitialADDelegate(activity, str, str2, unifiedInterstitialADListener);
+                                    UnifiedInterstitialAD.this.f36063d = true;
                                     UnifiedInterstitialAD.a(UnifiedInterstitialAD.this, map, str2);
-                                    UnifiedInterstitialAD.this.setVideoOption(UnifiedInterstitialAD.this.f38498h);
-                                    UnifiedInterstitialAD.this.setMediaListener(UnifiedInterstitialAD.this.f38497g);
-                                    UnifiedInterstitialAD.this.setMinVideoDuration(UnifiedInterstitialAD.this.i);
+                                    UnifiedInterstitialAD.this.setVideoOption(UnifiedInterstitialAD.this.f36067h);
+                                    UnifiedInterstitialAD.this.setMediaListener(UnifiedInterstitialAD.this.f36066g);
+                                    UnifiedInterstitialAD.this.setMinVideoDuration(UnifiedInterstitialAD.this.f36068i);
                                     UnifiedInterstitialAD.this.setMaxVideoDuration(UnifiedInterstitialAD.this.j);
-                                    while (UnifiedInterstitialAD.this.f38495e.getAndDecrement() > 0) {
+                                    while (UnifiedInterstitialAD.this.f36064e.getAndDecrement() > 0) {
                                         UnifiedInterstitialAD.this.loadAD();
                                     }
-                                    while (UnifiedInterstitialAD.this.f38496f.getAndDecrement() > 0) {
+                                    while (UnifiedInterstitialAD.this.f36065f.getAndDecrement() > 0) {
                                         UnifiedInterstitialAD.this.loadFullScreenAD();
                                     }
                                 }
@@ -148,21 +150,21 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     }
 
     public void close() {
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             uiadi.close();
         }
     }
 
     public void destroy() {
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             uiadi.destory();
         }
     }
 
     public String getAdNetWorkName() {
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             return uiadi.getAdNetWorkName();
         }
@@ -171,7 +173,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     }
 
     public int getAdPatternType() {
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             return uiadi.getAdPatternType();
         }
@@ -181,7 +183,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public String getApkInfoUrl() {
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             return uiadi.getApkInfoUrl();
         }
@@ -189,7 +191,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     }
 
     public int getECPM() {
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             return uiadi.getECPM();
         }
@@ -198,7 +200,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     }
 
     public String getECPMLevel() {
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             return uiadi.getECPMLevel();
         }
@@ -208,7 +210,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
 
     public Map getExt() {
         try {
-            if (this.f38491a != null) {
+            if (this.f36060a != null) {
                 return UIADI.ext;
             }
             return null;
@@ -219,7 +221,7 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     }
 
     public boolean isValid() {
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             return uiadi.isValid();
         }
@@ -228,12 +230,12 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     }
 
     public void loadAD() {
-        if (!this.f38492b || !this.f38493c) {
+        if (!this.f36061b || !this.f36062c) {
             GDTLogger.e("InterstitialAD init Paras OR Context error,See More logs while new InterstitialAD");
-        } else if (!this.f38494d) {
-            this.f38495e.incrementAndGet();
+        } else if (!this.f36063d) {
+            this.f36064e.incrementAndGet();
         } else {
-            UIADI uiadi = this.f38491a;
+            UIADI uiadi = this.f36060a;
             if (uiadi != null) {
                 uiadi.loadAd();
             } else {
@@ -243,12 +245,12 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
     }
 
     public void loadFullScreenAD() {
-        if (!this.f38492b || !this.f38493c) {
+        if (!this.f36061b || !this.f36062c) {
             GDTLogger.e("InterstitialAD init Paras OR Context error,See More logs while new InterstitialAD");
-        } else if (!this.f38494d) {
-            this.f38496f.incrementAndGet();
+        } else if (!this.f36063d) {
+            this.f36065f.incrementAndGet();
         } else {
-            UIADI uiadi = this.f38491a;
+            UIADI uiadi = this.f36060a;
             if (uiadi != null) {
                 uiadi.loadFullScreenAD();
             } else {
@@ -259,84 +261,84 @@ public class UnifiedInterstitialAD implements ApkDownloadComplianceInterface {
 
     @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             uiadi.setDownloadConfirmListener(downloadConfirmListener);
         }
     }
 
-    public void setMaxVideoDuration(int i) {
-        this.j = i;
-        if (this.j > 0 && this.i > this.j) {
+    public void setMaxVideoDuration(int i2) {
+        this.j = i2;
+        if (this.j > 0 && this.f36068i > this.j) {
             GDTLogger.e("maxVideoDuration 设置值非法，不得小于minVideoDuration");
         }
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
-            uiadi.setMaxVideoDuration(i);
+            uiadi.setMaxVideoDuration(i2);
         }
     }
 
     public void setMediaListener(UnifiedInterstitialMediaListener unifiedInterstitialMediaListener) {
-        this.f38497g = unifiedInterstitialMediaListener;
-        UIADI uiadi = this.f38491a;
+        this.f36066g = unifiedInterstitialMediaListener;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             uiadi.setMediaListener(unifiedInterstitialMediaListener);
         }
     }
 
-    public void setMinVideoDuration(int i) {
-        this.i = i;
-        if (this.j > 0 && this.i > this.j) {
+    public void setMinVideoDuration(int i2) {
+        this.f36068i = i2;
+        if (this.j > 0 && this.f36068i > this.j) {
             GDTLogger.e("minVideoDuration 设置值非法，不得大于maxVideoDuration");
         }
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
-            uiadi.setMinVideoDuration(i);
+            uiadi.setMinVideoDuration(i2);
         }
     }
 
     public void setVideoOption(VideoOption videoOption) {
-        this.f38498h = videoOption;
-        UIADI uiadi = this.f38491a;
+        this.f36067h = videoOption;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             uiadi.setVideoOption(videoOption);
         }
     }
 
     @Deprecated
-    public void setVideoPlayPolicy(int i) {
+    public void setVideoPlayPolicy(int i2) {
     }
 
     public void show() {
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             uiadi.show();
         }
     }
 
     public void show(Activity activity) {
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             uiadi.show(activity);
         }
     }
 
     public void showAsPopupWindow() {
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             uiadi.showAsPopupWindow();
         }
     }
 
     public void showAsPopupWindow(Activity activity) {
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             uiadi.showAsPopupWindow(activity);
         }
     }
 
     public void showFullScreenAD(Activity activity) {
-        UIADI uiadi = this.f38491a;
+        UIADI uiadi = this.f36060a;
         if (uiadi != null) {
             uiadi.showFullScreenAD(activity);
         }

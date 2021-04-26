@@ -11,15 +11,15 @@ public class SplashVSLogUtil {
     public static final int TYPE_RSPLASH_TEMPLATE = 2;
     public static final int TYPE_RSPLASH_VIDEO = 4;
 
-    public static void sendLog(XAdContainerContext xAdContainerContext, int i, boolean z, int i2, int i3, String str) {
+    public static void sendLog(XAdContainerContext xAdContainerContext, int i2, boolean z, int i3, int i4, String str) {
         if (xAdContainerContext == null) {
             return;
         }
         try {
-            SendLogUtil.Builder appendApId = SendLogUtil.Builder.create(xAdContainerContext.getAppContext()).appendType(i3).appendProdType("rsplash").appendAppSid(xAdContainerContext.getAppsid()).appendAdInfo(xAdContainerContext.getAdInstanceInfo()).append("uniqueid", xAdContainerContext.getAdInstanceInfo().getUniqueId()).appendApId(xAdContainerContext.getAdPlacementId());
-            SendLogUtil.Builder append = appendApId.append("rsplashtype", "" + i2).append("logversion", "4").append("p_ver", AppConfigImp.getInstance().getProxyVersion());
+            SendLogUtil.Builder appendApId = SendLogUtil.Builder.create(xAdContainerContext.getAppContext()).appendType(i4).appendProdType("rsplash").appendAppSid(xAdContainerContext.getAppsid()).appendAdInfo(xAdContainerContext.getAdInstanceInfo()).append("uniqueid", xAdContainerContext.getAdInstanceInfo().getUniqueId()).appendApId(xAdContainerContext.getAdPlacementId());
+            SendLogUtil.Builder append = appendApId.append("rsplashtype", "" + i3).append("logversion", "4").append("p_ver", AppConfigImp.getInstance().getProxyVersion());
             SendLogUtil.Builder append2 = append.append("isshowsended", "" + z).append("materialtype", xAdContainerContext.getAdInstanceInfo().getMaterialType());
-            SendLogUtil.Builder append3 = append2.append("showstate", "" + i);
+            SendLogUtil.Builder append3 = append2.append("showstate", "" + i2);
             if (str != null && !str.equals("")) {
                 append3.append("showrecord", str);
             }

@@ -1,7 +1,6 @@
 package com.coremedia.iso.boxes;
 
 import com.alibaba.fastjson.asm.Opcodes;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeReaderVariable;
@@ -14,21 +13,21 @@ import g.a.b.b.b;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ItemLocationBox extends AbstractFullBox {
     public static final String TYPE = "iloc";
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_10 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_11 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_6 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_7 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_8 = null;
-    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_9 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_10 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_11 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_6 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_7 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_8 = null;
+    public static final /* synthetic */ a.InterfaceC1845a ajc$tjp_9 = null;
     public int baseOffsetSize;
     public int indexSize;
     public List<Item> items;
@@ -51,7 +50,7 @@ public class ItemLocationBox extends AbstractFullBox {
     public static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("ItemLocationBox.java", ItemLocationBox.class);
         ajc$tjp_0 = bVar.g("method-execution", bVar.f("1", "getOffsetSize", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "int"), 119);
-        ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "setOffsetSize", "com.coremedia.iso.boxes.ItemLocationBox", "int", "offsetSize", "", "void"), Constants.METHOD_IM_FRIEND_GROUP_QUERY);
+        ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "setOffsetSize", "com.coremedia.iso.boxes.ItemLocationBox", "int", "offsetSize", "", "void"), 123);
         ajc$tjp_10 = bVar.g("method-execution", bVar.f("1", "createItem", "com.coremedia.iso.boxes.ItemLocationBox", "int:int:int:long:java.util.List", "itemId:constructionMethod:dataReferenceIndex:baseOffset:extents", "", "com.coremedia.iso.boxes.ItemLocationBox$Item"), 160);
         ajc$tjp_11 = bVar.g("method-execution", bVar.f("1", "createExtent", "com.coremedia.iso.boxes.ItemLocationBox", "long:long:long", "extentOffset:extentLength:extentIndex", "", "com.coremedia.iso.boxes.ItemLocationBox$Extent"), 285);
         ajc$tjp_2 = bVar.g("method-execution", bVar.f("1", "getLengthSize", "com.coremedia.iso.boxes.ItemLocationBox", "", "", "", "int"), 127);
@@ -76,7 +75,7 @@ public class ItemLocationBox extends AbstractFullBox {
             this.indexSize = readUInt82 & 15;
         }
         int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
-        for (int i = 0; i < readUInt16; i++) {
+        for (int i2 = 0; i2 < readUInt16; i2++) {
             this.items.add(new Item(byteBuffer));
         }
     }
@@ -86,9 +85,9 @@ public class ItemLocationBox extends AbstractFullBox {
         return new Extent(j, j2, j3);
     }
 
-    public Item createItem(int i, int i2, int i3, long j, List<Extent> list) {
-        RequiresParseDetailAspect.aspectOf().before(b.e(ajc$tjp_10, this, this, new Object[]{g.a.b.a.a.e(i), g.a.b.a.a.e(i2), g.a.b.a.a.e(i3), g.a.b.a.a.f(j), list}));
-        return new Item(i, i2, i3, j, list);
+    public Item createItem(int i2, int i3, int i4, long j, List<Extent> list) {
+        RequiresParseDetailAspect.aspectOf().before(b.e(ajc$tjp_10, this, this, new Object[]{g.a.b.a.a.e(i2), g.a.b.a.a.e(i3), g.a.b.a.a.e(i4), g.a.b.a.a.f(j), list}));
+        return new Item(i2, i3, i4, j, list);
     }
 
     public int getBaseOffsetSize() {
@@ -140,14 +139,14 @@ public class ItemLocationBox extends AbstractFullBox {
         return this.offsetSize;
     }
 
-    public void setBaseOffsetSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.e(i)));
-        this.baseOffsetSize = i;
+    public void setBaseOffsetSize(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_5, this, this, g.a.b.a.a.e(i2)));
+        this.baseOffsetSize = i2;
     }
 
-    public void setIndexSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_7, this, this, g.a.b.a.a.e(i)));
-        this.indexSize = i;
+    public void setIndexSize(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_7, this, this, g.a.b.a.a.e(i2)));
+        this.indexSize = i2;
     }
 
     public void setItems(List<Item> list) {
@@ -155,14 +154,14 @@ public class ItemLocationBox extends AbstractFullBox {
         this.items = list;
     }
 
-    public void setLengthSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i)));
-        this.lengthSize = i;
+    public void setLengthSize(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_3, this, this, g.a.b.a.a.e(i2)));
+        this.lengthSize = i2;
     }
 
-    public void setOffsetSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i)));
-        this.offsetSize = i;
+    public void setOffsetSize(int i2) {
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.e(i2)));
+        this.offsetSize = i2;
     }
 
     public Extent createExtent(ByteBuffer byteBuffer) {
@@ -173,7 +172,7 @@ public class ItemLocationBox extends AbstractFullBox {
         return new Item(byteBuffer);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class Extent {
         public long extentIndex;
         public long extentLength;
@@ -197,21 +196,21 @@ public class ItemLocationBox extends AbstractFullBox {
         }
 
         public void getContent(ByteBuffer byteBuffer) {
-            int i;
-            if (ItemLocationBox.this.getVersion() == 1 && (i = ItemLocationBox.this.indexSize) > 0) {
-                IsoTypeWriterVariable.write(this.extentIndex, byteBuffer, i);
+            int i2;
+            if (ItemLocationBox.this.getVersion() == 1 && (i2 = ItemLocationBox.this.indexSize) > 0) {
+                IsoTypeWriterVariable.write(this.extentIndex, byteBuffer, i2);
             }
             IsoTypeWriterVariable.write(this.extentOffset, byteBuffer, ItemLocationBox.this.offsetSize);
             IsoTypeWriterVariable.write(this.extentLength, byteBuffer, ItemLocationBox.this.lengthSize);
         }
 
         public int getSize() {
-            int i = ItemLocationBox.this.indexSize;
-            if (i <= 0) {
-                i = 0;
+            int i2 = ItemLocationBox.this.indexSize;
+            if (i2 <= 0) {
+                i2 = 0;
             }
             ItemLocationBox itemLocationBox = ItemLocationBox.this;
-            return i + itemLocationBox.offsetSize + itemLocationBox.lengthSize;
+            return i2 + itemLocationBox.offsetSize + itemLocationBox.lengthSize;
         }
 
         public int hashCode() {
@@ -226,16 +225,16 @@ public class ItemLocationBox extends AbstractFullBox {
         }
 
         public Extent(ByteBuffer byteBuffer) {
-            int i;
-            if (ItemLocationBox.this.getVersion() == 1 && (i = ItemLocationBox.this.indexSize) > 0) {
-                this.extentIndex = IsoTypeReaderVariable.read(byteBuffer, i);
+            int i2;
+            if (ItemLocationBox.this.getVersion() == 1 && (i2 = ItemLocationBox.this.indexSize) > 0) {
+                this.extentIndex = IsoTypeReaderVariable.read(byteBuffer, i2);
             }
             this.extentOffset = IsoTypeReaderVariable.read(byteBuffer, ItemLocationBox.this.offsetSize);
             this.extentLength = IsoTypeReaderVariable.read(byteBuffer, ItemLocationBox.this.lengthSize);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class Item {
         public long baseOffset;
         public int constructionMethod;
@@ -250,14 +249,14 @@ public class ItemLocationBox extends AbstractFullBox {
                 this.constructionMethod = IsoTypeReader.readUInt16(byteBuffer) & 15;
             }
             this.dataReferenceIndex = IsoTypeReader.readUInt16(byteBuffer);
-            int i = ItemLocationBox.this.baseOffsetSize;
-            if (i > 0) {
-                this.baseOffset = IsoTypeReaderVariable.read(byteBuffer, i);
+            int i2 = ItemLocationBox.this.baseOffsetSize;
+            if (i2 > 0) {
+                this.baseOffset = IsoTypeReaderVariable.read(byteBuffer, i2);
             } else {
                 this.baseOffset = 0L;
             }
             int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
-            for (int i2 = 0; i2 < readUInt16; i2++) {
+            for (int i3 = 0; i3 < readUInt16; i3++) {
                 this.extents.add(new Extent(byteBuffer));
             }
         }
@@ -284,9 +283,9 @@ public class ItemLocationBox extends AbstractFullBox {
                 IsoTypeWriter.writeUInt16(byteBuffer, this.constructionMethod);
             }
             IsoTypeWriter.writeUInt16(byteBuffer, this.dataReferenceIndex);
-            int i = ItemLocationBox.this.baseOffsetSize;
-            if (i > 0) {
-                IsoTypeWriterVariable.write(this.baseOffset, byteBuffer, i);
+            int i2 = ItemLocationBox.this.baseOffsetSize;
+            if (i2 > 0) {
+                IsoTypeWriterVariable.write(this.baseOffset, byteBuffer, i2);
             }
             IsoTypeWriter.writeUInt16(byteBuffer, this.extents.size());
             for (Extent extent : this.extents) {
@@ -295,18 +294,18 @@ public class ItemLocationBox extends AbstractFullBox {
         }
 
         public int getSize() {
-            int i = (ItemLocationBox.this.getVersion() == 1 ? 4 : 2) + 2 + ItemLocationBox.this.baseOffsetSize + 2;
+            int i2 = (ItemLocationBox.this.getVersion() == 1 ? 4 : 2) + 2 + ItemLocationBox.this.baseOffsetSize + 2;
             for (Extent extent : this.extents) {
-                i += extent.getSize();
+                i2 += extent.getSize();
             }
-            return i;
+            return i2;
         }
 
         public int hashCode() {
             long j = this.baseOffset;
-            int i = ((((((this.itemId * 31) + this.constructionMethod) * 31) + this.dataReferenceIndex) * 31) + ((int) (j ^ (j >>> 32)))) * 31;
+            int i2 = ((((((this.itemId * 31) + this.constructionMethod) * 31) + this.dataReferenceIndex) * 31) + ((int) (j ^ (j >>> 32)))) * 31;
             List<Extent> list = this.extents;
-            return i + (list != null ? list.hashCode() : 0);
+            return i2 + (list != null ? list.hashCode() : 0);
         }
 
         public void setBaseOffset(long j) {
@@ -317,11 +316,11 @@ public class ItemLocationBox extends AbstractFullBox {
             return "Item{baseOffset=" + this.baseOffset + ", itemId=" + this.itemId + ", constructionMethod=" + this.constructionMethod + ", dataReferenceIndex=" + this.dataReferenceIndex + ", extents=" + this.extents + '}';
         }
 
-        public Item(int i, int i2, int i3, long j, List<Extent> list) {
+        public Item(int i2, int i3, int i4, long j, List<Extent> list) {
             this.extents = new LinkedList();
-            this.itemId = i;
-            this.constructionMethod = i2;
-            this.dataReferenceIndex = i3;
+            this.itemId = i2;
+            this.constructionMethod = i3;
+            this.dataReferenceIndex = i4;
             this.baseOffset = j;
             this.extents = list;
         }

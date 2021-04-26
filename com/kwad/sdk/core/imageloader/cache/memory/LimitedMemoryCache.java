@@ -14,9 +14,9 @@ public abstract class LimitedMemoryCache extends BaseMemoryCache {
     public final List<DecodedResult> hardCache = Collections.synchronizedList(new LinkedList());
     public final AtomicInteger cacheSize = new AtomicInteger();
 
-    public LimitedMemoryCache(int i) {
-        this.sizeLimit = i;
-        if (i > 16777216) {
+    public LimitedMemoryCache(int i2) {
+        this.sizeLimit = i2;
+        if (i2 > 16777216) {
             L.w("You set too large memory cache size (more than %1$d Mb)", 16);
         }
     }
@@ -39,12 +39,12 @@ public abstract class LimitedMemoryCache extends BaseMemoryCache {
         boolean z;
         int size = getSize(decodedResult);
         int sizeLimit = getSizeLimit();
-        int i = this.cacheSize.get();
+        int i2 = this.cacheSize.get();
         if (size < sizeLimit) {
-            while (i + size > sizeLimit) {
+            while (i2 + size > sizeLimit) {
                 DecodedResult removeNext = removeNext();
                 if (this.hardCache.remove(removeNext)) {
-                    i = this.cacheSize.addAndGet(-getSize(removeNext));
+                    i2 = this.cacheSize.addAndGet(-getSize(removeNext));
                 }
             }
             this.hardCache.add(decodedResult);

@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class BuyTBeanActivityStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, String> getCmdRouterMap() {

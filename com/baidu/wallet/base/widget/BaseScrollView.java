@@ -19,7 +19,7 @@ public class BaseScrollView extends ScrollView {
         super(context, attributeSet);
     }
 
-    public BaseScrollView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public BaseScrollView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
     }
 }

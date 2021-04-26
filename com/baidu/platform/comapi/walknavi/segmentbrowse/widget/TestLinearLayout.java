@@ -12,8 +12,8 @@ public class TestLinearLayout extends LinearLayout {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        for (int i = 0; i < getChildCount(); i++) {
-            getChildAt(i).dispatchTouchEvent(motionEvent);
+        for (int i2 = 0; i2 < getChildCount(); i2++) {
+            getChildAt(i2).dispatchTouchEvent(motionEvent);
         }
         return false;
     }

@@ -1,7 +1,7 @@
 package com.vivo.push.c;
 
 import com.vivo.push.cache.ClientConfigManagerImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class c extends com.vivo.push.v {
     public c(com.vivo.push.y yVar) {
         super(yVar);
@@ -9,6 +9,6 @@ public final class c extends com.vivo.push.v {
 
     @Override // com.vivo.push.v
     public final void a(com.vivo.push.y yVar) {
-        com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.f39973a).isDebug());
+        com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.f37578a).isDebug());
     }
 }

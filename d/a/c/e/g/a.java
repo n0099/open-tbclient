@@ -1,0 +1,28 @@
+package d.a.c.e.g;
+
+import android.graphics.Rect;
+import android.view.LayoutInflater;
+import android.view.View;
+import com.baidu.adp.lib.guide.MaskView;
+/* loaded from: classes.dex */
+public class a {
+    public static View a(LayoutInflater layoutInflater, b bVar) {
+        View c2 = bVar.c(layoutInflater);
+        MaskView.LayoutParams layoutParams = new MaskView.LayoutParams(-2, -2);
+        layoutParams.f2170c = bVar.getXOffset();
+        layoutParams.f2171d = bVar.getYOffset();
+        layoutParams.f2168a = bVar.a();
+        layoutParams.f2169b = bVar.b();
+        c2.setLayoutParams(layoutParams);
+        return c2;
+    }
+
+    public static Rect b(View view, int i2, int i3) {
+        int[] iArr = new int[2];
+        view.getLocationInWindow(iArr);
+        Rect rect = new Rect();
+        rect.set(iArr[0], iArr[1], iArr[0] + view.getMeasuredWidth(), iArr[1] + view.getMeasuredHeight());
+        rect.offset(-i2, -i3);
+        return rect;
+    }
+}

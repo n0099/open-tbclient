@@ -12,25 +12,25 @@ public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17735a;
+        public String f18061a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f17736b;
+        public int f18062b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ChatMessage f17737c;
+        public ChatMessage f18063c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f17738d;
+        public int f18064d;
 
         public a() {
         }
 
-        public a(String str, int i, ChatMessage chatMessage, int i2) {
-            this.f17735a = str;
-            this.f17736b = i;
-            this.f17737c = chatMessage;
-            this.f17738d = i2;
+        public a(String str, int i2, ChatMessage chatMessage, int i3) {
+            this.f18061a = str;
+            this.f18062b = i2;
+            this.f18063c = chatMessage;
+            this.f18064d = i3;
         }
     }
 

@@ -104,11 +104,11 @@ public class BaseFragment extends SDKBaseFragment implements FragmentResultRecei
         super.onDetach();
     }
 
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
         return false;
     }
 
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
         return false;
     }
 
@@ -122,11 +122,11 @@ public class BaseFragment extends SDKBaseFragment implements FragmentResultRecei
     }
 
     @Override // com.baidu.wallet.core.FragmentResultReceiver.a
-    public void onReceiveResult(int i, Bundle bundle) {
+    public void onReceiveResult(int i2, Bundle bundle) {
     }
 
     @Override // androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
     }
 
     public void onRestoreInstanceState(Bundle bundle) {
@@ -150,14 +150,14 @@ public class BaseFragment extends SDKBaseFragment implements FragmentResultRecei
         }
     }
 
-    public void popBackFragment(int i, boolean z) {
+    public void popBackFragment(int i2, boolean z) {
         FragmentManager supportFragmentManager;
         BaseActivity baseActivity = this.mAct;
         if (baseActivity == null || baseActivity.getActivity() == null || (supportFragmentManager = ((FragmentActivity) this.mAct.getActivity()).getSupportFragmentManager()) == null) {
             return;
         }
         logFragmentStack(supportFragmentManager);
-        while (i > 0 && this.mAct != null) {
+        while (i2 > 0 && this.mAct != null) {
             if (!FragmentUtils.popBackStackImmediate(supportFragmentManager)) {
                 if (z) {
                     this.mAct.finish();
@@ -165,7 +165,7 @@ public class BaseFragment extends SDKBaseFragment implements FragmentResultRecei
                 }
                 return;
             }
-            i--;
+            i2--;
         }
     }
 

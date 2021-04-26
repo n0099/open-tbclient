@@ -18,8 +18,8 @@ public class ByteBufferBitmapDecoder implements ResourceDecoder<ByteBuffer, Bitm
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource<Bitmap> decode(@NonNull ByteBuffer byteBuffer, int i, int i2, @NonNull Options options) throws IOException {
-        return this.downsampler.decode(ByteBufferUtil.toStream(byteBuffer), i, i2, options);
+    public Resource<Bitmap> decode(@NonNull ByteBuffer byteBuffer, int i2, int i3, @NonNull Options options) throws IOException {
+        return this.downsampler.decode(ByteBufferUtil.toStream(byteBuffer), i2, i3, options);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

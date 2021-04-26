@@ -82,18 +82,18 @@ public final class CacheInterceptor implements Interceptor {
     public static Headers combine(Headers headers, Headers headers2) {
         Headers.Builder builder = new Headers.Builder();
         int size = headers.size();
-        for (int i = 0; i < size; i++) {
-            String name = headers.name(i);
-            String value = headers.value(i);
+        for (int i2 = 0; i2 < size; i2++) {
+            String name = headers.name(i2);
+            String value = headers.value(i2);
             if ((!"Warning".equalsIgnoreCase(name) || !value.startsWith("1")) && (isContentSpecificHeader(name) || !isEndToEnd(name) || headers2.get(name) == null)) {
                 Internal.instance.addLenient(builder, name, value);
             }
         }
         int size2 = headers2.size();
-        for (int i2 = 0; i2 < size2; i2++) {
-            String name2 = headers2.name(i2);
+        for (int i3 = 0; i3 < size2; i3++) {
+            String name2 = headers2.name(i3);
             if (!isContentSpecificHeader(name2) && isEndToEnd(name2)) {
-                Internal.instance.addLenient(builder, name2, headers2.value(i2));
+                Internal.instance.addLenient(builder, name2, headers2.value(i3));
             }
         }
         return builder.build();

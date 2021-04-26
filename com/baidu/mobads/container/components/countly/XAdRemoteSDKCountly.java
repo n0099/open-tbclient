@@ -39,11 +39,11 @@ public class XAdRemoteSDKCountly {
         return theInstance;
     }
 
-    private void onAPKAction(Context context, int i, XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo) {
+    private void onAPKAction(Context context, int i2, XAdRemoteAPKDownloadExtraInfo xAdRemoteAPKDownloadExtraInfo) {
         if (xAdRemoteAPKDownloadExtraInfo != null) {
             XAdRemoteDownloadMonitorTrackingInfo xAdRemoteDownloadMonitorTrackingInfo = new XAdRemoteDownloadMonitorTrackingInfo(context, cloneApkDownloadExtraInfo(xAdRemoteAPKDownloadExtraInfo));
             xAdRemoteDownloadMonitorTrackingInfo.adid = xAdRemoteAPKDownloadExtraInfo.getAdid();
-            SendLogUtil.Builder.create(context).appendType(i).append("net", CommonUtils.getNetworkType(context)).append(xAdRemoteDownloadMonitorTrackingInfo.toHashMap()).sendWithVd();
+            SendLogUtil.Builder.create(context).appendType(i2).append("net", CommonUtils.getNetworkType(context)).append(xAdRemoteDownloadMonitorTrackingInfo.toHashMap()).sendWithVd();
         }
     }
 

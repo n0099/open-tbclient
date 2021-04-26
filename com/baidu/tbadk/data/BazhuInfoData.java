@@ -28,8 +28,8 @@ public class BazhuInfoData extends OrmObject {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             /* renamed from: b */
-            public BaInfo[] newArray(int i) {
-                return new BaInfo[i];
+            public BaInfo[] newArray(int i2) {
+                return new BaInfo[i2];
             }
         }
 
@@ -42,7 +42,7 @@ public class BazhuInfoData extends OrmObject {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i) {
+        public void writeToParcel(Parcel parcel, int i2) {
             parcel.writeInt(this.forum_id);
             parcel.writeString(this.forum_name);
             parcel.writeString(this.forum_Avatar);

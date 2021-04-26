@@ -26,10 +26,10 @@ import org.apache.http.message.BasicStatusLine;
 public class j implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f8897a;
+    public final a f9225a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SSLSocketFactory f8898b;
+    public final SSLSocketFactory f9226b;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -57,7 +57,7 @@ public class j implements i {
         HashMap hashMap = new HashMap();
         hashMap.putAll(nVar.i());
         hashMap.putAll(map);
-        a aVar = this.f8897a;
+        a aVar = this.f9225a;
         if (aVar != null) {
             String a2 = aVar.a(c2);
             if (a2 == null) {
@@ -89,8 +89,8 @@ public class j implements i {
     }
 
     public j(a aVar, SSLSocketFactory sSLSocketFactory) {
-        this.f8897a = aVar;
-        this.f8898b = sSLSocketFactory;
+        this.f9225a = aVar;
+        this.f9226b = sSLSocketFactory;
     }
 
     public static HttpEntity a(HttpURLConnection httpURLConnection) {
@@ -120,7 +120,7 @@ public class j implements i {
         a2.setReadTimeout(t);
         a2.setUseCaches(false);
         a2.setDoInput(true);
-        if ("https".equals(url.getProtocol()) && (sSLSocketFactory = this.f8898b) != null) {
+        if ("https".equals(url.getProtocol()) && (sSLSocketFactory = this.f9226b) != null) {
             ((HttpsURLConnection) a2).setSSLSocketFactory(sSLSocketFactory);
         }
         return a2;

@@ -2,7 +2,7 @@ package com.baidu.tieba.myCollection.baseHistory;
 
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
-import d.b.j0.w1.h.a;
+import d.a.j0.w1.h.a;
 /* loaded from: classes3.dex */
 public class PbHistoryCacheModel extends CacheModel<a, TbPageContext> {
     public PbHistoryCacheModel(TbPageContext tbPageContext) {
@@ -25,7 +25,7 @@ public class PbHistoryCacheModel extends CacheModel<a, TbPageContext> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String q() {
+    public String r() {
         return "tb.pb_history";
     }
 }

@@ -32,14 +32,14 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         this.mContext = context;
         this.mContacter = j;
         this.mKey = str;
-        int i = (j & Constants.PAFLAG) != 0 ? 1 : 0;
-        this.mChatType = i;
-        this.mContacterType = getContacterType(i);
+        int i2 = (j & Constants.PAFLAG) != 0 ? 1 : 0;
+        this.mChatType = i2;
+        this.mContacterType = getContacterType(i2);
     }
 
-    private int getContacterType(int i) {
-        if (i != 0) {
-            return i != 3 ? 1 : 2;
+    private int getContacterType(int i2) {
+        if (i2 != 0) {
+            return i2 != 3 ? 1 : 2;
         }
         return 0;
     }
@@ -82,8 +82,8 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         GetShieldAndTopResult getShieldAndTopResult = new GetShieldAndTopResult();
         getShieldAndTopResult.setErrorCode(((Integer) transErrorCode.first).intValue());
         getShieldAndTopResult.setErrorMsg((String) transErrorCode.second);
@@ -91,19 +91,19 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
-        int i2;
+    public void onSuccess(int i2, byte[] bArr) {
+        int i3;
         String str;
         String str2 = new String(bArr);
         LogUtils.d(TAG, "IMGetOneShieldAndTopRequest onSuccess :" + str2);
         try {
             JSONObject jSONObject = new JSONObject(str2);
-            i2 = jSONObject.optInt("error_code");
+            i3 = jSONObject.optInt("error_code");
             str = jSONObject.optString("error_msg");
             JSONArray optJSONArray = jSONObject.optJSONArray("contacter");
             if (optJSONArray != null) {
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i3);
+                for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                    JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i4);
                     int optInt = jSONObject2.optInt("sub_business");
                     if (optInt == 2) {
                         this.mMarkTop = jSONObject2.optInt("ability");
@@ -119,11 +119,11 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
             }
         } catch (JSONException e2) {
             LogUtils.e(TAG, "JSONException", e2);
-            i2 = 1010;
+            i3 = 1010;
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
         }
         GetShieldAndTopResult getShieldAndTopResult = new GetShieldAndTopResult();
-        getShieldAndTopResult.setErrorCode(i2);
+        getShieldAndTopResult.setErrorCode(i3);
         getShieldAndTopResult.setErrorMsg(str);
         getShieldAndTopResult.setContacter(this.mContacter);
         getShieldAndTopResult.setMarkTop(this.mMarkTop);
@@ -136,11 +136,11 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         ShieldAndTopManager.getInstance(this.mContext).onUserShieldAndTopResult(getShieldAndTopResult, this.mKey);
     }
 
-    public IMGetOneShieldAndTopRequest(Context context, long j, int i, String str) {
+    public IMGetOneShieldAndTopRequest(Context context, long j, int i2, String str) {
         this.mContext = context;
         this.mContacter = j;
         this.mKey = str;
-        this.mChatType = i;
-        this.mContacterType = getContacterType(i);
+        this.mChatType = i2;
+        this.mContacterType = getContacterType(i2);
     }
 }

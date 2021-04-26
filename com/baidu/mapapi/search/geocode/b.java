@@ -14,7 +14,7 @@ public final class b implements Parcelable.Creator<ReverseGeoCodeResult> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */
-    public ReverseGeoCodeResult[] newArray(int i) {
-        return new ReverseGeoCodeResult[i];
+    public ReverseGeoCodeResult[] newArray(int i2) {
+        return new ReverseGeoCodeResult[i2];
     }
 }

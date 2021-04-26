@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @DoNotStrip
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     public static final int LOOP_COUNT_FOREVER = 0;
     public static final int LOOP_COUNT_MISSING = -1;
@@ -40,17 +40,17 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
         }
     }
 
-    public static AnimatedDrawableFrameInfo.DisposalMethod fromGifDisposalMethod(int i) {
-        if (i == 0) {
+    public static AnimatedDrawableFrameInfo.DisposalMethod fromGifDisposalMethod(int i2) {
+        if (i2 == 0) {
             return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
         }
-        if (i == 1) {
+        if (i2 == 1) {
             return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
         }
-        if (i == 2) {
+        if (i2 == 2) {
             return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND;
         }
-        if (i == 3) {
+        if (i2 == 3) {
             return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_PREVIOUS;
         }
         return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
@@ -60,7 +60,7 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     public static native GifImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer);
 
     @DoNotStrip
-    public static native GifImage nativeCreateFromNativeMemory(long j, int i);
+    public static native GifImage nativeCreateFromNativeMemory(long j, int i2);
 
     @DoNotStrip
     private native void nativeDispose();
@@ -72,7 +72,7 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     private native int nativeGetDuration();
 
     @DoNotStrip
-    private native GifFrame nativeGetFrame(int i);
+    private native GifFrame nativeGetFrame(int i2);
 
     @DoNotStrip
     private native int nativeGetFrameCount();
@@ -93,8 +93,8 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     private native int nativeGetWidth();
 
     @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
-    public AnimatedImage decode(long j, int i) {
-        return create(j, i);
+    public AnimatedImage decode(long j, int i2) {
+        return create(j, i2);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
@@ -127,10 +127,10 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
-    public AnimatedDrawableFrameInfo getFrameInfo(int i) {
-        GifFrame frame = getFrame(i);
+    public AnimatedDrawableFrameInfo getFrameInfo(int i2) {
+        GifFrame frame = getFrame(i2);
         try {
-            return new AnimatedDrawableFrameInfo(i, frame.getXOffset(), frame.getYOffset(), frame.getWidth(), frame.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, fromGifDisposalMethod(frame.getDisposalMode()));
+            return new AnimatedDrawableFrameInfo(i2, frame.getXOffset(), frame.getYOffset(), frame.getWidth(), frame.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, fromGifDisposalMethod(frame.getDisposalMode()));
         } finally {
             frame.dispose();
         }
@@ -175,8 +175,8 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
-    public GifFrame getFrame(int i) {
-        return nativeGetFrame(i);
+    public GifFrame getFrame(int i2) {
+        return nativeGetFrame(i2);
     }
 
     public static GifImage create(ByteBuffer byteBuffer) {
@@ -185,9 +185,9 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
         return nativeCreateFromDirectByteBuffer(byteBuffer);
     }
 
-    public static GifImage create(long j, int i) {
+    public static GifImage create(long j, int i2) {
         ensure();
         Preconditions.checkArgument(j != 0);
-        return nativeCreateFromNativeMemory(j, i);
+        return nativeCreateFromNativeMemory(j, i2);
     }
 }

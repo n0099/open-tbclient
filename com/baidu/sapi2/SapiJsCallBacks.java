@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.webkit.JsPromptResult;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.callback.IdcardOcrImageCallback;
 import com.baidu.sapi2.result.AccountRealNameResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.response.SocialResponse;
@@ -27,82 +28,67 @@ public class SapiJsCallBacks {
 
     /* loaded from: classes2.dex */
     public interface BiometricsIdentificationLiveCallBack {
-        void getLiveImage(int i, PassFaceRecogCallback passFaceRecogCallback);
+        void getLiveImage(int i2, PassFaceRecogCallback passFaceRecogCallback);
     }
 
     /* loaded from: classes2.dex */
     public static class CallBacks {
-        public RealNameStatusCallback A;
-        public LoginStatusChangeCallback B;
-        public GrantWebCallback C;
-        public CurrentAccountBdussExpiredCallback D;
-        public StopSlideWebviewCallback E;
-        public GetCurrentPageNameCallback F;
-        public SapiWebView.OnSlidePageFinishCallback G;
-        public AuthorizationListener H;
-        public PageStateCallback I;
-        public InvoiceBuildCallback J;
-        public FingerprintCallback K;
-        public SwitchStyleForCloseBtnAndStatusBarCallBack L;
-        public FocusEdittextCoordinateYCallBack M;
-        public BiometricsIdentificationLiveCallBack N;
-        public JsPromptResult P;
-        public boolean R;
-        public String S;
-        public SocialResponse T;
-        public JoinLoginParams U;
-        public String V;
-        public DirectedLoginParams W;
-        public boolean X;
-        public BdOauthLoginParams Y;
-        public ShareV2LoginParams Z;
-
-        /* renamed from: a  reason: collision with root package name */
-        public Handler f10239a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public Handler f10240b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public SapiWebView.WebViewTitleCallback f10241c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public SapiWebView.BioScanFaceCallback f10242d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public SapiWebView.BiometricsIdentifyCallback f10243e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public SapiWebView.UniteVerifyCallback f10244f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public SapiWebView.QuickLoginHandler f10245g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public SapiWebView.BindWidgetCallback f10246h;
-        public SapiWebView.LoadExternalWebViewCallback i;
-        public SapiWebView.PickPhotoCallback j;
-        public SapiWebView.BdussChangeCallback k;
-        public SapiWebView.SwitchAccountCallback l;
-        public SapiWebView.LeftBtnVisibleCallback m;
-        public SapiWebView.RealnameAuthenticateCallback n;
-        public SapiWebView.CoverWebBdussCallback o;
-        public SapiWebView.PreFillUserNameCallback p;
-        public SapiWebView.AccountDestoryCallback q;
-        public SapiWebView.AccountFreezeCallback r;
-        public SapiWebView.ShareAccountClickCallback s;
-        public SapiWebView.QrLoginCallback t;
-        public SapiWebView.InvokeScAppCallback u;
-        public SapiWebView.LocalConfigCallback v;
-        public SapiWebView.LoadSlideWebViewCallback w;
-        public SpeechRecognitionCallback x;
-        public NormalizeGuestAccountCallback y;
-        public WebviewPageFinishCallback z;
-        public String[] O = new String[2];
-        public int Q = 1;
+        public SapiWebView.AccountDestoryCallback accountDestoryCallback;
+        public SapiWebView.AccountFreezeCallback accountFreezeCallback;
+        public AuthorizationListener authorizationListener;
+        public BdOauthLoginParams bdOauthLoginParams;
+        public SapiWebView.BdussChangeCallback bdussChangeCallback;
+        public SapiWebView.BindWidgetCallback bindWidgetCallback;
+        public SapiWebView.BioScanFaceCallback bioScanFaceCallback;
+        public BiometricsIdentificationLiveCallBack biometricsIdentificationLiveCallBack;
+        public SapiWebView.BiometricsIdentifyCallback biometricsIdentifyCallback;
+        public SapiWebView.CoverWebBdussCallback coverWebBdussCallback;
+        public CurrentAccountBdussExpiredCallback currentAccountBdussExpiredCallback;
+        public DirectedLoginParams directedLoginParams;
+        public FingerprintCallback fingerprintCallback;
+        public boolean finishPage;
+        public FocusEdittextCoordinateYCallBack focusEdittextCoordinateYCallBack;
+        public GetCurrentPageNameCallback getCurrentPageNameCallback;
+        public GrantWebCallback grantWebCallback;
+        public boolean hideSuccessTip;
+        public IdcardOcrImageCallBack idcardOcrImageCallBack;
+        public InvoiceBuildCallback invoiceBuildCallback;
+        public SapiWebView.InvokeScAppCallback invokeScAppCallback;
+        public JoinLoginParams joinLoginParams;
+        public SapiWebView.LeftBtnVisibleCallback leftBtnVisibleCallback;
+        public SapiWebView.LoadExternalWebViewCallback loadExternalWebViewCallback;
+        public SapiWebView.LoadSlideWebViewCallback loadSlideWebViewCallback;
+        public SapiWebView.LocalConfigCallback localConfigCallback;
+        public LoginStatusChangeCallback loginStatusChangeCallback;
+        public SwitchStyleForCloseBtnAndStatusBarCallBack mSwitchStyleForCloseBtnAndStatusBarCallBack;
+        public NormalizeGuestAccountCallback normalizeGuestAccountCallback;
+        public String normalizeGuestAccountDesc;
+        public SapiWebView.OnSlidePageFinishCallback onSlidePageFinishCallback;
+        public PageStateCallback pageStateCallback;
+        public SapiWebView.PickPhotoCallback pickPhotoCallback;
+        public SapiWebView.PreFillUserNameCallback prefillUserNameCallback;
+        public JsPromptResult promptResult;
+        public SapiWebView.QrLoginCallback qrLoginCallback;
+        public SapiWebView.QuickLoginHandler quickLoginHandler;
+        public RealNameStatusCallback realNameStatusCallback;
+        public SapiWebView.RealnameAuthenticateCallback realnameAuthenticateCallback;
+        public SocialResponse rrLoginResponse;
+        public SapiWebView.ShareAccountClickCallback shareAccountClickCallback;
+        public ShareV2LoginParams shareV2LoginParams;
+        public Handler socialLoginHandler;
+        public Handler socialVerificationHandler;
+        public SpeechRecognitionCallback speechRecognitionCallback;
+        public StopSlideWebviewCallback stopSlideWebviewCallback;
+        public SapiWebView.SwitchAccountCallback switchAccountCallback;
+        public SapiWebView.UniteVerifyCallback uniteVerifyCallback;
+        public SapiWebView.WebViewTitleCallback webViewTitleCallback;
+        public WebviewPageFinishCallback webviewPageFinishCallback;
+        public String weixinBindUrl;
+        public String[] touchidPortraitAndSign = new String[2];
+        public int leftBtnIsVisible = 1;
 
         public JsPromptResult getPromptResult() {
-            return this.P;
+            return this.promptResult;
         }
     }
 
@@ -128,12 +114,12 @@ public class SapiJsCallBacks {
         public int authType;
         public String portrait;
 
-        public abstract void setResult(int i);
+        public abstract void setResult(int i2);
     }
 
     /* loaded from: classes2.dex */
     public static abstract class FocusEdittextCoordinateYCallBack {
-        public abstract void onCallback(int i);
+        public abstract void onCallback(int i2);
     }
 
     /* loaded from: classes2.dex */
@@ -146,7 +132,12 @@ public class SapiJsCallBacks {
         public static final int backWap = 0;
         public static final int remainNa = 1;
 
-        void onGrant(int i);
+        void onGrant(int i2);
+    }
+
+    /* loaded from: classes2.dex */
+    public interface IdcardOcrImageCallBack {
+        void getIdcardImage(String str, String str2, IdcardOcrImageCallback idcardOcrImageCallback);
     }
 
     /* loaded from: classes2.dex */
@@ -169,7 +160,7 @@ public class SapiJsCallBacks {
     public interface NormalizeGuestAccountCallback {
         public static final int MERGE_ACCOUNT = 1;
 
-        void onFailure(int i, String str);
+        void onFailure(int i2, String str);
 
         void onSuccess(boolean z, String str);
     }
@@ -179,7 +170,7 @@ public class SapiJsCallBacks {
         public static final int STATE_FIRST = 1;
         public static final int STATE_OTHER = 2;
 
-        void pageState(int i);
+        void pageState(int i2);
     }
 
     /* loaded from: classes2.dex */
@@ -206,7 +197,7 @@ public class SapiJsCallBacks {
 
     /* loaded from: classes2.dex */
     public static abstract class SpeechRecognitionResult {
-        public void setSpeechData(int i, String str) {
+        public void setSpeechData(int i2, String str) {
         }
     }
 

@@ -5,50 +5,50 @@ import java.net.InetSocketAddress;
 public final class cq {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40718a;
+    public int f38235a;
 
     /* renamed from: a  reason: collision with other field name */
     public String f193a;
 
-    public cq(String str, int i) {
+    public cq(String str, int i2) {
         this.f193a = str;
-        this.f40718a = i;
+        this.f38235a = i2;
     }
 
-    public static cq a(String str, int i) {
+    public static cq a(String str, int i2) {
         int lastIndexOf = str.lastIndexOf(":");
         if (lastIndexOf != -1) {
             String substring = str.substring(0, lastIndexOf);
             try {
                 int parseInt = Integer.parseInt(str.substring(lastIndexOf + 1));
                 if (parseInt > 0) {
-                    i = parseInt;
+                    i2 = parseInt;
                 }
             } catch (NumberFormatException unused) {
             }
             str = substring;
         }
-        return new cq(str, i);
+        return new cq(str, i2);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m211a(String str, int i) {
-        cq a2 = a(str, i);
-        return new InetSocketAddress(a2.m212a(), a2.a());
+    public static InetSocketAddress m214a(String str, int i2) {
+        cq a2 = a(str, i2);
+        return new InetSocketAddress(a2.m215a(), a2.a());
     }
 
     public int a() {
-        return this.f40718a;
+        return this.f38235a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m212a() {
+    public String m215a() {
         return this.f193a;
     }
 
     public String toString() {
-        if (this.f40718a > 0) {
-            return this.f193a + ":" + this.f40718a;
+        if (this.f38235a > 0) {
+            return this.f193a + ":" + this.f38235a;
         }
         return this.f193a;
     }

@@ -11,43 +11,43 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8182a;
+    public Context f8475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C0105a f8183b;
+    public C0105a f8476b;
 
     /* renamed from: com.baidu.mobads.cid.cesium.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public final class C0105a {
 
         /* renamed from: b  reason: collision with root package name */
-        public File f8185b;
+        public File f8478b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8186c;
+        public String f8479c;
 
         /* renamed from: d  reason: collision with root package name */
-        public C0105a f8187d;
+        public C0105a f8480d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f8188e;
+        public boolean f8481e;
 
         public C0105a(File file) {
-            this.f8188e = false;
-            this.f8188e = true;
-            this.f8185b = file;
-            this.f8186c = file.getName();
+            this.f8481e = false;
+            this.f8481e = true;
+            this.f8478b = file;
+            this.f8479c = file.getName();
         }
 
         public C0105a(String str, C0105a c0105a) {
-            this.f8188e = false;
-            this.f8186c = str;
-            this.f8187d = c0105a;
-            this.f8188e = false;
+            this.f8481e = false;
+            this.f8479c = str;
+            this.f8480d = c0105a;
+            this.f8481e = false;
         }
 
         public C0105a a(File file) {
-            if (this.f8188e) {
+            if (this.f8481e) {
                 throw new IllegalStateException("isolate session is not support");
             }
             ArrayList arrayList = new ArrayList();
@@ -81,26 +81,26 @@ public class a {
         }
 
         public File b() {
-            File file = this.f8185b;
+            File file = this.f8478b;
             if (file != null) {
                 return file;
             }
-            File file2 = this.f8187d == null ? new File(a.this.a(), this.f8186c) : new File(this.f8187d.b(), this.f8186c);
-            this.f8185b = file2;
+            File file2 = this.f8480d == null ? new File(a.this.a(), this.f8479c) : new File(this.f8480d.b(), this.f8479c);
+            this.f8478b = file2;
             return file2;
         }
 
         public String c() {
-            return this.f8186c;
+            return this.f8479c;
         }
 
         public C0105a d() {
-            return this.f8187d;
+            return this.f8480d;
         }
     }
 
     public a(Context context) {
-        this.f8182a = context;
+        this.f8475a = context;
         c().mkdirs();
     }
 
@@ -198,13 +198,13 @@ public class a {
     }
 
     public File a() {
-        return new File(this.f8182a.getApplicationInfo().dataDir);
+        return new File(this.f8475a.getApplicationInfo().dataDir);
     }
 
     public synchronized C0105a b() {
-        if (this.f8183b == null) {
-            this.f8183b = new C0105a(".cesium", null);
+        if (this.f8476b == null) {
+            this.f8476b = new C0105a(".cesium", null);
         }
-        return this.f8183b;
+        return this.f8476b;
     }
 }

@@ -19,13 +19,15 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import com.baidu.sapi2.SapiWebView;
-import d.b.a0.f;
-import d.b.a0.g;
+import d.a.a0.f;
+import d.a.a0.g;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 /* loaded from: classes2.dex */
 public class PayWebActivity extends Activity {
-    public ImageView i;
+
+    /* renamed from: i  reason: collision with root package name */
+    public ImageView f10359i;
     public boolean j;
     public String k;
     public Bundle l;
@@ -54,7 +56,7 @@ public class PayWebActivity extends Activity {
     @SuppressLint({"SetJavaScriptEnabled"})
     private void W() {
         ImageView imageView = (ImageView) findViewById(f.iv_pay_back);
-        this.i = imageView;
+        this.f10359i = imageView;
         imageView.setOnClickListener(new a());
         WebView webView = (WebView) findViewById(f.webView);
         this.webView = webView;
@@ -111,7 +113,7 @@ public class PayWebActivity extends Activity {
     public void onDestroy() {
         WebView webView = this.webView;
         if (webView != null) {
-            webView.loadDataWithBaseURL(null, "", SapiWebView.K, "utf-8", null);
+            webView.loadDataWithBaseURL(null, "", SapiWebView.DATA_MIME_TYPE, "utf-8", null);
             this.webView.clearHistory();
             ((ViewGroup) this.webView.getParent()).removeView(this.webView);
             this.webView.destroy();

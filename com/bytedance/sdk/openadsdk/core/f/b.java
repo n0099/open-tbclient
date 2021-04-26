@@ -7,9 +7,9 @@ import android.os.Process;
 import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
 public class b {
-    public static void a(@NonNull Activity activity, @NonNull String[] strArr, int i) {
+    public static void a(@NonNull Activity activity, @NonNull String[] strArr, int i2) {
         if (Build.VERSION.SDK_INT >= 23) {
-            activity.requestPermissions(strArr, i);
+            activity.requestPermissions(strArr, i2);
         }
     }
 

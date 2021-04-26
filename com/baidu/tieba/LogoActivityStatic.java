@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import d.b.j0.c;
+import d.a.j0.c;
 /* loaded from: classes4.dex */
 public class LogoActivityStatic {
     static {

@@ -9,27 +9,27 @@ public class ChromaFormat {
     public int subHeight;
     public int subWidth;
 
-    public ChromaFormat(int i, int i2, int i3) {
-        this.id = i;
-        this.subWidth = i2;
-        this.subHeight = i3;
+    public ChromaFormat(int i2, int i3, int i4) {
+        this.id = i2;
+        this.subWidth = i3;
+        this.subHeight = i4;
     }
 
-    public static ChromaFormat fromId(int i) {
+    public static ChromaFormat fromId(int i2) {
         ChromaFormat chromaFormat = MONOCHROME;
-        if (i == chromaFormat.id) {
+        if (i2 == chromaFormat.id) {
             return chromaFormat;
         }
         ChromaFormat chromaFormat2 = YUV_420;
-        if (i == chromaFormat2.id) {
+        if (i2 == chromaFormat2.id) {
             return chromaFormat2;
         }
         ChromaFormat chromaFormat3 = YUV_422;
-        if (i == chromaFormat3.id) {
+        if (i2 == chromaFormat3.id) {
             return chromaFormat3;
         }
         ChromaFormat chromaFormat4 = YUV_444;
-        if (i == chromaFormat4.id) {
+        if (i2 == chromaFormat4.id) {
             return chromaFormat4;
         }
         return null;

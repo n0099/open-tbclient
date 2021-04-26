@@ -93,8 +93,8 @@ public class ForumRuleBaseData implements Serializable {
             JSONArray optJSONArray = jSONObject.optJSONArray("rules");
             ArrayList arrayList = new ArrayList();
             if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     if (optJSONObject != null) {
                         ForumRuleItemPbData forumRuleItemPbData = new ForumRuleItemPbData();
                         forumRuleItemPbData.title = optJSONObject.optString("title");
@@ -102,8 +102,8 @@ public class ForumRuleBaseData implements Serializable {
                         JSONArray optJSONArray2 = optJSONObject.optJSONArray("content");
                         ArrayList arrayList2 = new ArrayList();
                         if (optJSONArray2 != null) {
-                            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                                JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
+                            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                                JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
                                 if (optJSONObject2 != null) {
                                     ForumRuleItemPbContentData forumRuleItemPbContentData = new ForumRuleItemPbContentData();
                                     forumRuleItemPbContentData.tag = optJSONObject2.optString("tag");

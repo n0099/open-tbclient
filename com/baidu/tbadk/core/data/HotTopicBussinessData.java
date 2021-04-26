@@ -16,7 +16,7 @@ public class HotTopicBussinessData extends OrmObject implements Serializable {
     public long mThreadNum;
     public String mTopicName;
 
-    public HotTopicBussinessData(long j, String str, String str2, String str3, long j2, long j3, long j4, boolean z, String str4, int i) {
+    public HotTopicBussinessData(long j, String str, String str2, String str3, long j2, long j3, long j4, boolean z, String str4, int i2) {
         this.mForumId = 0L;
         this.mForumName = null;
         this.mForumAvatar = null;
@@ -35,7 +35,7 @@ public class HotTopicBussinessData extends OrmObject implements Serializable {
         this.mFollowNum = j4;
         this.mIsLiked = z;
         this.mTopicName = str4;
-        this.mIsGlobalBlock = i;
+        this.mIsGlobalBlock = i2;
     }
 
     public String getForumAvatar() {
@@ -62,7 +62,7 @@ public class HotTopicBussinessData extends OrmObject implements Serializable {
         this.mForumName = str;
     }
 
-    public HotTopicBussinessData(long j, String str, String str2, int i) {
+    public HotTopicBussinessData(long j, String str, String str2, int i2) {
         this.mForumId = 0L;
         this.mForumName = null;
         this.mForumAvatar = null;
@@ -75,7 +75,7 @@ public class HotTopicBussinessData extends OrmObject implements Serializable {
         this.mForumId = j;
         this.mForumName = str;
         this.mTopicName = str2;
-        this.mIsGlobalBlock = i;
+        this.mIsGlobalBlock = i2;
     }
 
     public HotTopicBussinessData() {

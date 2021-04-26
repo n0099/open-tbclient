@@ -14,7 +14,7 @@ import com.facebook.imagepipeline.animated.base.AnimatedImageResult;
 import com.facebook.imagepipeline.animated.util.AnimatedDrawableUtil;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     public final AnimatedDrawableUtil mAnimatedDrawableUtil;
     public final AnimatedImage mAnimatedImage;
@@ -44,8 +44,8 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
         this.mRenderedBounds = getBoundsToUse(this.mAnimatedImage, rect);
         this.mDownscaleFrameToDrawableDimensions = z;
         this.mFrameInfos = new AnimatedDrawableFrameInfo[this.mAnimatedImage.getFrameCount()];
-        for (int i = 0; i < this.mAnimatedImage.getFrameCount(); i++) {
-            this.mFrameInfos[i] = this.mAnimatedImage.getFrameInfo(i);
+        for (int i2 = 0; i2 < this.mAnimatedImage.getFrameCount(); i2++) {
+            this.mFrameInfos[i2] = this.mAnimatedImage.getFrameInfo(i2);
         }
     }
 
@@ -63,12 +63,12 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
         return new Rect(0, 0, Math.min(rect.width(), animatedImage.getWidth()), Math.min(rect.height(), animatedImage.getHeight()));
     }
 
-    private synchronized void prepareTempBitmapForThisSize(int i, int i2) {
-        if (this.mTempBitmap != null && (this.mTempBitmap.getWidth() < i || this.mTempBitmap.getHeight() < i2)) {
+    private synchronized void prepareTempBitmapForThisSize(int i2, int i3) {
+        if (this.mTempBitmap != null && (this.mTempBitmap.getWidth() < i2 || this.mTempBitmap.getHeight() < i3)) {
             clearTempBitmap();
         }
         if (this.mTempBitmap == null) {
-            this.mTempBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
+            this.mTempBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
         }
         this.mTempBitmap.eraseColor(0);
     }
@@ -139,8 +139,8 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getDurationMsForFrame(int i) {
-        return this.mFrameDurationsMs[i];
+    public int getDurationMsForFrame(int i2) {
+        return this.mFrameDurationsMs[i2];
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -154,13 +154,13 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getFrameForTimestampMs(int i) {
-        return this.mAnimatedDrawableUtil.getFrameForTimestampMs(this.mFrameTimestampsMs, i);
+    public int getFrameForTimestampMs(int i2) {
+        return this.mAnimatedDrawableUtil.getFrameForTimestampMs(this.mFrameTimestampsMs, i2);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public AnimatedDrawableFrameInfo getFrameInfo(int i) {
-        return this.mFrameInfos[i];
+    public AnimatedDrawableFrameInfo getFrameInfo(int i2) {
+        return this.mFrameInfos[i2];
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -179,8 +179,8 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public CloseableReference<Bitmap> getPreDecodedFrame(int i) {
-        return this.mAnimatedImageResult.getDecodedFrame(i);
+    public CloseableReference<Bitmap> getPreDecodedFrame(int i2) {
+        return this.mAnimatedImageResult.getDecodedFrame(i2);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -194,9 +194,9 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getTimestampMsForFrame(int i) {
-        Preconditions.checkElementIndex(i, this.mFrameTimestampsMs.length);
-        return this.mFrameTimestampsMs[i];
+    public int getTimestampMsForFrame(int i2) {
+        Preconditions.checkElementIndex(i2, this.mFrameTimestampsMs.length);
+        return this.mFrameTimestampsMs[i2];
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -205,13 +205,13 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public boolean hasPreDecodedFrame(int i) {
-        return this.mAnimatedImageResult.hasDecodedFrame(i);
+    public boolean hasPreDecodedFrame(int i2) {
+        return this.mAnimatedImageResult.hasDecodedFrame(i2);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public void renderFrame(int i, Canvas canvas) {
-        AnimatedImageFrame frame = this.mAnimatedImage.getFrame(i);
+    public void renderFrame(int i2, Canvas canvas) {
+        AnimatedImageFrame frame = this.mAnimatedImage.getFrame(i2);
         try {
             if (this.mAnimatedImage.doesRenderSupportScaling()) {
                 renderImageSupportsScaling(canvas, frame);

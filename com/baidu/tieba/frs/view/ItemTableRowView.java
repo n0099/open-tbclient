@@ -12,22 +12,24 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 /* loaded from: classes4.dex */
 public class ItemTableRowView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16448e;
+    public int f16683e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16449f;
+    public int f16684f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f16450g;
+    public float f16685g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f16451h;
-    public int i;
+    public int f16686h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f16687i;
     public int j;
     public int k;
     public int l;
@@ -55,12 +57,12 @@ public class ItemTableRowView extends View {
     }
 
     public void a() {
-        this.f16450g = 0.0f;
+        this.f16685g = 0.0f;
     }
 
     public final void b() {
-        this.i = x;
-        this.f16451h = y;
+        this.f16687i = x;
+        this.f16686h = y;
         this.r = z;
         this.s = A;
         this.t = B;
@@ -82,91 +84,91 @@ public class ItemTableRowView extends View {
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        int i;
+        int i2;
         super.onDraw(canvas);
         if (this.n == null || this.o == null) {
             return;
         }
         int paddingLeft = getPaddingLeft();
-        int i2 = 0;
+        int i3 = 0;
         while (true) {
-            i = this.f16448e;
-            if (i2 >= i) {
+            i2 = this.f16683e;
+            if (i3 >= i2) {
                 break;
             }
             Drawable drawable = this.n;
             int paddingTop = getPaddingTop();
-            int i3 = this.i;
-            drawable.setBounds(paddingLeft, paddingTop, paddingLeft + i3, i3 + getPaddingTop());
+            int i4 = this.f16687i;
+            drawable.setBounds(paddingLeft, paddingTop, paddingLeft + i4, i4 + getPaddingTop());
             this.n.draw(canvas);
-            paddingLeft += this.f16451h + this.i;
-            i2++;
+            paddingLeft += this.f16686h + this.f16687i;
+            i3++;
         }
-        while (i < this.f16449f) {
+        while (i2 < this.f16684f) {
             Drawable drawable2 = this.o;
             int paddingTop2 = getPaddingTop();
-            int i4 = this.i;
-            drawable2.setBounds(paddingLeft, paddingTop2, paddingLeft + i4, i4 + getPaddingTop());
+            int i5 = this.f16687i;
+            drawable2.setBounds(paddingLeft, paddingTop2, paddingLeft + i5, i5 + getPaddingTop());
             this.o.draw(canvas);
-            paddingLeft += this.f16451h + this.i;
-            i++;
+            paddingLeft += this.f16686h + this.f16687i;
+            i2++;
         }
-        int i5 = (paddingLeft - this.f16451h) + this.w;
+        int i6 = (paddingLeft - this.f16686h) + this.w;
         float measuredHeight = (((getMeasuredHeight() - getPaddingBottom()) - getPaddingTop()) - this.s) / 2;
-        float f2 = i5;
+        float f2 = i6;
         this.p.set(f2, measuredHeight, getMeasuredWidth(), this.s + measuredHeight);
         this.q.setColor(SkinManager.getColor(this.u));
         RectF rectF = this.p;
-        int i6 = this.t;
-        canvas.drawRoundRect(rectF, i6, i6, this.q);
-        this.q.setColor(SkinManager.getColor(this.v));
-        this.p.set(f2, measuredHeight, ((getMeasuredWidth() - i5) * this.f16450g) + f2, this.s + measuredHeight);
-        RectF rectF2 = this.p;
         int i7 = this.t;
-        canvas.drawRoundRect(rectF2, i7, i7, this.q);
+        canvas.drawRoundRect(rectF, i7, i7, this.q);
+        this.q.setColor(SkinManager.getColor(this.v));
+        this.p.set(f2, measuredHeight, ((getMeasuredWidth() - i6) * this.f16685g) + f2, this.s + measuredHeight);
+        RectF rectF2 = this.p;
+        int i8 = this.t;
+        canvas.drawRoundRect(rectF2, i8, i8, this.q);
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        int mode = View.MeasureSpec.getMode(i);
-        int mode2 = View.MeasureSpec.getMode(i2);
-        int size = View.MeasureSpec.getSize(i);
-        int size2 = View.MeasureSpec.getSize(i2);
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        int mode = View.MeasureSpec.getMode(i2);
+        int mode2 = View.MeasureSpec.getMode(i3);
+        int size = View.MeasureSpec.getSize(i2);
+        int size2 = View.MeasureSpec.getSize(i3);
         if (mode2 == 1073741824) {
             int paddingBottom = (size2 - getPaddingBottom()) - getPaddingTop();
-            this.i = paddingBottom;
+            this.f16687i = paddingBottom;
             this.s = Math.max(0, paddingBottom - D);
         } else {
-            size2 = this.i + getPaddingBottom() + getPaddingTop();
+            size2 = this.f16687i + getPaddingBottom() + getPaddingTop();
         }
-        int i3 = this.i;
-        int i4 = this.f16449f;
-        int i5 = (i3 * i4) + (this.f16451h * (i4 - 1));
-        this.j = i5;
+        int i4 = this.f16687i;
+        int i5 = this.f16684f;
+        int i6 = (i4 * i5) + (this.f16686h * (i5 - 1));
+        this.j = i6;
         if (mode != 1073741824) {
-            size = this.w + i5 + getPaddingLeft() + getPaddingRight() + this.r;
-        } else if (size < i5) {
+            size = this.w + i6 + getPaddingLeft() + getPaddingRight() + this.r;
+        } else if (size < i6) {
             this.r = Math.max(0, (((size - getPaddingLeft()) - getPaddingRight()) - this.j) - this.w);
         }
         setMeasuredDimension(size, size2);
     }
 
     public void setData(float f2) {
-        this.f16450g = f2;
+        this.f16685g = f2;
     }
 
-    public void setEmptyStartCount(int i) {
-        this.f16448e = i;
+    public void setEmptyStartCount(int i2) {
+        this.f16683e = i2;
     }
 
     public ItemTableRowView(Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public ItemTableRowView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f16449f = 5;
+    public ItemTableRowView(Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f16684f = 5;
         this.k = R.drawable.icon_pure_evaluation_star24_n;
         this.l = 17170445;
         this.m = R.color.CAM_X0109;

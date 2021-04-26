@@ -10,9 +10,9 @@ public class SelectSingleForumActivityConfig extends IntentConfig {
     public static final String KEY_INPUT_FORUM_LIST = "KEY_INTPUT_FORUM_LIST";
     public static final String KEY_OUTPUT_FORUM = "KEY_OUTPUT_FORUM";
 
-    public SelectSingleForumActivityConfig(Context context, int i) {
+    public SelectSingleForumActivityConfig(Context context, int i2) {
         super(context);
-        setRequestCode(i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 

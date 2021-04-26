@@ -106,7 +106,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         }
     }
 
-    public static void b(Context context, String str, String str2, PublicMsg publicMsg, byte[] bArr, byte[] bArr2, int i) {
+    public static void b(Context context, String str, String str2, PublicMsg publicMsg, byte[] bArr, byte[] bArr2, int i2) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
         Intent intent = new Intent();
         intent.setClassName(str, str2);
@@ -127,11 +127,11 @@ public class PushServiceReceiver extends BroadcastReceiver {
         intent2.putExtra("msg_id", publicMsg.mMsgId);
         PendingIntent service2 = PendingIntent.getService(context, 0, intent2, 0);
         boolean h2 = m.h(context, publicMsg.mPkgName);
-        int i2 = publicMsg.mNotificationBuilder;
-        Notification a2 = i2 == 0 ? d.a(context, i2, publicMsg.mNotificationBasicStyle, publicMsg.mTitle, publicMsg.mDescription, h2) : d.a(context, i2, publicMsg.mTitle, publicMsg.mDescription, h2);
+        int i3 = publicMsg.mNotificationBuilder;
+        Notification a2 = i3 == 0 ? d.a(context, i3, publicMsg.mNotificationBasicStyle, publicMsg.mTitle, publicMsg.mDescription, h2) : d.a(context, i3, publicMsg.mTitle, publicMsg.mDescription, h2);
         a2.contentIntent = service;
         a2.deleteIntent = service2;
-        notificationManager.notify(i, a2);
+        notificationManager.notify(i2, a2);
         m.a(publicMsg.mMsgId + " notified!", context.getApplicationContext());
         a(context, publicMsg, bArr, bArr2);
     }

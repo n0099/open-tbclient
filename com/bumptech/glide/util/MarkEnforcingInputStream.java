@@ -16,34 +16,31 @@ public class MarkEnforcingInputStream extends FilterInputStream {
     }
 
     private long getBytesToRead(long j) {
-        int i = this.availableBytes;
-        if (i == 0) {
+        int i2 = this.availableBytes;
+        if (i2 == 0) {
             return -1L;
         }
-        return (i == Integer.MIN_VALUE || j <= ((long) i)) ? j : i;
+        return (i2 == Integer.MIN_VALUE || j <= ((long) i2)) ? j : i2;
     }
 
     private void updateAvailableBytesAfterRead(long j) {
-        int i = this.availableBytes;
-        if (i == Integer.MIN_VALUE || j == -1) {
+        int i2 = this.availableBytes;
+        if (i2 == Integer.MIN_VALUE || j == -1) {
             return;
         }
-        this.availableBytes = (int) (i - j);
+        this.availableBytes = (int) (i2 - j);
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int available() throws IOException {
-        int i = this.availableBytes;
-        if (i == Integer.MIN_VALUE) {
-            return super.available();
-        }
-        return Math.min(i, super.available());
+        int i2 = this.availableBytes;
+        return i2 == Integer.MIN_VALUE ? super.available() : Math.min(i2, super.available());
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public synchronized void mark(int i) {
-        super.mark(i);
-        this.availableBytes = i;
+    public synchronized void mark(int i2) {
+        super.mark(i2);
+        this.availableBytes = i2;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -74,12 +71,12 @@ public class MarkEnforcingInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
-        int bytesToRead = (int) getBytesToRead(i2);
+    public int read(@NonNull byte[] bArr, int i2, int i3) throws IOException {
+        int bytesToRead = (int) getBytesToRead(i3);
         if (bytesToRead == -1) {
             return -1;
         }
-        int read = super.read(bArr, i, bytesToRead);
+        int read = super.read(bArr, i2, bytesToRead);
         updateAvailableBytesAfterRead(read);
         return read;
     }

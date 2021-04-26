@@ -12,7 +12,7 @@ import androidx.annotation.RestrictTo;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.core.graphics.PathParser;
 import org.xmlpull.v1.XmlPullParser;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class PathInterpolatorCompat implements Interpolator {
     public static final double EPSILON = 1.0E-5d;
@@ -33,7 +33,7 @@ public class PathInterpolatorCompat implements Interpolator {
     }
 
     private void initPath(Path path) {
-        int i = 0;
+        int i2 = 0;
         PathMeasure pathMeasure = new PathMeasure(path, false);
         float length = pathMeasure.getLength();
         int min = Math.min(3000, ((int) (length / 0.002f)) + 1);
@@ -41,25 +41,25 @@ public class PathInterpolatorCompat implements Interpolator {
             this.mX = new float[min];
             this.mY = new float[min];
             float[] fArr = new float[2];
-            for (int i2 = 0; i2 < min; i2++) {
-                pathMeasure.getPosTan((i2 * length) / (min - 1), fArr, null);
-                this.mX[i2] = fArr[0];
-                this.mY[i2] = fArr[1];
+            for (int i3 = 0; i3 < min; i3++) {
+                pathMeasure.getPosTan((i3 * length) / (min - 1), fArr, null);
+                this.mX[i3] = fArr[0];
+                this.mY[i3] = fArr[1];
             }
             if (Math.abs(this.mX[0]) <= 1.0E-5d && Math.abs(this.mY[0]) <= 1.0E-5d) {
-                int i3 = min - 1;
-                if (Math.abs(this.mX[i3] - 1.0f) <= 1.0E-5d && Math.abs(this.mY[i3] - 1.0f) <= 1.0E-5d) {
+                int i4 = min - 1;
+                if (Math.abs(this.mX[i4] - 1.0f) <= 1.0E-5d && Math.abs(this.mY[i4] - 1.0f) <= 1.0E-5d) {
                     float f2 = 0.0f;
-                    int i4 = 0;
-                    while (i < min) {
+                    int i5 = 0;
+                    while (i2 < min) {
                         float[] fArr2 = this.mX;
-                        int i5 = i4 + 1;
-                        float f3 = fArr2[i4];
+                        int i6 = i5 + 1;
+                        float f3 = fArr2[i5];
                         if (f3 >= f2) {
-                            fArr2[i] = f3;
-                            i++;
+                            fArr2[i2] = f3;
+                            i2++;
                             f2 = f3;
-                            i4 = i5;
+                            i5 = i6;
                         } else {
                             throw new IllegalArgumentException("The Path cannot loop back on itself, x :" + f3);
                         }
@@ -76,10 +76,10 @@ public class PathInterpolatorCompat implements Interpolator {
             sb.append(",");
             sb.append(this.mY[0]);
             sb.append(" end:");
-            int i6 = min - 1;
-            sb.append(this.mX[i6]);
+            int i7 = min - 1;
+            sb.append(this.mX[i7]);
             sb.append(",");
-            sb.append(this.mY[i6]);
+            sb.append(this.mY[i7]);
             throw new IllegalArgumentException(sb.toString());
         }
         throw new IllegalArgumentException("The Path has a invalid length " + length);
@@ -131,24 +131,24 @@ public class PathInterpolatorCompat implements Interpolator {
         if (f2 >= 1.0f) {
             return 1.0f;
         }
-        int i = 0;
+        int i2 = 0;
         int length = this.mX.length - 1;
-        while (length - i > 1) {
-            int i2 = (i + length) / 2;
-            if (f2 < this.mX[i2]) {
-                length = i2;
+        while (length - i2 > 1) {
+            int i3 = (i2 + length) / 2;
+            if (f2 < this.mX[i3]) {
+                length = i3;
             } else {
-                i = i2;
+                i2 = i3;
             }
         }
         float[] fArr = this.mX;
-        float f3 = fArr[length] - fArr[i];
+        float f3 = fArr[length] - fArr[i2];
         if (f3 == 0.0f) {
-            return this.mY[i];
+            return this.mY[i2];
         }
         float[] fArr2 = this.mY;
-        float f4 = fArr2[i];
-        return f4 + (((f2 - fArr[i]) / f3) * (fArr2[length] - f4));
+        float f4 = fArr2[i2];
+        return f4 + (((f2 - fArr[i2]) / f3) * (fArr2[length] - f4));
     }
 
     public PathInterpolatorCompat(Resources resources, Resources.Theme theme, AttributeSet attributeSet, XmlPullParser xmlPullParser) {

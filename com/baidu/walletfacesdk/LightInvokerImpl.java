@@ -31,13 +31,13 @@ public class LightInvokerImpl {
 
     /* loaded from: classes5.dex */
     public interface IResultListener {
-        void onResult(int i, JSONObject jSONObject);
+        void onResult(int i2, JSONObject jSONObject);
     }
 
-    public static String assembleResult(int i, JSONObject jSONObject) {
+    public static String assembleResult(int i2, JSONObject jSONObject) {
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put("result", i);
+            jSONObject2.put("result", i2);
             jSONObject2.put("cnt", jSONObject);
         } catch (JSONException e2) {
             Log.e(TAG, "error", e2);
@@ -112,7 +112,7 @@ public class LightInvokerImpl {
         }
         new LivenessManager(context, z, optString).livenessRecognize(hashMap, new LivenessManager.IvoiceListener() { // from class: com.baidu.walletfacesdk.LightInvokerImpl.2
             @Override // com.baidu.walletfacesdk.LivenessManager.IvoiceListener
-            public void onResult(int i, int i2, String str2, Object obj) {
+            public void onResult(int i2, int i3, String str2, Object obj) {
                 if (obj != null) {
                     try {
                         jSONObject2.put("data", obj);
@@ -121,9 +121,9 @@ public class LightInvokerImpl {
                         return;
                     }
                 }
-                jSONObject2.put(RouterCallback.KEY_ERROR_CODE, i2);
+                jSONObject2.put(RouterCallback.KEY_ERROR_CODE, i3);
                 jSONObject2.put("des", str2);
-                iResultListener.onResult(i, jSONObject2);
+                iResultListener.onResult(i2, jSONObject2);
             }
         });
     }
@@ -136,9 +136,9 @@ public class LightInvokerImpl {
             if (new JSONObject(str).optString("method_name").equalsIgnoreCase("callNativeVoice")) {
                 callNativeVoice(context, str, z, new IResultListener() { // from class: com.baidu.walletfacesdk.LightInvokerImpl.1
                     @Override // com.baidu.walletfacesdk.LightInvokerImpl.IResultListener
-                    public void onResult(int i, JSONObject jSONObject) {
+                    public void onResult(int i2, JSONObject jSONObject) {
                         if (jSONObject != null) {
-                            LightInvokerCallback.this.onResult(i, LightInvokerImpl.assembleResult(i, jSONObject));
+                            LightInvokerCallback.this.onResult(i2, LightInvokerImpl.assembleResult(i2, jSONObject));
                         }
                     }
                 });

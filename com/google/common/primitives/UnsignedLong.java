@@ -1,6 +1,6 @@
 package com.google.common.primitives;
 
-import d.h.c.a.n;
+import d.g.c.a.n;
 import java.io.Serializable;
 import java.math.BigInteger;
 /* loaded from: classes6.dex */
@@ -102,8 +102,8 @@ public final class UnsignedLong extends Number implements Comparable<UnsignedLon
         return UnsignedLongs.a(this.value, unsignedLong.value);
     }
 
-    public String toString(int i) {
-        return UnsignedLongs.g(this.value, i);
+    public String toString(int i2) {
+        return UnsignedLongs.g(this.value, i2);
     }
 
     public static UnsignedLong valueOf(BigInteger bigInteger) {
@@ -116,7 +116,7 @@ public final class UnsignedLong extends Number implements Comparable<UnsignedLon
         return valueOf(str, 10);
     }
 
-    public static UnsignedLong valueOf(String str, int i) {
-        return fromLongBits(UnsignedLongs.d(str, i));
+    public static UnsignedLong valueOf(String str, int i2) {
+        return fromLongBits(UnsignedLongs.d(str, i2));
     }
 }

@@ -33,14 +33,14 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
 
     @Override // h.f
     public void request(long j) {
-        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i < 0) {
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i2 < 0) {
             throw new IllegalArgumentException("n >= 0 required but it was " + j);
         } else if (j == Long.MAX_VALUE) {
             if (a.b(this, j) == 0) {
                 fastPath();
             }
-        } else if (i == 0 || a.b(this, j) != 0) {
+        } else if (i2 == 0 || a.b(this, j) != 0) {
         } else {
             slowPath(j);
         }
@@ -50,17 +50,17 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
         j<? super T> jVar = this.child;
         T[] tArr = this.array;
         int length = tArr.length;
-        int i = this.index;
+        int i2 = this.index;
         do {
             long j2 = 0;
             while (true) {
-                if (j != 0 && i != length) {
+                if (j != 0 && i2 != length) {
                     if (jVar.isUnsubscribed()) {
                         return;
                     }
-                    jVar.onNext((Object) tArr[i]);
-                    i++;
-                    if (i == length) {
+                    jVar.onNext((Object) tArr[i2]);
+                    i2++;
+                    if (i2 == length) {
                         if (jVar.isUnsubscribed()) {
                             return;
                         }
@@ -72,7 +72,7 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
                 } else {
                     j = get() + j2;
                     if (j == 0) {
-                        this.index = i;
+                        this.index = i2;
                         j = addAndGet(j2);
                     }
                 }

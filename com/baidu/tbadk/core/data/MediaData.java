@@ -190,8 +190,8 @@ public class MediaData extends OrmObject implements Serializable {
         }
     }
 
-    public void setDuration(int i) {
-        this.during_time = i;
+    public void setDuration(int i2) {
+        this.during_time = i2;
     }
 
     public void setIsLongPic(boolean z) {
@@ -218,8 +218,8 @@ public class MediaData extends OrmObject implements Serializable {
         this.thumbnails_url = str;
     }
 
-    public void setType(int i) {
-        this.type = i;
+    public void setType(int i2) {
+        this.type = i2;
     }
 
     public void setVideo(String str) {

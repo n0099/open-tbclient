@@ -23,13 +23,13 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
     public static final jg f495a = new jg("DataCollectionItem");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f41053a = new iy("", (byte) 10, 1);
+    public static final iy f38582a = new iy("", (byte) 10, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f41054b = new iy("", (byte) 8, 2);
+    public static final iy f38583b = new iy("", (byte) 8, 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f41055c = new iy("", (byte) 11, 3);
+    public static final iy f38584c = new iy("", (byte) 11, 3);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -39,11 +39,11 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
         int a3;
         int a4;
         if (hn.class.equals(hnVar.getClass())) {
-            int compareTo = Boolean.valueOf(m371a()).compareTo(Boolean.valueOf(hnVar.m371a()));
+            int compareTo = Boolean.valueOf(m374a()).compareTo(Boolean.valueOf(hnVar.m374a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m371a() || (a4 = ir.a(this.f496a, hnVar.f496a)) == 0) {
+            if (!m374a() || (a4 = ir.a(this.f496a, hnVar.f496a)) == 0) {
                 int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hnVar.b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
@@ -86,7 +86,7 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m370a() {
+    public void m373a() {
         if (this.f497a == null) {
             throw new jc("Required field 'collectionType' was not present! Struct: " + toString());
         } else if (this.f498a != null) {
@@ -97,17 +97,17 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.iq
     public void a(jb jbVar) {
-        jbVar.m509a();
+        jbVar.m512a();
         while (true) {
-            iy m505a = jbVar.m505a();
-            byte b2 = m505a.f41251a;
+            iy m508a = jbVar.m508a();
+            byte b2 = m508a.f38795a;
             if (b2 == 0) {
                 break;
             }
-            short s = m505a.f807a;
+            short s = m508a.f807a;
             if (s == 1) {
                 if (b2 == 10) {
-                    this.f496a = jbVar.m504a();
+                    this.f496a = jbVar.m507a();
                     a(true);
                     jbVar.g();
                 }
@@ -115,14 +115,14 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
                 jbVar.g();
             } else if (s != 2) {
                 if (s == 3 && b2 == 11) {
-                    this.f498a = jbVar.m510a();
+                    this.f498a = jbVar.m513a();
                     jbVar.g();
                 }
                 je.a(jbVar, b2);
                 jbVar.g();
             } else {
                 if (b2 == 8) {
-                    this.f497a = hh.a(jbVar.m503a());
+                    this.f497a = hh.a(jbVar.m506a());
                     jbVar.g();
                 }
                 je.a(jbVar, b2);
@@ -130,8 +130,8 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
             }
         }
         jbVar.f();
-        if (m371a()) {
-            m370a();
+        if (m374a()) {
+            m373a();
             return;
         }
         throw new jc("Required field 'collectedAt' was not found in serialized data! Struct: " + toString());
@@ -142,12 +142,12 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m371a() {
+    public boolean m374a() {
         return this.f499a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m372a(hn hnVar) {
+    public boolean m375a(hn hnVar) {
         if (hnVar != null && this.f496a == hnVar.f496a) {
             boolean b2 = b();
             boolean b3 = hnVar.b();
@@ -166,23 +166,23 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.iq
     public void b(jb jbVar) {
-        m370a();
+        m373a();
         jbVar.a(f495a);
-        jbVar.a(f41053a);
+        jbVar.a(f38582a);
         jbVar.a(this.f496a);
         jbVar.b();
         if (this.f497a != null) {
-            jbVar.a(f41054b);
+            jbVar.a(f38583b);
             jbVar.a(this.f497a.a());
             jbVar.b();
         }
         if (this.f498a != null) {
-            jbVar.a(f41055c);
+            jbVar.a(f38584c);
             jbVar.a(this.f498a);
             jbVar.b();
         }
         jbVar.c();
-        jbVar.m513a();
+        jbVar.m516a();
     }
 
     public boolean b() {
@@ -195,7 +195,7 @@ public class hn implements iq<hn, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hn)) {
-            return m372a((hn) obj);
+            return m375a((hn) obj);
         }
         return false;
     }

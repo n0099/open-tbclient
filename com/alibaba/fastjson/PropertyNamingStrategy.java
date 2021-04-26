@@ -40,42 +40,42 @@ public enum PropertyNamingStrategy {
 
     public String translate(String str) {
         char charAt;
-        int i = AnonymousClass1.$SwitchMap$com$alibaba$fastjson$PropertyNamingStrategy[ordinal()];
-        int i2 = 0;
-        if (i == 1) {
+        int i2 = AnonymousClass1.$SwitchMap$com$alibaba$fastjson$PropertyNamingStrategy[ordinal()];
+        int i3 = 0;
+        if (i2 == 1) {
             StringBuilder sb = new StringBuilder();
-            while (i2 < str.length()) {
-                char charAt2 = str.charAt(i2);
+            while (i3 < str.length()) {
+                char charAt2 = str.charAt(i3);
                 if (charAt2 >= 'A' && charAt2 <= 'Z') {
                     char c2 = (char) (charAt2 + ' ');
-                    if (i2 > 0) {
+                    if (i3 > 0) {
                         sb.append('_');
                     }
                     sb.append(c2);
                 } else {
                     sb.append(charAt2);
                 }
-                i2++;
+                i3++;
             }
             return sb.toString();
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             StringBuilder sb2 = new StringBuilder();
-            while (i2 < str.length()) {
-                char charAt3 = str.charAt(i2);
+            while (i3 < str.length()) {
+                char charAt3 = str.charAt(i3);
                 if (charAt3 >= 'A' && charAt3 <= 'Z') {
                     char c3 = (char) (charAt3 + ' ');
-                    if (i2 > 0) {
+                    if (i3 > 0) {
                         sb2.append('-');
                     }
                     sb2.append(c3);
                 } else {
                     sb2.append(charAt3);
                 }
-                i2++;
+                i3++;
             }
             return sb2.toString();
-        } else if (i != 3) {
-            if (i == 4 && (charAt = str.charAt(0)) >= 'A' && charAt <= 'Z') {
+        } else if (i2 != 3) {
+            if (i2 == 4 && (charAt = str.charAt(0)) >= 'A' && charAt <= 'Z') {
                 char[] charArray = str.toCharArray();
                 charArray[0] = (char) (charArray[0] + ' ');
                 return new String(charArray);

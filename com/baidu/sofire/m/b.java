@@ -2,6 +2,7 @@ package com.baidu.sofire.m;
 
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
+import com.google.android.material.internal.ManufacturerUtils;
 /* loaded from: classes2.dex */
 public final class b {
 
@@ -15,16 +16,16 @@ public final class b {
         MOTO(4, "motorola"),
         LENOVO(5, "lenovo"),
         ASUS(6, "asus"),
-        SAMSUNG(7, "samsung"),
-        MEIZU(8, RomUtils.MANUFACTURER_MEIZU),
+        SAMSUNG(7, ManufacturerUtils.SAMSUNG),
+        MEIZU(8, "meizu"),
         ALPS(9, "alps"),
         NUBIA(10, "nubia");
         
         public int m;
         public String n;
 
-        a(int i, String str) {
-            this.m = i;
+        a(int i2, String str) {
+            this.m = i2;
             this.n = str;
         }
 

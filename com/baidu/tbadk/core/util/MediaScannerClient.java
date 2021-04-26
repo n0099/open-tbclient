@@ -41,8 +41,8 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
             return;
         }
         int length = strArr2.length;
-        for (int i = 0; i < length; i++) {
-            this.mConnection.scanFile(this.mPaths[i], this.mMimeTypes[i]);
+        for (int i2 = 0; i2 < length; i2++) {
+            this.mConnection.scanFile(this.mPaths[i2], this.mMimeTypes[i2]);
         }
     }
 
@@ -59,9 +59,9 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
         } else {
             String[] strArr2 = this.mPaths;
             if (strArr2 != null && (strArr = this.mMimeTypes) != null && strArr2.length == strArr.length) {
-                int i = this.length - 1;
-                this.length = i;
-                if (i == 0) {
+                int i2 = this.length - 1;
+                this.length = i2;
+                if (i2 == 0) {
                     this.mConnection.disconnect();
                     this.mConnection = null;
                     this.mPaths = null;

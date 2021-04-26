@@ -16,7 +16,7 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-import d.b.j0.d3.m;
+import d.a.j0.d3.m;
 /* loaded from: classes4.dex */
 public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implements NetModel.k<FrsRequestData, m> {
     public boolean r;
@@ -69,7 +69,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     }
 
     public FrsRequestData Y() {
-        return (FrsRequestData) this.f13639g;
+        return (FrsRequestData) this.f13638g;
     }
 
     public boolean Z() {
@@ -77,14 +77,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     }
 
     public void a0(FrsRequestData frsRequestData) {
-        this.f13639g = frsRequestData;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void f(MvcHttpResponsedMessage<m> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, m> mvcHttpMessage, MvcNetMessage<FrsRequestData, m> mvcNetMessage) {
-        this.s = mvcHttpResponsedMessage;
-        this.t = mvcHttpMessage;
-        this.u = mvcNetMessage;
+        this.f13638g = frsRequestData;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
@@ -96,15 +89,22 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
         return this.s;
     }
 
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void h(MvcSocketResponsedMessage<m, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, m> mvcSocketMessage, MvcNetMessage<FrsRequestData, m> mvcNetMessage) {
+        this.s = mvcSocketResponsedMessage;
+        this.t = mvcSocketMessage;
+        this.u = mvcNetMessage;
+    }
+
     @Override // com.baidu.tbadk.mvc.model.NetModel
     public boolean isNeedCache() {
         return super.isNeedCache();
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void n(MvcSocketResponsedMessage<m, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, m> mvcSocketMessage, MvcNetMessage<FrsRequestData, m> mvcNetMessage) {
-        this.s = mvcSocketResponsedMessage;
-        this.t = mvcSocketMessage;
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void l(MvcHttpResponsedMessage<m> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, m> mvcHttpMessage, MvcNetMessage<FrsRequestData, m> mvcNetMessage) {
+        this.s = mvcHttpResponsedMessage;
+        this.t = mvcHttpMessage;
         this.u = mvcNetMessage;
     }
 }

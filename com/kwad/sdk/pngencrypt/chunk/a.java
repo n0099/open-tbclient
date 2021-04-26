@@ -3,27 +3,27 @@ package com.kwad.sdk.pngencrypt.chunk;
 public class a implements com.kwad.sdk.pngencrypt.g {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f36512a;
+    public boolean f34207a;
 
     public a() {
         this(true);
     }
 
     public a(boolean z) {
-        this.f36512a = z;
+        this.f34207a = z;
     }
 
     @Override // com.kwad.sdk.pngencrypt.g
     public final PngChunk a(d dVar, com.kwad.sdk.pngencrypt.k kVar) {
-        PngChunk a2 = a(dVar.f36526c, kVar);
+        PngChunk a2 = a(dVar.f34224c, kVar);
         if (a2 == null) {
-            a2 = c(dVar.f36526c, kVar);
+            a2 = c(dVar.f34224c, kVar);
         }
         if (a2 == null) {
-            a2 = b(dVar.f36526c, kVar);
+            a2 = b(dVar.f34224c, kVar);
         }
         a2.b(dVar);
-        if (this.f36512a && dVar.f36527d != null) {
+        if (this.f34207a && dVar.f34225d != null) {
             a2.a(dVar);
         }
         return a2;

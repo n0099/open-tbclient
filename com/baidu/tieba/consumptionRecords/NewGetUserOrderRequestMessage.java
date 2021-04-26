@@ -31,23 +31,23 @@ public class NewGetUserOrderRequestMessage extends HttpMessage {
         return this.showMember;
     }
 
-    public void setOrderType(int i) {
-        this.orderType = i;
-        addParam(Constants.ORDERTYPE_FLAG, i);
+    public void setOrderType(int i2) {
+        this.orderType = i2;
+        addParam(Constants.ORDERTYPE_FLAG, i2);
     }
 
-    public void setPn(int i) {
-        this.pn = i;
-        addParam(Config.PACKAGE_NAME, i);
+    public void setPn(int i2) {
+        this.pn = i2;
+        addParam(Config.PACKAGE_NAME, i2);
     }
 
-    public void setRn(int i) {
-        this.rn = i;
-        addParam("rn", i);
+    public void setRn(int i2) {
+        this.rn = i2;
+        addParam("rn", i2);
     }
 
-    public void setShowMember(int i) {
-        this.showMember = i;
-        addParam("show_member", i);
+    public void setShowMember(int i2) {
+        this.showMember = i2;
+        addParam("show_member", i2);
     }
 }

@@ -3,38 +3,38 @@ package com.vivo.push.c;
 import android.content.Context;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ae implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f39799a;
+    public final /* synthetic */ int f37402a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ List f39800b;
+    public final /* synthetic */ List f37403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ List f39801c;
+    public final /* synthetic */ List f37404c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f39802d;
+    public final /* synthetic */ String f37405d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ ac f39803e;
+    public final /* synthetic */ ac f37406e;
 
-    public ae(ac acVar, int i, List list, List list2, String str) {
-        this.f39803e = acVar;
-        this.f39799a = i;
-        this.f39800b = list;
-        this.f39801c = list2;
-        this.f39802d = str;
+    public ae(ac acVar, int i2, List list, List list2, String str) {
+        this.f37406e = acVar;
+        this.f37402a = i2;
+        this.f37403b = list;
+        this.f37404c = list2;
+        this.f37405d = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        ac acVar = this.f39803e;
-        PushMessageCallback pushMessageCallback = ((ab) acVar).f39793b;
-        context = acVar.f39973a;
-        pushMessageCallback.onSetAlias(context, this.f39799a, this.f39800b, this.f39801c, this.f39802d);
+        ac acVar = this.f37406e;
+        PushMessageCallback pushMessageCallback = ((ab) acVar).f37396b;
+        context = acVar.f37578a;
+        pushMessageCallback.onSetAlias(context, this.f37402a, this.f37403b, this.f37404c, this.f37405d);
     }
 }

@@ -9,7 +9,7 @@ import android.os.Looper;
 import android.util.Log;
 import androidx.multidex.MultiDex;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import d.b.c.e.p.l;
+import d.a.c.e.p.l;
 import dalvik.system.DexFile;
 import java.io.File;
 import java.io.IOException;
@@ -55,7 +55,7 @@ public class MultiDexHelper {
                             this.loading = nextElement;
                             Class.forName(nextElement);
                             this.loading = "";
-                            Log.e("MultiLoadHelper", nextElement + l.B());
+                            Log.e("MultiLoadHelper", nextElement + l.C());
                         }
                     }
                 } catch (IOException unused) {
@@ -99,9 +99,9 @@ public class MultiDexHelper {
         ArrayList arrayList = new ArrayList();
         arrayList.add(applicationInfo.sourceDir);
         String str = file.getName() + ".classes";
-        int i = getMultiDexPreferences(context).getInt("dex.number", 1);
-        for (int i2 = 2; i2 <= i; i2++) {
-            File file3 = new File(file2, str + i2 + ".zip");
+        int i2 = getMultiDexPreferences(context).getInt("dex.number", 1);
+        for (int i3 = 2; i3 <= i2; i3++) {
+            File file3 = new File(file2, str + i3 + ".zip");
             if (file3.isFile()) {
                 arrayList.add(file3.getAbsolutePath());
             } else {

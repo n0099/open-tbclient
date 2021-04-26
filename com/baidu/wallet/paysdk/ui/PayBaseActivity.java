@@ -64,48 +64,48 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
     public static final int REQUEST_CODE = 1000;
 
     /* renamed from: a  reason: collision with root package name */
-    public z f25749a;
+    public z f26531a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayQueryRequest f25750b;
+    public PayQueryRequest f26532b;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.baidu.wallet.paysdk.b f25752d;
+    public com.baidu.wallet.paysdk.b f26534d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CountDownTimer f25753e;
+    public CountDownTimer f26535e;
     public ErrorContentResponse mErrorContent;
     public ErrorContentResponse.Guidance mGuidance;
     public int mPayErrorCode;
     public int mBeanId = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f25751c = false;
+    public boolean f26533c = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f25754f = 0;
+    public long f26536f = 0;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f25755g = new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.4
+    public View.OnClickListener f26537g = new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ErrorContentResponse.Operations[] operationsArr = PayBaseActivity.this.mGuidance.operations;
             if (operationsArr.length < 1) {
                 return;
             }
-            int i = operationsArr.length >= 3 ? 2 : 0;
-            PayBaseActivity.this.a(i);
+            int i2 = operationsArr.length >= 3 ? 2 : 0;
+            PayBaseActivity.this.a(i2);
             PayBaseActivity.this.onNegativeBtnClick();
-            if (PayBaseActivity.this.mGuidance.operations[i].getAction() != null) {
-                q action = PayBaseActivity.this.mGuidance.operations[i].getAction();
+            if (PayBaseActivity.this.mGuidance.operations[i2].getAction() != null) {
+                q action = PayBaseActivity.this.mGuidance.operations[i2].getAction();
                 PayBaseActivity payBaseActivity = PayBaseActivity.this;
-                action.a(payBaseActivity.mGuidance.operations[i], payBaseActivity.mAct);
+                action.a(payBaseActivity.mGuidance.operations[i2], payBaseActivity.mAct);
             }
         }
     };
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f25756h = new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.5
+    public View.OnClickListener f26538h = new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.5
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             PayBaseActivity payBaseActivity = PayBaseActivity.this;
@@ -120,28 +120,30 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
             }
         }
     };
-    public View.OnClickListener i = new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.6
+
+    /* renamed from: i  reason: collision with root package name */
+    public View.OnClickListener f26539i = new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.6
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ErrorContentResponse.Operations[] operationsArr = PayBaseActivity.this.mGuidance.operations;
             if (operationsArr.length < 2) {
                 return;
             }
-            int i = operationsArr.length >= 3 ? 0 : 1;
-            PayBaseActivity.this.a(i);
-            if (PayBaseActivity.this.mGuidance.operations[i].getAction() != null) {
-                q action = PayBaseActivity.this.mGuidance.operations[i].getAction();
+            int i2 = operationsArr.length >= 3 ? 0 : 1;
+            PayBaseActivity.this.a(i2);
+            if (PayBaseActivity.this.mGuidance.operations[i2].getAction() != null) {
+                q action = PayBaseActivity.this.mGuidance.operations[i2].getAction();
                 PayBaseActivity payBaseActivity = PayBaseActivity.this;
-                action.a(payBaseActivity.mGuidance.operations[i], payBaseActivity.mAct);
+                action.a(payBaseActivity.mGuidance.operations[i2], payBaseActivity.mAct);
             }
         }
     };
 
     public void addDoPayorCheckCardStatistics(String str) {
-        int i = this.mBeanId;
+        int i2 = this.mBeanId;
         String str2 = BeanConstants.API_DO_PAY;
-        if (i != 14 && i != 263 && (i != 13 || com.baidu.wallet.paysdk.a.b.a())) {
-            str2 = (this.mBeanId == 5 && h.f25205a == 1) ? BeanConstants.API_CHECK_CARD_INFO : "";
+        if (i2 != 14 && i2 != 263 && (i2 != 13 || com.baidu.wallet.paysdk.a.b.a())) {
+            str2 = (this.mBeanId == 5 && h.f25975a == 1) ? BeanConstants.API_CHECK_CARD_INFO : "";
         }
         if (TextUtils.isEmpty(str2)) {
             return;
@@ -161,9 +163,9 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleFailure(int i, int i2, String str) {
-        if (i == 12) {
-            this.f25751c = false;
+    public void handleFailure(int i2, int i3, String str) {
+        if (i2 == 12) {
+            this.f26533c = false;
             if (TextUtils.isEmpty(str)) {
                 if (com.baidu.wallet.paysdk.a.b.a()) {
                     str = getString(ResUtils.string(this, "ebpay_pay_fail"));
@@ -173,41 +175,41 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
             }
             PayResultContent payResultContent = new PayResultContent();
             payResultContent.mErrorMsg = str;
-            if (i2 >= -1) {
+            if (i3 >= -1) {
                 WalletGlobalUtils.safeDismissDialog(this, 0);
-                CountDownTimer countDownTimer = this.f25753e;
+                CountDownTimer countDownTimer = this.f26535e;
                 if (countDownTimer != null) {
                     countDownTimer.cancel();
-                    this.f25753e = null;
+                    this.f26535e = null;
                 }
                 PayController.getInstance().payPaying(this, payResultContent, com.baidu.wallet.paysdk.a.b.a() ? 4 : 1);
                 return;
             }
-            LogUtil.logd("mTimeAmount=" + this.f25754f);
-            if (this.f25754f == 0) {
+            LogUtil.logd("mTimeAmount=" + this.f26536f);
+            if (this.f26536f == 0) {
                 WalletGlobalUtils.safeDismissDialog(this, 0);
                 PayController.getInstance().payPaying(this, payResultContent, com.baidu.wallet.paysdk.a.b.a() ? 4 : 1);
-                StatisticManager.onEventWithValue(StatServiceEvent.QUERY_PAY_RESULT_FAIL, String.valueOf(i2));
+                StatisticManager.onEventWithValue(StatServiceEvent.QUERY_PAY_RESULT_FAIL, String.valueOf(i3));
                 return;
             }
             return;
         }
-        super.handleFailure(i, i2, str);
+        super.handleFailure(i2, i3, str);
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
         String str2;
-        if (i == 13 || i == 263) {
+        if (i2 == 13 || i2 == 263) {
             PayResponse payResponse = (PayResponse) obj;
             if (payResponse != null && payResponse.checkResponseValidity()) {
-                if (i != 13) {
+                if (i2 != 13) {
                     StatisticManager.onEventEnd(StatServiceEvent.CREDIT_PAY, 0);
                 }
-                if (this.f25750b == null) {
-                    this.f25750b = new PayQueryRequest();
+                if (this.f26532b == null) {
+                    this.f26532b = new PayQueryRequest();
                 }
-                PayQueryRequest payQueryRequest = this.f25750b;
+                PayQueryRequest payQueryRequest = this.f26532b;
                 payQueryRequest.mBankNo = payResponse.bank_no;
                 payQueryRequest.mOrderNo = payResponse.order_no;
                 if (com.baidu.wallet.paysdk.a.b.a()) {
@@ -225,23 +227,23 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                         PayController.getInstance().paySucess(this, payResultContent, 4);
                         return;
                     }
-                    this.f25750b.mName = PayQueryRequest.EASYPAY_NAME;
+                    this.f26532b.mName = PayQueryRequest.EASYPAY_NAME;
                     PayDataCache.getInstance().setSignSuccessTips(payResponse.sign_success_tips);
                     PayDataCache.getInstance().setAccountBankCard(payResponse.account_bank_card);
-                } else if (i == 263) {
-                    this.f25750b.mName = PayQueryRequest.CRDDITPAY_NAME;
+                } else if (i2 == 263) {
+                    this.f26532b.mName = PayQueryRequest.CRDDITPAY_NAME;
                 } else {
-                    this.f25750b.mName = PayQueryRequest.EASYPAY_NAME;
+                    this.f26532b.mName = PayQueryRequest.EASYPAY_NAME;
                 }
                 if (payResponse.toShowH5ResultPage()) {
                     PayDataCache.getInstance().setH5ResultParams(new H5ResultParams(payResponse.redirect_sp_succpage_remain_time, payResponse.pay_result_url, payResponse.pay_result_params, payResponse.show_h5_result, CashierDeskPayResult.PayScenario.BankcardPay));
                 }
-                PayRequestCache.getInstance().addBeanRequestToCache(this.f25750b.getRequestId(), this.f25750b);
+                PayRequestCache.getInstance().addBeanRequestToCache(this.f26532b.getRequestId(), this.f26532b);
                 queryPayResult();
             }
             stopCountDown();
-        } else if (i == 12) {
-            this.f25751c = false;
+        } else if (i2 == 12) {
+            this.f26533c = false;
             QueryPayResponse queryPayResponse = (QueryPayResponse) obj;
             if (queryPayResponse != null && (str2 = queryPayResponse.trans_state) != null && "0".equals(str2)) {
                 LogUtil.logd("######. query ok = " + System.currentTimeMillis());
@@ -281,7 +283,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                 payResultContent2.redirect_sp_succpage_remain_time = queryPayResponse.redirect_sp_succpage_remain_time;
                 payResultContent2.fp_open_or_update_msg = queryPayResponse.fp_open_or_update_msg;
                 payResultContent2.payResultCashbackDetail = queryPayResponse.cashback_dialog_detail;
-                CountDownTimer countDownTimer = this.f25753e;
+                CountDownTimer countDownTimer = this.f26535e;
                 if (countDownTimer != null) {
                     countDownTimer.cancel();
                 }
@@ -298,8 +300,8 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                 WalletGlobalUtils.safeDismissDialog(this, 0);
                 return;
             }
-            LogUtil.logd("mTimeAmount====" + this.f25754f);
-            if (this.f25754f == 0) {
+            LogUtil.logd("mTimeAmount====" + this.f26536f);
+            if (this.f26536f == 0) {
                 WalletGlobalUtils.safeDismissDialog(this, 0);
                 StatisticManager.onEvent(StatServiceEvent.QUERY_PAY_RESULT_FAIL);
                 showPaySuccessPage(false, new PayResultContent(), 1);
@@ -315,67 +317,67 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity
-    public void onBeanExecFailureWithErrContent(int i, int i2, String str, Object obj) {
+    public void onBeanExecFailureWithErrContent(int i2, int i3, String str, Object obj) {
         ErrorContentResponse.Guidance guidance;
         ErrorContentResponse errorContentResponse;
         this.mDialogMsg = str;
         if (obj != null && (obj instanceof ErrorContentResponse)) {
             this.mErrorContent = (ErrorContentResponse) obj;
         }
-        if (i2 == 15500) {
-            this.mPayErrorCode = i2;
-            this.mBeanId = i;
+        if (i3 == 15500) {
+            this.mPayErrorCode = i3;
+            this.mBeanId = i2;
             WalletGlobalUtils.safeDismissDialog(this, 0);
             WalletGlobalUtils.safeShowDialog(this, 34, "");
-        } else if (i2 == 80320 || i2 == 80321 || i2 == 80326 || i2 == 80327) {
+        } else if (i3 == 80320 || i3 == 80321 || i3 == 80326 || i3 == 80327) {
             PayDataCache.getInstance().cleanDetainmentDesc();
             WalletGlobalUtils.safeDismissDialog(this, 0);
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            this.mPayErrorCode = i2;
-            this.mBeanId = i;
+            this.mPayErrorCode = i3;
+            this.mBeanId = i2;
             WalletGlobalUtils.safeShowDialog(this, 35, "");
-        } else if (i2 == 51010 && (errorContentResponse = this.mErrorContent) != null && errorContentResponse.verify != null) {
+        } else if (i3 == 51010 && (errorContentResponse = this.mErrorContent) != null && errorContentResponse.verify != null) {
             WalletGlobalUtils.safeDismissDialog(this, 0);
             if (TextUtils.isEmpty(this.mErrorContent.verify.type)) {
                 return;
             }
-            a(this.mErrorContent.verify.type, i2, str);
+            a(this.mErrorContent.verify.type, i3, str);
             a(this.mErrorContent.verify);
         } else {
             ErrorContentResponse errorContentResponse2 = this.mErrorContent;
             if (errorContentResponse2 != null && (guidance = errorContentResponse2.guidance) != null && guidance.isGuidanceAvilable()) {
-                StatisticManager.onEvent(StatServiceEvent.EVENT_PAY_TIMEOUT_GUIDANCE_STATE, String.valueOf(i2));
+                StatisticManager.onEvent(StatServiceEvent.EVENT_PAY_TIMEOUT_GUIDANCE_STATE, String.valueOf(i3));
                 WalletGlobalUtils.safeDismissDialog(this, 0);
                 WalletGlobalUtils.safeDismissDialog(this, -1);
                 WalletGlobalUtils.safeDismissDialog(this, -2);
-                if (!com.baidu.wallet.paysdk.a.b.a() && i2 != 100015 && i2 != 16545) {
+                if (!com.baidu.wallet.paysdk.a.b.a() && i3 != 100015 && i3 != 16545) {
                     String orderNo = StatHelper.getOrderNo();
-                    StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_GUIDANCE_ENTER, StatHelper.collectData(orderNo, i2 + "", str));
+                    StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_GUIDANCE_ENTER, StatHelper.collectData(orderNo, i3 + "", str));
                 }
                 a(this.mErrorContent.guidance);
                 this.mGuidance = this.mErrorContent.guidance;
-                this.mPayErrorCode = i2;
-                this.mBeanId = i;
+                this.mPayErrorCode = i3;
+                this.mBeanId = i2;
                 WalletGlobalUtils.safeShowDialog(this, 53, "");
-            } else if (i == 13 && i2 == 5320 && this.mErrorContent != null) {
+            } else if (i2 == 13 && i3 == 5320 && this.mErrorContent != null) {
                 WalletGlobalUtils.safeDismissDialog(this, 0);
                 ErrorContentResponse.Verify verify = this.mErrorContent.verify;
                 if (verify != null) {
-                    a(verify.getVerifyType(), i2, str);
+                    a(verify.getVerifyType(), i3, str);
                 }
                 ErrorContentResponse errorContentResponse3 = this.mErrorContent;
                 triggerSmsVerify(errorContentResponse3.verify, false, errorContentResponse3.hint_sms, StatusCode.ERROR_BANKS_NEED_TO_VERIFY_SMS);
                 StatisticManager.onEvent(StatServiceEvent.EVENT_BANKS_NEED_TO_VERIFY_SMS);
                 a();
             } else {
-                super.onBeanExecFailureWithErrContent(i, i2, str, obj);
+                super.onBeanExecFailureWithErrContent(i2, i3, str, obj);
             }
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Serializable serializable;
         super.onCreate(bundle);
@@ -386,9 +388,9 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, android.app.Activity
-    public Dialog onCreateDialog(int i) {
+    public Dialog onCreateDialog(int i2) {
         ErrorContentResponse.Guidance guidance;
-        if (i == 53 && (guidance = this.mGuidance) != null && guidance.isGuidanceAvilable()) {
+        if (i2 == 53 && (guidance = this.mGuidance) != null && guidance.isGuidanceAvilable()) {
             if (isBindPay()) {
                 ErrorContentResponse.Guidance guidance2 = this.mGuidance;
                 guidance2.operations = a(guidance2.operations);
@@ -398,16 +400,16 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
             }
             return new PromptDialog(this);
         }
-        return super.onCreateDialog(i);
+        return super.onCreateDialog(i2);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        CountDownTimer countDownTimer = this.f25753e;
+        CountDownTimer countDownTimer = this.f26535e;
         if (countDownTimer != null) {
             countDownTimer.cancel();
-            this.f25753e = null;
+            this.f26535e = null;
         }
         BeanManager.getInstance().removeAllBeans("PayBaseActivity");
     }
@@ -427,8 +429,8 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
     public void onNegativeBtnClick() {
     }
 
-    public void onOtherPayTypeClick(int i) {
-        WalletGlobalUtils.safeDismissDialog(this, i);
+    public void onOtherPayTypeClick(int i2) {
+        WalletGlobalUtils.safeDismissDialog(this, i2);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -441,15 +443,15 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, android.app.Activity
-    public void onPrepareDialog(int i, Dialog dialog) {
+    public void onPrepareDialog(int i2, Dialog dialog) {
         CardData.BondCard bondCard;
-        if (i == 53) {
+        if (i2 == 53) {
             ErrorContentResponse.Guidance guidance = this.mGuidance;
             if (guidance == null || !guidance.isGuidanceAvilable()) {
                 return;
             }
             a(dialog, this.mGuidance);
-        } else if (i == 18) {
+        } else if (i2 == 18) {
             PromptDialog promptDialog = (PromptDialog) dialog;
             promptDialog.setCanceledOnTouchOutside(false);
             PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
@@ -481,7 +483,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     WalletGlobalUtils.safeDismissDialog(PayBaseActivity.this, 18);
                 }
             });
-        } else if (i == 34) {
+        } else if (i2 == 34) {
             StatisticManager.onEvent(StatServiceEvent.EVENT_SHOW_CARD_UPDATE);
             PayRequest payRequest2 = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
             if (payRequest2 != null && (bondCard = payRequest2.mBondCard) != null) {
@@ -527,7 +529,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     }
                 }
             });
-        } else if (i == 35) {
+        } else if (i2 == 35) {
             StatisticManager.onEvent(StatServiceEvent.EVENT_SHOW_ORIGN_PRICE_ALERT);
             PromptMultiBtnDialog promptMultiBtnDialog2 = (PromptMultiBtnDialog) dialog;
             promptMultiBtnDialog2.setMessage(this.mDialogMsg);
@@ -558,7 +560,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     PayBaseActivity.this.b(35);
                 }
             });
-        } else if (i == 54) {
+        } else if (i2 == 54) {
             StatisticManager.onEvent(StatServiceEvent.LIVING_VERIFY_DIALOG_SHOW);
             PromptDialog promptDialog2 = (PromptDialog) dialog;
             promptDialog2.setCanceledOnTouchOutside(false);
@@ -579,7 +581,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                 }
             });
         } else {
-            super.onPrepareDialog(i, dialog);
+            super.onPrepareDialog(i2, dialog);
         }
     }
 
@@ -592,7 +594,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
         EventBus.getInstance().registerSticky(this, "ev_bean_execut_err_content", 0, EventBus.ThreadMode.MainThread);
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         ErrorContentResponse errorContentResponse = this.mErrorContent;
         if (errorContentResponse != null) {
@@ -606,53 +608,53 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
         if (payRequest != null) {
             StatisticManager.onEventWithValue("paySuccess", payRequest != null ? payRequest.mSpNO : "");
         }
-        if (this.f25749a == null) {
-            this.f25749a = (z) PayBeanFactory.getInstance().getBean((Context) this, 12, "PayBaseActivity");
+        if (this.f26531a == null) {
+            this.f26531a = (z) PayBeanFactory.getInstance().getBean((Context) this, 12, "PayBaseActivity");
         }
-        this.f25751c = true;
-        this.f25749a.setResponseCallback(this);
-        this.f25749a.execBean();
-        CountDownTimer countDownTimer = this.f25753e;
+        this.f26533c = true;
+        this.f26531a.setResponseCallback(this);
+        this.f26531a.execBean();
+        CountDownTimer countDownTimer = this.f26535e;
         if (countDownTimer != null) {
             countDownTimer.cancel();
-            this.f25753e = null;
+            this.f26535e = null;
         }
-        long j = this.f25754f;
+        long j = this.f26536f;
         if (j <= 0) {
             j = 20000;
         }
         CountDownTimer countDownTimer2 = new CountDownTimer(j, 3000L) { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.1
             @Override // android.os.CountDownTimer
             public void onFinish() {
-                PayBaseActivity.this.f25754f = 0L;
-                if (PayBaseActivity.this.f25751c) {
+                PayBaseActivity.this.f26536f = 0L;
+                if (PayBaseActivity.this.f26533c) {
                     LogUtil.logd("######. onFinish. query return = " + System.currentTimeMillis());
                     return;
                 }
-                PayBaseActivity.this.f25751c = true;
-                PayBaseActivity.this.f25749a.setResponseCallback(PayBaseActivity.this);
-                PayBaseActivity.this.f25749a.execBean();
+                PayBaseActivity.this.f26533c = true;
+                PayBaseActivity.this.f26531a.setResponseCallback(PayBaseActivity.this);
+                PayBaseActivity.this.f26531a.execBean();
                 LogUtil.logd("######. onTick. query = " + System.currentTimeMillis());
             }
 
             @Override // android.os.CountDownTimer
             public void onTick(long j2) {
-                PayBaseActivity.this.f25754f = j2;
-                if (PayBaseActivity.this.f25751c) {
+                PayBaseActivity.this.f26536f = j2;
+                if (PayBaseActivity.this.f26533c) {
                     LogUtil.logd("######. onTick. query return = " + System.currentTimeMillis());
                     return;
                 }
                 LogUtil.logd("######. onTick. query = " + System.currentTimeMillis() + " , remain millis = " + j2);
-                PayBaseActivity.this.f25751c = true;
-                PayBaseActivity.this.f25749a.setResponseCallback(PayBaseActivity.this);
-                PayBaseActivity.this.f25749a.execBean();
+                PayBaseActivity.this.f26533c = true;
+                PayBaseActivity.this.f26531a.setResponseCallback(PayBaseActivity.this);
+                PayBaseActivity.this.f26531a.execBean();
             }
         };
-        this.f25753e = countDownTimer2;
+        this.f26535e = countDownTimer2;
         countDownTimer2.start();
     }
 
-    public abstract void showPaySuccessPage(boolean z, PayResultContent payResultContent, int i);
+    public abstract void showPaySuccessPage(boolean z, PayResultContent payResultContent, int i2);
 
     public void stopCountDown() {
     }
@@ -683,18 +685,18 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
     public void triggerLivingVerify() {
         StatisticManager.onEvent(StatServiceEvent.TRIGGERLIVINGVERIFY);
         hideFullScreenLoading();
-        if (this.f25752d == null) {
-            this.f25752d = new com.baidu.wallet.paysdk.b(StatServiceEvent.CALL_NATIVE_VOICE_FAIL_BY_CASHDESK);
+        if (this.f26534d == null) {
+            this.f26534d = new com.baidu.wallet.paysdk.b(StatServiceEvent.CALL_NATIVE_VOICE_FAIL_BY_CASHDESK);
         }
-        this.f25752d.a(this.mAct, c(), new ILightappInvokerCallback() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.13
+        this.f26534d.a(this.mAct, c(), new ILightappInvokerCallback() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.13
             @Override // com.baidu.wallet.api.ILightappInvokerCallback
-            public void onResult(int i, String str) {
+            public void onResult(int i2, String str) {
                 LivingVerifyResultModel.Cnt cnt;
-                int i2;
+                int i3;
                 LivingVerifyResultModel.Result result;
                 LivingVerifyResultModel.Cnt cnt2;
                 LivingVerifyResultModel b2 = PayBaseActivity.this.b(str);
-                if (i == 0) {
+                if (i2 == 0) {
                     StatisticManager.onEvent(StatServiceEvent.TRIGGER_LIVING_VERIFY_SUCCESS);
                     if (b2 == null || (cnt2 = b2.cnt) == null || cnt2.data == null) {
                         return;
@@ -710,15 +712,15 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                                 payRequest.mLivingKey = b2.cnt.data.result.callbackkey;
                             }
                         }
-                        int i3 = b2.cnt.data.retCode;
-                        if (i3 != Integer.MIN_VALUE) {
-                            payRequest.mLivingResultCode = String.valueOf(i3);
+                        int i4 = b2.cnt.data.retCode;
+                        if (i4 != Integer.MIN_VALUE) {
+                            payRequest.mLivingResultCode = String.valueOf(i4);
                         }
                     }
                     PayBaseActivity.this.doLivingPay();
-                } else if (b2 == null || (cnt = b2.cnt) == null || (i2 = cnt.errCode) == Integer.MIN_VALUE) {
+                } else if (b2 == null || (cnt = b2.cnt) == null || (i3 = cnt.errCode) == Integer.MIN_VALUE) {
                 } else {
-                    StatisticManager.onEventWithValue(StatServiceEvent.TRIGGER_LIVING_VERIFY_FAIL, String.valueOf(i2));
+                    StatisticManager.onEventWithValue(StatServiceEvent.TRIGGER_LIVING_VERIFY_FAIL, String.valueOf(i3));
                     if (b2.cnt.errCode == LivingVerifyResultModel.ERRORCODECANCEL) {
                         WalletGlobalUtils.safeShowDialog(PayBaseActivity.this.mAct, 54, "");
                         return;
@@ -742,7 +744,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
         });
     }
 
-    public void triggerSmsVerify(ErrorContentResponse.Verify verify, boolean z, String str, int i) {
+    public void triggerSmsVerify(ErrorContentResponse.Verify verify, boolean z, String str, int i2) {
         StatisticManager.onEvent(StatServiceEvent.TRIGGLESMSPAY);
         Intent intent = new Intent();
         intent.setClass(this, WalletSmsActivity.class);
@@ -750,7 +752,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
         intent.putExtra(BeanConstants.KEY_SEND_SMS_AUTO, z);
         intent.putExtra(BeanConstants.EXTRA_VERIFY_VOICE_DATA, verify);
         intent.putExtra(BeanConstants.KEY_SMS_HINT, str);
-        intent.putExtra(BeanConstants.KEY_THE_REASON_FOR_SENDING, i);
+        intent.putExtra(BeanConstants.KEY_THE_REASON_FOR_SENDING, i2);
         startActivityWithoutAnim(intent);
     }
 
@@ -771,17 +773,17 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
         if (TextUtils.equals(ErrorContentResponse.Operations.LIVING_AGAIN, guidance.operations[1].type)) {
             StatisticManager.onEvent(StatServiceEvent.LIVING_VERIFY_DIALOG_SHOW);
         }
-        promptDialog.setNegativeBtn(guidance.operations[0].getActionName(), this.f25755g);
-        promptDialog.setPositiveBtn(guidance.operations[1].getActionName(), this.i);
+        promptDialog.setNegativeBtn(guidance.operations[0].getActionName(), this.f26537g);
+        promptDialog.setPositiveBtn(guidance.operations[1].getActionName(), this.f26539i);
     }
 
     private void d(Dialog dialog, ErrorContentResponse.Guidance guidance) {
         PromptMultiBtnDialog promptMultiBtnDialog = (PromptMultiBtnDialog) dialog;
         promptMultiBtnDialog.setCanceledOnTouchOutside(false);
         promptMultiBtnDialog.setMessage(StringUtil.parseColorString(guidance.prompt_body));
-        promptMultiBtnDialog.setFirstBtn(guidance.operations[0].getActionName(), this.i);
-        promptMultiBtnDialog.setSecondBtn(guidance.operations[1].getActionName(), this.f25756h);
-        promptMultiBtnDialog.setThirdBtn(guidance.operations[2].getActionName(), this.f25755g);
+        promptMultiBtnDialog.setFirstBtn(guidance.operations[0].getActionName(), this.f26539i);
+        promptMultiBtnDialog.setSecondBtn(guidance.operations[1].getActionName(), this.f26538h);
+        promptMultiBtnDialog.setThirdBtn(guidance.operations[2].getActionName(), this.f26537g);
     }
 
     private void b(Dialog dialog, ErrorContentResponse.Guidance guidance) {
@@ -790,7 +792,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
         promptDialog.setTitleText(guidance.prompt_head);
         promptDialog.setMessage(StringUtil.parseColorString(guidance.prompt_body));
         promptDialog.hidePositiveButton();
-        promptDialog.setNegativeBtn(guidance.operations[0].getActionName(), this.f25755g);
+        promptDialog.setNegativeBtn(guidance.operations[0].getActionName(), this.f26537g);
     }
 
     private void a(String str) {
@@ -811,8 +813,8 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(int i) {
-        WalletGlobalUtils.safeDismissDialog(this, i);
+    public void b(int i2) {
+        WalletGlobalUtils.safeDismissDialog(this, i2);
         onNegativeBtnClick();
     }
 
@@ -869,7 +871,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i) {
+    public void a(int i2) {
         ErrorContentResponse.Operations[] operationsArr;
         ErrorContentResponse.Operations[] operationsArr2;
         boolean z;
@@ -879,34 +881,34 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
         }
         boolean z2 = true;
         if (operationsArr.length > 1) {
-            int i2 = 0;
+            int i3 = 0;
             boolean z3 = false;
             boolean z4 = false;
             boolean z5 = false;
             while (true) {
                 operationsArr2 = this.mGuidance.operations;
-                if (i2 >= operationsArr2.length) {
+                if (i3 >= operationsArr2.length) {
                     break;
                 }
-                if (ErrorContentResponse.Operations.CASHDESK_CLOSE.equals(operationsArr2[i2].type)) {
+                if (ErrorContentResponse.Operations.CASHDESK_CLOSE.equals(operationsArr2[i3].type)) {
                     z3 = true;
-                } else if ("change_paytype".equals(this.mGuidance.operations[i2].type)) {
+                } else if ("change_paytype".equals(this.mGuidance.operations[i3].type)) {
                     z5 = true;
-                } else if (ErrorContentResponse.Operations.BIND_OTHER_CARDS.equals(this.mGuidance.operations[i2].type)) {
+                } else if (ErrorContentResponse.Operations.BIND_OTHER_CARDS.equals(this.mGuidance.operations[i3].type)) {
                     z4 = true;
                 }
-                i2++;
+                i3++;
             }
             if (z3) {
-                z = ErrorContentResponse.Operations.CASHDESK_CLOSE.equals(operationsArr2[i].type);
+                z = ErrorContentResponse.Operations.CASHDESK_CLOSE.equals(operationsArr2[i2].type);
             } else {
                 if (z4 || z5) {
-                    z = !ErrorContentResponse.Operations.HELP_CENTER.equals(this.mGuidance.operations[i].type);
+                    z = !ErrorContentResponse.Operations.HELP_CENTER.equals(this.mGuidance.operations[i2].type);
                 }
-                addDoPayorCheckCardStatistics(this.mGuidance.operations[i].getActionName());
+                addDoPayorCheckCardStatistics(this.mGuidance.operations[i2].getActionName());
             }
             z2 = z;
-            addDoPayorCheckCardStatistics(this.mGuidance.operations[i].getActionName());
+            addDoPayorCheckCardStatistics(this.mGuidance.operations[i2].getActionName());
         }
         if (z2) {
             WalletGlobalUtils.safeDismissDialog(this.mAct, 53);
@@ -939,27 +941,27 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
         if (guidance == null || guidance.operations == null) {
             return;
         }
-        int i = 0;
+        int i2 = 0;
         while (true) {
             ErrorContentResponse.Operations[] operationsArr = guidance.operations;
-            if (i >= operationsArr.length) {
+            if (i2 >= operationsArr.length) {
                 return;
             }
-            operationsArr[i].registerActionHandler(ErrorContentResponse.Operations.SEND_SMS, new q() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.7
+            operationsArr[i2].registerActionHandler(ErrorContentResponse.Operations.SEND_SMS, new q() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.7
                 @Override // com.baidu.wallet.paysdk.beans.q
                 public void a(Object obj, Object obj2) {
                     PayBaseActivity.this.a((ErrorContentResponse.Verify) null, true);
                     PayBaseActivity.this.a();
                 }
             });
-            guidance.operations[i].registerActionHandler(ErrorContentResponse.Operations.LIVING_AGAIN, new q() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.8
+            guidance.operations[i2].registerActionHandler(ErrorContentResponse.Operations.LIVING_AGAIN, new q() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.8
                 @Override // com.baidu.wallet.paysdk.beans.q
                 public void a(Object obj, Object obj2) {
                     StatisticManager.onEvent(StatServiceEvent.LIVING_VERIFY_DIALOG_RETRY);
                     PayBaseActivity.this.triggerLivingVerify();
                 }
             });
-            guidance.operations[i].registerActionHandler(ErrorContentResponse.Operations.BIND_OTHER_CARDS, new q() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.9
+            guidance.operations[i2].registerActionHandler(ErrorContentResponse.Operations.BIND_OTHER_CARDS, new q() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.9
                 @Override // com.baidu.wallet.paysdk.beans.q
                 public void a(Object obj, Object obj2) {
                     PayBaseActivity payBaseActivity = PayBaseActivity.this;
@@ -968,7 +970,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     }
                 }
             });
-            guidance.operations[i].registerActionHandler("change_paytype", new q() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.10
+            guidance.operations[i2].registerActionHandler("change_paytype", new q() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.10
                 @Override // com.baidu.wallet.paysdk.beans.q
                 public void a(Object obj, Object obj2) {
                     PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
@@ -979,7 +981,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     PayBaseActivity.this.b();
                 }
             });
-            guidance.operations[i].registerActionHandler(ErrorContentResponse.Operations.RETRY_PAY, new q() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.11
+            guidance.operations[i2].registerActionHandler(ErrorContentResponse.Operations.RETRY_PAY, new q() { // from class: com.baidu.wallet.paysdk.ui.PayBaseActivity.11
                 @Override // com.baidu.wallet.paysdk.beans.q
                 public void a(Object obj, Object obj2) {
                     if (PayRequestCache.getInstance().isPaying()) {
@@ -987,7 +989,7 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
                     }
                 }
             });
-            i++;
+            i2++;
         }
     }
 
@@ -1014,11 +1016,11 @@ public abstract class PayBaseActivity extends PayBaseBeanActivity {
         triggerSmsVerify(verify, z, null, Integer.MIN_VALUE);
     }
 
-    private void a(String str, int i, String str2) {
+    private void a(String str, int i2, String str2) {
         if (com.baidu.wallet.paysdk.a.b.a()) {
             return;
         }
         String orderNo = StatHelper.getOrderNo();
-        StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_SMS_ENTER, StatHelper.collectData(orderNo, i + "", str2, str));
+        StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_SMS_ENTER, StatHelper.collectData(orderNo, i2 + "", str2, str));
     }
 }

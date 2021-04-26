@@ -46,12 +46,12 @@ public class IMUnBindPushMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
-        if (i == 0) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+        if (i2 == 0) {
             Utility.updateBindPushCUIDStatus(this.mContext, 1);
             BindStateManager.clearUnBindInfo(context);
         }
-        super.handleMessageResult(context, jSONObject, i, str);
-        ChatMsgManagerImpl.getInstance(context).onUnRegisterNotifyResult(getListenerKey(), i, str);
+        super.handleMessageResult(context, jSONObject, i2, str);
+        ChatMsgManagerImpl.getInstance(context).onUnRegisterNotifyResult(getListenerKey(), i2, str);
     }
 }

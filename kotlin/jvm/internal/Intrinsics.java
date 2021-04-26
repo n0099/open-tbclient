@@ -7,6 +7,12 @@ import kotlin.SinceKotlin;
 import kotlin.UninitializedPropertyAccessException;
 /* loaded from: classes7.dex */
 public class Intrinsics {
+
+    @SinceKotlin(version = "1.4")
+    /* loaded from: classes7.dex */
+    public static class Kotlin {
+    }
+
     public static boolean areEqual(Object obj, Object obj2) {
         if (obj == null) {
             return obj2 == null;
@@ -52,13 +58,13 @@ public class Intrinsics {
 
     public static void checkNotNullParameter(Object obj, String str) {
         if (obj == null) {
-            throw ((NullPointerException) sanitizeStackTrace(new NullPointerException(str)));
+            throwParameterIsNullNPE(str);
         }
     }
 
     public static void checkParameterIsNotNull(Object obj, String str) {
         if (obj == null) {
-            throwParameterIsNullException(str);
+            throwParameterIsNullIAE(str);
         }
     }
 
@@ -69,26 +75,33 @@ public class Intrinsics {
         throw ((IllegalStateException) sanitizeStackTrace(new IllegalStateException("Method specified as non-null returned null: " + str + "." + str2)));
     }
 
-    public static int compare(int i, int i2) {
-        if (i < i2) {
+    public static int compare(int i2, int i3) {
+        if (i2 < i3) {
             return -1;
         }
-        return i == i2 ? 0 : 1;
+        return i2 == i3 ? 0 : 1;
     }
 
     public static int compare(long j, long j2) {
-        int i = (j > j2 ? 1 : (j == j2 ? 0 : -1));
-        if (i < 0) {
+        int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+        if (i2 < 0) {
             return -1;
         }
-        return i == 0 ? 0 : 1;
+        return i2 == 0 ? 0 : 1;
+    }
+
+    public static String createParameterIsNullExceptionMessage(String str) {
+        StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[4];
+        String className = stackTraceElement.getClassName();
+        String methodName = stackTraceElement.getMethodName();
+        return "Parameter specified as non-null is null: method " + className + "." + methodName + ", parameter " + str;
     }
 
     public static void needClassReification() {
         throwUndefinedForReified();
     }
 
-    public static void reifiedOperationMarker(int i, String str) {
+    public static void reifiedOperationMarker(int i2, String str) {
         throwUndefinedForReified();
     }
 
@@ -121,11 +134,12 @@ public class Intrinsics {
         throw ((KotlinNullPointerException) sanitizeStackTrace(new KotlinNullPointerException()));
     }
 
-    public static void throwParameterIsNullException(String str) {
-        StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-        String className = stackTraceElement.getClassName();
-        String methodName = stackTraceElement.getMethodName();
-        throw ((IllegalArgumentException) sanitizeStackTrace(new IllegalArgumentException("Parameter specified as non-null is null: method " + className + "." + methodName + ", parameter " + str)));
+    public static void throwParameterIsNullIAE(String str) {
+        throw ((IllegalArgumentException) sanitizeStackTrace(new IllegalArgumentException(createParameterIsNullExceptionMessage(str))));
+    }
+
+    public static void throwParameterIsNullNPE(String str) {
+        throw ((NullPointerException) sanitizeStackTrace(new NullPointerException(createParameterIsNullExceptionMessage(str))));
     }
 
     public static void throwUndefinedForReified() {
@@ -174,20 +188,20 @@ public class Intrinsics {
         throwUndefinedForReified(str);
     }
 
-    public static void reifiedOperationMarker(int i, String str, String str2) {
+    public static void reifiedOperationMarker(int i2, String str, String str2) {
         throwUndefinedForReified(str2);
     }
 
     public static <T extends Throwable> T sanitizeStackTrace(T t, String str) {
         StackTraceElement[] stackTrace = t.getStackTrace();
         int length = stackTrace.length;
-        int i = -1;
-        for (int i2 = 0; i2 < length; i2++) {
-            if (str.equals(stackTrace[i2].getClassName())) {
-                i = i2;
+        int i2 = -1;
+        for (int i3 = 0; i3 < length; i3++) {
+            if (str.equals(stackTrace[i3].getClassName())) {
+                i2 = i3;
             }
         }
-        t.setStackTrace((StackTraceElement[]) Arrays.copyOfRange(stackTrace, i + 1, length));
+        t.setStackTrace((StackTraceElement[]) Arrays.copyOfRange(stackTrace, i2 + 1, length));
         return t;
     }
 

@@ -16,7 +16,7 @@ import com.baidubce.services.bos.model.InitiateMultipartUploadRequest;
 import com.baidubce.services.bos.model.InitiateMultipartUploadResponse;
 import com.baidubce.services.bos.model.UploadPartRequest;
 import com.baidubce.services.bos.model.UploadPartResponse;
-import d.b.l.b.a;
+import d.a.l.b.a;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -58,7 +58,7 @@ public class BOSUploader {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private BOSResponseEntity uploadFileSyncPart(STSInfo sTSInfo, @NonNull String str, @NonNull String str2, @NonNull File file) {
-        int i = 0;
+        int i2 = 0;
         try {
             if (sTSInfo == null) {
                 return new BOSResponseEntity(false, "stsInfo is null");
@@ -91,24 +91,24 @@ public class BOSUploader {
                 try {
                     try {
                         FileInputStream fileInputStream2 = new FileInputStream(file);
-                        int i2 = 0;
-                        while (i2 < length2) {
-                            long j2 = i2 * j;
+                        int i3 = 0;
+                        while (i3 < length2) {
+                            long j2 = i3 * j;
                             try {
                                 long length3 = j < file.length() - j2 ? j : file.length() - j2;
-                                int i3 = (int) length3;
-                                byte[] bArr = new byte[i3];
+                                int i4 = (int) length3;
+                                byte[] bArr = new byte[i4];
                                 while (true) {
-                                    int read = fileInputStream2.read(bArr, i, i3);
-                                    i += read;
+                                    int read = fileInputStream2.read(bArr, i2, i4);
+                                    i2 += read;
                                     if (read < 0) {
                                         break;
                                     }
-                                    int i4 = i3;
-                                    if (i >= length3) {
+                                    int i5 = i4;
+                                    if (i2 >= length3) {
                                         break;
                                     }
-                                    i3 = i4;
+                                    i4 = i5;
                                 }
                                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
                                 UploadPartRequest uploadPartRequest = new UploadPartRequest();
@@ -117,15 +117,15 @@ public class BOSUploader {
                                 uploadPartRequest.setUploadId(initiateMultipartUpload.getUploadId());
                                 uploadPartRequest.setInputStream(byteArrayInputStream);
                                 uploadPartRequest.setPartSize(length3);
-                                i2++;
-                                uploadPartRequest.setPartNumber(i2);
+                                i3++;
+                                uploadPartRequest.setPartNumber(i3);
                                 UploadPartResponse uploadPart = createBosClient.uploadPart(uploadPartRequest);
                                 arrayList.add(uploadPart.getPartETag());
                                 if (DEBUG) {
                                     String str4 = TAG;
                                     Log.d(str4, "partETags etag " + uploadPart.getPartETag());
                                 }
-                                i = 0;
+                                i2 = 0;
                                 j = 5242880;
                             } catch (IOException e2) {
                                 e = e2;

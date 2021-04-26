@@ -2,7 +2,7 @@ package com.baidu.tieba.gift.myGiftList;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.z0.w;
+import d.a.i0.z0.w;
 import tbclient.GetMyGift.DataReq;
 import tbclient.GetMyGift.GetMyGiftReqIdl;
 /* loaded from: classes4.dex */
@@ -43,8 +43,8 @@ public class GetPersonalGiftListRequest extends NetMessage {
         return this.userId;
     }
 
-    public void setPageNumber(int i) {
-        this.pageNumber = i;
+    public void setPageNumber(int i2) {
+        this.pageNumber = i2;
     }
 
     public void setType(String str) {

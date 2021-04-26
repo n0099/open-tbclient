@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.square.data.ForumInfoData;
 import com.baidu.wallet.utils.ContactPermissionUtil;
-import d.b.c.e.d.l;
-import d.b.i0.r.r.a;
+import d.a.c.e.d.l;
+import d.a.i0.r.r.a;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForumListModel extends BdBaseModel<ForumListActivity> implements Serializable {
     public static final String KEY = "_list";
     public static boolean isOk = false;
@@ -27,14 +27,14 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
     public List recommend_list_right;
     public long time;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class List extends OrmObject implements Serializable {
         public static final long serialVersionUID = -3206282936395220632L;
         public ForumInfoData[] forum_list;
         public int has_more = 0;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class RequestParams extends OrmObject implements Serializable {
         public static final long serialVersionUID = -8487620337266534315L;
         public int rn = 6;
@@ -55,12 +55,12 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
     }
 
     public static ForumListModel new_fetch(RequestParams requestParams) {
-        int i;
+        int i2;
         l<String> g2;
         if (requestParams.menu_id == 0) {
-            i = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
+            i2 = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
         } else {
-            i = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? ContactPermissionUtil.DIALOG_NO_PERMISSION_CONTACTS : 136;
+            i2 = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? ContactPermissionUtil.DIALOG_NO_PERMISSION_CONTACTS : 136;
         }
         menu_name = requestParams.menu_name;
         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/forumrank");
@@ -68,11 +68,11 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
         netWork.addPostData("offset", String.valueOf(requestParams.offset));
         netWork.addPostData("recommend_type", String.valueOf(requestParams.recommend_type));
         netWork.addPostData("menu_name", requestParams.menu_name);
-        netWork.addPostData(ForumListActivityConfig.KEY_MENU_TYPE, String.valueOf(i));
+        netWork.addPostData(ForumListActivityConfig.KEY_MENU_TYPE, String.valueOf(i2));
         String postNetData = netWork.postNetData();
         isOk = netWork.isNetSuccess();
         ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(postNetData, ForumListModel.class);
-        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (g2 = a.f().g("tb.my_posts")) != null)) {
+        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i2 == 9 || i2 == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (g2 = a.f().g("tb.my_posts")) != null)) {
             g2.e(TbadkCoreApplication.getCurrentAccount() + "_" + menu_name + KEY, postNetData, 86400000L);
         }
         return forumListModel;

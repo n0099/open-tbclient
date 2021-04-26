@@ -1,5 +1,5 @@
 package com.vivo.push.model;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SubscribeAppInfo {
     public static final int SUBSCIRBE = 1;
     public static final int SUBSCIRBE_CANCLE = 2;
@@ -7,10 +7,10 @@ public class SubscribeAppInfo {
     public String mName;
     public int mTargetStatus;
 
-    public SubscribeAppInfo(String str, int i, int i2) {
+    public SubscribeAppInfo(String str, int i2, int i3) {
         this.mName = str;
-        this.mTargetStatus = i;
-        this.mActualStatus = i2;
+        this.mTargetStatus = i2;
+        this.mActualStatus = i3;
     }
 
     public boolean equals(Object obj) {
@@ -49,16 +49,16 @@ public class SubscribeAppInfo {
         return (((str == null ? 0 : str.hashCode()) + 31) * 31) + this.mTargetStatus;
     }
 
-    public void setActualStatus(int i) {
-        this.mActualStatus = i;
+    public void setActualStatus(int i2) {
+        this.mActualStatus = i2;
     }
 
     public void setName(String str) {
         this.mName = str;
     }
 
-    public void setTargetStatus(int i) {
-        this.mTargetStatus = i;
+    public void setTargetStatus(int i2) {
+        this.mTargetStatus = i2;
     }
 
     public String toString() {

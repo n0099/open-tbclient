@@ -15,16 +15,18 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes7.dex */
 public final class OperatorReplay<T> extends h.p.a<T> {
-    public static final h.n.e i = new a();
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final h.n.e f68400i = new a();
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.d<? extends T> f69358f;
+    public final h.d<? extends T> f68401f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicReference<f<T>> f69359g;
+    public final AtomicReference<f<T>> f68402g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final h.n.e<? extends e<T>> f69360h;
+    public final h.n.e<? extends e<T>> f68403h;
 
     /* loaded from: classes7.dex */
     public static class BoundedReplayBuffer<T> extends AtomicReference<Node> implements e<T> {
@@ -119,11 +121,11 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             throw new IllegalStateException("Empty list!");
         }
 
-        public final void removeSome(int i) {
+        public final void removeSome(int i2) {
             Node node = get();
-            while (i > 0) {
+            while (i2 > 0) {
                 node = node.get();
-                i--;
+                i2--;
                 this.size--;
             }
             setFirst(node);
@@ -262,8 +264,8 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         public void request(long j) {
             long j2;
             long j3;
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i < 0) {
+            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i2 < 0) {
                 return;
             }
             do {
@@ -271,7 +273,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                 if (j2 == Long.MIN_VALUE) {
                     return;
                 }
-                if (j2 >= 0 && i == 0) {
+                if (j2 >= 0 && i2 == 0) {
                     return;
                 }
                 j3 = j2 + j;
@@ -281,7 +283,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             } while (!compareAndSet(j2, j3));
             addTotalRequested(j);
             this.parent.f(this);
-            this.parent.f69367e.replay(this);
+            this.parent.f68410e.replay(this);
         }
 
         @Override // h.k
@@ -314,9 +316,9 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         public final long maxAgeInMillis;
         public final g scheduler;
 
-        public SizeAndTimeBoundReplayBuffer(int i, long j, g gVar) {
+        public SizeAndTimeBoundReplayBuffer(int i2, long j, g gVar) {
             this.scheduler = gVar;
-            this.limit = i;
+            this.limit = i2;
             this.maxAgeInMillis = j;
         }
 
@@ -354,21 +356,21 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             long now = this.scheduler.now() - this.maxAgeInMillis;
             Node node2 = get();
             Node node3 = node2.get();
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 Node node4 = node3;
                 node = node2;
                 node2 = node4;
                 if (node2 != null) {
-                    int i2 = this.size;
-                    if (i2 > this.limit) {
-                        i++;
-                        this.size = i2 - 1;
+                    int i3 = this.size;
+                    if (i3 > this.limit) {
+                        i2++;
+                        this.size = i3 - 1;
                         node3 = node2.get();
                     } else if (((h.s.a) node2.value).a() > now) {
                         break;
                     } else {
-                        i++;
+                        i2++;
                         this.size--;
                         node3 = node2.get();
                     }
@@ -376,7 +378,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                     break;
                 }
             }
-            if (i != 0) {
+            if (i2 != 0) {
                 setFirst(node);
             }
         }
@@ -395,7 +397,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             long now = this.scheduler.now() - this.maxAgeInMillis;
             Node node = get();
             Node node2 = node.get();
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 Node node3 = node2;
                 Node node4 = node;
@@ -403,7 +405,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                 if (node == null || this.size <= 1 || ((h.s.a) node.value).a() > now) {
                     break;
                 }
-                i++;
+                i2++;
                 this.size--;
                 node2 = node.get();
             }
@@ -415,8 +417,8 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         public static final long serialVersionUID = -5898283885385201806L;
         public final int limit;
 
-        public SizeBoundReplayBuffer(int i) {
-            this.limit = i;
+        public SizeBoundReplayBuffer(int i2) {
+            this.limit = i2;
         }
 
         @Override // rx.internal.operators.OperatorReplay.BoundedReplayBuffer
@@ -432,8 +434,8 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         public static final long serialVersionUID = 7063189396499112664L;
         public volatile int size;
 
-        public UnboundedReplayBuffer(int i) {
-            super(i);
+        public UnboundedReplayBuffer(int i2) {
+            super(i2);
         }
 
         @Override // rx.internal.operators.OperatorReplay.e
@@ -463,7 +465,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                 }
                 innerProducer.emitting = true;
                 while (!innerProducer.isUnsubscribed()) {
-                    int i = this.size;
+                    int i2 = this.size;
                     Integer num = (Integer) innerProducer.index();
                     int intValue = num != null ? num.intValue() : 0;
                     j<? super T> jVar = innerProducer.child;
@@ -472,7 +474,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                     }
                     long j = innerProducer.get();
                     long j2 = 0;
-                    while (j2 != j && intValue < i) {
+                    while (j2 != j && intValue < i2) {
                         Object obj = get(intValue);
                         try {
                             if (NotificationLite.a(jVar, obj) || innerProducer.isUnsubscribed()) {
@@ -520,17 +522,17 @@ public final class OperatorReplay<T> extends h.p.a<T> {
     public static class b implements h.n.e<e<T>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f69361e;
+        public final /* synthetic */ int f68404e;
 
-        public b(int i) {
-            this.f69361e = i;
+        public b(int i2) {
+            this.f68404e = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.e
         /* renamed from: a */
         public e<T> call() {
-            return new SizeBoundReplayBuffer(this.f69361e);
+            return new SizeBoundReplayBuffer(this.f68404e);
         }
     }
 
@@ -538,25 +540,25 @@ public final class OperatorReplay<T> extends h.p.a<T> {
     public static class c implements h.n.e<e<T>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f69362e;
+        public final /* synthetic */ int f68405e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f69363f;
+        public final /* synthetic */ long f68406f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f69364g;
+        public final /* synthetic */ g f68407g;
 
-        public c(int i, long j, g gVar) {
-            this.f69362e = i;
-            this.f69363f = j;
-            this.f69364g = gVar;
+        public c(int i2, long j, g gVar) {
+            this.f68405e = i2;
+            this.f68406f = j;
+            this.f68407g = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // h.n.e
         /* renamed from: a */
         public e<T> call() {
-            return new SizeAndTimeBoundReplayBuffer(this.f69362e, this.f69363f, this.f69364g);
+            return new SizeAndTimeBoundReplayBuffer(this.f68405e, this.f68406f, this.f68407g);
         }
     }
 
@@ -564,14 +566,14 @@ public final class OperatorReplay<T> extends h.p.a<T> {
     public static class d implements d.a<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AtomicReference f69365e;
+        public final /* synthetic */ AtomicReference f68408e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h.n.e f69366f;
+        public final /* synthetic */ h.n.e f68409f;
 
         public d(AtomicReference atomicReference, h.n.e eVar) {
-            this.f69365e = atomicReference;
-            this.f69366f = eVar;
+            this.f68408e = atomicReference;
+            this.f68409f = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -580,13 +582,13 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         public void call(j<? super T> jVar) {
             f fVar;
             while (true) {
-                fVar = (f) this.f69365e.get();
+                fVar = (f) this.f68408e.get();
                 if (fVar != null) {
                     break;
                 }
-                f fVar2 = new f((e) this.f69366f.call());
+                f fVar2 = new f((e) this.f68409f.call());
                 fVar2.d();
-                if (this.f69365e.compareAndSet(fVar, fVar2)) {
+                if (this.f68408e.compareAndSet(fVar, fVar2)) {
                     fVar = fVar2;
                     break;
                 }
@@ -594,7 +596,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             InnerProducer<T> innerProducer = new InnerProducer<>(fVar, jVar);
             fVar.b(innerProducer);
             jVar.add(innerProducer);
-            fVar.f69367e.replay(innerProducer);
+            fVar.f68410e.replay(innerProducer);
             jVar.setProducer(innerProducer);
         }
     }
@@ -615,13 +617,13 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         public static final InnerProducer[] t = new InnerProducer[0];
 
         /* renamed from: e  reason: collision with root package name */
-        public final e<T> f69367e;
+        public final e<T> f68410e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f69368f;
+        public boolean f68411f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile boolean f69369g;
+        public volatile boolean f68412g;
         public volatile long j;
         public long k;
         public boolean m;
@@ -633,8 +635,10 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         public boolean s;
 
         /* renamed from: h  reason: collision with root package name */
-        public final h.o.d.e<InnerProducer<T>> f69370h = new h.o.d.e<>();
-        public InnerProducer<T>[] i = t;
+        public final h.o.d.d<InnerProducer<T>> f68413h = new h.o.d.d<>();
+
+        /* renamed from: i  reason: collision with root package name */
+        public InnerProducer<T>[] f68414i = t;
         public final AtomicBoolean l = new AtomicBoolean();
 
         /* loaded from: classes7.dex */
@@ -644,34 +648,34 @@ public final class OperatorReplay<T> extends h.p.a<T> {
 
             @Override // h.n.a
             public void call() {
-                if (f.this.f69369g) {
+                if (f.this.f68412g) {
                     return;
                 }
-                synchronized (f.this.f69370h) {
-                    if (!f.this.f69369g) {
-                        f.this.f69370h.g();
+                synchronized (f.this.f68413h) {
+                    if (!f.this.f68412g) {
+                        f.this.f68413h.g();
                         f.this.j++;
-                        f.this.f69369g = true;
+                        f.this.f68412g = true;
                     }
                 }
             }
         }
 
         public f(e<T> eVar) {
-            this.f69367e = eVar;
+            this.f68410e = eVar;
             request(0L);
         }
 
         public boolean b(InnerProducer<T> innerProducer) {
             if (innerProducer != null) {
-                if (this.f69369g) {
+                if (this.f68412g) {
                     return false;
                 }
-                synchronized (this.f69370h) {
-                    if (this.f69369g) {
+                synchronized (this.f68413h) {
+                    if (this.f68412g) {
                         return false;
                     }
-                    this.f69370h.a(innerProducer);
+                    this.f68413h.a(innerProducer);
                     this.j++;
                     return true;
                 }
@@ -681,8 +685,8 @@ public final class OperatorReplay<T> extends h.p.a<T> {
 
         public InnerProducer<T>[] c() {
             InnerProducer<T>[] innerProducerArr;
-            synchronized (this.f69370h) {
-                InnerProducer<T>[] h2 = this.f69370h.h();
+            synchronized (this.f68413h) {
+                InnerProducer<T>[] h2 = this.f68413h.h();
                 int length = h2.length;
                 innerProducerArr = new InnerProducer[length];
                 System.arraycopy(h2, 0, innerProducerArr, 0, length);
@@ -794,37 +798,37 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         }
 
         public void g(InnerProducer<T> innerProducer) {
-            if (this.f69369g) {
+            if (this.f68412g) {
                 return;
             }
-            synchronized (this.f69370h) {
-                if (this.f69369g) {
+            synchronized (this.f68413h) {
+                if (this.f68412g) {
                     return;
                 }
-                this.f69370h.e(innerProducer);
-                if (this.f69370h.b()) {
-                    this.i = t;
+                this.f68413h.e(innerProducer);
+                if (this.f68413h.b()) {
+                    this.f68414i = t;
                 }
                 this.j++;
             }
         }
 
         public void h() {
-            InnerProducer<T>[] innerProducerArr = this.i;
+            InnerProducer<T>[] innerProducerArr = this.f68414i;
             if (this.k != this.j) {
-                synchronized (this.f69370h) {
-                    innerProducerArr = this.i;
-                    InnerProducer<T>[] h2 = this.f69370h.h();
+                synchronized (this.f68413h) {
+                    innerProducerArr = this.f68414i;
+                    InnerProducer<T>[] h2 = this.f68413h.h();
                     int length = h2.length;
                     if (innerProducerArr.length != length) {
                         innerProducerArr = new InnerProducer[length];
-                        this.i = innerProducerArr;
+                        this.f68414i = innerProducerArr;
                     }
                     System.arraycopy(h2, 0, innerProducerArr, 0, length);
                     this.k = this.j;
                 }
             }
-            e<T> eVar = this.f69367e;
+            e<T> eVar = this.f68410e;
             for (InnerProducer<T> innerProducer : innerProducerArr) {
                 if (innerProducer != null) {
                     eVar.replay(innerProducer);
@@ -834,12 +838,12 @@ public final class OperatorReplay<T> extends h.p.a<T> {
 
         @Override // h.e
         public void onCompleted() {
-            if (this.f69368f) {
+            if (this.f68411f) {
                 return;
             }
-            this.f69368f = true;
+            this.f68411f = true;
             try {
-                this.f69367e.complete();
+                this.f68410e.complete();
                 h();
             } finally {
                 unsubscribe();
@@ -848,12 +852,12 @@ public final class OperatorReplay<T> extends h.p.a<T> {
 
         @Override // h.e
         public void onError(Throwable th) {
-            if (this.f69368f) {
+            if (this.f68411f) {
                 return;
             }
-            this.f69368f = true;
+            this.f68411f = true;
             try {
-                this.f69367e.error(th);
+                this.f68410e.error(th);
                 h();
             } finally {
                 unsubscribe();
@@ -862,10 +866,10 @@ public final class OperatorReplay<T> extends h.p.a<T> {
 
         @Override // h.e
         public void onNext(T t2) {
-            if (this.f69368f) {
+            if (this.f68411f) {
                 return;
             }
-            this.f69367e.next(t2);
+            this.f68410e.next(t2);
             h();
         }
 
@@ -883,46 +887,46 @@ public final class OperatorReplay<T> extends h.p.a<T> {
 
     public OperatorReplay(d.a<T> aVar, h.d<? extends T> dVar, AtomicReference<f<T>> atomicReference, h.n.e<? extends e<T>> eVar) {
         super(aVar);
-        this.f69358f = dVar;
-        this.f69359g = atomicReference;
-        this.f69360h = eVar;
+        this.f68401f = dVar;
+        this.f68402g = atomicReference;
+        this.f68403h = eVar;
     }
 
-    public static <T> h.p.a<T> N(h.d<? extends T> dVar) {
-        return R(dVar, i);
+    public static <T> h.p.a<T> K(h.d<? extends T> dVar) {
+        return O(dVar, f68400i);
     }
 
-    public static <T> h.p.a<T> O(h.d<? extends T> dVar, int i2) {
+    public static <T> h.p.a<T> L(h.d<? extends T> dVar, int i2) {
         if (i2 == Integer.MAX_VALUE) {
-            return N(dVar);
+            return K(dVar);
         }
-        return R(dVar, new b(i2));
+        return O(dVar, new b(i2));
     }
 
-    public static <T> h.p.a<T> P(h.d<? extends T> dVar, long j, TimeUnit timeUnit, g gVar) {
-        return Q(dVar, j, timeUnit, gVar, Integer.MAX_VALUE);
+    public static <T> h.p.a<T> M(h.d<? extends T> dVar, long j, TimeUnit timeUnit, g gVar) {
+        return N(dVar, j, timeUnit, gVar, Integer.MAX_VALUE);
     }
 
-    public static <T> h.p.a<T> Q(h.d<? extends T> dVar, long j, TimeUnit timeUnit, g gVar, int i2) {
-        return R(dVar, new c(i2, timeUnit.toMillis(j), gVar));
+    public static <T> h.p.a<T> N(h.d<? extends T> dVar, long j, TimeUnit timeUnit, g gVar, int i2) {
+        return O(dVar, new c(i2, timeUnit.toMillis(j), gVar));
     }
 
-    public static <T> h.p.a<T> R(h.d<? extends T> dVar, h.n.e<? extends e<T>> eVar) {
+    public static <T> h.p.a<T> O(h.d<? extends T> dVar, h.n.e<? extends e<T>> eVar) {
         AtomicReference atomicReference = new AtomicReference();
         return new OperatorReplay(new d(atomicReference, eVar), dVar, atomicReference, eVar);
     }
 
     @Override // h.p.a
-    public void M(h.n.b<? super k> bVar) {
+    public void J(h.n.b<? super k> bVar) {
         f<T> fVar;
         while (true) {
-            fVar = this.f69359g.get();
+            fVar = this.f68402g.get();
             if (fVar != null && !fVar.isUnsubscribed()) {
                 break;
             }
-            f<T> fVar2 = new f<>(this.f69360h.call());
+            f<T> fVar2 = new f<>(this.f68403h.call());
             fVar2.d();
-            if (this.f69359g.compareAndSet(fVar, fVar2)) {
+            if (this.f68402g.compareAndSet(fVar, fVar2)) {
                 fVar = fVar2;
                 break;
             }
@@ -931,7 +935,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         z = (fVar.l.get() || !fVar.l.compareAndSet(false, true)) ? false : false;
         bVar.call(fVar);
         if (z) {
-            this.f69358f.L(fVar);
+            this.f68401f.I(fVar);
         }
     }
 }

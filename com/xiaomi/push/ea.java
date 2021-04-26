@@ -9,7 +9,7 @@ import java.util.HashMap;
 public final class ea {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ea f40819a;
+    public static volatile ea f38338a;
 
     /* renamed from: a  reason: collision with other field name */
     public int f308a;
@@ -27,7 +27,7 @@ public final class ea {
     public HashMap<ec, ed> f312a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40820b;
+    public String f38339b;
 
     public ea(Context context) {
         HashMap<ec, ed> hashMap = new HashMap<>();
@@ -40,14 +40,14 @@ public final class ea {
     }
 
     public static ea a(Context context) {
-        if (f40819a == null) {
+        if (f38338a == null) {
             synchronized (ea.class) {
-                if (f40819a == null) {
-                    f40819a = new ea(context);
+                if (f38338a == null) {
+                    f38338a = new ea(context);
                 }
             }
         }
-        return f40819a;
+        return f38338a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -56,8 +56,8 @@ public final class ea {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m267a(Context context) {
-        return com.xiaomi.push.service.ac.m559a(context, context.getPackageName());
+    public static boolean m270a(Context context) {
+        return com.xiaomi.push.service.ac.m562a(context, context.getPackageName());
     }
 
     public int a() {
@@ -65,22 +65,22 @@ public final class ea {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ee m268a() {
+    public ee m271a() {
         return this.f310a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m269a() {
+    public String m272a() {
         return this.f311a;
     }
 
-    public void a(int i) {
-        this.f308a = i;
+    public void a(int i2) {
+        this.f308a = i2;
     }
 
-    public void a(Context context, String str, int i, String str2, String str3) {
+    public void a(Context context, String str, int i2, String str2, String str3) {
         if (context != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-            a(i);
+            a(i2);
             ai.a(this.f309a).a(new eb(this, str, context, str2, str3));
             return;
         }
@@ -103,18 +103,18 @@ public final class ea {
         this.f311a = str;
     }
 
-    public void a(String str, String str2, int i, ee eeVar) {
+    public void a(String str, String str2, int i2, ee eeVar) {
         a(str);
         b(str2);
-        a(i);
+        a(i2);
         a(eeVar);
     }
 
     public String b() {
-        return this.f40820b;
+        return this.f38339b;
     }
 
     public void b(String str) {
-        this.f40820b = str;
+        this.f38339b = str;
     }
 }

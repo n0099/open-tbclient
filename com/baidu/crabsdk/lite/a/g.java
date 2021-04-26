@@ -13,23 +13,23 @@ import java.util.HashMap;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f4766a;
+    public static String f4879a;
 
     public static String a(String str, Context context) {
         Object obj;
-        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4750a.get(str);
+        HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4862a.get(str);
         if ((hashMap == null || (obj = hashMap.get("sdk_imei")) == null) ? true : ((Boolean) obj).booleanValue()) {
-            String str2 = f4766a;
+            String str2 = f4879a;
             if (str2 != null) {
                 return str2;
             }
             try {
-                f4766a = b(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID));
+                f4879a = b(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID));
             } catch (Exception e2) {
                 com.baidu.crabsdk.lite.b.a.c(str, "getCUID fail," + e2);
-                f4766a = "N/A";
+                f4879a = "N/A";
             }
-            return f4766a;
+            return f4879a;
         }
         return "N/A";
     }
@@ -48,12 +48,12 @@ public final class g {
         }
         byte[] digest = messageDigest.digest();
         StringBuffer stringBuffer = new StringBuffer();
-        for (int i = 0; i < digest.length; i++) {
-            if (Integer.toHexString(digest[i] & 255).length() == 1) {
+        for (int i2 = 0; i2 < digest.length; i2++) {
+            if (Integer.toHexString(digest[i2] & 255).length() == 1) {
                 stringBuffer.append("0");
-                b2 = digest[i];
+                b2 = digest[i2];
             } else {
-                b2 = digest[i];
+                b2 = digest[i2];
             }
             stringBuffer.append(Integer.toHexString(b2 & 255));
         }

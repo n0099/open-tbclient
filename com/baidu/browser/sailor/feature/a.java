@@ -6,7 +6,7 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
     public static final String TAG = "BdSailorFeature";
-    public Map<String, d.b.h.b.c.a> mClientsMap = new HashMap();
+    public Map<String, d.a.h.b.c.a> mClientsMap = new HashMap();
     public Context mContext;
     public Enum<EnumC0064a> mStatus;
 
@@ -37,7 +37,7 @@ public class a {
         this.mStatus = EnumC0064a.ENABLE;
     }
 
-    public d.b.h.b.c.a getListenerFromActivity(String str) {
+    public d.a.h.b.c.a getListenerFromActivity(String str) {
         return this.mClientsMap.get(str);
     }
 
@@ -49,7 +49,7 @@ public class a {
         return this.mStatus == EnumC0064a.ENABLE;
     }
 
-    public void regActivityResultCallback(String str, d.b.h.b.c.a aVar) {
+    public void regActivityResultCallback(String str, d.a.h.b.c.a aVar) {
         if (this.mClientsMap.containsKey(str)) {
             return;
         }

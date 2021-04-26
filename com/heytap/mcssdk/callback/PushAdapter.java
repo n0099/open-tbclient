@@ -5,58 +5,58 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class PushAdapter implements PushCallback {
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onGetAliases(int i, List<SubscribeResult> list) {
+    public void onGetAliases(int i2, List<SubscribeResult> list) {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onGetNotificationStatus(int i, int i2) {
+    public void onGetNotificationStatus(int i2, int i3) {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onGetPushStatus(int i, int i2) {
+    public void onGetPushStatus(int i2, int i3) {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onGetTags(int i, List<SubscribeResult> list) {
+    public void onGetTags(int i2, List<SubscribeResult> list) {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onGetUserAccounts(int i, List<SubscribeResult> list) {
+    public void onGetUserAccounts(int i2, List<SubscribeResult> list) {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onRegister(int i, String str) {
+    public void onRegister(int i2, String str) {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onSetAliases(int i, List<SubscribeResult> list) {
+    public void onSetAliases(int i2, List<SubscribeResult> list) {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onSetPushTime(int i, String str) {
+    public void onSetPushTime(int i2, String str) {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onSetTags(int i, List<SubscribeResult> list) {
+    public void onSetTags(int i2, List<SubscribeResult> list) {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onSetUserAccounts(int i, List<SubscribeResult> list) {
+    public void onSetUserAccounts(int i2, List<SubscribeResult> list) {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onUnRegister(int i) {
+    public void onUnRegister(int i2) {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onUnsetAliases(int i, List<SubscribeResult> list) {
+    public void onUnsetAliases(int i2, List<SubscribeResult> list) {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onUnsetTags(int i, List<SubscribeResult> list) {
+    public void onUnsetTags(int i2, List<SubscribeResult> list) {
     }
 
     @Override // com.heytap.mcssdk.callback.PushCallback
-    public void onUnsetUserAccounts(int i, List<SubscribeResult> list) {
+    public void onUnsetUserAccounts(int i2, List<SubscribeResult> list) {
     }
 }

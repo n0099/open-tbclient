@@ -11,56 +11,58 @@ import com.baidu.tieba.R;
 public class CompressProgressView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21421e;
+    public int f22040e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21422f;
+    public int f22041f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21423g;
+    public int f22042g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f21424h;
-    public Paint i;
+    public Paint f22043h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public Paint f22044i;
     public RectF j;
     public int k;
 
-    public CompressProgressView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public CompressProgressView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.k = 0;
         a();
     }
 
     public void a() {
-        this.f21421e = getResources().getDimensionPixelSize(R.dimen.ds100);
-        this.f21422f = getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.f21423g = getResources().getDimensionPixelSize(R.dimen.ds2);
+        this.f22040e = getResources().getDimensionPixelSize(R.dimen.ds100);
+        this.f22041f = getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.f22042g = getResources().getDimensionPixelSize(R.dimen.ds2);
         Paint paint = new Paint();
-        this.f21424h = paint;
-        paint.setStrokeWidth(this.f21422f);
-        this.f21424h.setColor(getResources().getColor(R.color.CAM_X0201));
-        this.f21424h.setStyle(Paint.Style.STROKE);
-        this.f21424h.setAntiAlias(true);
+        this.f22043h = paint;
+        paint.setStrokeWidth(this.f22041f);
+        this.f22043h.setColor(getResources().getColor(R.color.CAM_X0201));
+        this.f22043h.setStyle(Paint.Style.STROKE);
+        this.f22043h.setAntiAlias(true);
         Paint paint2 = new Paint();
-        this.i = paint2;
-        paint2.setStrokeWidth(this.f21423g);
-        this.i.setColor(getResources().getColor(R.color.CAM_X0101));
-        this.i.setStyle(Paint.Style.STROKE);
-        this.i.setAntiAlias(true);
-        int i = this.f21422f;
-        int i2 = this.f21421e;
-        this.j = new RectF(i, i, i2 + i, i2 + i);
+        this.f22044i = paint2;
+        paint2.setStrokeWidth(this.f22042g);
+        this.f22044i.setColor(getResources().getColor(R.color.CAM_X0101));
+        this.f22044i.setStyle(Paint.Style.STROKE);
+        this.f22044i.setAntiAlias(true);
+        int i2 = this.f22041f;
+        int i3 = this.f22040e;
+        this.j = new RectF(i2, i2, i3 + i2, i3 + i2);
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        canvas.drawArc(this.j, 270.0f, 360.0f, false, this.i);
-        canvas.drawArc(this.j, 270.0f, (this.k * 360) / 100, false, this.f21424h);
+        canvas.drawArc(this.j, 270.0f, 360.0f, false, this.f22044i);
+        canvas.drawArc(this.j, 270.0f, (this.k * 360) / 100, false, this.f22043h);
     }
 
-    public void setProgress(int i) {
-        if (i != this.k) {
-            this.k = i;
+    public void setProgress(int i2) {
+        if (i2 != this.k) {
+            this.k = i2;
             invalidate();
         }
     }

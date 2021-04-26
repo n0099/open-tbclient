@@ -10,16 +10,17 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewPropertyAnimatorCompat;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class ActionBarContextView extends AbsActionBarView {
-    public static final String TAG = "ActionBarContextView";
     public View mClose;
     public int mCloseItemLayout;
     public View mCustomView;
@@ -32,7 +33,7 @@ public class ActionBarContextView extends AbsActionBarView {
     public int mTitleStyleRes;
     public TextView mTitleView;
 
-    public ActionBarContextView(Context context) {
+    public ActionBarContextView(@NonNull Context context) {
         this(context, null);
     }
 
@@ -54,21 +55,21 @@ public class ActionBarContextView extends AbsActionBarView {
         this.mSubtitleView.setText(this.mSubtitle);
         boolean z = !TextUtils.isEmpty(this.mTitle);
         boolean z2 = !TextUtils.isEmpty(this.mSubtitle);
-        int i = 0;
+        int i2 = 0;
         this.mSubtitleView.setVisibility(z2 ? 0 : 8);
         LinearLayout linearLayout2 = this.mTitleLayout;
         if (!z && !z2) {
-            i = 8;
+            i2 = 8;
         }
-        linearLayout2.setVisibility(i);
+        linearLayout2.setVisibility(i2);
         if (this.mTitleLayout.getParent() == null) {
             addView(this.mTitleLayout);
         }
     }
 
     @Override // androidx.appcompat.widget.AbsActionBarView
-    public /* bridge */ /* synthetic */ void animateToVisibility(int i) {
-        super.animateToVisibility(i);
+    public /* bridge */ /* synthetic */ void animateToVisibility(int i2) {
+        super.animateToVisibility(i2);
     }
 
     @Override // androidx.appcompat.widget.AbsActionBarView
@@ -212,30 +213,30 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         boolean isLayoutRtl = ViewUtils.isLayoutRtl(this);
-        int paddingRight = isLayoutRtl ? (i3 - i) - getPaddingRight() : getPaddingLeft();
+        int paddingRight = isLayoutRtl ? (i4 - i2) - getPaddingRight() : getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int paddingTop2 = ((i4 - i2) - getPaddingTop()) - getPaddingBottom();
+        int paddingTop2 = ((i5 - i3) - getPaddingTop()) - getPaddingBottom();
         View view = this.mClose;
         if (view != null && view.getVisibility() != 8) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.mClose.getLayoutParams();
-            int i5 = isLayoutRtl ? marginLayoutParams.rightMargin : marginLayoutParams.leftMargin;
-            int i6 = isLayoutRtl ? marginLayoutParams.leftMargin : marginLayoutParams.rightMargin;
-            int next = AbsActionBarView.next(paddingRight, i5, isLayoutRtl);
-            paddingRight = AbsActionBarView.next(next + positionChild(this.mClose, next, paddingTop, paddingTop2, isLayoutRtl), i6, isLayoutRtl);
+            int i6 = isLayoutRtl ? marginLayoutParams.rightMargin : marginLayoutParams.leftMargin;
+            int i7 = isLayoutRtl ? marginLayoutParams.leftMargin : marginLayoutParams.rightMargin;
+            int next = AbsActionBarView.next(paddingRight, i6, isLayoutRtl);
+            paddingRight = AbsActionBarView.next(next + positionChild(this.mClose, next, paddingTop, paddingTop2, isLayoutRtl), i7, isLayoutRtl);
         }
-        int i7 = paddingRight;
+        int i8 = paddingRight;
         LinearLayout linearLayout = this.mTitleLayout;
         if (linearLayout != null && this.mCustomView == null && linearLayout.getVisibility() != 8) {
-            i7 += positionChild(this.mTitleLayout, i7, paddingTop, paddingTop2, isLayoutRtl);
+            i8 += positionChild(this.mTitleLayout, i8, paddingTop, paddingTop2, isLayoutRtl);
         }
-        int i8 = i7;
+        int i9 = i8;
         View view2 = this.mCustomView;
         if (view2 != null) {
-            positionChild(view2, i8, paddingTop, paddingTop2, isLayoutRtl);
+            positionChild(view2, i9, paddingTop, paddingTop2, isLayoutRtl);
         }
-        int paddingLeft = isLayoutRtl ? getPaddingLeft() : (i3 - i) - getPaddingRight();
+        int paddingLeft = isLayoutRtl ? getPaddingLeft() : (i4 - i2) - getPaddingRight();
         ActionMenuView actionMenuView = this.mMenuView;
         if (actionMenuView != null) {
             positionChild(actionMenuView, paddingLeft, paddingTop, paddingTop2, !isLayoutRtl);
@@ -243,18 +244,18 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        if (View.MeasureSpec.getMode(i) == 1073741824) {
-            if (View.MeasureSpec.getMode(i2) != 0) {
-                int size = View.MeasureSpec.getSize(i);
-                int i3 = this.mContentHeight;
-                if (i3 <= 0) {
-                    i3 = View.MeasureSpec.getSize(i2);
+    public void onMeasure(int i2, int i3) {
+        if (View.MeasureSpec.getMode(i2) == 1073741824) {
+            if (View.MeasureSpec.getMode(i3) != 0) {
+                int size = View.MeasureSpec.getSize(i2);
+                int i4 = this.mContentHeight;
+                if (i4 <= 0) {
+                    i4 = View.MeasureSpec.getSize(i3);
                 }
                 int paddingTop = getPaddingTop() + getPaddingBottom();
                 int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
-                int i4 = i3 - paddingTop;
-                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i4, Integer.MIN_VALUE);
+                int i5 = i4 - paddingTop;
+                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i5, Integer.MIN_VALUE);
                 View view = this.mClose;
                 if (view != null) {
                     int measureChildView = measureChildView(view, paddingLeft, makeMeasureSpec, 0);
@@ -282,31 +283,31 @@ public class ActionBarContextView extends AbsActionBarView {
                 View view2 = this.mCustomView;
                 if (view2 != null) {
                     ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-                    int i5 = layoutParams.width != -2 ? 1073741824 : Integer.MIN_VALUE;
-                    int i6 = layoutParams.width;
-                    if (i6 >= 0) {
-                        paddingLeft = Math.min(i6, paddingLeft);
+                    int i6 = layoutParams.width != -2 ? 1073741824 : Integer.MIN_VALUE;
+                    int i7 = layoutParams.width;
+                    if (i7 >= 0) {
+                        paddingLeft = Math.min(i7, paddingLeft);
                     }
-                    int i7 = layoutParams.height == -2 ? Integer.MIN_VALUE : 1073741824;
-                    int i8 = layoutParams.height;
-                    if (i8 >= 0) {
-                        i4 = Math.min(i8, i4);
+                    int i8 = layoutParams.height == -2 ? Integer.MIN_VALUE : 1073741824;
+                    int i9 = layoutParams.height;
+                    if (i9 >= 0) {
+                        i5 = Math.min(i9, i5);
                     }
-                    this.mCustomView.measure(View.MeasureSpec.makeMeasureSpec(paddingLeft, i5), View.MeasureSpec.makeMeasureSpec(i4, i7));
+                    this.mCustomView.measure(View.MeasureSpec.makeMeasureSpec(paddingLeft, i6), View.MeasureSpec.makeMeasureSpec(i5, i8));
                 }
                 if (this.mContentHeight <= 0) {
                     int childCount = getChildCount();
-                    int i9 = 0;
-                    for (int i10 = 0; i10 < childCount; i10++) {
-                        int measuredHeight = getChildAt(i10).getMeasuredHeight() + paddingTop;
-                        if (measuredHeight > i9) {
-                            i9 = measuredHeight;
+                    int i10 = 0;
+                    for (int i11 = 0; i11 < childCount; i11++) {
+                        int measuredHeight = getChildAt(i11).getMeasuredHeight() + paddingTop;
+                        if (measuredHeight > i10) {
+                            i10 = measuredHeight;
                         }
                     }
-                    setMeasuredDimension(size, i9);
+                    setMeasuredDimension(size, i10);
                     return;
                 }
-                setMeasuredDimension(size, i3);
+                setMeasuredDimension(size, i4);
                 return;
             }
             throw new IllegalStateException(ActionBarContextView.class.getSimpleName() + " can only be used with android:layout_height=\"wrap_content\"");
@@ -325,8 +326,8 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     @Override // androidx.appcompat.widget.AbsActionBarView
-    public void setContentHeight(int i) {
-        this.mContentHeight = i;
+    public void setContentHeight(int i2) {
+        this.mContentHeight = i2;
     }
 
     public void setCustomView(View view) {
@@ -364,13 +365,13 @@ public class ActionBarContextView extends AbsActionBarView {
     }
 
     @Override // androidx.appcompat.widget.AbsActionBarView, android.view.View
-    public /* bridge */ /* synthetic */ void setVisibility(int i) {
-        super.setVisibility(i);
+    public /* bridge */ /* synthetic */ void setVisibility(int i2) {
+        super.setVisibility(i2);
     }
 
     @Override // androidx.appcompat.widget.AbsActionBarView
-    public /* bridge */ /* synthetic */ ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i, long j) {
-        return super.setupAnimatorToVisibility(i, j);
+    public /* bridge */ /* synthetic */ ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j) {
+        return super.setupAnimatorToVisibility(i2, j);
     }
 
     @Override // android.view.ViewGroup
@@ -387,13 +388,13 @@ public class ActionBarContextView extends AbsActionBarView {
         return false;
     }
 
-    public ActionBarContextView(Context context, AttributeSet attributeSet) {
+    public ActionBarContextView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.actionModeStyle);
     }
 
-    public ActionBarContextView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.ActionMode, i, 0);
+    public ActionBarContextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.ActionMode, i2, 0);
         ViewCompat.setBackground(this, obtainStyledAttributes.getDrawable(R.styleable.ActionMode_background));
         this.mTitleStyleRes = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_titleTextStyle, 0);
         this.mSubtitleStyleRes = obtainStyledAttributes.getResourceId(R.styleable.ActionMode_subtitleTextStyle, 0);

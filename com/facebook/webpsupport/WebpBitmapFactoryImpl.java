@@ -32,12 +32,12 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static Bitmap createBitmap(int i, int i2, BitmapFactory.Options options) {
+    public static Bitmap createBitmap(int i2, int i3, BitmapFactory.Options options) {
         Bitmap bitmap;
         if (IN_BITMAP_SUPPORTED && options != null && (bitmap = options.inBitmap) != null && bitmap.isMutable()) {
             return options.inBitmap;
         }
-        return mBitmapCreator.createNakedBitmap(i, i2, Bitmap.Config.ARGB_8888);
+        return mBitmapCreator.createNakedBitmap(i2, i3, Bitmap.Config.ARGB_8888);
     }
 
     @DoNotStrip
@@ -49,12 +49,12 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     @DoNotStrip
     public static float getScaleFromOptions(BitmapFactory.Options options) {
         if (options != null) {
-            int i = options.inSampleSize;
-            float f2 = i > 1 ? 1.0f / i : 1.0f;
+            int i2 = options.inSampleSize;
+            float f2 = i2 > 1 ? 1.0f / i2 : 1.0f;
             if (options.inScaled) {
-                int i2 = options.inDensity;
-                int i3 = options.inTargetDensity;
-                return (i2 == 0 || i3 == 0 || i2 == options.inScreenDensity) ? f2 : i3 / i2;
+                int i3 = options.inDensity;
+                int i4 = options.inTargetDensity;
+                return (i3 == 0 || i4 == 0 || i3 == options.inScreenDensity) ? f2 : i4 / i3;
             }
             return f2;
         }
@@ -78,17 +78,17 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static Bitmap hookDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options) {
+    public static Bitmap hookDecodeByteArray(byte[] bArr, int i2, int i3, BitmapFactory.Options options) {
         Bitmap originalDecodeByteArray;
         StaticWebpNativeLoader.ensure();
-        if (WebpSupportStatus.sIsWebpSupportRequired && WebpSupportStatus.isWebpHeader(bArr, i, i2)) {
-            originalDecodeByteArray = nativeDecodeByteArray(bArr, i, i2, options, getScaleFromOptions(options), getInTempStorageFromOptions(options));
+        if (WebpSupportStatus.sIsWebpSupportRequired && WebpSupportStatus.isWebpHeader(bArr, i2, i3)) {
+            originalDecodeByteArray = nativeDecodeByteArray(bArr, i2, i3, options, getScaleFromOptions(options), getInTempStorageFromOptions(options));
             if (originalDecodeByteArray == null) {
                 sendWebpErrorLog("webp_direct_decode_array");
             }
             setWebpBitmapOptions(originalDecodeByteArray, options);
         } else {
-            originalDecodeByteArray = originalDecodeByteArray(bArr, i, i2, options);
+            originalDecodeByteArray = originalDecodeByteArray(bArr, i2, i3, options);
             if (originalDecodeByteArray == null) {
                 sendWebpErrorLog("webp_direct_decode_array_failed_on_no_webp");
             }
@@ -151,11 +151,11 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
 
     @DoNotStrip
     @Nullable
-    public static Bitmap hookDecodeResource(Resources resources, int i, BitmapFactory.Options options) {
+    public static Bitmap hookDecodeResource(Resources resources, int i2, BitmapFactory.Options options) {
         TypedValue typedValue = new TypedValue();
         Bitmap bitmap = null;
         try {
-            InputStream openRawResource = resources.openRawResource(i, typedValue);
+            InputStream openRawResource = resources.openRawResource(i2, typedValue);
             bitmap = hookDecodeResourceStream(resources, typedValue, openRawResource, null, options);
             if (openRawResource != null) {
                 openRawResource.close();
@@ -174,11 +174,11 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
             options = new BitmapFactory.Options();
         }
         if (options.inDensity == 0 && typedValue != null) {
-            int i = typedValue.density;
-            if (i == 0) {
+            int i2 = typedValue.density;
+            if (i2 == 0) {
                 options.inDensity = 160;
-            } else if (i != 65535) {
-                options.inDensity = i;
+            } else if (i2 != 65535) {
+                options.inDensity = i2;
             }
         }
         if (options.inTargetDensity == 0 && resources != null) {
@@ -210,7 +210,7 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static native Bitmap nativeDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options, float f2, byte[] bArr2);
+    public static native Bitmap nativeDecodeByteArray(byte[] bArr, int i2, int i3, BitmapFactory.Options options, float f2, byte[] bArr2);
 
     @DoNotStrip
     public static native Bitmap nativeDecodeStream(InputStream inputStream, BitmapFactory.Options options, float f2, byte[] bArr);
@@ -219,8 +219,8 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     public static native long nativeSeek(FileDescriptor fileDescriptor, long j, boolean z);
 
     @DoNotStrip
-    public static Bitmap originalDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options) {
-        return BitmapFactory.decodeByteArray(bArr, i, i2, options);
+    public static Bitmap originalDecodeByteArray(byte[] bArr, int i2, int i3, BitmapFactory.Options options) {
+        return BitmapFactory.decodeByteArray(bArr, i2, i3, options);
     }
 
     @DoNotStrip
@@ -234,8 +234,8 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static Bitmap originalDecodeResource(Resources resources, int i, BitmapFactory.Options options) {
-        return BitmapFactory.decodeResource(resources, i, options);
+    public static Bitmap originalDecodeResource(Resources resources, int i2, BitmapFactory.Options options) {
+        return BitmapFactory.decodeResource(resources, i2, options);
     }
 
     @DoNotStrip
@@ -256,10 +256,10 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static void setBitmapSize(@Nullable BitmapFactory.Options options, int i, int i2) {
+    public static void setBitmapSize(@Nullable BitmapFactory.Options options, int i2, int i3) {
         if (options != null) {
-            options.outWidth = i;
-            options.outHeight = i2;
+            options.outWidth = i2;
+            options.outHeight = i3;
         }
     }
 
@@ -267,14 +267,14 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
         if (bitmap == null || options == null) {
             return;
         }
-        int i = options.inDensity;
-        if (i != 0) {
-            bitmap.setDensity(i);
-            int i2 = options.inTargetDensity;
-            if (i2 == 0 || i == i2 || i == options.inScreenDensity || !options.inScaled) {
+        int i2 = options.inDensity;
+        if (i2 != 0) {
+            bitmap.setDensity(i2);
+            int i3 = options.inTargetDensity;
+            if (i3 == 0 || i2 == i3 || i2 == options.inScreenDensity || !options.inScaled) {
                 return;
             }
-            bitmap.setDensity(i2);
+            bitmap.setDensity(i3);
         } else if (!IN_BITMAP_SUPPORTED || options.inBitmap == null) {
         } else {
             bitmap.setDensity(160);
@@ -282,12 +282,12 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static boolean setOutDimensions(BitmapFactory.Options options, int i, int i2) {
+    public static boolean setOutDimensions(BitmapFactory.Options options, int i2, int i3) {
         if (options == null || !options.inJustDecodeBounds) {
             return false;
         }
-        options.outWidth = i;
-        options.outHeight = i2;
+        options.outWidth = i2;
+        options.outHeight = i3;
         return true;
     }
 
@@ -322,8 +322,8 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @Override // com.facebook.common.webp.WebpBitmapFactory
-    public Bitmap decodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options) {
-        return hookDecodeByteArray(bArr, i, i2, options);
+    public Bitmap decodeByteArray(byte[] bArr, int i2, int i3, BitmapFactory.Options options) {
+        return hookDecodeByteArray(bArr, i2, i3, options);
     }
 
     @Override // com.facebook.common.webp.WebpBitmapFactory
@@ -352,8 +352,8 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static Bitmap originalDecodeByteArray(byte[] bArr, int i, int i2) {
-        return BitmapFactory.decodeByteArray(bArr, i, i2);
+    public static Bitmap originalDecodeByteArray(byte[] bArr, int i2, int i3) {
+        return BitmapFactory.decodeByteArray(bArr, i2, i3);
     }
 
     @DoNotStrip
@@ -367,8 +367,8 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static Bitmap originalDecodeResource(Resources resources, int i) {
-        return BitmapFactory.decodeResource(resources, i);
+    public static Bitmap originalDecodeResource(Resources resources, int i2) {
+        return BitmapFactory.decodeResource(resources, i2);
     }
 
     @DoNotStrip
@@ -382,13 +382,13 @@ public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     }
 
     @DoNotStrip
-    public static Bitmap hookDecodeResource(Resources resources, int i) {
-        return hookDecodeResource(resources, i, null);
+    public static Bitmap hookDecodeResource(Resources resources, int i2) {
+        return hookDecodeResource(resources, i2, null);
     }
 
     @DoNotStrip
-    public static Bitmap hookDecodeByteArray(byte[] bArr, int i, int i2) {
-        return hookDecodeByteArray(bArr, i, i2, null);
+    public static Bitmap hookDecodeByteArray(byte[] bArr, int i2, int i3) {
+        return hookDecodeByteArray(bArr, i2, i3, null);
     }
 
     @DoNotStrip

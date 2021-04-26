@@ -65,12 +65,12 @@ public class VideoCloudSetting {
                 return false;
             }
             int length = split.length;
-            for (int i = 0; i < length; i++) {
-                if (TextUtils.isEmpty(split[i]) || TextUtils.isEmpty(split2[i])) {
-                    if (!TextUtils.isEmpty(split2[i]) || !TextUtils.isEmpty(split[i])) {
+            for (int i2 = 0; i2 < length; i2++) {
+                if (TextUtils.isEmpty(split[i2]) || TextUtils.isEmpty(split2[i2])) {
+                    if (!TextUtils.isEmpty(split2[i2]) || !TextUtils.isEmpty(split[i2])) {
                         return false;
                     }
-                } else if (!split2[i].equals(str4) && !split2[i].equals(split[i])) {
+                } else if (!split2[i2].equals(str4) && !split2[i2].equals(split[i2])) {
                     return false;
                 }
             }
@@ -119,9 +119,9 @@ public class VideoCloudSetting {
             }
             String[] split = str.split(str2);
             int length = split.length;
-            for (int i = 0; i < length; i++) {
-                if (TextUtils.isEmpty(split[i])) {
-                    split[i] = null;
+            for (int i2 = 0; i2 < length; i2++) {
+                if (TextUtils.isEmpty(split[i2])) {
+                    split[i2] = null;
                 }
             }
             return split;
@@ -134,8 +134,8 @@ public class VideoCloudSetting {
             }
             if (!TextUtils.isEmpty(str) && (strArr = this.mSubItems) != null) {
                 int length = strArr.length;
-                for (int i = 0; i < length; i++) {
-                    if (str.equals(this.mSubItems[i]) || (this.mType == 0 && illegibilityMatch(str, this.mSubItems[i], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "*"))) {
+                for (int i2 = 0; i2 < length; i2++) {
+                    if (str.equals(this.mSubItems[i2]) || (this.mType == 0 && illegibilityMatch(str, this.mSubItems[i2], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "*"))) {
                         return true;
                     }
                 }
@@ -157,14 +157,14 @@ public class VideoCloudSetting {
             String[] strArr = this.mSubItems;
             if (strArr != null) {
                 int length = strArr.length;
-                for (int i = 0; i < length; i++) {
-                    Log.d(VideoCloudSetting.TAG, "mSubItems: [" + i + "] = " + this.mSubItems[i]);
+                for (int i2 = 0; i2 < length; i2++) {
+                    Log.d(VideoCloudSetting.TAG, "mSubItems: [" + i2 + "] = " + this.mSubItems[i2]);
                 }
             }
         }
 
-        public void setType(int i) {
-            this.mType = i;
+        public void setType(int i2) {
+            this.mType = i2;
         }
     }
 
@@ -177,24 +177,24 @@ public class VideoCloudSetting {
             String str2;
             MatchedType matchedType = MatchedType.FAILED;
             boolean z2 = false;
-            int i = 0;
+            int i2 = 0;
             while (true) {
                 z = true;
-                if (i >= this.mItems.size()) {
+                if (i2 >= this.mItems.size()) {
                     break;
                 }
-                VideoCloudSettingItem videoCloudSettingItem = this.mItems.get(i);
-                int i2 = videoCloudSettingItem.mType;
-                if (i2 == 0) {
+                VideoCloudSettingItem videoCloudSettingItem = this.mItems.get(i2);
+                int i3 = videoCloudSettingItem.mType;
+                if (i3 == 0) {
                     str2 = str;
                 } else {
-                    if (i2 == 1 && !videoCloudSettingItem.mIsCloseAll) {
+                    if (i3 == 1 && !videoCloudSettingItem.mIsCloseAll) {
                         videoCloudSettingItem.mIsEnableAll = true;
                     }
                     str2 = "";
                 }
                 MatchedType match = videoCloudSettingItem.match(str2);
-                Log.d(VideoCloudSetting.TAG, "i:" + i + " type:" + videoCloudSettingItem.mType + " checkStr:" + str2 + " matchedType:" + match);
+                Log.d(VideoCloudSetting.TAG, "i:" + i2 + " type:" + videoCloudSettingItem.mType + " checkStr:" + str2 + " matchedType:" + match);
                 if (match == MatchedType.SUCCESS) {
                     matchedType = match;
                     z2 = true;
@@ -203,7 +203,7 @@ public class VideoCloudSetting {
                     matchedType = match;
                     break;
                 } else {
-                    i++;
+                    i2++;
                     matchedType = match;
                 }
             }

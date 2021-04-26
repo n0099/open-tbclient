@@ -9,8 +9,8 @@ import org.json.JSONObject;
 public class GetHotWordsMessage extends JsonHttpResponsedMessage {
     public List<String> mData;
 
-    public GetHotWordsMessage(int i) {
-        super(i);
+    public GetHotWordsMessage(int i2) {
+        super(i2);
     }
 
     private List<String> parseHotWordsData(JSONObject jSONObject) {
@@ -26,7 +26,7 @@ public class GetHotWordsMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode != 200 || error < 0 || jSONObject == null) {

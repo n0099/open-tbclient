@@ -31,45 +31,45 @@ public class PureJavaCrc32C implements Checksum {
     }
 
     @Override // java.util.zip.Checksum
-    public void update(byte[] bArr, int i, int i2) {
-        int i3 = this.crc;
-        while (i2 > 7) {
-            int i4 = i3 >>> 8;
+    public void update(byte[] bArr, int i2, int i3) {
+        int i4 = this.crc;
+        while (i3 > 7) {
             int i5 = i4 >>> 8;
+            int i6 = i5 >>> 8;
             int[] iArr = T;
-            i3 = ((iArr[(((i5 >>> 8) ^ bArr[i + 3]) & 255) + 1024] ^ iArr[((bArr[i + 2] ^ i5) & 255) + 1280]) ^ (iArr[((bArr[i + 0] ^ i3) & 255) + 1792] ^ iArr[((bArr[i + 1] ^ i4) & 255) + T8_6_start])) ^ ((iArr[(bArr[i + 4] & 255) + 768] ^ iArr[(bArr[i + 5] & 255) + 512]) ^ (iArr[(bArr[i + 6] & 255) + 256] ^ iArr[(bArr[i + 7] & 255) + 0]));
-            i += 8;
-            i2 -= 8;
+            i4 = ((iArr[(((i6 >>> 8) ^ bArr[i2 + 3]) & 255) + 1024] ^ iArr[((bArr[i2 + 2] ^ i6) & 255) + 1280]) ^ (iArr[((bArr[i2 + 0] ^ i4) & 255) + 1792] ^ iArr[((bArr[i2 + 1] ^ i5) & 255) + T8_6_start])) ^ ((iArr[(bArr[i2 + 4] & 255) + 768] ^ iArr[(bArr[i2 + 5] & 255) + 512]) ^ (iArr[(bArr[i2 + 6] & 255) + 256] ^ iArr[(bArr[i2 + 7] & 255) + 0]));
+            i2 += 8;
+            i3 -= 8;
         }
-        switch (i2) {
+        switch (i3) {
             case 7:
-                i3 = (i3 >>> 8) ^ T[((bArr[i] ^ i3) & 255) + 0];
-                i++;
+                i4 = (i4 >>> 8) ^ T[((bArr[i2] ^ i4) & 255) + 0];
+                i2++;
             case 6:
-                i3 = (i3 >>> 8) ^ T[((bArr[i] ^ i3) & 255) + 0];
-                i++;
+                i4 = (i4 >>> 8) ^ T[((bArr[i2] ^ i4) & 255) + 0];
+                i2++;
             case 5:
-                i3 = (i3 >>> 8) ^ T[((bArr[i] ^ i3) & 255) + 0];
-                i++;
+                i4 = (i4 >>> 8) ^ T[((bArr[i2] ^ i4) & 255) + 0];
+                i2++;
             case 4:
-                i3 = (i3 >>> 8) ^ T[((bArr[i] ^ i3) & 255) + 0];
-                i++;
+                i4 = (i4 >>> 8) ^ T[((bArr[i2] ^ i4) & 255) + 0];
+                i2++;
             case 3:
-                i3 = (i3 >>> 8) ^ T[((bArr[i] ^ i3) & 255) + 0];
-                i++;
+                i4 = (i4 >>> 8) ^ T[((bArr[i2] ^ i4) & 255) + 0];
+                i2++;
             case 2:
-                i3 = (i3 >>> 8) ^ T[((bArr[i] ^ i3) & 255) + 0];
-                i++;
+                i4 = (i4 >>> 8) ^ T[((bArr[i2] ^ i4) & 255) + 0];
+                i2++;
             case 1:
-                i3 = (i3 >>> 8) ^ T[((bArr[i] ^ i3) & 255) + 0];
+                i4 = (i4 >>> 8) ^ T[((bArr[i2] ^ i4) & 255) + 0];
                 break;
         }
-        this.crc = i3;
+        this.crc = i4;
     }
 
     @Override // java.util.zip.Checksum
-    public final void update(int i) {
-        int i2 = this.crc;
-        this.crc = T[((i ^ i2) & 255) + 0] ^ (i2 >>> 8);
+    public final void update(int i2) {
+        int i3 = this.crc;
+        this.crc = T[((i2 ^ i3) & 255) + 0] ^ (i3 >>> 8);
     }
 }

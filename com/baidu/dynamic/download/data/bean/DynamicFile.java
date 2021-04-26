@@ -2,7 +2,7 @@ package com.baidu.dynamic.download.data.bean;
 
 import com.baidu.searchbox.NoProGuard;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class DynamicFile implements NoProGuard {
     public String channelId;
     public String channelName;

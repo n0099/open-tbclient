@@ -59,8 +59,8 @@ public class SharedPrefsWrapper implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public int getInt(String str, int i) {
-        return this.mSp.getInt(str, i);
+    public int getInt(String str, int i2) {
+        return this.mSp.getInt(str, i2);
     }
 
     @Override // android.content.SharedPreferences
@@ -86,8 +86,8 @@ public class SharedPrefsWrapper implements SharedPreferences {
         this.mSp.edit().putFloat(str, f2).apply();
     }
 
-    public void putInt(String str, int i) {
-        this.mSp.edit().putInt(str, i).apply();
+    public void putInt(String str, int i2) {
+        this.mSp.edit().putInt(str, i2).apply();
     }
 
     public void putLong(String str, long j) {

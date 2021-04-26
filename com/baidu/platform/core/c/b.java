@@ -30,8 +30,8 @@ public class b extends com.baidu.platform.base.d {
                         poiIndoorResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
                     } else {
                         ArrayList arrayList = new ArrayList();
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
+                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
                             if (jSONObject2 != null) {
                                 PoiIndoorInfo poiIndoorInfo = new PoiIndoorInfo();
                                 poiIndoorInfo.address = jSONObject2.optString("address");

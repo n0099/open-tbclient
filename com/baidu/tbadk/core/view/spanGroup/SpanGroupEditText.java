@@ -12,24 +12,24 @@ import androidx.appcompat.widget.AppCompatEditText;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
 import com.baidu.tieba.R;
-import d.b.c.a.i;
-import d.b.i0.r.f0.p.a;
-import d.b.i0.r.q.v;
+import d.a.c.a.i;
+import d.a.i0.r.f0.p.a;
+import d.a.i0.r.q.v;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SpanGroupEditText extends AppCompatEditText {
 
     /* renamed from: e  reason: collision with root package name */
-    public EDIT_TEXT_TYPE f13287e;
+    public EDIT_TEXT_TYPE f13249e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SpanGroupManager f13288f;
+    public SpanGroupManager f13250f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnKeyListener f13289g;
+    public View.OnKeyListener f13251g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f13290h;
+    public long f13252h;
 
     /* loaded from: classes3.dex */
     public enum EDIT_TEXT_TYPE {
@@ -44,16 +44,16 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
 
         @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
-        public boolean deleteSurroundingText(int i, int i2) {
-            if (i == 1 && i2 == 0) {
+        public boolean deleteSurroundingText(int i2, int i3) {
+            if (i2 == 1 && i3 == 0) {
                 return sendKeyEvent(new KeyEvent(0, 67));
             }
-            return super.deleteSurroundingText(i, i2);
+            return super.deleteSurroundingText(i2, i3);
         }
 
         @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
         public boolean sendKeyEvent(KeyEvent keyEvent) {
-            if (SpanGroupEditText.this.f13289g == null || !SpanGroupEditText.this.f13289g.onKey(SpanGroupEditText.this, keyEvent.getKeyCode(), keyEvent)) {
+            if (SpanGroupEditText.this.f13251g == null || !SpanGroupEditText.this.f13251g.onKey(SpanGroupEditText.this, keyEvent.getKeyCode(), keyEvent)) {
                 return super.sendKeyEvent(keyEvent);
             }
             return true;
@@ -65,18 +65,18 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void b() {
-        SpanGroupManager spanGroupManager = this.f13288f;
+        SpanGroupManager spanGroupManager = this.f13250f;
         if (spanGroupManager != null) {
             spanGroupManager.g();
         }
     }
 
-    public void c(int i) {
-        d.b.i0.r.f0.p.a r = this.f13288f.r(i);
+    public void c(int i2) {
+        d.a.i0.r.f0.p.a r = this.f13250f.r(i2);
         if (r == null || getText() == null) {
             return;
         }
-        this.f13288f.l(r.f(), r.c());
+        this.f13250f.l(r.f(), r.c());
     }
 
     public void d(CharSequence charSequence) {
@@ -86,42 +86,42 @@ public class SpanGroupEditText extends AppCompatEditText {
         getText().insert(getSelectionEnd(), charSequence);
     }
 
-    public void e(List<d.b.j0.w0.a> list, List<String> list2) {
+    public void e(List<d.a.j0.w0.a> list, List<String> list2) {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        for (int i = 0; i < list.size(); i++) {
-            d.b.j0.w0.a aVar = list.get(i);
-            String str = list2.get(i);
-            if (!this.f13288f.i(aVar.a())) {
+        for (int i2 = 0; i2 < list.size(); i2++) {
+            d.a.j0.w0.a aVar = list.get(i2);
+            String str = list2.get(i2);
+            if (!this.f13250f.i(aVar.a())) {
                 TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                 tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
                 v b2 = v.b(tbLinkSpanGroup, aVar);
                 b2.l = str;
-                tbLinkSpanGroup.z(b2.f51643h);
+                tbLinkSpanGroup.z(b2.f49276h);
                 tbLinkSpanGroup.r();
-                this.f13288f.v(tbLinkSpanGroup);
+                this.f13250f.v(tbLinkSpanGroup);
             }
         }
     }
 
     public void f() {
-        SpanGroupManager spanGroupManager = this.f13288f;
+        SpanGroupManager spanGroupManager = this.f13250f;
         if (spanGroupManager != null) {
             spanGroupManager.B();
         }
     }
 
     public long getForumId() {
-        return this.f13290h;
+        return this.f13252h;
     }
 
     public SpanGroupManager getSpanGroupManager() {
-        return this.f13288f;
+        return this.f13250f;
     }
 
     public EDIT_TEXT_TYPE getType() {
-        return this.f13287e;
+        return this.f13249e;
     }
 
     @Override // androidx.appcompat.widget.AppCompatEditText, android.widget.TextView, android.view.View
@@ -130,20 +130,20 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void setForumId(long j) {
-        this.f13290h = j;
+        this.f13252h = j;
     }
 
-    public void setOnSpanGroupChangedListener(a.InterfaceC1112a interfaceC1112a) {
-        this.f13288f.F(interfaceC1112a);
+    public void setOnSpanGroupChangedListener(a.InterfaceC1051a interfaceC1051a) {
+        this.f13250f.F(interfaceC1051a);
     }
 
     public void setSoftKeyListener(View.OnKeyListener onKeyListener) {
-        this.f13289g = onKeyListener;
+        this.f13251g = onKeyListener;
     }
 
     @Override // android.widget.EditText, android.widget.TextView
     public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
-        SpanGroupManager spanGroupManager = this.f13288f;
+        SpanGroupManager spanGroupManager = this.f13250f;
         if (spanGroupManager != null) {
             spanGroupManager.k();
         }
@@ -151,21 +151,21 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void setTransLink(boolean z) {
-        this.f13288f.G(z);
+        this.f13250f.G(z);
     }
 
     public void setType(EDIT_TEXT_TYPE edit_text_type) {
-        this.f13287e = edit_text_type;
+        this.f13249e = edit_text_type;
     }
 
     public SpanGroupEditText(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, R.attr.editTextStyle);
     }
 
-    public SpanGroupEditText(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f13287e = EDIT_TEXT_TYPE.TYPE_DEFAULT;
-        this.f13290h = 0L;
-        this.f13288f = new SpanGroupManager(this, context instanceof i ? ((i) context).getUniqueId() : null);
+    public SpanGroupEditText(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f13249e = EDIT_TEXT_TYPE.TYPE_DEFAULT;
+        this.f13252h = 0L;
+        this.f13250f = new SpanGroupManager(this, context instanceof i ? ((i) context).getUniqueId() : null);
     }
 }

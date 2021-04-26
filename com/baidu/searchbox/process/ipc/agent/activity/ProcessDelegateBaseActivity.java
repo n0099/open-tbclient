@@ -106,10 +106,10 @@ public class ProcessDelegateBaseActivity extends Activity implements Agent, Dele
         super.onDestroy();
     }
 
-    public void exit(int i, String str) {
+    public void exit(int i2, String str) {
         Intent intent = new Intent();
         intent.putExtra(DelegateDef.EXTRA_DELEGATION_NAME, this.mDelegationName);
-        intent.putExtra(DelegateDef.EXTRA_RESULT_CODE, i);
+        intent.putExtra(DelegateDef.EXTRA_RESULT_CODE, i2);
         if (!TextUtils.isEmpty(str)) {
             intent.putExtra(DelegateDef.EXTRA_RESULT_DESC, str);
         }

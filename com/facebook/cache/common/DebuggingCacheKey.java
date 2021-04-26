@@ -2,7 +2,7 @@ package com.facebook.cache.common;
 
 import android.net.Uri;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DebuggingCacheKey extends SimpleCacheKey {
     @Nullable
     public final Object mCallerContext;

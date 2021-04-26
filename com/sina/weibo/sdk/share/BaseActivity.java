@@ -58,11 +58,11 @@ public class BaseActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void setRequestedOrientation(int i) {
+    public void setRequestedOrientation(int i2) {
         if (Build.VERSION.SDK_INT == 26 && isTranslucentOrFloating()) {
             LogUtil.i("BaseActivity", "avoid calling setRequestedOrientation when Oreo.");
         } else {
-            super.setRequestedOrientation(i);
+            super.setRequestedOrientation(i2);
         }
     }
 }

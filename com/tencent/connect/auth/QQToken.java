@@ -16,61 +16,61 @@ public class QQToken {
     public static final int AUTH_WEB = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static SharedPreferences f39434f;
+    public static SharedPreferences f37028f;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39435a;
+    public String f37029a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39436b;
+    public String f37030b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39437c;
+    public String f37031c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f39438d = 1;
+    public int f37032d = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f39439e = -1;
+    public long f37033e = -1;
 
     public QQToken(String str) {
-        this.f39435a = str;
+        this.f37029a = str;
     }
 
     @TargetApi(11)
     public static synchronized SharedPreferences a() {
         SharedPreferences sharedPreferences;
         synchronized (QQToken.class) {
-            if (f39434f == null) {
-                f39434f = e.a().getSharedPreferences("token_info_file", 0);
+            if (f37028f == null) {
+                f37028f = e.a().getSharedPreferences("token_info_file", 0);
             }
-            sharedPreferences = f39434f;
+            sharedPreferences = f37028f;
         }
         return sharedPreferences;
     }
 
     public String getAccessToken() {
-        return this.f39436b;
+        return this.f37030b;
     }
 
     public String getAppId() {
-        return this.f39435a;
+        return this.f37029a;
     }
 
     public int getAuthSource() {
-        return this.f39438d;
+        return this.f37032d;
     }
 
     public long getExpireTimeInSecond() {
-        return this.f39439e;
+        return this.f37033e;
     }
 
     public String getOpenId() {
-        return this.f39437c;
+        return this.f37031c;
     }
 
     public boolean isSessionValid() {
-        return this.f39436b != null && System.currentTimeMillis() < this.f39439e;
+        return this.f37030b != null && System.currentTimeMillis() < this.f37033e;
     }
 
     public JSONObject loadSession(String str) {
@@ -84,30 +84,30 @@ public class QQToken {
 
     public void saveSession(JSONObject jSONObject) {
         try {
-            a(this.f39435a, jSONObject);
+            a(this.f37029a, jSONObject);
         } catch (Exception e2) {
             f.c("QQToken", "login saveSession" + e2.toString());
         }
     }
 
     public void setAccessToken(String str, String str2) throws NumberFormatException {
-        this.f39436b = str;
-        this.f39439e = 0L;
+        this.f37030b = str;
+        this.f37033e = 0L;
         if (str2 != null) {
-            this.f39439e = System.currentTimeMillis() + (Long.parseLong(str2) * 1000);
+            this.f37033e = System.currentTimeMillis() + (Long.parseLong(str2) * 1000);
         }
     }
 
     public void setAppId(String str) {
-        this.f39435a = str;
+        this.f37029a = str;
     }
 
-    public void setAuthSource(int i) {
-        this.f39438d = i;
+    public void setAuthSource(int i2) {
+        this.f37032d = i2;
     }
 
     public void setOpenId(String str) {
-        this.f39437c = str;
+        this.f37031c = str;
     }
 
     public static synchronized JSONObject a(String str) {

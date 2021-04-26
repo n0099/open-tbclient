@@ -72,10 +72,10 @@ public class b {
         } catch (UnknownHostException e2) {
             if (v) {
                 if (DnsChecker.isIPv4Reachable()) {
-                    String i = i(str.trim());
-                    if (i != null && !TextUtils.isEmpty(i)) {
+                    String i2 = i(str.trim());
+                    if (i2 != null && !TextUtils.isEmpty(i2)) {
                         ArrayList arrayList = new ArrayList();
-                        arrayList.add(i);
+                        arrayList.add(i2);
                         if (DnsUtil.DEBUG) {
                             Log.d(DnsUtil.TAG, " backup ip " + arrayList + " for \"" + str.trim() + "\"");
                         }
@@ -99,36 +99,36 @@ public class b {
         if (ipList == null || ipList.size() <= 0) {
             return null;
         }
-        int i = 0;
+        int i2 = 0;
         if ("m.baidu.com".equals(str)) {
-            i = a(ipList.size());
+            i2 = a(ipList.size());
         } else if ("mbd.baidu.com".equals(str)) {
-            i = b(ipList.size());
+            i2 = b(ipList.size());
         }
-        return ipList.get(i);
+        return ipList.get(i2);
     }
 
-    public static synchronized int b(int i) {
-        int i2;
+    public static synchronized int b(int i2) {
+        int i3;
         synchronized (b.class) {
-            if (t >= i || t < 0) {
+            if (t >= i2 || t < 0) {
                 t = 0;
             }
-            i2 = t;
-            t = i2 + 1;
+            i3 = t;
+            t = i3 + 1;
         }
-        return i2;
+        return i3;
     }
 
-    public static synchronized int a(int i) {
-        int i2;
+    public static synchronized int a(int i2) {
+        int i3;
         synchronized (b.class) {
-            if (u >= i || u < 0) {
+            if (u >= i2 || u < 0) {
                 u = 0;
             }
-            i2 = u;
-            u = i2 + 1;
+            i3 = u;
+            u = i3 + 1;
         }
-        return i2;
+        return i3;
     }
 }

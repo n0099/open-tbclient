@@ -9,7 +9,6 @@ public class LayoutState {
     public static final int ITEM_DIRECTION_TAIL = 1;
     public static final int LAYOUT_END = 1;
     public static final int LAYOUT_START = -1;
-    public static final String TAG = "LayoutState";
     public int mAvailable;
     public int mCurrentPosition;
     public boolean mInfinite;
@@ -21,8 +20,8 @@ public class LayoutState {
     public int mEndLine = 0;
 
     public boolean hasMore(RecyclerView.State state) {
-        int i = this.mCurrentPosition;
-        return i >= 0 && i < state.getItemCount();
+        int i2 = this.mCurrentPosition;
+        return i2 >= 0 && i2 < state.getItemCount();
     }
 
     public View next(RecyclerView.Recycler recycler) {

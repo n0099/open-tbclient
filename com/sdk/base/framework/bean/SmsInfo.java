@@ -13,10 +13,10 @@ public class SmsInfo {
     public SmsInfo() {
     }
 
-    public SmsInfo(String str, String str2, int i, Long l, Long l2, String str3) {
+    public SmsInfo(String str, String str2, int i2, Long l, Long l2, String str3) {
         this.content = str;
         this.mobile = str2;
-        this.opt = i;
+        this.opt = i2;
         this.ctime = l;
         this.ftime = l2;
         this.result = str3;
@@ -62,8 +62,8 @@ public class SmsInfo {
         this.mobile = str;
     }
 
-    public void setOpt(int i) {
-        this.opt = i;
+    public void setOpt(int i2) {
+        this.opt = i2;
     }
 
     public void setResult(String str) {

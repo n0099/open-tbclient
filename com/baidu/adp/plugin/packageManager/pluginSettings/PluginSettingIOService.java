@@ -9,8 +9,8 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
-import d.b.c.h.j.g.c;
-import d.b.c.h.j.g.e;
+import d.a.c.h.j.g.c;
+import d.a.c.h.j.g.e;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -126,10 +126,10 @@ public class PluginSettingIOService extends Service {
                     if (c.b().d() == null || (data6 = message.getData()) == null) {
                         return;
                     }
-                    int i = data6.getInt(PluginSettingIOService.KEY_INSTALL_STATUS);
+                    int i2 = data6.getInt(PluginSettingIOService.KEY_INSTALL_STATUS);
                     PluginSetting findPluginSetting3 = c.b().d().findPluginSetting(data6.getString(PluginSettingIOService.KEY_SETTING_NAME));
                     if (findPluginSetting3 != null) {
-                        findPluginSetting3.installStatus = i;
+                        findPluginSetting3.installStatus = i2;
                         PluginSettingIOService.this.save(c.b().d(), null);
                         PluginSettingIOService.this.sendUpdateMsg(11, data6);
                         return;
@@ -153,11 +153,11 @@ public class PluginSettingIOService extends Service {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendUpdateMsg(int i, Bundle bundle) {
+    public void sendUpdateMsg(int i2, Bundle bundle) {
         Iterator<Messenger> it = this.mClients.iterator();
         while (it.hasNext()) {
             Messenger next = it.next();
-            Message obtain = Message.obtain(null, i, null);
+            Message obtain = Message.obtain(null, i2, null);
             if (obtain != null) {
                 obtain.setData(bundle);
                 try {

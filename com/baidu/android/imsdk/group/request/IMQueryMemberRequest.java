@@ -38,18 +38,18 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
 
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         public void run() {
-            int i;
+            int i2;
             String str;
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
-                i = jSONObject.getInt("error_code");
+                i2 = jSONObject.getInt("error_code");
                 str = jSONObject.optString("error_msg", "");
-                if (i == 0 && jSONObject.has("response_params")) {
+                if (i2 == 0 && jSONObject.has("response_params")) {
                     JSONArray jSONArray = jSONObject.getJSONObject("response_params").getJSONArray("members");
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                    for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                         long optLong = jSONObject2.optLong("bd_uid");
                         int optInt = jSONObject2.optInt("role");
                         long optLong2 = jSONObject2.optLong(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME);
@@ -97,7 +97,7 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
                 }
             } catch (JSONException e2) {
                 LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e2);
-                i = 1010;
+                i2 = 1010;
                 new IMTrack.CrashBuilder(IMQueryMemberRequest.this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
@@ -105,18 +105,18 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
             if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
                 return;
             }
-            ((BIMValueCallBack) removeListener).onResult(i, str, arrayList);
+            ((BIMValueCallBack) removeListener).onResult(i2, str, arrayList);
         }
     }
 
-    public IMQueryMemberRequest(Context context, String str, long j, String str2, ArrayList<String> arrayList, int i) {
+    public IMQueryMemberRequest(Context context, String str, long j, String str2, ArrayList<String> arrayList, int i2) {
         this.mSaveToDB = 0;
         this.mContext = context;
         this.mAppid = j;
         this.mKey = str;
         this.mBuids = arrayList;
         this.mGroupId = str2;
-        this.mSaveToDB = i;
+        this.mSaveToDB = i2;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -152,8 +152,8 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+    public void onFailure(int i2, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
             return;
@@ -162,7 +162,7 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i2, byte[] bArr) {
         String str = new String(bArr);
         String str2 = TAG;
         LogUtils.d(str2, "json is groupid " + this.mGroupId + str);

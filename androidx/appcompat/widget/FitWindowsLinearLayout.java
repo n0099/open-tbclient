@@ -4,14 +4,16 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.widget.FitWindowsViewGroup;
-@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class FitWindowsLinearLayout extends LinearLayout implements FitWindowsViewGroup {
     public FitWindowsViewGroup.OnFitSystemWindowsListener mListener;
 
-    public FitWindowsLinearLayout(Context context) {
+    public FitWindowsLinearLayout(@NonNull Context context) {
         super(context);
     }
 
@@ -29,7 +31,7 @@ public class FitWindowsLinearLayout extends LinearLayout implements FitWindowsVi
         this.mListener = onFitSystemWindowsListener;
     }
 
-    public FitWindowsLinearLayout(Context context, AttributeSet attributeSet) {
+    public FitWindowsLinearLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 }

@@ -55,7 +55,7 @@ public class SearchResult implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
+    public void writeToParcel(Parcel parcel, int i2) {
         ERRORNO errorno = this.error;
         parcel.writeInt(errorno == null ? -1 : errorno.ordinal());
     }

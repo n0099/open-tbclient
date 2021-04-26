@@ -31,10 +31,10 @@ import com.baidu.tbadk.switchs.FlutterPersonCenterEnableSwitch;
 import com.baidu.tbadk.switchs.FlutterSignAllEnableSwitch;
 import com.baidu.tieba.flutter.base.view.FlutterPageActivity;
 import com.idlefish.flutterboost.containers.BoostFlutterActivity;
-import d.b.c.e.m.e;
-import d.b.c.e.n.a;
-import d.b.c.h.j.g.d;
-import d.b.i0.a.f;
+import d.a.c.e.m.e;
+import d.a.c.e.n.a;
+import d.a.c.h.j.g.d;
+import d.a.i0.a.f;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -166,9 +166,9 @@ public class OpenFlutter {
             if (map.containsKey("showloading") && (map.get("showloading") instanceof Boolean)) {
                 intent.putExtra("showloading", (Boolean) map.get("showloading"));
             }
-            int i = 10001;
+            int i2 = 10001;
             if (map.containsKey("requestCode") && (map.get("requestCode") instanceof Integer)) {
-                i = ((Integer) map.get("requestCode")).intValue();
+                i2 = ((Integer) map.get("requestCode")).intValue();
             }
             if (map != null && map.size() > 0) {
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
@@ -179,7 +179,7 @@ public class OpenFlutter {
             }
             intent.putExtra("destroy_engine_with_activity", false).putExtra("url", str).putExtra("params", serializableMap);
             if (context instanceof Activity) {
-                ((Activity) context).startActivityForResult(intent, i);
+                ((Activity) context).startActivityForResult(intent, i2);
             } else {
                 context.startActivity(intent);
             }
@@ -214,7 +214,7 @@ public class OpenFlutter {
             } else {
                 hashMap.put("uid", String.valueOf(intentConfig.getIntent().getLongExtra("user_id", 0L)));
             }
-            hashMap.put("abstatus", d.b.i0.b.d.a() ? "1" : "0");
+            hashMap.put("abstatus", d.a.i0.b.d.a() ? "1" : "0");
         }
         if (intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null) {
             parseUriParmes(str, hashMap, (Uri) intentConfig.getIntent().getParcelableExtra(IntentConfig.KEY_URI));
@@ -224,13 +224,13 @@ public class OpenFlutter {
 
     public static void parseUriParmes(String str, final HashMap<String, Object> hashMap, Uri uri) {
         Map<String, String> paramPair;
-        int i;
+        int i2;
         String substring;
         if (ACTIVITY_PERSON_CENTER.equals(str)) {
             String uri2 = uri.toString();
             if (f.c(uri)) {
                 f.b().h(uri, new f.b() { // from class: com.baidu.tieba.flutter.base.util.OpenFlutter.1
-                    @Override // d.b.i0.a.f.b
+                    @Override // d.a.i0.a.f.b
                     public void onCallBack(HashMap<String, Object> hashMap2) {
                         if (hashMap2 != null && (hashMap2.get(f.t) instanceof String)) {
                             String str2 = (String) hashMap2.get(f.t);
@@ -254,10 +254,10 @@ public class OpenFlutter {
                             substring = matcher.group(2);
                         } else {
                             int indexOf = decode.indexOf("portrait=");
-                            if (indexOf < 0 || (i = indexOf + 9) > decode.length()) {
+                            if (indexOf < 0 || (i2 = indexOf + 9) > decode.length()) {
                                 return;
                             }
-                            substring = decode.substring(i);
+                            substring = decode.substring(i2);
                         }
                         if (StringUtils.isNull(substring)) {
                             return;

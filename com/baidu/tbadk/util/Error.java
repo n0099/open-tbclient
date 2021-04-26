@@ -19,20 +19,20 @@ public class Error extends OrmObject implements Serializable {
         return this.mMessage;
     }
 
-    public void setCode(int i) {
-        this.mCode = i;
+    public void setCode(int i2) {
+        this.mCode = i2;
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
     }
 
-    public Error(int i) {
-        this.mCode = i;
+    public Error(int i2) {
+        this.mCode = i2;
     }
 
-    public Error(int i, String str) {
-        this.mCode = i;
+    public Error(int i2, String str) {
+        this.mCode = i2;
         this.mMessage = str;
     }
 }

@@ -83,8 +83,8 @@ public enum HttpStatus {
         
         public final int value;
 
-        Series(int i) {
-            this.value = i;
+        Series(int i2) {
+            this.value = i2;
         }
 
         public int value() {
@@ -103,8 +103,8 @@ public enum HttpStatus {
         }
     }
 
-    HttpStatus(int i, String str) {
-        this.value = i;
+    HttpStatus(int i2, String str) {
+        this.value = i2;
         this.reasonPhrase = str;
     }
 
@@ -125,13 +125,13 @@ public enum HttpStatus {
         return this.value;
     }
 
-    public static HttpStatus valueOf(int i) {
+    public static HttpStatus valueOf(int i2) {
         HttpStatus[] values;
         for (HttpStatus httpStatus : values()) {
-            if (httpStatus.value == i) {
+            if (httpStatus.value == i2) {
                 return httpStatus;
             }
         }
-        throw new IllegalArgumentException("No matching constant for [" + i + "]");
+        throw new IllegalArgumentException("No matching constant for [" + i2 + "]");
     }
 }

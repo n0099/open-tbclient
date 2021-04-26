@@ -118,7 +118,7 @@ public class PackageUtils {
         String readLine;
         try {
             LineNumberReader lineNumberReader = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /proc/cpuinfo").getInputStream()));
-            for (int i = 1; i < 100 && (readLine = lineNumberReader.readLine()) != null; i++) {
+            for (int i2 = 1; i2 < 100 && (readLine = lineNumberReader.readLine()) != null; i2++) {
                 if (readLine.indexOf("Serial") > -1) {
                     return readLine.substring(readLine.indexOf(":") + 1, readLine.length()).trim();
                 }
@@ -134,8 +134,8 @@ public class PackageUtils {
         if (PermissionUtils.checkPermission(context, "android.permission.GET_TASKS")) {
             try {
                 List<ActivityManager.RecentTaskInfo> recentTasks = ((ActivityManager) context.getSystemService("activity")).getRecentTasks(64, 0);
-                for (int i = 0; i < recentTasks.size(); i++) {
-                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(recentTasks.get(i).baseIntent.getComponent().getPackageName(), 0);
+                for (int i2 = 0; i2 < recentTasks.size(); i2++) {
+                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(recentTasks.get(i2).baseIntent.getComponent().getPackageName(), 0);
                     if (!packageInfo.packageName.startsWith("com.android") && !packageInfo.packageName.startsWith("com.sec")) {
                         jSONArray.put(new AppUtils.ApkInfo(context, packageInfo).toRecentJSONObject());
                     }
@@ -182,8 +182,8 @@ public class PackageUtils {
             }
             try {
                 List<ActivityManager.RecentTaskInfo> recentTasks = ((ActivityManager) context.getSystemService("activity")).getRecentTasks(64, 0);
-                for (int i = 0; i < recentTasks.size(); i++) {
-                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(recentTasks.get(i).baseIntent.getComponent().getPackageName(), 0);
+                for (int i2 = 0; i2 < recentTasks.size(); i2++) {
+                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(recentTasks.get(i2).baseIntent.getComponent().getPackageName(), 0);
                     if (!packageInfo.packageName.startsWith("com.android") && !packageInfo.packageName.startsWith("com.sec") && !arrayList.contains(packageInfo.packageName)) {
                         arrayList.add(packageInfo.packageName);
                         jSONArray.put(new AppUtils.ApkInfo(context, packageInfo).toRecentJSONObject());
@@ -191,9 +191,9 @@ public class PackageUtils {
                 }
                 StringBuffer stringBuffer = new StringBuffer();
                 if (arrayList.size() > 0) {
-                    for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                        if (arrayList.get(i2) != null && arrayList.get(i2) != "") {
-                            stringBuffer.append((String) arrayList.get(i2));
+                    for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                        if (arrayList.get(i3) != null && arrayList.get(i3) != "") {
+                            stringBuffer.append((String) arrayList.get(i3));
                             stringBuffer.append("#");
                         }
                     }
@@ -230,8 +230,8 @@ public class PackageUtils {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             try {
                 List<ActivityManager.RecentTaskInfo> recentTasks = ((ActivityManager) context.getSystemService("activity")).getRecentTasks(64, 0);
-                for (int i = 0; i < recentTasks.size(); i++) {
-                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(recentTasks.get(i).baseIntent.getComponent().getPackageName(), 0);
+                for (int i2 = 0; i2 < recentTasks.size(); i2++) {
+                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(recentTasks.get(i2).baseIntent.getComponent().getPackageName(), 0);
                     if (!packageInfo.packageName.startsWith("com.android") && !packageInfo.packageName.startsWith("com.sec") && !arrayList.contains(packageInfo.packageName)) {
                         arrayList.add(packageInfo.packageName);
                         jSONArray.put(new AppUtils.ApkInfo(context, packageInfo).toRecentJSONObject());
@@ -239,9 +239,9 @@ public class PackageUtils {
                 }
                 StringBuffer stringBuffer = new StringBuffer();
                 if (arrayList.size() > 0) {
-                    for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                        if (arrayList.get(i2) != null && arrayList.get(i2) != "") {
-                            stringBuffer.append((String) arrayList.get(i2));
+                    for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                        if (arrayList.get(i3) != null && arrayList.get(i3) != "") {
+                            stringBuffer.append((String) arrayList.get(i3));
                             stringBuffer.append("#");
                         }
                     }
@@ -303,12 +303,12 @@ public class PackageUtils {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean isAPOOpenAvailable(XAdContainerContext xAdContainerContext, String str, IXAdInstanceInfo iXAdInstanceInfo, int i, int i2, int i3) {
+    public static boolean isAPOOpenAvailable(XAdContainerContext xAdContainerContext, String str, IXAdInstanceInfo iXAdInstanceInfo, int i2, int i3, int i4) {
         StringBuilder sb;
         boolean z;
         boolean z2;
         List<ResolveInfo> list;
-        int i4;
+        int i5;
         if (xAdContainerContext == null || iXAdInstanceInfo == null) {
             return true;
         }
@@ -327,12 +327,12 @@ public class PackageUtils {
             if (queryIntentActivities.size() > 0) {
                 hashMap.put("open", "true");
                 hashMap.put("n", String.valueOf(queryIntentActivities.size()));
-                int i5 = 0;
+                int i6 = 0;
                 boolean z3 = true;
-                while (i5 < queryIntentActivities.size()) {
+                while (i6 < queryIntentActivities.size()) {
                     try {
-                        ResolveInfo resolveInfo = queryIntentActivities.get(i5);
-                        if (i5 == 0) {
+                        ResolveInfo resolveInfo = queryIntentActivities.get(i6);
+                        if (i6 == 0) {
                             sb2.append(resolveInfo.activityInfo.packageName);
                         } else {
                             sb2.append(",");
@@ -353,23 +353,23 @@ public class PackageUtils {
                                 sb = sb2;
                             }
                             try {
-                                int i6 = packageManager.getPackageInfo(resolveInfo.activityInfo.packageName, 0).versionCode;
+                                int i7 = packageManager.getPackageInfo(resolveInfo.activityInfo.packageName, 0).versionCode;
                                 try {
                                     str2 = packageManager.getPackageInfo(resolveInfo.activityInfo.packageName, 0).versionName;
-                                    if (i6 < i3) {
+                                    if (i7 < i4) {
                                         z3 = false;
                                     }
                                     try {
-                                        hashMap.put("installedVersion", String.valueOf(i6));
-                                        hashMap.put("requiredVersion", String.valueOf(i3));
+                                        hashMap.put("installedVersion", String.valueOf(i7));
+                                        hashMap.put("requiredVersion", String.valueOf(i4));
                                         hashMap.put("realopen", String.valueOf(z3));
                                     } catch (Exception e2) {
                                         e = e2;
                                         z = z3;
                                         RemoteXAdLogger.getInstance().d(e.getMessage());
                                         SendLogUtil.Builder create = SendLogUtil.Builder.create(appContext);
-                                        create.appendType(i);
-                                        create.append("fb_act", i2);
+                                        create.appendType(i2);
+                                        create.append("fb_act", i3);
                                         create.append(hashMap);
                                         create.append("open", z);
                                         create.append("targetscheme", str);
@@ -384,55 +384,55 @@ public class PackageUtils {
                                         return z;
                                     }
                                 } catch (Exception unused2) {
-                                    i4 = i6;
+                                    i5 = i7;
                                     try {
                                         hashMap.put("exception", "true");
-                                        hashMap.put("installedVersion", String.valueOf(i4));
-                                        hashMap.put("requiredVersion", String.valueOf(i3));
+                                        hashMap.put("installedVersion", String.valueOf(i5));
+                                        hashMap.put("requiredVersion", String.valueOf(i4));
                                         hashMap.put("realopen", String.valueOf(z3));
                                         hashMap.put("installedVersionName", str2);
-                                        i5++;
+                                        i6++;
                                         queryIntentActivities = list;
                                         sb2 = sb;
                                     } catch (Throwable th2) {
                                         th = th2;
-                                        hashMap.put("installedVersion", String.valueOf(i4));
-                                        hashMap.put("requiredVersion", String.valueOf(i3));
+                                        hashMap.put("installedVersion", String.valueOf(i5));
+                                        hashMap.put("requiredVersion", String.valueOf(i4));
                                         hashMap.put("realopen", String.valueOf(z3));
                                         hashMap.put("installedVersionName", "");
                                         throw th;
                                     }
                                 } catch (Throwable th3) {
                                     th = th3;
-                                    i4 = i6;
-                                    hashMap.put("installedVersion", String.valueOf(i4));
-                                    hashMap.put("requiredVersion", String.valueOf(i3));
+                                    i5 = i7;
+                                    hashMap.put("installedVersion", String.valueOf(i5));
+                                    hashMap.put("requiredVersion", String.valueOf(i4));
                                     hashMap.put("realopen", String.valueOf(z3));
                                     hashMap.put("installedVersionName", "");
                                     throw th;
                                 }
                             } catch (Exception unused3) {
-                                i4 = -1;
+                                i5 = -1;
                                 hashMap.put("exception", "true");
-                                hashMap.put("installedVersion", String.valueOf(i4));
-                                hashMap.put("requiredVersion", String.valueOf(i3));
+                                hashMap.put("installedVersion", String.valueOf(i5));
+                                hashMap.put("requiredVersion", String.valueOf(i4));
                                 hashMap.put("realopen", String.valueOf(z3));
                                 hashMap.put("installedVersionName", str2);
-                                i5++;
+                                i6++;
                                 queryIntentActivities = list;
                                 sb2 = sb;
                             } catch (Throwable th4) {
                                 th = th4;
-                                i4 = -1;
-                                hashMap.put("installedVersion", String.valueOf(i4));
-                                hashMap.put("requiredVersion", String.valueOf(i3));
+                                i5 = -1;
+                                hashMap.put("installedVersion", String.valueOf(i5));
+                                hashMap.put("requiredVersion", String.valueOf(i4));
                                 hashMap.put("realopen", String.valueOf(z3));
                                 hashMap.put("installedVersionName", "");
                                 throw th;
                             }
                             hashMap.put("installedVersionName", str2);
                         }
-                        i5++;
+                        i6++;
                         queryIntentActivities = list;
                         sb2 = sb;
                     } catch (Exception e3) {
@@ -452,8 +452,8 @@ public class PackageUtils {
                     z = false;
                     RemoteXAdLogger.getInstance().d(e.getMessage());
                     SendLogUtil.Builder create2 = SendLogUtil.Builder.create(appContext);
-                    create2.appendType(i);
-                    create2.append("fb_act", i2);
+                    create2.appendType(i2);
+                    create2.append("fb_act", i3);
                     create2.append(hashMap);
                     create2.append("open", z);
                     create2.append("targetscheme", str);
@@ -476,8 +476,8 @@ public class PackageUtils {
         }
         try {
             SendLogUtil.Builder create22 = SendLogUtil.Builder.create(appContext);
-            create22.appendType(i);
-            create22.append("fb_act", i2);
+            create22.appendType(i2);
+            create22.append("fb_act", i3);
             create22.append(hashMap);
             create22.append("open", z);
             create22.append("targetscheme", str);
@@ -502,12 +502,12 @@ public class PackageUtils {
         return murmurhash264B(bytes, bytes.length);
     }
 
-    public static void sendAPOInfo(XAdContainerContext xAdContainerContext, String str, String str2, int i, int i2, int i3, HashMap<String, String> hashMap) {
+    public static void sendAPOInfo(XAdContainerContext xAdContainerContext, String str, String str2, int i2, int i3, int i4, HashMap<String, String> hashMap) {
         String str3;
         StringBuilder sb;
         boolean z;
         List<ResolveInfo> list;
-        int i4;
+        int i5;
         StringBuilder sb2;
         try {
             IXAdInstanceInfo adInstanceInfo = xAdContainerContext.getAdInstanceInfo();
@@ -524,10 +524,10 @@ public class PackageUtils {
                 hashMap2.put("n", String.valueOf(queryIntentActivities.size()));
                 z = true;
                 str3 = encodeUrl;
-                int i5 = 0;
-                while (i5 < queryIntentActivities.size()) {
-                    ResolveInfo resolveInfo = queryIntentActivities.get(i5);
-                    if (i5 == 0) {
+                int i6 = 0;
+                while (i6 < queryIntentActivities.size()) {
+                    ResolveInfo resolveInfo = queryIntentActivities.get(i6);
+                    if (i6 == 0) {
                         list = queryIntentActivities;
                         sb3.append(resolveInfo.activityInfo.packageName);
                     } else {
@@ -540,22 +540,22 @@ public class PackageUtils {
                             try {
                                 sb2 = sb3;
                                 try {
-                                    i4 = packageManager.getPackageInfo(resolveInfo.activityInfo.packageName, 0).versionCode;
+                                    i5 = packageManager.getPackageInfo(resolveInfo.activityInfo.packageName, 0).versionCode;
                                 } catch (Exception unused) {
-                                    i4 = -1;
+                                    i5 = -1;
                                     try {
                                         hashMap2.put("exception", "true");
-                                        hashMap2.put("installedVersionCode", String.valueOf(i4));
-                                        hashMap2.put("requiredVersion", String.valueOf(i3));
+                                        hashMap2.put("installedVersionCode", String.valueOf(i5));
+                                        hashMap2.put("requiredVersion", String.valueOf(i4));
                                         hashMap2.put("realopen", String.valueOf(z));
                                         hashMap2.put("installedVersionName", "");
-                                        i5++;
+                                        i6++;
                                         queryIntentActivities = list;
                                         sb3 = sb2;
                                     } catch (Throwable th) {
                                         th = th;
-                                        hashMap2.put("installedVersionCode", String.valueOf(i4));
-                                        hashMap2.put("requiredVersion", String.valueOf(i3));
+                                        hashMap2.put("installedVersionCode", String.valueOf(i5));
+                                        hashMap2.put("requiredVersion", String.valueOf(i4));
                                         hashMap2.put("realopen", String.valueOf(z));
                                         hashMap2.put("installedVersionName", "");
                                         throw th;
@@ -566,30 +566,30 @@ public class PackageUtils {
                             }
                         } catch (Throwable th2) {
                             th = th2;
-                            i4 = -1;
+                            i5 = -1;
                         }
                         try {
                             String str4 = packageManager.getPackageInfo(resolveInfo.activityInfo.packageName, 0).versionName;
-                            if (i4 < i3) {
+                            if (i5 < i4) {
                                 z = false;
                             }
-                            hashMap2.put("installedVersionCode", String.valueOf(i4));
-                            hashMap2.put("requiredVersion", String.valueOf(i3));
+                            hashMap2.put("installedVersionCode", String.valueOf(i5));
+                            hashMap2.put("requiredVersion", String.valueOf(i4));
                             hashMap2.put("realopen", String.valueOf(z));
                             hashMap2.put("installedVersionName", str4);
                         } catch (Exception unused3) {
                             hashMap2.put("exception", "true");
-                            hashMap2.put("installedVersionCode", String.valueOf(i4));
-                            hashMap2.put("requiredVersion", String.valueOf(i3));
+                            hashMap2.put("installedVersionCode", String.valueOf(i5));
+                            hashMap2.put("requiredVersion", String.valueOf(i4));
                             hashMap2.put("realopen", String.valueOf(z));
                             hashMap2.put("installedVersionName", "");
-                            i5++;
+                            i6++;
                             queryIntentActivities = list;
                             sb3 = sb2;
                         } catch (Throwable th3) {
                             th = th3;
-                            hashMap2.put("installedVersionCode", String.valueOf(i4));
-                            hashMap2.put("requiredVersion", String.valueOf(i3));
+                            hashMap2.put("installedVersionCode", String.valueOf(i5));
+                            hashMap2.put("requiredVersion", String.valueOf(i4));
                             hashMap2.put("realopen", String.valueOf(z));
                             hashMap2.put("installedVersionName", "");
                             throw th;
@@ -597,7 +597,7 @@ public class PackageUtils {
                     } else {
                         sb2 = sb3;
                     }
-                    i5++;
+                    i6++;
                     queryIntentActivities = list;
                     sb3 = sb2;
                 }
@@ -608,7 +608,7 @@ public class PackageUtils {
                 hashMap2.put("open", "false");
                 z = false;
             }
-            SendLogUtil.Builder append = SendLogUtil.Builder.create(appContext).appendType(i).append("fb_act", i2).append("pk", str2).append("targetscheme", str3).appendApId(xAdContainerContext.getAdPlacementId()).appendAppSid(xAdContainerContext.getAppsid()).appendProdType(xAdContainerContext.getAdProd()).append(IAdRequestParam.MAC, "").append("targetVer", CommonUtils.getTargetVersion(appContext)).append(hashMap).append(hashMap2).append("open", z);
+            SendLogUtil.Builder append = SendLogUtil.Builder.create(appContext).appendType(i2).append("fb_act", i3).append("pk", str2).append("targetscheme", str3).appendApId(xAdContainerContext.getAdPlacementId()).appendAppSid(xAdContainerContext.getAppsid()).appendProdType(xAdContainerContext.getAdProd()).append(IAdRequestParam.MAC, "").append("targetVer", CommonUtils.getTargetVersion(appContext)).append(hashMap).append(hashMap2).append("open", z);
             if (adInstanceInfo != null) {
                 append.appendAdInfo(adInstanceInfo);
             }
@@ -621,7 +621,7 @@ public class PackageUtils {
         }
     }
 
-    public static boolean sendAPOInfo(Context context, String str, String str2, int i, int i2, int i3) {
+    public static boolean sendAPOInfo(Context context, String str, String str2, int i2, int i3, int i4) {
         return true;
     }
 
@@ -646,9 +646,9 @@ public class PackageUtils {
         }
     }
 
-    public static void sendDownloadAPOLog(Context context, XAdContainerContext xAdContainerContext, String str, String str2, int i) {
+    public static void sendDownloadAPOLog(Context context, XAdContainerContext xAdContainerContext, String str, String str2, int i2) {
         try {
-            SendLogUtil.Builder.create(context).appendType(SDKLogTypeConstants.TYPE_APO_WAKE_UP_MONITOR).appendProdType(xAdContainerContext.getAdProd()).appendAppSid(xAdContainerContext.getAppsid()).appendApId(xAdContainerContext.getAdPlacementId()).append(IAdRequestParam.MAC, "").append("schema", AdURIUtils.encodeUrl(str2)).append("pk", str).append("source", i).sendWithVd();
+            SendLogUtil.Builder.create(context).appendType(SDKLogTypeConstants.TYPE_APO_WAKE_UP_MONITOR).appendProdType(xAdContainerContext.getAdProd()).appendAppSid(xAdContainerContext.getAppsid()).appendApId(xAdContainerContext.getAdPlacementId()).append(IAdRequestParam.MAC, "").append("schema", AdURIUtils.encodeUrl(str2)).append("pk", str).append("source", i2).sendWithVd();
         } catch (Exception e2) {
             RemoteXAdLogger.getInstance().d(TAG, e2.getMessage());
         }
@@ -713,19 +713,19 @@ public class PackageUtils {
         }
     }
 
-    public static void sendRVideoLog(XAdContainerContext xAdContainerContext, int i) {
+    public static void sendRVideoLog(XAdContainerContext xAdContainerContext, int i2) {
         String adProd = xAdContainerContext.getAdProd();
         if ("rvideo".equals(adProd)) {
-            sendRVideoLog(xAdContainerContext, i, 601);
+            sendRVideoLog(xAdContainerContext, i2, 601);
         } else if ("fvideo".equals(adProd)) {
-            sendRVideoLog(xAdContainerContext, i, 603);
+            sendRVideoLog(xAdContainerContext, i2, 603);
         }
     }
 
-    public static void sendRsplashLog(Context context, XAdContainerContext xAdContainerContext, int i, int i2) {
+    public static void sendRsplashLog(Context context, XAdContainerContext xAdContainerContext, int i2, int i3) {
         try {
-            SendLogUtil.Builder append = SendLogUtil.Builder.create(context).appendType(i).appendProdType(xAdContainerContext.getAdProd()).appendAppSid(xAdContainerContext.getAppsid()).appendApId(xAdContainerContext.getAdPlacementId()).appendAdInfo(xAdContainerContext.getAdInstanceInfo()).append(IAdRequestParam.MAC, "");
-            append.append("logtime", System.currentTimeMillis() + "").append("subtype", i2).sendWithVd();
+            SendLogUtil.Builder append = SendLogUtil.Builder.create(context).appendType(i2).appendProdType(xAdContainerContext.getAdProd()).appendAppSid(xAdContainerContext.getAppsid()).appendApId(xAdContainerContext.getAdPlacementId()).appendAdInfo(xAdContainerContext.getAdInstanceInfo()).append(IAdRequestParam.MAC, "");
+            append.append("logtime", System.currentTimeMillis() + "").append("subtype", i3).sendWithVd();
         } catch (Exception e2) {
             RemoteXAdLogger.getInstance().d(TAG, e2.getMessage());
         }
@@ -765,12 +765,11 @@ public class PackageUtils {
         }
     }
 
-    public static long murmurhash264B(byte[] bArr, int i) {
-        return murmurhash264B(bArr, i, 428279572);
+    public static long murmurhash264B(byte[] bArr, int i2) {
+        return murmurhash264B(bArr, i2, 428279572);
     }
 
-    public static long murmurhash264B(byte[] bArr, int i, int i2) {
-        int i3;
+    public static long murmurhash264B(byte[] bArr, int i2, int i3) {
         int i4;
         int i5;
         int i6;
@@ -781,38 +780,39 @@ public class PackageUtils {
         int i11;
         int i12;
         int i13;
-        int i14 = i2 ^ i;
-        int i15 = 0;
+        int i14;
+        int i15 = i3 ^ i2;
         int i16 = 0;
-        while (i >= 8) {
-            int i17 = (int) (((bArr[i15] & 255) + ((bArr[i7] & 255) << 8) + ((bArr[i8] & 255) << 16) + ((bArr[i9] & 255) << 24)) * 1540483477);
-            i14 = ((int) (i14 * 1540483477)) ^ ((int) (((i17 >>> 24) ^ i17) * 1540483477));
-            int i18 = (int) (((bArr[i10] & 255) + ((bArr[i11] & 255) << 8) + ((bArr[i12] & 255) << 16) + ((bArr[i13] & 255) << 24)) * 1540483477);
-            i16 = ((int) (i16 * 1540483477)) ^ ((int) ((i18 ^ (i18 >>> 24)) * 1540483477));
-            i = (i - 4) - 4;
-            i15 = i15 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1;
+        int i17 = 0;
+        while (i2 >= 8) {
+            int i18 = (int) (((bArr[i16] & 255) + ((bArr[i8] & 255) << 8) + ((bArr[i9] & 255) << 16) + ((bArr[i10] & 255) << 24)) * 1540483477);
+            i15 = ((int) (i15 * 1540483477)) ^ ((int) (((i18 >>> 24) ^ i18) * 1540483477));
+            int i19 = (int) (((bArr[i11] & 255) + ((bArr[i12] & 255) << 8) + ((bArr[i13] & 255) << 16) + ((bArr[i14] & 255) << 24)) * 1540483477);
+            i17 = ((int) (i17 * 1540483477)) ^ ((int) ((i19 ^ (i19 >>> 24)) * 1540483477));
+            i2 = (i2 - 4) - 4;
+            i16 = i16 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1;
         }
-        if (i >= 4) {
-            int i19 = (int) (((bArr[i15] & 255) + ((bArr[i4] & 255) << 8) + ((bArr[i5] & 255) << 16) + ((bArr[i6] & 255) << 24)) * 1540483477);
-            i14 = ((int) (i14 * 1540483477)) ^ ((int) (((i19 >>> 24) ^ i19) * 1540483477));
-            i -= 4;
-            i15 = i15 + 1 + 1 + 1 + 1;
+        if (i2 >= 4) {
+            int i20 = (int) (((bArr[i16] & 255) + ((bArr[i5] & 255) << 8) + ((bArr[i6] & 255) << 16) + ((bArr[i7] & 255) << 24)) * 1540483477);
+            i15 = ((int) (i15 * 1540483477)) ^ ((int) (((i20 >>> 24) ^ i20) * 1540483477));
+            i2 -= 4;
+            i16 = i16 + 1 + 1 + 1 + 1;
         }
-        if (i == 3) {
-            i16 = (int) ((((i16 ^ ((bArr[i15 + 2] & 255) << 16)) ^ ((bArr[i15 + 1] & 255) << 8)) ^ (bArr[i15] & 255)) * 1540483477);
+        if (i2 == 3) {
+            i17 = (int) ((((i17 ^ ((bArr[i16 + 2] & 255) << 16)) ^ ((bArr[i16 + 1] & 255) << 8)) ^ (bArr[i16] & 255)) * 1540483477);
         }
-        if (i == 2) {
-            i16 = (int) (((i16 ^ ((bArr[i15 + 1] & 255) << 8)) ^ (bArr[i15] & 255)) * 1540483477);
+        if (i2 == 2) {
+            i17 = (int) (((i17 ^ ((bArr[i16 + 1] & 255) << 8)) ^ (bArr[i16] & 255)) * 1540483477);
         }
-        if (i == 1) {
-            i16 = (int) (((bArr[i15] & 255) ^ i16) * 1540483477);
+        if (i2 == 1) {
+            i17 = (int) (((bArr[i16] & 255) ^ i17) * 1540483477);
         }
-        int i20 = (int) (((i16 >>> 18) ^ i14) * 1540483477);
-        int i21 = (int) (((i20 >>> 22) ^ i16) * 1540483477);
-        return (((int) ((i21 ^ (i3 >>> 19)) * 1540483477)) & 4294967295L) | (((int) ((i20 ^ (i21 >>> 17)) * 1540483477)) << 32);
+        int i21 = (int) (((i17 >>> 18) ^ i15) * 1540483477);
+        int i22 = (int) (((i21 >>> 22) ^ i17) * 1540483477);
+        return (((int) ((i22 ^ (i4 >>> 19)) * 1540483477)) & 4294967295L) | (((int) ((i21 ^ (i22 >>> 17)) * 1540483477)) << 32);
     }
 
-    public static void sendRVideoLog(XAdContainerContext xAdContainerContext, int i, int i2) {
+    public static void sendRVideoLog(XAdContainerContext xAdContainerContext, int i2, int i3) {
         String str;
         try {
             Context appContext = xAdContainerContext.getAppContext();
@@ -821,8 +821,8 @@ public class PackageUtils {
             } catch (Exception unused) {
                 str = "";
             }
-            SendLogUtil.Builder append = SendLogUtil.Builder.create(appContext).appendType(i2).appendProdType(xAdContainerContext.getAdProd()).appendAppSid(xAdContainerContext.getAppsid()).appendApId(xAdContainerContext.getAdPlacementId()).appendAdInfo(xAdContainerContext.getAdInstanceInfo()).append(IAdRequestParam.MAC, "");
-            append.append("logtime", System.currentTimeMillis() + "").append("subtype", i).append("curl", str).sendWithVd();
+            SendLogUtil.Builder append = SendLogUtil.Builder.create(appContext).appendType(i3).appendProdType(xAdContainerContext.getAdProd()).appendAppSid(xAdContainerContext.getAppsid()).appendApId(xAdContainerContext.getAdPlacementId()).appendAdInfo(xAdContainerContext.getAdInstanceInfo()).append(IAdRequestParam.MAC, "");
+            append.append("logtime", System.currentTimeMillis() + "").append("subtype", i2).append("curl", str).sendWithVd();
         } catch (Throwable th) {
             RemoteXAdLogger.getInstance().d(TAG, th.getMessage());
         }

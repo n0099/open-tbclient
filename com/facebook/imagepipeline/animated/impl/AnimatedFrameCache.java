@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes2.dex */
+/* loaded from: classes6.dex */
 public class AnimatedFrameCache {
     public final CountingMemoryCache<CacheKey, CloseableImage> mBackingCache;
     public final CacheKey mImageCacheKey;
@@ -26,14 +26,14 @@ public class AnimatedFrameCache {
     };
 
     @VisibleForTesting
-    /* loaded from: classes2.dex */
+    /* loaded from: classes6.dex */
     public static class FrameKey implements CacheKey {
         public final int mFrameIndex;
         public final CacheKey mImageCacheKey;
 
-        public FrameKey(CacheKey cacheKey, int i) {
+        public FrameKey(CacheKey cacheKey, int i2) {
             this.mImageCacheKey = cacheKey;
-            this.mFrameIndex = i;
+            this.mFrameIndex = i2;
         }
 
         @Override // com.facebook.cache.common.CacheKey
@@ -75,8 +75,8 @@ public class AnimatedFrameCache {
         this.mBackingCache = countingMemoryCache;
     }
 
-    private FrameKey keyFor(int i) {
-        return new FrameKey(this.mImageCacheKey, i);
+    private FrameKey keyFor(int i2) {
+        return new FrameKey(this.mImageCacheKey, i2);
     }
 
     @Nullable
@@ -92,17 +92,17 @@ public class AnimatedFrameCache {
     }
 
     @Nullable
-    public CloseableReference<CloseableImage> cache(int i, CloseableReference<CloseableImage> closeableReference) {
-        return this.mBackingCache.cache(keyFor(i), closeableReference, this.mEntryStateObserver);
+    public CloseableReference<CloseableImage> cache(int i2, CloseableReference<CloseableImage> closeableReference) {
+        return this.mBackingCache.cache(keyFor(i2), closeableReference, this.mEntryStateObserver);
     }
 
-    public boolean contains(int i) {
-        return this.mBackingCache.contains((CountingMemoryCache<CacheKey, CloseableImage>) keyFor(i));
+    public boolean contains(int i2) {
+        return this.mBackingCache.contains((CountingMemoryCache<CacheKey, CloseableImage>) keyFor(i2));
     }
 
     @Nullable
-    public CloseableReference<CloseableImage> get(int i) {
-        return this.mBackingCache.get(keyFor(i));
+    public CloseableReference<CloseableImage> get(int i2) {
+        return this.mBackingCache.get(keyFor(i2));
     }
 
     @Nullable

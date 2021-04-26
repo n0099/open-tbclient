@@ -5,22 +5,24 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.animation.DecelerateInterpolator;
-import d.b.c.e.p.e;
+import d.a.c.e.p.e;
 /* loaded from: classes3.dex */
 public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13811e;
+    public int f13827e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13812f;
+    public int f13828f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f13813g;
+    public float f13829g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f13814h;
-    public ValueAnimator i;
+    public float f13830h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public ValueAnimator f13831i;
     public float j;
     public int k;
 
@@ -37,23 +39,23 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
 
     public FlexibleHorizontalScrollView(Context context) {
         super(context);
-        this.f13811e = 150;
-        this.f13814h = 0.0f;
+        this.f13827e = 150;
+        this.f13830h = 0.0f;
     }
 
     public final void c() {
-        if (this.i == null) {
+        if (this.f13831i == null) {
             ValueAnimator valueAnimator = new ValueAnimator();
-            this.i = valueAnimator;
+            this.f13831i = valueAnimator;
             valueAnimator.setDuration(200L);
-            this.i.setInterpolator(new DecelerateInterpolator());
-            this.i.addUpdateListener(new a());
+            this.f13831i.setInterpolator(new DecelerateInterpolator());
+            this.f13831i.addUpdateListener(new a());
         }
         if (this.k == 0) {
             setOverScrollMode(2);
             int a2 = e.a(getContext());
             this.k = a2;
-            this.j = (this.f13811e * 1.0f) / a2;
+            this.j = (this.f13827e * 1.0f) / a2;
         }
     }
 
@@ -67,83 +69,83 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int scrollX = getScrollX();
         float x = getX();
-        if (scrollX > 0 && scrollX < this.f13812f && x == 0.0f) {
+        if (scrollX > 0 && scrollX < this.f13828f && x == 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction() & 255;
-        int i = this.f13811e;
+        int i2 = this.f13827e;
         c();
         if (action != 0) {
-            int i2 = 0;
+            int i3 = 0;
             if (action != 1) {
                 if (action == 2) {
-                    float rawX = motionEvent.getRawX() - this.f13813g;
+                    float rawX = motionEvent.getRawX() - this.f13829g;
                     if (Math.abs(rawX) > 50.0f && x == 0.0f) {
-                        this.f13813g = motionEvent.getRawX();
+                        this.f13829g = motionEvent.getRawX();
                         return true;
                     }
-                    float f2 = this.f13814h;
+                    float f2 = this.f13830h;
                     if (f2 * rawX < 0.0f) {
-                        this.f13814h = f2 + rawX;
+                        this.f13830h = f2 + rawX;
                     } else {
-                        this.f13814h = f2 + (rawX * this.j);
+                        this.f13830h = f2 + (rawX * this.j);
                     }
-                    this.f13813g = motionEvent.getRawX();
+                    this.f13829g = motionEvent.getRawX();
                     if (scrollX == 0) {
-                        i2 = 1;
-                    } else if (scrollX == this.f13812f) {
-                        i2 = -1;
+                        i3 = 1;
+                    } else if (scrollX == this.f13828f) {
+                        i3 = -1;
                     }
-                    if (i2 != 0) {
-                        float f3 = i2;
-                        float f4 = this.f13814h;
-                        if (f3 * f4 > i) {
-                            this.f13814h = i2 * i;
-                            this.f13813g = motionEvent.getRawX();
+                    if (i3 != 0) {
+                        float f3 = i3;
+                        float f4 = this.f13830h;
+                        if (f3 * f4 > i2) {
+                            this.f13830h = i3 * i2;
+                            this.f13829g = motionEvent.getRawX();
                         } else if (f3 * f4 < 0.0f) {
-                            this.f13814h = 0.0f;
-                            this.f13813g = motionEvent.getRawX();
+                            this.f13830h = 0.0f;
+                            this.f13829g = motionEvent.getRawX();
                             setX(0.0f);
                             return super.onTouchEvent(motionEvent);
                         }
-                        setX(this.f13814h);
+                        setX(this.f13830h);
                         return true;
                     }
                 }
             }
             if (x != 0.0f) {
-                this.f13814h = 0.0f;
-                this.f13813g = 0.0f;
-                this.i.setFloatValues(x, 0.0f);
-                this.i.start();
+                this.f13830h = 0.0f;
+                this.f13829g = 0.0f;
+                this.f13831i.setFloatValues(x, 0.0f);
+                this.f13831i.start();
                 return true;
             }
         } else {
-            if (this.i.isRunning()) {
-                this.i.cancel();
+            if (this.f13831i.isRunning()) {
+                this.f13831i.cancel();
             }
-            this.f13813g = motionEvent.getRawX();
+            this.f13829g = motionEvent.getRawX();
         }
         return super.onTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
-    public boolean overScrollBy(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, boolean z) {
-        this.f13812f = i5;
-        return super.overScrollBy(i, i2, i3, i4, i5, i6, i7, i8, z);
+    public boolean overScrollBy(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, boolean z) {
+        this.f13828f = i6;
+        return super.overScrollBy(i2, i3, i4, i5, i6, i7, i8, i9, z);
     }
 
-    public void setMaxOverScrollDistance(int i) {
-        if (i <= 0) {
+    public void setMaxOverScrollDistance(int i2) {
+        if (i2 <= 0) {
             return;
         }
-        this.f13811e = i;
-        this.j = (i * 1.0f) / this.k;
+        this.f13827e = i2;
+        this.j = (i2 * 1.0f) / this.k;
     }
 
     public FlexibleHorizontalScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13811e = 150;
-        this.f13814h = 0.0f;
+        this.f13827e = 150;
+        this.f13830h = 0.0f;
     }
 }

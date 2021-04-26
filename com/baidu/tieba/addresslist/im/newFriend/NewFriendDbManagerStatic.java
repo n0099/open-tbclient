@@ -18,42 +18,42 @@ import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
-import d.b.i0.z0.f0;
-import d.b.i0.z0.h0;
+import d.a.i0.z0.f0;
+import d.a.i0.z0.h0;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class NewFriendDbManagerStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static NewFriendDbManagerStatic f14257a = new NewFriendDbManagerStatic();
+    public static NewFriendDbManagerStatic f14312a = new NewFriendDbManagerStatic();
 
     /* loaded from: classes4.dex */
     public class a extends f0<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.j0.e1.g.a f14258a;
+        public final /* synthetic */ d.a.j0.e1.g.a f14313a;
 
-        public a(NewFriendDbManagerStatic newFriendDbManagerStatic, d.b.j0.e1.g.a aVar) {
-            this.f14258a = aVar;
+        public a(NewFriendDbManagerStatic newFriendDbManagerStatic, d.a.j0.e1.g.a aVar) {
+            this.f14313a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.f0
+        @Override // d.a.i0.z0.f0
         /* renamed from: a */
         public Void doInBackground() {
-            d.b.j0.q.e.a.b.f().l(this.f14258a);
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(d.b.j0.q.e.a.b.f().h(), true));
+            d.a.j0.q.e.a.b.f().l(this.f14313a);
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(d.a.j0.q.e.a.b.f().h(), true));
             return null;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements d.b.i0.z0.n<Void> {
+    public class b implements d.a.i0.z0.n<Void> {
         public b(NewFriendDbManagerStatic newFriendDbManagerStatic) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.n
+        @Override // d.a.i0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Void r9) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(-1, 0L, "", "", "", ""));
@@ -64,45 +64,45 @@ public class NewFriendDbManagerStatic {
     public class c extends f0<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.j0.e1.g.a f14259a;
+        public final /* synthetic */ d.a.j0.e1.g.a f14314a;
 
-        public c(NewFriendDbManagerStatic newFriendDbManagerStatic, d.b.j0.e1.g.a aVar) {
-            this.f14259a = aVar;
+        public c(NewFriendDbManagerStatic newFriendDbManagerStatic, d.a.j0.e1.g.a aVar) {
+            this.f14314a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.f0
+        @Override // d.a.i0.z0.f0
         /* renamed from: a */
         public Void doInBackground() {
-            d.b.j0.q.e.a.b.f().l(this.f14259a);
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(d.b.j0.q.e.a.b.f().h(), true));
+            d.a.j0.q.e.a.b.f().l(this.f14314a);
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(d.a.j0.q.e.a.b.f().h(), true));
             return null;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements d.b.i0.z0.n<Void> {
+    public class d implements d.a.i0.z0.n<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.j0.e1.g.a f14260a;
+        public final /* synthetic */ d.a.j0.e1.g.a f14315a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f14261b;
+        public final /* synthetic */ String f14316b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f14262c;
+        public final /* synthetic */ String f14317c;
 
-        public d(NewFriendDbManagerStatic newFriendDbManagerStatic, d.b.j0.e1.g.a aVar, String str, String str2) {
-            this.f14260a = aVar;
-            this.f14261b = str;
-            this.f14262c = str2;
+        public d(NewFriendDbManagerStatic newFriendDbManagerStatic, d.a.j0.e1.g.a aVar, String str, String str2) {
+            this.f14315a = aVar;
+            this.f14316b = str;
+            this.f14317c = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.n
+        @Override // d.a.i0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Void r9) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.f14260a.b(), this.f14260a.e(), this.f14260a.d(), this.f14261b, this.f14262c));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.f14315a.b(), this.f14315a.e(), this.f14315a.d(), this.f14316b, this.f14317c));
         }
     }
 
@@ -110,28 +110,28 @@ public class NewFriendDbManagerStatic {
     public class e extends f0<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f14263a;
+        public final /* synthetic */ long f14318a;
 
         public e(NewFriendDbManagerStatic newFriendDbManagerStatic, long j) {
-            this.f14263a = j;
+            this.f14318a = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.f0
+        @Override // d.a.i0.z0.f0
         /* renamed from: a */
         public Void doInBackground() {
-            d.b.j0.q.e.a.b.f().b(this.f14263a);
+            d.a.j0.q.e.a.b.f().b(this.f14318a);
             return null;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class f implements d.b.i0.z0.n<Void> {
+    public class f implements d.a.i0.z0.n<Void> {
         public f(NewFriendDbManagerStatic newFriendDbManagerStatic) {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.n
+        @Override // d.a.i0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Void r1) {
         }
@@ -141,36 +141,36 @@ public class NewFriendDbManagerStatic {
     public class g extends f0<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.j0.e1.g.a f14264a;
+        public final /* synthetic */ d.a.j0.e1.g.a f14319a;
 
-        public g(NewFriendDbManagerStatic newFriendDbManagerStatic, d.b.j0.e1.g.a aVar) {
-            this.f14264a = aVar;
+        public g(NewFriendDbManagerStatic newFriendDbManagerStatic, d.a.j0.e1.g.a aVar) {
+            this.f14319a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.f0
+        @Override // d.a.i0.z0.f0
         /* renamed from: a */
         public Void doInBackground() {
-            d.b.j0.q.e.a.b.f().l(this.f14264a);
+            d.a.j0.q.e.a.b.f().l(this.f14319a);
             return null;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class h implements d.b.i0.z0.n<Void> {
+    public class h implements d.a.i0.z0.n<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f14265a;
+        public final /* synthetic */ long f14320a;
 
         public h(NewFriendDbManagerStatic newFriendDbManagerStatic, long j) {
-            this.f14265a = j;
+            this.f14320a = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.n
+        @Override // d.a.i0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Void r9) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(-1, this.f14265a, "", "", "", ""));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(-1, this.f14320a, "", "", "", ""));
         }
     }
 
@@ -178,43 +178,43 @@ public class NewFriendDbManagerStatic {
     public class i extends f0<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.j0.e1.g.a f14266a;
+        public final /* synthetic */ d.a.j0.e1.g.a f14321a;
 
-        public i(NewFriendDbManagerStatic newFriendDbManagerStatic, d.b.j0.e1.g.a aVar) {
-            this.f14266a = aVar;
+        public i(NewFriendDbManagerStatic newFriendDbManagerStatic, d.a.j0.e1.g.a aVar) {
+            this.f14321a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.f0
+        @Override // d.a.i0.z0.f0
         /* renamed from: a */
         public Void doInBackground() {
-            d.b.j0.q.e.a.b.f().l(this.f14266a);
+            d.a.j0.q.e.a.b.f().l(this.f14321a);
             return null;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class j implements d.b.i0.z0.n<Void> {
+    public class j implements d.a.i0.z0.n<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f14267a;
+        public final /* synthetic */ long f14322a;
 
         public j(NewFriendDbManagerStatic newFriendDbManagerStatic, long j) {
-            this.f14267a = j;
+            this.f14322a = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.n
+        @Override // d.a.i0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Void r9) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(-1, this.f14267a, "", "", "", ""));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(-1, this.f14322a, "", "", "", ""));
         }
     }
 
     /* loaded from: classes4.dex */
     public static class k extends CustomMessageListener {
-        public k(int i) {
-            super(i);
+        public k(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -241,30 +241,30 @@ public class NewFriendDbManagerStatic {
         public class a extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f14268a;
+            public final /* synthetic */ long f14323a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ d.b.j0.e1.g.a f14269b;
+            public final /* synthetic */ d.a.j0.e1.g.a f14324b;
 
-            public a(l lVar, long j, d.b.j0.e1.g.a aVar) {
-                this.f14268a = j;
-                this.f14269b = aVar;
+            public a(l lVar, long j, d.a.j0.e1.g.a aVar) {
+                this.f14323a = j;
+                this.f14324b = aVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.f0
+            @Override // d.a.i0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                if (d.b.j0.q.e.a.b.f().n(this.f14268a)) {
+                if (d.a.j0.q.e.a.b.f().n(this.f14323a)) {
                     return null;
                 }
-                d.b.j0.q.e.a.b.f().l(this.f14269b);
+                d.a.j0.q.e.a.b.f().l(this.f14324b);
                 return null;
             }
         }
 
-        public l(int i) {
-            super(i);
+        public l(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -284,7 +284,7 @@ public class NewFriendDbManagerStatic {
             requestAddFriendMessage.setMessage(content);
             requestAddFriendMessage.setSt_type(st_type);
             MessageManager.getInstance().sendMessage(requestAddFriendMessage);
-            d.b.j0.e1.g.a aVar = new d.b.j0.e1.g.a();
+            d.a.j0.e1.g.a aVar = new d.a.j0.e1.g.a();
             aVar.h(id);
             aVar.j(name);
             aVar.l(0);
@@ -299,91 +299,91 @@ public class NewFriendDbManagerStatic {
     public class m extends f0<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.j0.e1.g.a f14270a;
+        public final /* synthetic */ d.a.j0.e1.g.a f14325a;
 
-        public m(NewFriendDbManagerStatic newFriendDbManagerStatic, d.b.j0.e1.g.a aVar) {
-            this.f14270a = aVar;
+        public m(NewFriendDbManagerStatic newFriendDbManagerStatic, d.a.j0.e1.g.a aVar) {
+            this.f14325a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.f0
+        @Override // d.a.i0.z0.f0
         /* renamed from: a */
         public Void doInBackground() {
-            d.b.j0.q.e.a.b.f().l(this.f14270a);
+            d.a.j0.q.e.a.b.f().l(this.f14325a);
             return null;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class n implements d.b.i0.z0.n<Void> {
+    public class n implements d.a.i0.z0.n<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ long f14271a;
+        public final /* synthetic */ long f14326a;
 
         public n(NewFriendDbManagerStatic newFriendDbManagerStatic, long j) {
-            this.f14271a = j;
+            this.f14326a = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.i0.z0.n
+        @Override // d.a.i0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Void r9) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.f14271a, "", "", "", ""));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.f14326a, "", "", "", ""));
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class o extends d.b.c.c.g.c {
+    public static class o extends d.a.c.c.g.c {
 
         /* loaded from: classes4.dex */
         public class a extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f14272a;
+            public final /* synthetic */ long f14327a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ d.b.j0.e1.g.a f14273b;
+            public final /* synthetic */ d.a.j0.e1.g.a f14328b;
 
-            public a(o oVar, long j, d.b.j0.e1.g.a aVar) {
-                this.f14272a = j;
-                this.f14273b = aVar;
+            public a(o oVar, long j, d.a.j0.e1.g.a aVar) {
+                this.f14327a = j;
+                this.f14328b = aVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.f0
+            @Override // d.a.i0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                d.b.j0.e1.g.a e2 = d.b.j0.q.e.a.b.f().e(this.f14272a);
+                d.a.j0.e1.g.a e2 = d.a.j0.q.e.a.b.f().e(this.f14327a);
                 if (e2 == null) {
                     return null;
                 }
-                this.f14273b.j(e2.d());
-                this.f14273b.k(e2.e());
-                d.b.j0.q.e.a.b.f().l(this.f14273b);
+                this.f14328b.j(e2.d());
+                this.f14328b.k(e2.e());
+                d.a.j0.q.e.a.b.f().l(this.f14328b);
                 return null;
             }
         }
 
         /* loaded from: classes4.dex */
-        public class b implements d.b.i0.z0.n<Void> {
+        public class b implements d.a.i0.z0.n<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f14274a;
+            public final /* synthetic */ long f14329a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ RequestAddFriendMessage f14275b;
+            public final /* synthetic */ RequestAddFriendMessage f14330b;
 
             public b(o oVar, long j, RequestAddFriendMessage requestAddFriendMessage) {
-                this.f14274a = j;
-                this.f14275b = requestAddFriendMessage;
+                this.f14329a = j;
+                this.f14330b = requestAddFriendMessage;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.n
+            @Override // d.a.i0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r9) {
-                ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = new ResponseNewFriendUpdateUiMsg(-1, this.f14274a, "", "", "", "");
-                responseNewFriendUpdateUiMsg.setContent(this.f14275b.getMessage());
+                ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = new ResponseNewFriendUpdateUiMsg(-1, this.f14329a, "", "", "", "");
+                responseNewFriendUpdateUiMsg.setContent(this.f14330b.getMessage());
                 MessageManager.getInstance().dispatchResponsedMessageToUI(responseNewFriendUpdateUiMsg);
             }
         }
@@ -392,47 +392,47 @@ public class NewFriendDbManagerStatic {
         public class c extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f14276a;
+            public final /* synthetic */ long f14331a;
 
             public c(o oVar, long j) {
-                this.f14276a = j;
+                this.f14331a = j;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.f0
+            @Override // d.a.i0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                if (0 != this.f14276a && d.b.j0.q.e.a.b.f().n(this.f14276a)) {
-                    d.b.j0.e1.g.a aVar = new d.b.j0.e1.g.a();
-                    aVar.h(this.f14276a);
+                if (0 != this.f14331a && d.a.j0.q.e.a.b.f().n(this.f14331a)) {
+                    d.a.j0.e1.g.a aVar = new d.a.j0.e1.g.a();
+                    aVar.h(this.f14331a);
                     aVar.l(3);
                     aVar.i(0);
-                    d.b.j0.q.e.a.b.f().q(aVar);
+                    d.a.j0.q.e.a.b.f().q(aVar);
                 }
                 return null;
             }
         }
 
         /* loaded from: classes4.dex */
-        public class d implements d.b.i0.z0.n<Void> {
+        public class d implements d.a.i0.z0.n<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f14277a;
+            public final /* synthetic */ long f14332a;
 
             public d(o oVar, long j) {
-                this.f14277a = j;
+                this.f14332a = j;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.n
+            @Override // d.a.i0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r9) {
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(-1, this.f14277a, "", "", "", ""));
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(-1, this.f14332a, "", "", "", ""));
             }
         }
 
-        public o(int i) {
-            super(i);
+        public o(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -443,7 +443,7 @@ public class NewFriendDbManagerStatic {
                 RequestAddFriendMessage requestAddFriendMessage = (RequestAddFriendMessage) responseAddFriendMessage.getOrginalMessage();
                 int error = responseAddFriendMessage.getError();
                 long friendId = responseAddFriendMessage.getFriendId();
-                d.b.j0.e1.g.a aVar = new d.b.j0.e1.g.a();
+                d.a.j0.e1.g.a aVar = new d.a.j0.e1.g.a();
                 aVar.h(friendId);
                 aVar.i(0);
                 aVar.g(requestAddFriendMessage.getMessage());
@@ -462,51 +462,51 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class p extends d.b.c.c.g.c {
+    public static class p extends d.a.c.c.g.c {
 
         /* loaded from: classes4.dex */
         public class a extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f14278a;
+            public final /* synthetic */ long f14333a;
 
             public a(p pVar, long j) {
-                this.f14278a = j;
+                this.f14333a = j;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.f0
+            @Override // d.a.i0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                if (0 == this.f14278a) {
+                if (0 == this.f14333a) {
                     return null;
                 }
-                d.b.j0.q.e.a.b.f().b(this.f14278a);
-                d.b.j0.e1.h.m.t().o(String.valueOf(this.f14278a));
+                d.a.j0.q.e.a.b.f().b(this.f14333a);
+                d.a.j0.e1.h.m.t().o(String.valueOf(this.f14333a));
                 return null;
             }
         }
 
         /* loaded from: classes4.dex */
-        public class b implements d.b.i0.z0.n<Void> {
+        public class b implements d.a.i0.z0.n<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f14279a;
+            public final /* synthetic */ long f14334a;
 
             public b(p pVar, long j) {
-                this.f14279a = j;
+                this.f14334a = j;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.n
+            @Override // d.a.i0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r9) {
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(1, this.f14279a, "", "", "", ""));
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(1, this.f14334a, "", "", "", ""));
             }
         }
 
-        public p(int i) {
-            super(i);
+        public p(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -524,69 +524,69 @@ public class NewFriendDbManagerStatic {
     }
 
     /* loaded from: classes4.dex */
-    public static class q extends d.b.c.c.g.c {
+    public static class q extends d.a.c.c.g.c {
 
         /* loaded from: classes4.dex */
         public class a extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f14280a;
+            public final /* synthetic */ long f14335a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ d.b.j0.e1.g.a f14281b;
+            public final /* synthetic */ d.a.j0.e1.g.a f14336b;
 
-            public a(q qVar, long j, d.b.j0.e1.g.a aVar) {
-                this.f14280a = j;
-                this.f14281b = aVar;
+            public a(q qVar, long j, d.a.j0.e1.g.a aVar) {
+                this.f14335a = j;
+                this.f14336b = aVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.f0
+            @Override // d.a.i0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                d.b.j0.e1.g.a e2;
-                if (0 == this.f14280a || (e2 = d.b.j0.q.e.a.b.f().e(this.f14280a)) == null) {
+                d.a.j0.e1.g.a e2;
+                if (0 == this.f14335a || (e2 = d.a.j0.q.e.a.b.f().e(this.f14335a)) == null) {
                     return null;
                 }
-                this.f14281b.g(e2.a());
-                this.f14281b.j(e2.d());
-                this.f14281b.k(e2.e());
-                d.b.j0.q.e.a.b.f().l(this.f14281b);
+                this.f14336b.g(e2.a());
+                this.f14336b.j(e2.d());
+                this.f14336b.k(e2.e());
+                d.a.j0.q.e.a.b.f().l(this.f14336b);
                 return null;
             }
         }
 
         /* loaded from: classes4.dex */
-        public class b implements d.b.i0.z0.n<Void> {
+        public class b implements d.a.i0.z0.n<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f14282a;
+            public final /* synthetic */ long f14337a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f14283b;
+            public final /* synthetic */ String f14338b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f14284c;
+            public final /* synthetic */ String f14339c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ String f14285d;
+            public final /* synthetic */ String f14340d;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f14286e;
+            public final /* synthetic */ String f14341e;
 
             public b(q qVar, long j, String str, String str2, String str3, String str4) {
-                this.f14282a = j;
-                this.f14283b = str;
-                this.f14284c = str2;
-                this.f14285d = str3;
-                this.f14286e = str4;
+                this.f14337a = j;
+                this.f14338b = str;
+                this.f14339c = str2;
+                this.f14340d = str3;
+                this.f14341e = str4;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.n
+            @Override // d.a.i0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r9) {
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.f14282a, this.f14283b, this.f14284c, this.f14285d, this.f14286e));
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.f14337a, this.f14338b, this.f14339c, this.f14340d, this.f14341e));
             }
         }
 
@@ -594,47 +594,47 @@ public class NewFriendDbManagerStatic {
         public class c extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f14287a;
+            public final /* synthetic */ long f14342a;
 
             public c(q qVar, long j) {
-                this.f14287a = j;
+                this.f14342a = j;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.f0
+            @Override // d.a.i0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                if (0 != this.f14287a && d.b.j0.q.e.a.b.f().n(this.f14287a)) {
-                    d.b.j0.e1.g.a aVar = new d.b.j0.e1.g.a();
-                    aVar.h(this.f14287a);
+                if (0 != this.f14342a && d.a.j0.q.e.a.b.f().n(this.f14342a)) {
+                    d.a.j0.e1.g.a aVar = new d.a.j0.e1.g.a();
+                    aVar.h(this.f14342a);
                     aVar.l(2);
                     aVar.i(0);
-                    d.b.j0.q.e.a.b.f().q(aVar);
+                    d.a.j0.q.e.a.b.f().q(aVar);
                 }
                 return null;
             }
         }
 
         /* loaded from: classes4.dex */
-        public class d implements d.b.i0.z0.n<Void> {
+        public class d implements d.a.i0.z0.n<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ long f14288a;
+            public final /* synthetic */ long f14343a;
 
             public d(q qVar, long j) {
-                this.f14288a = j;
+                this.f14343a = j;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.n
+            @Override // d.a.i0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r9) {
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.f14288a, "", "", "", ""));
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseNewFriendUpdateUiMsg(0, this.f14343a, "", "", "", ""));
             }
         }
 
-        public q(int i) {
-            super(i);
+        public q(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -648,7 +648,7 @@ public class NewFriendDbManagerStatic {
                 String portrait = responsePassFriendMessage.getPortrait();
                 String key = responsePassFriendMessage.getKey();
                 String quanpin = responsePassFriendMessage.getQuanpin();
-                d.b.j0.e1.g.a aVar = new d.b.j0.e1.g.a();
+                d.a.j0.e1.g.a aVar = new d.a.j0.e1.g.a();
                 aVar.h(friendId);
                 aVar.l(2);
                 aVar.i(0);
@@ -669,7 +669,7 @@ public class NewFriendDbManagerStatic {
     public static class r extends CustomMessageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f14289a;
+        public int f14344a;
 
         /* loaded from: classes4.dex */
         public class a extends f0<Void> {
@@ -677,30 +677,30 @@ public class NewFriendDbManagerStatic {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.f0
+            @Override // d.a.i0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                r.this.f14289a = d.b.j0.q.e.a.b.f().h();
+                r.this.f14344a = d.a.j0.q.e.a.b.f().h();
                 return null;
             }
         }
 
         /* loaded from: classes4.dex */
-        public class b implements d.b.i0.z0.n<Void> {
+        public class b implements d.a.i0.z0.n<Void> {
             public b() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.i0.z0.n
+            @Override // d.a.i0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r3) {
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(r.this.f14289a, false));
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(r.this.f14344a, false));
             }
         }
 
-        public r(int i) {
-            super(i);
-            this.f14289a = 0;
+        public r(int i2) {
+            super(i2);
+            this.f14344a = 0;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -715,8 +715,8 @@ public class NewFriendDbManagerStatic {
 
     /* loaded from: classes4.dex */
     public static class s extends CustomMessageListener {
-        public s(int i) {
-            super(i);
+        public s(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -725,15 +725,15 @@ public class NewFriendDbManagerStatic {
             if (customResponsedMessage == null) {
                 return;
             }
-            d.b.i0.r.d0.b j = d.b.i0.r.d0.b.j();
+            d.a.i0.r.d0.b j = d.a.i0.r.d0.b.j();
             j.C("get_addresslist_switch" + ((String) customResponsedMessage.getData()));
         }
     }
 
     /* loaded from: classes4.dex */
     public static class t extends CustomMessageListener {
-        public t(int i) {
-            super(i);
+        public t(int i2) {
+            super(i2);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -770,11 +770,11 @@ public class NewFriendDbManagerStatic {
     /* loaded from: classes4.dex */
     public static class u implements CustomMessageTask.CustomRunnable<Long> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.b.j0.e1.g.a> run(CustomMessage<Long> customMessage) {
+        public CustomResponsedMessage<d.a.j0.e1.g.a> run(CustomMessage<Long> customMessage) {
             if (customMessage == null) {
                 return null;
             }
-            return new ResponseNewFriendDataMessage(d.b.j0.q.e.a.b.f().e(customMessage.getData().longValue()));
+            return new ResponseNewFriendDataMessage(d.a.j0.q.e.a.b.f().e(customMessage.getData().longValue()));
         }
     }
 
@@ -799,7 +799,7 @@ public class NewFriendDbManagerStatic {
     }
 
     public static NewFriendDbManagerStatic d() {
-        return f14257a;
+        return f14312a;
     }
 
     public void a(String str) {
@@ -808,7 +808,7 @@ public class NewFriendDbManagerStatic {
             if (optJSONObject == null) {
                 return;
             }
-            d.b.j0.e1.g.a aVar = new d.b.j0.e1.g.a();
+            d.a.j0.e1.g.a aVar = new d.a.j0.e1.g.a();
             long optLong = optJSONObject.optLong("user_id");
             String optString = optJSONObject.optString("user_name");
             String optString2 = optJSONObject.optString("portrait");
@@ -831,7 +831,7 @@ public class NewFriendDbManagerStatic {
             if (optJSONObject == null) {
                 return;
             }
-            d.b.j0.e1.g.a aVar = new d.b.j0.e1.g.a();
+            d.a.j0.e1.g.a aVar = new d.a.j0.e1.g.a();
             aVar.h(optJSONObject.optLong("user_id"));
             aVar.j(optJSONObject.optString("user_name"));
             aVar.k(optJSONObject.optString("portrait"));
@@ -862,7 +862,7 @@ public class NewFriendDbManagerStatic {
             if (optJSONObject == null) {
                 return;
             }
-            d.b.j0.e1.g.a aVar = new d.b.j0.e1.g.a();
+            d.a.j0.e1.g.a aVar = new d.a.j0.e1.g.a();
             long optLong = optJSONObject.optLong("user_id");
             String optString = optJSONObject.optString("user_name");
             String optString2 = optJSONObject.optString("portrait");
@@ -885,7 +885,7 @@ public class NewFriendDbManagerStatic {
             if (optJSONObject == null) {
                 return;
             }
-            d.b.j0.e1.g.a aVar = new d.b.j0.e1.g.a();
+            d.a.j0.e1.g.a aVar = new d.a.j0.e1.g.a();
             aVar.h(optJSONObject.optLong("user_id"));
             aVar.j(optJSONObject.optString("user_name"));
             aVar.k(optJSONObject.optString("portrait"));
@@ -906,7 +906,7 @@ public class NewFriendDbManagerStatic {
             if (optJSONObject == null) {
                 return;
             }
-            d.b.j0.e1.g.a aVar = new d.b.j0.e1.g.a();
+            d.a.j0.e1.g.a aVar = new d.a.j0.e1.g.a();
             long optLong = optJSONObject.optLong("user_id");
             String optString = optJSONObject.optString("user_name");
             String optString2 = optJSONObject.optString("portrait");

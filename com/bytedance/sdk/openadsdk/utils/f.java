@@ -61,19 +61,19 @@ public class f {
         }
     }
 
-    public static Bitmap a(Bitmap bitmap, int i, int i2) {
+    public static Bitmap a(Bitmap bitmap, int i2, int i3) {
         if (bitmap == null) {
             return null;
         }
-        if (i <= 0 || i2 <= 0) {
+        if (i2 <= 0 || i3 <= 0) {
             return bitmap;
         }
         try {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
-            if (i < width && i2 < height) {
+            if (i2 < width && i3 < height) {
                 Matrix matrix = new Matrix();
-                matrix.postScale(i / width, i2 / height);
+                matrix.postScale(i2 / width, i3 / height);
                 return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
             }
             return bitmap;

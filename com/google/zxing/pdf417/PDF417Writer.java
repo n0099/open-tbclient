@@ -16,18 +16,18 @@ public final class PDF417Writer implements Writer {
     public static final int DEFAULT_ERROR_CORRECTION_LEVEL = 2;
     public static final int WHITE_SPACE = 30;
 
-    public static BitMatrix bitMatrixFromEncoder(PDF417 pdf417, String str, int i, int i2, int i3, int i4) throws WriterException {
+    public static BitMatrix bitMatrixFromEncoder(PDF417 pdf417, String str, int i2, int i3, int i4, int i5) throws WriterException {
         boolean z;
-        pdf417.generateBarcodeLogic(str, i);
+        pdf417.generateBarcodeLogic(str, i2);
         byte[][] scaledMatrix = pdf417.getBarcodeMatrix().getScaledMatrix(1, 4);
-        if ((i3 > i2) ^ (scaledMatrix[0].length < scaledMatrix.length)) {
+        if ((i4 > i3) ^ (scaledMatrix[0].length < scaledMatrix.length)) {
             scaledMatrix = rotateArray(scaledMatrix);
             z = true;
         } else {
             z = false;
         }
-        int length = i2 / scaledMatrix[0].length;
-        int length2 = i3 / scaledMatrix.length;
+        int length = i3 / scaledMatrix[0].length;
+        int length2 = i4 / scaledMatrix.length;
         if (length >= length2) {
             length = length2;
         }
@@ -36,24 +36,24 @@ public final class PDF417Writer implements Writer {
             if (z) {
                 scaledMatrix2 = rotateArray(scaledMatrix2);
             }
-            return bitMatrixFrombitArray(scaledMatrix2, i4);
+            return bitMatrixFrombitArray(scaledMatrix2, i5);
         }
-        return bitMatrixFrombitArray(scaledMatrix, i4);
+        return bitMatrixFrombitArray(scaledMatrix, i5);
     }
 
-    public static BitMatrix bitMatrixFrombitArray(byte[][] bArr, int i) {
-        int i2 = i * 2;
-        BitMatrix bitMatrix = new BitMatrix(bArr[0].length + i2, bArr.length + i2);
+    public static BitMatrix bitMatrixFrombitArray(byte[][] bArr, int i2) {
+        int i3 = i2 * 2;
+        BitMatrix bitMatrix = new BitMatrix(bArr[0].length + i3, bArr.length + i3);
         bitMatrix.clear();
-        int height = (bitMatrix.getHeight() - i) - 1;
-        int i3 = 0;
-        while (i3 < bArr.length) {
-            for (int i4 = 0; i4 < bArr[0].length; i4++) {
-                if (bArr[i3][i4] == 1) {
-                    bitMatrix.set(i4 + i, height);
+        int height = (bitMatrix.getHeight() - i2) - 1;
+        int i4 = 0;
+        while (i4 < bArr.length) {
+            for (int i5 = 0; i5 < bArr[0].length; i5++) {
+                if (bArr[i4][i5] == 1) {
+                    bitMatrix.set(i5 + i2, height);
                 }
             }
-            i3++;
+            i4++;
             height--;
         }
         return bitMatrix;
@@ -61,19 +61,19 @@ public final class PDF417Writer implements Writer {
 
     public static byte[][] rotateArray(byte[][] bArr) {
         byte[][] bArr2 = (byte[][]) Array.newInstance(byte.class, bArr[0].length, bArr.length);
-        for (int i = 0; i < bArr.length; i++) {
-            int length = (bArr.length - i) - 1;
-            for (int i2 = 0; i2 < bArr[0].length; i2++) {
-                bArr2[i2][length] = bArr[i][i2];
+        for (int i2 = 0; i2 < bArr.length; i2++) {
+            int length = (bArr.length - i2) - 1;
+            for (int i3 = 0; i3 < bArr[0].length; i3++) {
+                bArr2[i3][length] = bArr[i2][i3];
             }
         }
         return bArr2;
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
-        int i3;
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3, Map<EncodeHintType, ?> map) throws WriterException {
         int i4;
+        int i5;
         if (barcodeFormat == BarcodeFormat.PDF_417) {
             PDF417 pdf417 = new PDF417();
             if (map != null) {
@@ -92,19 +92,19 @@ public final class PDF417Writer implements Writer {
                 if (map.containsKey(EncodeHintType.CHARACTER_SET)) {
                     pdf417.setEncoding(Charset.forName(map.get(EncodeHintType.CHARACTER_SET).toString()));
                 }
-                i4 = parseInt;
-                i3 = parseInt2;
+                i5 = parseInt;
+                i4 = parseInt2;
             } else {
-                i3 = 2;
-                i4 = 30;
+                i4 = 2;
+                i5 = 30;
             }
-            return bitMatrixFromEncoder(pdf417, str, i3, i, i2, i4);
+            return bitMatrixFromEncoder(pdf417, str, i4, i2, i3, i5);
         }
         throw new IllegalArgumentException("Can only encode PDF_417, but got " + barcodeFormat);
     }
 
     @Override // com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2) throws WriterException {
-        return encode(str, barcodeFormat, i, i2, null);
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3) throws WriterException {
+        return encode(str, barcodeFormat, i2, i3, null);
     }
 }

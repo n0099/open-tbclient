@@ -101,16 +101,16 @@ public abstract class AbsVideoKernel implements IPoolItem {
         this.mPreparingUrl = null;
     }
 
-    public void onInfo(int i, int i2, Object obj) {
-        if (701 == i) {
+    public void onInfo(int i2, int i3, Object obj) {
+        if (701 == i2) {
             this.mPercent = 0;
-        } else if (702 == i) {
+        } else if (702 == i2) {
             this.mPercent = 100;
-        } else if (946 == i) {
-            this.mBufferingPosition = i2;
-        } else if (924 == i) {
-            this.mSpeed = i2;
-        } else if (5000 == i && (obj instanceof String)) {
+        } else if (946 == i2) {
+            this.mBufferingPosition = i3;
+        } else if (924 == i2) {
+            this.mSpeed = i3;
+        } else if (5000 == i2 && (obj instanceof String)) {
             this.mRemoteServer = (String) obj;
         }
     }
@@ -150,12 +150,12 @@ public abstract class AbsVideoKernel implements IPoolItem {
     public void resume() {
     }
 
-    public abstract void seekTo(int i);
+    public abstract void seekTo(int i2);
 
-    public void seekToMs(int i) {
+    public void seekToMs(int i2) {
     }
 
-    public abstract void setDecodeMode(int i);
+    public abstract void setDecodeMode(int i2);
 
     public abstract void setExternalInfo(String str, Object obj);
 
@@ -202,9 +202,9 @@ public abstract class AbsVideoKernel implements IPoolItem {
 
     public abstract void setVideoFormatOptions(String str, @NonNull HashMap<String, String> hashMap);
 
-    public abstract void setVideoRotation(int i);
+    public abstract void setVideoRotation(int i2);
 
-    public abstract void setVideoScalingMode(int i);
+    public abstract void setVideoScalingMode(int i2);
 
     public void setVideoSession(@NonNull VideoSession videoSession) {
         this.mKernelStatus = videoSession.getState();

@@ -58,8 +58,8 @@ public class PackageMangerProxy extends PackageManager {
 
     @Override // android.content.pm.PackageManager
     @Deprecated
-    public void addPreferredActivity(IntentFilter intentFilter, int i, ComponentName[] componentNameArr, ComponentName componentName) {
-        this.mPm.addPreferredActivity(intentFilter, i, componentNameArr, componentName);
+    public void addPreferredActivity(IntentFilter intentFilter, int i2, ComponentName[] componentNameArr, ComponentName componentName) {
+        this.mPm.addPreferredActivity(intentFilter, i2, componentNameArr, componentName);
     }
 
     @Override // android.content.pm.PackageManager
@@ -97,7 +97,7 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public void extendVerificationTimeout(int i, int i2, long j) {
+    public void extendVerificationTimeout(int i2, int i3, long j) {
     }
 
     @Override // android.content.pm.PackageManager
@@ -116,8 +116,8 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public ActivityInfo getActivityInfo(ComponentName componentName, int i) throws PackageManager.NameNotFoundException {
-        return this.mPm.getActivityInfo(componentName, i);
+    public ActivityInfo getActivityInfo(ComponentName componentName, int i2) throws PackageManager.NameNotFoundException {
+        return this.mPm.getActivityInfo(componentName, i2);
     }
 
     @Override // android.content.pm.PackageManager
@@ -126,8 +126,8 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public List<PermissionGroupInfo> getAllPermissionGroups(int i) {
-        return this.mPm.getAllPermissionGroups(i);
+    public List<PermissionGroupInfo> getAllPermissionGroups(int i2) {
+        return this.mPm.getAllPermissionGroups(i2);
     }
 
     @Override // android.content.pm.PackageManager
@@ -151,8 +151,8 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public ApplicationInfo getApplicationInfo(String str, int i) throws PackageManager.NameNotFoundException {
-        return this.mPm.getApplicationInfo(str, i);
+    public ApplicationInfo getApplicationInfo(String str, int i2) throws PackageManager.NameNotFoundException {
+        return this.mPm.getApplicationInfo(str, i2);
     }
 
     @Override // android.content.pm.PackageManager
@@ -166,7 +166,7 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public ChangedPackages getChangedPackages(int i) {
+    public ChangedPackages getChangedPackages(int i2) {
         return null;
     }
 
@@ -181,18 +181,18 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public Drawable getDrawable(String str, int i, ApplicationInfo applicationInfo) {
-        return this.mPm.getDrawable(str, i, applicationInfo);
+    public Drawable getDrawable(String str, int i2, ApplicationInfo applicationInfo) {
+        return this.mPm.getDrawable(str, i2, applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
-    public List<ApplicationInfo> getInstalledApplications(int i) {
-        return this.mPm.getInstalledApplications(i);
+    public List<ApplicationInfo> getInstalledApplications(int i2) {
+        return this.mPm.getInstalledApplications(i2);
     }
 
     @Override // android.content.pm.PackageManager
-    public List<PackageInfo> getInstalledPackages(int i) {
-        return this.mPm.getInstalledPackages(i);
+    public List<PackageInfo> getInstalledPackages(int i2) {
+        return this.mPm.getInstalledPackages(i2);
     }
 
     @Override // android.content.pm.PackageManager
@@ -212,8 +212,8 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i) throws PackageManager.NameNotFoundException {
-        return this.mPm.getInstrumentationInfo(componentName, i);
+    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i2) throws PackageManager.NameNotFoundException {
+        return this.mPm.getInstrumentationInfo(componentName, i2);
     }
 
     @Override // android.content.pm.PackageManager
@@ -227,13 +227,13 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public String getNameForUid(int i) {
-        return this.mPm.getNameForUid(i);
+    public String getNameForUid(int i2) {
+        return this.mPm.getNameForUid(i2);
     }
 
     @Override // android.content.pm.PackageManager
-    public PackageInfo getPackageArchiveInfo(String str, int i) {
-        return this.mPm.getPackageArchiveInfo(str, i);
+    public PackageInfo getPackageArchiveInfo(String str, int i2) {
+        return this.mPm.getPackageArchiveInfo(str, i2);
     }
 
     @Override // android.content.pm.PackageManager
@@ -242,22 +242,22 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public int[] getPackageGids(String str, int i) throws PackageManager.NameNotFoundException {
+    public int[] getPackageGids(String str, int i2) throws PackageManager.NameNotFoundException {
         return new int[0];
     }
 
     @Override // android.content.pm.PackageManager
-    public PackageInfo getPackageInfo(VersionedPackage versionedPackage, int i) throws PackageManager.NameNotFoundException {
+    public PackageInfo getPackageInfo(VersionedPackage versionedPackage, int i2) throws PackageManager.NameNotFoundException {
         return null;
     }
 
     @Override // android.content.pm.PackageManager
-    public PackageInfo getPackageInfo(String str, int i) throws PackageManager.NameNotFoundException {
+    public PackageInfo getPackageInfo(String str, int i2) throws PackageManager.NameNotFoundException {
         Plugin plugin2;
         if (TextUtils.equals(this.mPackageName, str) && (plugin2 = PluginCenter.getInstance().getPlugin(this.mPluginPackageName)) != null) {
             return plugin2.getPluginPackageInfo();
         }
-        return this.mPm.getPackageInfo(str, i);
+        return this.mPm.getPackageInfo(str, i2);
     }
 
     @Override // android.content.pm.PackageManager
@@ -266,28 +266,28 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public int getPackageUid(String str, int i) throws PackageManager.NameNotFoundException {
+    public int getPackageUid(String str, int i2) throws PackageManager.NameNotFoundException {
         return 0;
     }
 
     @Override // android.content.pm.PackageManager
-    public String[] getPackagesForUid(int i) {
-        return this.mPm.getPackagesForUid(i);
+    public String[] getPackagesForUid(int i2) {
+        return this.mPm.getPackagesForUid(i2);
     }
 
     @Override // android.content.pm.PackageManager
-    public List<PackageInfo> getPackagesHoldingPermissions(String[] strArr, int i) {
+    public List<PackageInfo> getPackagesHoldingPermissions(String[] strArr, int i2) {
         return null;
     }
 
     @Override // android.content.pm.PackageManager
-    public PermissionGroupInfo getPermissionGroupInfo(String str, int i) throws PackageManager.NameNotFoundException {
-        return this.mPm.getPermissionGroupInfo(str, i);
+    public PermissionGroupInfo getPermissionGroupInfo(String str, int i2) throws PackageManager.NameNotFoundException {
+        return this.mPm.getPermissionGroupInfo(str, i2);
     }
 
     @Override // android.content.pm.PackageManager
-    public PermissionInfo getPermissionInfo(String str, int i) throws PackageManager.NameNotFoundException {
-        return this.mPm.getPermissionInfo(str, i);
+    public PermissionInfo getPermissionInfo(String str, int i2) throws PackageManager.NameNotFoundException {
+        return this.mPm.getPermissionInfo(str, i2);
     }
 
     @Override // android.content.pm.PackageManager
@@ -296,18 +296,18 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public List<PackageInfo> getPreferredPackages(int i) {
-        return this.mPm.getPreferredPackages(i);
+    public List<PackageInfo> getPreferredPackages(int i2) {
+        return this.mPm.getPreferredPackages(i2);
     }
 
     @Override // android.content.pm.PackageManager
-    public ProviderInfo getProviderInfo(ComponentName componentName, int i) throws PackageManager.NameNotFoundException {
-        return this.mPm.getProviderInfo(componentName, i);
+    public ProviderInfo getProviderInfo(ComponentName componentName, int i2) throws PackageManager.NameNotFoundException {
+        return this.mPm.getProviderInfo(componentName, i2);
     }
 
     @Override // android.content.pm.PackageManager
-    public ActivityInfo getReceiverInfo(ComponentName componentName, int i) throws PackageManager.NameNotFoundException {
-        return this.mPm.getReceiverInfo(componentName, i);
+    public ActivityInfo getReceiverInfo(ComponentName componentName, int i2) throws PackageManager.NameNotFoundException {
+        return this.mPm.getReceiverInfo(componentName, i2);
     }
 
     @Override // android.content.pm.PackageManager
@@ -321,12 +321,12 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public ServiceInfo getServiceInfo(ComponentName componentName, int i) throws PackageManager.NameNotFoundException {
-        return this.mPm.getServiceInfo(componentName, i);
+    public ServiceInfo getServiceInfo(ComponentName componentName, int i2) throws PackageManager.NameNotFoundException {
+        return this.mPm.getServiceInfo(componentName, i2);
     }
 
     @Override // android.content.pm.PackageManager
-    public List<SharedLibraryInfo> getSharedLibraries(int i) {
+    public List<SharedLibraryInfo> getSharedLibraries(int i2) {
         return null;
     }
 
@@ -341,12 +341,12 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public CharSequence getText(String str, int i, ApplicationInfo applicationInfo) {
-        return this.mPm.getText(str, i, applicationInfo);
+    public CharSequence getText(String str, int i2, ApplicationInfo applicationInfo) {
+        return this.mPm.getText(str, i2, applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
-    public Drawable getUserBadgedDrawableForDensity(Drawable drawable, UserHandle userHandle, Rect rect, int i) {
+    public Drawable getUserBadgedDrawableForDensity(Drawable drawable, UserHandle userHandle, Rect rect, int i2) {
         return null;
     }
 
@@ -361,8 +361,8 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public XmlResourceParser getXml(String str, int i, ApplicationInfo applicationInfo) {
-        return this.mPm.getXml(str, i, applicationInfo);
+    public XmlResourceParser getXml(String str, int i2, ApplicationInfo applicationInfo) {
+        return this.mPm.getXml(str, i2, applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
@@ -371,7 +371,7 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public boolean hasSystemFeature(String str, int i) {
+    public boolean hasSystemFeature(String str, int i2) {
         return false;
     }
 
@@ -396,43 +396,43 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public List<ResolveInfo> queryBroadcastReceivers(Intent intent, int i) {
-        return this.mPm.queryBroadcastReceivers(intent, i);
+    public List<ResolveInfo> queryBroadcastReceivers(Intent intent, int i2) {
+        return this.mPm.queryBroadcastReceivers(intent, i2);
     }
 
     @Override // android.content.pm.PackageManager
-    public List<ProviderInfo> queryContentProviders(String str, int i, int i2) {
-        return this.mPm.queryContentProviders(str, i, i2);
+    public List<ProviderInfo> queryContentProviders(String str, int i2, int i3) {
+        return this.mPm.queryContentProviders(str, i2, i3);
     }
 
     @Override // android.content.pm.PackageManager
-    public List<InstrumentationInfo> queryInstrumentation(String str, int i) {
+    public List<InstrumentationInfo> queryInstrumentation(String str, int i2) {
         return null;
     }
 
     @Override // android.content.pm.PackageManager
-    public List<ResolveInfo> queryIntentActivities(Intent intent, int i) {
-        return this.mPm.queryIntentActivities(intent, i);
+    public List<ResolveInfo> queryIntentActivities(Intent intent, int i2) {
+        return this.mPm.queryIntentActivities(intent, i2);
     }
 
     @Override // android.content.pm.PackageManager
-    public List<ResolveInfo> queryIntentActivityOptions(ComponentName componentName, Intent[] intentArr, Intent intent, int i) {
-        return this.mPm.queryIntentActivityOptions(componentName, intentArr, intent, i);
+    public List<ResolveInfo> queryIntentActivityOptions(ComponentName componentName, Intent[] intentArr, Intent intent, int i2) {
+        return this.mPm.queryIntentActivityOptions(componentName, intentArr, intent, i2);
     }
 
     @Override // android.content.pm.PackageManager
-    public List<ResolveInfo> queryIntentContentProviders(Intent intent, int i) {
+    public List<ResolveInfo> queryIntentContentProviders(Intent intent, int i2) {
         return null;
     }
 
     @Override // android.content.pm.PackageManager
-    public List<ResolveInfo> queryIntentServices(Intent intent, int i) {
-        return this.mPm.queryIntentServices(intent, i);
+    public List<ResolveInfo> queryIntentServices(Intent intent, int i2) {
+        return this.mPm.queryIntentServices(intent, i2);
     }
 
     @Override // android.content.pm.PackageManager
-    public List<PermissionInfo> queryPermissionsByGroup(String str, int i) throws PackageManager.NameNotFoundException {
-        return this.mPm.queryPermissionsByGroup(str, i);
+    public List<PermissionInfo> queryPermissionsByGroup(String str, int i2) throws PackageManager.NameNotFoundException {
+        return this.mPm.queryPermissionsByGroup(str, i2);
     }
 
     @Override // android.content.pm.PackageManager
@@ -447,32 +447,32 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public ResolveInfo resolveActivity(Intent intent, int i) {
-        return this.mPm.resolveActivity(intent, i);
+    public ResolveInfo resolveActivity(Intent intent, int i2) {
+        return this.mPm.resolveActivity(intent, i2);
     }
 
     @Override // android.content.pm.PackageManager
-    public ProviderInfo resolveContentProvider(String str, int i) {
-        return this.mPm.resolveContentProvider(str, i);
+    public ProviderInfo resolveContentProvider(String str, int i2) {
+        return this.mPm.resolveContentProvider(str, i2);
     }
 
     @Override // android.content.pm.PackageManager
-    public ResolveInfo resolveService(Intent intent, int i) {
-        return this.mPm.resolveService(intent, i);
+    public ResolveInfo resolveService(Intent intent, int i2) {
+        return this.mPm.resolveService(intent, i2);
     }
 
     @Override // android.content.pm.PackageManager
-    public void setApplicationCategoryHint(@NonNull String str, int i) {
+    public void setApplicationCategoryHint(@NonNull String str, int i2) {
     }
 
     @Override // android.content.pm.PackageManager
-    public void setApplicationEnabledSetting(String str, int i, int i2) {
-        this.mPm.setApplicationEnabledSetting(str, i, i2);
+    public void setApplicationEnabledSetting(String str, int i2, int i3) {
+        this.mPm.setApplicationEnabledSetting(str, i2, i3);
     }
 
     @Override // android.content.pm.PackageManager
-    public void setComponentEnabledSetting(ComponentName componentName, int i, int i2) {
-        this.mPm.setComponentEnabledSetting(componentName, i, i2);
+    public void setComponentEnabledSetting(ComponentName componentName, int i2, int i3) {
+        this.mPm.setComponentEnabledSetting(componentName, i2, i3);
     }
 
     @Override // android.content.pm.PackageManager
@@ -492,13 +492,13 @@ public class PackageMangerProxy extends PackageManager {
     }
 
     @Override // android.content.pm.PackageManager
-    public void verifyPendingInstall(int i, int i2) {
-        this.mPm.verifyPendingInstall(i, i2);
+    public void verifyPendingInstall(int i2, int i3) {
+        this.mPm.verifyPendingInstall(i2, i3);
     }
 
     @Override // android.content.pm.PackageManager
-    public int checkSignatures(int i, int i2) {
-        return this.mPm.checkSignatures(i, i2);
+    public int checkSignatures(int i2, int i3) {
+        return this.mPm.checkSignatures(i2, i3);
     }
 
     @Override // android.content.pm.PackageManager

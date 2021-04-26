@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25413a;
+    public String f26187a;
 
     public PrecashierDefaultPayTypeBean(Context context) {
         super(context);
@@ -25,9 +25,9 @@ public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
         JSONArray names;
         Object obj;
         if (jSONObject != null && (names = jSONObject.names()) != null && names.length() > 0) {
-            for (int i = 0; i < names.length(); i++) {
+            for (int i2 = 0; i2 < names.length(); i2++) {
                 try {
-                    Object obj2 = names.get(i);
+                    Object obj2 = names.get(i2);
                     if (obj2 != null && (obj2 instanceof String)) {
                         String str = (String) obj2;
                         if (!TextUtils.isEmpty(str) && (obj = jSONObject.get(str)) != null) {
@@ -54,11 +54,11 @@ public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
     @Override // com.baidu.wallet.paysdk.beans.PayOtherBean, com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        if (this.f25413a == null) {
+        if (this.f26187a == null) {
             return arrayList;
         }
         try {
-            a(arrayList, new JSONObject(this.f25413a));
+            a(arrayList, new JSONObject(this.f26187a));
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -84,6 +84,6 @@ public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f25413a = str;
+        this.f26187a = str;
     }
 }

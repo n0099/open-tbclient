@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class bn {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f41393a = new Object();
+    public static final Object f38939a = new Object();
 
     public static void a(Context context, hj hjVar) {
         if (bm.a(hjVar.e())) {
@@ -26,13 +26,13 @@ public class bn {
         String a2 = com.xiaomi.push.p.a(context).a("mipush", "td_key", "");
         if (TextUtils.isEmpty(a2)) {
             a2 = com.xiaomi.push.bm.a(20);
-            com.xiaomi.push.p.a(context).m525a("mipush", "td_key", a2);
+            com.xiaomi.push.p.a(context).m528a("mipush", "td_key", a2);
         }
         return a(a2);
     }
 
     public static byte[] a(String str) {
-        byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bj.m165a(str), 16);
+        byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bj.m168a(str), 16);
         copyOf[0] = 68;
         copyOf[15] = 84;
         return copyOf;
@@ -58,7 +58,7 @@ public class bn {
                 if (b2 != null && b2.length >= 1) {
                     if (b2.length > 10240) {
                         str2 = "TinyData write to cache file failed case too much data content item:" + hjVar.d() + "  ts:" + System.currentTimeMillis();
-                        com.xiaomi.channel.commonutils.logger.b.m55a(str2);
+                        com.xiaomi.channel.commonutils.logger.b.m58a(str2);
                         com.xiaomi.push.y.a((Closeable) null);
                         com.xiaomi.push.y.a((Closeable) null);
                     }
@@ -97,7 +97,7 @@ public class bn {
                     }
                 }
                 str2 = "TinyData write to cache file failed case encryption fail item:" + hjVar.d() + "  ts:" + System.currentTimeMillis();
-                com.xiaomi.channel.commonutils.logger.b.m55a(str2);
+                com.xiaomi.channel.commonutils.logger.b.m58a(str2);
                 com.xiaomi.push.y.a((Closeable) null);
                 com.xiaomi.push.y.a((Closeable) null);
             } catch (Throwable th2) {

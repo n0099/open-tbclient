@@ -36,7 +36,7 @@ public class PushMessageHelper {
 
     public static MiPushMessage generateMessage(ii iiVar, hs hsVar, boolean z) {
         MiPushMessage miPushMessage = new MiPushMessage();
-        miPushMessage.setMessageId(iiVar.m471a());
+        miPushMessage.setMessageId(iiVar.m474a());
         if (!TextUtils.isEmpty(iiVar.d())) {
             miPushMessage.setMessageType(1);
             miPushMessage.setAlias(iiVar.d());
@@ -55,17 +55,17 @@ public class PushMessageHelper {
         }
         if (hsVar != null) {
             if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
-                miPushMessage.setMessageId(hsVar.m392a());
+                miPushMessage.setMessageId(hsVar.m395a());
             }
             if (TextUtils.isEmpty(miPushMessage.getTopic())) {
-                miPushMessage.setTopic(hsVar.m397b());
+                miPushMessage.setTopic(hsVar.m400b());
             }
             miPushMessage.setDescription(hsVar.d());
-            miPushMessage.setTitle(hsVar.m400c());
+            miPushMessage.setTitle(hsVar.m403c());
             miPushMessage.setNotifyType(hsVar.a());
             miPushMessage.setNotifyId(hsVar.c());
             miPushMessage.setPassThrough(hsVar.b());
-            miPushMessage.setExtra(hsVar.m393a());
+            miPushMessage.setExtra(hsVar.m396a());
         }
         miPushMessage.setNotified(z);
         return miPushMessage;
@@ -126,7 +126,7 @@ public class PushMessageHelper {
         new PushServiceReceiver().onReceive(context, intent);
     }
 
-    public static void setPushMode(int i) {
-        pushMode = i;
+    public static void setPushMode(int i2) {
+        pushMode = i2;
     }
 }

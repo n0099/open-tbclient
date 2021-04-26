@@ -58,12 +58,12 @@ public final class HashingSource extends ForwardingSource {
                 j2 -= segment.limit - segment.pos;
             }
             while (j2 < buffer.size) {
-                int i = (int) ((segment.pos + j3) - j2);
+                int i2 = (int) ((segment.pos + j3) - j2);
                 MessageDigest messageDigest = this.messageDigest;
                 if (messageDigest != null) {
-                    messageDigest.update(segment.data, i, segment.limit - i);
+                    messageDigest.update(segment.data, i2, segment.limit - i2);
                 } else {
-                    this.mac.update(segment.data, i, segment.limit - i);
+                    this.mac.update(segment.data, i2, segment.limit - i2);
                 }
                 j3 = (segment.limit - segment.pos) + j2;
                 segment = segment.next;

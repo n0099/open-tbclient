@@ -11,7 +11,7 @@ import com.facebook.imagepipeline.listener.ForwardingRequestListener;
 import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ImagePerfMonitor {
     public boolean mEnabled;
     @Nullable
@@ -83,29 +83,29 @@ public class ImagePerfMonitor {
         }
     }
 
-    public void notifyListenersOfVisibilityStateUpdate(ImagePerfState imagePerfState, int i) {
+    public void notifyListenersOfVisibilityStateUpdate(ImagePerfState imagePerfState, int i2) {
         List<ImagePerfDataListener> list;
         if (!this.mEnabled || (list = this.mImagePerfDataListeners) == null || list.isEmpty()) {
             return;
         }
         ImagePerfData snapshot = imagePerfState.snapshot();
         for (ImagePerfDataListener imagePerfDataListener : this.mImagePerfDataListeners) {
-            imagePerfDataListener.onImageVisibilityUpdated(snapshot, i);
+            imagePerfDataListener.onImageVisibilityUpdated(snapshot, i2);
         }
     }
 
-    public void notifyStatusUpdated(ImagePerfState imagePerfState, int i) {
+    public void notifyStatusUpdated(ImagePerfState imagePerfState, int i2) {
         List<ImagePerfDataListener> list;
-        imagePerfState.setImageLoadStatus(i);
+        imagePerfState.setImageLoadStatus(i2);
         if (!this.mEnabled || (list = this.mImagePerfDataListeners) == null || list.isEmpty()) {
             return;
         }
-        if (i == 3) {
+        if (i2 == 3) {
             addViewportData();
         }
         ImagePerfData snapshot = imagePerfState.snapshot();
         for (ImagePerfDataListener imagePerfDataListener : this.mImagePerfDataListeners) {
-            imagePerfDataListener.onImageLoadStatusUpdated(snapshot, i);
+            imagePerfDataListener.onImageLoadStatusUpdated(snapshot, i2);
         }
     }
 

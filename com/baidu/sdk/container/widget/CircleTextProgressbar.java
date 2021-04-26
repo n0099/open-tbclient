@@ -9,13 +9,15 @@ import android.graphics.RectF;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import com.baidu.sdk.container.widget.AbsCountDownView;
-import d.b.d0.a.k.h;
+import d.a.d0.a.k.h;
 /* loaded from: classes2.dex */
 public class CircleTextProgressbar extends AbsCountDownView {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f11244h;
-    public int i;
+    public int f11058h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f11059i;
     public ColorStateList j;
     public int k;
     public int l;
@@ -38,17 +40,17 @@ public class CircleTextProgressbar extends AbsCountDownView {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f11245a;
+        public static final /* synthetic */ int[] f11060a;
 
         static {
             int[] iArr = new int[ProgressType.values().length];
-            f11245a = iArr;
+            f11060a = iArr;
             try {
                 iArr[ProgressType.COUNT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f11245a[ProgressType.COUNT_BACK.ordinal()] = 2;
+                f11060a[ProgressType.COUNT_BACK.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -71,23 +73,23 @@ public class CircleTextProgressbar extends AbsCountDownView {
 
     @Override // com.baidu.sdk.container.widget.AbsCountDownView
     public void d() {
-        int i = a.f11245a[this.r.ordinal()];
-        if (i == 1) {
+        int i2 = a.f11060a[this.r.ordinal()];
+        if (i2 == 1) {
             this.q++;
-        } else if (i == 2) {
+        } else if (i2 == 2) {
             this.q--;
         }
-        int i2 = this.q;
-        if (i2 >= 0 && i2 <= this.p) {
-            AbsCountDownView.b bVar = this.f11228f;
+        int i3 = this.q;
+        if (i3 >= 0 && i3 <= this.p) {
+            AbsCountDownView.b bVar = this.f11041f;
             if (bVar != null) {
-                bVar.onProgress(i2);
+                bVar.onProgress(i3);
             }
             postInvalidate();
             return;
         }
         this.q = i(this.q);
-        AbsCountDownView.b bVar2 = this.f11228f;
+        AbsCountDownView.b bVar2 = this.f11041f;
         if (bVar2 != null) {
             bVar2.onEnd();
         }
@@ -101,8 +103,8 @@ public class CircleTextProgressbar extends AbsCountDownView {
     }
 
     @Override // com.baidu.sdk.container.widget.AbsCountDownView
-    public void e(int i, int i2) {
-        this.q = (this.p * i2) / i;
+    public void e(int i2, int i3) {
+        this.q = (this.p * i3) / i2;
         invalidate();
     }
 
@@ -122,10 +124,10 @@ public class CircleTextProgressbar extends AbsCountDownView {
     }
 
     public final void g() {
-        int i = a.f11245a[this.r.ordinal()];
-        if (i == 1) {
+        int i2 = a.f11060a[this.r.ordinal()];
+        if (i2 == 1) {
             this.q = 0;
-        } else if (i != 2) {
+        } else if (i2 != 2) {
             this.q = 0;
         } else {
             this.q = this.p;
@@ -152,15 +154,15 @@ public class CircleTextProgressbar extends AbsCountDownView {
         }
     }
 
-    public final int i(int i) {
-        int i2 = this.p;
-        if (i > i2) {
-            return i2;
+    public final int i(int i2) {
+        int i3 = this.p;
+        if (i2 > i3) {
+            return i3;
         }
-        if (i < 0) {
+        if (i2 < 0) {
             return 0;
         }
-        return i;
+        return i2;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -169,11 +171,11 @@ public class CircleTextProgressbar extends AbsCountDownView {
         getDrawingRect(this.t);
         float width = (this.t.height() > this.t.width() ? this.t.width() : this.t.height()) / 2;
         this.n.setStyle(Paint.Style.FILL);
-        this.n.setColor(this.f11244h);
+        this.n.setColor(this.f11058h);
         this.n.setAlpha(127);
-        canvas.drawCircle(this.t.centerX(), this.t.centerY(), width - this.i, this.n);
+        canvas.drawCircle(this.t.centerX(), this.t.centerY(), width - this.f11059i, this.n);
         this.n.setStyle(Paint.Style.STROKE);
-        this.n.setColor(this.f11244h);
+        this.n.setColor(this.f11058h);
         this.n.setStrokeWidth(this.m);
         this.n.setStrokeCap(Paint.Cap.ROUND);
         this.n.setAlpha(204);
@@ -189,44 +191,44 @@ public class CircleTextProgressbar extends AbsCountDownView {
         this.n.setStrokeCap(Paint.Cap.ROUND);
         this.n.setAlpha(204);
         RectF rectF = this.o;
-        int i = this.t.left;
-        int i2 = this.m;
-        rectF.set(i + (i2 / 2), rect.top + (i2 / 2), rect.right - (i2 / 2), rect.bottom - (i2 / 2));
+        int i2 = this.t.left;
+        int i3 = this.m;
+        rectF.set(i2 + (i3 / 2), rect.top + (i3 / 2), rect.right - (i3 / 2), rect.bottom - (i3 / 2));
         canvas.drawArc(this.o, 270.0f, (this.q * 360) / this.p, false, this.n);
     }
 
-    public void setInCircleColor(int i) {
-        this.j = ColorStateList.valueOf(i);
+    public void setInCircleColor(int i2) {
+        this.j = ColorStateList.valueOf(i2);
         invalidate();
     }
 
-    public void setOutLineColor(int i) {
-        this.f11244h = i;
+    public void setOutLineColor(int i2) {
+        this.f11058h = i2;
         invalidate();
     }
 
-    public void setOutLineWidth(int i) {
-        this.i = i;
+    public void setOutLineWidth(int i2) {
+        this.f11059i = i2;
         invalidate();
     }
 
-    public void setProgress(int i) {
-        this.q = i(i);
+    public void setProgress(int i2) {
+        this.q = i(i2);
         invalidate();
     }
 
-    public void setProgressColor(int i) {
-        this.l = i;
+    public void setProgressColor(int i2) {
+        this.l = i2;
         invalidate();
     }
 
-    public void setProgressLineWidth(int i) {
-        this.m = i;
+    public void setProgressLineWidth(int i2) {
+        this.m = i2;
         invalidate();
     }
 
-    public void setProgressTotalPart(int i) {
-        this.p = i;
+    public void setProgressTotalPart(int i2) {
+        this.p = i2;
         g();
     }
 
@@ -246,10 +248,10 @@ public class CircleTextProgressbar extends AbsCountDownView {
         this(context, attributeSet, 0);
     }
 
-    public CircleTextProgressbar(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f11244h = -16777216;
-        this.i = 2;
+    public CircleTextProgressbar(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        this.f11058h = -16777216;
+        this.f11059i = 2;
         this.j = ColorStateList.valueOf(0);
         this.l = -16776961;
         this.m = 8;

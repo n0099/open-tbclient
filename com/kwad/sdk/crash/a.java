@@ -10,23 +10,23 @@ import java.util.concurrent.TimeUnit;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HandlerThread f34793a = null;
+    public static HandlerThread f33757a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f34794b = false;
+    public static volatile boolean f33758b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f34795c = false;
+    public static volatile boolean f33759c = false;
 
     public static void a() {
-        if (f34794b) {
+        if (f33758b) {
             return;
         }
-        f34794b = true;
+        f33758b = true;
         HandlerThread handlerThread = new HandlerThread("ex-uploader");
-        f34793a = handlerThread;
+        f33757a = handlerThread;
         handlerThread.start();
-        new Handler(f34793a.getLooper()).postDelayed(new Runnable() { // from class: com.kwad.sdk.crash.a.4
+        new Handler(f33757a.getLooper()).postDelayed(new Runnable() { // from class: com.kwad.sdk.crash.a.4
             @Override // java.lang.Runnable
             public void run() {
                 try {
@@ -35,20 +35,20 @@ public class a {
                 }
                 a.e();
             }
-        }, TimeUnit.SECONDS.toMillis(c.f34822f));
+        }, TimeUnit.SECONDS.toMillis(c.f33788f));
     }
 
     public static void a(@NonNull b bVar) {
-        if (bVar.f34805g == null || f34795c) {
+        if (bVar.f33769g == null || f33759c) {
             return;
         }
-        f34795c = true;
+        f33759c = true;
         try {
-            com.kwad.sdk.crash.utils.d.a(bVar.f34805g);
-            com.kwad.sdk.crash.a.a.a(bVar.f34805g, bVar.n);
+            com.kwad.sdk.crash.utils.d.a(bVar.f33769g);
+            com.kwad.sdk.crash.a.a.a(bVar.f33769g, bVar.n);
             d.a().a(bVar);
             d();
-            Thread.setDefaultUncaughtExceptionHandler(new com.kwad.sdk.crash.c.d(bVar.f34805g));
+            Thread.setDefaultUncaughtExceptionHandler(new com.kwad.sdk.crash.c.d(bVar.f33769g));
             a();
         } catch (Throwable unused) {
         }
@@ -72,8 +72,8 @@ public class a {
     public static void d() {
         com.kwad.sdk.crash.c.c.d().a(com.kwad.sdk.crash.a.a.b(), new e() { // from class: com.kwad.sdk.crash.a.2
             @Override // com.kwad.sdk.crash.e
-            public void a(int i, ExceptionMessage exceptionMessage) {
-                d.a().a(i, exceptionMessage);
+            public void a(int i2, ExceptionMessage exceptionMessage) {
+                d.a().a(i2, exceptionMessage);
             }
         }, new com.kwad.sdk.crash.report.a() { // from class: com.kwad.sdk.crash.a.3
             @Override // com.kwad.sdk.crash.report.c
@@ -85,11 +85,11 @@ public class a {
 
     public static void e() {
         try {
-            if (f34793a != null && f34793a.isAlive()) {
+            if (f33757a != null && f33757a.isAlive()) {
                 if (Build.VERSION.SDK_INT >= 18) {
-                    f34793a.quitSafely();
+                    f33757a.quitSafely();
                 } else {
-                    f34793a.quit();
+                    f33757a.quit();
                 }
             }
         } catch (Throwable unused) {

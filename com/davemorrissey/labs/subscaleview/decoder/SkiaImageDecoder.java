@@ -7,7 +7,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.text.TextUtils;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SkiaImageDecoder implements ImageDecoder {
     public static final String ASSET_PREFIX = "file:///android_asset/";
     public static final String FILE_PREFIX = "file://";
@@ -29,16 +29,16 @@ public class SkiaImageDecoder implements ImageDecoder {
             }
             List<String> pathSegments = uri.getPathSegments();
             int size = pathSegments.size();
-            int i = 0;
+            int i2 = 0;
             if (size == 2 && pathSegments.get(0).equals("drawable")) {
-                i = resourcesForApplication.getIdentifier(pathSegments.get(1), "drawable", authority);
+                i2 = resourcesForApplication.getIdentifier(pathSegments.get(1), "drawable", authority);
             } else if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
                 try {
-                    i = Integer.parseInt(pathSegments.get(0));
+                    i2 = Integer.parseInt(pathSegments.get(0));
                 } catch (NumberFormatException unused) {
                 }
             }
-            decodeStream = BitmapFactory.decodeResource(context.getResources(), i, options);
+            decodeStream = BitmapFactory.decodeResource(context.getResources(), i2, options);
         } else if (uri2.startsWith("file:///android_asset/")) {
             decodeStream = BitmapFactory.decodeStream(context.getAssets().open(uri2.substring(22)), null, options);
         } else if (uri2.startsWith("file://")) {

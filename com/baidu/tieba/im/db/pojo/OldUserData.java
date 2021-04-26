@@ -5,7 +5,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.data.IconData;
-import d.b.c.e.p.k;
+import d.a.c.e.p.k;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
@@ -45,12 +45,12 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
             return getIsGroupManager() || getIsGroupOwner();
         }
 
-        public void setIsGroupManager(int i) {
-            this.isGroupManager = i;
+        public void setIsGroupManager(int i2) {
+            this.isGroupManager = i2;
         }
 
-        public void setIsGroupOwner(int i) {
-            this.isGroupOwner = i;
+        public void setIsGroupOwner(int i2) {
+            this.isGroupOwner = i2;
         }
     }
 
@@ -157,8 +157,8 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
         this.position = str;
     }
 
-    public void setSex(int i) {
-        this.sex = i;
+    public void setSex(int i2) {
+        this.sex = i2;
     }
 
     public void setTShowInfo(ArrayList<IconData> arrayList) {

@@ -39,18 +39,18 @@ public class SkyDexFeedRequestParameters {
             return new SkyDexFeedRequestParameters(this);
         }
 
-        public final Builder downloadAppConfirmPolicy(int i) {
-            this.downloadAppConfirmPolicy = i;
+        public final Builder downloadAppConfirmPolicy(int i2) {
+            this.downloadAppConfirmPolicy = i2;
             return this;
         }
 
-        public final Builder setHeight(int i) {
-            this.height = i;
+        public final Builder setHeight(int i2) {
+            this.height = i2;
             return this;
         }
 
-        public final Builder setWidth(int i) {
-            this.width = i;
+        public final Builder setWidth(int i2) {
+            this.width = i2;
             return this;
         }
     }

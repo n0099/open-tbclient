@@ -29,8 +29,8 @@ public abstract class RichMediaMsg extends NormalMsg implements Parcelable, NoPr
         return this.mRemoteUrl;
     }
 
-    public void setProgress(int i) {
-        this.mProgress = i;
+    public void setProgress(int i2) {
+        this.mProgress = i2;
         notifySendProcess();
     }
 
@@ -39,8 +39,8 @@ public abstract class RichMediaMsg extends NormalMsg implements Parcelable, NoPr
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
+    public void writeToParcel(Parcel parcel, int i2) {
+        super.writeToParcel(parcel, i2);
         parcel.writeString(this.mRemoteUrl);
         parcel.writeInt(this.mProgress);
     }

@@ -31,14 +31,14 @@ public class PayConfig implements Serializable {
     public String paymentPosKey;
     public int tBeanNum;
 
-    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, String str5, String str6) {
+    public PayConfig(int i2, String str, String str2, String str3, String str4, boolean z, String str5, String str6) {
         this.mOrderName = "";
         this.mTitle = "";
         this.mOrderInfo = "";
         this.paymentPosKey = "";
         this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
         this.isFromDecreaseGiftStepStrategy = 0;
-        this.mPayType = i;
+        this.mPayType = i2;
         this.mIsLeft = str;
         this.mPropsId = str2;
         this.mMoney = str3;
@@ -100,16 +100,16 @@ public class PayConfig implements Serializable {
         return this.mIsPay;
     }
 
-    public void setAutoPay(int i) {
-        this.isAutoPay = i;
+    public void setAutoPay(int i2) {
+        this.isAutoPay = i2;
     }
 
-    public void setFrom(int i) {
-        this.mFrom = i;
+    public void setFrom(int i2) {
+        this.mFrom = i2;
     }
 
-    public void setFromDecreaseGiftStepStrategy(int i) {
-        this.isFromDecreaseGiftStepStrategy = i;
+    public void setFromDecreaseGiftStepStrategy(int i2) {
+        this.isFromDecreaseGiftStepStrategy = i2;
     }
 
     public void setIsLeft(String str) {
@@ -128,8 +128,8 @@ public class PayConfig implements Serializable {
         this.mOrderName = str;
     }
 
-    public void setPayType(int i) {
-        this.mPayType = i;
+    public void setPayType(int i2) {
+        this.mPayType = i2;
     }
 
     public void setPropsId(String str) {
@@ -140,15 +140,15 @@ public class PayConfig implements Serializable {
         this.mPropsMon = str;
     }
 
-    public void setTBeanNum(int i) {
-        this.tBeanNum = i;
+    public void setTBeanNum(int i2) {
+        this.tBeanNum = i2;
     }
 
     public void setTitle(String str) {
         this.mTitle = str;
     }
 
-    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, boolean z2, PageDialogHelper.PayForm payForm, String str5, String str6) {
+    public PayConfig(int i2, String str, String str2, String str3, String str4, boolean z, boolean z2, PageDialogHelper.PayForm payForm, String str5, String str6) {
         this.mOrderName = "";
         this.mTitle = "";
         this.mOrderInfo = "";
@@ -156,7 +156,7 @@ public class PayConfig implements Serializable {
         PageDialogHelper.PayForm payForm2 = PageDialogHelper.PayForm.NOT_SET;
         this.mPayForm = payForm2;
         this.isFromDecreaseGiftStepStrategy = 0;
-        this.mPayType = i;
+        this.mPayType = i2;
         this.mIsLeft = str;
         this.mPropsId = str2;
         this.mMoney = str3;
@@ -174,14 +174,14 @@ public class PayConfig implements Serializable {
         }
     }
 
-    public PayConfig(int i, String str, String str2, String str3, String str4, boolean z, String str5, boolean z2, PageDialogHelper.PayForm payForm, String str6, String str7) {
+    public PayConfig(int i2, String str, String str2, String str3, String str4, boolean z, String str5, boolean z2, PageDialogHelper.PayForm payForm, String str6, String str7) {
         this.mOrderName = "";
         this.mTitle = "";
         this.mOrderInfo = "";
         this.paymentPosKey = "";
         this.mPayForm = PageDialogHelper.PayForm.NOT_SET;
         this.isFromDecreaseGiftStepStrategy = 0;
-        this.mPayType = i;
+        this.mPayType = i2;
         this.mIsLeft = str;
         this.mPropsId = str2;
         this.mMoney = str3;

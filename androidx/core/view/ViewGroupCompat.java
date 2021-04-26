@@ -41,9 +41,9 @@ public final class ViewGroupCompat {
         return viewGroup.onRequestSendAccessibilityEvent(view, accessibilityEvent);
     }
 
-    public static void setLayoutMode(@NonNull ViewGroup viewGroup, int i) {
+    public static void setLayoutMode(@NonNull ViewGroup viewGroup, int i2) {
         if (Build.VERSION.SDK_INT >= 18) {
-            viewGroup.setLayoutMode(i);
+            viewGroup.setLayoutMode(i2);
         }
     }
 

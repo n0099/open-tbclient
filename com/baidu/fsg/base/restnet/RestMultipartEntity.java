@@ -26,7 +26,7 @@ public class RestMultipartEntity {
     public RestMultipartEntity() {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
-        for (int i = 0; i < 30; i++) {
+        for (int i2 = 0; i2 < 30; i2++) {
             char[] cArr = MULTIPART_CHARS;
             sb.append(cArr[random.nextInt(cArr.length)]);
         }
@@ -137,9 +137,9 @@ public class RestMultipartEntity {
         }
 
         @Override // java.io.FilterOutputStream, java.io.OutputStream
-        public void write(byte[] bArr, int i, int i2) throws IOException {
-            ((FilterOutputStream) this).out.write(bArr, i, i2);
-            long j = this.transferred + i2;
+        public void write(byte[] bArr, int i2, int i3) throws IOException {
+            ((FilterOutputStream) this).out.write(bArr, i2, i3);
+            long j = this.transferred + i3;
             this.transferred = j;
             ProgressListener progressListener = this.listener;
             if (progressListener != null) {
@@ -148,8 +148,8 @@ public class RestMultipartEntity {
         }
 
         @Override // java.io.FilterOutputStream, java.io.OutputStream
-        public void write(int i) throws IOException {
-            ((FilterOutputStream) this).out.write(i);
+        public void write(int i2) throws IOException {
+            ((FilterOutputStream) this).out.write(i2);
             long j = this.transferred + 1;
             this.transferred = j;
             ProgressListener progressListener = this.listener;

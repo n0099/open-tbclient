@@ -13,11 +13,11 @@ public class GroupActivityActivityConfig extends IntentConfig {
     public static final int FROM_GROUP_UPDATE = 1;
     public static final String GROUP_ID = "group_id";
 
-    public GroupActivityActivityConfig(Context context, int i, long j, int i2) {
+    public GroupActivityActivityConfig(Context context, int i2, long j, int i3) {
         super(context);
-        getIntent().putExtra("activity_id", i);
+        getIntent().putExtra("activity_id", i2);
         getIntent().putExtra("group_id", j);
-        getIntent().putExtra("from", i2);
+        getIntent().putExtra("from", i3);
         if (context instanceof Activity) {
             return;
         }

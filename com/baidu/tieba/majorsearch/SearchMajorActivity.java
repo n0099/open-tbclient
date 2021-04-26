@@ -6,7 +6,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.majorsearch.model.SearchMajorModel;
-import d.b.j0.p1.b.a;
+import d.a.j0.p1.b.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> implements SearchMajorModel.b {
@@ -19,11 +19,11 @@ public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> imple
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
+    public void onChangeSkinType(int i2) {
+        super.onChangeSkinType(i2);
         a aVar = this.mController;
         if (aVar != null) {
-            aVar.i(i);
+            aVar.i(i2);
         }
     }
 

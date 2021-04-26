@@ -9,15 +9,15 @@ import java.nio.charset.Charset;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile e f34252a;
+    public static volatile e f33221a;
 
     public static synchronized e a() {
         e eVar;
         synchronized (e.class) {
-            if (f34252a == null) {
-                f34252a = new e();
+            if (f33221a == null) {
+                f33221a = new e();
             }
-            eVar = f34252a;
+            eVar = f33221a;
         }
         return eVar;
     }
@@ -25,7 +25,7 @@ public class e {
     @WorkerThread
     private void b(String str) {
         try {
-            com.kwad.sdk.utils.k.a(new File(d()), str, Charset.forName("UTF-8"), false);
+            com.kwad.sdk.utils.l.a(new File(d()), str, Charset.forName("UTF-8"), false);
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }
@@ -35,7 +35,7 @@ public class e {
     @WorkerThread
     private String c() {
         try {
-            return com.kwad.sdk.utils.k.a(new File(d()), Charset.forName("UTF-8"));
+            return com.kwad.sdk.utils.l.a(new File(d()), Charset.forName("UTF-8"));
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
             return null;

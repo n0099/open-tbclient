@@ -60,29 +60,31 @@ import java.util.Map;
 public class SecurityCenterActivity extends PayBaseBeanActivity implements View.OnClickListener, BaiduPay.IBindCardCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f25912a;
+    public int f26699a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f25913b;
+    public LinearLayout f26700b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f25914c;
+    public RelativeLayout f26701c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f25915d;
+    public RelativeLayout f26702d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f25916e;
+    public RelativeLayout f26703e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f25917f;
+    public RelativeLayout f26704f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f25918g;
+    public RelativeLayout f26705g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f25919h;
-    public RelativeLayout i;
+    public TextView f26706h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public RelativeLayout f26707i;
     public TextView j;
     public RelativeLayout k;
     public RelativeLayout l;
@@ -163,17 +165,17 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleFailure(int i, int i2, String str) {
+    public void handleFailure(int i2, int i3, String str) {
         WalletGlobalUtils.safeDismissDialog(this, -1);
-        if (i2 == 5003) {
+        if (i3 == 5003) {
             return;
         }
-        if (i == 6) {
-            if (i2 == 100035 || i2 == 100036) {
-                PassUtil.passNormalized(getActivity(), str, i2 == 100036 ? 2 : 1, new PassUtil.PassNormalize() { // from class: com.baidu.wallet.paysdk.ui.SecurityCenterActivity.8
+        if (i2 == 6) {
+            if (i3 == 100035 || i3 == 100036) {
+                PassUtil.passNormalized(getActivity(), str, i3 == 100036 ? 2 : 1, new PassUtil.PassNormalize() { // from class: com.baidu.wallet.paysdk.ui.SecurityCenterActivity.8
                     @Override // com.baidu.wallet.core.utils.PassUtil.PassNormalize, com.baidu.wallet.core.utils.PassUtil.IPassNormalize
-                    public boolean onNormalize(Context context, int i3, Map<String, String> map) {
-                        if (super.onNormalize(context, i3, map)) {
+                    public boolean onNormalize(Context context, int i4, Map<String, String> map) {
+                        if (super.onNormalize(context, i4, map)) {
                             SecurityCenterActivity.this.d();
                             return false;
                         }
@@ -183,17 +185,17 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
                 });
                 return;
             }
-        } else if (i == 1) {
+        } else if (i2 == 1) {
             a(false);
         }
-        super.handleFailure(i, i2, str);
+        super.handleFailure(i2, i3, str);
     }
 
     @Override // com.baidu.wallet.core.beans.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
+    public void handleResponse(int i2, Object obj, String str) {
         UserData.UserModel userModel;
         WalletGlobalUtils.safeDismissDialog(this, -1);
-        if (i == 6) {
+        if (i2 == 6) {
             DirectPayContentResponse directPayContentResponse = (DirectPayContentResponse) obj;
             this.q = directPayContentResponse;
             if (directPayContentResponse != null && (userModel = directPayContentResponse.user) != null && userModel.hasMobilePwd()) {
@@ -207,7 +209,7 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
             }
             PasswordController.getPassWordInstance().setPasswdByUser(getActivity(), this);
             this.w = true;
-        } else if (i != 1 || obj == null) {
+        } else if (i2 != 1 || obj == null) {
         } else {
             AuthStateResponse authStateResponse = (AuthStateResponse) obj;
             this.r = authStateResponse;
@@ -232,10 +234,10 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i2, int i3, Intent intent) {
         DirectPayContentResponse payResponse;
-        super.onActivityResult(i, i2, intent);
-        if (i != 40969 || i2 != -1 || intent == null || intent.getExtras() == null || !intent.getExtras().getBoolean("reload_userinfo") || (payResponse = PayDataCache.getInstance().getPayResponse()) == null) {
+        super.onActivityResult(i2, i3, intent);
+        if (i2 != 40969 || i3 != -1 || intent == null || intent.getExtras() == null || !intent.getExtras().getBoolean("reload_userinfo") || (payResponse = PayDataCache.getInstance().getPayResponse()) == null) {
             return;
         }
         this.q = payResponse;
@@ -258,16 +260,16 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
     public void onClick(View view) {
         AuthStateResponse.AccountInfo accountInfo;
         AuthStateResponse.SignPay signPay;
-        if (view.getId() == this.i.getId()) {
+        if (view.getId() == this.f26707i.getId()) {
             PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_SECURITY_CLICK_ITEM, "NFC");
             LocalRouter.getInstance(this.mAct).route(this.mAct, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_NFC).action("nfcsetting").data("withAnim", Boolean.FALSE.toString()), new RouterCallback() { // from class: com.baidu.wallet.paysdk.ui.SecurityCenterActivity.3
                 @Override // com.baidu.wallet.router.RouterCallback
-                public void onResult(int i, HashMap hashMap) {
-                    if (i == 5) {
+                public void onResult(int i2, HashMap hashMap) {
+                    if (i2 == 5) {
                         HashMap hashMap2 = new HashMap();
                         hashMap2.put("provider", BaiduWalletServiceProviderMap.PLUGIN_NFC);
                         hashMap2.put("action", "nfcsetting");
-                        StatisticManager.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i, hashMap2.values());
+                        StatisticManager.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
                     }
                 }
             });
@@ -279,11 +281,11 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
                 PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_SECURITY_CLICK_ITEM, "PWD");
                 getLoginPresent().a(getActivity(), new LoginBackListenerProxy(getActivity(), new ILoginBackListener() { // from class: com.baidu.wallet.paysdk.ui.SecurityCenterActivity.4
                     @Override // com.baidu.wallet.api.ILoginBackListener
-                    public void onFail(int i, String str) {
+                    public void onFail(int i2, String str) {
                     }
 
                     @Override // com.baidu.wallet.api.ILoginBackListener
-                    public void onSuccess(int i, String str) {
+                    public void onSuccess(int i2, String str) {
                         SecurityCenterActivity.this.v = 1;
                         SecurityCenterActivity.this.d();
                     }
@@ -292,22 +294,22 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
                 PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_SECURITY_CLICK_ITEM, "PaySetting");
                 getLoginPresent().a(getActivity(), new LoginBackListenerProxy(getActivity(), new ILoginBackListener() { // from class: com.baidu.wallet.paysdk.ui.SecurityCenterActivity.5
                     @Override // com.baidu.wallet.api.ILoginBackListener
-                    public void onFail(int i, String str) {
+                    public void onFail(int i2, String str) {
                     }
 
                     @Override // com.baidu.wallet.api.ILoginBackListener
-                    public void onSuccess(int i, String str) {
+                    public void onSuccess(int i2, String str) {
                         SecurityCenterActivity.this.startActivity(new Intent(SecurityCenterActivity.this.getActivity(), PaySettingActivity.class));
                     }
                 }));
             } else if (f() && view.getId() == ResUtils.id(getActivity(), "security_protection_layout")) {
                 PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_SECURITY_CLICK_ITEM, "WeiShi");
-                int i = this.f25912a;
-                if (i == 1) {
+                int i2 = this.f26699a;
+                if (i2 == 1) {
                     WalletGlobalUtils.safeShowDialog(this, 3, getText(ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_message_install")).toString());
-                } else if (i == 2) {
+                } else if (i2 == 2) {
                     WalletGlobalUtils.safeShowDialog(this, 3, getText(ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_message_update")).toString());
-                } else if (i != 3) {
+                } else if (i2 != 3) {
                 } else {
                     g();
                 }
@@ -336,8 +338,8 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
                 if (this.z == null) {
                     this.z = new LoginBackListenerProxy(getActivity(), new ILoginBackListener() { // from class: com.baidu.wallet.paysdk.ui.SecurityCenterActivity.6
                         @Override // com.baidu.wallet.api.ILoginBackListener
-                        public void onFail(int i2, String str) {
-                            if (i2 == 603) {
+                        public void onFail(int i3, String str) {
+                            if (i3 == 603) {
                                 WalletLoginHelper.getInstance().onlyLogin(SecurityCenterActivity.this.z);
                             } else {
                                 SecurityCenterActivity.this.x = false;
@@ -345,7 +347,7 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
                         }
 
                         @Override // com.baidu.wallet.api.ILoginBackListener
-                        public void onSuccess(int i2, String str) {
+                        public void onSuccess(int i3, String str) {
                         }
                     });
                 }
@@ -357,8 +359,8 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
                 StatisticManager.onEvent(PayStatServiceEvent.PAY_SECURITY_RNAUTH_ENTER);
                 BaiduPayDelegate.getInstance().doRNAuth(getActivity(), hashMap, new RNAuthCallBack() { // from class: com.baidu.wallet.paysdk.ui.SecurityCenterActivity.7
                     @Override // com.baidu.wallet.rnauth.RNAuthCallBack
-                    public void onRNAuthResult(int i2, String str) {
-                        StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_SECURITY_RNAUTH_RESULT, StatHelper.collectData(i2 + "", str));
+                    public void onRNAuthResult(int i3, String str) {
+                        StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_SECURITY_RNAUTH_RESULT, StatHelper.collectData(i3 + "", str));
                         SecurityCenterActivity.this.i();
                         SecurityCenterActivity.this.x = false;
                     }
@@ -393,7 +395,7 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(ResUtils.layout(getActivity(), "wallet_cashdesk_securitycenter_activity"));
@@ -420,15 +422,15 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, android.app.Activity
-    public void onPrepareDialog(int i, Dialog dialog) {
-        if (f() && i == 3) {
+    public void onPrepareDialog(int i2, Dialog dialog) {
+        if (f() && i2 == 3) {
             PayStatisticsUtil.onEvent(StatServiceEvent.SECURITY_PROTECTION_PROMPT);
             PromptDialog promptDialog = (PromptDialog) dialog;
             promptDialog.setCanceledOnTouchOutside(false);
             promptDialog.setCancelable(true);
             int string = ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_message_install");
             int string2 = ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_install");
-            if (2 == this.f25912a) {
+            if (2 == this.f26699a) {
                 string = ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_message_update");
                 string2 = ResUtils.string(getActivity(), "bd_wallet_pay_security_protection_update");
             }
@@ -449,7 +451,7 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
             });
             return;
         }
-        super.onPrepareDialog(i, dialog);
+        super.onPrepareDialog(i2, dialog);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -476,28 +478,28 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
 
     private void b() {
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_pay_setting"));
-        this.f25914c = relativeLayout;
+        this.f26701c = relativeLayout;
         relativeLayout.setOnClickListener(this);
-        this.f25913b = (LinearLayout) findViewById(ResUtils.id(getActivity(), "security_item_layout"));
+        this.f26700b = (LinearLayout) findViewById(ResUtils.id(getActivity(), "security_item_layout"));
         RelativeLayout relativeLayout2 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_mobile_pwd_layout"));
-        this.f25915d = relativeLayout2;
+        this.f26702d = relativeLayout2;
         relativeLayout2.setOnClickListener(this);
         RelativeLayout relativeLayout3 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_sign_state_layout"));
-        this.f25916e = relativeLayout3;
+        this.f26703e = relativeLayout3;
         relativeLayout3.setOnClickListener(this);
         RelativeLayout relativeLayout4 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_account_info_layout"));
-        this.f25917f = relativeLayout4;
+        this.f26704f = relativeLayout4;
         relativeLayout4.setOnClickListener(this);
         RelativeLayout relativeLayout5 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_protection_layout"));
-        this.f25918g = relativeLayout5;
+        this.f26705g = relativeLayout5;
         relativeLayout5.setOnClickListener(this);
-        this.f25919h = (TextView) findViewById(ResUtils.id(getActivity(), "security_protection_status"));
+        this.f26706h = (TextView) findViewById(ResUtils.id(getActivity(), "security_protection_status"));
         RelativeLayout relativeLayout6 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_auth_layout"));
         this.t = relativeLayout6;
         relativeLayout6.setOnClickListener(this);
         this.s = (TextView) findViewById(ResUtils.id(getActivity(), "security_auth_status"));
         RelativeLayout relativeLayout7 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "nfc_setting_layout"));
-        this.i = relativeLayout7;
+        this.f26707i = relativeLayout7;
         relativeLayout7.setOnClickListener(this);
         this.j = (TextView) findViewById(ResUtils.id(getActivity(), "nfc_setting_status"));
         RelativeLayout relativeLayout8 = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "security_tips_layout"));
@@ -518,37 +520,37 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
             if (TextUtils.isEmpty(BeanConstants.VERSION_NO)) {
                 return;
             }
-            int i = 0;
             int i2 = 0;
+            int i3 = 0;
             while (true) {
-                if (i >= BeanConstants.VERSION_NO.length()) {
-                    i = 0;
+                if (i2 >= BeanConstants.VERSION_NO.length()) {
+                    i2 = 0;
                     break;
-                } else if (BeanConstants.VERSION_NO.charAt(i) == '.' && (i2 = i2 + 1) >= 3) {
+                } else if (BeanConstants.VERSION_NO.charAt(i2) == '.' && (i3 = i3 + 1) >= 3) {
                     break;
                 } else {
-                    i++;
+                    i2++;
                 }
             }
-            if (i > 0) {
-                str = BeanConstants.VERSION_NO.substring(0, i);
+            if (i2 > 0) {
+                str = BeanConstants.VERSION_NO.substring(0, i2);
             }
             textView.setText("v" + str);
         }
     }
 
     private void c() {
-        this.f25914c.setVisibility(0);
-        this.f25913b.setVisibility(0);
-        this.f25915d.setVisibility(0);
+        this.f26701c.setVisibility(0);
+        this.f26700b.setVisibility(0);
+        this.f26702d.setVisibility(0);
         this.k.setVisibility(0);
         this.l.setVisibility(0);
         this.m.setVisibility(0);
         boolean f2 = f();
-        this.f25918g.setVisibility(f2 ? 0 : 8);
+        this.f26705g.setVisibility(f2 ? 0 : 8);
         findViewById(ResUtils.id(getActivity(), "security_protection_inner_divider")).setVisibility(f2 ? 0 : 8);
         boolean isWalletNFCSurport = NFCUtil.getInstance().isWalletNFCSurport(getActivity());
-        this.i.setVisibility(isWalletNFCSurport ? 0 : 8);
+        this.f26707i.setVisibility(isWalletNFCSurport ? 0 : 8);
         findViewById(ResUtils.id(getActivity(), "nfc_setting_divider")).setVisibility(isWalletNFCSurport ? 0 : 8);
     }
 
@@ -562,11 +564,11 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
 
     private void a() {
         int e2 = e();
-        this.f25912a = e2;
+        this.f26699a = e2;
         if (3 == e2) {
-            this.f25919h.setText(ResUtils.string(getActivity(), "bd_wallet_enabled"));
+            this.f26706h.setText(ResUtils.string(getActivity(), "bd_wallet_enabled"));
         } else {
-            this.f25919h.setText(ResUtils.string(getActivity(), "bd_wallet_disabled"));
+            this.f26706h.setText(ResUtils.string(getActivity(), "bd_wallet_disabled"));
         }
     }
 
@@ -584,20 +586,20 @@ public class SecurityCenterActivity extends PayBaseBeanActivity implements View.
     }
 
     private void a(boolean z) {
-        if (this.f25916e == null) {
+        if (this.f26703e == null) {
             return;
         }
-        int i = z ? 0 : 8;
-        this.n.setVisibility(i);
-        this.f25916e.setVisibility(i);
+        int i2 = z ? 0 : 8;
+        this.n.setVisibility(i2);
+        this.f26703e.setVisibility(i2);
     }
 
     private void b(boolean z) {
-        if (this.f25917f == null) {
+        if (this.f26704f == null) {
             return;
         }
-        int i = z ? 0 : 8;
-        this.o.setVisibility(i);
-        this.f25917f.setVisibility(i);
+        int i2 = z ? 0 : 8;
+        this.o.setVisibility(i2);
+        this.f26704f.setVisibility(i2);
     }
 }

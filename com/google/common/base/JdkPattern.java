@@ -1,8 +1,8 @@
 package com.google.common.base;
 
-import d.h.c.a.d;
-import d.h.c.a.e;
-import d.h.c.a.n;
+import d.g.c.a.d;
+import d.g.c.a.e;
+import d.g.c.a.n;
 import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,16 +15,16 @@ public final class JdkPattern extends e implements Serializable {
     public static final class a extends d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Matcher f30684a;
+        public final Matcher f31621a;
 
         public a(Matcher matcher) {
             n.p(matcher);
-            this.f30684a = matcher;
+            this.f31621a = matcher;
         }
 
-        @Override // d.h.c.a.d
+        @Override // d.g.c.a.d
         public boolean a() {
-            return this.f30684a.find();
+            return this.f31621a.find();
         }
     }
 
@@ -33,22 +33,22 @@ public final class JdkPattern extends e implements Serializable {
         this.pattern = pattern;
     }
 
-    @Override // d.h.c.a.e
+    @Override // d.g.c.a.e
     public int flags() {
         return this.pattern.flags();
     }
 
-    @Override // d.h.c.a.e
+    @Override // d.g.c.a.e
     public d matcher(CharSequence charSequence) {
         return new a(this.pattern.matcher(charSequence));
     }
 
-    @Override // d.h.c.a.e
+    @Override // d.g.c.a.e
     public String pattern() {
         return this.pattern.pattern();
     }
 
-    @Override // d.h.c.a.e
+    @Override // d.g.c.a.e
     public String toString() {
         return this.pattern.toString();
     }

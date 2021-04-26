@@ -37,7 +37,7 @@ public class WebAddress {
         throw new RuntimeException("Stub!");
     }
 
-    public void setPort(int i) {
+    public void setPort(int i2) {
         throw new RuntimeException("Stub!");
     }
 

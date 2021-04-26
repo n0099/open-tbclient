@@ -17,10 +17,10 @@ import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
-import d.b.c.c.g.c;
-import d.b.i0.z0.f0;
-import d.b.i0.z0.h0;
-import d.b.j0.e1.k.b;
+import d.a.c.c.g.c;
+import d.a.i0.z0.f0;
+import d.a.i0.z0.h0;
+import d.a.j0.e1.k.b;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -155,9 +155,9 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
         h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.b.i0.z0.f0
+            @Override // d.a.i0.z0.f0
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.b.j0.e1.h.c.h().c(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                return Boolean.valueOf(d.a.j0.e1.h.c.h().c(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
             }
         }, null);
     }
@@ -182,9 +182,9 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
         h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.b.i0.z0.f0
+            @Override // d.a.i0.z0.f0
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.b.j0.e1.h.c.h().m(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
+                return Boolean.valueOf(d.a.j0.e1.h.c.h().m(String.valueOf(CommonGroupMsglistModel.this.mGroup.getGroupId()), String.valueOf(chatMessage.getMsgId())));
             }
         }, null);
     }

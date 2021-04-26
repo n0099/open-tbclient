@@ -16,17 +16,19 @@ import androidx.recyclerview.widget.RecyclerView;
 public class PullLeftRefreshLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public RecyclerView f13832e;
+    public RecyclerView f13850e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.b1.h.a f13833f;
+    public d.a.i0.b1.h.a f13851f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f13834g;
+    public View f13852g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13835h;
-    public int i;
+    public int f13853h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public int f13854i;
     public int j;
     public int k;
     public float l;
@@ -44,21 +46,21 @@ public class PullLeftRefreshLayout extends FrameLayout {
     public class a extends RecyclerView.OnScrollListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f13836a;
+        public int f13855a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f13837b = true;
+        public boolean f13856b = true;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f13838c = 0;
+        public int f13857c = 0;
 
         /* renamed from: d  reason: collision with root package name */
-        public ValueAnimator f13839d;
+        public ValueAnimator f13858d;
 
         /* renamed from: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0182a implements ValueAnimator.AnimatorUpdateListener {
-            public C0182a() {
+        public class C0177a implements ValueAnimator.AnimatorUpdateListener {
+            public C0177a() {
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -87,33 +89,33 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
-            this.f13836a = i;
-            if (PullLeftRefreshLayout.this.t && this.f13836a == 0 && !this.f13837b) {
-                ValueAnimator valueAnimator = this.f13839d;
+        public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i2) {
+            this.f13855a = i2;
+            if (PullLeftRefreshLayout.this.t && this.f13855a == 0 && !this.f13856b) {
+                ValueAnimator valueAnimator = this.f13858d;
                 if (valueAnimator != null) {
                     valueAnimator.cancel();
                 }
-                int i2 = (int) (PullLeftRefreshLayout.this.l - 1.0f);
-                if (this.f13838c > i2) {
-                    this.f13838c = i2;
+                int i3 = (int) (PullLeftRefreshLayout.this.l - 1.0f);
+                if (this.f13857c > i3) {
+                    this.f13857c = i3;
                 }
-                ValueAnimator ofInt = ValueAnimator.ofInt(this.f13838c, 0);
-                this.f13839d = ofInt;
+                ValueAnimator ofInt = ValueAnimator.ofInt(this.f13857c, 0);
+                this.f13858d = ofInt;
                 ofInt.setDuration(100L);
-                this.f13839d.addUpdateListener(new C0182a());
-                this.f13839d.addListener(new b());
-                this.f13839d.start();
+                this.f13858d.addUpdateListener(new C0177a());
+                this.f13858d.addListener(new b());
+                this.f13858d.start();
             }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
-            this.f13838c = i;
-            if (!recyclerView.canScrollHorizontally(1) && i > 0) {
-                this.f13837b = false;
+        public void onScrolled(@NonNull RecyclerView recyclerView, int i2, int i3) {
+            this.f13857c = i2;
+            if (!recyclerView.canScrollHorizontally(1) && i2 > 0) {
+                this.f13856b = false;
             } else {
-                this.f13837b = true;
+                this.f13856b = true;
             }
         }
     }
@@ -204,22 +206,22 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setTranslationStatus(float f2) {
-        RecyclerView recyclerView = this.f13832e;
+        RecyclerView recyclerView = this.f13850e;
         if (recyclerView != null) {
             recyclerView.setTranslationX(f2);
         }
-        View view = this.f13834g;
+        View view = this.f13852g;
         if (view != null) {
-            view.setTranslationX(this.i + f2);
+            view.setTranslationX(this.f13854i + f2);
         }
     }
 
     public boolean e() {
-        return ViewCompat.canScrollHorizontally(this.f13832e, 1);
+        return ViewCompat.canScrollHorizontally(this.f13850e, 1);
     }
 
     public final void f() {
-        this.f13835h = 0;
+        this.f13853h = 0;
         this.r = 0.0f;
         setTranslationStatus(0.0f);
     }
@@ -249,9 +251,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
         this.m.addUpdateListener(new b());
         this.m.addListener(new c());
         this.m.start();
-        View view = this.f13834g;
+        View view = this.f13852g;
         if (view != null) {
-            this.f13833f.b(view);
+            this.f13851f.b(view);
         }
     }
 
@@ -266,16 +268,16 @@ public class PullLeftRefreshLayout extends FrameLayout {
         this.n.addUpdateListener(new d());
         this.n.addListener(new e());
         this.n.start();
-        View view = this.f13834g;
+        View view = this.f13852g;
         if (view != null) {
-            this.f13833f.b(view);
+            this.f13851f.b(view);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        RecyclerView recyclerView = this.f13832e;
+        RecyclerView recyclerView = this.f13850e;
         if (recyclerView != null) {
             recyclerView.addOnScrollListener(this.u);
         }
@@ -284,7 +286,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        RecyclerView recyclerView = this.f13832e;
+        RecyclerView recyclerView = this.f13850e;
         if (recyclerView != null) {
             recyclerView.removeOnScrollListener(this.u);
         }
@@ -293,11 +295,11 @@ public class PullLeftRefreshLayout extends FrameLayout {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        for (int i = 0; i < getChildCount(); i++) {
-            View childAt = getChildAt(i);
+        for (int i2 = 0; i2 < getChildCount(); i2++) {
+            View childAt = getChildAt(i2);
             if (childAt instanceof RecyclerView) {
                 RecyclerView recyclerView = (RecyclerView) childAt;
-                this.f13832e = recyclerView;
+                this.f13850e = recyclerView;
                 if (recyclerView != null) {
                     recyclerView.addOnScrollListener(this.u);
                 }
@@ -319,18 +321,18 @@ public class PullLeftRefreshLayout extends FrameLayout {
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    int i = x - this.o;
+                    int i2 = x - this.o;
                     this.o = x;
                     this.q = x;
                     this.p = y;
-                    if (Math.abs(i) > Math.abs(y - this.p) && this.t && i < 0 && !e() && this.f13835h == 0) {
+                    if (Math.abs(i2) > Math.abs(y - this.p) && this.t && i2 < 0 && !e() && this.f13853h == 0) {
                         if (getParent() != null) {
                             getParent().requestDisallowInterceptTouchEvent(true);
                         }
-                        this.f13835h = 2;
-                        d.b.i0.b1.h.a aVar = this.f13833f;
+                        this.f13853h = 2;
+                        d.a.i0.b1.h.a aVar = this.f13851f;
                         if (aVar != null) {
-                            aVar.b(this.f13834g);
+                            aVar.b(this.f13852g);
                         }
                         return true;
                     }
@@ -347,23 +349,23 @@ public class PullLeftRefreshLayout extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.f13835h == 0) {
-            this.f13834g.setTranslationX(this.i);
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        if (this.f13853h == 0) {
+            this.f13852g.setTranslationX(this.f13854i);
         }
-        super.onLayout(z, i, i2, i3, i4);
+        super.onLayout(z, i2, i3, i4, i5);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        View view = this.f13834g;
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        View view = this.f13852g;
         if (view != null) {
             int measuredWidth = view.getMeasuredWidth();
-            this.i = measuredWidth;
-            int i3 = measuredWidth * 2;
-            this.k = i3;
-            this.j = i3 + measuredWidth;
+            this.f13854i = measuredWidth;
+            int i4 = measuredWidth * 2;
+            this.k = i4;
+            this.j = i4 + measuredWidth;
             this.l = measuredWidth;
         }
     }
@@ -385,45 +387,45 @@ public class PullLeftRefreshLayout extends FrameLayout {
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    int i = x - this.q;
+                    int i2 = x - this.q;
                     this.q = x;
-                    float abs = this.r + (i * (1.0f - Math.abs(this.r / this.j)));
+                    float abs = this.r + (i2 * (1.0f - Math.abs(this.r / this.j)));
                     this.r = abs;
                     if (abs >= 0.0f) {
                         this.r = 0.0f;
-                        this.f13832e.setTranslationX(0.0f);
-                        d.b.i0.b1.h.a aVar = this.f13833f;
+                        this.f13850e.setTranslationX(0.0f);
+                        d.a.i0.b1.h.a aVar = this.f13851f;
                         if (aVar != null) {
-                            aVar.b(this.f13834g);
+                            aVar.b(this.f13852g);
                         }
                     } else {
-                        int i2 = this.j;
-                        if (abs <= (-i2)) {
-                            float f2 = -i2;
+                        int i3 = this.j;
+                        if (abs <= (-i3)) {
+                            float f2 = -i3;
                             this.r = f2;
-                            this.f13832e.setTranslationX(f2);
-                            d.b.i0.b1.h.a aVar2 = this.f13833f;
+                            this.f13850e.setTranslationX(f2);
+                            d.a.i0.b1.h.a aVar2 = this.f13851f;
                             if (aVar2 != null) {
-                                aVar2.a(this.f13834g);
+                                aVar2.a(this.f13852g);
                             }
                         } else {
-                            this.f13832e.setTranslationX(abs);
+                            this.f13850e.setTranslationX(abs);
                             if (Math.abs(this.r) > this.l) {
-                                d.b.i0.b1.h.a aVar3 = this.f13833f;
+                                d.a.i0.b1.h.a aVar3 = this.f13851f;
                                 if (aVar3 != null) {
-                                    aVar3.a(this.f13834g);
+                                    aVar3.a(this.f13852g);
                                 }
                             } else {
-                                d.b.i0.b1.h.a aVar4 = this.f13833f;
+                                d.a.i0.b1.h.a aVar4 = this.f13851f;
                                 if (aVar4 != null) {
-                                    aVar4.b(this.f13834g);
+                                    aVar4.b(this.f13852g);
                                 }
                             }
                         }
                     }
-                    View view = this.f13834g;
+                    View view = this.f13852g;
                     if (view != null) {
-                        view.setTranslationX(this.i + this.r);
+                        view.setTranslationX(this.f13854i + this.r);
                     }
                     return true;
                 }
@@ -450,13 +452,13 @@ public class PullLeftRefreshLayout extends FrameLayout {
         this.t = z;
     }
 
-    public void setRefreshViewAndListener(d.b.i0.b1.h.a aVar) {
-        this.f13833f = aVar;
-        this.f13834g = aVar.getView();
+    public void setRefreshViewAndListener(d.a.i0.b1.h.a aVar) {
+        this.f13851f = aVar;
+        this.f13852g = aVar.getView();
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 8388613;
-        this.f13834g.setLayoutParams(layoutParams);
-        addView(this.f13834g, 0);
+        this.f13852g.setLayoutParams(layoutParams);
+        addView(this.f13852g, 0);
     }
 
     public PullLeftRefreshLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
@@ -467,8 +469,8 @@ public class PullLeftRefreshLayout extends FrameLayout {
         g(context);
     }
 
-    public PullLeftRefreshLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    public PullLeftRefreshLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
         this.r = 0.0f;
         this.t = false;
         this.u = new a();

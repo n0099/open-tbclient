@@ -64,20 +64,4 @@ public class InstallActivateReminderConfigItem extends a<InstallActivateReminder
         installActivateReminderConfig.parseJson(optJSONObject);
         a((InstallActivateReminderConfigItem) installActivateReminderConfig);
     }
-
-    public int d() {
-        return b().noticeTotalCount;
-    }
-
-    public int e() {
-        return b().perAppNoticeCount;
-    }
-
-    public int f() {
-        return b().noticeAppearTime;
-    }
-
-    public int g() {
-        return b().noticeContinueTime;
-    }
 }

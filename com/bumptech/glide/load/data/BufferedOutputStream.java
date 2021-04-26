@@ -18,9 +18,9 @@ public final class BufferedOutputStream extends OutputStream {
     }
 
     private void flushBuffer() throws IOException {
-        int i = this.index;
-        if (i > 0) {
-            this.out.write(this.buffer, 0, i);
+        int i2 = this.index;
+        if (i2 > 0) {
+            this.out.write(this.buffer, 0, i2);
             this.index = 0;
         }
     }
@@ -58,19 +58,19 @@ public final class BufferedOutputStream extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public void write(int i) throws IOException {
+    public void write(int i2) throws IOException {
         byte[] bArr = this.buffer;
-        int i2 = this.index;
-        this.index = i2 + 1;
-        bArr[i2] = (byte) i;
+        int i3 = this.index;
+        this.index = i3 + 1;
+        bArr[i3] = (byte) i2;
         maybeFlushBuffer();
     }
 
     @VisibleForTesting
-    public BufferedOutputStream(@NonNull OutputStream outputStream, ArrayPool arrayPool, int i) {
+    public BufferedOutputStream(@NonNull OutputStream outputStream, ArrayPool arrayPool, int i2) {
         this.out = outputStream;
         this.arrayPool = arrayPool;
-        this.buffer = (byte[]) arrayPool.get(i, byte[].class);
+        this.buffer = (byte[]) arrayPool.get(i2, byte[].class);
     }
 
     @Override // java.io.OutputStream
@@ -79,20 +79,20 @@ public final class BufferedOutputStream extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public void write(@NonNull byte[] bArr, int i, int i2) throws IOException {
-        int i3 = 0;
+    public void write(@NonNull byte[] bArr, int i2, int i3) throws IOException {
+        int i4 = 0;
         do {
-            int i4 = i2 - i3;
-            int i5 = i + i3;
-            if (this.index == 0 && i4 >= this.buffer.length) {
-                this.out.write(bArr, i5, i4);
+            int i5 = i3 - i4;
+            int i6 = i2 + i4;
+            if (this.index == 0 && i5 >= this.buffer.length) {
+                this.out.write(bArr, i6, i5);
                 return;
             }
-            int min = Math.min(i4, this.buffer.length - this.index);
-            System.arraycopy(bArr, i5, this.buffer, this.index, min);
+            int min = Math.min(i5, this.buffer.length - this.index);
+            System.arraycopy(bArr, i6, this.buffer, this.index, min);
             this.index += min;
-            i3 += min;
+            i4 += min;
             maybeFlushBuffer();
-        } while (i3 < i2);
+        } while (i4 < i3);
     }
 }

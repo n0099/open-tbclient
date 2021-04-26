@@ -3,7 +3,7 @@ package com.facebook.common.streams;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TailAppendingInputStream extends FilterInputStream {
     public int mMarkedTailOffset;
     public final byte[] mTail;
@@ -22,19 +22,19 @@ public class TailAppendingInputStream extends FilterInputStream {
     }
 
     private int readNextTailByte() {
-        int i = this.mTailOffset;
+        int i2 = this.mTailOffset;
         byte[] bArr = this.mTail;
-        if (i >= bArr.length) {
+        if (i2 >= bArr.length) {
             return -1;
         }
-        this.mTailOffset = i + 1;
-        return bArr[i] & 255;
+        this.mTailOffset = i2 + 1;
+        return bArr[i2] & 255;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public void mark(int i) {
+    public void mark(int i2) {
         if (((FilterInputStream) this).in.markSupported()) {
-            super.mark(i);
+            super.mark(i2);
             this.mMarkedTailOffset = this.mTailOffset;
         }
     }
@@ -61,25 +61,25 @@ public class TailAppendingInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        int read = ((FilterInputStream) this).in.read(bArr, i, i2);
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
+        int read = ((FilterInputStream) this).in.read(bArr, i2, i3);
         if (read != -1) {
             return read;
         }
-        int i3 = 0;
-        if (i2 == 0) {
+        int i4 = 0;
+        if (i3 == 0) {
             return 0;
         }
-        while (i3 < i2) {
+        while (i4 < i3) {
             int readNextTailByte = readNextTailByte();
             if (readNextTailByte == -1) {
                 break;
             }
-            bArr[i + i3] = (byte) readNextTailByte;
-            i3++;
+            bArr[i2 + i4] = (byte) readNextTailByte;
+            i4++;
         }
-        if (i3 > 0) {
-            return i3;
+        if (i4 > 0) {
+            return i4;
         }
         return -1;
     }

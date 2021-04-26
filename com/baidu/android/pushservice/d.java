@@ -14,25 +14,25 @@ import java.io.ObjectOutputStream;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2974a = "NotificationBuilderManager";
+    public static String f2987a = "NotificationBuilderManager";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f2975b = "notification_builder_storage";
+    public static String f2988b = "notification_builder_storage";
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object f2976c = new Object();
+    public static Object f2989c = new Object();
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f2977d;
+    public static int f2990d;
 
-    public static Notification a(Context context, int i, int i2, String str, String str2, boolean z) {
+    public static Notification a(Context context, int i2, int i3, String str, String str2, boolean z) {
         Notification construct;
-        synchronized (f2976c) {
-            PushNotificationBuilder a2 = a(context, i);
+        synchronized (f2989c) {
+            PushNotificationBuilder a2 = a(context, i2);
             a2.setNotificationTitle(str);
             a2.setNotificationText(str2);
             construct = a2.construct(context);
-            if ((i2 & 1) != 0) {
+            if ((i3 & 1) != 0) {
                 construct.flags &= -33;
             } else {
                 construct.flags |= 32;
@@ -41,12 +41,12 @@ public class d {
                 construct.defaults = 0;
             } else {
                 construct.defaults = -1;
-                if ((i2 & 4) != 0) {
+                if ((i3 & 4) != 0) {
                     construct.defaults = (-1) | 1;
                 } else {
                     construct.defaults = (-1) & (-2);
                 }
-                if ((i2 & 2) != 0) {
+                if ((i3 & 2) != 0) {
                     construct.defaults |= 2;
                 } else {
                     construct.defaults &= -3;
@@ -56,10 +56,10 @@ public class d {
         return construct;
     }
 
-    public static Notification a(Context context, int i, String str, String str2, boolean z) {
+    public static Notification a(Context context, int i2, String str, String str2, boolean z) {
         Notification construct;
-        synchronized (f2976c) {
-            PushNotificationBuilder a2 = a(context, i);
+        synchronized (f2989c) {
+            PushNotificationBuilder a2 = a(context, i2);
             a2.setNotificationTitle(str);
             a2.setNotificationText(str2);
             construct = a2.construct(context);
@@ -80,9 +80,9 @@ public class d {
         return basicPushNotificationBuilder;
     }
 
-    public static PushNotificationBuilder a(Context context, int i) {
+    public static PushNotificationBuilder a(Context context, int i2) {
         PushNotificationBuilder pushNotificationBuilder = null;
-        String string = context.getSharedPreferences(f2975b, 0).getString("" + i, null);
+        String string = context.getSharedPreferences(f2988b, 0).getString("" + i2, null);
         if (string == null) {
             return b(context);
         }
@@ -105,15 +105,15 @@ public class d {
         }
     }
 
-    public static void a(Context context, int i, PushNotificationBuilder pushNotificationBuilder) {
-        synchronized (f2976c) {
+    public static void a(Context context, int i2, PushNotificationBuilder pushNotificationBuilder) {
+        synchronized (f2989c) {
             try {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 objectOutputStream.writeObject(pushNotificationBuilder);
                 String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
-                SharedPreferences.Editor edit = context.getSharedPreferences(f2975b, 0).edit();
-                edit.putString("" + i, encodeToString);
+                SharedPreferences.Editor edit = context.getSharedPreferences(f2988b, 0).edit();
+                edit.putString("" + i2, encodeToString);
                 edit.commit();
                 byteArrayOutputStream.close();
                 objectOutputStream.close();
@@ -124,14 +124,14 @@ public class d {
     }
 
     public static void a(Context context, PushNotificationBuilder pushNotificationBuilder) {
-        synchronized (f2976c) {
+        synchronized (f2989c) {
             try {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 objectOutputStream.writeObject(pushNotificationBuilder);
                 String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
-                SharedPreferences.Editor edit = context.getSharedPreferences(f2975b, 0).edit();
-                edit.putString("" + f2977d, encodeToString);
+                SharedPreferences.Editor edit = context.getSharedPreferences(f2988b, 0).edit();
+                edit.putString("" + f2990d, encodeToString);
                 edit.commit();
                 byteArrayOutputStream.close();
                 objectOutputStream.close();
@@ -144,9 +144,9 @@ public class d {
     public static PushNotificationBuilder b(Context context) {
         ObjectInputStream objectInputStream;
         PushNotificationBuilder pushNotificationBuilder;
-        SharedPreferences sharedPreferences = context.getSharedPreferences(f2975b, 0);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(f2988b, 0);
         PushNotificationBuilder pushNotificationBuilder2 = null;
-        String string = sharedPreferences.getString("" + f2977d, null);
+        String string = sharedPreferences.getString("" + f2990d, null);
         if (string != null) {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(Base64.decode(string.getBytes(), 2));
             try {

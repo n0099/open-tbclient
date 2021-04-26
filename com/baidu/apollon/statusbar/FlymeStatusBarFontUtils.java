@@ -39,13 +39,13 @@ public class FlymeStatusBarFontUtils {
         try {
             Field declaredField = layoutParams.getClass().getDeclaredField(str);
             declaredField.setAccessible(true);
-            int i = declaredField.getInt(layoutParams);
+            int i2 = declaredField.getInt(layoutParams);
             Field declaredField2 = layoutParams.getClass().getDeclaredField("meizuFlags");
             declaredField2.setAccessible(true);
-            int i2 = declaredField2.getInt(layoutParams);
-            int i3 = z ? i | i2 : (~i) & i2;
-            if (i2 != i3) {
-                declaredField2.setInt(layoutParams, i3);
+            int i3 = declaredField2.getInt(layoutParams);
+            int i4 = z ? i2 | i3 : (~i2) & i3;
+            if (i3 != i4) {
+                declaredField2.setInt(layoutParams, i4);
                 return true;
             }
             return false;
@@ -64,17 +64,17 @@ public class FlymeStatusBarFontUtils {
         }
     }
 
-    public static boolean isBlackColor(int i, int i2) {
-        return toGrey(i) < i2;
+    public static boolean isBlackColor(int i2, int i3) {
+        return toGrey(i2) < i3;
     }
 
-    public static void setStatusBarColor(Window window, int i) {
+    public static void setStatusBarColor(Window window, int i2) {
         WindowManager.LayoutParams attributes = window.getAttributes();
         Field field = mStatusBarColorFiled;
         if (field != null) {
             try {
-                if (field.getInt(attributes) != i) {
-                    mStatusBarColorFiled.set(attributes, Integer.valueOf(i));
+                if (field.getInt(attributes) != i2) {
+                    mStatusBarColorFiled.set(attributes, Integer.valueOf(i2));
                     window.setAttributes(attributes);
                 }
             } catch (IllegalAccessException e2) {
@@ -83,11 +83,11 @@ public class FlymeStatusBarFontUtils {
         }
     }
 
-    public static void setStatusBarDarkIcon(Activity activity, int i) {
+    public static void setStatusBarDarkIcon(Activity activity, int i2) {
         Method method = mSetStatusBarColorIcon;
         if (method != null) {
             try {
-                method.invoke(activity, Integer.valueOf(i));
+                method.invoke(activity, Integer.valueOf(i2));
                 return;
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
@@ -97,22 +97,22 @@ public class FlymeStatusBarFontUtils {
                 return;
             }
         }
-        boolean isBlackColor = isBlackColor(i, 50);
+        boolean isBlackColor = isBlackColor(i2, 50);
         if (mStatusBarColorFiled != null) {
             setStatusBarDarkIcon(activity, isBlackColor, isBlackColor);
-            setStatusBarDarkIcon(activity.getWindow(), i);
+            setStatusBarDarkIcon(activity.getWindow(), i2);
             return;
         }
         setStatusBarDarkIcon(activity, isBlackColor);
     }
 
-    public static int toGrey(int i) {
-        return (((((i & ItemTouchHelper.ACTION_MODE_DRAG_MASK) >> 16) * 38) + (((65280 & i) >> 8) * 75)) + ((i & 255) * 15)) >> 7;
+    public static int toGrey(int i2) {
+        return (((((i2 & ItemTouchHelper.ACTION_MODE_DRAG_MASK) >> 16) * 38) + (((65280 & i2) >> 8) * 75)) + ((i2 & 255) * 15)) >> 7;
     }
 
-    public static void setStatusBarDarkIcon(Window window, int i) {
+    public static void setStatusBarDarkIcon(Window window, int i2) {
         try {
-            setStatusBarColor(window, i);
+            setStatusBarColor(window, i2);
             if (Build.VERSION.SDK_INT > 22) {
                 setStatusBarDarkIcon(window.getDecorView(), true);
             }
@@ -126,15 +126,15 @@ public class FlymeStatusBarFontUtils {
     }
 
     public static void setStatusBarDarkIcon(View view, boolean z) {
-        int i;
+        int i2;
         int systemUiVisibility = view.getSystemUiVisibility();
         if (z) {
-            i = SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | systemUiVisibility;
+            i2 = SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | systemUiVisibility;
         } else {
-            i = (~SYSTEM_UI_FLAG_LIGHT_STATUS_BAR) & systemUiVisibility;
+            i2 = (~SYSTEM_UI_FLAG_LIGHT_STATUS_BAR) & systemUiVisibility;
         }
-        if (i != systemUiVisibility) {
-            view.setSystemUiVisibility(i);
+        if (i2 != systemUiVisibility) {
+            view.setSystemUiVisibility(i2);
         }
     }
 

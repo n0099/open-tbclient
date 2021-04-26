@@ -4,8 +4,8 @@ import h.e;
 import h.f;
 import h.j;
 import h.m.a;
-import h.o.d.k.f0;
-import h.o.d.k.y;
+import h.o.d.j.f0;
+import h.o.d.j.y;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -21,7 +21,7 @@ public final class QueuedProducer<T> extends AtomicLong implements f, e<T> {
     public final AtomicInteger wip;
 
     public QueuedProducer(j<? super T> jVar) {
-        this(jVar, f0.b() ? new y() : new h.o.d.j.e());
+        this(jVar, f0.b() ? new y() : new h.o.d.i.e());
     }
 
     private boolean checkTerminated(boolean z, boolean z2) {
@@ -122,11 +122,11 @@ public final class QueuedProducer<T> extends AtomicLong implements f, e<T> {
 
     @Override // h.f
     public void request(long j) {
-        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-        if (i < 0) {
+        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i2 < 0) {
             throw new IllegalArgumentException("n >= 0 required");
         }
-        if (i > 0) {
+        if (i2 > 0) {
             h.o.a.a.b(this, j);
             drain();
         }

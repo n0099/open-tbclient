@@ -14,8 +14,8 @@ public class BrotliInputStream extends InputStream implements INoProGuard {
         this(inputStream, 16384);
     }
 
-    public BrotliInputStream(InputStream inputStream, int i) throws IOException {
-        this.decoder = new Decoder(Channels.newChannel(inputStream), i);
+    public BrotliInputStream(InputStream inputStream, int i2) throws IOException {
+        this.decoder = new Decoder(Channels.newChannel(inputStream), i2);
     }
 
     @Override // java.io.InputStream
@@ -57,7 +57,7 @@ public class BrotliInputStream extends InputStream implements INoProGuard {
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
+    public int read(byte[] bArr, int i2, int i3) throws IOException {
         Decoder decoder = this.decoder;
         if (decoder.closed) {
             throw new IOException("read after close");
@@ -65,20 +65,20 @@ public class BrotliInputStream extends InputStream implements INoProGuard {
         if (decoder.decode() == -1) {
             return -1;
         }
-        int i3 = 0;
-        while (i2 > 0) {
-            int min = Math.min(i2, this.decoder.buffer.remaining());
-            this.decoder.buffer.get(bArr, i, min);
-            i += min;
-            i2 -= min;
-            i3 += min;
+        int i4 = 0;
+        while (i3 > 0) {
+            int min = Math.min(i3, this.decoder.buffer.remaining());
+            this.decoder.buffer.get(bArr, i2, min);
+            i2 += min;
+            i3 -= min;
+            i4 += min;
             if (!this.decoder.buffer.hasRemaining()) {
                 break;
             } else if (this.decoder.decode() == -1) {
                 break;
             }
         }
-        return i3;
+        return i4;
     }
 
     @Override // java.io.InputStream

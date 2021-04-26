@@ -16,7 +16,7 @@ public class LocationReportService extends BdBaseService {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
-        super.onStart(intent, i);
+    public void onStart(Intent intent, int i2) {
+        super.onStart(intent, i2);
     }
 }

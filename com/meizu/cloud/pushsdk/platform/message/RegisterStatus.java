@@ -33,8 +33,8 @@ public class RegisterStatus extends BasicPushStatus {
         setExpireTime(jSONObject.getInt("expireTime"));
     }
 
-    public void setExpireTime(int i) {
-        this.expireTime = i;
+    public void setExpireTime(int i2) {
+        this.expireTime = i2;
     }
 
     public void setPushId(String str) {
